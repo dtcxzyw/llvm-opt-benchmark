@@ -1,5 +1,5 @@
-; ModuleID = 'bench/cmake/original/block_header_decoder.c.ll'
-source_filename = "bench/cmake/original/block_header_decoder.c.ll"
+; ModuleID = 'bench/cmake/original/block_header_decoder.ll'
+source_filename = "bench/cmake/original/block_header_decoder.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
@@ -8,201 +8,212 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @lzma_block_header_decode(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca i64, align 8
-  %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  br label %6
+  %5 = icmp eq ptr %0, null
+  br i1 %5, label %71, label %6
 
-6:                                                ; preds = %3, %6
-  %.05165 = phi i64 [ 0, %3 ], [ %11, %6 ]
-  %7 = load ptr, ptr %5, align 8
-  %8 = getelementptr inbounds nuw %struct.lzma_filter, ptr %7, i64 %.05165
-  store i64 -1, ptr %8, align 8
-  %9 = load ptr, ptr %5, align 8
-  %10 = getelementptr inbounds nuw %struct.lzma_filter, ptr %9, i64 %.05165, i32 1
-  store ptr null, ptr %10, align 8
-  %11 = add nuw nsw i64 %.05165, 1
-  %exitcond.not = icmp eq i64 %11, 5
-  br i1 %exitcond.not, label %12, label %6, !llvm.loop !5
+6:                                                ; preds = %3
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %8 = load ptr, ptr %7, align 8, !tbaa !4
+  %9 = icmp eq ptr %8, null
+  %10 = icmp eq ptr %2, null
+  %or.cond = or i1 %10, %9
+  br i1 %or.cond, label %71, label %.preheader86
 
-12:                                               ; preds = %6
-  %13 = load i32, ptr %0, align 8
-  %14 = icmp ugt i32 %13, 1
-  br i1 %14, label %15, label %16
+11:                                               ; preds = %.preheader86
+  %12 = load i32, ptr %0, align 8, !tbaa !11
+  %13 = icmp ugt i32 %12, 1
+  br i1 %13, label %17, label %18
 
-15:                                               ; preds = %12
-  store i32 1, ptr %0, align 8
-  br label %16
+.preheader86:                                     ; preds = %6, %.preheader86
+  %.06287 = phi i64 [ %16, %.preheader86 ], [ 0, %6 ]
+  %14 = getelementptr inbounds nuw %struct.lzma_filter, ptr %8, i64 %.06287
+  store i64 -1, ptr %14, align 8, !tbaa !12
+  %15 = getelementptr inbounds nuw %struct.lzma_filter, ptr %8, i64 %.06287, i32 1
+  store ptr null, ptr %15, align 8, !tbaa !14
+  %16 = add nuw nsw i64 %.06287, 1
+  %exitcond.not = icmp eq i64 %16, 5
+  br i1 %exitcond.not, label %11, label %.preheader86, !llvm.loop !15
 
-16:                                               ; preds = %15, %12
-  %17 = getelementptr inbounds nuw i8, ptr %0, i64 200
-  store i8 0, ptr %17, align 8
-  %18 = load i8, ptr %2, align 1
-  %19 = zext i8 %18 to i32
-  %20 = shl nuw nsw i32 %19, 2
-  %21 = add nuw nsw i32 %20, 4
-  %22 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %23 = load i32, ptr %22, align 4
-  %.not = icmp eq i32 %21, %23
-  br i1 %.not, label %24, label %.loopexit
+17:                                               ; preds = %11
+  store i32 1, ptr %0, align 8, !tbaa !11
+  br label %18
 
-24:                                               ; preds = %16
-  %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %26 = load i32, ptr %25, align 8
-  %27 = icmp ugt i32 %26, 15
-  br i1 %27, label %.loopexit, label %28
+18:                                               ; preds = %17, %11
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 200
+  store i8 0, ptr %19, align 8, !tbaa !17
+  %20 = load i8, ptr %2, align 1, !tbaa !18
+  %21 = zext i8 %20 to i32
+  %22 = shl nuw nsw i32 %21, 2
+  %23 = add nuw nsw i32 %22, 4
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %25 = load i32, ptr %24, align 4, !tbaa !19
+  %.not = icmp eq i32 %23, %25
+  br i1 %.not, label %26, label %71
 
-28:                                               ; preds = %24
-  %29 = zext nneg i32 %20 to i64
-  %30 = tail call i32 @lzma_crc32(ptr noundef nonnull %2, i64 noundef %29, i32 noundef 0) #4
-  %31 = getelementptr inbounds nuw i8, ptr %2, i64 %29
-  %.val = load i32, ptr %31, align 1
-  %.not57 = icmp eq i32 %30, %.val
-  br i1 %.not57, label %32, label %.loopexit
+26:                                               ; preds = %18
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %28 = load i32, ptr %27, align 8, !tbaa !20
+  %29 = icmp ugt i32 %28, 15
+  br i1 %29, label %71, label %30
 
-32:                                               ; preds = %28
-  %33 = getelementptr inbounds nuw i8, ptr %2, i64 1
-  %34 = load i8, ptr %33, align 1
-  %35 = and i8 %34, 60
-  %.not58 = icmp eq i8 %35, 0
-  br i1 %.not58, label %36, label %.loopexit
+30:                                               ; preds = %26
+  %31 = zext nneg i32 %22 to i64
+  %32 = tail call i32 @lzma_crc32(ptr noundef nonnull %2, i64 noundef %31, i32 noundef 0) #4
+  %33 = getelementptr inbounds nuw i8, ptr %2, i64 %31
+  %.val = load i32, ptr %33, align 1
+  %.not73 = icmp eq i32 %32, %.val
+  br i1 %.not73, label %34, label %71
 
-36:                                               ; preds = %32
-  store i64 2, ptr %4, align 8
-  %37 = and i8 %34, 64
-  %.not59 = icmp eq i8 %37, 0
-  %38 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  br i1 %.not59, label %44, label %39
+34:                                               ; preds = %30
+  %35 = getelementptr inbounds nuw i8, ptr %2, i64 1
+  %36 = load i8, ptr %35, align 1, !tbaa !18
+  %37 = and i8 %36, 60
+  %.not74 = icmp eq i8 %37, 0
+  br i1 %.not74, label %38, label %71
 
-39:                                               ; preds = %36
-  %40 = call i32 @lzma_vli_decode(ptr noundef nonnull %38, ptr noundef null, ptr noundef nonnull %2, ptr noundef nonnull %4, i64 noundef %29) #5
-  %.not60 = icmp eq i32 %40, 0
-  br i1 %.not60, label %41, label %.loopexit
+38:                                               ; preds = %34
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #5
+  store i64 2, ptr %4, align 8, !tbaa !21
+  %39 = and i8 %36, 64
+  %.not75 = icmp eq i8 %39, 0
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  br i1 %.not75, label %46, label %41
 
-41:                                               ; preds = %39
-  %42 = call i64 @lzma_block_unpadded_size(ptr noundef nonnull %0) #4
-  %43 = icmp eq i64 %42, 0
-  br i1 %43, label %.loopexit, label %45
+41:                                               ; preds = %38
+  %42 = call i32 @lzma_vli_decode(ptr noundef nonnull %40, ptr noundef null, ptr noundef nonnull %2, ptr noundef nonnull %4, i64 noundef %31) #5
+  %.not76 = icmp eq i32 %42, 0
+  br i1 %.not76, label %43, label %.loopexit
 
-44:                                               ; preds = %36
-  store i64 -1, ptr %38, align 8
-  br label %45
+43:                                               ; preds = %41
+  %44 = call i64 @lzma_block_unpadded_size(ptr noundef nonnull %0) #4
+  %45 = icmp eq i64 %44, 0
+  br i1 %45, label %.loopexit, label %47
 
-45:                                               ; preds = %41, %44
-  %46 = load i8, ptr %33, align 1
-  %.not61 = icmp sgt i8 %46, -1
-  %47 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  br i1 %.not61, label %50, label %48
+46:                                               ; preds = %38
+  store i64 -1, ptr %40, align 8, !tbaa !22
+  br label %47
 
-48:                                               ; preds = %45
-  %49 = call i32 @lzma_vli_decode(ptr noundef nonnull %47, ptr noundef null, ptr noundef nonnull %2, ptr noundef nonnull %4, i64 noundef %29) #5
-  %.not62 = icmp eq i32 %49, 0
-  br i1 %.not62, label %51, label %.loopexit
+47:                                               ; preds = %43, %46
+  %48 = load i8, ptr %35, align 1, !tbaa !18
+  %.not77 = icmp sgt i8 %48, -1
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  br i1 %.not77, label %52, label %50
 
-50:                                               ; preds = %45
-  store i64 -1, ptr %47, align 8
-  br label %51
+50:                                               ; preds = %47
+  %51 = call i32 @lzma_vli_decode(ptr noundef nonnull %49, ptr noundef null, ptr noundef nonnull %2, ptr noundef nonnull %4, i64 noundef %31) #5
+  %.not78 = icmp eq i32 %51, 0
+  br i1 %.not78, label %53, label %.loopexit
 
-51:                                               ; preds = %48, %50
-  %52 = load i8, ptr %33, align 1
-  %53 = and i8 %52, 3
-  %narrow = add nuw nsw i8 %53, 1
-  %54 = zext nneg i8 %narrow to i64
-  br label %57
+52:                                               ; preds = %47
+  store i64 -1, ptr %49, align 8, !tbaa !23
+  br label %53
 
-55:                                               ; preds = %57
-  %56 = add nuw nsw i64 %.05066, 1
-  %exitcond68.not = icmp eq i64 %56, %54
-  br i1 %exitcond68.not, label %.preheader, label %57, !llvm.loop !7
+53:                                               ; preds = %50, %52
+  %54 = load i8, ptr %35, align 1, !tbaa !18
+  %55 = and i8 %54, 3
+  %narrow = add nuw nsw i8 %55, 1
+  %56 = zext nneg i8 %narrow to i64
+  br label %59
 
-.preheader:                                       ; preds = %55
-  %.promoted = load i64, ptr %4, align 8
-  br label %61
+57:                                               ; preds = %59
+  %58 = add nuw nsw i64 %.06188, 1
+  %exitcond90.not = icmp eq i64 %58, %56
+  br i1 %exitcond90.not, label %.preheader, label %59, !llvm.loop !24
 
-57:                                               ; preds = %51, %55
-  %.05066 = phi i64 [ 0, %51 ], [ %56, %55 ]
-  %58 = load ptr, ptr %5, align 8
-  %59 = getelementptr inbounds nuw %struct.lzma_filter, ptr %58, i64 %.05066
-  %60 = call i32 @lzma_filter_flags_decode(ptr noundef %59, ptr noundef %1, ptr noundef nonnull %2, ptr noundef nonnull %4, i64 noundef %29) #5
-  %.not64 = icmp eq i32 %60, 0
-  br i1 %.not64, label %55, label %.loopexit.sink.split
+.preheader:                                       ; preds = %57
+  %.promoted = load i64, ptr %4, align 8, !tbaa !21
+  br label %63
 
-61:                                               ; preds = %.preheader, %64
-  %62 = phi i64 [ %.promoted, %.preheader ], [ %65, %64 ]
-  %63 = icmp ult i64 %62, %29
-  br i1 %63, label %64, label %.loopexit
+59:                                               ; preds = %53, %57
+  %.06188 = phi i64 [ 0, %53 ], [ %58, %57 ]
+  %60 = load ptr, ptr %7, align 8, !tbaa !4
+  %61 = getelementptr inbounds nuw %struct.lzma_filter, ptr %60, i64 %.06188
+  %62 = call i32 @lzma_filter_flags_decode(ptr noundef %61, ptr noundef %1, ptr noundef nonnull %2, ptr noundef nonnull %4, i64 noundef %31) #5
+  %.not79 = icmp eq i32 %62, 0
+  br i1 %.not79, label %57, label %.loopexit.sink.split
 
-64:                                               ; preds = %61
-  %65 = add nuw nsw i64 %62, 1
-  store i64 %65, ptr %4, align 8
-  %66 = getelementptr inbounds nuw i8, ptr %2, i64 %62
-  %67 = load i8, ptr %66, align 1
-  %.not63 = icmp eq i8 %67, 0
-  br i1 %.not63, label %61, label %.loopexit.sink.split, !llvm.loop !8
+63:                                               ; preds = %.preheader, %66
+  %64 = phi i64 [ %.promoted, %.preheader ], [ %67, %66 ]
+  %65 = icmp ult i64 %64, %31
+  br i1 %65, label %66, label %.loopexit
 
-.loopexit.sink.split:                             ; preds = %57, %64
-  %.0.ph = phi i32 [ 8, %64 ], [ %60, %57 ]
-  call fastcc void @free_properties(ptr noundef nonnull %0, ptr noundef %1)
+66:                                               ; preds = %63
+  %67 = add nuw nsw i64 %64, 1
+  store i64 %67, ptr %4, align 8, !tbaa !21
+  %68 = getelementptr inbounds nuw i8, ptr %2, i64 %64
+  %69 = load i8, ptr %68, align 1, !tbaa !18
+  %.not81 = icmp eq i8 %69, 0
+  br i1 %.not81, label %63, label %.loopexit.sink.split, !llvm.loop !25
+
+.loopexit.sink.split:                             ; preds = %59, %66
+  %.3.ph = phi i32 [ 8, %66 ], [ %62, %59 ]
+  %70 = load ptr, ptr %7, align 8, !tbaa !4
+  call void @lzma_filters_free(ptr noundef %70, ptr noundef %1) #5
   br label %.loopexit
 
-.loopexit:                                        ; preds = %61, %.loopexit.sink.split, %48, %41, %39, %32, %28, %16, %24
-  %.0 = phi i32 [ 11, %24 ], [ 11, %16 ], [ 9, %28 ], [ 8, %32 ], [ %40, %39 ], [ 9, %41 ], [ %49, %48 ], [ %.0.ph, %.loopexit.sink.split ], [ 0, %61 ]
+.loopexit:                                        ; preds = %63, %.loopexit.sink.split, %43, %41, %50
+  %.3 = phi i32 [ %51, %50 ], [ %42, %41 ], [ 9, %43 ], [ %.3.ph, %.loopexit.sink.split ], [ 0, %63 ]
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #5
+  br label %71
+
+71:                                               ; preds = %.loopexit, %30, %34, %18, %26, %3, %6
+  %.0 = phi i32 [ 11, %6 ], [ 11, %3 ], [ 11, %26 ], [ 11, %18 ], [ %.3, %.loopexit ], [ 9, %30 ], [ 8, %34 ]
   ret i32 %.0
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @lzma_crc32(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #1
+declare i32 @lzma_crc32(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind
-declare i32 @lzma_vli_decode(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare i32 @lzma_vli_decode(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i64 @lzma_block_unpadded_size(ptr noundef) local_unnamed_addr #1
+declare i64 @lzma_block_unpadded_size(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind
-declare i32 @lzma_filter_flags_decode(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare i32 @lzma_filter_flags_decode(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
 
-; Function Attrs: nounwind uwtable
-define internal fastcc void @free_properties(ptr noundef readonly captures(none) %0, ptr noundef %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  br label %4
+; Function Attrs: nounwind
+declare void @lzma_filters_free(ptr noundef, ptr noundef) local_unnamed_addr #3
 
-4:                                                ; preds = %2, %4
-  %.08 = phi i64 [ 0, %2 ], [ %12, %4 ]
-  %5 = load ptr, ptr %3, align 8
-  %6 = getelementptr inbounds nuw %struct.lzma_filter, ptr %5, i64 %.08, i32 1
-  %7 = load ptr, ptr %6, align 8
-  tail call void @lzma_free(ptr noundef %7, ptr noundef %1) #5
-  %8 = load ptr, ptr %3, align 8
-  %9 = getelementptr inbounds nuw %struct.lzma_filter, ptr %8, i64 %.08
-  store i64 -1, ptr %9, align 8
-  %10 = load ptr, ptr %3, align 8
-  %11 = getelementptr inbounds nuw %struct.lzma_filter, ptr %10, i64 %.08, i32 1
-  store ptr null, ptr %11, align 8
-  %12 = add nuw nsw i64 %.08, 1
-  %exitcond.not = icmp eq i64 %12, 4
-  br i1 %exitcond.not, label %13, label %4, !llvm.loop !9
-
-13:                                               ; preds = %4
-  ret void
-}
-
-declare void @lzma_free(ptr noundef, ptr noundef) local_unnamed_addr #3
-
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nofree nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { mustprogress nofree nounwind willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { nounwind willreturn memory(read) }
 attributes #5 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+!llvm.module.flags = !{!0, !1, !2, !3}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
-!9 = distinct !{!9, !6}
+!4 = !{!5, !10, i64 32}
+!5 = !{!"", !6, i64 0, !6, i64 4, !6, i64 8, !9, i64 16, !9, i64 24, !10, i64 32, !7, i64 40, !10, i64 104, !10, i64 112, !10, i64 120, !6, i64 128, !6, i64 132, !9, i64 136, !9, i64 144, !9, i64 152, !9, i64 160, !9, i64 168, !9, i64 176, !6, i64 184, !6, i64 188, !6, i64 192, !6, i64 196, !7, i64 200, !7, i64 201, !7, i64 202, !7, i64 203, !7, i64 204, !7, i64 205, !7, i64 206, !7, i64 207}
+!6 = !{!"int", !7, i64 0}
+!7 = !{!"omnipotent char", !8, i64 0}
+!8 = !{!"Simple C/C++ TBAA"}
+!9 = !{!"long", !7, i64 0}
+!10 = !{!"any pointer", !7, i64 0}
+!11 = !{!5, !6, i64 0}
+!12 = !{!13, !9, i64 0}
+!13 = !{!"", !9, i64 0, !10, i64 8}
+!14 = !{!13, !10, i64 8}
+!15 = distinct !{!15, !16}
+!16 = !{!"llvm.loop.mustprogress"}
+!17 = !{!5, !7, i64 200}
+!18 = !{!7, !7, i64 0}
+!19 = !{!5, !6, i64 4}
+!20 = !{!5, !6, i64 8}
+!21 = !{!9, !9, i64 0}
+!22 = !{!5, !9, i64 16}
+!23 = !{!5, !9, i64 24}
+!24 = distinct !{!24, !16}
+!25 = distinct !{!25, !16}

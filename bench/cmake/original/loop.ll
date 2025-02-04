@@ -27,562 +27,541 @@ define dso_local i32 @uv_loop_init(ptr noundef %0) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
-  store ptr %0, ptr %3, align 8
-  %7 = load ptr, ptr %3, align 8
-  %8 = getelementptr inbounds %struct.uv_loop_s, ptr %7, i32 0, i32 0
-  %9 = load ptr, ptr %8, align 8
-  store ptr %9, ptr %5, align 8
-  %10 = load ptr, ptr %3, align 8
-  call void @llvm.memset.p0.i64(ptr align 8 %10, i8 0, i64 848, i1 false)
-  %11 = load ptr, ptr %5, align 8
-  %12 = load ptr, ptr %3, align 8
-  %13 = getelementptr inbounds %struct.uv_loop_s, ptr %12, i32 0, i32 0
-  store ptr %11, ptr %13, align 8
-  %14 = call ptr @uv__calloc(i64 noundef 1, i64 noundef 64)
-  store ptr %14, ptr %4, align 8
-  %15 = load ptr, ptr %4, align 8
-  %16 = icmp eq ptr %15, null
-  br i1 %16, label %17, label %18
-
-17:                                               ; preds = %1
-  store i32 -12, ptr %2, align 4
-  br label %322
+  %7 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #4
+  %8 = load ptr, ptr %3, align 8, !tbaa !4
+  %9 = getelementptr inbounds nuw %struct.uv_loop_s, ptr %8, i32 0, i32 0
+  %10 = load ptr, ptr %9, align 8, !tbaa !9
+  store ptr %10, ptr %5, align 8, !tbaa !21
+  %11 = load ptr, ptr %3, align 8, !tbaa !4
+  call void @llvm.memset.p0.i64(ptr align 8 %11, i8 0, i64 848, i1 false)
+  %12 = load ptr, ptr %5, align 8, !tbaa !21
+  %13 = load ptr, ptr %3, align 8, !tbaa !4
+  %14 = getelementptr inbounds nuw %struct.uv_loop_s, ptr %13, i32 0, i32 0
+  store ptr %12, ptr %14, align 8, !tbaa !9
+  %15 = call ptr @uv__calloc(i64 noundef 1, i64 noundef 64)
+  store ptr %15, ptr %4, align 8, !tbaa !22
+  %16 = load ptr, ptr %4, align 8, !tbaa !22
+  %17 = icmp eq ptr %16, null
+  br i1 %17, label %18, label %19
 
 18:                                               ; preds = %1
-  %19 = load ptr, ptr %4, align 8
-  %20 = load ptr, ptr %3, align 8
-  %21 = getelementptr inbounds %struct.uv_loop_s, ptr %20, i32 0, i32 4
-  store ptr %19, ptr %21, align 8
-  %22 = load ptr, ptr %4, align 8
-  %23 = getelementptr inbounds %struct.uv__loop_internal_fields_s, ptr %22, i32 0, i32 1
-  %24 = getelementptr inbounds %struct.uv__loop_metrics_s, ptr %23, i32 0, i32 2
-  %25 = call i32 @uv_mutex_init(ptr noundef %24)
-  store i32 %25, ptr %6, align 4
-  %26 = load i32, ptr %6, align 4
-  %27 = icmp ne i32 %26, 0
-  br i1 %27, label %28, label %29
+  store i32 -12, ptr %2, align 4
+  store i32 1, ptr %7, align 4
+  br label %287
 
-28:                                               ; preds = %18
-  br label %312
+19:                                               ; preds = %1
+  %20 = load ptr, ptr %4, align 8, !tbaa !22
+  %21 = load ptr, ptr %3, align 8, !tbaa !4
+  %22 = getelementptr inbounds nuw %struct.uv_loop_s, ptr %21, i32 0, i32 4
+  store ptr %20, ptr %22, align 8, !tbaa !24
+  %23 = load ptr, ptr %4, align 8, !tbaa !22
+  %24 = getelementptr inbounds nuw %struct.uv__loop_internal_fields_s, ptr %23, i32 0, i32 1
+  %25 = getelementptr inbounds nuw %struct.uv__loop_metrics_s, ptr %24, i32 0, i32 2
+  %26 = call i32 @uv_mutex_init(ptr noundef %25)
+  store i32 %26, ptr %6, align 4, !tbaa !25
+  %27 = load i32, ptr %6, align 4, !tbaa !25
+  %28 = icmp ne i32 %27, 0
+  br i1 %28, label %29, label %30
 
-29:                                               ; preds = %18
-  %30 = load ptr, ptr %3, align 8
-  %31 = getelementptr inbounds %struct.uv_loop_s, ptr %30, i32 0, i32 26
-  call void @heap_init(ptr noundef %31)
-  br label %32
+29:                                               ; preds = %19
+  br label %277
 
-32:                                               ; preds = %29
-  %33 = load ptr, ptr %3, align 8
-  %34 = getelementptr inbounds %struct.uv_loop_s, ptr %33, i32 0, i32 13
-  %35 = load ptr, ptr %3, align 8
-  %36 = getelementptr inbounds %struct.uv_loop_s, ptr %35, i32 0, i32 13
-  %37 = getelementptr inbounds [2 x ptr], ptr %36, i64 0, i64 0
-  store ptr %34, ptr %37, align 8
-  %38 = load ptr, ptr %3, align 8
-  %39 = getelementptr inbounds %struct.uv_loop_s, ptr %38, i32 0, i32 13
-  %40 = load ptr, ptr %3, align 8
-  %41 = getelementptr inbounds %struct.uv_loop_s, ptr %40, i32 0, i32 13
-  %42 = getelementptr inbounds [2 x ptr], ptr %41, i64 0, i64 1
-  store ptr %39, ptr %42, align 8
-  br label %43
+30:                                               ; preds = %19
+  %31 = load ptr, ptr %3, align 8, !tbaa !4
+  %32 = getelementptr inbounds nuw %struct.uv_loop_s, ptr %31, i32 0, i32 26
+  call void @heap_init(ptr noundef %32)
+  br label %33
 
-43:                                               ; preds = %32
+33:                                               ; preds = %30
+  %34 = load ptr, ptr %3, align 8, !tbaa !4
+  %35 = getelementptr inbounds nuw %struct.uv_loop_s, ptr %34, i32 0, i32 13
+  %36 = load ptr, ptr %3, align 8, !tbaa !4
+  %37 = getelementptr inbounds nuw %struct.uv_loop_s, ptr %36, i32 0, i32 13
+  %38 = getelementptr inbounds [2 x ptr], ptr %37, i64 0, i64 0
+  store ptr %35, ptr %38, align 8, !tbaa !21
+  %39 = load ptr, ptr %3, align 8, !tbaa !4
+  %40 = getelementptr inbounds nuw %struct.uv_loop_s, ptr %39, i32 0, i32 13
+  %41 = load ptr, ptr %3, align 8, !tbaa !4
+  %42 = getelementptr inbounds nuw %struct.uv_loop_s, ptr %41, i32 0, i32 13
+  %43 = getelementptr inbounds [2 x ptr], ptr %42, i64 0, i64 1
+  store ptr %40, ptr %43, align 8, !tbaa !21
   br label %44
 
-44:                                               ; preds = %43
-  %45 = load ptr, ptr %3, align 8
-  %46 = getelementptr inbounds %struct.uv_loop_s, ptr %45, i32 0, i32 21
-  %47 = load ptr, ptr %3, align 8
-  %48 = getelementptr inbounds %struct.uv_loop_s, ptr %47, i32 0, i32 21
-  %49 = getelementptr inbounds [2 x ptr], ptr %48, i64 0, i64 0
-  store ptr %46, ptr %49, align 8
-  %50 = load ptr, ptr %3, align 8
-  %51 = getelementptr inbounds %struct.uv_loop_s, ptr %50, i32 0, i32 21
-  %52 = load ptr, ptr %3, align 8
-  %53 = getelementptr inbounds %struct.uv_loop_s, ptr %52, i32 0, i32 21
-  %54 = getelementptr inbounds [2 x ptr], ptr %53, i64 0, i64 1
-  store ptr %51, ptr %54, align 8
-  br label %55
+44:                                               ; preds = %33
+  br label %45
 
-55:                                               ; preds = %44
-  br label %56
+45:                                               ; preds = %44
+  br label %46
 
-56:                                               ; preds = %55
-  %57 = load ptr, ptr %3, align 8
-  %58 = getelementptr inbounds %struct.uv_loop_s, ptr %57, i32 0, i32 22
-  %59 = load ptr, ptr %3, align 8
-  %60 = getelementptr inbounds %struct.uv_loop_s, ptr %59, i32 0, i32 22
-  %61 = getelementptr inbounds [2 x ptr], ptr %60, i64 0, i64 0
-  store ptr %58, ptr %61, align 8
-  %62 = load ptr, ptr %3, align 8
-  %63 = getelementptr inbounds %struct.uv_loop_s, ptr %62, i32 0, i32 22
-  %64 = load ptr, ptr %3, align 8
-  %65 = getelementptr inbounds %struct.uv_loop_s, ptr %64, i32 0, i32 22
-  %66 = getelementptr inbounds [2 x ptr], ptr %65, i64 0, i64 1
-  store ptr %63, ptr %66, align 8
-  br label %67
+46:                                               ; preds = %45
+  %47 = load ptr, ptr %3, align 8, !tbaa !4
+  %48 = getelementptr inbounds nuw %struct.uv_loop_s, ptr %47, i32 0, i32 21
+  %49 = load ptr, ptr %3, align 8, !tbaa !4
+  %50 = getelementptr inbounds nuw %struct.uv_loop_s, ptr %49, i32 0, i32 21
+  %51 = getelementptr inbounds [2 x ptr], ptr %50, i64 0, i64 0
+  store ptr %48, ptr %51, align 8, !tbaa !21
+  %52 = load ptr, ptr %3, align 8, !tbaa !4
+  %53 = getelementptr inbounds nuw %struct.uv_loop_s, ptr %52, i32 0, i32 21
+  %54 = load ptr, ptr %3, align 8, !tbaa !4
+  %55 = getelementptr inbounds nuw %struct.uv_loop_s, ptr %54, i32 0, i32 21
+  %56 = getelementptr inbounds [2 x ptr], ptr %55, i64 0, i64 1
+  store ptr %53, ptr %56, align 8, !tbaa !21
+  br label %57
 
-67:                                               ; preds = %56
-  br label %68
+57:                                               ; preds = %46
+  br label %58
 
-68:                                               ; preds = %67
-  %69 = load ptr, ptr %3, align 8
-  %70 = getelementptr inbounds %struct.uv_loop_s, ptr %69, i32 0, i32 20
-  %71 = load ptr, ptr %3, align 8
-  %72 = getelementptr inbounds %struct.uv_loop_s, ptr %71, i32 0, i32 20
-  %73 = getelementptr inbounds [2 x ptr], ptr %72, i64 0, i64 0
-  store ptr %70, ptr %73, align 8
-  %74 = load ptr, ptr %3, align 8
-  %75 = getelementptr inbounds %struct.uv_loop_s, ptr %74, i32 0, i32 20
-  %76 = load ptr, ptr %3, align 8
-  %77 = getelementptr inbounds %struct.uv_loop_s, ptr %76, i32 0, i32 20
-  %78 = getelementptr inbounds [2 x ptr], ptr %77, i64 0, i64 1
-  store ptr %75, ptr %78, align 8
-  br label %79
+58:                                               ; preds = %57
+  br label %59
 
-79:                                               ; preds = %68
-  br label %80
+59:                                               ; preds = %58
+  %60 = load ptr, ptr %3, align 8, !tbaa !4
+  %61 = getelementptr inbounds nuw %struct.uv_loop_s, ptr %60, i32 0, i32 22
+  %62 = load ptr, ptr %3, align 8, !tbaa !4
+  %63 = getelementptr inbounds nuw %struct.uv_loop_s, ptr %62, i32 0, i32 22
+  %64 = getelementptr inbounds [2 x ptr], ptr %63, i64 0, i64 0
+  store ptr %61, ptr %64, align 8, !tbaa !21
+  %65 = load ptr, ptr %3, align 8, !tbaa !4
+  %66 = getelementptr inbounds nuw %struct.uv_loop_s, ptr %65, i32 0, i32 22
+  %67 = load ptr, ptr %3, align 8, !tbaa !4
+  %68 = getelementptr inbounds nuw %struct.uv_loop_s, ptr %67, i32 0, i32 22
+  %69 = getelementptr inbounds [2 x ptr], ptr %68, i64 0, i64 1
+  store ptr %66, ptr %69, align 8, !tbaa !21
+  br label %70
 
-80:                                               ; preds = %79
-  %81 = load ptr, ptr %3, align 8
-  %82 = getelementptr inbounds %struct.uv_loop_s, ptr %81, i32 0, i32 19
-  %83 = load ptr, ptr %3, align 8
-  %84 = getelementptr inbounds %struct.uv_loop_s, ptr %83, i32 0, i32 19
-  %85 = getelementptr inbounds [2 x ptr], ptr %84, i64 0, i64 0
-  store ptr %82, ptr %85, align 8
-  %86 = load ptr, ptr %3, align 8
-  %87 = getelementptr inbounds %struct.uv_loop_s, ptr %86, i32 0, i32 19
-  %88 = load ptr, ptr %3, align 8
-  %89 = getelementptr inbounds %struct.uv_loop_s, ptr %88, i32 0, i32 19
-  %90 = getelementptr inbounds [2 x ptr], ptr %89, i64 0, i64 1
-  store ptr %87, ptr %90, align 8
-  br label %91
+70:                                               ; preds = %59
+  br label %71
 
-91:                                               ; preds = %80
-  br label %92
+71:                                               ; preds = %70
+  br label %72
 
-92:                                               ; preds = %91
-  %93 = load ptr, ptr %3, align 8
-  %94 = getelementptr inbounds %struct.uv_loop_s, ptr %93, i32 0, i32 2
-  %95 = load ptr, ptr %3, align 8
-  %96 = getelementptr inbounds %struct.uv_loop_s, ptr %95, i32 0, i32 2
-  %97 = getelementptr inbounds [2 x ptr], ptr %96, i64 0, i64 0
-  store ptr %94, ptr %97, align 8
-  %98 = load ptr, ptr %3, align 8
-  %99 = getelementptr inbounds %struct.uv_loop_s, ptr %98, i32 0, i32 2
-  %100 = load ptr, ptr %3, align 8
-  %101 = getelementptr inbounds %struct.uv_loop_s, ptr %100, i32 0, i32 2
-  %102 = getelementptr inbounds [2 x ptr], ptr %101, i64 0, i64 1
-  store ptr %99, ptr %102, align 8
-  br label %103
+72:                                               ; preds = %71
+  %73 = load ptr, ptr %3, align 8, !tbaa !4
+  %74 = getelementptr inbounds nuw %struct.uv_loop_s, ptr %73, i32 0, i32 20
+  %75 = load ptr, ptr %3, align 8, !tbaa !4
+  %76 = getelementptr inbounds nuw %struct.uv_loop_s, ptr %75, i32 0, i32 20
+  %77 = getelementptr inbounds [2 x ptr], ptr %76, i64 0, i64 0
+  store ptr %74, ptr %77, align 8, !tbaa !21
+  %78 = load ptr, ptr %3, align 8, !tbaa !4
+  %79 = getelementptr inbounds nuw %struct.uv_loop_s, ptr %78, i32 0, i32 20
+  %80 = load ptr, ptr %3, align 8, !tbaa !4
+  %81 = getelementptr inbounds nuw %struct.uv_loop_s, ptr %80, i32 0, i32 20
+  %82 = getelementptr inbounds [2 x ptr], ptr %81, i64 0, i64 1
+  store ptr %79, ptr %82, align 8, !tbaa !21
+  br label %83
 
-103:                                              ; preds = %92
-  %104 = load ptr, ptr %3, align 8
-  %105 = getelementptr inbounds %struct.uv_loop_s, ptr %104, i32 0, i32 1
-  store i32 0, ptr %105, align 8
-  %106 = load ptr, ptr %3, align 8
-  %107 = getelementptr inbounds %struct.uv_loop_s, ptr %106, i32 0, i32 3
-  store i32 0, ptr %107, align 8
-  %108 = load ptr, ptr %3, align 8
-  %109 = getelementptr inbounds %struct.uv_loop_s, ptr %108, i32 0, i32 12
-  store i32 0, ptr %109, align 4
-  %110 = load ptr, ptr %3, align 8
-  %111 = getelementptr inbounds %struct.uv_loop_s, ptr %110, i32 0, i32 10
-  store ptr null, ptr %111, align 8
-  %112 = load ptr, ptr %3, align 8
-  %113 = getelementptr inbounds %struct.uv_loop_s, ptr %112, i32 0, i32 11
-  store i32 0, ptr %113, align 8
-  br label %114
+83:                                               ; preds = %72
+  br label %84
 
-114:                                              ; preds = %103
-  %115 = load ptr, ptr %3, align 8
-  %116 = getelementptr inbounds %struct.uv_loop_s, ptr %115, i32 0, i32 8
-  %117 = load ptr, ptr %3, align 8
-  %118 = getelementptr inbounds %struct.uv_loop_s, ptr %117, i32 0, i32 8
-  %119 = getelementptr inbounds [2 x ptr], ptr %118, i64 0, i64 0
-  store ptr %116, ptr %119, align 8
-  %120 = load ptr, ptr %3, align 8
-  %121 = getelementptr inbounds %struct.uv_loop_s, ptr %120, i32 0, i32 8
-  %122 = load ptr, ptr %3, align 8
-  %123 = getelementptr inbounds %struct.uv_loop_s, ptr %122, i32 0, i32 8
-  %124 = getelementptr inbounds [2 x ptr], ptr %123, i64 0, i64 1
-  store ptr %121, ptr %124, align 8
-  br label %125
+84:                                               ; preds = %83
+  br label %85
 
-125:                                              ; preds = %114
-  br label %126
+85:                                               ; preds = %84
+  %86 = load ptr, ptr %3, align 8, !tbaa !4
+  %87 = getelementptr inbounds nuw %struct.uv_loop_s, ptr %86, i32 0, i32 19
+  %88 = load ptr, ptr %3, align 8, !tbaa !4
+  %89 = getelementptr inbounds nuw %struct.uv_loop_s, ptr %88, i32 0, i32 19
+  %90 = getelementptr inbounds [2 x ptr], ptr %89, i64 0, i64 0
+  store ptr %87, ptr %90, align 8, !tbaa !21
+  %91 = load ptr, ptr %3, align 8, !tbaa !4
+  %92 = getelementptr inbounds nuw %struct.uv_loop_s, ptr %91, i32 0, i32 19
+  %93 = load ptr, ptr %3, align 8, !tbaa !4
+  %94 = getelementptr inbounds nuw %struct.uv_loop_s, ptr %93, i32 0, i32 19
+  %95 = getelementptr inbounds [2 x ptr], ptr %94, i64 0, i64 1
+  store ptr %92, ptr %95, align 8, !tbaa !21
+  br label %96
 
-126:                                              ; preds = %125
-  %127 = load ptr, ptr %3, align 8
-  %128 = getelementptr inbounds %struct.uv_loop_s, ptr %127, i32 0, i32 9
-  %129 = load ptr, ptr %3, align 8
-  %130 = getelementptr inbounds %struct.uv_loop_s, ptr %129, i32 0, i32 9
-  %131 = getelementptr inbounds [2 x ptr], ptr %130, i64 0, i64 0
-  store ptr %128, ptr %131, align 8
-  %132 = load ptr, ptr %3, align 8
-  %133 = getelementptr inbounds %struct.uv_loop_s, ptr %132, i32 0, i32 9
-  %134 = load ptr, ptr %3, align 8
-  %135 = getelementptr inbounds %struct.uv_loop_s, ptr %134, i32 0, i32 9
-  %136 = getelementptr inbounds [2 x ptr], ptr %135, i64 0, i64 1
-  store ptr %133, ptr %136, align 8
-  br label %137
+96:                                               ; preds = %85
+  br label %97
 
-137:                                              ; preds = %126
-  %138 = load ptr, ptr %3, align 8
-  %139 = getelementptr inbounds %struct.uv_loop_s, ptr %138, i32 0, i32 17
-  store ptr null, ptr %139, align 8
-  %140 = load ptr, ptr %3, align 8
-  call void @uv__update_time(ptr noundef %140)
-  %141 = load ptr, ptr %3, align 8
-  %142 = getelementptr inbounds %struct.uv_loop_s, ptr %141, i32 0, i32 24
-  %143 = getelementptr inbounds %struct.uv__io_s, ptr %142, i32 0, i32 5
-  store i32 -1, ptr %143, align 8
-  %144 = load ptr, ptr %3, align 8
-  %145 = getelementptr inbounds %struct.uv_loop_s, ptr %144, i32 0, i32 25
-  store i32 -1, ptr %145, align 8
-  %146 = load ptr, ptr %3, align 8
-  %147 = getelementptr inbounds %struct.uv_loop_s, ptr %146, i32 0, i32 29
-  %148 = getelementptr inbounds [2 x i32], ptr %147, i64 0, i64 0
-  store i32 -1, ptr %148, align 8
-  %149 = load ptr, ptr %3, align 8
-  %150 = getelementptr inbounds %struct.uv_loop_s, ptr %149, i32 0, i32 29
-  %151 = getelementptr inbounds [2 x i32], ptr %150, i64 0, i64 1
-  store i32 -1, ptr %151, align 4
-  %152 = load ptr, ptr %3, align 8
-  %153 = getelementptr inbounds %struct.uv_loop_s, ptr %152, i32 0, i32 7
-  store i32 -1, ptr %153, align 8
-  %154 = load ptr, ptr %3, align 8
-  %155 = getelementptr inbounds %struct.uv_loop_s, ptr %154, i32 0, i32 32
-  store i32 -1, ptr %155, align 8
-  %156 = load ptr, ptr %3, align 8
-  %157 = getelementptr inbounds %struct.uv_loop_s, ptr %156, i32 0, i32 27
-  store i64 0, ptr %157, align 8
-  %158 = load ptr, ptr %3, align 8
-  %159 = getelementptr inbounds %struct.uv_loop_s, ptr %158, i32 0, i32 5
-  store i32 0, ptr %159, align 8
-  %160 = load ptr, ptr %3, align 8
-  %161 = call i32 @uv__platform_loop_init(ptr noundef %160)
-  store i32 %161, ptr %6, align 4
-  %162 = load i32, ptr %6, align 4
-  %163 = icmp ne i32 %162, 0
-  br i1 %163, label %164, label %165
+97:                                               ; preds = %96
+  br label %98
 
-164:                                              ; preds = %137
-  br label %308
+98:                                               ; preds = %97
+  %99 = load ptr, ptr %3, align 8, !tbaa !4
+  %100 = getelementptr inbounds nuw %struct.uv_loop_s, ptr %99, i32 0, i32 2
+  %101 = load ptr, ptr %3, align 8, !tbaa !4
+  %102 = getelementptr inbounds nuw %struct.uv_loop_s, ptr %101, i32 0, i32 2
+  %103 = getelementptr inbounds [2 x ptr], ptr %102, i64 0, i64 0
+  store ptr %100, ptr %103, align 8, !tbaa !21
+  %104 = load ptr, ptr %3, align 8, !tbaa !4
+  %105 = getelementptr inbounds nuw %struct.uv_loop_s, ptr %104, i32 0, i32 2
+  %106 = load ptr, ptr %3, align 8, !tbaa !4
+  %107 = getelementptr inbounds nuw %struct.uv_loop_s, ptr %106, i32 0, i32 2
+  %108 = getelementptr inbounds [2 x ptr], ptr %107, i64 0, i64 1
+  store ptr %105, ptr %108, align 8, !tbaa !21
+  br label %109
 
-165:                                              ; preds = %137
+109:                                              ; preds = %98
+  br label %110
+
+110:                                              ; preds = %109
+  %111 = load ptr, ptr %3, align 8, !tbaa !4
+  %112 = getelementptr inbounds nuw %struct.uv_loop_s, ptr %111, i32 0, i32 1
+  store i32 0, ptr %112, align 8, !tbaa !26
+  %113 = load ptr, ptr %3, align 8, !tbaa !4
+  %114 = getelementptr inbounds nuw %struct.uv_loop_s, ptr %113, i32 0, i32 3
+  store i32 0, ptr %114, align 8, !tbaa !27
+  %115 = load ptr, ptr %3, align 8, !tbaa !4
+  %116 = getelementptr inbounds nuw %struct.uv_loop_s, ptr %115, i32 0, i32 12
+  store i32 0, ptr %116, align 4, !tbaa !28
+  %117 = load ptr, ptr %3, align 8, !tbaa !4
+  %118 = getelementptr inbounds nuw %struct.uv_loop_s, ptr %117, i32 0, i32 10
+  store ptr null, ptr %118, align 8, !tbaa !29
+  %119 = load ptr, ptr %3, align 8, !tbaa !4
+  %120 = getelementptr inbounds nuw %struct.uv_loop_s, ptr %119, i32 0, i32 11
+  store i32 0, ptr %120, align 8, !tbaa !30
+  br label %121
+
+121:                                              ; preds = %110
+  %122 = load ptr, ptr %3, align 8, !tbaa !4
+  %123 = getelementptr inbounds nuw %struct.uv_loop_s, ptr %122, i32 0, i32 8
+  %124 = load ptr, ptr %3, align 8, !tbaa !4
+  %125 = getelementptr inbounds nuw %struct.uv_loop_s, ptr %124, i32 0, i32 8
+  %126 = getelementptr inbounds [2 x ptr], ptr %125, i64 0, i64 0
+  store ptr %123, ptr %126, align 8, !tbaa !21
+  %127 = load ptr, ptr %3, align 8, !tbaa !4
+  %128 = getelementptr inbounds nuw %struct.uv_loop_s, ptr %127, i32 0, i32 8
+  %129 = load ptr, ptr %3, align 8, !tbaa !4
+  %130 = getelementptr inbounds nuw %struct.uv_loop_s, ptr %129, i32 0, i32 8
+  %131 = getelementptr inbounds [2 x ptr], ptr %130, i64 0, i64 1
+  store ptr %128, ptr %131, align 8, !tbaa !21
+  br label %132
+
+132:                                              ; preds = %121
+  br label %133
+
+133:                                              ; preds = %132
+  br label %134
+
+134:                                              ; preds = %133
+  %135 = load ptr, ptr %3, align 8, !tbaa !4
+  %136 = getelementptr inbounds nuw %struct.uv_loop_s, ptr %135, i32 0, i32 9
+  %137 = load ptr, ptr %3, align 8, !tbaa !4
+  %138 = getelementptr inbounds nuw %struct.uv_loop_s, ptr %137, i32 0, i32 9
+  %139 = getelementptr inbounds [2 x ptr], ptr %138, i64 0, i64 0
+  store ptr %136, ptr %139, align 8, !tbaa !21
+  %140 = load ptr, ptr %3, align 8, !tbaa !4
+  %141 = getelementptr inbounds nuw %struct.uv_loop_s, ptr %140, i32 0, i32 9
+  %142 = load ptr, ptr %3, align 8, !tbaa !4
+  %143 = getelementptr inbounds nuw %struct.uv_loop_s, ptr %142, i32 0, i32 9
+  %144 = getelementptr inbounds [2 x ptr], ptr %143, i64 0, i64 1
+  store ptr %141, ptr %144, align 8, !tbaa !21
+  br label %145
+
+145:                                              ; preds = %134
+  br label %146
+
+146:                                              ; preds = %145
+  %147 = load ptr, ptr %3, align 8, !tbaa !4
+  %148 = getelementptr inbounds nuw %struct.uv_loop_s, ptr %147, i32 0, i32 17
+  store ptr null, ptr %148, align 8, !tbaa !31
+  %149 = load ptr, ptr %3, align 8, !tbaa !4
+  call void @uv__update_time(ptr noundef %149)
+  %150 = load ptr, ptr %3, align 8, !tbaa !4
+  %151 = getelementptr inbounds nuw %struct.uv_loop_s, ptr %150, i32 0, i32 24
+  %152 = getelementptr inbounds nuw %struct.uv__io_s, ptr %151, i32 0, i32 5
+  store i32 -1, ptr %152, align 8, !tbaa !32
+  %153 = load ptr, ptr %3, align 8, !tbaa !4
+  %154 = getelementptr inbounds nuw %struct.uv_loop_s, ptr %153, i32 0, i32 25
+  store i32 -1, ptr %154, align 8, !tbaa !33
+  %155 = load ptr, ptr %3, align 8, !tbaa !4
+  %156 = getelementptr inbounds nuw %struct.uv_loop_s, ptr %155, i32 0, i32 29
+  %157 = getelementptr inbounds [2 x i32], ptr %156, i64 0, i64 0
+  store i32 -1, ptr %157, align 8, !tbaa !25
+  %158 = load ptr, ptr %3, align 8, !tbaa !4
+  %159 = getelementptr inbounds nuw %struct.uv_loop_s, ptr %158, i32 0, i32 29
+  %160 = getelementptr inbounds [2 x i32], ptr %159, i64 0, i64 1
+  store i32 -1, ptr %160, align 4, !tbaa !25
+  %161 = load ptr, ptr %3, align 8, !tbaa !4
+  %162 = getelementptr inbounds nuw %struct.uv_loop_s, ptr %161, i32 0, i32 7
+  store i32 -1, ptr %162, align 8, !tbaa !34
+  %163 = load ptr, ptr %3, align 8, !tbaa !4
+  %164 = getelementptr inbounds nuw %struct.uv_loop_s, ptr %163, i32 0, i32 32
+  store i32 -1, ptr %164, align 8, !tbaa !35
+  %165 = load ptr, ptr %3, align 8, !tbaa !4
+  %166 = getelementptr inbounds nuw %struct.uv_loop_s, ptr %165, i32 0, i32 27
+  store i64 0, ptr %166, align 8, !tbaa !36
+  %167 = load ptr, ptr %3, align 8, !tbaa !4
+  %168 = getelementptr inbounds nuw %struct.uv_loop_s, ptr %167, i32 0, i32 5
+  store i32 0, ptr %168, align 8, !tbaa !37
+  %169 = load ptr, ptr %3, align 8, !tbaa !4
+  %170 = call i32 @uv__platform_loop_init(ptr noundef %169)
+  store i32 %170, ptr %6, align 4, !tbaa !25
+  %171 = load i32, ptr %6, align 4, !tbaa !25
+  %172 = icmp ne i32 %171, 0
+  br i1 %172, label %173, label %174
+
+173:                                              ; preds = %146
+  br label %273
+
+174:                                              ; preds = %146
   call void @uv__signal_global_once_init()
-  %166 = load ptr, ptr %3, align 8
-  %167 = load ptr, ptr %3, align 8
-  %168 = getelementptr inbounds %struct.uv_loop_s, ptr %167, i32 0, i32 31
-  %169 = call i32 @uv_signal_init(ptr noundef %166, ptr noundef %168)
-  store i32 %169, ptr %6, align 4
-  %170 = load i32, ptr %6, align 4
-  %171 = icmp ne i32 %170, 0
-  br i1 %171, label %172, label %173
+  %175 = load ptr, ptr %3, align 8, !tbaa !4
+  %176 = call i32 @uv__process_init(ptr noundef %175)
+  store i32 %176, ptr %6, align 4, !tbaa !25
+  %177 = load i32, ptr %6, align 4, !tbaa !25
+  %178 = icmp ne i32 %177, 0
+  br i1 %178, label %179, label %180
 
-172:                                              ; preds = %165
-  br label %306
+179:                                              ; preds = %174
+  br label %271
 
-173:                                              ; preds = %165
-  br label %174
+180:                                              ; preds = %174
+  br label %181
 
-174:                                              ; preds = %173
-  %175 = load ptr, ptr %3, align 8
-  %176 = getelementptr inbounds %struct.uv_loop_s, ptr %175, i32 0, i32 31
-  %177 = getelementptr inbounds %struct.uv_signal_s, ptr %176, i32 0, i32 7
-  %178 = load i32, ptr %177, align 8
-  %179 = and i32 %178, 8
-  %180 = icmp eq i32 %179, 0
-  br i1 %180, label %181, label %182
+181:                                              ; preds = %180
+  %182 = load ptr, ptr %3, align 8, !tbaa !4
+  %183 = getelementptr inbounds nuw %struct.uv_loop_s, ptr %182, i32 0, i32 18
+  %184 = load ptr, ptr %3, align 8, !tbaa !4
+  %185 = getelementptr inbounds nuw %struct.uv_loop_s, ptr %184, i32 0, i32 18
+  %186 = getelementptr inbounds [2 x ptr], ptr %185, i64 0, i64 0
+  store ptr %183, ptr %186, align 8, !tbaa !21
+  %187 = load ptr, ptr %3, align 8, !tbaa !4
+  %188 = getelementptr inbounds nuw %struct.uv_loop_s, ptr %187, i32 0, i32 18
+  %189 = load ptr, ptr %3, align 8, !tbaa !4
+  %190 = getelementptr inbounds nuw %struct.uv_loop_s, ptr %189, i32 0, i32 18
+  %191 = getelementptr inbounds [2 x ptr], ptr %190, i64 0, i64 1
+  store ptr %188, ptr %191, align 8, !tbaa !21
+  br label %192
 
-181:                                              ; preds = %174
-  br label %213
+192:                                              ; preds = %181
+  br label %193
 
-182:                                              ; preds = %174
-  %183 = load ptr, ptr %3, align 8
-  %184 = getelementptr inbounds %struct.uv_loop_s, ptr %183, i32 0, i32 31
-  %185 = getelementptr inbounds %struct.uv_signal_s, ptr %184, i32 0, i32 7
-  %186 = load i32, ptr %185, align 8
-  %187 = and i32 %186, -9
-  store i32 %187, ptr %185, align 8
-  %188 = load ptr, ptr %3, align 8
-  %189 = getelementptr inbounds %struct.uv_loop_s, ptr %188, i32 0, i32 31
-  %190 = getelementptr inbounds %struct.uv_signal_s, ptr %189, i32 0, i32 7
-  %191 = load i32, ptr %190, align 8
-  %192 = and i32 %191, 1
-  %193 = icmp ne i32 %192, 0
-  br i1 %193, label %194, label %195
+193:                                              ; preds = %192
+  %194 = load ptr, ptr %3, align 8, !tbaa !4
+  %195 = getelementptr inbounds nuw %struct.uv_loop_s, ptr %194, i32 0, i32 16
+  %196 = call i32 @uv_rwlock_init(ptr noundef %195)
+  store i32 %196, ptr %6, align 4, !tbaa !25
+  %197 = load i32, ptr %6, align 4, !tbaa !25
+  %198 = icmp ne i32 %197, 0
+  br i1 %198, label %199, label %200
 
-194:                                              ; preds = %182
-  br label %213
+199:                                              ; preds = %193
+  br label %269
 
-195:                                              ; preds = %182
-  %196 = load ptr, ptr %3, align 8
-  %197 = getelementptr inbounds %struct.uv_loop_s, ptr %196, i32 0, i32 31
-  %198 = getelementptr inbounds %struct.uv_signal_s, ptr %197, i32 0, i32 7
-  %199 = load i32, ptr %198, align 8
-  %200 = and i32 %199, 4
-  %201 = icmp ne i32 %200, 0
-  br i1 %201, label %202, label %212
+200:                                              ; preds = %193
+  %201 = load ptr, ptr %3, align 8, !tbaa !4
+  %202 = getelementptr inbounds nuw %struct.uv_loop_s, ptr %201, i32 0, i32 14
+  %203 = call i32 @uv_mutex_init(ptr noundef %202)
+  store i32 %203, ptr %6, align 4, !tbaa !25
+  %204 = load i32, ptr %6, align 4, !tbaa !25
+  %205 = icmp ne i32 %204, 0
+  br i1 %205, label %206, label %207
 
-202:                                              ; preds = %195
-  br label %203
+206:                                              ; preds = %200
+  br label %266
 
-203:                                              ; preds = %202
-  %204 = load ptr, ptr %3, align 8
-  %205 = getelementptr inbounds %struct.uv_loop_s, ptr %204, i32 0, i32 31
-  %206 = getelementptr inbounds %struct.uv_signal_s, ptr %205, i32 0, i32 1
-  %207 = load ptr, ptr %206, align 8
-  %208 = getelementptr inbounds %struct.uv_loop_s, ptr %207, i32 0, i32 1
-  %209 = load i32, ptr %208, align 8
-  %210 = add i32 %209, -1
-  store i32 %210, ptr %208, align 8
-  br label %211
+207:                                              ; preds = %200
+  %208 = load ptr, ptr %3, align 8, !tbaa !4
+  %209 = load ptr, ptr %3, align 8, !tbaa !4
+  %210 = getelementptr inbounds nuw %struct.uv_loop_s, ptr %209, i32 0, i32 15
+  %211 = call i32 @uv_async_init(ptr noundef %208, ptr noundef %210, ptr noundef @uv__work_done)
+  store i32 %211, ptr %6, align 4, !tbaa !25
+  %212 = load i32, ptr %6, align 4, !tbaa !25
+  %213 = icmp ne i32 %212, 0
+  br i1 %213, label %214, label %215
 
-211:                                              ; preds = %203
-  br label %212
+214:                                              ; preds = %207
+  br label %263
 
-212:                                              ; preds = %211, %195
-  br label %213
+215:                                              ; preds = %207
+  br label %216
 
-213:                                              ; preds = %212, %194, %181
-  %214 = load ptr, ptr %3, align 8
-  %215 = getelementptr inbounds %struct.uv_loop_s, ptr %214, i32 0, i32 31
-  %216 = getelementptr inbounds %struct.uv_signal_s, ptr %215, i32 0, i32 7
-  %217 = load i32, ptr %216, align 8
-  %218 = or i32 %217, 16
-  store i32 %218, ptr %216, align 8
-  br label %219
+216:                                              ; preds = %215
+  %217 = load ptr, ptr %3, align 8, !tbaa !4
+  %218 = getelementptr inbounds nuw %struct.uv_loop_s, ptr %217, i32 0, i32 15
+  %219 = getelementptr inbounds nuw %struct.uv_async_s, ptr %218, i32 0, i32 7
+  %220 = load i32, ptr %219, align 8, !tbaa !38
+  %221 = and i32 %220, 8
+  %222 = icmp eq i32 %221, 0
+  br i1 %222, label %223, label %224
 
-219:                                              ; preds = %213
-  %220 = load ptr, ptr %3, align 8
-  %221 = getelementptr inbounds %struct.uv_loop_s, ptr %220, i32 0, i32 18
-  %222 = load ptr, ptr %3, align 8
-  %223 = getelementptr inbounds %struct.uv_loop_s, ptr %222, i32 0, i32 18
-  %224 = getelementptr inbounds [2 x ptr], ptr %223, i64 0, i64 0
-  store ptr %221, ptr %224, align 8
-  %225 = load ptr, ptr %3, align 8
-  %226 = getelementptr inbounds %struct.uv_loop_s, ptr %225, i32 0, i32 18
-  %227 = load ptr, ptr %3, align 8
-  %228 = getelementptr inbounds %struct.uv_loop_s, ptr %227, i32 0, i32 18
-  %229 = getelementptr inbounds [2 x ptr], ptr %228, i64 0, i64 1
-  store ptr %226, ptr %229, align 8
-  br label %230
+223:                                              ; preds = %216
+  br label %257
 
-230:                                              ; preds = %219
-  %231 = load ptr, ptr %3, align 8
-  %232 = getelementptr inbounds %struct.uv_loop_s, ptr %231, i32 0, i32 16
-  %233 = call i32 @uv_rwlock_init(ptr noundef %232)
-  store i32 %233, ptr %6, align 4
-  %234 = load i32, ptr %6, align 4
+224:                                              ; preds = %216
+  %225 = load ptr, ptr %3, align 8, !tbaa !4
+  %226 = getelementptr inbounds nuw %struct.uv_loop_s, ptr %225, i32 0, i32 15
+  %227 = getelementptr inbounds nuw %struct.uv_async_s, ptr %226, i32 0, i32 7
+  %228 = load i32, ptr %227, align 8, !tbaa !38
+  %229 = and i32 %228, -9
+  store i32 %229, ptr %227, align 8, !tbaa !38
+  %230 = load ptr, ptr %3, align 8, !tbaa !4
+  %231 = getelementptr inbounds nuw %struct.uv_loop_s, ptr %230, i32 0, i32 15
+  %232 = getelementptr inbounds nuw %struct.uv_async_s, ptr %231, i32 0, i32 7
+  %233 = load i32, ptr %232, align 8, !tbaa !38
+  %234 = and i32 %233, 1
   %235 = icmp ne i32 %234, 0
   br i1 %235, label %236, label %237
 
-236:                                              ; preds = %230
-  br label %304
+236:                                              ; preds = %224
+  br label %257
 
-237:                                              ; preds = %230
-  %238 = load ptr, ptr %3, align 8
-  %239 = getelementptr inbounds %struct.uv_loop_s, ptr %238, i32 0, i32 14
-  %240 = call i32 @uv_mutex_init(ptr noundef %239)
-  store i32 %240, ptr %6, align 4
-  %241 = load i32, ptr %6, align 4
-  %242 = icmp ne i32 %241, 0
-  br i1 %242, label %243, label %244
-
-243:                                              ; preds = %237
-  br label %301
+237:                                              ; preds = %224
+  %238 = load ptr, ptr %3, align 8, !tbaa !4
+  %239 = getelementptr inbounds nuw %struct.uv_loop_s, ptr %238, i32 0, i32 15
+  %240 = getelementptr inbounds nuw %struct.uv_async_s, ptr %239, i32 0, i32 7
+  %241 = load i32, ptr %240, align 8, !tbaa !38
+  %242 = and i32 %241, 4
+  %243 = icmp ne i32 %242, 0
+  br i1 %243, label %244, label %255
 
 244:                                              ; preds = %237
-  %245 = load ptr, ptr %3, align 8
-  %246 = load ptr, ptr %3, align 8
-  %247 = getelementptr inbounds %struct.uv_loop_s, ptr %246, i32 0, i32 15
-  %248 = call i32 @uv_async_init(ptr noundef %245, ptr noundef %247, ptr noundef @uv__work_done)
-  store i32 %248, ptr %6, align 4
-  %249 = load i32, ptr %6, align 4
-  %250 = icmp ne i32 %249, 0
-  br i1 %250, label %251, label %252
+  br label %245
 
-251:                                              ; preds = %244
-  br label %298
-
-252:                                              ; preds = %244
+245:                                              ; preds = %244
+  %246 = load ptr, ptr %3, align 8, !tbaa !4
+  %247 = getelementptr inbounds nuw %struct.uv_loop_s, ptr %246, i32 0, i32 15
+  %248 = getelementptr inbounds nuw %struct.uv_async_s, ptr %247, i32 0, i32 1
+  %249 = load ptr, ptr %248, align 8, !tbaa !39
+  %250 = getelementptr inbounds nuw %struct.uv_loop_s, ptr %249, i32 0, i32 1
+  %251 = load i32, ptr %250, align 8, !tbaa !26
+  %252 = add i32 %251, -1
+  store i32 %252, ptr %250, align 8, !tbaa !26
   br label %253
 
-253:                                              ; preds = %252
-  %254 = load ptr, ptr %3, align 8
-  %255 = getelementptr inbounds %struct.uv_loop_s, ptr %254, i32 0, i32 15
-  %256 = getelementptr inbounds %struct.uv_async_s, ptr %255, i32 0, i32 7
-  %257 = load i32, ptr %256, align 8
-  %258 = and i32 %257, 8
-  %259 = icmp eq i32 %258, 0
-  br i1 %259, label %260, label %261
+253:                                              ; preds = %245
+  br label %254
 
-260:                                              ; preds = %253
-  br label %292
+254:                                              ; preds = %253
+  br label %255
 
-261:                                              ; preds = %253
-  %262 = load ptr, ptr %3, align 8
-  %263 = getelementptr inbounds %struct.uv_loop_s, ptr %262, i32 0, i32 15
-  %264 = getelementptr inbounds %struct.uv_async_s, ptr %263, i32 0, i32 7
-  %265 = load i32, ptr %264, align 8
-  %266 = and i32 %265, -9
-  store i32 %266, ptr %264, align 8
-  %267 = load ptr, ptr %3, align 8
-  %268 = getelementptr inbounds %struct.uv_loop_s, ptr %267, i32 0, i32 15
-  %269 = getelementptr inbounds %struct.uv_async_s, ptr %268, i32 0, i32 7
-  %270 = load i32, ptr %269, align 8
-  %271 = and i32 %270, 1
-  %272 = icmp ne i32 %271, 0
-  br i1 %272, label %273, label %274
+255:                                              ; preds = %254, %237
+  br label %256
 
-273:                                              ; preds = %261
-  br label %292
+256:                                              ; preds = %255
+  br label %257
 
-274:                                              ; preds = %261
-  %275 = load ptr, ptr %3, align 8
-  %276 = getelementptr inbounds %struct.uv_loop_s, ptr %275, i32 0, i32 15
-  %277 = getelementptr inbounds %struct.uv_async_s, ptr %276, i32 0, i32 7
-  %278 = load i32, ptr %277, align 8
-  %279 = and i32 %278, 4
-  %280 = icmp ne i32 %279, 0
-  br i1 %280, label %281, label %291
-
-281:                                              ; preds = %274
-  br label %282
-
-282:                                              ; preds = %281
-  %283 = load ptr, ptr %3, align 8
-  %284 = getelementptr inbounds %struct.uv_loop_s, ptr %283, i32 0, i32 15
-  %285 = getelementptr inbounds %struct.uv_async_s, ptr %284, i32 0, i32 1
-  %286 = load ptr, ptr %285, align 8
-  %287 = getelementptr inbounds %struct.uv_loop_s, ptr %286, i32 0, i32 1
-  %288 = load i32, ptr %287, align 8
-  %289 = add i32 %288, -1
-  store i32 %289, ptr %287, align 8
-  br label %290
-
-290:                                              ; preds = %282
-  br label %291
-
-291:                                              ; preds = %290, %274
-  br label %292
-
-292:                                              ; preds = %291, %273, %260
-  %293 = load ptr, ptr %3, align 8
-  %294 = getelementptr inbounds %struct.uv_loop_s, ptr %293, i32 0, i32 15
-  %295 = getelementptr inbounds %struct.uv_async_s, ptr %294, i32 0, i32 7
-  %296 = load i32, ptr %295, align 8
-  %297 = or i32 %296, 16
-  store i32 %297, ptr %295, align 8
+257:                                              ; preds = %256, %236, %223
+  %258 = load ptr, ptr %3, align 8, !tbaa !4
+  %259 = getelementptr inbounds nuw %struct.uv_loop_s, ptr %258, i32 0, i32 15
+  %260 = getelementptr inbounds nuw %struct.uv_async_s, ptr %259, i32 0, i32 7
+  %261 = load i32, ptr %260, align 8, !tbaa !38
+  %262 = or i32 %261, 16
+  store i32 %262, ptr %260, align 8, !tbaa !38
   store i32 0, ptr %2, align 4
-  br label %322
+  store i32 1, ptr %7, align 4
+  br label %287
 
-298:                                              ; preds = %251
-  %299 = load ptr, ptr %3, align 8
-  %300 = getelementptr inbounds %struct.uv_loop_s, ptr %299, i32 0, i32 14
-  call void @uv_mutex_destroy(ptr noundef %300)
-  br label %301
+263:                                              ; preds = %214
+  %264 = load ptr, ptr %3, align 8, !tbaa !4
+  %265 = getelementptr inbounds nuw %struct.uv_loop_s, ptr %264, i32 0, i32 14
+  call void @uv_mutex_destroy(ptr noundef %265)
+  br label %266
 
-301:                                              ; preds = %298, %243
-  %302 = load ptr, ptr %3, align 8
-  %303 = getelementptr inbounds %struct.uv_loop_s, ptr %302, i32 0, i32 16
-  call void @uv_rwlock_destroy(ptr noundef %303)
-  br label %304
+266:                                              ; preds = %263, %206
+  %267 = load ptr, ptr %3, align 8, !tbaa !4
+  %268 = getelementptr inbounds nuw %struct.uv_loop_s, ptr %267, i32 0, i32 16
+  call void @uv_rwlock_destroy(ptr noundef %268)
+  br label %269
 
-304:                                              ; preds = %301, %236
-  %305 = load ptr, ptr %3, align 8
-  call void @uv__signal_loop_cleanup(ptr noundef %305)
-  br label %306
+269:                                              ; preds = %266, %199
+  %270 = load ptr, ptr %3, align 8, !tbaa !4
+  call void @uv__signal_loop_cleanup(ptr noundef %270)
+  br label %271
 
-306:                                              ; preds = %304, %172
-  %307 = load ptr, ptr %3, align 8
-  call void @uv__platform_loop_delete(ptr noundef %307)
-  br label %308
+271:                                              ; preds = %269, %179
+  %272 = load ptr, ptr %3, align 8, !tbaa !4
+  call void @uv__platform_loop_delete(ptr noundef %272)
+  br label %273
 
-308:                                              ; preds = %306, %164
-  %309 = load ptr, ptr %4, align 8
-  %310 = getelementptr inbounds %struct.uv__loop_internal_fields_s, ptr %309, i32 0, i32 1
-  %311 = getelementptr inbounds %struct.uv__loop_metrics_s, ptr %310, i32 0, i32 2
-  call void @uv_mutex_destroy(ptr noundef %311)
-  br label %312
+273:                                              ; preds = %271, %173
+  %274 = load ptr, ptr %4, align 8, !tbaa !22
+  %275 = getelementptr inbounds nuw %struct.uv__loop_internal_fields_s, ptr %274, i32 0, i32 1
+  %276 = getelementptr inbounds nuw %struct.uv__loop_metrics_s, ptr %275, i32 0, i32 2
+  call void @uv_mutex_destroy(ptr noundef %276)
+  br label %277
 
-312:                                              ; preds = %308, %28
-  %313 = load ptr, ptr %4, align 8
-  call void @uv__free(ptr noundef %313)
-  %314 = load ptr, ptr %3, align 8
-  %315 = getelementptr inbounds %struct.uv_loop_s, ptr %314, i32 0, i32 4
-  store ptr null, ptr %315, align 8
-  %316 = load ptr, ptr %3, align 8
-  %317 = getelementptr inbounds %struct.uv_loop_s, ptr %316, i32 0, i32 10
-  %318 = load ptr, ptr %317, align 8
-  call void @uv__free(ptr noundef %318)
-  %319 = load ptr, ptr %3, align 8
-  %320 = getelementptr inbounds %struct.uv_loop_s, ptr %319, i32 0, i32 11
-  store i32 0, ptr %320, align 8
-  %321 = load i32, ptr %6, align 4
-  store i32 %321, ptr %2, align 4
-  br label %322
+277:                                              ; preds = %273, %29
+  %278 = load ptr, ptr %4, align 8, !tbaa !22
+  call void @uv__free(ptr noundef %278)
+  %279 = load ptr, ptr %3, align 8, !tbaa !4
+  %280 = getelementptr inbounds nuw %struct.uv_loop_s, ptr %279, i32 0, i32 4
+  store ptr null, ptr %280, align 8, !tbaa !24
+  %281 = load ptr, ptr %3, align 8, !tbaa !4
+  %282 = getelementptr inbounds nuw %struct.uv_loop_s, ptr %281, i32 0, i32 10
+  %283 = load ptr, ptr %282, align 8, !tbaa !29
+  call void @uv__free(ptr noundef %283)
+  %284 = load ptr, ptr %3, align 8, !tbaa !4
+  %285 = getelementptr inbounds nuw %struct.uv_loop_s, ptr %284, i32 0, i32 11
+  store i32 0, ptr %285, align 8, !tbaa !30
+  %286 = load i32, ptr %6, align 4, !tbaa !25
+  store i32 %286, ptr %2, align 4
+  store i32 1, ptr %7, align 4
+  br label %287
 
-322:                                              ; preds = %312, %292, %17
-  %323 = load i32, ptr %2, align 4
-  ret i32 %323
+287:                                              ; preds = %277, %257, %18
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #4
+  %288 = load i32, ptr %2, align 4
+  ret i32 %288
 }
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
-declare ptr @uv__calloc(i64 noundef, i64 noundef) #2
+declare ptr @uv__calloc(i64 noundef, i64 noundef) #3
 
-declare i32 @uv_mutex_init(ptr noundef) #2
+declare i32 @uv_mutex_init(ptr noundef) #3
 
 ; Function Attrs: nounwind uwtable
 define internal void @heap_init(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %struct.heap, ptr %3, i32 0, i32 0
-  store ptr null, ptr %4, align 8
-  %5 = load ptr, ptr %2, align 8
-  %6 = getelementptr inbounds %struct.heap, ptr %5, i32 0, i32 1
-  store i32 0, ptr %6, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !40
+  %3 = load ptr, ptr %2, align 8, !tbaa !40
+  %4 = getelementptr inbounds nuw %struct.heap, ptr %3, i32 0, i32 0
+  store ptr null, ptr %4, align 8, !tbaa !42
+  %5 = load ptr, ptr %2, align 8, !tbaa !40
+  %6 = getelementptr inbounds nuw %struct.heap, ptr %5, i32 0, i32 1
+  store i32 0, ptr %6, align 8, !tbaa !45
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define internal void @uv__update_time(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !4
   %3 = call i64 @uv__hrtime(i32 noundef 1)
   %4 = udiv i64 %3, 1000000
-  %5 = load ptr, ptr %2, align 8
-  %6 = getelementptr inbounds %struct.uv_loop_s, ptr %5, i32 0, i32 28
-  store i64 %4, ptr %6, align 8
+  %5 = load ptr, ptr %2, align 8, !tbaa !4
+  %6 = getelementptr inbounds nuw %struct.uv_loop_s, ptr %5, i32 0, i32 28
+  store i64 %4, ptr %6, align 8, !tbaa !46
   ret void
 }
 
-declare i32 @uv__platform_loop_init(ptr noundef) #2
+declare i32 @uv__platform_loop_init(ptr noundef) #3
 
-declare void @uv__signal_global_once_init() #2
+declare void @uv__signal_global_once_init() #3
 
-declare i32 @uv_signal_init(ptr noundef, ptr noundef) #2
+declare i32 @uv__process_init(ptr noundef) #3
 
-declare i32 @uv_rwlock_init(ptr noundef) #2
+declare i32 @uv_rwlock_init(ptr noundef) #3
 
-declare i32 @uv_async_init(ptr noundef, ptr noundef, ptr noundef) #2
+declare i32 @uv_async_init(ptr noundef, ptr noundef, ptr noundef) #3
 
-declare void @uv__work_done(ptr noundef) #2
+declare void @uv__work_done(ptr noundef) #3
 
-declare void @uv_mutex_destroy(ptr noundef) #2
+declare void @uv_mutex_destroy(ptr noundef) #3
 
-declare void @uv_rwlock_destroy(ptr noundef) #2
+declare void @uv_rwlock_destroy(ptr noundef) #3
 
-declare void @uv__signal_loop_cleanup(ptr noundef) #2
+declare void @uv__signal_loop_cleanup(ptr noundef) #3
 
-declare void @uv__platform_loop_delete(ptr noundef) #2
+declare void @uv__platform_loop_delete(ptr noundef) #3
 
-declare void @uv__free(ptr noundef) #2
+declare void @uv__free(ptr noundef) #3
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @uv_loop_fork(ptr noundef %0) #0 {
@@ -591,244 +570,260 @@ define dso_local i32 @uv_loop_fork(ptr noundef %0) #0 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   %6 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  %7 = load ptr, ptr %3, align 8
-  %8 = call i32 @uv__io_fork(ptr noundef %7)
-  store i32 %8, ptr %4, align 4
-  %9 = load i32, ptr %4, align 4
-  %10 = icmp ne i32 %9, 0
-  br i1 %10, label %11, label %13
+  %7 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %4) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #4
+  %8 = load ptr, ptr %3, align 8, !tbaa !4
+  %9 = call i32 @uv__io_fork(ptr noundef %8)
+  store i32 %9, ptr %4, align 4, !tbaa !25
+  %10 = load i32, ptr %4, align 4, !tbaa !25
+  %11 = icmp ne i32 %10, 0
+  br i1 %11, label %12, label %14
 
-11:                                               ; preds = %1
-  %12 = load i32, ptr %4, align 4
-  store i32 %12, ptr %2, align 4
-  br label %92
+12:                                               ; preds = %1
+  %13 = load i32, ptr %4, align 4, !tbaa !25
+  store i32 %13, ptr %2, align 4
+  store i32 1, ptr %7, align 4
+  br label %94
 
-13:                                               ; preds = %1
-  %14 = load ptr, ptr %3, align 8
-  %15 = call i32 @uv__async_fork(ptr noundef %14)
-  store i32 %15, ptr %4, align 4
-  %16 = load i32, ptr %4, align 4
-  %17 = icmp ne i32 %16, 0
-  br i1 %17, label %18, label %20
+14:                                               ; preds = %1
+  %15 = load ptr, ptr %3, align 8, !tbaa !4
+  %16 = call i32 @uv__async_fork(ptr noundef %15)
+  store i32 %16, ptr %4, align 4, !tbaa !25
+  %17 = load i32, ptr %4, align 4, !tbaa !25
+  %18 = icmp ne i32 %17, 0
+  br i1 %18, label %19, label %21
 
-18:                                               ; preds = %13
-  %19 = load i32, ptr %4, align 4
-  store i32 %19, ptr %2, align 4
-  br label %92
+19:                                               ; preds = %14
+  %20 = load i32, ptr %4, align 4, !tbaa !25
+  store i32 %20, ptr %2, align 4
+  store i32 1, ptr %7, align 4
+  br label %94
 
-20:                                               ; preds = %13
-  %21 = load ptr, ptr %3, align 8
-  %22 = call i32 @uv__signal_loop_fork(ptr noundef %21)
-  store i32 %22, ptr %4, align 4
-  %23 = load i32, ptr %4, align 4
-  %24 = icmp ne i32 %23, 0
-  br i1 %24, label %25, label %27
+21:                                               ; preds = %14
+  %22 = load ptr, ptr %3, align 8, !tbaa !4
+  %23 = call i32 @uv__signal_loop_fork(ptr noundef %22)
+  store i32 %23, ptr %4, align 4, !tbaa !25
+  %24 = load i32, ptr %4, align 4, !tbaa !25
+  %25 = icmp ne i32 %24, 0
+  br i1 %25, label %26, label %28
 
-25:                                               ; preds = %20
-  %26 = load i32, ptr %4, align 4
-  store i32 %26, ptr %2, align 4
-  br label %92
+26:                                               ; preds = %21
+  %27 = load i32, ptr %4, align 4, !tbaa !25
+  store i32 %27, ptr %2, align 4
+  store i32 1, ptr %7, align 4
+  br label %94
 
-27:                                               ; preds = %20
-  store i32 0, ptr %5, align 4
-  br label %28
+28:                                               ; preds = %21
+  store i32 0, ptr %5, align 4, !tbaa !25
+  br label %29
 
-28:                                               ; preds = %88, %27
-  %29 = load i32, ptr %5, align 4
-  %30 = load ptr, ptr %3, align 8
-  %31 = getelementptr inbounds %struct.uv_loop_s, ptr %30, i32 0, i32 11
-  %32 = load i32, ptr %31, align 8
-  %33 = icmp ult i32 %29, %32
-  br i1 %33, label %34, label %91
+29:                                               ; preds = %90, %28
+  %30 = load i32, ptr %5, align 4, !tbaa !25
+  %31 = load ptr, ptr %3, align 8, !tbaa !4
+  %32 = getelementptr inbounds nuw %struct.uv_loop_s, ptr %31, i32 0, i32 11
+  %33 = load i32, ptr %32, align 8, !tbaa !30
+  %34 = icmp ult i32 %30, %33
+  br i1 %34, label %35, label %93
 
-34:                                               ; preds = %28
-  %35 = load ptr, ptr %3, align 8
-  %36 = getelementptr inbounds %struct.uv_loop_s, ptr %35, i32 0, i32 10
-  %37 = load ptr, ptr %36, align 8
-  %38 = load i32, ptr %5, align 4
-  %39 = zext i32 %38 to i64
-  %40 = getelementptr inbounds ptr, ptr %37, i64 %39
-  %41 = load ptr, ptr %40, align 8
-  store ptr %41, ptr %6, align 8
-  %42 = load ptr, ptr %6, align 8
-  %43 = icmp eq ptr %42, null
-  br i1 %43, label %44, label %45
+35:                                               ; preds = %29
+  %36 = load ptr, ptr %3, align 8, !tbaa !4
+  %37 = getelementptr inbounds nuw %struct.uv_loop_s, ptr %36, i32 0, i32 10
+  %38 = load ptr, ptr %37, align 8, !tbaa !29
+  %39 = load i32, ptr %5, align 4, !tbaa !25
+  %40 = zext i32 %39 to i64
+  %41 = getelementptr inbounds nuw ptr, ptr %38, i64 %40
+  %42 = load ptr, ptr %41, align 8, !tbaa !47
+  store ptr %42, ptr %6, align 8, !tbaa !47
+  %43 = load ptr, ptr %6, align 8, !tbaa !47
+  %44 = icmp eq ptr %43, null
+  br i1 %44, label %45, label %46
 
-44:                                               ; preds = %34
-  br label %88
+45:                                               ; preds = %35
+  br label %90
 
-45:                                               ; preds = %34
-  %46 = load ptr, ptr %6, align 8
-  %47 = getelementptr inbounds %struct.uv__io_s, ptr %46, i32 0, i32 3
-  %48 = load i32, ptr %47, align 8
-  %49 = icmp ne i32 %48, 0
-  br i1 %49, label %50, label %87
+46:                                               ; preds = %35
+  %47 = load ptr, ptr %6, align 8, !tbaa !47
+  %48 = getelementptr inbounds nuw %struct.uv__io_s, ptr %47, i32 0, i32 3
+  %49 = load i32, ptr %48, align 8, !tbaa !49
+  %50 = icmp ne i32 %49, 0
+  br i1 %50, label %51, label %89
 
-50:                                               ; preds = %45
-  %51 = load ptr, ptr %6, align 8
-  %52 = getelementptr inbounds %struct.uv__io_s, ptr %51, i32 0, i32 2
-  %53 = load ptr, ptr %6, align 8
-  %54 = getelementptr inbounds %struct.uv__io_s, ptr %53, i32 0, i32 2
-  %55 = getelementptr inbounds [2 x ptr], ptr %54, i64 0, i64 0
-  %56 = load ptr, ptr %55, align 8
-  %57 = icmp eq ptr %52, %56
-  br i1 %57, label %58, label %87
+51:                                               ; preds = %46
+  %52 = load ptr, ptr %6, align 8, !tbaa !47
+  %53 = getelementptr inbounds nuw %struct.uv__io_s, ptr %52, i32 0, i32 2
+  %54 = load ptr, ptr %6, align 8, !tbaa !47
+  %55 = getelementptr inbounds nuw %struct.uv__io_s, ptr %54, i32 0, i32 2
+  %56 = getelementptr inbounds [2 x ptr], ptr %55, i64 0, i64 0
+  %57 = load ptr, ptr %56, align 8, !tbaa !21
+  %58 = icmp eq ptr %53, %57
+  br i1 %58, label %59, label %89
 
-58:                                               ; preds = %50
-  %59 = load ptr, ptr %6, align 8
-  %60 = getelementptr inbounds %struct.uv__io_s, ptr %59, i32 0, i32 4
-  store i32 0, ptr %60, align 4
-  br label %61
+59:                                               ; preds = %51
+  %60 = load ptr, ptr %6, align 8, !tbaa !47
+  %61 = getelementptr inbounds nuw %struct.uv__io_s, ptr %60, i32 0, i32 4
+  store i32 0, ptr %61, align 4, !tbaa !50
+  br label %62
 
-61:                                               ; preds = %58
-  %62 = load ptr, ptr %3, align 8
-  %63 = getelementptr inbounds %struct.uv_loop_s, ptr %62, i32 0, i32 9
-  %64 = load ptr, ptr %6, align 8
-  %65 = getelementptr inbounds %struct.uv__io_s, ptr %64, i32 0, i32 2
-  %66 = getelementptr inbounds [2 x ptr], ptr %65, i64 0, i64 0
-  store ptr %63, ptr %66, align 8
-  %67 = load ptr, ptr %3, align 8
-  %68 = getelementptr inbounds %struct.uv_loop_s, ptr %67, i32 0, i32 9
-  %69 = getelementptr inbounds [2 x ptr], ptr %68, i64 0, i64 1
-  %70 = load ptr, ptr %69, align 8
-  %71 = load ptr, ptr %6, align 8
-  %72 = getelementptr inbounds %struct.uv__io_s, ptr %71, i32 0, i32 2
-  %73 = getelementptr inbounds [2 x ptr], ptr %72, i64 0, i64 1
-  store ptr %70, ptr %73, align 8
-  %74 = load ptr, ptr %6, align 8
-  %75 = getelementptr inbounds %struct.uv__io_s, ptr %74, i32 0, i32 2
-  %76 = load ptr, ptr %6, align 8
-  %77 = getelementptr inbounds %struct.uv__io_s, ptr %76, i32 0, i32 2
-  %78 = getelementptr inbounds [2 x ptr], ptr %77, i64 0, i64 1
-  %79 = load ptr, ptr %78, align 8
-  %80 = getelementptr inbounds [2 x ptr], ptr %79, i64 0, i64 0
-  store ptr %75, ptr %80, align 8
-  %81 = load ptr, ptr %6, align 8
-  %82 = getelementptr inbounds %struct.uv__io_s, ptr %81, i32 0, i32 2
-  %83 = load ptr, ptr %3, align 8
-  %84 = getelementptr inbounds %struct.uv_loop_s, ptr %83, i32 0, i32 9
-  %85 = getelementptr inbounds [2 x ptr], ptr %84, i64 0, i64 1
-  store ptr %82, ptr %85, align 8
-  br label %86
-
-86:                                               ; preds = %61
+62:                                               ; preds = %59
+  %63 = load ptr, ptr %3, align 8, !tbaa !4
+  %64 = getelementptr inbounds nuw %struct.uv_loop_s, ptr %63, i32 0, i32 9
+  %65 = load ptr, ptr %6, align 8, !tbaa !47
+  %66 = getelementptr inbounds nuw %struct.uv__io_s, ptr %65, i32 0, i32 2
+  %67 = getelementptr inbounds [2 x ptr], ptr %66, i64 0, i64 0
+  store ptr %64, ptr %67, align 8, !tbaa !21
+  %68 = load ptr, ptr %3, align 8, !tbaa !4
+  %69 = getelementptr inbounds nuw %struct.uv_loop_s, ptr %68, i32 0, i32 9
+  %70 = getelementptr inbounds [2 x ptr], ptr %69, i64 0, i64 1
+  %71 = load ptr, ptr %70, align 8, !tbaa !21
+  %72 = load ptr, ptr %6, align 8, !tbaa !47
+  %73 = getelementptr inbounds nuw %struct.uv__io_s, ptr %72, i32 0, i32 2
+  %74 = getelementptr inbounds [2 x ptr], ptr %73, i64 0, i64 1
+  store ptr %71, ptr %74, align 8, !tbaa !21
+  %75 = load ptr, ptr %6, align 8, !tbaa !47
+  %76 = getelementptr inbounds nuw %struct.uv__io_s, ptr %75, i32 0, i32 2
+  %77 = load ptr, ptr %6, align 8, !tbaa !47
+  %78 = getelementptr inbounds nuw %struct.uv__io_s, ptr %77, i32 0, i32 2
+  %79 = getelementptr inbounds [2 x ptr], ptr %78, i64 0, i64 1
+  %80 = load ptr, ptr %79, align 8, !tbaa !21
+  %81 = getelementptr inbounds [2 x ptr], ptr %80, i64 0, i64 0
+  store ptr %76, ptr %81, align 8, !tbaa !21
+  %82 = load ptr, ptr %6, align 8, !tbaa !47
+  %83 = getelementptr inbounds nuw %struct.uv__io_s, ptr %82, i32 0, i32 2
+  %84 = load ptr, ptr %3, align 8, !tbaa !4
+  %85 = getelementptr inbounds nuw %struct.uv_loop_s, ptr %84, i32 0, i32 9
+  %86 = getelementptr inbounds [2 x ptr], ptr %85, i64 0, i64 1
+  store ptr %83, ptr %86, align 8, !tbaa !21
   br label %87
 
-87:                                               ; preds = %86, %50, %45
+87:                                               ; preds = %62
   br label %88
 
-88:                                               ; preds = %87, %44
-  %89 = load i32, ptr %5, align 4
-  %90 = add i32 %89, 1
-  store i32 %90, ptr %5, align 4
-  br label %28, !llvm.loop !5
+88:                                               ; preds = %87
+  br label %89
 
-91:                                               ; preds = %28
+89:                                               ; preds = %88, %51, %46
+  br label %90
+
+90:                                               ; preds = %89, %45
+  %91 = load i32, ptr %5, align 4, !tbaa !25
+  %92 = add i32 %91, 1
+  store i32 %92, ptr %5, align 4, !tbaa !25
+  br label %29, !llvm.loop !51
+
+93:                                               ; preds = %29
   store i32 0, ptr %2, align 4
-  br label %92
+  store i32 1, ptr %7, align 4
+  br label %94
 
-92:                                               ; preds = %91, %25, %18, %11
-  %93 = load i32, ptr %2, align 4
-  ret i32 %93
+94:                                               ; preds = %93, %26, %19, %12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %4) #4
+  %95 = load i32, ptr %2, align 4
+  ret i32 %95
 }
 
-declare i32 @uv__io_fork(ptr noundef) #2
+declare i32 @uv__io_fork(ptr noundef) #3
 
-declare i32 @uv__async_fork(ptr noundef) #2
+declare i32 @uv__async_fork(ptr noundef) #3
 
-declare i32 @uv__signal_loop_fork(ptr noundef) #2
+declare i32 @uv__signal_loop_fork(ptr noundef) #3
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @uv__loop_close(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %4 = load ptr, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #4
+  %4 = load ptr, ptr %2, align 8, !tbaa !4
   call void @uv__signal_loop_cleanup(ptr noundef %4)
-  %5 = load ptr, ptr %2, align 8
+  %5 = load ptr, ptr %2, align 8, !tbaa !4
   call void @uv__platform_loop_delete(ptr noundef %5)
-  %6 = load ptr, ptr %2, align 8
+  %6 = load ptr, ptr %2, align 8, !tbaa !4
   call void @uv__async_stop(ptr noundef %6)
-  %7 = load ptr, ptr %2, align 8
-  %8 = getelementptr inbounds %struct.uv_loop_s, ptr %7, i32 0, i32 32
-  %9 = load i32, ptr %8, align 8
+  %7 = load ptr, ptr %2, align 8, !tbaa !4
+  %8 = getelementptr inbounds nuw %struct.uv_loop_s, ptr %7, i32 0, i32 32
+  %9 = load i32, ptr %8, align 8, !tbaa !35
   %10 = icmp ne i32 %9, -1
   br i1 %10, label %11, label %18
 
 11:                                               ; preds = %1
-  %12 = load ptr, ptr %2, align 8
-  %13 = getelementptr inbounds %struct.uv_loop_s, ptr %12, i32 0, i32 32
-  %14 = load i32, ptr %13, align 8
+  %12 = load ptr, ptr %2, align 8, !tbaa !4
+  %13 = getelementptr inbounds nuw %struct.uv_loop_s, ptr %12, i32 0, i32 32
+  %14 = load i32, ptr %13, align 8, !tbaa !35
   %15 = call i32 @uv__close(i32 noundef %14)
-  %16 = load ptr, ptr %2, align 8
-  %17 = getelementptr inbounds %struct.uv_loop_s, ptr %16, i32 0, i32 32
-  store i32 -1, ptr %17, align 8
+  %16 = load ptr, ptr %2, align 8, !tbaa !4
+  %17 = getelementptr inbounds nuw %struct.uv_loop_s, ptr %16, i32 0, i32 32
+  store i32 -1, ptr %17, align 8, !tbaa !35
   br label %18
 
 18:                                               ; preds = %11, %1
-  %19 = load ptr, ptr %2, align 8
-  %20 = getelementptr inbounds %struct.uv_loop_s, ptr %19, i32 0, i32 7
-  %21 = load i32, ptr %20, align 8
+  %19 = load ptr, ptr %2, align 8, !tbaa !4
+  %20 = getelementptr inbounds nuw %struct.uv_loop_s, ptr %19, i32 0, i32 7
+  %21 = load i32, ptr %20, align 8, !tbaa !34
   %22 = icmp ne i32 %21, -1
   br i1 %22, label %23, label %30
 
 23:                                               ; preds = %18
-  %24 = load ptr, ptr %2, align 8
-  %25 = getelementptr inbounds %struct.uv_loop_s, ptr %24, i32 0, i32 7
-  %26 = load i32, ptr %25, align 8
+  %24 = load ptr, ptr %2, align 8, !tbaa !4
+  %25 = getelementptr inbounds nuw %struct.uv_loop_s, ptr %24, i32 0, i32 7
+  %26 = load i32, ptr %25, align 8, !tbaa !34
   %27 = call i32 @uv__close(i32 noundef %26)
-  %28 = load ptr, ptr %2, align 8
-  %29 = getelementptr inbounds %struct.uv_loop_s, ptr %28, i32 0, i32 7
-  store i32 -1, ptr %29, align 8
+  %28 = load ptr, ptr %2, align 8, !tbaa !4
+  %29 = getelementptr inbounds nuw %struct.uv_loop_s, ptr %28, i32 0, i32 7
+  store i32 -1, ptr %29, align 8, !tbaa !34
   br label %30
 
 30:                                               ; preds = %23, %18
-  %31 = load ptr, ptr %2, align 8
-  %32 = getelementptr inbounds %struct.uv_loop_s, ptr %31, i32 0, i32 14
+  %31 = load ptr, ptr %2, align 8, !tbaa !4
+  %32 = getelementptr inbounds nuw %struct.uv_loop_s, ptr %31, i32 0, i32 14
   call void @uv_mutex_lock(ptr noundef %32)
-  %33 = load ptr, ptr %2, align 8
-  %34 = getelementptr inbounds %struct.uv_loop_s, ptr %33, i32 0, i32 14
+  %33 = load ptr, ptr %2, align 8, !tbaa !4
+  %34 = getelementptr inbounds nuw %struct.uv_loop_s, ptr %33, i32 0, i32 14
   call void @uv_mutex_unlock(ptr noundef %34)
-  %35 = load ptr, ptr %2, align 8
-  %36 = getelementptr inbounds %struct.uv_loop_s, ptr %35, i32 0, i32 14
+  %35 = load ptr, ptr %2, align 8, !tbaa !4
+  %36 = getelementptr inbounds nuw %struct.uv_loop_s, ptr %35, i32 0, i32 14
   call void @uv_mutex_destroy(ptr noundef %36)
-  %37 = load ptr, ptr %2, align 8
-  %38 = getelementptr inbounds %struct.uv_loop_s, ptr %37, i32 0, i32 16
+  %37 = load ptr, ptr %2, align 8, !tbaa !4
+  %38 = getelementptr inbounds nuw %struct.uv_loop_s, ptr %37, i32 0, i32 16
   call void @uv_rwlock_destroy(ptr noundef %38)
-  %39 = load ptr, ptr %2, align 8
-  %40 = getelementptr inbounds %struct.uv_loop_s, ptr %39, i32 0, i32 10
-  %41 = load ptr, ptr %40, align 8
+  %39 = load ptr, ptr %2, align 8, !tbaa !4
+  %40 = getelementptr inbounds nuw %struct.uv_loop_s, ptr %39, i32 0, i32 10
+  %41 = load ptr, ptr %40, align 8, !tbaa !29
   call void @uv__free(ptr noundef %41)
-  %42 = load ptr, ptr %2, align 8
-  %43 = getelementptr inbounds %struct.uv_loop_s, ptr %42, i32 0, i32 10
-  store ptr null, ptr %43, align 8
-  %44 = load ptr, ptr %2, align 8
-  %45 = getelementptr inbounds %struct.uv_loop_s, ptr %44, i32 0, i32 11
-  store i32 0, ptr %45, align 8
-  %46 = load ptr, ptr %2, align 8
-  %47 = getelementptr inbounds %struct.uv_loop_s, ptr %46, i32 0, i32 4
-  %48 = load ptr, ptr %47, align 8
-  store ptr %48, ptr %3, align 8
-  %49 = load ptr, ptr %3, align 8
-  %50 = getelementptr inbounds %struct.uv__loop_internal_fields_s, ptr %49, i32 0, i32 1
-  %51 = getelementptr inbounds %struct.uv__loop_metrics_s, ptr %50, i32 0, i32 2
+  %42 = load ptr, ptr %2, align 8, !tbaa !4
+  %43 = getelementptr inbounds nuw %struct.uv_loop_s, ptr %42, i32 0, i32 10
+  store ptr null, ptr %43, align 8, !tbaa !29
+  %44 = load ptr, ptr %2, align 8, !tbaa !4
+  %45 = getelementptr inbounds nuw %struct.uv_loop_s, ptr %44, i32 0, i32 11
+  store i32 0, ptr %45, align 8, !tbaa !30
+  %46 = load ptr, ptr %2, align 8, !tbaa !4
+  %47 = getelementptr inbounds nuw %struct.uv_loop_s, ptr %46, i32 0, i32 4
+  %48 = load ptr, ptr %47, align 8, !tbaa !24
+  store ptr %48, ptr %3, align 8, !tbaa !22
+  %49 = load ptr, ptr %3, align 8, !tbaa !22
+  %50 = getelementptr inbounds nuw %struct.uv__loop_internal_fields_s, ptr %49, i32 0, i32 1
+  %51 = getelementptr inbounds nuw %struct.uv__loop_metrics_s, ptr %50, i32 0, i32 2
   call void @uv_mutex_destroy(ptr noundef %51)
-  %52 = load ptr, ptr %3, align 8
+  %52 = load ptr, ptr %3, align 8, !tbaa !22
   call void @uv__free(ptr noundef %52)
-  %53 = load ptr, ptr %2, align 8
-  %54 = getelementptr inbounds %struct.uv_loop_s, ptr %53, i32 0, i32 4
-  store ptr null, ptr %54, align 8
+  %53 = load ptr, ptr %2, align 8, !tbaa !4
+  %54 = getelementptr inbounds nuw %struct.uv_loop_s, ptr %53, i32 0, i32 4
+  store ptr null, ptr %54, align 8, !tbaa !24
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #4
   ret void
 }
 
-declare void @uv__async_stop(ptr noundef) #2
+declare void @uv__async_stop(ptr noundef) #3
 
-declare i32 @uv__close(i32 noundef) #2
+declare i32 @uv__close(i32 noundef) #3
 
-declare void @uv_mutex_lock(ptr noundef) #2
+declare void @uv_mutex_lock(ptr noundef) #3
 
-declare void @uv_mutex_unlock(ptr noundef) #2
+declare void @uv_mutex_unlock(ptr noundef) #3
 
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @uv__loop_configure(ptr noundef %0, i32 noundef %1, ptr noundef %2) #0 {
@@ -837,93 +832,154 @@ define dso_local i32 @uv__loop_configure(ptr noundef %0, i32 noundef %1, ptr nou
   %6 = alloca i32, align 4
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
-  store ptr %0, ptr %5, align 8
-  store i32 %1, ptr %6, align 4
-  store ptr %2, ptr %7, align 8
-  %9 = load ptr, ptr %5, align 8
-  %10 = getelementptr inbounds %struct.uv_loop_s, ptr %9, i32 0, i32 4
-  %11 = load ptr, ptr %10, align 8
-  store ptr %11, ptr %8, align 8
-  %12 = load i32, ptr %6, align 4
-  %13 = icmp eq i32 %12, 1
-  br i1 %13, label %14, label %19
+  %9 = alloca i32, align 4
+  store ptr %0, ptr %5, align 8, !tbaa !4
+  store i32 %1, ptr %6, align 4, !tbaa !25
+  store ptr %2, ptr %7, align 8, !tbaa !53
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #4
+  %10 = load ptr, ptr %5, align 8, !tbaa !4
+  %11 = getelementptr inbounds nuw %struct.uv_loop_s, ptr %10, i32 0, i32 4
+  %12 = load ptr, ptr %11, align 8, !tbaa !24
+  store ptr %12, ptr %8, align 8, !tbaa !22
+  %13 = load i32, ptr %6, align 4, !tbaa !25
+  %14 = icmp eq i32 %13, 1
+  br i1 %14, label %15, label %20
 
-14:                                               ; preds = %3
-  %15 = load ptr, ptr %8, align 8
-  %16 = getelementptr inbounds %struct.uv__loop_internal_fields_s, ptr %15, i32 0, i32 0
-  %17 = load i32, ptr %16, align 8
-  %18 = or i32 %17, 1
-  store i32 %18, ptr %16, align 8
+15:                                               ; preds = %3
+  %16 = load ptr, ptr %8, align 8, !tbaa !22
+  %17 = getelementptr inbounds nuw %struct.uv__loop_internal_fields_s, ptr %16, i32 0, i32 0
+  %18 = load i32, ptr %17, align 8, !tbaa !55
+  %19 = or i32 %18, 1
+  store i32 %19, ptr %17, align 8, !tbaa !55
   store i32 0, ptr %4, align 4
-  br label %47
+  store i32 1, ptr %9, align 4
+  br label %48
 
-19:                                               ; preds = %3
-  %20 = load i32, ptr %6, align 4
-  %21 = icmp ne i32 %20, 0
-  br i1 %21, label %22, label %23
+20:                                               ; preds = %3
+  %21 = load i32, ptr %6, align 4, !tbaa !25
+  %22 = icmp ne i32 %21, 0
+  br i1 %22, label %23, label %24
 
-22:                                               ; preds = %19
+23:                                               ; preds = %20
   store i32 -38, ptr %4, align 4
-  br label %47
+  store i32 1, ptr %9, align 4
+  br label %48
 
-23:                                               ; preds = %19
-  %24 = load ptr, ptr %7, align 8
-  %25 = getelementptr inbounds %struct.__va_list_tag, ptr %24, i32 0, i32 0
-  %26 = load i32, ptr %25, align 8
-  %27 = icmp ule i32 %26, 40
-  br i1 %27, label %28, label %33
+24:                                               ; preds = %20
+  %25 = load ptr, ptr %7, align 8, !tbaa !53
+  %26 = getelementptr inbounds nuw %struct.__va_list_tag, ptr %25, i32 0, i32 0
+  %27 = load i32, ptr %26, align 8
+  %28 = icmp ule i32 %27, 40
+  br i1 %28, label %29, label %34
 
-28:                                               ; preds = %23
-  %29 = getelementptr inbounds %struct.__va_list_tag, ptr %24, i32 0, i32 3
-  %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr i8, ptr %30, i32 %26
-  %32 = add i32 %26, 8
-  store i32 %32, ptr %25, align 8
-  br label %37
+29:                                               ; preds = %24
+  %30 = getelementptr inbounds nuw %struct.__va_list_tag, ptr %25, i32 0, i32 3
+  %31 = load ptr, ptr %30, align 8
+  %32 = getelementptr i8, ptr %31, i32 %27
+  %33 = add i32 %27, 8
+  store i32 %33, ptr %26, align 8
+  br label %38
 
-33:                                               ; preds = %23
-  %34 = getelementptr inbounds %struct.__va_list_tag, ptr %24, i32 0, i32 2
-  %35 = load ptr, ptr %34, align 8
-  %36 = getelementptr i8, ptr %35, i32 8
-  store ptr %36, ptr %34, align 8
-  br label %37
+34:                                               ; preds = %24
+  %35 = getelementptr inbounds nuw %struct.__va_list_tag, ptr %25, i32 0, i32 2
+  %36 = load ptr, ptr %35, align 8
+  %37 = getelementptr i8, ptr %36, i32 8
+  store ptr %37, ptr %35, align 8
+  br label %38
 
-37:                                               ; preds = %33, %28
-  %38 = phi ptr [ %31, %28 ], [ %35, %33 ]
-  %39 = load i32, ptr %38, align 4
-  %40 = icmp ne i32 %39, 27
-  br i1 %40, label %41, label %42
+38:                                               ; preds = %34, %29
+  %39 = phi ptr [ %32, %29 ], [ %36, %34 ]
+  %40 = load i32, ptr %39, align 4, !tbaa !25
+  %41 = icmp ne i32 %40, 27
+  br i1 %41, label %42, label %43
 
-41:                                               ; preds = %37
+42:                                               ; preds = %38
   store i32 -22, ptr %4, align 4
-  br label %47
+  store i32 1, ptr %9, align 4
+  br label %48
 
-42:                                               ; preds = %37
-  %43 = load ptr, ptr %5, align 8
-  %44 = getelementptr inbounds %struct.uv_loop_s, ptr %43, i32 0, i32 6
-  %45 = load i64, ptr %44, align 8
-  %46 = or i64 %45, 1
-  store i64 %46, ptr %44, align 8
+43:                                               ; preds = %38
+  %44 = load ptr, ptr %5, align 8, !tbaa !4
+  %45 = getelementptr inbounds nuw %struct.uv_loop_s, ptr %44, i32 0, i32 6
+  %46 = load i64, ptr %45, align 8, !tbaa !58
+  %47 = or i64 %46, 1
+  store i64 %47, ptr %45, align 8, !tbaa !58
   store i32 0, ptr %4, align 4
-  br label %47
+  store i32 1, ptr %9, align 4
+  br label %48
 
-47:                                               ; preds = %42, %41, %22, %14
-  %48 = load i32, ptr %4, align 4
-  ret i32 %48
+48:                                               ; preds = %43, %42, %23, %15
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #4
+  %49 = load i32, ptr %4, align 4
+  ret i32 %49
 }
 
-declare i64 @uv__hrtime(i32 noundef) #2
+declare i64 @uv__hrtime(i32 noundef) #3
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+!llvm.module.flags = !{!0, !1, !2, !3}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
+!4 = !{!5, !5, i64 0}
+!5 = !{!"p1 _ZTS9uv_loop_s", !6, i64 0}
+!6 = !{!"any pointer", !7, i64 0}
+!7 = !{!"omnipotent char", !8, i64 0}
+!8 = !{!"Simple C/C++ TBAA"}
+!9 = !{!10, !6, i64 0}
+!10 = !{!"uv_loop_s", !6, i64 0, !11, i64 8, !7, i64 16, !7, i64 32, !6, i64 40, !11, i64 48, !12, i64 56, !11, i64 64, !7, i64 72, !7, i64 88, !13, i64 104, !11, i64 112, !11, i64 116, !7, i64 120, !7, i64 136, !14, i64 176, !7, i64 304, !15, i64 360, !7, i64 368, !7, i64 384, !7, i64 400, !7, i64 416, !7, i64 432, !6, i64 448, !16, i64 456, !11, i64 512, !17, i64 520, !12, i64 536, !12, i64 544, !7, i64 552, !16, i64 560, !18, i64 616, !11, i64 768, !16, i64 776, !6, i64 832, !11, i64 840}
+!11 = !{!"int", !7, i64 0}
+!12 = !{!"long", !7, i64 0}
+!13 = !{!"p2 _ZTS8uv__io_s", !6, i64 0}
+!14 = !{!"uv_async_s", !6, i64 0, !5, i64 8, !11, i64 16, !6, i64 24, !7, i64 32, !7, i64 48, !15, i64 80, !11, i64 88, !6, i64 96, !7, i64 104, !11, i64 120}
+!15 = !{!"p1 _ZTS11uv_handle_s", !6, i64 0}
+!16 = !{!"uv__io_s", !6, i64 0, !7, i64 8, !7, i64 24, !11, i64 40, !11, i64 44, !11, i64 48}
+!17 = !{!"", !6, i64 0, !11, i64 8}
+!18 = !{!"uv_signal_s", !6, i64 0, !5, i64 8, !11, i64 16, !6, i64 24, !7, i64 32, !7, i64 48, !15, i64 80, !11, i64 88, !6, i64 96, !11, i64 104, !19, i64 112, !11, i64 144, !11, i64 148}
+!19 = !{!"", !20, i64 0, !20, i64 8, !20, i64 16, !11, i64 24}
+!20 = !{!"p1 _ZTS11uv_signal_s", !6, i64 0}
+!21 = !{!6, !6, i64 0}
+!22 = !{!23, !23, i64 0}
+!23 = !{!"p1 _ZTS26uv__loop_internal_fields_s", !6, i64 0}
+!24 = !{!10, !6, i64 40}
+!25 = !{!11, !11, i64 0}
+!26 = !{!10, !11, i64 8}
+!27 = !{!7, !7, i64 0}
+!28 = !{!10, !11, i64 116}
+!29 = !{!10, !13, i64 104}
+!30 = !{!10, !11, i64 112}
+!31 = !{!10, !15, i64 360}
+!32 = !{!10, !11, i64 504}
+!33 = !{!10, !11, i64 512}
+!34 = !{!10, !11, i64 64}
+!35 = !{!10, !11, i64 768}
+!36 = !{!10, !12, i64 536}
+!37 = !{!10, !11, i64 48}
+!38 = !{!10, !11, i64 264}
+!39 = !{!10, !5, i64 184}
+!40 = !{!41, !41, i64 0}
+!41 = !{!"p1 _ZTS4heap", !6, i64 0}
+!42 = !{!43, !44, i64 0}
+!43 = !{!"heap", !44, i64 0, !11, i64 8}
+!44 = !{!"p1 _ZTS9heap_node", !6, i64 0}
+!45 = !{!43, !11, i64 8}
+!46 = !{!10, !12, i64 544}
+!47 = !{!48, !48, i64 0}
+!48 = !{!"p1 _ZTS8uv__io_s", !6, i64 0}
+!49 = !{!16, !11, i64 40}
+!50 = !{!16, !11, i64 44}
+!51 = distinct !{!51, !52}
+!52 = !{!"llvm.loop.mustprogress"}
+!53 = !{!54, !54, i64 0}
+!54 = !{!"p1 _ZTS13__va_list_tag", !6, i64 0}
+!55 = !{!56, !11, i64 0}
+!56 = !{!"uv__loop_internal_fields_s", !11, i64 0, !57, i64 8}
+!57 = !{!"uv__loop_metrics_s", !12, i64 0, !12, i64 8, !7, i64 16}
+!58 = !{!10, !12, i64 56}

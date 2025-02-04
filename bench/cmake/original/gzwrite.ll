@@ -10,7 +10,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.1 = private unnamed_addr constant [33 x i8] c"request does not fit in a size_t\00", align 1
 @.str.2 = private unnamed_addr constant [34 x i8] c"string length does not fit in int\00", align 1
 @.str.3 = private unnamed_addr constant [14 x i8] c"out of memory\00", align 1
-@.str.4 = private unnamed_addr constant [7 x i8] c"1.2.13\00", align 1
+@.str.4 = private unnamed_addr constant [6 x i8] c"1.3.1\00", align 1
 @.str.5 = private unnamed_addr constant [39 x i8] c"internal error: deflate stream corrupt\00", align 1
 
 ; Function Attrs: nounwind uwtable
@@ -20,64 +20,74 @@ define dso_local i32 @cm_zlib_gzwrite(ptr noundef %0, ptr noundef %1, i32 nounde
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
   %8 = alloca ptr, align 8
-  store ptr %0, ptr %5, align 8
-  store ptr %1, ptr %6, align 8
-  store i32 %2, ptr %7, align 4
-  %9 = load ptr, ptr %5, align 8
-  %10 = icmp eq ptr %9, null
-  br i1 %10, label %11, label %12
-
-11:                                               ; preds = %3
-  store i32 0, ptr %4, align 4
-  br label %36
+  %9 = alloca i32, align 4
+  store ptr %0, ptr %5, align 8, !tbaa !4
+  store ptr %1, ptr %6, align 8, !tbaa !9
+  store i32 %2, ptr %7, align 4, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #10
+  %10 = load ptr, ptr %5, align 8, !tbaa !4
+  %11 = icmp eq ptr %10, null
+  br i1 %11, label %12, label %13
 
 12:                                               ; preds = %3
-  %13 = load ptr, ptr %5, align 8
-  store ptr %13, ptr %8, align 8
-  %14 = load ptr, ptr %8, align 8
-  %15 = getelementptr inbounds %struct.gz_state, ptr %14, i32 0, i32 1
-  %16 = load i32, ptr %15, align 8
-  %17 = icmp ne i32 %16, 31153
-  br i1 %17, label %23, label %18
-
-18:                                               ; preds = %12
-  %19 = load ptr, ptr %8, align 8
-  %20 = getelementptr inbounds %struct.gz_state, ptr %19, i32 0, i32 18
-  %21 = load i32, ptr %20, align 4
-  %22 = icmp ne i32 %21, 0
-  br i1 %22, label %23, label %24
-
-23:                                               ; preds = %18, %12
   store i32 0, ptr %4, align 4
-  br label %36
+  store i32 1, ptr %9, align 4
+  br label %37
 
-24:                                               ; preds = %18
-  %25 = load i32, ptr %7, align 4
-  %26 = icmp slt i32 %25, 0
-  br i1 %26, label %27, label %29
+13:                                               ; preds = %3
+  %14 = load ptr, ptr %5, align 8, !tbaa !4
+  store ptr %14, ptr %8, align 8, !tbaa !9
+  %15 = load ptr, ptr %8, align 8, !tbaa !9
+  %16 = getelementptr inbounds nuw %struct.gz_state, ptr %15, i32 0, i32 1
+  %17 = load i32, ptr %16, align 8, !tbaa !12
+  %18 = icmp ne i32 %17, 31153
+  br i1 %18, label %24, label %19
 
-27:                                               ; preds = %24
-  %28 = load ptr, ptr %8, align 8
-  call void @cm_zlib_gz_error(ptr noundef %28, i32 noundef -3, ptr noundef @.str)
+19:                                               ; preds = %13
+  %20 = load ptr, ptr %8, align 8, !tbaa !9
+  %21 = getelementptr inbounds nuw %struct.gz_state, ptr %20, i32 0, i32 18
+  %22 = load i32, ptr %21, align 4, !tbaa !19
+  %23 = icmp ne i32 %22, 0
+  br i1 %23, label %24, label %25
+
+24:                                               ; preds = %19, %13
   store i32 0, ptr %4, align 4
-  br label %36
+  store i32 1, ptr %9, align 4
+  br label %37
 
-29:                                               ; preds = %24
-  %30 = load ptr, ptr %8, align 8
-  %31 = load ptr, ptr %6, align 8
-  %32 = load i32, ptr %7, align 4
-  %33 = zext i32 %32 to i64
-  %34 = call i64 @gz_write(ptr noundef %30, ptr noundef %31, i64 noundef %33)
-  %35 = trunc i64 %34 to i32
-  store i32 %35, ptr %4, align 4
-  br label %36
+25:                                               ; preds = %19
+  %26 = load i32, ptr %7, align 4, !tbaa !10
+  %27 = icmp slt i32 %26, 0
+  br i1 %27, label %28, label %30
 
-36:                                               ; preds = %29, %27, %23, %11
-  %37 = load i32, ptr %4, align 4
-  ret i32 %37
+28:                                               ; preds = %25
+  %29 = load ptr, ptr %8, align 8, !tbaa !9
+  call void @cm_zlib_gz_error(ptr noundef %29, i32 noundef -3, ptr noundef @.str)
+  store i32 0, ptr %4, align 4
+  store i32 1, ptr %9, align 4
+  br label %37
+
+30:                                               ; preds = %25
+  %31 = load ptr, ptr %8, align 8, !tbaa !9
+  %32 = load ptr, ptr %6, align 8, !tbaa !9
+  %33 = load i32, ptr %7, align 4, !tbaa !10
+  %34 = zext i32 %33 to i64
+  %35 = call i64 @gz_write(ptr noundef %31, ptr noundef %32, i64 noundef %34)
+  %36 = trunc i64 %35 to i32
+  store i32 %36, ptr %4, align 4
+  store i32 1, ptr %9, align 4
+  br label %37
+
+37:                                               ; preds = %30, %28, %24, %12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #10
+  %38 = load i32, ptr %4, align 4
+  ret i32 %38
 }
 
-declare void @cm_zlib_gz_error(ptr noundef, i32 noundef, ptr noundef) #1
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+
+declare void @cm_zlib_gz_error(ptr noundef, i32 noundef, ptr noundef) #2
 
 ; Function Attrs: nounwind uwtable
 define internal i64 @gz_write(ptr noundef %0, ptr noundef %1, i64 noundef %2) #0 {
@@ -89,278 +99,317 @@ define internal i64 @gz_write(ptr noundef %0, ptr noundef %1, i64 noundef %2) #0
   %9 = alloca i32, align 4
   %10 = alloca i32, align 4
   %11 = alloca i32, align 4
-  store ptr %0, ptr %5, align 8
-  store ptr %1, ptr %6, align 8
-  store i64 %2, ptr %7, align 8
-  %12 = load i64, ptr %7, align 8
-  store i64 %12, ptr %8, align 8
-  %13 = load i64, ptr %7, align 8
-  %14 = icmp eq i64 %13, 0
-  br i1 %14, label %15, label %16
-
-15:                                               ; preds = %3
-  store i64 0, ptr %4, align 8
-  br label %187
+  %12 = alloca i32, align 4
+  store ptr %0, ptr %5, align 8, !tbaa !9
+  store ptr %1, ptr %6, align 8, !tbaa !9
+  store i64 %2, ptr %7, align 8, !tbaa !20
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #10
+  %13 = load i64, ptr %7, align 8, !tbaa !20
+  store i64 %13, ptr %8, align 8, !tbaa !20
+  %14 = load i64, ptr %7, align 8, !tbaa !20
+  %15 = icmp eq i64 %14, 0
+  br i1 %15, label %16, label %17
 
 16:                                               ; preds = %3
-  %17 = load ptr, ptr %5, align 8
-  %18 = getelementptr inbounds %struct.gz_state, ptr %17, i32 0, i32 4
-  %19 = load i32, ptr %18, align 8
-  %20 = icmp eq i32 %19, 0
-  br i1 %20, label %21, label %26
-
-21:                                               ; preds = %16
-  %22 = load ptr, ptr %5, align 8
-  %23 = call i32 @gz_init(ptr noundef %22)
-  %24 = icmp eq i32 %23, -1
-  br i1 %24, label %25, label %26
-
-25:                                               ; preds = %21
   store i64 0, ptr %4, align 8
-  br label %187
+  store i32 1, ptr %9, align 4
+  br label %194
 
-26:                                               ; preds = %21, %16
-  %27 = load ptr, ptr %5, align 8
-  %28 = getelementptr inbounds %struct.gz_state, ptr %27, i32 0, i32 17
-  %29 = load i32, ptr %28, align 8
-  %30 = icmp ne i32 %29, 0
-  br i1 %30, label %31, label %42
+17:                                               ; preds = %3
+  %18 = load ptr, ptr %5, align 8, !tbaa !9
+  %19 = getelementptr inbounds nuw %struct.gz_state, ptr %18, i32 0, i32 4
+  %20 = load i32, ptr %19, align 8, !tbaa !21
+  %21 = icmp eq i32 %20, 0
+  br i1 %21, label %22, label %27
 
-31:                                               ; preds = %26
-  %32 = load ptr, ptr %5, align 8
-  %33 = getelementptr inbounds %struct.gz_state, ptr %32, i32 0, i32 17
-  store i32 0, ptr %33, align 8
-  %34 = load ptr, ptr %5, align 8
-  %35 = load ptr, ptr %5, align 8
-  %36 = getelementptr inbounds %struct.gz_state, ptr %35, i32 0, i32 16
-  %37 = load i64, ptr %36, align 8
-  %38 = call i32 @gz_zero(ptr noundef %34, i64 noundef %37)
-  %39 = icmp eq i32 %38, -1
-  br i1 %39, label %40, label %41
+22:                                               ; preds = %17
+  %23 = load ptr, ptr %5, align 8, !tbaa !9
+  %24 = call i32 @gz_init(ptr noundef %23)
+  %25 = icmp eq i32 %24, -1
+  br i1 %25, label %26, label %27
 
-40:                                               ; preds = %31
+26:                                               ; preds = %22
   store i64 0, ptr %4, align 8
-  br label %187
+  store i32 1, ptr %9, align 4
+  br label %194
 
-41:                                               ; preds = %31
-  br label %42
+27:                                               ; preds = %22, %17
+  %28 = load ptr, ptr %5, align 8, !tbaa !9
+  %29 = getelementptr inbounds nuw %struct.gz_state, ptr %28, i32 0, i32 17
+  %30 = load i32, ptr %29, align 8, !tbaa !22
+  %31 = icmp ne i32 %30, 0
+  br i1 %31, label %32, label %43
 
-42:                                               ; preds = %41, %26
-  %43 = load i64, ptr %7, align 8
-  %44 = load ptr, ptr %5, align 8
-  %45 = getelementptr inbounds %struct.gz_state, ptr %44, i32 0, i32 4
-  %46 = load i32, ptr %45, align 8
-  %47 = zext i32 %46 to i64
-  %48 = icmp ult i64 %43, %47
-  br i1 %48, label %49, label %136
+32:                                               ; preds = %27
+  %33 = load ptr, ptr %5, align 8, !tbaa !9
+  %34 = getelementptr inbounds nuw %struct.gz_state, ptr %33, i32 0, i32 17
+  store i32 0, ptr %34, align 8, !tbaa !22
+  %35 = load ptr, ptr %5, align 8, !tbaa !9
+  %36 = load ptr, ptr %5, align 8, !tbaa !9
+  %37 = getelementptr inbounds nuw %struct.gz_state, ptr %36, i32 0, i32 16
+  %38 = load i64, ptr %37, align 8, !tbaa !23
+  %39 = call i32 @gz_zero(ptr noundef %35, i64 noundef %38)
+  %40 = icmp eq i32 %39, -1
+  br i1 %40, label %41, label %42
 
-49:                                               ; preds = %42
-  br label %50
-
-50:                                               ; preds = %132, %49
-  %51 = load ptr, ptr %5, align 8
-  %52 = getelementptr inbounds %struct.gz_state, ptr %51, i32 0, i32 20
-  %53 = getelementptr inbounds %struct.z_stream_s, ptr %52, i32 0, i32 1
-  %54 = load i32, ptr %53, align 8
-  %55 = icmp eq i32 %54, 0
-  br i1 %55, label %56, label %63
-
-56:                                               ; preds = %50
-  %57 = load ptr, ptr %5, align 8
-  %58 = getelementptr inbounds %struct.gz_state, ptr %57, i32 0, i32 6
-  %59 = load ptr, ptr %58, align 8
-  %60 = load ptr, ptr %5, align 8
-  %61 = getelementptr inbounds %struct.gz_state, ptr %60, i32 0, i32 20
-  %62 = getelementptr inbounds %struct.z_stream_s, ptr %61, i32 0, i32 0
-  store ptr %59, ptr %62, align 8
-  br label %63
-
-63:                                               ; preds = %56, %50
-  %64 = load ptr, ptr %5, align 8
-  %65 = getelementptr inbounds %struct.gz_state, ptr %64, i32 0, i32 20
-  %66 = getelementptr inbounds %struct.z_stream_s, ptr %65, i32 0, i32 0
-  %67 = load ptr, ptr %66, align 8
-  %68 = load ptr, ptr %5, align 8
-  %69 = getelementptr inbounds %struct.gz_state, ptr %68, i32 0, i32 20
-  %70 = getelementptr inbounds %struct.z_stream_s, ptr %69, i32 0, i32 1
-  %71 = load i32, ptr %70, align 8
-  %72 = zext i32 %71 to i64
-  %73 = getelementptr inbounds i8, ptr %67, i64 %72
-  %74 = load ptr, ptr %5, align 8
-  %75 = getelementptr inbounds %struct.gz_state, ptr %74, i32 0, i32 6
-  %76 = load ptr, ptr %75, align 8
-  %77 = ptrtoint ptr %73 to i64
-  %78 = ptrtoint ptr %76 to i64
-  %79 = sub i64 %77, %78
-  %80 = trunc i64 %79 to i32
-  store i32 %80, ptr %9, align 4
-  %81 = load ptr, ptr %5, align 8
-  %82 = getelementptr inbounds %struct.gz_state, ptr %81, i32 0, i32 4
-  %83 = load i32, ptr %82, align 8
-  %84 = load i32, ptr %9, align 4
-  %85 = sub i32 %83, %84
-  store i32 %85, ptr %10, align 4
-  %86 = load i32, ptr %10, align 4
-  %87 = zext i32 %86 to i64
-  %88 = load i64, ptr %7, align 8
-  %89 = icmp ugt i64 %87, %88
-  br i1 %89, label %90, label %93
-
-90:                                               ; preds = %63
-  %91 = load i64, ptr %7, align 8
-  %92 = trunc i64 %91 to i32
-  store i32 %92, ptr %10, align 4
-  br label %93
-
-93:                                               ; preds = %90, %63
-  %94 = load ptr, ptr %5, align 8
-  %95 = getelementptr inbounds %struct.gz_state, ptr %94, i32 0, i32 6
-  %96 = load ptr, ptr %95, align 8
-  %97 = load i32, ptr %9, align 4
-  %98 = zext i32 %97 to i64
-  %99 = getelementptr inbounds i8, ptr %96, i64 %98
-  %100 = load ptr, ptr %6, align 8
-  %101 = load i32, ptr %10, align 4
-  %102 = zext i32 %101 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %99, ptr align 1 %100, i64 %102, i1 false)
-  %103 = load i32, ptr %10, align 4
-  %104 = load ptr, ptr %5, align 8
-  %105 = getelementptr inbounds %struct.gz_state, ptr %104, i32 0, i32 20
-  %106 = getelementptr inbounds %struct.z_stream_s, ptr %105, i32 0, i32 1
-  %107 = load i32, ptr %106, align 8
-  %108 = add i32 %107, %103
-  store i32 %108, ptr %106, align 8
-  %109 = load i32, ptr %10, align 4
-  %110 = zext i32 %109 to i64
-  %111 = load ptr, ptr %5, align 8
-  %112 = getelementptr inbounds %struct.gz_state, ptr %111, i32 0, i32 0
-  %113 = getelementptr inbounds %struct.gzFile_s, ptr %112, i32 0, i32 2
-  %114 = load i64, ptr %113, align 8
-  %115 = add nsw i64 %114, %110
-  store i64 %115, ptr %113, align 8
-  %116 = load ptr, ptr %6, align 8
-  %117 = load i32, ptr %10, align 4
-  %118 = zext i32 %117 to i64
-  %119 = getelementptr inbounds i8, ptr %116, i64 %118
-  store ptr %119, ptr %6, align 8
-  %120 = load i32, ptr %10, align 4
-  %121 = zext i32 %120 to i64
-  %122 = load i64, ptr %7, align 8
-  %123 = sub i64 %122, %121
-  store i64 %123, ptr %7, align 8
-  %124 = load i64, ptr %7, align 8
-  %125 = icmp ne i64 %124, 0
-  br i1 %125, label %126, label %131
-
-126:                                              ; preds = %93
-  %127 = load ptr, ptr %5, align 8
-  %128 = call i32 @gz_comp(ptr noundef %127, i32 noundef 0)
-  %129 = icmp eq i32 %128, -1
-  br i1 %129, label %130, label %131
-
-130:                                              ; preds = %126
+41:                                               ; preds = %32
   store i64 0, ptr %4, align 8
-  br label %187
+  store i32 1, ptr %9, align 4
+  br label %194
 
-131:                                              ; preds = %126, %93
-  br label %132
+42:                                               ; preds = %32
+  br label %43
 
-132:                                              ; preds = %131
-  %133 = load i64, ptr %7, align 8
-  %134 = icmp ne i64 %133, 0
-  br i1 %134, label %50, label %135, !llvm.loop !5
+43:                                               ; preds = %42, %27
+  %44 = load i64, ptr %7, align 8, !tbaa !20
+  %45 = load ptr, ptr %5, align 8, !tbaa !9
+  %46 = getelementptr inbounds nuw %struct.gz_state, ptr %45, i32 0, i32 4
+  %47 = load i32, ptr %46, align 8, !tbaa !21
+  %48 = zext i32 %47 to i64
+  %49 = icmp ult i64 %44, %48
+  br i1 %49, label %50, label %140
 
-135:                                              ; preds = %132
+50:                                               ; preds = %43
+  br label %51
+
+51:                                               ; preds = %136, %50
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #10
+  %52 = load ptr, ptr %5, align 8, !tbaa !9
+  %53 = getelementptr inbounds nuw %struct.gz_state, ptr %52, i32 0, i32 20
+  %54 = getelementptr inbounds nuw %struct.z_stream_s, ptr %53, i32 0, i32 1
+  %55 = load i32, ptr %54, align 8, !tbaa !24
+  %56 = icmp eq i32 %55, 0
+  br i1 %56, label %57, label %64
+
+57:                                               ; preds = %51
+  %58 = load ptr, ptr %5, align 8, !tbaa !9
+  %59 = getelementptr inbounds nuw %struct.gz_state, ptr %58, i32 0, i32 6
+  %60 = load ptr, ptr %59, align 8, !tbaa !25
+  %61 = load ptr, ptr %5, align 8, !tbaa !9
+  %62 = getelementptr inbounds nuw %struct.gz_state, ptr %61, i32 0, i32 20
+  %63 = getelementptr inbounds nuw %struct.z_stream_s, ptr %62, i32 0, i32 0
+  store ptr %60, ptr %63, align 8, !tbaa !26
+  br label %64
+
+64:                                               ; preds = %57, %51
+  %65 = load ptr, ptr %5, align 8, !tbaa !9
+  %66 = getelementptr inbounds nuw %struct.gz_state, ptr %65, i32 0, i32 20
+  %67 = getelementptr inbounds nuw %struct.z_stream_s, ptr %66, i32 0, i32 0
+  %68 = load ptr, ptr %67, align 8, !tbaa !26
+  %69 = load ptr, ptr %5, align 8, !tbaa !9
+  %70 = getelementptr inbounds nuw %struct.gz_state, ptr %69, i32 0, i32 20
+  %71 = getelementptr inbounds nuw %struct.z_stream_s, ptr %70, i32 0, i32 1
+  %72 = load i32, ptr %71, align 8, !tbaa !24
+  %73 = zext i32 %72 to i64
+  %74 = getelementptr inbounds nuw i8, ptr %68, i64 %73
+  %75 = load ptr, ptr %5, align 8, !tbaa !9
+  %76 = getelementptr inbounds nuw %struct.gz_state, ptr %75, i32 0, i32 6
+  %77 = load ptr, ptr %76, align 8, !tbaa !25
+  %78 = ptrtoint ptr %74 to i64
+  %79 = ptrtoint ptr %77 to i64
+  %80 = sub i64 %78, %79
+  %81 = trunc i64 %80 to i32
+  store i32 %81, ptr %10, align 4, !tbaa !10
+  %82 = load ptr, ptr %5, align 8, !tbaa !9
+  %83 = getelementptr inbounds nuw %struct.gz_state, ptr %82, i32 0, i32 4
+  %84 = load i32, ptr %83, align 8, !tbaa !21
+  %85 = load i32, ptr %10, align 4, !tbaa !10
+  %86 = sub i32 %84, %85
+  store i32 %86, ptr %11, align 4, !tbaa !10
+  %87 = load i32, ptr %11, align 4, !tbaa !10
+  %88 = zext i32 %87 to i64
+  %89 = load i64, ptr %7, align 8, !tbaa !20
+  %90 = icmp ugt i64 %88, %89
+  br i1 %90, label %91, label %94
+
+91:                                               ; preds = %64
+  %92 = load i64, ptr %7, align 8, !tbaa !20
+  %93 = trunc i64 %92 to i32
+  store i32 %93, ptr %11, align 4, !tbaa !10
+  br label %94
+
+94:                                               ; preds = %91, %64
+  %95 = load ptr, ptr %5, align 8, !tbaa !9
+  %96 = getelementptr inbounds nuw %struct.gz_state, ptr %95, i32 0, i32 6
+  %97 = load ptr, ptr %96, align 8, !tbaa !25
+  %98 = load i32, ptr %10, align 4, !tbaa !10
+  %99 = zext i32 %98 to i64
+  %100 = getelementptr inbounds nuw i8, ptr %97, i64 %99
+  %101 = load ptr, ptr %6, align 8, !tbaa !9
+  %102 = load i32, ptr %11, align 4, !tbaa !10
+  %103 = zext i32 %102 to i64
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %100, ptr align 1 %101, i64 %103, i1 false)
+  %104 = load i32, ptr %11, align 4, !tbaa !10
+  %105 = load ptr, ptr %5, align 8, !tbaa !9
+  %106 = getelementptr inbounds nuw %struct.gz_state, ptr %105, i32 0, i32 20
+  %107 = getelementptr inbounds nuw %struct.z_stream_s, ptr %106, i32 0, i32 1
+  %108 = load i32, ptr %107, align 8, !tbaa !24
+  %109 = add i32 %108, %104
+  store i32 %109, ptr %107, align 8, !tbaa !24
+  %110 = load i32, ptr %11, align 4, !tbaa !10
+  %111 = zext i32 %110 to i64
+  %112 = load ptr, ptr %5, align 8, !tbaa !9
+  %113 = getelementptr inbounds nuw %struct.gz_state, ptr %112, i32 0, i32 0
+  %114 = getelementptr inbounds nuw %struct.gzFile_s, ptr %113, i32 0, i32 2
+  %115 = load i64, ptr %114, align 8, !tbaa !27
+  %116 = add nsw i64 %115, %111
+  store i64 %116, ptr %114, align 8, !tbaa !27
+  %117 = load ptr, ptr %6, align 8, !tbaa !9
+  %118 = load i32, ptr %11, align 4, !tbaa !10
+  %119 = zext i32 %118 to i64
+  %120 = getelementptr inbounds nuw i8, ptr %117, i64 %119
+  store ptr %120, ptr %6, align 8, !tbaa !9
+  %121 = load i32, ptr %11, align 4, !tbaa !10
+  %122 = zext i32 %121 to i64
+  %123 = load i64, ptr %7, align 8, !tbaa !20
+  %124 = sub i64 %123, %122
+  store i64 %124, ptr %7, align 8, !tbaa !20
+  %125 = load i64, ptr %7, align 8, !tbaa !20
+  %126 = icmp ne i64 %125, 0
+  br i1 %126, label %127, label %132
+
+127:                                              ; preds = %94
+  %128 = load ptr, ptr %5, align 8, !tbaa !9
+  %129 = call i32 @gz_comp(ptr noundef %128, i32 noundef 0)
+  %130 = icmp eq i32 %129, -1
+  br i1 %130, label %131, label %132
+
+131:                                              ; preds = %127
+  store i64 0, ptr %4, align 8
+  store i32 1, ptr %9, align 4
+  br label %133
+
+132:                                              ; preds = %127, %94
+  store i32 0, ptr %9, align 4
+  br label %133
+
+133:                                              ; preds = %132, %131
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #10
+  %134 = load i32, ptr %9, align 4
+  switch i32 %134, label %194 [
+    i32 0, label %135
+  ]
+
+135:                                              ; preds = %133
+  br label %136
+
+136:                                              ; preds = %135
+  %137 = load i64, ptr %7, align 8, !tbaa !20
+  %138 = icmp ne i64 %137, 0
+  br i1 %138, label %51, label %139, !llvm.loop !28
+
+139:                                              ; preds = %136
+  br label %192
+
+140:                                              ; preds = %43
+  %141 = load ptr, ptr %5, align 8, !tbaa !9
+  %142 = getelementptr inbounds nuw %struct.gz_state, ptr %141, i32 0, i32 20
+  %143 = getelementptr inbounds nuw %struct.z_stream_s, ptr %142, i32 0, i32 1
+  %144 = load i32, ptr %143, align 8, !tbaa !24
+  %145 = icmp ne i32 %144, 0
+  br i1 %145, label %146, label %151
+
+146:                                              ; preds = %140
+  %147 = load ptr, ptr %5, align 8, !tbaa !9
+  %148 = call i32 @gz_comp(ptr noundef %147, i32 noundef 0)
+  %149 = icmp eq i32 %148, -1
+  br i1 %149, label %150, label %151
+
+150:                                              ; preds = %146
+  store i64 0, ptr %4, align 8
+  store i32 1, ptr %9, align 4
+  br label %194
+
+151:                                              ; preds = %146, %140
+  %152 = load ptr, ptr %6, align 8, !tbaa !9
+  %153 = load ptr, ptr %5, align 8, !tbaa !9
+  %154 = getelementptr inbounds nuw %struct.gz_state, ptr %153, i32 0, i32 20
+  %155 = getelementptr inbounds nuw %struct.z_stream_s, ptr %154, i32 0, i32 0
+  store ptr %152, ptr %155, align 8, !tbaa !26
+  br label %156
+
+156:                                              ; preds = %188, %151
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #10
+  store i32 -1, ptr %12, align 4, !tbaa !10
+  %157 = load i32, ptr %12, align 4, !tbaa !10
+  %158 = zext i32 %157 to i64
+  %159 = load i64, ptr %7, align 8, !tbaa !20
+  %160 = icmp ugt i64 %158, %159
+  br i1 %160, label %161, label %164
+
+161:                                              ; preds = %156
+  %162 = load i64, ptr %7, align 8, !tbaa !20
+  %163 = trunc i64 %162 to i32
+  store i32 %163, ptr %12, align 4, !tbaa !10
+  br label %164
+
+164:                                              ; preds = %161, %156
+  %165 = load i32, ptr %12, align 4, !tbaa !10
+  %166 = load ptr, ptr %5, align 8, !tbaa !9
+  %167 = getelementptr inbounds nuw %struct.gz_state, ptr %166, i32 0, i32 20
+  %168 = getelementptr inbounds nuw %struct.z_stream_s, ptr %167, i32 0, i32 1
+  store i32 %165, ptr %168, align 8, !tbaa !24
+  %169 = load i32, ptr %12, align 4, !tbaa !10
+  %170 = zext i32 %169 to i64
+  %171 = load ptr, ptr %5, align 8, !tbaa !9
+  %172 = getelementptr inbounds nuw %struct.gz_state, ptr %171, i32 0, i32 0
+  %173 = getelementptr inbounds nuw %struct.gzFile_s, ptr %172, i32 0, i32 2
+  %174 = load i64, ptr %173, align 8, !tbaa !27
+  %175 = add nsw i64 %174, %170
+  store i64 %175, ptr %173, align 8, !tbaa !27
+  %176 = load ptr, ptr %5, align 8, !tbaa !9
+  %177 = call i32 @gz_comp(ptr noundef %176, i32 noundef 0)
+  %178 = icmp eq i32 %177, -1
+  br i1 %178, label %179, label %180
+
+179:                                              ; preds = %164
+  store i64 0, ptr %4, align 8
+  store i32 1, ptr %9, align 4
   br label %185
 
-136:                                              ; preds = %42
-  %137 = load ptr, ptr %5, align 8
-  %138 = getelementptr inbounds %struct.gz_state, ptr %137, i32 0, i32 20
-  %139 = getelementptr inbounds %struct.z_stream_s, ptr %138, i32 0, i32 1
-  %140 = load i32, ptr %139, align 8
-  %141 = icmp ne i32 %140, 0
-  br i1 %141, label %142, label %147
-
-142:                                              ; preds = %136
-  %143 = load ptr, ptr %5, align 8
-  %144 = call i32 @gz_comp(ptr noundef %143, i32 noundef 0)
-  %145 = icmp eq i32 %144, -1
-  br i1 %145, label %146, label %147
-
-146:                                              ; preds = %142
-  store i64 0, ptr %4, align 8
-  br label %187
-
-147:                                              ; preds = %142, %136
-  %148 = load ptr, ptr %6, align 8
-  %149 = load ptr, ptr %5, align 8
-  %150 = getelementptr inbounds %struct.gz_state, ptr %149, i32 0, i32 20
-  %151 = getelementptr inbounds %struct.z_stream_s, ptr %150, i32 0, i32 0
-  store ptr %148, ptr %151, align 8
-  br label %152
-
-152:                                              ; preds = %181, %147
-  store i32 -1, ptr %11, align 4
-  %153 = load i32, ptr %11, align 4
-  %154 = zext i32 %153 to i64
-  %155 = load i64, ptr %7, align 8
-  %156 = icmp ugt i64 %154, %155
-  br i1 %156, label %157, label %160
-
-157:                                              ; preds = %152
-  %158 = load i64, ptr %7, align 8
-  %159 = trunc i64 %158 to i32
-  store i32 %159, ptr %11, align 4
-  br label %160
-
-160:                                              ; preds = %157, %152
-  %161 = load i32, ptr %11, align 4
-  %162 = load ptr, ptr %5, align 8
-  %163 = getelementptr inbounds %struct.gz_state, ptr %162, i32 0, i32 20
-  %164 = getelementptr inbounds %struct.z_stream_s, ptr %163, i32 0, i32 1
-  store i32 %161, ptr %164, align 8
-  %165 = load i32, ptr %11, align 4
-  %166 = zext i32 %165 to i64
-  %167 = load ptr, ptr %5, align 8
-  %168 = getelementptr inbounds %struct.gz_state, ptr %167, i32 0, i32 0
-  %169 = getelementptr inbounds %struct.gzFile_s, ptr %168, i32 0, i32 2
-  %170 = load i64, ptr %169, align 8
-  %171 = add nsw i64 %170, %166
-  store i64 %171, ptr %169, align 8
-  %172 = load ptr, ptr %5, align 8
-  %173 = call i32 @gz_comp(ptr noundef %172, i32 noundef 0)
-  %174 = icmp eq i32 %173, -1
-  br i1 %174, label %175, label %176
-
-175:                                              ; preds = %160
-  store i64 0, ptr %4, align 8
-  br label %187
-
-176:                                              ; preds = %160
-  %177 = load i32, ptr %11, align 4
-  %178 = zext i32 %177 to i64
-  %179 = load i64, ptr %7, align 8
-  %180 = sub i64 %179, %178
-  store i64 %180, ptr %7, align 8
-  br label %181
-
-181:                                              ; preds = %176
-  %182 = load i64, ptr %7, align 8
-  %183 = icmp ne i64 %182, 0
-  br i1 %183, label %152, label %184, !llvm.loop !7
-
-184:                                              ; preds = %181
+180:                                              ; preds = %164
+  %181 = load i32, ptr %12, align 4, !tbaa !10
+  %182 = zext i32 %181 to i64
+  %183 = load i64, ptr %7, align 8, !tbaa !20
+  %184 = sub i64 %183, %182
+  store i64 %184, ptr %7, align 8, !tbaa !20
+  store i32 0, ptr %9, align 4
   br label %185
 
-185:                                              ; preds = %184, %135
-  %186 = load i64, ptr %8, align 8
-  store i64 %186, ptr %4, align 8
-  br label %187
+185:                                              ; preds = %180, %179
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #10
+  %186 = load i32, ptr %9, align 4
+  switch i32 %186, label %194 [
+    i32 0, label %187
+  ]
 
-187:                                              ; preds = %185, %175, %146, %130, %40, %25, %15
-  %188 = load i64, ptr %4, align 8
-  ret i64 %188
+187:                                              ; preds = %185
+  br label %188
+
+188:                                              ; preds = %187
+  %189 = load i64, ptr %7, align 8, !tbaa !20
+  %190 = icmp ne i64 %189, 0
+  br i1 %190, label %156, label %191, !llvm.loop !30
+
+191:                                              ; preds = %188
+  br label %192
+
+192:                                              ; preds = %191, %139
+  %193 = load i64, ptr %8, align 8, !tbaa !20
+  store i64 %193, ptr %4, align 8
+  store i32 1, ptr %9, align 4
+  br label %194
+
+194:                                              ; preds = %192, %185, %150, %133, %41, %26, %16
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #10
+  %195 = load i64, ptr %4, align 8
+  ret i64 %195
 }
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @cm_zlib_gzfwrite(ptr noundef %0, i64 noundef %1, i64 noundef %2, ptr noundef %3) #0 {
@@ -371,86 +420,95 @@ define dso_local i64 @cm_zlib_gzfwrite(ptr noundef %0, i64 noundef %1, i64 nound
   %9 = alloca ptr, align 8
   %10 = alloca i64, align 8
   %11 = alloca ptr, align 8
-  store ptr %0, ptr %6, align 8
-  store i64 %1, ptr %7, align 8
-  store i64 %2, ptr %8, align 8
-  store ptr %3, ptr %9, align 8
-  %12 = load ptr, ptr %9, align 8
-  %13 = icmp eq ptr %12, null
-  br i1 %13, label %14, label %15
-
-14:                                               ; preds = %4
-  store i64 0, ptr %5, align 8
-  br label %54
+  %12 = alloca i32, align 4
+  store ptr %0, ptr %6, align 8, !tbaa !9
+  store i64 %1, ptr %7, align 8, !tbaa !20
+  store i64 %2, ptr %8, align 8, !tbaa !20
+  store ptr %3, ptr %9, align 8, !tbaa !4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #10
+  %13 = load ptr, ptr %9, align 8, !tbaa !4
+  %14 = icmp eq ptr %13, null
+  br i1 %14, label %15, label %16
 
 15:                                               ; preds = %4
-  %16 = load ptr, ptr %9, align 8
-  store ptr %16, ptr %11, align 8
-  %17 = load ptr, ptr %11, align 8
-  %18 = getelementptr inbounds %struct.gz_state, ptr %17, i32 0, i32 1
-  %19 = load i32, ptr %18, align 8
-  %20 = icmp ne i32 %19, 31153
-  br i1 %20, label %26, label %21
-
-21:                                               ; preds = %15
-  %22 = load ptr, ptr %11, align 8
-  %23 = getelementptr inbounds %struct.gz_state, ptr %22, i32 0, i32 18
-  %24 = load i32, ptr %23, align 4
-  %25 = icmp ne i32 %24, 0
-  br i1 %25, label %26, label %27
-
-26:                                               ; preds = %21, %15
   store i64 0, ptr %5, align 8
-  br label %54
+  store i32 1, ptr %12, align 4
+  br label %55
 
-27:                                               ; preds = %21
-  %28 = load i64, ptr %8, align 8
-  %29 = load i64, ptr %7, align 8
-  %30 = mul i64 %28, %29
-  store i64 %30, ptr %10, align 8
-  %31 = load i64, ptr %7, align 8
-  %32 = icmp ne i64 %31, 0
-  br i1 %32, label %33, label %41
+16:                                               ; preds = %4
+  %17 = load ptr, ptr %9, align 8, !tbaa !4
+  store ptr %17, ptr %11, align 8, !tbaa !9
+  %18 = load ptr, ptr %11, align 8, !tbaa !9
+  %19 = getelementptr inbounds nuw %struct.gz_state, ptr %18, i32 0, i32 1
+  %20 = load i32, ptr %19, align 8, !tbaa !12
+  %21 = icmp ne i32 %20, 31153
+  br i1 %21, label %27, label %22
 
-33:                                               ; preds = %27
-  %34 = load i64, ptr %10, align 8
-  %35 = load i64, ptr %7, align 8
-  %36 = udiv i64 %34, %35
-  %37 = load i64, ptr %8, align 8
-  %38 = icmp ne i64 %36, %37
-  br i1 %38, label %39, label %41
+22:                                               ; preds = %16
+  %23 = load ptr, ptr %11, align 8, !tbaa !9
+  %24 = getelementptr inbounds nuw %struct.gz_state, ptr %23, i32 0, i32 18
+  %25 = load i32, ptr %24, align 4, !tbaa !19
+  %26 = icmp ne i32 %25, 0
+  br i1 %26, label %27, label %28
 
-39:                                               ; preds = %33
-  %40 = load ptr, ptr %11, align 8
-  call void @cm_zlib_gz_error(ptr noundef %40, i32 noundef -2, ptr noundef @.str.1)
+27:                                               ; preds = %22, %16
   store i64 0, ptr %5, align 8
-  br label %54
+  store i32 1, ptr %12, align 4
+  br label %55
 
-41:                                               ; preds = %33, %27
-  %42 = load i64, ptr %10, align 8
-  %43 = icmp ne i64 %42, 0
-  br i1 %43, label %44, label %51
+28:                                               ; preds = %22
+  %29 = load i64, ptr %8, align 8, !tbaa !20
+  %30 = load i64, ptr %7, align 8, !tbaa !20
+  %31 = mul i64 %29, %30
+  store i64 %31, ptr %10, align 8, !tbaa !20
+  %32 = load i64, ptr %7, align 8, !tbaa !20
+  %33 = icmp ne i64 %32, 0
+  br i1 %33, label %34, label %42
 
-44:                                               ; preds = %41
-  %45 = load ptr, ptr %11, align 8
-  %46 = load ptr, ptr %6, align 8
-  %47 = load i64, ptr %10, align 8
-  %48 = call i64 @gz_write(ptr noundef %45, ptr noundef %46, i64 noundef %47)
-  %49 = load i64, ptr %7, align 8
-  %50 = udiv i64 %48, %49
-  br label %52
+34:                                               ; preds = %28
+  %35 = load i64, ptr %10, align 8, !tbaa !20
+  %36 = load i64, ptr %7, align 8, !tbaa !20
+  %37 = udiv i64 %35, %36
+  %38 = load i64, ptr %8, align 8, !tbaa !20
+  %39 = icmp ne i64 %37, %38
+  br i1 %39, label %40, label %42
 
-51:                                               ; preds = %41
-  br label %52
+40:                                               ; preds = %34
+  %41 = load ptr, ptr %11, align 8, !tbaa !9
+  call void @cm_zlib_gz_error(ptr noundef %41, i32 noundef -2, ptr noundef @.str.1)
+  store i64 0, ptr %5, align 8
+  store i32 1, ptr %12, align 4
+  br label %55
 
-52:                                               ; preds = %51, %44
-  %53 = phi i64 [ %50, %44 ], [ 0, %51 ]
-  store i64 %53, ptr %5, align 8
-  br label %54
+42:                                               ; preds = %34, %28
+  %43 = load i64, ptr %10, align 8, !tbaa !20
+  %44 = icmp ne i64 %43, 0
+  br i1 %44, label %45, label %52
 
-54:                                               ; preds = %52, %39, %26, %14
-  %55 = load i64, ptr %5, align 8
-  ret i64 %55
+45:                                               ; preds = %42
+  %46 = load ptr, ptr %11, align 8, !tbaa !9
+  %47 = load ptr, ptr %6, align 8, !tbaa !9
+  %48 = load i64, ptr %10, align 8, !tbaa !20
+  %49 = call i64 @gz_write(ptr noundef %46, ptr noundef %47, i64 noundef %48)
+  %50 = load i64, ptr %7, align 8, !tbaa !20
+  %51 = udiv i64 %49, %50
+  br label %53
+
+52:                                               ; preds = %42
+  br label %53
+
+53:                                               ; preds = %52, %45
+  %54 = phi i64 [ %51, %45 ], [ 0, %52 ]
+  store i64 %54, ptr %5, align 8
+  store i32 1, ptr %12, align 4
+  br label %55
+
+55:                                               ; preds = %53, %40, %27, %15
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #10
+  %56 = load i64, ptr %5, align 8
+  ret i64 %56
 }
 
 ; Function Attrs: nounwind uwtable
@@ -462,165 +520,180 @@ define dso_local i32 @cm_zlib_gzputc(ptr noundef %0, i32 noundef %1) #0 {
   %7 = alloca [1 x i8], align 1
   %8 = alloca ptr, align 8
   %9 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store i32 %1, ptr %5, align 4
-  %10 = load ptr, ptr %4, align 8
-  %11 = icmp eq ptr %10, null
-  br i1 %11, label %12, label %13
-
-12:                                               ; preds = %2
-  store i32 -1, ptr %3, align 4
-  br label %113
+  %10 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !4
+  store i32 %1, ptr %5, align 4, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #10
+  call void @llvm.lifetime.start.p0(i64 1, ptr %7) #10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #10
+  %11 = load ptr, ptr %4, align 8, !tbaa !4
+  %12 = icmp eq ptr %11, null
+  br i1 %12, label %13, label %14
 
 13:                                               ; preds = %2
-  %14 = load ptr, ptr %4, align 8
-  store ptr %14, ptr %8, align 8
-  %15 = load ptr, ptr %8, align 8
-  %16 = getelementptr inbounds %struct.gz_state, ptr %15, i32 0, i32 20
-  store ptr %16, ptr %9, align 8
-  %17 = load ptr, ptr %8, align 8
-  %18 = getelementptr inbounds %struct.gz_state, ptr %17, i32 0, i32 1
-  %19 = load i32, ptr %18, align 8
-  %20 = icmp ne i32 %19, 31153
-  br i1 %20, label %26, label %21
-
-21:                                               ; preds = %13
-  %22 = load ptr, ptr %8, align 8
-  %23 = getelementptr inbounds %struct.gz_state, ptr %22, i32 0, i32 18
-  %24 = load i32, ptr %23, align 4
-  %25 = icmp ne i32 %24, 0
-  br i1 %25, label %26, label %27
-
-26:                                               ; preds = %21, %13
   store i32 -1, ptr %3, align 4
-  br label %113
+  store i32 1, ptr %10, align 4
+  br label %114
 
-27:                                               ; preds = %21
-  %28 = load ptr, ptr %8, align 8
-  %29 = getelementptr inbounds %struct.gz_state, ptr %28, i32 0, i32 17
-  %30 = load i32, ptr %29, align 8
-  %31 = icmp ne i32 %30, 0
-  br i1 %31, label %32, label %43
+14:                                               ; preds = %2
+  %15 = load ptr, ptr %4, align 8, !tbaa !4
+  store ptr %15, ptr %8, align 8, !tbaa !9
+  %16 = load ptr, ptr %8, align 8, !tbaa !9
+  %17 = getelementptr inbounds nuw %struct.gz_state, ptr %16, i32 0, i32 20
+  store ptr %17, ptr %9, align 8, !tbaa !31
+  %18 = load ptr, ptr %8, align 8, !tbaa !9
+  %19 = getelementptr inbounds nuw %struct.gz_state, ptr %18, i32 0, i32 1
+  %20 = load i32, ptr %19, align 8, !tbaa !12
+  %21 = icmp ne i32 %20, 31153
+  br i1 %21, label %27, label %22
 
-32:                                               ; preds = %27
-  %33 = load ptr, ptr %8, align 8
-  %34 = getelementptr inbounds %struct.gz_state, ptr %33, i32 0, i32 17
-  store i32 0, ptr %34, align 8
-  %35 = load ptr, ptr %8, align 8
-  %36 = load ptr, ptr %8, align 8
-  %37 = getelementptr inbounds %struct.gz_state, ptr %36, i32 0, i32 16
-  %38 = load i64, ptr %37, align 8
-  %39 = call i32 @gz_zero(ptr noundef %35, i64 noundef %38)
-  %40 = icmp eq i32 %39, -1
-  br i1 %40, label %41, label %42
+22:                                               ; preds = %14
+  %23 = load ptr, ptr %8, align 8, !tbaa !9
+  %24 = getelementptr inbounds nuw %struct.gz_state, ptr %23, i32 0, i32 18
+  %25 = load i32, ptr %24, align 4, !tbaa !19
+  %26 = icmp ne i32 %25, 0
+  br i1 %26, label %27, label %28
 
-41:                                               ; preds = %32
+27:                                               ; preds = %22, %14
   store i32 -1, ptr %3, align 4
-  br label %113
+  store i32 1, ptr %10, align 4
+  br label %114
 
-42:                                               ; preds = %32
-  br label %43
+28:                                               ; preds = %22
+  %29 = load ptr, ptr %8, align 8, !tbaa !9
+  %30 = getelementptr inbounds nuw %struct.gz_state, ptr %29, i32 0, i32 17
+  %31 = load i32, ptr %30, align 8, !tbaa !22
+  %32 = icmp ne i32 %31, 0
+  br i1 %32, label %33, label %44
 
-43:                                               ; preds = %42, %27
-  %44 = load ptr, ptr %8, align 8
-  %45 = getelementptr inbounds %struct.gz_state, ptr %44, i32 0, i32 4
-  %46 = load i32, ptr %45, align 8
-  %47 = icmp ne i32 %46, 0
-  br i1 %47, label %48, label %101
+33:                                               ; preds = %28
+  %34 = load ptr, ptr %8, align 8, !tbaa !9
+  %35 = getelementptr inbounds nuw %struct.gz_state, ptr %34, i32 0, i32 17
+  store i32 0, ptr %35, align 8, !tbaa !22
+  %36 = load ptr, ptr %8, align 8, !tbaa !9
+  %37 = load ptr, ptr %8, align 8, !tbaa !9
+  %38 = getelementptr inbounds nuw %struct.gz_state, ptr %37, i32 0, i32 16
+  %39 = load i64, ptr %38, align 8, !tbaa !23
+  %40 = call i32 @gz_zero(ptr noundef %36, i64 noundef %39)
+  %41 = icmp eq i32 %40, -1
+  br i1 %41, label %42, label %43
 
-48:                                               ; preds = %43
-  %49 = load ptr, ptr %9, align 8
-  %50 = getelementptr inbounds %struct.z_stream_s, ptr %49, i32 0, i32 1
-  %51 = load i32, ptr %50, align 8
-  %52 = icmp eq i32 %51, 0
-  br i1 %52, label %53, label %59
-
-53:                                               ; preds = %48
-  %54 = load ptr, ptr %8, align 8
-  %55 = getelementptr inbounds %struct.gz_state, ptr %54, i32 0, i32 6
-  %56 = load ptr, ptr %55, align 8
-  %57 = load ptr, ptr %9, align 8
-  %58 = getelementptr inbounds %struct.z_stream_s, ptr %57, i32 0, i32 0
-  store ptr %56, ptr %58, align 8
-  br label %59
-
-59:                                               ; preds = %53, %48
-  %60 = load ptr, ptr %9, align 8
-  %61 = getelementptr inbounds %struct.z_stream_s, ptr %60, i32 0, i32 0
-  %62 = load ptr, ptr %61, align 8
-  %63 = load ptr, ptr %9, align 8
-  %64 = getelementptr inbounds %struct.z_stream_s, ptr %63, i32 0, i32 1
-  %65 = load i32, ptr %64, align 8
-  %66 = zext i32 %65 to i64
-  %67 = getelementptr inbounds i8, ptr %62, i64 %66
-  %68 = load ptr, ptr %8, align 8
-  %69 = getelementptr inbounds %struct.gz_state, ptr %68, i32 0, i32 6
-  %70 = load ptr, ptr %69, align 8
-  %71 = ptrtoint ptr %67 to i64
-  %72 = ptrtoint ptr %70 to i64
-  %73 = sub i64 %71, %72
-  %74 = trunc i64 %73 to i32
-  store i32 %74, ptr %6, align 4
-  %75 = load i32, ptr %6, align 4
-  %76 = load ptr, ptr %8, align 8
-  %77 = getelementptr inbounds %struct.gz_state, ptr %76, i32 0, i32 4
-  %78 = load i32, ptr %77, align 8
-  %79 = icmp ult i32 %75, %78
-  br i1 %79, label %80, label %100
-
-80:                                               ; preds = %59
-  %81 = load i32, ptr %5, align 4
-  %82 = trunc i32 %81 to i8
-  %83 = load ptr, ptr %8, align 8
-  %84 = getelementptr inbounds %struct.gz_state, ptr %83, i32 0, i32 6
-  %85 = load ptr, ptr %84, align 8
-  %86 = load i32, ptr %6, align 4
-  %87 = zext i32 %86 to i64
-  %88 = getelementptr inbounds i8, ptr %85, i64 %87
-  store i8 %82, ptr %88, align 1
-  %89 = load ptr, ptr %9, align 8
-  %90 = getelementptr inbounds %struct.z_stream_s, ptr %89, i32 0, i32 1
-  %91 = load i32, ptr %90, align 8
-  %92 = add i32 %91, 1
-  store i32 %92, ptr %90, align 8
-  %93 = load ptr, ptr %8, align 8
-  %94 = getelementptr inbounds %struct.gz_state, ptr %93, i32 0, i32 0
-  %95 = getelementptr inbounds %struct.gzFile_s, ptr %94, i32 0, i32 2
-  %96 = load i64, ptr %95, align 8
-  %97 = add nsw i64 %96, 1
-  store i64 %97, ptr %95, align 8
-  %98 = load i32, ptr %5, align 4
-  %99 = and i32 %98, 255
-  store i32 %99, ptr %3, align 4
-  br label %113
-
-100:                                              ; preds = %59
-  br label %101
-
-101:                                              ; preds = %100, %43
-  %102 = load i32, ptr %5, align 4
-  %103 = trunc i32 %102 to i8
-  %104 = getelementptr inbounds [1 x i8], ptr %7, i64 0, i64 0
-  store i8 %103, ptr %104, align 1
-  %105 = load ptr, ptr %8, align 8
-  %106 = getelementptr inbounds [1 x i8], ptr %7, i64 0, i64 0
-  %107 = call i64 @gz_write(ptr noundef %105, ptr noundef %106, i64 noundef 1)
-  %108 = icmp ne i64 %107, 1
-  br i1 %108, label %109, label %110
-
-109:                                              ; preds = %101
+42:                                               ; preds = %33
   store i32 -1, ptr %3, align 4
-  br label %113
+  store i32 1, ptr %10, align 4
+  br label %114
 
-110:                                              ; preds = %101
-  %111 = load i32, ptr %5, align 4
-  %112 = and i32 %111, 255
-  store i32 %112, ptr %3, align 4
-  br label %113
+43:                                               ; preds = %33
+  br label %44
 
-113:                                              ; preds = %110, %109, %80, %41, %26, %12
-  %114 = load i32, ptr %3, align 4
-  ret i32 %114
+44:                                               ; preds = %43, %28
+  %45 = load ptr, ptr %8, align 8, !tbaa !9
+  %46 = getelementptr inbounds nuw %struct.gz_state, ptr %45, i32 0, i32 4
+  %47 = load i32, ptr %46, align 8, !tbaa !21
+  %48 = icmp ne i32 %47, 0
+  br i1 %48, label %49, label %102
+
+49:                                               ; preds = %44
+  %50 = load ptr, ptr %9, align 8, !tbaa !31
+  %51 = getelementptr inbounds nuw %struct.z_stream_s, ptr %50, i32 0, i32 1
+  %52 = load i32, ptr %51, align 8, !tbaa !33
+  %53 = icmp eq i32 %52, 0
+  br i1 %53, label %54, label %60
+
+54:                                               ; preds = %49
+  %55 = load ptr, ptr %8, align 8, !tbaa !9
+  %56 = getelementptr inbounds nuw %struct.gz_state, ptr %55, i32 0, i32 6
+  %57 = load ptr, ptr %56, align 8, !tbaa !25
+  %58 = load ptr, ptr %9, align 8, !tbaa !31
+  %59 = getelementptr inbounds nuw %struct.z_stream_s, ptr %58, i32 0, i32 0
+  store ptr %57, ptr %59, align 8, !tbaa !34
+  br label %60
+
+60:                                               ; preds = %54, %49
+  %61 = load ptr, ptr %9, align 8, !tbaa !31
+  %62 = getelementptr inbounds nuw %struct.z_stream_s, ptr %61, i32 0, i32 0
+  %63 = load ptr, ptr %62, align 8, !tbaa !34
+  %64 = load ptr, ptr %9, align 8, !tbaa !31
+  %65 = getelementptr inbounds nuw %struct.z_stream_s, ptr %64, i32 0, i32 1
+  %66 = load i32, ptr %65, align 8, !tbaa !33
+  %67 = zext i32 %66 to i64
+  %68 = getelementptr inbounds nuw i8, ptr %63, i64 %67
+  %69 = load ptr, ptr %8, align 8, !tbaa !9
+  %70 = getelementptr inbounds nuw %struct.gz_state, ptr %69, i32 0, i32 6
+  %71 = load ptr, ptr %70, align 8, !tbaa !25
+  %72 = ptrtoint ptr %68 to i64
+  %73 = ptrtoint ptr %71 to i64
+  %74 = sub i64 %72, %73
+  %75 = trunc i64 %74 to i32
+  store i32 %75, ptr %6, align 4, !tbaa !10
+  %76 = load i32, ptr %6, align 4, !tbaa !10
+  %77 = load ptr, ptr %8, align 8, !tbaa !9
+  %78 = getelementptr inbounds nuw %struct.gz_state, ptr %77, i32 0, i32 4
+  %79 = load i32, ptr %78, align 8, !tbaa !21
+  %80 = icmp ult i32 %76, %79
+  br i1 %80, label %81, label %101
+
+81:                                               ; preds = %60
+  %82 = load i32, ptr %5, align 4, !tbaa !10
+  %83 = trunc i32 %82 to i8
+  %84 = load ptr, ptr %8, align 8, !tbaa !9
+  %85 = getelementptr inbounds nuw %struct.gz_state, ptr %84, i32 0, i32 6
+  %86 = load ptr, ptr %85, align 8, !tbaa !25
+  %87 = load i32, ptr %6, align 4, !tbaa !10
+  %88 = zext i32 %87 to i64
+  %89 = getelementptr inbounds nuw i8, ptr %86, i64 %88
+  store i8 %83, ptr %89, align 1, !tbaa !35
+  %90 = load ptr, ptr %9, align 8, !tbaa !31
+  %91 = getelementptr inbounds nuw %struct.z_stream_s, ptr %90, i32 0, i32 1
+  %92 = load i32, ptr %91, align 8, !tbaa !33
+  %93 = add i32 %92, 1
+  store i32 %93, ptr %91, align 8, !tbaa !33
+  %94 = load ptr, ptr %8, align 8, !tbaa !9
+  %95 = getelementptr inbounds nuw %struct.gz_state, ptr %94, i32 0, i32 0
+  %96 = getelementptr inbounds nuw %struct.gzFile_s, ptr %95, i32 0, i32 2
+  %97 = load i64, ptr %96, align 8, !tbaa !27
+  %98 = add nsw i64 %97, 1
+  store i64 %98, ptr %96, align 8, !tbaa !27
+  %99 = load i32, ptr %5, align 4, !tbaa !10
+  %100 = and i32 %99, 255
+  store i32 %100, ptr %3, align 4
+  store i32 1, ptr %10, align 4
+  br label %114
+
+101:                                              ; preds = %60
+  br label %102
+
+102:                                              ; preds = %101, %44
+  %103 = load i32, ptr %5, align 4, !tbaa !10
+  %104 = trunc i32 %103 to i8
+  %105 = getelementptr inbounds [1 x i8], ptr %7, i64 0, i64 0
+  store i8 %104, ptr %105, align 1, !tbaa !35
+  %106 = load ptr, ptr %8, align 8, !tbaa !9
+  %107 = getelementptr inbounds [1 x i8], ptr %7, i64 0, i64 0
+  %108 = call i64 @gz_write(ptr noundef %106, ptr noundef %107, i64 noundef 1)
+  %109 = icmp ne i64 %108, 1
+  br i1 %109, label %110, label %111
+
+110:                                              ; preds = %102
+  store i32 -1, ptr %3, align 4
+  store i32 1, ptr %10, align 4
+  br label %114
+
+111:                                              ; preds = %102
+  %112 = load i32, ptr %5, align 4, !tbaa !10
+  %113 = and i32 %112, 255
+  store i32 %113, ptr %3, align 4
+  store i32 1, ptr %10, align 4
+  br label %114
+
+114:                                              ; preds = %111, %110, %81, %42, %27, %13
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #10
+  call void @llvm.lifetime.end.p0(i64 1, ptr %7) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #10
+  %115 = load i32, ptr %3, align 4
+  ret i32 %115
 }
 
 ; Function Attrs: nounwind uwtable
@@ -631,116 +704,126 @@ define internal i32 @gz_zero(ptr noundef %0, i64 noundef %1) #0 {
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
   %8 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store i64 %1, ptr %5, align 8
-  %9 = load ptr, ptr %4, align 8
-  %10 = getelementptr inbounds %struct.gz_state, ptr %9, i32 0, i32 20
-  store ptr %10, ptr %8, align 8
-  %11 = load ptr, ptr %8, align 8
-  %12 = getelementptr inbounds %struct.z_stream_s, ptr %11, i32 0, i32 1
-  %13 = load i32, ptr %12, align 8
-  %14 = icmp ne i32 %13, 0
-  br i1 %14, label %15, label %20
+  %9 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !9
+  store i64 %1, ptr %5, align 8, !tbaa !20
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #10
+  %10 = load ptr, ptr %4, align 8, !tbaa !9
+  %11 = getelementptr inbounds nuw %struct.gz_state, ptr %10, i32 0, i32 20
+  store ptr %11, ptr %8, align 8, !tbaa !31
+  %12 = load ptr, ptr %8, align 8, !tbaa !31
+  %13 = getelementptr inbounds nuw %struct.z_stream_s, ptr %12, i32 0, i32 1
+  %14 = load i32, ptr %13, align 8, !tbaa !33
+  %15 = icmp ne i32 %14, 0
+  br i1 %15, label %16, label %21
 
-15:                                               ; preds = %2
-  %16 = load ptr, ptr %4, align 8
-  %17 = call i32 @gz_comp(ptr noundef %16, i32 noundef 0)
-  %18 = icmp eq i32 %17, -1
-  br i1 %18, label %19, label %20
+16:                                               ; preds = %2
+  %17 = load ptr, ptr %4, align 8, !tbaa !9
+  %18 = call i32 @gz_comp(ptr noundef %17, i32 noundef 0)
+  %19 = icmp eq i32 %18, -1
+  br i1 %19, label %20, label %21
 
-19:                                               ; preds = %15
+20:                                               ; preds = %16
   store i32 -1, ptr %3, align 4
-  br label %74
+  store i32 1, ptr %9, align 4
+  br label %75
 
-20:                                               ; preds = %15, %2
-  store i32 1, ptr %6, align 4
-  br label %21
+21:                                               ; preds = %16, %2
+  store i32 1, ptr %6, align 4, !tbaa !10
+  br label %22
 
-21:                                               ; preds = %68, %20
-  %22 = load i64, ptr %5, align 8
-  %23 = icmp ne i64 %22, 0
-  br i1 %23, label %24, label %73
+22:                                               ; preds = %69, %21
+  %23 = load i64, ptr %5, align 8, !tbaa !20
+  %24 = icmp ne i64 %23, 0
+  br i1 %24, label %25, label %74
 
-24:                                               ; preds = %21
-  %25 = load ptr, ptr %4, align 8
-  %26 = getelementptr inbounds %struct.gz_state, ptr %25, i32 0, i32 4
-  %27 = load i32, ptr %26, align 8
-  %28 = zext i32 %27 to i64
-  %29 = load i64, ptr %5, align 8
-  %30 = icmp sgt i64 %28, %29
-  br i1 %30, label %31, label %34
+25:                                               ; preds = %22
+  %26 = load ptr, ptr %4, align 8, !tbaa !9
+  %27 = getelementptr inbounds nuw %struct.gz_state, ptr %26, i32 0, i32 4
+  %28 = load i32, ptr %27, align 8, !tbaa !21
+  %29 = zext i32 %28 to i64
+  %30 = load i64, ptr %5, align 8, !tbaa !20
+  %31 = icmp sgt i64 %29, %30
+  br i1 %31, label %32, label %35
 
-31:                                               ; preds = %24
-  %32 = load i64, ptr %5, align 8
-  %33 = trunc i64 %32 to i32
-  br label %38
+32:                                               ; preds = %25
+  %33 = load i64, ptr %5, align 8, !tbaa !20
+  %34 = trunc i64 %33 to i32
+  br label %39
 
-34:                                               ; preds = %24
-  %35 = load ptr, ptr %4, align 8
-  %36 = getelementptr inbounds %struct.gz_state, ptr %35, i32 0, i32 4
-  %37 = load i32, ptr %36, align 8
-  br label %38
+35:                                               ; preds = %25
+  %36 = load ptr, ptr %4, align 8, !tbaa !9
+  %37 = getelementptr inbounds nuw %struct.gz_state, ptr %36, i32 0, i32 4
+  %38 = load i32, ptr %37, align 8, !tbaa !21
+  br label %39
 
-38:                                               ; preds = %34, %31
-  %39 = phi i32 [ %33, %31 ], [ %37, %34 ]
-  store i32 %39, ptr %7, align 4
-  %40 = load i32, ptr %6, align 4
-  %41 = icmp ne i32 %40, 0
-  br i1 %41, label %42, label %48
+39:                                               ; preds = %35, %32
+  %40 = phi i32 [ %34, %32 ], [ %38, %35 ]
+  store i32 %40, ptr %7, align 4, !tbaa !10
+  %41 = load i32, ptr %6, align 4, !tbaa !10
+  %42 = icmp ne i32 %41, 0
+  br i1 %42, label %43, label %49
 
-42:                                               ; preds = %38
-  %43 = load ptr, ptr %4, align 8
-  %44 = getelementptr inbounds %struct.gz_state, ptr %43, i32 0, i32 6
-  %45 = load ptr, ptr %44, align 8
-  %46 = load i32, ptr %7, align 4
-  %47 = zext i32 %46 to i64
-  call void @llvm.memset.p0.i64(ptr align 1 %45, i8 0, i64 %47, i1 false)
-  store i32 0, ptr %6, align 4
-  br label %48
+43:                                               ; preds = %39
+  %44 = load ptr, ptr %4, align 8, !tbaa !9
+  %45 = getelementptr inbounds nuw %struct.gz_state, ptr %44, i32 0, i32 6
+  %46 = load ptr, ptr %45, align 8, !tbaa !25
+  %47 = load i32, ptr %7, align 4, !tbaa !10
+  %48 = zext i32 %47 to i64
+  call void @llvm.memset.p0.i64(ptr align 1 %46, i8 0, i64 %48, i1 false)
+  store i32 0, ptr %6, align 4, !tbaa !10
+  br label %49
 
-48:                                               ; preds = %42, %38
-  %49 = load i32, ptr %7, align 4
-  %50 = load ptr, ptr %8, align 8
-  %51 = getelementptr inbounds %struct.z_stream_s, ptr %50, i32 0, i32 1
-  store i32 %49, ptr %51, align 8
-  %52 = load ptr, ptr %4, align 8
-  %53 = getelementptr inbounds %struct.gz_state, ptr %52, i32 0, i32 6
-  %54 = load ptr, ptr %53, align 8
-  %55 = load ptr, ptr %8, align 8
-  %56 = getelementptr inbounds %struct.z_stream_s, ptr %55, i32 0, i32 0
-  store ptr %54, ptr %56, align 8
-  %57 = load i32, ptr %7, align 4
-  %58 = zext i32 %57 to i64
-  %59 = load ptr, ptr %4, align 8
-  %60 = getelementptr inbounds %struct.gz_state, ptr %59, i32 0, i32 0
-  %61 = getelementptr inbounds %struct.gzFile_s, ptr %60, i32 0, i32 2
-  %62 = load i64, ptr %61, align 8
-  %63 = add nsw i64 %62, %58
-  store i64 %63, ptr %61, align 8
-  %64 = load ptr, ptr %4, align 8
-  %65 = call i32 @gz_comp(ptr noundef %64, i32 noundef 0)
-  %66 = icmp eq i32 %65, -1
-  br i1 %66, label %67, label %68
+49:                                               ; preds = %43, %39
+  %50 = load i32, ptr %7, align 4, !tbaa !10
+  %51 = load ptr, ptr %8, align 8, !tbaa !31
+  %52 = getelementptr inbounds nuw %struct.z_stream_s, ptr %51, i32 0, i32 1
+  store i32 %50, ptr %52, align 8, !tbaa !33
+  %53 = load ptr, ptr %4, align 8, !tbaa !9
+  %54 = getelementptr inbounds nuw %struct.gz_state, ptr %53, i32 0, i32 6
+  %55 = load ptr, ptr %54, align 8, !tbaa !25
+  %56 = load ptr, ptr %8, align 8, !tbaa !31
+  %57 = getelementptr inbounds nuw %struct.z_stream_s, ptr %56, i32 0, i32 0
+  store ptr %55, ptr %57, align 8, !tbaa !34
+  %58 = load i32, ptr %7, align 4, !tbaa !10
+  %59 = zext i32 %58 to i64
+  %60 = load ptr, ptr %4, align 8, !tbaa !9
+  %61 = getelementptr inbounds nuw %struct.gz_state, ptr %60, i32 0, i32 0
+  %62 = getelementptr inbounds nuw %struct.gzFile_s, ptr %61, i32 0, i32 2
+  %63 = load i64, ptr %62, align 8, !tbaa !27
+  %64 = add nsw i64 %63, %59
+  store i64 %64, ptr %62, align 8, !tbaa !27
+  %65 = load ptr, ptr %4, align 8, !tbaa !9
+  %66 = call i32 @gz_comp(ptr noundef %65, i32 noundef 0)
+  %67 = icmp eq i32 %66, -1
+  br i1 %67, label %68, label %69
 
-67:                                               ; preds = %48
+68:                                               ; preds = %49
   store i32 -1, ptr %3, align 4
-  br label %74
+  store i32 1, ptr %9, align 4
+  br label %75
 
-68:                                               ; preds = %48
-  %69 = load i32, ptr %7, align 4
-  %70 = zext i32 %69 to i64
-  %71 = load i64, ptr %5, align 8
-  %72 = sub nsw i64 %71, %70
-  store i64 %72, ptr %5, align 8
-  br label %21, !llvm.loop !8
+69:                                               ; preds = %49
+  %70 = load i32, ptr %7, align 4, !tbaa !10
+  %71 = zext i32 %70 to i64
+  %72 = load i64, ptr %5, align 8, !tbaa !20
+  %73 = sub nsw i64 %72, %71
+  store i64 %73, ptr %5, align 8, !tbaa !20
+  br label %22, !llvm.loop !36
 
-73:                                               ; preds = %21
+74:                                               ; preds = %22
   store i32 0, ptr %3, align 4
-  br label %74
+  store i32 1, ptr %9, align 4
+  br label %75
 
-74:                                               ; preds = %73, %67, %19
-  %75 = load i32, ptr %3, align 4
-  ret i32 %75
+75:                                               ; preds = %74, %68, %20
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #10
+  %76 = load i32, ptr %3, align 4
+  ret i32 %76
 }
 
 ; Function Attrs: nounwind uwtable
@@ -751,90 +834,101 @@ define dso_local i32 @cm_zlib_gzputs(ptr noundef %0, ptr noundef %1) #0 {
   %6 = alloca i64, align 8
   %7 = alloca i64, align 8
   %8 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  %9 = load ptr, ptr %4, align 8
-  %10 = icmp eq ptr %9, null
-  br i1 %10, label %11, label %12
-
-11:                                               ; preds = %2
-  store i32 -1, ptr %3, align 4
-  br label %52
+  %9 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !4
+  store ptr %1, ptr %5, align 8, !tbaa !37
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #10
+  %10 = load ptr, ptr %4, align 8, !tbaa !4
+  %11 = icmp eq ptr %10, null
+  br i1 %11, label %12, label %13
 
 12:                                               ; preds = %2
-  %13 = load ptr, ptr %4, align 8
-  store ptr %13, ptr %8, align 8
-  %14 = load ptr, ptr %8, align 8
-  %15 = getelementptr inbounds %struct.gz_state, ptr %14, i32 0, i32 1
-  %16 = load i32, ptr %15, align 8
-  %17 = icmp ne i32 %16, 31153
-  br i1 %17, label %23, label %18
-
-18:                                               ; preds = %12
-  %19 = load ptr, ptr %8, align 8
-  %20 = getelementptr inbounds %struct.gz_state, ptr %19, i32 0, i32 18
-  %21 = load i32, ptr %20, align 4
-  %22 = icmp ne i32 %21, 0
-  br i1 %22, label %23, label %24
-
-23:                                               ; preds = %18, %12
   store i32 -1, ptr %3, align 4
-  br label %52
+  store i32 1, ptr %9, align 4
+  br label %53
 
-24:                                               ; preds = %18
-  %25 = load ptr, ptr %5, align 8
-  %26 = call i64 @strlen(ptr noundef %25) #9
-  store i64 %26, ptr %6, align 8
-  %27 = load i64, ptr %6, align 8
-  %28 = trunc i64 %27 to i32
-  %29 = icmp slt i32 %28, 0
-  br i1 %29, label %36, label %30
+13:                                               ; preds = %2
+  %14 = load ptr, ptr %4, align 8, !tbaa !4
+  store ptr %14, ptr %8, align 8, !tbaa !9
+  %15 = load ptr, ptr %8, align 8, !tbaa !9
+  %16 = getelementptr inbounds nuw %struct.gz_state, ptr %15, i32 0, i32 1
+  %17 = load i32, ptr %16, align 8, !tbaa !12
+  %18 = icmp ne i32 %17, 31153
+  br i1 %18, label %24, label %19
 
-30:                                               ; preds = %24
-  %31 = load i64, ptr %6, align 8
-  %32 = trunc i64 %31 to i32
-  %33 = zext i32 %32 to i64
-  %34 = load i64, ptr %6, align 8
-  %35 = icmp ne i64 %33, %34
-  br i1 %35, label %36, label %38
+19:                                               ; preds = %13
+  %20 = load ptr, ptr %8, align 8, !tbaa !9
+  %21 = getelementptr inbounds nuw %struct.gz_state, ptr %20, i32 0, i32 18
+  %22 = load i32, ptr %21, align 4, !tbaa !19
+  %23 = icmp ne i32 %22, 0
+  br i1 %23, label %24, label %25
 
-36:                                               ; preds = %30, %24
-  %37 = load ptr, ptr %8, align 8
-  call void @cm_zlib_gz_error(ptr noundef %37, i32 noundef -2, ptr noundef @.str.2)
+24:                                               ; preds = %19, %13
   store i32 -1, ptr %3, align 4
-  br label %52
+  store i32 1, ptr %9, align 4
+  br label %53
 
-38:                                               ; preds = %30
-  %39 = load ptr, ptr %8, align 8
-  %40 = load ptr, ptr %5, align 8
-  %41 = load i64, ptr %6, align 8
-  %42 = call i64 @gz_write(ptr noundef %39, ptr noundef %40, i64 noundef %41)
-  store i64 %42, ptr %7, align 8
-  %43 = load i64, ptr %7, align 8
-  %44 = load i64, ptr %6, align 8
-  %45 = icmp ult i64 %43, %44
-  br i1 %45, label %46, label %47
+25:                                               ; preds = %19
+  %26 = load ptr, ptr %5, align 8, !tbaa !37
+  %27 = call i64 @strlen(ptr noundef %26) #11
+  store i64 %27, ptr %6, align 8, !tbaa !20
+  %28 = load i64, ptr %6, align 8, !tbaa !20
+  %29 = trunc i64 %28 to i32
+  %30 = icmp slt i32 %29, 0
+  br i1 %30, label %37, label %31
 
-46:                                               ; preds = %38
-  br label %50
+31:                                               ; preds = %25
+  %32 = load i64, ptr %6, align 8, !tbaa !20
+  %33 = trunc i64 %32 to i32
+  %34 = zext i32 %33 to i64
+  %35 = load i64, ptr %6, align 8, !tbaa !20
+  %36 = icmp ne i64 %34, %35
+  br i1 %36, label %37, label %39
 
-47:                                               ; preds = %38
-  %48 = load i64, ptr %6, align 8
-  %49 = trunc i64 %48 to i32
-  br label %50
+37:                                               ; preds = %31, %25
+  %38 = load ptr, ptr %8, align 8, !tbaa !9
+  call void @cm_zlib_gz_error(ptr noundef %38, i32 noundef -2, ptr noundef @.str.2)
+  store i32 -1, ptr %3, align 4
+  store i32 1, ptr %9, align 4
+  br label %53
 
-50:                                               ; preds = %47, %46
-  %51 = phi i32 [ -1, %46 ], [ %49, %47 ]
-  store i32 %51, ptr %3, align 4
-  br label %52
+39:                                               ; preds = %31
+  %40 = load ptr, ptr %8, align 8, !tbaa !9
+  %41 = load ptr, ptr %5, align 8, !tbaa !37
+  %42 = load i64, ptr %6, align 8, !tbaa !20
+  %43 = call i64 @gz_write(ptr noundef %40, ptr noundef %41, i64 noundef %42)
+  store i64 %43, ptr %7, align 8, !tbaa !20
+  %44 = load i64, ptr %7, align 8, !tbaa !20
+  %45 = load i64, ptr %6, align 8, !tbaa !20
+  %46 = icmp ult i64 %44, %45
+  br i1 %46, label %47, label %48
 
-52:                                               ; preds = %50, %36, %23, %11
-  %53 = load i32, ptr %3, align 4
-  ret i32 %53
+47:                                               ; preds = %39
+  br label %51
+
+48:                                               ; preds = %39
+  %49 = load i64, ptr %6, align 8, !tbaa !20
+  %50 = trunc i64 %49 to i32
+  br label %51
+
+51:                                               ; preds = %48, %47
+  %52 = phi i32 [ -1, %47 ], [ %50, %48 ]
+  store i32 %52, ptr %3, align 4
+  store i32 1, ptr %9, align 4
+  br label %53
+
+53:                                               ; preds = %51, %37, %24, %12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #10
+  %54 = load i32, ptr %3, align 4
+  ret i32 %54
 }
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare i64 @strlen(ptr noundef) #2
+declare i64 @strlen(ptr noundef) #3
 
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @cm_zlib_gzvprintf(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
@@ -847,257 +941,275 @@ define dso_local i32 @cm_zlib_gzvprintf(ptr noundef %0, ptr noundef %1, ptr noun
   %10 = alloca ptr, align 8
   %11 = alloca ptr, align 8
   %12 = alloca ptr, align 8
-  store ptr %0, ptr %5, align 8
-  store ptr %1, ptr %6, align 8
-  store ptr %2, ptr %7, align 8
-  %13 = load ptr, ptr %5, align 8
-  %14 = icmp eq ptr %13, null
-  br i1 %14, label %15, label %16
-
-15:                                               ; preds = %3
-  store i32 -2, ptr %4, align 4
-  br label %191
+  %13 = alloca i32, align 4
+  store ptr %0, ptr %5, align 8, !tbaa !4
+  store ptr %1, ptr %6, align 8, !tbaa !37
+  store ptr %2, ptr %7, align 8, !tbaa !38
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #10
+  %14 = load ptr, ptr %5, align 8, !tbaa !4
+  %15 = icmp eq ptr %14, null
+  br i1 %15, label %16, label %17
 
 16:                                               ; preds = %3
-  %17 = load ptr, ptr %5, align 8
-  store ptr %17, ptr %11, align 8
-  %18 = load ptr, ptr %11, align 8
-  %19 = getelementptr inbounds %struct.gz_state, ptr %18, i32 0, i32 20
-  store ptr %19, ptr %12, align 8
-  %20 = load ptr, ptr %11, align 8
-  %21 = getelementptr inbounds %struct.gz_state, ptr %20, i32 0, i32 1
-  %22 = load i32, ptr %21, align 8
-  %23 = icmp ne i32 %22, 31153
-  br i1 %23, label %29, label %24
-
-24:                                               ; preds = %16
-  %25 = load ptr, ptr %11, align 8
-  %26 = getelementptr inbounds %struct.gz_state, ptr %25, i32 0, i32 18
-  %27 = load i32, ptr %26, align 4
-  %28 = icmp ne i32 %27, 0
-  br i1 %28, label %29, label %30
-
-29:                                               ; preds = %24, %16
   store i32 -2, ptr %4, align 4
-  br label %191
+  store i32 1, ptr %13, align 4
+  br label %192
 
-30:                                               ; preds = %24
-  %31 = load ptr, ptr %11, align 8
-  %32 = getelementptr inbounds %struct.gz_state, ptr %31, i32 0, i32 4
-  %33 = load i32, ptr %32, align 8
-  %34 = icmp eq i32 %33, 0
-  br i1 %34, label %35, label %43
+17:                                               ; preds = %3
+  %18 = load ptr, ptr %5, align 8, !tbaa !4
+  store ptr %18, ptr %11, align 8, !tbaa !9
+  %19 = load ptr, ptr %11, align 8, !tbaa !9
+  %20 = getelementptr inbounds nuw %struct.gz_state, ptr %19, i32 0, i32 20
+  store ptr %20, ptr %12, align 8, !tbaa !31
+  %21 = load ptr, ptr %11, align 8, !tbaa !9
+  %22 = getelementptr inbounds nuw %struct.gz_state, ptr %21, i32 0, i32 1
+  %23 = load i32, ptr %22, align 8, !tbaa !12
+  %24 = icmp ne i32 %23, 31153
+  br i1 %24, label %30, label %25
 
-35:                                               ; preds = %30
-  %36 = load ptr, ptr %11, align 8
-  %37 = call i32 @gz_init(ptr noundef %36)
-  %38 = icmp eq i32 %37, -1
-  br i1 %38, label %39, label %43
+25:                                               ; preds = %17
+  %26 = load ptr, ptr %11, align 8, !tbaa !9
+  %27 = getelementptr inbounds nuw %struct.gz_state, ptr %26, i32 0, i32 18
+  %28 = load i32, ptr %27, align 4, !tbaa !19
+  %29 = icmp ne i32 %28, 0
+  br i1 %29, label %30, label %31
 
-39:                                               ; preds = %35
-  %40 = load ptr, ptr %11, align 8
-  %41 = getelementptr inbounds %struct.gz_state, ptr %40, i32 0, i32 18
-  %42 = load i32, ptr %41, align 4
-  store i32 %42, ptr %4, align 4
-  br label %191
+30:                                               ; preds = %25, %17
+  store i32 -2, ptr %4, align 4
+  store i32 1, ptr %13, align 4
+  br label %192
 
-43:                                               ; preds = %35, %30
-  %44 = load ptr, ptr %11, align 8
-  %45 = getelementptr inbounds %struct.gz_state, ptr %44, i32 0, i32 17
-  %46 = load i32, ptr %45, align 8
-  %47 = icmp ne i32 %46, 0
-  br i1 %47, label %48, label %62
+31:                                               ; preds = %25
+  %32 = load ptr, ptr %11, align 8, !tbaa !9
+  %33 = getelementptr inbounds nuw %struct.gz_state, ptr %32, i32 0, i32 4
+  %34 = load i32, ptr %33, align 8, !tbaa !21
+  %35 = icmp eq i32 %34, 0
+  br i1 %35, label %36, label %44
 
-48:                                               ; preds = %43
-  %49 = load ptr, ptr %11, align 8
-  %50 = getelementptr inbounds %struct.gz_state, ptr %49, i32 0, i32 17
-  store i32 0, ptr %50, align 8
-  %51 = load ptr, ptr %11, align 8
-  %52 = load ptr, ptr %11, align 8
-  %53 = getelementptr inbounds %struct.gz_state, ptr %52, i32 0, i32 16
-  %54 = load i64, ptr %53, align 8
-  %55 = call i32 @gz_zero(ptr noundef %51, i64 noundef %54)
-  %56 = icmp eq i32 %55, -1
-  br i1 %56, label %57, label %61
+36:                                               ; preds = %31
+  %37 = load ptr, ptr %11, align 8, !tbaa !9
+  %38 = call i32 @gz_init(ptr noundef %37)
+  %39 = icmp eq i32 %38, -1
+  br i1 %39, label %40, label %44
 
-57:                                               ; preds = %48
-  %58 = load ptr, ptr %11, align 8
-  %59 = getelementptr inbounds %struct.gz_state, ptr %58, i32 0, i32 18
-  %60 = load i32, ptr %59, align 4
-  store i32 %60, ptr %4, align 4
-  br label %191
+40:                                               ; preds = %36
+  %41 = load ptr, ptr %11, align 8, !tbaa !9
+  %42 = getelementptr inbounds nuw %struct.gz_state, ptr %41, i32 0, i32 18
+  %43 = load i32, ptr %42, align 4, !tbaa !19
+  store i32 %43, ptr %4, align 4
+  store i32 1, ptr %13, align 4
+  br label %192
 
-61:                                               ; preds = %48
-  br label %62
+44:                                               ; preds = %36, %31
+  %45 = load ptr, ptr %11, align 8, !tbaa !9
+  %46 = getelementptr inbounds nuw %struct.gz_state, ptr %45, i32 0, i32 17
+  %47 = load i32, ptr %46, align 8, !tbaa !22
+  %48 = icmp ne i32 %47, 0
+  br i1 %48, label %49, label %63
 
-62:                                               ; preds = %61, %43
-  %63 = load ptr, ptr %12, align 8
-  %64 = getelementptr inbounds %struct.z_stream_s, ptr %63, i32 0, i32 1
-  %65 = load i32, ptr %64, align 8
-  %66 = icmp eq i32 %65, 0
-  br i1 %66, label %67, label %73
+49:                                               ; preds = %44
+  %50 = load ptr, ptr %11, align 8, !tbaa !9
+  %51 = getelementptr inbounds nuw %struct.gz_state, ptr %50, i32 0, i32 17
+  store i32 0, ptr %51, align 8, !tbaa !22
+  %52 = load ptr, ptr %11, align 8, !tbaa !9
+  %53 = load ptr, ptr %11, align 8, !tbaa !9
+  %54 = getelementptr inbounds nuw %struct.gz_state, ptr %53, i32 0, i32 16
+  %55 = load i64, ptr %54, align 8, !tbaa !23
+  %56 = call i32 @gz_zero(ptr noundef %52, i64 noundef %55)
+  %57 = icmp eq i32 %56, -1
+  br i1 %57, label %58, label %62
 
-67:                                               ; preds = %62
-  %68 = load ptr, ptr %11, align 8
-  %69 = getelementptr inbounds %struct.gz_state, ptr %68, i32 0, i32 6
-  %70 = load ptr, ptr %69, align 8
-  %71 = load ptr, ptr %12, align 8
-  %72 = getelementptr inbounds %struct.z_stream_s, ptr %71, i32 0, i32 0
-  store ptr %70, ptr %72, align 8
-  br label %73
+58:                                               ; preds = %49
+  %59 = load ptr, ptr %11, align 8, !tbaa !9
+  %60 = getelementptr inbounds nuw %struct.gz_state, ptr %59, i32 0, i32 18
+  %61 = load i32, ptr %60, align 4, !tbaa !19
+  store i32 %61, ptr %4, align 4
+  store i32 1, ptr %13, align 4
+  br label %192
 
-73:                                               ; preds = %67, %62
-  %74 = load ptr, ptr %11, align 8
-  %75 = getelementptr inbounds %struct.gz_state, ptr %74, i32 0, i32 6
-  %76 = load ptr, ptr %75, align 8
-  %77 = load ptr, ptr %12, align 8
-  %78 = getelementptr inbounds %struct.z_stream_s, ptr %77, i32 0, i32 0
-  %79 = load ptr, ptr %78, align 8
-  %80 = load ptr, ptr %11, align 8
-  %81 = getelementptr inbounds %struct.gz_state, ptr %80, i32 0, i32 6
-  %82 = load ptr, ptr %81, align 8
-  %83 = ptrtoint ptr %79 to i64
-  %84 = ptrtoint ptr %82 to i64
-  %85 = sub i64 %83, %84
-  %86 = getelementptr inbounds i8, ptr %76, i64 %85
-  %87 = load ptr, ptr %12, align 8
-  %88 = getelementptr inbounds %struct.z_stream_s, ptr %87, i32 0, i32 1
-  %89 = load i32, ptr %88, align 8
-  %90 = zext i32 %89 to i64
-  %91 = getelementptr inbounds i8, ptr %86, i64 %90
-  store ptr %91, ptr %10, align 8
-  %92 = load ptr, ptr %10, align 8
-  %93 = load ptr, ptr %11, align 8
-  %94 = getelementptr inbounds %struct.gz_state, ptr %93, i32 0, i32 4
-  %95 = load i32, ptr %94, align 8
-  %96 = sub i32 %95, 1
-  %97 = zext i32 %96 to i64
-  %98 = getelementptr inbounds i8, ptr %92, i64 %97
-  store i8 0, ptr %98, align 1
-  %99 = load ptr, ptr %10, align 8
-  %100 = load ptr, ptr %11, align 8
-  %101 = getelementptr inbounds %struct.gz_state, ptr %100, i32 0, i32 4
-  %102 = load i32, ptr %101, align 8
-  %103 = zext i32 %102 to i64
-  %104 = load ptr, ptr %6, align 8
-  %105 = load ptr, ptr %7, align 8
-  %106 = call i32 @vsnprintf(ptr noundef %99, i64 noundef %103, ptr noundef %104, ptr noundef %105) #10
-  store i32 %106, ptr %8, align 4
-  %107 = load i32, ptr %8, align 4
-  %108 = icmp eq i32 %107, 0
-  br i1 %108, label %126, label %109
+62:                                               ; preds = %49
+  br label %63
 
-109:                                              ; preds = %73
-  %110 = load i32, ptr %8, align 4
-  %111 = load ptr, ptr %11, align 8
-  %112 = getelementptr inbounds %struct.gz_state, ptr %111, i32 0, i32 4
-  %113 = load i32, ptr %112, align 8
-  %114 = icmp uge i32 %110, %113
-  br i1 %114, label %126, label %115
+63:                                               ; preds = %62, %44
+  %64 = load ptr, ptr %12, align 8, !tbaa !31
+  %65 = getelementptr inbounds nuw %struct.z_stream_s, ptr %64, i32 0, i32 1
+  %66 = load i32, ptr %65, align 8, !tbaa !33
+  %67 = icmp eq i32 %66, 0
+  br i1 %67, label %68, label %74
 
-115:                                              ; preds = %109
-  %116 = load ptr, ptr %10, align 8
-  %117 = load ptr, ptr %11, align 8
-  %118 = getelementptr inbounds %struct.gz_state, ptr %117, i32 0, i32 4
-  %119 = load i32, ptr %118, align 8
-  %120 = sub i32 %119, 1
-  %121 = zext i32 %120 to i64
-  %122 = getelementptr inbounds i8, ptr %116, i64 %121
-  %123 = load i8, ptr %122, align 1
-  %124 = sext i8 %123 to i32
-  %125 = icmp ne i32 %124, 0
-  br i1 %125, label %126, label %127
+68:                                               ; preds = %63
+  %69 = load ptr, ptr %11, align 8, !tbaa !9
+  %70 = getelementptr inbounds nuw %struct.gz_state, ptr %69, i32 0, i32 6
+  %71 = load ptr, ptr %70, align 8, !tbaa !25
+  %72 = load ptr, ptr %12, align 8, !tbaa !31
+  %73 = getelementptr inbounds nuw %struct.z_stream_s, ptr %72, i32 0, i32 0
+  store ptr %71, ptr %73, align 8, !tbaa !34
+  br label %74
 
-126:                                              ; preds = %115, %109, %73
+74:                                               ; preds = %68, %63
+  %75 = load ptr, ptr %11, align 8, !tbaa !9
+  %76 = getelementptr inbounds nuw %struct.gz_state, ptr %75, i32 0, i32 6
+  %77 = load ptr, ptr %76, align 8, !tbaa !25
+  %78 = load ptr, ptr %12, align 8, !tbaa !31
+  %79 = getelementptr inbounds nuw %struct.z_stream_s, ptr %78, i32 0, i32 0
+  %80 = load ptr, ptr %79, align 8, !tbaa !34
+  %81 = load ptr, ptr %11, align 8, !tbaa !9
+  %82 = getelementptr inbounds nuw %struct.gz_state, ptr %81, i32 0, i32 6
+  %83 = load ptr, ptr %82, align 8, !tbaa !25
+  %84 = ptrtoint ptr %80 to i64
+  %85 = ptrtoint ptr %83 to i64
+  %86 = sub i64 %84, %85
+  %87 = getelementptr inbounds i8, ptr %77, i64 %86
+  %88 = load ptr, ptr %12, align 8, !tbaa !31
+  %89 = getelementptr inbounds nuw %struct.z_stream_s, ptr %88, i32 0, i32 1
+  %90 = load i32, ptr %89, align 8, !tbaa !33
+  %91 = zext i32 %90 to i64
+  %92 = getelementptr inbounds nuw i8, ptr %87, i64 %91
+  store ptr %92, ptr %10, align 8, !tbaa !37
+  %93 = load ptr, ptr %10, align 8, !tbaa !37
+  %94 = load ptr, ptr %11, align 8, !tbaa !9
+  %95 = getelementptr inbounds nuw %struct.gz_state, ptr %94, i32 0, i32 4
+  %96 = load i32, ptr %95, align 8, !tbaa !21
+  %97 = sub i32 %96, 1
+  %98 = zext i32 %97 to i64
+  %99 = getelementptr inbounds nuw i8, ptr %93, i64 %98
+  store i8 0, ptr %99, align 1, !tbaa !35
+  %100 = load ptr, ptr %10, align 8, !tbaa !37
+  %101 = load ptr, ptr %11, align 8, !tbaa !9
+  %102 = getelementptr inbounds nuw %struct.gz_state, ptr %101, i32 0, i32 4
+  %103 = load i32, ptr %102, align 8, !tbaa !21
+  %104 = zext i32 %103 to i64
+  %105 = load ptr, ptr %6, align 8, !tbaa !37
+  %106 = load ptr, ptr %7, align 8, !tbaa !38
+  %107 = call i32 @vsnprintf(ptr noundef %100, i64 noundef %104, ptr noundef %105, ptr noundef %106) #10
+  store i32 %107, ptr %8, align 4, !tbaa !10
+  %108 = load i32, ptr %8, align 4, !tbaa !10
+  %109 = icmp eq i32 %108, 0
+  br i1 %109, label %127, label %110
+
+110:                                              ; preds = %74
+  %111 = load i32, ptr %8, align 4, !tbaa !10
+  %112 = load ptr, ptr %11, align 8, !tbaa !9
+  %113 = getelementptr inbounds nuw %struct.gz_state, ptr %112, i32 0, i32 4
+  %114 = load i32, ptr %113, align 8, !tbaa !21
+  %115 = icmp uge i32 %111, %114
+  br i1 %115, label %127, label %116
+
+116:                                              ; preds = %110
+  %117 = load ptr, ptr %10, align 8, !tbaa !37
+  %118 = load ptr, ptr %11, align 8, !tbaa !9
+  %119 = getelementptr inbounds nuw %struct.gz_state, ptr %118, i32 0, i32 4
+  %120 = load i32, ptr %119, align 8, !tbaa !21
+  %121 = sub i32 %120, 1
+  %122 = zext i32 %121 to i64
+  %123 = getelementptr inbounds nuw i8, ptr %117, i64 %122
+  %124 = load i8, ptr %123, align 1, !tbaa !35
+  %125 = sext i8 %124 to i32
+  %126 = icmp ne i32 %125, 0
+  br i1 %126, label %127, label %128
+
+127:                                              ; preds = %116, %110, %74
   store i32 0, ptr %4, align 4
-  br label %191
+  store i32 1, ptr %13, align 4
+  br label %192
 
-127:                                              ; preds = %115
-  %128 = load i32, ptr %8, align 4
-  %129 = load ptr, ptr %12, align 8
-  %130 = getelementptr inbounds %struct.z_stream_s, ptr %129, i32 0, i32 1
-  %131 = load i32, ptr %130, align 8
-  %132 = add i32 %131, %128
-  store i32 %132, ptr %130, align 8
-  %133 = load i32, ptr %8, align 4
-  %134 = sext i32 %133 to i64
-  %135 = load ptr, ptr %11, align 8
-  %136 = getelementptr inbounds %struct.gz_state, ptr %135, i32 0, i32 0
-  %137 = getelementptr inbounds %struct.gzFile_s, ptr %136, i32 0, i32 2
-  %138 = load i64, ptr %137, align 8
-  %139 = add nsw i64 %138, %134
-  store i64 %139, ptr %137, align 8
-  %140 = load ptr, ptr %12, align 8
-  %141 = getelementptr inbounds %struct.z_stream_s, ptr %140, i32 0, i32 1
-  %142 = load i32, ptr %141, align 8
-  %143 = load ptr, ptr %11, align 8
-  %144 = getelementptr inbounds %struct.gz_state, ptr %143, i32 0, i32 4
-  %145 = load i32, ptr %144, align 8
-  %146 = icmp uge i32 %142, %145
-  br i1 %146, label %147, label %189
+128:                                              ; preds = %116
+  %129 = load i32, ptr %8, align 4, !tbaa !10
+  %130 = load ptr, ptr %12, align 8, !tbaa !31
+  %131 = getelementptr inbounds nuw %struct.z_stream_s, ptr %130, i32 0, i32 1
+  %132 = load i32, ptr %131, align 8, !tbaa !33
+  %133 = add i32 %132, %129
+  store i32 %133, ptr %131, align 8, !tbaa !33
+  %134 = load i32, ptr %8, align 4, !tbaa !10
+  %135 = sext i32 %134 to i64
+  %136 = load ptr, ptr %11, align 8, !tbaa !9
+  %137 = getelementptr inbounds nuw %struct.gz_state, ptr %136, i32 0, i32 0
+  %138 = getelementptr inbounds nuw %struct.gzFile_s, ptr %137, i32 0, i32 2
+  %139 = load i64, ptr %138, align 8, !tbaa !27
+  %140 = add nsw i64 %139, %135
+  store i64 %140, ptr %138, align 8, !tbaa !27
+  %141 = load ptr, ptr %12, align 8, !tbaa !31
+  %142 = getelementptr inbounds nuw %struct.z_stream_s, ptr %141, i32 0, i32 1
+  %143 = load i32, ptr %142, align 8, !tbaa !33
+  %144 = load ptr, ptr %11, align 8, !tbaa !9
+  %145 = getelementptr inbounds nuw %struct.gz_state, ptr %144, i32 0, i32 4
+  %146 = load i32, ptr %145, align 8, !tbaa !21
+  %147 = icmp uge i32 %143, %146
+  br i1 %147, label %148, label %190
 
-147:                                              ; preds = %127
-  %148 = load ptr, ptr %12, align 8
-  %149 = getelementptr inbounds %struct.z_stream_s, ptr %148, i32 0, i32 1
-  %150 = load i32, ptr %149, align 8
-  %151 = load ptr, ptr %11, align 8
-  %152 = getelementptr inbounds %struct.gz_state, ptr %151, i32 0, i32 4
-  %153 = load i32, ptr %152, align 8
-  %154 = sub i32 %150, %153
-  store i32 %154, ptr %9, align 4
-  %155 = load ptr, ptr %11, align 8
-  %156 = getelementptr inbounds %struct.gz_state, ptr %155, i32 0, i32 4
-  %157 = load i32, ptr %156, align 8
-  %158 = load ptr, ptr %12, align 8
-  %159 = getelementptr inbounds %struct.z_stream_s, ptr %158, i32 0, i32 1
-  store i32 %157, ptr %159, align 8
-  %160 = load ptr, ptr %11, align 8
-  %161 = call i32 @gz_comp(ptr noundef %160, i32 noundef 0)
-  %162 = icmp eq i32 %161, -1
-  br i1 %162, label %163, label %167
+148:                                              ; preds = %128
+  %149 = load ptr, ptr %12, align 8, !tbaa !31
+  %150 = getelementptr inbounds nuw %struct.z_stream_s, ptr %149, i32 0, i32 1
+  %151 = load i32, ptr %150, align 8, !tbaa !33
+  %152 = load ptr, ptr %11, align 8, !tbaa !9
+  %153 = getelementptr inbounds nuw %struct.gz_state, ptr %152, i32 0, i32 4
+  %154 = load i32, ptr %153, align 8, !tbaa !21
+  %155 = sub i32 %151, %154
+  store i32 %155, ptr %9, align 4, !tbaa !10
+  %156 = load ptr, ptr %11, align 8, !tbaa !9
+  %157 = getelementptr inbounds nuw %struct.gz_state, ptr %156, i32 0, i32 4
+  %158 = load i32, ptr %157, align 8, !tbaa !21
+  %159 = load ptr, ptr %12, align 8, !tbaa !31
+  %160 = getelementptr inbounds nuw %struct.z_stream_s, ptr %159, i32 0, i32 1
+  store i32 %158, ptr %160, align 8, !tbaa !33
+  %161 = load ptr, ptr %11, align 8, !tbaa !9
+  %162 = call i32 @gz_comp(ptr noundef %161, i32 noundef 0)
+  %163 = icmp eq i32 %162, -1
+  br i1 %163, label %164, label %168
 
-163:                                              ; preds = %147
-  %164 = load ptr, ptr %11, align 8
-  %165 = getelementptr inbounds %struct.gz_state, ptr %164, i32 0, i32 18
-  %166 = load i32, ptr %165, align 4
-  store i32 %166, ptr %4, align 4
-  br label %191
+164:                                              ; preds = %148
+  %165 = load ptr, ptr %11, align 8, !tbaa !9
+  %166 = getelementptr inbounds nuw %struct.gz_state, ptr %165, i32 0, i32 18
+  %167 = load i32, ptr %166, align 4, !tbaa !19
+  store i32 %167, ptr %4, align 4
+  store i32 1, ptr %13, align 4
+  br label %192
 
-167:                                              ; preds = %147
-  %168 = load ptr, ptr %11, align 8
-  %169 = getelementptr inbounds %struct.gz_state, ptr %168, i32 0, i32 6
-  %170 = load ptr, ptr %169, align 8
-  %171 = load ptr, ptr %11, align 8
-  %172 = getelementptr inbounds %struct.gz_state, ptr %171, i32 0, i32 6
-  %173 = load ptr, ptr %172, align 8
-  %174 = load ptr, ptr %11, align 8
-  %175 = getelementptr inbounds %struct.gz_state, ptr %174, i32 0, i32 4
-  %176 = load i32, ptr %175, align 8
-  %177 = zext i32 %176 to i64
-  %178 = getelementptr inbounds i8, ptr %173, i64 %177
-  %179 = load i32, ptr %9, align 4
-  %180 = zext i32 %179 to i64
-  call void @llvm.memmove.p0.p0.i64(ptr align 1 %170, ptr align 1 %178, i64 %180, i1 false)
-  %181 = load ptr, ptr %11, align 8
-  %182 = getelementptr inbounds %struct.gz_state, ptr %181, i32 0, i32 6
-  %183 = load ptr, ptr %182, align 8
-  %184 = load ptr, ptr %12, align 8
-  %185 = getelementptr inbounds %struct.z_stream_s, ptr %184, i32 0, i32 0
-  store ptr %183, ptr %185, align 8
-  %186 = load i32, ptr %9, align 4
-  %187 = load ptr, ptr %12, align 8
-  %188 = getelementptr inbounds %struct.z_stream_s, ptr %187, i32 0, i32 1
-  store i32 %186, ptr %188, align 8
-  br label %189
+168:                                              ; preds = %148
+  %169 = load ptr, ptr %11, align 8, !tbaa !9
+  %170 = getelementptr inbounds nuw %struct.gz_state, ptr %169, i32 0, i32 6
+  %171 = load ptr, ptr %170, align 8, !tbaa !25
+  %172 = load ptr, ptr %11, align 8, !tbaa !9
+  %173 = getelementptr inbounds nuw %struct.gz_state, ptr %172, i32 0, i32 6
+  %174 = load ptr, ptr %173, align 8, !tbaa !25
+  %175 = load ptr, ptr %11, align 8, !tbaa !9
+  %176 = getelementptr inbounds nuw %struct.gz_state, ptr %175, i32 0, i32 4
+  %177 = load i32, ptr %176, align 8, !tbaa !21
+  %178 = zext i32 %177 to i64
+  %179 = getelementptr inbounds nuw i8, ptr %174, i64 %178
+  %180 = load i32, ptr %9, align 4, !tbaa !10
+  %181 = zext i32 %180 to i64
+  call void @llvm.memmove.p0.p0.i64(ptr align 1 %171, ptr align 1 %179, i64 %181, i1 false)
+  %182 = load ptr, ptr %11, align 8, !tbaa !9
+  %183 = getelementptr inbounds nuw %struct.gz_state, ptr %182, i32 0, i32 6
+  %184 = load ptr, ptr %183, align 8, !tbaa !25
+  %185 = load ptr, ptr %12, align 8, !tbaa !31
+  %186 = getelementptr inbounds nuw %struct.z_stream_s, ptr %185, i32 0, i32 0
+  store ptr %184, ptr %186, align 8, !tbaa !34
+  %187 = load i32, ptr %9, align 4, !tbaa !10
+  %188 = load ptr, ptr %12, align 8, !tbaa !31
+  %189 = getelementptr inbounds nuw %struct.z_stream_s, ptr %188, i32 0, i32 1
+  store i32 %187, ptr %189, align 8, !tbaa !33
+  br label %190
 
-189:                                              ; preds = %167, %127
-  %190 = load i32, ptr %8, align 4
-  store i32 %190, ptr %4, align 4
-  br label %191
+190:                                              ; preds = %168, %128
+  %191 = load i32, ptr %8, align 4, !tbaa !10
+  store i32 %191, ptr %4, align 4
+  store i32 1, ptr %13, align 4
+  br label %192
 
-191:                                              ; preds = %189, %163, %126, %57, %39, %29, %15
-  %192 = load i32, ptr %4, align 4
-  ret i32 %192
+192:                                              ; preds = %190, %164, %127, %58, %40, %30, %16
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #10
+  %193 = load i32, ptr %4, align 4
+  ret i32 %193
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1106,152 +1218,161 @@ define internal i32 @gz_init(ptr noundef %0) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
   %5 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  %6 = load ptr, ptr %3, align 8
-  %7 = getelementptr inbounds %struct.gz_state, ptr %6, i32 0, i32 20
-  store ptr %7, ptr %5, align 8
-  %8 = load ptr, ptr %3, align 8
-  %9 = getelementptr inbounds %struct.gz_state, ptr %8, i32 0, i32 5
-  %10 = load i32, ptr %9, align 4
-  %11 = shl i32 %10, 1
-  %12 = zext i32 %11 to i64
-  %13 = call noalias ptr @malloc(i64 noundef %12) #11
-  %14 = load ptr, ptr %3, align 8
-  %15 = getelementptr inbounds %struct.gz_state, ptr %14, i32 0, i32 6
-  store ptr %13, ptr %15, align 8
-  %16 = load ptr, ptr %3, align 8
-  %17 = getelementptr inbounds %struct.gz_state, ptr %16, i32 0, i32 6
-  %18 = load ptr, ptr %17, align 8
-  %19 = icmp eq ptr %18, null
-  br i1 %19, label %20, label %22
+  %6 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %4) #10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #10
+  %7 = load ptr, ptr %3, align 8, !tbaa !9
+  %8 = getelementptr inbounds nuw %struct.gz_state, ptr %7, i32 0, i32 20
+  store ptr %8, ptr %5, align 8, !tbaa !31
+  %9 = load ptr, ptr %3, align 8, !tbaa !9
+  %10 = getelementptr inbounds nuw %struct.gz_state, ptr %9, i32 0, i32 5
+  %11 = load i32, ptr %10, align 4, !tbaa !40
+  %12 = shl i32 %11, 1
+  %13 = zext i32 %12 to i64
+  %14 = call noalias ptr @malloc(i64 noundef %13) #12
+  %15 = load ptr, ptr %3, align 8, !tbaa !9
+  %16 = getelementptr inbounds nuw %struct.gz_state, ptr %15, i32 0, i32 6
+  store ptr %14, ptr %16, align 8, !tbaa !25
+  %17 = load ptr, ptr %3, align 8, !tbaa !9
+  %18 = getelementptr inbounds nuw %struct.gz_state, ptr %17, i32 0, i32 6
+  %19 = load ptr, ptr %18, align 8, !tbaa !25
+  %20 = icmp eq ptr %19, null
+  br i1 %20, label %21, label %23
 
-20:                                               ; preds = %1
-  %21 = load ptr, ptr %3, align 8
-  call void @cm_zlib_gz_error(ptr noundef %21, i32 noundef -4, ptr noundef @.str.3)
+21:                                               ; preds = %1
+  %22 = load ptr, ptr %3, align 8, !tbaa !9
+  call void @cm_zlib_gz_error(ptr noundef %22, i32 noundef -4, ptr noundef @.str.3)
   store i32 -1, ptr %2, align 4
+  store i32 1, ptr %6, align 4
+  br label %101
+
+23:                                               ; preds = %1
+  %24 = load ptr, ptr %3, align 8, !tbaa !9
+  %25 = getelementptr inbounds nuw %struct.gz_state, ptr %24, i32 0, i32 8
+  %26 = load i32, ptr %25, align 8, !tbaa !41
+  %27 = icmp ne i32 %26, 0
+  br i1 %27, label %73, label %28
+
+28:                                               ; preds = %23
+  %29 = load ptr, ptr %3, align 8, !tbaa !9
+  %30 = getelementptr inbounds nuw %struct.gz_state, ptr %29, i32 0, i32 5
+  %31 = load i32, ptr %30, align 4, !tbaa !40
+  %32 = zext i32 %31 to i64
+  %33 = call noalias ptr @malloc(i64 noundef %32) #12
+  %34 = load ptr, ptr %3, align 8, !tbaa !9
+  %35 = getelementptr inbounds nuw %struct.gz_state, ptr %34, i32 0, i32 7
+  store ptr %33, ptr %35, align 8, !tbaa !42
+  %36 = load ptr, ptr %3, align 8, !tbaa !9
+  %37 = getelementptr inbounds nuw %struct.gz_state, ptr %36, i32 0, i32 7
+  %38 = load ptr, ptr %37, align 8, !tbaa !42
+  %39 = icmp eq ptr %38, null
+  br i1 %39, label %40, label %45
+
+40:                                               ; preds = %28
+  %41 = load ptr, ptr %3, align 8, !tbaa !9
+  %42 = getelementptr inbounds nuw %struct.gz_state, ptr %41, i32 0, i32 6
+  %43 = load ptr, ptr %42, align 8, !tbaa !25
+  call void @free(ptr noundef %43) #10
+  %44 = load ptr, ptr %3, align 8, !tbaa !9
+  call void @cm_zlib_gz_error(ptr noundef %44, i32 noundef -4, ptr noundef @.str.3)
+  store i32 -1, ptr %2, align 4
+  store i32 1, ptr %6, align 4
+  br label %101
+
+45:                                               ; preds = %28
+  %46 = load ptr, ptr %5, align 8, !tbaa !31
+  %47 = getelementptr inbounds nuw %struct.z_stream_s, ptr %46, i32 0, i32 8
+  store ptr null, ptr %47, align 8, !tbaa !43
+  %48 = load ptr, ptr %5, align 8, !tbaa !31
+  %49 = getelementptr inbounds nuw %struct.z_stream_s, ptr %48, i32 0, i32 9
+  store ptr null, ptr %49, align 8, !tbaa !44
+  %50 = load ptr, ptr %5, align 8, !tbaa !31
+  %51 = getelementptr inbounds nuw %struct.z_stream_s, ptr %50, i32 0, i32 10
+  store ptr null, ptr %51, align 8, !tbaa !45
+  %52 = load ptr, ptr %5, align 8, !tbaa !31
+  %53 = load ptr, ptr %3, align 8, !tbaa !9
+  %54 = getelementptr inbounds nuw %struct.gz_state, ptr %53, i32 0, i32 13
+  %55 = load i32, ptr %54, align 8, !tbaa !46
+  %56 = load ptr, ptr %3, align 8, !tbaa !9
+  %57 = getelementptr inbounds nuw %struct.gz_state, ptr %56, i32 0, i32 14
+  %58 = load i32, ptr %57, align 4, !tbaa !47
+  %59 = call i32 @cm_zlib_deflateInit2_(ptr noundef %52, i32 noundef %55, i32 noundef 8, i32 noundef 31, i32 noundef 8, i32 noundef %58, ptr noundef @.str.4, i32 noundef 112)
+  store i32 %59, ptr %4, align 4, !tbaa !10
+  %60 = load i32, ptr %4, align 4, !tbaa !10
+  %61 = icmp ne i32 %60, 0
+  br i1 %61, label %62, label %70
+
+62:                                               ; preds = %45
+  %63 = load ptr, ptr %3, align 8, !tbaa !9
+  %64 = getelementptr inbounds nuw %struct.gz_state, ptr %63, i32 0, i32 7
+  %65 = load ptr, ptr %64, align 8, !tbaa !42
+  call void @free(ptr noundef %65) #10
+  %66 = load ptr, ptr %3, align 8, !tbaa !9
+  %67 = getelementptr inbounds nuw %struct.gz_state, ptr %66, i32 0, i32 6
+  %68 = load ptr, ptr %67, align 8, !tbaa !25
+  call void @free(ptr noundef %68) #10
+  %69 = load ptr, ptr %3, align 8, !tbaa !9
+  call void @cm_zlib_gz_error(ptr noundef %69, i32 noundef -4, ptr noundef @.str.3)
+  store i32 -1, ptr %2, align 4
+  store i32 1, ptr %6, align 4
+  br label %101
+
+70:                                               ; preds = %45
+  %71 = load ptr, ptr %5, align 8, !tbaa !31
+  %72 = getelementptr inbounds nuw %struct.z_stream_s, ptr %71, i32 0, i32 0
+  store ptr null, ptr %72, align 8, !tbaa !34
+  br label %73
+
+73:                                               ; preds = %70, %23
+  %74 = load ptr, ptr %3, align 8, !tbaa !9
+  %75 = getelementptr inbounds nuw %struct.gz_state, ptr %74, i32 0, i32 5
+  %76 = load i32, ptr %75, align 4, !tbaa !40
+  %77 = load ptr, ptr %3, align 8, !tbaa !9
+  %78 = getelementptr inbounds nuw %struct.gz_state, ptr %77, i32 0, i32 4
+  store i32 %76, ptr %78, align 8, !tbaa !21
+  %79 = load ptr, ptr %3, align 8, !tbaa !9
+  %80 = getelementptr inbounds nuw %struct.gz_state, ptr %79, i32 0, i32 8
+  %81 = load i32, ptr %80, align 8, !tbaa !41
+  %82 = icmp ne i32 %81, 0
+  br i1 %82, label %100, label %83
+
+83:                                               ; preds = %73
+  %84 = load ptr, ptr %3, align 8, !tbaa !9
+  %85 = getelementptr inbounds nuw %struct.gz_state, ptr %84, i32 0, i32 4
+  %86 = load i32, ptr %85, align 8, !tbaa !21
+  %87 = load ptr, ptr %5, align 8, !tbaa !31
+  %88 = getelementptr inbounds nuw %struct.z_stream_s, ptr %87, i32 0, i32 4
+  store i32 %86, ptr %88, align 8, !tbaa !48
+  %89 = load ptr, ptr %3, align 8, !tbaa !9
+  %90 = getelementptr inbounds nuw %struct.gz_state, ptr %89, i32 0, i32 7
+  %91 = load ptr, ptr %90, align 8, !tbaa !42
+  %92 = load ptr, ptr %5, align 8, !tbaa !31
+  %93 = getelementptr inbounds nuw %struct.z_stream_s, ptr %92, i32 0, i32 3
+  store ptr %91, ptr %93, align 8, !tbaa !49
+  %94 = load ptr, ptr %5, align 8, !tbaa !31
+  %95 = getelementptr inbounds nuw %struct.z_stream_s, ptr %94, i32 0, i32 3
+  %96 = load ptr, ptr %95, align 8, !tbaa !49
+  %97 = load ptr, ptr %3, align 8, !tbaa !9
+  %98 = getelementptr inbounds nuw %struct.gz_state, ptr %97, i32 0, i32 0
+  %99 = getelementptr inbounds nuw %struct.gzFile_s, ptr %98, i32 0, i32 1
+  store ptr %96, ptr %99, align 8, !tbaa !50
   br label %100
 
-22:                                               ; preds = %1
-  %23 = load ptr, ptr %3, align 8
-  %24 = getelementptr inbounds %struct.gz_state, ptr %23, i32 0, i32 8
-  %25 = load i32, ptr %24, align 8
-  %26 = icmp ne i32 %25, 0
-  br i1 %26, label %72, label %27
-
-27:                                               ; preds = %22
-  %28 = load ptr, ptr %3, align 8
-  %29 = getelementptr inbounds %struct.gz_state, ptr %28, i32 0, i32 5
-  %30 = load i32, ptr %29, align 4
-  %31 = zext i32 %30 to i64
-  %32 = call noalias ptr @malloc(i64 noundef %31) #11
-  %33 = load ptr, ptr %3, align 8
-  %34 = getelementptr inbounds %struct.gz_state, ptr %33, i32 0, i32 7
-  store ptr %32, ptr %34, align 8
-  %35 = load ptr, ptr %3, align 8
-  %36 = getelementptr inbounds %struct.gz_state, ptr %35, i32 0, i32 7
-  %37 = load ptr, ptr %36, align 8
-  %38 = icmp eq ptr %37, null
-  br i1 %38, label %39, label %44
-
-39:                                               ; preds = %27
-  %40 = load ptr, ptr %3, align 8
-  %41 = getelementptr inbounds %struct.gz_state, ptr %40, i32 0, i32 6
-  %42 = load ptr, ptr %41, align 8
-  call void @free(ptr noundef %42) #10
-  %43 = load ptr, ptr %3, align 8
-  call void @cm_zlib_gz_error(ptr noundef %43, i32 noundef -4, ptr noundef @.str.3)
-  store i32 -1, ptr %2, align 4
-  br label %100
-
-44:                                               ; preds = %27
-  %45 = load ptr, ptr %5, align 8
-  %46 = getelementptr inbounds %struct.z_stream_s, ptr %45, i32 0, i32 8
-  store ptr null, ptr %46, align 8
-  %47 = load ptr, ptr %5, align 8
-  %48 = getelementptr inbounds %struct.z_stream_s, ptr %47, i32 0, i32 9
-  store ptr null, ptr %48, align 8
-  %49 = load ptr, ptr %5, align 8
-  %50 = getelementptr inbounds %struct.z_stream_s, ptr %49, i32 0, i32 10
-  store ptr null, ptr %50, align 8
-  %51 = load ptr, ptr %5, align 8
-  %52 = load ptr, ptr %3, align 8
-  %53 = getelementptr inbounds %struct.gz_state, ptr %52, i32 0, i32 13
-  %54 = load i32, ptr %53, align 8
-  %55 = load ptr, ptr %3, align 8
-  %56 = getelementptr inbounds %struct.gz_state, ptr %55, i32 0, i32 14
-  %57 = load i32, ptr %56, align 4
-  %58 = call i32 @cm_zlib_deflateInit2_(ptr noundef %51, i32 noundef %54, i32 noundef 8, i32 noundef 31, i32 noundef 8, i32 noundef %57, ptr noundef @.str.4, i32 noundef 112)
-  store i32 %58, ptr %4, align 4
-  %59 = load i32, ptr %4, align 4
-  %60 = icmp ne i32 %59, 0
-  br i1 %60, label %61, label %69
-
-61:                                               ; preds = %44
-  %62 = load ptr, ptr %3, align 8
-  %63 = getelementptr inbounds %struct.gz_state, ptr %62, i32 0, i32 7
-  %64 = load ptr, ptr %63, align 8
-  call void @free(ptr noundef %64) #10
-  %65 = load ptr, ptr %3, align 8
-  %66 = getelementptr inbounds %struct.gz_state, ptr %65, i32 0, i32 6
-  %67 = load ptr, ptr %66, align 8
-  call void @free(ptr noundef %67) #10
-  %68 = load ptr, ptr %3, align 8
-  call void @cm_zlib_gz_error(ptr noundef %68, i32 noundef -4, ptr noundef @.str.3)
-  store i32 -1, ptr %2, align 4
-  br label %100
-
-69:                                               ; preds = %44
-  %70 = load ptr, ptr %5, align 8
-  %71 = getelementptr inbounds %struct.z_stream_s, ptr %70, i32 0, i32 0
-  store ptr null, ptr %71, align 8
-  br label %72
-
-72:                                               ; preds = %69, %22
-  %73 = load ptr, ptr %3, align 8
-  %74 = getelementptr inbounds %struct.gz_state, ptr %73, i32 0, i32 5
-  %75 = load i32, ptr %74, align 4
-  %76 = load ptr, ptr %3, align 8
-  %77 = getelementptr inbounds %struct.gz_state, ptr %76, i32 0, i32 4
-  store i32 %75, ptr %77, align 8
-  %78 = load ptr, ptr %3, align 8
-  %79 = getelementptr inbounds %struct.gz_state, ptr %78, i32 0, i32 8
-  %80 = load i32, ptr %79, align 8
-  %81 = icmp ne i32 %80, 0
-  br i1 %81, label %99, label %82
-
-82:                                               ; preds = %72
-  %83 = load ptr, ptr %3, align 8
-  %84 = getelementptr inbounds %struct.gz_state, ptr %83, i32 0, i32 4
-  %85 = load i32, ptr %84, align 8
-  %86 = load ptr, ptr %5, align 8
-  %87 = getelementptr inbounds %struct.z_stream_s, ptr %86, i32 0, i32 4
-  store i32 %85, ptr %87, align 8
-  %88 = load ptr, ptr %3, align 8
-  %89 = getelementptr inbounds %struct.gz_state, ptr %88, i32 0, i32 7
-  %90 = load ptr, ptr %89, align 8
-  %91 = load ptr, ptr %5, align 8
-  %92 = getelementptr inbounds %struct.z_stream_s, ptr %91, i32 0, i32 3
-  store ptr %90, ptr %92, align 8
-  %93 = load ptr, ptr %5, align 8
-  %94 = getelementptr inbounds %struct.z_stream_s, ptr %93, i32 0, i32 3
-  %95 = load ptr, ptr %94, align 8
-  %96 = load ptr, ptr %3, align 8
-  %97 = getelementptr inbounds %struct.gz_state, ptr %96, i32 0, i32 0
-  %98 = getelementptr inbounds %struct.gzFile_s, ptr %97, i32 0, i32 1
-  store ptr %95, ptr %98, align 8
-  br label %99
-
-99:                                               ; preds = %82, %72
+100:                                              ; preds = %83, %73
   store i32 0, ptr %2, align 4
-  br label %100
+  store i32 1, ptr %6, align 4
+  br label %101
 
-100:                                              ; preds = %99, %61, %39, %20
-  %101 = load i32, ptr %2, align 4
-  ret i32 %101
+101:                                              ; preds = %100, %62, %40, %21
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %4) #10
+  %102 = load i32, ptr %2, align 4
+  ret i32 %102
 }
 
 ; Function Attrs: nounwind
-declare i32 @vsnprintf(ptr noundef, i64 noundef, ptr noundef, ptr noundef) #3
+declare i32 @vsnprintf(ptr noundef, i64 noundef, ptr noundef, ptr noundef) #4
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @gz_comp(ptr noundef %0, i32 noundef %1) #0 {
@@ -1264,336 +1385,356 @@ define internal i32 @gz_comp(ptr noundef %0, i32 noundef %1) #0 {
   %9 = alloca i32, align 4
   %10 = alloca i32, align 4
   %11 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store i32 %1, ptr %5, align 4
-  store i32 1073741824, ptr %10, align 4
-  %12 = load ptr, ptr %4, align 8
-  %13 = getelementptr inbounds %struct.gz_state, ptr %12, i32 0, i32 20
-  store ptr %13, ptr %11, align 8
-  %14 = load ptr, ptr %4, align 8
-  %15 = getelementptr inbounds %struct.gz_state, ptr %14, i32 0, i32 4
-  %16 = load i32, ptr %15, align 8
-  %17 = icmp eq i32 %16, 0
-  br i1 %17, label %18, label %23
+  %12 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !9
+  store i32 %1, ptr %5, align 4, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #10
+  store i32 1073741824, ptr %10, align 4, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #10
+  %13 = load ptr, ptr %4, align 8, !tbaa !9
+  %14 = getelementptr inbounds nuw %struct.gz_state, ptr %13, i32 0, i32 20
+  store ptr %14, ptr %11, align 8, !tbaa !31
+  %15 = load ptr, ptr %4, align 8, !tbaa !9
+  %16 = getelementptr inbounds nuw %struct.gz_state, ptr %15, i32 0, i32 4
+  %17 = load i32, ptr %16, align 8, !tbaa !21
+  %18 = icmp eq i32 %17, 0
+  br i1 %18, label %19, label %24
 
-18:                                               ; preds = %2
-  %19 = load ptr, ptr %4, align 8
-  %20 = call i32 @gz_init(ptr noundef %19)
-  %21 = icmp eq i32 %20, -1
-  br i1 %21, label %22, label %23
+19:                                               ; preds = %2
+  %20 = load ptr, ptr %4, align 8, !tbaa !9
+  %21 = call i32 @gz_init(ptr noundef %20)
+  %22 = icmp eq i32 %21, -1
+  br i1 %22, label %23, label %24
 
-22:                                               ; preds = %18
+23:                                               ; preds = %19
   store i32 -1, ptr %3, align 4
-  br label %225
+  store i32 1, ptr %12, align 4
+  br label %226
 
-23:                                               ; preds = %18, %2
-  %24 = load ptr, ptr %4, align 8
-  %25 = getelementptr inbounds %struct.gz_state, ptr %24, i32 0, i32 8
-  %26 = load i32, ptr %25, align 8
-  %27 = icmp ne i32 %26, 0
-  br i1 %27, label %28, label %78
+24:                                               ; preds = %19, %2
+  %25 = load ptr, ptr %4, align 8, !tbaa !9
+  %26 = getelementptr inbounds nuw %struct.gz_state, ptr %25, i32 0, i32 8
+  %27 = load i32, ptr %26, align 8, !tbaa !41
+  %28 = icmp ne i32 %27, 0
+  br i1 %28, label %29, label %79
 
-28:                                               ; preds = %23
-  br label %29
+29:                                               ; preds = %24
+  br label %30
 
-29:                                               ; preds = %65, %28
-  %30 = load ptr, ptr %11, align 8
-  %31 = getelementptr inbounds %struct.z_stream_s, ptr %30, i32 0, i32 1
-  %32 = load i32, ptr %31, align 8
-  %33 = icmp ne i32 %32, 0
-  br i1 %33, label %34, label %77
+30:                                               ; preds = %66, %29
+  %31 = load ptr, ptr %11, align 8, !tbaa !31
+  %32 = getelementptr inbounds nuw %struct.z_stream_s, ptr %31, i32 0, i32 1
+  %33 = load i32, ptr %32, align 8, !tbaa !33
+  %34 = icmp ne i32 %33, 0
+  br i1 %34, label %35, label %78
 
-34:                                               ; preds = %29
-  %35 = load ptr, ptr %11, align 8
-  %36 = getelementptr inbounds %struct.z_stream_s, ptr %35, i32 0, i32 1
-  %37 = load i32, ptr %36, align 8
-  %38 = load i32, ptr %10, align 4
-  %39 = icmp ugt i32 %37, %38
-  br i1 %39, label %40, label %42
+35:                                               ; preds = %30
+  %36 = load ptr, ptr %11, align 8, !tbaa !31
+  %37 = getelementptr inbounds nuw %struct.z_stream_s, ptr %36, i32 0, i32 1
+  %38 = load i32, ptr %37, align 8, !tbaa !33
+  %39 = load i32, ptr %10, align 4, !tbaa !10
+  %40 = icmp ugt i32 %38, %39
+  br i1 %40, label %41, label %43
 
-40:                                               ; preds = %34
-  %41 = load i32, ptr %10, align 4
-  br label %46
+41:                                               ; preds = %35
+  %42 = load i32, ptr %10, align 4, !tbaa !10
+  br label %47
 
-42:                                               ; preds = %34
-  %43 = load ptr, ptr %11, align 8
-  %44 = getelementptr inbounds %struct.z_stream_s, ptr %43, i32 0, i32 1
-  %45 = load i32, ptr %44, align 8
-  br label %46
+43:                                               ; preds = %35
+  %44 = load ptr, ptr %11, align 8, !tbaa !31
+  %45 = getelementptr inbounds nuw %struct.z_stream_s, ptr %44, i32 0, i32 1
+  %46 = load i32, ptr %45, align 8, !tbaa !33
+  br label %47
 
-46:                                               ; preds = %42, %40
-  %47 = phi i32 [ %41, %40 ], [ %45, %42 ]
-  store i32 %47, ptr %9, align 4
-  %48 = load ptr, ptr %4, align 8
-  %49 = getelementptr inbounds %struct.gz_state, ptr %48, i32 0, i32 2
-  %50 = load i32, ptr %49, align 4
-  %51 = load ptr, ptr %11, align 8
-  %52 = getelementptr inbounds %struct.z_stream_s, ptr %51, i32 0, i32 0
-  %53 = load ptr, ptr %52, align 8
-  %54 = load i32, ptr %9, align 4
-  %55 = zext i32 %54 to i64
-  %56 = call i64 @write(i32 noundef %50, ptr noundef %53, i64 noundef %55)
-  %57 = trunc i64 %56 to i32
-  store i32 %57, ptr %7, align 4
-  %58 = load i32, ptr %7, align 4
-  %59 = icmp slt i32 %58, 0
-  br i1 %59, label %60, label %65
+47:                                               ; preds = %43, %41
+  %48 = phi i32 [ %42, %41 ], [ %46, %43 ]
+  store i32 %48, ptr %9, align 4, !tbaa !10
+  %49 = load ptr, ptr %4, align 8, !tbaa !9
+  %50 = getelementptr inbounds nuw %struct.gz_state, ptr %49, i32 0, i32 2
+  %51 = load i32, ptr %50, align 4, !tbaa !51
+  %52 = load ptr, ptr %11, align 8, !tbaa !31
+  %53 = getelementptr inbounds nuw %struct.z_stream_s, ptr %52, i32 0, i32 0
+  %54 = load ptr, ptr %53, align 8, !tbaa !34
+  %55 = load i32, ptr %9, align 4, !tbaa !10
+  %56 = zext i32 %55 to i64
+  %57 = call i64 @write(i32 noundef %51, ptr noundef %54, i64 noundef %56)
+  %58 = trunc i64 %57 to i32
+  store i32 %58, ptr %7, align 4, !tbaa !10
+  %59 = load i32, ptr %7, align 4, !tbaa !10
+  %60 = icmp slt i32 %59, 0
+  br i1 %60, label %61, label %66
 
-60:                                               ; preds = %46
-  %61 = load ptr, ptr %4, align 8
-  %62 = call ptr @__errno_location() #12
-  %63 = load i32, ptr %62, align 4
-  %64 = call ptr @strerror(i32 noundef %63) #10
-  call void @cm_zlib_gz_error(ptr noundef %61, i32 noundef -1, ptr noundef %64)
+61:                                               ; preds = %47
+  %62 = load ptr, ptr %4, align 8, !tbaa !9
+  %63 = call ptr @__errno_location() #13
+  %64 = load i32, ptr %63, align 4, !tbaa !10
+  %65 = call ptr @strerror(i32 noundef %64) #10
+  call void @cm_zlib_gz_error(ptr noundef %62, i32 noundef -1, ptr noundef %65)
   store i32 -1, ptr %3, align 4
-  br label %225
+  store i32 1, ptr %12, align 4
+  br label %226
 
-65:                                               ; preds = %46
-  %66 = load i32, ptr %7, align 4
-  %67 = load ptr, ptr %11, align 8
-  %68 = getelementptr inbounds %struct.z_stream_s, ptr %67, i32 0, i32 1
-  %69 = load i32, ptr %68, align 8
-  %70 = sub i32 %69, %66
-  store i32 %70, ptr %68, align 8
-  %71 = load i32, ptr %7, align 4
-  %72 = load ptr, ptr %11, align 8
-  %73 = getelementptr inbounds %struct.z_stream_s, ptr %72, i32 0, i32 0
-  %74 = load ptr, ptr %73, align 8
-  %75 = sext i32 %71 to i64
-  %76 = getelementptr inbounds i8, ptr %74, i64 %75
-  store ptr %76, ptr %73, align 8
-  br label %29, !llvm.loop !9
+66:                                               ; preds = %47
+  %67 = load i32, ptr %7, align 4, !tbaa !10
+  %68 = load ptr, ptr %11, align 8, !tbaa !31
+  %69 = getelementptr inbounds nuw %struct.z_stream_s, ptr %68, i32 0, i32 1
+  %70 = load i32, ptr %69, align 8, !tbaa !33
+  %71 = sub i32 %70, %67
+  store i32 %71, ptr %69, align 8, !tbaa !33
+  %72 = load i32, ptr %7, align 4, !tbaa !10
+  %73 = load ptr, ptr %11, align 8, !tbaa !31
+  %74 = getelementptr inbounds nuw %struct.z_stream_s, ptr %73, i32 0, i32 0
+  %75 = load ptr, ptr %74, align 8, !tbaa !34
+  %76 = sext i32 %72 to i64
+  %77 = getelementptr inbounds i8, ptr %75, i64 %76
+  store ptr %77, ptr %74, align 8, !tbaa !34
+  br label %30, !llvm.loop !52
 
-77:                                               ; preds = %29
+78:                                               ; preds = %30
   store i32 0, ptr %3, align 4
-  br label %225
+  store i32 1, ptr %12, align 4
+  br label %226
 
-78:                                               ; preds = %23
-  %79 = load ptr, ptr %4, align 8
-  %80 = getelementptr inbounds %struct.gz_state, ptr %79, i32 0, i32 15
-  %81 = load i32, ptr %80, align 8
-  %82 = icmp ne i32 %81, 0
-  br i1 %82, label %83, label %94
+79:                                               ; preds = %24
+  %80 = load ptr, ptr %4, align 8, !tbaa !9
+  %81 = getelementptr inbounds nuw %struct.gz_state, ptr %80, i32 0, i32 15
+  %82 = load i32, ptr %81, align 8, !tbaa !53
+  %83 = icmp ne i32 %82, 0
+  br i1 %83, label %84, label %95
 
-83:                                               ; preds = %78
-  %84 = load ptr, ptr %11, align 8
-  %85 = getelementptr inbounds %struct.z_stream_s, ptr %84, i32 0, i32 1
-  %86 = load i32, ptr %85, align 8
-  %87 = icmp eq i32 %86, 0
-  br i1 %87, label %88, label %89
+84:                                               ; preds = %79
+  %85 = load ptr, ptr %11, align 8, !tbaa !31
+  %86 = getelementptr inbounds nuw %struct.z_stream_s, ptr %85, i32 0, i32 1
+  %87 = load i32, ptr %86, align 8, !tbaa !33
+  %88 = icmp eq i32 %87, 0
+  br i1 %88, label %89, label %90
 
-88:                                               ; preds = %83
+89:                                               ; preds = %84
   store i32 0, ptr %3, align 4
-  br label %225
+  store i32 1, ptr %12, align 4
+  br label %226
 
-89:                                               ; preds = %83
-  %90 = load ptr, ptr %11, align 8
-  %91 = call i32 @cm_zlib_deflateReset(ptr noundef %90)
-  %92 = load ptr, ptr %4, align 8
-  %93 = getelementptr inbounds %struct.gz_state, ptr %92, i32 0, i32 15
-  store i32 0, ptr %93, align 8
-  br label %94
-
-94:                                               ; preds = %89, %78
-  store i32 0, ptr %6, align 4
+90:                                               ; preds = %84
+  %91 = load ptr, ptr %11, align 8, !tbaa !31
+  %92 = call i32 @cm_zlib_deflateReset(ptr noundef %91)
+  %93 = load ptr, ptr %4, align 8, !tbaa !9
+  %94 = getelementptr inbounds nuw %struct.gz_state, ptr %93, i32 0, i32 15
+  store i32 0, ptr %94, align 8, !tbaa !53
   br label %95
 
-95:                                               ; preds = %215, %94
-  %96 = load ptr, ptr %11, align 8
-  %97 = getelementptr inbounds %struct.z_stream_s, ptr %96, i32 0, i32 4
-  %98 = load i32, ptr %97, align 8
-  %99 = icmp eq i32 %98, 0
-  br i1 %99, label %109, label %100
+95:                                               ; preds = %90, %79
+  store i32 0, ptr %6, align 4, !tbaa !10
+  br label %96
 
-100:                                              ; preds = %95
-  %101 = load i32, ptr %5, align 4
-  %102 = icmp ne i32 %101, 0
-  br i1 %102, label %103, label %198
+96:                                               ; preds = %216, %95
+  %97 = load ptr, ptr %11, align 8, !tbaa !31
+  %98 = getelementptr inbounds nuw %struct.z_stream_s, ptr %97, i32 0, i32 4
+  %99 = load i32, ptr %98, align 8, !tbaa !48
+  %100 = icmp eq i32 %99, 0
+  br i1 %100, label %110, label %101
 
-103:                                              ; preds = %100
-  %104 = load i32, ptr %5, align 4
-  %105 = icmp ne i32 %104, 4
-  br i1 %105, label %109, label %106
+101:                                              ; preds = %96
+  %102 = load i32, ptr %5, align 4, !tbaa !10
+  %103 = icmp ne i32 %102, 0
+  br i1 %103, label %104, label %199
 
-106:                                              ; preds = %103
-  %107 = load i32, ptr %6, align 4
-  %108 = icmp eq i32 %107, 1
-  br i1 %108, label %109, label %198
+104:                                              ; preds = %101
+  %105 = load i32, ptr %5, align 4, !tbaa !10
+  %106 = icmp ne i32 %105, 4
+  br i1 %106, label %110, label %107
 
-109:                                              ; preds = %106, %103, %95
-  br label %110
+107:                                              ; preds = %104
+  %108 = load i32, ptr %6, align 4, !tbaa !10
+  %109 = icmp eq i32 %108, 1
+  br i1 %109, label %110, label %199
 
-110:                                              ; preds = %167, %109
-  %111 = load ptr, ptr %11, align 8
-  %112 = getelementptr inbounds %struct.z_stream_s, ptr %111, i32 0, i32 3
-  %113 = load ptr, ptr %112, align 8
-  %114 = load ptr, ptr %4, align 8
-  %115 = getelementptr inbounds %struct.gz_state, ptr %114, i32 0, i32 0
-  %116 = getelementptr inbounds %struct.gzFile_s, ptr %115, i32 0, i32 1
-  %117 = load ptr, ptr %116, align 8
-  %118 = icmp ugt ptr %113, %117
-  br i1 %118, label %119, label %175
+110:                                              ; preds = %107, %104, %96
+  br label %111
 
-119:                                              ; preds = %110
-  %120 = load ptr, ptr %11, align 8
-  %121 = getelementptr inbounds %struct.z_stream_s, ptr %120, i32 0, i32 3
-  %122 = load ptr, ptr %121, align 8
-  %123 = load ptr, ptr %4, align 8
-  %124 = getelementptr inbounds %struct.gz_state, ptr %123, i32 0, i32 0
-  %125 = getelementptr inbounds %struct.gzFile_s, ptr %124, i32 0, i32 1
-  %126 = load ptr, ptr %125, align 8
-  %127 = ptrtoint ptr %122 to i64
-  %128 = ptrtoint ptr %126 to i64
-  %129 = sub i64 %127, %128
-  %130 = load i32, ptr %10, align 4
-  %131 = sext i32 %130 to i64
-  %132 = icmp sgt i64 %129, %131
-  br i1 %132, label %133, label %135
+111:                                              ; preds = %168, %110
+  %112 = load ptr, ptr %11, align 8, !tbaa !31
+  %113 = getelementptr inbounds nuw %struct.z_stream_s, ptr %112, i32 0, i32 3
+  %114 = load ptr, ptr %113, align 8, !tbaa !49
+  %115 = load ptr, ptr %4, align 8, !tbaa !9
+  %116 = getelementptr inbounds nuw %struct.gz_state, ptr %115, i32 0, i32 0
+  %117 = getelementptr inbounds nuw %struct.gzFile_s, ptr %116, i32 0, i32 1
+  %118 = load ptr, ptr %117, align 8, !tbaa !50
+  %119 = icmp ugt ptr %114, %118
+  br i1 %119, label %120, label %176
 
-133:                                              ; preds = %119
-  %134 = load i32, ptr %10, align 4
-  br label %147
+120:                                              ; preds = %111
+  %121 = load ptr, ptr %11, align 8, !tbaa !31
+  %122 = getelementptr inbounds nuw %struct.z_stream_s, ptr %121, i32 0, i32 3
+  %123 = load ptr, ptr %122, align 8, !tbaa !49
+  %124 = load ptr, ptr %4, align 8, !tbaa !9
+  %125 = getelementptr inbounds nuw %struct.gz_state, ptr %124, i32 0, i32 0
+  %126 = getelementptr inbounds nuw %struct.gzFile_s, ptr %125, i32 0, i32 1
+  %127 = load ptr, ptr %126, align 8, !tbaa !50
+  %128 = ptrtoint ptr %123 to i64
+  %129 = ptrtoint ptr %127 to i64
+  %130 = sub i64 %128, %129
+  %131 = load i32, ptr %10, align 4, !tbaa !10
+  %132 = sext i32 %131 to i64
+  %133 = icmp sgt i64 %130, %132
+  br i1 %133, label %134, label %136
 
-135:                                              ; preds = %119
-  %136 = load ptr, ptr %11, align 8
-  %137 = getelementptr inbounds %struct.z_stream_s, ptr %136, i32 0, i32 3
-  %138 = load ptr, ptr %137, align 8
-  %139 = load ptr, ptr %4, align 8
-  %140 = getelementptr inbounds %struct.gz_state, ptr %139, i32 0, i32 0
-  %141 = getelementptr inbounds %struct.gzFile_s, ptr %140, i32 0, i32 1
-  %142 = load ptr, ptr %141, align 8
-  %143 = ptrtoint ptr %138 to i64
-  %144 = ptrtoint ptr %142 to i64
-  %145 = sub i64 %143, %144
-  %146 = trunc i64 %145 to i32
-  br label %147
+134:                                              ; preds = %120
+  %135 = load i32, ptr %10, align 4, !tbaa !10
+  br label %148
 
-147:                                              ; preds = %135, %133
-  %148 = phi i32 [ %134, %133 ], [ %146, %135 ]
-  store i32 %148, ptr %9, align 4
-  %149 = load ptr, ptr %4, align 8
-  %150 = getelementptr inbounds %struct.gz_state, ptr %149, i32 0, i32 2
-  %151 = load i32, ptr %150, align 4
-  %152 = load ptr, ptr %4, align 8
-  %153 = getelementptr inbounds %struct.gz_state, ptr %152, i32 0, i32 0
-  %154 = getelementptr inbounds %struct.gzFile_s, ptr %153, i32 0, i32 1
-  %155 = load ptr, ptr %154, align 8
-  %156 = load i32, ptr %9, align 4
-  %157 = zext i32 %156 to i64
-  %158 = call i64 @write(i32 noundef %151, ptr noundef %155, i64 noundef %157)
-  %159 = trunc i64 %158 to i32
-  store i32 %159, ptr %7, align 4
-  %160 = load i32, ptr %7, align 4
-  %161 = icmp slt i32 %160, 0
-  br i1 %161, label %162, label %167
+136:                                              ; preds = %120
+  %137 = load ptr, ptr %11, align 8, !tbaa !31
+  %138 = getelementptr inbounds nuw %struct.z_stream_s, ptr %137, i32 0, i32 3
+  %139 = load ptr, ptr %138, align 8, !tbaa !49
+  %140 = load ptr, ptr %4, align 8, !tbaa !9
+  %141 = getelementptr inbounds nuw %struct.gz_state, ptr %140, i32 0, i32 0
+  %142 = getelementptr inbounds nuw %struct.gzFile_s, ptr %141, i32 0, i32 1
+  %143 = load ptr, ptr %142, align 8, !tbaa !50
+  %144 = ptrtoint ptr %139 to i64
+  %145 = ptrtoint ptr %143 to i64
+  %146 = sub i64 %144, %145
+  %147 = trunc i64 %146 to i32
+  br label %148
 
-162:                                              ; preds = %147
-  %163 = load ptr, ptr %4, align 8
-  %164 = call ptr @__errno_location() #12
-  %165 = load i32, ptr %164, align 4
-  %166 = call ptr @strerror(i32 noundef %165) #10
-  call void @cm_zlib_gz_error(ptr noundef %163, i32 noundef -1, ptr noundef %166)
+148:                                              ; preds = %136, %134
+  %149 = phi i32 [ %135, %134 ], [ %147, %136 ]
+  store i32 %149, ptr %9, align 4, !tbaa !10
+  %150 = load ptr, ptr %4, align 8, !tbaa !9
+  %151 = getelementptr inbounds nuw %struct.gz_state, ptr %150, i32 0, i32 2
+  %152 = load i32, ptr %151, align 4, !tbaa !51
+  %153 = load ptr, ptr %4, align 8, !tbaa !9
+  %154 = getelementptr inbounds nuw %struct.gz_state, ptr %153, i32 0, i32 0
+  %155 = getelementptr inbounds nuw %struct.gzFile_s, ptr %154, i32 0, i32 1
+  %156 = load ptr, ptr %155, align 8, !tbaa !50
+  %157 = load i32, ptr %9, align 4, !tbaa !10
+  %158 = zext i32 %157 to i64
+  %159 = call i64 @write(i32 noundef %152, ptr noundef %156, i64 noundef %158)
+  %160 = trunc i64 %159 to i32
+  store i32 %160, ptr %7, align 4, !tbaa !10
+  %161 = load i32, ptr %7, align 4, !tbaa !10
+  %162 = icmp slt i32 %161, 0
+  br i1 %162, label %163, label %168
+
+163:                                              ; preds = %148
+  %164 = load ptr, ptr %4, align 8, !tbaa !9
+  %165 = call ptr @__errno_location() #13
+  %166 = load i32, ptr %165, align 4, !tbaa !10
+  %167 = call ptr @strerror(i32 noundef %166) #10
+  call void @cm_zlib_gz_error(ptr noundef %164, i32 noundef -1, ptr noundef %167)
   store i32 -1, ptr %3, align 4
-  br label %225
+  store i32 1, ptr %12, align 4
+  br label %226
 
-167:                                              ; preds = %147
-  %168 = load i32, ptr %7, align 4
-  %169 = load ptr, ptr %4, align 8
-  %170 = getelementptr inbounds %struct.gz_state, ptr %169, i32 0, i32 0
-  %171 = getelementptr inbounds %struct.gzFile_s, ptr %170, i32 0, i32 1
-  %172 = load ptr, ptr %171, align 8
-  %173 = sext i32 %168 to i64
-  %174 = getelementptr inbounds i8, ptr %172, i64 %173
-  store ptr %174, ptr %171, align 8
-  br label %110, !llvm.loop !10
+168:                                              ; preds = %148
+  %169 = load i32, ptr %7, align 4, !tbaa !10
+  %170 = load ptr, ptr %4, align 8, !tbaa !9
+  %171 = getelementptr inbounds nuw %struct.gz_state, ptr %170, i32 0, i32 0
+  %172 = getelementptr inbounds nuw %struct.gzFile_s, ptr %171, i32 0, i32 1
+  %173 = load ptr, ptr %172, align 8, !tbaa !50
+  %174 = sext i32 %169 to i64
+  %175 = getelementptr inbounds i8, ptr %173, i64 %174
+  store ptr %175, ptr %172, align 8, !tbaa !50
+  br label %111, !llvm.loop !54
 
-175:                                              ; preds = %110
-  %176 = load ptr, ptr %11, align 8
-  %177 = getelementptr inbounds %struct.z_stream_s, ptr %176, i32 0, i32 4
-  %178 = load i32, ptr %177, align 8
-  %179 = icmp eq i32 %178, 0
-  br i1 %179, label %180, label %197
+176:                                              ; preds = %111
+  %177 = load ptr, ptr %11, align 8, !tbaa !31
+  %178 = getelementptr inbounds nuw %struct.z_stream_s, ptr %177, i32 0, i32 4
+  %179 = load i32, ptr %178, align 8, !tbaa !48
+  %180 = icmp eq i32 %179, 0
+  br i1 %180, label %181, label %198
 
-180:                                              ; preds = %175
-  %181 = load ptr, ptr %4, align 8
-  %182 = getelementptr inbounds %struct.gz_state, ptr %181, i32 0, i32 4
-  %183 = load i32, ptr %182, align 8
-  %184 = load ptr, ptr %11, align 8
-  %185 = getelementptr inbounds %struct.z_stream_s, ptr %184, i32 0, i32 4
-  store i32 %183, ptr %185, align 8
-  %186 = load ptr, ptr %4, align 8
-  %187 = getelementptr inbounds %struct.gz_state, ptr %186, i32 0, i32 7
-  %188 = load ptr, ptr %187, align 8
-  %189 = load ptr, ptr %11, align 8
-  %190 = getelementptr inbounds %struct.z_stream_s, ptr %189, i32 0, i32 3
-  store ptr %188, ptr %190, align 8
-  %191 = load ptr, ptr %4, align 8
-  %192 = getelementptr inbounds %struct.gz_state, ptr %191, i32 0, i32 7
-  %193 = load ptr, ptr %192, align 8
-  %194 = load ptr, ptr %4, align 8
-  %195 = getelementptr inbounds %struct.gz_state, ptr %194, i32 0, i32 0
-  %196 = getelementptr inbounds %struct.gzFile_s, ptr %195, i32 0, i32 1
-  store ptr %193, ptr %196, align 8
-  br label %197
-
-197:                                              ; preds = %180, %175
+181:                                              ; preds = %176
+  %182 = load ptr, ptr %4, align 8, !tbaa !9
+  %183 = getelementptr inbounds nuw %struct.gz_state, ptr %182, i32 0, i32 4
+  %184 = load i32, ptr %183, align 8, !tbaa !21
+  %185 = load ptr, ptr %11, align 8, !tbaa !31
+  %186 = getelementptr inbounds nuw %struct.z_stream_s, ptr %185, i32 0, i32 4
+  store i32 %184, ptr %186, align 8, !tbaa !48
+  %187 = load ptr, ptr %4, align 8, !tbaa !9
+  %188 = getelementptr inbounds nuw %struct.gz_state, ptr %187, i32 0, i32 7
+  %189 = load ptr, ptr %188, align 8, !tbaa !42
+  %190 = load ptr, ptr %11, align 8, !tbaa !31
+  %191 = getelementptr inbounds nuw %struct.z_stream_s, ptr %190, i32 0, i32 3
+  store ptr %189, ptr %191, align 8, !tbaa !49
+  %192 = load ptr, ptr %4, align 8, !tbaa !9
+  %193 = getelementptr inbounds nuw %struct.gz_state, ptr %192, i32 0, i32 7
+  %194 = load ptr, ptr %193, align 8, !tbaa !42
+  %195 = load ptr, ptr %4, align 8, !tbaa !9
+  %196 = getelementptr inbounds nuw %struct.gz_state, ptr %195, i32 0, i32 0
+  %197 = getelementptr inbounds nuw %struct.gzFile_s, ptr %196, i32 0, i32 1
+  store ptr %194, ptr %197, align 8, !tbaa !50
   br label %198
 
-198:                                              ; preds = %197, %106, %100
-  %199 = load ptr, ptr %11, align 8
-  %200 = getelementptr inbounds %struct.z_stream_s, ptr %199, i32 0, i32 4
-  %201 = load i32, ptr %200, align 8
-  store i32 %201, ptr %8, align 4
-  %202 = load ptr, ptr %11, align 8
-  %203 = load i32, ptr %5, align 4
-  %204 = call i32 @cm_zlib_deflate(ptr noundef %202, i32 noundef %203)
-  store i32 %204, ptr %6, align 4
-  %205 = load i32, ptr %6, align 4
-  %206 = icmp eq i32 %205, -2
-  br i1 %206, label %207, label %209
+198:                                              ; preds = %181, %176
+  br label %199
 
-207:                                              ; preds = %198
-  %208 = load ptr, ptr %4, align 8
-  call void @cm_zlib_gz_error(ptr noundef %208, i32 noundef -2, ptr noundef @.str.5)
+199:                                              ; preds = %198, %107, %101
+  %200 = load ptr, ptr %11, align 8, !tbaa !31
+  %201 = getelementptr inbounds nuw %struct.z_stream_s, ptr %200, i32 0, i32 4
+  %202 = load i32, ptr %201, align 8, !tbaa !48
+  store i32 %202, ptr %8, align 4, !tbaa !10
+  %203 = load ptr, ptr %11, align 8, !tbaa !31
+  %204 = load i32, ptr %5, align 4, !tbaa !10
+  %205 = call i32 @cm_zlib_deflate(ptr noundef %203, i32 noundef %204)
+  store i32 %205, ptr %6, align 4, !tbaa !10
+  %206 = load i32, ptr %6, align 4, !tbaa !10
+  %207 = icmp eq i32 %206, -2
+  br i1 %207, label %208, label %210
+
+208:                                              ; preds = %199
+  %209 = load ptr, ptr %4, align 8, !tbaa !9
+  call void @cm_zlib_gz_error(ptr noundef %209, i32 noundef -2, ptr noundef @.str.5)
   store i32 -1, ptr %3, align 4
+  store i32 1, ptr %12, align 4
+  br label %226
+
+210:                                              ; preds = %199
+  %211 = load ptr, ptr %11, align 8, !tbaa !31
+  %212 = getelementptr inbounds nuw %struct.z_stream_s, ptr %211, i32 0, i32 4
+  %213 = load i32, ptr %212, align 8, !tbaa !48
+  %214 = load i32, ptr %8, align 4, !tbaa !10
+  %215 = sub i32 %214, %213
+  store i32 %215, ptr %8, align 4, !tbaa !10
+  br label %216
+
+216:                                              ; preds = %210
+  %217 = load i32, ptr %8, align 4, !tbaa !10
+  %218 = icmp ne i32 %217, 0
+  br i1 %218, label %96, label %219, !llvm.loop !55
+
+219:                                              ; preds = %216
+  %220 = load i32, ptr %5, align 4, !tbaa !10
+  %221 = icmp eq i32 %220, 4
+  br i1 %221, label %222, label %225
+
+222:                                              ; preds = %219
+  %223 = load ptr, ptr %4, align 8, !tbaa !9
+  %224 = getelementptr inbounds nuw %struct.gz_state, ptr %223, i32 0, i32 15
+  store i32 1, ptr %224, align 8, !tbaa !53
   br label %225
 
-209:                                              ; preds = %198
-  %210 = load ptr, ptr %11, align 8
-  %211 = getelementptr inbounds %struct.z_stream_s, ptr %210, i32 0, i32 4
-  %212 = load i32, ptr %211, align 8
-  %213 = load i32, ptr %8, align 4
-  %214 = sub i32 %213, %212
-  store i32 %214, ptr %8, align 4
-  br label %215
-
-215:                                              ; preds = %209
-  %216 = load i32, ptr %8, align 4
-  %217 = icmp ne i32 %216, 0
-  br i1 %217, label %95, label %218, !llvm.loop !11
-
-218:                                              ; preds = %215
-  %219 = load i32, ptr %5, align 4
-  %220 = icmp eq i32 %219, 4
-  br i1 %220, label %221, label %224
-
-221:                                              ; preds = %218
-  %222 = load ptr, ptr %4, align 8
-  %223 = getelementptr inbounds %struct.gz_state, ptr %222, i32 0, i32 15
-  store i32 1, ptr %223, align 8
-  br label %224
-
-224:                                              ; preds = %221, %218
+225:                                              ; preds = %222, %219
   store i32 0, ptr %3, align 4
-  br label %225
+  store i32 1, ptr %12, align 4
+  br label %226
 
-225:                                              ; preds = %224, %207, %162, %88, %77, %60, %22
-  %226 = load i32, ptr %3, align 4
-  ret i32 %226
+226:                                              ; preds = %225, %208, %163, %89, %78, %61, %23
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #10
+  %227 = load i32, ptr %3, align 4
+  ret i32 %227
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @cm_zlib_gzprintf(ptr noundef %0, ptr noundef %1, ...) #0 {
@@ -1601,26 +1742,30 @@ define dso_local i32 @cm_zlib_gzprintf(ptr noundef %0, ptr noundef %1, ...) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca [1 x %struct.__va_list_tag], align 16
   %6 = alloca i32, align 4
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !4
+  store ptr %1, ptr %4, align 8, !tbaa !37
+  call void @llvm.lifetime.start.p0(i64 24, ptr %5) #10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #10
   %7 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %5, i64 0, i64 0
-  call void @llvm.va_start(ptr %7)
-  %8 = load ptr, ptr %3, align 8
-  %9 = load ptr, ptr %4, align 8
+  call void @llvm.va_start.p0(ptr %7)
+  %8 = load ptr, ptr %3, align 8, !tbaa !4
+  %9 = load ptr, ptr %4, align 8, !tbaa !37
   %10 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %5, i64 0, i64 0
   %11 = call i32 @cm_zlib_gzvprintf(ptr noundef %8, ptr noundef %9, ptr noundef %10)
-  store i32 %11, ptr %6, align 4
+  store i32 %11, ptr %6, align 4, !tbaa !10
   %12 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %5, i64 0, i64 0
-  call void @llvm.va_end(ptr %12)
-  %13 = load i32, ptr %6, align 4
+  call void @llvm.va_end.p0(ptr %12)
+  %13 = load i32, ptr %6, align 4, !tbaa !10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #10
+  call void @llvm.lifetime.end.p0(i64 24, ptr %5) #10
   ret i32 %13
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #5
+declare void @llvm.va_start.p0(ptr) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #5
+declare void @llvm.va_end.p0(ptr) #6
 
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @cm_zlib_gzflush(ptr noundef %0, i32 noundef %1) #0 {
@@ -1628,92 +1773,100 @@ define dso_local i32 @cm_zlib_gzflush(ptr noundef %0, i32 noundef %1) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
   %6 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store i32 %1, ptr %5, align 4
-  %7 = load ptr, ptr %4, align 8
-  %8 = icmp eq ptr %7, null
-  br i1 %8, label %9, label %10
-
-9:                                                ; preds = %2
-  store i32 -2, ptr %3, align 4
-  br label %55
+  %7 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !4
+  store i32 %1, ptr %5, align 4, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #10
+  %8 = load ptr, ptr %4, align 8, !tbaa !4
+  %9 = icmp eq ptr %8, null
+  br i1 %9, label %10, label %11
 
 10:                                               ; preds = %2
-  %11 = load ptr, ptr %4, align 8
-  store ptr %11, ptr %6, align 8
-  %12 = load ptr, ptr %6, align 8
-  %13 = getelementptr inbounds %struct.gz_state, ptr %12, i32 0, i32 1
-  %14 = load i32, ptr %13, align 8
-  %15 = icmp ne i32 %14, 31153
-  br i1 %15, label %21, label %16
-
-16:                                               ; preds = %10
-  %17 = load ptr, ptr %6, align 8
-  %18 = getelementptr inbounds %struct.gz_state, ptr %17, i32 0, i32 18
-  %19 = load i32, ptr %18, align 4
-  %20 = icmp ne i32 %19, 0
-  br i1 %20, label %21, label %22
-
-21:                                               ; preds = %16, %10
   store i32 -2, ptr %3, align 4
-  br label %55
+  store i32 1, ptr %7, align 4
+  br label %56
 
-22:                                               ; preds = %16
-  %23 = load i32, ptr %5, align 4
-  %24 = icmp slt i32 %23, 0
-  br i1 %24, label %28, label %25
+11:                                               ; preds = %2
+  %12 = load ptr, ptr %4, align 8, !tbaa !4
+  store ptr %12, ptr %6, align 8, !tbaa !9
+  %13 = load ptr, ptr %6, align 8, !tbaa !9
+  %14 = getelementptr inbounds nuw %struct.gz_state, ptr %13, i32 0, i32 1
+  %15 = load i32, ptr %14, align 8, !tbaa !12
+  %16 = icmp ne i32 %15, 31153
+  br i1 %16, label %22, label %17
 
-25:                                               ; preds = %22
-  %26 = load i32, ptr %5, align 4
-  %27 = icmp sgt i32 %26, 4
-  br i1 %27, label %28, label %29
+17:                                               ; preds = %11
+  %18 = load ptr, ptr %6, align 8, !tbaa !9
+  %19 = getelementptr inbounds nuw %struct.gz_state, ptr %18, i32 0, i32 18
+  %20 = load i32, ptr %19, align 4, !tbaa !19
+  %21 = icmp ne i32 %20, 0
+  br i1 %21, label %22, label %23
 
-28:                                               ; preds = %25, %22
+22:                                               ; preds = %17, %11
   store i32 -2, ptr %3, align 4
-  br label %55
+  store i32 1, ptr %7, align 4
+  br label %56
 
-29:                                               ; preds = %25
-  %30 = load ptr, ptr %6, align 8
-  %31 = getelementptr inbounds %struct.gz_state, ptr %30, i32 0, i32 17
-  %32 = load i32, ptr %31, align 8
-  %33 = icmp ne i32 %32, 0
-  br i1 %33, label %34, label %48
+23:                                               ; preds = %17
+  %24 = load i32, ptr %5, align 4, !tbaa !10
+  %25 = icmp slt i32 %24, 0
+  br i1 %25, label %29, label %26
 
-34:                                               ; preds = %29
-  %35 = load ptr, ptr %6, align 8
-  %36 = getelementptr inbounds %struct.gz_state, ptr %35, i32 0, i32 17
-  store i32 0, ptr %36, align 8
-  %37 = load ptr, ptr %6, align 8
-  %38 = load ptr, ptr %6, align 8
-  %39 = getelementptr inbounds %struct.gz_state, ptr %38, i32 0, i32 16
-  %40 = load i64, ptr %39, align 8
-  %41 = call i32 @gz_zero(ptr noundef %37, i64 noundef %40)
-  %42 = icmp eq i32 %41, -1
-  br i1 %42, label %43, label %47
+26:                                               ; preds = %23
+  %27 = load i32, ptr %5, align 4, !tbaa !10
+  %28 = icmp sgt i32 %27, 4
+  br i1 %28, label %29, label %30
 
-43:                                               ; preds = %34
-  %44 = load ptr, ptr %6, align 8
-  %45 = getelementptr inbounds %struct.gz_state, ptr %44, i32 0, i32 18
-  %46 = load i32, ptr %45, align 4
-  store i32 %46, ptr %3, align 4
-  br label %55
+29:                                               ; preds = %26, %23
+  store i32 -2, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %56
 
-47:                                               ; preds = %34
-  br label %48
+30:                                               ; preds = %26
+  %31 = load ptr, ptr %6, align 8, !tbaa !9
+  %32 = getelementptr inbounds nuw %struct.gz_state, ptr %31, i32 0, i32 17
+  %33 = load i32, ptr %32, align 8, !tbaa !22
+  %34 = icmp ne i32 %33, 0
+  br i1 %34, label %35, label %49
 
-48:                                               ; preds = %47, %29
-  %49 = load ptr, ptr %6, align 8
-  %50 = load i32, ptr %5, align 4
-  %51 = call i32 @gz_comp(ptr noundef %49, i32 noundef %50)
-  %52 = load ptr, ptr %6, align 8
-  %53 = getelementptr inbounds %struct.gz_state, ptr %52, i32 0, i32 18
-  %54 = load i32, ptr %53, align 4
-  store i32 %54, ptr %3, align 4
-  br label %55
+35:                                               ; preds = %30
+  %36 = load ptr, ptr %6, align 8, !tbaa !9
+  %37 = getelementptr inbounds nuw %struct.gz_state, ptr %36, i32 0, i32 17
+  store i32 0, ptr %37, align 8, !tbaa !22
+  %38 = load ptr, ptr %6, align 8, !tbaa !9
+  %39 = load ptr, ptr %6, align 8, !tbaa !9
+  %40 = getelementptr inbounds nuw %struct.gz_state, ptr %39, i32 0, i32 16
+  %41 = load i64, ptr %40, align 8, !tbaa !23
+  %42 = call i32 @gz_zero(ptr noundef %38, i64 noundef %41)
+  %43 = icmp eq i32 %42, -1
+  br i1 %43, label %44, label %48
 
-55:                                               ; preds = %48, %43, %28, %21, %9
-  %56 = load i32, ptr %3, align 4
-  ret i32 %56
+44:                                               ; preds = %35
+  %45 = load ptr, ptr %6, align 8, !tbaa !9
+  %46 = getelementptr inbounds nuw %struct.gz_state, ptr %45, i32 0, i32 18
+  %47 = load i32, ptr %46, align 4, !tbaa !19
+  store i32 %47, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %56
+
+48:                                               ; preds = %35
+  br label %49
+
+49:                                               ; preds = %48, %30
+  %50 = load ptr, ptr %6, align 8, !tbaa !9
+  %51 = load i32, ptr %5, align 4, !tbaa !10
+  %52 = call i32 @gz_comp(ptr noundef %50, i32 noundef %51)
+  %53 = load ptr, ptr %6, align 8, !tbaa !9
+  %54 = getelementptr inbounds nuw %struct.gz_state, ptr %53, i32 0, i32 18
+  %55 = load i32, ptr %54, align 4, !tbaa !19
+  store i32 %55, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %56
+
+56:                                               ; preds = %49, %44, %29, %22, %10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #10
+  %57 = load i32, ptr %3, align 4
+  ret i32 %57
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1724,141 +1877,159 @@ define dso_local i32 @cm_zlib_gzsetparams(ptr noundef %0, i32 noundef %1, i32 no
   %7 = alloca i32, align 4
   %8 = alloca ptr, align 8
   %9 = alloca ptr, align 8
-  store ptr %0, ptr %5, align 8
-  store i32 %1, ptr %6, align 4
-  store i32 %2, ptr %7, align 4
-  %10 = load ptr, ptr %5, align 8
-  %11 = icmp eq ptr %10, null
-  br i1 %11, label %12, label %13
-
-12:                                               ; preds = %3
-  store i32 -2, ptr %4, align 4
-  br label %89
+  %10 = alloca i32, align 4
+  store ptr %0, ptr %5, align 8, !tbaa !4
+  store i32 %1, ptr %6, align 4, !tbaa !10
+  store i32 %2, ptr %7, align 4, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #10
+  %11 = load ptr, ptr %5, align 8, !tbaa !4
+  %12 = icmp eq ptr %11, null
+  br i1 %12, label %13, label %14
 
 13:                                               ; preds = %3
-  %14 = load ptr, ptr %5, align 8
-  store ptr %14, ptr %8, align 8
-  %15 = load ptr, ptr %8, align 8
-  %16 = getelementptr inbounds %struct.gz_state, ptr %15, i32 0, i32 20
-  store ptr %16, ptr %9, align 8
-  %17 = load ptr, ptr %8, align 8
-  %18 = getelementptr inbounds %struct.gz_state, ptr %17, i32 0, i32 1
-  %19 = load i32, ptr %18, align 8
-  %20 = icmp ne i32 %19, 31153
-  br i1 %20, label %26, label %21
-
-21:                                               ; preds = %13
-  %22 = load ptr, ptr %8, align 8
-  %23 = getelementptr inbounds %struct.gz_state, ptr %22, i32 0, i32 18
-  %24 = load i32, ptr %23, align 4
-  %25 = icmp ne i32 %24, 0
-  br i1 %25, label %26, label %27
-
-26:                                               ; preds = %21, %13
   store i32 -2, ptr %4, align 4
-  br label %89
+  store i32 1, ptr %10, align 4
+  br label %95
 
-27:                                               ; preds = %21
-  %28 = load i32, ptr %6, align 4
-  %29 = load ptr, ptr %8, align 8
-  %30 = getelementptr inbounds %struct.gz_state, ptr %29, i32 0, i32 13
-  %31 = load i32, ptr %30, align 8
-  %32 = icmp eq i32 %28, %31
-  br i1 %32, label %33, label %40
+14:                                               ; preds = %3
+  %15 = load ptr, ptr %5, align 8, !tbaa !4
+  store ptr %15, ptr %8, align 8, !tbaa !9
+  %16 = load ptr, ptr %8, align 8, !tbaa !9
+  %17 = getelementptr inbounds nuw %struct.gz_state, ptr %16, i32 0, i32 20
+  store ptr %17, ptr %9, align 8, !tbaa !31
+  %18 = load ptr, ptr %8, align 8, !tbaa !9
+  %19 = getelementptr inbounds nuw %struct.gz_state, ptr %18, i32 0, i32 1
+  %20 = load i32, ptr %19, align 8, !tbaa !12
+  %21 = icmp ne i32 %20, 31153
+  br i1 %21, label %32, label %22
+
+22:                                               ; preds = %14
+  %23 = load ptr, ptr %8, align 8, !tbaa !9
+  %24 = getelementptr inbounds nuw %struct.gz_state, ptr %23, i32 0, i32 18
+  %25 = load i32, ptr %24, align 4, !tbaa !19
+  %26 = icmp ne i32 %25, 0
+  br i1 %26, label %32, label %27
+
+27:                                               ; preds = %22
+  %28 = load ptr, ptr %8, align 8, !tbaa !9
+  %29 = getelementptr inbounds nuw %struct.gz_state, ptr %28, i32 0, i32 8
+  %30 = load i32, ptr %29, align 8, !tbaa !41
+  %31 = icmp ne i32 %30, 0
+  br i1 %31, label %32, label %33
+
+32:                                               ; preds = %27, %22, %14
+  store i32 -2, ptr %4, align 4
+  store i32 1, ptr %10, align 4
+  br label %95
 
 33:                                               ; preds = %27
-  %34 = load i32, ptr %7, align 4
-  %35 = load ptr, ptr %8, align 8
-  %36 = getelementptr inbounds %struct.gz_state, ptr %35, i32 0, i32 14
-  %37 = load i32, ptr %36, align 4
+  %34 = load i32, ptr %6, align 4, !tbaa !10
+  %35 = load ptr, ptr %8, align 8, !tbaa !9
+  %36 = getelementptr inbounds nuw %struct.gz_state, ptr %35, i32 0, i32 13
+  %37 = load i32, ptr %36, align 8, !tbaa !46
   %38 = icmp eq i32 %34, %37
-  br i1 %38, label %39, label %40
+  br i1 %38, label %39, label %46
 
 39:                                               ; preds = %33
+  %40 = load i32, ptr %7, align 4, !tbaa !10
+  %41 = load ptr, ptr %8, align 8, !tbaa !9
+  %42 = getelementptr inbounds nuw %struct.gz_state, ptr %41, i32 0, i32 14
+  %43 = load i32, ptr %42, align 4, !tbaa !47
+  %44 = icmp eq i32 %40, %43
+  br i1 %44, label %45, label %46
+
+45:                                               ; preds = %39
   store i32 0, ptr %4, align 4
-  br label %89
+  store i32 1, ptr %10, align 4
+  br label %95
 
-40:                                               ; preds = %33, %27
-  %41 = load ptr, ptr %8, align 8
-  %42 = getelementptr inbounds %struct.gz_state, ptr %41, i32 0, i32 17
-  %43 = load i32, ptr %42, align 8
-  %44 = icmp ne i32 %43, 0
-  br i1 %44, label %45, label %59
+46:                                               ; preds = %39, %33
+  %47 = load ptr, ptr %8, align 8, !tbaa !9
+  %48 = getelementptr inbounds nuw %struct.gz_state, ptr %47, i32 0, i32 17
+  %49 = load i32, ptr %48, align 8, !tbaa !22
+  %50 = icmp ne i32 %49, 0
+  br i1 %50, label %51, label %65
 
-45:                                               ; preds = %40
-  %46 = load ptr, ptr %8, align 8
-  %47 = getelementptr inbounds %struct.gz_state, ptr %46, i32 0, i32 17
-  store i32 0, ptr %47, align 8
-  %48 = load ptr, ptr %8, align 8
-  %49 = load ptr, ptr %8, align 8
-  %50 = getelementptr inbounds %struct.gz_state, ptr %49, i32 0, i32 16
-  %51 = load i64, ptr %50, align 8
-  %52 = call i32 @gz_zero(ptr noundef %48, i64 noundef %51)
-  %53 = icmp eq i32 %52, -1
-  br i1 %53, label %54, label %58
+51:                                               ; preds = %46
+  %52 = load ptr, ptr %8, align 8, !tbaa !9
+  %53 = getelementptr inbounds nuw %struct.gz_state, ptr %52, i32 0, i32 17
+  store i32 0, ptr %53, align 8, !tbaa !22
+  %54 = load ptr, ptr %8, align 8, !tbaa !9
+  %55 = load ptr, ptr %8, align 8, !tbaa !9
+  %56 = getelementptr inbounds nuw %struct.gz_state, ptr %55, i32 0, i32 16
+  %57 = load i64, ptr %56, align 8, !tbaa !23
+  %58 = call i32 @gz_zero(ptr noundef %54, i64 noundef %57)
+  %59 = icmp eq i32 %58, -1
+  br i1 %59, label %60, label %64
 
-54:                                               ; preds = %45
-  %55 = load ptr, ptr %8, align 8
-  %56 = getelementptr inbounds %struct.gz_state, ptr %55, i32 0, i32 18
-  %57 = load i32, ptr %56, align 4
-  store i32 %57, ptr %4, align 4
-  br label %89
+60:                                               ; preds = %51
+  %61 = load ptr, ptr %8, align 8, !tbaa !9
+  %62 = getelementptr inbounds nuw %struct.gz_state, ptr %61, i32 0, i32 18
+  %63 = load i32, ptr %62, align 4, !tbaa !19
+  store i32 %63, ptr %4, align 4
+  store i32 1, ptr %10, align 4
+  br label %95
 
-58:                                               ; preds = %45
-  br label %59
+64:                                               ; preds = %51
+  br label %65
 
-59:                                               ; preds = %58, %40
-  %60 = load ptr, ptr %8, align 8
-  %61 = getelementptr inbounds %struct.gz_state, ptr %60, i32 0, i32 4
-  %62 = load i32, ptr %61, align 8
-  %63 = icmp ne i32 %62, 0
-  br i1 %63, label %64, label %82
+65:                                               ; preds = %64, %46
+  %66 = load ptr, ptr %8, align 8, !tbaa !9
+  %67 = getelementptr inbounds nuw %struct.gz_state, ptr %66, i32 0, i32 4
+  %68 = load i32, ptr %67, align 8, !tbaa !21
+  %69 = icmp ne i32 %68, 0
+  br i1 %69, label %70, label %88
 
-64:                                               ; preds = %59
-  %65 = load ptr, ptr %9, align 8
-  %66 = getelementptr inbounds %struct.z_stream_s, ptr %65, i32 0, i32 1
-  %67 = load i32, ptr %66, align 8
-  %68 = icmp ne i32 %67, 0
-  br i1 %68, label %69, label %77
+70:                                               ; preds = %65
+  %71 = load ptr, ptr %9, align 8, !tbaa !31
+  %72 = getelementptr inbounds nuw %struct.z_stream_s, ptr %71, i32 0, i32 1
+  %73 = load i32, ptr %72, align 8, !tbaa !33
+  %74 = icmp ne i32 %73, 0
+  br i1 %74, label %75, label %83
 
-69:                                               ; preds = %64
-  %70 = load ptr, ptr %8, align 8
-  %71 = call i32 @gz_comp(ptr noundef %70, i32 noundef 5)
-  %72 = icmp eq i32 %71, -1
-  br i1 %72, label %73, label %77
+75:                                               ; preds = %70
+  %76 = load ptr, ptr %8, align 8, !tbaa !9
+  %77 = call i32 @gz_comp(ptr noundef %76, i32 noundef 5)
+  %78 = icmp eq i32 %77, -1
+  br i1 %78, label %79, label %83
 
-73:                                               ; preds = %69
-  %74 = load ptr, ptr %8, align 8
-  %75 = getelementptr inbounds %struct.gz_state, ptr %74, i32 0, i32 18
-  %76 = load i32, ptr %75, align 4
-  store i32 %76, ptr %4, align 4
-  br label %89
+79:                                               ; preds = %75
+  %80 = load ptr, ptr %8, align 8, !tbaa !9
+  %81 = getelementptr inbounds nuw %struct.gz_state, ptr %80, i32 0, i32 18
+  %82 = load i32, ptr %81, align 4, !tbaa !19
+  store i32 %82, ptr %4, align 4
+  store i32 1, ptr %10, align 4
+  br label %95
 
-77:                                               ; preds = %69, %64
-  %78 = load ptr, ptr %9, align 8
-  %79 = load i32, ptr %6, align 4
-  %80 = load i32, ptr %7, align 4
-  %81 = call i32 @cm_zlib_deflateParams(ptr noundef %78, i32 noundef %79, i32 noundef %80)
-  br label %82
+83:                                               ; preds = %75, %70
+  %84 = load ptr, ptr %9, align 8, !tbaa !31
+  %85 = load i32, ptr %6, align 4, !tbaa !10
+  %86 = load i32, ptr %7, align 4, !tbaa !10
+  %87 = call i32 @cm_zlib_deflateParams(ptr noundef %84, i32 noundef %85, i32 noundef %86)
+  br label %88
 
-82:                                               ; preds = %77, %59
-  %83 = load i32, ptr %6, align 4
-  %84 = load ptr, ptr %8, align 8
-  %85 = getelementptr inbounds %struct.gz_state, ptr %84, i32 0, i32 13
-  store i32 %83, ptr %85, align 8
-  %86 = load i32, ptr %7, align 4
-  %87 = load ptr, ptr %8, align 8
-  %88 = getelementptr inbounds %struct.gz_state, ptr %87, i32 0, i32 14
-  store i32 %86, ptr %88, align 4
+88:                                               ; preds = %83, %65
+  %89 = load i32, ptr %6, align 4, !tbaa !10
+  %90 = load ptr, ptr %8, align 8, !tbaa !9
+  %91 = getelementptr inbounds nuw %struct.gz_state, ptr %90, i32 0, i32 13
+  store i32 %89, ptr %91, align 8, !tbaa !46
+  %92 = load i32, ptr %7, align 4, !tbaa !10
+  %93 = load ptr, ptr %8, align 8, !tbaa !9
+  %94 = getelementptr inbounds nuw %struct.gz_state, ptr %93, i32 0, i32 14
+  store i32 %92, ptr %94, align 4, !tbaa !47
   store i32 0, ptr %4, align 4
-  br label %89
+  store i32 1, ptr %10, align 4
+  br label %95
 
-89:                                               ; preds = %82, %73, %54, %39, %26, %12
-  %90 = load i32, ptr %4, align 4
-  ret i32 %90
+95:                                               ; preds = %88, %79, %60, %45, %32, %13
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #10
+  %96 = load i32, ptr %4, align 4
+  ret i32 %96
 }
 
-declare i32 @cm_zlib_deflateParams(ptr noundef, i32 noundef, i32 noundef) #1
+declare i32 @cm_zlib_deflateParams(ptr noundef, i32 noundef, i32 noundef) #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @cm_zlib_gzclose_w(ptr noundef %0) #0 {
@@ -1866,187 +2037,241 @@ define dso_local i32 @cm_zlib_gzclose_w(ptr noundef %0) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
   %5 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store i32 0, ptr %4, align 4
-  %6 = load ptr, ptr %3, align 8
-  %7 = icmp eq ptr %6, null
-  br i1 %7, label %8, label %9
-
-8:                                                ; preds = %1
-  store i32 -2, ptr %2, align 4
-  br label %78
+  %6 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %4) #10
+  store i32 0, ptr %4, align 4, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #10
+  %7 = load ptr, ptr %3, align 8, !tbaa !4
+  %8 = icmp eq ptr %7, null
+  br i1 %8, label %9, label %10
 
 9:                                                ; preds = %1
-  %10 = load ptr, ptr %3, align 8
-  store ptr %10, ptr %5, align 8
-  %11 = load ptr, ptr %5, align 8
-  %12 = getelementptr inbounds %struct.gz_state, ptr %11, i32 0, i32 1
-  %13 = load i32, ptr %12, align 8
-  %14 = icmp ne i32 %13, 31153
-  br i1 %14, label %15, label %16
-
-15:                                               ; preds = %9
   store i32 -2, ptr %2, align 4
-  br label %78
+  store i32 1, ptr %6, align 4
+  br label %79
 
-16:                                               ; preds = %9
-  %17 = load ptr, ptr %5, align 8
-  %18 = getelementptr inbounds %struct.gz_state, ptr %17, i32 0, i32 17
-  %19 = load i32, ptr %18, align 8
-  %20 = icmp ne i32 %19, 0
-  br i1 %20, label %21, label %35
+10:                                               ; preds = %1
+  %11 = load ptr, ptr %3, align 8, !tbaa !4
+  store ptr %11, ptr %5, align 8, !tbaa !9
+  %12 = load ptr, ptr %5, align 8, !tbaa !9
+  %13 = getelementptr inbounds nuw %struct.gz_state, ptr %12, i32 0, i32 1
+  %14 = load i32, ptr %13, align 8, !tbaa !12
+  %15 = icmp ne i32 %14, 31153
+  br i1 %15, label %16, label %17
 
-21:                                               ; preds = %16
-  %22 = load ptr, ptr %5, align 8
-  %23 = getelementptr inbounds %struct.gz_state, ptr %22, i32 0, i32 17
-  store i32 0, ptr %23, align 8
-  %24 = load ptr, ptr %5, align 8
-  %25 = load ptr, ptr %5, align 8
-  %26 = getelementptr inbounds %struct.gz_state, ptr %25, i32 0, i32 16
-  %27 = load i64, ptr %26, align 8
-  %28 = call i32 @gz_zero(ptr noundef %24, i64 noundef %27)
-  %29 = icmp eq i32 %28, -1
-  br i1 %29, label %30, label %34
+16:                                               ; preds = %10
+  store i32 -2, ptr %2, align 4
+  store i32 1, ptr %6, align 4
+  br label %79
 
-30:                                               ; preds = %21
-  %31 = load ptr, ptr %5, align 8
-  %32 = getelementptr inbounds %struct.gz_state, ptr %31, i32 0, i32 18
-  %33 = load i32, ptr %32, align 4
-  store i32 %33, ptr %4, align 4
-  br label %34
+17:                                               ; preds = %10
+  %18 = load ptr, ptr %5, align 8, !tbaa !9
+  %19 = getelementptr inbounds nuw %struct.gz_state, ptr %18, i32 0, i32 17
+  %20 = load i32, ptr %19, align 8, !tbaa !22
+  %21 = icmp ne i32 %20, 0
+  br i1 %21, label %22, label %36
 
-34:                                               ; preds = %30, %21
+22:                                               ; preds = %17
+  %23 = load ptr, ptr %5, align 8, !tbaa !9
+  %24 = getelementptr inbounds nuw %struct.gz_state, ptr %23, i32 0, i32 17
+  store i32 0, ptr %24, align 8, !tbaa !22
+  %25 = load ptr, ptr %5, align 8, !tbaa !9
+  %26 = load ptr, ptr %5, align 8, !tbaa !9
+  %27 = getelementptr inbounds nuw %struct.gz_state, ptr %26, i32 0, i32 16
+  %28 = load i64, ptr %27, align 8, !tbaa !23
+  %29 = call i32 @gz_zero(ptr noundef %25, i64 noundef %28)
+  %30 = icmp eq i32 %29, -1
+  br i1 %30, label %31, label %35
+
+31:                                               ; preds = %22
+  %32 = load ptr, ptr %5, align 8, !tbaa !9
+  %33 = getelementptr inbounds nuw %struct.gz_state, ptr %32, i32 0, i32 18
+  %34 = load i32, ptr %33, align 4, !tbaa !19
+  store i32 %34, ptr %4, align 4, !tbaa !10
   br label %35
 
-35:                                               ; preds = %34, %16
-  %36 = load ptr, ptr %5, align 8
-  %37 = call i32 @gz_comp(ptr noundef %36, i32 noundef 4)
-  %38 = icmp eq i32 %37, -1
-  br i1 %38, label %39, label %43
+35:                                               ; preds = %31, %22
+  br label %36
 
-39:                                               ; preds = %35
-  %40 = load ptr, ptr %5, align 8
-  %41 = getelementptr inbounds %struct.gz_state, ptr %40, i32 0, i32 18
-  %42 = load i32, ptr %41, align 4
-  store i32 %42, ptr %4, align 4
-  br label %43
+36:                                               ; preds = %35, %17
+  %37 = load ptr, ptr %5, align 8, !tbaa !9
+  %38 = call i32 @gz_comp(ptr noundef %37, i32 noundef 4)
+  %39 = icmp eq i32 %38, -1
+  br i1 %39, label %40, label %44
 
-43:                                               ; preds = %39, %35
-  %44 = load ptr, ptr %5, align 8
-  %45 = getelementptr inbounds %struct.gz_state, ptr %44, i32 0, i32 4
-  %46 = load i32, ptr %45, align 8
-  %47 = icmp ne i32 %46, 0
-  br i1 %47, label %48, label %64
+40:                                               ; preds = %36
+  %41 = load ptr, ptr %5, align 8, !tbaa !9
+  %42 = getelementptr inbounds nuw %struct.gz_state, ptr %41, i32 0, i32 18
+  %43 = load i32, ptr %42, align 4, !tbaa !19
+  store i32 %43, ptr %4, align 4, !tbaa !10
+  br label %44
 
-48:                                               ; preds = %43
-  %49 = load ptr, ptr %5, align 8
-  %50 = getelementptr inbounds %struct.gz_state, ptr %49, i32 0, i32 8
-  %51 = load i32, ptr %50, align 8
-  %52 = icmp ne i32 %51, 0
-  br i1 %52, label %60, label %53
+44:                                               ; preds = %40, %36
+  %45 = load ptr, ptr %5, align 8, !tbaa !9
+  %46 = getelementptr inbounds nuw %struct.gz_state, ptr %45, i32 0, i32 4
+  %47 = load i32, ptr %46, align 8, !tbaa !21
+  %48 = icmp ne i32 %47, 0
+  br i1 %48, label %49, label %65
 
-53:                                               ; preds = %48
-  %54 = load ptr, ptr %5, align 8
-  %55 = getelementptr inbounds %struct.gz_state, ptr %54, i32 0, i32 20
-  %56 = call i32 @cm_zlib_deflateEnd(ptr noundef %55)
-  %57 = load ptr, ptr %5, align 8
-  %58 = getelementptr inbounds %struct.gz_state, ptr %57, i32 0, i32 7
-  %59 = load ptr, ptr %58, align 8
-  call void @free(ptr noundef %59) #10
-  br label %60
+49:                                               ; preds = %44
+  %50 = load ptr, ptr %5, align 8, !tbaa !9
+  %51 = getelementptr inbounds nuw %struct.gz_state, ptr %50, i32 0, i32 8
+  %52 = load i32, ptr %51, align 8, !tbaa !41
+  %53 = icmp ne i32 %52, 0
+  br i1 %53, label %61, label %54
 
-60:                                               ; preds = %53, %48
-  %61 = load ptr, ptr %5, align 8
-  %62 = getelementptr inbounds %struct.gz_state, ptr %61, i32 0, i32 6
-  %63 = load ptr, ptr %62, align 8
-  call void @free(ptr noundef %63) #10
-  br label %64
+54:                                               ; preds = %49
+  %55 = load ptr, ptr %5, align 8, !tbaa !9
+  %56 = getelementptr inbounds nuw %struct.gz_state, ptr %55, i32 0, i32 20
+  %57 = call i32 @cm_zlib_deflateEnd(ptr noundef %56)
+  %58 = load ptr, ptr %5, align 8, !tbaa !9
+  %59 = getelementptr inbounds nuw %struct.gz_state, ptr %58, i32 0, i32 7
+  %60 = load ptr, ptr %59, align 8, !tbaa !42
+  call void @free(ptr noundef %60) #10
+  br label %61
 
-64:                                               ; preds = %60, %43
-  %65 = load ptr, ptr %5, align 8
-  call void @cm_zlib_gz_error(ptr noundef %65, i32 noundef 0, ptr noundef null)
-  %66 = load ptr, ptr %5, align 8
-  %67 = getelementptr inbounds %struct.gz_state, ptr %66, i32 0, i32 3
-  %68 = load ptr, ptr %67, align 8
-  call void @free(ptr noundef %68) #10
-  %69 = load ptr, ptr %5, align 8
-  %70 = getelementptr inbounds %struct.gz_state, ptr %69, i32 0, i32 2
-  %71 = load i32, ptr %70, align 4
-  %72 = call i32 @close(i32 noundef %71)
-  %73 = icmp eq i32 %72, -1
-  br i1 %73, label %74, label %75
+61:                                               ; preds = %54, %49
+  %62 = load ptr, ptr %5, align 8, !tbaa !9
+  %63 = getelementptr inbounds nuw %struct.gz_state, ptr %62, i32 0, i32 6
+  %64 = load ptr, ptr %63, align 8, !tbaa !25
+  call void @free(ptr noundef %64) #10
+  br label %65
 
-74:                                               ; preds = %64
-  store i32 -1, ptr %4, align 4
-  br label %75
+65:                                               ; preds = %61, %44
+  %66 = load ptr, ptr %5, align 8, !tbaa !9
+  call void @cm_zlib_gz_error(ptr noundef %66, i32 noundef 0, ptr noundef null)
+  %67 = load ptr, ptr %5, align 8, !tbaa !9
+  %68 = getelementptr inbounds nuw %struct.gz_state, ptr %67, i32 0, i32 3
+  %69 = load ptr, ptr %68, align 8, !tbaa !56
+  call void @free(ptr noundef %69) #10
+  %70 = load ptr, ptr %5, align 8, !tbaa !9
+  %71 = getelementptr inbounds nuw %struct.gz_state, ptr %70, i32 0, i32 2
+  %72 = load i32, ptr %71, align 4, !tbaa !51
+  %73 = call i32 @close(i32 noundef %72)
+  %74 = icmp eq i32 %73, -1
+  br i1 %74, label %75, label %76
 
-75:                                               ; preds = %74, %64
-  %76 = load ptr, ptr %5, align 8
-  call void @free(ptr noundef %76) #10
-  %77 = load i32, ptr %4, align 4
-  store i32 %77, ptr %2, align 4
-  br label %78
+75:                                               ; preds = %65
+  store i32 -1, ptr %4, align 4, !tbaa !10
+  br label %76
 
-78:                                               ; preds = %75, %15, %8
-  %79 = load i32, ptr %2, align 4
-  ret i32 %79
+76:                                               ; preds = %75, %65
+  %77 = load ptr, ptr %5, align 8, !tbaa !9
+  call void @free(ptr noundef %77) #10
+  %78 = load i32, ptr %4, align 4, !tbaa !10
+  store i32 %78, ptr %2, align 4
+  store i32 1, ptr %6, align 4
+  br label %79
+
+79:                                               ; preds = %76, %16, %9
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %4) #10
+  %80 = load i32, ptr %2, align 4
+  ret i32 %80
 }
 
-declare i32 @cm_zlib_deflateEnd(ptr noundef) #1
+declare i32 @cm_zlib_deflateEnd(ptr noundef) #2
 
 ; Function Attrs: nounwind
-declare void @free(ptr noundef) #3
+declare void @free(ptr noundef) #4
 
-declare i32 @close(i32 noundef) #1
+declare i32 @close(i32 noundef) #2
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 ; Function Attrs: nounwind allocsize(0)
-declare noalias ptr @malloc(i64 noundef) #7
+declare noalias ptr @malloc(i64 noundef) #8
 
-declare i32 @cm_zlib_deflateInit2_(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) #1
+declare i32 @cm_zlib_deflateInit2_(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) #2
 
-declare i64 @write(i32 noundef, ptr noundef, i64 noundef) #1
+declare i64 @write(i32 noundef, ptr noundef, i64 noundef) #2
 
 ; Function Attrs: nounwind
-declare ptr @strerror(i32 noundef) #3
+declare ptr @strerror(i32 noundef) #4
 
 ; Function Attrs: nounwind willreturn memory(none)
-declare ptr @__errno_location() #8
+declare ptr @__errno_location() #9
 
-declare i32 @cm_zlib_deflateReset(ptr noundef) #1
+declare i32 @cm_zlib_deflateReset(ptr noundef) #2
 
-declare i32 @cm_zlib_deflate(ptr noundef, i32 noundef) #1
+declare i32 @cm_zlib_deflate(ptr noundef, i32 noundef) #2
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { nocallback nofree nosync nounwind willreturn }
-attributes #6 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #7 = { nounwind allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { nounwind willreturn memory(read) }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nounwind willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #6 = { nocallback nofree nosync nounwind willreturn }
+attributes #7 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #8 = { nounwind allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { nounwind }
-attributes #11 = { nounwind allocsize(0) }
-attributes #12 = { nounwind willreturn memory(none) }
+attributes #11 = { nounwind willreturn memory(read) }
+attributes #12 = { nounwind allocsize(0) }
+attributes #13 = { nounwind willreturn memory(none) }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+!llvm.module.flags = !{!0, !1, !2, !3}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
-!9 = distinct !{!9, !6}
-!10 = distinct !{!10, !6}
-!11 = distinct !{!11, !6}
+!4 = !{!5, !5, i64 0}
+!5 = !{!"p1 _ZTS8gzFile_s", !6, i64 0}
+!6 = !{!"any pointer", !7, i64 0}
+!7 = !{!"omnipotent char", !8, i64 0}
+!8 = !{!"Simple C/C++ TBAA"}
+!9 = !{!6, !6, i64 0}
+!10 = !{!11, !11, i64 0}
+!11 = !{!"int", !7, i64 0}
+!12 = !{!13, !11, i64 24}
+!13 = !{!"", !14, i64 0, !11, i64 24, !11, i64 28, !15, i64 32, !11, i64 40, !11, i64 44, !15, i64 48, !15, i64 56, !11, i64 64, !11, i64 68, !16, i64 72, !11, i64 80, !11, i64 84, !11, i64 88, !11, i64 92, !11, i64 96, !16, i64 104, !11, i64 112, !11, i64 116, !15, i64 120, !17, i64 128}
+!14 = !{!"gzFile_s", !11, i64 0, !15, i64 8, !16, i64 16}
+!15 = !{!"p1 omnipotent char", !6, i64 0}
+!16 = !{!"long", !7, i64 0}
+!17 = !{!"z_stream_s", !15, i64 0, !11, i64 8, !16, i64 16, !15, i64 24, !11, i64 32, !16, i64 40, !15, i64 48, !18, i64 56, !6, i64 64, !6, i64 72, !6, i64 80, !11, i64 88, !16, i64 96, !16, i64 104}
+!18 = !{!"p1 _ZTS14internal_state", !6, i64 0}
+!19 = !{!13, !11, i64 116}
+!20 = !{!16, !16, i64 0}
+!21 = !{!13, !11, i64 40}
+!22 = !{!13, !11, i64 112}
+!23 = !{!13, !16, i64 104}
+!24 = !{!13, !11, i64 136}
+!25 = !{!13, !15, i64 48}
+!26 = !{!13, !15, i64 128}
+!27 = !{!13, !16, i64 16}
+!28 = distinct !{!28, !29}
+!29 = !{!"llvm.loop.mustprogress"}
+!30 = distinct !{!30, !29}
+!31 = !{!32, !32, i64 0}
+!32 = !{!"p1 _ZTS10z_stream_s", !6, i64 0}
+!33 = !{!17, !11, i64 8}
+!34 = !{!17, !15, i64 0}
+!35 = !{!7, !7, i64 0}
+!36 = distinct !{!36, !29}
+!37 = !{!15, !15, i64 0}
+!38 = !{!39, !39, i64 0}
+!39 = !{!"p1 _ZTS13__va_list_tag", !6, i64 0}
+!40 = !{!13, !11, i64 44}
+!41 = !{!13, !11, i64 64}
+!42 = !{!13, !15, i64 56}
+!43 = !{!17, !6, i64 64}
+!44 = !{!17, !6, i64 72}
+!45 = !{!17, !6, i64 80}
+!46 = !{!13, !11, i64 88}
+!47 = !{!13, !11, i64 92}
+!48 = !{!17, !11, i64 32}
+!49 = !{!17, !15, i64 24}
+!50 = !{!13, !15, i64 8}
+!51 = !{!13, !11, i64 28}
+!52 = distinct !{!52, !29}
+!53 = !{!13, !11, i64 96}
+!54 = distinct !{!54, !29}
+!55 = distinct !{!55, !29}
+!56 = !{!13, !15, i64 32}

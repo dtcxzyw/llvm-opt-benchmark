@@ -38,266 +38,316 @@ define dso_local i32 @archive_read_set_format(ptr noundef %0, i32 noundef %1) #0
   %9 = alloca i32, align 4
   %10 = alloca [10 x i8], align 1
   %11 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store i32 %1, ptr %5, align 4
-  %12 = load ptr, ptr %4, align 8
-  store ptr %12, ptr %11, align 8
-  %13 = load ptr, ptr %4, align 8
-  %14 = load i32, ptr %5, align 4
-  %15 = call i32 @archive_read_support_format_by_code(ptr noundef %13, i32 noundef %14)
-  store i32 %15, ptr %6, align 4
-  %16 = icmp slt i32 %15, 0
-  br i1 %16, label %17, label %19
+  %12 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !4
+  store i32 %1, ptr %5, align 4, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #5
+  call void @llvm.lifetime.start.p0(i64 10, ptr %10) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #5
+  %13 = load ptr, ptr %4, align 8, !tbaa !4
+  store ptr %13, ptr %11, align 8, !tbaa !11
+  %14 = load ptr, ptr %4, align 8, !tbaa !4
+  %15 = load i32, ptr %5, align 4, !tbaa !9
+  %16 = call i32 @archive_read_support_format_by_code(ptr noundef %14, i32 noundef %15)
+  store i32 %16, ptr %6, align 4, !tbaa !9
+  %17 = icmp slt i32 %16, 0
+  br i1 %17, label %18, label %20
 
-17:                                               ; preds = %2
-  %18 = load i32, ptr %6, align 4
-  store i32 %18, ptr %3, align 4
-  br label %140
+18:                                               ; preds = %2
+  %19 = load i32, ptr %6, align 4, !tbaa !9
+  store i32 %19, ptr %3, align 4
+  store i32 1, ptr %12, align 4
+  br label %141
 
-19:                                               ; preds = %2
-  store i32 0, ptr %7, align 4
-  store i32 0, ptr %6, align 4
-  %20 = load ptr, ptr %11, align 8
-  %21 = getelementptr inbounds %struct.archive_read, ptr %20, i32 0, i32 13
-  %22 = load ptr, ptr %21, align 8
-  %23 = icmp ne ptr %22, null
-  br i1 %23, label %24, label %25
+20:                                               ; preds = %2
+  store i32 0, ptr %7, align 4, !tbaa !9
+  store i32 0, ptr %6, align 4, !tbaa !9
+  %21 = load ptr, ptr %11, align 8, !tbaa !11
+  %22 = getelementptr inbounds nuw %struct.archive_read, ptr %21, i32 0, i32 13
+  %23 = load ptr, ptr %22, align 8, !tbaa !13
+  %24 = icmp ne ptr %23, null
+  br i1 %24, label %25, label %26
 
-24:                                               ; preds = %19
-  store i32 -20, ptr %7, align 4
-  br label %25
+25:                                               ; preds = %20
+  store i32 -20, ptr %7, align 4, !tbaa !9
+  br label %26
 
-25:                                               ; preds = %24, %19
-  %26 = load i32, ptr %5, align 4
-  %27 = and i32 %26, 16711680
-  switch i32 %27, label %73 [
-    i32 917504, label %28
-    i32 458752, label %31
-    i32 786432, label %34
-    i32 65536, label %37
-    i32 393216, label %40
-    i32 262144, label %43
-    i32 720896, label %46
-    i32 524288, label %49
-    i32 851968, label %52
-    i32 1048576, label %55
-    i32 589824, label %58
-    i32 196608, label %61
-    i32 983040, label %64
-    i32 655360, label %67
-    i32 327680, label %70
+26:                                               ; preds = %25, %20
+  %27 = load i32, ptr %5, align 4, !tbaa !9
+  %28 = and i32 %27, 16711680
+  switch i32 %28, label %74 [
+    i32 917504, label %29
+    i32 458752, label %32
+    i32 786432, label %35
+    i32 65536, label %38
+    i32 393216, label %41
+    i32 262144, label %44
+    i32 720896, label %47
+    i32 524288, label %50
+    i32 851968, label %53
+    i32 1048576, label %56
+    i32 589824, label %59
+    i32 196608, label %62
+    i32 983040, label %65
+    i32 655360, label %68
+    i32 327680, label %71
   ]
 
-28:                                               ; preds = %25
-  %29 = getelementptr inbounds [10 x i8], ptr %10, i64 0, i64 0
-  %30 = call ptr @strcpy(ptr noundef %29, ptr noundef @.str) #4
-  br label %76
+29:                                               ; preds = %26
+  %30 = getelementptr inbounds [10 x i8], ptr %10, i64 0, i64 0
+  %31 = call ptr @strcpy(ptr noundef %30, ptr noundef @.str) #5
+  br label %77
 
-31:                                               ; preds = %25
-  %32 = getelementptr inbounds [10 x i8], ptr %10, i64 0, i64 0
-  %33 = call ptr @strcpy(ptr noundef %32, ptr noundef @.str.1) #4
-  br label %76
+32:                                               ; preds = %26
+  %33 = getelementptr inbounds [10 x i8], ptr %10, i64 0, i64 0
+  %34 = call ptr @strcpy(ptr noundef %33, ptr noundef @.str.1) #5
+  br label %77
 
-34:                                               ; preds = %25
-  %35 = getelementptr inbounds [10 x i8], ptr %10, i64 0, i64 0
-  %36 = call ptr @strcpy(ptr noundef %35, ptr noundef @.str.2) #4
-  br label %76
+35:                                               ; preds = %26
+  %36 = getelementptr inbounds [10 x i8], ptr %10, i64 0, i64 0
+  %37 = call ptr @strcpy(ptr noundef %36, ptr noundef @.str.2) #5
+  br label %77
 
-37:                                               ; preds = %25
-  %38 = getelementptr inbounds [10 x i8], ptr %10, i64 0, i64 0
-  %39 = call ptr @strcpy(ptr noundef %38, ptr noundef @.str.3) #4
-  br label %76
+38:                                               ; preds = %26
+  %39 = getelementptr inbounds [10 x i8], ptr %10, i64 0, i64 0
+  %40 = call ptr @strcpy(ptr noundef %39, ptr noundef @.str.3) #5
+  br label %77
 
-40:                                               ; preds = %25
-  %41 = getelementptr inbounds [10 x i8], ptr %10, i64 0, i64 0
-  %42 = call ptr @strcpy(ptr noundef %41, ptr noundef @.str.4) #4
-  br label %76
+41:                                               ; preds = %26
+  %42 = getelementptr inbounds [10 x i8], ptr %10, i64 0, i64 0
+  %43 = call ptr @strcpy(ptr noundef %42, ptr noundef @.str.4) #5
+  br label %77
 
-43:                                               ; preds = %25
-  %44 = getelementptr inbounds [10 x i8], ptr %10, i64 0, i64 0
-  %45 = call ptr @strcpy(ptr noundef %44, ptr noundef @.str.5) #4
-  br label %76
+44:                                               ; preds = %26
+  %45 = getelementptr inbounds [10 x i8], ptr %10, i64 0, i64 0
+  %46 = call ptr @strcpy(ptr noundef %45, ptr noundef @.str.5) #5
+  br label %77
 
-46:                                               ; preds = %25
-  %47 = getelementptr inbounds [10 x i8], ptr %10, i64 0, i64 0
-  %48 = call ptr @strcpy(ptr noundef %47, ptr noundef @.str.6) #4
-  br label %76
+47:                                               ; preds = %26
+  %48 = getelementptr inbounds [10 x i8], ptr %10, i64 0, i64 0
+  %49 = call ptr @strcpy(ptr noundef %48, ptr noundef @.str.6) #5
+  br label %77
 
-49:                                               ; preds = %25
-  %50 = getelementptr inbounds [10 x i8], ptr %10, i64 0, i64 0
-  %51 = call ptr @strcpy(ptr noundef %50, ptr noundef @.str.7) #4
-  br label %76
+50:                                               ; preds = %26
+  %51 = getelementptr inbounds [10 x i8], ptr %10, i64 0, i64 0
+  %52 = call ptr @strcpy(ptr noundef %51, ptr noundef @.str.7) #5
+  br label %77
 
-52:                                               ; preds = %25
-  %53 = getelementptr inbounds [10 x i8], ptr %10, i64 0, i64 0
-  %54 = call ptr @strcpy(ptr noundef %53, ptr noundef @.str.8) #4
-  br label %76
+53:                                               ; preds = %26
+  %54 = getelementptr inbounds [10 x i8], ptr %10, i64 0, i64 0
+  %55 = call ptr @strcpy(ptr noundef %54, ptr noundef @.str.8) #5
+  br label %77
 
-55:                                               ; preds = %25
-  %56 = getelementptr inbounds [10 x i8], ptr %10, i64 0, i64 0
-  %57 = call ptr @strcpy(ptr noundef %56, ptr noundef @.str.9) #4
-  br label %76
+56:                                               ; preds = %26
+  %57 = getelementptr inbounds [10 x i8], ptr %10, i64 0, i64 0
+  %58 = call ptr @strcpy(ptr noundef %57, ptr noundef @.str.9) #5
+  br label %77
 
-58:                                               ; preds = %25
-  %59 = getelementptr inbounds [10 x i8], ptr %10, i64 0, i64 0
-  %60 = call ptr @strcpy(ptr noundef %59, ptr noundef @.str.10) #4
-  br label %76
+59:                                               ; preds = %26
+  %60 = getelementptr inbounds [10 x i8], ptr %10, i64 0, i64 0
+  %61 = call ptr @strcpy(ptr noundef %60, ptr noundef @.str.10) #5
+  br label %77
 
-61:                                               ; preds = %25
-  %62 = getelementptr inbounds [10 x i8], ptr %10, i64 0, i64 0
-  %63 = call ptr @strcpy(ptr noundef %62, ptr noundef @.str.11) #4
-  br label %76
+62:                                               ; preds = %26
+  %63 = getelementptr inbounds [10 x i8], ptr %10, i64 0, i64 0
+  %64 = call ptr @strcpy(ptr noundef %63, ptr noundef @.str.11) #5
+  br label %77
 
-64:                                               ; preds = %25
-  %65 = getelementptr inbounds [10 x i8], ptr %10, i64 0, i64 0
-  %66 = call ptr @strcpy(ptr noundef %65, ptr noundef @.str.12) #4
-  br label %76
+65:                                               ; preds = %26
+  %66 = getelementptr inbounds [10 x i8], ptr %10, i64 0, i64 0
+  %67 = call ptr @strcpy(ptr noundef %66, ptr noundef @.str.12) #5
+  br label %77
 
-67:                                               ; preds = %25
-  %68 = getelementptr inbounds [10 x i8], ptr %10, i64 0, i64 0
-  %69 = call ptr @strcpy(ptr noundef %68, ptr noundef @.str.13) #4
-  br label %76
+68:                                               ; preds = %26
+  %69 = getelementptr inbounds [10 x i8], ptr %10, i64 0, i64 0
+  %70 = call ptr @strcpy(ptr noundef %69, ptr noundef @.str.13) #5
+  br label %77
 
-70:                                               ; preds = %25
-  %71 = getelementptr inbounds [10 x i8], ptr %10, i64 0, i64 0
-  %72 = call ptr @strcpy(ptr noundef %71, ptr noundef @.str.14) #4
-  br label %76
+71:                                               ; preds = %26
+  %72 = getelementptr inbounds [10 x i8], ptr %10, i64 0, i64 0
+  %73 = call ptr @strcpy(ptr noundef %72, ptr noundef @.str.14) #5
+  br label %77
 
-73:                                               ; preds = %25
-  %74 = load ptr, ptr %11, align 8
-  %75 = getelementptr inbounds %struct.archive_read, ptr %74, i32 0, i32 0
-  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %75, i32 noundef 22, ptr noundef @.str.15)
+74:                                               ; preds = %26
+  %75 = load ptr, ptr %11, align 8, !tbaa !11
+  %76 = getelementptr inbounds nuw %struct.archive_read, ptr %75, i32 0, i32 0
+  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %76, i32 noundef 22, ptr noundef @.str.15)
   store i32 -30, ptr %3, align 4
-  br label %140
+  store i32 1, ptr %12, align 4
+  br label %141
 
-76:                                               ; preds = %70, %67, %64, %61, %58, %55, %52, %49, %46, %43, %40, %37, %34, %31, %28
-  store i32 16, ptr %8, align 4
-  %77 = load ptr, ptr %11, align 8
-  %78 = getelementptr inbounds %struct.archive_read, ptr %77, i32 0, i32 12
-  %79 = getelementptr inbounds [16 x %struct.archive_format_descriptor], ptr %78, i64 0, i64 0
-  %80 = load ptr, ptr %11, align 8
-  %81 = getelementptr inbounds %struct.archive_read, ptr %80, i32 0, i32 13
-  store ptr %79, ptr %81, align 8
-  store i32 0, ptr %9, align 4
-  br label %82
+77:                                               ; preds = %71, %68, %65, %62, %59, %56, %53, %50, %47, %44, %41, %38, %35, %32, %29
+  store i32 16, ptr %8, align 4, !tbaa !9
+  %78 = load ptr, ptr %11, align 8, !tbaa !11
+  %79 = getelementptr inbounds nuw %struct.archive_read, ptr %78, i32 0, i32 12
+  %80 = getelementptr inbounds [16 x %struct.archive_format_descriptor], ptr %79, i64 0, i64 0
+  %81 = load ptr, ptr %11, align 8, !tbaa !11
+  %82 = getelementptr inbounds nuw %struct.archive_read, ptr %81, i32 0, i32 13
+  store ptr %80, ptr %82, align 8, !tbaa !13
+  store i32 0, ptr %9, align 4, !tbaa !9
+  br label %83
 
-82:                                               ; preds = %104, %76
-  %83 = load i32, ptr %9, align 4
-  %84 = load i32, ptr %8, align 4
-  %85 = icmp slt i32 %83, %84
-  br i1 %85, label %86, label %111
+83:                                               ; preds = %105, %77
+  %84 = load i32, ptr %9, align 4, !tbaa !9
+  %85 = load i32, ptr %8, align 4, !tbaa !9
+  %86 = icmp slt i32 %84, %85
+  br i1 %86, label %87, label %112
 
-86:                                               ; preds = %82
-  %87 = load ptr, ptr %11, align 8
-  %88 = getelementptr inbounds %struct.archive_read, ptr %87, i32 0, i32 13
-  %89 = load ptr, ptr %88, align 8
-  %90 = getelementptr inbounds %struct.archive_format_descriptor, ptr %89, i32 0, i32 1
-  %91 = load ptr, ptr %90, align 8
-  %92 = icmp ne ptr %91, null
-  br i1 %92, label %93, label %102
+87:                                               ; preds = %83
+  %88 = load ptr, ptr %11, align 8, !tbaa !11
+  %89 = getelementptr inbounds nuw %struct.archive_read, ptr %88, i32 0, i32 13
+  %90 = load ptr, ptr %89, align 8, !tbaa !13
+  %91 = getelementptr inbounds nuw %struct.archive_format_descriptor, ptr %90, i32 0, i32 1
+  %92 = load ptr, ptr %91, align 8, !tbaa !30
+  %93 = icmp ne ptr %92, null
+  br i1 %93, label %94, label %103
 
-93:                                               ; preds = %86
-  %94 = load ptr, ptr %11, align 8
-  %95 = getelementptr inbounds %struct.archive_read, ptr %94, i32 0, i32 13
-  %96 = load ptr, ptr %95, align 8
-  %97 = getelementptr inbounds %struct.archive_format_descriptor, ptr %96, i32 0, i32 1
-  %98 = load ptr, ptr %97, align 8
-  %99 = getelementptr inbounds [10 x i8], ptr %10, i64 0, i64 0
-  %100 = call i32 @strcmp(ptr noundef %98, ptr noundef %99) #5
-  %101 = icmp ne i32 %100, 0
-  br i1 %101, label %103, label %102
+94:                                               ; preds = %87
+  %95 = load ptr, ptr %11, align 8, !tbaa !11
+  %96 = getelementptr inbounds nuw %struct.archive_read, ptr %95, i32 0, i32 13
+  %97 = load ptr, ptr %96, align 8, !tbaa !13
+  %98 = getelementptr inbounds nuw %struct.archive_format_descriptor, ptr %97, i32 0, i32 1
+  %99 = load ptr, ptr %98, align 8, !tbaa !30
+  %100 = getelementptr inbounds [10 x i8], ptr %10, i64 0, i64 0
+  %101 = call i32 @strcmp(ptr noundef %99, ptr noundef %100) #6
+  %102 = icmp ne i32 %101, 0
+  br i1 %102, label %104, label %103
 
-102:                                              ; preds = %93, %86
-  br label %111
+103:                                              ; preds = %94, %87
+  br label %112
 
-103:                                              ; preds = %93
-  br label %104
+104:                                              ; preds = %94
+  br label %105
 
-104:                                              ; preds = %103
-  %105 = load i32, ptr %9, align 4
-  %106 = add nsw i32 %105, 1
-  store i32 %106, ptr %9, align 4
-  %107 = load ptr, ptr %11, align 8
-  %108 = getelementptr inbounds %struct.archive_read, ptr %107, i32 0, i32 13
-  %109 = load ptr, ptr %108, align 8
-  %110 = getelementptr inbounds %struct.archive_format_descriptor, ptr %109, i32 1
-  store ptr %110, ptr %108, align 8
-  br label %82, !llvm.loop !5
+105:                                              ; preds = %104
+  %106 = load i32, ptr %9, align 4, !tbaa !9
+  %107 = add nsw i32 %106, 1
+  store i32 %107, ptr %9, align 4, !tbaa !9
+  %108 = load ptr, ptr %11, align 8, !tbaa !11
+  %109 = getelementptr inbounds nuw %struct.archive_read, ptr %108, i32 0, i32 13
+  %110 = load ptr, ptr %109, align 8, !tbaa !13
+  %111 = getelementptr inbounds nuw %struct.archive_format_descriptor, ptr %110, i32 1
+  store ptr %111, ptr %109, align 8, !tbaa !13
+  br label %83, !llvm.loop !32
 
-111:                                              ; preds = %102, %82
-  %112 = load ptr, ptr %11, align 8
-  %113 = getelementptr inbounds %struct.archive_read, ptr %112, i32 0, i32 13
-  %114 = load ptr, ptr %113, align 8
-  %115 = getelementptr inbounds %struct.archive_format_descriptor, ptr %114, i32 0, i32 1
-  %116 = load ptr, ptr %115, align 8
-  %117 = icmp ne ptr %116, null
-  br i1 %117, label %118, label %127
+112:                                              ; preds = %103, %83
+  %113 = load ptr, ptr %11, align 8, !tbaa !11
+  %114 = getelementptr inbounds nuw %struct.archive_read, ptr %113, i32 0, i32 13
+  %115 = load ptr, ptr %114, align 8, !tbaa !13
+  %116 = getelementptr inbounds nuw %struct.archive_format_descriptor, ptr %115, i32 0, i32 1
+  %117 = load ptr, ptr %116, align 8, !tbaa !30
+  %118 = icmp ne ptr %117, null
+  br i1 %118, label %119, label %128
 
-118:                                              ; preds = %111
-  %119 = load ptr, ptr %11, align 8
-  %120 = getelementptr inbounds %struct.archive_read, ptr %119, i32 0, i32 13
-  %121 = load ptr, ptr %120, align 8
-  %122 = getelementptr inbounds %struct.archive_format_descriptor, ptr %121, i32 0, i32 1
-  %123 = load ptr, ptr %122, align 8
-  %124 = getelementptr inbounds [10 x i8], ptr %10, i64 0, i64 0
-  %125 = call i32 @strcmp(ptr noundef %123, ptr noundef %124) #5
-  %126 = icmp ne i32 %125, 0
-  br i1 %126, label %127, label %130
+119:                                              ; preds = %112
+  %120 = load ptr, ptr %11, align 8, !tbaa !11
+  %121 = getelementptr inbounds nuw %struct.archive_read, ptr %120, i32 0, i32 13
+  %122 = load ptr, ptr %121, align 8, !tbaa !13
+  %123 = getelementptr inbounds nuw %struct.archive_format_descriptor, ptr %122, i32 0, i32 1
+  %124 = load ptr, ptr %123, align 8, !tbaa !30
+  %125 = getelementptr inbounds [10 x i8], ptr %10, i64 0, i64 0
+  %126 = call i32 @strcmp(ptr noundef %124, ptr noundef %125) #6
+  %127 = icmp ne i32 %126, 0
+  br i1 %127, label %128, label %131
 
-127:                                              ; preds = %118, %111
-  %128 = load ptr, ptr %11, align 8
-  %129 = getelementptr inbounds %struct.archive_read, ptr %128, i32 0, i32 0
-  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %129, i32 noundef 22, ptr noundef @.str.16)
-  store i32 -30, ptr %6, align 4
-  br label %130
+128:                                              ; preds = %119, %112
+  %129 = load ptr, ptr %11, align 8, !tbaa !11
+  %130 = getelementptr inbounds nuw %struct.archive_read, ptr %129, i32 0, i32 0
+  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %130, i32 noundef 22, ptr noundef @.str.16)
+  store i32 -30, ptr %6, align 4, !tbaa !9
+  br label %131
 
-130:                                              ; preds = %127, %118
-  %131 = load i32, ptr %6, align 4
-  %132 = load i32, ptr %7, align 4
-  %133 = icmp slt i32 %131, %132
-  br i1 %133, label %134, label %136
+131:                                              ; preds = %128, %119
+  %132 = load i32, ptr %6, align 4, !tbaa !9
+  %133 = load i32, ptr %7, align 4, !tbaa !9
+  %134 = icmp slt i32 %132, %133
+  br i1 %134, label %135, label %137
 
-134:                                              ; preds = %130
-  %135 = load i32, ptr %6, align 4
-  br label %138
+135:                                              ; preds = %131
+  %136 = load i32, ptr %6, align 4, !tbaa !9
+  br label %139
 
-136:                                              ; preds = %130
-  %137 = load i32, ptr %7, align 4
-  br label %138
+137:                                              ; preds = %131
+  %138 = load i32, ptr %7, align 4, !tbaa !9
+  br label %139
 
-138:                                              ; preds = %136, %134
-  %139 = phi i32 [ %135, %134 ], [ %137, %136 ]
-  store i32 %139, ptr %3, align 4
-  br label %140
+139:                                              ; preds = %137, %135
+  %140 = phi i32 [ %136, %135 ], [ %138, %137 ]
+  store i32 %140, ptr %3, align 4
+  store i32 1, ptr %12, align 4
+  br label %141
 
-140:                                              ; preds = %138, %73, %17
-  %141 = load i32, ptr %3, align 4
-  ret i32 %141
+141:                                              ; preds = %139, %74, %18
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #5
+  call void @llvm.lifetime.end.p0(i64 10, ptr %10) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #5
+  %142 = load i32, ptr %3, align 4
+  ret i32 %142
 }
 
-declare i32 @archive_read_support_format_by_code(ptr noundef, i32 noundef) #1
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+
+declare i32 @archive_read_support_format_by_code(ptr noundef, i32 noundef) #2
 
 ; Function Attrs: nounwind
-declare ptr @strcpy(ptr noundef, ptr noundef) #2
+declare ptr @strcpy(ptr noundef, ptr noundef) #3
 
-declare void @archive_set_error(ptr noundef, i32 noundef, ptr noundef, ...) #1
+declare void @archive_set_error(ptr noundef, i32 noundef, ptr noundef, ...) #2
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare i32 @strcmp(ptr noundef, ptr noundef) #3
+declare i32 @strcmp(ptr noundef, ptr noundef) #4
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nounwind }
-attributes #5 = { nounwind willreturn memory(read) }
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nounwind willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nounwind }
+attributes #6 = { nounwind willreturn memory(read) }
+
+!llvm.module.flags = !{!0, !1, !2, !3}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
+!4 = !{!5, !5, i64 0}
+!5 = !{!"p1 _ZTS7archive", !6, i64 0}
+!6 = !{!"any pointer", !7, i64 0}
+!7 = !{!"omnipotent char", !8, i64 0}
+!8 = !{!"Simple C/C++ TBAA"}
+!9 = !{!10, !10, i64 0}
+!10 = !{!"int", !7, i64 0}
+!11 = !{!12, !12, i64 0}
+!12 = !{!"p1 _ZTS12archive_read", !6, i64 0}
+!13 = !{!14, !25, i64 2072}
+!14 = !{!"archive_read", !15, i64 0, !21, i64 144, !10, i64 152, !19, i64 160, !19, i64 168, !22, i64 176, !7, i64 248, !24, i64 632, !10, i64 640, !19, i64 648, !10, i64 656, !10, i64 660, !7, i64 664, !25, i64 2072, !26, i64 2080, !6, i64 2088, !27, i64 2096}
+!15 = !{!"archive", !10, i64 0, !10, i64 4, !16, i64 8, !10, i64 16, !17, i64 24, !10, i64 32, !10, i64 36, !17, i64 40, !18, i64 48, !17, i64 72, !10, i64 80, !10, i64 84, !20, i64 88, !17, i64 96, !19, i64 104, !19, i64 112, !19, i64 120, !7, i64 128, !19, i64 136}
+!16 = !{!"p1 _ZTS14archive_vtable", !6, i64 0}
+!17 = !{!"p1 omnipotent char", !6, i64 0}
+!18 = !{!"archive_string", !17, i64 0, !19, i64 8, !19, i64 16}
+!19 = !{!"long", !7, i64 0}
+!20 = !{!"p1 _ZTS19archive_string_conv", !6, i64 0}
+!21 = !{!"p1 _ZTS13archive_entry", !6, i64 0}
+!22 = !{!"archive_read_client", !6, i64 0, !6, i64 8, !6, i64 16, !6, i64 24, !6, i64 32, !6, i64 40, !10, i64 48, !10, i64 52, !19, i64 56, !23, i64 64}
+!23 = !{!"p1 _ZTS22archive_read_data_node", !6, i64 0}
+!24 = !{!"p1 _ZTS19archive_read_filter", !6, i64 0}
+!25 = !{!"p1 _ZTS25archive_format_descriptor", !6, i64 0}
+!26 = !{!"p1 _ZTS20archive_read_extract", !6, i64 0}
+!27 = !{!"", !28, i64 0, !29, i64 8, !10, i64 16, !6, i64 24, !6, i64 32}
+!28 = !{!"p1 _ZTS23archive_read_passphrase", !6, i64 0}
+!29 = !{!"p2 _ZTS23archive_read_passphrase", !6, i64 0}
+!30 = !{!31, !17, i64 8}
+!31 = !{!"archive_format_descriptor", !6, i64 0, !17, i64 8, !6, i64 16, !6, i64 24, !6, i64 32, !6, i64 40, !6, i64 48, !6, i64 56, !6, i64 64, !6, i64 72, !6, i64 80}
+!32 = distinct !{!32, !33}
+!33 = !{!"llvm.loop.mustprogress"}

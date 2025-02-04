@@ -9,73 +9,87 @@ define dso_local i32 @lzma_block_compressed_size(ptr noundef %0, i64 noundef %1)
   %4 = alloca ptr, align 8
   %5 = alloca i64, align 8
   %6 = alloca i32, align 4
-  %7 = alloca i64, align 8
-  store ptr %0, ptr %4, align 8
-  store i64 %1, ptr %5, align 8
-  %8 = load ptr, ptr %4, align 8
-  %9 = call i64 @lzma_block_unpadded_size(ptr noundef %8) #3
-  %10 = icmp eq i64 %9, 0
-  br i1 %10, label %11, label %12
-
-11:                                               ; preds = %2
-  store i32 11, ptr %3, align 4
-  br label %46
+  %7 = alloca i32, align 4
+  %8 = alloca i64, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !4
+  store i64 %1, ptr %5, align 8, !tbaa !8
+  %9 = load ptr, ptr %4, align 8, !tbaa !4
+  %10 = call i64 @lzma_block_unpadded_size(ptr noundef %9) #5
+  %11 = icmp eq i64 %10, 0
+  br i1 %11, label %12, label %13
 
 12:                                               ; preds = %2
-  %13 = load ptr, ptr %4, align 8
-  %14 = getelementptr inbounds %struct.lzma_block, ptr %13, i32 0, i32 1
-  %15 = load i32, ptr %14, align 4
-  %16 = load ptr, ptr %4, align 8
-  %17 = getelementptr inbounds %struct.lzma_block, ptr %16, i32 0, i32 2
-  %18 = load i32, ptr %17, align 8
-  %19 = call i32 @lzma_check_size(i32 noundef %18) #4
-  %20 = add i32 %15, %19
-  store i32 %20, ptr %6, align 4
-  %21 = load i64, ptr %5, align 8
-  %22 = load i32, ptr %6, align 4
-  %23 = zext i32 %22 to i64
-  %24 = icmp ule i64 %21, %23
-  br i1 %24, label %25, label %26
+  store i32 11, ptr %3, align 4
+  br label %49
 
-25:                                               ; preds = %12
+13:                                               ; preds = %2
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #6
+  %14 = load ptr, ptr %4, align 8, !tbaa !4
+  %15 = getelementptr inbounds nuw %struct.lzma_block, ptr %14, i32 0, i32 1
+  %16 = load i32, ptr %15, align 4, !tbaa !10
+  %17 = load ptr, ptr %4, align 8, !tbaa !4
+  %18 = getelementptr inbounds nuw %struct.lzma_block, ptr %17, i32 0, i32 2
+  %19 = load i32, ptr %18, align 8, !tbaa !13
+  %20 = call i32 @lzma_check_size(i32 noundef %19) #7
+  %21 = add i32 %16, %20
+  store i32 %21, ptr %6, align 4, !tbaa !14
+  %22 = load i64, ptr %5, align 8, !tbaa !8
+  %23 = load i32, ptr %6, align 4, !tbaa !14
+  %24 = zext i32 %23 to i64
+  %25 = icmp ule i64 %22, %24
+  br i1 %25, label %26, label %27
+
+26:                                               ; preds = %13
   store i32 9, ptr %3, align 4
-  br label %46
+  store i32 1, ptr %7, align 4
+  br label %48
 
-26:                                               ; preds = %12
-  %27 = load i64, ptr %5, align 8
-  %28 = load i32, ptr %6, align 4
-  %29 = zext i32 %28 to i64
-  %30 = sub i64 %27, %29
-  store i64 %30, ptr %7, align 8
-  %31 = load ptr, ptr %4, align 8
-  %32 = getelementptr inbounds %struct.lzma_block, ptr %31, i32 0, i32 3
-  %33 = load i64, ptr %32, align 8
-  %34 = icmp ne i64 %33, -1
-  br i1 %34, label %35, label %42
+27:                                               ; preds = %13
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #6
+  %28 = load i64, ptr %5, align 8, !tbaa !8
+  %29 = load i32, ptr %6, align 4, !tbaa !14
+  %30 = zext i32 %29 to i64
+  %31 = sub i64 %28, %30
+  store i64 %31, ptr %8, align 8, !tbaa !8
+  %32 = load ptr, ptr %4, align 8, !tbaa !4
+  %33 = getelementptr inbounds nuw %struct.lzma_block, ptr %32, i32 0, i32 3
+  %34 = load i64, ptr %33, align 8, !tbaa !15
+  %35 = icmp ne i64 %34, -1
+  br i1 %35, label %36, label %43
 
-35:                                               ; preds = %26
-  %36 = load ptr, ptr %4, align 8
-  %37 = getelementptr inbounds %struct.lzma_block, ptr %36, i32 0, i32 3
-  %38 = load i64, ptr %37, align 8
-  %39 = load i64, ptr %7, align 8
-  %40 = icmp ne i64 %38, %39
-  br i1 %40, label %41, label %42
+36:                                               ; preds = %27
+  %37 = load ptr, ptr %4, align 8, !tbaa !4
+  %38 = getelementptr inbounds nuw %struct.lzma_block, ptr %37, i32 0, i32 3
+  %39 = load i64, ptr %38, align 8, !tbaa !15
+  %40 = load i64, ptr %8, align 8, !tbaa !8
+  %41 = icmp ne i64 %39, %40
+  br i1 %41, label %42, label %43
 
-41:                                               ; preds = %35
+42:                                               ; preds = %36
   store i32 9, ptr %3, align 4
-  br label %46
+  store i32 1, ptr %7, align 4
+  br label %47
 
-42:                                               ; preds = %35, %26
-  %43 = load i64, ptr %7, align 8
-  %44 = load ptr, ptr %4, align 8
-  %45 = getelementptr inbounds %struct.lzma_block, ptr %44, i32 0, i32 3
-  store i64 %43, ptr %45, align 8
+43:                                               ; preds = %36, %27
+  %44 = load i64, ptr %8, align 8, !tbaa !8
+  %45 = load ptr, ptr %4, align 8, !tbaa !4
+  %46 = getelementptr inbounds nuw %struct.lzma_block, ptr %45, i32 0, i32 3
+  store i64 %44, ptr %46, align 8, !tbaa !15
   store i32 0, ptr %3, align 4
-  br label %46
+  store i32 1, ptr %7, align 4
+  br label %47
 
-46:                                               ; preds = %42, %41, %25, %11
-  %47 = load i32, ptr %3, align 4
-  ret i32 %47
+47:                                               ; preds = %43, %42
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #6
+  br label %48
+
+48:                                               ; preds = %47, %26
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #6
+  br label %49
+
+49:                                               ; preds = %48, %12
+  %50 = load i32, ptr %3, align 4
+  ret i32 %50
 }
 
 ; Function Attrs: nounwind willreturn memory(read) uwtable
@@ -83,163 +97,194 @@ define dso_local i64 @lzma_block_unpadded_size(ptr noundef %0) #1 {
   %2 = alloca i64, align 8
   %3 = alloca ptr, align 8
   %4 = alloca i64, align 8
-  store ptr %0, ptr %3, align 8
-  %5 = load ptr, ptr %3, align 8
-  %6 = icmp eq ptr %5, null
-  br i1 %6, label %48, label %7
+  %5 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !4
+  %6 = load ptr, ptr %3, align 8, !tbaa !4
+  %7 = icmp eq ptr %6, null
+  br i1 %7, label %49, label %8
 
-7:                                                ; preds = %1
-  %8 = load ptr, ptr %3, align 8
-  %9 = getelementptr inbounds %struct.lzma_block, ptr %8, i32 0, i32 0
-  %10 = load i32, ptr %9, align 8
-  %11 = icmp ugt i32 %10, 1
-  br i1 %11, label %48, label %12
+8:                                                ; preds = %1
+  %9 = load ptr, ptr %3, align 8, !tbaa !4
+  %10 = getelementptr inbounds nuw %struct.lzma_block, ptr %9, i32 0, i32 0
+  %11 = load i32, ptr %10, align 8, !tbaa !16
+  %12 = icmp ugt i32 %11, 1
+  br i1 %12, label %49, label %13
 
-12:                                               ; preds = %7
-  %13 = load ptr, ptr %3, align 8
-  %14 = getelementptr inbounds %struct.lzma_block, ptr %13, i32 0, i32 1
-  %15 = load i32, ptr %14, align 4
-  %16 = icmp ult i32 %15, 8
-  br i1 %16, label %48, label %17
+13:                                               ; preds = %8
+  %14 = load ptr, ptr %3, align 8, !tbaa !4
+  %15 = getelementptr inbounds nuw %struct.lzma_block, ptr %14, i32 0, i32 1
+  %16 = load i32, ptr %15, align 4, !tbaa !10
+  %17 = icmp ult i32 %16, 8
+  br i1 %17, label %49, label %18
 
-17:                                               ; preds = %12
-  %18 = load ptr, ptr %3, align 8
-  %19 = getelementptr inbounds %struct.lzma_block, ptr %18, i32 0, i32 1
-  %20 = load i32, ptr %19, align 4
-  %21 = icmp ugt i32 %20, 1024
-  br i1 %21, label %48, label %22
+18:                                               ; preds = %13
+  %19 = load ptr, ptr %3, align 8, !tbaa !4
+  %20 = getelementptr inbounds nuw %struct.lzma_block, ptr %19, i32 0, i32 1
+  %21 = load i32, ptr %20, align 4, !tbaa !10
+  %22 = icmp ugt i32 %21, 1024
+  br i1 %22, label %49, label %23
 
-22:                                               ; preds = %17
-  %23 = load ptr, ptr %3, align 8
-  %24 = getelementptr inbounds %struct.lzma_block, ptr %23, i32 0, i32 1
-  %25 = load i32, ptr %24, align 4
-  %26 = and i32 %25, 3
-  %27 = icmp ne i32 %26, 0
-  br i1 %27, label %48, label %28
+23:                                               ; preds = %18
+  %24 = load ptr, ptr %3, align 8, !tbaa !4
+  %25 = getelementptr inbounds nuw %struct.lzma_block, ptr %24, i32 0, i32 1
+  %26 = load i32, ptr %25, align 4, !tbaa !10
+  %27 = and i32 %26, 3
+  %28 = icmp ne i32 %27, 0
+  br i1 %28, label %49, label %29
 
-28:                                               ; preds = %22
-  %29 = load ptr, ptr %3, align 8
-  %30 = getelementptr inbounds %struct.lzma_block, ptr %29, i32 0, i32 3
-  %31 = load i64, ptr %30, align 8
-  %32 = icmp ule i64 %31, 9223372036854775807
-  br i1 %32, label %38, label %33
+29:                                               ; preds = %23
+  %30 = load ptr, ptr %3, align 8, !tbaa !4
+  %31 = getelementptr inbounds nuw %struct.lzma_block, ptr %30, i32 0, i32 3
+  %32 = load i64, ptr %31, align 8, !tbaa !15
+  %33 = icmp ule i64 %32, 9223372036854775807
+  br i1 %33, label %39, label %34
 
-33:                                               ; preds = %28
-  %34 = load ptr, ptr %3, align 8
-  %35 = getelementptr inbounds %struct.lzma_block, ptr %34, i32 0, i32 3
-  %36 = load i64, ptr %35, align 8
-  %37 = icmp eq i64 %36, -1
-  br i1 %37, label %38, label %48
+34:                                               ; preds = %29
+  %35 = load ptr, ptr %3, align 8, !tbaa !4
+  %36 = getelementptr inbounds nuw %struct.lzma_block, ptr %35, i32 0, i32 3
+  %37 = load i64, ptr %36, align 8, !tbaa !15
+  %38 = icmp eq i64 %37, -1
+  br i1 %38, label %39, label %49
 
-38:                                               ; preds = %33, %28
-  %39 = load ptr, ptr %3, align 8
-  %40 = getelementptr inbounds %struct.lzma_block, ptr %39, i32 0, i32 3
-  %41 = load i64, ptr %40, align 8
-  %42 = icmp eq i64 %41, 0
-  br i1 %42, label %48, label %43
+39:                                               ; preds = %34, %29
+  %40 = load ptr, ptr %3, align 8, !tbaa !4
+  %41 = getelementptr inbounds nuw %struct.lzma_block, ptr %40, i32 0, i32 3
+  %42 = load i64, ptr %41, align 8, !tbaa !15
+  %43 = icmp eq i64 %42, 0
+  br i1 %43, label %49, label %44
 
-43:                                               ; preds = %38
-  %44 = load ptr, ptr %3, align 8
-  %45 = getelementptr inbounds %struct.lzma_block, ptr %44, i32 0, i32 2
-  %46 = load i32, ptr %45, align 8
-  %47 = icmp ugt i32 %46, 15
-  br i1 %47, label %48, label %49
+44:                                               ; preds = %39
+  %45 = load ptr, ptr %3, align 8, !tbaa !4
+  %46 = getelementptr inbounds nuw %struct.lzma_block, ptr %45, i32 0, i32 2
+  %47 = load i32, ptr %46, align 8, !tbaa !13
+  %48 = icmp ugt i32 %47, 15
+  br i1 %48, label %49, label %50
 
-48:                                               ; preds = %43, %38, %33, %22, %17, %12, %7, %1
+49:                                               ; preds = %44, %39, %34, %23, %18, %13, %8, %1
   store i64 0, ptr %2, align 8
-  br label %75
+  br label %77
 
-49:                                               ; preds = %43
-  %50 = load ptr, ptr %3, align 8
-  %51 = getelementptr inbounds %struct.lzma_block, ptr %50, i32 0, i32 3
-  %52 = load i64, ptr %51, align 8
-  %53 = icmp eq i64 %52, -1
-  br i1 %53, label %54, label %55
+50:                                               ; preds = %44
+  %51 = load ptr, ptr %3, align 8, !tbaa !4
+  %52 = getelementptr inbounds nuw %struct.lzma_block, ptr %51, i32 0, i32 3
+  %53 = load i64, ptr %52, align 8, !tbaa !15
+  %54 = icmp eq i64 %53, -1
+  br i1 %54, label %55, label %56
 
-54:                                               ; preds = %49
+55:                                               ; preds = %50
   store i64 -1, ptr %2, align 8
-  br label %75
+  br label %77
 
-55:                                               ; preds = %49
-  %56 = load ptr, ptr %3, align 8
-  %57 = getelementptr inbounds %struct.lzma_block, ptr %56, i32 0, i32 3
-  %58 = load i64, ptr %57, align 8
-  %59 = load ptr, ptr %3, align 8
-  %60 = getelementptr inbounds %struct.lzma_block, ptr %59, i32 0, i32 1
-  %61 = load i32, ptr %60, align 4
-  %62 = zext i32 %61 to i64
-  %63 = add i64 %58, %62
-  %64 = load ptr, ptr %3, align 8
-  %65 = getelementptr inbounds %struct.lzma_block, ptr %64, i32 0, i32 2
-  %66 = load i32, ptr %65, align 8
-  %67 = call i32 @lzma_check_size(i32 noundef %66) #4
-  %68 = zext i32 %67 to i64
-  %69 = add i64 %63, %68
-  store i64 %69, ptr %4, align 8
-  %70 = load i64, ptr %4, align 8
-  %71 = icmp ugt i64 %70, 9223372036854775804
-  br i1 %71, label %72, label %73
+56:                                               ; preds = %50
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #6
+  %57 = load ptr, ptr %3, align 8, !tbaa !4
+  %58 = getelementptr inbounds nuw %struct.lzma_block, ptr %57, i32 0, i32 3
+  %59 = load i64, ptr %58, align 8, !tbaa !15
+  %60 = load ptr, ptr %3, align 8, !tbaa !4
+  %61 = getelementptr inbounds nuw %struct.lzma_block, ptr %60, i32 0, i32 1
+  %62 = load i32, ptr %61, align 4, !tbaa !10
+  %63 = zext i32 %62 to i64
+  %64 = add i64 %59, %63
+  %65 = load ptr, ptr %3, align 8, !tbaa !4
+  %66 = getelementptr inbounds nuw %struct.lzma_block, ptr %65, i32 0, i32 2
+  %67 = load i32, ptr %66, align 8, !tbaa !13
+  %68 = call i32 @lzma_check_size(i32 noundef %67) #7
+  %69 = zext i32 %68 to i64
+  %70 = add i64 %64, %69
+  store i64 %70, ptr %4, align 8, !tbaa !8
+  %71 = load i64, ptr %4, align 8, !tbaa !8
+  %72 = icmp ugt i64 %71, 9223372036854775804
+  br i1 %72, label %73, label %74
 
-72:                                               ; preds = %55
+73:                                               ; preds = %56
   store i64 0, ptr %2, align 8
-  br label %75
+  store i32 1, ptr %5, align 4
+  br label %76
 
-73:                                               ; preds = %55
-  %74 = load i64, ptr %4, align 8
-  store i64 %74, ptr %2, align 8
-  br label %75
+74:                                               ; preds = %56
+  %75 = load i64, ptr %4, align 8, !tbaa !8
+  store i64 %75, ptr %2, align 8
+  store i32 1, ptr %5, align 4
+  br label %76
 
-75:                                               ; preds = %73, %72, %54, %48
-  %76 = load i64, ptr %2, align 8
-  ret i64 %76
+76:                                               ; preds = %74, %73
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #6
+  br label %77
+
+77:                                               ; preds = %76, %55, %49
+  %78 = load i64, ptr %2, align 8
+  ret i64 %78
 }
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
+
 ; Function Attrs: nounwind willreturn memory(none)
-declare i32 @lzma_check_size(i32 noundef) #2
+declare i32 @lzma_check_size(i32 noundef) #3
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: nounwind willreturn memory(read) uwtable
 define dso_local i64 @lzma_block_total_size(ptr noundef %0) #1 {
   %2 = alloca ptr, align 8
   %3 = alloca i64, align 8
-  store ptr %0, ptr %2, align 8
-  %4 = load ptr, ptr %2, align 8
-  %5 = call i64 @lzma_block_unpadded_size(ptr noundef %4) #3
-  store i64 %5, ptr %3, align 8
-  %6 = load i64, ptr %3, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #6
+  %4 = load ptr, ptr %2, align 8, !tbaa !4
+  %5 = call i64 @lzma_block_unpadded_size(ptr noundef %4) #5
+  store i64 %5, ptr %3, align 8, !tbaa !8
+  %6 = load i64, ptr %3, align 8, !tbaa !8
   %7 = icmp ne i64 %6, -1
   br i1 %7, label %8, label %11
 
 8:                                                ; preds = %1
-  %9 = load i64, ptr %3, align 8
+  %9 = load i64, ptr %3, align 8, !tbaa !8
   %10 = call i64 @vli_ceil4(i64 noundef %9)
-  store i64 %10, ptr %3, align 8
+  store i64 %10, ptr %3, align 8, !tbaa !8
   br label %11
 
 11:                                               ; preds = %8, %1
-  %12 = load i64, ptr %3, align 8
+  %12 = load i64, ptr %3, align 8, !tbaa !8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #6
   ret i64 %12
 }
 
-; Function Attrs: nounwind uwtable
-define internal i64 @vli_ceil4(i64 noundef %0) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal i64 @vli_ceil4(i64 noundef %0) #4 {
   %2 = alloca i64, align 8
-  store i64 %0, ptr %2, align 8
-  %3 = load i64, ptr %2, align 8
+  store i64 %0, ptr %2, align 8, !tbaa !8
+  %3 = load i64, ptr %2, align 8, !tbaa !8
   %4 = add i64 %3, 3
   %5 = and i64 %4, -4
   ret i64 %5
 }
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { nounwind willreturn memory(read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nounwind willreturn memory(read) }
-attributes #4 = { nounwind willreturn memory(none) }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nounwind willreturn memory(read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { inlinehint nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nounwind willreturn memory(read) }
+attributes #6 = { nounwind }
+attributes #7 = { nounwind willreturn memory(none) }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+!llvm.module.flags = !{!0, !1, !2, !3}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}
+!4 = !{!5, !5, i64 0}
+!5 = !{!"any pointer", !6, i64 0}
+!6 = !{!"omnipotent char", !7, i64 0}
+!7 = !{!"Simple C/C++ TBAA"}
+!8 = !{!9, !9, i64 0}
+!9 = !{!"long", !6, i64 0}
+!10 = !{!11, !12, i64 4}
+!11 = !{!"", !12, i64 0, !12, i64 4, !12, i64 8, !9, i64 16, !9, i64 24, !5, i64 32, !6, i64 40, !5, i64 104, !5, i64 112, !5, i64 120, !12, i64 128, !12, i64 132, !9, i64 136, !9, i64 144, !9, i64 152, !9, i64 160, !9, i64 168, !9, i64 176, !12, i64 184, !12, i64 188, !12, i64 192, !12, i64 196, !6, i64 200, !6, i64 201, !6, i64 202, !6, i64 203, !6, i64 204, !6, i64 205, !6, i64 206, !6, i64 207}
+!12 = !{!"int", !6, i64 0}
+!13 = !{!11, !12, i64 8}
+!14 = !{!12, !12, i64 0}
+!15 = !{!11, !9, i64 16}
+!16 = !{!11, !12, i64 0}

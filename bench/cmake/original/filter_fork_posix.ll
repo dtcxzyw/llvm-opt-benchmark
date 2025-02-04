@@ -19,317 +19,340 @@ define dso_local i32 @__archive_create_child(ptr noundef %0, ptr noundef %1, ptr
   %14 = alloca %struct.posix_spawn_file_actions_t, align 8
   %15 = alloca i32, align 4
   %16 = alloca ptr, align 8
-  store ptr %0, ptr %6, align 8
-  store ptr %1, ptr %7, align 8
-  store ptr %2, ptr %8, align 8
-  store ptr %3, ptr %9, align 8
-  store i32 -1, ptr %10, align 4
-  %17 = call ptr @__archive_cmdline_allocate()
-  store ptr %17, ptr %16, align 8
-  %18 = load ptr, ptr %16, align 8
-  %19 = icmp eq ptr %18, null
-  br i1 %19, label %20, label %21
-
-20:                                               ; preds = %4
-  br label %181
+  %17 = alloca i32, align 4
+  store ptr %0, ptr %6, align 8, !tbaa !4
+  store ptr %1, ptr %7, align 8, !tbaa !9
+  store ptr %2, ptr %8, align 8, !tbaa !9
+  store ptr %3, ptr %9, align 8, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #5
+  store i32 -1, ptr %10, align 4, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #5
+  call void @llvm.lifetime.start.p0(i64 80, ptr %14) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %15) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %16) #5
+  %18 = call ptr @__archive_cmdline_allocate()
+  store ptr %18, ptr %16, align 8, !tbaa !13
+  %19 = load ptr, ptr %16, align 8, !tbaa !13
+  %20 = icmp eq ptr %19, null
+  br i1 %20, label %21, label %22
 
 21:                                               ; preds = %4
-  %22 = load ptr, ptr %16, align 8
-  %23 = load ptr, ptr %6, align 8
-  %24 = call i32 @__archive_cmdline_parse(ptr noundef %22, ptr noundef %23)
-  %25 = icmp ne i32 %24, 0
-  br i1 %25, label %26, label %27
+  br label %182
 
-26:                                               ; preds = %21
-  br label %181
+22:                                               ; preds = %4
+  %23 = load ptr, ptr %16, align 8, !tbaa !13
+  %24 = load ptr, ptr %6, align 8, !tbaa !4
+  %25 = call i32 @__archive_cmdline_parse(ptr noundef %23, ptr noundef %24)
+  %26 = icmp ne i32 %25, 0
+  br i1 %26, label %27, label %28
 
-27:                                               ; preds = %21
-  %28 = getelementptr inbounds [2 x i32], ptr %11, i64 0, i64 0
-  %29 = call i32 @pipe(ptr noundef %28) #4
-  %30 = icmp eq i32 %29, -1
-  br i1 %30, label %31, label %32
+27:                                               ; preds = %22
+  br label %182
 
-31:                                               ; preds = %27
-  br label %181
+28:                                               ; preds = %22
+  %29 = getelementptr inbounds [2 x i32], ptr %11, i64 0, i64 0
+  %30 = call i32 @pipe(ptr noundef %29) #5
+  %31 = icmp eq i32 %30, -1
+  br i1 %31, label %32, label %33
 
-32:                                               ; preds = %27
-  %33 = getelementptr inbounds [2 x i32], ptr %11, i64 0, i64 0
-  %34 = load i32, ptr %33, align 4
-  %35 = icmp eq i32 %34, 1
-  br i1 %35, label %36, label %48
+32:                                               ; preds = %28
+  br label %182
 
-36:                                               ; preds = %32
-  %37 = getelementptr inbounds [2 x i32], ptr %11, i64 0, i64 0
-  %38 = load i32, ptr %37, align 4
-  %39 = call i32 @dup(i32 noundef %38) #4
-  store i32 %39, ptr %13, align 4
-  %40 = icmp eq i32 %39, -1
-  br i1 %40, label %41, label %42
+33:                                               ; preds = %28
+  %34 = getelementptr inbounds [2 x i32], ptr %11, i64 0, i64 0
+  %35 = load i32, ptr %34, align 4, !tbaa !11
+  %36 = icmp eq i32 %35, 1
+  br i1 %36, label %37, label %49
 
-41:                                               ; preds = %36
-  br label %174
+37:                                               ; preds = %33
+  %38 = getelementptr inbounds [2 x i32], ptr %11, i64 0, i64 0
+  %39 = load i32, ptr %38, align 4, !tbaa !11
+  %40 = call i32 @dup(i32 noundef %39) #5
+  store i32 %40, ptr %13, align 4, !tbaa !11
+  %41 = icmp eq i32 %40, -1
+  br i1 %41, label %42, label %43
 
-42:                                               ; preds = %36
-  %43 = getelementptr inbounds [2 x i32], ptr %11, i64 0, i64 0
-  %44 = load i32, ptr %43, align 4
-  %45 = call i32 @close(i32 noundef %44)
-  %46 = load i32, ptr %13, align 4
-  %47 = getelementptr inbounds [2 x i32], ptr %11, i64 0, i64 0
-  store i32 %46, ptr %47, align 4
-  br label %48
+42:                                               ; preds = %37
+  br label %175
 
-48:                                               ; preds = %42, %32
-  %49 = getelementptr inbounds [2 x i32], ptr %12, i64 0, i64 0
-  %50 = call i32 @pipe(ptr noundef %49) #4
-  %51 = icmp eq i32 %50, -1
-  br i1 %51, label %52, label %53
+43:                                               ; preds = %37
+  %44 = getelementptr inbounds [2 x i32], ptr %11, i64 0, i64 0
+  %45 = load i32, ptr %44, align 4, !tbaa !11
+  %46 = call i32 @close(i32 noundef %45)
+  %47 = load i32, ptr %13, align 4, !tbaa !11
+  %48 = getelementptr inbounds [2 x i32], ptr %11, i64 0, i64 0
+  store i32 %47, ptr %48, align 4, !tbaa !11
+  br label %49
 
-52:                                               ; preds = %48
-  br label %174
+49:                                               ; preds = %43, %33
+  %50 = getelementptr inbounds [2 x i32], ptr %12, i64 0, i64 0
+  %51 = call i32 @pipe(ptr noundef %50) #5
+  %52 = icmp eq i32 %51, -1
+  br i1 %52, label %53, label %54
 
-53:                                               ; preds = %48
-  %54 = getelementptr inbounds [2 x i32], ptr %12, i64 0, i64 1
-  %55 = load i32, ptr %54, align 4
-  %56 = icmp eq i32 %55, 0
-  br i1 %56, label %57, label %69
+53:                                               ; preds = %49
+  br label %175
 
-57:                                               ; preds = %53
-  %58 = getelementptr inbounds [2 x i32], ptr %12, i64 0, i64 1
-  %59 = load i32, ptr %58, align 4
-  %60 = call i32 @dup(i32 noundef %59) #4
-  store i32 %60, ptr %13, align 4
-  %61 = icmp eq i32 %60, -1
-  br i1 %61, label %62, label %63
+54:                                               ; preds = %49
+  %55 = getelementptr inbounds [2 x i32], ptr %12, i64 0, i64 1
+  %56 = load i32, ptr %55, align 4, !tbaa !11
+  %57 = icmp eq i32 %56, 0
+  br i1 %57, label %58, label %70
 
-62:                                               ; preds = %57
-  br label %167
+58:                                               ; preds = %54
+  %59 = getelementptr inbounds [2 x i32], ptr %12, i64 0, i64 1
+  %60 = load i32, ptr %59, align 4, !tbaa !11
+  %61 = call i32 @dup(i32 noundef %60) #5
+  store i32 %61, ptr %13, align 4, !tbaa !11
+  %62 = icmp eq i32 %61, -1
+  br i1 %62, label %63, label %64
 
-63:                                               ; preds = %57
-  %64 = getelementptr inbounds [2 x i32], ptr %12, i64 0, i64 1
-  %65 = load i32, ptr %64, align 4
-  %66 = call i32 @close(i32 noundef %65)
-  %67 = load i32, ptr %13, align 4
-  %68 = getelementptr inbounds [2 x i32], ptr %12, i64 0, i64 1
-  store i32 %67, ptr %68, align 4
-  br label %69
+63:                                               ; preds = %58
+  br label %168
 
-69:                                               ; preds = %63, %53
-  %70 = call i32 @posix_spawn_file_actions_init(ptr noundef %14) #4
-  store i32 %70, ptr %15, align 4
-  %71 = load i32, ptr %15, align 4
-  %72 = icmp ne i32 %71, 0
-  br i1 %72, label %73, label %76
+64:                                               ; preds = %58
+  %65 = getelementptr inbounds [2 x i32], ptr %12, i64 0, i64 1
+  %66 = load i32, ptr %65, align 4, !tbaa !11
+  %67 = call i32 @close(i32 noundef %66)
+  %68 = load i32, ptr %13, align 4, !tbaa !11
+  %69 = getelementptr inbounds [2 x i32], ptr %12, i64 0, i64 1
+  store i32 %68, ptr %69, align 4, !tbaa !11
+  br label %70
 
-73:                                               ; preds = %69
-  %74 = load i32, ptr %15, align 4
-  %75 = call ptr @__errno_location() #5
-  store i32 %74, ptr %75, align 4
-  br label %167
+70:                                               ; preds = %64, %54
+  %71 = call i32 @posix_spawn_file_actions_init(ptr noundef %14) #5
+  store i32 %71, ptr %15, align 4, !tbaa !11
+  %72 = load i32, ptr %15, align 4, !tbaa !11
+  %73 = icmp ne i32 %72, 0
+  br i1 %73, label %74, label %77
 
-76:                                               ; preds = %69
-  %77 = getelementptr inbounds [2 x i32], ptr %11, i64 0, i64 1
-  %78 = load i32, ptr %77, align 4
-  %79 = call i32 @posix_spawn_file_actions_addclose(ptr noundef %14, i32 noundef %78) #4
-  store i32 %79, ptr %15, align 4
-  %80 = load i32, ptr %15, align 4
-  %81 = icmp ne i32 %80, 0
-  br i1 %81, label %82, label %83
+74:                                               ; preds = %70
+  %75 = load i32, ptr %15, align 4, !tbaa !11
+  %76 = call ptr @__errno_location() #6
+  store i32 %75, ptr %76, align 4, !tbaa !11
+  br label %168
 
-82:                                               ; preds = %76
-  br label %163
+77:                                               ; preds = %70
+  %78 = getelementptr inbounds [2 x i32], ptr %11, i64 0, i64 1
+  %79 = load i32, ptr %78, align 4, !tbaa !11
+  %80 = call i32 @posix_spawn_file_actions_addclose(ptr noundef %14, i32 noundef %79) #5
+  store i32 %80, ptr %15, align 4, !tbaa !11
+  %81 = load i32, ptr %15, align 4, !tbaa !11
+  %82 = icmp ne i32 %81, 0
+  br i1 %82, label %83, label %84
 
-83:                                               ; preds = %76
-  %84 = getelementptr inbounds [2 x i32], ptr %12, i64 0, i64 0
-  %85 = load i32, ptr %84, align 4
-  %86 = call i32 @posix_spawn_file_actions_addclose(ptr noundef %14, i32 noundef %85) #4
-  store i32 %86, ptr %15, align 4
-  %87 = load i32, ptr %15, align 4
-  %88 = icmp ne i32 %87, 0
-  br i1 %88, label %89, label %90
+83:                                               ; preds = %77
+  br label %164
 
-89:                                               ; preds = %83
-  br label %163
+84:                                               ; preds = %77
+  %85 = getelementptr inbounds [2 x i32], ptr %12, i64 0, i64 0
+  %86 = load i32, ptr %85, align 4, !tbaa !11
+  %87 = call i32 @posix_spawn_file_actions_addclose(ptr noundef %14, i32 noundef %86) #5
+  store i32 %87, ptr %15, align 4, !tbaa !11
+  %88 = load i32, ptr %15, align 4, !tbaa !11
+  %89 = icmp ne i32 %88, 0
+  br i1 %89, label %90, label %91
 
-90:                                               ; preds = %83
-  %91 = getelementptr inbounds [2 x i32], ptr %11, i64 0, i64 0
-  %92 = load i32, ptr %91, align 4
-  %93 = call i32 @posix_spawn_file_actions_adddup2(ptr noundef %14, i32 noundef %92, i32 noundef 0) #4
-  store i32 %93, ptr %15, align 4
-  %94 = load i32, ptr %15, align 4
-  %95 = icmp ne i32 %94, 0
-  br i1 %95, label %96, label %97
+90:                                               ; preds = %84
+  br label %164
 
-96:                                               ; preds = %90
-  br label %163
+91:                                               ; preds = %84
+  %92 = getelementptr inbounds [2 x i32], ptr %11, i64 0, i64 0
+  %93 = load i32, ptr %92, align 4, !tbaa !11
+  %94 = call i32 @posix_spawn_file_actions_adddup2(ptr noundef %14, i32 noundef %93, i32 noundef 0) #5
+  store i32 %94, ptr %15, align 4, !tbaa !11
+  %95 = load i32, ptr %15, align 4, !tbaa !11
+  %96 = icmp ne i32 %95, 0
+  br i1 %96, label %97, label %98
 
-97:                                               ; preds = %90
-  %98 = getelementptr inbounds [2 x i32], ptr %11, i64 0, i64 0
-  %99 = load i32, ptr %98, align 4
-  %100 = icmp ne i32 %99, 0
-  br i1 %100, label %101, label %109
+97:                                               ; preds = %91
+  br label %164
 
-101:                                              ; preds = %97
-  %102 = getelementptr inbounds [2 x i32], ptr %11, i64 0, i64 0
-  %103 = load i32, ptr %102, align 4
-  %104 = call i32 @posix_spawn_file_actions_addclose(ptr noundef %14, i32 noundef %103) #4
-  store i32 %104, ptr %15, align 4
-  %105 = load i32, ptr %15, align 4
-  %106 = icmp ne i32 %105, 0
-  br i1 %106, label %107, label %108
+98:                                               ; preds = %91
+  %99 = getelementptr inbounds [2 x i32], ptr %11, i64 0, i64 0
+  %100 = load i32, ptr %99, align 4, !tbaa !11
+  %101 = icmp ne i32 %100, 0
+  br i1 %101, label %102, label %110
 
-107:                                              ; preds = %101
-  br label %163
+102:                                              ; preds = %98
+  %103 = getelementptr inbounds [2 x i32], ptr %11, i64 0, i64 0
+  %104 = load i32, ptr %103, align 4, !tbaa !11
+  %105 = call i32 @posix_spawn_file_actions_addclose(ptr noundef %14, i32 noundef %104) #5
+  store i32 %105, ptr %15, align 4, !tbaa !11
+  %106 = load i32, ptr %15, align 4, !tbaa !11
+  %107 = icmp ne i32 %106, 0
+  br i1 %107, label %108, label %109
 
-108:                                              ; preds = %101
-  br label %109
+108:                                              ; preds = %102
+  br label %164
 
-109:                                              ; preds = %108, %97
-  %110 = getelementptr inbounds [2 x i32], ptr %12, i64 0, i64 1
-  %111 = load i32, ptr %110, align 4
-  %112 = call i32 @posix_spawn_file_actions_adddup2(ptr noundef %14, i32 noundef %111, i32 noundef 1) #4
-  store i32 %112, ptr %15, align 4
-  %113 = load i32, ptr %15, align 4
-  %114 = icmp ne i32 %113, 0
-  br i1 %114, label %115, label %116
+109:                                              ; preds = %102
+  br label %110
 
-115:                                              ; preds = %109
-  br label %163
+110:                                              ; preds = %109, %98
+  %111 = getelementptr inbounds [2 x i32], ptr %12, i64 0, i64 1
+  %112 = load i32, ptr %111, align 4, !tbaa !11
+  %113 = call i32 @posix_spawn_file_actions_adddup2(ptr noundef %14, i32 noundef %112, i32 noundef 1) #5
+  store i32 %113, ptr %15, align 4, !tbaa !11
+  %114 = load i32, ptr %15, align 4, !tbaa !11
+  %115 = icmp ne i32 %114, 0
+  br i1 %115, label %116, label %117
 
-116:                                              ; preds = %109
-  %117 = getelementptr inbounds [2 x i32], ptr %12, i64 0, i64 1
-  %118 = load i32, ptr %117, align 4
-  %119 = icmp ne i32 %118, 1
-  br i1 %119, label %120, label %128
+116:                                              ; preds = %110
+  br label %164
 
-120:                                              ; preds = %116
-  %121 = getelementptr inbounds [2 x i32], ptr %12, i64 0, i64 1
-  %122 = load i32, ptr %121, align 4
-  %123 = call i32 @posix_spawn_file_actions_addclose(ptr noundef %14, i32 noundef %122) #4
-  store i32 %123, ptr %15, align 4
-  %124 = load i32, ptr %15, align 4
-  %125 = icmp ne i32 %124, 0
-  br i1 %125, label %126, label %127
+117:                                              ; preds = %110
+  %118 = getelementptr inbounds [2 x i32], ptr %12, i64 0, i64 1
+  %119 = load i32, ptr %118, align 4, !tbaa !11
+  %120 = icmp ne i32 %119, 1
+  br i1 %120, label %121, label %129
 
-126:                                              ; preds = %120
-  br label %163
+121:                                              ; preds = %117
+  %122 = getelementptr inbounds [2 x i32], ptr %12, i64 0, i64 1
+  %123 = load i32, ptr %122, align 4, !tbaa !11
+  %124 = call i32 @posix_spawn_file_actions_addclose(ptr noundef %14, i32 noundef %123) #5
+  store i32 %124, ptr %15, align 4, !tbaa !11
+  %125 = load i32, ptr %15, align 4, !tbaa !11
+  %126 = icmp ne i32 %125, 0
+  br i1 %126, label %127, label %128
 
-127:                                              ; preds = %120
-  br label %128
+127:                                              ; preds = %121
+  br label %164
 
-128:                                              ; preds = %127, %116
-  %129 = load ptr, ptr %16, align 8
-  %130 = getelementptr inbounds %struct.archive_cmdline, ptr %129, i32 0, i32 0
-  %131 = load ptr, ptr %130, align 8
-  %132 = load ptr, ptr %16, align 8
-  %133 = getelementptr inbounds %struct.archive_cmdline, ptr %132, i32 0, i32 1
-  %134 = load ptr, ptr %133, align 8
-  %135 = call i32 @posix_spawnp(ptr noundef %10, ptr noundef %131, ptr noundef %14, ptr noundef null, ptr noundef %134, ptr noundef null)
-  store i32 %135, ptr %15, align 4
-  %136 = load i32, ptr %15, align 4
-  %137 = icmp ne i32 %136, 0
-  br i1 %137, label %138, label %139
+128:                                              ; preds = %121
+  br label %129
 
-138:                                              ; preds = %128
-  br label %163
+129:                                              ; preds = %128, %117
+  %130 = load ptr, ptr %16, align 8, !tbaa !13
+  %131 = getelementptr inbounds nuw %struct.archive_cmdline, ptr %130, i32 0, i32 0
+  %132 = load ptr, ptr %131, align 8, !tbaa !15
+  %133 = load ptr, ptr %16, align 8, !tbaa !13
+  %134 = getelementptr inbounds nuw %struct.archive_cmdline, ptr %133, i32 0, i32 1
+  %135 = load ptr, ptr %134, align 8, !tbaa !18
+  %136 = call i32 @posix_spawnp(ptr noundef %10, ptr noundef %132, ptr noundef %14, ptr noundef null, ptr noundef %135, ptr noundef null)
+  store i32 %136, ptr %15, align 4, !tbaa !11
+  %137 = load i32, ptr %15, align 4, !tbaa !11
+  %138 = icmp ne i32 %137, 0
+  br i1 %138, label %139, label %140
 
-139:                                              ; preds = %128
-  %140 = call i32 @posix_spawn_file_actions_destroy(ptr noundef %14) #4
-  %141 = getelementptr inbounds [2 x i32], ptr %11, i64 0, i64 0
-  %142 = load i32, ptr %141, align 4
-  %143 = call i32 @close(i32 noundef %142)
-  %144 = getelementptr inbounds [2 x i32], ptr %12, i64 0, i64 1
-  %145 = load i32, ptr %144, align 4
-  %146 = call i32 @close(i32 noundef %145)
-  %147 = getelementptr inbounds [2 x i32], ptr %11, i64 0, i64 1
-  %148 = load i32, ptr %147, align 4
-  %149 = load ptr, ptr %7, align 8
-  store i32 %148, ptr %149, align 4
-  %150 = load ptr, ptr %7, align 8
-  %151 = load i32, ptr %150, align 4
-  %152 = call i32 (i32, i32, ...) @fcntl(i32 noundef %151, i32 noundef 4, i32 noundef 2048)
-  %153 = getelementptr inbounds [2 x i32], ptr %12, i64 0, i64 0
-  %154 = load i32, ptr %153, align 4
-  %155 = load ptr, ptr %8, align 8
-  store i32 %154, ptr %155, align 4
-  %156 = load ptr, ptr %8, align 8
-  %157 = load i32, ptr %156, align 4
-  %158 = call i32 (i32, i32, ...) @fcntl(i32 noundef %157, i32 noundef 4, i32 noundef 2048)
-  %159 = load ptr, ptr %16, align 8
-  %160 = call i32 @__archive_cmdline_free(ptr noundef %159)
-  %161 = load i32, ptr %10, align 4
-  %162 = load ptr, ptr %9, align 8
-  store i32 %161, ptr %162, align 4
+139:                                              ; preds = %129
+  br label %164
+
+140:                                              ; preds = %129
+  %141 = call i32 @posix_spawn_file_actions_destroy(ptr noundef %14) #5
+  %142 = getelementptr inbounds [2 x i32], ptr %11, i64 0, i64 0
+  %143 = load i32, ptr %142, align 4, !tbaa !11
+  %144 = call i32 @close(i32 noundef %143)
+  %145 = getelementptr inbounds [2 x i32], ptr %12, i64 0, i64 1
+  %146 = load i32, ptr %145, align 4, !tbaa !11
+  %147 = call i32 @close(i32 noundef %146)
+  %148 = getelementptr inbounds [2 x i32], ptr %11, i64 0, i64 1
+  %149 = load i32, ptr %148, align 4, !tbaa !11
+  %150 = load ptr, ptr %7, align 8, !tbaa !9
+  store i32 %149, ptr %150, align 4, !tbaa !11
+  %151 = load ptr, ptr %7, align 8, !tbaa !9
+  %152 = load i32, ptr %151, align 4, !tbaa !11
+  %153 = call i32 (i32, i32, ...) @fcntl(i32 noundef %152, i32 noundef 4, i32 noundef 2048)
+  %154 = getelementptr inbounds [2 x i32], ptr %12, i64 0, i64 0
+  %155 = load i32, ptr %154, align 4, !tbaa !11
+  %156 = load ptr, ptr %8, align 8, !tbaa !9
+  store i32 %155, ptr %156, align 4, !tbaa !11
+  %157 = load ptr, ptr %8, align 8, !tbaa !9
+  %158 = load i32, ptr %157, align 4, !tbaa !11
+  %159 = call i32 (i32, i32, ...) @fcntl(i32 noundef %158, i32 noundef 4, i32 noundef 2048)
+  %160 = load ptr, ptr %16, align 8, !tbaa !13
+  %161 = call i32 @__archive_cmdline_free(ptr noundef %160)
+  %162 = load i32, ptr %10, align 4, !tbaa !11
+  %163 = load ptr, ptr %9, align 8, !tbaa !9
+  store i32 %162, ptr %163, align 4, !tbaa !11
   store i32 0, ptr %5, align 4
-  br label %184
+  store i32 1, ptr %17, align 4
+  br label %185
 
-163:                                              ; preds = %138, %126, %115, %107, %96, %89, %82
-  %164 = load i32, ptr %15, align 4
-  %165 = call ptr @__errno_location() #5
-  store i32 %164, ptr %165, align 4
-  %166 = call i32 @posix_spawn_file_actions_destroy(ptr noundef %14) #4
-  br label %167
+164:                                              ; preds = %139, %127, %116, %108, %97, %90, %83
+  %165 = load i32, ptr %15, align 4, !tbaa !11
+  %166 = call ptr @__errno_location() #6
+  store i32 %165, ptr %166, align 4, !tbaa !11
+  %167 = call i32 @posix_spawn_file_actions_destroy(ptr noundef %14) #5
+  br label %168
 
-167:                                              ; preds = %163, %73, %62
-  %168 = getelementptr inbounds [2 x i32], ptr %12, i64 0, i64 0
-  %169 = load i32, ptr %168, align 4
-  %170 = call i32 @close(i32 noundef %169)
-  %171 = getelementptr inbounds [2 x i32], ptr %12, i64 0, i64 1
-  %172 = load i32, ptr %171, align 4
-  %173 = call i32 @close(i32 noundef %172)
-  br label %174
+168:                                              ; preds = %164, %74, %63
+  %169 = getelementptr inbounds [2 x i32], ptr %12, i64 0, i64 0
+  %170 = load i32, ptr %169, align 4, !tbaa !11
+  %171 = call i32 @close(i32 noundef %170)
+  %172 = getelementptr inbounds [2 x i32], ptr %12, i64 0, i64 1
+  %173 = load i32, ptr %172, align 4, !tbaa !11
+  %174 = call i32 @close(i32 noundef %173)
+  br label %175
 
-174:                                              ; preds = %167, %52, %41
-  %175 = getelementptr inbounds [2 x i32], ptr %11, i64 0, i64 0
-  %176 = load i32, ptr %175, align 4
-  %177 = call i32 @close(i32 noundef %176)
-  %178 = getelementptr inbounds [2 x i32], ptr %11, i64 0, i64 1
-  %179 = load i32, ptr %178, align 4
-  %180 = call i32 @close(i32 noundef %179)
-  br label %181
+175:                                              ; preds = %168, %53, %42
+  %176 = getelementptr inbounds [2 x i32], ptr %11, i64 0, i64 0
+  %177 = load i32, ptr %176, align 4, !tbaa !11
+  %178 = call i32 @close(i32 noundef %177)
+  %179 = getelementptr inbounds [2 x i32], ptr %11, i64 0, i64 1
+  %180 = load i32, ptr %179, align 4, !tbaa !11
+  %181 = call i32 @close(i32 noundef %180)
+  br label %182
 
-181:                                              ; preds = %174, %31, %26, %20
-  %182 = load ptr, ptr %16, align 8
-  %183 = call i32 @__archive_cmdline_free(ptr noundef %182)
+182:                                              ; preds = %175, %32, %27, %21
+  %183 = load ptr, ptr %16, align 8, !tbaa !13
+  %184 = call i32 @__archive_cmdline_free(ptr noundef %183)
   store i32 -25, ptr %5, align 4
-  br label %184
+  store i32 1, ptr %17, align 4
+  br label %185
 
-184:                                              ; preds = %181, %139
-  %185 = load i32, ptr %5, align 4
-  ret i32 %185
+185:                                              ; preds = %182, %140
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %15) #5
+  call void @llvm.lifetime.end.p0(i64 80, ptr %14) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #5
+  %186 = load i32, ptr %5, align 4
+  ret i32 %186
 }
 
-declare ptr @__archive_cmdline_allocate() #1
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
-declare i32 @__archive_cmdline_parse(ptr noundef, ptr noundef) #1
+declare ptr @__archive_cmdline_allocate() #2
 
-; Function Attrs: nounwind
-declare i32 @pipe(ptr noundef) #2
-
-; Function Attrs: nounwind
-declare i32 @dup(i32 noundef) #2
-
-declare i32 @close(i32 noundef) #1
+declare i32 @__archive_cmdline_parse(ptr noundef, ptr noundef) #2
 
 ; Function Attrs: nounwind
-declare i32 @posix_spawn_file_actions_init(ptr noundef) #2
+declare i32 @pipe(ptr noundef) #3
+
+; Function Attrs: nounwind
+declare i32 @dup(i32 noundef) #3
+
+declare i32 @close(i32 noundef) #2
+
+; Function Attrs: nounwind
+declare i32 @posix_spawn_file_actions_init(ptr noundef) #3
 
 ; Function Attrs: nounwind willreturn memory(none)
-declare ptr @__errno_location() #3
+declare ptr @__errno_location() #4
 
 ; Function Attrs: nounwind
-declare i32 @posix_spawn_file_actions_addclose(ptr noundef, i32 noundef) #2
+declare i32 @posix_spawn_file_actions_addclose(ptr noundef, i32 noundef) #3
 
 ; Function Attrs: nounwind
-declare i32 @posix_spawn_file_actions_adddup2(ptr noundef, i32 noundef, i32 noundef) #2
+declare i32 @posix_spawn_file_actions_adddup2(ptr noundef, i32 noundef, i32 noundef) #3
 
-declare i32 @posix_spawnp(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #1
+declare i32 @posix_spawnp(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #2
 
 ; Function Attrs: nounwind
-declare i32 @posix_spawn_file_actions_destroy(ptr noundef) #2
+declare i32 @posix_spawn_file_actions_destroy(ptr noundef) #3
 
-declare i32 @fcntl(i32 noundef, i32 noundef, ...) #1
+declare i32 @fcntl(i32 noundef, i32 noundef, ...) #2
 
-declare i32 @__archive_cmdline_free(ptr noundef) #1
+declare i32 @__archive_cmdline_free(ptr noundef) #2
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @__archive_check_child(i32 noundef %0, i32 noundef %1) #0 {
@@ -337,73 +360,96 @@ define dso_local void @__archive_check_child(i32 noundef %0, i32 noundef %1) #0 
   %4 = alloca i32, align 4
   %5 = alloca [2 x %struct.pollfd], align 16
   %6 = alloca i32, align 4
-  store i32 %0, ptr %3, align 4
-  store i32 %1, ptr %4, align 4
-  store i32 0, ptr %6, align 4
-  %7 = load i32, ptr %3, align 4
+  store i32 %0, ptr %3, align 4, !tbaa !11
+  store i32 %1, ptr %4, align 4, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 16, ptr %5) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #5
+  store i32 0, ptr %6, align 4, !tbaa !11
+  %7 = load i32, ptr %3, align 4, !tbaa !11
   %8 = icmp ne i32 %7, -1
   br i1 %8, label %9, label %21
 
 9:                                                ; preds = %2
-  %10 = load i32, ptr %3, align 4
-  %11 = load i32, ptr %6, align 4
+  %10 = load i32, ptr %3, align 4, !tbaa !11
+  %11 = load i32, ptr %6, align 4, !tbaa !11
   %12 = sext i32 %11 to i64
   %13 = getelementptr inbounds [2 x %struct.pollfd], ptr %5, i64 0, i64 %12
-  %14 = getelementptr inbounds %struct.pollfd, ptr %13, i32 0, i32 0
-  store i32 %10, ptr %14, align 8
-  %15 = load i32, ptr %6, align 4
+  %14 = getelementptr inbounds nuw %struct.pollfd, ptr %13, i32 0, i32 0
+  store i32 %10, ptr %14, align 8, !tbaa !19
+  %15 = load i32, ptr %6, align 4, !tbaa !11
   %16 = sext i32 %15 to i64
   %17 = getelementptr inbounds [2 x %struct.pollfd], ptr %5, i64 0, i64 %16
-  %18 = getelementptr inbounds %struct.pollfd, ptr %17, i32 0, i32 1
-  store i16 4, ptr %18, align 4
-  %19 = load i32, ptr %6, align 4
+  %18 = getelementptr inbounds nuw %struct.pollfd, ptr %17, i32 0, i32 1
+  store i16 4, ptr %18, align 4, !tbaa !22
+  %19 = load i32, ptr %6, align 4, !tbaa !11
   %20 = add nsw i32 %19, 1
-  store i32 %20, ptr %6, align 4
+  store i32 %20, ptr %6, align 4, !tbaa !11
   br label %21
 
 21:                                               ; preds = %9, %2
-  %22 = load i32, ptr %4, align 4
+  %22 = load i32, ptr %4, align 4, !tbaa !11
   %23 = icmp ne i32 %22, -1
   br i1 %23, label %24, label %36
 
 24:                                               ; preds = %21
-  %25 = load i32, ptr %4, align 4
-  %26 = load i32, ptr %6, align 4
+  %25 = load i32, ptr %4, align 4, !tbaa !11
+  %26 = load i32, ptr %6, align 4, !tbaa !11
   %27 = sext i32 %26 to i64
   %28 = getelementptr inbounds [2 x %struct.pollfd], ptr %5, i64 0, i64 %27
-  %29 = getelementptr inbounds %struct.pollfd, ptr %28, i32 0, i32 0
-  store i32 %25, ptr %29, align 8
-  %30 = load i32, ptr %6, align 4
+  %29 = getelementptr inbounds nuw %struct.pollfd, ptr %28, i32 0, i32 0
+  store i32 %25, ptr %29, align 8, !tbaa !19
+  %30 = load i32, ptr %6, align 4, !tbaa !11
   %31 = sext i32 %30 to i64
   %32 = getelementptr inbounds [2 x %struct.pollfd], ptr %5, i64 0, i64 %31
-  %33 = getelementptr inbounds %struct.pollfd, ptr %32, i32 0, i32 1
-  store i16 1, ptr %33, align 4
-  %34 = load i32, ptr %6, align 4
+  %33 = getelementptr inbounds nuw %struct.pollfd, ptr %32, i32 0, i32 1
+  store i16 1, ptr %33, align 4, !tbaa !22
+  %34 = load i32, ptr %6, align 4, !tbaa !11
   %35 = add nsw i32 %34, 1
-  store i32 %35, ptr %6, align 4
+  store i32 %35, ptr %6, align 4, !tbaa !11
   br label %36
 
 36:                                               ; preds = %24, %21
   %37 = getelementptr inbounds [2 x %struct.pollfd], ptr %5, i64 0, i64 0
-  %38 = load i32, ptr %6, align 4
+  %38 = load i32, ptr %6, align 4, !tbaa !11
   %39 = sext i32 %38 to i64
   %40 = call i32 @poll(ptr noundef %37, i64 noundef %39, i32 noundef -1)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #5
+  call void @llvm.lifetime.end.p0(i64 16, ptr %5) #5
   ret void
 }
 
-declare i32 @poll(ptr noundef, i64 noundef, i32 noundef) #1
+declare i32 @poll(ptr noundef, i64 noundef, i32 noundef) #2
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nounwind }
-attributes #5 = { nounwind willreturn memory(none) }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nounwind }
+attributes #6 = { nounwind willreturn memory(none) }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+!llvm.module.flags = !{!0, !1, !2, !3}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}
+!4 = !{!5, !5, i64 0}
+!5 = !{!"p1 omnipotent char", !6, i64 0}
+!6 = !{!"any pointer", !7, i64 0}
+!7 = !{!"omnipotent char", !8, i64 0}
+!8 = !{!"Simple C/C++ TBAA"}
+!9 = !{!10, !10, i64 0}
+!10 = !{!"p1 int", !6, i64 0}
+!11 = !{!12, !12, i64 0}
+!12 = !{!"int", !7, i64 0}
+!13 = !{!14, !14, i64 0}
+!14 = !{!"p1 _ZTS15archive_cmdline", !6, i64 0}
+!15 = !{!16, !5, i64 0}
+!16 = !{!"archive_cmdline", !5, i64 0, !17, i64 8, !12, i64 16}
+!17 = !{!"p2 omnipotent char", !6, i64 0}
+!18 = !{!16, !17, i64 8}
+!19 = !{!20, !12, i64 0}
+!20 = !{!"pollfd", !12, i64 0, !21, i64 4, !21, i64 6}
+!21 = !{!"short", !7, i64 0}
+!22 = !{!20, !21, i64 4}

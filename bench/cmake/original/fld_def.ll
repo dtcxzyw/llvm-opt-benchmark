@@ -1,12 +1,12 @@
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.fieldnode = type { i16, i16, i16, i16, i16, i32, i32, i32, i32, i16, i16, i16, i16, i32, i32, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 %struct.typenode = type { i16, i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 %struct.typearg = type { ptr, ptr }
+%struct.fieldnode = type { i16, i16, i16, i16, i16, i32, i32, i32, i32, i16, i16, i16, i16, i32, i32, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 
-@default_field = internal global %struct.fieldnode { i16 0, i16 0, i16 0, i16 0, i16 0, i32 0, i32 0, i32 0, i32 0, i16 0, i16 0, i16 0, i16 0, i32 32, i32 0, i32 0, i32 1023, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null }, align 8
 @_nc_Default_Field = dso_local global ptr @default_field, align 8
+@default_field = internal global { i16, i16, i16, i16, i16, [2 x i8], i32, i32, i32, i32, i16, i16, i16, i16, i32, i32, i32, i32, [4 x i8], ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr } { i16 0, i16 0, i16 0, i16 0, i16 0, [2 x i8] zeroinitializer, i32 0, i32 0, i32 0, i32 0, i16 0, i16 0, i16 0, i16 0, i32 32, i32 0, i32 0, i32 1023, [4 x i8] zeroinitializer, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null }, align 8
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @_nc_Make_Argument(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
@@ -16,107 +16,120 @@ define dso_local ptr @_nc_Make_Argument(ptr noundef %0, ptr noundef %1, ptr noun
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
   %9 = alloca ptr, align 8
-  store ptr %0, ptr %5, align 8
-  store ptr %1, ptr %6, align 8
-  store ptr %2, ptr %7, align 8
-  store ptr null, ptr %8, align 8
-  %10 = load ptr, ptr %5, align 8
-  %11 = icmp ne ptr %10, null
-  br i1 %11, label %12, label %66
+  %10 = alloca i32, align 4
+  store ptr %0, ptr %5, align 8, !tbaa !4
+  store ptr %1, ptr %6, align 8, !tbaa !9
+  store ptr %2, ptr %7, align 8, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #7
+  store ptr null, ptr %8, align 8, !tbaa !13
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #7
+  %11 = load ptr, ptr %5, align 8, !tbaa !4
+  %12 = icmp ne ptr %11, null
+  br i1 %12, label %13, label %67
 
-12:                                               ; preds = %3
-  %13 = load ptr, ptr %5, align 8
-  %14 = getelementptr inbounds %struct.typenode, ptr %13, i32 0, i32 0
-  %15 = load i16, ptr %14, align 8
-  %16 = zext i16 %15 to i32
-  %17 = and i32 %16, 2
-  %18 = icmp ne i32 %17, 0
-  br i1 %18, label %19, label %66
+13:                                               ; preds = %3
+  %14 = load ptr, ptr %5, align 8, !tbaa !4
+  %15 = getelementptr inbounds nuw %struct.typenode, ptr %14, i32 0, i32 0
+  %16 = load i16, ptr %15, align 8, !tbaa !15
+  %17 = zext i16 %16 to i32
+  %18 = and i32 %17, 2
+  %19 = icmp ne i32 %18, 0
+  br i1 %19, label %20, label %67
 
-19:                                               ; preds = %12
-  %20 = load ptr, ptr %5, align 8
-  %21 = getelementptr inbounds %struct.typenode, ptr %20, i32 0, i32 0
-  %22 = load i16, ptr %21, align 8
-  %23 = zext i16 %22 to i32
-  %24 = and i32 %23, 1
-  %25 = icmp ne i32 %24, 0
-  br i1 %25, label %26, label %53
+20:                                               ; preds = %13
+  %21 = load ptr, ptr %5, align 8, !tbaa !4
+  %22 = getelementptr inbounds nuw %struct.typenode, ptr %21, i32 0, i32 0
+  %23 = load i16, ptr %22, align 8, !tbaa !15
+  %24 = zext i16 %23 to i32
+  %25 = and i32 %24, 1
+  %26 = icmp ne i32 %25, 0
+  br i1 %26, label %27, label %54
 
-26:                                               ; preds = %19
-  %27 = call noalias ptr @malloc(i64 noundef 16) #6
-  store ptr %27, ptr %9, align 8
-  %28 = load ptr, ptr %9, align 8
-  %29 = icmp ne ptr %28, null
-  br i1 %29, label %30, label %48
+27:                                               ; preds = %20
+  %28 = call noalias ptr @malloc(i64 noundef 16) #8
+  store ptr %28, ptr %9, align 8, !tbaa !13
+  %29 = load ptr, ptr %9, align 8, !tbaa !13
+  %30 = icmp ne ptr %29, null
+  br i1 %30, label %31, label %49
 
-30:                                               ; preds = %26
-  %31 = load ptr, ptr %5, align 8
-  %32 = getelementptr inbounds %struct.typenode, ptr %31, i32 0, i32 2
-  %33 = load ptr, ptr %32, align 8
-  %34 = load ptr, ptr %6, align 8
-  %35 = load ptr, ptr %7, align 8
-  %36 = call ptr @_nc_Make_Argument(ptr noundef %33, ptr noundef %34, ptr noundef %35)
-  %37 = load ptr, ptr %9, align 8
-  %38 = getelementptr inbounds %struct.typearg, ptr %37, i32 0, i32 0
-  store ptr %36, ptr %38, align 8
-  %39 = load ptr, ptr %5, align 8
-  %40 = getelementptr inbounds %struct.typenode, ptr %39, i32 0, i32 3
-  %41 = load ptr, ptr %40, align 8
-  %42 = load ptr, ptr %6, align 8
-  %43 = load ptr, ptr %7, align 8
-  %44 = call ptr @_nc_Make_Argument(ptr noundef %41, ptr noundef %42, ptr noundef %43)
-  %45 = load ptr, ptr %9, align 8
-  %46 = getelementptr inbounds %struct.typearg, ptr %45, i32 0, i32 1
-  store ptr %44, ptr %46, align 8
-  %47 = load ptr, ptr %9, align 8
-  store ptr %47, ptr %4, align 8
-  br label %68
+31:                                               ; preds = %27
+  %32 = load ptr, ptr %5, align 8, !tbaa !4
+  %33 = getelementptr inbounds nuw %struct.typenode, ptr %32, i32 0, i32 2
+  %34 = load ptr, ptr %33, align 8, !tbaa !19
+  %35 = load ptr, ptr %6, align 8, !tbaa !9
+  %36 = load ptr, ptr %7, align 8, !tbaa !11
+  %37 = call ptr @_nc_Make_Argument(ptr noundef %34, ptr noundef %35, ptr noundef %36)
+  %38 = load ptr, ptr %9, align 8, !tbaa !13
+  %39 = getelementptr inbounds nuw %struct.typearg, ptr %38, i32 0, i32 0
+  store ptr %37, ptr %39, align 8, !tbaa !20
+  %40 = load ptr, ptr %5, align 8, !tbaa !4
+  %41 = getelementptr inbounds nuw %struct.typenode, ptr %40, i32 0, i32 3
+  %42 = load ptr, ptr %41, align 8, !tbaa !22
+  %43 = load ptr, ptr %6, align 8, !tbaa !9
+  %44 = load ptr, ptr %7, align 8, !tbaa !11
+  %45 = call ptr @_nc_Make_Argument(ptr noundef %42, ptr noundef %43, ptr noundef %44)
+  %46 = load ptr, ptr %9, align 8, !tbaa !13
+  %47 = getelementptr inbounds nuw %struct.typearg, ptr %46, i32 0, i32 1
+  store ptr %45, ptr %47, align 8, !tbaa !23
+  %48 = load ptr, ptr %9, align 8, !tbaa !13
+  store ptr %48, ptr %4, align 8
+  store i32 1, ptr %10, align 4
+  br label %69
 
-48:                                               ; preds = %26
-  %49 = load ptr, ptr %7, align 8
-  %50 = load i32, ptr %49, align 4
-  %51 = add nsw i32 %50, 1
-  store i32 %51, ptr %49, align 4
-  br label %52
+49:                                               ; preds = %27
+  %50 = load ptr, ptr %7, align 8, !tbaa !11
+  %51 = load i32, ptr %50, align 4, !tbaa !24
+  %52 = add nsw i32 %51, 1
+  store i32 %52, ptr %50, align 4, !tbaa !24
+  br label %53
 
-52:                                               ; preds = %48
-  br label %65
-
-53:                                               ; preds = %19
-  %54 = load ptr, ptr %5, align 8
-  %55 = getelementptr inbounds %struct.typenode, ptr %54, i32 0, i32 4
-  %56 = load ptr, ptr %55, align 8
-  %57 = load ptr, ptr %6, align 8
-  %58 = call ptr %56(ptr noundef %57)
-  store ptr %58, ptr %8, align 8
-  %59 = icmp ne ptr %58, null
-  br i1 %59, label %64, label %60
-
-60:                                               ; preds = %53
-  %61 = load ptr, ptr %7, align 8
-  %62 = load i32, ptr %61, align 4
-  %63 = add nsw i32 %62, 1
-  store i32 %63, ptr %61, align 4
-  br label %64
-
-64:                                               ; preds = %60, %53
-  br label %65
-
-65:                                               ; preds = %64, %52
+53:                                               ; preds = %49
   br label %66
 
-66:                                               ; preds = %65, %12, %3
-  %67 = load ptr, ptr %8, align 8
-  store ptr %67, ptr %4, align 8
-  br label %68
+54:                                               ; preds = %20
+  %55 = load ptr, ptr %5, align 8, !tbaa !4
+  %56 = getelementptr inbounds nuw %struct.typenode, ptr %55, i32 0, i32 4
+  %57 = load ptr, ptr %56, align 8, !tbaa !26
+  %58 = load ptr, ptr %6, align 8, !tbaa !9
+  %59 = call ptr %57(ptr noundef %58)
+  store ptr %59, ptr %8, align 8, !tbaa !13
+  %60 = icmp ne ptr %59, null
+  br i1 %60, label %65, label %61
 
-68:                                               ; preds = %66, %30
-  %69 = load ptr, ptr %4, align 8
-  ret ptr %69
+61:                                               ; preds = %54
+  %62 = load ptr, ptr %7, align 8, !tbaa !11
+  %63 = load i32, ptr %62, align 4, !tbaa !24
+  %64 = add nsw i32 %63, 1
+  store i32 %64, ptr %62, align 4, !tbaa !24
+  br label %65
+
+65:                                               ; preds = %61, %54
+  br label %66
+
+66:                                               ; preds = %65, %53
+  br label %67
+
+67:                                               ; preds = %66, %13, %3
+  %68 = load ptr, ptr %8, align 8, !tbaa !13
+  store ptr %68, ptr %4, align 8
+  store i32 1, ptr %10, align 4
+  br label %69
+
+69:                                               ; preds = %67, %31
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #7
+  %70 = load ptr, ptr %4, align 8
+  ret ptr %70
 }
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+
 ; Function Attrs: nounwind allocsize(0)
-declare noalias ptr @malloc(i64 noundef) #1
+declare noalias ptr @malloc(i64 noundef) #2
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @_nc_Copy_Argument(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
@@ -126,131 +139,138 @@ define dso_local ptr @_nc_Copy_Argument(ptr noundef %0, ptr noundef %1, ptr noun
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
   %9 = alloca ptr, align 8
-  store ptr %0, ptr %5, align 8
-  store ptr %1, ptr %6, align 8
-  store ptr %2, ptr %7, align 8
-  store ptr null, ptr %8, align 8
-  %10 = load ptr, ptr %5, align 8
-  %11 = icmp ne ptr %10, null
-  br i1 %11, label %12, label %73
+  %10 = alloca i32, align 4
+  store ptr %0, ptr %5, align 8, !tbaa !4
+  store ptr %1, ptr %6, align 8, !tbaa !13
+  store ptr %2, ptr %7, align 8, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #7
+  store ptr null, ptr %8, align 8, !tbaa !13
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #7
+  %11 = load ptr, ptr %5, align 8, !tbaa !4
+  %12 = icmp ne ptr %11, null
+  br i1 %12, label %13, label %74
 
-12:                                               ; preds = %3
-  %13 = load ptr, ptr %5, align 8
-  %14 = getelementptr inbounds %struct.typenode, ptr %13, i32 0, i32 0
-  %15 = load i16, ptr %14, align 8
-  %16 = zext i16 %15 to i32
-  %17 = and i32 %16, 2
-  %18 = icmp ne i32 %17, 0
-  br i1 %18, label %19, label %73
+13:                                               ; preds = %3
+  %14 = load ptr, ptr %5, align 8, !tbaa !4
+  %15 = getelementptr inbounds nuw %struct.typenode, ptr %14, i32 0, i32 0
+  %16 = load i16, ptr %15, align 8, !tbaa !15
+  %17 = zext i16 %16 to i32
+  %18 = and i32 %17, 2
+  %19 = icmp ne i32 %18, 0
+  br i1 %19, label %20, label %74
 
-19:                                               ; preds = %12
-  %20 = load ptr, ptr %5, align 8
-  %21 = getelementptr inbounds %struct.typenode, ptr %20, i32 0, i32 0
-  %22 = load i16, ptr %21, align 8
-  %23 = zext i16 %22 to i32
-  %24 = and i32 %23, 1
-  %25 = icmp ne i32 %24, 0
-  br i1 %25, label %26, label %52
+20:                                               ; preds = %13
+  %21 = load ptr, ptr %5, align 8, !tbaa !4
+  %22 = getelementptr inbounds nuw %struct.typenode, ptr %21, i32 0, i32 0
+  %23 = load i16, ptr %22, align 8, !tbaa !15
+  %24 = zext i16 %23 to i32
+  %25 = and i32 %24, 1
+  %26 = icmp ne i32 %25, 0
+  br i1 %26, label %27, label %53
 
-26:                                               ; preds = %19
-  %27 = call noalias ptr @malloc(i64 noundef 16) #6
-  store ptr %27, ptr %9, align 8
-  %28 = load ptr, ptr %9, align 8
-  %29 = icmp ne ptr %28, null
-  br i1 %29, label %30, label %48
+27:                                               ; preds = %20
+  %28 = call noalias ptr @malloc(i64 noundef 16) #8
+  store ptr %28, ptr %9, align 8, !tbaa !13
+  %29 = load ptr, ptr %9, align 8, !tbaa !13
+  %30 = icmp ne ptr %29, null
+  br i1 %30, label %31, label %49
 
-30:                                               ; preds = %26
-  %31 = load ptr, ptr %5, align 8
-  %32 = load ptr, ptr %6, align 8
-  %33 = getelementptr inbounds %struct.typearg, ptr %32, i32 0, i32 0
-  %34 = load ptr, ptr %33, align 8
-  %35 = load ptr, ptr %7, align 8
-  %36 = call ptr @_nc_Copy_Argument(ptr noundef %31, ptr noundef %34, ptr noundef %35)
-  %37 = load ptr, ptr %9, align 8
-  %38 = getelementptr inbounds %struct.typearg, ptr %37, i32 0, i32 0
-  store ptr %36, ptr %38, align 8
-  %39 = load ptr, ptr %5, align 8
-  %40 = load ptr, ptr %6, align 8
-  %41 = getelementptr inbounds %struct.typearg, ptr %40, i32 0, i32 1
-  %42 = load ptr, ptr %41, align 8
-  %43 = load ptr, ptr %7, align 8
-  %44 = call ptr @_nc_Copy_Argument(ptr noundef %39, ptr noundef %42, ptr noundef %43)
-  %45 = load ptr, ptr %9, align 8
-  %46 = getelementptr inbounds %struct.typearg, ptr %45, i32 0, i32 1
-  store ptr %44, ptr %46, align 8
-  %47 = load ptr, ptr %9, align 8
-  store ptr %47, ptr %4, align 8
-  br label %75
+31:                                               ; preds = %27
+  %32 = load ptr, ptr %5, align 8, !tbaa !4
+  %33 = load ptr, ptr %6, align 8, !tbaa !13
+  %34 = getelementptr inbounds nuw %struct.typearg, ptr %33, i32 0, i32 0
+  %35 = load ptr, ptr %34, align 8, !tbaa !20
+  %36 = load ptr, ptr %7, align 8, !tbaa !11
+  %37 = call ptr @_nc_Copy_Argument(ptr noundef %32, ptr noundef %35, ptr noundef %36)
+  %38 = load ptr, ptr %9, align 8, !tbaa !13
+  %39 = getelementptr inbounds nuw %struct.typearg, ptr %38, i32 0, i32 0
+  store ptr %37, ptr %39, align 8, !tbaa !20
+  %40 = load ptr, ptr %5, align 8, !tbaa !4
+  %41 = load ptr, ptr %6, align 8, !tbaa !13
+  %42 = getelementptr inbounds nuw %struct.typearg, ptr %41, i32 0, i32 1
+  %43 = load ptr, ptr %42, align 8, !tbaa !23
+  %44 = load ptr, ptr %7, align 8, !tbaa !11
+  %45 = call ptr @_nc_Copy_Argument(ptr noundef %40, ptr noundef %43, ptr noundef %44)
+  %46 = load ptr, ptr %9, align 8, !tbaa !13
+  %47 = getelementptr inbounds nuw %struct.typearg, ptr %46, i32 0, i32 1
+  store ptr %45, ptr %47, align 8, !tbaa !23
+  %48 = load ptr, ptr %9, align 8, !tbaa !13
+  store ptr %48, ptr %4, align 8
+  store i32 1, ptr %10, align 4
+  br label %76
 
-48:                                               ; preds = %26
-  %49 = load ptr, ptr %7, align 8
-  %50 = load i32, ptr %49, align 4
-  %51 = add nsw i32 %50, 1
-  store i32 %51, ptr %49, align 4
-  br label %72
-
-52:                                               ; preds = %19
-  %53 = load ptr, ptr %5, align 8
-  %54 = getelementptr inbounds %struct.typenode, ptr %53, i32 0, i32 5
-  %55 = load ptr, ptr %54, align 8
-  %56 = icmp ne ptr %55, null
-  br i1 %56, label %57, label %69
-
-57:                                               ; preds = %52
-  %58 = load ptr, ptr %5, align 8
-  %59 = getelementptr inbounds %struct.typenode, ptr %58, i32 0, i32 5
-  %60 = load ptr, ptr %59, align 8
-  %61 = load ptr, ptr %6, align 8
-  %62 = call ptr %60(ptr noundef %61)
-  store ptr %62, ptr %8, align 8
-  %63 = icmp ne ptr %62, null
-  br i1 %63, label %68, label %64
-
-64:                                               ; preds = %57
-  %65 = load ptr, ptr %7, align 8
-  %66 = load i32, ptr %65, align 4
-  %67 = add nsw i32 %66, 1
-  store i32 %67, ptr %65, align 4
-  br label %68
-
-68:                                               ; preds = %64, %57
-  br label %71
-
-69:                                               ; preds = %52
-  %70 = load ptr, ptr %6, align 8
-  store ptr %70, ptr %8, align 8
-  br label %71
-
-71:                                               ; preds = %69, %68
-  br label %72
-
-72:                                               ; preds = %71, %48
+49:                                               ; preds = %27
+  %50 = load ptr, ptr %7, align 8, !tbaa !11
+  %51 = load i32, ptr %50, align 4, !tbaa !24
+  %52 = add nsw i32 %51, 1
+  store i32 %52, ptr %50, align 4, !tbaa !24
   br label %73
 
-73:                                               ; preds = %72, %12, %3
-  %74 = load ptr, ptr %8, align 8
-  store ptr %74, ptr %4, align 8
-  br label %75
+53:                                               ; preds = %20
+  %54 = load ptr, ptr %5, align 8, !tbaa !4
+  %55 = getelementptr inbounds nuw %struct.typenode, ptr %54, i32 0, i32 5
+  %56 = load ptr, ptr %55, align 8, !tbaa !27
+  %57 = icmp ne ptr %56, null
+  br i1 %57, label %58, label %70
 
-75:                                               ; preds = %73, %30
-  %76 = load ptr, ptr %4, align 8
-  ret ptr %76
+58:                                               ; preds = %53
+  %59 = load ptr, ptr %5, align 8, !tbaa !4
+  %60 = getelementptr inbounds nuw %struct.typenode, ptr %59, i32 0, i32 5
+  %61 = load ptr, ptr %60, align 8, !tbaa !27
+  %62 = load ptr, ptr %6, align 8, !tbaa !13
+  %63 = call ptr %61(ptr noundef %62)
+  store ptr %63, ptr %8, align 8, !tbaa !13
+  %64 = icmp ne ptr %63, null
+  br i1 %64, label %69, label %65
+
+65:                                               ; preds = %58
+  %66 = load ptr, ptr %7, align 8, !tbaa !11
+  %67 = load i32, ptr %66, align 4, !tbaa !24
+  %68 = add nsw i32 %67, 1
+  store i32 %68, ptr %66, align 4, !tbaa !24
+  br label %69
+
+69:                                               ; preds = %65, %58
+  br label %72
+
+70:                                               ; preds = %53
+  %71 = load ptr, ptr %6, align 8, !tbaa !13
+  store ptr %71, ptr %8, align 8, !tbaa !13
+  br label %72
+
+72:                                               ; preds = %70, %69
+  br label %73
+
+73:                                               ; preds = %72, %49
+  br label %74
+
+74:                                               ; preds = %73, %13, %3
+  %75 = load ptr, ptr %8, align 8, !tbaa !13
+  store ptr %75, ptr %4, align 8
+  store i32 1, ptr %10, align 4
+  br label %76
+
+76:                                               ; preds = %74, %31
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #7
+  %77 = load ptr, ptr %4, align 8
+  ret ptr %77
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @_nc_Free_Argument(ptr noundef %0, ptr noundef %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  %5 = load ptr, ptr %3, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !4
+  store ptr %1, ptr %4, align 8, !tbaa !13
+  %5 = load ptr, ptr %3, align 8, !tbaa !4
   %6 = icmp ne ptr %5, null
   br i1 %6, label %7, label %14
 
 7:                                                ; preds = %2
-  %8 = load ptr, ptr %3, align 8
-  %9 = getelementptr inbounds %struct.typenode, ptr %8, i32 0, i32 0
-  %10 = load i16, ptr %9, align 8
+  %8 = load ptr, ptr %3, align 8, !tbaa !4
+  %9 = getelementptr inbounds nuw %struct.typenode, ptr %8, i32 0, i32 0
+  %10 = load i16, ptr %9, align 8, !tbaa !15
   %11 = zext i16 %10 to i32
   %12 = and i32 %11, 2
   %13 = icmp ne i32 %12, 0
@@ -260,57 +280,57 @@ define dso_local void @_nc_Free_Argument(ptr noundef %0, ptr noundef %1) #0 {
   br label %47
 
 15:                                               ; preds = %7
-  %16 = load ptr, ptr %3, align 8
-  %17 = getelementptr inbounds %struct.typenode, ptr %16, i32 0, i32 0
-  %18 = load i16, ptr %17, align 8
+  %16 = load ptr, ptr %3, align 8, !tbaa !4
+  %17 = getelementptr inbounds nuw %struct.typenode, ptr %16, i32 0, i32 0
+  %18 = load i16, ptr %17, align 8, !tbaa !15
   %19 = zext i16 %18 to i32
   %20 = and i32 %19, 1
   %21 = icmp ne i32 %20, 0
   br i1 %21, label %22, label %36
 
 22:                                               ; preds = %15
-  %23 = load ptr, ptr %3, align 8
-  %24 = getelementptr inbounds %struct.typenode, ptr %23, i32 0, i32 2
-  %25 = load ptr, ptr %24, align 8
-  %26 = load ptr, ptr %4, align 8
-  %27 = getelementptr inbounds %struct.typearg, ptr %26, i32 0, i32 0
-  %28 = load ptr, ptr %27, align 8
+  %23 = load ptr, ptr %3, align 8, !tbaa !4
+  %24 = getelementptr inbounds nuw %struct.typenode, ptr %23, i32 0, i32 2
+  %25 = load ptr, ptr %24, align 8, !tbaa !19
+  %26 = load ptr, ptr %4, align 8, !tbaa !13
+  %27 = getelementptr inbounds nuw %struct.typearg, ptr %26, i32 0, i32 0
+  %28 = load ptr, ptr %27, align 8, !tbaa !20
   call void @_nc_Free_Argument(ptr noundef %25, ptr noundef %28)
-  %29 = load ptr, ptr %3, align 8
-  %30 = getelementptr inbounds %struct.typenode, ptr %29, i32 0, i32 3
-  %31 = load ptr, ptr %30, align 8
-  %32 = load ptr, ptr %4, align 8
-  %33 = getelementptr inbounds %struct.typearg, ptr %32, i32 0, i32 1
-  %34 = load ptr, ptr %33, align 8
+  %29 = load ptr, ptr %3, align 8, !tbaa !4
+  %30 = getelementptr inbounds nuw %struct.typenode, ptr %29, i32 0, i32 3
+  %31 = load ptr, ptr %30, align 8, !tbaa !22
+  %32 = load ptr, ptr %4, align 8, !tbaa !13
+  %33 = getelementptr inbounds nuw %struct.typearg, ptr %32, i32 0, i32 1
+  %34 = load ptr, ptr %33, align 8, !tbaa !23
   call void @_nc_Free_Argument(ptr noundef %31, ptr noundef %34)
-  %35 = load ptr, ptr %4, align 8
+  %35 = load ptr, ptr %4, align 8, !tbaa !13
   call void @free(ptr noundef %35) #7
   br label %47
 
 36:                                               ; preds = %15
-  %37 = load ptr, ptr %3, align 8
-  %38 = getelementptr inbounds %struct.typenode, ptr %37, i32 0, i32 6
-  %39 = load ptr, ptr %38, align 8
+  %37 = load ptr, ptr %3, align 8, !tbaa !4
+  %38 = getelementptr inbounds nuw %struct.typenode, ptr %37, i32 0, i32 6
+  %39 = load ptr, ptr %38, align 8, !tbaa !28
   %40 = icmp ne ptr %39, null
   br i1 %40, label %41, label %46
 
 41:                                               ; preds = %36
-  %42 = load ptr, ptr %3, align 8
-  %43 = getelementptr inbounds %struct.typenode, ptr %42, i32 0, i32 6
-  %44 = load ptr, ptr %43, align 8
-  %45 = load ptr, ptr %4, align 8
+  %42 = load ptr, ptr %3, align 8, !tbaa !4
+  %43 = getelementptr inbounds nuw %struct.typenode, ptr %42, i32 0, i32 6
+  %44 = load ptr, ptr %43, align 8, !tbaa !28
+  %45 = load ptr, ptr %4, align 8, !tbaa !13
   call void %44(ptr noundef %45)
   br label %46
 
 46:                                               ; preds = %41, %36
   br label %47
 
-47:                                               ; preds = %46, %22, %14
+47:                                               ; preds = %14, %46, %22
   ret void
 }
 
 ; Function Attrs: nounwind
-declare void @free(ptr noundef) #2
+declare void @free(ptr noundef) #3
 
 ; Function Attrs: nounwind uwtable
 define dso_local zeroext i1 @_nc_Copy_Type(ptr noundef %0, ptr noundef %1) #0 {
@@ -318,99 +338,104 @@ define dso_local zeroext i1 @_nc_Copy_Type(ptr noundef %0, ptr noundef %1) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store i32 0, ptr %6, align 4
-  %7 = load ptr, ptr %5, align 8
-  %8 = getelementptr inbounds %struct.fieldnode, ptr %7, i32 0, i32 21
-  %9 = load ptr, ptr %8, align 8
-  %10 = load ptr, ptr %4, align 8
-  %11 = getelementptr inbounds %struct.fieldnode, ptr %10, i32 0, i32 21
-  store ptr %9, ptr %11, align 8
-  %12 = load ptr, ptr %5, align 8
-  %13 = getelementptr inbounds %struct.fieldnode, ptr %12, i32 0, i32 21
-  %14 = load ptr, ptr %13, align 8
-  %15 = load ptr, ptr %5, align 8
-  %16 = getelementptr inbounds %struct.fieldnode, ptr %15, i32 0, i32 22
-  %17 = load ptr, ptr %16, align 8
-  %18 = call ptr @_nc_Copy_Argument(ptr noundef %14, ptr noundef %17, ptr noundef %6)
-  %19 = load ptr, ptr %4, align 8
-  %20 = getelementptr inbounds %struct.fieldnode, ptr %19, i32 0, i32 22
-  store ptr %18, ptr %20, align 8
-  %21 = load i32, ptr %6, align 4
-  %22 = icmp ne i32 %21, 0
-  br i1 %22, label %23, label %34
+  %7 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !29
+  store ptr %1, ptr %5, align 8, !tbaa !29
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #7
+  store i32 0, ptr %6, align 4, !tbaa !24
+  %8 = load ptr, ptr %5, align 8, !tbaa !29
+  %9 = getelementptr inbounds nuw %struct.fieldnode, ptr %8, i32 0, i32 21
+  %10 = load ptr, ptr %9, align 8, !tbaa !31
+  %11 = load ptr, ptr %4, align 8, !tbaa !29
+  %12 = getelementptr inbounds nuw %struct.fieldnode, ptr %11, i32 0, i32 21
+  store ptr %10, ptr %12, align 8, !tbaa !31
+  %13 = load ptr, ptr %5, align 8, !tbaa !29
+  %14 = getelementptr inbounds nuw %struct.fieldnode, ptr %13, i32 0, i32 21
+  %15 = load ptr, ptr %14, align 8, !tbaa !31
+  %16 = load ptr, ptr %5, align 8, !tbaa !29
+  %17 = getelementptr inbounds nuw %struct.fieldnode, ptr %16, i32 0, i32 22
+  %18 = load ptr, ptr %17, align 8, !tbaa !35
+  %19 = call ptr @_nc_Copy_Argument(ptr noundef %15, ptr noundef %18, ptr noundef %6)
+  %20 = load ptr, ptr %4, align 8, !tbaa !29
+  %21 = getelementptr inbounds nuw %struct.fieldnode, ptr %20, i32 0, i32 22
+  store ptr %19, ptr %21, align 8, !tbaa !35
+  %22 = load i32, ptr %6, align 4, !tbaa !24
+  %23 = icmp ne i32 %22, 0
+  br i1 %23, label %24, label %35
 
-23:                                               ; preds = %2
-  %24 = load ptr, ptr %4, align 8
-  %25 = getelementptr inbounds %struct.fieldnode, ptr %24, i32 0, i32 21
-  %26 = load ptr, ptr %25, align 8
-  %27 = load ptr, ptr %4, align 8
-  %28 = getelementptr inbounds %struct.fieldnode, ptr %27, i32 0, i32 22
-  %29 = load ptr, ptr %28, align 8
-  call void @_nc_Free_Argument(ptr noundef %26, ptr noundef %29)
-  %30 = load ptr, ptr %4, align 8
-  %31 = getelementptr inbounds %struct.fieldnode, ptr %30, i32 0, i32 21
-  store ptr null, ptr %31, align 8
-  %32 = load ptr, ptr %4, align 8
-  %33 = getelementptr inbounds %struct.fieldnode, ptr %32, i32 0, i32 22
-  store ptr null, ptr %33, align 8
+24:                                               ; preds = %2
+  %25 = load ptr, ptr %4, align 8, !tbaa !29
+  %26 = getelementptr inbounds nuw %struct.fieldnode, ptr %25, i32 0, i32 21
+  %27 = load ptr, ptr %26, align 8, !tbaa !31
+  %28 = load ptr, ptr %4, align 8, !tbaa !29
+  %29 = getelementptr inbounds nuw %struct.fieldnode, ptr %28, i32 0, i32 22
+  %30 = load ptr, ptr %29, align 8, !tbaa !35
+  call void @_nc_Free_Argument(ptr noundef %27, ptr noundef %30)
+  %31 = load ptr, ptr %4, align 8, !tbaa !29
+  %32 = getelementptr inbounds nuw %struct.fieldnode, ptr %31, i32 0, i32 21
+  store ptr null, ptr %32, align 8, !tbaa !31
+  %33 = load ptr, ptr %4, align 8, !tbaa !29
+  %34 = getelementptr inbounds nuw %struct.fieldnode, ptr %33, i32 0, i32 22
+  store ptr null, ptr %34, align 8, !tbaa !35
   store i1 false, ptr %3, align 1
+  store i32 1, ptr %7, align 4
+  br label %48
+
+35:                                               ; preds = %2
+  %36 = load ptr, ptr %4, align 8, !tbaa !29
+  %37 = getelementptr inbounds nuw %struct.fieldnode, ptr %36, i32 0, i32 21
+  %38 = load ptr, ptr %37, align 8, !tbaa !31
+  %39 = icmp ne ptr %38, null
+  br i1 %39, label %40, label %47
+
+40:                                               ; preds = %35
+  %41 = load ptr, ptr %4, align 8, !tbaa !29
+  %42 = getelementptr inbounds nuw %struct.fieldnode, ptr %41, i32 0, i32 21
+  %43 = load ptr, ptr %42, align 8, !tbaa !31
+  %44 = getelementptr inbounds nuw %struct.typenode, ptr %43, i32 0, i32 1
+  %45 = load i64, ptr %44, align 8, !tbaa !36
+  %46 = add nsw i64 %45, 1
+  store i64 %46, ptr %44, align 8, !tbaa !36
   br label %47
 
-34:                                               ; preds = %2
-  %35 = load ptr, ptr %4, align 8
-  %36 = getelementptr inbounds %struct.fieldnode, ptr %35, i32 0, i32 21
-  %37 = load ptr, ptr %36, align 8
-  %38 = icmp ne ptr %37, null
-  br i1 %38, label %39, label %46
-
-39:                                               ; preds = %34
-  %40 = load ptr, ptr %4, align 8
-  %41 = getelementptr inbounds %struct.fieldnode, ptr %40, i32 0, i32 21
-  %42 = load ptr, ptr %41, align 8
-  %43 = getelementptr inbounds %struct.typenode, ptr %42, i32 0, i32 1
-  %44 = load i64, ptr %43, align 8
-  %45 = add nsw i64 %44, 1
-  store i64 %45, ptr %43, align 8
-  br label %46
-
-46:                                               ; preds = %39, %34
+47:                                               ; preds = %40, %35
   store i1 true, ptr %3, align 1
-  br label %47
+  store i32 1, ptr %7, align 4
+  br label %48
 
-47:                                               ; preds = %46, %23
-  %48 = load i1, ptr %3, align 1
-  ret i1 %48
+48:                                               ; preds = %47, %24
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #7
+  %49 = load i1, ptr %3, align 1
+  ret i1 %49
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @_nc_Free_Type(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %struct.fieldnode, ptr %3, i32 0, i32 21
-  %5 = load ptr, ptr %4, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !29
+  %3 = load ptr, ptr %2, align 8, !tbaa !29
+  %4 = getelementptr inbounds nuw %struct.fieldnode, ptr %3, i32 0, i32 21
+  %5 = load ptr, ptr %4, align 8, !tbaa !31
   %6 = icmp ne ptr %5, null
   br i1 %6, label %7, label %14
 
 7:                                                ; preds = %1
-  %8 = load ptr, ptr %2, align 8
-  %9 = getelementptr inbounds %struct.fieldnode, ptr %8, i32 0, i32 21
-  %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds %struct.typenode, ptr %10, i32 0, i32 1
-  %12 = load i64, ptr %11, align 8
+  %8 = load ptr, ptr %2, align 8, !tbaa !29
+  %9 = getelementptr inbounds nuw %struct.fieldnode, ptr %8, i32 0, i32 21
+  %10 = load ptr, ptr %9, align 8, !tbaa !31
+  %11 = getelementptr inbounds nuw %struct.typenode, ptr %10, i32 0, i32 1
+  %12 = load i64, ptr %11, align 8, !tbaa !36
   %13 = add nsw i64 %12, -1
-  store i64 %13, ptr %11, align 8
+  store i64 %13, ptr %11, align 8, !tbaa !36
   br label %14
 
 14:                                               ; preds = %7, %1
-  %15 = load ptr, ptr %2, align 8
-  %16 = getelementptr inbounds %struct.fieldnode, ptr %15, i32 0, i32 21
-  %17 = load ptr, ptr %16, align 8
-  %18 = load ptr, ptr %2, align 8
-  %19 = getelementptr inbounds %struct.fieldnode, ptr %18, i32 0, i32 22
-  %20 = load ptr, ptr %19, align 8
+  %15 = load ptr, ptr %2, align 8, !tbaa !29
+  %16 = getelementptr inbounds nuw %struct.fieldnode, ptr %15, i32 0, i32 21
+  %17 = load ptr, ptr %16, align 8, !tbaa !31
+  %18 = load ptr, ptr %2, align 8, !tbaa !29
+  %19 = getelementptr inbounds nuw %struct.fieldnode, ptr %18, i32 0, i32 22
+  %20 = load ptr, ptr %19, align 8, !tbaa !35
   call void @_nc_Free_Argument(ptr noundef %17, ptr noundef %20)
   ret void
 }
@@ -428,261 +453,282 @@ define dso_local ptr @new_field(i32 noundef %0, i32 noundef %1, i32 noundef %2, 
   %15 = alloca i32, align 4
   %16 = alloca i64, align 8
   %17 = alloca i32, align 4
-  store i32 %0, ptr %8, align 4
-  store i32 %1, ptr %9, align 4
-  store i32 %2, ptr %10, align 4
-  store i32 %3, ptr %11, align 4
-  store i32 %4, ptr %12, align 4
-  store i32 %5, ptr %13, align 4
-  store ptr null, ptr %14, align 8
-  store i32 -2, ptr %15, align 4
-  %18 = load i32, ptr %8, align 4
-  %19 = icmp sgt i32 %18, 0
-  br i1 %19, label %20, label %136
+  %18 = alloca i32, align 4
+  store i32 %0, ptr %8, align 4, !tbaa !24
+  store i32 %1, ptr %9, align 4, !tbaa !24
+  store i32 %2, ptr %10, align 4, !tbaa !24
+  store i32 %3, ptr %11, align 4, !tbaa !24
+  store i32 %4, ptr %12, align 4, !tbaa !24
+  store i32 %5, ptr %13, align 4, !tbaa !24
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #7
+  store ptr null, ptr %14, align 8, !tbaa !29
+  call void @llvm.lifetime.start.p0(i64 4, ptr %15) #7
+  store i32 -2, ptr %15, align 4, !tbaa !24
+  %19 = load i32, ptr %8, align 4, !tbaa !24
+  %20 = icmp sgt i32 %19, 0
+  br i1 %20, label %21, label %140
 
-20:                                               ; preds = %6
-  %21 = load i32, ptr %9, align 4
-  %22 = icmp sgt i32 %21, 0
-  br i1 %22, label %23, label %136
+21:                                               ; preds = %6
+  %22 = load i32, ptr %9, align 4, !tbaa !24
+  %23 = icmp sgt i32 %22, 0
+  br i1 %23, label %24, label %140
 
-23:                                               ; preds = %20
-  %24 = load i32, ptr %10, align 4
-  %25 = icmp sge i32 %24, 0
-  br i1 %25, label %26, label %136
+24:                                               ; preds = %21
+  %25 = load i32, ptr %10, align 4, !tbaa !24
+  %26 = icmp sge i32 %25, 0
+  br i1 %26, label %27, label %140
 
-26:                                               ; preds = %23
-  %27 = load i32, ptr %11, align 4
-  %28 = icmp sge i32 %27, 0
-  br i1 %28, label %29, label %136
+27:                                               ; preds = %24
+  %28 = load i32, ptr %11, align 4, !tbaa !24
+  %29 = icmp sge i32 %28, 0
+  br i1 %29, label %30, label %140
 
-29:                                               ; preds = %26
-  %30 = load i32, ptr %12, align 4
-  %31 = icmp sge i32 %30, 0
-  br i1 %31, label %32, label %136
+30:                                               ; preds = %27
+  %31 = load i32, ptr %12, align 4, !tbaa !24
+  %32 = icmp sge i32 %31, 0
+  br i1 %32, label %33, label %140
 
-32:                                               ; preds = %29
-  %33 = load i32, ptr %13, align 4
-  %34 = icmp sge i32 %33, 0
-  br i1 %34, label %35, label %136
+33:                                               ; preds = %30
+  %34 = load i32, ptr %13, align 4, !tbaa !24
+  %35 = icmp sge i32 %34, 0
+  br i1 %35, label %36, label %140
 
-35:                                               ; preds = %32
-  store i32 -1, ptr %15, align 4
-  br i1 true, label %36, label %136
+36:                                               ; preds = %33
+  store i32 -1, ptr %15, align 4, !tbaa !24
+  br i1 true, label %37, label %140
 
-36:                                               ; preds = %35
-  %37 = call noalias ptr @malloc(i64 noundef 120) #6
-  store ptr %37, ptr %14, align 8
-  %38 = icmp ne ptr %37, null
-  br i1 %38, label %39, label %136
+37:                                               ; preds = %36
+  %38 = call noalias ptr @malloc(i64 noundef 120) #8
+  store ptr %38, ptr %14, align 8, !tbaa !29
+  %39 = icmp ne ptr %38, null
+  br i1 %39, label %40, label %140
 
-39:                                               ; preds = %36
-  %40 = load ptr, ptr %14, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %40, ptr align 8 @default_field, i64 120, i1 false)
-  %41 = load i32, ptr %8, align 4
-  %42 = trunc i32 %41 to i16
-  %43 = load ptr, ptr %14, align 8
-  %44 = getelementptr inbounds %struct.fieldnode, ptr %43, i32 0, i32 1
-  store i16 %42, ptr %44, align 2
-  %45 = load i32, ptr %9, align 4
-  %46 = trunc i32 %45 to i16
-  %47 = load ptr, ptr %14, align 8
-  %48 = getelementptr inbounds %struct.fieldnode, ptr %47, i32 0, i32 2
-  store i16 %46, ptr %48, align 4
-  %49 = load i32, ptr %8, align 4
-  %50 = load i32, ptr %12, align 4
-  %51 = add nsw i32 %49, %50
-  %52 = load ptr, ptr %14, align 8
-  %53 = getelementptr inbounds %struct.fieldnode, ptr %52, i32 0, i32 5
-  store i32 %51, ptr %53, align 4
-  %54 = load i32, ptr %9, align 4
-  %55 = load ptr, ptr %14, align 8
-  %56 = getelementptr inbounds %struct.fieldnode, ptr %55, i32 0, i32 6
-  store i32 %54, ptr %56, align 8
-  %57 = load i32, ptr %10, align 4
-  %58 = trunc i32 %57 to i16
-  %59 = load ptr, ptr %14, align 8
-  %60 = getelementptr inbounds %struct.fieldnode, ptr %59, i32 0, i32 3
-  store i16 %58, ptr %60, align 2
-  %61 = load i32, ptr %11, align 4
-  %62 = trunc i32 %61 to i16
-  %63 = load ptr, ptr %14, align 8
-  %64 = getelementptr inbounds %struct.fieldnode, ptr %63, i32 0, i32 4
-  store i16 %62, ptr %64, align 8
-  %65 = load i32, ptr %12, align 4
-  %66 = load ptr, ptr %14, align 8
-  %67 = getelementptr inbounds %struct.fieldnode, ptr %66, i32 0, i32 8
-  store i32 %65, ptr %67, align 8
-  %68 = load i32, ptr %13, align 4
-  %69 = trunc i32 %68 to i16
-  %70 = load ptr, ptr %14, align 8
-  %71 = getelementptr inbounds %struct.fieldnode, ptr %70, i32 0, i32 9
-  store i16 %69, ptr %71, align 4
-  %72 = load ptr, ptr %14, align 8
-  %73 = load ptr, ptr %14, align 8
-  %74 = getelementptr inbounds %struct.fieldnode, ptr %73, i32 0, i32 19
-  store ptr %72, ptr %74, align 8
-  %75 = load ptr, ptr %14, align 8
-  %76 = call zeroext i1 @_nc_Copy_Type(ptr noundef %75, ptr noundef @default_field)
-  br i1 %76, label %77, label %135
+40:                                               ; preds = %37
+  %41 = load ptr, ptr %14, align 8, !tbaa !29
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %41, ptr align 8 @default_field, i64 120, i1 false), !tbaa.struct !37
+  %42 = load i32, ptr %8, align 4, !tbaa !24
+  %43 = trunc i32 %42 to i16
+  %44 = load ptr, ptr %14, align 8, !tbaa !29
+  %45 = getelementptr inbounds nuw %struct.fieldnode, ptr %44, i32 0, i32 1
+  store i16 %43, ptr %45, align 2, !tbaa !42
+  %46 = load i32, ptr %9, align 4, !tbaa !24
+  %47 = trunc i32 %46 to i16
+  %48 = load ptr, ptr %14, align 8, !tbaa !29
+  %49 = getelementptr inbounds nuw %struct.fieldnode, ptr %48, i32 0, i32 2
+  store i16 %47, ptr %49, align 4, !tbaa !43
+  %50 = load i32, ptr %8, align 4, !tbaa !24
+  %51 = load i32, ptr %12, align 4, !tbaa !24
+  %52 = add nsw i32 %50, %51
+  %53 = load ptr, ptr %14, align 8, !tbaa !29
+  %54 = getelementptr inbounds nuw %struct.fieldnode, ptr %53, i32 0, i32 5
+  store i32 %52, ptr %54, align 4, !tbaa !44
+  %55 = load i32, ptr %9, align 4, !tbaa !24
+  %56 = load ptr, ptr %14, align 8, !tbaa !29
+  %57 = getelementptr inbounds nuw %struct.fieldnode, ptr %56, i32 0, i32 6
+  store i32 %55, ptr %57, align 8, !tbaa !45
+  %58 = load i32, ptr %10, align 4, !tbaa !24
+  %59 = trunc i32 %58 to i16
+  %60 = load ptr, ptr %14, align 8, !tbaa !29
+  %61 = getelementptr inbounds nuw %struct.fieldnode, ptr %60, i32 0, i32 3
+  store i16 %59, ptr %61, align 2, !tbaa !46
+  %62 = load i32, ptr %11, align 4, !tbaa !24
+  %63 = trunc i32 %62 to i16
+  %64 = load ptr, ptr %14, align 8, !tbaa !29
+  %65 = getelementptr inbounds nuw %struct.fieldnode, ptr %64, i32 0, i32 4
+  store i16 %63, ptr %65, align 8, !tbaa !47
+  %66 = load i32, ptr %12, align 4, !tbaa !24
+  %67 = load ptr, ptr %14, align 8, !tbaa !29
+  %68 = getelementptr inbounds nuw %struct.fieldnode, ptr %67, i32 0, i32 8
+  store i32 %66, ptr %68, align 8, !tbaa !48
+  %69 = load i32, ptr %13, align 4, !tbaa !24
+  %70 = trunc i32 %69 to i16
+  %71 = load ptr, ptr %14, align 8, !tbaa !29
+  %72 = getelementptr inbounds nuw %struct.fieldnode, ptr %71, i32 0, i32 9
+  store i16 %70, ptr %72, align 4, !tbaa !49
+  %73 = load ptr, ptr %14, align 8, !tbaa !29
+  %74 = load ptr, ptr %14, align 8, !tbaa !29
+  %75 = getelementptr inbounds nuw %struct.fieldnode, ptr %74, i32 0, i32 19
+  store ptr %73, ptr %75, align 8, !tbaa !50
+  %76 = load ptr, ptr %14, align 8, !tbaa !29
+  %77 = call zeroext i1 @_nc_Copy_Type(ptr noundef %76, ptr noundef @default_field)
+  br i1 %77, label %78, label %139
 
-77:                                               ; preds = %39
-  %78 = load ptr, ptr %14, align 8
-  %79 = getelementptr inbounds %struct.fieldnode, ptr %78, i32 0, i32 5
-  %80 = load i32, ptr %79, align 4
-  %81 = load ptr, ptr %14, align 8
-  %82 = getelementptr inbounds %struct.fieldnode, ptr %81, i32 0, i32 6
-  %83 = load i32, ptr %82, align 8
-  %84 = mul nsw i32 %80, %83
-  %85 = add nsw i32 %84, 1
-  %86 = load ptr, ptr %14, align 8
-  %87 = getelementptr inbounds %struct.fieldnode, ptr %86, i32 0, i32 9
-  %88 = load i16, ptr %87, align 4
-  %89 = sext i16 %88 to i32
-  %90 = add nsw i32 1, %89
-  %91 = mul nsw i32 %85, %90
-  %92 = sext i32 %91 to i64
-  store i64 %92, ptr %16, align 8
-  %93 = load i64, ptr %16, align 8
-  %94 = call noalias ptr @malloc(i64 noundef %93) #6
-  %95 = load ptr, ptr %14, align 8
-  %96 = getelementptr inbounds %struct.fieldnode, ptr %95, i32 0, i32 23
-  store ptr %94, ptr %96, align 8
-  %97 = icmp ne ptr %94, null
-  br i1 %97, label %98, label %134
+78:                                               ; preds = %40
+  call void @llvm.lifetime.start.p0(i64 8, ptr %16) #7
+  %79 = load ptr, ptr %14, align 8, !tbaa !29
+  %80 = getelementptr inbounds nuw %struct.fieldnode, ptr %79, i32 0, i32 5
+  %81 = load i32, ptr %80, align 4, !tbaa !44
+  %82 = load ptr, ptr %14, align 8, !tbaa !29
+  %83 = getelementptr inbounds nuw %struct.fieldnode, ptr %82, i32 0, i32 6
+  %84 = load i32, ptr %83, align 8, !tbaa !45
+  %85 = mul nsw i32 %81, %84
+  %86 = add nsw i32 %85, 1
+  %87 = load ptr, ptr %14, align 8, !tbaa !29
+  %88 = getelementptr inbounds nuw %struct.fieldnode, ptr %87, i32 0, i32 9
+  %89 = load i16, ptr %88, align 4, !tbaa !49
+  %90 = sext i16 %89 to i32
+  %91 = add nsw i32 1, %90
+  %92 = mul nsw i32 %86, %91
+  %93 = sext i32 %92 to i64
+  store i64 %93, ptr %16, align 8, !tbaa !51
+  %94 = load i64, ptr %16, align 8, !tbaa !51
+  %95 = call noalias ptr @malloc(i64 noundef %94) #8
+  %96 = load ptr, ptr %14, align 8, !tbaa !29
+  %97 = getelementptr inbounds nuw %struct.fieldnode, ptr %96, i32 0, i32 23
+  store ptr %95, ptr %97, align 8, !tbaa !52
+  %98 = icmp ne ptr %95, null
+  br i1 %98, label %99, label %135
 
-98:                                               ; preds = %77
-  %99 = load ptr, ptr %14, align 8
-  %100 = getelementptr inbounds %struct.fieldnode, ptr %99, i32 0, i32 23
-  %101 = load ptr, ptr %100, align 8
-  %102 = load i64, ptr %16, align 8
-  call void @llvm.memset.p0.i64(ptr align 1 %101, i8 32, i64 %102, i1 false)
-  store i32 0, ptr %17, align 4
-  br label %103
+99:                                               ; preds = %78
+  call void @llvm.lifetime.start.p0(i64 4, ptr %17) #7
+  %100 = load ptr, ptr %14, align 8, !tbaa !29
+  %101 = getelementptr inbounds nuw %struct.fieldnode, ptr %100, i32 0, i32 23
+  %102 = load ptr, ptr %101, align 8, !tbaa !52
+  %103 = load i64, ptr %16, align 8, !tbaa !51
+  call void @llvm.memset.p0.i64(ptr align 1 %102, i8 32, i64 %103, i1 false)
+  store i32 0, ptr %17, align 4, !tbaa !24
+  br label %104
 
-103:                                              ; preds = %129, %98
-  %104 = load i32, ptr %17, align 4
-  %105 = load ptr, ptr %14, align 8
-  %106 = getelementptr inbounds %struct.fieldnode, ptr %105, i32 0, i32 9
-  %107 = load i16, ptr %106, align 4
-  %108 = sext i16 %107 to i32
-  %109 = icmp sle i32 %104, %108
-  br i1 %109, label %110, label %132
+104:                                              ; preds = %130, %99
+  %105 = load i32, ptr %17, align 4, !tbaa !24
+  %106 = load ptr, ptr %14, align 8, !tbaa !29
+  %107 = getelementptr inbounds nuw %struct.fieldnode, ptr %106, i32 0, i32 9
+  %108 = load i16, ptr %107, align 4, !tbaa !49
+  %109 = sext i16 %108 to i32
+  %110 = icmp sle i32 %105, %109
+  br i1 %110, label %111, label %133
 
-110:                                              ; preds = %103
-  %111 = load ptr, ptr %14, align 8
-  %112 = getelementptr inbounds %struct.fieldnode, ptr %111, i32 0, i32 23
-  %113 = load ptr, ptr %112, align 8
-  %114 = load ptr, ptr %14, align 8
-  %115 = getelementptr inbounds %struct.fieldnode, ptr %114, i32 0, i32 5
-  %116 = load i32, ptr %115, align 4
-  %117 = load ptr, ptr %14, align 8
-  %118 = getelementptr inbounds %struct.fieldnode, ptr %117, i32 0, i32 2
-  %119 = load i16, ptr %118, align 4
-  %120 = sext i16 %119 to i32
-  %121 = mul nsw i32 %116, %120
-  %122 = add nsw i32 %121, 1
-  %123 = load i32, ptr %17, align 4
-  %124 = add nsw i32 %123, 1
-  %125 = mul nsw i32 %122, %124
-  %126 = sub nsw i32 %125, 1
-  %127 = sext i32 %126 to i64
-  %128 = getelementptr inbounds i8, ptr %113, i64 %127
-  store i8 0, ptr %128, align 1
-  br label %129
+111:                                              ; preds = %104
+  %112 = load ptr, ptr %14, align 8, !tbaa !29
+  %113 = getelementptr inbounds nuw %struct.fieldnode, ptr %112, i32 0, i32 23
+  %114 = load ptr, ptr %113, align 8, !tbaa !52
+  %115 = load ptr, ptr %14, align 8, !tbaa !29
+  %116 = getelementptr inbounds nuw %struct.fieldnode, ptr %115, i32 0, i32 5
+  %117 = load i32, ptr %116, align 4, !tbaa !44
+  %118 = load ptr, ptr %14, align 8, !tbaa !29
+  %119 = getelementptr inbounds nuw %struct.fieldnode, ptr %118, i32 0, i32 2
+  %120 = load i16, ptr %119, align 4, !tbaa !43
+  %121 = sext i16 %120 to i32
+  %122 = mul nsw i32 %117, %121
+  %123 = add nsw i32 %122, 1
+  %124 = load i32, ptr %17, align 4, !tbaa !24
+  %125 = add nsw i32 %124, 1
+  %126 = mul nsw i32 %123, %125
+  %127 = sub nsw i32 %126, 1
+  %128 = sext i32 %127 to i64
+  %129 = getelementptr inbounds i8, ptr %114, i64 %128
+  store i8 0, ptr %129, align 1, !tbaa !53
+  br label %130
 
-129:                                              ; preds = %110
-  %130 = load i32, ptr %17, align 4
-  %131 = add nsw i32 %130, 1
-  store i32 %131, ptr %17, align 4
-  br label %103, !llvm.loop !5
+130:                                              ; preds = %111
+  %131 = load i32, ptr %17, align 4, !tbaa !24
+  %132 = add nsw i32 %131, 1
+  store i32 %132, ptr %17, align 4, !tbaa !24
+  br label %104, !llvm.loop !54
 
-132:                                              ; preds = %103
-  %133 = load ptr, ptr %14, align 8
-  store ptr %133, ptr %7, align 8
-  br label %145
-
-134:                                              ; preds = %77
-  br label %135
-
-135:                                              ; preds = %134, %39
+133:                                              ; preds = %104
+  %134 = load ptr, ptr %14, align 8, !tbaa !29
+  store ptr %134, ptr %7, align 8
+  store i32 1, ptr %18, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %17) #7
   br label %136
 
-136:                                              ; preds = %135, %36, %35, %32, %29, %26, %23, %20, %6
-  %137 = load ptr, ptr %14, align 8
-  %138 = icmp ne ptr %137, null
-  br i1 %138, label %139, label %142
+135:                                              ; preds = %78
+  store i32 0, ptr %18, align 4
+  br label %136
 
-139:                                              ; preds = %136
-  %140 = load ptr, ptr %14, align 8
-  %141 = call i32 @free_field(ptr noundef %140)
-  br label %142
+136:                                              ; preds = %135, %133
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #7
+  %137 = load i32, ptr %18, align 4
+  switch i32 %137, label %149 [
+    i32 0, label %138
+  ]
 
-142:                                              ; preds = %139, %136
-  %143 = load i32, ptr %15, align 4
-  %144 = call ptr @__errno_location() #8
-  store i32 %143, ptr %144, align 4
+138:                                              ; preds = %136
+  br label %139
+
+139:                                              ; preds = %138, %40
+  br label %140
+
+140:                                              ; preds = %139, %37, %36, %33, %30, %27, %24, %21, %6
+  %141 = load ptr, ptr %14, align 8, !tbaa !29
+  %142 = icmp ne ptr %141, null
+  br i1 %142, label %143, label %146
+
+143:                                              ; preds = %140
+  %144 = load ptr, ptr %14, align 8, !tbaa !29
+  %145 = call i32 @free_field(ptr noundef %144)
+  br label %146
+
+146:                                              ; preds = %143, %140
+  %147 = load i32, ptr %15, align 4, !tbaa !24
+  %148 = call ptr @__errno_location() #9
+  store i32 %147, ptr %148, align 4, !tbaa !24
   store ptr null, ptr %7, align 8
-  br label %145
+  store i32 1, ptr %18, align 4
+  br label %149
 
-145:                                              ; preds = %142, %132
-  %146 = load ptr, ptr %7, align 8
-  ret ptr %146
+149:                                              ; preds = %146, %136
+  call void @llvm.lifetime.end.p0(i64 4, ptr %15) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #7
+  %150 = load ptr, ptr %7, align 8
+  ret ptr %150
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @free_field(ptr noundef %0) #0 {
   %2 = alloca i32, align 4
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  %5 = load ptr, ptr %3, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !29
+  %5 = load ptr, ptr %3, align 8, !tbaa !29
   %6 = icmp ne ptr %5, null
   br i1 %6, label %9, label %7
 
 7:                                                ; preds = %1
-  %8 = call ptr @__errno_location() #8
-  store i32 -2, ptr %8, align 4
+  %8 = call ptr @__errno_location() #9
+  store i32 -2, ptr %8, align 4, !tbaa !24
   store i32 -2, ptr %2, align 4
   br label %55
 
 9:                                                ; preds = %1
-  %10 = load ptr, ptr %3, align 8
-  %11 = getelementptr inbounds %struct.fieldnode, ptr %10, i32 0, i32 20
-  %12 = load ptr, ptr %11, align 8
+  %10 = load ptr, ptr %3, align 8, !tbaa !29
+  %11 = getelementptr inbounds nuw %struct.fieldnode, ptr %10, i32 0, i32 20
+  %12 = load ptr, ptr %11, align 8, !tbaa !56
   %13 = icmp ne ptr %12, null
   br i1 %13, label %14, label %16
 
 14:                                               ; preds = %9
-  %15 = call ptr @__errno_location() #8
-  store i32 -4, ptr %15, align 4
+  %15 = call ptr @__errno_location() #9
+  store i32 -4, ptr %15, align 4, !tbaa !24
   store i32 -4, ptr %2, align 4
   br label %55
 
 16:                                               ; preds = %9
-  %17 = load ptr, ptr %3, align 8
-  %18 = load ptr, ptr %3, align 8
-  %19 = getelementptr inbounds %struct.fieldnode, ptr %18, i32 0, i32 19
-  %20 = load ptr, ptr %19, align 8
+  %17 = load ptr, ptr %3, align 8, !tbaa !29
+  %18 = load ptr, ptr %3, align 8, !tbaa !29
+  %19 = getelementptr inbounds nuw %struct.fieldnode, ptr %18, i32 0, i32 19
+  %20 = load ptr, ptr %19, align 8, !tbaa !50
   %21 = icmp eq ptr %17, %20
   br i1 %21, label %22, label %32
 
 22:                                               ; preds = %16
-  %23 = load ptr, ptr %3, align 8
-  %24 = getelementptr inbounds %struct.fieldnode, ptr %23, i32 0, i32 23
-  %25 = load ptr, ptr %24, align 8
+  %23 = load ptr, ptr %3, align 8, !tbaa !29
+  %24 = getelementptr inbounds nuw %struct.fieldnode, ptr %23, i32 0, i32 23
+  %25 = load ptr, ptr %24, align 8, !tbaa !52
   %26 = icmp ne ptr %25, null
   br i1 %26, label %27, label %31
 
 27:                                               ; preds = %22
-  %28 = load ptr, ptr %3, align 8
-  %29 = getelementptr inbounds %struct.fieldnode, ptr %28, i32 0, i32 23
-  %30 = load ptr, ptr %29, align 8
+  %28 = load ptr, ptr %3, align 8, !tbaa !29
+  %29 = getelementptr inbounds nuw %struct.fieldnode, ptr %28, i32 0, i32 23
+  %30 = load ptr, ptr %29, align 8, !tbaa !52
   call void @free(ptr noundef %30) #7
   br label %31
 
@@ -690,15 +736,16 @@ define dso_local i32 @free_field(ptr noundef %0) #0 {
   br label %51
 
 32:                                               ; preds = %16
-  %33 = load ptr, ptr %3, align 8
-  store ptr %33, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #7
+  %33 = load ptr, ptr %3, align 8, !tbaa !29
+  store ptr %33, ptr %4, align 8, !tbaa !29
   br label %34
 
 34:                                               ; preds = %41, %32
-  %35 = load ptr, ptr %4, align 8
-  %36 = getelementptr inbounds %struct.fieldnode, ptr %35, i32 0, i32 19
-  %37 = load ptr, ptr %36, align 8
-  %38 = load ptr, ptr %3, align 8
+  %35 = load ptr, ptr %4, align 8, !tbaa !29
+  %36 = getelementptr inbounds nuw %struct.fieldnode, ptr %35, i32 0, i32 19
+  %37 = load ptr, ptr %36, align 8, !tbaa !50
+  %38 = load ptr, ptr %3, align 8, !tbaa !29
   %39 = icmp ne ptr %37, %38
   br i1 %39, label %40, label %45
 
@@ -706,28 +753,29 @@ define dso_local i32 @free_field(ptr noundef %0) #0 {
   br label %41
 
 41:                                               ; preds = %40
-  %42 = load ptr, ptr %4, align 8
-  %43 = getelementptr inbounds %struct.fieldnode, ptr %42, i32 0, i32 19
-  %44 = load ptr, ptr %43, align 8
-  store ptr %44, ptr %4, align 8
-  br label %34, !llvm.loop !7
+  %42 = load ptr, ptr %4, align 8, !tbaa !29
+  %43 = getelementptr inbounds nuw %struct.fieldnode, ptr %42, i32 0, i32 19
+  %44 = load ptr, ptr %43, align 8, !tbaa !50
+  store ptr %44, ptr %4, align 8, !tbaa !29
+  br label %34, !llvm.loop !57
 
 45:                                               ; preds = %34
-  %46 = load ptr, ptr %3, align 8
-  %47 = getelementptr inbounds %struct.fieldnode, ptr %46, i32 0, i32 19
-  %48 = load ptr, ptr %47, align 8
-  %49 = load ptr, ptr %4, align 8
-  %50 = getelementptr inbounds %struct.fieldnode, ptr %49, i32 0, i32 19
-  store ptr %48, ptr %50, align 8
+  %46 = load ptr, ptr %3, align 8, !tbaa !29
+  %47 = getelementptr inbounds nuw %struct.fieldnode, ptr %46, i32 0, i32 19
+  %48 = load ptr, ptr %47, align 8, !tbaa !50
+  %49 = load ptr, ptr %4, align 8, !tbaa !29
+  %50 = getelementptr inbounds nuw %struct.fieldnode, ptr %49, i32 0, i32 19
+  store ptr %48, ptr %50, align 8, !tbaa !50
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #7
   br label %51
 
 51:                                               ; preds = %45, %31
-  %52 = load ptr, ptr %3, align 8
+  %52 = load ptr, ptr %3, align 8, !tbaa !29
   call void @_nc_Free_Type(ptr noundef %52)
-  %53 = load ptr, ptr %3, align 8
+  %53 = load ptr, ptr %3, align 8, !tbaa !29
   call void @free(ptr noundef %53) #7
-  %54 = call ptr @__errno_location() #8
-  store i32 0, ptr %54, align 4
+  %54 = call ptr @__errno_location() #9
+  store i32 0, ptr %54, align 4, !tbaa !24
   store i32 0, ptr %2, align 4
   br label %55
 
@@ -737,25 +785,76 @@ define dso_local i32 @free_field(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind willreturn memory(none)
-declare ptr @__errno_location() #5
+declare ptr @__errno_location() #6
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { nounwind allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #5 = { nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nounwind allocsize(0) }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { nounwind allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #5 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #6 = { nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { nounwind }
-attributes #8 = { nounwind willreturn memory(none) }
+attributes #8 = { nounwind allocsize(0) }
+attributes #9 = { nounwind willreturn memory(none) }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+!llvm.module.flags = !{!0, !1, !2, !3}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
+!4 = !{!5, !5, i64 0}
+!5 = !{!"p1 _ZTS8typenode", !6, i64 0}
+!6 = !{!"any pointer", !7, i64 0}
+!7 = !{!"omnipotent char", !8, i64 0}
+!8 = !{!"Simple C/C++ TBAA"}
+!9 = !{!10, !10, i64 0}
+!10 = !{!"p1 _ZTS13__va_list_tag", !6, i64 0}
+!11 = !{!12, !12, i64 0}
+!12 = !{!"p1 int", !6, i64 0}
+!13 = !{!14, !14, i64 0}
+!14 = !{!"p1 _ZTS7typearg", !6, i64 0}
+!15 = !{!16, !17, i64 0}
+!16 = !{!"typenode", !17, i64 0, !18, i64 8, !5, i64 16, !5, i64 24, !6, i64 32, !6, i64 40, !6, i64 48, !6, i64 56, !6, i64 64, !6, i64 72, !6, i64 80}
+!17 = !{!"short", !7, i64 0}
+!18 = !{!"long", !7, i64 0}
+!19 = !{!16, !5, i64 16}
+!20 = !{!21, !14, i64 0}
+!21 = !{!"typearg", !14, i64 0, !14, i64 8}
+!22 = !{!16, !5, i64 24}
+!23 = !{!21, !14, i64 8}
+!24 = !{!25, !25, i64 0}
+!25 = !{!"int", !7, i64 0}
+!26 = !{!16, !6, i64 32}
+!27 = !{!16, !6, i64 40}
+!28 = !{!16, !6, i64 48}
+!29 = !{!30, !30, i64 0}
+!30 = !{!"p1 _ZTS9fieldnode", !6, i64 0}
+!31 = !{!32, !5, i64 88}
+!32 = !{!"fieldnode", !17, i64 0, !17, i64 2, !17, i64 4, !17, i64 6, !17, i64 8, !25, i64 12, !25, i64 16, !25, i64 20, !25, i64 24, !17, i64 28, !17, i64 30, !17, i64 32, !17, i64 34, !25, i64 36, !25, i64 40, !25, i64 44, !25, i64 48, !30, i64 56, !30, i64 64, !30, i64 72, !33, i64 80, !5, i64 88, !6, i64 96, !34, i64 104, !6, i64 112}
+!33 = !{!"p1 _ZTS8formnode", !6, i64 0}
+!34 = !{!"p1 omnipotent char", !6, i64 0}
+!35 = !{!32, !6, i64 96}
+!36 = !{!16, !18, i64 8}
+!37 = !{i64 0, i64 2, !38, i64 2, i64 2, !38, i64 4, i64 2, !38, i64 6, i64 2, !38, i64 8, i64 2, !38, i64 12, i64 4, !24, i64 16, i64 4, !24, i64 20, i64 4, !24, i64 24, i64 4, !24, i64 28, i64 2, !38, i64 30, i64 2, !38, i64 32, i64 2, !38, i64 34, i64 2, !38, i64 36, i64 4, !24, i64 40, i64 4, !24, i64 44, i64 4, !24, i64 48, i64 4, !24, i64 56, i64 8, !29, i64 64, i64 8, !29, i64 72, i64 8, !29, i64 80, i64 8, !39, i64 88, i64 8, !4, i64 96, i64 8, !40, i64 104, i64 8, !41, i64 112, i64 8, !40}
+!38 = !{!17, !17, i64 0}
+!39 = !{!33, !33, i64 0}
+!40 = !{!6, !6, i64 0}
+!41 = !{!34, !34, i64 0}
+!42 = !{!32, !17, i64 2}
+!43 = !{!32, !17, i64 4}
+!44 = !{!32, !25, i64 12}
+!45 = !{!32, !25, i64 16}
+!46 = !{!32, !17, i64 6}
+!47 = !{!32, !17, i64 8}
+!48 = !{!32, !25, i64 24}
+!49 = !{!32, !17, i64 28}
+!50 = !{!32, !30, i64 72}
+!51 = !{!18, !18, i64 0}
+!52 = !{!32, !34, i64 104}
+!53 = !{!7, !7, i64 0}
+!54 = distinct !{!54, !55}
+!55 = !{!"llvm.loop.mustprogress"}
+!56 = !{!32, !33, i64 80}
+!57 = distinct !{!57, !55}

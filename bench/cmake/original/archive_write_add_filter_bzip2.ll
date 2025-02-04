@@ -23,10 +23,10 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @archive_write_set_compression_bzip2(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !4
+  %3 = load ptr, ptr %2, align 8, !tbaa !4
   call void @__archive_write_filters_free(ptr noundef %3)
-  %4 = load ptr, ptr %2, align 8
+  %4 = load ptr, ptr %2, align 8, !tbaa !4
   %5 = call i32 @archive_write_add_filter_bzip2(ptr noundef %4)
   ret i32 %5
 }
@@ -41,84 +41,115 @@ define dso_local i32 @archive_write_add_filter_bzip2(ptr noundef %0) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
-  store ptr %0, ptr %3, align 8
-  %8 = load ptr, ptr %3, align 8
-  store ptr %8, ptr %4, align 8
-  %9 = load ptr, ptr %3, align 8
-  %10 = call ptr @__archive_write_allocate_filter(ptr noundef %9)
-  store ptr %10, ptr %5, align 8
-  br label %11
+  %8 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #8
+  %9 = load ptr, ptr %3, align 8, !tbaa !4
+  store ptr %9, ptr %4, align 8, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #8
+  %10 = load ptr, ptr %3, align 8, !tbaa !4
+  %11 = call ptr @__archive_write_allocate_filter(ptr noundef %10)
+  store ptr %11, ptr %5, align 8, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #8
+  br label %12
 
-11:                                               ; preds = %1
-  %12 = load ptr, ptr %4, align 8
-  %13 = getelementptr inbounds %struct.archive_write, ptr %12, i32 0, i32 0
-  %14 = call i32 @__archive_check_magic(ptr noundef %13, i32 noundef -1329217314, i32 noundef 1, ptr noundef @.str)
-  store i32 %14, ptr %7, align 4
-  %15 = load i32, ptr %7, align 4
-  %16 = icmp eq i32 %15, -30
-  br i1 %16, label %17, label %18
+12:                                               ; preds = %1
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #8
+  %13 = load ptr, ptr %4, align 8, !tbaa !9
+  %14 = getelementptr inbounds nuw %struct.archive_write, ptr %13, i32 0, i32 0
+  %15 = call i32 @__archive_check_magic(ptr noundef %14, i32 noundef -1329217314, i32 noundef 1, ptr noundef @.str)
+  store i32 %15, ptr %7, align 4, !tbaa !13
+  %16 = load i32, ptr %7, align 4, !tbaa !13
+  %17 = icmp eq i32 %16, -30
+  br i1 %17, label %18, label %19
 
-17:                                               ; preds = %11
+18:                                               ; preds = %12
   store i32 -30, ptr %2, align 4
-  br label %44
+  store i32 1, ptr %8, align 4
+  br label %20
 
-18:                                               ; preds = %11
-  br label %19
+19:                                               ; preds = %12
+  store i32 0, ptr %8, align 4
+  br label %20
 
-19:                                               ; preds = %18
-  %20 = call noalias ptr @calloc(i64 noundef 1, i64 noundef 112) #7
-  store ptr %20, ptr %6, align 8
-  %21 = load ptr, ptr %6, align 8
-  %22 = icmp eq ptr %21, null
-  br i1 %22, label %23, label %26
+20:                                               ; preds = %19, %18
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #8
+  %21 = load i32, ptr %8, align 4
+  switch i32 %21, label %49 [
+    i32 0, label %22
+  ]
 
-23:                                               ; preds = %19
-  %24 = load ptr, ptr %4, align 8
-  %25 = getelementptr inbounds %struct.archive_write, ptr %24, i32 0, i32 0
-  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %25, i32 noundef 12, ptr noundef @.str.1)
+22:                                               ; preds = %20
+  br label %23
+
+23:                                               ; preds = %22
+  br label %24
+
+24:                                               ; preds = %23
+  %25 = call noalias ptr @calloc(i64 noundef 1, i64 noundef 112) #9
+  store ptr %25, ptr %6, align 8, !tbaa !15
+  %26 = load ptr, ptr %6, align 8, !tbaa !15
+  %27 = icmp eq ptr %26, null
+  br i1 %27, label %28, label %31
+
+28:                                               ; preds = %24
+  %29 = load ptr, ptr %4, align 8, !tbaa !9
+  %30 = getelementptr inbounds nuw %struct.archive_write, ptr %29, i32 0, i32 0
+  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %30, i32 noundef 12, ptr noundef @.str.1)
   store i32 -30, ptr %2, align 4
-  br label %44
+  store i32 1, ptr %8, align 4
+  br label %49
 
-26:                                               ; preds = %19
-  %27 = load ptr, ptr %6, align 8
-  %28 = getelementptr inbounds %struct.private_data, ptr %27, i32 0, i32 0
-  store i32 9, ptr %28, align 8
-  %29 = load ptr, ptr %6, align 8
-  %30 = load ptr, ptr %5, align 8
-  %31 = getelementptr inbounds %struct.archive_write_filter, ptr %30, i32 0, i32 9
-  store ptr %29, ptr %31, align 8
-  %32 = load ptr, ptr %5, align 8
-  %33 = getelementptr inbounds %struct.archive_write_filter, ptr %32, i32 0, i32 3
-  store ptr @archive_compressor_bzip2_options, ptr %33, align 8
-  %34 = load ptr, ptr %5, align 8
-  %35 = getelementptr inbounds %struct.archive_write_filter, ptr %34, i32 0, i32 7
-  store ptr @archive_compressor_bzip2_close, ptr %35, align 8
-  %36 = load ptr, ptr %5, align 8
-  %37 = getelementptr inbounds %struct.archive_write_filter, ptr %36, i32 0, i32 8
-  store ptr @archive_compressor_bzip2_free, ptr %37, align 8
-  %38 = load ptr, ptr %5, align 8
-  %39 = getelementptr inbounds %struct.archive_write_filter, ptr %38, i32 0, i32 4
-  store ptr @archive_compressor_bzip2_open, ptr %39, align 8
-  %40 = load ptr, ptr %5, align 8
-  %41 = getelementptr inbounds %struct.archive_write_filter, ptr %40, i32 0, i32 11
-  store i32 2, ptr %41, align 8
-  %42 = load ptr, ptr %5, align 8
-  %43 = getelementptr inbounds %struct.archive_write_filter, ptr %42, i32 0, i32 10
-  store ptr @.str.2, ptr %43, align 8
+31:                                               ; preds = %24
+  %32 = load ptr, ptr %6, align 8, !tbaa !15
+  %33 = getelementptr inbounds nuw %struct.private_data, ptr %32, i32 0, i32 0
+  store i32 9, ptr %33, align 8, !tbaa !17
+  %34 = load ptr, ptr %6, align 8, !tbaa !15
+  %35 = load ptr, ptr %5, align 8, !tbaa !11
+  %36 = getelementptr inbounds nuw %struct.archive_write_filter, ptr %35, i32 0, i32 9
+  store ptr %34, ptr %36, align 8, !tbaa !22
+  %37 = load ptr, ptr %5, align 8, !tbaa !11
+  %38 = getelementptr inbounds nuw %struct.archive_write_filter, ptr %37, i32 0, i32 3
+  store ptr @archive_compressor_bzip2_options, ptr %38, align 8, !tbaa !24
+  %39 = load ptr, ptr %5, align 8, !tbaa !11
+  %40 = getelementptr inbounds nuw %struct.archive_write_filter, ptr %39, i32 0, i32 7
+  store ptr @archive_compressor_bzip2_close, ptr %40, align 8, !tbaa !25
+  %41 = load ptr, ptr %5, align 8, !tbaa !11
+  %42 = getelementptr inbounds nuw %struct.archive_write_filter, ptr %41, i32 0, i32 8
+  store ptr @archive_compressor_bzip2_free, ptr %42, align 8, !tbaa !26
+  %43 = load ptr, ptr %5, align 8, !tbaa !11
+  %44 = getelementptr inbounds nuw %struct.archive_write_filter, ptr %43, i32 0, i32 4
+  store ptr @archive_compressor_bzip2_open, ptr %44, align 8, !tbaa !27
+  %45 = load ptr, ptr %5, align 8, !tbaa !11
+  %46 = getelementptr inbounds nuw %struct.archive_write_filter, ptr %45, i32 0, i32 11
+  store i32 2, ptr %46, align 8, !tbaa !28
+  %47 = load ptr, ptr %5, align 8, !tbaa !11
+  %48 = getelementptr inbounds nuw %struct.archive_write_filter, ptr %47, i32 0, i32 10
+  store ptr @.str.2, ptr %48, align 8, !tbaa !29
   store i32 0, ptr %2, align 4
-  br label %44
+  store i32 1, ptr %8, align 4
+  br label %49
 
-44:                                               ; preds = %26, %23, %17
-  %45 = load i32, ptr %2, align 4
-  ret i32 %45
+49:                                               ; preds = %31, %28, %20
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #8
+  %50 = load i32, ptr %2, align 4
+  ret i32 %50
 }
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
 declare ptr @__archive_write_allocate_filter(ptr noundef) #1
 
 declare i32 @__archive_check_magic(ptr noundef, i32 noundef, i32 noundef, ptr noundef) #1
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
+
 ; Function Attrs: nounwind allocsize(0,1)
-declare noalias ptr @calloc(i64 noundef, i64 noundef) #2
+declare noalias ptr @calloc(i64 noundef, i64 noundef) #3
 
 declare void @archive_set_error(ptr noundef, i32 noundef, ptr noundef, ...) #1
 
@@ -129,83 +160,89 @@ define internal i32 @archive_compressor_bzip2_options(ptr noundef %0, ptr nounde
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
-  store ptr %0, ptr %5, align 8
-  store ptr %1, ptr %6, align 8
-  store ptr %2, ptr %7, align 8
-  %9 = load ptr, ptr %5, align 8
-  %10 = getelementptr inbounds %struct.archive_write_filter, ptr %9, i32 0, i32 9
-  %11 = load ptr, ptr %10, align 8
-  store ptr %11, ptr %8, align 8
-  %12 = load ptr, ptr %6, align 8
-  %13 = call i32 @strcmp(ptr noundef %12, ptr noundef @.str.3) #8
-  %14 = icmp eq i32 %13, 0
-  br i1 %14, label %15, label %53
+  %9 = alloca i32, align 4
+  store ptr %0, ptr %5, align 8, !tbaa !11
+  store ptr %1, ptr %6, align 8, !tbaa !30
+  store ptr %2, ptr %7, align 8, !tbaa !30
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #8
+  %10 = load ptr, ptr %5, align 8, !tbaa !11
+  %11 = getelementptr inbounds nuw %struct.archive_write_filter, ptr %10, i32 0, i32 9
+  %12 = load ptr, ptr %11, align 8, !tbaa !22
+  store ptr %12, ptr %8, align 8, !tbaa !15
+  %13 = load ptr, ptr %6, align 8, !tbaa !30
+  %14 = call i32 @strcmp(ptr noundef %13, ptr noundef @.str.3) #10
+  %15 = icmp eq i32 %14, 0
+  br i1 %15, label %16, label %54
 
-15:                                               ; preds = %3
-  %16 = load ptr, ptr %7, align 8
-  %17 = icmp eq ptr %16, null
-  br i1 %17, label %36, label %18
+16:                                               ; preds = %3
+  %17 = load ptr, ptr %7, align 8, !tbaa !30
+  %18 = icmp eq ptr %17, null
+  br i1 %18, label %37, label %19
 
-18:                                               ; preds = %15
-  %19 = load ptr, ptr %7, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 0
-  %21 = load i8, ptr %20, align 1
-  %22 = sext i8 %21 to i32
-  %23 = icmp sge i32 %22, 48
-  br i1 %23, label %24, label %36
+19:                                               ; preds = %16
+  %20 = load ptr, ptr %7, align 8, !tbaa !30
+  %21 = getelementptr inbounds i8, ptr %20, i64 0
+  %22 = load i8, ptr %21, align 1, !tbaa !31
+  %23 = sext i8 %22 to i32
+  %24 = icmp sge i32 %23, 48
+  br i1 %24, label %25, label %37
 
-24:                                               ; preds = %18
-  %25 = load ptr, ptr %7, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 0
-  %27 = load i8, ptr %26, align 1
-  %28 = sext i8 %27 to i32
-  %29 = icmp sle i32 %28, 57
-  br i1 %29, label %30, label %36
+25:                                               ; preds = %19
+  %26 = load ptr, ptr %7, align 8, !tbaa !30
+  %27 = getelementptr inbounds i8, ptr %26, i64 0
+  %28 = load i8, ptr %27, align 1, !tbaa !31
+  %29 = sext i8 %28 to i32
+  %30 = icmp sle i32 %29, 57
+  br i1 %30, label %31, label %37
 
-30:                                               ; preds = %24
-  %31 = load ptr, ptr %7, align 8
-  %32 = getelementptr inbounds i8, ptr %31, i64 1
-  %33 = load i8, ptr %32, align 1
-  %34 = sext i8 %33 to i32
-  %35 = icmp ne i32 %34, 0
-  br i1 %35, label %36, label %37
+31:                                               ; preds = %25
+  %32 = load ptr, ptr %7, align 8, !tbaa !30
+  %33 = getelementptr inbounds i8, ptr %32, i64 1
+  %34 = load i8, ptr %33, align 1, !tbaa !31
+  %35 = sext i8 %34 to i32
+  %36 = icmp ne i32 %35, 0
+  br i1 %36, label %37, label %38
 
-36:                                               ; preds = %30, %24, %18, %15
+37:                                               ; preds = %31, %25, %19, %16
   store i32 -20, ptr %4, align 4
-  br label %54
+  store i32 1, ptr %9, align 4
+  br label %55
 
-37:                                               ; preds = %30
-  %38 = load ptr, ptr %7, align 8
-  %39 = getelementptr inbounds i8, ptr %38, i64 0
-  %40 = load i8, ptr %39, align 1
-  %41 = sext i8 %40 to i32
-  %42 = sub nsw i32 %41, 48
-  %43 = load ptr, ptr %8, align 8
-  %44 = getelementptr inbounds %struct.private_data, ptr %43, i32 0, i32 0
-  store i32 %42, ptr %44, align 8
-  %45 = load ptr, ptr %8, align 8
-  %46 = getelementptr inbounds %struct.private_data, ptr %45, i32 0, i32 0
-  %47 = load i32, ptr %46, align 8
-  %48 = icmp slt i32 %47, 1
-  br i1 %48, label %49, label %52
+38:                                               ; preds = %31
+  %39 = load ptr, ptr %7, align 8, !tbaa !30
+  %40 = getelementptr inbounds i8, ptr %39, i64 0
+  %41 = load i8, ptr %40, align 1, !tbaa !31
+  %42 = sext i8 %41 to i32
+  %43 = sub nsw i32 %42, 48
+  %44 = load ptr, ptr %8, align 8, !tbaa !15
+  %45 = getelementptr inbounds nuw %struct.private_data, ptr %44, i32 0, i32 0
+  store i32 %43, ptr %45, align 8, !tbaa !17
+  %46 = load ptr, ptr %8, align 8, !tbaa !15
+  %47 = getelementptr inbounds nuw %struct.private_data, ptr %46, i32 0, i32 0
+  %48 = load i32, ptr %47, align 8, !tbaa !17
+  %49 = icmp slt i32 %48, 1
+  br i1 %49, label %50, label %53
 
-49:                                               ; preds = %37
-  %50 = load ptr, ptr %8, align 8
-  %51 = getelementptr inbounds %struct.private_data, ptr %50, i32 0, i32 0
-  store i32 1, ptr %51, align 8
-  br label %52
+50:                                               ; preds = %38
+  %51 = load ptr, ptr %8, align 8, !tbaa !15
+  %52 = getelementptr inbounds nuw %struct.private_data, ptr %51, i32 0, i32 0
+  store i32 1, ptr %52, align 8, !tbaa !17
+  br label %53
 
-52:                                               ; preds = %49, %37
+53:                                               ; preds = %50, %38
   store i32 0, ptr %4, align 4
-  br label %54
+  store i32 1, ptr %9, align 4
+  br label %55
 
-53:                                               ; preds = %3
+54:                                               ; preds = %3
   store i32 -20, ptr %4, align 4
-  br label %54
+  store i32 1, ptr %9, align 4
+  br label %55
 
-54:                                               ; preds = %53, %52, %36
-  %55 = load i32, ptr %4, align 4
-  ret i32 %55
+55:                                               ; preds = %54, %53, %37
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #8
+  %56 = load i32, ptr %4, align 4
+  ret i32 %56
 }
 
 ; Function Attrs: nounwind uwtable
@@ -213,81 +250,84 @@ define internal i32 @archive_compressor_bzip2_close(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
-  store ptr %0, ptr %2, align 8
-  %5 = load ptr, ptr %2, align 8
-  %6 = getelementptr inbounds %struct.archive_write_filter, ptr %5, i32 0, i32 9
-  %7 = load ptr, ptr %6, align 8
-  store ptr %7, ptr %3, align 8
-  %8 = load ptr, ptr %2, align 8
-  %9 = load ptr, ptr %3, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #8
+  %5 = load ptr, ptr %2, align 8, !tbaa !11
+  %6 = getelementptr inbounds nuw %struct.archive_write_filter, ptr %5, i32 0, i32 9
+  %7 = load ptr, ptr %6, align 8, !tbaa !22
+  store ptr %7, ptr %3, align 8, !tbaa !15
+  call void @llvm.lifetime.start.p0(i64 4, ptr %4) #8
+  %8 = load ptr, ptr %2, align 8, !tbaa !11
+  %9 = load ptr, ptr %3, align 8, !tbaa !15
   %10 = call i32 @drive_compressor(ptr noundef %8, ptr noundef %9, i32 noundef 1)
-  store i32 %10, ptr %4, align 4
-  %11 = load i32, ptr %4, align 4
+  store i32 %10, ptr %4, align 4, !tbaa !13
+  %11 = load i32, ptr %4, align 4, !tbaa !13
   %12 = icmp eq i32 %11, 0
   br i1 %12, label %13, label %30
 
 13:                                               ; preds = %1
-  %14 = load ptr, ptr %2, align 8
-  %15 = getelementptr inbounds %struct.archive_write_filter, ptr %14, i32 0, i32 2
-  %16 = load ptr, ptr %15, align 8
-  %17 = load ptr, ptr %3, align 8
-  %18 = getelementptr inbounds %struct.private_data, ptr %17, i32 0, i32 3
-  %19 = load ptr, ptr %18, align 8
-  %20 = load ptr, ptr %3, align 8
-  %21 = getelementptr inbounds %struct.private_data, ptr %20, i32 0, i32 4
-  %22 = load i64, ptr %21, align 8
-  %23 = load ptr, ptr %3, align 8
-  %24 = getelementptr inbounds %struct.private_data, ptr %23, i32 0, i32 1
-  %25 = getelementptr inbounds %struct.bz_stream, ptr %24, i32 0, i32 5
-  %26 = load i32, ptr %25, align 8
+  %14 = load ptr, ptr %2, align 8, !tbaa !11
+  %15 = getelementptr inbounds nuw %struct.archive_write_filter, ptr %14, i32 0, i32 2
+  %16 = load ptr, ptr %15, align 8, !tbaa !32
+  %17 = load ptr, ptr %3, align 8, !tbaa !15
+  %18 = getelementptr inbounds nuw %struct.private_data, ptr %17, i32 0, i32 3
+  %19 = load ptr, ptr %18, align 8, !tbaa !33
+  %20 = load ptr, ptr %3, align 8, !tbaa !15
+  %21 = getelementptr inbounds nuw %struct.private_data, ptr %20, i32 0, i32 4
+  %22 = load i64, ptr %21, align 8, !tbaa !34
+  %23 = load ptr, ptr %3, align 8, !tbaa !15
+  %24 = getelementptr inbounds nuw %struct.private_data, ptr %23, i32 0, i32 1
+  %25 = getelementptr inbounds nuw %struct.bz_stream, ptr %24, i32 0, i32 5
+  %26 = load i32, ptr %25, align 8, !tbaa !35
   %27 = zext i32 %26 to i64
   %28 = sub i64 %22, %27
   %29 = call i32 @__archive_write_filter(ptr noundef %16, ptr noundef %19, i64 noundef %28)
-  store i32 %29, ptr %4, align 4
+  store i32 %29, ptr %4, align 4, !tbaa !13
   br label %30
 
 30:                                               ; preds = %13, %1
-  %31 = load ptr, ptr %3, align 8
-  %32 = getelementptr inbounds %struct.private_data, ptr %31, i32 0, i32 1
+  %31 = load ptr, ptr %3, align 8, !tbaa !15
+  %32 = getelementptr inbounds nuw %struct.private_data, ptr %31, i32 0, i32 1
   %33 = call i32 @BZ2_bzCompressEnd(ptr noundef %32)
-  switch i32 %33, label %35 [
-    i32 0, label %34
+  switch i32 %33, label %34 [
+    i32 0, label %38
   ]
 
 34:                                               ; preds = %30
-  br label %39
+  %35 = load ptr, ptr %2, align 8, !tbaa !11
+  %36 = getelementptr inbounds nuw %struct.archive_write_filter, ptr %35, i32 0, i32 1
+  %37 = load ptr, ptr %36, align 8, !tbaa !36
+  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %37, i32 noundef 22, ptr noundef @.str.10)
+  store i32 -30, ptr %4, align 4, !tbaa !13
+  br label %38
 
-35:                                               ; preds = %30
-  %36 = load ptr, ptr %2, align 8
-  %37 = getelementptr inbounds %struct.archive_write_filter, ptr %36, i32 0, i32 1
-  %38 = load ptr, ptr %37, align 8
-  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %38, i32 noundef 22, ptr noundef @.str.10)
-  store i32 -30, ptr %4, align 4
-  br label %39
-
-39:                                               ; preds = %35, %34
-  %40 = load i32, ptr %4, align 4
-  ret i32 %40
+38:                                               ; preds = %34, %30
+  %39 = load i32, ptr %4, align 4, !tbaa !13
+  call void @llvm.lifetime.end.p0(i64 4, ptr %4) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #8
+  ret i32 %39
 }
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @archive_compressor_bzip2_free(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %4 = load ptr, ptr %2, align 8
-  %5 = getelementptr inbounds %struct.archive_write_filter, ptr %4, i32 0, i32 9
-  %6 = load ptr, ptr %5, align 8
-  store ptr %6, ptr %3, align 8
-  %7 = load ptr, ptr %3, align 8
-  %8 = getelementptr inbounds %struct.private_data, ptr %7, i32 0, i32 3
-  %9 = load ptr, ptr %8, align 8
-  call void @free(ptr noundef %9) #9
-  %10 = load ptr, ptr %3, align 8
-  call void @free(ptr noundef %10) #9
-  %11 = load ptr, ptr %2, align 8
-  %12 = getelementptr inbounds %struct.archive_write_filter, ptr %11, i32 0, i32 9
-  store ptr null, ptr %12, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #8
+  %4 = load ptr, ptr %2, align 8, !tbaa !11
+  %5 = getelementptr inbounds nuw %struct.archive_write_filter, ptr %4, i32 0, i32 9
+  %6 = load ptr, ptr %5, align 8, !tbaa !22
+  store ptr %6, ptr %3, align 8, !tbaa !15
+  %7 = load ptr, ptr %3, align 8, !tbaa !15
+  %8 = getelementptr inbounds nuw %struct.private_data, ptr %7, i32 0, i32 3
+  %9 = load ptr, ptr %8, align 8, !tbaa !33
+  call void @free(ptr noundef %9) #8
+  %10 = load ptr, ptr %3, align 8, !tbaa !15
+  call void @free(ptr noundef %10) #8
+  %11 = load ptr, ptr %2, align 8, !tbaa !11
+  %12 = getelementptr inbounds nuw %struct.archive_write_filter, ptr %11, i32 0, i32 9
+  store ptr null, ptr %12, align 8, !tbaa !22
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #8
   ret i32 0
 }
 
@@ -299,186 +339,208 @@ define internal i32 @archive_compressor_bzip2_open(ptr noundef %0) #0 {
   %5 = alloca i32, align 4
   %6 = alloca i64, align 8
   %7 = alloca i64, align 8
-  store ptr %0, ptr %3, align 8
-  %8 = load ptr, ptr %3, align 8
-  %9 = getelementptr inbounds %struct.archive_write_filter, ptr %8, i32 0, i32 9
-  %10 = load ptr, ptr %9, align 8
-  store ptr %10, ptr %4, align 8
-  %11 = load ptr, ptr %4, align 8
-  %12 = getelementptr inbounds %struct.private_data, ptr %11, i32 0, i32 3
-  %13 = load ptr, ptr %12, align 8
-  %14 = icmp eq ptr %13, null
-  br i1 %14, label %15, label %63
+  %8 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #8
+  %9 = load ptr, ptr %3, align 8, !tbaa !11
+  %10 = getelementptr inbounds nuw %struct.archive_write_filter, ptr %9, i32 0, i32 9
+  %11 = load ptr, ptr %10, align 8, !tbaa !22
+  store ptr %11, ptr %4, align 8, !tbaa !15
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #8
+  %12 = load ptr, ptr %4, align 8, !tbaa !15
+  %13 = getelementptr inbounds nuw %struct.private_data, ptr %12, i32 0, i32 3
+  %14 = load ptr, ptr %13, align 8, !tbaa !33
+  %15 = icmp eq ptr %14, null
+  br i1 %15, label %16, label %67
 
-15:                                               ; preds = %1
-  store i64 65536, ptr %6, align 8
-  %16 = load ptr, ptr %3, align 8
-  %17 = getelementptr inbounds %struct.archive_write_filter, ptr %16, i32 0, i32 1
-  %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds %struct.archive, ptr %18, i32 0, i32 0
-  %20 = load i32, ptr %19, align 8
-  %21 = icmp eq i32 %20, -1329217314
-  br i1 %21, label %22, label %44
+16:                                               ; preds = %1
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #8
+  store i64 65536, ptr %6, align 8, !tbaa !37
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #8
+  %17 = load ptr, ptr %3, align 8, !tbaa !11
+  %18 = getelementptr inbounds nuw %struct.archive_write_filter, ptr %17, i32 0, i32 1
+  %19 = load ptr, ptr %18, align 8, !tbaa !36
+  %20 = getelementptr inbounds nuw %struct.archive, ptr %19, i32 0, i32 0
+  %21 = load i32, ptr %20, align 8, !tbaa !38
+  %22 = icmp eq i32 %21, -1329217314
+  br i1 %22, label %23, label %45
 
-22:                                               ; preds = %15
-  %23 = load ptr, ptr %3, align 8
-  %24 = getelementptr inbounds %struct.archive_write_filter, ptr %23, i32 0, i32 1
-  %25 = load ptr, ptr %24, align 8
-  %26 = call i32 @archive_write_get_bytes_per_block(ptr noundef %25)
-  %27 = sext i32 %26 to i64
-  store i64 %27, ptr %7, align 8
-  %28 = load i64, ptr %7, align 8
-  %29 = load i64, ptr %6, align 8
-  %30 = icmp ugt i64 %28, %29
-  br i1 %30, label %31, label %33
+23:                                               ; preds = %16
+  %24 = load ptr, ptr %3, align 8, !tbaa !11
+  %25 = getelementptr inbounds nuw %struct.archive_write_filter, ptr %24, i32 0, i32 1
+  %26 = load ptr, ptr %25, align 8, !tbaa !36
+  %27 = call i32 @archive_write_get_bytes_per_block(ptr noundef %26)
+  %28 = sext i32 %27 to i64
+  store i64 %28, ptr %7, align 8, !tbaa !37
+  %29 = load i64, ptr %7, align 8, !tbaa !37
+  %30 = load i64, ptr %6, align 8, !tbaa !37
+  %31 = icmp ugt i64 %29, %30
+  br i1 %31, label %32, label %34
 
-31:                                               ; preds = %22
-  %32 = load i64, ptr %7, align 8
-  store i64 %32, ptr %6, align 8
-  br label %43
-
-33:                                               ; preds = %22
-  %34 = load i64, ptr %7, align 8
-  %35 = icmp ne i64 %34, 0
-  br i1 %35, label %36, label %42
-
-36:                                               ; preds = %33
-  %37 = load i64, ptr %6, align 8
-  %38 = load i64, ptr %7, align 8
-  %39 = urem i64 %37, %38
-  %40 = load i64, ptr %6, align 8
-  %41 = sub i64 %40, %39
-  store i64 %41, ptr %6, align 8
-  br label %42
-
-42:                                               ; preds = %36, %33
-  br label %43
-
-43:                                               ; preds = %42, %31
+32:                                               ; preds = %23
+  %33 = load i64, ptr %7, align 8, !tbaa !37
+  store i64 %33, ptr %6, align 8, !tbaa !37
   br label %44
 
-44:                                               ; preds = %43, %15
-  %45 = load i64, ptr %6, align 8
-  %46 = load ptr, ptr %4, align 8
-  %47 = getelementptr inbounds %struct.private_data, ptr %46, i32 0, i32 4
-  store i64 %45, ptr %47, align 8
-  %48 = load ptr, ptr %4, align 8
-  %49 = getelementptr inbounds %struct.private_data, ptr %48, i32 0, i32 4
-  %50 = load i64, ptr %49, align 8
-  %51 = call noalias ptr @malloc(i64 noundef %50) #10
-  %52 = load ptr, ptr %4, align 8
-  %53 = getelementptr inbounds %struct.private_data, ptr %52, i32 0, i32 3
-  store ptr %51, ptr %53, align 8
-  %54 = load ptr, ptr %4, align 8
-  %55 = getelementptr inbounds %struct.private_data, ptr %54, i32 0, i32 3
-  %56 = load ptr, ptr %55, align 8
-  %57 = icmp eq ptr %56, null
-  br i1 %57, label %58, label %62
+34:                                               ; preds = %23
+  %35 = load i64, ptr %7, align 8, !tbaa !37
+  %36 = icmp ne i64 %35, 0
+  br i1 %36, label %37, label %43
 
-58:                                               ; preds = %44
-  %59 = load ptr, ptr %3, align 8
-  %60 = getelementptr inbounds %struct.archive_write_filter, ptr %59, i32 0, i32 1
-  %61 = load ptr, ptr %60, align 8
-  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %61, i32 noundef 12, ptr noundef @.str.4)
+37:                                               ; preds = %34
+  %38 = load i64, ptr %6, align 8, !tbaa !37
+  %39 = load i64, ptr %7, align 8, !tbaa !37
+  %40 = urem i64 %38, %39
+  %41 = load i64, ptr %6, align 8, !tbaa !37
+  %42 = sub i64 %41, %40
+  store i64 %42, ptr %6, align 8, !tbaa !37
+  br label %43
+
+43:                                               ; preds = %37, %34
+  br label %44
+
+44:                                               ; preds = %43, %32
+  br label %45
+
+45:                                               ; preds = %44, %16
+  %46 = load i64, ptr %6, align 8, !tbaa !37
+  %47 = load ptr, ptr %4, align 8, !tbaa !15
+  %48 = getelementptr inbounds nuw %struct.private_data, ptr %47, i32 0, i32 4
+  store i64 %46, ptr %48, align 8, !tbaa !34
+  %49 = load ptr, ptr %4, align 8, !tbaa !15
+  %50 = getelementptr inbounds nuw %struct.private_data, ptr %49, i32 0, i32 4
+  %51 = load i64, ptr %50, align 8, !tbaa !34
+  %52 = call noalias ptr @malloc(i64 noundef %51) #11
+  %53 = load ptr, ptr %4, align 8, !tbaa !15
+  %54 = getelementptr inbounds nuw %struct.private_data, ptr %53, i32 0, i32 3
+  store ptr %52, ptr %54, align 8, !tbaa !33
+  %55 = load ptr, ptr %4, align 8, !tbaa !15
+  %56 = getelementptr inbounds nuw %struct.private_data, ptr %55, i32 0, i32 3
+  %57 = load ptr, ptr %56, align 8, !tbaa !33
+  %58 = icmp eq ptr %57, null
+  br i1 %58, label %59, label %63
+
+59:                                               ; preds = %45
+  %60 = load ptr, ptr %3, align 8, !tbaa !11
+  %61 = getelementptr inbounds nuw %struct.archive_write_filter, ptr %60, i32 0, i32 1
+  %62 = load ptr, ptr %61, align 8, !tbaa !36
+  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %62, i32 noundef 12, ptr noundef @.str.4)
   store i32 -30, ptr %2, align 4
-  br label %111
+  store i32 1, ptr %8, align 4
+  br label %64
 
-62:                                               ; preds = %44
-  br label %63
+63:                                               ; preds = %45
+  store i32 0, ptr %8, align 4
+  br label %64
 
-63:                                               ; preds = %62, %1
-  %64 = load ptr, ptr %4, align 8
-  %65 = getelementptr inbounds %struct.private_data, ptr %64, i32 0, i32 1
-  call void @llvm.memset.p0.i64(ptr align 8 %65, i8 0, i64 80, i1 false)
-  %66 = load ptr, ptr %4, align 8
-  %67 = getelementptr inbounds %struct.private_data, ptr %66, i32 0, i32 3
-  %68 = load ptr, ptr %67, align 8
-  %69 = load ptr, ptr %4, align 8
-  %70 = getelementptr inbounds %struct.private_data, ptr %69, i32 0, i32 1
-  %71 = getelementptr inbounds %struct.bz_stream, ptr %70, i32 0, i32 4
-  store ptr %68, ptr %71, align 8
-  %72 = load ptr, ptr %4, align 8
-  %73 = getelementptr inbounds %struct.private_data, ptr %72, i32 0, i32 4
-  %74 = load i64, ptr %73, align 8
-  %75 = trunc i64 %74 to i32
-  %76 = load ptr, ptr %4, align 8
-  %77 = getelementptr inbounds %struct.private_data, ptr %76, i32 0, i32 1
-  %78 = getelementptr inbounds %struct.bz_stream, ptr %77, i32 0, i32 5
-  store i32 %75, ptr %78, align 8
-  %79 = load ptr, ptr %3, align 8
-  %80 = getelementptr inbounds %struct.archive_write_filter, ptr %79, i32 0, i32 5
-  store ptr @archive_compressor_bzip2_write, ptr %80, align 8
-  %81 = load ptr, ptr %4, align 8
-  %82 = getelementptr inbounds %struct.private_data, ptr %81, i32 0, i32 1
-  %83 = load ptr, ptr %4, align 8
-  %84 = getelementptr inbounds %struct.private_data, ptr %83, i32 0, i32 0
-  %85 = load i32, ptr %84, align 8
-  %86 = call i32 @BZ2_bzCompressInit(ptr noundef %82, i32 noundef %85, i32 noundef 0, i32 noundef 30)
-  store i32 %86, ptr %5, align 4
-  %87 = load i32, ptr %5, align 4
-  %88 = icmp eq i32 %87, 0
-  br i1 %88, label %89, label %93
-
-89:                                               ; preds = %63
-  %90 = load ptr, ptr %4, align 8
-  %91 = load ptr, ptr %3, align 8
-  %92 = getelementptr inbounds %struct.archive_write_filter, ptr %91, i32 0, i32 9
-  store ptr %90, ptr %92, align 8
-  store i32 0, ptr %2, align 4
-  br label %111
-
-93:                                               ; preds = %63
-  %94 = load ptr, ptr %3, align 8
-  %95 = getelementptr inbounds %struct.archive_write_filter, ptr %94, i32 0, i32 1
-  %96 = load ptr, ptr %95, align 8
-  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %96, i32 noundef -1, ptr noundef @.str.5)
-  %97 = load i32, ptr %5, align 4
-  switch i32 %97, label %110 [
-    i32 -2, label %98
-    i32 -3, label %102
-    i32 -9, label %106
+64:                                               ; preds = %63, %59
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #8
+  %65 = load i32, ptr %8, align 4
+  switch i32 %65, label %115 [
+    i32 0, label %66
   ]
 
-98:                                               ; preds = %93
-  %99 = load ptr, ptr %3, align 8
-  %100 = getelementptr inbounds %struct.archive_write_filter, ptr %99, i32 0, i32 1
-  %101 = load ptr, ptr %100, align 8
-  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %101, i32 noundef -1, ptr noundef @.str.6)
-  br label %110
+66:                                               ; preds = %64
+  br label %67
 
-102:                                              ; preds = %93
-  %103 = load ptr, ptr %3, align 8
-  %104 = getelementptr inbounds %struct.archive_write_filter, ptr %103, i32 0, i32 1
-  %105 = load ptr, ptr %104, align 8
-  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %105, i32 noundef 12, ptr noundef @.str.7)
-  br label %110
+67:                                               ; preds = %66, %1
+  %68 = load ptr, ptr %4, align 8, !tbaa !15
+  %69 = getelementptr inbounds nuw %struct.private_data, ptr %68, i32 0, i32 1
+  call void @llvm.memset.p0.i64(ptr align 8 %69, i8 0, i64 80, i1 false)
+  %70 = load ptr, ptr %4, align 8, !tbaa !15
+  %71 = getelementptr inbounds nuw %struct.private_data, ptr %70, i32 0, i32 3
+  %72 = load ptr, ptr %71, align 8, !tbaa !33
+  %73 = load ptr, ptr %4, align 8, !tbaa !15
+  %74 = getelementptr inbounds nuw %struct.private_data, ptr %73, i32 0, i32 1
+  %75 = getelementptr inbounds nuw %struct.bz_stream, ptr %74, i32 0, i32 4
+  store ptr %72, ptr %75, align 8, !tbaa !43
+  %76 = load ptr, ptr %4, align 8, !tbaa !15
+  %77 = getelementptr inbounds nuw %struct.private_data, ptr %76, i32 0, i32 4
+  %78 = load i64, ptr %77, align 8, !tbaa !34
+  %79 = trunc i64 %78 to i32
+  %80 = load ptr, ptr %4, align 8, !tbaa !15
+  %81 = getelementptr inbounds nuw %struct.private_data, ptr %80, i32 0, i32 1
+  %82 = getelementptr inbounds nuw %struct.bz_stream, ptr %81, i32 0, i32 5
+  store i32 %79, ptr %82, align 8, !tbaa !35
+  %83 = load ptr, ptr %3, align 8, !tbaa !11
+  %84 = getelementptr inbounds nuw %struct.archive_write_filter, ptr %83, i32 0, i32 5
+  store ptr @archive_compressor_bzip2_write, ptr %84, align 8, !tbaa !44
+  %85 = load ptr, ptr %4, align 8, !tbaa !15
+  %86 = getelementptr inbounds nuw %struct.private_data, ptr %85, i32 0, i32 1
+  %87 = load ptr, ptr %4, align 8, !tbaa !15
+  %88 = getelementptr inbounds nuw %struct.private_data, ptr %87, i32 0, i32 0
+  %89 = load i32, ptr %88, align 8, !tbaa !17
+  %90 = call i32 @BZ2_bzCompressInit(ptr noundef %86, i32 noundef %89, i32 noundef 0, i32 noundef 30)
+  store i32 %90, ptr %5, align 4, !tbaa !13
+  %91 = load i32, ptr %5, align 4, !tbaa !13
+  %92 = icmp eq i32 %91, 0
+  br i1 %92, label %93, label %97
 
-106:                                              ; preds = %93
-  %107 = load ptr, ptr %3, align 8
-  %108 = getelementptr inbounds %struct.archive_write_filter, ptr %107, i32 0, i32 1
-  %109 = load ptr, ptr %108, align 8
-  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %109, i32 noundef -1, ptr noundef @.str.8)
-  br label %110
+93:                                               ; preds = %67
+  %94 = load ptr, ptr %4, align 8, !tbaa !15
+  %95 = load ptr, ptr %3, align 8, !tbaa !11
+  %96 = getelementptr inbounds nuw %struct.archive_write_filter, ptr %95, i32 0, i32 9
+  store ptr %94, ptr %96, align 8, !tbaa !22
+  store i32 0, ptr %2, align 4
+  store i32 1, ptr %8, align 4
+  br label %115
 
-110:                                              ; preds = %106, %102, %98, %93
+97:                                               ; preds = %67
+  %98 = load ptr, ptr %3, align 8, !tbaa !11
+  %99 = getelementptr inbounds nuw %struct.archive_write_filter, ptr %98, i32 0, i32 1
+  %100 = load ptr, ptr %99, align 8, !tbaa !36
+  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %100, i32 noundef -1, ptr noundef @.str.5)
+  %101 = load i32, ptr %5, align 4, !tbaa !13
+  switch i32 %101, label %114 [
+    i32 -2, label %102
+    i32 -3, label %106
+    i32 -9, label %110
+  ]
+
+102:                                              ; preds = %97
+  %103 = load ptr, ptr %3, align 8, !tbaa !11
+  %104 = getelementptr inbounds nuw %struct.archive_write_filter, ptr %103, i32 0, i32 1
+  %105 = load ptr, ptr %104, align 8, !tbaa !36
+  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %105, i32 noundef -1, ptr noundef @.str.6)
+  br label %114
+
+106:                                              ; preds = %97
+  %107 = load ptr, ptr %3, align 8, !tbaa !11
+  %108 = getelementptr inbounds nuw %struct.archive_write_filter, ptr %107, i32 0, i32 1
+  %109 = load ptr, ptr %108, align 8, !tbaa !36
+  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %109, i32 noundef 12, ptr noundef @.str.7)
+  br label %114
+
+110:                                              ; preds = %97
+  %111 = load ptr, ptr %3, align 8, !tbaa !11
+  %112 = getelementptr inbounds nuw %struct.archive_write_filter, ptr %111, i32 0, i32 1
+  %113 = load ptr, ptr %112, align 8, !tbaa !36
+  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %113, i32 noundef -1, ptr noundef @.str.8)
+  br label %114
+
+114:                                              ; preds = %97, %110, %106, %102
   store i32 -30, ptr %2, align 4
-  br label %111
+  store i32 1, ptr %8, align 4
+  br label %115
 
-111:                                              ; preds = %110, %89, %58
-  %112 = load i32, ptr %2, align 4
-  ret i32 %112
+115:                                              ; preds = %114, %93, %64
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #8
+  %116 = load i32, ptr %2, align 4
+  ret i32 %116
 }
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare i32 @strcmp(ptr noundef, ptr noundef) #3
+declare i32 @strcmp(ptr noundef, ptr noundef) #4
 
 declare i32 @archive_write_get_bytes_per_block(ptr noundef) #1
 
 ; Function Attrs: nounwind allocsize(0)
-declare noalias ptr @malloc(i64 noundef) #4
+declare noalias ptr @malloc(i64 noundef) #5
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @archive_compressor_bzip2_write(ptr noundef %0, ptr noundef %1, i64 noundef %2) #0 {
@@ -487,49 +549,54 @@ define internal i32 @archive_compressor_bzip2_write(ptr noundef %0, ptr noundef 
   %6 = alloca ptr, align 8
   %7 = alloca i64, align 8
   %8 = alloca ptr, align 8
-  store ptr %0, ptr %5, align 8
-  store ptr %1, ptr %6, align 8
-  store i64 %2, ptr %7, align 8
-  %9 = load ptr, ptr %5, align 8
-  %10 = getelementptr inbounds %struct.archive_write_filter, ptr %9, i32 0, i32 9
-  %11 = load ptr, ptr %10, align 8
-  store ptr %11, ptr %8, align 8
-  %12 = load i64, ptr %7, align 8
-  %13 = load ptr, ptr %8, align 8
-  %14 = getelementptr inbounds %struct.private_data, ptr %13, i32 0, i32 2
-  %15 = load i64, ptr %14, align 8
-  %16 = add i64 %15, %12
-  store i64 %16, ptr %14, align 8
-  %17 = load ptr, ptr %6, align 8
-  %18 = ptrtoint ptr %17 to i64
-  %19 = inttoptr i64 %18 to ptr
-  %20 = load ptr, ptr %8, align 8
-  %21 = getelementptr inbounds %struct.private_data, ptr %20, i32 0, i32 1
-  %22 = getelementptr inbounds %struct.bz_stream, ptr %21, i32 0, i32 0
-  store ptr %19, ptr %22, align 8
-  %23 = load i64, ptr %7, align 8
-  %24 = trunc i64 %23 to i32
-  %25 = load ptr, ptr %8, align 8
-  %26 = getelementptr inbounds %struct.private_data, ptr %25, i32 0, i32 1
-  %27 = getelementptr inbounds %struct.bz_stream, ptr %26, i32 0, i32 1
-  store i32 %24, ptr %27, align 8
-  %28 = load ptr, ptr %5, align 8
-  %29 = load ptr, ptr %8, align 8
-  %30 = call i32 @drive_compressor(ptr noundef %28, ptr noundef %29, i32 noundef 0)
-  %31 = icmp ne i32 %30, 0
-  br i1 %31, label %32, label %33
-
-32:                                               ; preds = %3
-  store i32 -30, ptr %4, align 4
-  br label %34
+  %9 = alloca i32, align 4
+  store ptr %0, ptr %5, align 8, !tbaa !11
+  store ptr %1, ptr %6, align 8, !tbaa !45
+  store i64 %2, ptr %7, align 8, !tbaa !37
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #8
+  %10 = load ptr, ptr %5, align 8, !tbaa !11
+  %11 = getelementptr inbounds nuw %struct.archive_write_filter, ptr %10, i32 0, i32 9
+  %12 = load ptr, ptr %11, align 8, !tbaa !22
+  store ptr %12, ptr %8, align 8, !tbaa !15
+  %13 = load i64, ptr %7, align 8, !tbaa !37
+  %14 = load ptr, ptr %8, align 8, !tbaa !15
+  %15 = getelementptr inbounds nuw %struct.private_data, ptr %14, i32 0, i32 2
+  %16 = load i64, ptr %15, align 8, !tbaa !46
+  %17 = add i64 %16, %13
+  store i64 %17, ptr %15, align 8, !tbaa !46
+  %18 = load ptr, ptr %6, align 8, !tbaa !45
+  %19 = ptrtoint ptr %18 to i64
+  %20 = inttoptr i64 %19 to ptr
+  %21 = load ptr, ptr %8, align 8, !tbaa !15
+  %22 = getelementptr inbounds nuw %struct.private_data, ptr %21, i32 0, i32 1
+  %23 = getelementptr inbounds nuw %struct.bz_stream, ptr %22, i32 0, i32 0
+  store ptr %20, ptr %23, align 8, !tbaa !47
+  %24 = load i64, ptr %7, align 8, !tbaa !37
+  %25 = trunc i64 %24 to i32
+  %26 = load ptr, ptr %8, align 8, !tbaa !15
+  %27 = getelementptr inbounds nuw %struct.private_data, ptr %26, i32 0, i32 1
+  %28 = getelementptr inbounds nuw %struct.bz_stream, ptr %27, i32 0, i32 1
+  store i32 %25, ptr %28, align 8, !tbaa !48
+  %29 = load ptr, ptr %5, align 8, !tbaa !11
+  %30 = load ptr, ptr %8, align 8, !tbaa !15
+  %31 = call i32 @drive_compressor(ptr noundef %29, ptr noundef %30, i32 noundef 0)
+  %32 = icmp ne i32 %31, 0
+  br i1 %32, label %33, label %34
 
 33:                                               ; preds = %3
-  store i32 0, ptr %4, align 4
-  br label %34
+  store i32 -30, ptr %4, align 4
+  store i32 1, ptr %9, align 4
+  br label %35
 
-34:                                               ; preds = %33, %32
-  %35 = load i32, ptr %4, align 4
-  ret i32 %35
+34:                                               ; preds = %3
+  store i32 0, ptr %4, align 4
+  store i32 1, ptr %9, align 4
+  br label %35
+
+35:                                               ; preds = %34, %33
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #8
+  %36 = load i32, ptr %4, align 4
+  ret i32 %36
 }
 
 declare i32 @BZ2_bzCompressInit(ptr noundef, i32 noundef, i32 noundef, i32 noundef) #1
@@ -541,129 +608,134 @@ define internal i32 @drive_compressor(ptr noundef %0, ptr noundef %1, i32 nounde
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
-  store ptr %0, ptr %5, align 8
-  store ptr %1, ptr %6, align 8
-  store i32 %2, ptr %7, align 4
-  br label %9
+  %9 = alloca i32, align 4
+  store ptr %0, ptr %5, align 8, !tbaa !11
+  store ptr %1, ptr %6, align 8, !tbaa !15
+  store i32 %2, ptr %7, align 4, !tbaa !13
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #8
+  br label %10
 
-9:                                                ; preds = %79, %3
-  %10 = load ptr, ptr %6, align 8
-  %11 = getelementptr inbounds %struct.private_data, ptr %10, i32 0, i32 1
-  %12 = getelementptr inbounds %struct.bz_stream, ptr %11, i32 0, i32 5
-  %13 = load i32, ptr %12, align 8
-  %14 = icmp eq i32 %13, 0
-  br i1 %14, label %15, label %43
+10:                                               ; preds = %79, %3
+  %11 = load ptr, ptr %6, align 8, !tbaa !15
+  %12 = getelementptr inbounds nuw %struct.private_data, ptr %11, i32 0, i32 1
+  %13 = getelementptr inbounds nuw %struct.bz_stream, ptr %12, i32 0, i32 5
+  %14 = load i32, ptr %13, align 8, !tbaa !35
+  %15 = icmp eq i32 %14, 0
+  br i1 %15, label %16, label %44
 
-15:                                               ; preds = %9
-  %16 = load ptr, ptr %5, align 8
-  %17 = getelementptr inbounds %struct.archive_write_filter, ptr %16, i32 0, i32 2
-  %18 = load ptr, ptr %17, align 8
-  %19 = load ptr, ptr %6, align 8
-  %20 = getelementptr inbounds %struct.private_data, ptr %19, i32 0, i32 3
-  %21 = load ptr, ptr %20, align 8
-  %22 = load ptr, ptr %6, align 8
-  %23 = getelementptr inbounds %struct.private_data, ptr %22, i32 0, i32 4
-  %24 = load i64, ptr %23, align 8
-  %25 = call i32 @__archive_write_filter(ptr noundef %18, ptr noundef %21, i64 noundef %24)
-  store i32 %25, ptr %8, align 4
-  %26 = load i32, ptr %8, align 4
-  %27 = icmp ne i32 %26, 0
-  br i1 %27, label %28, label %29
+16:                                               ; preds = %10
+  %17 = load ptr, ptr %5, align 8, !tbaa !11
+  %18 = getelementptr inbounds nuw %struct.archive_write_filter, ptr %17, i32 0, i32 2
+  %19 = load ptr, ptr %18, align 8, !tbaa !32
+  %20 = load ptr, ptr %6, align 8, !tbaa !15
+  %21 = getelementptr inbounds nuw %struct.private_data, ptr %20, i32 0, i32 3
+  %22 = load ptr, ptr %21, align 8, !tbaa !33
+  %23 = load ptr, ptr %6, align 8, !tbaa !15
+  %24 = getelementptr inbounds nuw %struct.private_data, ptr %23, i32 0, i32 4
+  %25 = load i64, ptr %24, align 8, !tbaa !34
+  %26 = call i32 @__archive_write_filter(ptr noundef %19, ptr noundef %22, i64 noundef %25)
+  store i32 %26, ptr %8, align 4, !tbaa !13
+  %27 = load i32, ptr %8, align 4, !tbaa !13
+  %28 = icmp ne i32 %27, 0
+  br i1 %28, label %29, label %30
 
-28:                                               ; preds = %15
+29:                                               ; preds = %16
   store i32 -30, ptr %4, align 4
+  store i32 1, ptr %9, align 4
   br label %80
 
-29:                                               ; preds = %15
-  %30 = load ptr, ptr %6, align 8
-  %31 = getelementptr inbounds %struct.private_data, ptr %30, i32 0, i32 3
-  %32 = load ptr, ptr %31, align 8
-  %33 = load ptr, ptr %6, align 8
-  %34 = getelementptr inbounds %struct.private_data, ptr %33, i32 0, i32 1
-  %35 = getelementptr inbounds %struct.bz_stream, ptr %34, i32 0, i32 4
-  store ptr %32, ptr %35, align 8
-  %36 = load ptr, ptr %6, align 8
-  %37 = getelementptr inbounds %struct.private_data, ptr %36, i32 0, i32 4
-  %38 = load i64, ptr %37, align 8
-  %39 = trunc i64 %38 to i32
-  %40 = load ptr, ptr %6, align 8
-  %41 = getelementptr inbounds %struct.private_data, ptr %40, i32 0, i32 1
-  %42 = getelementptr inbounds %struct.bz_stream, ptr %41, i32 0, i32 5
-  store i32 %39, ptr %42, align 8
-  br label %43
+30:                                               ; preds = %16
+  %31 = load ptr, ptr %6, align 8, !tbaa !15
+  %32 = getelementptr inbounds nuw %struct.private_data, ptr %31, i32 0, i32 3
+  %33 = load ptr, ptr %32, align 8, !tbaa !33
+  %34 = load ptr, ptr %6, align 8, !tbaa !15
+  %35 = getelementptr inbounds nuw %struct.private_data, ptr %34, i32 0, i32 1
+  %36 = getelementptr inbounds nuw %struct.bz_stream, ptr %35, i32 0, i32 4
+  store ptr %33, ptr %36, align 8, !tbaa !43
+  %37 = load ptr, ptr %6, align 8, !tbaa !15
+  %38 = getelementptr inbounds nuw %struct.private_data, ptr %37, i32 0, i32 4
+  %39 = load i64, ptr %38, align 8, !tbaa !34
+  %40 = trunc i64 %39 to i32
+  %41 = load ptr, ptr %6, align 8, !tbaa !15
+  %42 = getelementptr inbounds nuw %struct.private_data, ptr %41, i32 0, i32 1
+  %43 = getelementptr inbounds nuw %struct.bz_stream, ptr %42, i32 0, i32 5
+  store i32 %40, ptr %43, align 8, !tbaa !35
+  br label %44
 
-43:                                               ; preds = %29, %9
-  %44 = load i32, ptr %7, align 4
-  %45 = icmp ne i32 %44, 0
-  br i1 %45, label %53, label %46
+44:                                               ; preds = %30, %10
+  %45 = load i32, ptr %7, align 4, !tbaa !13
+  %46 = icmp ne i32 %45, 0
+  br i1 %46, label %54, label %47
 
-46:                                               ; preds = %43
-  %47 = load ptr, ptr %6, align 8
-  %48 = getelementptr inbounds %struct.private_data, ptr %47, i32 0, i32 1
-  %49 = getelementptr inbounds %struct.bz_stream, ptr %48, i32 0, i32 1
-  %50 = load i32, ptr %49, align 8
-  %51 = icmp eq i32 %50, 0
-  br i1 %51, label %52, label %53
+47:                                               ; preds = %44
+  %48 = load ptr, ptr %6, align 8, !tbaa !15
+  %49 = getelementptr inbounds nuw %struct.private_data, ptr %48, i32 0, i32 1
+  %50 = getelementptr inbounds nuw %struct.bz_stream, ptr %49, i32 0, i32 1
+  %51 = load i32, ptr %50, align 8, !tbaa !48
+  %52 = icmp eq i32 %51, 0
+  br i1 %52, label %53, label %54
 
-52:                                               ; preds = %46
+53:                                               ; preds = %47
   store i32 0, ptr %4, align 4
+  store i32 1, ptr %9, align 4
   br label %80
 
-53:                                               ; preds = %46, %43
-  %54 = load ptr, ptr %6, align 8
-  %55 = getelementptr inbounds %struct.private_data, ptr %54, i32 0, i32 1
-  %56 = load i32, ptr %7, align 4
-  %57 = icmp ne i32 %56, 0
-  %58 = select i1 %57, i32 2, i32 0
-  %59 = call i32 @BZ2_bzCompress(ptr noundef %55, i32 noundef %58)
-  store i32 %59, ptr %8, align 4
-  %60 = load i32, ptr %8, align 4
-  switch i32 %60, label %74 [
-    i32 1, label %61
-    i32 3, label %72
+54:                                               ; preds = %47, %44
+  %55 = load ptr, ptr %6, align 8, !tbaa !15
+  %56 = getelementptr inbounds nuw %struct.private_data, ptr %55, i32 0, i32 1
+  %57 = load i32, ptr %7, align 4, !tbaa !13
+  %58 = icmp ne i32 %57, 0
+  %59 = select i1 %58, i32 2, i32 0
+  %60 = call i32 @BZ2_bzCompress(ptr noundef %56, i32 noundef %59)
+  store i32 %60, ptr %8, align 4, !tbaa !13
+  %61 = load i32, ptr %8, align 4, !tbaa !13
+  switch i32 %61, label %74 [
+    i32 1, label %62
+    i32 3, label %79
     i32 4, label %73
   ]
 
-61:                                               ; preds = %53
-  %62 = load i32, ptr %7, align 4
-  %63 = icmp ne i32 %62, 0
-  br i1 %63, label %71, label %64
+62:                                               ; preds = %54
+  %63 = load i32, ptr %7, align 4, !tbaa !13
+  %64 = icmp ne i32 %63, 0
+  br i1 %64, label %72, label %65
 
-64:                                               ; preds = %61
-  %65 = load ptr, ptr %6, align 8
-  %66 = getelementptr inbounds %struct.private_data, ptr %65, i32 0, i32 1
-  %67 = getelementptr inbounds %struct.bz_stream, ptr %66, i32 0, i32 1
-  %68 = load i32, ptr %67, align 8
-  %69 = icmp eq i32 %68, 0
-  br i1 %69, label %70, label %71
+65:                                               ; preds = %62
+  %66 = load ptr, ptr %6, align 8, !tbaa !15
+  %67 = getelementptr inbounds nuw %struct.private_data, ptr %66, i32 0, i32 1
+  %68 = getelementptr inbounds nuw %struct.bz_stream, ptr %67, i32 0, i32 1
+  %69 = load i32, ptr %68, align 8, !tbaa !48
+  %70 = icmp eq i32 %69, 0
+  br i1 %70, label %71, label %72
 
-70:                                               ; preds = %64
+71:                                               ; preds = %65
   store i32 0, ptr %4, align 4
+  store i32 1, ptr %9, align 4
   br label %80
 
-71:                                               ; preds = %64, %61
+72:                                               ; preds = %65, %62
   br label %79
 
-72:                                               ; preds = %53
-  br label %79
-
-73:                                               ; preds = %53
+73:                                               ; preds = %54
   store i32 0, ptr %4, align 4
+  store i32 1, ptr %9, align 4
   br label %80
 
-74:                                               ; preds = %53
-  %75 = load ptr, ptr %5, align 8
-  %76 = getelementptr inbounds %struct.archive_write_filter, ptr %75, i32 0, i32 1
-  %77 = load ptr, ptr %76, align 8
-  %78 = load i32, ptr %8, align 4
+74:                                               ; preds = %54
+  %75 = load ptr, ptr %5, align 8, !tbaa !11
+  %76 = getelementptr inbounds nuw %struct.archive_write_filter, ptr %75, i32 0, i32 1
+  %77 = load ptr, ptr %76, align 8, !tbaa !36
+  %78 = load i32, ptr %8, align 4, !tbaa !13
   call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %77, i32 noundef 22, ptr noundef @.str.9, i32 noundef %78)
   store i32 -30, ptr %4, align 4
+  store i32 1, ptr %9, align 4
   br label %80
 
-79:                                               ; preds = %72, %71
-  br label %9
+79:                                               ; preds = %54, %72
+  br label %10
 
-80:                                               ; preds = %74, %73, %70, %52, %28
+80:                                               ; preds = %74, %73, %71, %53, %29
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #8
   %81 = load i32, ptr %4, align 4
   ret i32 %81
 }
@@ -675,24 +747,69 @@ declare i32 @BZ2_bzCompress(ptr noundef, i32 noundef) #1
 declare i32 @BZ2_bzCompressEnd(ptr noundef) #1
 
 ; Function Attrs: nounwind
-declare void @free(ptr noundef) #6
+declare void @free(ptr noundef) #7
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nounwind allocsize(0,1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nounwind allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #6 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nounwind allocsize(0,1) }
-attributes #8 = { nounwind willreturn memory(read) }
-attributes #9 = { nounwind }
-attributes #10 = { nounwind allocsize(0) }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { nounwind allocsize(0,1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nounwind willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nounwind allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #7 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { nounwind }
+attributes #9 = { nounwind allocsize(0,1) }
+attributes #10 = { nounwind willreturn memory(read) }
+attributes #11 = { nounwind allocsize(0) }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+!llvm.module.flags = !{!0, !1, !2, !3}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}
+!4 = !{!5, !5, i64 0}
+!5 = !{!"p1 _ZTS7archive", !6, i64 0}
+!6 = !{!"any pointer", !7, i64 0}
+!7 = !{!"omnipotent char", !8, i64 0}
+!8 = !{!"Simple C/C++ TBAA"}
+!9 = !{!10, !10, i64 0}
+!10 = !{!"p1 _ZTS13archive_write", !6, i64 0}
+!11 = !{!12, !12, i64 0}
+!12 = !{!"p1 _ZTS20archive_write_filter", !6, i64 0}
+!13 = !{!14, !14, i64 0}
+!14 = !{!"int", !7, i64 0}
+!15 = !{!16, !16, i64 0}
+!16 = !{!"p1 _ZTS12private_data", !6, i64 0}
+!17 = !{!18, !14, i64 0}
+!18 = !{!"private_data", !14, i64 0, !19, i64 8, !21, i64 88, !20, i64 96, !21, i64 104}
+!19 = !{!"", !20, i64 0, !14, i64 8, !14, i64 12, !14, i64 16, !20, i64 24, !14, i64 32, !14, i64 36, !14, i64 40, !6, i64 48, !6, i64 56, !6, i64 64, !6, i64 72}
+!20 = !{!"p1 omnipotent char", !6, i64 0}
+!21 = !{!"long", !7, i64 0}
+!22 = !{!23, !6, i64 72}
+!23 = !{!"archive_write_filter", !21, i64 0, !5, i64 8, !12, i64 16, !6, i64 24, !6, i64 32, !6, i64 40, !6, i64 48, !6, i64 56, !6, i64 64, !6, i64 72, !20, i64 80, !14, i64 88, !14, i64 92, !14, i64 96, !14, i64 100}
+!24 = !{!23, !6, i64 24}
+!25 = !{!23, !6, i64 56}
+!26 = !{!23, !6, i64 64}
+!27 = !{!23, !6, i64 32}
+!28 = !{!23, !14, i64 88}
+!29 = !{!23, !20, i64 80}
+!30 = !{!20, !20, i64 0}
+!31 = !{!7, !7, i64 0}
+!32 = !{!23, !12, i64 16}
+!33 = !{!18, !20, i64 96}
+!34 = !{!18, !21, i64 104}
+!35 = !{!18, !14, i64 40}
+!36 = !{!23, !5, i64 8}
+!37 = !{!21, !21, i64 0}
+!38 = !{!39, !14, i64 0}
+!39 = !{!"archive", !14, i64 0, !14, i64 4, !40, i64 8, !14, i64 16, !20, i64 24, !14, i64 32, !14, i64 36, !20, i64 40, !41, i64 48, !20, i64 72, !14, i64 80, !14, i64 84, !42, i64 88, !20, i64 96, !21, i64 104, !21, i64 112, !21, i64 120, !7, i64 128, !21, i64 136}
+!40 = !{!"p1 _ZTS14archive_vtable", !6, i64 0}
+!41 = !{!"archive_string", !20, i64 0, !21, i64 8, !21, i64 16}
+!42 = !{!"p1 _ZTS19archive_string_conv", !6, i64 0}
+!43 = !{!18, !20, i64 32}
+!44 = !{!23, !6, i64 40}
+!45 = !{!6, !6, i64 0}
+!46 = !{!18, !21, i64 88}
+!47 = !{!18, !20, i64 8}
+!48 = !{!18, !14, i64 16}

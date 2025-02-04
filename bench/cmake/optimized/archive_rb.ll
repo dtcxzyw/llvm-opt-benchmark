@@ -1,405 +1,398 @@
-; ModuleID = 'bench/cmake/original/archive_rb.c.ll'
-source_filename = "bench/cmake/original/archive_rb.c.ll"
+; ModuleID = 'bench/cmake/original/archive_rb.ll'
+source_filename = "bench/cmake/original/archive_rb.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local void @__archive_rb_tree_init(ptr noundef writeonly captures(none) initializes((0, 16)) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %1, ptr %3, align 8
-  store ptr null, ptr %0, align 8
+  store ptr %1, ptr %3, align 8, !tbaa !4
+  store ptr null, ptr %0, align 8, !tbaa !11
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef ptr @__archive_rb_tree_find_node(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8
+  %4 = load ptr, ptr %3, align 8, !tbaa !4
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %6 = load ptr, ptr %5, align 8
-  %.01012 = load ptr, ptr %0, align 8
-  %.not13 = icmp eq ptr %.01012, null
-  br i1 %.not13, label %._crit_edge, label %.lr.ph
+  %6 = load ptr, ptr %5, align 8, !tbaa !12
+  %.01218 = load ptr, ptr %0, align 8, !tbaa !11
+  %.not19 = icmp eq ptr %.01218, null
+  br i1 %.not19, label %.thread, label %.lr.ph
 
-.lr.ph:                                           ; preds = %2, %9
-  %.01014 = phi ptr [ %.010, %9 ], [ %.01012, %2 ]
-  %7 = tail call i32 %6(ptr noundef nonnull %.01014, ptr noundef %1) #4
-  %8 = icmp eq i32 %7, 0
-  br i1 %8, label %._crit_edge, label %9
+.lr.ph:                                           ; preds = %2, %8
+  %.01220 = phi ptr [ %.012, %8 ], [ %.01218, %2 ]
+  %7 = tail call i32 %6(ptr noundef nonnull %.01220, ptr noundef %1) #4
+  %.not15 = icmp eq i32 %7, 0
+  br i1 %.not15, label %.thread, label %8
 
-9:                                                ; preds = %.lr.ph
-  %10 = icmp sgt i32 %7, 0
-  %11 = zext i1 %10 to i64
-  %12 = getelementptr inbounds nuw [2 x ptr], ptr %.01014, i64 0, i64 %11
-  %.010 = load ptr, ptr %12, align 8
-  %.not = icmp eq ptr %.010, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !5
+8:                                                ; preds = %.lr.ph
+  %9 = icmp sgt i32 %7, 0
+  %10 = zext i1 %9 to i64
+  %11 = getelementptr inbounds nuw [2 x ptr], ptr %.01220, i64 0, i64 %10
+  %.012 = load ptr, ptr %11, align 8, !tbaa !11
+  %.not = icmp eq ptr %.012, null
+  br i1 %.not, label %.thread, label %.lr.ph, !llvm.loop !14
 
-._crit_edge:                                      ; preds = %.lr.ph, %9, %2
-  %.010.lcssa = phi ptr [ null, %2 ], [ null, %9 ], [ %.01014, %.lr.ph ]
-  ret ptr %.010.lcssa
+.thread:                                          ; preds = %8, %.lr.ph, %2
+  %.012.lcssa = phi ptr [ null, %2 ], [ %.01220, %.lr.ph ], [ null, %8 ]
+  ret ptr %.012.lcssa
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @__archive_rb_tree_find_node_geq(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8
+  %4 = load ptr, ptr %3, align 8, !tbaa !4
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %6 = load ptr, ptr %5, align 8
-  %.01416 = load ptr, ptr %0, align 8
-  %.not17 = icmp eq ptr %.01416, null
-  br i1 %.not17, label %._crit_edge, label %.lr.ph
+  %6 = load ptr, ptr %5, align 8, !tbaa !12
+  %.01825 = load ptr, ptr %0, align 8, !tbaa !11
+  %.not26 = icmp eq ptr %.01825, null
+  br i1 %.not26, label %.thread, label %.lr.ph
 
-.lr.ph:                                           ; preds = %2, %9
-  %.01419 = phi ptr [ %.014, %9 ], [ %.01416, %2 ]
-  %.01318 = phi ptr [ %spec.select, %9 ], [ null, %2 ]
-  %7 = tail call i32 %6(ptr noundef nonnull %.01419, ptr noundef %1) #4
-  %8 = icmp eq i32 %7, 0
-  br i1 %8, label %._crit_edge, label %9
+.lr.ph:                                           ; preds = %2, %8
+  %.01828 = phi ptr [ %.018, %8 ], [ %.01825, %2 ]
+  %.01527 = phi ptr [ %spec.select, %8 ], [ null, %2 ]
+  %7 = tail call i32 %6(ptr noundef nonnull %.01828, ptr noundef %1) #4
+  %.not21 = icmp eq i32 %7, 0
+  br i1 %.not21, label %.thread, label %8
 
-9:                                                ; preds = %.lr.ph
-  %10 = icmp slt i32 %7, 0
-  %spec.select = select i1 %10, ptr %.01419, ptr %.01318
-  %11 = icmp sgt i32 %7, 0
-  %12 = zext i1 %11 to i64
-  %13 = getelementptr inbounds nuw [2 x ptr], ptr %.01419, i64 0, i64 %12
-  %.014 = load ptr, ptr %13, align 8
-  %.not = icmp eq ptr %.014, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !7
+8:                                                ; preds = %.lr.ph
+  %9 = icmp slt i32 %7, 0
+  %spec.select = select i1 %9, ptr %.01828, ptr %.01527
+  %10 = icmp sgt i32 %7, 0
+  %11 = zext i1 %10 to i64
+  %12 = getelementptr inbounds nuw [2 x ptr], ptr %.01828, i64 0, i64 %11
+  %.018 = load ptr, ptr %12, align 8, !tbaa !11
+  %.not = icmp eq ptr %.018, null
+  br i1 %.not, label %.thread, label %.lr.ph, !llvm.loop !16
 
-._crit_edge:                                      ; preds = %.lr.ph, %9, %2
-  %.0 = phi ptr [ null, %2 ], [ %spec.select, %9 ], [ %.01419, %.lr.ph ]
-  ret ptr %.0
+.thread:                                          ; preds = %8, %.lr.ph, %2
+  %.2 = phi ptr [ null, %2 ], [ %.01828, %.lr.ph ], [ %spec.select, %8 ]
+  ret ptr %.2
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @__archive_rb_tree_find_node_leq(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8
+  %4 = load ptr, ptr %3, align 8, !tbaa !4
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %6 = load ptr, ptr %5, align 8
-  %.01416 = load ptr, ptr %0, align 8
-  %.not17 = icmp eq ptr %.01416, null
-  br i1 %.not17, label %._crit_edge, label %.lr.ph
+  %6 = load ptr, ptr %5, align 8, !tbaa !12
+  %.01825 = load ptr, ptr %0, align 8, !tbaa !11
+  %.not26 = icmp eq ptr %.01825, null
+  br i1 %.not26, label %.thread, label %.lr.ph
 
-.lr.ph:                                           ; preds = %2, %9
-  %.01419 = phi ptr [ %.014, %9 ], [ %.01416, %2 ]
-  %.01318 = phi ptr [ %spec.select, %9 ], [ null, %2 ]
-  %7 = tail call i32 %6(ptr noundef nonnull %.01419, ptr noundef %1) #4
-  %8 = icmp eq i32 %7, 0
-  br i1 %8, label %._crit_edge, label %9
+.lr.ph:                                           ; preds = %2, %8
+  %.01828 = phi ptr [ %.018, %8 ], [ %.01825, %2 ]
+  %.01527 = phi ptr [ %spec.select, %8 ], [ null, %2 ]
+  %7 = tail call i32 %6(ptr noundef nonnull %.01828, ptr noundef %1) #4
+  %.not21 = icmp eq i32 %7, 0
+  br i1 %.not21, label %.thread, label %8
 
-9:                                                ; preds = %.lr.ph
-  %10 = icmp sgt i32 %7, 0
-  %spec.select = select i1 %10, ptr %.01419, ptr %.01318
-  %11 = zext i1 %10 to i64
-  %12 = getelementptr inbounds nuw [2 x ptr], ptr %.01419, i64 0, i64 %11
-  %.014 = load ptr, ptr %12, align 8
-  %.not = icmp eq ptr %.014, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !8
+8:                                                ; preds = %.lr.ph
+  %9 = icmp sgt i32 %7, 0
+  %spec.select = select i1 %9, ptr %.01828, ptr %.01527
+  %10 = zext i1 %9 to i64
+  %11 = getelementptr inbounds nuw [2 x ptr], ptr %.01828, i64 0, i64 %10
+  %.018 = load ptr, ptr %11, align 8, !tbaa !11
+  %.not = icmp eq ptr %.018, null
+  br i1 %.not, label %.thread, label %.lr.ph, !llvm.loop !17
 
-._crit_edge:                                      ; preds = %.lr.ph, %9, %2
-  %.0 = phi ptr [ null, %2 ], [ %spec.select, %9 ], [ %.01419, %.lr.ph ]
-  ret ptr %.0
+.thread:                                          ; preds = %8, %.lr.ph, %2
+  %.2 = phi ptr [ null, %2 ], [ %.01828, %.lr.ph ], [ %spec.select, %8 ]
+  ret ptr %.2
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 0, 2) i32 @__archive_rb_tree_insert_node(ptr noundef %0, ptr noundef %1) local_unnamed_addr #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8
-  %5 = load ptr, ptr %4, align 8
-  %.03846 = load ptr, ptr %0, align 8
-  %.not47 = icmp eq ptr %.03846, null
-  br i1 %.not47, label %.thread88, label %.lr.ph
+  %4 = load ptr, ptr %3, align 8, !tbaa !4
+  %5 = load ptr, ptr %4, align 8, !tbaa !18
+  %.04155 = load ptr, ptr %0, align 8, !tbaa !11
+  %.not56 = icmp eq ptr %.04155, null
+  br i1 %.not56, label %.thread97, label %.lr.ph
 
-.thread88:                                        ; preds = %2
+.thread97:                                        ; preds = %2
   %6 = ptrtoint ptr %0 to i64
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %.masked80 = and i64 %6, -3
+  %.masked89 = and i64 %6, -3
   br label %.critedge
 
-.lr.ph:                                           ; preds = %2, %10
-  %.03848 = phi ptr [ %.038, %10 ], [ %.03846, %2 ]
-  %8 = tail call i32 %5(ptr noundef nonnull %.03848, ptr noundef %1) #4
-  %.fr105 = freeze i32 %8
-  %9 = icmp eq i32 %.fr105, 0
-  br i1 %9, label %__archive_rb_tree_insert_rebalance.exit, label %10
+.lr.ph:                                           ; preds = %2, %9
+  %.04157 = phi ptr [ %.041, %9 ], [ %.04155, %2 ]
+  %8 = tail call i32 %5(ptr noundef nonnull %.04157, ptr noundef %1) #4
+  %.fr114 = freeze i32 %8
+  %.not48 = icmp eq i32 %.fr114, 0
+  br i1 %.not48, label %__archive_rb_tree_insert_rebalance.exit, label %9
 
-10:                                               ; preds = %.lr.ph
-  %11 = icmp sgt i32 %.fr105, 0
-  %12 = zext i1 %11 to i64
-  %13 = getelementptr inbounds nuw [2 x ptr], ptr %.03848, i64 0, i64 %12
-  %.038 = load ptr, ptr %13, align 8
-  %.not = icmp eq ptr %.038, null
-  br i1 %.not, label %14, label %.lr.ph, !llvm.loop !9
+9:                                                ; preds = %.lr.ph
+  %10 = icmp sgt i32 %.fr114, 0
+  %11 = zext i1 %10 to i64
+  %12 = getelementptr inbounds nuw [2 x ptr], ptr %.04157, i64 0, i64 %11
+  %.041 = load ptr, ptr %12, align 8, !tbaa !11
+  %.not = icmp eq ptr %.041, null
+  br i1 %.not, label %13, label %.lr.ph, !llvm.loop !19
 
-14:                                               ; preds = %10
-  %15 = zext i1 %11 to i64
-  %16 = ptrtoint ptr %.03848 to i64
-  %17 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %.masked = and i64 %16, -3
-  %spec.select = select i1 %11, i64 2, i64 0
-  %18 = or disjoint i64 %spec.select, %.masked
-  %19 = icmp eq ptr %.03848, %0
-  br i1 %19, label %.critedge, label %20
+13:                                               ; preds = %9
+  %14 = zext i1 %10 to i64
+  %15 = ptrtoint ptr %.04157 to i64
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %.masked = and i64 %15, -3
+  %spec.select = select i1 %10, i64 2, i64 0
+  %17 = or disjoint i64 %spec.select, %.masked
+  %18 = icmp eq ptr %.04157, %0
+  br i1 %18, label %.critedge, label %19
 
-20:                                               ; preds = %14
-  %21 = or i64 %18, 1
-  store i64 %21, ptr %17, align 8
-  %22 = getelementptr inbounds nuw i8, ptr %.03848, i64 16
-  %23 = load i64, ptr %22, align 8
-  %24 = and i64 %23, 1
-  %25 = icmp eq i64 %24, 0
-  %26 = zext i1 %11 to i64
-  %27 = getelementptr inbounds nuw [2 x ptr], ptr %.03848, i64 0, i64 %26
-  %28 = load ptr, ptr %27, align 8
-  store ptr %28, ptr %1, align 8
-  %29 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store ptr %28, ptr %29, align 8
-  store ptr %1, ptr %27, align 8
-  br i1 %25, label %__archive_rb_tree_insert_rebalance.exit, label %30
+19:                                               ; preds = %13
+  %20 = or i64 %17, 1
+  store i64 %20, ptr %16, align 8, !tbaa !20
+  %21 = getelementptr inbounds nuw i8, ptr %.04157, i64 16
+  %22 = load i64, ptr %21, align 8, !tbaa !20
+  %23 = and i64 %22, 1
+  %24 = icmp eq i64 %23, 0
+  %25 = zext i1 %10 to i64
+  %26 = getelementptr inbounds nuw [2 x ptr], ptr %.04157, i64 0, i64 %25
+  %27 = load ptr, ptr %26, align 8, !tbaa !11
+  store ptr %27, ptr %1, align 8, !tbaa !11
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  store ptr %27, ptr %28, align 8, !tbaa !11
+  store ptr %1, ptr %26, align 8, !tbaa !11
+  br i1 %24, label %__archive_rb_tree_insert_rebalance.exit, label %29
 
-30:                                               ; preds = %20
-  %31 = load i64, ptr %17, align 8
-  %32 = and i64 %31, -4
-  %33 = inttoptr i64 %32 to ptr
-  %34 = getelementptr inbounds nuw i8, ptr %33, i64 16
-  %35 = load i64, ptr %34, align 8
-  %36 = and i64 %35, -4
-  %37 = inttoptr i64 %36 to ptr
-  %38 = getelementptr inbounds nuw i8, ptr %37, i64 8
-  %39 = load ptr, ptr %38, align 8
-  %40 = icmp eq ptr %39, %33
-  %41 = xor i1 %40, true
-  %42 = zext i1 %41 to i64
-  %43 = getelementptr inbounds nuw [2 x ptr], ptr %37, i64 0, i64 %42
-  %44 = load ptr, ptr %43, align 8
-  %45 = icmp eq ptr %44, null
-  br i1 %45, label %._crit_edge.i, label %.lr.ph.i.preheader
+29:                                               ; preds = %19
+  %30 = and i64 %15, -4
+  %31 = inttoptr i64 %30 to ptr
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 16
+  %33 = load i64, ptr %32, align 8, !tbaa !20
+  %34 = and i64 %33, -4
+  %35 = inttoptr i64 %34 to ptr
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 8
+  %37 = load ptr, ptr %36, align 8, !tbaa !11
+  %38 = icmp eq ptr %37, %31
+  %39 = xor i1 %38, true
+  %40 = zext i1 %39 to i64
+  %41 = getelementptr inbounds nuw [2 x ptr], ptr %35, i64 0, i64 %40
+  %42 = load ptr, ptr %41, align 8, !tbaa !11
+  %43 = icmp eq ptr %42, null
+  br i1 %43, label %._crit_edge.i, label %.lr.ph.i.preheader
 
-.lr.ph.i.preheader:                               ; preds = %30
-  %46 = getelementptr inbounds nuw i8, ptr %44, i64 16
-  %47 = load i64, ptr %46, align 8
-  %48 = and i64 %47, 1
-  %49 = icmp eq i64 %48, 0
-  br i1 %49, label %._crit_edge.i, label %.lr.ph50
+.lr.ph.i.preheader:                               ; preds = %29
+  %44 = getelementptr inbounds nuw i8, ptr %42, i64 16
+  %45 = load i64, ptr %44, align 8, !tbaa !20
+  %46 = and i64 %45, 1
+  %47 = icmp eq i64 %46, 0
+  br i1 %47, label %._crit_edge.i, label %.lr.ph59
 
-50:                                               ; preds = %80
-  %51 = and i64 %83, -4
-  %52 = inttoptr i64 %51 to ptr
-  %53 = getelementptr inbounds nuw i8, ptr %52, i64 8
-  %54 = load ptr, ptr %53, align 8
-  %55 = icmp eq ptr %54, %81
-  %56 = xor i1 %55, true
-  %57 = zext i1 %56 to i64
-  %58 = getelementptr inbounds nuw [2 x ptr], ptr %52, i64 0, i64 %57
-  %59 = load ptr, ptr %58, align 8
-  %60 = icmp eq ptr %59, null
-  br i1 %60, label %._crit_edge.i, label %.lr.ph.i
+.lr.ph59:                                         ; preds = %.lr.ph.i.preheader
+  %48 = load ptr, ptr %0, align 8, !tbaa !23
+  br label %64
 
-.lr.ph.i:                                         ; preds = %50
-  %61 = getelementptr inbounds nuw i8, ptr %59, i64 16
-  %62 = load i64, ptr %61, align 8
-  %63 = and i64 %62, 1
-  %64 = icmp eq i64 %63, 0
-  br i1 %64, label %._crit_edge.i, label %.lr.ph50
+49:                                               ; preds = %79
+  %50 = and i64 %82, -4
+  %51 = inttoptr i64 %50 to ptr
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 8
+  %53 = load ptr, ptr %52, align 8, !tbaa !11
+  %54 = icmp eq ptr %53, %80
+  %55 = xor i1 %54, true
+  %56 = zext i1 %55 to i64
+  %57 = getelementptr inbounds nuw [2 x ptr], ptr %51, i64 0, i64 %56
+  %58 = load ptr, ptr %57, align 8, !tbaa !11
+  %59 = icmp eq ptr %58, null
+  br i1 %59, label %._crit_edge.i, label %.lr.ph.i
 
-.lr.ph50:                                         ; preds = %.lr.ph.i.preheader, %.lr.ph.i
-  %65 = phi i64 [ %62, %.lr.ph.i ], [ %47, %.lr.ph.i.preheader ]
-  %66 = phi ptr [ %61, %.lr.ph.i ], [ %46, %.lr.ph.i.preheader ]
-  %67 = phi ptr [ %82, %.lr.ph.i ], [ %34, %.lr.ph.i.preheader ]
-  %68 = phi ptr [ %52, %.lr.ph.i ], [ %37, %.lr.ph.i.preheader ]
+.lr.ph.i:                                         ; preds = %49
+  %60 = getelementptr inbounds nuw i8, ptr %58, i64 16
+  %61 = load i64, ptr %60, align 8, !tbaa !20
+  %62 = and i64 %61, 1
+  %63 = icmp eq i64 %62, 0
+  br i1 %63, label %._crit_edge.i, label %64
+
+64:                                               ; preds = %.lr.ph59, %.lr.ph.i
+  %65 = phi i64 [ %45, %.lr.ph59 ], [ %61, %.lr.ph.i ]
+  %66 = phi ptr [ %44, %.lr.ph59 ], [ %60, %.lr.ph.i ]
+  %67 = phi ptr [ %32, %.lr.ph59 ], [ %81, %.lr.ph.i ]
+  %68 = phi ptr [ %35, %.lr.ph59 ], [ %51, %.lr.ph.i ]
   %69 = and i64 %65, -2
-  store i64 %69, ptr %66, align 8
-  %70 = load i64, ptr %67, align 8
+  store i64 %69, ptr %66, align 8, !tbaa !20
+  %70 = load i64, ptr %67, align 8, !tbaa !20
   %71 = and i64 %70, -2
-  store i64 %71, ptr %67, align 8
-  %72 = load ptr, ptr %0, align 8
-  %73 = icmp eq ptr %72, %68
-  br i1 %73, label %__archive_rb_tree_insert_rebalance.exit, label %74
+  store i64 %71, ptr %67, align 8, !tbaa !20
+  %72 = icmp eq ptr %48, %68
+  br i1 %72, label %__archive_rb_tree_insert_rebalance.exit, label %73
 
-74:                                               ; preds = %.lr.ph50
-  %75 = getelementptr inbounds nuw i8, ptr %68, i64 16
-  %76 = load i64, ptr %75, align 8
-  %77 = or i64 %76, 1
-  store i64 %77, ptr %75, align 8
-  %78 = and i64 %76, -4
-  %79 = icmp eq i64 %78, 0
-  br i1 %79, label %__archive_rb_tree_insert_rebalance.exit, label %80
+73:                                               ; preds = %64
+  %74 = getelementptr inbounds nuw i8, ptr %68, i64 16
+  %75 = load i64, ptr %74, align 8, !tbaa !20
+  %76 = or i64 %75, 1
+  store i64 %76, ptr %74, align 8, !tbaa !20
+  %77 = and i64 %75, -4
+  %78 = icmp eq i64 %77, 0
+  br i1 %78, label %__archive_rb_tree_insert_rebalance.exit, label %79
 
-80:                                               ; preds = %74
-  %81 = inttoptr i64 %78 to ptr
-  %82 = getelementptr inbounds nuw i8, ptr %81, i64 16
-  %83 = load i64, ptr %82, align 8
-  %84 = and i64 %83, 1
-  %85 = icmp eq i64 %84, 0
-  br i1 %85, label %__archive_rb_tree_insert_rebalance.exit, label %50
+79:                                               ; preds = %73
+  %80 = inttoptr i64 %77 to ptr
+  %81 = getelementptr inbounds nuw i8, ptr %80, i64 16
+  %82 = load i64, ptr %81, align 8, !tbaa !20
+  %83 = and i64 %82, 1
+  %84 = icmp eq i64 %83, 0
+  br i1 %84, label %__archive_rb_tree_insert_rebalance.exit, label %49
 
-._crit_edge.i:                                    ; preds = %50, %.lr.ph.i, %.lr.ph.i.preheader, %30
-  %.025.lcssa.i = phi ptr [ %33, %30 ], [ %33, %.lr.ph.i.preheader ], [ %81, %.lr.ph.i ], [ %81, %50 ]
-  %.0.lcssa.i = phi ptr [ %1, %30 ], [ %1, %.lr.ph.i.preheader ], [ %68, %.lr.ph.i ], [ %68, %50 ]
-  %.lcssa45.i = phi ptr [ %34, %30 ], [ %34, %.lr.ph.i.preheader ], [ %82, %.lr.ph.i ], [ %82, %50 ]
-  %.lcssa43.i = phi i64 [ %35, %30 ], [ %35, %.lr.ph.i.preheader ], [ %83, %.lr.ph.i ], [ %83, %50 ]
-  %.lcssa41.i = phi i64 [ %36, %30 ], [ %36, %.lr.ph.i.preheader ], [ %51, %.lr.ph.i ], [ %51, %50 ]
-  %.lcssa39.i = phi ptr [ %37, %30 ], [ %37, %.lr.ph.i.preheader ], [ %52, %.lr.ph.i ], [ %52, %50 ]
-  %.lcssa37.i = phi i1 [ %40, %30 ], [ %40, %.lr.ph.i.preheader ], [ %55, %.lr.ph.i ], [ %55, %50 ]
-  %.lcssa.i = phi i64 [ %42, %30 ], [ %42, %.lr.ph.i.preheader ], [ %57, %.lr.ph.i ], [ %57, %50 ]
-  %86 = getelementptr inbounds nuw [2 x ptr], ptr %.025.lcssa.i, i64 0, i64 %.lcssa.i
-  %87 = load ptr, ptr %86, align 8
-  %88 = icmp ne ptr %.0.lcssa.i, %87
-  %89 = icmp eq ptr %87, null
-  %or.cond.i = or i1 %88, %89
-  br i1 %or.cond.i, label %._crit_edge.__archive_rb_tree_reparent_nodes.exit_crit_edge.i, label %90
+._crit_edge.i:                                    ; preds = %49, %.lr.ph.i, %.lr.ph.i.preheader, %29
+  %.025.lcssa.i = phi ptr [ %31, %29 ], [ %31, %.lr.ph.i.preheader ], [ %80, %.lr.ph.i ], [ %80, %49 ]
+  %.0.lcssa.i = phi ptr [ %1, %29 ], [ %1, %.lr.ph.i.preheader ], [ %68, %.lr.ph.i ], [ %68, %49 ]
+  %.lcssa46.i = phi ptr [ %32, %29 ], [ %32, %.lr.ph.i.preheader ], [ %81, %.lr.ph.i ], [ %81, %49 ]
+  %.lcssa44.i = phi i64 [ %33, %29 ], [ %33, %.lr.ph.i.preheader ], [ %82, %.lr.ph.i ], [ %82, %49 ]
+  %.lcssa42.i = phi i64 [ %34, %29 ], [ %34, %.lr.ph.i.preheader ], [ %50, %.lr.ph.i ], [ %50, %49 ]
+  %.lcssa40.i = phi ptr [ %35, %29 ], [ %35, %.lr.ph.i.preheader ], [ %51, %.lr.ph.i ], [ %51, %49 ]
+  %.lcssa38.i = phi i1 [ %38, %29 ], [ %38, %.lr.ph.i.preheader ], [ %54, %.lr.ph.i ], [ %54, %49 ]
+  %.lcssa.i = phi i64 [ %40, %29 ], [ %40, %.lr.ph.i.preheader ], [ %56, %.lr.ph.i ], [ %56, %49 ]
+  %85 = getelementptr inbounds nuw [2 x ptr], ptr %.025.lcssa.i, i64 0, i64 %.lcssa.i
+  %86 = load ptr, ptr %85, align 8, !tbaa !11
+  %87 = icmp ne ptr %.0.lcssa.i, %86
+  %88 = icmp eq ptr %86, null
+  %or.cond.i = or i1 %87, %88
+  br i1 %or.cond.i, label %._crit_edge.__archive_rb_tree_reparent_nodes.exit_crit_edge.i, label %89
 
 ._crit_edge.__archive_rb_tree_reparent_nodes.exit_crit_edge.i: ; preds = %._crit_edge.i
-  %.pre.i = zext i1 %.lcssa37.i to i64
+  %.pre.i = zext i1 %.lcssa38.i to i64
   br label %__archive_rb_tree_reparent_nodes.exit.i
 
-90:                                               ; preds = %._crit_edge.i
-  %91 = lshr i64 %.lcssa43.i, 1
-  %92 = and i64 %91, 1
-  %93 = getelementptr inbounds nuw [2 x ptr], ptr %.lcssa39.i, i64 0, i64 %92
-  store ptr %87, ptr %93, align 8
-  %94 = zext i1 %.lcssa37.i to i64
-  %95 = getelementptr inbounds nuw [2 x ptr], ptr %87, i64 0, i64 %94
-  %96 = load ptr, ptr %95, align 8
-  store ptr %96, ptr %86, align 8
-  store ptr %.025.lcssa.i, ptr %95, align 8
-  %97 = getelementptr inbounds nuw i8, ptr %87, i64 16
-  %98 = load i64, ptr %97, align 8
-  %99 = and i64 %98, 3
-  %100 = or disjoint i64 %99, %.lcssa41.i
-  store i64 %100, ptr %97, align 8
-  %101 = ptrtoint ptr %.0.lcssa.i to i64
-  %102 = load i64, ptr %.lcssa45.i, align 8
-  %103 = and i64 %102, 3
-  %104 = or i64 %103, %101
-  store i64 %104, ptr %.lcssa45.i, align 8
-  %105 = load i64, ptr %97, align 8
-  %106 = xor i64 %105, %104
-  %107 = and i64 %106, 3
-  %108 = xor i64 %107, %105
-  store i64 %108, ptr %97, align 8
-  %109 = load i64, ptr %.lcssa45.i, align 8
-  %110 = xor i64 %109, %107
-  %111 = and i64 %110, -3
-  %masksel.i.i = select i1 %.lcssa37.i, i64 2, i64 0
-  %storemerge.i.i = or disjoint i64 %111, %masksel.i.i
-  store i64 %storemerge.i.i, ptr %.lcssa45.i, align 8
-  %112 = load ptr, ptr %86, align 8
-  %113 = icmp eq ptr %112, null
-  br i1 %113, label %__archive_rb_tree_reparent_nodes.exit.i, label %.sink.split.i.i
+89:                                               ; preds = %._crit_edge.i
+  %90 = lshr i64 %.lcssa44.i, 1
+  %91 = and i64 %90, 1
+  %92 = getelementptr inbounds nuw [2 x ptr], ptr %.lcssa40.i, i64 0, i64 %91
+  store ptr %86, ptr %92, align 8, !tbaa !11
+  %93 = zext i1 %.lcssa38.i to i64
+  %94 = getelementptr inbounds nuw [2 x ptr], ptr %86, i64 0, i64 %93
+  %95 = load ptr, ptr %94, align 8, !tbaa !11
+  store ptr %95, ptr %85, align 8, !tbaa !11
+  store ptr %.025.lcssa.i, ptr %94, align 8, !tbaa !11
+  %96 = getelementptr inbounds nuw i8, ptr %86, i64 16
+  %97 = load i64, ptr %96, align 8, !tbaa !20
+  %98 = and i64 %97, 3
+  %99 = or disjoint i64 %98, %.lcssa42.i
+  store i64 %99, ptr %96, align 8, !tbaa !20
+  %100 = ptrtoint ptr %.0.lcssa.i to i64
+  %101 = load i64, ptr %.lcssa46.i, align 8, !tbaa !20
+  %102 = and i64 %101, 3
+  %103 = or i64 %102, %100
+  store i64 %103, ptr %.lcssa46.i, align 8, !tbaa !20
+  %104 = load i64, ptr %96, align 8, !tbaa !20
+  %105 = xor i64 %104, %103
+  %106 = and i64 %105, 3
+  %107 = xor i64 %106, %104
+  store i64 %107, ptr %96, align 8, !tbaa !20
+  %108 = load i64, ptr %.lcssa46.i, align 8, !tbaa !20
+  %109 = xor i64 %108, %106
+  %110 = and i64 %109, -3
+  %masksel.i.i = select i1 %.lcssa38.i, i64 2, i64 0
+  %storemerge.i.i = or disjoint i64 %110, %masksel.i.i
+  store i64 %storemerge.i.i, ptr %.lcssa46.i, align 8, !tbaa !20
+  %111 = load ptr, ptr %85, align 8, !tbaa !11
+  %112 = icmp eq ptr %111, null
+  br i1 %112, label %__archive_rb_tree_reparent_nodes.exit.i, label %.sink.split.i.i
 
-.sink.split.i.i:                                  ; preds = %90
-  %114 = ptrtoint ptr %.025.lcssa.i to i64
-  %115 = getelementptr inbounds nuw i8, ptr %112, i64 16
-  %116 = load i64, ptr %115, align 8
-  %117 = and i64 %116, 3
-  %118 = or i64 %117, %114
-  store i64 %118, ptr %115, align 8
-  %119 = load ptr, ptr %86, align 8
-  %120 = getelementptr inbounds nuw i8, ptr %119, i64 16
-  %121 = load i64, ptr %120, align 8
-  %122 = and i64 %121, -3
-  %masksel44.i.i = select i1 %.lcssa37.i, i64 0, i64 2
-  %.sink.i.i = or disjoint i64 %122, %masksel44.i.i
-  store i64 %.sink.i.i, ptr %120, align 8
+.sink.split.i.i:                                  ; preds = %89
+  %113 = ptrtoint ptr %.025.lcssa.i to i64
+  %114 = getelementptr inbounds nuw i8, ptr %111, i64 16
+  %115 = load i64, ptr %114, align 8, !tbaa !20
+  %116 = and i64 %115, 1
+  %.masked.i.i = and i64 %113, -3
+  %masksel44.i.i = select i1 %.lcssa38.i, i64 0, i64 2
+  %117 = or disjoint i64 %masksel44.i.i, %.masked.i.i
+  %.sink.i.i = or i64 %117, %116
+  store i64 %.sink.i.i, ptr %114, align 8, !tbaa !20
   br label %__archive_rb_tree_reparent_nodes.exit.i
 
-__archive_rb_tree_reparent_nodes.exit.i:          ; preds = %.sink.split.i.i, %90, %._crit_edge.__archive_rb_tree_reparent_nodes.exit_crit_edge.i
-  %.pre-phi.i = phi i64 [ %.pre.i, %._crit_edge.__archive_rb_tree_reparent_nodes.exit_crit_edge.i ], [ %94, %.sink.split.i.i ], [ %94, %90 ]
-  %123 = getelementptr inbounds nuw [2 x ptr], ptr %.lcssa39.i, i64 0, i64 %.pre-phi.i
-  %124 = load ptr, ptr %123, align 8
-  %125 = icmp eq ptr %124, null
-  br i1 %125, label %__archive_rb_tree_reparent_nodes.exit35.i, label %126
+__archive_rb_tree_reparent_nodes.exit.i:          ; preds = %.sink.split.i.i, %89, %._crit_edge.__archive_rb_tree_reparent_nodes.exit_crit_edge.i
+  %.pre-phi.i = phi i64 [ %.pre.i, %._crit_edge.__archive_rb_tree_reparent_nodes.exit_crit_edge.i ], [ %93, %.sink.split.i.i ], [ %93, %89 ]
+  %118 = getelementptr inbounds nuw [2 x ptr], ptr %.lcssa40.i, i64 0, i64 %.pre-phi.i
+  %119 = load ptr, ptr %118, align 8, !tbaa !11
+  %120 = icmp eq ptr %119, null
+  br i1 %120, label %__archive_rb_tree_reparent_nodes.exit36.i, label %121
 
-126:                                              ; preds = %__archive_rb_tree_reparent_nodes.exit.i
-  %127 = getelementptr inbounds nuw i8, ptr %.lcssa39.i, i64 16
-  %128 = load i64, ptr %127, align 8
-  %129 = and i64 %128, -4
-  %130 = inttoptr i64 %129 to ptr
-  %131 = lshr i64 %128, 1
-  %132 = and i64 %131, 1
-  %133 = getelementptr inbounds nuw [2 x ptr], ptr %130, i64 0, i64 %132
-  store ptr %124, ptr %133, align 8
-  %134 = getelementptr inbounds nuw [2 x ptr], ptr %124, i64 0, i64 %.lcssa.i
-  %135 = load ptr, ptr %134, align 8
-  store ptr %135, ptr %123, align 8
-  store ptr %.lcssa39.i, ptr %134, align 8
-  %136 = getelementptr inbounds nuw i8, ptr %124, i64 16
-  %137 = load i64, ptr %136, align 8
-  %138 = and i64 %137, 3
-  %139 = or disjoint i64 %138, %129
-  store i64 %139, ptr %136, align 8
-  %140 = ptrtoint ptr %124 to i64
-  %141 = load i64, ptr %127, align 8
-  %142 = and i64 %141, 3
-  %143 = or i64 %142, %140
-  store i64 %143, ptr %127, align 8
-  %144 = load i64, ptr %136, align 8
-  %145 = xor i64 %144, %143
-  %146 = and i64 %145, 3
-  %147 = xor i64 %146, %144
-  store i64 %147, ptr %136, align 8
-  %148 = load i64, ptr %127, align 8
-  %149 = xor i64 %148, %146
-  %150 = and i64 %149, -3
-  %masksel.i30.i = select i1 %.lcssa37.i, i64 0, i64 2
-  %storemerge.i31.i = or disjoint i64 %150, %masksel.i30.i
-  store i64 %storemerge.i31.i, ptr %127, align 8
-  %151 = load ptr, ptr %123, align 8
-  %152 = icmp eq ptr %151, null
-  br i1 %152, label %__archive_rb_tree_reparent_nodes.exit35.i, label %.sink.split.i32.i
+121:                                              ; preds = %__archive_rb_tree_reparent_nodes.exit.i
+  %122 = getelementptr inbounds nuw i8, ptr %.lcssa40.i, i64 16
+  %123 = load i64, ptr %122, align 8, !tbaa !20
+  %124 = and i64 %123, -4
+  %125 = inttoptr i64 %124 to ptr
+  %126 = lshr i64 %123, 1
+  %127 = and i64 %126, 1
+  %128 = getelementptr inbounds nuw [2 x ptr], ptr %125, i64 0, i64 %127
+  store ptr %119, ptr %128, align 8, !tbaa !11
+  %129 = getelementptr inbounds nuw [2 x ptr], ptr %119, i64 0, i64 %.lcssa.i
+  %130 = load ptr, ptr %129, align 8, !tbaa !11
+  store ptr %130, ptr %118, align 8, !tbaa !11
+  store ptr %.lcssa40.i, ptr %129, align 8, !tbaa !11
+  %131 = getelementptr inbounds nuw i8, ptr %119, i64 16
+  %132 = load i64, ptr %131, align 8, !tbaa !20
+  %133 = and i64 %132, 3
+  %134 = or disjoint i64 %133, %124
+  store i64 %134, ptr %131, align 8, !tbaa !20
+  %135 = ptrtoint ptr %119 to i64
+  %136 = load i64, ptr %122, align 8, !tbaa !20
+  %137 = and i64 %136, 3
+  %138 = or i64 %137, %135
+  store i64 %138, ptr %122, align 8, !tbaa !20
+  %139 = load i64, ptr %131, align 8, !tbaa !20
+  %140 = xor i64 %139, %138
+  %141 = and i64 %140, 3
+  %142 = xor i64 %141, %139
+  store i64 %142, ptr %131, align 8, !tbaa !20
+  %143 = load i64, ptr %122, align 8, !tbaa !20
+  %144 = xor i64 %143, %141
+  %145 = and i64 %144, -3
+  %masksel.i30.i = select i1 %.lcssa38.i, i64 0, i64 2
+  %storemerge.i31.i = or disjoint i64 %145, %masksel.i30.i
+  store i64 %storemerge.i31.i, ptr %122, align 8, !tbaa !20
+  %146 = load ptr, ptr %118, align 8, !tbaa !11
+  %147 = icmp eq ptr %146, null
+  br i1 %147, label %__archive_rb_tree_reparent_nodes.exit36.i, label %.sink.split.i32.i
 
-.sink.split.i32.i:                                ; preds = %126
-  %153 = getelementptr inbounds nuw i8, ptr %151, i64 16
-  %154 = load i64, ptr %153, align 8
-  %155 = and i64 %154, 3
-  %156 = or disjoint i64 %155, %.lcssa41.i
-  store i64 %156, ptr %153, align 8
-  %157 = load ptr, ptr %123, align 8
-  %158 = getelementptr inbounds nuw i8, ptr %157, i64 16
-  %159 = load i64, ptr %158, align 8
-  %160 = and i64 %159, -3
-  %masksel44.i33.i = select i1 %.lcssa37.i, i64 2, i64 0
-  %.sink.i34.i = or disjoint i64 %160, %masksel44.i33.i
-  store i64 %.sink.i34.i, ptr %158, align 8
-  br label %__archive_rb_tree_reparent_nodes.exit35.i
+.sink.split.i32.i:                                ; preds = %121
+  %148 = getelementptr inbounds nuw i8, ptr %146, i64 16
+  %149 = load i64, ptr %148, align 8, !tbaa !20
+  %150 = and i64 %149, 1
+  %masksel44.i34.i = select i1 %.lcssa38.i, i64 2, i64 0
+  %151 = or disjoint i64 %masksel44.i34.i, %150
+  %.sink.i35.i = or disjoint i64 %151, %.lcssa42.i
+  store i64 %.sink.i35.i, ptr %148, align 8, !tbaa !20
+  br label %__archive_rb_tree_reparent_nodes.exit36.i
 
-__archive_rb_tree_reparent_nodes.exit35.i:        ; preds = %.sink.split.i32.i, %126, %__archive_rb_tree_reparent_nodes.exit.i
-  %161 = load ptr, ptr %0, align 8
-  %162 = getelementptr inbounds nuw i8, ptr %161, i64 16
-  %163 = load i64, ptr %162, align 8
-  %164 = and i64 %163, -2
-  store i64 %164, ptr %162, align 8
+__archive_rb_tree_reparent_nodes.exit36.i:        ; preds = %.sink.split.i32.i, %121, %__archive_rb_tree_reparent_nodes.exit.i
+  %152 = load ptr, ptr %0, align 8, !tbaa !23
+  %153 = getelementptr inbounds nuw i8, ptr %152, i64 16
+  %154 = load i64, ptr %153, align 8, !tbaa !20
+  %155 = and i64 %154, -2
+  store i64 %155, ptr %153, align 8, !tbaa !20
   br label %__archive_rb_tree_insert_rebalance.exit
 
-.critedge:                                        ; preds = %.thread88, %14
-  %165 = phi i64 [ %.masked80, %.thread88 ], [ %18, %14 ]
-  %.039.lcssa8294 = phi ptr [ %0, %.thread88 ], [ %.03848, %14 ]
-  %.037.lcssa8493 = phi i64 [ 0, %.thread88 ], [ %15, %14 ]
-  %166 = phi ptr [ %7, %.thread88 ], [ %17, %14 ]
-  %167 = and i64 %165, -2
-  store i64 %167, ptr %166, align 8
-  %168 = getelementptr inbounds nuw [2 x ptr], ptr %.039.lcssa8294, i64 0, i64 %.037.lcssa8493
-  %169 = load ptr, ptr %168, align 8
-  store ptr %169, ptr %1, align 8
-  %170 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store ptr %169, ptr %170, align 8
-  store ptr %1, ptr %168, align 8
+.critedge:                                        ; preds = %.thread97, %13
+  %156 = phi i64 [ %.masked89, %.thread97 ], [ %17, %13 ]
+  %.043.lcssa91103 = phi ptr [ %0, %.thread97 ], [ %.04157, %13 ]
+  %.039.lcssa93102 = phi i64 [ 0, %.thread97 ], [ %14, %13 ]
+  %157 = phi ptr [ %7, %.thread97 ], [ %16, %13 ]
+  %158 = and i64 %156, -2
+  store i64 %158, ptr %157, align 8, !tbaa !20
+  %159 = getelementptr inbounds nuw [2 x ptr], ptr %.043.lcssa91103, i64 0, i64 %.039.lcssa93102
+  %160 = load ptr, ptr %159, align 8, !tbaa !11
+  store ptr %160, ptr %1, align 8, !tbaa !11
+  %161 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  store ptr %160, ptr %161, align 8, !tbaa !11
+  store ptr %1, ptr %159, align 8, !tbaa !11
   br label %__archive_rb_tree_insert_rebalance.exit
 
-__archive_rb_tree_insert_rebalance.exit:          ; preds = %.lr.ph, %80, %74, %.lr.ph50, %__archive_rb_tree_reparent_nodes.exit35.i, %20, %.critedge
-  %.0 = phi i32 [ 1, %.critedge ], [ 1, %20 ], [ 1, %__archive_rb_tree_reparent_nodes.exit35.i ], [ 1, %.lr.ph50 ], [ 1, %74 ], [ 1, %80 ], [ 0, %.lr.ph ]
-  ret i32 %.0
+__archive_rb_tree_insert_rebalance.exit:          ; preds = %.lr.ph, %79, %73, %64, %__archive_rb_tree_reparent_nodes.exit36.i, %19, %.critedge
+  %.2 = phi i32 [ 1, %.critedge ], [ 1, %19 ], [ 1, %__archive_rb_tree_reparent_nodes.exit36.i ], [ 1, %64 ], [ 1, %73 ], [ 1, %79 ], [ 0, %.lr.ph ]
+  ret i32 %.2
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define dso_local void @__archive_rb_tree_remove_node(ptr noundef readonly captures(none) %0, ptr noundef readonly %1) local_unnamed_addr #2 {
-  %.val.pre = load ptr, ptr %1, align 8
+  %.val.pre = load ptr, ptr %1, align 8, !tbaa !11
   %3 = icmp eq ptr %.val.pre, null
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %5 = load ptr, ptr %4, align 8
+  %5 = load ptr, ptr %4, align 8, !tbaa !11
   %6 = icmp eq ptr %5, null
   br i1 %3, label %7, label %27
 
@@ -408,7 +401,7 @@ define dso_local void @__archive_rb_tree_remove_node(ptr noundef readonly captur
 
 8:                                                ; preds = %7
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %10 = load i64, ptr %9, align 8
+  %10 = load i64, ptr %9, align 8, !tbaa !20
   %11 = and i64 %10, 1
   %12 = icmp eq i64 %11, 0
   br i1 %12, label %.split23, label %.split
@@ -419,11 +412,11 @@ define dso_local void @__archive_rb_tree_remove_node(ptr noundef readonly captur
   %15 = and i64 %10, -4
   %16 = inttoptr i64 %15 to ptr
   %17 = getelementptr inbounds nuw [2 x ptr], ptr %16, i64 0, i64 %14
-  store ptr null, ptr %17, align 8
+  store ptr null, ptr %17, align 8, !tbaa !11
   br label %__archive_rb_tree_prune_node.exit
 
 .split23:                                         ; preds = %8
-  %18 = load ptr, ptr %0, align 8
+  %18 = load ptr, ptr %0, align 8, !tbaa !23
   %.not = icmp eq ptr %18, %1
   %19 = trunc i64 %10 to i32
   %20 = lshr exact i32 %19, 1
@@ -432,7 +425,7 @@ define dso_local void @__archive_rb_tree_remove_node(ptr noundef readonly captur
   %23 = inttoptr i64 %22 to ptr
   %24 = zext nneg i32 %21 to i64
   %25 = getelementptr inbounds nuw [2 x ptr], ptr %23, i64 0, i64 %24
-  store ptr %.val.pre, ptr %25, align 8
+  store ptr %.val.pre, ptr %25, align 8, !tbaa !11
   br i1 %.not, label %__archive_rb_tree_prune_node.exit, label %26
 
 26:                                               ; preds = %.split23
@@ -440,172 +433,164 @@ define dso_local void @__archive_rb_tree_remove_node(ptr noundef readonly captur
   br label %__archive_rb_tree_prune_node.exit
 
 27:                                               ; preds = %2
-  br i1 %6, label %.thread, label %46
+  br i1 %6, label %.thread, label %39
 
 .thread:                                          ; preds = %7, %27
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %29 = load i64, ptr %28, align 8
+  %29 = load i64, ptr %28, align 8, !tbaa !20
   %30 = and i64 %29, -4
   %31 = inttoptr i64 %30 to ptr
   %32 = zext i1 %3 to i64
   %33 = getelementptr inbounds nuw [2 x ptr], ptr %1, i64 0, i64 %32
-  %34 = load ptr, ptr %33, align 8
+  %34 = load ptr, ptr %33, align 8, !tbaa !11
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 16
-  %36 = load i64, ptr %35, align 8
-  %37 = and i64 %29, 3
-  %38 = and i64 %36, -4
-  %39 = or disjoint i64 %38, %37
-  store i64 %39, ptr %35, align 8
-  %40 = lshr i64 %29, 1
-  %41 = and i64 %40, 1
-  %42 = getelementptr inbounds nuw [2 x ptr], ptr %31, i64 0, i64 %41
-  store ptr %34, ptr %42, align 8
-  %43 = load i64, ptr %35, align 8
-  %44 = and i64 %43, 3
-  %45 = or disjoint i64 %44, %30
-  store i64 %45, ptr %35, align 8
+  %36 = lshr i64 %29, 1
+  %37 = and i64 %36, 1
+  %38 = getelementptr inbounds nuw [2 x ptr], ptr %31, i64 0, i64 %37
+  store ptr %34, ptr %38, align 8, !tbaa !11
+  store i64 %29, ptr %35, align 8, !tbaa !20
   br label %__archive_rb_tree_prune_node.exit
 
-46:                                               ; preds = %27
-  %47 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %48 = load i64, ptr %47, align 8
-  %49 = trunc i64 %48 to i32
-  %50 = lshr i32 %49, 1
-  %51 = and i32 %50, 1
-  %52 = xor i32 %51, 1
-  %53 = zext nneg i32 %52 to i64
-  %54 = getelementptr inbounds nuw [2 x ptr], ptr %1, i64 0, i64 %53
-  %55 = load ptr, ptr %54, align 8
-  %56 = icmp eq ptr %55, null
-  br i1 %56, label %.preheader31.i, label %.preheader33.i
+39:                                               ; preds = %27
+  %40 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %41 = load i64, ptr %40, align 8, !tbaa !20
+  %42 = trunc i64 %41 to i32
+  %43 = lshr i32 %42, 1
+  %44 = and i32 %43, 1
+  %45 = xor i32 %44, 1
+  %46 = zext nneg i32 %45 to i64
+  %47 = getelementptr inbounds nuw [2 x ptr], ptr %1, i64 0, i64 %46
+  %48 = load ptr, ptr %47, align 8, !tbaa !11
+  %49 = icmp eq ptr %48, null
+  br i1 %49, label %.preheader31.i, label %.preheader33.i
 
-.preheader33.i:                                   ; preds = %46
-  %57 = zext nneg i32 %51 to i64
-  br label %68
+.preheader33.i:                                   ; preds = %39
+  %50 = zext nneg i32 %44 to i64
+  br label %61
 
-.preheader31.i:                                   ; preds = %46
-  %58 = load ptr, ptr %0, align 8
-  %.not2835.i = icmp eq ptr %58, %1
+.preheader31.i:                                   ; preds = %39
+  %51 = load ptr, ptr %0, align 8, !tbaa !23
+  %.not2835.i = icmp eq ptr %51, %1
   br i1 %.not2835.i, label %__archive_rb_tree_iterate.exit, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %.preheader31.i, %67
-  %.136.i = phi ptr [ %66, %67 ], [ %1, %.preheader31.i ]
-  %59 = getelementptr inbounds nuw i8, ptr %.136.i, i64 16
-  %60 = load i64, ptr %59, align 8
-  %61 = trunc i64 %60 to i32
-  %62 = lshr i32 %61, 1
-  %63 = and i32 %62, 1
-  %64 = icmp eq i32 %51, %63
-  %65 = and i64 %60, -4
-  %66 = inttoptr i64 %65 to ptr
-  br i1 %64, label %__archive_rb_tree_iterate.exit, label %67
+.lr.ph.i:                                         ; preds = %.preheader31.i, %60
+  %.136.i = phi ptr [ %59, %60 ], [ %1, %.preheader31.i ]
+  %52 = getelementptr inbounds nuw i8, ptr %.136.i, i64 16
+  %53 = load i64, ptr %52, align 8, !tbaa !20
+  %54 = trunc i64 %53 to i32
+  %55 = lshr i32 %54, 1
+  %56 = and i32 %55, 1
+  %57 = icmp eq i32 %44, %56
+  %58 = and i64 %53, -4
+  %59 = inttoptr i64 %58 to ptr
+  br i1 %57, label %__archive_rb_tree_iterate.exit, label %60
 
-67:                                               ; preds = %.lr.ph.i
-  %.not28.i = icmp eq ptr %58, %66
-  br i1 %.not28.i, label %__archive_rb_tree_iterate.exit, label %.lr.ph.i, !llvm.loop !10
+60:                                               ; preds = %.lr.ph.i
+  %.not28.i = icmp eq ptr %51, %59
+  br i1 %.not28.i, label %__archive_rb_tree_iterate.exit, label %.lr.ph.i, !llvm.loop !24
 
-68:                                               ; preds = %68, %.preheader33.i
-  %.2.i = phi ptr [ %70, %68 ], [ %55, %.preheader33.i ]
-  %69 = getelementptr inbounds nuw [2 x ptr], ptr %.2.i, i64 0, i64 %57
-  %70 = load ptr, ptr %69, align 8
-  %.not.i27 = icmp eq ptr %70, null
-  br i1 %.not.i27, label %__archive_rb_tree_iterate.exit, label %68, !llvm.loop !11
+61:                                               ; preds = %61, %.preheader33.i
+  %.2.i = phi ptr [ %63, %61 ], [ %48, %.preheader33.i ]
+  %62 = getelementptr inbounds nuw [2 x ptr], ptr %.2.i, i64 0, i64 %50
+  %63 = load ptr, ptr %62, align 8, !tbaa !11
+  %.not.i27 = icmp eq ptr %63, null
+  br i1 %.not.i27, label %__archive_rb_tree_iterate.exit, label %61, !llvm.loop !25
 
-__archive_rb_tree_iterate.exit:                   ; preds = %68, %67, %.lr.ph.i, %.preheader31.i
-  %.0.i = phi ptr [ null, %.preheader31.i ], [ null, %67 ], [ %66, %.lr.ph.i ], [ %.2.i, %68 ]
-  %71 = getelementptr inbounds nuw i8, ptr %.0.i, i64 16
-  %72 = load i64, ptr %71, align 8
-  %73 = lshr i64 %72, 1
-  %.lobit.i = and i64 %73, 1
-  %74 = trunc nuw nsw i64 %.lobit.i to i32
-  %75 = xor i64 %.lobit.i, 1
-  %76 = and i64 %72, -4
-  %77 = inttoptr i64 %76 to ptr
-  %78 = icmp eq ptr %.0.i, null
-  %79 = trunc i64 %72 to i32
-  %80 = and i32 %79, 1
-  %81 = xor i32 %80, 1
-  %82 = select i1 %78, i32 1, i32 %81
-  %83 = icmp eq ptr %1, %77
-  %.lobit.pn.i = select i1 %83, i64 %.lobit.i, i64 %75
+__archive_rb_tree_iterate.exit:                   ; preds = %61, %60, %.lr.ph.i, %.preheader31.i
+  %.0.i = phi ptr [ null, %.preheader31.i ], [ null, %60 ], [ %59, %.lr.ph.i ], [ %.2.i, %61 ]
+  %64 = getelementptr inbounds nuw i8, ptr %.0.i, i64 16
+  %65 = load i64, ptr %64, align 8, !tbaa !20
+  %66 = lshr i64 %65, 1
+  %.lobit.i = and i64 %66, 1
+  %67 = trunc nuw nsw i64 %.lobit.i to i32
+  %68 = xor i64 %.lobit.i, 1
+  %69 = and i64 %65, -4
+  %70 = inttoptr i64 %69 to ptr
+  %71 = icmp eq ptr %.0.i, null
+  %72 = trunc i64 %65 to i32
+  %73 = and i32 %72, 1
+  %74 = xor i32 %73, 1
+  %75 = select i1 %71, i32 1, i32 %74
+  %76 = icmp eq ptr %1, %70
+  %.lobit.pn.i = select i1 %76, i64 %.lobit.i, i64 %68
   %.060.in.i = getelementptr inbounds nuw [2 x ptr], ptr %.0.i, i64 0, i64 %.lobit.pn.i
-  %.060.i = load ptr, ptr %.060.in.i, align 8
-  %84 = icmp eq ptr %.060.i, null
-  br i1 %84, label %91, label %85
+  %.060.i = load ptr, ptr %.060.in.i, align 8, !tbaa !11
+  %77 = icmp eq ptr %.060.i, null
+  br i1 %77, label %84, label %78
 
-85:                                               ; preds = %__archive_rb_tree_iterate.exit
-  %86 = getelementptr inbounds nuw i8, ptr %.060.i, i64 16
-  %87 = load i64, ptr %86, align 8
-  %88 = and i64 %87, 1
-  %.not.i28 = icmp eq i64 %88, 0
-  br i1 %.not.i28, label %91, label %89
+78:                                               ; preds = %__archive_rb_tree_iterate.exit
+  %79 = getelementptr inbounds nuw i8, ptr %.060.i, i64 16
+  %80 = load i64, ptr %79, align 8, !tbaa !20
+  %81 = and i64 %80, 1
+  %.not.i28 = icmp eq i64 %81, 0
+  br i1 %.not.i28, label %84, label %82
 
-89:                                               ; preds = %85
-  %90 = and i64 %87, -2
-  store i64 %90, ptr %86, align 8
-  br i1 %83, label %.thread71.i, label %.thread.sink.split.i
+82:                                               ; preds = %78
+  %83 = and i64 %80, -2
+  store i64 %83, ptr %79, align 8, !tbaa !20
+  br i1 %76, label %.thread71.i, label %.thread.sink.split.i
 
-.thread.sink.split.i:                             ; preds = %89
-  %.sink.i = and i64 %72, -2
-  store i64 %.sink.i, ptr %86, align 8
+.thread.sink.split.i:                             ; preds = %82
+  %.sink.i = and i64 %65, -2
+  store i64 %.sink.i, ptr %79, align 8, !tbaa !20
   br label %.thread.i
 
-91:                                               ; preds = %85, %__archive_rb_tree_iterate.exit
-  br i1 %83, label %.thread71.i, label %.thread.i
+84:                                               ; preds = %78, %__archive_rb_tree_iterate.exit
+  br i1 %76, label %.thread71.i, label %.thread.i
 
-.thread.i:                                        ; preds = %91, %.thread.sink.split.i
-  %.069.i = phi i32 [ %82, %91 ], [ 0, %.thread.sink.split.i ]
-  %92 = getelementptr inbounds nuw [2 x ptr], ptr %77, i64 0, i64 %.lobit.i
-  store ptr %.060.i, ptr %92, align 8
-  %93 = getelementptr inbounds nuw [2 x ptr], ptr %1, i64 0, i64 %75
-  %94 = load ptr, ptr %93, align 8
-  %95 = getelementptr inbounds nuw [2 x ptr], ptr %.0.i, i64 0, i64 %75
-  store ptr %94, ptr %95, align 8
-  %96 = ptrtoint ptr %.0.i to i64
-  %97 = getelementptr inbounds nuw i8, ptr %94, i64 16
-  %98 = load i64, ptr %97, align 8
-  %99 = and i64 %98, 3
-  %100 = or i64 %99, %96
-  store i64 %100, ptr %97, align 8
+.thread.i:                                        ; preds = %84, %.thread.sink.split.i
+  %.069.i = phi i32 [ %75, %84 ], [ 0, %.thread.sink.split.i ]
+  %85 = getelementptr inbounds nuw [2 x ptr], ptr %70, i64 0, i64 %.lobit.i
+  store ptr %.060.i, ptr %85, align 8, !tbaa !11
+  %86 = getelementptr inbounds nuw [2 x ptr], ptr %1, i64 0, i64 %68
+  %87 = load ptr, ptr %86, align 8, !tbaa !11
+  %88 = getelementptr inbounds nuw [2 x ptr], ptr %.0.i, i64 0, i64 %68
+  store ptr %87, ptr %88, align 8, !tbaa !11
+  %89 = ptrtoint ptr %.0.i to i64
+  %90 = getelementptr inbounds nuw i8, ptr %87, i64 16
+  %91 = load i64, ptr %90, align 8, !tbaa !20
+  %92 = and i64 %91, 3
+  %93 = or i64 %92, %89
+  store i64 %93, ptr %90, align 8, !tbaa !20
   br label %.thread71.i
 
-.thread71.i:                                      ; preds = %.thread.i, %91, %89
-  %.pre-phi.i = phi i64 [ %75, %89 ], [ %75, %91 ], [ %.lobit.i, %.thread.i ]
-  %.070.i = phi i32 [ 0, %89 ], [ %82, %91 ], [ %.069.i, %.thread.i ]
-  %.059.i = phi ptr [ %.0.i, %89 ], [ %.0.i, %91 ], [ %77, %.thread.i ]
-  %101 = getelementptr inbounds nuw [2 x ptr], ptr %1, i64 0, i64 %.pre-phi.i
-  %102 = load ptr, ptr %101, align 8
-  %103 = getelementptr inbounds nuw [2 x ptr], ptr %.0.i, i64 0, i64 %.pre-phi.i
-  store ptr %102, ptr %103, align 8
-  %104 = ptrtoint ptr %.0.i to i64
-  %105 = getelementptr inbounds nuw i8, ptr %102, i64 16
-  %106 = load i64, ptr %105, align 8
-  %107 = and i64 %106, 3
-  %108 = or i64 %107, %104
-  store i64 %108, ptr %105, align 8
-  %109 = load i64, ptr %71, align 8
-  %110 = load i64, ptr %47, align 8
-  %111 = and i64 %110, 3
-  %112 = and i64 %109, -4
-  %113 = or disjoint i64 %111, %112
-  store i64 %113, ptr %71, align 8
-  %114 = load i64, ptr %47, align 8
-  %115 = and i64 %114, -4
-  %116 = inttoptr i64 %115 to ptr
-  %117 = or disjoint i64 %115, %111
-  store i64 %117, ptr %71, align 8
-  %118 = lshr i64 %110, 1
-  %119 = and i64 %118, 1
-  %120 = getelementptr inbounds nuw [2 x ptr], ptr %116, i64 0, i64 %119
-  store ptr %.0.i, ptr %120, align 8
+.thread71.i:                                      ; preds = %.thread.i, %84, %82
+  %.pre-phi.i = phi i64 [ %68, %82 ], [ %68, %84 ], [ %.lobit.i, %.thread.i ]
+  %.070.i = phi i32 [ 0, %82 ], [ %75, %84 ], [ %.069.i, %.thread.i ]
+  %.059.i = phi ptr [ %.0.i, %82 ], [ %.0.i, %84 ], [ %70, %.thread.i ]
+  %94 = getelementptr inbounds nuw [2 x ptr], ptr %1, i64 0, i64 %.pre-phi.i
+  %95 = load ptr, ptr %94, align 8, !tbaa !11
+  %96 = getelementptr inbounds nuw [2 x ptr], ptr %.0.i, i64 0, i64 %.pre-phi.i
+  store ptr %95, ptr %96, align 8, !tbaa !11
+  %97 = ptrtoint ptr %.0.i to i64
+  %98 = getelementptr inbounds nuw i8, ptr %95, i64 16
+  %99 = load i64, ptr %98, align 8, !tbaa !20
+  %100 = and i64 %99, 3
+  %101 = or i64 %100, %97
+  store i64 %101, ptr %98, align 8, !tbaa !20
+  %102 = load i64, ptr %64, align 8, !tbaa !20
+  %103 = load i64, ptr %40, align 8, !tbaa !20
+  %104 = and i64 %103, 3
+  %105 = and i64 %102, -4
+  %106 = or disjoint i64 %104, %105
+  store i64 %106, ptr %64, align 8, !tbaa !20
+  %107 = load i64, ptr %40, align 8, !tbaa !20
+  %108 = and i64 %107, -4
+  %109 = inttoptr i64 %108 to ptr
+  %110 = or disjoint i64 %108, %104
+  store i64 %110, ptr %64, align 8, !tbaa !20
+  %111 = lshr i64 %103, 1
+  %112 = and i64 %111, 1
+  %113 = getelementptr inbounds nuw [2 x ptr], ptr %109, i64 0, i64 %112
+  store ptr %.0.i, ptr %113, align 8, !tbaa !11
   %.not67.i = icmp eq i32 %.070.i, 0
-  br i1 %.not67.i, label %__archive_rb_tree_prune_node.exit, label %121
+  br i1 %.not67.i, label %__archive_rb_tree_prune_node.exit, label %114
 
-121:                                              ; preds = %.thread71.i
-  tail call fastcc void @__archive_rb_tree_removal_rebalance(ptr noundef readonly %0, ptr noundef nonnull %.059.i, i32 noundef %74)
+114:                                              ; preds = %.thread71.i
+  tail call fastcc void @__archive_rb_tree_removal_rebalance(ptr noundef readonly %0, ptr noundef nonnull %.059.i, i32 noundef %67)
   br label %__archive_rb_tree_prune_node.exit
 
-__archive_rb_tree_prune_node.exit:                ; preds = %121, %.thread71.i, %26, %.split23, %.split, %.thread
+__archive_rb_tree_prune_node.exit:                ; preds = %114, %.thread71.i, %26, %.split23, %.split, %.thread
   ret void
 }
 
@@ -616,7 +601,7 @@ define dso_local ptr @__archive_rb_tree_iterate(ptr noundef readonly captures(no
   br i1 %5, label %6, label %13
 
 6:                                                ; preds = %3
-  %7 = load ptr, ptr %0, align 8
+  %7 = load ptr, ptr %0, align 8, !tbaa !23
   %8 = icmp eq ptr %7, null
   br i1 %8, label %.loopexit, label %.preheader
 
@@ -627,14 +612,14 @@ define dso_local ptr @__archive_rb_tree_iterate(ptr noundef readonly captures(no
 10:                                               ; preds = %.preheader, %10
   %.024 = phi ptr [ %12, %10 ], [ %7, %.preheader ]
   %11 = getelementptr inbounds nuw [2 x ptr], ptr %.024, i64 0, i64 %9
-  %12 = load ptr, ptr %11, align 8
+  %12 = load ptr, ptr %11, align 8, !tbaa !11
   %.not30 = icmp eq ptr %12, null
-  br i1 %.not30, label %.loopexit, label %10, !llvm.loop !12
+  br i1 %.not30, label %.loopexit, label %10, !llvm.loop !26
 
 13:                                               ; preds = %3
   %14 = zext i32 %2 to i64
   %15 = getelementptr inbounds nuw [2 x ptr], ptr %1, i64 0, i64 %14
-  %16 = load ptr, ptr %15, align 8
+  %16 = load ptr, ptr %15, align 8, !tbaa !11
   %17 = icmp eq ptr %16, null
   br i1 %17, label %.preheader31, label %.preheader33
 
@@ -643,14 +628,14 @@ define dso_local ptr @__archive_rb_tree_iterate(ptr noundef readonly captures(no
   br label %29
 
 .preheader31:                                     ; preds = %13
-  %19 = load ptr, ptr %0, align 8
+  %19 = load ptr, ptr %0, align 8, !tbaa !23
   %.not2835 = icmp eq ptr %19, %1
   br i1 %.not2835, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader31, %28
   %.136 = phi ptr [ %27, %28 ], [ %1, %.preheader31 ]
   %20 = getelementptr inbounds nuw i8, ptr %.136, i64 16
-  %21 = load i64, ptr %20, align 8
+  %21 = load i64, ptr %20, align 8, !tbaa !20
   %22 = trunc i64 %21 to i32
   %23 = lshr i32 %22, 1
   %24 = and i32 %23, 1
@@ -661,14 +646,14 @@ define dso_local ptr @__archive_rb_tree_iterate(ptr noundef readonly captures(no
 
 28:                                               ; preds = %.lr.ph
   %.not28 = icmp eq ptr %19, %27
-  br i1 %.not28, label %.loopexit, label %.lr.ph, !llvm.loop !10
+  br i1 %.not28, label %.loopexit, label %.lr.ph, !llvm.loop !24
 
 29:                                               ; preds = %.preheader33, %29
   %.2 = phi ptr [ %31, %29 ], [ %16, %.preheader33 ]
   %30 = getelementptr inbounds nuw [2 x ptr], ptr %.2, i64 0, i64 %18
-  %31 = load ptr, ptr %30, align 8
+  %31 = load ptr, ptr %30, align 8, !tbaa !11
   %.not = icmp eq ptr %31, null
-  br i1 %.not, label %.loopexit, label %29, !llvm.loop !11
+  br i1 %.not, label %.loopexit, label %29, !llvm.loop !25
 
 .loopexit:                                        ; preds = %29, %28, %.lr.ph, %10, %.preheader31, %6
   %.0 = phi ptr [ null, %6 ], [ null, %.preheader31 ], [ %.024, %10 ], [ null, %28 ], [ %27, %.lr.ph ], [ %.2, %29 ]
@@ -679,367 +664,368 @@ define dso_local ptr @__archive_rb_tree_iterate(ptr noundef readonly captures(no
 define internal fastcc void @__archive_rb_tree_removal_rebalance(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #2 {
   br label %4
 
-4:                                                ; preds = %84, %3
-  %.050 = phi i32 [ %2, %3 ], [ %88, %84 ]
-  %.049 = phi ptr [ %1, %3 ], [ %90, %84 ]
-  %5 = zext nneg i32 %.050 to i64
-  %6 = getelementptr inbounds nuw [2 x ptr], ptr %.049, i64 0, i64 %5
-  %7 = load ptr, ptr %6, align 8
+4:                                                ; preds = %__archive_rb_tree_reparent_nodes.exit81, %3
+  %.053 = phi i32 [ %2, %3 ], [ %198, %__archive_rb_tree_reparent_nodes.exit81 ]
+  %.051 = phi ptr [ %1, %3 ], [ %200, %__archive_rb_tree_reparent_nodes.exit81 ]
+  %5 = zext nneg i32 %.053 to i64
+  %6 = getelementptr inbounds nuw [2 x ptr], ptr %.051, i64 0, i64 %5
+  %7 = load ptr, ptr %6, align 8, !tbaa !11
   %8 = icmp eq ptr %7, null
   br i1 %8, label %.critedge, label %9
 
 9:                                                ; preds = %4
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %11 = load i64, ptr %10, align 8
+  %11 = load i64, ptr %10, align 8, !tbaa !20
   %12 = and i64 %11, 1
   %13 = icmp eq i64 %12, 0
-  br i1 %13, label %.critedge, label %__archive_rb_tree_reparent_nodes.exit75
+  br i1 %13, label %.critedge, label %__archive_rb_tree_reparent_nodes.exit81.thread
 
 .critedge:                                        ; preds = %4, %9
-  %14 = xor i32 %.050, 1
+  %14 = xor i32 %.053, 1
   %15 = zext nneg i32 %14 to i64
-  %16 = getelementptr inbounds nuw [2 x ptr], ptr %.049, i64 0, i64 %15
-  %17 = load ptr, ptr %16, align 8
+  %16 = getelementptr inbounds nuw [2 x ptr], ptr %.051, i64 0, i64 %15
+  %17 = load ptr, ptr %16, align 8, !tbaa !11
   %18 = icmp eq ptr %17, null
-  br i1 %18, label %__archive_rb_tree_reparent_nodes.exit75, label %19
+  br i1 %18, label %__archive_rb_tree_reparent_nodes.exit81.thread, label %19
 
 19:                                               ; preds = %.critedge
-  %20 = getelementptr inbounds nuw i8, ptr %.049, i64 16
-  %21 = load i64, ptr %20, align 8
+  %20 = getelementptr inbounds nuw i8, ptr %.051, i64 16
+  %21 = load i64, ptr %20, align 8, !tbaa !20
   %22 = and i64 %21, 1
   %23 = icmp eq i64 %22, 0
-  br i1 %23, label %24, label %.loopexit.thread113.loopexit
+  br i1 %23, label %24, label %.loopexit.thread126.loopexit
 
 24:                                               ; preds = %19
-  %25 = load ptr, ptr %17, align 8
+  %25 = load ptr, ptr %17, align 8, !tbaa !11
   %26 = icmp eq ptr %25, null
   br i1 %26, label %32, label %27
 
 27:                                               ; preds = %24
   %28 = getelementptr inbounds nuw i8, ptr %25, i64 16
-  %29 = load i64, ptr %28, align 8
+  %29 = load i64, ptr %28, align 8, !tbaa !20
   %30 = and i64 %29, 1
   %31 = icmp eq i64 %30, 0
   br i1 %31, label %32, label %.loopexit.thread.loopexit
 
 32:                                               ; preds = %27, %24
   %33 = getelementptr inbounds nuw i8, ptr %17, i64 8
-  %34 = load ptr, ptr %33, align 8
+  %34 = load ptr, ptr %33, align 8, !tbaa !11
   %35 = icmp eq ptr %34, null
   br i1 %35, label %41, label %36
 
 36:                                               ; preds = %32
   %37 = getelementptr inbounds nuw i8, ptr %34, i64 16
-  %38 = load i64, ptr %37, align 8
+  %38 = load i64, ptr %37, align 8, !tbaa !20
   %39 = and i64 %38, 1
   %40 = icmp eq i64 %39, 0
   br i1 %40, label %41, label %.loopexit.thread.loopexit
 
 41:                                               ; preds = %32, %36
   %42 = getelementptr inbounds nuw i8, ptr %17, i64 16
-  %43 = load i64, ptr %42, align 8
+  %43 = load i64, ptr %42, align 8, !tbaa !20
   %44 = and i64 %43, 1
   %.not = icmp eq i64 %44, 0
-  br i1 %.not, label %80, label %45
+  br i1 %.not, label %69, label %45
 
 45:                                               ; preds = %41
-  %46 = getelementptr inbounds nuw [2 x ptr], ptr %.049, i64 0, i64 %15
+  %46 = getelementptr inbounds nuw [2 x ptr], ptr %.051, i64 0, i64 %15
   %47 = and i64 %21, -4
   %48 = inttoptr i64 %47 to ptr
   %49 = lshr exact i64 %21, 1
   %50 = and i64 %49, 1
   %51 = getelementptr inbounds nuw [2 x ptr], ptr %48, i64 0, i64 %50
-  store ptr %17, ptr %51, align 8
+  store ptr %17, ptr %51, align 8, !tbaa !11
   %52 = getelementptr inbounds nuw [2 x ptr], ptr %17, i64 0, i64 %5
-  %53 = load ptr, ptr %52, align 8
-  store ptr %53, ptr %46, align 8
-  store ptr %.049, ptr %52, align 8
-  %54 = load i64, ptr %42, align 8
-  %55 = and i64 %54, 3
-  %56 = or disjoint i64 %55, %47
-  store i64 %56, ptr %42, align 8
-  %57 = ptrtoint ptr %17 to i64
-  %58 = load i64, ptr %20, align 8
-  %59 = and i64 %58, 3
-  %60 = or i64 %59, %57
-  store i64 %60, ptr %20, align 8
-  %61 = load i64, ptr %42, align 8
-  %62 = xor i64 %61, %60
-  %63 = and i64 %62, 3
-  %64 = xor i64 %63, %61
-  store i64 %64, ptr %42, align 8
-  %65 = load i64, ptr %20, align 8
-  %66 = xor i64 %65, %63
-  %.not.not.i.not = icmp eq i32 %.050, 0
-  %67 = and i64 %66, -3
+  %53 = load ptr, ptr %52, align 8, !tbaa !11
+  store ptr %53, ptr %46, align 8, !tbaa !11
+  store ptr %.051, ptr %52, align 8, !tbaa !11
+  %54 = and i64 %43, 3
+  %55 = or disjoint i64 %47, %54
+  store i64 %55, ptr %42, align 8, !tbaa !20
+  %56 = ptrtoint ptr %17 to i64
+  %57 = load i64, ptr %20, align 8, !tbaa !20
+  %58 = and i64 %57, 3
+  %59 = or i64 %58, %56
+  store i64 %59, ptr %20, align 8, !tbaa !20
+  %60 = load i64, ptr %42, align 8, !tbaa !20
+  %61 = xor i64 %60, %59
+  %62 = and i64 %61, 3
+  %63 = xor i64 %62, %60
+  store i64 %63, ptr %42, align 8, !tbaa !20
+  %64 = load i64, ptr %20, align 8, !tbaa !20
+  %65 = xor i64 %64, %62
+  %.not.not.i.not = icmp eq i32 %.053, 0
+  %66 = and i64 %65, -3
   %masksel.i = select i1 %.not.not.i.not, i64 0, i64 2
-  %storemerge.i = or disjoint i64 %67, %masksel.i
-  store i64 %storemerge.i, ptr %20, align 8
-  %68 = load ptr, ptr %46, align 8
-  %69 = icmp eq ptr %68, null
-  br i1 %69, label %__archive_rb_tree_reparent_nodes.exit75, label %__archive_rb_tree_reparent_nodes.exit
+  %storemerge.i = or disjoint i64 %66, %masksel.i
+  store i64 %storemerge.i, ptr %20, align 8, !tbaa !20
+  %67 = load ptr, ptr %46, align 8, !tbaa !11
+  %68 = icmp eq ptr %67, null
+  br i1 %68, label %__archive_rb_tree_reparent_nodes.exit81.thread, label %.loopexit
 
-__archive_rb_tree_reparent_nodes.exit:            ; preds = %45
-  %70 = ptrtoint ptr %.049 to i64
-  %71 = getelementptr inbounds nuw i8, ptr %68, i64 16
-  %72 = load i64, ptr %71, align 8
-  %73 = and i64 %72, 3
-  %74 = or i64 %73, %70
-  store i64 %74, ptr %71, align 8
-  %75 = load ptr, ptr %46, align 8
-  %76 = getelementptr inbounds nuw i8, ptr %75, i64 16
-  %77 = load i64, ptr %76, align 8
-  %78 = and i64 %77, -3
+69:                                               ; preds = %41
+  %70 = or disjoint i64 %43, 1
+  store i64 %70, ptr %42, align 8, !tbaa !20
+  %71 = load ptr, ptr %0, align 8, !tbaa !23
+  %72 = icmp eq ptr %71, %.051
+  br i1 %72, label %__archive_rb_tree_reparent_nodes.exit81.thread, label %__archive_rb_tree_reparent_nodes.exit81
+
+.loopexit:                                        ; preds = %45
+  %73 = ptrtoint ptr %.051 to i64
+  %74 = getelementptr inbounds nuw i8, ptr %67, i64 16
+  %75 = load i64, ptr %74, align 8, !tbaa !20
+  %76 = and i64 %75, 1
+  %.masked.i = and i64 %73, -3
   %masksel44.i = select i1 %.not.not.i.not, i64 2, i64 0
-  %.sink.i = or disjoint i64 %78, %masksel44.i
-  store i64 %.sink.i, ptr %76, align 8
-  %.pr = load ptr, ptr %46, align 8
-  %79 = icmp eq ptr %.pr, null
-  br i1 %79, label %__archive_rb_tree_reparent_nodes.exit75, label %.loopexit
+  %77 = or disjoint i64 %.masked.i, %masksel44.i
+  %.sink.i = or i64 %77, %76
+  store i64 %.sink.i, ptr %74, align 8, !tbaa !20
+  %.pre = load i64, ptr %20, align 8, !tbaa !20
+  %.pre121 = and i64 %.pre, 1
+  %.not65 = icmp eq i64 %.pre121, 0
+  br i1 %.not65, label %.loopexit.thread, label %.loopexit.thread126
 
-80:                                               ; preds = %41
-  %81 = or disjoint i64 %43, 1
-  store i64 %81, ptr %42, align 8
-  %82 = load ptr, ptr %0, align 8
-  %83 = icmp eq ptr %82, %.049
-  br i1 %83, label %__archive_rb_tree_reparent_nodes.exit75, label %84
+.loopexit.thread126.loopexit:                     ; preds = %19
+  %78 = getelementptr inbounds nuw [2 x ptr], ptr %.051, i64 0, i64 %15
+  br label %.loopexit.thread126
 
-84:                                               ; preds = %80
-  %85 = load i64, ptr %20, align 8
-  %86 = trunc i64 %85 to i32
-  %87 = lshr i32 %86, 1
-  %88 = and i32 %87, 1
-  %89 = and i64 %85, -4
-  %90 = inttoptr i64 %89 to ptr
-  br label %4, !llvm.loop !13
+.loopexit.thread126:                              ; preds = %.loopexit.thread126.loopexit, %.loopexit
+  %79 = phi ptr [ %46, %.loopexit ], [ %78, %.loopexit.thread126.loopexit ]
+  %.050130 = phi ptr [ %67, %.loopexit ], [ %17, %.loopexit.thread126.loopexit ]
+  %80 = phi i64 [ %.pre, %.loopexit ], [ %21, %.loopexit.thread126.loopexit ]
+  %81 = getelementptr inbounds nuw i8, ptr %.050130, i64 16
+  %82 = load i64, ptr %81, align 8, !tbaa !20
+  %83 = and i64 %82, 1
+  %84 = icmp eq i64 %83, 0
+  br i1 %84, label %85, label %.loopexit.thread
 
-.loopexit:                                        ; preds = %__archive_rb_tree_reparent_nodes.exit
-  %.pre = load i64, ptr %20, align 8
-  %.pre108 = and i64 %.pre, 1
-  %.not61 = icmp eq i64 %.pre108, 0
-  br i1 %.not61, label %.loopexit.thread, label %.loopexit.thread113
+85:                                               ; preds = %.loopexit.thread126
+  %86 = load ptr, ptr %.050130, align 8, !tbaa !11
+  %87 = icmp eq ptr %86, null
+  br i1 %87, label %93, label %88
 
-.loopexit.thread113.loopexit:                     ; preds = %19
-  %91 = getelementptr inbounds nuw [2 x ptr], ptr %.049, i64 0, i64 %15
-  br label %.loopexit.thread113
+88:                                               ; preds = %85
+  %89 = getelementptr inbounds nuw i8, ptr %86, i64 16
+  %90 = load i64, ptr %89, align 8, !tbaa !20
+  %91 = and i64 %90, 1
+  %92 = icmp eq i64 %91, 0
+  br i1 %92, label %93, label %.loopexit.thread
 
-.loopexit.thread113:                              ; preds = %.loopexit.thread113.loopexit, %.loopexit
-  %92 = phi ptr [ %46, %.loopexit ], [ %91, %.loopexit.thread113.loopexit ]
-  %.0117 = phi ptr [ %.pr, %.loopexit ], [ %17, %.loopexit.thread113.loopexit ]
-  %93 = phi i64 [ %.pre, %.loopexit ], [ %21, %.loopexit.thread113.loopexit ]
-  %94 = getelementptr inbounds nuw i8, ptr %.0117, i64 16
-  %95 = load i64, ptr %94, align 8
-  %96 = and i64 %95, 1
-  %97 = icmp eq i64 %96, 0
-  br i1 %97, label %98, label %.loopexit.thread
+93:                                               ; preds = %88, %85
+  %94 = getelementptr inbounds nuw i8, ptr %.050130, i64 8
+  %95 = load ptr, ptr %94, align 8, !tbaa !11
+  %96 = icmp eq ptr %95, null
+  br i1 %96, label %102, label %97
 
-98:                                               ; preds = %.loopexit.thread113
-  %99 = load ptr, ptr %.0117, align 8
-  %100 = icmp eq ptr %99, null
-  br i1 %100, label %106, label %101
+97:                                               ; preds = %93
+  %98 = getelementptr inbounds nuw i8, ptr %95, i64 16
+  %99 = load i64, ptr %98, align 8, !tbaa !20
+  %100 = and i64 %99, 1
+  %101 = icmp eq i64 %100, 0
+  br i1 %101, label %102, label %.loopexit.thread
 
-101:                                              ; preds = %98
-  %102 = getelementptr inbounds nuw i8, ptr %99, i64 16
-  %103 = load i64, ptr %102, align 8
-  %104 = and i64 %103, 1
-  %105 = icmp eq i64 %104, 0
-  br i1 %105, label %106, label %.loopexit.thread
-
-106:                                              ; preds = %101, %98
-  %107 = getelementptr inbounds nuw i8, ptr %.0117, i64 8
-  %108 = load ptr, ptr %107, align 8
-  %109 = icmp eq ptr %108, null
-  br i1 %109, label %115, label %110
-
-110:                                              ; preds = %106
-  %111 = getelementptr inbounds nuw i8, ptr %108, i64 16
-  %112 = load i64, ptr %111, align 8
-  %113 = and i64 %112, 1
-  %114 = icmp eq i64 %113, 0
-  br i1 %114, label %115, label %.loopexit.thread
-
-115:                                              ; preds = %110, %106
-  %116 = and i64 %93, -2
-  store i64 %116, ptr %20, align 8
-  %117 = load i64, ptr %94, align 8
-  %118 = or i64 %117, 1
-  store i64 %118, ptr %94, align 8
-  br label %__archive_rb_tree_reparent_nodes.exit75
+102:                                              ; preds = %97, %93
+  %103 = and i64 %80, -2
+  store i64 %103, ptr %20, align 8, !tbaa !20
+  %104 = load i64, ptr %81, align 8, !tbaa !20
+  %105 = or i64 %104, 1
+  store i64 %105, ptr %81, align 8, !tbaa !20
+  br label %__archive_rb_tree_reparent_nodes.exit81.thread
 
 .loopexit.thread.loopexit:                        ; preds = %36, %27
-  %119 = getelementptr inbounds nuw [2 x ptr], ptr %.049, i64 0, i64 %15
+  %106 = getelementptr inbounds nuw [2 x ptr], ptr %.051, i64 0, i64 %15
   br label %.loopexit.thread
 
-.loopexit.thread:                                 ; preds = %.loopexit.thread.loopexit, %110, %101, %.loopexit.thread113, %.loopexit
-  %120 = phi ptr [ %92, %110 ], [ %92, %101 ], [ %92, %.loopexit.thread113 ], [ %46, %.loopexit ], [ %119, %.loopexit.thread.loopexit ]
-  %.0112 = phi ptr [ %.0117, %110 ], [ %.0117, %101 ], [ %.0117, %.loopexit.thread113 ], [ %.pr, %.loopexit ], [ %17, %.loopexit.thread.loopexit ]
-  %121 = getelementptr inbounds nuw [2 x ptr], ptr %.0112, i64 0, i64 %15
-  %122 = load ptr, ptr %121, align 8
-  %123 = icmp eq ptr %122, null
-  br i1 %123, label %129, label %124
+.loopexit.thread:                                 ; preds = %.loopexit.thread.loopexit, %97, %88, %.loopexit.thread126, %.loopexit
+  %107 = phi ptr [ %79, %97 ], [ %79, %88 ], [ %79, %.loopexit.thread126 ], [ %46, %.loopexit ], [ %106, %.loopexit.thread.loopexit ]
+  %.050125 = phi ptr [ %.050130, %97 ], [ %.050130, %88 ], [ %.050130, %.loopexit.thread126 ], [ %67, %.loopexit ], [ %17, %.loopexit.thread.loopexit ]
+  %108 = getelementptr inbounds nuw [2 x ptr], ptr %.050125, i64 0, i64 %15
+  %109 = load ptr, ptr %108, align 8, !tbaa !11
+  %110 = icmp eq ptr %109, null
+  br i1 %110, label %119, label %111
 
-124:                                              ; preds = %.loopexit.thread
-  %125 = getelementptr inbounds nuw i8, ptr %122, i64 16
-  %126 = load i64, ptr %125, align 8
-  %127 = and i64 %126, 1
-  %128 = icmp eq i64 %127, 0
-  br i1 %128, label %129, label %.thread
+111:                                              ; preds = %.loopexit.thread
+  %112 = getelementptr inbounds nuw i8, ptr %109, i64 16
+  %113 = load i64, ptr %112, align 8, !tbaa !20
+  %114 = and i64 %113, 1
+  %115 = icmp eq i64 %114, 0
+  br i1 %115, label %119, label %.thread131
 
-129:                                              ; preds = %124, %.loopexit.thread
-  %130 = getelementptr inbounds nuw [2 x ptr], ptr %.0112, i64 0, i64 %5
-  %131 = load ptr, ptr %130, align 8
-  %132 = icmp eq ptr %131, null
-  br i1 %132, label %169, label %133
+.thread131:                                       ; preds = %111
+  %116 = getelementptr inbounds nuw i8, ptr %109, i64 16
+  %117 = load i64, ptr %116, align 8, !tbaa !20
+  %118 = and i64 %117, -2
+  store i64 %118, ptr %116, align 8, !tbaa !20
+  br label %163
 
-133:                                              ; preds = %129
-  %134 = getelementptr inbounds nuw i8, ptr %.0112, i64 16
-  %135 = load i64, ptr %134, align 8
-  %136 = and i64 %135, -4
-  %137 = inttoptr i64 %136 to ptr
-  %138 = lshr i64 %135, 1
-  %139 = and i64 %138, 1
-  %140 = getelementptr inbounds nuw [2 x ptr], ptr %137, i64 0, i64 %139
-  store ptr %131, ptr %140, align 8
-  %141 = getelementptr inbounds nuw [2 x ptr], ptr %131, i64 0, i64 %15
-  %142 = load ptr, ptr %141, align 8
-  store ptr %142, ptr %130, align 8
-  store ptr %.0112, ptr %141, align 8
-  %143 = getelementptr inbounds nuw i8, ptr %131, i64 16
-  %144 = load i64, ptr %143, align 8
-  %145 = and i64 %144, 3
-  %146 = or disjoint i64 %145, %136
-  store i64 %146, ptr %143, align 8
-  %147 = ptrtoint ptr %131 to i64
-  %148 = load i64, ptr %134, align 8
-  %149 = and i64 %148, 3
-  %150 = or i64 %149, %147
-  store i64 %150, ptr %134, align 8
-  %151 = load i64, ptr %143, align 8
-  %152 = xor i64 %151, %150
-  %153 = and i64 %152, 3
-  %154 = xor i64 %153, %151
-  store i64 %154, ptr %143, align 8
-  %155 = load i64, ptr %134, align 8
-  %156 = xor i64 %155, %153
-  %.not.not.i62 = icmp eq i32 %.050, 0
-  %157 = and i64 %156, -3
-  %masksel.i63 = select i1 %.not.not.i62, i64 2, i64 0
-  %storemerge.i64 = or disjoint i64 %157, %masksel.i63
-  store i64 %storemerge.i64, ptr %134, align 8
-  %158 = load ptr, ptr %130, align 8
-  %159 = icmp eq ptr %158, null
-  br i1 %159, label %169, label %.sink.split.i65
+119:                                              ; preds = %111, %.loopexit.thread
+  %120 = getelementptr inbounds nuw [2 x ptr], ptr %.050125, i64 0, i64 %5
+  %121 = load ptr, ptr %120, align 8, !tbaa !11
+  %122 = icmp eq ptr %121, null
+  br i1 %122, label %155, label %123
 
-.sink.split.i65:                                  ; preds = %133
-  %160 = ptrtoint ptr %.0112 to i64
-  %161 = getelementptr inbounds nuw i8, ptr %158, i64 16
-  %162 = load i64, ptr %161, align 8
-  %163 = and i64 %162, 3
-  %164 = or i64 %163, %160
-  store i64 %164, ptr %161, align 8
-  %165 = load ptr, ptr %130, align 8
-  %166 = getelementptr inbounds nuw i8, ptr %165, i64 16
-  %167 = load i64, ptr %166, align 8
-  %168 = and i64 %167, -3
-  %masksel44.i66 = select i1 %.not.not.i62, i64 0, i64 2
-  %.sink.i67 = or disjoint i64 %168, %masksel44.i66
-  store i64 %.sink.i67, ptr %166, align 8
-  br label %169
+123:                                              ; preds = %119
+  %124 = getelementptr inbounds nuw i8, ptr %.050125, i64 16
+  %125 = load i64, ptr %124, align 8, !tbaa !20
+  %126 = and i64 %125, -4
+  %127 = inttoptr i64 %126 to ptr
+  %128 = lshr i64 %125, 1
+  %129 = and i64 %128, 1
+  %130 = getelementptr inbounds nuw [2 x ptr], ptr %127, i64 0, i64 %129
+  store ptr %121, ptr %130, align 8, !tbaa !11
+  %131 = getelementptr inbounds nuw [2 x ptr], ptr %121, i64 0, i64 %15
+  %132 = load ptr, ptr %131, align 8, !tbaa !11
+  store ptr %132, ptr %120, align 8, !tbaa !11
+  store ptr %.050125, ptr %131, align 8, !tbaa !11
+  %133 = getelementptr inbounds nuw i8, ptr %121, i64 16
+  %134 = load i64, ptr %133, align 8, !tbaa !20
+  %135 = and i64 %134, 3
+  %136 = or disjoint i64 %135, %126
+  store i64 %136, ptr %133, align 8, !tbaa !20
+  %137 = ptrtoint ptr %121 to i64
+  %138 = load i64, ptr %124, align 8, !tbaa !20
+  %139 = and i64 %138, 3
+  %140 = or i64 %139, %137
+  store i64 %140, ptr %124, align 8, !tbaa !20
+  %141 = load i64, ptr %133, align 8, !tbaa !20
+  %142 = xor i64 %141, %140
+  %143 = and i64 %142, 3
+  %144 = xor i64 %143, %141
+  store i64 %144, ptr %133, align 8, !tbaa !20
+  %145 = load i64, ptr %124, align 8, !tbaa !20
+  %146 = xor i64 %145, %143
+  %.not.not.i66 = icmp eq i32 %.053, 0
+  %147 = and i64 %146, -3
+  %masksel.i67 = select i1 %.not.not.i66, i64 2, i64 0
+  %storemerge.i68 = or disjoint i64 %147, %masksel.i67
+  store i64 %storemerge.i68, ptr %124, align 8, !tbaa !20
+  %148 = load ptr, ptr %120, align 8, !tbaa !11
+  %149 = icmp eq ptr %148, null
+  br i1 %149, label %155, label %.sink.split.i69
 
-169:                                              ; preds = %.sink.split.i65, %133, %129
-  %170 = load ptr, ptr %120, align 8
-  %.phi.trans.insert = getelementptr inbounds nuw [2 x ptr], ptr %170, i64 0, i64 %15
-  %.pre107 = load ptr, ptr %.phi.trans.insert, align 8
-  %171 = icmp eq ptr %.pre107, null
-  br i1 %171, label %__archive_rb_tree_reparent_nodes.exit75, label %.thread
+.sink.split.i69:                                  ; preds = %123
+  %150 = ptrtoint ptr %.050125 to i64
+  %151 = getelementptr inbounds nuw i8, ptr %148, i64 16
+  %152 = load i64, ptr %151, align 8, !tbaa !20
+  %153 = and i64 %152, 1
+  %.masked.i70 = and i64 %150, -3
+  %masksel44.i71 = select i1 %.not.not.i66, i64 0, i64 2
+  %154 = or disjoint i64 %.masked.i70, %masksel44.i71
+  %.sink.i72 = or i64 %154, %153
+  store i64 %.sink.i72, ptr %151, align 8, !tbaa !20
+  br label %155
 
-.thread:                                          ; preds = %124, %169
-  %172 = phi ptr [ %.pre107, %169 ], [ %122, %124 ]
-  %173 = getelementptr inbounds nuw i8, ptr %172, i64 16
-  %174 = load i64, ptr %173, align 8
-  %175 = and i64 %174, -2
-  store i64 %175, ptr %173, align 8
-  %176 = load ptr, ptr %120, align 8
-  %177 = icmp eq ptr %176, null
-  br i1 %177, label %__archive_rb_tree_reparent_nodes.exit75, label %178
+155:                                              ; preds = %.sink.split.i69, %123, %119
+  %156 = load ptr, ptr %107, align 8, !tbaa !11
+  %.phi.trans.insert = getelementptr inbounds nuw [2 x ptr], ptr %156, i64 0, i64 %15
+  %.pre120 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !11
+  %157 = icmp eq ptr %.pre120, null
+  br i1 %157, label %__archive_rb_tree_reparent_nodes.exit81.thread, label %158
 
-178:                                              ; preds = %.thread
-  %179 = load i64, ptr %20, align 8
-  %180 = and i64 %179, -4
-  %181 = inttoptr i64 %180 to ptr
-  %182 = lshr i64 %179, 1
-  %183 = and i64 %182, 1
-  %184 = getelementptr inbounds nuw [2 x ptr], ptr %181, i64 0, i64 %183
-  store ptr %176, ptr %184, align 8
-  %185 = getelementptr inbounds nuw [2 x ptr], ptr %176, i64 0, i64 %5
-  %186 = load ptr, ptr %185, align 8
-  store ptr %186, ptr %120, align 8
-  store ptr %.049, ptr %185, align 8
-  %187 = getelementptr inbounds nuw i8, ptr %176, i64 16
-  %188 = load i64, ptr %187, align 8
-  %189 = and i64 %188, 3
-  %190 = or disjoint i64 %189, %180
-  store i64 %190, ptr %187, align 8
-  %191 = ptrtoint ptr %176 to i64
-  %192 = load i64, ptr %20, align 8
-  %193 = and i64 %192, 3
-  %194 = or i64 %193, %191
-  store i64 %194, ptr %20, align 8
-  %195 = load i64, ptr %187, align 8
-  %196 = xor i64 %195, %194
-  %197 = and i64 %196, 3
-  %198 = xor i64 %197, %195
-  store i64 %198, ptr %187, align 8
-  %199 = load i64, ptr %20, align 8
-  %200 = xor i64 %199, %197
-  %.not.not.i69.not = icmp eq i32 %.050, 0
-  %201 = and i64 %200, -3
-  %masksel.i70 = select i1 %.not.not.i69.not, i64 0, i64 2
-  %storemerge.i71 = or disjoint i64 %201, %masksel.i70
-  store i64 %storemerge.i71, ptr %20, align 8
-  %202 = load ptr, ptr %120, align 8
-  %203 = icmp eq ptr %202, null
-  br i1 %203, label %__archive_rb_tree_reparent_nodes.exit75, label %.sink.split.i72
+158:                                              ; preds = %155
+  %159 = getelementptr inbounds nuw i8, ptr %.pre120, i64 16
+  %160 = load i64, ptr %159, align 8, !tbaa !20
+  %161 = and i64 %160, -2
+  store i64 %161, ptr %159, align 8, !tbaa !20
+  %162 = icmp eq ptr %156, null
+  br i1 %162, label %__archive_rb_tree_reparent_nodes.exit81.thread, label %163
 
-.sink.split.i72:                                  ; preds = %178
-  %204 = ptrtoint ptr %.049 to i64
-  %205 = getelementptr inbounds nuw i8, ptr %202, i64 16
-  %206 = load i64, ptr %205, align 8
-  %207 = and i64 %206, 3
-  %208 = or i64 %207, %204
-  store i64 %208, ptr %205, align 8
-  %209 = load ptr, ptr %120, align 8
-  %210 = getelementptr inbounds nuw i8, ptr %209, i64 16
-  %211 = load i64, ptr %210, align 8
-  %212 = and i64 %211, -3
-  %masksel44.i73 = select i1 %.not.not.i69.not, i64 2, i64 0
-  %.sink.i74 = or disjoint i64 %212, %masksel44.i73
-  store i64 %.sink.i74, ptr %210, align 8
-  br label %__archive_rb_tree_reparent_nodes.exit75
+163:                                              ; preds = %.thread131, %158
+  %164 = phi ptr [ %.050125, %.thread131 ], [ %156, %158 ]
+  %165 = load i64, ptr %20, align 8, !tbaa !20
+  %166 = and i64 %165, -4
+  %167 = inttoptr i64 %166 to ptr
+  %168 = lshr i64 %165, 1
+  %169 = and i64 %168, 1
+  %170 = getelementptr inbounds nuw [2 x ptr], ptr %167, i64 0, i64 %169
+  store ptr %164, ptr %170, align 8, !tbaa !11
+  %171 = getelementptr inbounds nuw [2 x ptr], ptr %164, i64 0, i64 %5
+  %172 = load ptr, ptr %171, align 8, !tbaa !11
+  store ptr %172, ptr %107, align 8, !tbaa !11
+  store ptr %.051, ptr %171, align 8, !tbaa !11
+  %173 = getelementptr inbounds nuw i8, ptr %164, i64 16
+  %174 = load i64, ptr %173, align 8, !tbaa !20
+  %175 = and i64 %174, 3
+  %176 = or disjoint i64 %175, %166
+  store i64 %176, ptr %173, align 8, !tbaa !20
+  %177 = ptrtoint ptr %164 to i64
+  %178 = load i64, ptr %20, align 8, !tbaa !20
+  %179 = and i64 %178, 3
+  %180 = or i64 %179, %177
+  store i64 %180, ptr %20, align 8, !tbaa !20
+  %181 = load i64, ptr %173, align 8, !tbaa !20
+  %182 = xor i64 %181, %180
+  %183 = and i64 %182, 3
+  %184 = xor i64 %183, %181
+  store i64 %184, ptr %173, align 8, !tbaa !20
+  %185 = load i64, ptr %20, align 8, !tbaa !20
+  %186 = xor i64 %185, %183
+  %.not.not.i74.not = icmp eq i32 %.053, 0
+  %187 = and i64 %186, -3
+  %masksel.i75 = select i1 %.not.not.i74.not, i64 0, i64 2
+  %storemerge.i76 = or disjoint i64 %187, %masksel.i75
+  store i64 %storemerge.i76, ptr %20, align 8, !tbaa !20
+  %188 = load ptr, ptr %107, align 8, !tbaa !11
+  %189 = icmp eq ptr %188, null
+  br i1 %189, label %__archive_rb_tree_reparent_nodes.exit81.thread, label %.sink.split.i77
 
-__archive_rb_tree_reparent_nodes.exit75:          ; preds = %80, %.critedge, %9, %45, %.sink.split.i72, %178, %.thread, %169, %__archive_rb_tree_reparent_nodes.exit, %115
+.sink.split.i77:                                  ; preds = %163
+  %190 = ptrtoint ptr %.051 to i64
+  %191 = getelementptr inbounds nuw i8, ptr %188, i64 16
+  %192 = load i64, ptr %191, align 8, !tbaa !20
+  %193 = and i64 %192, 1
+  %.masked.i78 = and i64 %190, -3
+  %masksel44.i79 = select i1 %.not.not.i74.not, i64 2, i64 0
+  %194 = or disjoint i64 %.masked.i78, %masksel44.i79
+  %.sink.i80 = or i64 %194, %193
+  store i64 %.sink.i80, ptr %191, align 8, !tbaa !20
+  br label %__archive_rb_tree_reparent_nodes.exit81.thread
+
+__archive_rb_tree_reparent_nodes.exit81:          ; preds = %69
+  %195 = load i64, ptr %20, align 8, !tbaa !20
+  %196 = trunc i64 %195 to i32
+  %197 = lshr i32 %196, 1
+  %198 = and i32 %197, 1
+  %199 = and i64 %195, -4
+  %200 = inttoptr i64 %199 to ptr
+  br label %4
+
+__archive_rb_tree_reparent_nodes.exit81.thread:   ; preds = %69, %.critedge, %9, %45, %.sink.split.i77, %163, %158, %155, %102
   ret void
 }
 
-attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+!llvm.module.flags = !{!0, !1, !2, !3}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
-!9 = distinct !{!9, !6}
-!10 = distinct !{!10, !6}
-!11 = distinct !{!11, !6}
-!12 = distinct !{!12, !6}
-!13 = distinct !{!13, !6}
+!4 = !{!5, !10, i64 8}
+!5 = !{!"archive_rb_tree", !6, i64 0, !10, i64 8}
+!6 = !{!"p1 _ZTS15archive_rb_node", !7, i64 0}
+!7 = !{!"any pointer", !8, i64 0}
+!8 = !{!"omnipotent char", !9, i64 0}
+!9 = !{!"Simple C/C++ TBAA"}
+!10 = !{!"p1 _ZTS19archive_rb_tree_ops", !7, i64 0}
+!11 = !{!6, !6, i64 0}
+!12 = !{!13, !7, i64 8}
+!13 = !{!"archive_rb_tree_ops", !7, i64 0, !7, i64 8}
+!14 = distinct !{!14, !15}
+!15 = !{!"llvm.loop.mustprogress"}
+!16 = distinct !{!16, !15}
+!17 = distinct !{!17, !15}
+!18 = !{!13, !7, i64 0}
+!19 = distinct !{!19, !15}
+!20 = !{!21, !22, i64 16}
+!21 = !{!"archive_rb_node", !8, i64 0, !22, i64 16}
+!22 = !{!"long", !8, i64 0}
+!23 = !{!5, !6, i64 0}
+!24 = distinct !{!24, !15}
+!25 = distinct !{!25, !15}
+!26 = distinct !{!26, !15}

@@ -26,226 +26,291 @@ define dso_local i32 @archive_read_data_into_fd(ptr noundef %0, i32 noundef %1) 
   %16 = alloca ptr, align 8
   %17 = alloca i64, align 8
   %18 = alloca i32, align 4
-  %19 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store i32 %1, ptr %5, align 4
-  store i64 0, ptr %14, align 8
-  store ptr null, ptr %16, align 8
-  store i64 16384, ptr %17, align 8
-  br label %20
+  %19 = alloca i32, align 4
+  %20 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !4
+  store i32 %1, ptr %5, align 4, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 144, ptr %6) #6
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #6
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #6
+  store i64 0, ptr %14, align 8, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 4, ptr %15) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %16) #6
+  store ptr null, ptr %16, align 8, !tbaa !13
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #6
+  store i64 16384, ptr %17, align 8, !tbaa !11
+  br label %21
 
-20:                                               ; preds = %2
-  %21 = load ptr, ptr %4, align 8
-  %22 = call i32 @__archive_check_magic(ptr noundef %21, i32 noundef 14594245, i32 noundef 4, ptr noundef @.str)
-  store i32 %22, ptr %18, align 4
-  %23 = load i32, ptr %18, align 4
-  %24 = icmp eq i32 %23, -30
-  br i1 %24, label %25, label %26
+21:                                               ; preds = %2
+  call void @llvm.lifetime.start.p0(i64 4, ptr %18) #6
+  %22 = load ptr, ptr %4, align 8, !tbaa !4
+  %23 = call i32 @__archive_check_magic(ptr noundef %22, i32 noundef 14594245, i32 noundef 4, ptr noundef @.str)
+  store i32 %23, ptr %18, align 4, !tbaa !9
+  %24 = load i32, ptr %18, align 4, !tbaa !9
+  %25 = icmp eq i32 %24, -30
+  br i1 %25, label %26, label %27
 
-25:                                               ; preds = %20
+26:                                               ; preds = %21
   store i32 -30, ptr %3, align 4
-  br label %132
+  store i32 1, ptr %19, align 4
+  br label %28
 
-26:                                               ; preds = %20
-  br label %27
+27:                                               ; preds = %21
+  store i32 0, ptr %19, align 4
+  br label %28
 
-27:                                               ; preds = %26
-  %28 = load i32, ptr %5, align 4
-  %29 = call i32 @fstat(i32 noundef %28, ptr noundef %6) #5
-  %30 = icmp eq i32 %29, 0
-  br i1 %30, label %31, label %36
+28:                                               ; preds = %27, %26
+  call void @llvm.lifetime.end.p0(i64 4, ptr %18) #6
+  %29 = load i32, ptr %19, align 4
+  switch i32 %29, label %140 [
+    i32 0, label %30
+  ]
 
-31:                                               ; preds = %27
-  %32 = getelementptr inbounds %struct.stat, ptr %6, i32 0, i32 3
-  %33 = load i32, ptr %32, align 8
-  %34 = and i32 %33, 61440
-  %35 = icmp eq i32 %34, 32768
-  br label %36
+30:                                               ; preds = %28
+  br label %31
 
-36:                                               ; preds = %31, %27
-  %37 = phi i1 [ false, %27 ], [ %35, %31 ]
-  %38 = zext i1 %37 to i32
-  store i32 %38, ptr %15, align 4
-  %39 = load i32, ptr %15, align 4
-  %40 = icmp ne i32 %39, 0
-  br i1 %40, label %48, label %41
+31:                                               ; preds = %30
+  br label %32
 
-41:                                               ; preds = %36
-  %42 = load i64, ptr %17, align 8
-  %43 = call noalias ptr @calloc(i64 noundef 1, i64 noundef %42) #6
-  store ptr %43, ptr %16, align 8
-  %44 = load ptr, ptr %16, align 8
-  %45 = icmp ne ptr %44, null
-  br i1 %45, label %47, label %46
+32:                                               ; preds = %31
+  %33 = load i32, ptr %5, align 4, !tbaa !9
+  %34 = call i32 @fstat(i32 noundef %33, ptr noundef %6) #6
+  %35 = icmp eq i32 %34, 0
+  br i1 %35, label %36, label %41
+
+36:                                               ; preds = %32
+  %37 = getelementptr inbounds nuw %struct.stat, ptr %6, i32 0, i32 3
+  %38 = load i32, ptr %37, align 8, !tbaa !15
+  %39 = and i32 %38, 61440
+  %40 = icmp eq i32 %39, 32768
+  br label %41
+
+41:                                               ; preds = %36, %32
+  %42 = phi i1 [ false, %32 ], [ %40, %36 ]
+  %43 = zext i1 %42 to i32
+  store i32 %43, ptr %15, align 4, !tbaa !9
+  %44 = load i32, ptr %15, align 4, !tbaa !9
+  %45 = icmp ne i32 %44, 0
+  br i1 %45, label %53, label %46
 
 46:                                               ; preds = %41
-  store i32 -30, ptr %7, align 4
-  br label %125
+  %47 = load i64, ptr %17, align 8, !tbaa !11
+  %48 = call noalias ptr @calloc(i64 noundef 1, i64 noundef %47) #7
+  store ptr %48, ptr %16, align 8, !tbaa !13
+  %49 = load ptr, ptr %16, align 8, !tbaa !13
+  %50 = icmp ne ptr %49, null
+  br i1 %50, label %52, label %51
 
-47:                                               ; preds = %41
-  br label %48
+51:                                               ; preds = %46
+  store i32 -30, ptr %7, align 4, !tbaa !9
+  br label %133
 
-48:                                               ; preds = %47, %36
-  br label %49
+52:                                               ; preds = %46
+  br label %53
 
-49:                                               ; preds = %102, %48
-  %50 = load ptr, ptr %4, align 8
-  %51 = call i32 @archive_read_data_block(ptr noundef %50, ptr noundef %9, ptr noundef %10, ptr noundef %13)
-  store i32 %51, ptr %7, align 4
-  %52 = icmp eq i32 %51, 0
-  br i1 %52, label %53, label %103
+53:                                               ; preds = %52, %41
+  br label %54
 
-53:                                               ; preds = %49
-  %54 = load ptr, ptr %9, align 8
-  store ptr %54, ptr %19, align 8
-  %55 = load i64, ptr %13, align 8
-  %56 = load i64, ptr %14, align 8
-  %57 = icmp sgt i64 %55, %56
-  br i1 %57, label %58, label %72
+54:                                               ; preds = %110, %53
+  %55 = load ptr, ptr %4, align 8, !tbaa !4
+  %56 = call i32 @archive_read_data_block(ptr noundef %55, ptr noundef %9, ptr noundef %10, ptr noundef %13)
+  store i32 %56, ptr %7, align 4, !tbaa !9
+  %57 = icmp eq i32 %56, 0
+  br i1 %57, label %58, label %111
 
-58:                                               ; preds = %53
-  %59 = load ptr, ptr %4, align 8
-  %60 = load i32, ptr %5, align 4
-  %61 = load i32, ptr %15, align 4
-  %62 = load i64, ptr %17, align 8
-  %63 = load ptr, ptr %16, align 8
-  %64 = load i64, ptr %13, align 8
-  %65 = load i64, ptr %14, align 8
-  %66 = call i32 @pad_to(ptr noundef %59, i32 noundef %60, i32 noundef %61, i64 noundef %62, ptr noundef %63, i64 noundef %64, i64 noundef %65)
-  store i32 %66, ptr %7, align 4
-  %67 = load i32, ptr %7, align 4
-  %68 = icmp ne i32 %67, 0
-  br i1 %68, label %69, label %70
+58:                                               ; preds = %54
+  call void @llvm.lifetime.start.p0(i64 8, ptr %20) #6
+  %59 = load ptr, ptr %9, align 8, !tbaa !18
+  store ptr %59, ptr %20, align 8, !tbaa !13
+  %60 = load i64, ptr %13, align 8, !tbaa !11
+  %61 = load i64, ptr %14, align 8, !tbaa !11
+  %62 = icmp sgt i64 %60, %61
+  br i1 %62, label %63, label %77
 
-69:                                               ; preds = %58
-  br label %103
+63:                                               ; preds = %58
+  %64 = load ptr, ptr %4, align 8, !tbaa !4
+  %65 = load i32, ptr %5, align 4, !tbaa !9
+  %66 = load i32, ptr %15, align 4, !tbaa !9
+  %67 = load i64, ptr %17, align 8, !tbaa !11
+  %68 = load ptr, ptr %16, align 8, !tbaa !13
+  %69 = load i64, ptr %13, align 8, !tbaa !11
+  %70 = load i64, ptr %14, align 8, !tbaa !11
+  %71 = call i32 @pad_to(ptr noundef %64, i32 noundef %65, i32 noundef %66, i64 noundef %67, ptr noundef %68, i64 noundef %69, i64 noundef %70)
+  store i32 %71, ptr %7, align 4, !tbaa !9
+  %72 = load i32, ptr %7, align 4, !tbaa !9
+  %73 = icmp ne i32 %72, 0
+  br i1 %73, label %74, label %75
 
-70:                                               ; preds = %58
-  %71 = load i64, ptr %13, align 8
-  store i64 %71, ptr %14, align 8
-  br label %72
+74:                                               ; preds = %63
+  store i32 6, ptr %19, align 4
+  br label %108
 
-72:                                               ; preds = %70, %53
-  br label %73
+75:                                               ; preds = %63
+  %76 = load i64, ptr %13, align 8, !tbaa !11
+  store i64 %76, ptr %14, align 8, !tbaa !11
+  br label %77
 
-73:                                               ; preds = %92, %72
-  %74 = load i64, ptr %10, align 8
-  %75 = icmp ugt i64 %74, 0
-  br i1 %75, label %76, label %102
+77:                                               ; preds = %75, %58
+  br label %78
 
-76:                                               ; preds = %73
-  %77 = load i64, ptr %10, align 8
-  store i64 %77, ptr %11, align 8
-  %78 = load i64, ptr %11, align 8
-  %79 = icmp ugt i64 %78, 1048576
-  br i1 %79, label %80, label %81
+78:                                               ; preds = %97, %77
+  %79 = load i64, ptr %10, align 8, !tbaa !11
+  %80 = icmp ugt i64 %79, 0
+  br i1 %80, label %81, label %107
 
-80:                                               ; preds = %76
-  store i64 1048576, ptr %11, align 8
-  br label %81
+81:                                               ; preds = %78
+  %82 = load i64, ptr %10, align 8, !tbaa !11
+  store i64 %82, ptr %11, align 8, !tbaa !11
+  %83 = load i64, ptr %11, align 8, !tbaa !11
+  %84 = icmp ugt i64 %83, 1048576
+  br i1 %84, label %85, label %86
 
-81:                                               ; preds = %80, %76
-  %82 = load i32, ptr %5, align 4
-  %83 = load ptr, ptr %19, align 8
-  %84 = load i64, ptr %11, align 8
-  %85 = call i64 @write(i32 noundef %82, ptr noundef %83, i64 noundef %84)
-  store i64 %85, ptr %12, align 8
-  %86 = load i64, ptr %12, align 8
-  %87 = icmp slt i64 %86, 0
-  br i1 %87, label %88, label %92
+85:                                               ; preds = %81
+  store i64 1048576, ptr %11, align 8, !tbaa !11
+  br label %86
 
-88:                                               ; preds = %81
-  %89 = load ptr, ptr %4, align 8
-  %90 = call ptr @__errno_location() #7
-  %91 = load i32, ptr %90, align 4
-  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %89, i32 noundef %91, ptr noundef @.str.1)
-  store i32 -30, ptr %7, align 4
-  br label %125
+86:                                               ; preds = %85, %81
+  %87 = load i32, ptr %5, align 4, !tbaa !9
+  %88 = load ptr, ptr %20, align 8, !tbaa !13
+  %89 = load i64, ptr %11, align 8, !tbaa !11
+  %90 = call i64 @write(i32 noundef %87, ptr noundef %88, i64 noundef %89)
+  store i64 %90, ptr %12, align 8, !tbaa !11
+  %91 = load i64, ptr %12, align 8, !tbaa !11
+  %92 = icmp slt i64 %91, 0
+  br i1 %92, label %93, label %97
 
-92:                                               ; preds = %81
-  %93 = load i64, ptr %12, align 8
-  %94 = load i64, ptr %14, align 8
-  %95 = add nsw i64 %94, %93
-  store i64 %95, ptr %14, align 8
-  %96 = load i64, ptr %12, align 8
-  %97 = load ptr, ptr %19, align 8
-  %98 = getelementptr inbounds i8, ptr %97, i64 %96
-  store ptr %98, ptr %19, align 8
-  %99 = load i64, ptr %12, align 8
-  %100 = load i64, ptr %10, align 8
-  %101 = sub i64 %100, %99
-  store i64 %101, ptr %10, align 8
-  br label %73, !llvm.loop !5
+93:                                               ; preds = %86
+  %94 = load ptr, ptr %4, align 8, !tbaa !4
+  %95 = call ptr @__errno_location() #8
+  %96 = load i32, ptr %95, align 4, !tbaa !9
+  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %94, i32 noundef %96, ptr noundef @.str.1)
+  store i32 -30, ptr %7, align 4, !tbaa !9
+  store i32 4, ptr %19, align 4
+  br label %108
 
-102:                                              ; preds = %73
-  br label %49, !llvm.loop !7
+97:                                               ; preds = %86
+  %98 = load i64, ptr %12, align 8, !tbaa !11
+  %99 = load i64, ptr %14, align 8, !tbaa !11
+  %100 = add nsw i64 %99, %98
+  store i64 %100, ptr %14, align 8, !tbaa !11
+  %101 = load i64, ptr %12, align 8, !tbaa !11
+  %102 = load ptr, ptr %20, align 8, !tbaa !13
+  %103 = getelementptr inbounds i8, ptr %102, i64 %101
+  store ptr %103, ptr %20, align 8, !tbaa !13
+  %104 = load i64, ptr %12, align 8, !tbaa !11
+  %105 = load i64, ptr %10, align 8, !tbaa !11
+  %106 = sub i64 %105, %104
+  store i64 %106, ptr %10, align 8, !tbaa !11
+  br label %78, !llvm.loop !19
 
-103:                                              ; preds = %69, %49
-  %104 = load i32, ptr %7, align 4
-  %105 = icmp eq i32 %104, 1
-  br i1 %105, label %106, label %124
+107:                                              ; preds = %78
+  store i32 0, ptr %19, align 4
+  br label %108
 
-106:                                              ; preds = %103
-  %107 = load i64, ptr %13, align 8
-  %108 = load i64, ptr %14, align 8
-  %109 = icmp sgt i64 %107, %108
-  br i1 %109, label %110, label %124
+108:                                              ; preds = %93, %107, %74
+  call void @llvm.lifetime.end.p0(i64 8, ptr %20) #6
+  %109 = load i32, ptr %19, align 4
+  switch i32 %109, label %140 [
+    i32 0, label %110
+    i32 6, label %111
+    i32 4, label %133
+  ]
 
-110:                                              ; preds = %106
-  %111 = load ptr, ptr %4, align 8
-  %112 = load i32, ptr %5, align 4
-  %113 = load i32, ptr %15, align 4
-  %114 = load i64, ptr %17, align 8
-  %115 = load ptr, ptr %16, align 8
-  %116 = load i64, ptr %13, align 8
-  %117 = load i64, ptr %14, align 8
-  %118 = call i32 @pad_to(ptr noundef %111, i32 noundef %112, i32 noundef %113, i64 noundef %114, ptr noundef %115, i64 noundef %116, i64 noundef %117)
-  store i32 %118, ptr %8, align 4
-  %119 = load i32, ptr %8, align 4
-  %120 = icmp ne i32 %119, 0
-  br i1 %120, label %121, label %123
+110:                                              ; preds = %108
+  br label %54, !llvm.loop !21
 
-121:                                              ; preds = %110
-  %122 = load i32, ptr %8, align 4
-  store i32 %122, ptr %7, align 4
-  br label %123
+111:                                              ; preds = %108, %54
+  %112 = load i32, ptr %7, align 4, !tbaa !9
+  %113 = icmp eq i32 %112, 1
+  br i1 %113, label %114, label %132
 
-123:                                              ; preds = %121, %110
-  br label %124
+114:                                              ; preds = %111
+  %115 = load i64, ptr %13, align 8, !tbaa !11
+  %116 = load i64, ptr %14, align 8, !tbaa !11
+  %117 = icmp sgt i64 %115, %116
+  br i1 %117, label %118, label %132
 
-124:                                              ; preds = %123, %106, %103
-  br label %125
-
-125:                                              ; preds = %124, %88, %46
-  %126 = load ptr, ptr %16, align 8
-  call void @free(ptr noundef %126) #5
-  %127 = load i32, ptr %7, align 4
-  %128 = icmp ne i32 %127, 1
+118:                                              ; preds = %114
+  %119 = load ptr, ptr %4, align 8, !tbaa !4
+  %120 = load i32, ptr %5, align 4, !tbaa !9
+  %121 = load i32, ptr %15, align 4, !tbaa !9
+  %122 = load i64, ptr %17, align 8, !tbaa !11
+  %123 = load ptr, ptr %16, align 8, !tbaa !13
+  %124 = load i64, ptr %13, align 8, !tbaa !11
+  %125 = load i64, ptr %14, align 8, !tbaa !11
+  %126 = call i32 @pad_to(ptr noundef %119, i32 noundef %120, i32 noundef %121, i64 noundef %122, ptr noundef %123, i64 noundef %124, i64 noundef %125)
+  store i32 %126, ptr %8, align 4, !tbaa !9
+  %127 = load i32, ptr %8, align 4, !tbaa !9
+  %128 = icmp ne i32 %127, 0
   br i1 %128, label %129, label %131
 
-129:                                              ; preds = %125
-  %130 = load i32, ptr %7, align 4
-  store i32 %130, ptr %3, align 4
+129:                                              ; preds = %118
+  %130 = load i32, ptr %8, align 4, !tbaa !9
+  store i32 %130, ptr %7, align 4, !tbaa !9
+  br label %131
+
+131:                                              ; preds = %129, %118
   br label %132
 
-131:                                              ; preds = %125
+132:                                              ; preds = %131, %114, %111
+  br label %133
+
+133:                                              ; preds = %132, %108, %51
+  %134 = load ptr, ptr %16, align 8, !tbaa !13
+  call void @free(ptr noundef %134) #6
+  %135 = load i32, ptr %7, align 4, !tbaa !9
+  %136 = icmp ne i32 %135, 1
+  br i1 %136, label %137, label %139
+
+137:                                              ; preds = %133
+  %138 = load i32, ptr %7, align 4, !tbaa !9
+  store i32 %138, ptr %3, align 4
+  store i32 1, ptr %19, align 4
+  br label %140
+
+139:                                              ; preds = %133
   store i32 0, ptr %3, align 4
-  br label %132
+  store i32 1, ptr %19, align 4
+  br label %140
 
-132:                                              ; preds = %131, %129, %25
-  %133 = load i32, ptr %3, align 4
-  ret i32 %133
+140:                                              ; preds = %139, %137, %108, %28
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %15) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #6
+  call void @llvm.lifetime.end.p0(i64 144, ptr %6) #6
+  %141 = load i32, ptr %3, align 4
+  ret i32 %141
 }
 
-declare i32 @__archive_check_magic(ptr noundef, i32 noundef, i32 noundef, ptr noundef) #1
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+
+declare i32 @__archive_check_magic(ptr noundef, i32 noundef, i32 noundef, ptr noundef) #2
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind
-declare i32 @fstat(i32 noundef, ptr noundef) #2
+declare i32 @fstat(i32 noundef, ptr noundef) #3
 
 ; Function Attrs: nounwind allocsize(0,1)
-declare noalias ptr @calloc(i64 noundef, i64 noundef) #3
+declare noalias ptr @calloc(i64 noundef, i64 noundef) #4
 
-declare i32 @archive_read_data_block(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #1
+declare i32 @archive_read_data_block(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #2
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @pad_to(ptr noundef %0, i32 noundef %1, i32 noundef %2, i64 noundef %3, ptr noundef %4, i64 noundef %5, i64 noundef %6) #0 {
@@ -259,131 +324,155 @@ define internal i32 @pad_to(ptr noundef %0, i32 noundef %1, i32 noundef %2, i64 
   %15 = alloca i64, align 8
   %16 = alloca i64, align 8
   %17 = alloca i64, align 8
-  store ptr %0, ptr %9, align 8
-  store i32 %1, ptr %10, align 4
-  store i32 %2, ptr %11, align 4
-  store i64 %3, ptr %12, align 8
-  store ptr %4, ptr %13, align 8
-  store i64 %5, ptr %14, align 8
-  store i64 %6, ptr %15, align 8
-  %18 = load i32, ptr %11, align 4
-  %19 = icmp ne i32 %18, 0
-  br i1 %19, label %20, label %34
+  %18 = alloca i32, align 4
+  store ptr %0, ptr %9, align 8, !tbaa !4
+  store i32 %1, ptr %10, align 4, !tbaa !9
+  store i32 %2, ptr %11, align 4, !tbaa !9
+  store i64 %3, ptr %12, align 8, !tbaa !11
+  store ptr %4, ptr %13, align 8, !tbaa !13
+  store i64 %5, ptr %14, align 8, !tbaa !11
+  store i64 %6, ptr %15, align 8, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %16) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #6
+  %19 = load i32, ptr %11, align 4, !tbaa !9
+  %20 = icmp ne i32 %19, 0
+  br i1 %20, label %21, label %35
 
-20:                                               ; preds = %7
-  %21 = load i32, ptr %10, align 4
-  %22 = load i64, ptr %14, align 8
-  %23 = load i64, ptr %15, align 8
-  %24 = sub nsw i64 %22, %23
-  %25 = call i64 @lseek(i32 noundef %21, i64 noundef %24, i32 noundef 1) #5
-  store i64 %25, ptr %15, align 8
-  %26 = load i64, ptr %15, align 8
-  %27 = load i64, ptr %14, align 8
-  %28 = icmp ne i64 %26, %27
-  br i1 %28, label %29, label %33
+21:                                               ; preds = %7
+  %22 = load i32, ptr %10, align 4, !tbaa !9
+  %23 = load i64, ptr %14, align 8, !tbaa !11
+  %24 = load i64, ptr %15, align 8, !tbaa !11
+  %25 = sub nsw i64 %23, %24
+  %26 = call i64 @lseek(i32 noundef %22, i64 noundef %25, i32 noundef 1) #6
+  store i64 %26, ptr %15, align 8, !tbaa !11
+  %27 = load i64, ptr %15, align 8, !tbaa !11
+  %28 = load i64, ptr %14, align 8, !tbaa !11
+  %29 = icmp ne i64 %27, %28
+  br i1 %29, label %30, label %34
 
-29:                                               ; preds = %20
-  %30 = load ptr, ptr %9, align 8
-  %31 = call ptr @__errno_location() #7
-  %32 = load i32, ptr %31, align 4
-  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %30, i32 noundef %32, ptr noundef @.str.2)
+30:                                               ; preds = %21
+  %31 = load ptr, ptr %9, align 8, !tbaa !4
+  %32 = call ptr @__errno_location() #8
+  %33 = load i32, ptr %32, align 4, !tbaa !9
+  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %31, i32 noundef %33, ptr noundef @.str.2)
   store i32 -30, ptr %8, align 4
-  br label %66
+  store i32 1, ptr %18, align 4
+  br label %67
 
-33:                                               ; preds = %20
+34:                                               ; preds = %21
   store i32 0, ptr %8, align 4
-  br label %66
+  store i32 1, ptr %18, align 4
+  br label %67
 
-34:                                               ; preds = %7
-  br label %35
+35:                                               ; preds = %7
+  br label %36
 
-35:                                               ; preds = %61, %34
-  %36 = load i64, ptr %14, align 8
-  %37 = load i64, ptr %15, align 8
-  %38 = icmp sgt i64 %36, %37
-  br i1 %38, label %39, label %65
+36:                                               ; preds = %62, %35
+  %37 = load i64, ptr %14, align 8, !tbaa !11
+  %38 = load i64, ptr %15, align 8, !tbaa !11
+  %39 = icmp sgt i64 %37, %38
+  br i1 %39, label %40, label %66
 
-39:                                               ; preds = %35
-  %40 = load i64, ptr %12, align 8
-  store i64 %40, ptr %16, align 8
-  %41 = load i64, ptr %14, align 8
-  %42 = load i64, ptr %15, align 8
-  %43 = load i64, ptr %12, align 8
-  %44 = add nsw i64 %42, %43
-  %45 = icmp slt i64 %41, %44
-  br i1 %45, label %46, label %50
+40:                                               ; preds = %36
+  %41 = load i64, ptr %12, align 8, !tbaa !11
+  store i64 %41, ptr %16, align 8, !tbaa !11
+  %42 = load i64, ptr %14, align 8, !tbaa !11
+  %43 = load i64, ptr %15, align 8, !tbaa !11
+  %44 = load i64, ptr %12, align 8, !tbaa !11
+  %45 = add nsw i64 %43, %44
+  %46 = icmp slt i64 %42, %45
+  br i1 %46, label %47, label %51
 
-46:                                               ; preds = %39
-  %47 = load i64, ptr %14, align 8
-  %48 = load i64, ptr %15, align 8
-  %49 = sub nsw i64 %47, %48
-  store i64 %49, ptr %16, align 8
-  br label %50
+47:                                               ; preds = %40
+  %48 = load i64, ptr %14, align 8, !tbaa !11
+  %49 = load i64, ptr %15, align 8, !tbaa !11
+  %50 = sub nsw i64 %48, %49
+  store i64 %50, ptr %16, align 8, !tbaa !11
+  br label %51
 
-50:                                               ; preds = %46, %39
-  %51 = load i32, ptr %10, align 4
-  %52 = load ptr, ptr %13, align 8
-  %53 = load i64, ptr %16, align 8
-  %54 = call i64 @write(i32 noundef %51, ptr noundef %52, i64 noundef %53)
-  store i64 %54, ptr %17, align 8
-  %55 = load i64, ptr %17, align 8
-  %56 = icmp slt i64 %55, 0
-  br i1 %56, label %57, label %61
+51:                                               ; preds = %47, %40
+  %52 = load i32, ptr %10, align 4, !tbaa !9
+  %53 = load ptr, ptr %13, align 8, !tbaa !13
+  %54 = load i64, ptr %16, align 8, !tbaa !11
+  %55 = call i64 @write(i32 noundef %52, ptr noundef %53, i64 noundef %54)
+  store i64 %55, ptr %17, align 8, !tbaa !11
+  %56 = load i64, ptr %17, align 8, !tbaa !11
+  %57 = icmp slt i64 %56, 0
+  br i1 %57, label %58, label %62
 
-57:                                               ; preds = %50
-  %58 = load ptr, ptr %9, align 8
-  %59 = call ptr @__errno_location() #7
-  %60 = load i32, ptr %59, align 4
-  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %58, i32 noundef %60, ptr noundef @.str.1)
+58:                                               ; preds = %51
+  %59 = load ptr, ptr %9, align 8, !tbaa !4
+  %60 = call ptr @__errno_location() #8
+  %61 = load i32, ptr %60, align 4, !tbaa !9
+  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %59, i32 noundef %61, ptr noundef @.str.1)
   store i32 -30, ptr %8, align 4
-  br label %66
+  store i32 1, ptr %18, align 4
+  br label %67
 
-61:                                               ; preds = %50
-  %62 = load i64, ptr %17, align 8
-  %63 = load i64, ptr %15, align 8
-  %64 = add nsw i64 %63, %62
-  store i64 %64, ptr %15, align 8
-  br label %35, !llvm.loop !8
+62:                                               ; preds = %51
+  %63 = load i64, ptr %17, align 8, !tbaa !11
+  %64 = load i64, ptr %15, align 8, !tbaa !11
+  %65 = add nsw i64 %64, %63
+  store i64 %65, ptr %15, align 8, !tbaa !11
+  br label %36, !llvm.loop !22
 
-65:                                               ; preds = %35
+66:                                               ; preds = %36
   store i32 0, ptr %8, align 4
-  br label %66
+  store i32 1, ptr %18, align 4
+  br label %67
 
-66:                                               ; preds = %65, %57, %33, %29
-  %67 = load i32, ptr %8, align 4
-  ret i32 %67
+67:                                               ; preds = %66, %58, %34, %30
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #6
+  %68 = load i32, ptr %8, align 4
+  ret i32 %68
 }
 
-declare i64 @write(i32 noundef, ptr noundef, i64 noundef) #1
+declare i64 @write(i32 noundef, ptr noundef, i64 noundef) #2
 
-declare void @archive_set_error(ptr noundef, i32 noundef, ptr noundef, ...) #1
+declare void @archive_set_error(ptr noundef, i32 noundef, ptr noundef, ...) #2
 
 ; Function Attrs: nounwind willreturn memory(none)
-declare ptr @__errno_location() #4
+declare ptr @__errno_location() #5
 
 ; Function Attrs: nounwind
-declare void @free(ptr noundef) #2
+declare void @free(ptr noundef) #3
 
 ; Function Attrs: nounwind
-declare i64 @lseek(i32 noundef, i64 noundef, i32 noundef) #2
+declare i64 @lseek(i32 noundef, i64 noundef, i32 noundef) #3
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nounwind allocsize(0,1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nounwind }
-attributes #6 = { nounwind allocsize(0,1) }
-attributes #7 = { nounwind willreturn memory(none) }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nounwind allocsize(0,1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nounwind }
+attributes #7 = { nounwind allocsize(0,1) }
+attributes #8 = { nounwind willreturn memory(none) }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+!llvm.module.flags = !{!0, !1, !2, !3}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
+!4 = !{!5, !5, i64 0}
+!5 = !{!"p1 _ZTS7archive", !6, i64 0}
+!6 = !{!"any pointer", !7, i64 0}
+!7 = !{!"omnipotent char", !8, i64 0}
+!8 = !{!"Simple C/C++ TBAA"}
+!9 = !{!10, !10, i64 0}
+!10 = !{!"int", !7, i64 0}
+!11 = !{!12, !12, i64 0}
+!12 = !{!"long", !7, i64 0}
+!13 = !{!14, !14, i64 0}
+!14 = !{!"p1 omnipotent char", !6, i64 0}
+!15 = !{!16, !10, i64 24}
+!16 = !{!"stat", !12, i64 0, !12, i64 8, !12, i64 16, !10, i64 24, !10, i64 28, !10, i64 32, !10, i64 36, !12, i64 40, !12, i64 48, !12, i64 56, !12, i64 64, !17, i64 72, !17, i64 88, !17, i64 104, !7, i64 120}
+!17 = !{!"timespec", !12, i64 0, !12, i64 8}
+!18 = !{!6, !6, i64 0}
+!19 = distinct !{!19, !20}
+!20 = !{!"llvm.loop.mustprogress"}
+!21 = distinct !{!21, !20}
+!22 = distinct !{!22, !20}

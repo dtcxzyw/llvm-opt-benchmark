@@ -1,5 +1,5 @@
-; ModuleID = 'bench/cmake/original/block_util.c.ll'
-source_filename = "bench/cmake/original/block_util.c.ll"
+; ModuleID = 'bench/cmake/original/block_util.ll'
+source_filename = "bench/cmake/original/block_util.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
@@ -9,13 +9,13 @@ define dso_local range(i32 0, 12) i32 @lzma_block_compressed_size(ptr noundef %0
   br i1 %3, label %lzma_block_unpadded_size.exit.thread, label %4
 
 4:                                                ; preds = %2
-  %5 = load i32, ptr %0, align 8
+  %5 = load i32, ptr %0, align 8, !tbaa !4
   %6 = icmp ugt i32 %5, 1
   br i1 %6, label %lzma_block_unpadded_size.exit.thread, label %7
 
 7:                                                ; preds = %4
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %9 = load i32, ptr %8, align 4
+  %9 = load i32, ptr %8, align 4, !tbaa !11
   %10 = add i32 %9, -8
   %or.cond.i = icmp ult i32 %10, 1017
   %11 = and i32 %9, 3
@@ -25,7 +25,7 @@ define dso_local range(i32 0, 12) i32 @lzma_block_compressed_size(ptr noundef %0
 
 12:                                               ; preds = %7
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %14 = load i64, ptr %13, align 8
+  %14 = load i64, ptr %13, align 8, !tbaa !12
   %or.cond22.i = icmp slt i64 %14, -1
   %15 = icmp eq i64 %14, 0
   %or.cond23.i = or i1 %or.cond22.i, %15
@@ -34,7 +34,7 @@ define dso_local range(i32 0, 12) i32 @lzma_block_compressed_size(ptr noundef %0
 16:                                               ; preds = %12
   %17 = icmp eq i64 %14, -1
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %19 = load i32, ptr %18, align 8
+  %19 = load i32, ptr %18, align 8, !tbaa !13
   %20 = icmp ugt i32 %19, 15
   %brmerge.i = or i1 %17, %20
   br i1 %brmerge.i, label %lzma_block_unpadded_size.exit, label %21
@@ -69,11 +69,11 @@ lzma_block_unpadded_size.exit.thread18:           ; preds = %lzma_block_unpadded
   br i1 %or.cond, label %32, label %lzma_block_unpadded_size.exit.thread
 
 32:                                               ; preds = %30
-  store i64 %31, ptr %13, align 8
+  store i64 %31, ptr %13, align 8, !tbaa !12
   br label %lzma_block_unpadded_size.exit.thread
 
-lzma_block_unpadded_size.exit.thread:             ; preds = %21, %2, %4, %7, %12, %30, %lzma_block_unpadded_size.exit.thread18, %lzma_block_unpadded_size.exit, %32
-  %.0 = phi i32 [ 0, %32 ], [ 11, %lzma_block_unpadded_size.exit ], [ 9, %lzma_block_unpadded_size.exit.thread18 ], [ 9, %30 ], [ 11, %12 ], [ 11, %7 ], [ 11, %4 ], [ 11, %2 ], [ 11, %21 ]
+lzma_block_unpadded_size.exit.thread:             ; preds = %21, %2, %4, %7, %12, %lzma_block_unpadded_size.exit.thread18, %30, %32, %lzma_block_unpadded_size.exit
+  %.0 = phi i32 [ 11, %lzma_block_unpadded_size.exit ], [ 9, %lzma_block_unpadded_size.exit.thread18 ], [ 0, %32 ], [ 9, %30 ], [ 11, %12 ], [ 11, %7 ], [ 11, %4 ], [ 11, %2 ], [ 11, %21 ]
   ret i32 %.0
 }
 
@@ -83,13 +83,13 @@ define dso_local range(i64 -1, 9223372036854775805) i64 @lzma_block_unpadded_siz
   br i1 %2, label %27, label %3
 
 3:                                                ; preds = %1
-  %4 = load i32, ptr %0, align 8
+  %4 = load i32, ptr %0, align 8, !tbaa !4
   %5 = icmp ugt i32 %4, 1
   br i1 %5, label %27, label %6
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %8 = load i32, ptr %7, align 4
+  %8 = load i32, ptr %7, align 4, !tbaa !11
   %9 = add i32 %8, -8
   %or.cond = icmp ult i32 %9, 1017
   %10 = and i32 %8, 3
@@ -99,7 +99,7 @@ define dso_local range(i64 -1, 9223372036854775805) i64 @lzma_block_unpadded_siz
 
 11:                                               ; preds = %6
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %13 = load i64, ptr %12, align 8
+  %13 = load i64, ptr %12, align 8, !tbaa !12
   %or.cond22 = icmp slt i64 %13, -1
   %14 = icmp eq i64 %13, 0
   %or.cond23 = or i1 %or.cond22, %14
@@ -108,7 +108,7 @@ define dso_local range(i64 -1, 9223372036854775805) i64 @lzma_block_unpadded_siz
 15:                                               ; preds = %11
   %16 = icmp eq i64 %13, -1
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %18 = load i32, ptr %17, align 8
+  %18 = load i32, ptr %17, align 8, !tbaa !13
   %19 = icmp ugt i32 %18, 15
   %brmerge = or i1 %16, %19
   %not. = xor i1 %19, true
@@ -125,8 +125,8 @@ define dso_local range(i64 -1, 9223372036854775805) i64 @lzma_block_unpadded_siz
   %. = select i1 %26, i64 0, i64 %25
   br label %27
 
-27:                                               ; preds = %15, %20, %1, %3, %6, %11
-  %.0 = phi i64 [ 0, %11 ], [ %.mux, %15 ], [ 0, %6 ], [ 0, %3 ], [ 0, %1 ], [ %., %20 ]
+27:                                               ; preds = %15, %1, %3, %6, %11, %20
+  %.0 = phi i64 [ %., %20 ], [ 0, %11 ], [ %.mux, %15 ], [ 0, %6 ], [ 0, %3 ], [ 0, %1 ]
   ret i64 %.0
 }
 
@@ -139,13 +139,13 @@ define dso_local range(i64 -1, 9223372036854775805) i64 @lzma_block_total_size(p
   br i1 %2, label %lzma_block_unpadded_size.exit.thread, label %3
 
 3:                                                ; preds = %1
-  %4 = load i32, ptr %0, align 8
+  %4 = load i32, ptr %0, align 8, !tbaa !4
   %5 = icmp ugt i32 %4, 1
   br i1 %5, label %lzma_block_unpadded_size.exit.thread, label %6
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %8 = load i32, ptr %7, align 4
+  %8 = load i32, ptr %7, align 4, !tbaa !11
   %9 = add i32 %8, -8
   %or.cond.i = icmp ult i32 %9, 1017
   %10 = and i32 %8, 3
@@ -155,7 +155,7 @@ define dso_local range(i64 -1, 9223372036854775805) i64 @lzma_block_total_size(p
 
 11:                                               ; preds = %6
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %13 = load i64, ptr %12, align 8
+  %13 = load i64, ptr %12, align 8, !tbaa !12
   %or.cond22.i = icmp slt i64 %13, -1
   %14 = icmp eq i64 %13, 0
   %or.cond23.i = or i1 %or.cond22.i, %14
@@ -164,7 +164,7 @@ define dso_local range(i64 -1, 9223372036854775805) i64 @lzma_block_total_size(p
 15:                                               ; preds = %11
   %16 = icmp eq i64 %13, -1
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %18 = load i32, ptr %17, align 8
+  %18 = load i32, ptr %17, align 8, !tbaa !13
   %19 = icmp ugt i32 %18, 15
   %brmerge.i = or i1 %16, %19
   br i1 %brmerge.i, label %lzma_block_unpadded_size.exit, label %20
@@ -186,20 +186,29 @@ lzma_block_unpadded_size.exit:                    ; preds = %15
   %spec.select = sext i1 %not. to i64
   br label %lzma_block_unpadded_size.exit.thread
 
-lzma_block_unpadded_size.exit.thread:             ; preds = %lzma_block_unpadded_size.exit, %11, %6, %3, %1, %20
-  %.0 = phi i64 [ %29, %20 ], [ 0, %1 ], [ 0, %3 ], [ 0, %6 ], [ 0, %11 ], [ %spec.select, %lzma_block_unpadded_size.exit ]
+lzma_block_unpadded_size.exit.thread:             ; preds = %lzma_block_unpadded_size.exit, %20, %11, %6, %3, %1
+  %.0 = phi i64 [ 0, %1 ], [ 0, %3 ], [ 0, %6 ], [ 0, %11 ], [ %29, %20 ], [ %spec.select, %lzma_block_unpadded_size.exit ]
   ret i64 %.0
 }
 
-attributes #0 = { mustprogress nofree nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nofree nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { mustprogress nofree nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nofree nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { nounwind willreturn memory(none) }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+!llvm.module.flags = !{!0, !1, !2, !3}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}
+!4 = !{!5, !6, i64 0}
+!5 = !{!"", !6, i64 0, !6, i64 4, !6, i64 8, !9, i64 16, !9, i64 24, !10, i64 32, !7, i64 40, !10, i64 104, !10, i64 112, !10, i64 120, !6, i64 128, !6, i64 132, !9, i64 136, !9, i64 144, !9, i64 152, !9, i64 160, !9, i64 168, !9, i64 176, !6, i64 184, !6, i64 188, !6, i64 192, !6, i64 196, !7, i64 200, !7, i64 201, !7, i64 202, !7, i64 203, !7, i64 204, !7, i64 205, !7, i64 206, !7, i64 207}
+!6 = !{!"int", !7, i64 0}
+!7 = !{!"omnipotent char", !8, i64 0}
+!8 = !{!"Simple C/C++ TBAA"}
+!9 = !{!"long", !7, i64 0}
+!10 = !{!"any pointer", !7, i64 0}
+!11 = !{!5, !6, i64 4}
+!12 = !{!5, !9, i64 16}
+!13 = !{!5, !6, i64 8}

@@ -1,5 +1,5 @@
-; ModuleID = 'bench/cmake/original/archive_options.c.ll'
-source_filename = "bench/cmake/original/archive_options.c.ll"
+; ModuleID = 'bench/cmake/original/archive_options.ll'
+source_filename = "bench/cmake/original/archive_options.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
@@ -16,81 +16,81 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.10 = private unnamed_addr constant [2 x i8] c"1\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @_archive_set_option(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef readonly captures(none) %6) local_unnamed_addr #0 {
+define dso_local range(i32 -19, -21) i32 @_archive_set_option(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef readonly captures(none) %6) local_unnamed_addr #0 {
   %8 = tail call i32 @__archive_check_magic(ptr noundef %0, i32 noundef %4, i32 noundef 1, ptr noundef %5) #6
-  %9 = icmp eq i32 %8, -30
-  br i1 %9, label %36, label %10
+  %.not = icmp eq i32 %8, -30
+  br i1 %.not, label %35, label %9
 
-10:                                               ; preds = %7
-  %.not = icmp eq ptr %1, null
-  br i1 %.not, label %13, label %11
+9:                                                ; preds = %7
+  %.not46 = icmp eq ptr %1, null
+  br i1 %.not46, label %12, label %10
 
-11:                                               ; preds = %10
-  %12 = load i8, ptr %1, align 1
-  %.not44 = icmp eq i8 %12, 0
-  %spec.select = select i1 %.not44, ptr null, ptr %1
-  br label %13
+10:                                               ; preds = %9
+  %11 = load i8, ptr %1, align 1, !tbaa !4
+  %.not47 = icmp eq i8 %11, 0
+  %spec.select = select i1 %.not47, ptr null, ptr %1
+  br label %12
 
-13:                                               ; preds = %11, %10
-  %14 = phi ptr [ null, %10 ], [ %spec.select, %11 ]
-  %.not45 = icmp eq ptr %2, null
-  br i1 %.not45, label %17, label %15
+12:                                               ; preds = %10, %9
+  %13 = phi ptr [ null, %9 ], [ %spec.select, %10 ]
+  %.not48 = icmp eq ptr %2, null
+  br i1 %.not48, label %16, label %14
 
-15:                                               ; preds = %13
-  %16 = load i8, ptr %2, align 1
-  %.not46 = icmp eq i8 %16, 0
-  %spec.select2 = select i1 %.not46, ptr null, ptr %2
-  br label %17
+14:                                               ; preds = %12
+  %15 = load i8, ptr %2, align 1, !tbaa !4
+  %.not49 = icmp eq i8 %15, 0
+  %spec.select2 = select i1 %.not49, ptr null, ptr %2
+  br label %16
 
-17:                                               ; preds = %15, %13
-  %18 = phi ptr [ null, %13 ], [ %spec.select2, %15 ]
-  %.not47 = icmp eq ptr %3, null
-  br i1 %.not47, label %21, label %19
+16:                                               ; preds = %14, %12
+  %17 = phi ptr [ null, %12 ], [ %spec.select2, %14 ]
+  %.not50 = icmp eq ptr %3, null
+  br i1 %.not50, label %20, label %18
 
-19:                                               ; preds = %17
-  %20 = load i8, ptr %3, align 1
-  %.not48 = icmp eq i8 %20, 0
-  %spec.select3 = select i1 %.not48, ptr null, ptr %3
-  br label %21
+18:                                               ; preds = %16
+  %19 = load i8, ptr %3, align 1, !tbaa !4
+  %.not51 = icmp eq i8 %19, 0
+  %spec.select3 = select i1 %.not51, ptr null, ptr %3
+  br label %20
 
-21:                                               ; preds = %19, %17
-  %22 = phi ptr [ null, %17 ], [ %spec.select3, %19 ]
-  %23 = icmp eq ptr %18, null
-  %24 = icmp eq ptr %22, null
-  %or.cond = select i1 %23, i1 %24, i1 false
-  br i1 %or.cond, label %36, label %25
+20:                                               ; preds = %18, %16
+  %21 = phi ptr [ null, %16 ], [ %spec.select3, %18 ]
+  %22 = icmp eq ptr %17, null
+  %23 = icmp eq ptr %21, null
+  %or.cond = select i1 %22, i1 %23, i1 false
+  br i1 %or.cond, label %35, label %24
 
-25:                                               ; preds = %21
-  br i1 %23, label %26, label %27
+24:                                               ; preds = %20
+  br i1 %22, label %25, label %26
 
-26:                                               ; preds = %25
+25:                                               ; preds = %24
   tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef -1, ptr noundef nonnull @.str) #6
-  br label %36
+  br label %35
 
-27:                                               ; preds = %25
-  %28 = tail call i32 %6(ptr noundef %0, ptr noundef %14, ptr noundef nonnull %18, ptr noundef %22) #6
-  switch i32 %28, label %36 [
-    i32 -21, label %29
-    i32 -20, label %30
+26:                                               ; preds = %24
+  %27 = tail call i32 %6(ptr noundef %0, ptr noundef %13, ptr noundef nonnull %17, ptr noundef %21) #6
+  switch i32 %27, label %35 [
+    i32 -21, label %28
+    i32 -20, label %29
   ]
 
-29:                                               ; preds = %27
-  tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef -1, ptr noundef nonnull @.str.1, ptr noundef %14) #6
-  br label %36
+28:                                               ; preds = %26
+  tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef -1, ptr noundef nonnull @.str.1, ptr noundef %13) #6
+  br label %35
 
-30:                                               ; preds = %27
-  %31 = select i1 %24, ptr @.str.4, ptr @.str.3
-  %.not50 = icmp eq ptr %14, null
-  %32 = select i1 %.not50, ptr @.str.3, ptr %14
-  %33 = select i1 %.not50, ptr @.str.3, ptr @.str.5
-  %34 = select i1 %24, ptr @.str.3, ptr @.str.6
-  %35 = select i1 %24, ptr @.str.3, ptr %22
-  tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef -1, ptr noundef nonnull @.str.2, ptr noundef nonnull %31, ptr noundef nonnull %32, ptr noundef nonnull %33, ptr noundef nonnull %18, ptr noundef nonnull %34, ptr noundef nonnull %35) #6
-  br label %36
+29:                                               ; preds = %26
+  %30 = select i1 %23, ptr @.str.4, ptr @.str.3
+  %.not53 = icmp eq ptr %13, null
+  %31 = select i1 %.not53, ptr @.str.3, ptr %13
+  %32 = select i1 %.not53, ptr @.str.3, ptr @.str.5
+  %33 = select i1 %23, ptr @.str.3, ptr @.str.6
+  %34 = select i1 %23, ptr @.str.3, ptr %21
+  tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef -1, ptr noundef nonnull @.str.2, ptr noundef nonnull %30, ptr noundef nonnull %31, ptr noundef nonnull %32, ptr noundef nonnull %17, ptr noundef nonnull %33, ptr noundef nonnull %34) #6
+  br label %35
 
-36:                                               ; preds = %27, %21, %7, %30, %29, %26
-  %.0 = phi i32 [ -25, %26 ], [ -25, %29 ], [ -25, %30 ], [ -30, %7 ], [ 0, %21 ], [ %28, %27 ]
-  ret i32 %.0
+35:                                               ; preds = %26, %20, %7, %29, %28, %25
+  %.1 = phi i32 [ -25, %25 ], [ -25, %28 ], [ -25, %29 ], [ -30, %7 ], [ 0, %20 ], [ %27, %26 ]
+  ret i32 %.1
 }
 
 declare i32 @__archive_check_magic(ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
@@ -132,160 +132,160 @@ define dso_local i32 @_archive_set_either_option(ptr noundef %0, ptr noundef %1,
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 -30, 1) i32 @_archive_set_options(ptr noundef %0, ptr noundef readonly %1, i32 noundef %2, ptr noundef %3, ptr noundef readonly captures(none) %4) local_unnamed_addr #0 {
   %6 = tail call i32 @__archive_check_magic(ptr noundef %0, i32 noundef %2, i32 noundef 1, ptr noundef %3) #6
-  %7 = icmp eq i32 %6, -30
-  br i1 %7, label %56, label %8
+  %.not = icmp eq i32 %6, -30
+  br i1 %.not, label %55, label %7
 
-8:                                                ; preds = %5
-  %9 = icmp eq ptr %1, null
-  br i1 %9, label %56, label %10
+7:                                                ; preds = %5
+  %8 = icmp eq ptr %1, null
+  br i1 %8, label %55, label %9
 
-10:                                               ; preds = %8
-  %11 = load i8, ptr %1, align 1
-  %12 = icmp eq i8 %11, 0
-  br i1 %12, label %56, label %13
+9:                                                ; preds = %7
+  %10 = load i8, ptr %1, align 1, !tbaa !4
+  %11 = icmp eq i8 %10, 0
+  br i1 %11, label %55, label %12
 
-13:                                               ; preds = %10
-  %14 = tail call noalias ptr @strdup(ptr noundef nonnull %1) #6
-  %15 = icmp eq ptr %14, null
-  br i1 %15, label %16, label %.preheader
+12:                                               ; preds = %9
+  %13 = tail call noalias ptr @strdup(ptr noundef nonnull %1) #6
+  %14 = icmp eq ptr %13, null
+  br i1 %14, label %15, label %.preheader
 
-16:                                               ; preds = %13
+15:                                               ; preds = %12
   tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 12, ptr noundef nonnull @.str.7) #6
-  br label %56
+  br label %55
 
-.preheader:                                       ; preds = %13, %52
-  %.052 = phi ptr [ %.035.i, %52 ], [ %14, %13 ]
-  %.032 = phi i32 [ %.133, %52 ], [ 0, %13 ]
-  %.030 = phi i32 [ %.131, %52 ], [ 0, %13 ]
-  %.029 = phi i32 [ %.1, %52 ], [ 1, %13 ]
-  %17 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.052, i32 noundef 44) #7
-  %.not.i = icmp eq ptr %17, null
-  br i1 %.not.i, label %20, label %18
+.preheader:                                       ; preds = %12, %51
+  %.0 = phi ptr [ %.035.i, %51 ], [ %13, %12 ]
+  %.035 = phi i32 [ %.136, %51 ], [ 0, %12 ]
+  %.033 = phi i32 [ %.134, %51 ], [ 0, %12 ]
+  %.031 = phi i32 [ %.132, %51 ], [ 1, %12 ]
+  %16 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.0, i32 noundef 44) #7
+  %.not.i = icmp eq ptr %16, null
+  br i1 %.not.i, label %19, label %17
 
-18:                                               ; preds = %.preheader
-  store i8 0, ptr %17, align 1
-  %19 = getelementptr inbounds nuw i8, ptr %17, i64 1
-  br label %20
+17:                                               ; preds = %.preheader
+  store i8 0, ptr %16, align 1, !tbaa !4
+  %18 = getelementptr inbounds nuw i8, ptr %16, i64 1
+  br label %19
 
-20:                                               ; preds = %18, %.preheader
-  %.035.i = phi ptr [ %19, %18 ], [ null, %.preheader ]
-  %char0.i = load i8, ptr %.052, align 1
-  %21 = icmp eq i8 %char0.i, 0
-  br i1 %21, label %parse_option.exit.thread, label %22
+19:                                               ; preds = %17, %.preheader
+  %.035.i = phi ptr [ %18, %17 ], [ null, %.preheader ]
+  %char0.i = load i8, ptr %.0, align 1
+  %20 = icmp eq i8 %char0.i, 0
+  br i1 %20, label %parse_option.exit.thread, label %21
 
-22:                                               ; preds = %20
-  %23 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.052, i32 noundef 58) #7
-  %.not40.i = icmp eq ptr %23, null
-  br i1 %.not40.i, label %26, label %24
+21:                                               ; preds = %19
+  %22 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.0, i32 noundef 58) #7
+  %.not40.i = icmp eq ptr %22, null
+  br i1 %.not40.i, label %25, label %23
 
-24:                                               ; preds = %22
-  store i8 0, ptr %23, align 1
-  %25 = getelementptr inbounds nuw i8, ptr %23, i64 1
-  br label %26
+23:                                               ; preds = %21
+  store i8 0, ptr %22, align 1, !tbaa !4
+  %24 = getelementptr inbounds nuw i8, ptr %22, i64 1
+  br label %25
 
-26:                                               ; preds = %24, %22
-  %.034.i = phi ptr [ %.052, %24 ], [ null, %22 ]
-  %.033.i = phi ptr [ %25, %24 ], [ %.052, %22 ]
-  %27 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.033.i, i32 noundef 61) #7
-  %.not41.i = icmp eq ptr %27, null
-  br i1 %.not41.i, label %30, label %28
+25:                                               ; preds = %23, %21
+  %.034.i = phi ptr [ %.0, %23 ], [ null, %21 ]
+  %.033.i = phi ptr [ %24, %23 ], [ %.0, %21 ]
+  %26 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.033.i, i32 noundef 61) #7
+  %.not41.i = icmp eq ptr %26, null
+  br i1 %.not41.i, label %29, label %27
 
-28:                                               ; preds = %26
-  store i8 0, ptr %27, align 1
-  %29 = getelementptr inbounds nuw i8, ptr %27, i64 1
+27:                                               ; preds = %25
+  store i8 0, ptr %26, align 1, !tbaa !4
+  %28 = getelementptr inbounds nuw i8, ptr %26, i64 1
   br label %parse_option.exit
 
-30:                                               ; preds = %26
-  %31 = load i8, ptr %.033.i, align 1
-  %32 = icmp eq i8 %31, 33
-  %spec.select.idx.i = zext i1 %32 to i64
+29:                                               ; preds = %25
+  %30 = load i8, ptr %.033.i, align 1, !tbaa !4
+  %31 = icmp eq i8 %30, 33
+  %spec.select.idx.i = zext i1 %31 to i64
   %spec.select.i = getelementptr inbounds nuw i8, ptr %.033.i, i64 %spec.select.idx.i
-  %spec.select44.i = select i1 %32, ptr null, ptr @.str.10
+  %spec.select44.i = select i1 %31, ptr null, ptr @.str.10
   br label %parse_option.exit
 
-parse_option.exit:                                ; preds = %28, %30
-  %storemerge42.i = phi ptr [ %spec.select.i, %30 ], [ %.033.i, %28 ]
-  %storemerge.i = phi ptr [ %spec.select44.i, %30 ], [ %29, %28 ]
-  %33 = icmp eq ptr %.034.i, null
-  br i1 %33, label %34, label %parse_option.exit.thread
+parse_option.exit:                                ; preds = %27, %29
+  %storemerge42.i = phi ptr [ %spec.select.i, %29 ], [ %.033.i, %27 ]
+  %storemerge.i = phi ptr [ %spec.select44.i, %29 ], [ %28, %27 ]
+  %32 = icmp eq ptr %.034.i, null
+  br i1 %32, label %33, label %parse_option.exit.thread
 
-34:                                               ; preds = %parse_option.exit
-  %35 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(29) @.str.8, ptr noundef nonnull dereferenceable(1) %storemerge42.i) #7
-  %36 = icmp eq i32 %35, 0
-  br i1 %36, label %37, label %parse_option.exit.thread
+33:                                               ; preds = %parse_option.exit
+  %34 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(29) @.str.8, ptr noundef nonnull dereferenceable(1) %storemerge42.i) #7
+  %35 = icmp eq i32 %34, 0
+  br i1 %35, label %36, label %parse_option.exit.thread
 
-37:                                               ; preds = %34
-  %.not38 = icmp eq ptr %storemerge.i, null
-  %spec.select = select i1 %.not38, i32 %.032, i32 1
-  %spec.select42 = select i1 %.not38, i32 %.030, i32 1
-  br label %52
+36:                                               ; preds = %33
+  %.not42 = icmp eq ptr %storemerge.i, null
+  %spec.select = select i1 %.not42, i32 %.035, i32 1
+  %spec.select46 = select i1 %.not42, i32 %.033, i32 1
+  br label %51
 
-parse_option.exit.thread:                         ; preds = %20, %34, %parse_option.exit
-  %storemerge.i59 = phi ptr [ %storemerge.i, %34 ], [ %storemerge.i, %parse_option.exit ], [ null, %20 ]
-  %storemerge42.i58 = phi ptr [ %storemerge42.i, %34 ], [ %storemerge42.i, %parse_option.exit ], [ null, %20 ]
-  %storemerge43.i57 = phi ptr [ null, %34 ], [ %.034.i, %parse_option.exit ], [ null, %20 ]
-  %38 = tail call i32 %4(ptr noundef %0, ptr noundef %storemerge43.i57, ptr noundef %storemerge42.i58, ptr noundef %storemerge.i59) #6
-  %39 = icmp eq i32 %38, -30
-  br i1 %39, label %40, label %41
+parse_option.exit.thread:                         ; preds = %19, %33, %parse_option.exit
+  %storemerge.i62 = phi ptr [ %storemerge.i, %33 ], [ %storemerge.i, %parse_option.exit ], [ null, %19 ]
+  %storemerge42.i61 = phi ptr [ %storemerge42.i, %33 ], [ %storemerge42.i, %parse_option.exit ], [ null, %19 ]
+  %storemerge43.i60 = phi ptr [ null, %33 ], [ %.034.i, %parse_option.exit ], [ null, %19 ]
+  %37 = tail call i32 %4(ptr noundef %0, ptr noundef %storemerge43.i60, ptr noundef %storemerge42.i61, ptr noundef %storemerge.i62) #6
+  %38 = icmp eq i32 %37, -30
+  br i1 %38, label %39, label %40
+
+39:                                               ; preds = %parse_option.exit.thread
+  tail call void @free(ptr noundef %13) #6
+  br label %55
 
 40:                                               ; preds = %parse_option.exit.thread
-  tail call void @free(ptr noundef %14) #6
-  br label %56
+  %41 = icmp eq i32 %37, -25
+  %42 = icmp ne ptr %storemerge43.i60, null
+  %or.cond3 = and i1 %42, %41
+  br i1 %or.cond3, label %43, label %44
 
-41:                                               ; preds = %parse_option.exit.thread
-  %42 = icmp eq i32 %38, -25
-  %43 = icmp ne ptr %storemerge43.i57, null
-  %or.cond3 = and i1 %43, %42
-  br i1 %or.cond3, label %44, label %45
+43:                                               ; preds = %40
+  tail call void @free(ptr noundef %13) #6
+  br label %55
 
-44:                                               ; preds = %41
-  tail call void @free(ptr noundef %14) #6
-  br label %56
-
-45:                                               ; preds = %41
-  switch i32 %38, label %51 [
-    i32 -21, label %46
-    i32 -20, label %48
-    i32 0, label %52
+44:                                               ; preds = %40
+  switch i32 %37, label %50 [
+    i32 -21, label %45
+    i32 -20, label %47
+    i32 0, label %51
   ]
 
+45:                                               ; preds = %44
+  %.not41 = icmp eq i32 %.035, 0
+  br i1 %.not41, label %46, label %51
+
 46:                                               ; preds = %45
-  %.not = icmp eq i32 %.032, 0
-  br i1 %.not, label %47, label %52
+  tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef -1, ptr noundef nonnull @.str.1, ptr noundef %storemerge43.i60) #6
+  tail call void @free(ptr noundef %13) #6
+  br label %55
 
-47:                                               ; preds = %46
-  tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef -1, ptr noundef nonnull @.str.1, ptr noundef %storemerge43.i57) #6
-  tail call void @free(ptr noundef %14) #6
-  br label %56
+47:                                               ; preds = %44
+  %48 = select i1 %42, ptr %storemerge43.i60, ptr @.str.3
+  %49 = select i1 %42, ptr @.str.5, ptr @.str.3
+  tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef -1, ptr noundef nonnull @.str.9, ptr noundef nonnull %48, ptr noundef nonnull %49, ptr noundef %storemerge42.i61) #6
+  tail call void @free(ptr noundef %13) #6
+  br label %55
 
-48:                                               ; preds = %45
-  %49 = select i1 %43, ptr %storemerge43.i57, ptr @.str.3
-  %50 = select i1 %43, ptr @.str.5, ptr @.str.3
-  tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef -1, ptr noundef nonnull @.str.9, ptr noundef nonnull %49, ptr noundef nonnull %50, ptr noundef %storemerge42.i58) #6
-  tail call void @free(ptr noundef %14) #6
-  br label %56
+50:                                               ; preds = %44
+  br label %51
 
-51:                                               ; preds = %45
-  br label %52
+51:                                               ; preds = %36, %44, %50, %45
+  %.136 = phi i32 [ 1, %45 ], [ %.035, %50 ], [ %spec.select, %36 ], [ %.035, %44 ]
+  %.134 = phi i32 [ %.033, %45 ], [ %.033, %50 ], [ %spec.select46, %36 ], [ 1, %44 ]
+  %.132 = phi i32 [ %.031, %45 ], [ 0, %50 ], [ %.031, %36 ], [ %.031, %44 ]
+  %.not43 = icmp eq ptr %.035.i, null
+  br i1 %.not43, label %52, label %.preheader, !llvm.loop !7
 
-52:                                               ; preds = %37, %45, %51, %46
-  %.133 = phi i32 [ 1, %46 ], [ %.032, %51 ], [ %spec.select, %37 ], [ %.032, %45 ]
-  %.131 = phi i32 [ %.030, %46 ], [ %.030, %51 ], [ %spec.select42, %37 ], [ 1, %45 ]
-  %.1 = phi i32 [ %.029, %46 ], [ 0, %51 ], [ %.029, %37 ], [ %.029, %45 ]
-  %.not39 = icmp eq ptr %.035.i, null
-  br i1 %.not39, label %53, label %.preheader, !llvm.loop !5
+52:                                               ; preds = %51
+  tail call void @free(ptr noundef %13) #6
+  %.not44 = icmp eq i32 %.132, 0
+  %.not45 = icmp eq i32 %.134, 0
+  %53 = select i1 %.not45, i32 -25, i32 -20
+  %54 = select i1 %.not44, i32 %53, i32 0
+  br label %55
 
-53:                                               ; preds = %52
-  tail call void @free(ptr noundef %14) #6
-  %.not40 = icmp eq i32 %.1, 0
-  %.not41 = icmp eq i32 %.131, 0
-  %54 = select i1 %.not41, i32 -25, i32 -20
-  %55 = select i1 %.not40, i32 %54, i32 0
-  br label %56
-
-56:                                               ; preds = %8, %10, %5, %53, %48, %47, %44, %40, %16
-  %.0 = phi i32 [ -30, %16 ], [ %55, %53 ], [ -30, %40 ], [ -25, %44 ], [ -25, %47 ], [ -25, %48 ], [ -30, %5 ], [ 0, %10 ], [ 0, %8 ]
-  ret i32 %.0
+55:                                               ; preds = %7, %9, %5, %52, %47, %46, %43, %39, %15
+  %.1 = phi i32 [ -30, %15 ], [ %54, %52 ], [ -30, %39 ], [ -25, %43 ], [ -25, %46 ], [ -25, %47 ], [ -30, %5 ], [ 0, %9 ], [ 0, %7 ]
+  ret i32 %.1
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite)
@@ -303,21 +303,23 @@ declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #3
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #5
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #6 = { nounwind }
 attributes #7 = { nounwind willreturn memory(read) }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+!llvm.module.flags = !{!0, !1, !2, !3}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
+!4 = !{!5, !5, i64 0}
+!5 = !{!"omnipotent char", !6, i64 0}
+!6 = !{!"Simple C/C++ TBAA"}
+!7 = distinct !{!7, !8}
+!8 = !{!"llvm.loop.mustprogress"}

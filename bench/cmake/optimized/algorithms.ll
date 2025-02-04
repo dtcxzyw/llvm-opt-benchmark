@@ -1,5 +1,5 @@
-; ModuleID = 'bench/cmake/original/algorithms.c.ll'
-source_filename = "bench/cmake/original/algorithms.c.ll"
+; ModuleID = 'bench/cmake/original/algorithms.ll'
+source_filename = "bench/cmake/original/algorithms.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
@@ -83,7 +83,7 @@ declare void @rhash_sha3_512_init(ptr noundef) #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
 define dso_local void @rhash_init_algorithms(i32 noundef %0) local_unnamed_addr #1 {
-  store i32 0, ptr @rhash_uninitialized_algorithms, align 4
+  store i32 0, ptr @rhash_uninitialized_algorithms, align 4, !tbaa !4
   ret void
 }
 
@@ -95,11 +95,11 @@ define dso_local ptr @rhash_info_by_id(i32 noundef %0) local_unnamed_addr #2 {
   br i1 %or.cond, label %4, label %10
 
 4:                                                ; preds = %1
-  %5 = load ptr, ptr @rhash_info_table, align 8
+  %5 = load ptr, ptr @rhash_info_table, align 8, !tbaa !8
   %6 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %2, i1 true)
   %7 = zext nneg i32 %6 to i64
   %8 = getelementptr inbounds nuw %struct.rhash_hash_info, ptr %5, i64 %7
-  %9 = load ptr, ptr %8, align 8
+  %9 = load ptr, ptr %8, align 8, !tbaa !11
   br label %10
 
 10:                                               ; preds = %1, %4
@@ -113,16 +113,26 @@ declare i32 @llvm.cttz.i32(i32, i1 immarg) #3
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.ctpop.i32(i32) #4
 
-attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #4 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+!llvm.module.flags = !{!0, !1, !2, !3}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}
+!4 = !{!5, !5, i64 0}
+!5 = !{!"int", !6, i64 0}
+!6 = !{!"omnipotent char", !7, i64 0}
+!7 = !{!"Simple C/C++ TBAA"}
+!8 = !{!9, !9, i64 0}
+!9 = !{!"p1 _ZTS15rhash_hash_info", !10, i64 0}
+!10 = !{!"any pointer", !6, i64 0}
+!11 = !{!12, !13, i64 0}
+!12 = !{!"rhash_hash_info", !13, i64 0, !14, i64 8, !14, i64 16, !10, i64 24, !10, i64 32, !10, i64 40, !10, i64 48}
+!13 = !{!"p1 _ZTS10rhash_info", !10, i64 0}
+!14 = !{!"long", !6, i64 0}

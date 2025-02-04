@@ -1,5 +1,5 @@
-; ModuleID = 'bench/cmake/original/md4.c.ll'
-source_filename = "bench/cmake/original/md4.c.ll"
+; ModuleID = 'bench/cmake/original/md4.ll'
+source_filename = "bench/cmake/original/md4.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
@@ -8,43 +8,44 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define dso_local noundef i32 @Curl_md4it(ptr noundef writeonly captures(none) initializes((0, 16)) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = alloca %struct.md4_ctx, align 4
+  call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %4) #7
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i32 1732584193, ptr %5, align 4
+  store i32 1732584193, ptr %5, align 4, !tbaa !4
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 12
-  store i32 -271733879, ptr %6, align 4
+  store i32 -271733879, ptr %6, align 4, !tbaa !9
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store i32 -1732584194, ptr %7, align 4
+  store i32 -1732584194, ptr %7, align 4, !tbaa !10
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 20
-  store i32 271733878, ptr %8, align 4
+  store i32 271733878, ptr %8, align 4, !tbaa !11
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  %10 = tail call i32 @curlx_uztoui(i64 noundef %2) #6
+  %10 = tail call i32 @curlx_uztoui(i64 noundef %2) #7
   %11 = zext i32 %10 to i64
   %12 = and i32 %10, 536870911
-  store i32 %12, ptr %4, align 4
+  store i32 %12, ptr %4, align 4, !tbaa !12
   %13 = lshr i32 %10, 29
-  store i32 %13, ptr %9, align 4
+  store i32 %13, ptr %9, align 4, !tbaa !13
   %14 = icmp ugt i32 %10, 63
   br i1 %14, label %15, label %MD4_Update.exit
 
 15:                                               ; preds = %3
   %16 = and i64 %11, 4294967232
-  %17 = call fastcc ptr @body(ptr noundef nonnull %4, ptr noundef %1, i64 noundef %16)
+  %17 = call fastcc ptr @my_md4_body(ptr noundef nonnull %4, ptr noundef %1, i64 noundef %16)
   %18 = and i64 %11, 63
-  %.pre.pre = load i32, ptr %4, align 4
+  %.pre.pre = load i32, ptr %4, align 4, !tbaa !12
   br label %MD4_Update.exit
 
 MD4_Update.exit:                                  ; preds = %3, %15
   %.pre = phi i32 [ %.pre.pre, %15 ], [ %12, %3 ]
-  %.136.i = phi i64 [ %18, %15 ], [ %11, %3 ]
-  %.1.i = phi ptr [ %17, %15 ], [ %1, %3 ]
+  %.239.i = phi i64 [ %18, %15 ], [ %11, %3 ]
+  %.2.i = phi ptr [ %17, %15 ], [ %1, %3 ]
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %19, ptr align 1 %.1.i, i64 %.136.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %19, ptr align 1 %.2.i, i64 %.239.i, i1 false)
   %20 = and i32 %.pre, 63
   %21 = zext nneg i32 %20 to i64
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %23 = add nuw nsw i64 %21, 1
   %24 = getelementptr inbounds nuw [64 x i8], ptr %22, i64 0, i64 %21
-  store i8 -128, ptr %24, align 1
+  store i8 -128, ptr %24, align 1, !tbaa !14
   %25 = xor i64 %21, 63
   %26 = icmp samesign ult i64 %25, 8
   br i1 %26, label %27, label %MD4_Final.exit
@@ -52,192 +53,199 @@ MD4_Update.exit:                                  ; preds = %3, %15
 27:                                               ; preds = %MD4_Update.exit
   %28 = getelementptr inbounds nuw [64 x i8], ptr %22, i64 0, i64 %23
   call void @llvm.memset.p0.i64(ptr nonnull align 1 %28, i8 0, i64 %25, i1 false)
-  %29 = call fastcc ptr @body(ptr noundef nonnull %4, ptr noundef nonnull %22, i64 noundef 64)
-  %.pre.i = load i32, ptr %4, align 4
+  %29 = call fastcc ptr @my_md4_body(ptr noundef nonnull %4, ptr noundef nonnull %22, i64 noundef 64)
+  %.pre.i = load i32, ptr %4, align 4, !tbaa !12
   br label %MD4_Final.exit
 
 MD4_Final.exit:                                   ; preds = %MD4_Update.exit, %27
   %30 = phi i32 [ %.pre.i, %27 ], [ %.pre, %MD4_Update.exit ]
   %.064.i = phi i64 [ 0, %27 ], [ %23, %MD4_Update.exit ]
-  %.0.i3 = phi i64 [ 64, %27 ], [ %25, %MD4_Update.exit ]
+  %.0.i = phi i64 [ 64, %27 ], [ %25, %MD4_Update.exit ]
   %31 = getelementptr inbounds nuw [64 x i8], ptr %22, i64 0, i64 %.064.i
-  %32 = add nsw i64 %.0.i3, -8
+  %32 = add nsw i64 %.0.i, -8
   call void @llvm.memset.p0.i64(ptr nonnull align 1 %31, i8 0, i64 %32, i1 false)
   %33 = shl i32 %30, 3
-  store i32 %33, ptr %4, align 4
+  store i32 %33, ptr %4, align 4, !tbaa !12
   %34 = and i32 %33, 248
   %35 = zext nneg i32 %34 to i64
-  %36 = call zeroext i8 @curlx_ultouc(i64 noundef %35) #6
+  %36 = call zeroext i8 @curlx_ultouc(i64 noundef %35) #7
   %37 = getelementptr inbounds nuw i8, ptr %4, i64 80
-  store i8 %36, ptr %37, align 4
-  %38 = load i32, ptr %4, align 4
+  store i8 %36, ptr %37, align 4, !tbaa !14
+  %38 = load i32, ptr %4, align 4, !tbaa !12
   %39 = lshr i32 %38, 8
   %40 = and i32 %39, 255
   %41 = zext nneg i32 %40 to i64
-  %42 = call zeroext i8 @curlx_ultouc(i64 noundef %41) #6
+  %42 = call zeroext i8 @curlx_ultouc(i64 noundef %41) #7
   %43 = getelementptr inbounds nuw i8, ptr %4, i64 81
-  store i8 %42, ptr %43, align 1
-  %44 = load i32, ptr %4, align 4
+  store i8 %42, ptr %43, align 1, !tbaa !14
+  %44 = load i32, ptr %4, align 4, !tbaa !12
   %45 = lshr i32 %44, 16
   %46 = and i32 %45, 255
   %47 = zext nneg i32 %46 to i64
-  %48 = call zeroext i8 @curlx_ultouc(i64 noundef %47) #6
+  %48 = call zeroext i8 @curlx_ultouc(i64 noundef %47) #7
   %49 = getelementptr inbounds nuw i8, ptr %4, i64 82
-  store i8 %48, ptr %49, align 2
-  %50 = load i32, ptr %4, align 4
+  store i8 %48, ptr %49, align 2, !tbaa !14
+  %50 = load i32, ptr %4, align 4, !tbaa !12
   %51 = lshr i32 %50, 24
   %52 = zext nneg i32 %51 to i64
-  %53 = call zeroext i8 @curlx_ultouc(i64 noundef %52) #6
+  %53 = call zeroext i8 @curlx_ultouc(i64 noundef %52) #7
   %54 = getelementptr inbounds nuw i8, ptr %4, i64 83
-  store i8 %53, ptr %54, align 1
-  %55 = load i32, ptr %9, align 4
+  store i8 %53, ptr %54, align 1, !tbaa !14
+  %55 = load i32, ptr %9, align 4, !tbaa !13
   %56 = and i32 %55, 255
   %57 = zext nneg i32 %56 to i64
-  %58 = call zeroext i8 @curlx_ultouc(i64 noundef %57) #6
+  %58 = call zeroext i8 @curlx_ultouc(i64 noundef %57) #7
   %59 = getelementptr inbounds nuw i8, ptr %4, i64 84
-  store i8 %58, ptr %59, align 4
-  %60 = load i32, ptr %9, align 4
+  store i8 %58, ptr %59, align 4, !tbaa !14
+  %60 = load i32, ptr %9, align 4, !tbaa !13
   %61 = lshr i32 %60, 8
   %62 = and i32 %61, 255
   %63 = zext nneg i32 %62 to i64
-  %64 = call zeroext i8 @curlx_ultouc(i64 noundef %63) #6
+  %64 = call zeroext i8 @curlx_ultouc(i64 noundef %63) #7
   %65 = getelementptr inbounds nuw i8, ptr %4, i64 85
-  store i8 %64, ptr %65, align 1
-  %66 = load i32, ptr %9, align 4
+  store i8 %64, ptr %65, align 1, !tbaa !14
+  %66 = load i32, ptr %9, align 4, !tbaa !13
   %67 = lshr i32 %66, 16
   %68 = and i32 %67, 255
   %69 = zext nneg i32 %68 to i64
-  %70 = call zeroext i8 @curlx_ultouc(i64 noundef %69) #6
+  %70 = call zeroext i8 @curlx_ultouc(i64 noundef %69) #7
   %71 = getelementptr inbounds nuw i8, ptr %4, i64 86
-  store i8 %70, ptr %71, align 2
-  %72 = load i32, ptr %9, align 4
+  store i8 %70, ptr %71, align 2, !tbaa !14
+  %72 = load i32, ptr %9, align 4, !tbaa !13
   %73 = lshr i32 %72, 24
   %74 = zext nneg i32 %73 to i64
-  %75 = call zeroext i8 @curlx_ultouc(i64 noundef %74) #6
+  %75 = call zeroext i8 @curlx_ultouc(i64 noundef %74) #7
   %76 = getelementptr inbounds nuw i8, ptr %4, i64 87
-  store i8 %75, ptr %76, align 1
-  %77 = call fastcc ptr @body(ptr noundef nonnull %4, ptr noundef nonnull %22, i64 noundef 64)
-  %78 = load i32, ptr %5, align 4
+  store i8 %75, ptr %76, align 1, !tbaa !14
+  %77 = call fastcc ptr @my_md4_body(ptr noundef nonnull %4, ptr noundef nonnull %22, i64 noundef 64)
+  %78 = load i32, ptr %5, align 4, !tbaa !4
   %79 = and i32 %78, 255
   %80 = zext nneg i32 %79 to i64
-  %81 = call zeroext i8 @curlx_ultouc(i64 noundef %80) #6
-  store i8 %81, ptr %0, align 1
-  %82 = load i32, ptr %5, align 4
+  %81 = call zeroext i8 @curlx_ultouc(i64 noundef %80) #7
+  store i8 %81, ptr %0, align 1, !tbaa !14
+  %82 = load i32, ptr %5, align 4, !tbaa !4
   %83 = lshr i32 %82, 8
   %84 = and i32 %83, 255
   %85 = zext nneg i32 %84 to i64
-  %86 = call zeroext i8 @curlx_ultouc(i64 noundef %85) #6
+  %86 = call zeroext i8 @curlx_ultouc(i64 noundef %85) #7
   %87 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  store i8 %86, ptr %87, align 1
-  %88 = load i32, ptr %5, align 4
+  store i8 %86, ptr %87, align 1, !tbaa !14
+  %88 = load i32, ptr %5, align 4, !tbaa !4
   %89 = lshr i32 %88, 16
   %90 = and i32 %89, 255
   %91 = zext nneg i32 %90 to i64
-  %92 = call zeroext i8 @curlx_ultouc(i64 noundef %91) #6
+  %92 = call zeroext i8 @curlx_ultouc(i64 noundef %91) #7
   %93 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i8 %92, ptr %93, align 1
-  %94 = load i32, ptr %5, align 4
+  store i8 %92, ptr %93, align 1, !tbaa !14
+  %94 = load i32, ptr %5, align 4, !tbaa !4
   %95 = lshr i32 %94, 24
   %96 = zext nneg i32 %95 to i64
-  %97 = call zeroext i8 @curlx_ultouc(i64 noundef %96) #6
+  %97 = call zeroext i8 @curlx_ultouc(i64 noundef %96) #7
   %98 = getelementptr inbounds nuw i8, ptr %0, i64 3
-  store i8 %97, ptr %98, align 1
-  %99 = load i32, ptr %6, align 4
+  store i8 %97, ptr %98, align 1, !tbaa !14
+  %99 = load i32, ptr %6, align 4, !tbaa !9
   %100 = and i32 %99, 255
   %101 = zext nneg i32 %100 to i64
-  %102 = call zeroext i8 @curlx_ultouc(i64 noundef %101) #6
+  %102 = call zeroext i8 @curlx_ultouc(i64 noundef %101) #7
   %103 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i8 %102, ptr %103, align 1
-  %104 = load i32, ptr %6, align 4
+  store i8 %102, ptr %103, align 1, !tbaa !14
+  %104 = load i32, ptr %6, align 4, !tbaa !9
   %105 = lshr i32 %104, 8
   %106 = and i32 %105, 255
   %107 = zext nneg i32 %106 to i64
-  %108 = call zeroext i8 @curlx_ultouc(i64 noundef %107) #6
+  %108 = call zeroext i8 @curlx_ultouc(i64 noundef %107) #7
   %109 = getelementptr inbounds nuw i8, ptr %0, i64 5
-  store i8 %108, ptr %109, align 1
-  %110 = load i32, ptr %6, align 4
+  store i8 %108, ptr %109, align 1, !tbaa !14
+  %110 = load i32, ptr %6, align 4, !tbaa !9
   %111 = lshr i32 %110, 16
   %112 = and i32 %111, 255
   %113 = zext nneg i32 %112 to i64
-  %114 = call zeroext i8 @curlx_ultouc(i64 noundef %113) #6
+  %114 = call zeroext i8 @curlx_ultouc(i64 noundef %113) #7
   %115 = getelementptr inbounds nuw i8, ptr %0, i64 6
-  store i8 %114, ptr %115, align 1
-  %116 = load i32, ptr %6, align 4
+  store i8 %114, ptr %115, align 1, !tbaa !14
+  %116 = load i32, ptr %6, align 4, !tbaa !9
   %117 = lshr i32 %116, 24
   %118 = zext nneg i32 %117 to i64
-  %119 = call zeroext i8 @curlx_ultouc(i64 noundef %118) #6
+  %119 = call zeroext i8 @curlx_ultouc(i64 noundef %118) #7
   %120 = getelementptr inbounds nuw i8, ptr %0, i64 7
-  store i8 %119, ptr %120, align 1
-  %121 = load i32, ptr %7, align 4
+  store i8 %119, ptr %120, align 1, !tbaa !14
+  %121 = load i32, ptr %7, align 4, !tbaa !10
   %122 = and i32 %121, 255
   %123 = zext nneg i32 %122 to i64
-  %124 = call zeroext i8 @curlx_ultouc(i64 noundef %123) #6
+  %124 = call zeroext i8 @curlx_ultouc(i64 noundef %123) #7
   %125 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i8 %124, ptr %125, align 1
-  %126 = load i32, ptr %7, align 4
+  store i8 %124, ptr %125, align 1, !tbaa !14
+  %126 = load i32, ptr %7, align 4, !tbaa !10
   %127 = lshr i32 %126, 8
   %128 = and i32 %127, 255
   %129 = zext nneg i32 %128 to i64
-  %130 = call zeroext i8 @curlx_ultouc(i64 noundef %129) #6
+  %130 = call zeroext i8 @curlx_ultouc(i64 noundef %129) #7
   %131 = getelementptr inbounds nuw i8, ptr %0, i64 9
-  store i8 %130, ptr %131, align 1
-  %132 = load i32, ptr %7, align 4
+  store i8 %130, ptr %131, align 1, !tbaa !14
+  %132 = load i32, ptr %7, align 4, !tbaa !10
   %133 = lshr i32 %132, 16
   %134 = and i32 %133, 255
   %135 = zext nneg i32 %134 to i64
-  %136 = call zeroext i8 @curlx_ultouc(i64 noundef %135) #6
+  %136 = call zeroext i8 @curlx_ultouc(i64 noundef %135) #7
   %137 = getelementptr inbounds nuw i8, ptr %0, i64 10
-  store i8 %136, ptr %137, align 1
-  %138 = load i32, ptr %7, align 4
+  store i8 %136, ptr %137, align 1, !tbaa !14
+  %138 = load i32, ptr %7, align 4, !tbaa !10
   %139 = lshr i32 %138, 24
   %140 = zext nneg i32 %139 to i64
-  %141 = call zeroext i8 @curlx_ultouc(i64 noundef %140) #6
+  %141 = call zeroext i8 @curlx_ultouc(i64 noundef %140) #7
   %142 = getelementptr inbounds nuw i8, ptr %0, i64 11
-  store i8 %141, ptr %142, align 1
-  %143 = load i32, ptr %8, align 4
+  store i8 %141, ptr %142, align 1, !tbaa !14
+  %143 = load i32, ptr %8, align 4, !tbaa !11
   %144 = and i32 %143, 255
   %145 = zext nneg i32 %144 to i64
-  %146 = call zeroext i8 @curlx_ultouc(i64 noundef %145) #6
+  %146 = call zeroext i8 @curlx_ultouc(i64 noundef %145) #7
   %147 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i8 %146, ptr %147, align 1
-  %148 = load i32, ptr %8, align 4
+  store i8 %146, ptr %147, align 1, !tbaa !14
+  %148 = load i32, ptr %8, align 4, !tbaa !11
   %149 = lshr i32 %148, 8
   %150 = and i32 %149, 255
   %151 = zext nneg i32 %150 to i64
-  %152 = call zeroext i8 @curlx_ultouc(i64 noundef %151) #6
+  %152 = call zeroext i8 @curlx_ultouc(i64 noundef %151) #7
   %153 = getelementptr inbounds nuw i8, ptr %0, i64 13
-  store i8 %152, ptr %153, align 1
-  %154 = load i32, ptr %8, align 4
+  store i8 %152, ptr %153, align 1, !tbaa !14
+  %154 = load i32, ptr %8, align 4, !tbaa !11
   %155 = lshr i32 %154, 16
   %156 = and i32 %155, 255
   %157 = zext nneg i32 %156 to i64
-  %158 = call zeroext i8 @curlx_ultouc(i64 noundef %157) #6
+  %158 = call zeroext i8 @curlx_ultouc(i64 noundef %157) #7
   %159 = getelementptr inbounds nuw i8, ptr %0, i64 14
-  store i8 %158, ptr %159, align 1
-  %160 = load i32, ptr %8, align 4
+  store i8 %158, ptr %159, align 1, !tbaa !14
+  %160 = load i32, ptr %8, align 4, !tbaa !11
   %161 = lshr i32 %160, 24
   %162 = zext nneg i32 %161 to i64
-  %163 = call zeroext i8 @curlx_ultouc(i64 noundef %162) #6
+  %163 = call zeroext i8 @curlx_ultouc(i64 noundef %162) #7
   %164 = getelementptr inbounds nuw i8, ptr %0, i64 15
-  store i8 %163, ptr %164, align 1
+  store i8 %163, ptr %164, align 1, !tbaa !14
+  call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %4) #7
   ret i32 0
 }
 
-declare i32 @curlx_uztoui(i64 noundef) local_unnamed_addr #1
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+
+declare i32 @curlx_uztoui(i64 noundef) local_unnamed_addr #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc nonnull ptr @body(ptr noundef nonnull captures(none) %0, ptr noundef readonly %1, i64 noundef range(i64 0, -63) %2) unnamed_addr #3 {
+define internal fastcc nonnull ptr @my_md4_body(ptr noundef nonnull captures(none) %0, ptr noundef readonly %1, i64 noundef range(i64 0, -63) %2) unnamed_addr #4 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = load i32, ptr %4, align 4
+  %5 = load i32, ptr %4, align 4, !tbaa !4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %7 = load i32, ptr %6, align 4
+  %7 = load i32, ptr %6, align 4, !tbaa !9
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %9 = load i32, ptr %8, align 4
+  %9 = load i32, ptr %8, align 4, !tbaa !10
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %11 = load i32, ptr %10, align 4
+  %11 = load i32, ptr %10, align 4, !tbaa !11
   br label %12
 
 12:                                               ; preds = %12, %3
@@ -250,7 +258,7 @@ define internal fastcc nonnull ptr @body(ptr noundef nonnull captures(none) %0, 
   %13 = xor i32 %.0414, %.0415
   %14 = and i32 %.0413, %13
   %15 = xor i32 %14, %.0414
-  %16 = load i32, ptr %.0411, align 4
+  %16 = load i32, ptr %.0411, align 4, !tbaa !15
   %17 = add i32 %15, %.0412
   %18 = add i32 %17, %16
   %19 = tail call i32 @llvm.fshl.i32(i32 %18, i32 %18, i32 3)
@@ -258,7 +266,7 @@ define internal fastcc nonnull ptr @body(ptr noundef nonnull captures(none) %0, 
   %21 = and i32 %19, %20
   %22 = xor i32 %21, %.0415
   %23 = getelementptr inbounds nuw i8, ptr %.0411, i64 4
-  %24 = load i32, ptr %23, align 4
+  %24 = load i32, ptr %23, align 4, !tbaa !15
   %25 = add i32 %24, %.0414
   %26 = add i32 %25, %22
   %27 = tail call i32 @llvm.fshl.i32(i32 %26, i32 %26, i32 7)
@@ -266,7 +274,7 @@ define internal fastcc nonnull ptr @body(ptr noundef nonnull captures(none) %0, 
   %29 = and i32 %27, %28
   %30 = xor i32 %29, %.0413
   %31 = getelementptr inbounds nuw i8, ptr %.0411, i64 8
-  %32 = load i32, ptr %31, align 4
+  %32 = load i32, ptr %31, align 4, !tbaa !15
   %33 = add i32 %32, %.0415
   %34 = add i32 %33, %30
   %35 = tail call i32 @llvm.fshl.i32(i32 %34, i32 %34, i32 11)
@@ -274,7 +282,7 @@ define internal fastcc nonnull ptr @body(ptr noundef nonnull captures(none) %0, 
   %37 = and i32 %35, %36
   %38 = xor i32 %37, %19
   %39 = getelementptr inbounds nuw i8, ptr %.0411, i64 12
-  %40 = load i32, ptr %39, align 4
+  %40 = load i32, ptr %39, align 4, !tbaa !15
   %41 = add i32 %40, %.0413
   %42 = add i32 %41, %38
   %43 = tail call i32 @llvm.fshl.i32(i32 %42, i32 %42, i32 19)
@@ -282,7 +290,7 @@ define internal fastcc nonnull ptr @body(ptr noundef nonnull captures(none) %0, 
   %45 = and i32 %43, %44
   %46 = xor i32 %45, %27
   %47 = getelementptr inbounds nuw i8, ptr %.0411, i64 16
-  %48 = load i32, ptr %47, align 4
+  %48 = load i32, ptr %47, align 4, !tbaa !15
   %49 = add i32 %48, %19
   %50 = add i32 %49, %46
   %51 = tail call i32 @llvm.fshl.i32(i32 %50, i32 %50, i32 3)
@@ -290,7 +298,7 @@ define internal fastcc nonnull ptr @body(ptr noundef nonnull captures(none) %0, 
   %53 = and i32 %51, %52
   %54 = xor i32 %53, %35
   %55 = getelementptr inbounds nuw i8, ptr %.0411, i64 20
-  %56 = load i32, ptr %55, align 4
+  %56 = load i32, ptr %55, align 4, !tbaa !15
   %57 = add i32 %27, %56
   %58 = add i32 %57, %54
   %59 = tail call i32 @llvm.fshl.i32(i32 %58, i32 %58, i32 7)
@@ -298,7 +306,7 @@ define internal fastcc nonnull ptr @body(ptr noundef nonnull captures(none) %0, 
   %61 = and i32 %59, %60
   %62 = xor i32 %61, %43
   %63 = getelementptr inbounds nuw i8, ptr %.0411, i64 24
-  %64 = load i32, ptr %63, align 4
+  %64 = load i32, ptr %63, align 4, !tbaa !15
   %65 = add i32 %35, %64
   %66 = add i32 %65, %62
   %67 = tail call i32 @llvm.fshl.i32(i32 %66, i32 %66, i32 11)
@@ -306,7 +314,7 @@ define internal fastcc nonnull ptr @body(ptr noundef nonnull captures(none) %0, 
   %69 = and i32 %67, %68
   %70 = xor i32 %69, %51
   %71 = getelementptr inbounds nuw i8, ptr %.0411, i64 28
-  %72 = load i32, ptr %71, align 4
+  %72 = load i32, ptr %71, align 4, !tbaa !15
   %73 = add i32 %43, %72
   %74 = add i32 %73, %70
   %75 = tail call i32 @llvm.fshl.i32(i32 %74, i32 %74, i32 19)
@@ -314,7 +322,7 @@ define internal fastcc nonnull ptr @body(ptr noundef nonnull captures(none) %0, 
   %77 = and i32 %75, %76
   %78 = xor i32 %77, %59
   %79 = getelementptr inbounds nuw i8, ptr %.0411, i64 32
-  %80 = load i32, ptr %79, align 4
+  %80 = load i32, ptr %79, align 4, !tbaa !15
   %81 = add i32 %51, %80
   %82 = add i32 %81, %78
   %83 = tail call i32 @llvm.fshl.i32(i32 %82, i32 %82, i32 3)
@@ -322,7 +330,7 @@ define internal fastcc nonnull ptr @body(ptr noundef nonnull captures(none) %0, 
   %85 = and i32 %83, %84
   %86 = xor i32 %85, %67
   %87 = getelementptr inbounds nuw i8, ptr %.0411, i64 36
-  %88 = load i32, ptr %87, align 4
+  %88 = load i32, ptr %87, align 4, !tbaa !15
   %89 = add i32 %59, %88
   %90 = add i32 %89, %86
   %91 = tail call i32 @llvm.fshl.i32(i32 %90, i32 %90, i32 7)
@@ -330,7 +338,7 @@ define internal fastcc nonnull ptr @body(ptr noundef nonnull captures(none) %0, 
   %93 = and i32 %91, %92
   %94 = xor i32 %93, %75
   %95 = getelementptr inbounds nuw i8, ptr %.0411, i64 40
-  %96 = load i32, ptr %95, align 4
+  %96 = load i32, ptr %95, align 4, !tbaa !15
   %97 = add i32 %67, %96
   %98 = add i32 %97, %94
   %99 = tail call i32 @llvm.fshl.i32(i32 %98, i32 %98, i32 11)
@@ -338,7 +346,7 @@ define internal fastcc nonnull ptr @body(ptr noundef nonnull captures(none) %0, 
   %101 = and i32 %99, %100
   %102 = xor i32 %101, %83
   %103 = getelementptr inbounds nuw i8, ptr %.0411, i64 44
-  %104 = load i32, ptr %103, align 4
+  %104 = load i32, ptr %103, align 4, !tbaa !15
   %105 = add i32 %75, %104
   %106 = add i32 %105, %102
   %107 = tail call i32 @llvm.fshl.i32(i32 %106, i32 %106, i32 19)
@@ -346,7 +354,7 @@ define internal fastcc nonnull ptr @body(ptr noundef nonnull captures(none) %0, 
   %109 = and i32 %107, %108
   %110 = xor i32 %109, %91
   %111 = getelementptr inbounds nuw i8, ptr %.0411, i64 48
-  %112 = load i32, ptr %111, align 4
+  %112 = load i32, ptr %111, align 4, !tbaa !15
   %113 = add i32 %83, %112
   %114 = add i32 %113, %110
   %115 = tail call i32 @llvm.fshl.i32(i32 %114, i32 %114, i32 3)
@@ -354,7 +362,7 @@ define internal fastcc nonnull ptr @body(ptr noundef nonnull captures(none) %0, 
   %117 = and i32 %115, %116
   %118 = xor i32 %117, %99
   %119 = getelementptr inbounds nuw i8, ptr %.0411, i64 52
-  %120 = load i32, ptr %119, align 4
+  %120 = load i32, ptr %119, align 4, !tbaa !15
   %121 = add i32 %91, %120
   %122 = add i32 %121, %118
   %123 = tail call i32 @llvm.fshl.i32(i32 %122, i32 %122, i32 7)
@@ -362,7 +370,7 @@ define internal fastcc nonnull ptr @body(ptr noundef nonnull captures(none) %0, 
   %125 = and i32 %123, %124
   %126 = xor i32 %125, %107
   %127 = getelementptr inbounds nuw i8, ptr %.0411, i64 56
-  %128 = load i32, ptr %127, align 4
+  %128 = load i32, ptr %127, align 4, !tbaa !15
   %129 = add i32 %99, %128
   %130 = add i32 %129, %126
   %131 = tail call i32 @llvm.fshl.i32(i32 %130, i32 %130, i32 11)
@@ -370,7 +378,7 @@ define internal fastcc nonnull ptr @body(ptr noundef nonnull captures(none) %0, 
   %133 = and i32 %131, %132
   %134 = xor i32 %133, %115
   %135 = getelementptr inbounds nuw i8, ptr %.0411, i64 60
-  %136 = load i32, ptr %135, align 4
+  %136 = load i32, ptr %135, align 4, !tbaa !15
   %137 = add i32 %107, %136
   %138 = add i32 %137, %134
   %139 = tail call i32 @llvm.fshl.i32(i32 %138, i32 %138, i32 19)
@@ -604,38 +612,50 @@ define internal fastcc nonnull ptr @body(ptr noundef nonnull captures(none) %0, 
   %367 = getelementptr inbounds nuw i8, ptr %.0411, i64 64
   %368 = add i64 %.0, -64
   %.not = icmp eq i64 %368, 0
-  br i1 %.not, label %369, label %12, !llvm.loop !5
+  br i1 %.not, label %369, label %12, !llvm.loop !16
 
 369:                                              ; preds = %12
-  store i32 %363, ptr %4, align 4
-  store i32 %364, ptr %6, align 4
-  store i32 %365, ptr %8, align 4
-  store i32 %366, ptr %10, align 4
+  store i32 %363, ptr %4, align 4, !tbaa !4
+  store i32 %364, ptr %6, align 4, !tbaa !9
+  store i32 %365, ptr %8, align 4, !tbaa !10
+  store i32 %366, ptr %10, align 4, !tbaa !11
   ret ptr %367
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
-declare zeroext i8 @curlx_ultouc(i64 noundef) local_unnamed_addr #1
+declare zeroext i8 @curlx_ultouc(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.fshl.i32(i32, i32, i32) #5
+declare i32 @llvm.fshl.i32(i32, i32, i32) #6
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #6 = { nounwind }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #4 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #6 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #7 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+!llvm.module.flags = !{!0, !1, !2, !3}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
+!4 = !{!5, !6, i64 8}
+!5 = !{!"md4_ctx", !6, i64 0, !6, i64 4, !6, i64 8, !6, i64 12, !6, i64 16, !6, i64 20, !7, i64 24, !7, i64 88}
+!6 = !{!"int", !7, i64 0}
+!7 = !{!"omnipotent char", !8, i64 0}
+!8 = !{!"Simple C/C++ TBAA"}
+!9 = !{!5, !6, i64 12}
+!10 = !{!5, !6, i64 16}
+!11 = !{!5, !6, i64 20}
+!12 = !{!5, !6, i64 0}
+!13 = !{!5, !6, i64 4}
+!14 = !{!7, !7, i64 0}
+!15 = !{!6, !6, i64 0}
+!16 = distinct !{!16, !17}
+!17 = !{!"llvm.loop.mustprogress"}

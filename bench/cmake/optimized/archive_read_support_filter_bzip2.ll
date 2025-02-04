@@ -1,5 +1,5 @@
-; ModuleID = 'bench/cmake/original/archive_read_support_filter_bzip2.c.ll'
-source_filename = "bench/cmake/original/archive_read_support_filter_bzip2.c.ll"
+; ModuleID = 'bench/cmake/original/archive_read_support_filter_bzip2.ll'
+source_filename = "bench/cmake/original/archive_read_support_filter_bzip2.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
@@ -39,11 +39,18 @@ define dso_local range(i32 -30, 1) i32 @archive_read_support_filter_bzip2(ptr no
   ret i32 %.
 }
 
-declare i32 @__archive_read_register_bidder(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+
+declare i32 @__archive_read_register_bidder(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 78) i32 @bzip2_reader_bid(ptr readnone captures(none) %0, ptr noundef %1) #0 {
   %3 = alloca i64, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #7
   %4 = call ptr @__archive_read_filter_ahead(ptr noundef %1, i64 noundef 14, ptr noundef nonnull %3) #7
   %5 = icmp eq ptr %4, null
   br i1 %5, label %17, label %6
@@ -55,7 +62,7 @@ define internal range(i32 0, 78) i32 @bzip2_reader_bid(ptr readnone captures(non
 
 7:                                                ; preds = %6
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 3
-  %9 = load i8, ptr %8, align 1
+  %9 = load i8, ptr %8, align 1, !tbaa !4
   %10 = add i8 %9, -58
   %or.cond = icmp ult i8 %10, -9
   br i1 %or.cond, label %17, label %11
@@ -76,16 +83,17 @@ define internal range(i32 0, 78) i32 @bzip2_reader_bid(ptr readnone captures(non
 
 17:                                               ; preds = %14, %7, %6, %2, %16
   %.012 = phi i32 [ 77, %16 ], [ 0, %2 ], [ 0, %6 ], [ 0, %7 ], [ 0, %14 ]
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #7
   ret i32 %.012
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -30, 1) i32 @bzip2_reader_init(ptr noundef captures(none) initializes((48, 60)) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store i32 2, ptr %2, align 8
+  store i32 2, ptr %2, align 8, !tbaa !7
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store ptr @.str, ptr %3, align 8
-  %4 = tail call noalias dereferenceable_or_null(104) ptr @calloc(i64 noundef 104, i64 noundef 1) #8
+  store ptr @.str, ptr %3, align 8, !tbaa !17
+  %4 = tail call noalias dereferenceable_or_null(104) ptr @calloc(i64 noundef 1, i64 noundef 104) #8
   %5 = tail call noalias dereferenceable_or_null(65536) ptr @malloc(i64 noundef 65536) #9
   %6 = icmp eq ptr %4, null
   %7 = icmp eq ptr %5, null
@@ -94,7 +102,7 @@ define internal range(i32 -30, 1) i32 @bzip2_reader_init(ptr noundef captures(no
 
 8:                                                ; preds = %1
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %10 = load ptr, ptr %9, align 8
+  %10 = load ptr, ptr %9, align 8, !tbaa !18
   tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %10, i32 noundef 12, ptr noundef nonnull @.str.4) #7
   tail call void @free(ptr noundef %5) #7
   tail call void @free(ptr noundef %4) #7
@@ -102,13 +110,13 @@ define internal range(i32 -30, 1) i32 @bzip2_reader_init(ptr noundef captures(no
 
 11:                                               ; preds = %1
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store ptr %4, ptr %12, align 8
+  store ptr %4, ptr %12, align 8, !tbaa !19
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 88
-  store i64 65536, ptr %13, align 8
+  store i64 65536, ptr %13, align 8, !tbaa !20
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 80
-  store ptr %5, ptr %14, align 8
+  store ptr %5, ptr %14, align 8, !tbaa !23
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr @bzip2_reader_vtable, ptr %15, align 8
+  store ptr @bzip2_reader_vtable, ptr %15, align 8, !tbaa !24
   br label %16
 
 16:                                               ; preds = %11, %8
@@ -116,57 +124,58 @@ define internal range(i32 -30, 1) i32 @bzip2_reader_init(ptr noundef captures(no
   ret i32 %.0
 }
 
-declare ptr @__archive_read_filter_ahead(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
+declare ptr @__archive_read_filter_ahead(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #2
+declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #3
+declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #4
 
-declare void @archive_set_error(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
+declare void @archive_set_error(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #4
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
 define internal i64 @bzip2_filter_read(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = alloca i64, align 8
   %4 = alloca i64, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #7
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %6 = load ptr, ptr %5, align 8
+  %6 = load ptr, ptr %5, align 8, !tbaa !19
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 97
-  %8 = load i8, ptr %7, align 1
+  %8 = load i8, ptr %7, align 1, !tbaa !25
   %.not = icmp eq i8 %8, 0
   br i1 %.not, label %10, label %9
 
 9:                                                ; preds = %2
-  store ptr null, ptr %1, align 8
+  store ptr null, ptr %1, align 8, !tbaa !26
   br label %101
 
 10:                                               ; preds = %2
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 80
-  %12 = load ptr, ptr %11, align 8
+  %12 = load ptr, ptr %11, align 8, !tbaa !23
   %13 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  store ptr %12, ptr %13, align 8
+  store ptr %12, ptr %13, align 8, !tbaa !27
   %14 = getelementptr inbounds nuw i8, ptr %6, i64 88
-  %15 = load i64, ptr %14, align 8
+  %15 = load i64, ptr %14, align 8, !tbaa !20
   %16 = trunc i64 %15 to i32
   %17 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  store i32 %16, ptr %17, align 8
+  store i32 %16, ptr %17, align 8, !tbaa !28
   %18 = getelementptr inbounds nuw i8, ptr %6, i64 96
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %20 = getelementptr inbounds nuw i8, ptr %6, i64 8
   br label %21
 
 21:                                               ; preds = %89, %10
-  %22 = load i8, ptr %18, align 8
+  %22 = load i8, ptr %18, align 8, !tbaa !29
   %.not53 = icmp eq i8 %22, 0
   br i1 %.not53, label %23, label %56
 
 23:                                               ; preds = %21
-  %24 = load ptr, ptr %19, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  %24 = load ptr, ptr %19, align 8, !tbaa !30
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #7
   %25 = call ptr @__archive_read_filter_ahead(ptr noundef %24, i64 noundef 14, ptr noundef nonnull %3) #7
   %26 = icmp eq ptr %25, null
   br i1 %26, label %37, label %27
@@ -178,7 +187,7 @@ define internal i64 @bzip2_filter_read(ptr noundef readonly captures(none) %0, p
 
 28:                                               ; preds = %27
   %29 = getelementptr inbounds nuw i8, ptr %25, i64 3
-  %30 = load i8, ptr %29, align 1
+  %30 = load i8, ptr %29, align 1, !tbaa !4
   %31 = add i8 %30, -58
   %or.cond.i = icmp ult i8 %31, -9
   br i1 %or.cond.i, label %37, label %32
@@ -195,28 +204,28 @@ define internal i64 @bzip2_filter_read(ptr noundef readonly captures(none) %0, p
   br i1 %36, label %43, label %37
 
 37:                                               ; preds = %23, %27, %28, %35
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  store i8 1, ptr %7, align 1
-  %38 = load ptr, ptr %11, align 8
-  store ptr %38, ptr %1, align 8
-  %39 = load ptr, ptr %13, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #7
+  store i8 1, ptr %7, align 1, !tbaa !25
+  %38 = load ptr, ptr %11, align 8, !tbaa !23
+  store ptr %38, ptr %1, align 8, !tbaa !26
+  %39 = load ptr, ptr %13, align 8, !tbaa !27
   %40 = ptrtoint ptr %39 to i64
   %41 = ptrtoint ptr %38 to i64
   %42 = sub i64 %40, %41
   br label %101
 
 43:                                               ; preds = %35, %32
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #7
   %44 = call i32 @BZ2_bzDecompressInit(ptr noundef nonnull %6, i32 noundef 0, i32 noundef 0) #7
   %45 = sext i32 %44 to i64
-  store i64 %45, ptr %4, align 8
+  store i64 %45, ptr %4, align 8, !tbaa !31
   %46 = icmp eq i32 %44, -3
   br i1 %46, label %47, label %50
 
 47:                                               ; preds = %43
   %48 = call i32 @BZ2_bzDecompressInit(ptr noundef nonnull %6, i32 noundef 0, i32 noundef 1) #7
   %49 = sext i32 %48 to i64
-  store i64 %49, ptr %4, align 8
+  store i64 %49, ptr %4, align 8, !tbaa !31
   br label %50
 
 50:                                               ; preds = %47, %43
@@ -242,39 +251,39 @@ define internal i64 @bzip2_filter_read(ptr noundef readonly captures(none) %0, p
   %.049 = phi ptr [ @.str.6, %.loopexit57 ], [ @.str.7, %.loopexit58 ], [ null, %.loopexit.loopexit ], [ @.str.5, %50 ]
   %.0 = phi i32 [ 12, %.loopexit57 ], [ -1, %.loopexit58 ], [ -1, %.loopexit.loopexit ], [ -1, %50 ]
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %54 = load ptr, ptr %53, align 8
+  %54 = load ptr, ptr %53, align 8, !tbaa !18
   call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %54, i32 noundef %.0, ptr noundef nonnull @.str.8, ptr noundef nonnull %52, ptr noundef %.049) #7
   br label %101
 
 55:                                               ; preds = %50
-  store i8 1, ptr %18, align 8
+  store i8 1, ptr %18, align 8, !tbaa !29
   br label %56
 
 56:                                               ; preds = %55, %21
-  %57 = load ptr, ptr %19, align 8
+  %57 = load ptr, ptr %19, align 8, !tbaa !30
   %58 = call ptr @__archive_read_filter_ahead(ptr noundef %57, i64 noundef 1, ptr noundef nonnull %4) #7
   %59 = icmp eq ptr %58, null
   br i1 %59, label %60, label %63
 
 60:                                               ; preds = %56
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %62 = load ptr, ptr %61, align 8
+  %62 = load ptr, ptr %61, align 8, !tbaa !18
   call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %62, i32 noundef -1, ptr noundef nonnull @.str.11) #7
   br label %101
 
 63:                                               ; preds = %56
-  store ptr %58, ptr %6, align 8
-  %64 = load i64, ptr %4, align 8
+  store ptr %58, ptr %6, align 8, !tbaa !32
+  %64 = load i64, ptr %4, align 8, !tbaa !31
   %65 = trunc i64 %64 to i32
-  store i32 %65, ptr %20, align 8
+  store i32 %65, ptr %20, align 8, !tbaa !33
   %66 = icmp eq i64 %64, 0
   br i1 %66, label %67, label %73
 
 67:                                               ; preds = %63
-  store i8 1, ptr %7, align 1
-  %68 = load ptr, ptr %11, align 8
-  store ptr %68, ptr %1, align 8
-  %69 = load ptr, ptr %13, align 8
+  store i8 1, ptr %7, align 1, !tbaa !25
+  %68 = load ptr, ptr %11, align 8, !tbaa !23
+  store ptr %68, ptr %1, align 8, !tbaa !26
+  %69 = load ptr, ptr %13, align 8, !tbaa !27
   %70 = ptrtoint ptr %69 to i64
   %71 = ptrtoint ptr %68 to i64
   %72 = sub i64 %70, %71
@@ -284,13 +293,13 @@ define internal i64 @bzip2_filter_read(ptr noundef readonly captures(none) %0, p
   %74 = ptrtoint ptr %58 to i64
   %75 = call i32 @BZ2_bzDecompress(ptr noundef nonnull %6) #7
   %76 = sext i32 %75 to i64
-  store i64 %76, ptr %4, align 8
-  %77 = load ptr, ptr %19, align 8
-  %78 = load ptr, ptr %6, align 8
+  store i64 %76, ptr %4, align 8, !tbaa !31
+  %77 = load ptr, ptr %19, align 8, !tbaa !30
+  %78 = load ptr, ptr %6, align 8, !tbaa !32
   %79 = ptrtoint ptr %78 to i64
   %80 = sub i64 %79, %74
   %81 = call i64 @__archive_read_filter_consume(ptr noundef %77, i64 noundef %80) #7
-  %82 = load i64, ptr %4, align 8
+  %82 = load i64, ptr %4, align 8, !tbaa !31
   switch i64 %82, label %98 [
     i64 4, label %83
     i64 0, label %89
@@ -303,23 +312,23 @@ define internal i64 @bzip2_filter_read(ptr noundef readonly captures(none) %0, p
 
 85:                                               ; preds = %83
   %86 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %87 = load ptr, ptr %86, align 8
+  %87 = load ptr, ptr %86, align 8, !tbaa !18
   call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %87, i32 noundef -1, ptr noundef nonnull @.str.12) #7
   br label %101
 
 88:                                               ; preds = %83
-  store i8 0, ptr %18, align 8
+  store i8 0, ptr %18, align 8, !tbaa !29
   br label %89
 
 89:                                               ; preds = %88, %73
-  %90 = load i32, ptr %17, align 8
+  %90 = load i32, ptr %17, align 8, !tbaa !28
   %91 = icmp eq i32 %90, 0
   br i1 %91, label %92, label %21
 
 92:                                               ; preds = %89
-  %93 = load ptr, ptr %11, align 8
-  store ptr %93, ptr %1, align 8
-  %94 = load ptr, ptr %13, align 8
+  %93 = load ptr, ptr %11, align 8, !tbaa !23
+  store ptr %93, ptr %1, align 8, !tbaa !26
+  %94 = load ptr, ptr %13, align 8, !tbaa !27
   %95 = ptrtoint ptr %94 to i64
   %96 = ptrtoint ptr %93 to i64
   %97 = sub i64 %95, %96
@@ -327,21 +336,22 @@ define internal i64 @bzip2_filter_read(ptr noundef readonly captures(none) %0, p
 
 98:                                               ; preds = %73
   %99 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %100 = load ptr, ptr %99, align 8
+  %100 = load ptr, ptr %99, align 8, !tbaa !18
   call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %100, i32 noundef -1, ptr noundef nonnull @.str.13) #7
   br label %101
 
 101:                                              ; preds = %98, %92, %85, %67, %60, %.loopexit, %37, %9
   %.050 = phi i64 [ 0, %9 ], [ -30, %60 ], [ %72, %67 ], [ -30, %98 ], [ %97, %92 ], [ -30, %85 ], [ %42, %37 ], [ -30, %.loopexit ]
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #7
   ret i64 %.050
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -30, 1) i32 @bzip2_filter_close(ptr noundef readonly captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %3 = load ptr, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8, !tbaa !19
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 96
-  %5 = load i8, ptr %4, align 8
+  %5 = load i8, ptr %4, align 8, !tbaa !29
   %.not = icmp eq i8 %5, 0
   br i1 %.not, label %12, label %6
 
@@ -352,56 +362,79 @@ define internal range(i32 -30, 1) i32 @bzip2_filter_close(ptr noundef readonly c
 
 8:                                                ; preds = %6
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %10 = load ptr, ptr %9, align 8
+  %10 = load ptr, ptr %9, align 8, !tbaa !18
   tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %10, i32 noundef -1, ptr noundef nonnull @.str.12) #7
   br label %11
 
 11:                                               ; preds = %6, %8
   %.1 = phi i32 [ 0, %6 ], [ -30, %8 ]
-  store i8 0, ptr %4, align 8
+  store i8 0, ptr %4, align 8, !tbaa !29
   br label %12
 
 12:                                               ; preds = %11, %1
   %.0 = phi i32 [ %.1, %11 ], [ 0, %1 ]
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 80
-  %14 = load ptr, ptr %13, align 8
+  %14 = load ptr, ptr %13, align 8, !tbaa !23
   tail call void @free(ptr noundef %14) #7
   tail call void @free(ptr noundef nonnull %3) #7
   ret i32 %.0
 }
 
-declare i32 @BZ2_bzDecompressInit(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
+declare i32 @BZ2_bzDecompressInit(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
-declare i32 @BZ2_bzDecompress(ptr noundef) local_unnamed_addr #1
+declare i32 @BZ2_bzDecompress(ptr noundef) local_unnamed_addr #2
 
-declare i64 @__archive_read_filter_consume(ptr noundef, i64 noundef) local_unnamed_addr #1
+declare i64 @__archive_read_filter_consume(ptr noundef, i64 noundef) local_unnamed_addr #2
 
-declare i32 @BZ2_bzDecompressEnd(ptr noundef) local_unnamed_addr #1
+declare i32 @BZ2_bzDecompressEnd(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #5
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #6
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #6
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #6
-
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nofree nounwind willreturn memory(argmem: read) }
-attributes #6 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nofree nounwind willreturn memory(argmem: read) }
 attributes #7 = { nounwind }
 attributes #8 = { nounwind allocsize(0,1) }
 attributes #9 = { nounwind allocsize(0) }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+!llvm.module.flags = !{!0, !1, !2, !3}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}
+!4 = !{!5, !5, i64 0}
+!5 = !{!"omnipotent char", !6, i64 0}
+!6 = !{!"Simple C/C++ TBAA"}
+!7 = !{!8, !16, i64 56}
+!8 = !{!"archive_read_filter", !9, i64 0, !10, i64 8, !12, i64 16, !13, i64 24, !14, i64 32, !11, i64 40, !15, i64 48, !16, i64 56, !16, i64 60, !16, i64 64, !15, i64 72, !9, i64 80, !15, i64 88, !9, i64 96, !11, i64 104, !9, i64 112, !15, i64 120, !9, i64 128, !5, i64 136, !5, i64 137, !5, i64 138}
+!9 = !{!"long", !5, i64 0}
+!10 = !{!"p1 _ZTS26archive_read_filter_bidder", !11, i64 0}
+!11 = !{!"any pointer", !5, i64 0}
+!12 = !{!"p1 _ZTS19archive_read_filter", !11, i64 0}
+!13 = !{!"p1 _ZTS12archive_read", !11, i64 0}
+!14 = !{!"p1 _ZTS26archive_read_filter_vtable", !11, i64 0}
+!15 = !{!"p1 omnipotent char", !11, i64 0}
+!16 = !{!"int", !5, i64 0}
+!17 = !{!8, !15, i64 48}
+!18 = !{!8, !13, i64 24}
+!19 = !{!8, !11, i64 40}
+!20 = !{!21, !9, i64 88}
+!21 = !{!"private_data", !22, i64 0, !15, i64 80, !9, i64 88, !5, i64 96, !5, i64 97}
+!22 = !{!"", !15, i64 0, !16, i64 8, !16, i64 12, !16, i64 16, !15, i64 24, !16, i64 32, !16, i64 36, !16, i64 40, !11, i64 48, !11, i64 56, !11, i64 64, !11, i64 72}
+!23 = !{!21, !15, i64 80}
+!24 = !{!8, !14, i64 32}
+!25 = !{!21, !5, i64 97}
+!26 = !{!11, !11, i64 0}
+!27 = !{!21, !15, i64 24}
+!28 = !{!21, !16, i64 32}
+!29 = !{!21, !5, i64 96}
+!30 = !{!8, !12, i64 16}
+!31 = !{!9, !9, i64 0}
+!32 = !{!21, !15, i64 0}
+!33 = !{!21, !16, i64 8}

@@ -3,9 +3,9 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct.FSE_DTableHeader = type { i16, i16 }
 %struct.FSE_decode_t = type { i16, i8, i8 }
+%struct.FSE_DecompressWksp = type { [256 x i16], [1 x i32] }
 %struct.BIT_DStream_t = type { i64, i32, ptr, ptr, ptr }
 %struct.FSE_DState_t = type { i64, ptr }
-%struct.FSE_DecompressWksp = type { [256 x i16], [1 x i32] }
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @FSE_buildDTable_wksp(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, i64 noundef %5) #0 {
@@ -15,18 +15,18 @@ define dso_local i64 @FSE_buildDTable_wksp(ptr noundef %0, ptr noundef %1, i32 n
   %10 = alloca i32, align 4
   %11 = alloca ptr, align 8
   %12 = alloca i64, align 8
-  store ptr %0, ptr %7, align 8
-  store ptr %1, ptr %8, align 8
-  store i32 %2, ptr %9, align 4
-  store i32 %3, ptr %10, align 4
-  store ptr %4, ptr %11, align 8
-  store i64 %5, ptr %12, align 8
-  %13 = load ptr, ptr %7, align 8
-  %14 = load ptr, ptr %8, align 8
-  %15 = load i32, ptr %9, align 4
-  %16 = load i32, ptr %10, align 4
-  %17 = load ptr, ptr %11, align 8
-  %18 = load i64, ptr %12, align 8
+  store ptr %0, ptr %7, align 8, !tbaa !4
+  store ptr %1, ptr %8, align 8, !tbaa !9
+  store i32 %2, ptr %9, align 4, !tbaa !11
+  store i32 %3, ptr %10, align 4, !tbaa !11
+  store ptr %4, ptr %11, align 8, !tbaa !13
+  store i64 %5, ptr %12, align 8, !tbaa !14
+  %13 = load ptr, ptr %7, align 8, !tbaa !4
+  %14 = load ptr, ptr %8, align 8, !tbaa !9
+  %15 = load i32, ptr %9, align 4, !tbaa !11
+  %16 = load i32, ptr %10, align 4, !tbaa !11
+  %17 = load ptr, ptr %11, align 8, !tbaa !13
+  %18 = load i64, ptr %12, align 8, !tbaa !14
   %19 = call i64 @FSE_buildDTable_internal(ptr noundef %13, ptr noundef %14, i32 noundef %15, i32 noundef %16, ptr noundef %17, i64 noundef %18)
   ret i64 %19
 }
@@ -47,509 +47,587 @@ define internal i64 @FSE_buildDTable_internal(ptr noundef %0, ptr noundef %1, i3
   %18 = alloca i32, align 4
   %19 = alloca i32, align 4
   %20 = alloca i32, align 4
-  %21 = alloca %struct.FSE_DTableHeader, align 2
-  %22 = alloca i16, align 2
-  %23 = alloca i32, align 4
-  %24 = alloca i64, align 8
+  %21 = alloca i32, align 4
+  %22 = alloca %struct.FSE_DTableHeader, align 2
+  %23 = alloca i16, align 2
+  %24 = alloca i32, align 4
   %25 = alloca i64, align 8
   %26 = alloca i64, align 8
   %27 = alloca i64, align 8
   %28 = alloca i64, align 8
-  %29 = alloca i32, align 4
+  %29 = alloca i64, align 8
   %30 = alloca i32, align 4
   %31 = alloca i32, align 4
-  %32 = alloca i64, align 8
+  %32 = alloca i32, align 4
   %33 = alloca i64, align 8
   %34 = alloca i64, align 8
   %35 = alloca i64, align 8
   %36 = alloca i64, align 8
-  %37 = alloca i32, align 4
+  %37 = alloca i64, align 8
   %38 = alloca i32, align 4
   %39 = alloca i32, align 4
   %40 = alloca i32, align 4
   %41 = alloca i32, align 4
   %42 = alloca i32, align 4
-  %43 = alloca i8, align 1
-  %44 = alloca i32, align 4
-  store ptr %0, ptr %8, align 8
-  store ptr %1, ptr %9, align 8
-  store i32 %2, ptr %10, align 4
-  store i32 %3, ptr %11, align 4
-  store ptr %4, ptr %12, align 8
-  store i64 %5, ptr %13, align 8
-  %45 = load ptr, ptr %8, align 8
-  %46 = getelementptr inbounds i32, ptr %45, i64 1
-  store ptr %46, ptr %14, align 8
-  %47 = load ptr, ptr %14, align 8
-  store ptr %47, ptr %15, align 8
-  %48 = load ptr, ptr %12, align 8
-  store ptr %48, ptr %16, align 8
-  %49 = load ptr, ptr %16, align 8
-  %50 = load i32, ptr %10, align 4
-  %51 = zext i32 %50 to i64
-  %52 = getelementptr inbounds i16, ptr %49, i64 %51
-  %53 = getelementptr inbounds i16, ptr %52, i64 1
-  store ptr %53, ptr %17, align 8
-  %54 = load i32, ptr %10, align 4
-  %55 = add i32 %54, 1
-  store i32 %55, ptr %18, align 4
-  %56 = load i32, ptr %11, align 4
-  %57 = shl i32 1, %56
-  store i32 %57, ptr %19, align 4
-  %58 = load i32, ptr %19, align 4
-  %59 = sub i32 %58, 1
-  store i32 %59, ptr %20, align 4
-  %60 = load i32, ptr %10, align 4
-  %61 = add i32 %60, 1
-  %62 = zext i32 %61 to i64
-  %63 = mul i64 2, %62
-  %64 = load i32, ptr %11, align 4
-  %65 = zext i32 %64 to i64
-  %66 = shl i64 1, %65
-  %67 = add i64 %63, %66
-  %68 = add i64 %67, 8
-  %69 = load i64, ptr %13, align 8
-  %70 = icmp ugt i64 %68, %69
-  br i1 %70, label %71, label %72
-
-71:                                               ; preds = %6
-  store i64 -46, ptr %7, align 8
-  br label %348
+  %43 = alloca i32, align 4
+  %44 = alloca i8, align 1
+  %45 = alloca i32, align 4
+  store ptr %0, ptr %8, align 8, !tbaa !4
+  store ptr %1, ptr %9, align 8, !tbaa !9
+  store i32 %2, ptr %10, align 4, !tbaa !11
+  store i32 %3, ptr %11, align 4, !tbaa !11
+  store ptr %4, ptr %12, align 8, !tbaa !13
+  store i64 %5, ptr %13, align 8, !tbaa !14
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #9
+  %46 = load ptr, ptr %8, align 8, !tbaa !4
+  %47 = getelementptr inbounds i32, ptr %46, i64 1
+  store ptr %47, ptr %14, align 8, !tbaa !13
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #9
+  %48 = load ptr, ptr %14, align 8, !tbaa !13
+  store ptr %48, ptr %15, align 8, !tbaa !13
+  call void @llvm.lifetime.start.p0(i64 8, ptr %16) #9
+  %49 = load ptr, ptr %12, align 8, !tbaa !13
+  store ptr %49, ptr %16, align 8, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #9
+  %50 = load ptr, ptr %16, align 8, !tbaa !9
+  %51 = load i32, ptr %10, align 4, !tbaa !11
+  %52 = zext i32 %51 to i64
+  %53 = getelementptr inbounds nuw i16, ptr %50, i64 %52
+  %54 = getelementptr inbounds i16, ptr %53, i64 1
+  store ptr %54, ptr %17, align 8, !tbaa !16
+  call void @llvm.lifetime.start.p0(i64 4, ptr %18) #9
+  %55 = load i32, ptr %10, align 4, !tbaa !11
+  %56 = add i32 %55, 1
+  store i32 %56, ptr %18, align 4, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 4, ptr %19) #9
+  %57 = load i32, ptr %11, align 4, !tbaa !11
+  %58 = shl i32 1, %57
+  store i32 %58, ptr %19, align 4, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 4, ptr %20) #9
+  %59 = load i32, ptr %19, align 4, !tbaa !11
+  %60 = sub i32 %59, 1
+  store i32 %60, ptr %20, align 4, !tbaa !11
+  %61 = load i32, ptr %10, align 4, !tbaa !11
+  %62 = add i32 %61, 1
+  %63 = zext i32 %62 to i64
+  %64 = mul i64 2, %63
+  %65 = load i32, ptr %11, align 4, !tbaa !11
+  %66 = zext i32 %65 to i64
+  %67 = shl i64 1, %66
+  %68 = add i64 %64, %67
+  %69 = add i64 %68, 8
+  %70 = load i64, ptr %13, align 8, !tbaa !14
+  %71 = icmp ugt i64 %69, %70
+  br i1 %71, label %72, label %73
 
 72:                                               ; preds = %6
-  %73 = load i32, ptr %10, align 4
-  %74 = icmp ugt i32 %73, 255
-  br i1 %74, label %75, label %76
-
-75:                                               ; preds = %72
   store i64 -46, ptr %7, align 8
-  br label %348
+  store i32 1, ptr %21, align 4
+  br label %352
 
-76:                                               ; preds = %72
-  %77 = load i32, ptr %11, align 4
-  %78 = icmp ugt i32 %77, 12
-  br i1 %78, label %79, label %80
+73:                                               ; preds = %6
+  %74 = load i32, ptr %10, align 4, !tbaa !11
+  %75 = icmp ugt i32 %74, 255
+  br i1 %75, label %76, label %77
 
-79:                                               ; preds = %76
+76:                                               ; preds = %73
+  store i64 -46, ptr %7, align 8
+  store i32 1, ptr %21, align 4
+  br label %352
+
+77:                                               ; preds = %73
+  %78 = load i32, ptr %11, align 4, !tbaa !11
+  %79 = icmp ugt i32 %78, 12
+  br i1 %79, label %80, label %81
+
+80:                                               ; preds = %77
   store i64 -44, ptr %7, align 8
-  br label %348
+  store i32 1, ptr %21, align 4
+  br label %352
 
-80:                                               ; preds = %76
-  %81 = load i32, ptr %11, align 4
-  %82 = trunc i32 %81 to i16
-  %83 = getelementptr inbounds %struct.FSE_DTableHeader, ptr %21, i32 0, i32 0
-  store i16 %82, ptr %83, align 2
-  %84 = getelementptr inbounds %struct.FSE_DTableHeader, ptr %21, i32 0, i32 1
-  store i16 1, ptr %84, align 2
-  %85 = load i32, ptr %11, align 4
-  %86 = sub i32 %85, 1
-  %87 = shl i32 1, %86
-  %88 = trunc i32 %87 to i16
-  store i16 %88, ptr %22, align 2
-  store i32 0, ptr %23, align 4
-  br label %89
+81:                                               ; preds = %77
+  call void @llvm.lifetime.start.p0(i64 4, ptr %22) #9
+  %82 = load i32, ptr %11, align 4, !tbaa !11
+  %83 = trunc i32 %82 to i16
+  %84 = getelementptr inbounds nuw %struct.FSE_DTableHeader, ptr %22, i32 0, i32 0
+  store i16 %83, ptr %84, align 2, !tbaa !18
+  %85 = getelementptr inbounds nuw %struct.FSE_DTableHeader, ptr %22, i32 0, i32 1
+  store i16 1, ptr %85, align 2, !tbaa !21
+  call void @llvm.lifetime.start.p0(i64 2, ptr %23) #9
+  %86 = load i32, ptr %11, align 4, !tbaa !11
+  %87 = sub i32 %86, 1
+  %88 = shl i32 1, %87
+  %89 = trunc i32 %88 to i16
+  store i16 %89, ptr %23, align 2, !tbaa !22
+  call void @llvm.lifetime.start.p0(i64 4, ptr %24) #9
+  store i32 0, ptr %24, align 4, !tbaa !11
+  br label %90
 
-89:                                               ; preds = %137, %80
-  %90 = load i32, ptr %23, align 4
-  %91 = load i32, ptr %18, align 4
-  %92 = icmp ult i32 %90, %91
-  br i1 %92, label %93, label %140
+90:                                               ; preds = %138, %81
+  %91 = load i32, ptr %24, align 4, !tbaa !11
+  %92 = load i32, ptr %18, align 4, !tbaa !11
+  %93 = icmp ult i32 %91, %92
+  br i1 %93, label %94, label %141
 
-93:                                               ; preds = %89
-  %94 = load ptr, ptr %9, align 8
-  %95 = load i32, ptr %23, align 4
-  %96 = zext i32 %95 to i64
-  %97 = getelementptr inbounds i16, ptr %94, i64 %96
-  %98 = load i16, ptr %97, align 2
-  %99 = sext i16 %98 to i32
-  %100 = icmp eq i32 %99, -1
-  br i1 %100, label %101, label %114
+94:                                               ; preds = %90
+  %95 = load ptr, ptr %9, align 8, !tbaa !9
+  %96 = load i32, ptr %24, align 4, !tbaa !11
+  %97 = zext i32 %96 to i64
+  %98 = getelementptr inbounds nuw i16, ptr %95, i64 %97
+  %99 = load i16, ptr %98, align 2, !tbaa !22
+  %100 = sext i16 %99 to i32
+  %101 = icmp eq i32 %100, -1
+  br i1 %101, label %102, label %115
 
-101:                                              ; preds = %93
-  %102 = load i32, ptr %23, align 4
-  %103 = trunc i32 %102 to i8
-  %104 = load ptr, ptr %15, align 8
-  %105 = load i32, ptr %20, align 4
-  %106 = add i32 %105, -1
-  store i32 %106, ptr %20, align 4
-  %107 = zext i32 %105 to i64
-  %108 = getelementptr inbounds %struct.FSE_decode_t, ptr %104, i64 %107
-  %109 = getelementptr inbounds %struct.FSE_decode_t, ptr %108, i32 0, i32 1
-  store i8 %103, ptr %109, align 2
-  %110 = load ptr, ptr %16, align 8
-  %111 = load i32, ptr %23, align 4
-  %112 = zext i32 %111 to i64
-  %113 = getelementptr inbounds i16, ptr %110, i64 %112
-  store i16 1, ptr %113, align 2
-  br label %136
-
-114:                                              ; preds = %93
-  %115 = load ptr, ptr %9, align 8
-  %116 = load i32, ptr %23, align 4
-  %117 = zext i32 %116 to i64
-  %118 = getelementptr inbounds i16, ptr %115, i64 %117
-  %119 = load i16, ptr %118, align 2
-  %120 = sext i16 %119 to i32
-  %121 = load i16, ptr %22, align 2
-  %122 = sext i16 %121 to i32
-  %123 = icmp sge i32 %120, %122
-  br i1 %123, label %124, label %126
-
-124:                                              ; preds = %114
-  %125 = getelementptr inbounds %struct.FSE_DTableHeader, ptr %21, i32 0, i32 1
-  store i16 0, ptr %125, align 2
-  br label %126
-
-126:                                              ; preds = %124, %114
-  %127 = load ptr, ptr %9, align 8
-  %128 = load i32, ptr %23, align 4
-  %129 = zext i32 %128 to i64
-  %130 = getelementptr inbounds i16, ptr %127, i64 %129
-  %131 = load i16, ptr %130, align 2
-  %132 = load ptr, ptr %16, align 8
-  %133 = load i32, ptr %23, align 4
-  %134 = zext i32 %133 to i64
-  %135 = getelementptr inbounds i16, ptr %132, i64 %134
-  store i16 %131, ptr %135, align 2
-  br label %136
-
-136:                                              ; preds = %126, %101
+102:                                              ; preds = %94
+  %103 = load i32, ptr %24, align 4, !tbaa !11
+  %104 = trunc i32 %103 to i8
+  %105 = load ptr, ptr %15, align 8, !tbaa !13
+  %106 = load i32, ptr %20, align 4, !tbaa !11
+  %107 = add i32 %106, -1
+  store i32 %107, ptr %20, align 4, !tbaa !11
+  %108 = zext i32 %106 to i64
+  %109 = getelementptr inbounds nuw %struct.FSE_decode_t, ptr %105, i64 %108
+  %110 = getelementptr inbounds nuw %struct.FSE_decode_t, ptr %109, i32 0, i32 1
+  store i8 %104, ptr %110, align 2, !tbaa !23
+  %111 = load ptr, ptr %16, align 8, !tbaa !9
+  %112 = load i32, ptr %24, align 4, !tbaa !11
+  %113 = zext i32 %112 to i64
+  %114 = getelementptr inbounds nuw i16, ptr %111, i64 %113
+  store i16 1, ptr %114, align 2, !tbaa !22
   br label %137
 
-137:                                              ; preds = %136
-  %138 = load i32, ptr %23, align 4
-  %139 = add i32 %138, 1
-  store i32 %139, ptr %23, align 4
-  br label %89, !llvm.loop !5
+115:                                              ; preds = %94
+  %116 = load ptr, ptr %9, align 8, !tbaa !9
+  %117 = load i32, ptr %24, align 4, !tbaa !11
+  %118 = zext i32 %117 to i64
+  %119 = getelementptr inbounds nuw i16, ptr %116, i64 %118
+  %120 = load i16, ptr %119, align 2, !tbaa !22
+  %121 = sext i16 %120 to i32
+  %122 = load i16, ptr %23, align 2, !tbaa !22
+  %123 = sext i16 %122 to i32
+  %124 = icmp sge i32 %121, %123
+  br i1 %124, label %125, label %127
 
-140:                                              ; preds = %89
-  %141 = load ptr, ptr %8, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %141, ptr align 2 %21, i64 4, i1 false)
-  %142 = load i32, ptr %20, align 4
-  %143 = load i32, ptr %19, align 4
-  %144 = sub i32 %143, 1
-  %145 = icmp eq i32 %142, %144
-  br i1 %145, label %146, label %239
+125:                                              ; preds = %115
+  %126 = getelementptr inbounds nuw %struct.FSE_DTableHeader, ptr %22, i32 0, i32 1
+  store i16 0, ptr %126, align 2, !tbaa !21
+  br label %127
 
-146:                                              ; preds = %140
-  %147 = load i32, ptr %19, align 4
-  %148 = sub i32 %147, 1
-  %149 = zext i32 %148 to i64
-  store i64 %149, ptr %24, align 8
-  %150 = load i32, ptr %19, align 4
-  %151 = lshr i32 %150, 1
-  %152 = load i32, ptr %19, align 4
-  %153 = lshr i32 %152, 3
-  %154 = add i32 %151, %153
-  %155 = add i32 %154, 3
-  %156 = zext i32 %155 to i64
-  store i64 %156, ptr %25, align 8
-  store i64 72340172838076673, ptr %26, align 8
-  store i64 0, ptr %27, align 8
-  store i64 0, ptr %28, align 8
-  store i32 0, ptr %29, align 4
-  br label %157
+127:                                              ; preds = %125, %115
+  %128 = load ptr, ptr %9, align 8, !tbaa !9
+  %129 = load i32, ptr %24, align 4, !tbaa !11
+  %130 = zext i32 %129 to i64
+  %131 = getelementptr inbounds nuw i16, ptr %128, i64 %130
+  %132 = load i16, ptr %131, align 2, !tbaa !22
+  %133 = load ptr, ptr %16, align 8, !tbaa !9
+  %134 = load i32, ptr %24, align 4, !tbaa !11
+  %135 = zext i32 %134 to i64
+  %136 = getelementptr inbounds nuw i16, ptr %133, i64 %135
+  store i16 %132, ptr %136, align 2, !tbaa !22
+  br label %137
 
-157:                                              ; preds = %192, %146
-  %158 = load i32, ptr %29, align 4
-  %159 = load i32, ptr %18, align 4
-  %160 = icmp ult i32 %158, %159
-  br i1 %160, label %161, label %197
+137:                                              ; preds = %127, %102
+  br label %138
 
-161:                                              ; preds = %157
-  %162 = load ptr, ptr %9, align 8
-  %163 = load i32, ptr %29, align 4
-  %164 = zext i32 %163 to i64
-  %165 = getelementptr inbounds i16, ptr %162, i64 %164
-  %166 = load i16, ptr %165, align 2
-  %167 = sext i16 %166 to i32
-  store i32 %167, ptr %31, align 4
-  %168 = load ptr, ptr %17, align 8
-  %169 = load i64, ptr %27, align 8
-  %170 = getelementptr inbounds i8, ptr %168, i64 %169
-  %171 = load i64, ptr %28, align 8
-  call void @MEM_write64(ptr noundef %170, i64 noundef %171)
-  store i32 8, ptr %30, align 4
-  br label %172
+138:                                              ; preds = %137
+  %139 = load i32, ptr %24, align 4, !tbaa !11
+  %140 = add i32 %139, 1
+  store i32 %140, ptr %24, align 4, !tbaa !11
+  br label %90, !llvm.loop !25
 
-172:                                              ; preds = %184, %161
-  %173 = load i32, ptr %30, align 4
-  %174 = load i32, ptr %31, align 4
-  %175 = icmp slt i32 %173, %174
-  br i1 %175, label %176, label %187
+141:                                              ; preds = %90
+  call void @llvm.lifetime.end.p0(i64 4, ptr %24) #9
+  call void @llvm.lifetime.end.p0(i64 2, ptr %23) #9
+  %142 = load ptr, ptr %8, align 8, !tbaa !4
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %142, ptr align 2 %22, i64 4, i1 false)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %22) #9
+  %143 = load i32, ptr %20, align 4, !tbaa !11
+  %144 = load i32, ptr %19, align 4, !tbaa !11
+  %145 = sub i32 %144, 1
+  %146 = icmp eq i32 %143, %145
+  br i1 %146, label %147, label %240
 
-176:                                              ; preds = %172
-  %177 = load ptr, ptr %17, align 8
-  %178 = load i64, ptr %27, align 8
-  %179 = getelementptr inbounds i8, ptr %177, i64 %178
-  %180 = load i32, ptr %30, align 4
-  %181 = sext i32 %180 to i64
-  %182 = getelementptr inbounds i8, ptr %179, i64 %181
-  %183 = load i64, ptr %28, align 8
-  call void @MEM_write64(ptr noundef %182, i64 noundef %183)
-  br label %184
+147:                                              ; preds = %141
+  call void @llvm.lifetime.start.p0(i64 8, ptr %25) #9
+  %148 = load i32, ptr %19, align 4, !tbaa !11
+  %149 = sub i32 %148, 1
+  %150 = zext i32 %149 to i64
+  store i64 %150, ptr %25, align 8, !tbaa !14
+  call void @llvm.lifetime.start.p0(i64 8, ptr %26) #9
+  %151 = load i32, ptr %19, align 4, !tbaa !11
+  %152 = lshr i32 %151, 1
+  %153 = load i32, ptr %19, align 4, !tbaa !11
+  %154 = lshr i32 %153, 3
+  %155 = add i32 %152, %154
+  %156 = add i32 %155, 3
+  %157 = zext i32 %156 to i64
+  store i64 %157, ptr %26, align 8, !tbaa !14
+  call void @llvm.lifetime.start.p0(i64 8, ptr %27) #9
+  store i64 72340172838076673, ptr %27, align 8, !tbaa !14
+  call void @llvm.lifetime.start.p0(i64 8, ptr %28) #9
+  store i64 0, ptr %28, align 8, !tbaa !14
+  call void @llvm.lifetime.start.p0(i64 8, ptr %29) #9
+  store i64 0, ptr %29, align 8, !tbaa !14
+  call void @llvm.lifetime.start.p0(i64 4, ptr %30) #9
+  store i32 0, ptr %30, align 4, !tbaa !11
+  br label %158
 
-184:                                              ; preds = %176
-  %185 = load i32, ptr %30, align 4
-  %186 = add nsw i32 %185, 8
-  store i32 %186, ptr %30, align 4
-  br label %172, !llvm.loop !7
+158:                                              ; preds = %193, %147
+  %159 = load i32, ptr %30, align 4, !tbaa !11
+  %160 = load i32, ptr %18, align 4, !tbaa !11
+  %161 = icmp ult i32 %159, %160
+  br i1 %161, label %162, label %198
 
-187:                                              ; preds = %172
-  %188 = load i32, ptr %31, align 4
-  %189 = sext i32 %188 to i64
-  %190 = load i64, ptr %27, align 8
-  %191 = add i64 %190, %189
-  store i64 %191, ptr %27, align 8
-  br label %192
+162:                                              ; preds = %158
+  call void @llvm.lifetime.start.p0(i64 4, ptr %31) #9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %32) #9
+  %163 = load ptr, ptr %9, align 8, !tbaa !9
+  %164 = load i32, ptr %30, align 4, !tbaa !11
+  %165 = zext i32 %164 to i64
+  %166 = getelementptr inbounds nuw i16, ptr %163, i64 %165
+  %167 = load i16, ptr %166, align 2, !tbaa !22
+  %168 = sext i16 %167 to i32
+  store i32 %168, ptr %32, align 4, !tbaa !11
+  %169 = load ptr, ptr %17, align 8, !tbaa !16
+  %170 = load i64, ptr %28, align 8, !tbaa !14
+  %171 = getelementptr inbounds nuw i8, ptr %169, i64 %170
+  %172 = load i64, ptr %29, align 8, !tbaa !14
+  call void @MEM_write64(ptr noundef %171, i64 noundef %172)
+  store i32 8, ptr %31, align 4, !tbaa !11
+  br label %173
 
-192:                                              ; preds = %187
-  %193 = load i32, ptr %29, align 4
-  %194 = add i32 %193, 1
-  store i32 %194, ptr %29, align 4
-  %195 = load i64, ptr %28, align 8
-  %196 = add i64 %195, 72340172838076673
-  store i64 %196, ptr %28, align 8
-  br label %157, !llvm.loop !8
+173:                                              ; preds = %185, %162
+  %174 = load i32, ptr %31, align 4, !tbaa !11
+  %175 = load i32, ptr %32, align 4, !tbaa !11
+  %176 = icmp slt i32 %174, %175
+  br i1 %176, label %177, label %188
 
-197:                                              ; preds = %157
-  store i64 0, ptr %32, align 8
-  store i64 2, ptr %34, align 8
-  store i64 0, ptr %33, align 8
-  br label %198
+177:                                              ; preds = %173
+  %178 = load ptr, ptr %17, align 8, !tbaa !16
+  %179 = load i64, ptr %28, align 8, !tbaa !14
+  %180 = getelementptr inbounds nuw i8, ptr %178, i64 %179
+  %181 = load i32, ptr %31, align 4, !tbaa !11
+  %182 = sext i32 %181 to i64
+  %183 = getelementptr inbounds i8, ptr %180, i64 %182
+  %184 = load i64, ptr %29, align 8, !tbaa !14
+  call void @MEM_write64(ptr noundef %183, i64 noundef %184)
+  br label %185
 
-198:                                              ; preds = %235, %197
-  %199 = load i64, ptr %33, align 8
-  %200 = load i32, ptr %19, align 4
-  %201 = zext i32 %200 to i64
-  %202 = icmp ult i64 %199, %201
-  br i1 %202, label %203, label %238
+185:                                              ; preds = %177
+  %186 = load i32, ptr %31, align 4, !tbaa !11
+  %187 = add nsw i32 %186, 8
+  store i32 %187, ptr %31, align 4, !tbaa !11
+  br label %173, !llvm.loop !27
 
-203:                                              ; preds = %198
-  store i64 0, ptr %35, align 8
-  br label %204
+188:                                              ; preds = %173
+  %189 = load i32, ptr %32, align 4, !tbaa !11
+  %190 = sext i32 %189 to i64
+  %191 = load i64, ptr %28, align 8, !tbaa !14
+  %192 = add i64 %191, %190
+  store i64 %192, ptr %28, align 8, !tbaa !14
+  call void @llvm.lifetime.end.p0(i64 4, ptr %32) #9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %31) #9
+  br label %193
 
-204:                                              ; preds = %225, %203
-  %205 = load i64, ptr %35, align 8
-  %206 = icmp ult i64 %205, 2
-  br i1 %206, label %207, label %228
+193:                                              ; preds = %188
+  %194 = load i32, ptr %30, align 4, !tbaa !11
+  %195 = add i32 %194, 1
+  store i32 %195, ptr %30, align 4, !tbaa !11
+  %196 = load i64, ptr %29, align 8, !tbaa !14
+  %197 = add i64 %196, 72340172838076673
+  store i64 %197, ptr %29, align 8, !tbaa !14
+  br label %158, !llvm.loop !28
 
-207:                                              ; preds = %204
-  %208 = load i64, ptr %32, align 8
-  %209 = load i64, ptr %35, align 8
-  %210 = load i64, ptr %25, align 8
-  %211 = mul i64 %209, %210
-  %212 = add i64 %208, %211
-  %213 = load i64, ptr %24, align 8
-  %214 = and i64 %212, %213
-  store i64 %214, ptr %36, align 8
-  %215 = load ptr, ptr %17, align 8
-  %216 = load i64, ptr %33, align 8
-  %217 = load i64, ptr %35, align 8
-  %218 = add i64 %216, %217
-  %219 = getelementptr inbounds i8, ptr %215, i64 %218
-  %220 = load i8, ptr %219, align 1
-  %221 = load ptr, ptr %15, align 8
-  %222 = load i64, ptr %36, align 8
-  %223 = getelementptr inbounds %struct.FSE_decode_t, ptr %221, i64 %222
-  %224 = getelementptr inbounds %struct.FSE_decode_t, ptr %223, i32 0, i32 1
-  store i8 %220, ptr %224, align 2
-  br label %225
+198:                                              ; preds = %158
+  call void @llvm.lifetime.end.p0(i64 4, ptr %30) #9
+  call void @llvm.lifetime.end.p0(i64 8, ptr %29) #9
+  call void @llvm.lifetime.end.p0(i64 8, ptr %28) #9
+  call void @llvm.lifetime.end.p0(i64 8, ptr %27) #9
+  call void @llvm.lifetime.start.p0(i64 8, ptr %33) #9
+  store i64 0, ptr %33, align 8, !tbaa !14
+  call void @llvm.lifetime.start.p0(i64 8, ptr %34) #9
+  call void @llvm.lifetime.start.p0(i64 8, ptr %35) #9
+  store i64 2, ptr %35, align 8, !tbaa !14
+  store i64 0, ptr %34, align 8, !tbaa !14
+  br label %199
 
-225:                                              ; preds = %207
-  %226 = load i64, ptr %35, align 8
-  %227 = add i64 %226, 1
-  store i64 %227, ptr %35, align 8
-  br label %204, !llvm.loop !9
+199:                                              ; preds = %236, %198
+  %200 = load i64, ptr %34, align 8, !tbaa !14
+  %201 = load i32, ptr %19, align 4, !tbaa !11
+  %202 = zext i32 %201 to i64
+  %203 = icmp ult i64 %200, %202
+  br i1 %203, label %204, label %239
 
-228:                                              ; preds = %204
-  %229 = load i64, ptr %32, align 8
-  %230 = load i64, ptr %25, align 8
-  %231 = mul i64 2, %230
-  %232 = add i64 %229, %231
-  %233 = load i64, ptr %24, align 8
-  %234 = and i64 %232, %233
-  store i64 %234, ptr %32, align 8
-  br label %235
+204:                                              ; preds = %199
+  call void @llvm.lifetime.start.p0(i64 8, ptr %36) #9
+  store i64 0, ptr %36, align 8, !tbaa !14
+  br label %205
 
-235:                                              ; preds = %228
-  %236 = load i64, ptr %33, align 8
-  %237 = add i64 %236, 2
-  store i64 %237, ptr %33, align 8
-  br label %198, !llvm.loop !10
+205:                                              ; preds = %226, %204
+  %206 = load i64, ptr %36, align 8, !tbaa !14
+  %207 = icmp ult i64 %206, 2
+  br i1 %207, label %208, label %229
 
-238:                                              ; preds = %198
-  br label %298
+208:                                              ; preds = %205
+  call void @llvm.lifetime.start.p0(i64 8, ptr %37) #9
+  %209 = load i64, ptr %33, align 8, !tbaa !14
+  %210 = load i64, ptr %36, align 8, !tbaa !14
+  %211 = load i64, ptr %26, align 8, !tbaa !14
+  %212 = mul i64 %210, %211
+  %213 = add i64 %209, %212
+  %214 = load i64, ptr %25, align 8, !tbaa !14
+  %215 = and i64 %213, %214
+  store i64 %215, ptr %37, align 8, !tbaa !14
+  %216 = load ptr, ptr %17, align 8, !tbaa !16
+  %217 = load i64, ptr %34, align 8, !tbaa !14
+  %218 = load i64, ptr %36, align 8, !tbaa !14
+  %219 = add i64 %217, %218
+  %220 = getelementptr inbounds nuw i8, ptr %216, i64 %219
+  %221 = load i8, ptr %220, align 1, !tbaa !29
+  %222 = load ptr, ptr %15, align 8, !tbaa !13
+  %223 = load i64, ptr %37, align 8, !tbaa !14
+  %224 = getelementptr inbounds nuw %struct.FSE_decode_t, ptr %222, i64 %223
+  %225 = getelementptr inbounds nuw %struct.FSE_decode_t, ptr %224, i32 0, i32 1
+  store i8 %221, ptr %225, align 2, !tbaa !23
+  call void @llvm.lifetime.end.p0(i64 8, ptr %37) #9
+  br label %226
 
-239:                                              ; preds = %140
-  %240 = load i32, ptr %19, align 4
-  %241 = sub i32 %240, 1
-  store i32 %241, ptr %37, align 4
-  %242 = load i32, ptr %19, align 4
-  %243 = lshr i32 %242, 1
-  %244 = load i32, ptr %19, align 4
-  %245 = lshr i32 %244, 3
-  %246 = add i32 %243, %245
-  %247 = add i32 %246, 3
-  store i32 %247, ptr %38, align 4
-  store i32 0, ptr %40, align 4
-  store i32 0, ptr %39, align 4
-  br label %248
+226:                                              ; preds = %208
+  %227 = load i64, ptr %36, align 8, !tbaa !14
+  %228 = add i64 %227, 1
+  store i64 %228, ptr %36, align 8, !tbaa !14
+  br label %205, !llvm.loop !30
 
-248:                                              ; preds = %290, %239
-  %249 = load i32, ptr %39, align 4
-  %250 = load i32, ptr %18, align 4
-  %251 = icmp ult i32 %249, %250
-  br i1 %251, label %252, label %293
+229:                                              ; preds = %205
+  %230 = load i64, ptr %33, align 8, !tbaa !14
+  %231 = load i64, ptr %26, align 8, !tbaa !14
+  %232 = mul i64 2, %231
+  %233 = add i64 %230, %232
+  %234 = load i64, ptr %25, align 8, !tbaa !14
+  %235 = and i64 %233, %234
+  store i64 %235, ptr %33, align 8, !tbaa !14
+  call void @llvm.lifetime.end.p0(i64 8, ptr %36) #9
+  br label %236
 
-252:                                              ; preds = %248
-  store i32 0, ptr %41, align 4
-  br label %253
+236:                                              ; preds = %229
+  %237 = load i64, ptr %34, align 8, !tbaa !14
+  %238 = add i64 %237, 2
+  store i64 %238, ptr %34, align 8, !tbaa !14
+  br label %199, !llvm.loop !31
 
-253:                                              ; preds = %286, %252
-  %254 = load i32, ptr %41, align 4
-  %255 = load ptr, ptr %9, align 8
-  %256 = load i32, ptr %39, align 4
-  %257 = zext i32 %256 to i64
-  %258 = getelementptr inbounds i16, ptr %255, i64 %257
-  %259 = load i16, ptr %258, align 2
-  %260 = sext i16 %259 to i32
-  %261 = icmp slt i32 %254, %260
-  br i1 %261, label %262, label %289
+239:                                              ; preds = %199
+  call void @llvm.lifetime.end.p0(i64 8, ptr %35) #9
+  call void @llvm.lifetime.end.p0(i64 8, ptr %34) #9
+  call void @llvm.lifetime.end.p0(i64 8, ptr %33) #9
+  call void @llvm.lifetime.end.p0(i64 8, ptr %26) #9
+  call void @llvm.lifetime.end.p0(i64 8, ptr %25) #9
+  br label %302
 
-262:                                              ; preds = %253
-  %263 = load i32, ptr %39, align 4
-  %264 = trunc i32 %263 to i8
-  %265 = load ptr, ptr %15, align 8
-  %266 = load i32, ptr %40, align 4
-  %267 = zext i32 %266 to i64
-  %268 = getelementptr inbounds %struct.FSE_decode_t, ptr %265, i64 %267
-  %269 = getelementptr inbounds %struct.FSE_decode_t, ptr %268, i32 0, i32 1
-  store i8 %264, ptr %269, align 2
-  %270 = load i32, ptr %40, align 4
-  %271 = load i32, ptr %38, align 4
-  %272 = add i32 %270, %271
-  %273 = load i32, ptr %37, align 4
-  %274 = and i32 %272, %273
-  store i32 %274, ptr %40, align 4
-  br label %275
+240:                                              ; preds = %141
+  call void @llvm.lifetime.start.p0(i64 4, ptr %38) #9
+  %241 = load i32, ptr %19, align 4, !tbaa !11
+  %242 = sub i32 %241, 1
+  store i32 %242, ptr %38, align 4, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 4, ptr %39) #9
+  %243 = load i32, ptr %19, align 4, !tbaa !11
+  %244 = lshr i32 %243, 1
+  %245 = load i32, ptr %19, align 4, !tbaa !11
+  %246 = lshr i32 %245, 3
+  %247 = add i32 %244, %246
+  %248 = add i32 %247, 3
+  store i32 %248, ptr %39, align 4, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 4, ptr %40) #9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %41) #9
+  store i32 0, ptr %41, align 4, !tbaa !11
+  store i32 0, ptr %40, align 4, !tbaa !11
+  br label %249
 
-275:                                              ; preds = %279, %262
-  %276 = load i32, ptr %40, align 4
-  %277 = load i32, ptr %20, align 4
-  %278 = icmp ugt i32 %276, %277
-  br i1 %278, label %279, label %285
+249:                                              ; preds = %291, %240
+  %250 = load i32, ptr %40, align 4, !tbaa !11
+  %251 = load i32, ptr %18, align 4, !tbaa !11
+  %252 = icmp ult i32 %250, %251
+  br i1 %252, label %253, label %294
 
-279:                                              ; preds = %275
-  %280 = load i32, ptr %40, align 4
-  %281 = load i32, ptr %38, align 4
-  %282 = add i32 %280, %281
-  %283 = load i32, ptr %37, align 4
-  %284 = and i32 %282, %283
-  store i32 %284, ptr %40, align 4
-  br label %275, !llvm.loop !11
+253:                                              ; preds = %249
+  call void @llvm.lifetime.start.p0(i64 4, ptr %42) #9
+  store i32 0, ptr %42, align 4, !tbaa !11
+  br label %254
 
-285:                                              ; preds = %275
-  br label %286
+254:                                              ; preds = %287, %253
+  %255 = load i32, ptr %42, align 4, !tbaa !11
+  %256 = load ptr, ptr %9, align 8, !tbaa !9
+  %257 = load i32, ptr %40, align 4, !tbaa !11
+  %258 = zext i32 %257 to i64
+  %259 = getelementptr inbounds nuw i16, ptr %256, i64 %258
+  %260 = load i16, ptr %259, align 2, !tbaa !22
+  %261 = sext i16 %260 to i32
+  %262 = icmp slt i32 %255, %261
+  br i1 %262, label %263, label %290
 
-286:                                              ; preds = %285
-  %287 = load i32, ptr %41, align 4
-  %288 = add nsw i32 %287, 1
-  store i32 %288, ptr %41, align 4
-  br label %253, !llvm.loop !12
+263:                                              ; preds = %254
+  %264 = load i32, ptr %40, align 4, !tbaa !11
+  %265 = trunc i32 %264 to i8
+  %266 = load ptr, ptr %15, align 8, !tbaa !13
+  %267 = load i32, ptr %41, align 4, !tbaa !11
+  %268 = zext i32 %267 to i64
+  %269 = getelementptr inbounds nuw %struct.FSE_decode_t, ptr %266, i64 %268
+  %270 = getelementptr inbounds nuw %struct.FSE_decode_t, ptr %269, i32 0, i32 1
+  store i8 %265, ptr %270, align 2, !tbaa !23
+  %271 = load i32, ptr %41, align 4, !tbaa !11
+  %272 = load i32, ptr %39, align 4, !tbaa !11
+  %273 = add i32 %271, %272
+  %274 = load i32, ptr %38, align 4, !tbaa !11
+  %275 = and i32 %273, %274
+  store i32 %275, ptr %41, align 4, !tbaa !11
+  br label %276
 
-289:                                              ; preds = %253
-  br label %290
+276:                                              ; preds = %280, %263
+  %277 = load i32, ptr %41, align 4, !tbaa !11
+  %278 = load i32, ptr %20, align 4, !tbaa !11
+  %279 = icmp ugt i32 %277, %278
+  br i1 %279, label %280, label %286
 
-290:                                              ; preds = %289
-  %291 = load i32, ptr %39, align 4
-  %292 = add i32 %291, 1
-  store i32 %292, ptr %39, align 4
-  br label %248, !llvm.loop !13
+280:                                              ; preds = %276
+  %281 = load i32, ptr %41, align 4, !tbaa !11
+  %282 = load i32, ptr %39, align 4, !tbaa !11
+  %283 = add i32 %281, %282
+  %284 = load i32, ptr %38, align 4, !tbaa !11
+  %285 = and i32 %283, %284
+  store i32 %285, ptr %41, align 4, !tbaa !11
+  br label %276, !llvm.loop !32
 
-293:                                              ; preds = %248
-  %294 = load i32, ptr %40, align 4
-  %295 = icmp ne i32 %294, 0
-  br i1 %295, label %296, label %297
+286:                                              ; preds = %276
+  br label %287
 
-296:                                              ; preds = %293
+287:                                              ; preds = %286
+  %288 = load i32, ptr %42, align 4, !tbaa !11
+  %289 = add nsw i32 %288, 1
+  store i32 %289, ptr %42, align 4, !tbaa !11
+  br label %254, !llvm.loop !33
+
+290:                                              ; preds = %254
+  call void @llvm.lifetime.end.p0(i64 4, ptr %42) #9
+  br label %291
+
+291:                                              ; preds = %290
+  %292 = load i32, ptr %40, align 4, !tbaa !11
+  %293 = add i32 %292, 1
+  store i32 %293, ptr %40, align 4, !tbaa !11
+  br label %249, !llvm.loop !34
+
+294:                                              ; preds = %249
+  %295 = load i32, ptr %41, align 4, !tbaa !11
+  %296 = icmp ne i32 %295, 0
+  br i1 %296, label %297, label %298
+
+297:                                              ; preds = %294
   store i64 -1, ptr %7, align 8
-  br label %348
-
-297:                                              ; preds = %293
-  br label %298
-
-298:                                              ; preds = %297, %238
-  store i32 0, ptr %42, align 4
+  store i32 1, ptr %21, align 4
   br label %299
 
-299:                                              ; preds = %344, %298
-  %300 = load i32, ptr %42, align 4
-  %301 = load i32, ptr %19, align 4
-  %302 = icmp ult i32 %300, %301
-  br i1 %302, label %303, label %347
+298:                                              ; preds = %294
+  store i32 0, ptr %21, align 4
+  br label %299
 
-303:                                              ; preds = %299
-  %304 = load ptr, ptr %15, align 8
-  %305 = load i32, ptr %42, align 4
-  %306 = zext i32 %305 to i64
-  %307 = getelementptr inbounds %struct.FSE_decode_t, ptr %304, i64 %306
-  %308 = getelementptr inbounds %struct.FSE_decode_t, ptr %307, i32 0, i32 1
-  %309 = load i8, ptr %308, align 2
-  store i8 %309, ptr %43, align 1
-  %310 = load ptr, ptr %16, align 8
-  %311 = load i8, ptr %43, align 1
-  %312 = zext i8 %311 to i64
-  %313 = getelementptr inbounds i16, ptr %310, i64 %312
-  %314 = load i16, ptr %313, align 2
-  %315 = add i16 %314, 1
-  store i16 %315, ptr %313, align 2
-  %316 = zext i16 %314 to i32
-  store i32 %316, ptr %44, align 4
-  %317 = load i32, ptr %11, align 4
-  %318 = load i32, ptr %44, align 4
-  %319 = call i32 @ZSTD_highbit32(i32 noundef %318)
-  %320 = sub i32 %317, %319
-  %321 = trunc i32 %320 to i8
-  %322 = load ptr, ptr %15, align 8
-  %323 = load i32, ptr %42, align 4
-  %324 = zext i32 %323 to i64
-  %325 = getelementptr inbounds %struct.FSE_decode_t, ptr %322, i64 %324
-  %326 = getelementptr inbounds %struct.FSE_decode_t, ptr %325, i32 0, i32 2
-  store i8 %321, ptr %326, align 1
-  %327 = load i32, ptr %44, align 4
-  %328 = load ptr, ptr %15, align 8
-  %329 = load i32, ptr %42, align 4
-  %330 = zext i32 %329 to i64
-  %331 = getelementptr inbounds %struct.FSE_decode_t, ptr %328, i64 %330
-  %332 = getelementptr inbounds %struct.FSE_decode_t, ptr %331, i32 0, i32 2
-  %333 = load i8, ptr %332, align 1
-  %334 = zext i8 %333 to i32
-  %335 = shl i32 %327, %334
-  %336 = load i32, ptr %19, align 4
-  %337 = sub i32 %335, %336
-  %338 = trunc i32 %337 to i16
-  %339 = load ptr, ptr %15, align 8
-  %340 = load i32, ptr %42, align 4
-  %341 = zext i32 %340 to i64
-  %342 = getelementptr inbounds %struct.FSE_decode_t, ptr %339, i64 %341
-  %343 = getelementptr inbounds %struct.FSE_decode_t, ptr %342, i32 0, i32 0
-  store i16 %338, ptr %343, align 2
-  br label %344
+299:                                              ; preds = %298, %297
+  call void @llvm.lifetime.end.p0(i64 4, ptr %41) #9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %40) #9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %39) #9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %38) #9
+  %300 = load i32, ptr %21, align 4
+  switch i32 %300, label %352 [
+    i32 0, label %301
+  ]
 
-344:                                              ; preds = %303
-  %345 = load i32, ptr %42, align 4
-  %346 = add i32 %345, 1
-  store i32 %346, ptr %42, align 4
-  br label %299, !llvm.loop !14
+301:                                              ; preds = %299
+  br label %302
 
-347:                                              ; preds = %299
-  store i64 0, ptr %7, align 8
+302:                                              ; preds = %301, %239
+  call void @llvm.lifetime.start.p0(i64 4, ptr %43) #9
+  store i32 0, ptr %43, align 4, !tbaa !11
+  br label %303
+
+303:                                              ; preds = %348, %302
+  %304 = load i32, ptr %43, align 4, !tbaa !11
+  %305 = load i32, ptr %19, align 4, !tbaa !11
+  %306 = icmp ult i32 %304, %305
+  br i1 %306, label %307, label %351
+
+307:                                              ; preds = %303
+  call void @llvm.lifetime.start.p0(i64 1, ptr %44) #9
+  %308 = load ptr, ptr %15, align 8, !tbaa !13
+  %309 = load i32, ptr %43, align 4, !tbaa !11
+  %310 = zext i32 %309 to i64
+  %311 = getelementptr inbounds nuw %struct.FSE_decode_t, ptr %308, i64 %310
+  %312 = getelementptr inbounds nuw %struct.FSE_decode_t, ptr %311, i32 0, i32 1
+  %313 = load i8, ptr %312, align 2, !tbaa !23
+  store i8 %313, ptr %44, align 1, !tbaa !29
+  call void @llvm.lifetime.start.p0(i64 4, ptr %45) #9
+  %314 = load ptr, ptr %16, align 8, !tbaa !9
+  %315 = load i8, ptr %44, align 1, !tbaa !29
+  %316 = zext i8 %315 to i64
+  %317 = getelementptr inbounds nuw i16, ptr %314, i64 %316
+  %318 = load i16, ptr %317, align 2, !tbaa !22
+  %319 = add i16 %318, 1
+  store i16 %319, ptr %317, align 2, !tbaa !22
+  %320 = zext i16 %318 to i32
+  store i32 %320, ptr %45, align 4, !tbaa !11
+  %321 = load i32, ptr %11, align 4, !tbaa !11
+  %322 = load i32, ptr %45, align 4, !tbaa !11
+  %323 = call i32 @ZSTD_highbit32(i32 noundef %322)
+  %324 = sub i32 %321, %323
+  %325 = trunc i32 %324 to i8
+  %326 = load ptr, ptr %15, align 8, !tbaa !13
+  %327 = load i32, ptr %43, align 4, !tbaa !11
+  %328 = zext i32 %327 to i64
+  %329 = getelementptr inbounds nuw %struct.FSE_decode_t, ptr %326, i64 %328
+  %330 = getelementptr inbounds nuw %struct.FSE_decode_t, ptr %329, i32 0, i32 2
+  store i8 %325, ptr %330, align 1, !tbaa !35
+  %331 = load i32, ptr %45, align 4, !tbaa !11
+  %332 = load ptr, ptr %15, align 8, !tbaa !13
+  %333 = load i32, ptr %43, align 4, !tbaa !11
+  %334 = zext i32 %333 to i64
+  %335 = getelementptr inbounds nuw %struct.FSE_decode_t, ptr %332, i64 %334
+  %336 = getelementptr inbounds nuw %struct.FSE_decode_t, ptr %335, i32 0, i32 2
+  %337 = load i8, ptr %336, align 1, !tbaa !35
+  %338 = zext i8 %337 to i32
+  %339 = shl i32 %331, %338
+  %340 = load i32, ptr %19, align 4, !tbaa !11
+  %341 = sub i32 %339, %340
+  %342 = trunc i32 %341 to i16
+  %343 = load ptr, ptr %15, align 8, !tbaa !13
+  %344 = load i32, ptr %43, align 4, !tbaa !11
+  %345 = zext i32 %344 to i64
+  %346 = getelementptr inbounds nuw %struct.FSE_decode_t, ptr %343, i64 %345
+  %347 = getelementptr inbounds nuw %struct.FSE_decode_t, ptr %346, i32 0, i32 0
+  store i16 %342, ptr %347, align 2, !tbaa !36
+  call void @llvm.lifetime.end.p0(i64 4, ptr %45) #9
+  call void @llvm.lifetime.end.p0(i64 1, ptr %44) #9
   br label %348
 
-348:                                              ; preds = %347, %296, %79, %75, %71
-  %349 = load i64, ptr %7, align 8
-  ret i64 %349
+348:                                              ; preds = %307
+  %349 = load i32, ptr %43, align 4, !tbaa !11
+  %350 = add i32 %349, 1
+  store i32 %350, ptr %43, align 4, !tbaa !11
+  br label %303, !llvm.loop !37
+
+351:                                              ; preds = %303
+  call void @llvm.lifetime.end.p0(i64 4, ptr %43) #9
+  store i64 0, ptr %7, align 8
+  store i32 1, ptr %21, align 4
+  br label %352
+
+352:                                              ; preds = %351, %299, %80, %76, %72
+  call void @llvm.lifetime.end.p0(i64 4, ptr %20) #9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %19) #9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %18) #9
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #9
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #9
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #9
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #9
+  %353 = load i64, ptr %7, align 8
+  ret i64 %353
 }
 
 ; Function Attrs: nounwind uwtable
@@ -562,2197 +640,1260 @@ define dso_local i64 @FSE_decompress_wksp_bmi2(ptr noundef %0, i64 noundef %1, p
   %14 = alloca ptr, align 8
   %15 = alloca i64, align 8
   %16 = alloca i32, align 4
-  store ptr %0, ptr %9, align 8
-  store i64 %1, ptr %10, align 8
-  store ptr %2, ptr %11, align 8
-  store i64 %3, ptr %12, align 8
-  store i32 %4, ptr %13, align 4
-  store ptr %5, ptr %14, align 8
-  store i64 %6, ptr %15, align 8
-  store i32 %7, ptr %16, align 4
-  %17 = load ptr, ptr %9, align 8
-  %18 = load i64, ptr %10, align 8
-  %19 = load ptr, ptr %11, align 8
-  %20 = load i64, ptr %12, align 8
-  %21 = load i32, ptr %13, align 4
-  %22 = load ptr, ptr %14, align 8
-  %23 = load i64, ptr %15, align 8
+  store ptr %0, ptr %9, align 8, !tbaa !13
+  store i64 %1, ptr %10, align 8, !tbaa !14
+  store ptr %2, ptr %11, align 8, !tbaa !13
+  store i64 %3, ptr %12, align 8, !tbaa !14
+  store i32 %4, ptr %13, align 4, !tbaa !11
+  store ptr %5, ptr %14, align 8, !tbaa !13
+  store i64 %6, ptr %15, align 8, !tbaa !14
+  store i32 %7, ptr %16, align 4, !tbaa !11
+  %17 = load ptr, ptr %9, align 8, !tbaa !13
+  %18 = load i64, ptr %10, align 8, !tbaa !14
+  %19 = load ptr, ptr %11, align 8, !tbaa !13
+  %20 = load i64, ptr %12, align 8, !tbaa !14
+  %21 = load i32, ptr %13, align 4, !tbaa !11
+  %22 = load ptr, ptr %14, align 8, !tbaa !13
+  %23 = load i64, ptr %15, align 8, !tbaa !14
   %24 = call i64 @FSE_decompress_wksp_body_default(ptr noundef %17, i64 noundef %18, ptr noundef %19, i64 noundef %20, i32 noundef %21, ptr noundef %22, i64 noundef %23)
   ret i64 %24
 }
 
 ; Function Attrs: nounwind uwtable
 define internal i64 @FSE_decompress_wksp_body_default(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, i32 noundef %4, ptr noundef %5, i64 noundef %6) #0 {
-  %8 = alloca i32, align 4
-  %9 = alloca ptr, align 8
-  %10 = alloca i32, align 4
-  %11 = alloca i32, align 4
+  %8 = alloca ptr, align 8
+  %9 = alloca i64, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca i64, align 8
   %12 = alloca i32, align 4
   %13 = alloca ptr, align 8
-  %14 = alloca i32, align 4
-  %15 = alloca i32, align 4
-  %16 = alloca i32, align 4
-  %17 = alloca ptr, align 8
-  %18 = alloca i32, align 4
-  %19 = alloca i32, align 4
-  %20 = alloca i32, align 4
-  %21 = alloca ptr, align 8
-  %22 = alloca i32, align 4
-  %23 = alloca i32, align 4
-  %24 = alloca i32, align 4
-  %25 = alloca ptr, align 8
-  %26 = alloca i32, align 4
-  %27 = alloca i32, align 4
-  %28 = alloca i32, align 4
-  %29 = alloca ptr, align 8
-  %30 = alloca i32, align 4
-  %31 = alloca i32, align 4
-  %32 = alloca i64, align 8
-  %33 = alloca ptr, align 8
-  %34 = alloca i64, align 8
-  %35 = alloca ptr, align 8
-  %36 = alloca i64, align 8
-  %37 = alloca ptr, align 8
-  %38 = alloca i32, align 4
-  %39 = alloca ptr, align 8
-  %40 = alloca ptr, align 8
-  %41 = alloca ptr, align 8
-  %42 = alloca ptr, align 8
-  %43 = alloca %struct.BIT_DStream_t, align 8
-  %44 = alloca %struct.FSE_DState_t, align 8
-  %45 = alloca %struct.FSE_DState_t, align 8
-  %46 = alloca i64, align 8
-  %47 = alloca i64, align 8
-  %48 = alloca ptr, align 8
-  %49 = alloca i64, align 8
-  %50 = alloca ptr, align 8
-  %51 = alloca i64, align 8
-  %52 = alloca ptr, align 8
-  %53 = alloca i32, align 4
-  %54 = alloca ptr, align 8
-  %55 = alloca ptr, align 8
-  %56 = alloca ptr, align 8
-  %57 = alloca ptr, align 8
-  %58 = alloca %struct.BIT_DStream_t, align 8
-  %59 = alloca %struct.FSE_DState_t, align 8
-  %60 = alloca %struct.FSE_DState_t, align 8
-  %61 = alloca i64, align 8
-  %62 = alloca i64, align 8
-  %63 = alloca ptr, align 8
-  %64 = alloca i64, align 8
-  %65 = alloca ptr, align 8
-  %66 = alloca i64, align 8
-  %67 = alloca i32, align 4
-  %68 = alloca ptr, align 8
-  %69 = alloca i64, align 8
-  %70 = alloca i32, align 4
-  %71 = alloca ptr, align 8
-  %72 = alloca ptr, align 8
-  %73 = alloca i32, align 4
-  %74 = alloca i32, align 4
-  %75 = alloca ptr, align 8
-  %76 = alloca i64, align 8
-  %77 = alloca i64, align 8
-  %78 = alloca ptr, align 8
-  %79 = alloca ptr, align 8
-  %80 = alloca i32, align 4
-  %81 = alloca ptr, align 8
-  %82 = alloca i64, align 8
-  %83 = alloca ptr, align 8
-  %84 = alloca i64, align 8
-  %85 = alloca i32, align 4
-  %86 = alloca ptr, align 8
-  %87 = alloca i64, align 8
-  store ptr %0, ptr %81, align 8
-  store i64 %1, ptr %82, align 8
-  store ptr %2, ptr %83, align 8
-  store i64 %3, ptr %84, align 8
-  store i32 %4, ptr %85, align 4
-  store ptr %5, ptr %86, align 8
-  store i64 %6, ptr %87, align 8
-  %88 = load ptr, ptr %81, align 8
-  %89 = load i64, ptr %82, align 8
-  %90 = load ptr, ptr %83, align 8
-  %91 = load i64, ptr %84, align 8
-  %92 = load i32, ptr %85, align 4
-  %93 = load ptr, ptr %86, align 8
-  %94 = load i64, ptr %87, align 8
-  store ptr %88, ptr %63, align 8
-  store i64 %89, ptr %64, align 8
-  store ptr %90, ptr %65, align 8
-  store i64 %91, ptr %66, align 8
-  store i32 %92, ptr %67, align 4
-  store ptr %93, ptr %68, align 8
-  store i64 %94, ptr %69, align 8
-  store i32 0, ptr %70, align 4
-  %95 = load ptr, ptr %65, align 8
-  store ptr %95, ptr %71, align 8
-  %96 = load ptr, ptr %71, align 8
-  store ptr %96, ptr %72, align 8
-  store i32 255, ptr %74, align 4
-  %97 = load ptr, ptr %68, align 8
-  store ptr %97, ptr %75, align 8
-  %98 = load i64, ptr %69, align 8
-  %99 = icmp ult i64 %98, 516
-  br i1 %99, label %100, label %101
-
-100:                                              ; preds = %7
-  store i64 -1, ptr %62, align 8
-  br label %1016
-
-101:                                              ; preds = %7
-  %102 = load ptr, ptr %75, align 8
-  %103 = load ptr, ptr %71, align 8
-  %104 = load i64, ptr %66, align 8
-  %105 = load i32, ptr %70, align 4
-  %106 = call i64 @FSE_readNCount_bmi2(ptr noundef %102, ptr noundef %74, ptr noundef %73, ptr noundef %103, i64 noundef %104, i32 noundef %105) #5
-  store i64 %106, ptr %76, align 8
-  %107 = load i64, ptr %76, align 8
-  %108 = call i32 @ERR_isError(i64 noundef %107)
-  %109 = icmp ne i32 %108, 0
-  br i1 %109, label %110, label %112
-
-110:                                              ; preds = %101
-  %111 = load i64, ptr %76, align 8
-  store i64 %111, ptr %62, align 8
-  br label %1016
-
-112:                                              ; preds = %101
-  %113 = load i32, ptr %73, align 4
-  %114 = load i32, ptr %67, align 4
-  %115 = icmp ugt i32 %113, %114
-  br i1 %115, label %116, label %117
-
-116:                                              ; preds = %112
-  store i64 -44, ptr %62, align 8
-  br label %1016
-
-117:                                              ; preds = %112
-  %118 = load i64, ptr %76, align 8
-  %119 = load ptr, ptr %72, align 8
-  %120 = getelementptr inbounds i8, ptr %119, i64 %118
-  store ptr %120, ptr %72, align 8
-  %121 = load i64, ptr %76, align 8
-  %122 = load i64, ptr %66, align 8
-  %123 = sub i64 %122, %121
-  store i64 %123, ptr %66, align 8
-  %124 = load i32, ptr %73, align 4
-  %125 = shl i32 1, %124
-  %126 = add nsw i32 1, %125
-  %127 = add nsw i32 %126, 1
-  %128 = sext i32 %127 to i64
-  %129 = load i32, ptr %74, align 4
-  %130 = add i32 %129, 1
-  %131 = zext i32 %130 to i64
-  %132 = mul i64 2, %131
-  %133 = load i32, ptr %73, align 4
-  %134 = zext i32 %133 to i64
-  %135 = shl i64 1, %134
-  %136 = add i64 %132, %135
-  %137 = add i64 %136, 8
-  %138 = add i64 %137, 4
-  %139 = sub i64 %138, 1
-  %140 = udiv i64 %139, 4
-  %141 = add i64 %128, %140
-  %142 = add i64 %141, 128
-  %143 = add i64 %142, 1
-  %144 = mul i64 %143, 4
-  %145 = load i64, ptr %69, align 8
-  %146 = icmp ugt i64 %144, %145
-  br i1 %146, label %147, label %148
-
-147:                                              ; preds = %117
-  store i64 -44, ptr %62, align 8
-  br label %1016
-
-148:                                              ; preds = %117
-  %149 = load ptr, ptr %68, align 8
-  %150 = getelementptr inbounds i8, ptr %149, i64 516
-  %151 = load i32, ptr %73, align 4
-  %152 = shl i32 1, %151
-  %153 = add nsw i32 1, %152
-  %154 = sext i32 %153 to i64
-  %155 = mul i64 %154, 4
-  %156 = getelementptr inbounds i8, ptr %150, i64 %155
-  store ptr %156, ptr %68, align 8
-  %157 = load i32, ptr %73, align 4
-  %158 = shl i32 1, %157
-  %159 = add nsw i32 1, %158
-  %160 = sext i32 %159 to i64
-  %161 = mul i64 %160, 4
-  %162 = add i64 516, %161
-  %163 = load i64, ptr %69, align 8
-  %164 = sub i64 %163, %162
-  store i64 %164, ptr %69, align 8
-  %165 = load ptr, ptr %75, align 8
-  %166 = getelementptr inbounds %struct.FSE_DecompressWksp, ptr %165, i32 0, i32 1
-  %167 = load ptr, ptr %75, align 8
-  %168 = load i32, ptr %74, align 4
-  %169 = load i32, ptr %73, align 4
-  %170 = load ptr, ptr %68, align 8
-  %171 = load i64, ptr %69, align 8
-  %172 = call i64 @FSE_buildDTable_internal(ptr noundef %166, ptr noundef %167, i32 noundef %168, i32 noundef %169, ptr noundef %170, i64 noundef %171)
-  store i64 %172, ptr %77, align 8
-  %173 = load i64, ptr %77, align 8
-  %174 = call i32 @ERR_isError(i64 noundef %173)
-  %175 = icmp ne i32 %174, 0
-  br i1 %175, label %176, label %178
-
-176:                                              ; preds = %148
-  %177 = load i64, ptr %77, align 8
-  store i64 %177, ptr %62, align 8
-  br label %1016
-
-178:                                              ; preds = %148
-  %179 = load ptr, ptr %75, align 8
-  %180 = getelementptr inbounds %struct.FSE_DecompressWksp, ptr %179, i32 0, i32 1
-  store ptr %180, ptr %78, align 8
-  %181 = load ptr, ptr %78, align 8
-  store ptr %181, ptr %79, align 8
-  %182 = load ptr, ptr %79, align 8
-  %183 = getelementptr inbounds %struct.FSE_DTableHeader, ptr %182, i32 0, i32 1
-  %184 = load i16, ptr %183, align 2
-  %185 = zext i16 %184 to i32
-  store i32 %185, ptr %80, align 4
-  %186 = load i32, ptr %80, align 4
-  %187 = icmp ne i32 %186, 0
-  br i1 %187, label %188, label %602
-
-188:                                              ; preds = %178
-  %189 = load ptr, ptr %63, align 8
-  %190 = load i64, ptr %64, align 8
-  %191 = load ptr, ptr %72, align 8
-  %192 = load i64, ptr %66, align 8
-  %193 = load ptr, ptr %75, align 8
-  %194 = getelementptr inbounds %struct.FSE_DecompressWksp, ptr %193, i32 0, i32 1
-  store ptr %189, ptr %48, align 8
-  store i64 %190, ptr %49, align 8
-  store ptr %191, ptr %50, align 8
-  store i64 %192, ptr %51, align 8
-  store ptr %194, ptr %52, align 8
-  store i32 1, ptr %53, align 4
-  %195 = load ptr, ptr %48, align 8
-  store ptr %195, ptr %54, align 8
-  %196 = load ptr, ptr %54, align 8
-  store ptr %196, ptr %55, align 8
-  %197 = load ptr, ptr %55, align 8
-  %198 = load i64, ptr %49, align 8
-  %199 = getelementptr inbounds i8, ptr %197, i64 %198
-  store ptr %199, ptr %56, align 8
-  %200 = load ptr, ptr %56, align 8
-  %201 = getelementptr inbounds i8, ptr %200, i64 -3
-  store ptr %201, ptr %57, align 8
-  %202 = load ptr, ptr %50, align 8
-  %203 = load i64, ptr %51, align 8
-  %204 = call i64 @BIT_initDStream(ptr noundef %58, ptr noundef %202, i64 noundef %203)
-  store i64 %204, ptr %61, align 8
-  %205 = load i64, ptr %61, align 8
-  %206 = call i32 @ERR_isError(i64 noundef %205)
-  %207 = icmp ne i32 %206, 0
-  br i1 %207, label %208, label %210
-
-208:                                              ; preds = %188
-  %209 = load i64, ptr %61, align 8
-  store i64 %209, ptr %47, align 8
-  br label %600
-
-210:                                              ; preds = %188
-  %211 = load ptr, ptr %52, align 8
-  call void @FSE_initDState(ptr noundef %59, ptr noundef %58, ptr noundef %211)
-  %212 = load ptr, ptr %52, align 8
-  call void @FSE_initDState(ptr noundef %60, ptr noundef %58, ptr noundef %212)
-  br label %213
-
-213:                                              ; preds = %351, %210
-  store ptr %58, ptr %9, align 8
-  %214 = load ptr, ptr %9, align 8
-  %215 = getelementptr inbounds %struct.BIT_DStream_t, ptr %214, i32 0, i32 1
-  %216 = load i32, ptr %215, align 8
-  %217 = zext i32 %216 to i64
-  %218 = icmp ugt i64 %217, 64
-  br i1 %218, label %219, label %220
-
-219:                                              ; preds = %213
-  store i32 3, ptr %8, align 4
-  br label %294
-
-220:                                              ; preds = %213
-  %221 = load ptr, ptr %9, align 8
-  %222 = getelementptr inbounds %struct.BIT_DStream_t, ptr %221, i32 0, i32 2
-  %223 = load ptr, ptr %222, align 8
-  %224 = load ptr, ptr %9, align 8
-  %225 = getelementptr inbounds %struct.BIT_DStream_t, ptr %224, i32 0, i32 4
-  %226 = load ptr, ptr %225, align 8
-  %227 = icmp uge ptr %223, %226
-  br i1 %227, label %228, label %231
-
-228:                                              ; preds = %220
-  %229 = load ptr, ptr %9, align 8
-  %230 = call i32 @BIT_reloadDStreamFast(ptr noundef %229)
-  store i32 %230, ptr %8, align 4
-  br label %294
-
-231:                                              ; preds = %220
-  %232 = load ptr, ptr %9, align 8
-  %233 = getelementptr inbounds %struct.BIT_DStream_t, ptr %232, i32 0, i32 2
-  %234 = load ptr, ptr %233, align 8
-  %235 = load ptr, ptr %9, align 8
-  %236 = getelementptr inbounds %struct.BIT_DStream_t, ptr %235, i32 0, i32 3
-  %237 = load ptr, ptr %236, align 8
-  %238 = icmp eq ptr %234, %237
-  br i1 %238, label %239, label %247
-
-239:                                              ; preds = %231
-  %240 = load ptr, ptr %9, align 8
-  %241 = getelementptr inbounds %struct.BIT_DStream_t, ptr %240, i32 0, i32 1
-  %242 = load i32, ptr %241, align 8
-  %243 = zext i32 %242 to i64
-  %244 = icmp ult i64 %243, 64
-  br i1 %244, label %245, label %246
-
-245:                                              ; preds = %239
-  store i32 1, ptr %8, align 4
-  br label %294
-
-246:                                              ; preds = %239
-  store i32 2, ptr %8, align 4
-  br label %294
-
-247:                                              ; preds = %231
-  %248 = load ptr, ptr %9, align 8
-  %249 = getelementptr inbounds %struct.BIT_DStream_t, ptr %248, i32 0, i32 1
-  %250 = load i32, ptr %249, align 8
-  %251 = lshr i32 %250, 3
-  store i32 %251, ptr %10, align 4
-  store i32 0, ptr %11, align 4
-  %252 = load ptr, ptr %9, align 8
-  %253 = getelementptr inbounds %struct.BIT_DStream_t, ptr %252, i32 0, i32 2
-  %254 = load ptr, ptr %253, align 8
-  %255 = load i32, ptr %10, align 4
-  %256 = zext i32 %255 to i64
-  %257 = sub i64 0, %256
-  %258 = getelementptr inbounds i8, ptr %254, i64 %257
-  %259 = load ptr, ptr %9, align 8
-  %260 = getelementptr inbounds %struct.BIT_DStream_t, ptr %259, i32 0, i32 3
-  %261 = load ptr, ptr %260, align 8
-  %262 = icmp ult ptr %258, %261
-  br i1 %262, label %263, label %274
-
-263:                                              ; preds = %247
-  %264 = load ptr, ptr %9, align 8
-  %265 = getelementptr inbounds %struct.BIT_DStream_t, ptr %264, i32 0, i32 2
-  %266 = load ptr, ptr %265, align 8
-  %267 = load ptr, ptr %9, align 8
-  %268 = getelementptr inbounds %struct.BIT_DStream_t, ptr %267, i32 0, i32 3
-  %269 = load ptr, ptr %268, align 8
-  %270 = ptrtoint ptr %266 to i64
-  %271 = ptrtoint ptr %269 to i64
-  %272 = sub i64 %270, %271
-  %273 = trunc i64 %272 to i32
-  store i32 %273, ptr %10, align 4
-  store i32 1, ptr %11, align 4
-  br label %274
-
-274:                                              ; preds = %263, %247
-  %275 = load i32, ptr %10, align 4
-  %276 = load ptr, ptr %9, align 8
-  %277 = getelementptr inbounds %struct.BIT_DStream_t, ptr %276, i32 0, i32 2
-  %278 = load ptr, ptr %277, align 8
-  %279 = zext i32 %275 to i64
-  %280 = sub i64 0, %279
-  %281 = getelementptr inbounds i8, ptr %278, i64 %280
-  store ptr %281, ptr %277, align 8
-  %282 = load i32, ptr %10, align 4
-  %283 = mul i32 %282, 8
-  %284 = load ptr, ptr %9, align 8
-  %285 = getelementptr inbounds %struct.BIT_DStream_t, ptr %284, i32 0, i32 1
-  %286 = load i32, ptr %285, align 8
-  %287 = sub i32 %286, %283
-  store i32 %287, ptr %285, align 8
-  %288 = load ptr, ptr %9, align 8
-  %289 = getelementptr inbounds %struct.BIT_DStream_t, ptr %288, i32 0, i32 2
-  %290 = load ptr, ptr %289, align 8
-  %291 = call i64 @MEM_readLEST(ptr noundef %290)
-  %292 = load ptr, ptr %9, align 8
-  store i64 %291, ptr %292, align 8
-  %293 = load i32, ptr %11, align 4
-  store i32 %293, ptr %8, align 4
-  br label %294
-
-294:                                              ; preds = %274, %246, %245, %228, %219
-  %295 = load i32, ptr %8, align 4
-  %296 = icmp eq i32 %295, 0
-  %297 = zext i1 %296 to i32
-  %298 = load ptr, ptr %55, align 8
-  %299 = load ptr, ptr %57, align 8
-  %300 = icmp ult ptr %298, %299
-  %301 = zext i1 %300 to i32
-  %302 = and i32 %297, %301
-  %303 = icmp ne i32 %302, 0
-  br i1 %303, label %304, label %358
-
-304:                                              ; preds = %294
-  %305 = load i32, ptr %53, align 4
-  %306 = icmp ne i32 %305, 0
-  br i1 %306, label %307, label %310
-
-307:                                              ; preds = %304
-  %308 = call zeroext i8 @FSE_decodeSymbolFast(ptr noundef %59, ptr noundef %58)
-  %309 = zext i8 %308 to i32
-  br label %313
-
-310:                                              ; preds = %304
-  %311 = call zeroext i8 @FSE_decodeSymbol(ptr noundef %59, ptr noundef %58)
-  %312 = zext i8 %311 to i32
-  br label %313
-
-313:                                              ; preds = %310, %307
-  %314 = phi i32 [ %309, %307 ], [ %312, %310 ]
-  %315 = trunc i32 %314 to i8
-  %316 = load ptr, ptr %55, align 8
-  store i8 %315, ptr %316, align 1
-  %317 = load i32, ptr %53, align 4
-  %318 = icmp ne i32 %317, 0
-  br i1 %318, label %319, label %322
-
-319:                                              ; preds = %313
-  %320 = call zeroext i8 @FSE_decodeSymbolFast(ptr noundef %60, ptr noundef %58)
-  %321 = zext i8 %320 to i32
-  br label %325
-
-322:                                              ; preds = %313
-  %323 = call zeroext i8 @FSE_decodeSymbol(ptr noundef %60, ptr noundef %58)
-  %324 = zext i8 %323 to i32
-  br label %325
-
-325:                                              ; preds = %322, %319
-  %326 = phi i32 [ %321, %319 ], [ %324, %322 ]
-  %327 = trunc i32 %326 to i8
-  %328 = load ptr, ptr %55, align 8
-  %329 = getelementptr inbounds i8, ptr %328, i64 1
-  store i8 %327, ptr %329, align 1
-  %330 = load i32, ptr %53, align 4
-  %331 = icmp ne i32 %330, 0
-  br i1 %331, label %332, label %335
-
-332:                                              ; preds = %325
-  %333 = call zeroext i8 @FSE_decodeSymbolFast(ptr noundef %59, ptr noundef %58)
-  %334 = zext i8 %333 to i32
-  br label %338
-
-335:                                              ; preds = %325
-  %336 = call zeroext i8 @FSE_decodeSymbol(ptr noundef %59, ptr noundef %58)
-  %337 = zext i8 %336 to i32
-  br label %338
-
-338:                                              ; preds = %335, %332
-  %339 = phi i32 [ %334, %332 ], [ %337, %335 ]
-  %340 = trunc i32 %339 to i8
-  %341 = load ptr, ptr %55, align 8
-  %342 = getelementptr inbounds i8, ptr %341, i64 2
-  store i8 %340, ptr %342, align 1
-  %343 = load i32, ptr %53, align 4
-  %344 = icmp ne i32 %343, 0
-  br i1 %344, label %345, label %348
-
-345:                                              ; preds = %338
-  %346 = call zeroext i8 @FSE_decodeSymbolFast(ptr noundef %60, ptr noundef %58)
-  %347 = zext i8 %346 to i32
-  br label %351
-
-348:                                              ; preds = %338
-  %349 = call zeroext i8 @FSE_decodeSymbol(ptr noundef %60, ptr noundef %58)
-  %350 = zext i8 %349 to i32
-  br label %351
-
-351:                                              ; preds = %348, %345
-  %352 = phi i32 [ %347, %345 ], [ %350, %348 ]
-  %353 = trunc i32 %352 to i8
-  %354 = load ptr, ptr %55, align 8
-  %355 = getelementptr inbounds i8, ptr %354, i64 3
-  store i8 %353, ptr %355, align 1
-  %356 = load ptr, ptr %55, align 8
-  %357 = getelementptr inbounds i8, ptr %356, i64 4
-  store ptr %357, ptr %55, align 8
-  br label %213, !llvm.loop !15
-
-358:                                              ; preds = %294
-  br label %359
-
-359:                                              ; preds = %593, %358
-  %360 = load ptr, ptr %55, align 8
-  %361 = load ptr, ptr %56, align 8
-  %362 = getelementptr inbounds i8, ptr %361, i64 -2
-  %363 = icmp ugt ptr %360, %362
-  br i1 %363, label %364, label %365
-
-364:                                              ; preds = %359
-  store i64 -70, ptr %47, align 8
-  br label %600
-
-365:                                              ; preds = %359
-  %366 = load i32, ptr %53, align 4
-  %367 = icmp ne i32 %366, 0
-  br i1 %367, label %368, label %371
-
-368:                                              ; preds = %365
-  %369 = call zeroext i8 @FSE_decodeSymbolFast(ptr noundef %59, ptr noundef %58)
-  %370 = zext i8 %369 to i32
-  br label %374
-
-371:                                              ; preds = %365
-  %372 = call zeroext i8 @FSE_decodeSymbol(ptr noundef %59, ptr noundef %58)
-  %373 = zext i8 %372 to i32
-  br label %374
-
-374:                                              ; preds = %371, %368
-  %375 = phi i32 [ %370, %368 ], [ %373, %371 ]
-  %376 = trunc i32 %375 to i8
-  %377 = load ptr, ptr %55, align 8
-  %378 = getelementptr inbounds i8, ptr %377, i32 1
-  store ptr %378, ptr %55, align 8
-  store i8 %376, ptr %377, align 1
-  store ptr %58, ptr %13, align 8
-  %379 = load ptr, ptr %13, align 8
-  %380 = getelementptr inbounds %struct.BIT_DStream_t, ptr %379, i32 0, i32 1
-  %381 = load i32, ptr %380, align 8
-  %382 = zext i32 %381 to i64
-  %383 = icmp ugt i64 %382, 64
-  br i1 %383, label %384, label %385
-
-384:                                              ; preds = %374
-  store i32 3, ptr %12, align 4
-  br label %459
-
-385:                                              ; preds = %374
-  %386 = load ptr, ptr %13, align 8
-  %387 = getelementptr inbounds %struct.BIT_DStream_t, ptr %386, i32 0, i32 2
-  %388 = load ptr, ptr %387, align 8
-  %389 = load ptr, ptr %13, align 8
-  %390 = getelementptr inbounds %struct.BIT_DStream_t, ptr %389, i32 0, i32 4
-  %391 = load ptr, ptr %390, align 8
-  %392 = icmp uge ptr %388, %391
-  br i1 %392, label %393, label %396
-
-393:                                              ; preds = %385
-  %394 = load ptr, ptr %13, align 8
-  %395 = call i32 @BIT_reloadDStreamFast(ptr noundef %394)
-  store i32 %395, ptr %12, align 4
-  br label %459
-
-396:                                              ; preds = %385
-  %397 = load ptr, ptr %13, align 8
-  %398 = getelementptr inbounds %struct.BIT_DStream_t, ptr %397, i32 0, i32 2
-  %399 = load ptr, ptr %398, align 8
-  %400 = load ptr, ptr %13, align 8
-  %401 = getelementptr inbounds %struct.BIT_DStream_t, ptr %400, i32 0, i32 3
-  %402 = load ptr, ptr %401, align 8
-  %403 = icmp eq ptr %399, %402
-  br i1 %403, label %404, label %412
-
-404:                                              ; preds = %396
-  %405 = load ptr, ptr %13, align 8
-  %406 = getelementptr inbounds %struct.BIT_DStream_t, ptr %405, i32 0, i32 1
-  %407 = load i32, ptr %406, align 8
-  %408 = zext i32 %407 to i64
-  %409 = icmp ult i64 %408, 64
-  br i1 %409, label %410, label %411
-
-410:                                              ; preds = %404
-  store i32 1, ptr %12, align 4
-  br label %459
-
-411:                                              ; preds = %404
-  store i32 2, ptr %12, align 4
-  br label %459
-
-412:                                              ; preds = %396
-  %413 = load ptr, ptr %13, align 8
-  %414 = getelementptr inbounds %struct.BIT_DStream_t, ptr %413, i32 0, i32 1
-  %415 = load i32, ptr %414, align 8
-  %416 = lshr i32 %415, 3
-  store i32 %416, ptr %14, align 4
-  store i32 0, ptr %15, align 4
-  %417 = load ptr, ptr %13, align 8
-  %418 = getelementptr inbounds %struct.BIT_DStream_t, ptr %417, i32 0, i32 2
-  %419 = load ptr, ptr %418, align 8
-  %420 = load i32, ptr %14, align 4
-  %421 = zext i32 %420 to i64
-  %422 = sub i64 0, %421
-  %423 = getelementptr inbounds i8, ptr %419, i64 %422
-  %424 = load ptr, ptr %13, align 8
-  %425 = getelementptr inbounds %struct.BIT_DStream_t, ptr %424, i32 0, i32 3
-  %426 = load ptr, ptr %425, align 8
-  %427 = icmp ult ptr %423, %426
-  br i1 %427, label %428, label %439
-
-428:                                              ; preds = %412
-  %429 = load ptr, ptr %13, align 8
-  %430 = getelementptr inbounds %struct.BIT_DStream_t, ptr %429, i32 0, i32 2
-  %431 = load ptr, ptr %430, align 8
-  %432 = load ptr, ptr %13, align 8
-  %433 = getelementptr inbounds %struct.BIT_DStream_t, ptr %432, i32 0, i32 3
-  %434 = load ptr, ptr %433, align 8
-  %435 = ptrtoint ptr %431 to i64
-  %436 = ptrtoint ptr %434 to i64
-  %437 = sub i64 %435, %436
-  %438 = trunc i64 %437 to i32
-  store i32 %438, ptr %14, align 4
-  store i32 1, ptr %15, align 4
-  br label %439
-
-439:                                              ; preds = %428, %412
-  %440 = load i32, ptr %14, align 4
-  %441 = load ptr, ptr %13, align 8
-  %442 = getelementptr inbounds %struct.BIT_DStream_t, ptr %441, i32 0, i32 2
-  %443 = load ptr, ptr %442, align 8
-  %444 = zext i32 %440 to i64
-  %445 = sub i64 0, %444
-  %446 = getelementptr inbounds i8, ptr %443, i64 %445
-  store ptr %446, ptr %442, align 8
-  %447 = load i32, ptr %14, align 4
-  %448 = mul i32 %447, 8
-  %449 = load ptr, ptr %13, align 8
-  %450 = getelementptr inbounds %struct.BIT_DStream_t, ptr %449, i32 0, i32 1
-  %451 = load i32, ptr %450, align 8
-  %452 = sub i32 %451, %448
-  store i32 %452, ptr %450, align 8
-  %453 = load ptr, ptr %13, align 8
-  %454 = getelementptr inbounds %struct.BIT_DStream_t, ptr %453, i32 0, i32 2
-  %455 = load ptr, ptr %454, align 8
-  %456 = call i64 @MEM_readLEST(ptr noundef %455)
-  %457 = load ptr, ptr %13, align 8
-  store i64 %456, ptr %457, align 8
-  %458 = load i32, ptr %15, align 4
-  store i32 %458, ptr %12, align 4
-  br label %459
-
-459:                                              ; preds = %439, %411, %410, %393, %384
-  %460 = load i32, ptr %12, align 4
-  %461 = icmp eq i32 %460, 3
-  br i1 %461, label %462, label %476
-
-462:                                              ; preds = %459
-  %463 = load i32, ptr %53, align 4
-  %464 = icmp ne i32 %463, 0
-  br i1 %464, label %465, label %468
-
-465:                                              ; preds = %462
-  %466 = call zeroext i8 @FSE_decodeSymbolFast(ptr noundef %60, ptr noundef %58)
-  %467 = zext i8 %466 to i32
-  br label %471
-
-468:                                              ; preds = %462
-  %469 = call zeroext i8 @FSE_decodeSymbol(ptr noundef %60, ptr noundef %58)
-  %470 = zext i8 %469 to i32
-  br label %471
-
-471:                                              ; preds = %468, %465
-  %472 = phi i32 [ %467, %465 ], [ %470, %468 ]
-  %473 = trunc i32 %472 to i8
-  %474 = load ptr, ptr %55, align 8
-  %475 = getelementptr inbounds i8, ptr %474, i32 1
-  store ptr %475, ptr %55, align 8
-  store i8 %473, ptr %474, align 1
-  br label %594
-
-476:                                              ; preds = %459
-  %477 = load ptr, ptr %55, align 8
-  %478 = load ptr, ptr %56, align 8
-  %479 = getelementptr inbounds i8, ptr %478, i64 -2
-  %480 = icmp ugt ptr %477, %479
-  br i1 %480, label %481, label %482
-
-481:                                              ; preds = %476
-  store i64 -70, ptr %47, align 8
-  br label %600
-
-482:                                              ; preds = %476
-  %483 = load i32, ptr %53, align 4
-  %484 = icmp ne i32 %483, 0
-  br i1 %484, label %485, label %488
-
-485:                                              ; preds = %482
-  %486 = call zeroext i8 @FSE_decodeSymbolFast(ptr noundef %60, ptr noundef %58)
-  %487 = zext i8 %486 to i32
-  br label %491
-
-488:                                              ; preds = %482
-  %489 = call zeroext i8 @FSE_decodeSymbol(ptr noundef %60, ptr noundef %58)
-  %490 = zext i8 %489 to i32
-  br label %491
-
-491:                                              ; preds = %488, %485
-  %492 = phi i32 [ %487, %485 ], [ %490, %488 ]
-  %493 = trunc i32 %492 to i8
-  %494 = load ptr, ptr %55, align 8
-  %495 = getelementptr inbounds i8, ptr %494, i32 1
-  store ptr %495, ptr %55, align 8
-  store i8 %493, ptr %494, align 1
-  store ptr %58, ptr %17, align 8
-  %496 = load ptr, ptr %17, align 8
-  %497 = getelementptr inbounds %struct.BIT_DStream_t, ptr %496, i32 0, i32 1
-  %498 = load i32, ptr %497, align 8
-  %499 = zext i32 %498 to i64
-  %500 = icmp ugt i64 %499, 64
-  br i1 %500, label %501, label %502
-
-501:                                              ; preds = %491
-  store i32 3, ptr %16, align 4
-  br label %576
-
-502:                                              ; preds = %491
-  %503 = load ptr, ptr %17, align 8
-  %504 = getelementptr inbounds %struct.BIT_DStream_t, ptr %503, i32 0, i32 2
-  %505 = load ptr, ptr %504, align 8
-  %506 = load ptr, ptr %17, align 8
-  %507 = getelementptr inbounds %struct.BIT_DStream_t, ptr %506, i32 0, i32 4
-  %508 = load ptr, ptr %507, align 8
-  %509 = icmp uge ptr %505, %508
-  br i1 %509, label %510, label %513
-
-510:                                              ; preds = %502
-  %511 = load ptr, ptr %17, align 8
-  %512 = call i32 @BIT_reloadDStreamFast(ptr noundef %511)
-  store i32 %512, ptr %16, align 4
-  br label %576
-
-513:                                              ; preds = %502
-  %514 = load ptr, ptr %17, align 8
-  %515 = getelementptr inbounds %struct.BIT_DStream_t, ptr %514, i32 0, i32 2
-  %516 = load ptr, ptr %515, align 8
-  %517 = load ptr, ptr %17, align 8
-  %518 = getelementptr inbounds %struct.BIT_DStream_t, ptr %517, i32 0, i32 3
-  %519 = load ptr, ptr %518, align 8
-  %520 = icmp eq ptr %516, %519
-  br i1 %520, label %521, label %529
-
-521:                                              ; preds = %513
-  %522 = load ptr, ptr %17, align 8
-  %523 = getelementptr inbounds %struct.BIT_DStream_t, ptr %522, i32 0, i32 1
-  %524 = load i32, ptr %523, align 8
-  %525 = zext i32 %524 to i64
-  %526 = icmp ult i64 %525, 64
-  br i1 %526, label %527, label %528
-
-527:                                              ; preds = %521
-  store i32 1, ptr %16, align 4
-  br label %576
-
-528:                                              ; preds = %521
-  store i32 2, ptr %16, align 4
-  br label %576
-
-529:                                              ; preds = %513
-  %530 = load ptr, ptr %17, align 8
-  %531 = getelementptr inbounds %struct.BIT_DStream_t, ptr %530, i32 0, i32 1
-  %532 = load i32, ptr %531, align 8
-  %533 = lshr i32 %532, 3
-  store i32 %533, ptr %18, align 4
-  store i32 0, ptr %19, align 4
-  %534 = load ptr, ptr %17, align 8
-  %535 = getelementptr inbounds %struct.BIT_DStream_t, ptr %534, i32 0, i32 2
-  %536 = load ptr, ptr %535, align 8
-  %537 = load i32, ptr %18, align 4
-  %538 = zext i32 %537 to i64
-  %539 = sub i64 0, %538
-  %540 = getelementptr inbounds i8, ptr %536, i64 %539
-  %541 = load ptr, ptr %17, align 8
-  %542 = getelementptr inbounds %struct.BIT_DStream_t, ptr %541, i32 0, i32 3
-  %543 = load ptr, ptr %542, align 8
-  %544 = icmp ult ptr %540, %543
-  br i1 %544, label %545, label %556
-
-545:                                              ; preds = %529
-  %546 = load ptr, ptr %17, align 8
-  %547 = getelementptr inbounds %struct.BIT_DStream_t, ptr %546, i32 0, i32 2
-  %548 = load ptr, ptr %547, align 8
-  %549 = load ptr, ptr %17, align 8
-  %550 = getelementptr inbounds %struct.BIT_DStream_t, ptr %549, i32 0, i32 3
-  %551 = load ptr, ptr %550, align 8
-  %552 = ptrtoint ptr %548 to i64
-  %553 = ptrtoint ptr %551 to i64
-  %554 = sub i64 %552, %553
-  %555 = trunc i64 %554 to i32
-  store i32 %555, ptr %18, align 4
-  store i32 1, ptr %19, align 4
-  br label %556
-
-556:                                              ; preds = %545, %529
-  %557 = load i32, ptr %18, align 4
-  %558 = load ptr, ptr %17, align 8
-  %559 = getelementptr inbounds %struct.BIT_DStream_t, ptr %558, i32 0, i32 2
-  %560 = load ptr, ptr %559, align 8
-  %561 = zext i32 %557 to i64
-  %562 = sub i64 0, %561
-  %563 = getelementptr inbounds i8, ptr %560, i64 %562
-  store ptr %563, ptr %559, align 8
-  %564 = load i32, ptr %18, align 4
-  %565 = mul i32 %564, 8
-  %566 = load ptr, ptr %17, align 8
-  %567 = getelementptr inbounds %struct.BIT_DStream_t, ptr %566, i32 0, i32 1
-  %568 = load i32, ptr %567, align 8
-  %569 = sub i32 %568, %565
-  store i32 %569, ptr %567, align 8
-  %570 = load ptr, ptr %17, align 8
-  %571 = getelementptr inbounds %struct.BIT_DStream_t, ptr %570, i32 0, i32 2
-  %572 = load ptr, ptr %571, align 8
-  %573 = call i64 @MEM_readLEST(ptr noundef %572)
-  %574 = load ptr, ptr %17, align 8
-  store i64 %573, ptr %574, align 8
-  %575 = load i32, ptr %19, align 4
-  store i32 %575, ptr %16, align 4
-  br label %576
-
-576:                                              ; preds = %556, %528, %527, %510, %501
-  %577 = load i32, ptr %16, align 4
-  %578 = icmp eq i32 %577, 3
-  br i1 %578, label %579, label %593
-
-579:                                              ; preds = %576
-  %580 = load i32, ptr %53, align 4
-  %581 = icmp ne i32 %580, 0
-  br i1 %581, label %582, label %585
-
-582:                                              ; preds = %579
-  %583 = call zeroext i8 @FSE_decodeSymbolFast(ptr noundef %59, ptr noundef %58)
-  %584 = zext i8 %583 to i32
-  br label %588
-
-585:                                              ; preds = %579
-  %586 = call zeroext i8 @FSE_decodeSymbol(ptr noundef %59, ptr noundef %58)
-  %587 = zext i8 %586 to i32
-  br label %588
-
-588:                                              ; preds = %585, %582
-  %589 = phi i32 [ %584, %582 ], [ %587, %585 ]
-  %590 = trunc i32 %589 to i8
-  %591 = load ptr, ptr %55, align 8
-  %592 = getelementptr inbounds i8, ptr %591, i32 1
-  store ptr %592, ptr %55, align 8
-  store i8 %590, ptr %591, align 1
-  br label %594
-
-593:                                              ; preds = %576
-  br label %359
-
-594:                                              ; preds = %588, %471
-  %595 = load ptr, ptr %55, align 8
-  %596 = load ptr, ptr %54, align 8
-  %597 = ptrtoint ptr %595 to i64
-  %598 = ptrtoint ptr %596 to i64
-  %599 = sub i64 %597, %598
-  store i64 %599, ptr %47, align 8
-  br label %600
-
-600:                                              ; preds = %594, %481, %364, %208
-  %601 = load i64, ptr %47, align 8
-  store i64 %601, ptr %62, align 8
-  br label %1016
-
-602:                                              ; preds = %178
-  %603 = load ptr, ptr %63, align 8
-  %604 = load i64, ptr %64, align 8
-  %605 = load ptr, ptr %72, align 8
-  %606 = load i64, ptr %66, align 8
-  %607 = load ptr, ptr %75, align 8
-  %608 = getelementptr inbounds %struct.FSE_DecompressWksp, ptr %607, i32 0, i32 1
-  store ptr %603, ptr %33, align 8
-  store i64 %604, ptr %34, align 8
-  store ptr %605, ptr %35, align 8
-  store i64 %606, ptr %36, align 8
-  store ptr %608, ptr %37, align 8
-  store i32 0, ptr %38, align 4
-  %609 = load ptr, ptr %33, align 8
-  store ptr %609, ptr %39, align 8
-  %610 = load ptr, ptr %39, align 8
-  store ptr %610, ptr %40, align 8
-  %611 = load ptr, ptr %40, align 8
-  %612 = load i64, ptr %34, align 8
-  %613 = getelementptr inbounds i8, ptr %611, i64 %612
-  store ptr %613, ptr %41, align 8
-  %614 = load ptr, ptr %41, align 8
-  %615 = getelementptr inbounds i8, ptr %614, i64 -3
-  store ptr %615, ptr %42, align 8
-  %616 = load ptr, ptr %35, align 8
-  %617 = load i64, ptr %36, align 8
-  %618 = call i64 @BIT_initDStream(ptr noundef %43, ptr noundef %616, i64 noundef %617)
-  store i64 %618, ptr %46, align 8
-  %619 = load i64, ptr %46, align 8
-  %620 = call i32 @ERR_isError(i64 noundef %619)
-  %621 = icmp ne i32 %620, 0
-  br i1 %621, label %622, label %624
-
-622:                                              ; preds = %602
-  %623 = load i64, ptr %46, align 8
-  store i64 %623, ptr %32, align 8
-  br label %1014
-
-624:                                              ; preds = %602
-  %625 = load ptr, ptr %37, align 8
-  call void @FSE_initDState(ptr noundef %44, ptr noundef %43, ptr noundef %625)
-  %626 = load ptr, ptr %37, align 8
-  call void @FSE_initDState(ptr noundef %45, ptr noundef %43, ptr noundef %626)
-  br label %627
-
-627:                                              ; preds = %765, %624
-  store ptr %43, ptr %21, align 8
-  %628 = load ptr, ptr %21, align 8
-  %629 = getelementptr inbounds %struct.BIT_DStream_t, ptr %628, i32 0, i32 1
-  %630 = load i32, ptr %629, align 8
-  %631 = zext i32 %630 to i64
-  %632 = icmp ugt i64 %631, 64
-  br i1 %632, label %633, label %634
-
-633:                                              ; preds = %627
-  store i32 3, ptr %20, align 4
-  br label %708
-
-634:                                              ; preds = %627
-  %635 = load ptr, ptr %21, align 8
-  %636 = getelementptr inbounds %struct.BIT_DStream_t, ptr %635, i32 0, i32 2
-  %637 = load ptr, ptr %636, align 8
-  %638 = load ptr, ptr %21, align 8
-  %639 = getelementptr inbounds %struct.BIT_DStream_t, ptr %638, i32 0, i32 4
-  %640 = load ptr, ptr %639, align 8
-  %641 = icmp uge ptr %637, %640
-  br i1 %641, label %642, label %645
-
-642:                                              ; preds = %634
-  %643 = load ptr, ptr %21, align 8
-  %644 = call i32 @BIT_reloadDStreamFast(ptr noundef %643)
-  store i32 %644, ptr %20, align 4
-  br label %708
-
-645:                                              ; preds = %634
-  %646 = load ptr, ptr %21, align 8
-  %647 = getelementptr inbounds %struct.BIT_DStream_t, ptr %646, i32 0, i32 2
-  %648 = load ptr, ptr %647, align 8
-  %649 = load ptr, ptr %21, align 8
-  %650 = getelementptr inbounds %struct.BIT_DStream_t, ptr %649, i32 0, i32 3
-  %651 = load ptr, ptr %650, align 8
-  %652 = icmp eq ptr %648, %651
-  br i1 %652, label %653, label %661
-
-653:                                              ; preds = %645
-  %654 = load ptr, ptr %21, align 8
-  %655 = getelementptr inbounds %struct.BIT_DStream_t, ptr %654, i32 0, i32 1
-  %656 = load i32, ptr %655, align 8
-  %657 = zext i32 %656 to i64
-  %658 = icmp ult i64 %657, 64
-  br i1 %658, label %659, label %660
-
-659:                                              ; preds = %653
-  store i32 1, ptr %20, align 4
-  br label %708
-
-660:                                              ; preds = %653
-  store i32 2, ptr %20, align 4
-  br label %708
-
-661:                                              ; preds = %645
-  %662 = load ptr, ptr %21, align 8
-  %663 = getelementptr inbounds %struct.BIT_DStream_t, ptr %662, i32 0, i32 1
-  %664 = load i32, ptr %663, align 8
-  %665 = lshr i32 %664, 3
-  store i32 %665, ptr %22, align 4
-  store i32 0, ptr %23, align 4
-  %666 = load ptr, ptr %21, align 8
-  %667 = getelementptr inbounds %struct.BIT_DStream_t, ptr %666, i32 0, i32 2
-  %668 = load ptr, ptr %667, align 8
-  %669 = load i32, ptr %22, align 4
-  %670 = zext i32 %669 to i64
-  %671 = sub i64 0, %670
-  %672 = getelementptr inbounds i8, ptr %668, i64 %671
-  %673 = load ptr, ptr %21, align 8
-  %674 = getelementptr inbounds %struct.BIT_DStream_t, ptr %673, i32 0, i32 3
-  %675 = load ptr, ptr %674, align 8
-  %676 = icmp ult ptr %672, %675
-  br i1 %676, label %677, label %688
-
-677:                                              ; preds = %661
-  %678 = load ptr, ptr %21, align 8
-  %679 = getelementptr inbounds %struct.BIT_DStream_t, ptr %678, i32 0, i32 2
-  %680 = load ptr, ptr %679, align 8
-  %681 = load ptr, ptr %21, align 8
-  %682 = getelementptr inbounds %struct.BIT_DStream_t, ptr %681, i32 0, i32 3
-  %683 = load ptr, ptr %682, align 8
-  %684 = ptrtoint ptr %680 to i64
-  %685 = ptrtoint ptr %683 to i64
-  %686 = sub i64 %684, %685
-  %687 = trunc i64 %686 to i32
-  store i32 %687, ptr %22, align 4
-  store i32 1, ptr %23, align 4
-  br label %688
-
-688:                                              ; preds = %677, %661
-  %689 = load i32, ptr %22, align 4
-  %690 = load ptr, ptr %21, align 8
-  %691 = getelementptr inbounds %struct.BIT_DStream_t, ptr %690, i32 0, i32 2
-  %692 = load ptr, ptr %691, align 8
-  %693 = zext i32 %689 to i64
-  %694 = sub i64 0, %693
-  %695 = getelementptr inbounds i8, ptr %692, i64 %694
-  store ptr %695, ptr %691, align 8
-  %696 = load i32, ptr %22, align 4
-  %697 = mul i32 %696, 8
-  %698 = load ptr, ptr %21, align 8
-  %699 = getelementptr inbounds %struct.BIT_DStream_t, ptr %698, i32 0, i32 1
-  %700 = load i32, ptr %699, align 8
-  %701 = sub i32 %700, %697
-  store i32 %701, ptr %699, align 8
-  %702 = load ptr, ptr %21, align 8
-  %703 = getelementptr inbounds %struct.BIT_DStream_t, ptr %702, i32 0, i32 2
-  %704 = load ptr, ptr %703, align 8
-  %705 = call i64 @MEM_readLEST(ptr noundef %704)
-  %706 = load ptr, ptr %21, align 8
-  store i64 %705, ptr %706, align 8
-  %707 = load i32, ptr %23, align 4
-  store i32 %707, ptr %20, align 4
-  br label %708
-
-708:                                              ; preds = %688, %660, %659, %642, %633
-  %709 = load i32, ptr %20, align 4
-  %710 = icmp eq i32 %709, 0
-  %711 = zext i1 %710 to i32
-  %712 = load ptr, ptr %40, align 8
-  %713 = load ptr, ptr %42, align 8
-  %714 = icmp ult ptr %712, %713
-  %715 = zext i1 %714 to i32
-  %716 = and i32 %711, %715
-  %717 = icmp ne i32 %716, 0
-  br i1 %717, label %718, label %772
-
-718:                                              ; preds = %708
-  %719 = load i32, ptr %38, align 4
-  %720 = icmp ne i32 %719, 0
-  br i1 %720, label %721, label %724
-
-721:                                              ; preds = %718
-  %722 = call zeroext i8 @FSE_decodeSymbolFast(ptr noundef %44, ptr noundef %43)
-  %723 = zext i8 %722 to i32
-  br label %727
-
-724:                                              ; preds = %718
-  %725 = call zeroext i8 @FSE_decodeSymbol(ptr noundef %44, ptr noundef %43)
-  %726 = zext i8 %725 to i32
-  br label %727
-
-727:                                              ; preds = %724, %721
-  %728 = phi i32 [ %723, %721 ], [ %726, %724 ]
-  %729 = trunc i32 %728 to i8
-  %730 = load ptr, ptr %40, align 8
-  store i8 %729, ptr %730, align 1
-  %731 = load i32, ptr %38, align 4
-  %732 = icmp ne i32 %731, 0
-  br i1 %732, label %733, label %736
-
-733:                                              ; preds = %727
-  %734 = call zeroext i8 @FSE_decodeSymbolFast(ptr noundef %45, ptr noundef %43)
-  %735 = zext i8 %734 to i32
-  br label %739
-
-736:                                              ; preds = %727
-  %737 = call zeroext i8 @FSE_decodeSymbol(ptr noundef %45, ptr noundef %43)
-  %738 = zext i8 %737 to i32
-  br label %739
-
-739:                                              ; preds = %736, %733
-  %740 = phi i32 [ %735, %733 ], [ %738, %736 ]
-  %741 = trunc i32 %740 to i8
-  %742 = load ptr, ptr %40, align 8
-  %743 = getelementptr inbounds i8, ptr %742, i64 1
-  store i8 %741, ptr %743, align 1
-  %744 = load i32, ptr %38, align 4
-  %745 = icmp ne i32 %744, 0
-  br i1 %745, label %746, label %749
-
-746:                                              ; preds = %739
-  %747 = call zeroext i8 @FSE_decodeSymbolFast(ptr noundef %44, ptr noundef %43)
-  %748 = zext i8 %747 to i32
-  br label %752
-
-749:                                              ; preds = %739
-  %750 = call zeroext i8 @FSE_decodeSymbol(ptr noundef %44, ptr noundef %43)
-  %751 = zext i8 %750 to i32
-  br label %752
-
-752:                                              ; preds = %749, %746
-  %753 = phi i32 [ %748, %746 ], [ %751, %749 ]
-  %754 = trunc i32 %753 to i8
-  %755 = load ptr, ptr %40, align 8
-  %756 = getelementptr inbounds i8, ptr %755, i64 2
-  store i8 %754, ptr %756, align 1
-  %757 = load i32, ptr %38, align 4
-  %758 = icmp ne i32 %757, 0
-  br i1 %758, label %759, label %762
-
-759:                                              ; preds = %752
-  %760 = call zeroext i8 @FSE_decodeSymbolFast(ptr noundef %45, ptr noundef %43)
-  %761 = zext i8 %760 to i32
-  br label %765
-
-762:                                              ; preds = %752
-  %763 = call zeroext i8 @FSE_decodeSymbol(ptr noundef %45, ptr noundef %43)
-  %764 = zext i8 %763 to i32
-  br label %765
-
-765:                                              ; preds = %762, %759
-  %766 = phi i32 [ %761, %759 ], [ %764, %762 ]
-  %767 = trunc i32 %766 to i8
-  %768 = load ptr, ptr %40, align 8
-  %769 = getelementptr inbounds i8, ptr %768, i64 3
-  store i8 %767, ptr %769, align 1
-  %770 = load ptr, ptr %40, align 8
-  %771 = getelementptr inbounds i8, ptr %770, i64 4
-  store ptr %771, ptr %40, align 8
-  br label %627, !llvm.loop !15
-
-772:                                              ; preds = %708
-  br label %773
-
-773:                                              ; preds = %1007, %772
-  %774 = load ptr, ptr %40, align 8
-  %775 = load ptr, ptr %41, align 8
-  %776 = getelementptr inbounds i8, ptr %775, i64 -2
-  %777 = icmp ugt ptr %774, %776
-  br i1 %777, label %778, label %779
-
-778:                                              ; preds = %773
-  store i64 -70, ptr %32, align 8
-  br label %1014
-
-779:                                              ; preds = %773
-  %780 = load i32, ptr %38, align 4
-  %781 = icmp ne i32 %780, 0
-  br i1 %781, label %782, label %785
-
-782:                                              ; preds = %779
-  %783 = call zeroext i8 @FSE_decodeSymbolFast(ptr noundef %44, ptr noundef %43)
-  %784 = zext i8 %783 to i32
-  br label %788
-
-785:                                              ; preds = %779
-  %786 = call zeroext i8 @FSE_decodeSymbol(ptr noundef %44, ptr noundef %43)
-  %787 = zext i8 %786 to i32
-  br label %788
-
-788:                                              ; preds = %785, %782
-  %789 = phi i32 [ %784, %782 ], [ %787, %785 ]
-  %790 = trunc i32 %789 to i8
-  %791 = load ptr, ptr %40, align 8
-  %792 = getelementptr inbounds i8, ptr %791, i32 1
-  store ptr %792, ptr %40, align 8
-  store i8 %790, ptr %791, align 1
-  store ptr %43, ptr %25, align 8
-  %793 = load ptr, ptr %25, align 8
-  %794 = getelementptr inbounds %struct.BIT_DStream_t, ptr %793, i32 0, i32 1
-  %795 = load i32, ptr %794, align 8
-  %796 = zext i32 %795 to i64
-  %797 = icmp ugt i64 %796, 64
-  br i1 %797, label %798, label %799
-
-798:                                              ; preds = %788
-  store i32 3, ptr %24, align 4
-  br label %873
-
-799:                                              ; preds = %788
-  %800 = load ptr, ptr %25, align 8
-  %801 = getelementptr inbounds %struct.BIT_DStream_t, ptr %800, i32 0, i32 2
-  %802 = load ptr, ptr %801, align 8
-  %803 = load ptr, ptr %25, align 8
-  %804 = getelementptr inbounds %struct.BIT_DStream_t, ptr %803, i32 0, i32 4
-  %805 = load ptr, ptr %804, align 8
-  %806 = icmp uge ptr %802, %805
-  br i1 %806, label %807, label %810
-
-807:                                              ; preds = %799
-  %808 = load ptr, ptr %25, align 8
-  %809 = call i32 @BIT_reloadDStreamFast(ptr noundef %808)
-  store i32 %809, ptr %24, align 4
-  br label %873
-
-810:                                              ; preds = %799
-  %811 = load ptr, ptr %25, align 8
-  %812 = getelementptr inbounds %struct.BIT_DStream_t, ptr %811, i32 0, i32 2
-  %813 = load ptr, ptr %812, align 8
-  %814 = load ptr, ptr %25, align 8
-  %815 = getelementptr inbounds %struct.BIT_DStream_t, ptr %814, i32 0, i32 3
-  %816 = load ptr, ptr %815, align 8
-  %817 = icmp eq ptr %813, %816
-  br i1 %817, label %818, label %826
-
-818:                                              ; preds = %810
-  %819 = load ptr, ptr %25, align 8
-  %820 = getelementptr inbounds %struct.BIT_DStream_t, ptr %819, i32 0, i32 1
-  %821 = load i32, ptr %820, align 8
-  %822 = zext i32 %821 to i64
-  %823 = icmp ult i64 %822, 64
-  br i1 %823, label %824, label %825
-
-824:                                              ; preds = %818
-  store i32 1, ptr %24, align 4
-  br label %873
-
-825:                                              ; preds = %818
-  store i32 2, ptr %24, align 4
-  br label %873
-
-826:                                              ; preds = %810
-  %827 = load ptr, ptr %25, align 8
-  %828 = getelementptr inbounds %struct.BIT_DStream_t, ptr %827, i32 0, i32 1
-  %829 = load i32, ptr %828, align 8
-  %830 = lshr i32 %829, 3
-  store i32 %830, ptr %26, align 4
-  store i32 0, ptr %27, align 4
-  %831 = load ptr, ptr %25, align 8
-  %832 = getelementptr inbounds %struct.BIT_DStream_t, ptr %831, i32 0, i32 2
-  %833 = load ptr, ptr %832, align 8
-  %834 = load i32, ptr %26, align 4
-  %835 = zext i32 %834 to i64
-  %836 = sub i64 0, %835
-  %837 = getelementptr inbounds i8, ptr %833, i64 %836
-  %838 = load ptr, ptr %25, align 8
-  %839 = getelementptr inbounds %struct.BIT_DStream_t, ptr %838, i32 0, i32 3
-  %840 = load ptr, ptr %839, align 8
-  %841 = icmp ult ptr %837, %840
-  br i1 %841, label %842, label %853
-
-842:                                              ; preds = %826
-  %843 = load ptr, ptr %25, align 8
-  %844 = getelementptr inbounds %struct.BIT_DStream_t, ptr %843, i32 0, i32 2
-  %845 = load ptr, ptr %844, align 8
-  %846 = load ptr, ptr %25, align 8
-  %847 = getelementptr inbounds %struct.BIT_DStream_t, ptr %846, i32 0, i32 3
-  %848 = load ptr, ptr %847, align 8
-  %849 = ptrtoint ptr %845 to i64
-  %850 = ptrtoint ptr %848 to i64
-  %851 = sub i64 %849, %850
-  %852 = trunc i64 %851 to i32
-  store i32 %852, ptr %26, align 4
-  store i32 1, ptr %27, align 4
-  br label %853
-
-853:                                              ; preds = %842, %826
-  %854 = load i32, ptr %26, align 4
-  %855 = load ptr, ptr %25, align 8
-  %856 = getelementptr inbounds %struct.BIT_DStream_t, ptr %855, i32 0, i32 2
-  %857 = load ptr, ptr %856, align 8
-  %858 = zext i32 %854 to i64
-  %859 = sub i64 0, %858
-  %860 = getelementptr inbounds i8, ptr %857, i64 %859
-  store ptr %860, ptr %856, align 8
-  %861 = load i32, ptr %26, align 4
-  %862 = mul i32 %861, 8
-  %863 = load ptr, ptr %25, align 8
-  %864 = getelementptr inbounds %struct.BIT_DStream_t, ptr %863, i32 0, i32 1
-  %865 = load i32, ptr %864, align 8
-  %866 = sub i32 %865, %862
-  store i32 %866, ptr %864, align 8
-  %867 = load ptr, ptr %25, align 8
-  %868 = getelementptr inbounds %struct.BIT_DStream_t, ptr %867, i32 0, i32 2
-  %869 = load ptr, ptr %868, align 8
-  %870 = call i64 @MEM_readLEST(ptr noundef %869)
-  %871 = load ptr, ptr %25, align 8
-  store i64 %870, ptr %871, align 8
-  %872 = load i32, ptr %27, align 4
-  store i32 %872, ptr %24, align 4
-  br label %873
-
-873:                                              ; preds = %853, %825, %824, %807, %798
-  %874 = load i32, ptr %24, align 4
-  %875 = icmp eq i32 %874, 3
-  br i1 %875, label %876, label %890
-
-876:                                              ; preds = %873
-  %877 = load i32, ptr %38, align 4
-  %878 = icmp ne i32 %877, 0
-  br i1 %878, label %879, label %882
-
-879:                                              ; preds = %876
-  %880 = call zeroext i8 @FSE_decodeSymbolFast(ptr noundef %45, ptr noundef %43)
-  %881 = zext i8 %880 to i32
-  br label %885
-
-882:                                              ; preds = %876
-  %883 = call zeroext i8 @FSE_decodeSymbol(ptr noundef %45, ptr noundef %43)
-  %884 = zext i8 %883 to i32
-  br label %885
-
-885:                                              ; preds = %882, %879
-  %886 = phi i32 [ %881, %879 ], [ %884, %882 ]
-  %887 = trunc i32 %886 to i8
-  %888 = load ptr, ptr %40, align 8
-  %889 = getelementptr inbounds i8, ptr %888, i32 1
-  store ptr %889, ptr %40, align 8
-  store i8 %887, ptr %888, align 1
-  br label %1008
-
-890:                                              ; preds = %873
-  %891 = load ptr, ptr %40, align 8
-  %892 = load ptr, ptr %41, align 8
-  %893 = getelementptr inbounds i8, ptr %892, i64 -2
-  %894 = icmp ugt ptr %891, %893
-  br i1 %894, label %895, label %896
-
-895:                                              ; preds = %890
-  store i64 -70, ptr %32, align 8
-  br label %1014
-
-896:                                              ; preds = %890
-  %897 = load i32, ptr %38, align 4
-  %898 = icmp ne i32 %897, 0
-  br i1 %898, label %899, label %902
-
-899:                                              ; preds = %896
-  %900 = call zeroext i8 @FSE_decodeSymbolFast(ptr noundef %45, ptr noundef %43)
-  %901 = zext i8 %900 to i32
-  br label %905
-
-902:                                              ; preds = %896
-  %903 = call zeroext i8 @FSE_decodeSymbol(ptr noundef %45, ptr noundef %43)
-  %904 = zext i8 %903 to i32
-  br label %905
-
-905:                                              ; preds = %902, %899
-  %906 = phi i32 [ %901, %899 ], [ %904, %902 ]
-  %907 = trunc i32 %906 to i8
-  %908 = load ptr, ptr %40, align 8
-  %909 = getelementptr inbounds i8, ptr %908, i32 1
-  store ptr %909, ptr %40, align 8
-  store i8 %907, ptr %908, align 1
-  store ptr %43, ptr %29, align 8
-  %910 = load ptr, ptr %29, align 8
-  %911 = getelementptr inbounds %struct.BIT_DStream_t, ptr %910, i32 0, i32 1
-  %912 = load i32, ptr %911, align 8
-  %913 = zext i32 %912 to i64
-  %914 = icmp ugt i64 %913, 64
-  br i1 %914, label %915, label %916
-
-915:                                              ; preds = %905
-  store i32 3, ptr %28, align 4
-  br label %990
-
-916:                                              ; preds = %905
-  %917 = load ptr, ptr %29, align 8
-  %918 = getelementptr inbounds %struct.BIT_DStream_t, ptr %917, i32 0, i32 2
-  %919 = load ptr, ptr %918, align 8
-  %920 = load ptr, ptr %29, align 8
-  %921 = getelementptr inbounds %struct.BIT_DStream_t, ptr %920, i32 0, i32 4
-  %922 = load ptr, ptr %921, align 8
-  %923 = icmp uge ptr %919, %922
-  br i1 %923, label %924, label %927
-
-924:                                              ; preds = %916
-  %925 = load ptr, ptr %29, align 8
-  %926 = call i32 @BIT_reloadDStreamFast(ptr noundef %925)
-  store i32 %926, ptr %28, align 4
-  br label %990
-
-927:                                              ; preds = %916
-  %928 = load ptr, ptr %29, align 8
-  %929 = getelementptr inbounds %struct.BIT_DStream_t, ptr %928, i32 0, i32 2
-  %930 = load ptr, ptr %929, align 8
-  %931 = load ptr, ptr %29, align 8
-  %932 = getelementptr inbounds %struct.BIT_DStream_t, ptr %931, i32 0, i32 3
-  %933 = load ptr, ptr %932, align 8
-  %934 = icmp eq ptr %930, %933
-  br i1 %934, label %935, label %943
-
-935:                                              ; preds = %927
-  %936 = load ptr, ptr %29, align 8
-  %937 = getelementptr inbounds %struct.BIT_DStream_t, ptr %936, i32 0, i32 1
-  %938 = load i32, ptr %937, align 8
-  %939 = zext i32 %938 to i64
-  %940 = icmp ult i64 %939, 64
-  br i1 %940, label %941, label %942
-
-941:                                              ; preds = %935
-  store i32 1, ptr %28, align 4
-  br label %990
-
-942:                                              ; preds = %935
-  store i32 2, ptr %28, align 4
-  br label %990
-
-943:                                              ; preds = %927
-  %944 = load ptr, ptr %29, align 8
-  %945 = getelementptr inbounds %struct.BIT_DStream_t, ptr %944, i32 0, i32 1
-  %946 = load i32, ptr %945, align 8
-  %947 = lshr i32 %946, 3
-  store i32 %947, ptr %30, align 4
-  store i32 0, ptr %31, align 4
-  %948 = load ptr, ptr %29, align 8
-  %949 = getelementptr inbounds %struct.BIT_DStream_t, ptr %948, i32 0, i32 2
-  %950 = load ptr, ptr %949, align 8
-  %951 = load i32, ptr %30, align 4
-  %952 = zext i32 %951 to i64
-  %953 = sub i64 0, %952
-  %954 = getelementptr inbounds i8, ptr %950, i64 %953
-  %955 = load ptr, ptr %29, align 8
-  %956 = getelementptr inbounds %struct.BIT_DStream_t, ptr %955, i32 0, i32 3
-  %957 = load ptr, ptr %956, align 8
-  %958 = icmp ult ptr %954, %957
-  br i1 %958, label %959, label %970
-
-959:                                              ; preds = %943
-  %960 = load ptr, ptr %29, align 8
-  %961 = getelementptr inbounds %struct.BIT_DStream_t, ptr %960, i32 0, i32 2
-  %962 = load ptr, ptr %961, align 8
-  %963 = load ptr, ptr %29, align 8
-  %964 = getelementptr inbounds %struct.BIT_DStream_t, ptr %963, i32 0, i32 3
-  %965 = load ptr, ptr %964, align 8
-  %966 = ptrtoint ptr %962 to i64
-  %967 = ptrtoint ptr %965 to i64
-  %968 = sub i64 %966, %967
-  %969 = trunc i64 %968 to i32
-  store i32 %969, ptr %30, align 4
-  store i32 1, ptr %31, align 4
-  br label %970
-
-970:                                              ; preds = %959, %943
-  %971 = load i32, ptr %30, align 4
-  %972 = load ptr, ptr %29, align 8
-  %973 = getelementptr inbounds %struct.BIT_DStream_t, ptr %972, i32 0, i32 2
-  %974 = load ptr, ptr %973, align 8
-  %975 = zext i32 %971 to i64
-  %976 = sub i64 0, %975
-  %977 = getelementptr inbounds i8, ptr %974, i64 %976
-  store ptr %977, ptr %973, align 8
-  %978 = load i32, ptr %30, align 4
-  %979 = mul i32 %978, 8
-  %980 = load ptr, ptr %29, align 8
-  %981 = getelementptr inbounds %struct.BIT_DStream_t, ptr %980, i32 0, i32 1
-  %982 = load i32, ptr %981, align 8
-  %983 = sub i32 %982, %979
-  store i32 %983, ptr %981, align 8
-  %984 = load ptr, ptr %29, align 8
-  %985 = getelementptr inbounds %struct.BIT_DStream_t, ptr %984, i32 0, i32 2
-  %986 = load ptr, ptr %985, align 8
-  %987 = call i64 @MEM_readLEST(ptr noundef %986)
-  %988 = load ptr, ptr %29, align 8
-  store i64 %987, ptr %988, align 8
-  %989 = load i32, ptr %31, align 4
-  store i32 %989, ptr %28, align 4
-  br label %990
-
-990:                                              ; preds = %970, %942, %941, %924, %915
-  %991 = load i32, ptr %28, align 4
-  %992 = icmp eq i32 %991, 3
-  br i1 %992, label %993, label %1007
-
-993:                                              ; preds = %990
-  %994 = load i32, ptr %38, align 4
-  %995 = icmp ne i32 %994, 0
-  br i1 %995, label %996, label %999
-
-996:                                              ; preds = %993
-  %997 = call zeroext i8 @FSE_decodeSymbolFast(ptr noundef %44, ptr noundef %43)
-  %998 = zext i8 %997 to i32
-  br label %1002
-
-999:                                              ; preds = %993
-  %1000 = call zeroext i8 @FSE_decodeSymbol(ptr noundef %44, ptr noundef %43)
-  %1001 = zext i8 %1000 to i32
-  br label %1002
-
-1002:                                             ; preds = %999, %996
-  %1003 = phi i32 [ %998, %996 ], [ %1001, %999 ]
-  %1004 = trunc i32 %1003 to i8
-  %1005 = load ptr, ptr %40, align 8
-  %1006 = getelementptr inbounds i8, ptr %1005, i32 1
-  store ptr %1006, ptr %40, align 8
-  store i8 %1004, ptr %1005, align 1
-  br label %1008
-
-1007:                                             ; preds = %990
-  br label %773
-
-1008:                                             ; preds = %1002, %885
-  %1009 = load ptr, ptr %40, align 8
-  %1010 = load ptr, ptr %39, align 8
-  %1011 = ptrtoint ptr %1009 to i64
-  %1012 = ptrtoint ptr %1010 to i64
-  %1013 = sub i64 %1011, %1012
-  store i64 %1013, ptr %32, align 8
-  br label %1014
-
-1014:                                             ; preds = %1008, %895, %778, %622
-  %1015 = load i64, ptr %32, align 8
-  store i64 %1015, ptr %62, align 8
-  br label %1016
-
-1016:                                             ; preds = %1014, %600, %176, %147, %116, %110, %100
-  %1017 = load i64, ptr %62, align 8
-  ret i64 %1017
+  %14 = alloca i64, align 8
+  store ptr %0, ptr %8, align 8, !tbaa !13
+  store i64 %1, ptr %9, align 8, !tbaa !14
+  store ptr %2, ptr %10, align 8, !tbaa !13
+  store i64 %3, ptr %11, align 8, !tbaa !14
+  store i32 %4, ptr %12, align 4, !tbaa !11
+  store ptr %5, ptr %13, align 8, !tbaa !13
+  store i64 %6, ptr %14, align 8, !tbaa !14
+  %15 = load ptr, ptr %8, align 8, !tbaa !13
+  %16 = load i64, ptr %9, align 8, !tbaa !14
+  %17 = load ptr, ptr %10, align 8, !tbaa !13
+  %18 = load i64, ptr %11, align 8, !tbaa !14
+  %19 = load i32, ptr %12, align 4, !tbaa !11
+  %20 = load ptr, ptr %13, align 8, !tbaa !13
+  %21 = load i64, ptr %14, align 8, !tbaa !14
+  %22 = call i64 @FSE_decompress_wksp_body(ptr noundef %15, i64 noundef %16, ptr noundef %17, i64 noundef %18, i32 noundef %19, ptr noundef %20, i64 noundef %21, i32 noundef 0)
+  ret i64 %22
 }
 
-; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #1
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
-; Function Attrs: nounwind uwtable
-define internal void @MEM_write64(ptr noundef %0, i64 noundef %1) #0 {
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+
+; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal void @MEM_write64(ptr noundef %0, i64 noundef %1) #3 {
   %3 = alloca ptr, align 8
   %4 = alloca i64, align 8
-  store ptr %0, ptr %3, align 8
-  store i64 %1, ptr %4, align 8
-  %5 = load i64, ptr %4, align 8
-  %6 = load ptr, ptr %3, align 8
-  store i64 %5, ptr %6, align 1
+  store ptr %0, ptr %3, align 8, !tbaa !13
+  store i64 %1, ptr %4, align 8, !tbaa !14
+  %5 = load i64, ptr %4, align 8, !tbaa !14
+  %6 = load ptr, ptr %3, align 8, !tbaa !13
+  store i64 %5, ptr %6, align 1, !tbaa !14
   ret void
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @ZSTD_highbit32(i32 noundef %0) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal i32 @ZSTD_highbit32(i32 noundef %0) #3 {
   %2 = alloca i32, align 4
-  store i32 %0, ptr %2, align 4
-  %3 = load i32, ptr %2, align 4
+  store i32 %0, ptr %2, align 4, !tbaa !11
+  %3 = load i32, ptr %2, align 4, !tbaa !11
   %4 = call i32 @ZSTD_countLeadingZeros32(i32 noundef %3)
   %5 = sub i32 31, %4
   ret i32 %5
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @ZSTD_countLeadingZeros32(i32 noundef %0) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal i32 @ZSTD_countLeadingZeros32(i32 noundef %0) #3 {
   %2 = alloca i32, align 4
-  store i32 %0, ptr %2, align 4
-  %3 = load i32, ptr %2, align 4
+  store i32 %0, ptr %2, align 4, !tbaa !11
+  %3 = load i32, ptr %2, align 4, !tbaa !11
   %4 = call i32 @llvm.ctlz.i32(i32 %3, i1 true)
   ret i32 %4
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.ctlz.i32(i32, i1 immarg) #2
+declare i32 @llvm.ctlz.i32(i32, i1 immarg) #4
 
-declare i64 @FSE_readNCount_bmi2(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef, i32 noundef) #3
+; Function Attrs: alwaysinline nounwind uwtable
+define internal i64 @FSE_decompress_wksp_body(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, i32 noundef %4, ptr noundef %5, i64 noundef %6, i32 noundef %7) #5 {
+  %9 = alloca i64, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca i64, align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca i64, align 8
+  %14 = alloca i32, align 4
+  %15 = alloca ptr, align 8
+  %16 = alloca i64, align 8
+  %17 = alloca i32, align 4
+  %18 = alloca ptr, align 8
+  %19 = alloca ptr, align 8
+  %20 = alloca i32, align 4
+  %21 = alloca i32, align 4
+  %22 = alloca ptr, align 8
+  %23 = alloca i32, align 4
+  %24 = alloca i64, align 8
+  %25 = alloca i64, align 8
+  %26 = alloca ptr, align 8
+  %27 = alloca ptr, align 8
+  %28 = alloca i32, align 4
+  store ptr %0, ptr %10, align 8, !tbaa !13
+  store i64 %1, ptr %11, align 8, !tbaa !14
+  store ptr %2, ptr %12, align 8, !tbaa !13
+  store i64 %3, ptr %13, align 8, !tbaa !14
+  store i32 %4, ptr %14, align 4, !tbaa !11
+  store ptr %5, ptr %15, align 8, !tbaa !13
+  store i64 %6, ptr %16, align 8, !tbaa !14
+  store i32 %7, ptr %17, align 4, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %18) #9
+  %29 = load ptr, ptr %12, align 8, !tbaa !13
+  store ptr %29, ptr %18, align 8, !tbaa !16
+  call void @llvm.lifetime.start.p0(i64 8, ptr %19) #9
+  %30 = load ptr, ptr %18, align 8, !tbaa !16
+  store ptr %30, ptr %19, align 8, !tbaa !16
+  call void @llvm.lifetime.start.p0(i64 4, ptr %20) #9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %21) #9
+  store i32 255, ptr %21, align 4, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %22) #9
+  %31 = load ptr, ptr %15, align 8, !tbaa !13
+  store ptr %31, ptr %22, align 8, !tbaa !13
+  %32 = load i64, ptr %16, align 8, !tbaa !14
+  %33 = icmp ult i64 %32, 516
+  br i1 %33, label %34, label %35
+
+34:                                               ; preds = %8
+  store i64 -1, ptr %9, align 8
+  store i32 1, ptr %23, align 4
+  br label %153
+
+35:                                               ; preds = %8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %24) #9
+  %36 = load ptr, ptr %22, align 8, !tbaa !13
+  %37 = getelementptr inbounds nuw %struct.FSE_DecompressWksp, ptr %36, i32 0, i32 0
+  %38 = getelementptr inbounds [256 x i16], ptr %37, i64 0, i64 0
+  %39 = load ptr, ptr %18, align 8, !tbaa !16
+  %40 = load i64, ptr %13, align 8, !tbaa !14
+  %41 = load i32, ptr %17, align 4, !tbaa !11
+  %42 = call i64 @FSE_readNCount_bmi2(ptr noundef %38, ptr noundef %21, ptr noundef %20, ptr noundef %39, i64 noundef %40, i32 noundef %41)
+  store i64 %42, ptr %24, align 8, !tbaa !14
+  %43 = load i64, ptr %24, align 8, !tbaa !14
+  %44 = call i32 @ERR_isError(i64 noundef %43)
+  %45 = icmp ne i32 %44, 0
+  br i1 %45, label %46, label %48
+
+46:                                               ; preds = %35
+  %47 = load i64, ptr %24, align 8, !tbaa !14
+  store i64 %47, ptr %9, align 8
+  store i32 1, ptr %23, align 4
+  br label %60
+
+48:                                               ; preds = %35
+  %49 = load i32, ptr %20, align 4, !tbaa !11
+  %50 = load i32, ptr %14, align 4, !tbaa !11
+  %51 = icmp ugt i32 %49, %50
+  br i1 %51, label %52, label %53
+
+52:                                               ; preds = %48
+  store i64 -44, ptr %9, align 8
+  store i32 1, ptr %23, align 4
+  br label %60
+
+53:                                               ; preds = %48
+  %54 = load i64, ptr %24, align 8, !tbaa !14
+  %55 = load ptr, ptr %19, align 8, !tbaa !16
+  %56 = getelementptr inbounds nuw i8, ptr %55, i64 %54
+  store ptr %56, ptr %19, align 8, !tbaa !16
+  %57 = load i64, ptr %24, align 8, !tbaa !14
+  %58 = load i64, ptr %13, align 8, !tbaa !14
+  %59 = sub i64 %58, %57
+  store i64 %59, ptr %13, align 8, !tbaa !14
+  store i32 0, ptr %23, align 4
+  br label %60
+
+60:                                               ; preds = %53, %52, %46
+  call void @llvm.lifetime.end.p0(i64 8, ptr %24) #9
+  %61 = load i32, ptr %23, align 4
+  switch i32 %61, label %153 [
+    i32 0, label %62
+  ]
+
+62:                                               ; preds = %60
+  %63 = load i32, ptr %20, align 4, !tbaa !11
+  %64 = shl i32 1, %63
+  %65 = add nsw i32 1, %64
+  %66 = add nsw i32 %65, 1
+  %67 = sext i32 %66 to i64
+  %68 = load i32, ptr %21, align 4, !tbaa !11
+  %69 = add i32 %68, 1
+  %70 = zext i32 %69 to i64
+  %71 = mul i64 2, %70
+  %72 = load i32, ptr %20, align 4, !tbaa !11
+  %73 = zext i32 %72 to i64
+  %74 = shl i64 1, %73
+  %75 = add i64 %71, %74
+  %76 = add i64 %75, 8
+  %77 = add i64 %76, 4
+  %78 = sub i64 %77, 1
+  %79 = udiv i64 %78, 4
+  %80 = add i64 %67, %79
+  %81 = add i64 %80, 128
+  %82 = add i64 %81, 1
+  %83 = mul i64 %82, 4
+  %84 = load i64, ptr %16, align 8, !tbaa !14
+  %85 = icmp ugt i64 %83, %84
+  br i1 %85, label %86, label %87
+
+86:                                               ; preds = %62
+  store i64 -44, ptr %9, align 8
+  store i32 1, ptr %23, align 4
+  br label %153
+
+87:                                               ; preds = %62
+  %88 = load ptr, ptr %15, align 8, !tbaa !13
+  %89 = getelementptr inbounds nuw i8, ptr %88, i64 516
+  %90 = load i32, ptr %20, align 4, !tbaa !11
+  %91 = shl i32 1, %90
+  %92 = add nsw i32 1, %91
+  %93 = sext i32 %92 to i64
+  %94 = mul i64 %93, 4
+  %95 = getelementptr inbounds nuw i8, ptr %89, i64 %94
+  store ptr %95, ptr %15, align 8, !tbaa !13
+  %96 = load i32, ptr %20, align 4, !tbaa !11
+  %97 = shl i32 1, %96
+  %98 = add nsw i32 1, %97
+  %99 = sext i32 %98 to i64
+  %100 = mul i64 %99, 4
+  %101 = add i64 516, %100
+  %102 = load i64, ptr %16, align 8, !tbaa !14
+  %103 = sub i64 %102, %101
+  store i64 %103, ptr %16, align 8, !tbaa !14
+  call void @llvm.lifetime.start.p0(i64 8, ptr %25) #9
+  %104 = load ptr, ptr %22, align 8, !tbaa !13
+  %105 = getelementptr inbounds nuw %struct.FSE_DecompressWksp, ptr %104, i32 0, i32 1
+  %106 = getelementptr inbounds [1 x i32], ptr %105, i64 0, i64 0
+  %107 = load ptr, ptr %22, align 8, !tbaa !13
+  %108 = getelementptr inbounds nuw %struct.FSE_DecompressWksp, ptr %107, i32 0, i32 0
+  %109 = getelementptr inbounds [256 x i16], ptr %108, i64 0, i64 0
+  %110 = load i32, ptr %21, align 4, !tbaa !11
+  %111 = load i32, ptr %20, align 4, !tbaa !11
+  %112 = load ptr, ptr %15, align 8, !tbaa !13
+  %113 = load i64, ptr %16, align 8, !tbaa !14
+  %114 = call i64 @FSE_buildDTable_internal(ptr noundef %106, ptr noundef %109, i32 noundef %110, i32 noundef %111, ptr noundef %112, i64 noundef %113)
+  store i64 %114, ptr %25, align 8, !tbaa !14
+  %115 = load i64, ptr %25, align 8, !tbaa !14
+  %116 = call i32 @ERR_isError(i64 noundef %115)
+  %117 = icmp ne i32 %116, 0
+  br i1 %117, label %118, label %120
+
+118:                                              ; preds = %87
+  %119 = load i64, ptr %25, align 8, !tbaa !14
+  store i64 %119, ptr %9, align 8
+  store i32 1, ptr %23, align 4
+  br label %121
+
+120:                                              ; preds = %87
+  store i32 0, ptr %23, align 4
+  br label %121
+
+121:                                              ; preds = %120, %118
+  call void @llvm.lifetime.end.p0(i64 8, ptr %25) #9
+  %122 = load i32, ptr %23, align 4
+  switch i32 %122, label %153 [
+    i32 0, label %123
+  ]
+
+123:                                              ; preds = %121
+  call void @llvm.lifetime.start.p0(i64 8, ptr %26) #9
+  %124 = load ptr, ptr %22, align 8, !tbaa !13
+  %125 = getelementptr inbounds nuw %struct.FSE_DecompressWksp, ptr %124, i32 0, i32 1
+  %126 = getelementptr inbounds [1 x i32], ptr %125, i64 0, i64 0
+  store ptr %126, ptr %26, align 8, !tbaa !13
+  call void @llvm.lifetime.start.p0(i64 8, ptr %27) #9
+  %127 = load ptr, ptr %26, align 8, !tbaa !13
+  store ptr %127, ptr %27, align 8, !tbaa !13
+  call void @llvm.lifetime.start.p0(i64 4, ptr %28) #9
+  %128 = load ptr, ptr %27, align 8, !tbaa !13
+  %129 = getelementptr inbounds nuw %struct.FSE_DTableHeader, ptr %128, i32 0, i32 1
+  %130 = load i16, ptr %129, align 2, !tbaa !21
+  %131 = zext i16 %130 to i32
+  store i32 %131, ptr %28, align 4, !tbaa !11
+  %132 = load i32, ptr %28, align 4, !tbaa !11
+  %133 = icmp ne i32 %132, 0
+  br i1 %133, label %134, label %143
+
+134:                                              ; preds = %123
+  %135 = load ptr, ptr %10, align 8, !tbaa !13
+  %136 = load i64, ptr %11, align 8, !tbaa !14
+  %137 = load ptr, ptr %19, align 8, !tbaa !16
+  %138 = load i64, ptr %13, align 8, !tbaa !14
+  %139 = load ptr, ptr %22, align 8, !tbaa !13
+  %140 = getelementptr inbounds nuw %struct.FSE_DecompressWksp, ptr %139, i32 0, i32 1
+  %141 = getelementptr inbounds [1 x i32], ptr %140, i64 0, i64 0
+  %142 = call i64 @FSE_decompress_usingDTable_generic(ptr noundef %135, i64 noundef %136, ptr noundef %137, i64 noundef %138, ptr noundef %141, i32 noundef 1)
+  store i64 %142, ptr %9, align 8
+  store i32 1, ptr %23, align 4
+  br label %152
+
+143:                                              ; preds = %123
+  %144 = load ptr, ptr %10, align 8, !tbaa !13
+  %145 = load i64, ptr %11, align 8, !tbaa !14
+  %146 = load ptr, ptr %19, align 8, !tbaa !16
+  %147 = load i64, ptr %13, align 8, !tbaa !14
+  %148 = load ptr, ptr %22, align 8, !tbaa !13
+  %149 = getelementptr inbounds nuw %struct.FSE_DecompressWksp, ptr %148, i32 0, i32 1
+  %150 = getelementptr inbounds [1 x i32], ptr %149, i64 0, i64 0
+  %151 = call i64 @FSE_decompress_usingDTable_generic(ptr noundef %144, i64 noundef %145, ptr noundef %146, i64 noundef %147, ptr noundef %150, i32 noundef 0)
+  store i64 %151, ptr %9, align 8
+  store i32 1, ptr %23, align 4
+  br label %152
+
+152:                                              ; preds = %143, %134
+  call void @llvm.lifetime.end.p0(i64 4, ptr %28) #9
+  call void @llvm.lifetime.end.p0(i64 8, ptr %27) #9
+  call void @llvm.lifetime.end.p0(i64 8, ptr %26) #9
+  br label %153
+
+153:                                              ; preds = %152, %121, %86, %60, %34
+  call void @llvm.lifetime.end.p0(i64 8, ptr %22) #9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %21) #9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %20) #9
+  call void @llvm.lifetime.end.p0(i64 8, ptr %19) #9
+  call void @llvm.lifetime.end.p0(i64 8, ptr %18) #9
+  %154 = load i64, ptr %9, align 8
+  ret i64 %154
+}
+
+declare i64 @FSE_readNCount_bmi2(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef, i32 noundef) #6
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @ERR_isError(i64 noundef %0) #0 {
   %2 = alloca i64, align 8
-  store i64 %0, ptr %2, align 8
-  %3 = load i64, ptr %2, align 8
+  store i64 %0, ptr %2, align 8, !tbaa !14
+  %3 = load i64, ptr %2, align 8, !tbaa !14
   %4 = icmp ugt i64 %3, -120
   %5 = zext i1 %4 to i32
   ret i32 %5
 }
 
-; Function Attrs: nounwind uwtable
-define internal i64 @BIT_initDStream(ptr noundef %0, ptr noundef %1, i64 noundef %2) #0 {
+; Function Attrs: alwaysinline nounwind uwtable
+define internal i64 @FSE_decompress_usingDTable_generic(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, i32 noundef %5) #5 {
+  %7 = alloca i64, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca i64, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca i64, align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca i32, align 4
+  %14 = alloca ptr, align 8
+  %15 = alloca ptr, align 8
+  %16 = alloca ptr, align 8
+  %17 = alloca ptr, align 8
+  %18 = alloca %struct.BIT_DStream_t, align 8
+  %19 = alloca %struct.FSE_DState_t, align 8
+  %20 = alloca %struct.FSE_DState_t, align 8
+  %21 = alloca i64, align 8
+  %22 = alloca i32, align 4
+  store ptr %0, ptr %8, align 8, !tbaa !13
+  store i64 %1, ptr %9, align 8, !tbaa !14
+  store ptr %2, ptr %10, align 8, !tbaa !13
+  store i64 %3, ptr %11, align 8, !tbaa !14
+  store ptr %4, ptr %12, align 8, !tbaa !4
+  store i32 %5, ptr %13, align 4, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #9
+  %23 = load ptr, ptr %8, align 8, !tbaa !13
+  store ptr %23, ptr %14, align 8, !tbaa !16
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #9
+  %24 = load ptr, ptr %14, align 8, !tbaa !16
+  store ptr %24, ptr %15, align 8, !tbaa !16
+  call void @llvm.lifetime.start.p0(i64 8, ptr %16) #9
+  %25 = load ptr, ptr %15, align 8, !tbaa !16
+  %26 = load i64, ptr %9, align 8, !tbaa !14
+  %27 = getelementptr inbounds nuw i8, ptr %25, i64 %26
+  store ptr %27, ptr %16, align 8, !tbaa !16
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #9
+  %28 = load ptr, ptr %16, align 8, !tbaa !16
+  %29 = getelementptr inbounds i8, ptr %28, i64 -3
+  store ptr %29, ptr %17, align 8, !tbaa !16
+  call void @llvm.lifetime.start.p0(i64 40, ptr %18) #9
+  call void @llvm.lifetime.start.p0(i64 16, ptr %19) #9
+  call void @llvm.lifetime.start.p0(i64 16, ptr %20) #9
+  call void @llvm.lifetime.start.p0(i64 8, ptr %21) #9
+  %30 = load ptr, ptr %10, align 8, !tbaa !13
+  %31 = load i64, ptr %11, align 8, !tbaa !14
+  %32 = call i64 @BIT_initDStream(ptr noundef %18, ptr noundef %30, i64 noundef %31)
+  store i64 %32, ptr %21, align 8, !tbaa !14
+  %33 = load i64, ptr %21, align 8, !tbaa !14
+  %34 = call i32 @ERR_isError(i64 noundef %33)
+  %35 = icmp ne i32 %34, 0
+  br i1 %35, label %36, label %38
+
+36:                                               ; preds = %6
+  %37 = load i64, ptr %21, align 8, !tbaa !14
+  store i64 %37, ptr %7, align 8
+  store i32 1, ptr %22, align 4
+  br label %39
+
+38:                                               ; preds = %6
+  store i32 0, ptr %22, align 4
+  br label %39
+
+39:                                               ; preds = %38, %36
+  call void @llvm.lifetime.end.p0(i64 8, ptr %21) #9
+  %40 = load i32, ptr %22, align 4
+  switch i32 %40, label %191 [
+    i32 0, label %41
+  ]
+
+41:                                               ; preds = %39
+  %42 = load ptr, ptr %12, align 8, !tbaa !4
+  call void @FSE_initDState(ptr noundef %19, ptr noundef %18, ptr noundef %42)
+  %43 = load ptr, ptr %12, align 8, !tbaa !4
+  call void @FSE_initDState(ptr noundef %20, ptr noundef %18, ptr noundef %43)
+  br label %44
+
+44:                                               ; preds = %107, %41
+  %45 = call i32 @BIT_reloadDStream(ptr noundef %18)
+  %46 = icmp eq i32 %45, 0
+  %47 = zext i1 %46 to i32
+  %48 = load ptr, ptr %15, align 8, !tbaa !16
+  %49 = load ptr, ptr %17, align 8, !tbaa !16
+  %50 = icmp ult ptr %48, %49
+  %51 = zext i1 %50 to i32
+  %52 = and i32 %47, %51
+  %53 = icmp ne i32 %52, 0
+  br i1 %53, label %54, label %110
+
+54:                                               ; preds = %44
+  %55 = load i32, ptr %13, align 4, !tbaa !11
+  %56 = icmp ne i32 %55, 0
+  br i1 %56, label %57, label %60
+
+57:                                               ; preds = %54
+  %58 = call zeroext i8 @FSE_decodeSymbolFast(ptr noundef %19, ptr noundef %18)
+  %59 = zext i8 %58 to i32
+  br label %63
+
+60:                                               ; preds = %54
+  %61 = call zeroext i8 @FSE_decodeSymbol(ptr noundef %19, ptr noundef %18)
+  %62 = zext i8 %61 to i32
+  br label %63
+
+63:                                               ; preds = %60, %57
+  %64 = phi i32 [ %59, %57 ], [ %62, %60 ]
+  %65 = trunc i32 %64 to i8
+  %66 = load ptr, ptr %15, align 8, !tbaa !16
+  %67 = getelementptr inbounds i8, ptr %66, i64 0
+  store i8 %65, ptr %67, align 1, !tbaa !29
+  %68 = load i32, ptr %13, align 4, !tbaa !11
+  %69 = icmp ne i32 %68, 0
+  br i1 %69, label %70, label %73
+
+70:                                               ; preds = %63
+  %71 = call zeroext i8 @FSE_decodeSymbolFast(ptr noundef %20, ptr noundef %18)
+  %72 = zext i8 %71 to i32
+  br label %76
+
+73:                                               ; preds = %63
+  %74 = call zeroext i8 @FSE_decodeSymbol(ptr noundef %20, ptr noundef %18)
+  %75 = zext i8 %74 to i32
+  br label %76
+
+76:                                               ; preds = %73, %70
+  %77 = phi i32 [ %72, %70 ], [ %75, %73 ]
+  %78 = trunc i32 %77 to i8
+  %79 = load ptr, ptr %15, align 8, !tbaa !16
+  %80 = getelementptr inbounds i8, ptr %79, i64 1
+  store i8 %78, ptr %80, align 1, !tbaa !29
+  %81 = load i32, ptr %13, align 4, !tbaa !11
+  %82 = icmp ne i32 %81, 0
+  br i1 %82, label %83, label %86
+
+83:                                               ; preds = %76
+  %84 = call zeroext i8 @FSE_decodeSymbolFast(ptr noundef %19, ptr noundef %18)
+  %85 = zext i8 %84 to i32
+  br label %89
+
+86:                                               ; preds = %76
+  %87 = call zeroext i8 @FSE_decodeSymbol(ptr noundef %19, ptr noundef %18)
+  %88 = zext i8 %87 to i32
+  br label %89
+
+89:                                               ; preds = %86, %83
+  %90 = phi i32 [ %85, %83 ], [ %88, %86 ]
+  %91 = trunc i32 %90 to i8
+  %92 = load ptr, ptr %15, align 8, !tbaa !16
+  %93 = getelementptr inbounds i8, ptr %92, i64 2
+  store i8 %91, ptr %93, align 1, !tbaa !29
+  %94 = load i32, ptr %13, align 4, !tbaa !11
+  %95 = icmp ne i32 %94, 0
+  br i1 %95, label %96, label %99
+
+96:                                               ; preds = %89
+  %97 = call zeroext i8 @FSE_decodeSymbolFast(ptr noundef %20, ptr noundef %18)
+  %98 = zext i8 %97 to i32
+  br label %102
+
+99:                                               ; preds = %89
+  %100 = call zeroext i8 @FSE_decodeSymbol(ptr noundef %20, ptr noundef %18)
+  %101 = zext i8 %100 to i32
+  br label %102
+
+102:                                              ; preds = %99, %96
+  %103 = phi i32 [ %98, %96 ], [ %101, %99 ]
+  %104 = trunc i32 %103 to i8
+  %105 = load ptr, ptr %15, align 8, !tbaa !16
+  %106 = getelementptr inbounds i8, ptr %105, i64 3
+  store i8 %104, ptr %106, align 1, !tbaa !29
+  br label %107
+
+107:                                              ; preds = %102
+  %108 = load ptr, ptr %15, align 8, !tbaa !16
+  %109 = getelementptr inbounds i8, ptr %108, i64 4
+  store ptr %109, ptr %15, align 8, !tbaa !16
+  br label %44, !llvm.loop !38
+
+110:                                              ; preds = %44
+  br label %111
+
+111:                                              ; preds = %184, %110
+  br label %112
+
+112:                                              ; preds = %111
+  %113 = load ptr, ptr %15, align 8, !tbaa !16
+  %114 = load ptr, ptr %16, align 8, !tbaa !16
+  %115 = getelementptr inbounds i8, ptr %114, i64 -2
+  %116 = icmp ugt ptr %113, %115
+  br i1 %116, label %117, label %118
+
+117:                                              ; preds = %112
+  store i64 -70, ptr %7, align 8
+  store i32 1, ptr %22, align 4
+  br label %191
+
+118:                                              ; preds = %112
+  %119 = load i32, ptr %13, align 4, !tbaa !11
+  %120 = icmp ne i32 %119, 0
+  br i1 %120, label %121, label %124
+
+121:                                              ; preds = %118
+  %122 = call zeroext i8 @FSE_decodeSymbolFast(ptr noundef %19, ptr noundef %18)
+  %123 = zext i8 %122 to i32
+  br label %127
+
+124:                                              ; preds = %118
+  %125 = call zeroext i8 @FSE_decodeSymbol(ptr noundef %19, ptr noundef %18)
+  %126 = zext i8 %125 to i32
+  br label %127
+
+127:                                              ; preds = %124, %121
+  %128 = phi i32 [ %123, %121 ], [ %126, %124 ]
+  %129 = trunc i32 %128 to i8
+  %130 = load ptr, ptr %15, align 8, !tbaa !16
+  %131 = getelementptr inbounds nuw i8, ptr %130, i32 1
+  store ptr %131, ptr %15, align 8, !tbaa !16
+  store i8 %129, ptr %130, align 1, !tbaa !29
+  %132 = call i32 @BIT_reloadDStream(ptr noundef %18)
+  %133 = icmp eq i32 %132, 3
+  br i1 %133, label %134, label %148
+
+134:                                              ; preds = %127
+  %135 = load i32, ptr %13, align 4, !tbaa !11
+  %136 = icmp ne i32 %135, 0
+  br i1 %136, label %137, label %140
+
+137:                                              ; preds = %134
+  %138 = call zeroext i8 @FSE_decodeSymbolFast(ptr noundef %20, ptr noundef %18)
+  %139 = zext i8 %138 to i32
+  br label %143
+
+140:                                              ; preds = %134
+  %141 = call zeroext i8 @FSE_decodeSymbol(ptr noundef %20, ptr noundef %18)
+  %142 = zext i8 %141 to i32
+  br label %143
+
+143:                                              ; preds = %140, %137
+  %144 = phi i32 [ %139, %137 ], [ %142, %140 ]
+  %145 = trunc i32 %144 to i8
+  %146 = load ptr, ptr %15, align 8, !tbaa !16
+  %147 = getelementptr inbounds nuw i8, ptr %146, i32 1
+  store ptr %147, ptr %15, align 8, !tbaa !16
+  store i8 %145, ptr %146, align 1, !tbaa !29
+  br label %185
+
+148:                                              ; preds = %127
+  %149 = load ptr, ptr %15, align 8, !tbaa !16
+  %150 = load ptr, ptr %16, align 8, !tbaa !16
+  %151 = getelementptr inbounds i8, ptr %150, i64 -2
+  %152 = icmp ugt ptr %149, %151
+  br i1 %152, label %153, label %154
+
+153:                                              ; preds = %148
+  store i64 -70, ptr %7, align 8
+  store i32 1, ptr %22, align 4
+  br label %191
+
+154:                                              ; preds = %148
+  %155 = load i32, ptr %13, align 4, !tbaa !11
+  %156 = icmp ne i32 %155, 0
+  br i1 %156, label %157, label %160
+
+157:                                              ; preds = %154
+  %158 = call zeroext i8 @FSE_decodeSymbolFast(ptr noundef %20, ptr noundef %18)
+  %159 = zext i8 %158 to i32
+  br label %163
+
+160:                                              ; preds = %154
+  %161 = call zeroext i8 @FSE_decodeSymbol(ptr noundef %20, ptr noundef %18)
+  %162 = zext i8 %161 to i32
+  br label %163
+
+163:                                              ; preds = %160, %157
+  %164 = phi i32 [ %159, %157 ], [ %162, %160 ]
+  %165 = trunc i32 %164 to i8
+  %166 = load ptr, ptr %15, align 8, !tbaa !16
+  %167 = getelementptr inbounds nuw i8, ptr %166, i32 1
+  store ptr %167, ptr %15, align 8, !tbaa !16
+  store i8 %165, ptr %166, align 1, !tbaa !29
+  %168 = call i32 @BIT_reloadDStream(ptr noundef %18)
+  %169 = icmp eq i32 %168, 3
+  br i1 %169, label %170, label %184
+
+170:                                              ; preds = %163
+  %171 = load i32, ptr %13, align 4, !tbaa !11
+  %172 = icmp ne i32 %171, 0
+  br i1 %172, label %173, label %176
+
+173:                                              ; preds = %170
+  %174 = call zeroext i8 @FSE_decodeSymbolFast(ptr noundef %19, ptr noundef %18)
+  %175 = zext i8 %174 to i32
+  br label %179
+
+176:                                              ; preds = %170
+  %177 = call zeroext i8 @FSE_decodeSymbol(ptr noundef %19, ptr noundef %18)
+  %178 = zext i8 %177 to i32
+  br label %179
+
+179:                                              ; preds = %176, %173
+  %180 = phi i32 [ %175, %173 ], [ %178, %176 ]
+  %181 = trunc i32 %180 to i8
+  %182 = load ptr, ptr %15, align 8, !tbaa !16
+  %183 = getelementptr inbounds nuw i8, ptr %182, i32 1
+  store ptr %183, ptr %15, align 8, !tbaa !16
+  store i8 %181, ptr %182, align 1, !tbaa !29
+  br label %185
+
+184:                                              ; preds = %163
+  br label %111
+
+185:                                              ; preds = %179, %143
+  %186 = load ptr, ptr %15, align 8, !tbaa !16
+  %187 = load ptr, ptr %14, align 8, !tbaa !16
+  %188 = ptrtoint ptr %186 to i64
+  %189 = ptrtoint ptr %187 to i64
+  %190 = sub i64 %188, %189
+  store i64 %190, ptr %7, align 8
+  store i32 1, ptr %22, align 4
+  br label %191
+
+191:                                              ; preds = %185, %153, %117, %39
+  call void @llvm.lifetime.end.p0(i64 16, ptr %20) #9
+  call void @llvm.lifetime.end.p0(i64 16, ptr %19) #9
+  call void @llvm.lifetime.end.p0(i64 40, ptr %18) #9
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #9
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #9
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #9
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #9
+  %192 = load i64, ptr %7, align 8
+  ret i64 %192
+}
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal i64 @BIT_initDStream(ptr noundef %0, ptr noundef %1, i64 noundef %2) #3 {
   %4 = alloca i64, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca i64, align 8
   %8 = alloca i8, align 1
-  %9 = alloca i8, align 1
-  store ptr %0, ptr %5, align 8
-  store ptr %1, ptr %6, align 8
-  store i64 %2, ptr %7, align 8
-  %10 = load i64, ptr %7, align 8
-  %11 = icmp ult i64 %10, 1
-  br i1 %11, label %12, label %14
+  %9 = alloca i32, align 4
+  %10 = alloca i8, align 1
+  store ptr %0, ptr %5, align 8, !tbaa !13
+  store ptr %1, ptr %6, align 8, !tbaa !13
+  store i64 %2, ptr %7, align 8, !tbaa !14
+  %11 = load i64, ptr %7, align 8, !tbaa !14
+  %12 = icmp ult i64 %11, 1
+  br i1 %12, label %13, label %15
 
-12:                                               ; preds = %3
-  %13 = load ptr, ptr %5, align 8
-  call void @llvm.memset.p0.i64(ptr align 8 %13, i8 0, i64 40, i1 false)
+13:                                               ; preds = %3
+  %14 = load ptr, ptr %5, align 8, !tbaa !13
+  call void @llvm.memset.p0.i64(ptr align 8 %14, i8 0, i64 40, i1 false)
   store i64 -72, ptr %4, align 8
-  br label %171
+  br label %178
 
-14:                                               ; preds = %3
-  %15 = load ptr, ptr %6, align 8
-  %16 = load ptr, ptr %5, align 8
-  %17 = getelementptr inbounds %struct.BIT_DStream_t, ptr %16, i32 0, i32 3
-  store ptr %15, ptr %17, align 8
-  %18 = load ptr, ptr %5, align 8
-  %19 = getelementptr inbounds %struct.BIT_DStream_t, ptr %18, i32 0, i32 3
-  %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 8
-  %22 = load ptr, ptr %5, align 8
-  %23 = getelementptr inbounds %struct.BIT_DStream_t, ptr %22, i32 0, i32 4
-  store ptr %21, ptr %23, align 8
-  %24 = load i64, ptr %7, align 8
-  %25 = icmp uge i64 %24, 8
-  br i1 %25, label %26, label %62
+15:                                               ; preds = %3
+  %16 = load ptr, ptr %6, align 8, !tbaa !13
+  %17 = load ptr, ptr %5, align 8, !tbaa !13
+  %18 = getelementptr inbounds nuw %struct.BIT_DStream_t, ptr %17, i32 0, i32 3
+  store ptr %16, ptr %18, align 8, !tbaa !39
+  %19 = load ptr, ptr %5, align 8, !tbaa !13
+  %20 = getelementptr inbounds nuw %struct.BIT_DStream_t, ptr %19, i32 0, i32 3
+  %21 = load ptr, ptr %20, align 8, !tbaa !39
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
+  %23 = load ptr, ptr %5, align 8, !tbaa !13
+  %24 = getelementptr inbounds nuw %struct.BIT_DStream_t, ptr %23, i32 0, i32 4
+  store ptr %22, ptr %24, align 8, !tbaa !41
+  %25 = load i64, ptr %7, align 8, !tbaa !14
+  %26 = icmp uge i64 %25, 8
+  br i1 %26, label %27, label %66
 
-26:                                               ; preds = %14
-  %27 = load ptr, ptr %6, align 8
-  %28 = load i64, ptr %7, align 8
-  %29 = getelementptr inbounds i8, ptr %27, i64 %28
-  %30 = getelementptr inbounds i8, ptr %29, i64 -8
-  %31 = load ptr, ptr %5, align 8
-  %32 = getelementptr inbounds %struct.BIT_DStream_t, ptr %31, i32 0, i32 2
-  store ptr %30, ptr %32, align 8
-  %33 = load ptr, ptr %5, align 8
-  %34 = getelementptr inbounds %struct.BIT_DStream_t, ptr %33, i32 0, i32 2
-  %35 = load ptr, ptr %34, align 8
-  %36 = call i64 @MEM_readLEST(ptr noundef %35)
-  %37 = load ptr, ptr %5, align 8
-  %38 = getelementptr inbounds %struct.BIT_DStream_t, ptr %37, i32 0, i32 0
-  store i64 %36, ptr %38, align 8
-  %39 = load ptr, ptr %6, align 8
-  %40 = load i64, ptr %7, align 8
-  %41 = sub i64 %40, 1
-  %42 = getelementptr inbounds i8, ptr %39, i64 %41
-  %43 = load i8, ptr %42, align 1
-  store i8 %43, ptr %8, align 1
-  %44 = load i8, ptr %8, align 1
-  %45 = zext i8 %44 to i32
-  %46 = icmp ne i32 %45, 0
-  br i1 %46, label %47, label %52
+27:                                               ; preds = %15
+  %28 = load ptr, ptr %6, align 8, !tbaa !13
+  %29 = load i64, ptr %7, align 8, !tbaa !14
+  %30 = getelementptr inbounds nuw i8, ptr %28, i64 %29
+  %31 = getelementptr inbounds i8, ptr %30, i64 -8
+  %32 = load ptr, ptr %5, align 8, !tbaa !13
+  %33 = getelementptr inbounds nuw %struct.BIT_DStream_t, ptr %32, i32 0, i32 2
+  store ptr %31, ptr %33, align 8, !tbaa !42
+  %34 = load ptr, ptr %5, align 8, !tbaa !13
+  %35 = getelementptr inbounds nuw %struct.BIT_DStream_t, ptr %34, i32 0, i32 2
+  %36 = load ptr, ptr %35, align 8, !tbaa !42
+  %37 = call i64 @MEM_readLEST(ptr noundef %36)
+  %38 = load ptr, ptr %5, align 8, !tbaa !13
+  %39 = getelementptr inbounds nuw %struct.BIT_DStream_t, ptr %38, i32 0, i32 0
+  store i64 %37, ptr %39, align 8, !tbaa !43
+  call void @llvm.lifetime.start.p0(i64 1, ptr %8) #9
+  %40 = load ptr, ptr %6, align 8, !tbaa !13
+  %41 = load i64, ptr %7, align 8, !tbaa !14
+  %42 = sub i64 %41, 1
+  %43 = getelementptr inbounds nuw i8, ptr %40, i64 %42
+  %44 = load i8, ptr %43, align 1, !tbaa !29
+  store i8 %44, ptr %8, align 1, !tbaa !29
+  %45 = load i8, ptr %8, align 1, !tbaa !29
+  %46 = zext i8 %45 to i32
+  %47 = icmp ne i32 %46, 0
+  br i1 %47, label %48, label %53
 
-47:                                               ; preds = %26
-  %48 = load i8, ptr %8, align 1
-  %49 = zext i8 %48 to i32
-  %50 = call i32 @ZSTD_highbit32(i32 noundef %49)
-  %51 = sub i32 8, %50
-  br label %53
+48:                                               ; preds = %27
+  %49 = load i8, ptr %8, align 1, !tbaa !29
+  %50 = zext i8 %49 to i32
+  %51 = call i32 @ZSTD_highbit32(i32 noundef %50)
+  %52 = sub i32 8, %51
+  br label %54
 
-52:                                               ; preds = %26
-  br label %53
+53:                                               ; preds = %27
+  br label %54
 
-53:                                               ; preds = %52, %47
-  %54 = phi i32 [ %51, %47 ], [ 0, %52 ]
-  %55 = load ptr, ptr %5, align 8
-  %56 = getelementptr inbounds %struct.BIT_DStream_t, ptr %55, i32 0, i32 1
-  store i32 %54, ptr %56, align 8
-  %57 = load i8, ptr %8, align 1
-  %58 = zext i8 %57 to i32
-  %59 = icmp eq i32 %58, 0
-  br i1 %59, label %60, label %61
+54:                                               ; preds = %53, %48
+  %55 = phi i32 [ %52, %48 ], [ 0, %53 ]
+  %56 = load ptr, ptr %5, align 8, !tbaa !13
+  %57 = getelementptr inbounds nuw %struct.BIT_DStream_t, ptr %56, i32 0, i32 1
+  store i32 %55, ptr %57, align 8, !tbaa !44
+  %58 = load i8, ptr %8, align 1, !tbaa !29
+  %59 = zext i8 %58 to i32
+  %60 = icmp eq i32 %59, 0
+  br i1 %60, label %61, label %62
 
-60:                                               ; preds = %53
+61:                                               ; preds = %54
   store i64 -1, ptr %4, align 8
-  br label %171
+  store i32 1, ptr %9, align 4
+  br label %63
 
-61:                                               ; preds = %53
-  br label %169
+62:                                               ; preds = %54
+  store i32 0, ptr %9, align 4
+  br label %63
 
-62:                                               ; preds = %14
-  %63 = load ptr, ptr %5, align 8
-  %64 = getelementptr inbounds %struct.BIT_DStream_t, ptr %63, i32 0, i32 3
-  %65 = load ptr, ptr %64, align 8
-  %66 = load ptr, ptr %5, align 8
-  %67 = getelementptr inbounds %struct.BIT_DStream_t, ptr %66, i32 0, i32 2
-  store ptr %65, ptr %67, align 8
-  %68 = load ptr, ptr %5, align 8
-  %69 = getelementptr inbounds %struct.BIT_DStream_t, ptr %68, i32 0, i32 3
-  %70 = load ptr, ptr %69, align 8
-  %71 = load i8, ptr %70, align 1
-  %72 = zext i8 %71 to i64
-  %73 = load ptr, ptr %5, align 8
-  %74 = getelementptr inbounds %struct.BIT_DStream_t, ptr %73, i32 0, i32 0
-  store i64 %72, ptr %74, align 8
-  %75 = load i64, ptr %7, align 8
-  switch i64 %75, label %136 [
-    i64 7, label %76
-    i64 6, label %86
-    i64 5, label %96
-    i64 4, label %106
-    i64 3, label %116
-    i64 2, label %126
+63:                                               ; preds = %62, %61
+  call void @llvm.lifetime.end.p0(i64 1, ptr %8) #9
+  %64 = load i32, ptr %9, align 4
+  switch i32 %64, label %180 [
+    i32 0, label %65
+    i32 1, label %178
   ]
 
-76:                                               ; preds = %62
-  %77 = load ptr, ptr %6, align 8
-  %78 = getelementptr inbounds i8, ptr %77, i64 6
-  %79 = load i8, ptr %78, align 1
-  %80 = zext i8 %79 to i64
-  %81 = shl i64 %80, 48
-  %82 = load ptr, ptr %5, align 8
-  %83 = getelementptr inbounds %struct.BIT_DStream_t, ptr %82, i32 0, i32 0
-  %84 = load i64, ptr %83, align 8
-  %85 = add i64 %84, %81
-  store i64 %85, ptr %83, align 8
-  br label %86
+65:                                               ; preds = %63
+  br label %176
 
-86:                                               ; preds = %76, %62
-  %87 = load ptr, ptr %6, align 8
-  %88 = getelementptr inbounds i8, ptr %87, i64 5
-  %89 = load i8, ptr %88, align 1
-  %90 = zext i8 %89 to i64
-  %91 = shl i64 %90, 40
-  %92 = load ptr, ptr %5, align 8
-  %93 = getelementptr inbounds %struct.BIT_DStream_t, ptr %92, i32 0, i32 0
-  %94 = load i64, ptr %93, align 8
-  %95 = add i64 %94, %91
-  store i64 %95, ptr %93, align 8
-  br label %96
+66:                                               ; preds = %15
+  %67 = load ptr, ptr %5, align 8, !tbaa !13
+  %68 = getelementptr inbounds nuw %struct.BIT_DStream_t, ptr %67, i32 0, i32 3
+  %69 = load ptr, ptr %68, align 8, !tbaa !39
+  %70 = load ptr, ptr %5, align 8, !tbaa !13
+  %71 = getelementptr inbounds nuw %struct.BIT_DStream_t, ptr %70, i32 0, i32 2
+  store ptr %69, ptr %71, align 8, !tbaa !42
+  %72 = load ptr, ptr %5, align 8, !tbaa !13
+  %73 = getelementptr inbounds nuw %struct.BIT_DStream_t, ptr %72, i32 0, i32 3
+  %74 = load ptr, ptr %73, align 8, !tbaa !39
+  %75 = load i8, ptr %74, align 1, !tbaa !29
+  %76 = zext i8 %75 to i64
+  %77 = load ptr, ptr %5, align 8, !tbaa !13
+  %78 = getelementptr inbounds nuw %struct.BIT_DStream_t, ptr %77, i32 0, i32 0
+  store i64 %76, ptr %78, align 8, !tbaa !43
+  %79 = load i64, ptr %7, align 8, !tbaa !14
+  switch i64 %79, label %140 [
+    i64 7, label %80
+    i64 6, label %90
+    i64 5, label %100
+    i64 4, label %110
+    i64 3, label %120
+    i64 2, label %130
+  ]
 
-96:                                               ; preds = %86, %62
-  %97 = load ptr, ptr %6, align 8
-  %98 = getelementptr inbounds i8, ptr %97, i64 4
-  %99 = load i8, ptr %98, align 1
-  %100 = zext i8 %99 to i64
-  %101 = shl i64 %100, 32
-  %102 = load ptr, ptr %5, align 8
-  %103 = getelementptr inbounds %struct.BIT_DStream_t, ptr %102, i32 0, i32 0
-  %104 = load i64, ptr %103, align 8
-  %105 = add i64 %104, %101
-  store i64 %105, ptr %103, align 8
-  br label %106
+80:                                               ; preds = %66
+  %81 = load ptr, ptr %6, align 8, !tbaa !13
+  %82 = getelementptr inbounds i8, ptr %81, i64 6
+  %83 = load i8, ptr %82, align 1, !tbaa !29
+  %84 = zext i8 %83 to i64
+  %85 = shl i64 %84, 48
+  %86 = load ptr, ptr %5, align 8, !tbaa !13
+  %87 = getelementptr inbounds nuw %struct.BIT_DStream_t, ptr %86, i32 0, i32 0
+  %88 = load i64, ptr %87, align 8, !tbaa !43
+  %89 = add i64 %88, %85
+  store i64 %89, ptr %87, align 8, !tbaa !43
+  br label %90
 
-106:                                              ; preds = %96, %62
-  %107 = load ptr, ptr %6, align 8
-  %108 = getelementptr inbounds i8, ptr %107, i64 3
-  %109 = load i8, ptr %108, align 1
-  %110 = zext i8 %109 to i64
-  %111 = shl i64 %110, 24
-  %112 = load ptr, ptr %5, align 8
-  %113 = getelementptr inbounds %struct.BIT_DStream_t, ptr %112, i32 0, i32 0
-  %114 = load i64, ptr %113, align 8
-  %115 = add i64 %114, %111
-  store i64 %115, ptr %113, align 8
-  br label %116
+90:                                               ; preds = %66, %80
+  %91 = load ptr, ptr %6, align 8, !tbaa !13
+  %92 = getelementptr inbounds i8, ptr %91, i64 5
+  %93 = load i8, ptr %92, align 1, !tbaa !29
+  %94 = zext i8 %93 to i64
+  %95 = shl i64 %94, 40
+  %96 = load ptr, ptr %5, align 8, !tbaa !13
+  %97 = getelementptr inbounds nuw %struct.BIT_DStream_t, ptr %96, i32 0, i32 0
+  %98 = load i64, ptr %97, align 8, !tbaa !43
+  %99 = add i64 %98, %95
+  store i64 %99, ptr %97, align 8, !tbaa !43
+  br label %100
 
-116:                                              ; preds = %106, %62
-  %117 = load ptr, ptr %6, align 8
-  %118 = getelementptr inbounds i8, ptr %117, i64 2
-  %119 = load i8, ptr %118, align 1
-  %120 = zext i8 %119 to i64
-  %121 = shl i64 %120, 16
-  %122 = load ptr, ptr %5, align 8
-  %123 = getelementptr inbounds %struct.BIT_DStream_t, ptr %122, i32 0, i32 0
-  %124 = load i64, ptr %123, align 8
-  %125 = add i64 %124, %121
-  store i64 %125, ptr %123, align 8
-  br label %126
+100:                                              ; preds = %66, %90
+  %101 = load ptr, ptr %6, align 8, !tbaa !13
+  %102 = getelementptr inbounds i8, ptr %101, i64 4
+  %103 = load i8, ptr %102, align 1, !tbaa !29
+  %104 = zext i8 %103 to i64
+  %105 = shl i64 %104, 32
+  %106 = load ptr, ptr %5, align 8, !tbaa !13
+  %107 = getelementptr inbounds nuw %struct.BIT_DStream_t, ptr %106, i32 0, i32 0
+  %108 = load i64, ptr %107, align 8, !tbaa !43
+  %109 = add i64 %108, %105
+  store i64 %109, ptr %107, align 8, !tbaa !43
+  br label %110
 
-126:                                              ; preds = %116, %62
-  %127 = load ptr, ptr %6, align 8
-  %128 = getelementptr inbounds i8, ptr %127, i64 1
-  %129 = load i8, ptr %128, align 1
-  %130 = zext i8 %129 to i64
-  %131 = shl i64 %130, 8
-  %132 = load ptr, ptr %5, align 8
-  %133 = getelementptr inbounds %struct.BIT_DStream_t, ptr %132, i32 0, i32 0
-  %134 = load i64, ptr %133, align 8
-  %135 = add i64 %134, %131
-  store i64 %135, ptr %133, align 8
-  br label %136
+110:                                              ; preds = %66, %100
+  %111 = load ptr, ptr %6, align 8, !tbaa !13
+  %112 = getelementptr inbounds i8, ptr %111, i64 3
+  %113 = load i8, ptr %112, align 1, !tbaa !29
+  %114 = zext i8 %113 to i64
+  %115 = shl i64 %114, 24
+  %116 = load ptr, ptr %5, align 8, !tbaa !13
+  %117 = getelementptr inbounds nuw %struct.BIT_DStream_t, ptr %116, i32 0, i32 0
+  %118 = load i64, ptr %117, align 8, !tbaa !43
+  %119 = add i64 %118, %115
+  store i64 %119, ptr %117, align 8, !tbaa !43
+  br label %120
 
-136:                                              ; preds = %126, %62
-  br label %137
+120:                                              ; preds = %66, %110
+  %121 = load ptr, ptr %6, align 8, !tbaa !13
+  %122 = getelementptr inbounds i8, ptr %121, i64 2
+  %123 = load i8, ptr %122, align 1, !tbaa !29
+  %124 = zext i8 %123 to i64
+  %125 = shl i64 %124, 16
+  %126 = load ptr, ptr %5, align 8, !tbaa !13
+  %127 = getelementptr inbounds nuw %struct.BIT_DStream_t, ptr %126, i32 0, i32 0
+  %128 = load i64, ptr %127, align 8, !tbaa !43
+  %129 = add i64 %128, %125
+  store i64 %129, ptr %127, align 8, !tbaa !43
+  br label %130
 
-137:                                              ; preds = %136
-  %138 = load ptr, ptr %6, align 8
-  %139 = load i64, ptr %7, align 8
-  %140 = sub i64 %139, 1
-  %141 = getelementptr inbounds i8, ptr %138, i64 %140
-  %142 = load i8, ptr %141, align 1
-  store i8 %142, ptr %9, align 1
-  %143 = load i8, ptr %9, align 1
-  %144 = zext i8 %143 to i32
-  %145 = icmp ne i32 %144, 0
-  br i1 %145, label %146, label %151
+130:                                              ; preds = %66, %120
+  %131 = load ptr, ptr %6, align 8, !tbaa !13
+  %132 = getelementptr inbounds i8, ptr %131, i64 1
+  %133 = load i8, ptr %132, align 1, !tbaa !29
+  %134 = zext i8 %133 to i64
+  %135 = shl i64 %134, 8
+  %136 = load ptr, ptr %5, align 8, !tbaa !13
+  %137 = getelementptr inbounds nuw %struct.BIT_DStream_t, ptr %136, i32 0, i32 0
+  %138 = load i64, ptr %137, align 8, !tbaa !43
+  %139 = add i64 %138, %135
+  store i64 %139, ptr %137, align 8, !tbaa !43
+  br label %140
 
-146:                                              ; preds = %137
-  %147 = load i8, ptr %9, align 1
+140:                                              ; preds = %66, %130
+  br label %141
+
+141:                                              ; preds = %140
+  call void @llvm.lifetime.start.p0(i64 1, ptr %10) #9
+  %142 = load ptr, ptr %6, align 8, !tbaa !13
+  %143 = load i64, ptr %7, align 8, !tbaa !14
+  %144 = sub i64 %143, 1
+  %145 = getelementptr inbounds nuw i8, ptr %142, i64 %144
+  %146 = load i8, ptr %145, align 1, !tbaa !29
+  store i8 %146, ptr %10, align 1, !tbaa !29
+  %147 = load i8, ptr %10, align 1, !tbaa !29
   %148 = zext i8 %147 to i32
-  %149 = call i32 @ZSTD_highbit32(i32 noundef %148)
-  %150 = sub i32 8, %149
-  br label %152
+  %149 = icmp ne i32 %148, 0
+  br i1 %149, label %150, label %155
 
-151:                                              ; preds = %137
-  br label %152
+150:                                              ; preds = %141
+  %151 = load i8, ptr %10, align 1, !tbaa !29
+  %152 = zext i8 %151 to i32
+  %153 = call i32 @ZSTD_highbit32(i32 noundef %152)
+  %154 = sub i32 8, %153
+  br label %156
 
-152:                                              ; preds = %151, %146
-  %153 = phi i32 [ %150, %146 ], [ 0, %151 ]
-  %154 = load ptr, ptr %5, align 8
-  %155 = getelementptr inbounds %struct.BIT_DStream_t, ptr %154, i32 0, i32 1
-  store i32 %153, ptr %155, align 8
-  %156 = load i8, ptr %9, align 1
-  %157 = zext i8 %156 to i32
-  %158 = icmp eq i32 %157, 0
-  br i1 %158, label %159, label %160
+155:                                              ; preds = %141
+  br label %156
 
-159:                                              ; preds = %152
+156:                                              ; preds = %155, %150
+  %157 = phi i32 [ %154, %150 ], [ 0, %155 ]
+  %158 = load ptr, ptr %5, align 8, !tbaa !13
+  %159 = getelementptr inbounds nuw %struct.BIT_DStream_t, ptr %158, i32 0, i32 1
+  store i32 %157, ptr %159, align 8, !tbaa !44
+  %160 = load i8, ptr %10, align 1, !tbaa !29
+  %161 = zext i8 %160 to i32
+  %162 = icmp eq i32 %161, 0
+  br i1 %162, label %163, label %164
+
+163:                                              ; preds = %156
   store i64 -20, ptr %4, align 8
-  br label %171
+  store i32 1, ptr %9, align 4
+  br label %165
 
-160:                                              ; preds = %152
-  %161 = load i64, ptr %7, align 8
-  %162 = sub i64 8, %161
-  %163 = trunc i64 %162 to i32
-  %164 = mul i32 %163, 8
-  %165 = load ptr, ptr %5, align 8
-  %166 = getelementptr inbounds %struct.BIT_DStream_t, ptr %165, i32 0, i32 1
-  %167 = load i32, ptr %166, align 8
-  %168 = add i32 %167, %164
-  store i32 %168, ptr %166, align 8
-  br label %169
+164:                                              ; preds = %156
+  store i32 0, ptr %9, align 4
+  br label %165
 
-169:                                              ; preds = %160, %61
-  %170 = load i64, ptr %7, align 8
-  store i64 %170, ptr %4, align 8
-  br label %171
+165:                                              ; preds = %164, %163
+  call void @llvm.lifetime.end.p0(i64 1, ptr %10) #9
+  %166 = load i32, ptr %9, align 4
+  switch i32 %166, label %180 [
+    i32 0, label %167
+    i32 1, label %178
+  ]
 
-171:                                              ; preds = %169, %159, %60, %12
-  %172 = load i64, ptr %4, align 8
-  ret i64 %172
+167:                                              ; preds = %165
+  %168 = load i64, ptr %7, align 8, !tbaa !14
+  %169 = sub i64 8, %168
+  %170 = trunc i64 %169 to i32
+  %171 = mul i32 %170, 8
+  %172 = load ptr, ptr %5, align 8, !tbaa !13
+  %173 = getelementptr inbounds nuw %struct.BIT_DStream_t, ptr %172, i32 0, i32 1
+  %174 = load i32, ptr %173, align 8, !tbaa !44
+  %175 = add i32 %174, %171
+  store i32 %175, ptr %173, align 8, !tbaa !44
+  br label %176
+
+176:                                              ; preds = %167, %65
+  %177 = load i64, ptr %7, align 8, !tbaa !14
+  store i64 %177, ptr %4, align 8
+  br label %178
+
+178:                                              ; preds = %176, %165, %63, %13
+  %179 = load i64, ptr %4, align 8
+  ret i64 %179
+
+180:                                              ; preds = %165, %63
+  unreachable
 }
 
-; Function Attrs: nounwind uwtable
-define internal void @FSE_initDState(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
-  %4 = alloca i64, align 8
-  %5 = alloca i32, align 4
-  %6 = alloca i32, align 4
-  %7 = alloca i32, align 4
+; Function Attrs: inlinehint nounwind uwtable
+define internal void @FSE_initDState(ptr noundef %0, ptr noundef %1, ptr noundef %2) #3 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
-  %9 = alloca i32, align 4
-  %10 = alloca ptr, align 8
-  %11 = alloca i32, align 4
-  %12 = alloca ptr, align 8
-  %13 = alloca i32, align 4
-  %14 = alloca i64, align 8
-  %15 = alloca i32, align 4
-  %16 = alloca ptr, align 8
-  %17 = alloca i32, align 4
-  %18 = alloca i32, align 4
-  %19 = alloca ptr, align 8
-  %20 = alloca ptr, align 8
-  %21 = alloca ptr, align 8
-  %22 = alloca ptr, align 8
-  %23 = alloca ptr, align 8
-  store ptr %0, ptr %19, align 8
-  store ptr %1, ptr %20, align 8
-  store ptr %2, ptr %21, align 8
-  %24 = load ptr, ptr %21, align 8
-  store ptr %24, ptr %22, align 8
-  %25 = load ptr, ptr %22, align 8
-  store ptr %25, ptr %23, align 8
-  %26 = load ptr, ptr %20, align 8
-  %27 = load ptr, ptr %23, align 8
-  %28 = getelementptr inbounds %struct.FSE_DTableHeader, ptr %27, i32 0, i32 0
-  %29 = load i16, ptr %28, align 2
-  %30 = zext i16 %29 to i32
-  store ptr %26, ptr %12, align 8
-  store i32 %30, ptr %13, align 4
-  %31 = load ptr, ptr %12, align 8
-  %32 = load i32, ptr %13, align 4
-  store ptr %31, ptr %10, align 8
-  store i32 %32, ptr %11, align 4
-  %33 = load ptr, ptr %10, align 8
-  %34 = load i64, ptr %33, align 8
-  %35 = load ptr, ptr %10, align 8
-  %36 = getelementptr inbounds %struct.BIT_DStream_t, ptr %35, i32 0, i32 1
-  %37 = load i32, ptr %36, align 8
-  %38 = zext i32 %37 to i64
-  %39 = sub i64 64, %38
-  %40 = load i32, ptr %11, align 4
-  %41 = zext i32 %40 to i64
-  %42 = sub i64 %39, %41
-  %43 = trunc i64 %42 to i32
-  %44 = load i32, ptr %11, align 4
-  store i64 %34, ptr %4, align 8
-  store i32 %43, ptr %5, align 4
-  store i32 %44, ptr %6, align 4
-  store i32 63, ptr %7, align 4
-  %45 = load i64, ptr %4, align 8
-  %46 = load i32, ptr %5, align 4
-  %47 = and i32 %46, 63
-  %48 = zext i32 %47 to i64
-  %49 = lshr i64 %45, %48
-  %50 = load i32, ptr %6, align 4
-  %51 = zext i32 %50 to i64
-  %52 = shl i64 1, %51
-  %53 = sub i64 %52, 1
-  %54 = and i64 %49, %53
-  store i64 %54, ptr %14, align 8
-  %55 = load ptr, ptr %12, align 8
-  %56 = load i32, ptr %13, align 4
-  store ptr %55, ptr %8, align 8
-  store i32 %56, ptr %9, align 4
-  %57 = load i32, ptr %9, align 4
-  %58 = load ptr, ptr %8, align 8
-  %59 = getelementptr inbounds %struct.BIT_DStream_t, ptr %58, i32 0, i32 1
-  %60 = load i32, ptr %59, align 8
-  %61 = add i32 %60, %57
-  store i32 %61, ptr %59, align 8
-  %62 = load i64, ptr %14, align 8
-  %63 = load ptr, ptr %19, align 8
-  %64 = getelementptr inbounds %struct.FSE_DState_t, ptr %63, i32 0, i32 0
-  store i64 %62, ptr %64, align 8
-  %65 = load ptr, ptr %20, align 8
-  store ptr %65, ptr %16, align 8
-  %66 = load ptr, ptr %16, align 8
-  %67 = getelementptr inbounds %struct.BIT_DStream_t, ptr %66, i32 0, i32 1
-  %68 = load i32, ptr %67, align 8
-  %69 = zext i32 %68 to i64
-  %70 = icmp ugt i64 %69, 64
-  br i1 %70, label %71, label %72
-
-71:                                               ; preds = %3
-  store i32 3, ptr %15, align 4
-  br label %146
-
-72:                                               ; preds = %3
-  %73 = load ptr, ptr %16, align 8
-  %74 = getelementptr inbounds %struct.BIT_DStream_t, ptr %73, i32 0, i32 2
-  %75 = load ptr, ptr %74, align 8
-  %76 = load ptr, ptr %16, align 8
-  %77 = getelementptr inbounds %struct.BIT_DStream_t, ptr %76, i32 0, i32 4
-  %78 = load ptr, ptr %77, align 8
-  %79 = icmp uge ptr %75, %78
-  br i1 %79, label %80, label %83
-
-80:                                               ; preds = %72
-  %81 = load ptr, ptr %16, align 8
-  %82 = call i32 @BIT_reloadDStreamFast(ptr noundef %81)
-  store i32 %82, ptr %15, align 4
-  br label %146
-
-83:                                               ; preds = %72
-  %84 = load ptr, ptr %16, align 8
-  %85 = getelementptr inbounds %struct.BIT_DStream_t, ptr %84, i32 0, i32 2
-  %86 = load ptr, ptr %85, align 8
-  %87 = load ptr, ptr %16, align 8
-  %88 = getelementptr inbounds %struct.BIT_DStream_t, ptr %87, i32 0, i32 3
-  %89 = load ptr, ptr %88, align 8
-  %90 = icmp eq ptr %86, %89
-  br i1 %90, label %91, label %99
-
-91:                                               ; preds = %83
-  %92 = load ptr, ptr %16, align 8
-  %93 = getelementptr inbounds %struct.BIT_DStream_t, ptr %92, i32 0, i32 1
-  %94 = load i32, ptr %93, align 8
-  %95 = zext i32 %94 to i64
-  %96 = icmp ult i64 %95, 64
-  br i1 %96, label %97, label %98
-
-97:                                               ; preds = %91
-  store i32 1, ptr %15, align 4
-  br label %146
-
-98:                                               ; preds = %91
-  store i32 2, ptr %15, align 4
-  br label %146
-
-99:                                               ; preds = %83
-  %100 = load ptr, ptr %16, align 8
-  %101 = getelementptr inbounds %struct.BIT_DStream_t, ptr %100, i32 0, i32 1
-  %102 = load i32, ptr %101, align 8
-  %103 = lshr i32 %102, 3
-  store i32 %103, ptr %17, align 4
-  store i32 0, ptr %18, align 4
-  %104 = load ptr, ptr %16, align 8
-  %105 = getelementptr inbounds %struct.BIT_DStream_t, ptr %104, i32 0, i32 2
-  %106 = load ptr, ptr %105, align 8
-  %107 = load i32, ptr %17, align 4
-  %108 = zext i32 %107 to i64
-  %109 = sub i64 0, %108
-  %110 = getelementptr inbounds i8, ptr %106, i64 %109
-  %111 = load ptr, ptr %16, align 8
-  %112 = getelementptr inbounds %struct.BIT_DStream_t, ptr %111, i32 0, i32 3
-  %113 = load ptr, ptr %112, align 8
-  %114 = icmp ult ptr %110, %113
-  br i1 %114, label %115, label %126
-
-115:                                              ; preds = %99
-  %116 = load ptr, ptr %16, align 8
-  %117 = getelementptr inbounds %struct.BIT_DStream_t, ptr %116, i32 0, i32 2
-  %118 = load ptr, ptr %117, align 8
-  %119 = load ptr, ptr %16, align 8
-  %120 = getelementptr inbounds %struct.BIT_DStream_t, ptr %119, i32 0, i32 3
-  %121 = load ptr, ptr %120, align 8
-  %122 = ptrtoint ptr %118 to i64
-  %123 = ptrtoint ptr %121 to i64
-  %124 = sub i64 %122, %123
-  %125 = trunc i64 %124 to i32
-  store i32 %125, ptr %17, align 4
-  store i32 1, ptr %18, align 4
-  br label %126
-
-126:                                              ; preds = %115, %99
-  %127 = load i32, ptr %17, align 4
-  %128 = load ptr, ptr %16, align 8
-  %129 = getelementptr inbounds %struct.BIT_DStream_t, ptr %128, i32 0, i32 2
-  %130 = load ptr, ptr %129, align 8
-  %131 = zext i32 %127 to i64
-  %132 = sub i64 0, %131
-  %133 = getelementptr inbounds i8, ptr %130, i64 %132
-  store ptr %133, ptr %129, align 8
-  %134 = load i32, ptr %17, align 4
-  %135 = mul i32 %134, 8
-  %136 = load ptr, ptr %16, align 8
-  %137 = getelementptr inbounds %struct.BIT_DStream_t, ptr %136, i32 0, i32 1
-  %138 = load i32, ptr %137, align 8
-  %139 = sub i32 %138, %135
-  store i32 %139, ptr %137, align 8
-  %140 = load ptr, ptr %16, align 8
-  %141 = getelementptr inbounds %struct.BIT_DStream_t, ptr %140, i32 0, i32 2
-  %142 = load ptr, ptr %141, align 8
-  %143 = call i64 @MEM_readLEST(ptr noundef %142)
-  %144 = load ptr, ptr %16, align 8
-  store i64 %143, ptr %144, align 8
-  %145 = load i32, ptr %18, align 4
-  store i32 %145, ptr %15, align 4
-  br label %146
-
-146:                                              ; preds = %126, %98, %97, %80, %71
-  %147 = load ptr, ptr %21, align 8
-  %148 = getelementptr inbounds i32, ptr %147, i64 1
-  %149 = load ptr, ptr %19, align 8
-  %150 = getelementptr inbounds %struct.FSE_DState_t, ptr %149, i32 0, i32 1
-  store ptr %148, ptr %150, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !13
+  store ptr %1, ptr %5, align 8, !tbaa !13
+  store ptr %2, ptr %6, align 8, !tbaa !4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #9
+  %9 = load ptr, ptr %6, align 8, !tbaa !4
+  store ptr %9, ptr %7, align 8, !tbaa !13
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #9
+  %10 = load ptr, ptr %7, align 8, !tbaa !13
+  store ptr %10, ptr %8, align 8, !tbaa !13
+  %11 = load ptr, ptr %5, align 8, !tbaa !13
+  %12 = load ptr, ptr %8, align 8, !tbaa !13
+  %13 = getelementptr inbounds nuw %struct.FSE_DTableHeader, ptr %12, i32 0, i32 0
+  %14 = load i16, ptr %13, align 2, !tbaa !18
+  %15 = zext i16 %14 to i32
+  %16 = call i64 @BIT_readBits(ptr noundef %11, i32 noundef %15)
+  %17 = load ptr, ptr %4, align 8, !tbaa !13
+  %18 = getelementptr inbounds nuw %struct.FSE_DState_t, ptr %17, i32 0, i32 0
+  store i64 %16, ptr %18, align 8, !tbaa !45
+  %19 = load ptr, ptr %5, align 8, !tbaa !13
+  %20 = call i32 @BIT_reloadDStream(ptr noundef %19)
+  %21 = load ptr, ptr %6, align 8, !tbaa !4
+  %22 = getelementptr inbounds i32, ptr %21, i64 1
+  %23 = load ptr, ptr %4, align 8, !tbaa !13
+  %24 = getelementptr inbounds nuw %struct.FSE_DState_t, ptr %23, i32 0, i32 1
+  store ptr %22, ptr %24, align 8, !tbaa !47
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #9
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #9
   ret void
 }
 
-; Function Attrs: nounwind uwtable
-define internal zeroext i8 @FSE_decodeSymbolFast(ptr noundef %0, ptr noundef %1) #0 {
+; Function Attrs: alwaysinline nounwind uwtable
+define internal i32 @BIT_reloadDStream(ptr noundef %0) #5 {
+  %2 = alloca i32, align 4
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  %5 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !13
+  %6 = load ptr, ptr %3, align 8, !tbaa !13
+  %7 = getelementptr inbounds nuw %struct.BIT_DStream_t, ptr %6, i32 0, i32 1
+  %8 = load i32, ptr %7, align 8, !tbaa !44
+  %9 = zext i32 %8 to i64
+  %10 = icmp ugt i64 %9, 64
+  br i1 %10, label %11, label %12
+
+11:                                               ; preds = %1
+  store i32 3, ptr %2, align 4
+  br label %87
+
+12:                                               ; preds = %1
+  %13 = load ptr, ptr %3, align 8, !tbaa !13
+  %14 = getelementptr inbounds nuw %struct.BIT_DStream_t, ptr %13, i32 0, i32 2
+  %15 = load ptr, ptr %14, align 8, !tbaa !42
+  %16 = load ptr, ptr %3, align 8, !tbaa !13
+  %17 = getelementptr inbounds nuw %struct.BIT_DStream_t, ptr %16, i32 0, i32 4
+  %18 = load ptr, ptr %17, align 8, !tbaa !41
+  %19 = icmp uge ptr %15, %18
+  br i1 %19, label %20, label %23
+
+20:                                               ; preds = %12
+  %21 = load ptr, ptr %3, align 8, !tbaa !13
+  %22 = call i32 @BIT_reloadDStreamFast(ptr noundef %21)
+  store i32 %22, ptr %2, align 4
+  br label %87
+
+23:                                               ; preds = %12
+  %24 = load ptr, ptr %3, align 8, !tbaa !13
+  %25 = getelementptr inbounds nuw %struct.BIT_DStream_t, ptr %24, i32 0, i32 2
+  %26 = load ptr, ptr %25, align 8, !tbaa !42
+  %27 = load ptr, ptr %3, align 8, !tbaa !13
+  %28 = getelementptr inbounds nuw %struct.BIT_DStream_t, ptr %27, i32 0, i32 3
+  %29 = load ptr, ptr %28, align 8, !tbaa !39
+  %30 = icmp eq ptr %26, %29
+  br i1 %30, label %31, label %39
+
+31:                                               ; preds = %23
+  %32 = load ptr, ptr %3, align 8, !tbaa !13
+  %33 = getelementptr inbounds nuw %struct.BIT_DStream_t, ptr %32, i32 0, i32 1
+  %34 = load i32, ptr %33, align 8, !tbaa !44
+  %35 = zext i32 %34 to i64
+  %36 = icmp ult i64 %35, 64
+  br i1 %36, label %37, label %38
+
+37:                                               ; preds = %31
+  store i32 1, ptr %2, align 4
+  br label %87
+
+38:                                               ; preds = %31
+  store i32 2, ptr %2, align 4
+  br label %87
+
+39:                                               ; preds = %23
+  call void @llvm.lifetime.start.p0(i64 4, ptr %4) #9
+  %40 = load ptr, ptr %3, align 8, !tbaa !13
+  %41 = getelementptr inbounds nuw %struct.BIT_DStream_t, ptr %40, i32 0, i32 1
+  %42 = load i32, ptr %41, align 8, !tbaa !44
+  %43 = lshr i32 %42, 3
+  store i32 %43, ptr %4, align 4, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #9
+  store i32 0, ptr %5, align 4, !tbaa !11
+  %44 = load ptr, ptr %3, align 8, !tbaa !13
+  %45 = getelementptr inbounds nuw %struct.BIT_DStream_t, ptr %44, i32 0, i32 2
+  %46 = load ptr, ptr %45, align 8, !tbaa !42
+  %47 = load i32, ptr %4, align 4, !tbaa !11
+  %48 = zext i32 %47 to i64
+  %49 = sub i64 0, %48
+  %50 = getelementptr inbounds i8, ptr %46, i64 %49
+  %51 = load ptr, ptr %3, align 8, !tbaa !13
+  %52 = getelementptr inbounds nuw %struct.BIT_DStream_t, ptr %51, i32 0, i32 3
+  %53 = load ptr, ptr %52, align 8, !tbaa !39
+  %54 = icmp ult ptr %50, %53
+  br i1 %54, label %55, label %66
+
+55:                                               ; preds = %39
+  %56 = load ptr, ptr %3, align 8, !tbaa !13
+  %57 = getelementptr inbounds nuw %struct.BIT_DStream_t, ptr %56, i32 0, i32 2
+  %58 = load ptr, ptr %57, align 8, !tbaa !42
+  %59 = load ptr, ptr %3, align 8, !tbaa !13
+  %60 = getelementptr inbounds nuw %struct.BIT_DStream_t, ptr %59, i32 0, i32 3
+  %61 = load ptr, ptr %60, align 8, !tbaa !39
+  %62 = ptrtoint ptr %58 to i64
+  %63 = ptrtoint ptr %61 to i64
+  %64 = sub i64 %62, %63
+  %65 = trunc i64 %64 to i32
+  store i32 %65, ptr %4, align 4, !tbaa !11
+  store i32 1, ptr %5, align 4, !tbaa !11
+  br label %66
+
+66:                                               ; preds = %55, %39
+  %67 = load i32, ptr %4, align 4, !tbaa !11
+  %68 = load ptr, ptr %3, align 8, !tbaa !13
+  %69 = getelementptr inbounds nuw %struct.BIT_DStream_t, ptr %68, i32 0, i32 2
+  %70 = load ptr, ptr %69, align 8, !tbaa !42
+  %71 = zext i32 %67 to i64
+  %72 = sub i64 0, %71
+  %73 = getelementptr inbounds i8, ptr %70, i64 %72
+  store ptr %73, ptr %69, align 8, !tbaa !42
+  %74 = load i32, ptr %4, align 4, !tbaa !11
+  %75 = mul i32 %74, 8
+  %76 = load ptr, ptr %3, align 8, !tbaa !13
+  %77 = getelementptr inbounds nuw %struct.BIT_DStream_t, ptr %76, i32 0, i32 1
+  %78 = load i32, ptr %77, align 8, !tbaa !44
+  %79 = sub i32 %78, %75
+  store i32 %79, ptr %77, align 8, !tbaa !44
+  %80 = load ptr, ptr %3, align 8, !tbaa !13
+  %81 = getelementptr inbounds nuw %struct.BIT_DStream_t, ptr %80, i32 0, i32 2
+  %82 = load ptr, ptr %81, align 8, !tbaa !42
+  %83 = call i64 @MEM_readLEST(ptr noundef %82)
+  %84 = load ptr, ptr %3, align 8, !tbaa !13
+  %85 = getelementptr inbounds nuw %struct.BIT_DStream_t, ptr %84, i32 0, i32 0
+  store i64 %83, ptr %85, align 8, !tbaa !43
+  %86 = load i32, ptr %5, align 4, !tbaa !11
+  store i32 %86, ptr %2, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %4) #9
+  br label %87
+
+87:                                               ; preds = %66, %38, %37, %20, %11
+  %88 = load i32, ptr %2, align 4
+  ret i32 %88
+}
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal zeroext i8 @FSE_decodeSymbolFast(ptr noundef %0, ptr noundef %1) #3 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca %struct.FSE_decode_t, align 2
   %6 = alloca i32, align 4
   %7 = alloca i8, align 1
   %8 = alloca i64, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  %9 = load ptr, ptr %3, align 8
-  %10 = getelementptr inbounds %struct.FSE_DState_t, ptr %9, i32 0, i32 1
-  %11 = load ptr, ptr %10, align 8
-  %12 = load ptr, ptr %3, align 8
-  %13 = getelementptr inbounds %struct.FSE_DState_t, ptr %12, i32 0, i32 0
-  %14 = load i64, ptr %13, align 8
-  %15 = getelementptr inbounds %struct.FSE_decode_t, ptr %11, i64 %14
-  call void @llvm.memcpy.p0.p0.i64(ptr align 2 %5, ptr align 2 %15, i64 4, i1 false)
-  %16 = getelementptr inbounds %struct.FSE_decode_t, ptr %5, i32 0, i32 2
-  %17 = load i8, ptr %16, align 1
+  store ptr %0, ptr %3, align 8, !tbaa !13
+  store ptr %1, ptr %4, align 8, !tbaa !13
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #9
+  %9 = load ptr, ptr %3, align 8, !tbaa !13
+  %10 = getelementptr inbounds nuw %struct.FSE_DState_t, ptr %9, i32 0, i32 1
+  %11 = load ptr, ptr %10, align 8, !tbaa !47
+  %12 = load ptr, ptr %3, align 8, !tbaa !13
+  %13 = getelementptr inbounds nuw %struct.FSE_DState_t, ptr %12, i32 0, i32 0
+  %14 = load i64, ptr %13, align 8, !tbaa !45
+  %15 = getelementptr inbounds nuw %struct.FSE_decode_t, ptr %11, i64 %14
+  call void @llvm.memcpy.p0.p0.i64(ptr align 2 %5, ptr align 2 %15, i64 4, i1 false), !tbaa.struct !48
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #9
+  %16 = getelementptr inbounds nuw %struct.FSE_decode_t, ptr %5, i32 0, i32 2
+  %17 = load i8, ptr %16, align 1, !tbaa !35
   %18 = zext i8 %17 to i32
-  store i32 %18, ptr %6, align 4
-  %19 = getelementptr inbounds %struct.FSE_decode_t, ptr %5, i32 0, i32 1
-  %20 = load i8, ptr %19, align 2
-  store i8 %20, ptr %7, align 1
-  %21 = load ptr, ptr %4, align 8
-  %22 = load i32, ptr %6, align 4
+  store i32 %18, ptr %6, align 4, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 1, ptr %7) #9
+  %19 = getelementptr inbounds nuw %struct.FSE_decode_t, ptr %5, i32 0, i32 1
+  %20 = load i8, ptr %19, align 2, !tbaa !23
+  store i8 %20, ptr %7, align 1, !tbaa !29
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #9
+  %21 = load ptr, ptr %4, align 8, !tbaa !13
+  %22 = load i32, ptr %6, align 4, !tbaa !11
   %23 = call i64 @BIT_readBitsFast(ptr noundef %21, i32 noundef %22)
-  store i64 %23, ptr %8, align 8
-  %24 = getelementptr inbounds %struct.FSE_decode_t, ptr %5, i32 0, i32 0
-  %25 = load i16, ptr %24, align 2
+  store i64 %23, ptr %8, align 8, !tbaa !14
+  %24 = getelementptr inbounds nuw %struct.FSE_decode_t, ptr %5, i32 0, i32 0
+  %25 = load i16, ptr %24, align 2, !tbaa !36
   %26 = zext i16 %25 to i64
-  %27 = load i64, ptr %8, align 8
+  %27 = load i64, ptr %8, align 8, !tbaa !14
   %28 = add i64 %26, %27
-  %29 = load ptr, ptr %3, align 8
-  %30 = getelementptr inbounds %struct.FSE_DState_t, ptr %29, i32 0, i32 0
-  store i64 %28, ptr %30, align 8
-  %31 = load i8, ptr %7, align 1
+  %29 = load ptr, ptr %3, align 8, !tbaa !13
+  %30 = getelementptr inbounds nuw %struct.FSE_DState_t, ptr %29, i32 0, i32 0
+  store i64 %28, ptr %30, align 8, !tbaa !45
+  %31 = load i8, ptr %7, align 1, !tbaa !29
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #9
+  call void @llvm.lifetime.end.p0(i64 1, ptr %7) #9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #9
   ret i8 %31
 }
 
-; Function Attrs: nounwind uwtable
-define internal zeroext i8 @FSE_decodeSymbol(ptr noundef %0, ptr noundef %1) #0 {
-  %3 = alloca i64, align 8
-  %4 = alloca i32, align 4
-  %5 = alloca i32, align 4
+; Function Attrs: inlinehint nounwind uwtable
+define internal zeroext i8 @FSE_decodeSymbol(ptr noundef %0, ptr noundef %1) #3 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca %struct.FSE_decode_t, align 2
   %6 = alloca i32, align 4
-  %7 = alloca ptr, align 8
-  %8 = alloca i32, align 4
-  %9 = alloca ptr, align 8
-  %10 = alloca i32, align 4
-  %11 = alloca ptr, align 8
-  %12 = alloca i32, align 4
-  %13 = alloca i64, align 8
-  %14 = alloca ptr, align 8
-  %15 = alloca ptr, align 8
-  %16 = alloca %struct.FSE_decode_t, align 2
-  %17 = alloca i32, align 4
-  %18 = alloca i8, align 1
-  %19 = alloca i64, align 8
-  store ptr %0, ptr %14, align 8
-  store ptr %1, ptr %15, align 8
-  %20 = load ptr, ptr %14, align 8
-  %21 = getelementptr inbounds %struct.FSE_DState_t, ptr %20, i32 0, i32 1
-  %22 = load ptr, ptr %21, align 8
-  %23 = load ptr, ptr %14, align 8
-  %24 = getelementptr inbounds %struct.FSE_DState_t, ptr %23, i32 0, i32 0
-  %25 = load i64, ptr %24, align 8
-  %26 = getelementptr inbounds %struct.FSE_decode_t, ptr %22, i64 %25
-  call void @llvm.memcpy.p0.p0.i64(ptr align 2 %16, ptr align 2 %26, i64 4, i1 false)
-  %27 = getelementptr inbounds %struct.FSE_decode_t, ptr %16, i32 0, i32 2
-  %28 = load i8, ptr %27, align 1
-  %29 = zext i8 %28 to i32
-  store i32 %29, ptr %17, align 4
-  %30 = getelementptr inbounds %struct.FSE_decode_t, ptr %16, i32 0, i32 1
-  %31 = load i8, ptr %30, align 2
-  store i8 %31, ptr %18, align 1
-  %32 = load ptr, ptr %15, align 8
-  %33 = load i32, ptr %17, align 4
-  store ptr %32, ptr %11, align 8
-  store i32 %33, ptr %12, align 4
-  %34 = load ptr, ptr %11, align 8
-  %35 = load i32, ptr %12, align 4
-  store ptr %34, ptr %9, align 8
-  store i32 %35, ptr %10, align 4
-  %36 = load ptr, ptr %9, align 8
-  %37 = load i64, ptr %36, align 8
-  %38 = load ptr, ptr %9, align 8
-  %39 = getelementptr inbounds %struct.BIT_DStream_t, ptr %38, i32 0, i32 1
-  %40 = load i32, ptr %39, align 8
-  %41 = zext i32 %40 to i64
-  %42 = sub i64 64, %41
-  %43 = load i32, ptr %10, align 4
-  %44 = zext i32 %43 to i64
-  %45 = sub i64 %42, %44
-  %46 = trunc i64 %45 to i32
-  %47 = load i32, ptr %10, align 4
-  store i64 %37, ptr %3, align 8
-  store i32 %46, ptr %4, align 4
-  store i32 %47, ptr %5, align 4
-  store i32 63, ptr %6, align 4
-  %48 = load i64, ptr %3, align 8
-  %49 = load i32, ptr %4, align 4
-  %50 = and i32 %49, 63
-  %51 = zext i32 %50 to i64
-  %52 = lshr i64 %48, %51
-  %53 = load i32, ptr %5, align 4
-  %54 = zext i32 %53 to i64
-  %55 = shl i64 1, %54
-  %56 = sub i64 %55, 1
-  %57 = and i64 %52, %56
-  store i64 %57, ptr %13, align 8
-  %58 = load ptr, ptr %11, align 8
-  %59 = load i32, ptr %12, align 4
-  store ptr %58, ptr %7, align 8
-  store i32 %59, ptr %8, align 4
-  %60 = load i32, ptr %8, align 4
-  %61 = load ptr, ptr %7, align 8
-  %62 = getelementptr inbounds %struct.BIT_DStream_t, ptr %61, i32 0, i32 1
-  %63 = load i32, ptr %62, align 8
-  %64 = add i32 %63, %60
-  store i32 %64, ptr %62, align 8
-  %65 = load i64, ptr %13, align 8
-  store i64 %65, ptr %19, align 8
-  %66 = getelementptr inbounds %struct.FSE_decode_t, ptr %16, i32 0, i32 0
-  %67 = load i16, ptr %66, align 2
-  %68 = zext i16 %67 to i64
-  %69 = load i64, ptr %19, align 8
-  %70 = add i64 %68, %69
-  %71 = load ptr, ptr %14, align 8
-  %72 = getelementptr inbounds %struct.FSE_DState_t, ptr %71, i32 0, i32 0
-  store i64 %70, ptr %72, align 8
-  %73 = load i8, ptr %18, align 1
-  ret i8 %73
+  %7 = alloca i8, align 1
+  %8 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !13
+  store ptr %1, ptr %4, align 8, !tbaa !13
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #9
+  %9 = load ptr, ptr %3, align 8, !tbaa !13
+  %10 = getelementptr inbounds nuw %struct.FSE_DState_t, ptr %9, i32 0, i32 1
+  %11 = load ptr, ptr %10, align 8, !tbaa !47
+  %12 = load ptr, ptr %3, align 8, !tbaa !13
+  %13 = getelementptr inbounds nuw %struct.FSE_DState_t, ptr %12, i32 0, i32 0
+  %14 = load i64, ptr %13, align 8, !tbaa !45
+  %15 = getelementptr inbounds nuw %struct.FSE_decode_t, ptr %11, i64 %14
+  call void @llvm.memcpy.p0.p0.i64(ptr align 2 %5, ptr align 2 %15, i64 4, i1 false), !tbaa.struct !48
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #9
+  %16 = getelementptr inbounds nuw %struct.FSE_decode_t, ptr %5, i32 0, i32 2
+  %17 = load i8, ptr %16, align 1, !tbaa !35
+  %18 = zext i8 %17 to i32
+  store i32 %18, ptr %6, align 4, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 1, ptr %7) #9
+  %19 = getelementptr inbounds nuw %struct.FSE_decode_t, ptr %5, i32 0, i32 1
+  %20 = load i8, ptr %19, align 2, !tbaa !23
+  store i8 %20, ptr %7, align 1, !tbaa !29
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #9
+  %21 = load ptr, ptr %4, align 8, !tbaa !13
+  %22 = load i32, ptr %6, align 4, !tbaa !11
+  %23 = call i64 @BIT_readBits(ptr noundef %21, i32 noundef %22)
+  store i64 %23, ptr %8, align 8, !tbaa !14
+  %24 = getelementptr inbounds nuw %struct.FSE_decode_t, ptr %5, i32 0, i32 0
+  %25 = load i16, ptr %24, align 2, !tbaa !36
+  %26 = zext i16 %25 to i64
+  %27 = load i64, ptr %8, align 8, !tbaa !14
+  %28 = add i64 %26, %27
+  %29 = load ptr, ptr %3, align 8, !tbaa !13
+  %30 = getelementptr inbounds nuw %struct.FSE_DState_t, ptr %29, i32 0, i32 0
+  store i64 %28, ptr %30, align 8, !tbaa !45
+  %31 = load i8, ptr %7, align 1, !tbaa !29
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #9
+  call void @llvm.lifetime.end.p0(i64 1, ptr %7) #9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #9
+  ret i8 %31
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
-; Function Attrs: nounwind uwtable
-define internal i64 @MEM_readLEST(ptr noundef %0) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal i64 @MEM_readLEST(ptr noundef %0) #3 {
   %2 = alloca i64, align 8
   %3 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !13
   %4 = call i32 @MEM_32bits()
   %5 = icmp ne i32 %4, 0
   br i1 %5, label %6, label %10
 
 6:                                                ; preds = %1
-  %7 = load ptr, ptr %3, align 8
+  %7 = load ptr, ptr %3, align 8, !tbaa !13
   %8 = call i32 @MEM_readLE32(ptr noundef %7)
   %9 = zext i32 %8 to i64
   store i64 %9, ptr %2, align 8
   br label %13
 
 10:                                               ; preds = %1
-  %11 = load ptr, ptr %3, align 8
+  %11 = load ptr, ptr %3, align 8, !tbaa !13
   %12 = call i64 @MEM_readLE64(ptr noundef %11)
   store i64 %12, ptr %2, align 8
   br label %13
@@ -2762,28 +1903,28 @@ define internal i64 @MEM_readLEST(ptr noundef %0) #0 {
   ret i64 %14
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @MEM_32bits() #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal i32 @MEM_32bits() #3 {
   ret i32 0
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @MEM_readLE32(ptr noundef %0) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal i32 @MEM_readLE32(ptr noundef %0) #3 {
   %2 = alloca i32, align 4
   %3 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !13
   %4 = call i32 @MEM_isLittleEndian()
   %5 = icmp ne i32 %4, 0
   br i1 %5, label %6, label %9
 
 6:                                                ; preds = %1
-  %7 = load ptr, ptr %3, align 8
+  %7 = load ptr, ptr %3, align 8, !tbaa !13
   %8 = call i32 @MEM_read32(ptr noundef %7)
   store i32 %8, ptr %2, align 4
   br label %13
 
 9:                                                ; preds = %1
-  %10 = load ptr, ptr %3, align 8
+  %10 = load ptr, ptr %3, align 8, !tbaa !13
   %11 = call i32 @MEM_read32(ptr noundef %10)
   %12 = call i32 @MEM_swap32(i32 noundef %11)
   store i32 %12, ptr %2, align 4
@@ -2794,23 +1935,23 @@ define internal i32 @MEM_readLE32(ptr noundef %0) #0 {
   ret i32 %14
 }
 
-; Function Attrs: nounwind uwtable
-define internal i64 @MEM_readLE64(ptr noundef %0) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal i64 @MEM_readLE64(ptr noundef %0) #3 {
   %2 = alloca i64, align 8
   %3 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !13
   %4 = call i32 @MEM_isLittleEndian()
   %5 = icmp ne i32 %4, 0
   br i1 %5, label %6, label %9
 
 6:                                                ; preds = %1
-  %7 = load ptr, ptr %3, align 8
+  %7 = load ptr, ptr %3, align 8, !tbaa !13
   %8 = call i64 @MEM_read64(ptr noundef %7)
   store i64 %8, ptr %2, align 8
   br label %13
 
 9:                                                ; preds = %1
-  %10 = load ptr, ptr %3, align 8
+  %10 = load ptr, ptr %3, align 8, !tbaa !13
   %11 = call i64 @MEM_read64(ptr noundef %10)
   %12 = call i64 @MEM_swap64(i64 noundef %11)
   store i64 %12, ptr %2, align 8
@@ -2821,180 +1962,299 @@ define internal i64 @MEM_readLE64(ptr noundef %0) #0 {
   ret i64 %14
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @MEM_isLittleEndian() #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal i32 @MEM_isLittleEndian() #3 {
   ret i32 1
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @MEM_read32(ptr noundef %0) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal i32 @MEM_read32(ptr noundef %0) #3 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  %4 = load i32, ptr %3, align 1
+  store ptr %0, ptr %2, align 8, !tbaa !13
+  %3 = load ptr, ptr %2, align 8, !tbaa !13
+  %4 = load i32, ptr %3, align 1, !tbaa !11
   ret i32 %4
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @MEM_swap32(i32 noundef %0) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal i32 @MEM_swap32(i32 noundef %0) #3 {
   %2 = alloca i32, align 4
-  store i32 %0, ptr %2, align 4
-  %3 = load i32, ptr %2, align 4
+  store i32 %0, ptr %2, align 4, !tbaa !11
+  %3 = load i32, ptr %2, align 4, !tbaa !11
   %4 = call i32 @llvm.bswap.i32(i32 %3)
   ret i32 %4
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.bswap.i32(i32) #2
+declare i32 @llvm.bswap.i32(i32) #4
 
-; Function Attrs: nounwind uwtable
-define internal i64 @MEM_read64(ptr noundef %0) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal i64 @MEM_read64(ptr noundef %0) #3 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  %4 = load i64, ptr %3, align 1
+  store ptr %0, ptr %2, align 8, !tbaa !13
+  %3 = load ptr, ptr %2, align 8, !tbaa !13
+  %4 = load i64, ptr %3, align 1, !tbaa !14
   ret i64 %4
 }
 
-; Function Attrs: nounwind uwtable
-define internal i64 @MEM_swap64(i64 noundef %0) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal i64 @MEM_swap64(i64 noundef %0) #3 {
   %2 = alloca i64, align 8
-  store i64 %0, ptr %2, align 8
-  %3 = load i64, ptr %2, align 8
+  store i64 %0, ptr %2, align 8, !tbaa !14
+  %3 = load i64, ptr %2, align 8, !tbaa !14
   %4 = call i64 @llvm.bswap.i64(i64 %3)
   ret i64 %4
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.bswap.i64(i64) #2
+declare i64 @llvm.bswap.i64(i64) #4
 
-; Function Attrs: nounwind uwtable
-define internal i32 @BIT_reloadDStreamFast(ptr noundef %0) #0 {
-  %2 = alloca i32, align 4
-  %3 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds %struct.BIT_DStream_t, ptr %4, i32 0, i32 2
-  %6 = load ptr, ptr %5, align 8
-  %7 = load ptr, ptr %3, align 8
-  %8 = getelementptr inbounds %struct.BIT_DStream_t, ptr %7, i32 0, i32 4
-  %9 = load ptr, ptr %8, align 8
-  %10 = icmp ult ptr %6, %9
-  %11 = zext i1 %10 to i32
-  %12 = sext i32 %11 to i64
-  %13 = icmp ne i64 %12, 0
-  br i1 %13, label %14, label %15
-
-14:                                               ; preds = %1
-  store i32 3, ptr %2, align 4
-  br label %36
-
-15:                                               ; preds = %1
-  %16 = load ptr, ptr %3, align 8
-  %17 = getelementptr inbounds %struct.BIT_DStream_t, ptr %16, i32 0, i32 1
-  %18 = load i32, ptr %17, align 8
-  %19 = lshr i32 %18, 3
-  %20 = load ptr, ptr %3, align 8
-  %21 = getelementptr inbounds %struct.BIT_DStream_t, ptr %20, i32 0, i32 2
-  %22 = load ptr, ptr %21, align 8
-  %23 = zext i32 %19 to i64
-  %24 = sub i64 0, %23
-  %25 = getelementptr inbounds i8, ptr %22, i64 %24
-  store ptr %25, ptr %21, align 8
-  %26 = load ptr, ptr %3, align 8
-  %27 = getelementptr inbounds %struct.BIT_DStream_t, ptr %26, i32 0, i32 1
-  %28 = load i32, ptr %27, align 8
-  %29 = and i32 %28, 7
-  store i32 %29, ptr %27, align 8
-  %30 = load ptr, ptr %3, align 8
-  %31 = getelementptr inbounds %struct.BIT_DStream_t, ptr %30, i32 0, i32 2
-  %32 = load ptr, ptr %31, align 8
-  %33 = call i64 @MEM_readLEST(ptr noundef %32)
-  %34 = load ptr, ptr %3, align 8
-  %35 = getelementptr inbounds %struct.BIT_DStream_t, ptr %34, i32 0, i32 0
-  store i64 %33, ptr %35, align 8
-  store i32 0, ptr %2, align 4
-  br label %36
-
-36:                                               ; preds = %15, %14
-  %37 = load i32, ptr %2, align 4
-  ret i32 %37
-}
-
-; Function Attrs: nounwind uwtable
-define internal i64 @BIT_readBitsFast(ptr noundef %0, i32 noundef %1) #0 {
+; Function Attrs: alwaysinline nounwind uwtable
+define internal i64 @BIT_readBits(ptr noundef %0, i32 noundef %1) #5 {
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
-  %5 = alloca ptr, align 8
-  %6 = alloca i32, align 4
-  %7 = alloca i64, align 8
-  store ptr %0, ptr %5, align 8
-  store i32 %1, ptr %6, align 4
-  %8 = load ptr, ptr %5, align 8
-  %9 = load i32, ptr %6, align 4
-  %10 = call i64 @BIT_lookBitsFast(ptr noundef %8, i32 noundef %9)
-  store i64 %10, ptr %7, align 8
-  %11 = load ptr, ptr %5, align 8
-  %12 = load i32, ptr %6, align 4
-  store ptr %11, ptr %3, align 8
-  store i32 %12, ptr %4, align 4
-  %13 = load i32, ptr %4, align 4
-  %14 = load ptr, ptr %3, align 8
-  %15 = getelementptr inbounds %struct.BIT_DStream_t, ptr %14, i32 0, i32 1
-  %16 = load i32, ptr %15, align 8
-  %17 = add i32 %16, %13
-  store i32 %17, ptr %15, align 8
-  %18 = load i64, ptr %7, align 8
+  %5 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !13
+  store i32 %1, ptr %4, align 4, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #9
+  %6 = load ptr, ptr %3, align 8, !tbaa !13
+  %7 = load i32, ptr %4, align 4, !tbaa !11
+  %8 = call i64 @BIT_lookBits(ptr noundef %6, i32 noundef %7)
+  store i64 %8, ptr %5, align 8, !tbaa !14
+  %9 = load ptr, ptr %3, align 8, !tbaa !13
+  %10 = load i32, ptr %4, align 4, !tbaa !11
+  call void @BIT_skipBits(ptr noundef %9, i32 noundef %10)
+  %11 = load i64, ptr %5, align 8, !tbaa !14
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #9
+  ret i64 %11
+}
+
+; Function Attrs: alwaysinline nounwind uwtable
+define internal i64 @BIT_lookBits(ptr noundef %0, i32 noundef %1) #5 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !13
+  store i32 %1, ptr %4, align 4, !tbaa !11
+  %5 = load ptr, ptr %3, align 8, !tbaa !13
+  %6 = getelementptr inbounds nuw %struct.BIT_DStream_t, ptr %5, i32 0, i32 0
+  %7 = load i64, ptr %6, align 8, !tbaa !43
+  %8 = load ptr, ptr %3, align 8, !tbaa !13
+  %9 = getelementptr inbounds nuw %struct.BIT_DStream_t, ptr %8, i32 0, i32 1
+  %10 = load i32, ptr %9, align 8, !tbaa !44
+  %11 = zext i32 %10 to i64
+  %12 = sub i64 64, %11
+  %13 = load i32, ptr %4, align 4, !tbaa !11
+  %14 = zext i32 %13 to i64
+  %15 = sub i64 %12, %14
+  %16 = trunc i64 %15 to i32
+  %17 = load i32, ptr %4, align 4, !tbaa !11
+  %18 = call i64 @BIT_getMiddleBits(i64 noundef %7, i32 noundef %16, i32 noundef %17)
   ret i64 %18
 }
 
-; Function Attrs: nounwind uwtable
-define internal i64 @BIT_lookBitsFast(ptr noundef %0, i32 noundef %1) #0 {
+; Function Attrs: alwaysinline nounwind uwtable
+define internal void @BIT_skipBits(ptr noundef %0, i32 noundef %1) #5 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !13
+  store i32 %1, ptr %4, align 4, !tbaa !11
+  %5 = load i32, ptr %4, align 4, !tbaa !11
+  %6 = load ptr, ptr %3, align 8, !tbaa !13
+  %7 = getelementptr inbounds nuw %struct.BIT_DStream_t, ptr %6, i32 0, i32 1
+  %8 = load i32, ptr %7, align 8, !tbaa !44
+  %9 = add i32 %8, %5
+  store i32 %9, ptr %7, align 8, !tbaa !44
+  ret void
+}
+
+; Function Attrs: alwaysinline nounwind uwtable
+define internal i64 @BIT_getMiddleBits(i64 noundef %0, i32 noundef %1, i32 noundef %2) #5 {
+  %4 = alloca i64, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca i32, align 4
+  %7 = alloca i32, align 4
+  store i64 %0, ptr %4, align 8, !tbaa !14
+  store i32 %1, ptr %5, align 4, !tbaa !11
+  store i32 %2, ptr %6, align 4, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #9
+  store i32 63, ptr %7, align 4, !tbaa !11
+  %8 = load i64, ptr %4, align 8, !tbaa !14
+  %9 = load i32, ptr %5, align 4, !tbaa !11
+  %10 = and i32 %9, 63
+  %11 = zext i32 %10 to i64
+  %12 = lshr i64 %8, %11
+  %13 = load i32, ptr %6, align 4, !tbaa !11
+  %14 = zext i32 %13 to i64
+  %15 = shl i64 1, %14
+  %16 = sub i64 %15, 1
+  %17 = and i64 %12, %16
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #9
+  ret i64 %17
+}
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal i32 @BIT_reloadDStreamFast(ptr noundef %0) #3 {
+  %2 = alloca i32, align 4
+  %3 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !13
+  %4 = load ptr, ptr %3, align 8, !tbaa !13
+  %5 = getelementptr inbounds nuw %struct.BIT_DStream_t, ptr %4, i32 0, i32 2
+  %6 = load ptr, ptr %5, align 8, !tbaa !42
+  %7 = load ptr, ptr %3, align 8, !tbaa !13
+  %8 = getelementptr inbounds nuw %struct.BIT_DStream_t, ptr %7, i32 0, i32 4
+  %9 = load ptr, ptr %8, align 8, !tbaa !41
+  %10 = icmp ult ptr %6, %9
+  %11 = zext i1 %10 to i32
+  %12 = sext i32 %11 to i64
+  %13 = call i64 @llvm.expect.i64(i64 %12, i64 0)
+  %14 = icmp ne i64 %13, 0
+  br i1 %14, label %15, label %16
+
+15:                                               ; preds = %1
+  store i32 3, ptr %2, align 4
+  br label %37
+
+16:                                               ; preds = %1
+  %17 = load ptr, ptr %3, align 8, !tbaa !13
+  %18 = getelementptr inbounds nuw %struct.BIT_DStream_t, ptr %17, i32 0, i32 1
+  %19 = load i32, ptr %18, align 8, !tbaa !44
+  %20 = lshr i32 %19, 3
+  %21 = load ptr, ptr %3, align 8, !tbaa !13
+  %22 = getelementptr inbounds nuw %struct.BIT_DStream_t, ptr %21, i32 0, i32 2
+  %23 = load ptr, ptr %22, align 8, !tbaa !42
+  %24 = zext i32 %20 to i64
+  %25 = sub i64 0, %24
+  %26 = getelementptr inbounds i8, ptr %23, i64 %25
+  store ptr %26, ptr %22, align 8, !tbaa !42
+  %27 = load ptr, ptr %3, align 8, !tbaa !13
+  %28 = getelementptr inbounds nuw %struct.BIT_DStream_t, ptr %27, i32 0, i32 1
+  %29 = load i32, ptr %28, align 8, !tbaa !44
+  %30 = and i32 %29, 7
+  store i32 %30, ptr %28, align 8, !tbaa !44
+  %31 = load ptr, ptr %3, align 8, !tbaa !13
+  %32 = getelementptr inbounds nuw %struct.BIT_DStream_t, ptr %31, i32 0, i32 2
+  %33 = load ptr, ptr %32, align 8, !tbaa !42
+  %34 = call i64 @MEM_readLEST(ptr noundef %33)
+  %35 = load ptr, ptr %3, align 8, !tbaa !13
+  %36 = getelementptr inbounds nuw %struct.BIT_DStream_t, ptr %35, i32 0, i32 0
+  store i64 %34, ptr %36, align 8, !tbaa !43
+  store i32 0, ptr %2, align 4
+  br label %37
+
+37:                                               ; preds = %16, %15
+  %38 = load i32, ptr %2, align 4
+  ret i32 %38
+}
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(none)
+declare i64 @llvm.expect.i64(i64, i64) #8
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal i64 @BIT_readBitsFast(ptr noundef %0, i32 noundef %1) #3 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  %5 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !13
+  store i32 %1, ptr %4, align 4, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #9
+  %6 = load ptr, ptr %3, align 8, !tbaa !13
+  %7 = load i32, ptr %4, align 4, !tbaa !11
+  %8 = call i64 @BIT_lookBitsFast(ptr noundef %6, i32 noundef %7)
+  store i64 %8, ptr %5, align 8, !tbaa !14
+  %9 = load ptr, ptr %3, align 8, !tbaa !13
+  %10 = load i32, ptr %4, align 4, !tbaa !11
+  call void @BIT_skipBits(ptr noundef %9, i32 noundef %10)
+  %11 = load i64, ptr %5, align 8, !tbaa !14
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #9
+  ret i64 %11
+}
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal i64 @BIT_lookBitsFast(ptr noundef %0, i32 noundef %1) #3 {
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
-  store ptr %0, ptr %3, align 8
-  store i32 %1, ptr %4, align 4
-  store i32 63, ptr %5, align 4
-  %6 = load ptr, ptr %3, align 8
-  %7 = getelementptr inbounds %struct.BIT_DStream_t, ptr %6, i32 0, i32 0
-  %8 = load i64, ptr %7, align 8
-  %9 = load ptr, ptr %3, align 8
-  %10 = getelementptr inbounds %struct.BIT_DStream_t, ptr %9, i32 0, i32 1
-  %11 = load i32, ptr %10, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !13
+  store i32 %1, ptr %4, align 4, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #9
+  store i32 63, ptr %5, align 4, !tbaa !11
+  %6 = load ptr, ptr %3, align 8, !tbaa !13
+  %7 = getelementptr inbounds nuw %struct.BIT_DStream_t, ptr %6, i32 0, i32 0
+  %8 = load i64, ptr %7, align 8, !tbaa !43
+  %9 = load ptr, ptr %3, align 8, !tbaa !13
+  %10 = getelementptr inbounds nuw %struct.BIT_DStream_t, ptr %9, i32 0, i32 1
+  %11 = load i32, ptr %10, align 8, !tbaa !44
   %12 = and i32 %11, 63
   %13 = zext i32 %12 to i64
   %14 = shl i64 %8, %13
-  %15 = load i32, ptr %4, align 4
+  %15 = load i32, ptr %4, align 4, !tbaa !11
   %16 = sub i32 64, %15
   %17 = and i32 %16, 63
   %18 = zext i32 %17 to i64
   %19 = lshr i64 %14, %18
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #9
   ret i64 %19
 }
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #3 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #5 = { nounwind }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { inlinehint nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #5 = { alwaysinline nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #8 = { nocallback nofree nosync nounwind willreturn memory(none) }
+attributes #9 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+!llvm.module.flags = !{!0, !1, !2, !3}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
-!9 = distinct !{!9, !6}
-!10 = distinct !{!10, !6}
-!11 = distinct !{!11, !6}
-!12 = distinct !{!12, !6}
-!13 = distinct !{!13, !6}
-!14 = distinct !{!14, !6}
-!15 = distinct !{!15, !6}
+!4 = !{!5, !5, i64 0}
+!5 = !{!"p1 int", !6, i64 0}
+!6 = !{!"any pointer", !7, i64 0}
+!7 = !{!"omnipotent char", !8, i64 0}
+!8 = !{!"Simple C/C++ TBAA"}
+!9 = !{!10, !10, i64 0}
+!10 = !{!"p1 short", !6, i64 0}
+!11 = !{!12, !12, i64 0}
+!12 = !{!"int", !7, i64 0}
+!13 = !{!6, !6, i64 0}
+!14 = !{!15, !15, i64 0}
+!15 = !{!"long", !7, i64 0}
+!16 = !{!17, !17, i64 0}
+!17 = !{!"p1 omnipotent char", !6, i64 0}
+!18 = !{!19, !20, i64 0}
+!19 = !{!"", !20, i64 0, !20, i64 2}
+!20 = !{!"short", !7, i64 0}
+!21 = !{!19, !20, i64 2}
+!22 = !{!20, !20, i64 0}
+!23 = !{!24, !7, i64 2}
+!24 = !{!"", !20, i64 0, !7, i64 2, !7, i64 3}
+!25 = distinct !{!25, !26}
+!26 = !{!"llvm.loop.mustprogress"}
+!27 = distinct !{!27, !26}
+!28 = distinct !{!28, !26}
+!29 = !{!7, !7, i64 0}
+!30 = distinct !{!30, !26}
+!31 = distinct !{!31, !26}
+!32 = distinct !{!32, !26}
+!33 = distinct !{!33, !26}
+!34 = distinct !{!34, !26}
+!35 = !{!24, !7, i64 3}
+!36 = !{!24, !20, i64 0}
+!37 = distinct !{!37, !26}
+!38 = distinct !{!38, !26}
+!39 = !{!40, !17, i64 24}
+!40 = !{!"", !15, i64 0, !12, i64 8, !17, i64 16, !17, i64 24, !17, i64 32}
+!41 = !{!40, !17, i64 32}
+!42 = !{!40, !17, i64 16}
+!43 = !{!40, !15, i64 0}
+!44 = !{!40, !12, i64 8}
+!45 = !{!46, !15, i64 0}
+!46 = !{!"", !15, i64 0, !6, i64 8}
+!47 = !{!46, !6, i64 8}
+!48 = !{i64 0, i64 2, !22, i64 2, i64 1, !29, i64 3, i64 1, !29}

@@ -1,5 +1,5 @@
-; ModuleID = 'bench/cmake/original/Terminal.c.ll'
-source_filename = "bench/cmake/original/Terminal.c.ll"
+; ModuleID = 'bench/cmake/original/Terminal.ll'
+source_filename = "bench/cmake/original/Terminal.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
@@ -91,12 +91,12 @@ target triple = "x86_64-pc-linux-gnu"
 define dso_local void @cmsysTerminal_cfprintf(i32 noundef %0, ptr noundef captures(none) %1, ptr noundef readonly captures(none) %2, ...) local_unnamed_addr #0 {
   %4 = alloca [1 x %struct.__va_list_tag], align 16
   %5 = and i32 %0, 2048
-  %6 = tail call ptr @getenv(ptr noundef nonnull @.str) #8
+  %6 = tail call ptr @getenv(ptr noundef nonnull @.str) #9
   %.not.i = icmp eq ptr %6, null
   br i1 %.not.i, label %12, label %7
 
 7:                                                ; preds = %3
-  %8 = load i8, ptr %6, align 1
+  %8 = load i8, ptr %6, align 1, !tbaa !4
   switch i8 %8, label %kwsysTerminalStreamIsVT100.exit.thread15 [
     i8 0, label %12
     i8 48, label %.tail.i
@@ -109,89 +109,102 @@ define dso_local void @cmsysTerminal_cfprintf(i32 noundef %0, ptr noundef captur
   br i1 %11, label %12, label %kwsysTerminalStreamIsVT100.exit.thread15
 
 12:                                               ; preds = %.tail.i, %7, %3
-  %13 = tail call ptr @getenv(ptr noundef nonnull @.str.2) #8
-  %.not27.i = icmp eq ptr %13, null
-  br i1 %.not27.i, label %.tail42.thread.i, label %sub_043.i
+  %13 = tail call ptr @getenv(ptr noundef nonnull @.str.2) #9
+  %.not37.i = icmp eq ptr %13, null
+  br i1 %.not37.i, label %.tail81.thread.i, label %sub_082.i
 
-sub_043.i:                                        ; preds = %12
+sub_082.i:                                        ; preds = %12
   %14 = load i8, ptr %13, align 1
-  %.not48.i = icmp eq i8 %14, 48
-  br i1 %.not48.i, label %.tail42.i, label %.tail42.thread.i
+  %.not87.i = icmp eq i8 %14, 48
+  br i1 %.not87.i, label %.tail81.i, label %.tail81.thread.i
 
-.tail42.i:                                        ; preds = %sub_043.i
+.tail81.i:                                        ; preds = %sub_082.i
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 1
   %16 = load i8, ptr %15, align 1
   %17 = icmp eq i8 %16, 0
-  br i1 %17, label %.critedge, label %.tail42.thread.i
+  br i1 %17, label %.critedge, label %.tail81.thread.i
 
-.tail42.thread.i:                                 ; preds = %.tail42.i, %sub_043.i, %12
-  %18 = tail call ptr @getenv(ptr noundef nonnull @.str.3) #8
-  %.not28.i = icmp eq ptr %18, null
-  br i1 %.not28.i, label %21, label %19
+.tail81.thread.i:                                 ; preds = %.tail81.i, %sub_082.i, %12
+  %18 = tail call ptr @getenv(ptr noundef nonnull @.str.3) #9
+  %.not38.i = icmp eq ptr %18, null
+  br i1 %.not38.i, label %21, label %19
 
-19:                                               ; preds = %.tail42.thread.i
-  %20 = load i8, ptr %18, align 1
-  %.not29.i = icmp eq i8 %20, 0
-  br i1 %.not29.i, label %21, label %kwsysTerminalStreamIsVT100.exit.thread15
+19:                                               ; preds = %.tail81.thread.i
+  %20 = load i8, ptr %18, align 1, !tbaa !4
+  %.not39.i = icmp eq i8 %20, 0
+  br i1 %.not39.i, label %21, label %kwsysTerminalStreamIsVT100.exit.thread15
 
-21:                                               ; preds = %19, %.tail42.thread.i
-  %22 = tail call ptr @getenv(ptr noundef nonnull @.str.4) #8
-  %.not30.i = icmp eq ptr %22, null
-  br i1 %.not30.i, label %26, label %23
+21:                                               ; preds = %19, %.tail81.thread.i
+  %22 = tail call ptr @getenv(ptr noundef nonnull @.str.4) #9
+  %.not40.i = icmp eq ptr %22, null
+  br i1 %.not40.i, label %26, label %23
 
 23:                                               ; preds = %21
-  %24 = load i8, ptr %22, align 1
+  %24 = load i8, ptr %22, align 1, !tbaa !4
   %25 = icmp eq i8 %24, 116
   br i1 %25, label %.critedge, label %26
 
 26:                                               ; preds = %23, %21
-  %.not31.i = icmp eq i32 %5, 0
-  br i1 %.not31.i, label %27, label %kwsysTerminalStreamIsVT100.exit
+  %.not41.i = icmp eq i32 %5, 0
+  br i1 %.not41.i, label %27, label %kwsysTerminalStreamIsVT100.exit
 
 27:                                               ; preds = %26
-  %28 = tail call ptr @getenv(ptr noundef nonnull @.str.5) #8
-  %.not32.i = icmp eq ptr %28, null
-  br i1 %.not32.i, label %.critedge, label %.preheader.i
+  %28 = tail call ptr @getenv(ptr noundef nonnull @.str.5) #9
+  %.not42.i = icmp eq ptr %28, null
+  br i1 %.not42.i, label %.critedge, label %.preheader.i
 
-29:                                               ; preds = %.preheader.i
-  %30 = getelementptr inbounds nuw i8, ptr %.146.i, i64 8
-  %31 = load ptr, ptr %30, align 8
-  %.not33.i = icmp eq ptr %31, null
-  br i1 %.not33.i, label %.critedge, label %.preheader.i, !llvm.loop !5
+.preheader.i:                                     ; preds = %27, %31
+  %29 = phi ptr [ %33, %31 ], [ @.str.6, %27 ]
+  %.12485.i = phi ptr [ %32, %31 ], [ @kwsysTerminalVT100Names, %27 ]
+  %30 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %28, ptr noundef nonnull dereferenceable(1) %29) #10
+  %.not44.i = icmp eq i32 %30, 0
+  br i1 %.not44.i, label %.critedge.i, label %31
 
-.preheader.i:                                     ; preds = %27, %29
-  %32 = phi ptr [ %31, %29 ], [ @.str.6, %27 ]
-  %.146.i = phi ptr [ %30, %29 ], [ @kwsysTerminalVT100Names, %27 ]
-  %33 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %28, ptr noundef nonnull dereferenceable(1) %32) #9
-  %.not34.i = icmp eq i32 %33, 0
-  br i1 %.not34.i, label %kwsysTerminalStreamIsVT100.exit, label %29
+31:                                               ; preds = %.preheader.i
+  %32 = getelementptr inbounds nuw i8, ptr %.12485.i, i64 8
+  %33 = load ptr, ptr %32, align 8, !tbaa !7
+  %.not43.i = icmp eq ptr %33, null
+  br i1 %.not43.i, label %.critedge.i, label %.preheader.i, !llvm.loop !10
 
-kwsysTerminalStreamIsVT100.exit:                  ; preds = %.preheader.i, %26
-  %34 = tail call i32 @fileno(ptr noundef %1) #8
-  %35 = tail call i32 @isatty(i32 noundef %34) #8
-  %.not37.i.not = icmp eq i32 %35, 0
-  br i1 %.not37.i.not, label %.critedge, label %kwsysTerminalStreamIsVT100.exit.thread15
+.critedge.i:                                      ; preds = %31, %.preheader.i
+  %.124.lcssa.i = phi ptr [ getelementptr inbounds nuw (i8, ptr @kwsysTerminalVT100Names, i64 448), %31 ], [ %.12485.i, %.preheader.i ]
+  %34 = load ptr, ptr %.124.lcssa.i, align 8, !tbaa !7
+  %.not46.not.i = icmp eq ptr %34, null
+  br i1 %.not46.not.i, label %.critedge, label %kwsysTerminalStreamIsVT100.exit
+
+kwsysTerminalStreamIsVT100.exit:                  ; preds = %26, %.critedge.i
+  %35 = tail call i32 @fileno(ptr noundef %1) #9
+  %36 = tail call i32 @isatty(i32 noundef %35) #9
+  %.not47.i.not = icmp eq i32 %36, 0
+  br i1 %.not47.i.not, label %.critedge, label %kwsysTerminalStreamIsVT100.exit.thread15
 
 kwsysTerminalStreamIsVT100.exit.thread15:         ; preds = %7, %19, %.tail.i, %kwsysTerminalStreamIsVT100.exit
   tail call fastcc void @kwsysTerminalSetVT100Color(ptr noundef %1, i32 noundef %0)
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #9
   call void @llvm.va_start.p0(ptr nonnull %4)
-  %36 = call i32 @vfprintf(ptr noundef %1, ptr noundef %2, ptr noundef nonnull %4) #8
+  %37 = call i32 @vfprintf(ptr noundef %1, ptr noundef %2, ptr noundef nonnull %4) #9
   call void @llvm.va_end.p0(ptr nonnull %4)
-  %37 = call i64 @fwrite(ptr nonnull @.str.62, i64 4, i64 1, ptr %1)
-  br label %39
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #9
+  %38 = call i64 @fwrite(ptr nonnull @.str.62, i64 4, i64 1, ptr %1)
+  br label %40
 
-.critedge:                                        ; preds = %29, %27, %23, %.tail42.i, %kwsysTerminalStreamIsVT100.exit
+.critedge:                                        ; preds = %27, %23, %.tail81.i, %.critedge.i, %kwsysTerminalStreamIsVT100.exit
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #9
   call void @llvm.va_start.p0(ptr nonnull %4)
-  %38 = call i32 @vfprintf(ptr noundef %1, ptr noundef %2, ptr noundef nonnull %4) #8
+  %39 = call i32 @vfprintf(ptr noundef %1, ptr noundef %2, ptr noundef nonnull %4) #9
   call void @llvm.va_end.p0(ptr nonnull %4)
-  br label %39
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #9
+  br label %40
 
-39:                                               ; preds = %.critedge, %kwsysTerminalStreamIsVT100.exit.thread15
+40:                                               ; preds = %.critedge, %kwsysTerminalStreamIsVT100.exit.thread15
   ret void
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc void @kwsysTerminalSetVT100Color(ptr noundef captures(none) %0, i32 noundef %1) unnamed_addr #1 {
+define internal fastcc void @kwsysTerminalSetVT100Color(ptr noundef captures(none) %0, i32 noundef %1) unnamed_addr #2 {
   %3 = icmp eq i32 %1, 0
   br i1 %3, label %.sink.split22, label %4
 
@@ -273,47 +286,56 @@ switch.lookup:                                    ; preds = %24
   ret void
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #3
+
 ; Function Attrs: nofree nounwind
-declare noundef i32 @vfprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ptr noundef) local_unnamed_addr #2
+declare noundef i32 @vfprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ptr noundef) local_unnamed_addr #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nofree nounwind memory(read)
-declare noundef ptr @getenv(ptr noundef captures(none)) local_unnamed_addr #3
+declare noundef ptr @getenv(ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #4
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nounwind
-declare i32 @isatty(i32 noundef) local_unnamed_addr #5
+declare i32 @isatty(i32 noundef) local_unnamed_addr #7
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fileno(ptr noundef captures(none)) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start.p0(ptr) #6
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end.p0(ptr) #6
+declare noundef i32 @fileno(ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #7
+declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #8
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { nofree nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nofree nounwind memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #7 = { nofree nounwind }
-attributes #8 = { nounwind }
-attributes #9 = { nounwind willreturn memory(read) }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { nofree nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn }
+attributes #4 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nofree nounwind memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { nofree nounwind }
+attributes #9 = { nounwind }
+attributes #10 = { nounwind willreturn memory(read) }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+!llvm.module.flags = !{!0, !1, !2, !3}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
+!4 = !{!5, !5, i64 0}
+!5 = !{!"omnipotent char", !6, i64 0}
+!6 = !{!"Simple C/C++ TBAA"}
+!7 = !{!8, !8, i64 0}
+!8 = !{!"p1 omnipotent char", !9, i64 0}
+!9 = !{!"any pointer", !5, i64 0}
+!10 = distinct !{!10, !11}
+!11 = !{!"llvm.loop.mustprogress"}

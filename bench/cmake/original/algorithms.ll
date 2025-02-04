@@ -82,8 +82,8 @@ declare void @rhash_sha3_512_init(ptr noundef) #0
 ; Function Attrs: nounwind uwtable
 define dso_local void @rhash_init_algorithms(i32 noundef %0) #1 {
   %2 = alloca i32, align 4
-  store i32 %0, ptr %2, align 4
-  store i32 0, ptr @rhash_uninitialized_algorithms, align 4
+  store i32 %0, ptr %2, align 4, !tbaa !4
+  store i32 0, ptr @rhash_uninitialized_algorithms, align 4, !tbaa !4
   ret void
 }
 
@@ -91,17 +91,17 @@ define dso_local void @rhash_init_algorithms(i32 noundef %0) #1 {
 define dso_local ptr @rhash_info_by_id(i32 noundef %0) #1 {
   %2 = alloca ptr, align 8
   %3 = alloca i32, align 4
-  store i32 %0, ptr %3, align 4
-  %4 = load i32, ptr %3, align 4
+  store i32 %0, ptr %3, align 4, !tbaa !4
+  %4 = load i32, ptr %3, align 4, !tbaa !4
   %5 = and i32 %4, 1023
-  store i32 %5, ptr %3, align 4
-  %6 = load i32, ptr %3, align 4
+  store i32 %5, ptr %3, align 4, !tbaa !4
+  %6 = load i32, ptr %3, align 4, !tbaa !4
   %7 = icmp ne i32 %6, 0
   br i1 %7, label %8, label %14
 
 8:                                                ; preds = %1
-  %9 = load i32, ptr %3, align 4
-  %10 = load i32, ptr %3, align 4
+  %9 = load i32, ptr %3, align 4, !tbaa !4
+  %10 = load i32, ptr %3, align 4, !tbaa !4
   %11 = sub i32 %10, 1
   %12 = and i32 %9, %11
   %13 = icmp ne i32 %12, 0
@@ -112,13 +112,13 @@ define dso_local ptr @rhash_info_by_id(i32 noundef %0) #1 {
   br label %23
 
 15:                                               ; preds = %8
-  %16 = load ptr, ptr @rhash_info_table, align 8
-  %17 = load i32, ptr %3, align 4
+  %16 = load ptr, ptr @rhash_info_table, align 8, !tbaa !8
+  %17 = load i32, ptr %3, align 4, !tbaa !4
   %18 = call i32 @llvm.cttz.i32(i32 %17, i1 true)
   %19 = sext i32 %18 to i64
   %20 = getelementptr inbounds %struct.rhash_hash_info, ptr %16, i64 %19
-  %21 = getelementptr inbounds %struct.rhash_hash_info, ptr %20, i32 0, i32 0
-  %22 = load ptr, ptr %21, align 8
+  %21 = getelementptr inbounds nuw %struct.rhash_hash_info, ptr %20, i32 0, i32 0
+  %22 = load ptr, ptr %21, align 8, !tbaa !11
   store ptr %22, ptr %2, align 8
   br label %23
 
@@ -130,14 +130,24 @@ define dso_local ptr @rhash_info_by_id(i32 noundef %0) #1 {
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.cttz.i32(i32, i1 immarg) #2
 
-attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+!llvm.module.flags = !{!0, !1, !2, !3}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}
+!4 = !{!5, !5, i64 0}
+!5 = !{!"int", !6, i64 0}
+!6 = !{!"omnipotent char", !7, i64 0}
+!7 = !{!"Simple C/C++ TBAA"}
+!8 = !{!9, !9, i64 0}
+!9 = !{!"p1 _ZTS15rhash_hash_info", !10, i64 0}
+!10 = !{!"any pointer", !6, i64 0}
+!11 = !{!12, !13, i64 0}
+!12 = !{!"rhash_hash_info", !13, i64 0, !14, i64 8, !14, i64 16, !10, i64 24, !10, i64 32, !10, i64 40, !10, i64 48}
+!13 = !{!"p1 _ZTS10rhash_info", !10, i64 0}
+!14 = !{!"long", !6, i64 0}

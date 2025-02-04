@@ -1,5 +1,5 @@
-; ModuleID = 'bench/cmake/original/MD5.c.ll'
-source_filename = "bench/cmake/original/MD5.c.ll"
+; ModuleID = 'bench/cmake/original/MD5.ll'
+source_filename = "bench/cmake/original/MD5.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
@@ -12,11 +12,17 @@ define dso_local noalias noundef ptr @cmsysMD5_New() local_unnamed_addr #0 {
   ret ptr %1
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #1
+declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define dso_local void @cmsysMD5_Delete(ptr noundef %0) local_unnamed_addr #2 {
+define dso_local void @cmsysMD5_Delete(ptr noundef %0) local_unnamed_addr #3 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %3, label %2
 
@@ -29,26 +35,26 @@ define dso_local void @cmsysMD5_Delete(ptr noundef %0) local_unnamed_addr #2 {
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #3
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @cmsysMD5_Initialize(ptr noundef writeonly captures(none) initializes((0, 24)) %0) local_unnamed_addr #4 {
+define dso_local void @cmsysMD5_Initialize(ptr noundef writeonly captures(none) initializes((0, 24)) %0) local_unnamed_addr #5 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 0, ptr %2, align 4
-  store i32 0, ptr %0, align 4
+  store i32 0, ptr %2, align 4, !tbaa !4
+  store i32 0, ptr %0, align 4, !tbaa !4
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 1732584193, ptr %3, align 4
+  store i32 1732584193, ptr %3, align 4, !tbaa !4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i32 -271733879, ptr %4, align 4
+  store i32 -271733879, ptr %4, align 4, !tbaa !4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i32 -1732584194, ptr %5, align 4
+  store i32 -1732584194, ptr %5, align 4, !tbaa !4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  store i32 271733878, ptr %6, align 4
+  store i32 271733878, ptr %6, align 4, !tbaa !4
   ret void
 }
 
 ; Function Attrs: nofree nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local void @cmsysMD5_Append(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #5 {
+define dso_local void @cmsysMD5_Append(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #6 {
   %4 = icmp slt i32 %2, 0
   br i1 %4, label %5, label %7
 
@@ -62,7 +68,7 @@ define dso_local void @cmsysMD5_Append(ptr noundef %0, ptr noundef %1, i32 nound
 
 9:                                                ; preds = %7, %5
   %.0 = phi i64 [ %6, %5 ], [ %8, %7 ]
-  %10 = load i32, ptr %0, align 4
+  %10 = load i32, ptr %0, align 4, !tbaa !4
   %11 = lshr i32 %10, 3
   %12 = and i32 %11, 63
   %13 = zext nneg i32 %12 to i64
@@ -75,22 +81,22 @@ define dso_local void @cmsysMD5_Append(ptr noundef %0, ptr noundef %1, i32 nound
   %17 = lshr i64 %.0, 29
   %18 = trunc i64 %17 to i32
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %20 = load i32, ptr %19, align 4
+  %20 = load i32, ptr %19, align 4, !tbaa !4
   %21 = add i32 %20, %18
-  store i32 %21, ptr %19, align 4
+  store i32 %21, ptr %19, align 4, !tbaa !4
   %22 = add i32 %16, %10
-  store i32 %22, ptr %0, align 4
+  store i32 %22, ptr %0, align 4, !tbaa !4
   %23 = icmp ult i32 %22, %16
   br i1 %23, label %24, label %26
 
 24:                                               ; preds = %15
   %25 = add i32 %21, 1
-  store i32 %25, ptr %19, align 4
+  store i32 %25, ptr %19, align 4, !tbaa !4
   br label %26
 
 26:                                               ; preds = %24, %15
   %.not.i = icmp eq i32 %12, 0
-  br i1 %.not.i, label %39, label %27
+  br i1 %.not.i, label %38, label %27
 
 27:                                               ; preds = %26
   %28 = add i64 %.0, %13
@@ -101,52 +107,52 @@ define dso_local void @cmsysMD5_Append(ptr noundef %0, ptr noundef %1, i32 nound
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 %13
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %33, ptr align 1 %1, i64 %31, i1 false)
   %34 = add i64 %31, %13
-  %35 = icmp ult i64 %34, 64
-  br i1 %35, label %md5_append.exit, label %36
+  %35 = icmp ugt i64 %34, 63
+  br i1 %35, label %.thread.i, label %md5_append.exit
 
-36:                                               ; preds = %27
-  %37 = getelementptr inbounds i8, ptr %1, i64 %31
-  %38 = sub i64 %.0, %31
+.thread.i:                                        ; preds = %27
+  %36 = getelementptr inbounds nuw i8, ptr %1, i64 %31
+  %37 = sub i64 %.0, %31
   tail call fastcc void @md5_process(ptr noundef nonnull %0, ptr noundef nonnull %32)
-  br label %39
+  br label %38
 
-39:                                               ; preds = %36, %26
-  %.037.i = phi i64 [ %38, %36 ], [ %.0, %26 ]
-  %.0.i = phi ptr [ %37, %36 ], [ %1, %26 ]
-  %40 = icmp ugt i64 %.037.i, 63
-  br i1 %40, label %.lr.ph.i, label %._crit_edge.i
+38:                                               ; preds = %.thread.i, %26
+  %.039.i = phi i64 [ %.0, %26 ], [ %37, %.thread.i ]
+  %.0.i = phi ptr [ %1, %26 ], [ %36, %.thread.i ]
+  %39 = icmp ugt i64 %.039.i, 63
+  br i1 %39, label %.lr.ph.i, label %._crit_edge.i
 
-.lr.ph.i:                                         ; preds = %39, %.lr.ph.i
-  %.143.i = phi ptr [ %41, %.lr.ph.i ], [ %.0.i, %39 ]
-  %.13842.i = phi i64 [ %42, %.lr.ph.i ], [ %.037.i, %39 ]
-  tail call fastcc void @md5_process(ptr noundef nonnull %0, ptr noundef %.143.i)
-  %41 = getelementptr inbounds nuw i8, ptr %.143.i, i64 64
-  %42 = add i64 %.13842.i, -64
-  %43 = icmp ugt i64 %42, 63
-  br i1 %43, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !5
+.lr.ph.i:                                         ; preds = %38, %.lr.ph.i
+  %.248.i = phi ptr [ %40, %.lr.ph.i ], [ %.0.i, %38 ]
+  %.24147.i = phi i64 [ %41, %.lr.ph.i ], [ %.039.i, %38 ]
+  tail call fastcc void @md5_process(ptr noundef nonnull %0, ptr noundef %.248.i)
+  %40 = getelementptr inbounds nuw i8, ptr %.248.i, i64 64
+  %41 = add i64 %.24147.i, -64
+  %42 = icmp ugt i64 %41, 63
+  br i1 %42, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !8
 
-._crit_edge.i:                                    ; preds = %.lr.ph.i, %39
-  %.138.lcssa.i = phi i64 [ %.037.i, %39 ], [ %42, %.lr.ph.i ]
-  %.1.lcssa.i = phi ptr [ %.0.i, %39 ], [ %41, %.lr.ph.i ]
-  %.not41.i = icmp eq i64 %.138.lcssa.i, 0
-  br i1 %.not41.i, label %md5_append.exit, label %44
+._crit_edge.i:                                    ; preds = %.lr.ph.i, %38
+  %.241.lcssa.i = phi i64 [ %.039.i, %38 ], [ %41, %.lr.ph.i ]
+  %.2.lcssa.i = phi ptr [ %.0.i, %38 ], [ %40, %.lr.ph.i ]
+  %.not44.i = icmp eq i64 %.241.lcssa.i, 0
+  br i1 %.not44.i, label %md5_append.exit, label %43
 
-44:                                               ; preds = %._crit_edge.i
-  %45 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %45, ptr align 1 %.1.lcssa.i, i64 %.138.lcssa.i, i1 false)
+43:                                               ; preds = %._crit_edge.i
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %44, ptr align 1 %.2.lcssa.i, i64 %.241.lcssa.i, i1 false)
   br label %md5_append.exit
 
-md5_append.exit:                                  ; preds = %9, %27, %._crit_edge.i, %44
+md5_append.exit:                                  ; preds = %9, %27, %._crit_edge.i, %43
   ret void
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #6
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local void @cmsysMD5_Finalize(ptr noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #7 {
+define dso_local void @cmsysMD5_Finalize(ptr noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #8 {
   %3 = alloca [8 x i8], align 1
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #14
   br label %4
 
 4:                                                ; preds = %4, %2
@@ -154,20 +160,20 @@ define dso_local void @cmsysMD5_Finalize(ptr noundef %0, ptr noundef writeonly c
   %5 = lshr i64 %indvars.iv.i, 2
   %6 = and i64 %5, 1073741823
   %7 = getelementptr inbounds nuw [2 x i32], ptr %0, i64 0, i64 %6
-  %8 = load i32, ptr %7, align 4
+  %8 = load i32, ptr %7, align 4, !tbaa !4
   %indvars.iv.tr.i = trunc i64 %indvars.iv.i to i32
   %9 = shl i32 %indvars.iv.tr.i, 3
   %10 = and i32 %9, 24
   %11 = lshr i32 %8, %10
   %12 = trunc i32 %11 to i8
   %13 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 0, i64 %indvars.iv.i
-  store i8 %12, ptr %13, align 1
+  store i8 %12, ptr %13, align 1, !tbaa !10
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %14, label %4, !llvm.loop !7
+  br i1 %exitcond.not.i, label %14, label %4, !llvm.loop !11
 
 14:                                               ; preds = %4
-  %15 = load i32, ptr %0, align 4
+  %15 = load i32, ptr %0, align 4, !tbaa !4
   %16 = lshr i32 %15, 3
   %17 = sub nsw i32 55, %16
   %18 = and i32 %17, 63
@@ -177,20 +183,20 @@ define dso_local void @cmsysMD5_Finalize(ptr noundef %0, ptr noundef writeonly c
   %22 = zext nneg i32 %21 to i64
   %23 = shl nuw nsw i32 %19, 3
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %25 = load i32, ptr %24, align 4
+  %25 = load i32, ptr %24, align 4, !tbaa !4
   %26 = add i32 %23, %15
-  store i32 %26, ptr %0, align 4
+  store i32 %26, ptr %0, align 4, !tbaa !4
   %27 = icmp ult i32 %26, %23
   br i1 %27, label %28, label %30
 
 28:                                               ; preds = %14
   %29 = add i32 %25, 1
-  store i32 %29, ptr %24, align 4
+  store i32 %29, ptr %24, align 4, !tbaa !4
   br label %30
 
 30:                                               ; preds = %28, %14
   %.not.i.i = icmp eq i32 %21, 0
-  br i1 %.not.i.i, label %43, label %31
+  br i1 %.not.i.i, label %42, label %31
 
 31:                                               ; preds = %30
   %32 = add nuw nsw i64 %20, %22
@@ -201,130 +207,131 @@ define dso_local void @cmsysMD5_Finalize(ptr noundef %0, ptr noundef writeonly c
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 %22
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %37, ptr noundef nonnull align 16 dereferenceable(1) @md5_finish.pad, i64 %35, i1 false)
   %38 = add nuw nsw i64 %35, %22
-  %39 = icmp samesign ult i64 %38, 64
-  br i1 %39, label %md5_append.exit.i, label %40
+  %39 = icmp samesign ugt i64 %38, 63
+  br i1 %39, label %.thread.i.i, label %md5_append.exit.i
 
-40:                                               ; preds = %31
-  %41 = getelementptr inbounds nuw i8, ptr @md5_finish.pad, i64 %35
-  %42 = sub nsw i64 %20, %35
+.thread.i.i:                                      ; preds = %31
+  %40 = getelementptr inbounds nuw i8, ptr @md5_finish.pad, i64 %35
+  %41 = sub nsw i64 %20, %35
   tail call fastcc void @md5_process(ptr noundef nonnull %0, ptr noundef nonnull %36)
-  br label %43
+  br label %42
 
-43:                                               ; preds = %40, %30
-  %.037.i.i = phi i64 [ %42, %40 ], [ %20, %30 ]
-  %.0.i.i = phi ptr [ %41, %40 ], [ @md5_finish.pad, %30 ]
-  %44 = icmp ugt i64 %.037.i.i, 63
-  br i1 %44, label %.lr.ph.i.i, label %._crit_edge.i.i
+42:                                               ; preds = %.thread.i.i, %30
+  %.039.i.i = phi i64 [ %20, %30 ], [ %41, %.thread.i.i ]
+  %.0.i.i = phi ptr [ @md5_finish.pad, %30 ], [ %40, %.thread.i.i ]
+  %43 = icmp ugt i64 %.039.i.i, 63
+  br i1 %43, label %.lr.ph.i.i, label %._crit_edge.i.i
 
-.lr.ph.i.i:                                       ; preds = %43, %.lr.ph.i.i
-  %.143.i.i = phi ptr [ %45, %.lr.ph.i.i ], [ %.0.i.i, %43 ]
-  %.13842.i.i = phi i64 [ %46, %.lr.ph.i.i ], [ %.037.i.i, %43 ]
-  tail call fastcc void @md5_process(ptr noundef nonnull %0, ptr noundef %.143.i.i)
-  %45 = getelementptr inbounds nuw i8, ptr %.143.i.i, i64 64
-  %46 = add i64 %.13842.i.i, -64
-  %47 = icmp ugt i64 %46, 63
-  br i1 %47, label %.lr.ph.i.i, label %._crit_edge.i.i, !llvm.loop !5
+.lr.ph.i.i:                                       ; preds = %42, %.lr.ph.i.i
+  %.248.i.i = phi ptr [ %44, %.lr.ph.i.i ], [ %.0.i.i, %42 ]
+  %.24147.i.i = phi i64 [ %45, %.lr.ph.i.i ], [ %.039.i.i, %42 ]
+  tail call fastcc void @md5_process(ptr noundef nonnull %0, ptr noundef %.248.i.i)
+  %44 = getelementptr inbounds nuw i8, ptr %.248.i.i, i64 64
+  %45 = add i64 %.24147.i.i, -64
+  %46 = icmp ugt i64 %45, 63
+  br i1 %46, label %.lr.ph.i.i, label %._crit_edge.i.i, !llvm.loop !8
 
-._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i, %43
-  %.138.lcssa.i.i = phi i64 [ %.037.i.i, %43 ], [ %46, %.lr.ph.i.i ]
-  %.1.lcssa.i.i = phi ptr [ %.0.i.i, %43 ], [ %45, %.lr.ph.i.i ]
-  %.not41.i.i = icmp eq i64 %.138.lcssa.i.i, 0
-  br i1 %.not41.i.i, label %md5_append.exit.i, label %48
+._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i, %42
+  %.241.lcssa.i.i = phi i64 [ %.039.i.i, %42 ], [ %45, %.lr.ph.i.i ]
+  %.2.lcssa.i.i = phi ptr [ %.0.i.i, %42 ], [ %44, %.lr.ph.i.i ]
+  %.not44.i.i = icmp eq i64 %.241.lcssa.i.i, 0
+  br i1 %.not44.i.i, label %md5_append.exit.i, label %47
 
-48:                                               ; preds = %._crit_edge.i.i
-  %49 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %49, ptr align 1 %.1.lcssa.i.i, i64 %.138.lcssa.i.i, i1 false)
+47:                                               ; preds = %._crit_edge.i.i
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %48, ptr align 1 %.2.lcssa.i.i, i64 %.241.lcssa.i.i, i1 false)
   br label %md5_append.exit.i
 
-md5_append.exit.i:                                ; preds = %48, %._crit_edge.i.i, %31
-  %50 = load i32, ptr %0, align 4
-  %51 = lshr i32 %50, 3
-  %52 = and i32 %51, 63
-  %53 = zext nneg i32 %52 to i64
-  %54 = load i32, ptr %24, align 4
-  %55 = add i32 %50, 64
-  store i32 %55, ptr %0, align 4
-  %56 = icmp ugt i32 %50, -65
-  br i1 %56, label %57, label %59
+md5_append.exit.i:                                ; preds = %47, %._crit_edge.i.i, %31
+  %49 = load i32, ptr %0, align 4, !tbaa !4
+  %50 = lshr i32 %49, 3
+  %51 = and i32 %50, 63
+  %52 = zext nneg i32 %51 to i64
+  %53 = load i32, ptr %24, align 4, !tbaa !4
+  %54 = add i32 %49, 64
+  store i32 %54, ptr %0, align 4, !tbaa !4
+  %55 = icmp ugt i32 %49, -65
+  br i1 %55, label %56, label %58
 
-57:                                               ; preds = %md5_append.exit.i
-  %58 = add i32 %54, 1
-  store i32 %58, ptr %24, align 4
-  br label %59
+56:                                               ; preds = %md5_append.exit.i
+  %57 = add i32 %53, 1
+  store i32 %57, ptr %24, align 4, !tbaa !4
+  br label %58
 
-59:                                               ; preds = %57, %md5_append.exit.i
-  %.not.i15.i = icmp eq i32 %52, 0
-  br i1 %.not.i15.i, label %._crit_edge.i18.thread.i, label %60
+58:                                               ; preds = %56, %md5_append.exit.i
+  %.not.i15.i = icmp eq i32 %51, 0
+  br i1 %.not.i15.i, label %._crit_edge.i19.thread.i, label %59
 
-60:                                               ; preds = %59
-  %61 = icmp samesign ugt i32 %52, 56
-  %62 = sub nuw nsw i64 64, %53
-  %63 = select i1 %61, i64 %62, i64 8
-  %64 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %65 = getelementptr inbounds nuw i8, ptr %64, i64 %53
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %65, ptr noundef nonnull align 1 dereferenceable(1) %3, i64 %63, i1 false)
-  %66 = add nuw nsw i64 %63, %53
-  %67 = icmp samesign ult i64 %66, 64
-  br i1 %67, label %md5_append.exit25.i, label %68
+59:                                               ; preds = %58
+  %60 = icmp samesign ugt i32 %51, 56
+  %61 = sub nuw nsw i64 64, %52
+  %62 = select i1 %60, i64 %61, i64 8
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %64 = getelementptr inbounds nuw i8, ptr %63, i64 %52
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %64, ptr noundef nonnull align 1 dereferenceable(1) %3, i64 %62, i1 false)
+  %65 = add nuw nsw i64 %62, %52
+  %66 = icmp samesign ugt i64 %65, 63
+  br i1 %66, label %67, label %md5_append.exit26.i
 
-68:                                               ; preds = %60
-  %69 = getelementptr inbounds nuw i8, ptr %3, i64 %63
-  %70 = sub nsw i64 8, %63
-  tail call fastcc void @md5_process(ptr noundef nonnull %0, ptr noundef nonnull %64)
-  %71 = icmp ugt i64 %70, 63
-  br i1 %71, label %.lr.ph.i22.i, label %._crit_edge.i18.i
+67:                                               ; preds = %59
+  %68 = getelementptr inbounds nuw i8, ptr %3, i64 %62
+  %69 = sub nsw i64 8, %62
+  tail call fastcc void @md5_process(ptr noundef nonnull %0, ptr noundef nonnull %63)
+  %70 = icmp ugt i64 %69, 63
+  br i1 %70, label %.lr.ph.i23.i, label %._crit_edge.i19.i
 
-.lr.ph.i22.i:                                     ; preds = %68, %.lr.ph.i22.i
-  %.143.i23.i = phi ptr [ %72, %.lr.ph.i22.i ], [ %69, %68 ]
-  %.13842.i24.i = phi i64 [ %73, %.lr.ph.i22.i ], [ %70, %68 ]
-  call fastcc void @md5_process(ptr noundef nonnull %0, ptr noundef nonnull %.143.i23.i)
-  %72 = getelementptr inbounds nuw i8, ptr %.143.i23.i, i64 64
-  %73 = add i64 %.13842.i24.i, -64
-  %74 = icmp ugt i64 %73, 63
-  br i1 %74, label %.lr.ph.i22.i, label %._crit_edge.i18.i, !llvm.loop !5
+.lr.ph.i23.i:                                     ; preds = %67, %.lr.ph.i23.i
+  %.248.i24.i = phi ptr [ %71, %.lr.ph.i23.i ], [ %68, %67 ]
+  %.24147.i25.i = phi i64 [ %72, %.lr.ph.i23.i ], [ %69, %67 ]
+  call fastcc void @md5_process(ptr noundef nonnull %0, ptr noundef nonnull %.248.i24.i)
+  %71 = getelementptr inbounds nuw i8, ptr %.248.i24.i, i64 64
+  %72 = add i64 %.24147.i25.i, -64
+  %73 = icmp ugt i64 %72, 63
+  br i1 %73, label %.lr.ph.i23.i, label %._crit_edge.i19.i, !llvm.loop !8
 
-._crit_edge.i18.i:                                ; preds = %.lr.ph.i22.i, %68
-  %.138.lcssa.i19.i = phi i64 [ %70, %68 ], [ %73, %.lr.ph.i22.i ]
-  %.1.lcssa.i20.i = phi ptr [ %69, %68 ], [ %72, %.lr.ph.i22.i ]
-  %.not41.i21.i = icmp eq i64 %.138.lcssa.i19.i, 0
-  br i1 %.not41.i21.i, label %md5_append.exit25.i, label %._crit_edge.i18.thread.i
+._crit_edge.i19.i:                                ; preds = %.lr.ph.i23.i, %67
+  %.241.lcssa.i20.i = phi i64 [ %69, %67 ], [ %72, %.lr.ph.i23.i ]
+  %.2.lcssa.i21.i = phi ptr [ %68, %67 ], [ %71, %.lr.ph.i23.i ]
+  %.not44.i22.i = icmp eq i64 %.241.lcssa.i20.i, 0
+  br i1 %.not44.i22.i, label %md5_append.exit26.i, label %._crit_edge.i19.thread.i
 
-._crit_edge.i18.thread.i:                         ; preds = %._crit_edge.i18.i, %59
-  %.1.lcssa.i2032.i = phi ptr [ %.1.lcssa.i20.i, %._crit_edge.i18.i ], [ %3, %59 ]
-  %.138.lcssa.i1931.i = phi i64 [ %.138.lcssa.i19.i, %._crit_edge.i18.i ], [ 8, %59 ]
-  %75 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %75, ptr noundef nonnull align 1 dereferenceable(1) %.1.lcssa.i2032.i, i64 %.138.lcssa.i1931.i, i1 false)
-  br label %md5_append.exit25.i
+._crit_edge.i19.thread.i:                         ; preds = %._crit_edge.i19.i, %58
+  %.2.lcssa.i2133.i = phi ptr [ %.2.lcssa.i21.i, %._crit_edge.i19.i ], [ %3, %58 ]
+  %.241.lcssa.i2032.i = phi i64 [ %.241.lcssa.i20.i, %._crit_edge.i19.i ], [ 8, %58 ]
+  %74 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %74, ptr noundef nonnull align 1 dereferenceable(1) %.2.lcssa.i2133.i, i64 %.241.lcssa.i2032.i, i1 false)
+  br label %md5_append.exit26.i
 
-md5_append.exit25.i:                              ; preds = %._crit_edge.i18.thread.i, %._crit_edge.i18.i, %60
-  %76 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  br label %77
+md5_append.exit26.i:                              ; preds = %._crit_edge.i19.thread.i, %._crit_edge.i19.i, %59
+  %75 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  br label %76
 
-77:                                               ; preds = %77, %md5_append.exit25.i
-  %indvars.iv42.i = phi i64 [ 0, %md5_append.exit25.i ], [ %indvars.iv.next43.i, %77 ]
-  %78 = lshr i64 %indvars.iv42.i, 2
-  %79 = and i64 %78, 1073741823
-  %80 = getelementptr inbounds nuw [4 x i32], ptr %76, i64 0, i64 %79
-  %81 = load i32, ptr %80, align 4
-  %indvars.iv42.tr.i = trunc i64 %indvars.iv42.i to i32
-  %82 = shl i32 %indvars.iv42.tr.i, 3
-  %83 = and i32 %82, 24
-  %84 = lshr i32 %81, %83
-  %85 = trunc i32 %84 to i8
-  %86 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv42.i
-  store i8 %85, ptr %86, align 1
-  %indvars.iv.next43.i = add nuw nsw i64 %indvars.iv42.i, 1
-  %exitcond45.not.i = icmp eq i64 %indvars.iv.next43.i, 16
-  br i1 %exitcond45.not.i, label %md5_finish.exit, label %77, !llvm.loop !8
+76:                                               ; preds = %76, %md5_append.exit26.i
+  %indvars.iv43.i = phi i64 [ 0, %md5_append.exit26.i ], [ %indvars.iv.next44.i, %76 ]
+  %77 = lshr i64 %indvars.iv43.i, 2
+  %78 = and i64 %77, 1073741823
+  %79 = getelementptr inbounds nuw [4 x i32], ptr %75, i64 0, i64 %78
+  %80 = load i32, ptr %79, align 4, !tbaa !4
+  %indvars.iv43.tr.i = trunc i64 %indvars.iv43.i to i32
+  %81 = shl i32 %indvars.iv43.tr.i, 3
+  %82 = and i32 %81, 24
+  %83 = lshr i32 %80, %82
+  %84 = trunc i32 %83 to i8
+  %85 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv43.i
+  store i8 %84, ptr %85, align 1, !tbaa !10
+  %indvars.iv.next44.i = add nuw nsw i64 %indvars.iv43.i, 1
+  %exitcond46.not.i = icmp eq i64 %indvars.iv.next44.i, 16
+  br i1 %exitcond46.not.i, label %md5_finish.exit, label %76, !llvm.loop !12
 
-md5_finish.exit:                                  ; preds = %77
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+md5_finish.exit:                                  ; preds = %76
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #14
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local void @cmsysMD5_FinalizeHex(ptr noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #7 {
+define dso_local void @cmsysMD5_FinalizeHex(ptr noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #8 {
   %3 = alloca [16 x i8], align 16
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #14
   call void @cmsysMD5_Finalize(ptr noundef %0, ptr noundef nonnull %3)
   br label %4
 
@@ -332,70 +339,71 @@ define dso_local void @cmsysMD5_FinalizeHex(ptr noundef %0, ptr noundef writeonl
   %indvars.iv.i = phi i64 [ 0, %2 ], [ %indvars.iv.next.i, %4 ]
   %.089.i = phi ptr [ %1, %2 ], [ %16, %4 ]
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv.i
-  %6 = load i8, ptr %5, align 1
+  %6 = load i8, ptr %5, align 1, !tbaa !10
   %7 = lshr i8 %6, 4
   %8 = zext nneg i8 %7 to i64
   %9 = getelementptr inbounds nuw [16 x i8], ptr @cmsysMD5_DigestToHex.hex, i64 0, i64 %8
-  %10 = load i8, ptr %9, align 1
+  %10 = load i8, ptr %9, align 1, !tbaa !10
   %11 = getelementptr inbounds nuw i8, ptr %.089.i, i64 1
-  store i8 %10, ptr %.089.i, align 1
+  store i8 %10, ptr %.089.i, align 1, !tbaa !10
   %12 = and i8 %6, 15
   %13 = zext nneg i8 %12 to i64
   %14 = getelementptr inbounds nuw [16 x i8], ptr @cmsysMD5_DigestToHex.hex, i64 0, i64 %13
-  %15 = load i8, ptr %14, align 1
+  %15 = load i8, ptr %14, align 1, !tbaa !10
   %16 = getelementptr inbounds nuw i8, ptr %.089.i, i64 2
-  store i8 %15, ptr %11, align 1
+  store i8 %15, ptr %11, align 1, !tbaa !10
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 16
-  br i1 %exitcond.not.i, label %cmsysMD5_DigestToHex.exit, label %4, !llvm.loop !9
+  br i1 %exitcond.not.i, label %cmsysMD5_DigestToHex.exit, label %4, !llvm.loop !13
 
 cmsysMD5_DigestToHex.exit:                        ; preds = %4
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #14
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local void @cmsysMD5_DigestToHex(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #8 {
+define dso_local void @cmsysMD5_DigestToHex(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #9 {
   br label %3
 
 3:                                                ; preds = %2, %3
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %3 ]
   %.089 = phi ptr [ %1, %2 ], [ %16, %3 ]
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
-  %5 = load i8, ptr %4, align 1
+  %5 = load i8, ptr %4, align 1, !tbaa !10
   %6 = lshr i8 %5, 4
   %7 = zext nneg i8 %6 to i64
   %8 = getelementptr inbounds nuw [16 x i8], ptr @cmsysMD5_DigestToHex.hex, i64 0, i64 %7
-  %9 = load i8, ptr %8, align 1
+  %9 = load i8, ptr %8, align 1, !tbaa !10
   %10 = getelementptr inbounds nuw i8, ptr %.089, i64 1
-  store i8 %9, ptr %.089, align 1
-  %11 = load i8, ptr %4, align 1
+  store i8 %9, ptr %.089, align 1, !tbaa !10
+  %11 = load i8, ptr %4, align 1, !tbaa !10
   %12 = and i8 %11, 15
   %13 = zext nneg i8 %12 to i64
   %14 = getelementptr inbounds nuw [16 x i8], ptr @cmsysMD5_DigestToHex.hex, i64 0, i64 %13
-  %15 = load i8, ptr %14, align 1
+  %15 = load i8, ptr %14, align 1, !tbaa !10
   %16 = getelementptr inbounds nuw i8, ptr %.089, i64 2
-  store i8 %15, ptr %10, align 1
+  store i8 %15, ptr %10, align 1, !tbaa !10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
-  br i1 %exitcond.not, label %17, label %3, !llvm.loop !9
+  br i1 %exitcond.not, label %17, label %3, !llvm.loop !13
 
 17:                                               ; preds = %3
   ret void
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #9
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #10
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @md5_process(ptr noundef captures(none) %0, ptr noundef %1) unnamed_addr #10 {
+define internal fastcc void @md5_process(ptr noundef captures(none) %0, ptr noundef %1) unnamed_addr #11 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load i32, ptr %3, align 4
+  %4 = load i32, ptr %3, align 4, !tbaa !4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %6 = load i32, ptr %5, align 4
+  %6 = load i32, ptr %5, align 4, !tbaa !4
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %8 = load i32, ptr %7, align 4
+  %8 = load i32, ptr %7, align 4, !tbaa !4
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %10 = load i32, ptr %9, align 4
+  %10 = load i32, ptr %9, align 4, !tbaa !4
   %.0568.sroa.gep611 = getelementptr inbounds nuw i8, ptr %1, i64 60
   %.0568.sroa.phi609.sroa.speculated = load i32, ptr %.0568.sroa.gep611, align 1
   %.0568.sroa.gep608 = getelementptr inbounds nuw i8, ptr %1, i64 56
@@ -952,52 +960,50 @@ define internal fastcc void @md5_process(ptr noundef captures(none) %0, ptr noun
   %541 = add i32 %540, %538
   %542 = tail call i32 @llvm.fshl.i32(i32 %541, i32 %541, i32 21)
   %543 = add i32 %519, %4
-  store i32 %543, ptr %3, align 4
+  store i32 %543, ptr %3, align 4, !tbaa !4
   %544 = add i32 %535, %6
   %545 = add i32 %544, %542
-  store i32 %545, ptr %5, align 4
+  store i32 %545, ptr %5, align 4, !tbaa !4
   %546 = add i32 %535, %8
-  store i32 %546, ptr %7, align 4
+  store i32 %546, ptr %7, align 4, !tbaa !4
   %547 = add i32 %527, %10
-  store i32 %547, ptr %9, align 4
+  store i32 %547, ptr %9, align 4, !tbaa !4
   ret void
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.fshl.i32(i32, i32, i32) #11
+declare i32 @llvm.fshl.i32(i32, i32, i32) #12
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #12
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #12
-
-attributes #0 = { mustprogress nofree nounwind willreturn memory(inaccessiblemem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nofree nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #10 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #12 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #0 = { mustprogress nofree nounwind willreturn memory(inaccessiblemem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nofree nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #11 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #13 = { nounwind allocsize(0) }
 attributes #14 = { nounwind }
 attributes #15 = { nounwind willreturn memory(read) }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+!llvm.module.flags = !{!0, !1, !2, !3}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
-!9 = distinct !{!9, !6}
+!4 = !{!5, !5, i64 0}
+!5 = !{!"int", !6, i64 0}
+!6 = !{!"omnipotent char", !7, i64 0}
+!7 = !{!"Simple C/C++ TBAA"}
+!8 = distinct !{!8, !9}
+!9 = !{!"llvm.loop.mustprogress"}
+!10 = !{!6, !6, i64 0}
+!11 = distinct !{!11, !9}
+!12 = distinct !{!12, !9}
+!13 = distinct !{!13, !9}

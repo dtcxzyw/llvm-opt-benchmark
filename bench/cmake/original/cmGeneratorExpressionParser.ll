@@ -54,6 +54,7 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
 %"class.std::allocator.37" = type { i8 }
+%struct._Guard = type { ptr }
 
 $_ZN9__gnu_cxx17__normal_iteratorIPK26cmGeneratorExpressionTokenSt6vectorIS1_SaIS1_EEEC2Ev = comdat any
 
@@ -181,8 +182,6 @@ $_ZNKSt12_Vector_baseISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default
 
 $_ZNSt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EEC2ERKS5_ = comdat any
 
-$_ZNSaISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS0_EEED2Ev = comdat any
-
 $_ZNSt12_Vector_baseISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EE17_Vector_impl_data12_M_swap_dataERS7_ = comdat any
 
 $_ZSt15__alloc_on_moveISaISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EEEEvRT_S7_ = comdat any
@@ -200,8 +199,6 @@ $_ZNSt15__new_allocatorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14defau
 $_ZNSt12_Vector_baseISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EEC2ERKS5_ = comdat any
 
 $_ZNSt12_Vector_baseISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EE12_Vector_implC2ERKS5_ = comdat any
-
-$_ZNSt15__new_allocatorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EEED2Ev = comdat any
 
 $_ZNSt12_Vector_baseISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EE17_Vector_impl_dataC2Ev = comdat any
 
@@ -355,8 +352,6 @@ $_ZNKSt12_Vector_baseISt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorS
 
 $_ZNSt6vectorIS_ISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EESaIS6_EEC2ERKS7_ = comdat any
 
-$_ZNSaISt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EEED2Ev = comdat any
-
 $_ZNSt12_Vector_baseISt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS2_EESaIS5_EESaIS7_EE17_Vector_impl_data12_M_swap_dataERSA_ = comdat any
 
 $_ZSt15__alloc_on_moveISaISt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS2_EESaIS5_EEEEvRT_SA_ = comdat any
@@ -372,8 +367,6 @@ $_ZNSt15__new_allocatorISt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluato
 $_ZNSt12_Vector_baseISt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS2_EESaIS5_EESaIS7_EEC2ERKS8_ = comdat any
 
 $_ZNSt12_Vector_baseISt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS2_EESaIS5_EESaIS7_EE12_Vector_implC2ERKS8_ = comdat any
-
-$_ZNSt15__new_allocatorISt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS2_EESaIS5_EEED2Ev = comdat any
 
 $_ZNSt12_Vector_baseISt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS2_EESaIS5_EESaIS7_EE17_Vector_impl_dataC2Ev = comdat any
 
@@ -407,7 +400,7 @@ $_ZNSt10unique_ptrI11TextContentSt14default_deleteIS0_EEC2IS2_vEEPS0_ = comdat a
 
 $_ZN30cmGeneratorExpressionEvaluatorC2Ev = comdat any
 
-$_ZN11TextContentD2Ev = comdat any
+$_ZN30cmGeneratorExpressionEvaluatorD2Ev = comdat any
 
 $_ZN11TextContentD0Ev = comdat any
 
@@ -415,9 +408,37 @@ $_ZNK11TextContent7GetTypeEv = comdat any
 
 $_ZNK11TextContent8EvaluateB5cxx11EP28cmGeneratorExpressionContextP31cmGeneratorExpressionDAGChecker = comdat any
 
-$_ZN30cmGeneratorExpressionEvaluatorD2Ev = comdat any
-
 $_ZN30cmGeneratorExpressionEvaluatorD0Ev = comdat any
+
+$_ZNSt15__new_allocatorIcED2Ev = comdat any
+
+$_ZNSt15__new_allocatorIcEC2Ev = comdat any
+
+$_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag = comdat any
+
+$_ZNSt19__ptr_traits_ptr_toIPccLb0EE10pointer_toERc = comdat any
+
+$_ZNSt15__new_allocatorIcEC2ERKS0_ = comdat any
+
+$_ZSt8distanceIPKcENSt15iterator_traitsIT_E15difference_typeES3_S3_ = comdat any
+
+$_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardC2EPS4_ = comdat any
+
+$_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev = comdat any
+
+$_ZSt10__distanceIPKcENSt15iterator_traitsIT_E15difference_typeES3_S3_St26random_access_iterator_tag = comdat any
+
+$_ZSt19__iterator_categoryIPKcENSt15iterator_traitsIT_E17iterator_categoryERKS3_ = comdat any
+
+$_ZNSt11char_traitsIcE6assignERcRKc = comdat any
+
+$_ZNSt11char_traitsIcE4copyEPcPKcm = comdat any
+
+$_ZNSt19__ptr_traits_ptr_toIPKcS0_Lb0EE10pointer_toERS0_ = comdat any
+
+$_ZNSt16allocator_traitsISaIcEE10deallocateERS0_Pcm = comdat any
+
+$_ZNSt15__new_allocatorIcE10deallocateEPcm = comdat any
 
 $_ZNSt15__uniq_ptr_dataI11TextContentSt14default_deleteIS0_ELb1ELb1EECI2St15__uniq_ptr_implIS0_S2_EEPS0_ = comdat any
 
@@ -533,7 +554,7 @@ $_ZNSt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS0_EE11get
 
 $_ZNSt12_Vector_baseISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EED2Ev = comdat any
 
-$_ZNSt12_Vector_baseISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EE12_Vector_implD2Ev = comdat any
+$_ZNSt15__new_allocatorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EEED2Ev = comdat any
 
 $_ZNSt10unique_ptrI26GeneratorExpressionContentSt14default_deleteIS0_EEC2IS2_vEEPS0_ = comdat any
 
@@ -617,7 +638,7 @@ $_ZSt8_DestroyISt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14defa
 
 $_ZNSt12_Vector_baseISt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS2_EESaIS5_EESaIS7_EE13_M_deallocateEPS7_m = comdat any
 
-$_ZNSt12_Vector_baseISt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS2_EESaIS5_EESaIS7_EE12_Vector_implD2Ev = comdat any
+$_ZNSt15__new_allocatorISt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS2_EESaIS5_EEED2Ev = comdat any
 
 $_ZNSt16allocator_traitsISaISt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS2_EESaIS5_EEEE10deallocateERS8_PS7_m = comdat any
 
@@ -635,15 +656,11 @@ $_ZNSt12_Destroy_auxILb1EE9__destroyIPN9__gnu_cxx17__normal_iteratorIPK26cmGener
 
 $_ZNSt12_Vector_baseIN9__gnu_cxx17__normal_iteratorIPK26cmGeneratorExpressionTokenSt6vectorIS2_SaIS2_EEEESaIS8_EE13_M_deallocateEPS8_m = comdat any
 
-$_ZNSt12_Vector_baseIN9__gnu_cxx17__normal_iteratorIPK26cmGeneratorExpressionTokenSt6vectorIS2_SaIS2_EEEESaIS8_EE12_Vector_implD2Ev = comdat any
+$_ZNSt15__new_allocatorIN9__gnu_cxx17__normal_iteratorIPK26cmGeneratorExpressionTokenSt6vectorIS2_SaIS2_EEEEED2Ev = comdat any
 
 $_ZNSt16allocator_traitsISaIN9__gnu_cxx17__normal_iteratorIPK26cmGeneratorExpressionTokenSt6vectorIS2_SaIS2_EEEEEE10deallocateERS9_PS8_m = comdat any
 
 $_ZNSt15__new_allocatorIN9__gnu_cxx17__normal_iteratorIPK26cmGeneratorExpressionTokenSt6vectorIS2_SaIS2_EEEEE10deallocateEPS8_m = comdat any
-
-$_ZNSaIN9__gnu_cxx17__normal_iteratorIPK26cmGeneratorExpressionTokenSt6vectorIS1_SaIS1_EEEEED2Ev = comdat any
-
-$_ZNSt15__new_allocatorIN9__gnu_cxx17__normal_iteratorIPK26cmGeneratorExpressionTokenSt6vectorIS2_SaIS2_EEEEED2Ev = comdat any
 
 $_ZNSt6vectorIS_ISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EESaIS6_EE17_M_default_appendEm = comdat any
 
@@ -769,26 +786,27 @@ $_ZNK9__gnu_cxx17__normal_iteratorIPSt6vectorISt10unique_ptrI30cmGeneratorExpres
 
 $_ZTV11TextContent = comdat any
 
-$_ZTS11TextContent = comdat any
+$_ZTI11TextContent = comdat any
 
-$_ZTS30cmGeneratorExpressionEvaluator = comdat any
+$_ZTS11TextContent = comdat any
 
 $_ZTI30cmGeneratorExpressionEvaluator = comdat any
 
-$_ZTI11TextContent = comdat any
+$_ZTS30cmGeneratorExpressionEvaluator = comdat any
 
 $_ZTV30cmGeneratorExpressionEvaluator = comdat any
 
-@_ZTV11TextContent = linkonce_odr dso_local unnamed_addr constant { [6 x ptr] } { [6 x ptr] [ptr null, ptr @_ZTI11TextContent, ptr @_ZN11TextContentD2Ev, ptr @_ZN11TextContentD0Ev, ptr @_ZNK11TextContent7GetTypeEv, ptr @_ZNK11TextContent8EvaluateB5cxx11EP28cmGeneratorExpressionContextP31cmGeneratorExpressionDAGChecker] }, comdat, align 8
+@_ZTV11TextContent = linkonce_odr dso_local unnamed_addr constant { [6 x ptr] } { [6 x ptr] [ptr null, ptr @_ZTI11TextContent, ptr @_ZN30cmGeneratorExpressionEvaluatorD2Ev, ptr @_ZN11TextContentD0Ev, ptr @_ZNK11TextContent7GetTypeEv, ptr @_ZNK11TextContent8EvaluateB5cxx11EP28cmGeneratorExpressionContextP31cmGeneratorExpressionDAGChecker] }, comdat, align 8
+@_ZTI11TextContent = linkonce_odr dso_local constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTS11TextContent, ptr @_ZTI30cmGeneratorExpressionEvaluator }, comdat, align 8
 @_ZTVN10__cxxabiv120__si_class_type_infoE = external global [0 x ptr]
 @_ZTS11TextContent = linkonce_odr dso_local constant [14 x i8] c"11TextContent\00", comdat, align 1
+@_ZTI30cmGeneratorExpressionEvaluator = linkonce_odr dso_local constant { ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv117__class_type_infoE, i64 2), ptr @_ZTS30cmGeneratorExpressionEvaluator }, comdat, align 8
 @_ZTVN10__cxxabiv117__class_type_infoE = external global [0 x ptr]
 @_ZTS30cmGeneratorExpressionEvaluator = linkonce_odr dso_local constant [33 x i8] c"30cmGeneratorExpressionEvaluator\00", comdat, align 1
-@_ZTI30cmGeneratorExpressionEvaluator = linkonce_odr dso_local constant { ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv117__class_type_infoE, i64 2), ptr @_ZTS30cmGeneratorExpressionEvaluator }, comdat, align 8
-@_ZTI11TextContent = linkonce_odr dso_local constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTS11TextContent, ptr @_ZTI30cmGeneratorExpressionEvaluator }, comdat, align 8
 @_ZTV30cmGeneratorExpressionEvaluator = linkonce_odr dso_local unnamed_addr constant { [6 x ptr] } { [6 x ptr] [ptr null, ptr @_ZTI30cmGeneratorExpressionEvaluator, ptr @_ZN30cmGeneratorExpressionEvaluatorD2Ev, ptr @_ZN30cmGeneratorExpressionEvaluatorD0Ev, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual] }, comdat, align 8
-@.str = private unnamed_addr constant [26 x i8] c"vector::_M_realloc_insert\00", align 1
-@.str.1 = private unnamed_addr constant [26 x i8] c"vector::_M_default_append\00", align 1
+@.str = private unnamed_addr constant [50 x i8] c"basic_string: construction from null is not valid\00", align 1
+@.str.1 = private unnamed_addr constant [26 x i8] c"vector::_M_realloc_insert\00", align 1
+@.str.2 = private unnamed_addr constant [26 x i8] c"vector::_M_default_append\00", align 1
 
 @_ZN27cmGeneratorExpressionParserC1ESt6vectorI26cmGeneratorExpressionTokenSaIS1_EE = dso_local unnamed_addr alias void (ptr, ptr), ptr @_ZN27cmGeneratorExpressionParserC2ESt6vectorI26cmGeneratorExpressionTokenSaIS1_EE
 
@@ -796,25 +814,25 @@ $_ZTV30cmGeneratorExpressionEvaluator = comdat any
 define dso_local void @_ZN27cmGeneratorExpressionParserC2ESt6vectorI26cmGeneratorExpressionTokenSaIS1_EE(ptr noundef nonnull align 8 dereferenceable(36) %0, ptr noundef %1) unnamed_addr #0 align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !4
+  store ptr %1, ptr %4, align 8, !tbaa !9
   %5 = load ptr, ptr %3, align 8
-  %6 = getelementptr inbounds %struct.cmGeneratorExpressionParser, ptr %5, i32 0, i32 0
-  call void @_ZN9__gnu_cxx17__normal_iteratorIPK26cmGeneratorExpressionTokenSt6vectorIS1_SaIS1_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #11
-  %7 = getelementptr inbounds %struct.cmGeneratorExpressionParser, ptr %5, i32 0, i32 1
-  call void @_ZNSt6vectorI26cmGeneratorExpressionTokenSaIS0_EEC2EOS2_(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %1) #11
-  %8 = getelementptr inbounds %struct.cmGeneratorExpressionParser, ptr %5, i32 0, i32 2
-  store i32 0, ptr %8, align 8
+  %6 = getelementptr inbounds nuw %struct.cmGeneratorExpressionParser, ptr %5, i32 0, i32 0
+  call void @_ZN9__gnu_cxx17__normal_iteratorIPK26cmGeneratorExpressionTokenSt6vectorIS1_SaIS1_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #15
+  %7 = getelementptr inbounds nuw %struct.cmGeneratorExpressionParser, ptr %5, i32 0, i32 1
+  call void @_ZNSt6vectorI26cmGeneratorExpressionTokenSaIS0_EEC2EOS2_(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %1) #15
+  %8 = getelementptr inbounds nuw %struct.cmGeneratorExpressionParser, ptr %5, i32 0, i32 2
+  store i32 0, ptr %8, align 8, !tbaa !11
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN9__gnu_cxx17__normal_iteratorIPK26cmGeneratorExpressionTokenSt6vectorIS1_SaIS1_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !20
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %3, i32 0, i32 0
-  store ptr null, ptr %4, align 8
+  %4 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator", ptr %3, i32 0, i32 0
+  store ptr null, ptr %4, align 8, !tbaa !22
   ret void
 }
 
@@ -822,11 +840,11 @@ define linkonce_odr dso_local void @_ZN9__gnu_cxx17__normal_iteratorIPK26cmGener
 define linkonce_odr dso_local void @_ZNSt6vectorI26cmGeneratorExpressionTokenSaIS0_EEC2EOS2_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #0 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !9
+  store ptr %1, ptr %4, align 8, !tbaa !9
   %5 = load ptr, ptr %3, align 8
-  %6 = load ptr, ptr %4, align 8
-  call void @_ZNSt12_Vector_baseI26cmGeneratorExpressionTokenSaIS0_EEC2EOS2_(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %6) #11
+  %6 = load ptr, ptr %4, align 8, !tbaa !9
+  call void @_ZNSt12_Vector_baseI26cmGeneratorExpressionTokenSaIS0_EEC2EOS2_(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %6) #15
   ret void
 }
 
@@ -836,64 +854,74 @@ define dso_local void @_ZN27cmGeneratorExpressionParser5ParseERSt6vectorISt10uni
   %4 = alloca ptr, align 8
   %5 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
   %6 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !4
+  store ptr %1, ptr %4, align 8, !tbaa !23
   %7 = load ptr, ptr %3, align 8
-  %8 = getelementptr inbounds %struct.cmGeneratorExpressionParser, ptr %7, i32 0, i32 1
-  %9 = call ptr @_ZNKSt6vectorI26cmGeneratorExpressionTokenSaIS0_EE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %8) #11
-  %10 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %5, i32 0, i32 0
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #15
+  %8 = getelementptr inbounds nuw %struct.cmGeneratorExpressionParser, ptr %7, i32 0, i32 1
+  %9 = call ptr @_ZNKSt6vectorI26cmGeneratorExpressionTokenSaIS0_EE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %8) #15
+  %10 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator", ptr %5, i32 0, i32 0
   store ptr %9, ptr %10, align 8
-  %11 = getelementptr inbounds %struct.cmGeneratorExpressionParser, ptr %7, i32 0, i32 0
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %11, ptr align 8 %5, i64 8, i1 false)
+  %11 = getelementptr inbounds nuw %struct.cmGeneratorExpressionParser, ptr %7, i32 0, i32 0
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %11, ptr align 8 %5, i64 8, i1 false), !tbaa.struct !25
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #15
   br label %12
 
 12:                                               ; preds = %18, %2
-  %13 = getelementptr inbounds %struct.cmGeneratorExpressionParser, ptr %7, i32 0, i32 0
-  %14 = getelementptr inbounds %struct.cmGeneratorExpressionParser, ptr %7, i32 0, i32 1
-  %15 = call ptr @_ZNKSt6vectorI26cmGeneratorExpressionTokenSaIS0_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %14) #11
-  %16 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %6, i32 0, i32 0
+  %13 = getelementptr inbounds nuw %struct.cmGeneratorExpressionParser, ptr %7, i32 0, i32 0
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #15
+  %14 = getelementptr inbounds nuw %struct.cmGeneratorExpressionParser, ptr %7, i32 0, i32 1
+  %15 = call ptr @_ZNKSt6vectorI26cmGeneratorExpressionTokenSaIS0_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %14) #15
+  %16 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator", ptr %6, i32 0, i32 0
   store ptr %15, ptr %16, align 8
-  %17 = call noundef zeroext i1 @_ZN9__gnu_cxxneIPK26cmGeneratorExpressionTokenSt6vectorIS1_SaIS1_EEEEbRKNS_17__normal_iteratorIT_T0_EESC_(ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull align 8 dereferenceable(8) %6) #11
+  %17 = call noundef zeroext i1 @_ZN9__gnu_cxxneIPK26cmGeneratorExpressionTokenSt6vectorIS1_SaIS1_EEEEbRKNS_17__normal_iteratorIT_T0_EESC_(ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull align 8 dereferenceable(8) %6) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #15
   br i1 %17, label %18, label %20
 
 18:                                               ; preds = %12
-  %19 = load ptr, ptr %4, align 8
+  %19 = load ptr, ptr %4, align 8, !tbaa !23
   call void @_ZN27cmGeneratorExpressionParser12ParseContentERSt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS2_EESaIS5_EE(ptr noundef nonnull align 8 dereferenceable(36) %7, ptr noundef nonnull align 8 dereferenceable(24) %19)
-  br label %12, !llvm.loop !5
+  br label %12, !llvm.loop !27
 
 20:                                               ; preds = %12
   ret void
 }
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
+
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local ptr @_ZNKSt6vectorI26cmGeneratorExpressionTokenSaIS0_EE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #0 comdat align 2 {
   %2 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
   %3 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !9
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds %"struct.std::_Vector_base", ptr %4, i32 0, i32 0
-  %6 = getelementptr inbounds %"struct.std::_Vector_base<cmGeneratorExpressionToken, std::allocator<cmGeneratorExpressionToken>>::_Vector_impl_data", ptr %5, i32 0, i32 0
-  call void @_ZN9__gnu_cxx17__normal_iteratorIPK26cmGeneratorExpressionTokenSt6vectorIS1_SaIS1_EEEC2ERKS3_(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %6) #11
-  %7 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %2, i32 0, i32 0
+  %5 = getelementptr inbounds nuw %"struct.std::_Vector_base", ptr %4, i32 0, i32 0
+  %6 = getelementptr inbounds nuw %"struct.std::_Vector_base<cmGeneratorExpressionToken, std::allocator<cmGeneratorExpressionToken>>::_Vector_impl_data", ptr %5, i32 0, i32 0
+  call void @_ZN9__gnu_cxx17__normal_iteratorIPK26cmGeneratorExpressionTokenSt6vectorIS1_SaIS1_EEEC2ERKS3_(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %6) #15
+  %7 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator", ptr %2, i32 0, i32 0
   %8 = load ptr, ptr %7, align 8
   ret ptr %8
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef zeroext i1 @_ZN9__gnu_cxxneIPK26cmGeneratorExpressionTokenSt6vectorIS1_SaIS1_EEEEbRKNS_17__normal_iteratorIT_T0_EESC_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #0 comdat {
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef zeroext i1 @_ZN9__gnu_cxxneIPK26cmGeneratorExpressionTokenSt6vectorIS1_SaIS1_EEEEbRKNS_17__normal_iteratorIT_T0_EESC_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #4 comdat {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  %5 = load ptr, ptr %3, align 8
-  %6 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPK26cmGeneratorExpressionTokenSt6vectorIS1_SaIS1_EEE4baseEv(ptr noundef nonnull align 8 dereferenceable(8) %5) #11
-  %7 = load ptr, ptr %6, align 8
-  %8 = load ptr, ptr %4, align 8
-  %9 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPK26cmGeneratorExpressionTokenSt6vectorIS1_SaIS1_EEE4baseEv(ptr noundef nonnull align 8 dereferenceable(8) %8) #11
-  %10 = load ptr, ptr %9, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !20
+  store ptr %1, ptr %4, align 8, !tbaa !20
+  %5 = load ptr, ptr %3, align 8, !tbaa !20
+  %6 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPK26cmGeneratorExpressionTokenSt6vectorIS1_SaIS1_EEE4baseEv(ptr noundef nonnull align 8 dereferenceable(8) %5) #15
+  %7 = load ptr, ptr %6, align 8, !tbaa !26
+  %8 = load ptr, ptr %4, align 8, !tbaa !20
+  %9 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPK26cmGeneratorExpressionTokenSt6vectorIS1_SaIS1_EEE4baseEv(ptr noundef nonnull align 8 dereferenceable(8) %8) #15
+  %10 = load ptr, ptr %9, align 8, !tbaa !26
   %11 = icmp ne ptr %7, %10
   ret i1 %11
 }
@@ -902,12 +930,12 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN9__gnu_cxxneIPK26cmGenerato
 define linkonce_odr dso_local ptr @_ZNKSt6vectorI26cmGeneratorExpressionTokenSaIS0_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #0 comdat align 2 {
   %2 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
   %3 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !9
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds %"struct.std::_Vector_base", ptr %4, i32 0, i32 0
-  %6 = getelementptr inbounds %"struct.std::_Vector_base<cmGeneratorExpressionToken, std::allocator<cmGeneratorExpressionToken>>::_Vector_impl_data", ptr %5, i32 0, i32 1
-  call void @_ZN9__gnu_cxx17__normal_iteratorIPK26cmGeneratorExpressionTokenSt6vectorIS1_SaIS1_EEEC2ERKS3_(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %6) #11
-  %7 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %2, i32 0, i32 0
+  %5 = getelementptr inbounds nuw %"struct.std::_Vector_base", ptr %4, i32 0, i32 0
+  %6 = getelementptr inbounds nuw %"struct.std::_Vector_base<cmGeneratorExpressionToken, std::allocator<cmGeneratorExpressionToken>>::_Vector_impl_data", ptr %5, i32 0, i32 1
+  call void @_ZN9__gnu_cxx17__normal_iteratorIPK26cmGeneratorExpressionTokenSt6vectorIS1_SaIS1_EEEC2ERKS3_(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %6) #15
+  %7 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator", ptr %2, i32 0, i32 0
   %8 = load ptr, ptr %7, align 8
   ret ptr %8
 }
@@ -925,13 +953,13 @@ define dso_local void @_ZN27cmGeneratorExpressionParser12ParseContentERSt6vector
   %11 = alloca ptr, align 8
   %12 = alloca i32, align 4
   %13 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !4
+  store ptr %1, ptr %4, align 8, !tbaa !23
   %14 = load ptr, ptr %3, align 8
-  %15 = getelementptr inbounds %struct.cmGeneratorExpressionParser, ptr %14, i32 0, i32 0
-  %16 = call noundef ptr @_ZNK9__gnu_cxx17__normal_iteratorIPK26cmGeneratorExpressionTokenSt6vectorIS1_SaIS1_EEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %15) #11
-  %17 = getelementptr inbounds %struct.cmGeneratorExpressionToken, ptr %16, i32 0, i32 0
-  %18 = load i32, ptr %17, align 8
+  %15 = getelementptr inbounds nuw %struct.cmGeneratorExpressionParser, ptr %14, i32 0, i32 0
+  %16 = call noundef ptr @_ZNK9__gnu_cxx17__normal_iteratorIPK26cmGeneratorExpressionTokenSt6vectorIS1_SaIS1_EEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %15) #15
+  %17 = getelementptr inbounds nuw %struct.cmGeneratorExpressionToken, ptr %16, i32 0, i32 0
+  %18 = load i32, ptr %17, align 8, !tbaa !29
   switch i32 %18, label %88 [
     i32 0, label %19
     i32 1, label %71
@@ -941,27 +969,29 @@ define dso_local void @_ZN27cmGeneratorExpressionParser12ParseContentERSt6vector
   ]
 
 19:                                               ; preds = %2
-  %20 = getelementptr inbounds %struct.cmGeneratorExpressionParser, ptr %14, i32 0, i32 2
-  %21 = load i32, ptr %20, align 8
+  %20 = getelementptr inbounds nuw %struct.cmGeneratorExpressionParser, ptr %14, i32 0, i32 2
+  %21 = load i32, ptr %20, align 8, !tbaa !11
   %22 = icmp eq i32 %21, 0
   br i1 %22, label %23, label %56
 
 23:                                               ; preds = %19
-  %24 = load ptr, ptr %4, align 8
-  %25 = call noundef zeroext i1 @_ZNKSt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EE5emptyEv(ptr noundef nonnull align 8 dereferenceable(24) %24) #11
+  %24 = load ptr, ptr %4, align 8, !tbaa !23
+  %25 = call noundef zeroext i1 @_ZNKSt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EE5emptyEv(ptr noundef nonnull align 8 dereferenceable(24) %24) #15
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #15
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #15
   br i1 %25, label %39, label %26
 
 26:                                               ; preds = %23
-  %27 = load ptr, ptr %4, align 8
-  %28 = call ptr @_ZNSt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %27) #11
-  %29 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.27", ptr %6, i32 0, i32 0
+  %27 = load ptr, ptr %4, align 8, !tbaa !23
+  %28 = call ptr @_ZNSt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %27) #15
+  %29 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator.27", ptr %6, i32 0, i32 0
   store ptr %28, ptr %29, align 8
-  %30 = call ptr @_ZNK9__gnu_cxx17__normal_iteratorIPSt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS2_EESt6vectorIS5_SaIS5_EEEmiEl(ptr noundef nonnull align 8 dereferenceable(8) %6, i64 noundef 1) #11
-  %31 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.27", ptr %5, i32 0, i32 0
+  %30 = call ptr @_ZNK9__gnu_cxx17__normal_iteratorIPSt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS2_EESt6vectorIS5_SaIS5_EEEmiEl(ptr noundef nonnull align 8 dereferenceable(8) %6, i64 noundef 1) #15
+  %31 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator.27", ptr %5, i32 0, i32 0
   store ptr %30, ptr %31, align 8
-  %32 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPSt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS2_EESt6vectorIS5_SaIS5_EEEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %5) #11
-  %33 = call noundef ptr @_ZNKSt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS0_EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %32) #11
-  %34 = load ptr, ptr %33, align 8
+  %32 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPSt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS2_EESt6vectorIS5_SaIS5_EEEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %5) #15
+  %33 = call noundef ptr @_ZNKSt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS0_EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %32) #15
+  %34 = load ptr, ptr %33, align 8, !tbaa !33
   %35 = getelementptr inbounds ptr, ptr %34, i64 2
   %36 = load ptr, ptr %35, align 8
   %37 = call noundef i32 %36(ptr noundef nonnull align 8 dereferenceable(8) %33)
@@ -970,48 +1000,58 @@ define dso_local void @_ZN27cmGeneratorExpressionParser12ParseContentERSt6vector
 
 39:                                               ; preds = %26, %23
   %40 = phi i1 [ false, %23 ], [ %38, %26 ]
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #15
   br i1 %40, label %41, label %55
 
 41:                                               ; preds = %39
-  %42 = load ptr, ptr %4, align 8
-  %43 = call ptr @_ZNSt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %42) #11
-  %44 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.27", ptr %8, i32 0, i32 0
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #15
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #15
+  %42 = load ptr, ptr %4, align 8, !tbaa !23
+  %43 = call ptr @_ZNSt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %42) #15
+  %44 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator.27", ptr %8, i32 0, i32 0
   store ptr %43, ptr %44, align 8
-  %45 = call ptr @_ZNK9__gnu_cxx17__normal_iteratorIPSt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS2_EESt6vectorIS5_SaIS5_EEEmiEl(ptr noundef nonnull align 8 dereferenceable(8) %8, i64 noundef 1) #11
-  %46 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.27", ptr %7, i32 0, i32 0
+  %45 = call ptr @_ZNK9__gnu_cxx17__normal_iteratorIPSt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS2_EESt6vectorIS5_SaIS5_EEEmiEl(ptr noundef nonnull align 8 dereferenceable(8) %8, i64 noundef 1) #15
+  %46 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator.27", ptr %7, i32 0, i32 0
   store ptr %45, ptr %46, align 8
-  %47 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPSt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS2_EESt6vectorIS5_SaIS5_EEEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %7) #11
+  %47 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPSt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS2_EESt6vectorIS5_SaIS5_EEEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %7) #15
   %48 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN2cm21static_reference_castI11TextContentSt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS3_EETnNSt9enable_ifIXsr3std10is_pointerIDTcldtclsr3stdE7declvalIT0_EE3getEEEE5valueEiE4typeELi0EEERT_RS8_(ptr noundef nonnull align 8 dereferenceable(8) %47)
-  %49 = getelementptr inbounds %struct.cmGeneratorExpressionParser, ptr %14, i32 0, i32 0
-  %50 = call noundef ptr @_ZNK9__gnu_cxx17__normal_iteratorIPK26cmGeneratorExpressionTokenSt6vectorIS1_SaIS1_EEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %49) #11
-  %51 = getelementptr inbounds %struct.cmGeneratorExpressionToken, ptr %50, i32 0, i32 2
-  %52 = load i64, ptr %51, align 8
+  %49 = getelementptr inbounds nuw %struct.cmGeneratorExpressionParser, ptr %14, i32 0, i32 0
+  %50 = call noundef ptr @_ZNK9__gnu_cxx17__normal_iteratorIPK26cmGeneratorExpressionTokenSt6vectorIS1_SaIS1_EEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %49) #15
+  %51 = getelementptr inbounds nuw %struct.cmGeneratorExpressionToken, ptr %50, i32 0, i32 2
+  %52 = load i64, ptr %51, align 8, !tbaa !35
   call void @_ZN11TextContent6ExtendEm(ptr noundef nonnull align 8 dereferenceable(24) %48, i64 noundef %52)
-  %53 = getelementptr inbounds %struct.cmGeneratorExpressionParser, ptr %14, i32 0, i32 0
-  %54 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN9__gnu_cxx17__normal_iteratorIPK26cmGeneratorExpressionTokenSt6vectorIS1_SaIS1_EEEppEv(ptr noundef nonnull align 8 dereferenceable(8) %53) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #15
+  %53 = getelementptr inbounds nuw %struct.cmGeneratorExpressionParser, ptr %14, i32 0, i32 0
+  %54 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN9__gnu_cxx17__normal_iteratorIPK26cmGeneratorExpressionTokenSt6vectorIS1_SaIS1_EEEppEv(ptr noundef nonnull align 8 dereferenceable(8) %53) #15
   br label %88
 
 55:                                               ; preds = %39
   br label %56
 
 56:                                               ; preds = %55, %19
-  %57 = getelementptr inbounds %struct.cmGeneratorExpressionParser, ptr %14, i32 0, i32 0
-  %58 = call noundef ptr @_ZNK9__gnu_cxx17__normal_iteratorIPK26cmGeneratorExpressionTokenSt6vectorIS1_SaIS1_EEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %57) #11
-  %59 = getelementptr inbounds %struct.cmGeneratorExpressionToken, ptr %58, i32 0, i32 1
-  %60 = getelementptr inbounds %struct.cmGeneratorExpressionParser, ptr %14, i32 0, i32 0
-  %61 = call noundef ptr @_ZNK9__gnu_cxx17__normal_iteratorIPK26cmGeneratorExpressionTokenSt6vectorIS1_SaIS1_EEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %60) #11
-  %62 = getelementptr inbounds %struct.cmGeneratorExpressionToken, ptr %61, i32 0, i32 2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #15
+  %57 = getelementptr inbounds nuw %struct.cmGeneratorExpressionParser, ptr %14, i32 0, i32 0
+  %58 = call noundef ptr @_ZNK9__gnu_cxx17__normal_iteratorIPK26cmGeneratorExpressionTokenSt6vectorIS1_SaIS1_EEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %57) #15
+  %59 = getelementptr inbounds nuw %struct.cmGeneratorExpressionToken, ptr %58, i32 0, i32 1
+  %60 = getelementptr inbounds nuw %struct.cmGeneratorExpressionParser, ptr %14, i32 0, i32 0
+  %61 = call noundef ptr @_ZNK9__gnu_cxx17__normal_iteratorIPK26cmGeneratorExpressionTokenSt6vectorIS1_SaIS1_EEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %60) #15
+  %62 = getelementptr inbounds nuw %struct.cmGeneratorExpressionToken, ptr %61, i32 0, i32 2
   call void @_ZSt11make_uniqueI11TextContentJRKPKcRKmEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind writable sret(%"class.std::unique_ptr.28") align 8 %9, ptr noundef nonnull align 8 dereferenceable(8) %59, ptr noundef nonnull align 8 dereferenceable(8) %62)
-  %63 = load ptr, ptr %4, align 8
-  call void @_ZNSt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS0_EEC2I11TextContentS1_IS5_EvEEOS_IT_T0_E(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(8) %9) #11
+  %63 = load ptr, ptr %4, align 8, !tbaa !23
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #15
+  call void @_ZNSt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS0_EEC2I11TextContentS1_IS5_EvEEOS_IT_T0_E(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(8) %9) #15
   invoke void @_ZNSt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EE9push_backEOS4_(ptr noundef nonnull align 8 dereferenceable(24) %63, ptr noundef nonnull align 8 dereferenceable(8) %10)
           to label %64 unwind label %67
 
 64:                                               ; preds = %56
-  call void @_ZNSt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS0_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #11
-  %65 = getelementptr inbounds %struct.cmGeneratorExpressionParser, ptr %14, i32 0, i32 0
-  %66 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN9__gnu_cxx17__normal_iteratorIPK26cmGeneratorExpressionTokenSt6vectorIS1_SaIS1_EEEppEv(ptr noundef nonnull align 8 dereferenceable(8) %65) #11
-  call void @_ZNSt10unique_ptrI11TextContentSt14default_deleteIS0_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #11
+  call void @_ZNSt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS0_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #15
+  %65 = getelementptr inbounds nuw %struct.cmGeneratorExpressionParser, ptr %14, i32 0, i32 0
+  %66 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN9__gnu_cxx17__normal_iteratorIPK26cmGeneratorExpressionTokenSt6vectorIS1_SaIS1_EEEppEv(ptr noundef nonnull align 8 dereferenceable(8) %65) #15
+  call void @_ZNSt10unique_ptrI11TextContentSt14default_deleteIS0_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #15
   br label %88
 
 67:                                               ; preds = %56
@@ -1021,28 +1061,30 @@ define dso_local void @_ZN27cmGeneratorExpressionParser12ParseContentERSt6vector
   store ptr %69, ptr %11, align 8
   %70 = extractvalue { ptr, i32 } %68, 1
   store i32 %70, ptr %12, align 4
-  call void @_ZNSt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS0_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #11
-  call void @_ZNSt10unique_ptrI11TextContentSt14default_deleteIS0_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #11
+  call void @_ZNSt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS0_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #15
+  call void @_ZNSt10unique_ptrI11TextContentSt14default_deleteIS0_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #15
   br label %89
 
 71:                                               ; preds = %2
-  %72 = getelementptr inbounds %struct.cmGeneratorExpressionParser, ptr %14, i32 0, i32 0
-  %73 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN9__gnu_cxx17__normal_iteratorIPK26cmGeneratorExpressionTokenSt6vectorIS1_SaIS1_EEEppEv(ptr noundef nonnull align 8 dereferenceable(8) %72) #11
-  %74 = load ptr, ptr %4, align 8
+  %72 = getelementptr inbounds nuw %struct.cmGeneratorExpressionParser, ptr %14, i32 0, i32 0
+  %73 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN9__gnu_cxx17__normal_iteratorIPK26cmGeneratorExpressionTokenSt6vectorIS1_SaIS1_EEEppEv(ptr noundef nonnull align 8 dereferenceable(8) %72) #15
+  %74 = load ptr, ptr %4, align 8, !tbaa !23
   call void @_ZN27cmGeneratorExpressionParser24ParseGeneratorExpressionERSt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS2_EESaIS5_EE(ptr noundef nonnull align 8 dereferenceable(36) %14, ptr noundef nonnull align 8 dereferenceable(24) %74)
   br label %88
 
 75:                                               ; preds = %2, %2, %2
-  %76 = getelementptr inbounds %struct.cmGeneratorExpressionParser, ptr %14, i32 0, i32 2
-  %77 = load i32, ptr %76, align 8
+  %76 = getelementptr inbounds nuw %struct.cmGeneratorExpressionParser, ptr %14, i32 0, i32 2
+  %77 = load i32, ptr %76, align 8, !tbaa !11
   %78 = icmp eq i32 %77, 0
   br i1 %78, label %79, label %84
 
 79:                                               ; preds = %75
-  %80 = load ptr, ptr %4, align 8
-  %81 = getelementptr inbounds %struct.cmGeneratorExpressionParser, ptr %14, i32 0, i32 0
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %13, ptr align 8 %81, i64 8, i1 false)
-  %82 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %13, i32 0, i32 0
+  %80 = load ptr, ptr %4, align 8, !tbaa !23
+  %81 = getelementptr inbounds nuw %struct.cmGeneratorExpressionParser, ptr %14, i32 0, i32 0
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %13, ptr align 8 %81, i64 8, i1 false), !tbaa.struct !25
+  %82 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator", ptr %13, i32 0, i32 0
   %83 = load ptr, ptr %82, align 8
   call void @_ZL10extendTextRSt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EEN9__gnu_cxx17__normal_iteratorIPK26cmGeneratorExpressionTokenS_ISA_SaISA_EEEE(ptr noundef nonnull align 8 dereferenceable(24) %80, ptr %83)
   br label %85
@@ -1051,11 +1093,11 @@ define dso_local void @_ZN27cmGeneratorExpressionParser12ParseContentERSt6vector
   br label %85
 
 85:                                               ; preds = %84, %79
-  %86 = getelementptr inbounds %struct.cmGeneratorExpressionParser, ptr %14, i32 0, i32 0
-  %87 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN9__gnu_cxx17__normal_iteratorIPK26cmGeneratorExpressionTokenSt6vectorIS1_SaIS1_EEEppEv(ptr noundef nonnull align 8 dereferenceable(8) %86) #11
+  %86 = getelementptr inbounds nuw %struct.cmGeneratorExpressionParser, ptr %14, i32 0, i32 0
+  %87 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN9__gnu_cxx17__normal_iteratorIPK26cmGeneratorExpressionTokenSt6vectorIS1_SaIS1_EEEppEv(ptr noundef nonnull align 8 dereferenceable(8) %86) #15
   br label %88
 
-88:                                               ; preds = %85, %71, %64, %41, %2
+88:                                               ; preds = %41, %64, %71, %85, %2
   ret void
 
 89:                                               ; preds = %67
@@ -1117,36 +1159,39 @@ define dso_local void @_ZN27cmGeneratorExpressionParser24ParseGeneratorExpressio
   %49 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
   %50 = alloca %"class.std::unique_ptr", align 8
   %51 = alloca %"class.std::unique_ptr.12", align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !4
+  store ptr %1, ptr %4, align 8, !tbaa !23
   %52 = load ptr, ptr %3, align 8
-  %53 = getelementptr inbounds %struct.cmGeneratorExpressionParser, ptr %52, i32 0, i32 2
-  %54 = load i32, ptr %53, align 8
-  store i32 %54, ptr %5, align 4
-  %55 = getelementptr inbounds %struct.cmGeneratorExpressionParser, ptr %52, i32 0, i32 2
-  %56 = load i32, ptr %55, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #15
+  %53 = getelementptr inbounds nuw %struct.cmGeneratorExpressionParser, ptr %52, i32 0, i32 2
+  %54 = load i32, ptr %53, align 8, !tbaa !11
+  store i32 %54, ptr %5, align 4, !tbaa !36
+  %55 = getelementptr inbounds nuw %struct.cmGeneratorExpressionParser, ptr %52, i32 0, i32 2
+  %56 = load i32, ptr %55, align 8, !tbaa !11
   %57 = add i32 %56, 1
-  store i32 %57, ptr %55, align 8
-  %58 = getelementptr inbounds %struct.cmGeneratorExpressionParser, ptr %52, i32 0, i32 0
-  %59 = call ptr @_ZNK9__gnu_cxx17__normal_iteratorIPK26cmGeneratorExpressionTokenSt6vectorIS1_SaIS1_EEEmiEl(ptr noundef nonnull align 8 dereferenceable(8) %58, i64 noundef 1) #11
-  %60 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %6, i32 0, i32 0
+  store i32 %57, ptr %55, align 8, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #15
+  %58 = getelementptr inbounds nuw %struct.cmGeneratorExpressionParser, ptr %52, i32 0, i32 0
+  %59 = call ptr @_ZNK9__gnu_cxx17__normal_iteratorIPK26cmGeneratorExpressionTokenSt6vectorIS1_SaIS1_EEEmiEl(ptr noundef nonnull align 8 dereferenceable(8) %58, i64 noundef 1) #15
+  %60 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator", ptr %6, i32 0, i32 0
   store ptr %59, ptr %60, align 8
-  call void @_ZNSt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #11
+  call void @llvm.lifetime.start.p0(i64 24, ptr %7) #15
+  call void @_ZNSt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #15
   br label %61
 
 61:                                               ; preds = %101, %2
-  %62 = getelementptr inbounds %struct.cmGeneratorExpressionParser, ptr %52, i32 0, i32 0
-  %63 = call noundef ptr @_ZNK9__gnu_cxx17__normal_iteratorIPK26cmGeneratorExpressionTokenSt6vectorIS1_SaIS1_EEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %62) #11
-  %64 = getelementptr inbounds %struct.cmGeneratorExpressionToken, ptr %63, i32 0, i32 0
-  %65 = load i32, ptr %64, align 8
+  %62 = getelementptr inbounds nuw %struct.cmGeneratorExpressionParser, ptr %52, i32 0, i32 0
+  %63 = call noundef ptr @_ZNK9__gnu_cxx17__normal_iteratorIPK26cmGeneratorExpressionTokenSt6vectorIS1_SaIS1_EEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %62) #15
+  %64 = getelementptr inbounds nuw %struct.cmGeneratorExpressionToken, ptr %63, i32 0, i32 0
+  %65 = load i32, ptr %64, align 8, !tbaa !29
   %66 = icmp ne i32 %65, 2
   br i1 %66, label %67, label %73
 
 67:                                               ; preds = %61
-  %68 = getelementptr inbounds %struct.cmGeneratorExpressionParser, ptr %52, i32 0, i32 0
-  %69 = call noundef ptr @_ZNK9__gnu_cxx17__normal_iteratorIPK26cmGeneratorExpressionTokenSt6vectorIS1_SaIS1_EEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %68) #11
-  %70 = getelementptr inbounds %struct.cmGeneratorExpressionToken, ptr %69, i32 0, i32 0
-  %71 = load i32, ptr %70, align 8
+  %68 = getelementptr inbounds nuw %struct.cmGeneratorExpressionParser, ptr %52, i32 0, i32 0
+  %69 = call noundef ptr @_ZNK9__gnu_cxx17__normal_iteratorIPK26cmGeneratorExpressionTokenSt6vectorIS1_SaIS1_EEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %68) #15
+  %70 = getelementptr inbounds nuw %struct.cmGeneratorExpressionToken, ptr %69, i32 0, i32 0
+  %71 = load i32, ptr %70, align 8, !tbaa !29
   %72 = icmp ne i32 %71, 3
   br label %73
 
@@ -1155,34 +1200,34 @@ define dso_local void @_ZN27cmGeneratorExpressionParser24ParseGeneratorExpressio
   br i1 %74, label %75, label %102
 
 75:                                               ; preds = %73
-  %76 = getelementptr inbounds %struct.cmGeneratorExpressionParser, ptr %52, i32 0, i32 0
-  %77 = call noundef ptr @_ZNK9__gnu_cxx17__normal_iteratorIPK26cmGeneratorExpressionTokenSt6vectorIS1_SaIS1_EEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %76) #11
-  %78 = getelementptr inbounds %struct.cmGeneratorExpressionToken, ptr %77, i32 0, i32 0
-  %79 = load i32, ptr %78, align 8
+  %76 = getelementptr inbounds nuw %struct.cmGeneratorExpressionParser, ptr %52, i32 0, i32 0
+  %77 = call noundef ptr @_ZNK9__gnu_cxx17__normal_iteratorIPK26cmGeneratorExpressionTokenSt6vectorIS1_SaIS1_EEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %76) #15
+  %78 = getelementptr inbounds nuw %struct.cmGeneratorExpressionToken, ptr %77, i32 0, i32 0
+  %79 = load i32, ptr %78, align 8, !tbaa !29
   %80 = icmp eq i32 %79, 4
   br i1 %80, label %81, label %92
 
 81:                                               ; preds = %75
-  %82 = getelementptr inbounds %struct.cmGeneratorExpressionParser, ptr %52, i32 0, i32 0
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %8, ptr align 8 %82, i64 8, i1 false)
-  %83 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %8, i32 0, i32 0
+  %82 = getelementptr inbounds nuw %struct.cmGeneratorExpressionParser, ptr %52, i32 0, i32 0
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %8, ptr align 8 %82, i64 8, i1 false), !tbaa.struct !25
+  %83 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator", ptr %8, i32 0, i32 0
   %84 = load ptr, ptr %83, align 8
   invoke void @_ZL10extendTextRSt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EEN9__gnu_cxx17__normal_iteratorIPK26cmGeneratorExpressionTokenS_ISA_SaISA_EEEE(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr %84)
           to label %85 unwind label %88
 
 85:                                               ; preds = %81
-  %86 = getelementptr inbounds %struct.cmGeneratorExpressionParser, ptr %52, i32 0, i32 0
-  %87 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN9__gnu_cxx17__normal_iteratorIPK26cmGeneratorExpressionTokenSt6vectorIS1_SaIS1_EEEppEv(ptr noundef nonnull align 8 dereferenceable(8) %86) #11
+  %86 = getelementptr inbounds nuw %struct.cmGeneratorExpressionParser, ptr %52, i32 0, i32 0
+  %87 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN9__gnu_cxx17__normal_iteratorIPK26cmGeneratorExpressionTokenSt6vectorIS1_SaIS1_EEEppEv(ptr noundef nonnull align 8 dereferenceable(8) %86) #15
   br label %94
 
-88:                                               ; preds = %119, %92, %81
+88:                                               ; preds = %92, %81
   %89 = landingpad { ptr, i32 }
           cleanup
   %90 = extractvalue { ptr, i32 } %89, 0
   store ptr %90, ptr %9, align 8
   %91 = extractvalue { ptr, i32 } %89, 1
   store i32 %91, ptr %10, align 4
-  br label %447
+  br label %473
 
 92:                                               ; preds = %75
   invoke void @_ZN27cmGeneratorExpressionParser12ParseContentERSt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS2_EESaIS5_EE(ptr noundef nonnull align 8 dereferenceable(36) %52, ptr noundef nonnull align 8 dereferenceable(24) %7)
@@ -1192,660 +1237,815 @@ define dso_local void @_ZN27cmGeneratorExpressionParser24ParseGeneratorExpressio
   br label %94
 
 94:                                               ; preds = %93, %85
-  %95 = getelementptr inbounds %struct.cmGeneratorExpressionParser, ptr %52, i32 0, i32 0
-  %96 = getelementptr inbounds %struct.cmGeneratorExpressionParser, ptr %52, i32 0, i32 1
-  %97 = call ptr @_ZNKSt6vectorI26cmGeneratorExpressionTokenSaIS0_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %96) #11
-  %98 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %11, i32 0, i32 0
+  %95 = getelementptr inbounds nuw %struct.cmGeneratorExpressionParser, ptr %52, i32 0, i32 0
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #15
+  %96 = getelementptr inbounds nuw %struct.cmGeneratorExpressionParser, ptr %52, i32 0, i32 1
+  %97 = call ptr @_ZNKSt6vectorI26cmGeneratorExpressionTokenSaIS0_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %96) #15
+  %98 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator", ptr %11, i32 0, i32 0
   store ptr %97, ptr %98, align 8
-  %99 = call noundef zeroext i1 @_ZN9__gnu_cxxeqIPK26cmGeneratorExpressionTokenSt6vectorIS1_SaIS1_EEEEbRKNS_17__normal_iteratorIT_T0_EESC_(ptr noundef nonnull align 8 dereferenceable(8) %95, ptr noundef nonnull align 8 dereferenceable(8) %11) #11
+  %99 = call noundef zeroext i1 @_ZN9__gnu_cxxeqIPK26cmGeneratorExpressionTokenSt6vectorIS1_SaIS1_EEEEbRKNS_17__normal_iteratorIT_T0_EESC_(ptr noundef nonnull align 8 dereferenceable(8) %95, ptr noundef nonnull align 8 dereferenceable(8) %11) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #15
   br i1 %99, label %100, label %101
 
 100:                                              ; preds = %94
   br label %102
 
 101:                                              ; preds = %94
-  br label %61, !llvm.loop !7
+  br label %61, !llvm.loop !37
 
 102:                                              ; preds = %100, %73
-  %103 = call noundef zeroext i1 @_ZNKSt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EE5emptyEv(ptr noundef nonnull align 8 dereferenceable(24) %7) #11
+  %103 = call noundef zeroext i1 @_ZNKSt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EE5emptyEv(ptr noundef nonnull align 8 dereferenceable(24) %7) #15
   br i1 %103, label %104, label %105
 
 104:                                              ; preds = %102
   br label %105
 
 105:                                              ; preds = %104, %102
-  %106 = getelementptr inbounds %struct.cmGeneratorExpressionParser, ptr %52, i32 0, i32 0
-  %107 = getelementptr inbounds %struct.cmGeneratorExpressionParser, ptr %52, i32 0, i32 1
-  %108 = call ptr @_ZNKSt6vectorI26cmGeneratorExpressionTokenSaIS0_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %107) #11
-  %109 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %12, i32 0, i32 0
+  %106 = getelementptr inbounds nuw %struct.cmGeneratorExpressionParser, ptr %52, i32 0, i32 0
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #15
+  %107 = getelementptr inbounds nuw %struct.cmGeneratorExpressionParser, ptr %52, i32 0, i32 1
+  %108 = call ptr @_ZNKSt6vectorI26cmGeneratorExpressionTokenSaIS0_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %107) #15
+  %109 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator", ptr %12, i32 0, i32 0
   store ptr %108, ptr %109, align 8
-  %110 = call noundef zeroext i1 @_ZN9__gnu_cxxneIPK26cmGeneratorExpressionTokenSt6vectorIS1_SaIS1_EEEEbRKNS_17__normal_iteratorIT_T0_EESC_(ptr noundef nonnull align 8 dereferenceable(8) %106, ptr noundef nonnull align 8 dereferenceable(8) %12) #11
+  %110 = call noundef zeroext i1 @_ZN9__gnu_cxxneIPK26cmGeneratorExpressionTokenSt6vectorIS1_SaIS1_EEEEbRKNS_17__normal_iteratorIT_T0_EESC_(ptr noundef nonnull align 8 dereferenceable(8) %106, ptr noundef nonnull align 8 dereferenceable(8) %12) #15
   br i1 %110, label %111, label %117
 
 111:                                              ; preds = %105
-  %112 = getelementptr inbounds %struct.cmGeneratorExpressionParser, ptr %52, i32 0, i32 0
-  %113 = call noundef ptr @_ZNK9__gnu_cxx17__normal_iteratorIPK26cmGeneratorExpressionTokenSt6vectorIS1_SaIS1_EEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %112) #11
-  %114 = getelementptr inbounds %struct.cmGeneratorExpressionToken, ptr %113, i32 0, i32 0
-  %115 = load i32, ptr %114, align 8
+  %112 = getelementptr inbounds nuw %struct.cmGeneratorExpressionParser, ptr %52, i32 0, i32 0
+  %113 = call noundef ptr @_ZNK9__gnu_cxx17__normal_iteratorIPK26cmGeneratorExpressionTokenSt6vectorIS1_SaIS1_EEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %112) #15
+  %114 = getelementptr inbounds nuw %struct.cmGeneratorExpressionToken, ptr %113, i32 0, i32 0
+  %115 = load i32, ptr %114, align 8, !tbaa !29
   %116 = icmp eq i32 %115, 2
   br label %117
 
 117:                                              ; preds = %111, %105
   %118 = phi i1 [ false, %105 ], [ %116, %111 ]
-  br i1 %118, label %119, label %156
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #15
+  br i1 %118, label %119, label %161
 
 119:                                              ; preds = %117
-  %120 = call noundef ptr @_ZNK9__gnu_cxx17__normal_iteratorIPK26cmGeneratorExpressionTokenSt6vectorIS1_SaIS1_EEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %6) #11
-  %121 = getelementptr inbounds %struct.cmGeneratorExpressionToken, ptr %120, i32 0, i32 1
-  %122 = getelementptr inbounds %struct.cmGeneratorExpressionParser, ptr %52, i32 0, i32 0
-  %123 = call noundef ptr @_ZNK9__gnu_cxx17__normal_iteratorIPK26cmGeneratorExpressionTokenSt6vectorIS1_SaIS1_EEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %122) #11
-  %124 = getelementptr inbounds %struct.cmGeneratorExpressionToken, ptr %123, i32 0, i32 1
-  %125 = load ptr, ptr %124, align 8
-  %126 = call noundef ptr @_ZNK9__gnu_cxx17__normal_iteratorIPK26cmGeneratorExpressionTokenSt6vectorIS1_SaIS1_EEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %6) #11
-  %127 = getelementptr inbounds %struct.cmGeneratorExpressionToken, ptr %126, i32 0, i32 1
-  %128 = load ptr, ptr %127, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #15
+  %120 = call noundef ptr @_ZNK9__gnu_cxx17__normal_iteratorIPK26cmGeneratorExpressionTokenSt6vectorIS1_SaIS1_EEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %6) #15
+  %121 = getelementptr inbounds nuw %struct.cmGeneratorExpressionToken, ptr %120, i32 0, i32 1
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #15
+  %122 = getelementptr inbounds nuw %struct.cmGeneratorExpressionParser, ptr %52, i32 0, i32 0
+  %123 = call noundef ptr @_ZNK9__gnu_cxx17__normal_iteratorIPK26cmGeneratorExpressionTokenSt6vectorIS1_SaIS1_EEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %122) #15
+  %124 = getelementptr inbounds nuw %struct.cmGeneratorExpressionToken, ptr %123, i32 0, i32 1
+  %125 = load ptr, ptr %124, align 8, !tbaa !38
+  %126 = call noundef ptr @_ZNK9__gnu_cxx17__normal_iteratorIPK26cmGeneratorExpressionTokenSt6vectorIS1_SaIS1_EEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %6) #15
+  %127 = getelementptr inbounds nuw %struct.cmGeneratorExpressionToken, ptr %126, i32 0, i32 1
+  %128 = load ptr, ptr %127, align 8, !tbaa !38
   %129 = ptrtoint ptr %125 to i64
   %130 = ptrtoint ptr %128 to i64
   %131 = sub i64 %129, %130
-  %132 = getelementptr inbounds %struct.cmGeneratorExpressionParser, ptr %52, i32 0, i32 0
-  %133 = call noundef ptr @_ZNK9__gnu_cxx17__normal_iteratorIPK26cmGeneratorExpressionTokenSt6vectorIS1_SaIS1_EEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %132) #11
-  %134 = getelementptr inbounds %struct.cmGeneratorExpressionToken, ptr %133, i32 0, i32 2
-  %135 = load i64, ptr %134, align 8
+  %132 = getelementptr inbounds nuw %struct.cmGeneratorExpressionParser, ptr %52, i32 0, i32 0
+  %133 = call noundef ptr @_ZNK9__gnu_cxx17__normal_iteratorIPK26cmGeneratorExpressionTokenSt6vectorIS1_SaIS1_EEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %132) #15
+  %134 = getelementptr inbounds nuw %struct.cmGeneratorExpressionToken, ptr %133, i32 0, i32 2
+  %135 = load i64, ptr %134, align 8, !tbaa !35
   %136 = add i64 %131, %135
-  store i64 %136, ptr %14, align 8
+  store i64 %136, ptr %14, align 8, !tbaa !39
   invoke void @_ZSt11make_uniqueI26GeneratorExpressionContentJRKPKcmEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind writable sret(%"class.std::unique_ptr") align 8 %13, ptr noundef nonnull align 8 dereferenceable(8) %121, ptr noundef nonnull align 8 dereferenceable(8) %14)
-          to label %137 unwind label %88
+          to label %137 unwind label %147
 
 137:                                              ; preds = %119
-  %138 = getelementptr inbounds %struct.cmGeneratorExpressionParser, ptr %52, i32 0, i32 0
-  %139 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN9__gnu_cxx17__normal_iteratorIPK26cmGeneratorExpressionTokenSt6vectorIS1_SaIS1_EEEppEv(ptr noundef nonnull align 8 dereferenceable(8) %138) #11
-  %140 = getelementptr inbounds %struct.cmGeneratorExpressionParser, ptr %52, i32 0, i32 2
-  %141 = load i32, ptr %140, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #15
+  %138 = getelementptr inbounds nuw %struct.cmGeneratorExpressionParser, ptr %52, i32 0, i32 0
+  %139 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN9__gnu_cxx17__normal_iteratorIPK26cmGeneratorExpressionTokenSt6vectorIS1_SaIS1_EEEppEv(ptr noundef nonnull align 8 dereferenceable(8) %138) #15
+  %140 = getelementptr inbounds nuw %struct.cmGeneratorExpressionParser, ptr %52, i32 0, i32 2
+  %141 = load i32, ptr %140, align 8, !tbaa !11
   %142 = add i32 %141, -1
-  store i32 %142, ptr %140, align 8
-  %143 = call noundef ptr @_ZNKSt10unique_ptrI26GeneratorExpressionContentSt14default_deleteIS0_EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %13) #11
+  store i32 %142, ptr %140, align 8, !tbaa !11
+  %143 = call noundef ptr @_ZNKSt10unique_ptrI26GeneratorExpressionContentSt14default_deleteIS0_EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %13) #15
   invoke void @_ZN26GeneratorExpressionContent13SetIdentifierEOSt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS2_EESaIS5_EE(ptr noundef nonnull align 8 dereferenceable(72) %143, ptr noundef nonnull align 8 dereferenceable(24) %7)
-          to label %144 unwind label %147
+          to label %144 unwind label %151
 
 144:                                              ; preds = %137
-  %145 = load ptr, ptr %4, align 8
-  call void @_ZNSt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS0_EEC2I26GeneratorExpressionContentS1_IS5_EvEEOS_IT_T0_E(ptr noundef nonnull align 8 dereferenceable(8) %15, ptr noundef nonnull align 8 dereferenceable(8) %13) #11
+  %145 = load ptr, ptr %4, align 8, !tbaa !23
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #15
+  call void @_ZNSt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS0_EEC2I26GeneratorExpressionContentS1_IS5_EvEEOS_IT_T0_E(ptr noundef nonnull align 8 dereferenceable(8) %15, ptr noundef nonnull align 8 dereferenceable(8) %13) #15
   invoke void @_ZNSt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EE9push_backEOS4_(ptr noundef nonnull align 8 dereferenceable(24) %145, ptr noundef nonnull align 8 dereferenceable(8) %15)
-          to label %146 unwind label %151
+          to label %146 unwind label %155
 
 146:                                              ; preds = %144
-  call void @_ZNSt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS0_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %15) #11
+  call void @_ZNSt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS0_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %15) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #15
   store i32 1, ptr %16, align 4
-  call void @_ZNSt10unique_ptrI26GeneratorExpressionContentSt14default_deleteIS0_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %13) #11
-  br label %434
+  call void @_ZNSt10unique_ptrI26GeneratorExpressionContentSt14default_deleteIS0_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %13) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #15
+  br label %455
 
-147:                                              ; preds = %137
+147:                                              ; preds = %119
   %148 = landingpad { ptr, i32 }
           cleanup
   %149 = extractvalue { ptr, i32 } %148, 0
   store ptr %149, ptr %9, align 8
   %150 = extractvalue { ptr, i32 } %148, 1
   store i32 %150, ptr %10, align 4
-  br label %155
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #15
+  br label %160
 
-151:                                              ; preds = %144
+151:                                              ; preds = %137
   %152 = landingpad { ptr, i32 }
           cleanup
   %153 = extractvalue { ptr, i32 } %152, 0
   store ptr %153, ptr %9, align 8
   %154 = extractvalue { ptr, i32 } %152, 1
   store i32 %154, ptr %10, align 4
-  call void @_ZNSt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS0_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %15) #11
-  br label %155
+  br label %159
 
-155:                                              ; preds = %151, %147
-  call void @_ZNSt10unique_ptrI26GeneratorExpressionContentSt14default_deleteIS0_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %13) #11
-  br label %447
-
-156:                                              ; preds = %117
-  call void @_ZNSt6vectorIS_ISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EESaIS6_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %17) #11
-  call void @_ZNSt6vectorIN9__gnu_cxx17__normal_iteratorIPK26cmGeneratorExpressionTokenS_IS2_SaIS2_EEEESaIS7_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %18) #11
-  call void @_ZN9__gnu_cxx17__normal_iteratorIPK26cmGeneratorExpressionTokenSt6vectorIS1_SaIS1_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %19) #11
-  store i8 0, ptr %20, align 1
-  %157 = getelementptr inbounds %struct.cmGeneratorExpressionParser, ptr %52, i32 0, i32 0
-  %158 = getelementptr inbounds %struct.cmGeneratorExpressionParser, ptr %52, i32 0, i32 1
-  %159 = call ptr @_ZNKSt6vectorI26cmGeneratorExpressionTokenSaIS0_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %158) #11
-  %160 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %21, i32 0, i32 0
-  store ptr %159, ptr %160, align 8
-  %161 = call noundef zeroext i1 @_ZN9__gnu_cxxneIPK26cmGeneratorExpressionTokenSt6vectorIS1_SaIS1_EEEEbRKNS_17__normal_iteratorIT_T0_EESC_(ptr noundef nonnull align 8 dereferenceable(8) %157, ptr noundef nonnull align 8 dereferenceable(8) %21) #11
-  br i1 %161, label %162, label %168
-
-162:                                              ; preds = %156
-  %163 = getelementptr inbounds %struct.cmGeneratorExpressionParser, ptr %52, i32 0, i32 0
-  %164 = call noundef ptr @_ZNK9__gnu_cxx17__normal_iteratorIPK26cmGeneratorExpressionTokenSt6vectorIS1_SaIS1_EEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %163) #11
-  %165 = getelementptr inbounds %struct.cmGeneratorExpressionToken, ptr %164, i32 0, i32 0
-  %166 = load i32, ptr %165, align 8
-  %167 = icmp eq i32 %166, 3
-  br label %168
-
-168:                                              ; preds = %162, %156
-  %169 = phi i1 [ false, %156 ], [ %167, %162 ]
-  br i1 %169, label %170, label %351
-
-170:                                              ; preds = %168
-  %171 = getelementptr inbounds %struct.cmGeneratorExpressionParser, ptr %52, i32 0, i32 0
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %19, ptr align 8 %171, i64 8, i1 false)
-  %172 = call noundef i64 @_ZNKSt6vectorIS_ISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EESaIS6_EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %17) #11
-  %173 = add i64 %172, 1
-  invoke void @_ZNSt6vectorIS_ISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EESaIS6_EE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %17, i64 noundef %173)
-          to label %174 unwind label %183
-
-174:                                              ; preds = %170
-  %175 = getelementptr inbounds %struct.cmGeneratorExpressionParser, ptr %52, i32 0, i32 0
-  %176 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN9__gnu_cxx17__normal_iteratorIPK26cmGeneratorExpressionTokenSt6vectorIS1_SaIS1_EEEppEv(ptr noundef nonnull align 8 dereferenceable(8) %175) #11
-  %177 = getelementptr inbounds %struct.cmGeneratorExpressionParser, ptr %52, i32 0, i32 0
-  %178 = getelementptr inbounds %struct.cmGeneratorExpressionParser, ptr %52, i32 0, i32 1
-  %179 = call ptr @_ZNKSt6vectorI26cmGeneratorExpressionTokenSaIS0_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %178) #11
-  %180 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %22, i32 0, i32 0
-  store ptr %179, ptr %180, align 8
-  %181 = call noundef zeroext i1 @_ZN9__gnu_cxxeqIPK26cmGeneratorExpressionTokenSt6vectorIS1_SaIS1_EEEEbRKNS_17__normal_iteratorIT_T0_EESC_(ptr noundef nonnull align 8 dereferenceable(8) %177, ptr noundef nonnull align 8 dereferenceable(8) %22) #11
-  br i1 %181, label %182, label %187
-
-182:                                              ; preds = %174
-  store i8 1, ptr %20, align 1
-  br label %187
-
-183:                                              ; preds = %404, %391, %383, %364, %360, %356, %317, %289, %287, %259, %232, %204, %202, %170
-  %184 = landingpad { ptr, i32 }
+155:                                              ; preds = %144
+  %156 = landingpad { ptr, i32 }
           cleanup
-  %185 = extractvalue { ptr, i32 } %184, 0
-  store ptr %185, ptr %9, align 8
-  %186 = extractvalue { ptr, i32 } %184, 1
-  store i32 %186, ptr %10, align 4
-  br label %446
+  %157 = extractvalue { ptr, i32 } %156, 0
+  store ptr %157, ptr %9, align 8
+  %158 = extractvalue { ptr, i32 } %156, 1
+  store i32 %158, ptr %10, align 4
+  call void @_ZNSt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS0_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %15) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #15
+  br label %159
 
-187:                                              ; preds = %182, %174
-  br label %188
+159:                                              ; preds = %155, %151
+  call void @_ZNSt10unique_ptrI26GeneratorExpressionContentSt14default_deleteIS0_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %13) #15
+  br label %160
 
-188:                                              ; preds = %216, %187
-  %189 = getelementptr inbounds %struct.cmGeneratorExpressionParser, ptr %52, i32 0, i32 0
-  %190 = getelementptr inbounds %struct.cmGeneratorExpressionParser, ptr %52, i32 0, i32 1
-  %191 = call ptr @_ZNKSt6vectorI26cmGeneratorExpressionTokenSaIS0_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %190) #11
-  %192 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %23, i32 0, i32 0
-  store ptr %191, ptr %192, align 8
-  %193 = call noundef zeroext i1 @_ZN9__gnu_cxxneIPK26cmGeneratorExpressionTokenSt6vectorIS1_SaIS1_EEEEbRKNS_17__normal_iteratorIT_T0_EESC_(ptr noundef nonnull align 8 dereferenceable(8) %189, ptr noundef nonnull align 8 dereferenceable(8) %23) #11
-  br i1 %193, label %194, label %200
+160:                                              ; preds = %159, %147
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #15
+  br label %473
 
-194:                                              ; preds = %188
-  %195 = getelementptr inbounds %struct.cmGeneratorExpressionParser, ptr %52, i32 0, i32 0
-  %196 = call noundef ptr @_ZNK9__gnu_cxx17__normal_iteratorIPK26cmGeneratorExpressionTokenSt6vectorIS1_SaIS1_EEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %195) #11
-  %197 = getelementptr inbounds %struct.cmGeneratorExpressionToken, ptr %196, i32 0, i32 0
-  %198 = load i32, ptr %197, align 8
-  %199 = icmp eq i32 %198, 4
-  br label %200
+161:                                              ; preds = %117
+  call void @llvm.lifetime.start.p0(i64 24, ptr %17) #15
+  call void @_ZNSt6vectorIS_ISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EESaIS6_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %17) #15
+  call void @llvm.lifetime.start.p0(i64 24, ptr %18) #15
+  call void @_ZNSt6vectorIN9__gnu_cxx17__normal_iteratorIPK26cmGeneratorExpressionTokenS_IS2_SaIS2_EEEESaIS7_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %18) #15
+  call void @llvm.lifetime.start.p0(i64 8, ptr %19) #15
+  call void @_ZN9__gnu_cxx17__normal_iteratorIPK26cmGeneratorExpressionTokenSt6vectorIS1_SaIS1_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %19) #15
+  call void @llvm.lifetime.start.p0(i64 1, ptr %20) #15
+  store i8 0, ptr %20, align 1, !tbaa !40
+  %162 = getelementptr inbounds nuw %struct.cmGeneratorExpressionParser, ptr %52, i32 0, i32 0
+  call void @llvm.lifetime.start.p0(i64 8, ptr %21) #15
+  %163 = getelementptr inbounds nuw %struct.cmGeneratorExpressionParser, ptr %52, i32 0, i32 1
+  %164 = call ptr @_ZNKSt6vectorI26cmGeneratorExpressionTokenSaIS0_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %163) #15
+  %165 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator", ptr %21, i32 0, i32 0
+  store ptr %164, ptr %165, align 8
+  %166 = call noundef zeroext i1 @_ZN9__gnu_cxxneIPK26cmGeneratorExpressionTokenSt6vectorIS1_SaIS1_EEEEbRKNS_17__normal_iteratorIT_T0_EESC_(ptr noundef nonnull align 8 dereferenceable(8) %162, ptr noundef nonnull align 8 dereferenceable(8) %21) #15
+  br i1 %166, label %167, label %173
 
-200:                                              ; preds = %194, %188
-  %201 = phi i1 [ false, %188 ], [ %199, %194 ]
-  br i1 %201, label %202, label %217
+167:                                              ; preds = %161
+  %168 = getelementptr inbounds nuw %struct.cmGeneratorExpressionParser, ptr %52, i32 0, i32 0
+  %169 = call noundef ptr @_ZNK9__gnu_cxx17__normal_iteratorIPK26cmGeneratorExpressionTokenSt6vectorIS1_SaIS1_EEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %168) #15
+  %170 = getelementptr inbounds nuw %struct.cmGeneratorExpressionToken, ptr %169, i32 0, i32 0
+  %171 = load i32, ptr %170, align 8, !tbaa !29
+  %172 = icmp eq i32 %171, 3
+  br label %173
 
-202:                                              ; preds = %200
-  %203 = getelementptr inbounds %struct.cmGeneratorExpressionParser, ptr %52, i32 0, i32 0
-  invoke void @_ZNSt6vectorIN9__gnu_cxx17__normal_iteratorIPK26cmGeneratorExpressionTokenS_IS2_SaIS2_EEEESaIS7_EE9push_backERKS7_(ptr noundef nonnull align 8 dereferenceable(24) %18, ptr noundef nonnull align 8 dereferenceable(8) %203)
-          to label %204 unwind label %183
+173:                                              ; preds = %167, %161
+  %174 = phi i1 [ false, %161 ], [ %172, %167 ]
+  call void @llvm.lifetime.end.p0(i64 8, ptr %21) #15
+  br i1 %174, label %175, label %368
 
-204:                                              ; preds = %202
-  %205 = call noundef i64 @_ZNKSt6vectorIS_ISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EESaIS6_EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %17) #11
-  %206 = add i64 %205, 1
-  invoke void @_ZNSt6vectorIS_ISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EESaIS6_EE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %17, i64 noundef %206)
-          to label %207 unwind label %183
+175:                                              ; preds = %173
+  %176 = getelementptr inbounds nuw %struct.cmGeneratorExpressionParser, ptr %52, i32 0, i32 0
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %19, ptr align 8 %176, i64 8, i1 false), !tbaa.struct !25
+  %177 = call noundef i64 @_ZNKSt6vectorIS_ISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EESaIS6_EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %17) #15
+  %178 = add i64 %177, 1
+  invoke void @_ZNSt6vectorIS_ISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EESaIS6_EE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %17, i64 noundef %178)
+          to label %179 unwind label %188
 
-207:                                              ; preds = %204
-  %208 = getelementptr inbounds %struct.cmGeneratorExpressionParser, ptr %52, i32 0, i32 0
-  %209 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN9__gnu_cxx17__normal_iteratorIPK26cmGeneratorExpressionTokenSt6vectorIS1_SaIS1_EEEppEv(ptr noundef nonnull align 8 dereferenceable(8) %208) #11
-  %210 = getelementptr inbounds %struct.cmGeneratorExpressionParser, ptr %52, i32 0, i32 0
-  %211 = getelementptr inbounds %struct.cmGeneratorExpressionParser, ptr %52, i32 0, i32 1
-  %212 = call ptr @_ZNKSt6vectorI26cmGeneratorExpressionTokenSaIS0_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %211) #11
-  %213 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %24, i32 0, i32 0
-  store ptr %212, ptr %213, align 8
-  %214 = call noundef zeroext i1 @_ZN9__gnu_cxxeqIPK26cmGeneratorExpressionTokenSt6vectorIS1_SaIS1_EEEEbRKNS_17__normal_iteratorIT_T0_EESC_(ptr noundef nonnull align 8 dereferenceable(8) %210, ptr noundef nonnull align 8 dereferenceable(8) %24) #11
-  br i1 %214, label %215, label %216
+179:                                              ; preds = %175
+  %180 = getelementptr inbounds nuw %struct.cmGeneratorExpressionParser, ptr %52, i32 0, i32 0
+  %181 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN9__gnu_cxx17__normal_iteratorIPK26cmGeneratorExpressionTokenSt6vectorIS1_SaIS1_EEEppEv(ptr noundef nonnull align 8 dereferenceable(8) %180) #15
+  %182 = getelementptr inbounds nuw %struct.cmGeneratorExpressionParser, ptr %52, i32 0, i32 0
+  call void @llvm.lifetime.start.p0(i64 8, ptr %22) #15
+  %183 = getelementptr inbounds nuw %struct.cmGeneratorExpressionParser, ptr %52, i32 0, i32 1
+  %184 = call ptr @_ZNKSt6vectorI26cmGeneratorExpressionTokenSaIS0_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %183) #15
+  %185 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator", ptr %22, i32 0, i32 0
+  store ptr %184, ptr %185, align 8
+  %186 = call noundef zeroext i1 @_ZN9__gnu_cxxeqIPK26cmGeneratorExpressionTokenSt6vectorIS1_SaIS1_EEEEbRKNS_17__normal_iteratorIT_T0_EESC_(ptr noundef nonnull align 8 dereferenceable(8) %182, ptr noundef nonnull align 8 dereferenceable(8) %22) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr %22) #15
+  br i1 %186, label %187, label %192
 
-215:                                              ; preds = %207
-  store i8 1, ptr %20, align 1
-  br label %216
+187:                                              ; preds = %179
+  store i8 1, ptr %20, align 1, !tbaa !40
+  br label %192
 
-216:                                              ; preds = %215, %207
-  br label %188, !llvm.loop !8
+188:                                              ; preds = %381, %377, %373, %302, %300, %209, %207, %175
+  %189 = landingpad { ptr, i32 }
+          cleanup
+  %190 = extractvalue { ptr, i32 } %189, 0
+  store ptr %190, ptr %9, align 8
+  %191 = extractvalue { ptr, i32 } %189, 1
+  store i32 %191, ptr %10, align 4
+  br label %472
 
-217:                                              ; preds = %200
-  br label %218
+192:                                              ; preds = %187, %179
+  br label %193
 
-218:                                              ; preds = %241, %217
-  %219 = getelementptr inbounds %struct.cmGeneratorExpressionParser, ptr %52, i32 0, i32 0
-  %220 = getelementptr inbounds %struct.cmGeneratorExpressionParser, ptr %52, i32 0, i32 1
-  %221 = call ptr @_ZNKSt6vectorI26cmGeneratorExpressionTokenSaIS0_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %220) #11
-  %222 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %25, i32 0, i32 0
-  store ptr %221, ptr %222, align 8
-  %223 = call noundef zeroext i1 @_ZN9__gnu_cxxneIPK26cmGeneratorExpressionTokenSt6vectorIS1_SaIS1_EEEEbRKNS_17__normal_iteratorIT_T0_EESC_(ptr noundef nonnull align 8 dereferenceable(8) %219, ptr noundef nonnull align 8 dereferenceable(8) %25) #11
-  br i1 %223, label %224, label %230
+193:                                              ; preds = %221, %192
+  %194 = getelementptr inbounds nuw %struct.cmGeneratorExpressionParser, ptr %52, i32 0, i32 0
+  call void @llvm.lifetime.start.p0(i64 8, ptr %23) #15
+  %195 = getelementptr inbounds nuw %struct.cmGeneratorExpressionParser, ptr %52, i32 0, i32 1
+  %196 = call ptr @_ZNKSt6vectorI26cmGeneratorExpressionTokenSaIS0_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %195) #15
+  %197 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator", ptr %23, i32 0, i32 0
+  store ptr %196, ptr %197, align 8
+  %198 = call noundef zeroext i1 @_ZN9__gnu_cxxneIPK26cmGeneratorExpressionTokenSt6vectorIS1_SaIS1_EEEEbRKNS_17__normal_iteratorIT_T0_EESC_(ptr noundef nonnull align 8 dereferenceable(8) %194, ptr noundef nonnull align 8 dereferenceable(8) %23) #15
+  br i1 %198, label %199, label %205
 
-224:                                              ; preds = %218
-  %225 = getelementptr inbounds %struct.cmGeneratorExpressionParser, ptr %52, i32 0, i32 0
-  %226 = call noundef ptr @_ZNK9__gnu_cxx17__normal_iteratorIPK26cmGeneratorExpressionTokenSt6vectorIS1_SaIS1_EEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %225) #11
-  %227 = getelementptr inbounds %struct.cmGeneratorExpressionToken, ptr %226, i32 0, i32 0
-  %228 = load i32, ptr %227, align 8
-  %229 = icmp eq i32 %228, 3
-  br label %230
+199:                                              ; preds = %193
+  %200 = getelementptr inbounds nuw %struct.cmGeneratorExpressionParser, ptr %52, i32 0, i32 0
+  %201 = call noundef ptr @_ZNK9__gnu_cxx17__normal_iteratorIPK26cmGeneratorExpressionTokenSt6vectorIS1_SaIS1_EEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %200) #15
+  %202 = getelementptr inbounds nuw %struct.cmGeneratorExpressionToken, ptr %201, i32 0, i32 0
+  %203 = load i32, ptr %202, align 8, !tbaa !29
+  %204 = icmp eq i32 %203, 4
+  br label %205
 
-230:                                              ; preds = %224, %218
-  %231 = phi i1 [ false, %218 ], [ %229, %224 ]
-  br i1 %231, label %232, label %244
+205:                                              ; preds = %199, %193
+  %206 = phi i1 [ false, %193 ], [ %204, %199 ]
+  call void @llvm.lifetime.end.p0(i64 8, ptr %23) #15
+  br i1 %206, label %207, label %222
 
-232:                                              ; preds = %230
-  %233 = call ptr @_ZNSt6vectorIS_ISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EESaIS6_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %17) #11
-  %234 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.25", ptr %27, i32 0, i32 0
-  store ptr %233, ptr %234, align 8
-  %235 = call ptr @_ZNK9__gnu_cxx17__normal_iteratorIPSt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS3_EESaIS6_EES1_IS8_SaIS8_EEEmiEl(ptr noundef nonnull align 8 dereferenceable(8) %27, i64 noundef 1) #11
-  %236 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.25", ptr %26, i32 0, i32 0
-  store ptr %235, ptr %236, align 8
-  %237 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPSt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS3_EESaIS6_EES1_IS8_SaIS8_EEEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %26) #11
-  %238 = getelementptr inbounds %struct.cmGeneratorExpressionParser, ptr %52, i32 0, i32 0
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %28, ptr align 8 %238, i64 8, i1 false)
-  %239 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %28, i32 0, i32 0
-  %240 = load ptr, ptr %239, align 8
-  invoke void @_ZL10extendTextRSt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EEN9__gnu_cxx17__normal_iteratorIPK26cmGeneratorExpressionTokenS_ISA_SaISA_EEEE(ptr noundef nonnull align 8 dereferenceable(24) %237, ptr %240)
-          to label %241 unwind label %183
+207:                                              ; preds = %205
+  %208 = getelementptr inbounds nuw %struct.cmGeneratorExpressionParser, ptr %52, i32 0, i32 0
+  invoke void @_ZNSt6vectorIN9__gnu_cxx17__normal_iteratorIPK26cmGeneratorExpressionTokenS_IS2_SaIS2_EEEESaIS7_EE9push_backERKS7_(ptr noundef nonnull align 8 dereferenceable(24) %18, ptr noundef nonnull align 8 dereferenceable(8) %208)
+          to label %209 unwind label %188
 
-241:                                              ; preds = %232
-  %242 = getelementptr inbounds %struct.cmGeneratorExpressionParser, ptr %52, i32 0, i32 0
-  %243 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN9__gnu_cxx17__normal_iteratorIPK26cmGeneratorExpressionTokenSt6vectorIS1_SaIS1_EEEppEv(ptr noundef nonnull align 8 dereferenceable(8) %242) #11
-  br label %218, !llvm.loop !9
+209:                                              ; preds = %207
+  %210 = call noundef i64 @_ZNKSt6vectorIS_ISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EESaIS6_EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %17) #15
+  %211 = add i64 %210, 1
+  invoke void @_ZNSt6vectorIS_ISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EESaIS6_EE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %17, i64 noundef %211)
+          to label %212 unwind label %188
 
-244:                                              ; preds = %230
-  br label %245
+212:                                              ; preds = %209
+  %213 = getelementptr inbounds nuw %struct.cmGeneratorExpressionParser, ptr %52, i32 0, i32 0
+  %214 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN9__gnu_cxx17__normal_iteratorIPK26cmGeneratorExpressionTokenSt6vectorIS1_SaIS1_EEEppEv(ptr noundef nonnull align 8 dereferenceable(8) %213) #15
+  %215 = getelementptr inbounds nuw %struct.cmGeneratorExpressionParser, ptr %52, i32 0, i32 0
+  call void @llvm.lifetime.start.p0(i64 8, ptr %24) #15
+  %216 = getelementptr inbounds nuw %struct.cmGeneratorExpressionParser, ptr %52, i32 0, i32 1
+  %217 = call ptr @_ZNKSt6vectorI26cmGeneratorExpressionTokenSaIS0_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %216) #15
+  %218 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator", ptr %24, i32 0, i32 0
+  store ptr %217, ptr %218, align 8
+  %219 = call noundef zeroext i1 @_ZN9__gnu_cxxeqIPK26cmGeneratorExpressionTokenSt6vectorIS1_SaIS1_EEEEbRKNS_17__normal_iteratorIT_T0_EESC_(ptr noundef nonnull align 8 dereferenceable(8) %215, ptr noundef nonnull align 8 dereferenceable(8) %24) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr %24) #15
+  br i1 %219, label %220, label %221
 
-245:                                              ; preds = %329, %244
-  %246 = getelementptr inbounds %struct.cmGeneratorExpressionParser, ptr %52, i32 0, i32 0
-  %247 = getelementptr inbounds %struct.cmGeneratorExpressionParser, ptr %52, i32 0, i32 1
-  %248 = call ptr @_ZNKSt6vectorI26cmGeneratorExpressionTokenSaIS0_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %247) #11
-  %249 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %29, i32 0, i32 0
-  store ptr %248, ptr %249, align 8
-  %250 = call noundef zeroext i1 @_ZN9__gnu_cxxneIPK26cmGeneratorExpressionTokenSt6vectorIS1_SaIS1_EEEEbRKNS_17__normal_iteratorIT_T0_EESC_(ptr noundef nonnull align 8 dereferenceable(8) %246, ptr noundef nonnull align 8 dereferenceable(8) %29) #11
-  br i1 %250, label %251, label %257
+220:                                              ; preds = %212
+  store i8 1, ptr %20, align 1, !tbaa !40
+  br label %221
 
-251:                                              ; preds = %245
-  %252 = getelementptr inbounds %struct.cmGeneratorExpressionParser, ptr %52, i32 0, i32 0
-  %253 = call noundef ptr @_ZNK9__gnu_cxx17__normal_iteratorIPK26cmGeneratorExpressionTokenSt6vectorIS1_SaIS1_EEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %252) #11
-  %254 = getelementptr inbounds %struct.cmGeneratorExpressionToken, ptr %253, i32 0, i32 0
-  %255 = load i32, ptr %254, align 8
-  %256 = icmp ne i32 %255, 2
-  br label %257
+221:                                              ; preds = %220, %212
+  br label %193, !llvm.loop !42
 
-257:                                              ; preds = %251, %245
-  %258 = phi i1 [ false, %245 ], [ %256, %251 ]
-  br i1 %258, label %259, label %330
+222:                                              ; preds = %205
+  br label %223
 
-259:                                              ; preds = %257
-  %260 = call ptr @_ZNSt6vectorIS_ISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EESaIS6_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %17) #11
-  %261 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.25", ptr %31, i32 0, i32 0
-  store ptr %260, ptr %261, align 8
-  %262 = call ptr @_ZNK9__gnu_cxx17__normal_iteratorIPSt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS3_EESaIS6_EES1_IS8_SaIS8_EEEmiEl(ptr noundef nonnull align 8 dereferenceable(8) %31, i64 noundef 1) #11
-  %263 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.25", ptr %30, i32 0, i32 0
-  store ptr %262, ptr %263, align 8
-  %264 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPSt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS3_EESaIS6_EES1_IS8_SaIS8_EEEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %30) #11
-  invoke void @_ZN27cmGeneratorExpressionParser12ParseContentERSt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS2_EESaIS5_EE(ptr noundef nonnull align 8 dereferenceable(36) %52, ptr noundef nonnull align 8 dereferenceable(24) %264)
-          to label %265 unwind label %183
+223:                                              ; preds = %246, %222
+  %224 = getelementptr inbounds nuw %struct.cmGeneratorExpressionParser, ptr %52, i32 0, i32 0
+  call void @llvm.lifetime.start.p0(i64 8, ptr %25) #15
+  %225 = getelementptr inbounds nuw %struct.cmGeneratorExpressionParser, ptr %52, i32 0, i32 1
+  %226 = call ptr @_ZNKSt6vectorI26cmGeneratorExpressionTokenSaIS0_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %225) #15
+  %227 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator", ptr %25, i32 0, i32 0
+  store ptr %226, ptr %227, align 8
+  %228 = call noundef zeroext i1 @_ZN9__gnu_cxxneIPK26cmGeneratorExpressionTokenSt6vectorIS1_SaIS1_EEEEbRKNS_17__normal_iteratorIT_T0_EESC_(ptr noundef nonnull align 8 dereferenceable(8) %224, ptr noundef nonnull align 8 dereferenceable(8) %25) #15
+  br i1 %228, label %229, label %235
 
-265:                                              ; preds = %259
-  %266 = getelementptr inbounds %struct.cmGeneratorExpressionParser, ptr %52, i32 0, i32 0
-  %267 = getelementptr inbounds %struct.cmGeneratorExpressionParser, ptr %52, i32 0, i32 1
-  %268 = call ptr @_ZNKSt6vectorI26cmGeneratorExpressionTokenSaIS0_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %267) #11
-  %269 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %32, i32 0, i32 0
-  store ptr %268, ptr %269, align 8
-  %270 = call noundef zeroext i1 @_ZN9__gnu_cxxeqIPK26cmGeneratorExpressionTokenSt6vectorIS1_SaIS1_EEEEbRKNS_17__normal_iteratorIT_T0_EESC_(ptr noundef nonnull align 8 dereferenceable(8) %266, ptr noundef nonnull align 8 dereferenceable(8) %32) #11
-  br i1 %270, label %271, label %272
+229:                                              ; preds = %223
+  %230 = getelementptr inbounds nuw %struct.cmGeneratorExpressionParser, ptr %52, i32 0, i32 0
+  %231 = call noundef ptr @_ZNK9__gnu_cxx17__normal_iteratorIPK26cmGeneratorExpressionTokenSt6vectorIS1_SaIS1_EEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %230) #15
+  %232 = getelementptr inbounds nuw %struct.cmGeneratorExpressionToken, ptr %231, i32 0, i32 0
+  %233 = load i32, ptr %232, align 8, !tbaa !29
+  %234 = icmp eq i32 %233, 3
+  br label %235
 
-271:                                              ; preds = %265
-  br label %330
+235:                                              ; preds = %229, %223
+  %236 = phi i1 [ false, %223 ], [ %234, %229 ]
+  call void @llvm.lifetime.end.p0(i64 8, ptr %25) #15
+  br i1 %236, label %237, label %253
 
-272:                                              ; preds = %265
-  br label %273
+237:                                              ; preds = %235
+  call void @llvm.lifetime.start.p0(i64 8, ptr %26) #15
+  call void @llvm.lifetime.start.p0(i64 8, ptr %27) #15
+  %238 = call ptr @_ZNSt6vectorIS_ISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EESaIS6_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %17) #15
+  %239 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator.25", ptr %27, i32 0, i32 0
+  store ptr %238, ptr %239, align 8
+  %240 = call ptr @_ZNK9__gnu_cxx17__normal_iteratorIPSt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS3_EESaIS6_EES1_IS8_SaIS8_EEEmiEl(ptr noundef nonnull align 8 dereferenceable(8) %27, i64 noundef 1) #15
+  %241 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator.25", ptr %26, i32 0, i32 0
+  store ptr %240, ptr %241, align 8
+  %242 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPSt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS3_EESaIS6_EES1_IS8_SaIS8_EEEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %26) #15
+  %243 = getelementptr inbounds nuw %struct.cmGeneratorExpressionParser, ptr %52, i32 0, i32 0
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %28, ptr align 8 %243, i64 8, i1 false), !tbaa.struct !25
+  %244 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator", ptr %28, i32 0, i32 0
+  %245 = load ptr, ptr %244, align 8
+  invoke void @_ZL10extendTextRSt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EEN9__gnu_cxx17__normal_iteratorIPK26cmGeneratorExpressionTokenS_ISA_SaISA_EEEE(ptr noundef nonnull align 8 dereferenceable(24) %242, ptr %245)
+          to label %246 unwind label %249
 
-273:                                              ; preds = %301, %272
-  %274 = getelementptr inbounds %struct.cmGeneratorExpressionParser, ptr %52, i32 0, i32 0
-  %275 = getelementptr inbounds %struct.cmGeneratorExpressionParser, ptr %52, i32 0, i32 1
-  %276 = call ptr @_ZNKSt6vectorI26cmGeneratorExpressionTokenSaIS0_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %275) #11
-  %277 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %33, i32 0, i32 0
-  store ptr %276, ptr %277, align 8
-  %278 = call noundef zeroext i1 @_ZN9__gnu_cxxneIPK26cmGeneratorExpressionTokenSt6vectorIS1_SaIS1_EEEEbRKNS_17__normal_iteratorIT_T0_EESC_(ptr noundef nonnull align 8 dereferenceable(8) %274, ptr noundef nonnull align 8 dereferenceable(8) %33) #11
-  br i1 %278, label %279, label %285
+246:                                              ; preds = %237
+  call void @llvm.lifetime.end.p0(i64 8, ptr %27) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr %26) #15
+  %247 = getelementptr inbounds nuw %struct.cmGeneratorExpressionParser, ptr %52, i32 0, i32 0
+  %248 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN9__gnu_cxx17__normal_iteratorIPK26cmGeneratorExpressionTokenSt6vectorIS1_SaIS1_EEEppEv(ptr noundef nonnull align 8 dereferenceable(8) %247) #15
+  br label %223, !llvm.loop !43
 
-279:                                              ; preds = %273
-  %280 = getelementptr inbounds %struct.cmGeneratorExpressionParser, ptr %52, i32 0, i32 0
-  %281 = call noundef ptr @_ZNK9__gnu_cxx17__normal_iteratorIPK26cmGeneratorExpressionTokenSt6vectorIS1_SaIS1_EEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %280) #11
-  %282 = getelementptr inbounds %struct.cmGeneratorExpressionToken, ptr %281, i32 0, i32 0
-  %283 = load i32, ptr %282, align 8
-  %284 = icmp eq i32 %283, 4
-  br label %285
+249:                                              ; preds = %237
+  %250 = landingpad { ptr, i32 }
+          cleanup
+  %251 = extractvalue { ptr, i32 } %250, 0
+  store ptr %251, ptr %9, align 8
+  %252 = extractvalue { ptr, i32 } %250, 1
+  store i32 %252, ptr %10, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %27) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr %26) #15
+  br label %472
 
-285:                                              ; preds = %279, %273
-  %286 = phi i1 [ false, %273 ], [ %284, %279 ]
-  br i1 %286, label %287, label %302
+253:                                              ; preds = %235
+  br label %254
 
-287:                                              ; preds = %285
-  %288 = getelementptr inbounds %struct.cmGeneratorExpressionParser, ptr %52, i32 0, i32 0
-  invoke void @_ZNSt6vectorIN9__gnu_cxx17__normal_iteratorIPK26cmGeneratorExpressionTokenS_IS2_SaIS2_EEEESaIS7_EE9push_backERKS7_(ptr noundef nonnull align 8 dereferenceable(24) %18, ptr noundef nonnull align 8 dereferenceable(8) %288)
-          to label %289 unwind label %183
+254:                                              ; preds = %346, %253
+  %255 = getelementptr inbounds nuw %struct.cmGeneratorExpressionParser, ptr %52, i32 0, i32 0
+  call void @llvm.lifetime.start.p0(i64 8, ptr %29) #15
+  %256 = getelementptr inbounds nuw %struct.cmGeneratorExpressionParser, ptr %52, i32 0, i32 1
+  %257 = call ptr @_ZNKSt6vectorI26cmGeneratorExpressionTokenSaIS0_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %256) #15
+  %258 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator", ptr %29, i32 0, i32 0
+  store ptr %257, ptr %258, align 8
+  %259 = call noundef zeroext i1 @_ZN9__gnu_cxxneIPK26cmGeneratorExpressionTokenSt6vectorIS1_SaIS1_EEEEbRKNS_17__normal_iteratorIT_T0_EESC_(ptr noundef nonnull align 8 dereferenceable(8) %255, ptr noundef nonnull align 8 dereferenceable(8) %29) #15
+  br i1 %259, label %260, label %266
 
-289:                                              ; preds = %287
-  %290 = call noundef i64 @_ZNKSt6vectorIS_ISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EESaIS6_EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %17) #11
-  %291 = add i64 %290, 1
-  invoke void @_ZNSt6vectorIS_ISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EESaIS6_EE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %17, i64 noundef %291)
-          to label %292 unwind label %183
+260:                                              ; preds = %254
+  %261 = getelementptr inbounds nuw %struct.cmGeneratorExpressionParser, ptr %52, i32 0, i32 0
+  %262 = call noundef ptr @_ZNK9__gnu_cxx17__normal_iteratorIPK26cmGeneratorExpressionTokenSt6vectorIS1_SaIS1_EEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %261) #15
+  %263 = getelementptr inbounds nuw %struct.cmGeneratorExpressionToken, ptr %262, i32 0, i32 0
+  %264 = load i32, ptr %263, align 8, !tbaa !29
+  %265 = icmp ne i32 %264, 2
+  br label %266
 
-292:                                              ; preds = %289
-  %293 = getelementptr inbounds %struct.cmGeneratorExpressionParser, ptr %52, i32 0, i32 0
-  %294 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN9__gnu_cxx17__normal_iteratorIPK26cmGeneratorExpressionTokenSt6vectorIS1_SaIS1_EEEppEv(ptr noundef nonnull align 8 dereferenceable(8) %293) #11
-  %295 = getelementptr inbounds %struct.cmGeneratorExpressionParser, ptr %52, i32 0, i32 0
-  %296 = getelementptr inbounds %struct.cmGeneratorExpressionParser, ptr %52, i32 0, i32 1
-  %297 = call ptr @_ZNKSt6vectorI26cmGeneratorExpressionTokenSaIS0_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %296) #11
-  %298 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %34, i32 0, i32 0
-  store ptr %297, ptr %298, align 8
-  %299 = call noundef zeroext i1 @_ZN9__gnu_cxxeqIPK26cmGeneratorExpressionTokenSt6vectorIS1_SaIS1_EEEEbRKNS_17__normal_iteratorIT_T0_EESC_(ptr noundef nonnull align 8 dereferenceable(8) %295, ptr noundef nonnull align 8 dereferenceable(8) %34) #11
-  br i1 %299, label %300, label %301
+266:                                              ; preds = %260, %254
+  %267 = phi i1 [ false, %254 ], [ %265, %260 ]
+  call void @llvm.lifetime.end.p0(i64 8, ptr %29) #15
+  br i1 %267, label %268, label %347
 
-300:                                              ; preds = %292
-  store i8 1, ptr %20, align 1
-  br label %301
+268:                                              ; preds = %266
+  call void @llvm.lifetime.start.p0(i64 8, ptr %30) #15
+  call void @llvm.lifetime.start.p0(i64 8, ptr %31) #15
+  %269 = call ptr @_ZNSt6vectorIS_ISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EESaIS6_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %17) #15
+  %270 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator.25", ptr %31, i32 0, i32 0
+  store ptr %269, ptr %270, align 8
+  %271 = call ptr @_ZNK9__gnu_cxx17__normal_iteratorIPSt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS3_EESaIS6_EES1_IS8_SaIS8_EEEmiEl(ptr noundef nonnull align 8 dereferenceable(8) %31, i64 noundef 1) #15
+  %272 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator.25", ptr %30, i32 0, i32 0
+  store ptr %271, ptr %272, align 8
+  %273 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPSt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS3_EESaIS6_EES1_IS8_SaIS8_EEEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %30) #15
+  invoke void @_ZN27cmGeneratorExpressionParser12ParseContentERSt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS2_EESaIS5_EE(ptr noundef nonnull align 8 dereferenceable(36) %52, ptr noundef nonnull align 8 dereferenceable(24) %273)
+          to label %274 unwind label %281
 
-301:                                              ; preds = %300, %292
-  br label %273, !llvm.loop !10
+274:                                              ; preds = %268
+  call void @llvm.lifetime.end.p0(i64 8, ptr %31) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr %30) #15
+  %275 = getelementptr inbounds nuw %struct.cmGeneratorExpressionParser, ptr %52, i32 0, i32 0
+  call void @llvm.lifetime.start.p0(i64 8, ptr %32) #15
+  %276 = getelementptr inbounds nuw %struct.cmGeneratorExpressionParser, ptr %52, i32 0, i32 1
+  %277 = call ptr @_ZNKSt6vectorI26cmGeneratorExpressionTokenSaIS0_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %276) #15
+  %278 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator", ptr %32, i32 0, i32 0
+  store ptr %277, ptr %278, align 8
+  %279 = call noundef zeroext i1 @_ZN9__gnu_cxxeqIPK26cmGeneratorExpressionTokenSt6vectorIS1_SaIS1_EEEEbRKNS_17__normal_iteratorIT_T0_EESC_(ptr noundef nonnull align 8 dereferenceable(8) %275, ptr noundef nonnull align 8 dereferenceable(8) %32) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr %32) #15
+  br i1 %279, label %280, label %285
 
-302:                                              ; preds = %285
-  br label %303
+280:                                              ; preds = %274
+  br label %347
 
-303:                                              ; preds = %326, %302
-  %304 = getelementptr inbounds %struct.cmGeneratorExpressionParser, ptr %52, i32 0, i32 0
-  %305 = getelementptr inbounds %struct.cmGeneratorExpressionParser, ptr %52, i32 0, i32 1
-  %306 = call ptr @_ZNKSt6vectorI26cmGeneratorExpressionTokenSaIS0_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %305) #11
-  %307 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %35, i32 0, i32 0
-  store ptr %306, ptr %307, align 8
-  %308 = call noundef zeroext i1 @_ZN9__gnu_cxxneIPK26cmGeneratorExpressionTokenSt6vectorIS1_SaIS1_EEEEbRKNS_17__normal_iteratorIT_T0_EESC_(ptr noundef nonnull align 8 dereferenceable(8) %304, ptr noundef nonnull align 8 dereferenceable(8) %35) #11
-  br i1 %308, label %309, label %315
+281:                                              ; preds = %268
+  %282 = landingpad { ptr, i32 }
+          cleanup
+  %283 = extractvalue { ptr, i32 } %282, 0
+  store ptr %283, ptr %9, align 8
+  %284 = extractvalue { ptr, i32 } %282, 1
+  store i32 %284, ptr %10, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %31) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr %30) #15
+  br label %472
 
-309:                                              ; preds = %303
-  %310 = getelementptr inbounds %struct.cmGeneratorExpressionParser, ptr %52, i32 0, i32 0
-  %311 = call noundef ptr @_ZNK9__gnu_cxx17__normal_iteratorIPK26cmGeneratorExpressionTokenSt6vectorIS1_SaIS1_EEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %310) #11
-  %312 = getelementptr inbounds %struct.cmGeneratorExpressionToken, ptr %311, i32 0, i32 0
-  %313 = load i32, ptr %312, align 8
-  %314 = icmp eq i32 %313, 3
-  br label %315
+285:                                              ; preds = %274
+  br label %286
 
-315:                                              ; preds = %309, %303
-  %316 = phi i1 [ false, %303 ], [ %314, %309 ]
-  br i1 %316, label %317, label %329
+286:                                              ; preds = %314, %285
+  %287 = getelementptr inbounds nuw %struct.cmGeneratorExpressionParser, ptr %52, i32 0, i32 0
+  call void @llvm.lifetime.start.p0(i64 8, ptr %33) #15
+  %288 = getelementptr inbounds nuw %struct.cmGeneratorExpressionParser, ptr %52, i32 0, i32 1
+  %289 = call ptr @_ZNKSt6vectorI26cmGeneratorExpressionTokenSaIS0_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %288) #15
+  %290 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator", ptr %33, i32 0, i32 0
+  store ptr %289, ptr %290, align 8
+  %291 = call noundef zeroext i1 @_ZN9__gnu_cxxneIPK26cmGeneratorExpressionTokenSt6vectorIS1_SaIS1_EEEEbRKNS_17__normal_iteratorIT_T0_EESC_(ptr noundef nonnull align 8 dereferenceable(8) %287, ptr noundef nonnull align 8 dereferenceable(8) %33) #15
+  br i1 %291, label %292, label %298
 
-317:                                              ; preds = %315
-  %318 = call ptr @_ZNSt6vectorIS_ISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EESaIS6_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %17) #11
-  %319 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.25", ptr %37, i32 0, i32 0
-  store ptr %318, ptr %319, align 8
-  %320 = call ptr @_ZNK9__gnu_cxx17__normal_iteratorIPSt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS3_EESaIS6_EES1_IS8_SaIS8_EEEmiEl(ptr noundef nonnull align 8 dereferenceable(8) %37, i64 noundef 1) #11
-  %321 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.25", ptr %36, i32 0, i32 0
-  store ptr %320, ptr %321, align 8
-  %322 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPSt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS3_EESaIS6_EES1_IS8_SaIS8_EEEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %36) #11
-  %323 = getelementptr inbounds %struct.cmGeneratorExpressionParser, ptr %52, i32 0, i32 0
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %38, ptr align 8 %323, i64 8, i1 false)
-  %324 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %38, i32 0, i32 0
-  %325 = load ptr, ptr %324, align 8
-  invoke void @_ZL10extendTextRSt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EEN9__gnu_cxx17__normal_iteratorIPK26cmGeneratorExpressionTokenS_ISA_SaISA_EEEE(ptr noundef nonnull align 8 dereferenceable(24) %322, ptr %325)
-          to label %326 unwind label %183
+292:                                              ; preds = %286
+  %293 = getelementptr inbounds nuw %struct.cmGeneratorExpressionParser, ptr %52, i32 0, i32 0
+  %294 = call noundef ptr @_ZNK9__gnu_cxx17__normal_iteratorIPK26cmGeneratorExpressionTokenSt6vectorIS1_SaIS1_EEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %293) #15
+  %295 = getelementptr inbounds nuw %struct.cmGeneratorExpressionToken, ptr %294, i32 0, i32 0
+  %296 = load i32, ptr %295, align 8, !tbaa !29
+  %297 = icmp eq i32 %296, 4
+  br label %298
 
-326:                                              ; preds = %317
-  %327 = getelementptr inbounds %struct.cmGeneratorExpressionParser, ptr %52, i32 0, i32 0
-  %328 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN9__gnu_cxx17__normal_iteratorIPK26cmGeneratorExpressionTokenSt6vectorIS1_SaIS1_EEEppEv(ptr noundef nonnull align 8 dereferenceable(8) %327) #11
-  br label %303, !llvm.loop !11
+298:                                              ; preds = %292, %286
+  %299 = phi i1 [ false, %286 ], [ %297, %292 ]
+  call void @llvm.lifetime.end.p0(i64 8, ptr %33) #15
+  br i1 %299, label %300, label %315
 
-329:                                              ; preds = %315
-  br label %245, !llvm.loop !12
+300:                                              ; preds = %298
+  %301 = getelementptr inbounds nuw %struct.cmGeneratorExpressionParser, ptr %52, i32 0, i32 0
+  invoke void @_ZNSt6vectorIN9__gnu_cxx17__normal_iteratorIPK26cmGeneratorExpressionTokenS_IS2_SaIS2_EEEESaIS7_EE9push_backERKS7_(ptr noundef nonnull align 8 dereferenceable(24) %18, ptr noundef nonnull align 8 dereferenceable(8) %301)
+          to label %302 unwind label %188
 
-330:                                              ; preds = %271, %257
-  %331 = getelementptr inbounds %struct.cmGeneratorExpressionParser, ptr %52, i32 0, i32 0
-  %332 = getelementptr inbounds %struct.cmGeneratorExpressionParser, ptr %52, i32 0, i32 1
-  %333 = call ptr @_ZNKSt6vectorI26cmGeneratorExpressionTokenSaIS0_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %332) #11
-  %334 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %39, i32 0, i32 0
+302:                                              ; preds = %300
+  %303 = call noundef i64 @_ZNKSt6vectorIS_ISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EESaIS6_EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %17) #15
+  %304 = add i64 %303, 1
+  invoke void @_ZNSt6vectorIS_ISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EESaIS6_EE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %17, i64 noundef %304)
+          to label %305 unwind label %188
+
+305:                                              ; preds = %302
+  %306 = getelementptr inbounds nuw %struct.cmGeneratorExpressionParser, ptr %52, i32 0, i32 0
+  %307 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN9__gnu_cxx17__normal_iteratorIPK26cmGeneratorExpressionTokenSt6vectorIS1_SaIS1_EEEppEv(ptr noundef nonnull align 8 dereferenceable(8) %306) #15
+  %308 = getelementptr inbounds nuw %struct.cmGeneratorExpressionParser, ptr %52, i32 0, i32 0
+  call void @llvm.lifetime.start.p0(i64 8, ptr %34) #15
+  %309 = getelementptr inbounds nuw %struct.cmGeneratorExpressionParser, ptr %52, i32 0, i32 1
+  %310 = call ptr @_ZNKSt6vectorI26cmGeneratorExpressionTokenSaIS0_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %309) #15
+  %311 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator", ptr %34, i32 0, i32 0
+  store ptr %310, ptr %311, align 8
+  %312 = call noundef zeroext i1 @_ZN9__gnu_cxxeqIPK26cmGeneratorExpressionTokenSt6vectorIS1_SaIS1_EEEEbRKNS_17__normal_iteratorIT_T0_EESC_(ptr noundef nonnull align 8 dereferenceable(8) %308, ptr noundef nonnull align 8 dereferenceable(8) %34) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr %34) #15
+  br i1 %312, label %313, label %314
+
+313:                                              ; preds = %305
+  store i8 1, ptr %20, align 1, !tbaa !40
+  br label %314
+
+314:                                              ; preds = %313, %305
+  br label %286, !llvm.loop !44
+
+315:                                              ; preds = %298
+  br label %316
+
+316:                                              ; preds = %339, %315
+  %317 = getelementptr inbounds nuw %struct.cmGeneratorExpressionParser, ptr %52, i32 0, i32 0
+  call void @llvm.lifetime.start.p0(i64 8, ptr %35) #15
+  %318 = getelementptr inbounds nuw %struct.cmGeneratorExpressionParser, ptr %52, i32 0, i32 1
+  %319 = call ptr @_ZNKSt6vectorI26cmGeneratorExpressionTokenSaIS0_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %318) #15
+  %320 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator", ptr %35, i32 0, i32 0
+  store ptr %319, ptr %320, align 8
+  %321 = call noundef zeroext i1 @_ZN9__gnu_cxxneIPK26cmGeneratorExpressionTokenSt6vectorIS1_SaIS1_EEEEbRKNS_17__normal_iteratorIT_T0_EESC_(ptr noundef nonnull align 8 dereferenceable(8) %317, ptr noundef nonnull align 8 dereferenceable(8) %35) #15
+  br i1 %321, label %322, label %328
+
+322:                                              ; preds = %316
+  %323 = getelementptr inbounds nuw %struct.cmGeneratorExpressionParser, ptr %52, i32 0, i32 0
+  %324 = call noundef ptr @_ZNK9__gnu_cxx17__normal_iteratorIPK26cmGeneratorExpressionTokenSt6vectorIS1_SaIS1_EEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %323) #15
+  %325 = getelementptr inbounds nuw %struct.cmGeneratorExpressionToken, ptr %324, i32 0, i32 0
+  %326 = load i32, ptr %325, align 8, !tbaa !29
+  %327 = icmp eq i32 %326, 3
+  br label %328
+
+328:                                              ; preds = %322, %316
+  %329 = phi i1 [ false, %316 ], [ %327, %322 ]
+  call void @llvm.lifetime.end.p0(i64 8, ptr %35) #15
+  br i1 %329, label %330, label %346
+
+330:                                              ; preds = %328
+  call void @llvm.lifetime.start.p0(i64 8, ptr %36) #15
+  call void @llvm.lifetime.start.p0(i64 8, ptr %37) #15
+  %331 = call ptr @_ZNSt6vectorIS_ISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EESaIS6_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %17) #15
+  %332 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator.25", ptr %37, i32 0, i32 0
+  store ptr %331, ptr %332, align 8
+  %333 = call ptr @_ZNK9__gnu_cxx17__normal_iteratorIPSt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS3_EESaIS6_EES1_IS8_SaIS8_EEEmiEl(ptr noundef nonnull align 8 dereferenceable(8) %37, i64 noundef 1) #15
+  %334 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator.25", ptr %36, i32 0, i32 0
   store ptr %333, ptr %334, align 8
-  %335 = call noundef zeroext i1 @_ZN9__gnu_cxxneIPK26cmGeneratorExpressionTokenSt6vectorIS1_SaIS1_EEEEbRKNS_17__normal_iteratorIT_T0_EESC_(ptr noundef nonnull align 8 dereferenceable(8) %331, ptr noundef nonnull align 8 dereferenceable(8) %39) #11
-  br i1 %335, label %336, label %342
+  %335 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPSt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS3_EESaIS6_EES1_IS8_SaIS8_EEEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %36) #15
+  %336 = getelementptr inbounds nuw %struct.cmGeneratorExpressionParser, ptr %52, i32 0, i32 0
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %38, ptr align 8 %336, i64 8, i1 false), !tbaa.struct !25
+  %337 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator", ptr %38, i32 0, i32 0
+  %338 = load ptr, ptr %337, align 8
+  invoke void @_ZL10extendTextRSt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EEN9__gnu_cxx17__normal_iteratorIPK26cmGeneratorExpressionTokenS_ISA_SaISA_EEEE(ptr noundef nonnull align 8 dereferenceable(24) %335, ptr %338)
+          to label %339 unwind label %342
 
-336:                                              ; preds = %330
-  %337 = getelementptr inbounds %struct.cmGeneratorExpressionParser, ptr %52, i32 0, i32 0
-  %338 = call noundef ptr @_ZNK9__gnu_cxx17__normal_iteratorIPK26cmGeneratorExpressionTokenSt6vectorIS1_SaIS1_EEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %337) #11
-  %339 = getelementptr inbounds %struct.cmGeneratorExpressionToken, ptr %338, i32 0, i32 0
-  %340 = load i32, ptr %339, align 8
-  %341 = icmp eq i32 %340, 2
-  br label %342
+339:                                              ; preds = %330
+  call void @llvm.lifetime.end.p0(i64 8, ptr %37) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr %36) #15
+  %340 = getelementptr inbounds nuw %struct.cmGeneratorExpressionParser, ptr %52, i32 0, i32 0
+  %341 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN9__gnu_cxx17__normal_iteratorIPK26cmGeneratorExpressionTokenSt6vectorIS1_SaIS1_EEEppEv(ptr noundef nonnull align 8 dereferenceable(8) %340) #15
+  br label %316, !llvm.loop !45
 
-342:                                              ; preds = %336, %330
-  %343 = phi i1 [ false, %330 ], [ %341, %336 ]
-  br i1 %343, label %344, label %350
+342:                                              ; preds = %330
+  %343 = landingpad { ptr, i32 }
+          cleanup
+  %344 = extractvalue { ptr, i32 } %343, 0
+  store ptr %344, ptr %9, align 8
+  %345 = extractvalue { ptr, i32 } %343, 1
+  store i32 %345, ptr %10, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %37) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr %36) #15
+  br label %472
 
-344:                                              ; preds = %342
-  %345 = getelementptr inbounds %struct.cmGeneratorExpressionParser, ptr %52, i32 0, i32 2
-  %346 = load i32, ptr %345, align 8
-  %347 = add i32 %346, -1
-  store i32 %347, ptr %345, align 8
-  %348 = getelementptr inbounds %struct.cmGeneratorExpressionParser, ptr %52, i32 0, i32 0
-  %349 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN9__gnu_cxx17__normal_iteratorIPK26cmGeneratorExpressionTokenSt6vectorIS1_SaIS1_EEEppEv(ptr noundef nonnull align 8 dereferenceable(8) %348) #11
-  br label %350
+346:                                              ; preds = %328
+  br label %254, !llvm.loop !46
 
-350:                                              ; preds = %344, %342
-  br label %351
+347:                                              ; preds = %280, %266
+  %348 = getelementptr inbounds nuw %struct.cmGeneratorExpressionParser, ptr %52, i32 0, i32 0
+  call void @llvm.lifetime.start.p0(i64 8, ptr %39) #15
+  %349 = getelementptr inbounds nuw %struct.cmGeneratorExpressionParser, ptr %52, i32 0, i32 1
+  %350 = call ptr @_ZNKSt6vectorI26cmGeneratorExpressionTokenSaIS0_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %349) #15
+  %351 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator", ptr %39, i32 0, i32 0
+  store ptr %350, ptr %351, align 8
+  %352 = call noundef zeroext i1 @_ZN9__gnu_cxxneIPK26cmGeneratorExpressionTokenSt6vectorIS1_SaIS1_EEEEbRKNS_17__normal_iteratorIT_T0_EESC_(ptr noundef nonnull align 8 dereferenceable(8) %348, ptr noundef nonnull align 8 dereferenceable(8) %39) #15
+  br i1 %352, label %353, label %359
 
-351:                                              ; preds = %350, %168
-  %352 = load i32, ptr %5, align 4
-  %353 = getelementptr inbounds %struct.cmGeneratorExpressionParser, ptr %52, i32 0, i32 2
-  %354 = load i32, ptr %353, align 8
-  %355 = icmp ne i32 %352, %354
-  br i1 %355, label %356, label %404
+353:                                              ; preds = %347
+  %354 = getelementptr inbounds nuw %struct.cmGeneratorExpressionParser, ptr %52, i32 0, i32 0
+  %355 = call noundef ptr @_ZNK9__gnu_cxx17__normal_iteratorIPK26cmGeneratorExpressionTokenSt6vectorIS1_SaIS1_EEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %354) #15
+  %356 = getelementptr inbounds nuw %struct.cmGeneratorExpressionToken, ptr %355, i32 0, i32 0
+  %357 = load i32, ptr %356, align 8, !tbaa !29
+  %358 = icmp eq i32 %357, 2
+  br label %359
 
-356:                                              ; preds = %351
-  %357 = load ptr, ptr %4, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %40, ptr align 8 %6, i64 8, i1 false)
-  %358 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %40, i32 0, i32 0
-  %359 = load ptr, ptr %358, align 8
-  invoke void @_ZL10extendTextRSt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EEN9__gnu_cxx17__normal_iteratorIPK26cmGeneratorExpressionTokenS_ISA_SaISA_EEEE(ptr noundef nonnull align 8 dereferenceable(24) %357, ptr %359)
-          to label %360 unwind label %183
+359:                                              ; preds = %353, %347
+  %360 = phi i1 [ false, %347 ], [ %358, %353 ]
+  call void @llvm.lifetime.end.p0(i64 8, ptr %39) #15
+  br i1 %360, label %361, label %367
 
-360:                                              ; preds = %356
-  %361 = load ptr, ptr %4, align 8
-  invoke void @_ZL12extendResultRSt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EEOS6_(ptr noundef nonnull align 8 dereferenceable(24) %361, ptr noundef nonnull align 8 dereferenceable(24) %7)
-          to label %362 unwind label %183
+361:                                              ; preds = %359
+  %362 = getelementptr inbounds nuw %struct.cmGeneratorExpressionParser, ptr %52, i32 0, i32 2
+  %363 = load i32, ptr %362, align 8, !tbaa !11
+  %364 = add i32 %363, -1
+  store i32 %364, ptr %362, align 8, !tbaa !11
+  %365 = getelementptr inbounds nuw %struct.cmGeneratorExpressionParser, ptr %52, i32 0, i32 0
+  %366 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN9__gnu_cxx17__normal_iteratorIPK26cmGeneratorExpressionTokenSt6vectorIS1_SaIS1_EEEppEv(ptr noundef nonnull align 8 dereferenceable(8) %365) #15
+  br label %367
 
-362:                                              ; preds = %360
-  %363 = call noundef zeroext i1 @_ZNKSt6vectorIS_ISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EESaIS6_EE5emptyEv(ptr noundef nonnull align 8 dereferenceable(24) %17) #11
-  br i1 %363, label %403, label %364
+367:                                              ; preds = %361, %359
+  br label %368
 
-364:                                              ; preds = %362
-  %365 = load ptr, ptr %4, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %41, ptr align 8 %19, i64 8, i1 false)
-  %366 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %41, i32 0, i32 0
-  %367 = load ptr, ptr %366, align 8
-  invoke void @_ZL10extendTextRSt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EEN9__gnu_cxx17__normal_iteratorIPK26cmGeneratorExpressionTokenS_ISA_SaISA_EEEE(ptr noundef nonnull align 8 dereferenceable(24) %365, ptr %367)
-          to label %368 unwind label %183
+368:                                              ; preds = %367, %173
+  %369 = load i32, ptr %5, align 4, !tbaa !36
+  %370 = getelementptr inbounds nuw %struct.cmGeneratorExpressionParser, ptr %52, i32 0, i32 2
+  %371 = load i32, ptr %370, align 8, !tbaa !11
+  %372 = icmp ne i32 %369, %371
+  br i1 %372, label %373, label %425
 
-368:                                              ; preds = %364
-  %369 = call ptr @_ZNSt6vectorIS_ISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EESaIS6_EE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %17) #11
-  %370 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.25", ptr %42, i32 0, i32 0
-  store ptr %369, ptr %370, align 8
-  %371 = call ptr @_ZNSt6vectorIS_ISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EESaIS6_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %17) #11
-  %372 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.25", ptr %43, i32 0, i32 0
-  store ptr %371, ptr %372, align 8
-  %373 = call ptr @_ZNSt6vectorIN9__gnu_cxx17__normal_iteratorIPK26cmGeneratorExpressionTokenS_IS2_SaIS2_EEEESaIS7_EE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %18) #11
-  %374 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.26", ptr %44, i32 0, i32 0
-  store ptr %373, ptr %374, align 8
-  br label %375
+373:                                              ; preds = %368
+  %374 = load ptr, ptr %4, align 8, !tbaa !23
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %40, ptr align 8 %6, i64 8, i1 false), !tbaa.struct !25
+  %375 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator", ptr %40, i32 0, i32 0
+  %376 = load ptr, ptr %375, align 8
+  invoke void @_ZL10extendTextRSt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EEN9__gnu_cxx17__normal_iteratorIPK26cmGeneratorExpressionTokenS_ISA_SaISA_EEEE(ptr noundef nonnull align 8 dereferenceable(24) %374, ptr %376)
+          to label %377 unwind label %188
 
-375:                                              ; preds = %399, %368
-  %376 = call noundef zeroext i1 @_ZN9__gnu_cxxneIPSt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS3_EESaIS6_EES1_IS8_SaIS8_EEEEbRKNS_17__normal_iteratorIT_T0_EESH_(ptr noundef nonnull align 8 dereferenceable(8) %42, ptr noundef nonnull align 8 dereferenceable(8) %43) #11
-  br i1 %376, label %377, label %402
+377:                                              ; preds = %373
+  %378 = load ptr, ptr %4, align 8, !tbaa !23
+  invoke void @_ZL12extendResultRSt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EEOS6_(ptr noundef nonnull align 8 dereferenceable(24) %378, ptr noundef nonnull align 8 dereferenceable(24) %7)
+          to label %379 unwind label %188
 
-377:                                              ; preds = %375
-  %378 = call noundef ptr @_ZNK9__gnu_cxx17__normal_iteratorIPSt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS3_EESaIS6_EES1_IS8_SaIS8_EEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %42) #11
-  %379 = call noundef zeroext i1 @_ZNKSt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EE5emptyEv(ptr noundef nonnull align 8 dereferenceable(24) %378) #11
-  br i1 %379, label %387, label %380
+379:                                              ; preds = %377
+  %380 = call noundef zeroext i1 @_ZNKSt6vectorIS_ISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EESaIS6_EE5emptyEv(ptr noundef nonnull align 8 dereferenceable(24) %17) #15
+  br i1 %380, label %424, label %381
 
-380:                                              ; preds = %377
-  %381 = load i8, ptr %20, align 1
-  %382 = trunc i8 %381 to i1
-  br i1 %382, label %387, label %383
+381:                                              ; preds = %379
+  %382 = load ptr, ptr %4, align 8, !tbaa !23
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %41, ptr align 8 %19, i64 8, i1 false), !tbaa.struct !25
+  %383 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator", ptr %41, i32 0, i32 0
+  %384 = load ptr, ptr %383, align 8
+  invoke void @_ZL10extendTextRSt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EEN9__gnu_cxx17__normal_iteratorIPK26cmGeneratorExpressionTokenS_ISA_SaISA_EEEE(ptr noundef nonnull align 8 dereferenceable(24) %382, ptr %384)
+          to label %385 unwind label %188
 
-383:                                              ; preds = %380
-  %384 = load ptr, ptr %4, align 8
-  %385 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPSt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS3_EESaIS6_EES1_IS8_SaIS8_EEEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %42) #11
-  invoke void @_ZL12extendResultRSt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EEOS6_(ptr noundef nonnull align 8 dereferenceable(24) %384, ptr noundef nonnull align 8 dereferenceable(24) %385)
-          to label %386 unwind label %183
-
-386:                                              ; preds = %383
-  br label %387
-
-387:                                              ; preds = %386, %380, %377
-  %388 = call ptr @_ZNSt6vectorIN9__gnu_cxx17__normal_iteratorIPK26cmGeneratorExpressionTokenS_IS2_SaIS2_EEEESaIS7_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %18) #11
-  %389 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.26", ptr %45, i32 0, i32 0
+385:                                              ; preds = %381
+  call void @llvm.lifetime.start.p0(i64 8, ptr %42) #15
+  %386 = call ptr @_ZNSt6vectorIS_ISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EESaIS6_EE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %17) #15
+  %387 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator.25", ptr %42, i32 0, i32 0
+  store ptr %386, ptr %387, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %43) #15
+  %388 = call ptr @_ZNSt6vectorIS_ISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EESaIS6_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %17) #15
+  %389 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator.25", ptr %43, i32 0, i32 0
   store ptr %388, ptr %389, align 8
-  %390 = call noundef zeroext i1 @_ZN9__gnu_cxxneIPNS_17__normal_iteratorIPK26cmGeneratorExpressionTokenSt6vectorIS2_SaIS2_EEEES5_IS8_SaIS8_EEEEbRKNS1_IT_T0_EESG_(ptr noundef nonnull align 8 dereferenceable(8) %44, ptr noundef nonnull align 8 dereferenceable(8) %45) #11
-  br i1 %390, label %391, label %397
+  call void @llvm.lifetime.start.p0(i64 8, ptr %44) #15
+  %390 = call ptr @_ZNSt6vectorIN9__gnu_cxx17__normal_iteratorIPK26cmGeneratorExpressionTokenS_IS2_SaIS2_EEEESaIS7_EE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %18) #15
+  %391 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator.26", ptr %44, i32 0, i32 0
+  store ptr %390, ptr %391, align 8
+  br label %392
 
-391:                                              ; preds = %387
-  %392 = load ptr, ptr %4, align 8
-  %393 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPNS0_IPK26cmGeneratorExpressionTokenSt6vectorIS1_SaIS1_EEEES4_IS7_SaIS7_EEEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %44) #11
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %46, ptr align 8 %393, i64 8, i1 false)
-  %394 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %46, i32 0, i32 0
-  %395 = load ptr, ptr %394, align 8
-  invoke void @_ZL10extendTextRSt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EEN9__gnu_cxx17__normal_iteratorIPK26cmGeneratorExpressionTokenS_ISA_SaISA_EEEE(ptr noundef nonnull align 8 dereferenceable(24) %392, ptr %395)
-          to label %396 unwind label %183
+392:                                              ; preds = %420, %385
+  %393 = call noundef zeroext i1 @_ZN9__gnu_cxxneIPSt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS3_EESaIS6_EES1_IS8_SaIS8_EEEEbRKNS_17__normal_iteratorIT_T0_EESH_(ptr noundef nonnull align 8 dereferenceable(8) %42, ptr noundef nonnull align 8 dereferenceable(8) %43) #15
+  br i1 %393, label %394, label %423
 
-396:                                              ; preds = %391
-  br label %398
+394:                                              ; preds = %392
+  %395 = call noundef ptr @_ZNK9__gnu_cxx17__normal_iteratorIPSt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS3_EESaIS6_EES1_IS8_SaIS8_EEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %42) #15
+  %396 = call noundef zeroext i1 @_ZNKSt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EE5emptyEv(ptr noundef nonnull align 8 dereferenceable(24) %395) #15
+  br i1 %396, label %408, label %397
 
-397:                                              ; preds = %387
-  br label %402
+397:                                              ; preds = %394
+  %398 = load i8, ptr %20, align 1, !tbaa !40, !range !47, !noundef !48
+  %399 = trunc i8 %398 to i1
+  br i1 %399, label %408, label %400
 
-398:                                              ; preds = %396
-  br label %399
+400:                                              ; preds = %397
+  %401 = load ptr, ptr %4, align 8, !tbaa !23
+  %402 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPSt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS3_EESaIS6_EES1_IS8_SaIS8_EEEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %42) #15
+  invoke void @_ZL12extendResultRSt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EEOS6_(ptr noundef nonnull align 8 dereferenceable(24) %401, ptr noundef nonnull align 8 dereferenceable(24) %402)
+          to label %403 unwind label %404
 
-399:                                              ; preds = %398
-  %400 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN9__gnu_cxx17__normal_iteratorIPSt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS3_EESaIS6_EES1_IS8_SaIS8_EEEppEv(ptr noundef nonnull align 8 dereferenceable(8) %42) #11
-  %401 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN9__gnu_cxx17__normal_iteratorIPNS0_IPK26cmGeneratorExpressionTokenSt6vectorIS1_SaIS1_EEEES4_IS7_SaIS7_EEEppEv(ptr noundef nonnull align 8 dereferenceable(8) %44) #11
-  br label %375, !llvm.loop !13
+403:                                              ; preds = %400
+  br label %408
 
-402:                                              ; preds = %397, %375
-  br label %403
+404:                                              ; preds = %412, %400
+  %405 = landingpad { ptr, i32 }
+          cleanup
+  %406 = extractvalue { ptr, i32 } %405, 0
+  store ptr %406, ptr %9, align 8
+  %407 = extractvalue { ptr, i32 } %405, 1
+  store i32 %407, ptr %10, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %44) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr %43) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr %42) #15
+  br label %472
 
-403:                                              ; preds = %402, %362
+408:                                              ; preds = %403, %397, %394
+  call void @llvm.lifetime.start.p0(i64 8, ptr %45) #15
+  %409 = call ptr @_ZNSt6vectorIN9__gnu_cxx17__normal_iteratorIPK26cmGeneratorExpressionTokenS_IS2_SaIS2_EEEESaIS7_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %18) #15
+  %410 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator.26", ptr %45, i32 0, i32 0
+  store ptr %409, ptr %410, align 8
+  %411 = call noundef zeroext i1 @_ZN9__gnu_cxxneIPNS_17__normal_iteratorIPK26cmGeneratorExpressionTokenSt6vectorIS2_SaIS2_EEEES5_IS8_SaIS8_EEEEbRKNS1_IT_T0_EESG_(ptr noundef nonnull align 8 dereferenceable(8) %44, ptr noundef nonnull align 8 dereferenceable(8) %45) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr %45) #15
+  br i1 %411, label %412, label %418
+
+412:                                              ; preds = %408
+  %413 = load ptr, ptr %4, align 8, !tbaa !23
+  %414 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPNS0_IPK26cmGeneratorExpressionTokenSt6vectorIS1_SaIS1_EEEES4_IS7_SaIS7_EEEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %44) #15
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %46, ptr align 8 %414, i64 8, i1 false), !tbaa.struct !25
+  %415 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator", ptr %46, i32 0, i32 0
+  %416 = load ptr, ptr %415, align 8
+  invoke void @_ZL10extendTextRSt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EEN9__gnu_cxx17__normal_iteratorIPK26cmGeneratorExpressionTokenS_ISA_SaISA_EEEE(ptr noundef nonnull align 8 dereferenceable(24) %413, ptr %416)
+          to label %417 unwind label %404
+
+417:                                              ; preds = %412
+  br label %419
+
+418:                                              ; preds = %408
+  br label %423
+
+419:                                              ; preds = %417
+  br label %420
+
+420:                                              ; preds = %419
+  %421 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN9__gnu_cxx17__normal_iteratorIPSt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS3_EESaIS6_EES1_IS8_SaIS8_EEEppEv(ptr noundef nonnull align 8 dereferenceable(8) %42) #15
+  %422 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN9__gnu_cxx17__normal_iteratorIPNS0_IPK26cmGeneratorExpressionTokenSt6vectorIS1_SaIS1_EEEES4_IS7_SaIS7_EEEppEv(ptr noundef nonnull align 8 dereferenceable(8) %44) #15
+  br label %392, !llvm.loop !49
+
+423:                                              ; preds = %418, %392
+  call void @llvm.lifetime.end.p0(i64 8, ptr %44) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr %43) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr %42) #15
+  br label %424
+
+424:                                              ; preds = %423, %379
   store i32 1, ptr %16, align 4
-  br label %433
+  br label %454
 
-404:                                              ; preds = %351
-  %405 = getelementptr inbounds %struct.cmGeneratorExpressionParser, ptr %52, i32 0, i32 0
-  %406 = call ptr @_ZNK9__gnu_cxx17__normal_iteratorIPK26cmGeneratorExpressionTokenSt6vectorIS1_SaIS1_EEEmiEl(ptr noundef nonnull align 8 dereferenceable(8) %405, i64 noundef 1) #11
-  %407 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %48, i32 0, i32 0
-  store ptr %406, ptr %407, align 8
-  %408 = call noundef ptr @_ZNK9__gnu_cxx17__normal_iteratorIPK26cmGeneratorExpressionTokenSt6vectorIS1_SaIS1_EEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %48) #11
-  %409 = getelementptr inbounds %struct.cmGeneratorExpressionToken, ptr %408, i32 0, i32 1
-  %410 = load ptr, ptr %409, align 8
-  %411 = call noundef ptr @_ZNK9__gnu_cxx17__normal_iteratorIPK26cmGeneratorExpressionTokenSt6vectorIS1_SaIS1_EEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %6) #11
-  %412 = getelementptr inbounds %struct.cmGeneratorExpressionToken, ptr %411, i32 0, i32 1
-  %413 = load ptr, ptr %412, align 8
-  %414 = ptrtoint ptr %410 to i64
-  %415 = ptrtoint ptr %413 to i64
-  %416 = sub i64 %414, %415
-  %417 = getelementptr inbounds %struct.cmGeneratorExpressionParser, ptr %52, i32 0, i32 0
-  %418 = call ptr @_ZNK9__gnu_cxx17__normal_iteratorIPK26cmGeneratorExpressionTokenSt6vectorIS1_SaIS1_EEEmiEl(ptr noundef nonnull align 8 dereferenceable(8) %417, i64 noundef 1) #11
-  %419 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %49, i32 0, i32 0
-  store ptr %418, ptr %419, align 8
-  %420 = call noundef ptr @_ZNK9__gnu_cxx17__normal_iteratorIPK26cmGeneratorExpressionTokenSt6vectorIS1_SaIS1_EEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %49) #11
-  %421 = getelementptr inbounds %struct.cmGeneratorExpressionToken, ptr %420, i32 0, i32 2
-  %422 = load i64, ptr %421, align 8
-  %423 = add i64 %416, %422
-  store i64 %423, ptr %47, align 8
-  %424 = call noundef ptr @_ZNK9__gnu_cxx17__normal_iteratorIPK26cmGeneratorExpressionTokenSt6vectorIS1_SaIS1_EEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %6) #11
-  %425 = getelementptr inbounds %struct.cmGeneratorExpressionToken, ptr %424, i32 0, i32 1
-  invoke void @_ZSt11make_uniqueI26GeneratorExpressionContentJRKPKcRmEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind writable sret(%"class.std::unique_ptr") align 8 %50, ptr noundef nonnull align 8 dereferenceable(8) %425, ptr noundef nonnull align 8 dereferenceable(8) %47)
-          to label %426 unwind label %183
+425:                                              ; preds = %368
+  call void @llvm.lifetime.start.p0(i64 8, ptr %47) #15
+  call void @llvm.lifetime.start.p0(i64 8, ptr %48) #15
+  %426 = getelementptr inbounds nuw %struct.cmGeneratorExpressionParser, ptr %52, i32 0, i32 0
+  %427 = call ptr @_ZNK9__gnu_cxx17__normal_iteratorIPK26cmGeneratorExpressionTokenSt6vectorIS1_SaIS1_EEEmiEl(ptr noundef nonnull align 8 dereferenceable(8) %426, i64 noundef 1) #15
+  %428 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator", ptr %48, i32 0, i32 0
+  store ptr %427, ptr %428, align 8
+  %429 = call noundef ptr @_ZNK9__gnu_cxx17__normal_iteratorIPK26cmGeneratorExpressionTokenSt6vectorIS1_SaIS1_EEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %48) #15
+  %430 = getelementptr inbounds nuw %struct.cmGeneratorExpressionToken, ptr %429, i32 0, i32 1
+  %431 = load ptr, ptr %430, align 8, !tbaa !38
+  %432 = call noundef ptr @_ZNK9__gnu_cxx17__normal_iteratorIPK26cmGeneratorExpressionTokenSt6vectorIS1_SaIS1_EEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %6) #15
+  %433 = getelementptr inbounds nuw %struct.cmGeneratorExpressionToken, ptr %432, i32 0, i32 1
+  %434 = load ptr, ptr %433, align 8, !tbaa !38
+  %435 = ptrtoint ptr %431 to i64
+  %436 = ptrtoint ptr %434 to i64
+  %437 = sub i64 %435, %436
+  call void @llvm.lifetime.start.p0(i64 8, ptr %49) #15
+  %438 = getelementptr inbounds nuw %struct.cmGeneratorExpressionParser, ptr %52, i32 0, i32 0
+  %439 = call ptr @_ZNK9__gnu_cxx17__normal_iteratorIPK26cmGeneratorExpressionTokenSt6vectorIS1_SaIS1_EEEmiEl(ptr noundef nonnull align 8 dereferenceable(8) %438, i64 noundef 1) #15
+  %440 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator", ptr %49, i32 0, i32 0
+  store ptr %439, ptr %440, align 8
+  %441 = call noundef ptr @_ZNK9__gnu_cxx17__normal_iteratorIPK26cmGeneratorExpressionTokenSt6vectorIS1_SaIS1_EEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %49) #15
+  %442 = getelementptr inbounds nuw %struct.cmGeneratorExpressionToken, ptr %441, i32 0, i32 2
+  %443 = load i64, ptr %442, align 8, !tbaa !35
+  %444 = add i64 %437, %443
+  call void @llvm.lifetime.end.p0(i64 8, ptr %49) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr %48) #15
+  store i64 %444, ptr %47, align 8, !tbaa !39
+  call void @llvm.lifetime.start.p0(i64 8, ptr %50) #15
+  %445 = call noundef ptr @_ZNK9__gnu_cxx17__normal_iteratorIPK26cmGeneratorExpressionTokenSt6vectorIS1_SaIS1_EEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %6) #15
+  %446 = getelementptr inbounds nuw %struct.cmGeneratorExpressionToken, ptr %445, i32 0, i32 1
+  invoke void @_ZSt11make_uniqueI26GeneratorExpressionContentJRKPKcRmEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind writable sret(%"class.std::unique_ptr") align 8 %50, ptr noundef nonnull align 8 dereferenceable(8) %446, ptr noundef nonnull align 8 dereferenceable(8) %47)
+          to label %447 unwind label %458
 
-426:                                              ; preds = %404
-  %427 = call noundef ptr @_ZNKSt10unique_ptrI26GeneratorExpressionContentSt14default_deleteIS0_EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %50) #11
-  invoke void @_ZN26GeneratorExpressionContent13SetIdentifierEOSt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS2_EESaIS5_EE(ptr noundef nonnull align 8 dereferenceable(72) %427, ptr noundef nonnull align 8 dereferenceable(24) %7)
-          to label %428 unwind label %437
+447:                                              ; preds = %425
+  %448 = call noundef ptr @_ZNKSt10unique_ptrI26GeneratorExpressionContentSt14default_deleteIS0_EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %50) #15
+  invoke void @_ZN26GeneratorExpressionContent13SetIdentifierEOSt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS2_EESaIS5_EE(ptr noundef nonnull align 8 dereferenceable(72) %448, ptr noundef nonnull align 8 dereferenceable(24) %7)
+          to label %449 unwind label %462
 
-428:                                              ; preds = %426
-  %429 = call noundef ptr @_ZNKSt10unique_ptrI26GeneratorExpressionContentSt14default_deleteIS0_EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %50) #11
-  invoke void @_ZN26GeneratorExpressionContent13SetParametersEOSt6vectorIS0_ISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS2_EESaIS5_EESaIS7_EE(ptr noundef nonnull align 8 dereferenceable(72) %429, ptr noundef nonnull align 8 dereferenceable(24) %17)
-          to label %430 unwind label %437
+449:                                              ; preds = %447
+  %450 = call noundef ptr @_ZNKSt10unique_ptrI26GeneratorExpressionContentSt14default_deleteIS0_EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %50) #15
+  invoke void @_ZN26GeneratorExpressionContent13SetParametersEOSt6vectorIS0_ISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS2_EESaIS5_EESaIS7_EE(ptr noundef nonnull align 8 dereferenceable(72) %450, ptr noundef nonnull align 8 dereferenceable(24) %17)
+          to label %451 unwind label %462
 
-430:                                              ; preds = %428
-  %431 = load ptr, ptr %4, align 8
-  call void @_ZNSt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS0_EEC2I26GeneratorExpressionContentS1_IS5_EvEEOS_IT_T0_E(ptr noundef nonnull align 8 dereferenceable(8) %51, ptr noundef nonnull align 8 dereferenceable(8) %50) #11
-  invoke void @_ZNSt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EE9push_backEOS4_(ptr noundef nonnull align 8 dereferenceable(24) %431, ptr noundef nonnull align 8 dereferenceable(8) %51)
-          to label %432 unwind label %441
+451:                                              ; preds = %449
+  %452 = load ptr, ptr %4, align 8, !tbaa !23
+  call void @llvm.lifetime.start.p0(i64 8, ptr %51) #15
+  call void @_ZNSt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS0_EEC2I26GeneratorExpressionContentS1_IS5_EvEEOS_IT_T0_E(ptr noundef nonnull align 8 dereferenceable(8) %51, ptr noundef nonnull align 8 dereferenceable(8) %50) #15
+  invoke void @_ZNSt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EE9push_backEOS4_(ptr noundef nonnull align 8 dereferenceable(24) %452, ptr noundef nonnull align 8 dereferenceable(8) %51)
+          to label %453 unwind label %466
 
-432:                                              ; preds = %430
-  call void @_ZNSt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS0_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %51) #11
-  call void @_ZNSt10unique_ptrI26GeneratorExpressionContentSt14default_deleteIS0_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %50) #11
+453:                                              ; preds = %451
+  call void @_ZNSt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS0_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %51) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr %51) #15
+  call void @_ZNSt10unique_ptrI26GeneratorExpressionContentSt14default_deleteIS0_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %50) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr %50) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr %47) #15
   store i32 0, ptr %16, align 4
-  br label %433
+  br label %454
 
-433:                                              ; preds = %432, %403
-  call void @_ZNSt6vectorIN9__gnu_cxx17__normal_iteratorIPK26cmGeneratorExpressionTokenS_IS2_SaIS2_EEEESaIS7_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %18) #11
-  call void @_ZNSt6vectorIS_ISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EESaIS6_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %17) #11
-  br label %434
+454:                                              ; preds = %453, %424
+  call void @llvm.lifetime.end.p0(i64 1, ptr %20) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr %19) #15
+  call void @_ZNSt6vectorIN9__gnu_cxx17__normal_iteratorIPK26cmGeneratorExpressionTokenS_IS2_SaIS2_EEEESaIS7_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %18) #15
+  call void @llvm.lifetime.end.p0(i64 24, ptr %18) #15
+  call void @_ZNSt6vectorIS_ISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EESaIS6_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %17) #15
+  call void @llvm.lifetime.end.p0(i64 24, ptr %17) #15
+  br label %455
 
-434:                                              ; preds = %433, %146
-  call void @_ZNSt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #11
-  %435 = load i32, ptr %16, align 4
-  switch i32 %435, label %453 [
-    i32 0, label %436
-    i32 1, label %436
+455:                                              ; preds = %454, %146
+  call void @_ZNSt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #15
+  call void @llvm.lifetime.end.p0(i64 24, ptr %7) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #15
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #15
+  %456 = load i32, ptr %16, align 4
+  switch i32 %456, label %479 [
+    i32 0, label %457
+    i32 1, label %457
   ]
 
-436:                                              ; preds = %434, %434
+457:                                              ; preds = %455, %455
   ret void
 
-437:                                              ; preds = %428, %426
-  %438 = landingpad { ptr, i32 }
+458:                                              ; preds = %425
+  %459 = landingpad { ptr, i32 }
           cleanup
-  %439 = extractvalue { ptr, i32 } %438, 0
-  store ptr %439, ptr %9, align 8
-  %440 = extractvalue { ptr, i32 } %438, 1
-  store i32 %440, ptr %10, align 4
-  br label %445
+  %460 = extractvalue { ptr, i32 } %459, 0
+  store ptr %460, ptr %9, align 8
+  %461 = extractvalue { ptr, i32 } %459, 1
+  store i32 %461, ptr %10, align 4
+  br label %471
 
-441:                                              ; preds = %430
-  %442 = landingpad { ptr, i32 }
+462:                                              ; preds = %449, %447
+  %463 = landingpad { ptr, i32 }
           cleanup
-  %443 = extractvalue { ptr, i32 } %442, 0
-  store ptr %443, ptr %9, align 8
-  %444 = extractvalue { ptr, i32 } %442, 1
-  store i32 %444, ptr %10, align 4
-  call void @_ZNSt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS0_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %51) #11
-  br label %445
+  %464 = extractvalue { ptr, i32 } %463, 0
+  store ptr %464, ptr %9, align 8
+  %465 = extractvalue { ptr, i32 } %463, 1
+  store i32 %465, ptr %10, align 4
+  br label %470
 
-445:                                              ; preds = %441, %437
-  call void @_ZNSt10unique_ptrI26GeneratorExpressionContentSt14default_deleteIS0_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %50) #11
-  br label %446
+466:                                              ; preds = %451
+  %467 = landingpad { ptr, i32 }
+          cleanup
+  %468 = extractvalue { ptr, i32 } %467, 0
+  store ptr %468, ptr %9, align 8
+  %469 = extractvalue { ptr, i32 } %467, 1
+  store i32 %469, ptr %10, align 4
+  call void @_ZNSt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS0_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %51) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr %51) #15
+  br label %470
 
-446:                                              ; preds = %445, %183
-  call void @_ZNSt6vectorIN9__gnu_cxx17__normal_iteratorIPK26cmGeneratorExpressionTokenS_IS2_SaIS2_EEEESaIS7_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %18) #11
-  call void @_ZNSt6vectorIS_ISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EESaIS6_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %17) #11
-  br label %447
+470:                                              ; preds = %466, %462
+  call void @_ZNSt10unique_ptrI26GeneratorExpressionContentSt14default_deleteIS0_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %50) #15
+  br label %471
 
-447:                                              ; preds = %446, %155, %88
-  call void @_ZNSt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #11
-  br label %448
+471:                                              ; preds = %470, %458
+  call void @llvm.lifetime.end.p0(i64 8, ptr %50) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr %47) #15
+  br label %472
 
-448:                                              ; preds = %447
-  %449 = load ptr, ptr %9, align 8
-  %450 = load i32, ptr %10, align 4
-  %451 = insertvalue { ptr, i32 } poison, ptr %449, 0
-  %452 = insertvalue { ptr, i32 } %451, i32 %450, 1
-  resume { ptr, i32 } %452
+472:                                              ; preds = %471, %404, %342, %281, %249, %188
+  call void @llvm.lifetime.end.p0(i64 1, ptr %20) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr %19) #15
+  call void @_ZNSt6vectorIN9__gnu_cxx17__normal_iteratorIPK26cmGeneratorExpressionTokenS_IS2_SaIS2_EEEESaIS7_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %18) #15
+  call void @llvm.lifetime.end.p0(i64 24, ptr %18) #15
+  call void @_ZNSt6vectorIS_ISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EESaIS6_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %17) #15
+  call void @llvm.lifetime.end.p0(i64 24, ptr %17) #15
+  br label %473
 
-453:                                              ; preds = %434
+473:                                              ; preds = %472, %160, %88
+  call void @_ZNSt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #15
+  call void @llvm.lifetime.end.p0(i64 24, ptr %7) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #15
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #15
+  br label %474
+
+474:                                              ; preds = %473
+  %475 = load ptr, ptr %9, align 8
+  %476 = load i32, ptr %10, align 4
+  %477 = insertvalue { ptr, i32 } poison, ptr %475, 0
+  %478 = insertvalue { ptr, i32 } %477, i32 %476, 1
+  resume { ptr, i32 } %478
+
+479:                                              ; preds = %455
   unreachable
 }
 
@@ -1855,17 +2055,19 @@ define linkonce_odr dso_local ptr @_ZNK9__gnu_cxx17__normal_iteratorIPK26cmGener
   %4 = alloca ptr, align 8
   %5 = alloca i64, align 8
   %6 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store i64 %1, ptr %5, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !20
+  store i64 %1, ptr %5, align 8, !tbaa !39
   %7 = load ptr, ptr %4, align 8
-  %8 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %7, i32 0, i32 0
-  %9 = load ptr, ptr %8, align 8
-  %10 = load i64, ptr %5, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #15
+  %8 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator", ptr %7, i32 0, i32 0
+  %9 = load ptr, ptr %8, align 8, !tbaa !22
+  %10 = load i64, ptr %5, align 8, !tbaa !39
   %11 = sub i64 0, %10
   %12 = getelementptr inbounds %struct.cmGeneratorExpressionToken, ptr %9, i64 %11
-  store ptr %12, ptr %6, align 8
-  call void @_ZN9__gnu_cxx17__normal_iteratorIPK26cmGeneratorExpressionTokenSt6vectorIS1_SaIS1_EEEC2ERKS3_(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %6) #11
-  %13 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %3, i32 0, i32 0
+  store ptr %12, ptr %6, align 8, !tbaa !26
+  call void @_ZN9__gnu_cxx17__normal_iteratorIPK26cmGeneratorExpressionTokenSt6vectorIS1_SaIS1_EEEC2ERKS3_(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %6) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #15
+  %13 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator", ptr %3, i32 0, i32 0
   %14 = load ptr, ptr %13, align 8
   ret ptr %14
 }
@@ -1873,19 +2075,19 @@ define linkonce_odr dso_local ptr @_ZNK9__gnu_cxx17__normal_iteratorIPK26cmGener
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZNSt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !23
   %3 = load ptr, ptr %2, align 8
-  call void @_ZNSt12_Vector_baseISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #11
+  call void @_ZNSt12_Vector_baseISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #15
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef ptr @_ZNK9__gnu_cxx17__normal_iteratorIPK26cmGeneratorExpressionTokenSt6vectorIS1_SaIS1_EEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !20
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %3, i32 0, i32 0
-  %5 = load ptr, ptr %4, align 8
+  %4 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator", ptr %3, i32 0, i32 0
+  %5 = load ptr, ptr %4, align 8, !tbaa !22
   ret ptr %5
 }
 
@@ -1901,24 +2103,26 @@ define internal void @_ZL10extendTextRSt6vectorISt10unique_ptrI30cmGeneratorExpr
   %10 = alloca %"class.std::unique_ptr.12", align 8
   %11 = alloca ptr, align 8
   %12 = alloca i32, align 4
-  %13 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %3, i32 0, i32 0
+  %13 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator", ptr %3, i32 0, i32 0
   store ptr %1, ptr %13, align 8
-  store ptr %0, ptr %4, align 8
-  %14 = load ptr, ptr %4, align 8
-  %15 = call noundef zeroext i1 @_ZNKSt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EE5emptyEv(ptr noundef nonnull align 8 dereferenceable(24) %14) #11
+  store ptr %0, ptr %4, align 8, !tbaa !23
+  %14 = load ptr, ptr %4, align 8, !tbaa !23
+  %15 = call noundef zeroext i1 @_ZNKSt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EE5emptyEv(ptr noundef nonnull align 8 dereferenceable(24) %14) #15
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #15
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #15
   br i1 %15, label %29, label %16
 
 16:                                               ; preds = %2
-  %17 = load ptr, ptr %4, align 8
-  %18 = call ptr @_ZNSt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %17) #11
-  %19 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.27", ptr %6, i32 0, i32 0
+  %17 = load ptr, ptr %4, align 8, !tbaa !23
+  %18 = call ptr @_ZNSt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %17) #15
+  %19 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator.27", ptr %6, i32 0, i32 0
   store ptr %18, ptr %19, align 8
-  %20 = call ptr @_ZNK9__gnu_cxx17__normal_iteratorIPSt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS2_EESt6vectorIS5_SaIS5_EEEmiEl(ptr noundef nonnull align 8 dereferenceable(8) %6, i64 noundef 1) #11
-  %21 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.27", ptr %5, i32 0, i32 0
+  %20 = call ptr @_ZNK9__gnu_cxx17__normal_iteratorIPSt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS2_EESt6vectorIS5_SaIS5_EEEmiEl(ptr noundef nonnull align 8 dereferenceable(8) %6, i64 noundef 1) #15
+  %21 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator.27", ptr %5, i32 0, i32 0
   store ptr %20, ptr %21, align 8
-  %22 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPSt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS2_EESt6vectorIS5_SaIS5_EEEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %5) #11
-  %23 = call noundef ptr @_ZNKSt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS0_EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %22) #11
-  %24 = load ptr, ptr %23, align 8
+  %22 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPSt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS2_EESt6vectorIS5_SaIS5_EEEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %5) #15
+  %23 = call noundef ptr @_ZNKSt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS0_EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %22) #15
+  %24 = load ptr, ptr %23, align 8, !tbaa !33
   %25 = getelementptr inbounds ptr, ptr %24, i64 2
   %26 = load ptr, ptr %25, align 8
   %27 = call noundef i32 %26(ptr noundef nonnull align 8 dereferenceable(8) %23)
@@ -1927,38 +2131,48 @@ define internal void @_ZL10extendTextRSt6vectorISt10unique_ptrI30cmGeneratorExpr
 
 29:                                               ; preds = %16, %2
   %30 = phi i1 [ false, %2 ], [ %28, %16 ]
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #15
   br i1 %30, label %31, label %42
 
 31:                                               ; preds = %29
-  %32 = load ptr, ptr %4, align 8
-  %33 = call ptr @_ZNSt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %32) #11
-  %34 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.27", ptr %8, i32 0, i32 0
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #15
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #15
+  %32 = load ptr, ptr %4, align 8, !tbaa !23
+  %33 = call ptr @_ZNSt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %32) #15
+  %34 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator.27", ptr %8, i32 0, i32 0
   store ptr %33, ptr %34, align 8
-  %35 = call ptr @_ZNK9__gnu_cxx17__normal_iteratorIPSt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS2_EESt6vectorIS5_SaIS5_EEEmiEl(ptr noundef nonnull align 8 dereferenceable(8) %8, i64 noundef 1) #11
-  %36 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.27", ptr %7, i32 0, i32 0
+  %35 = call ptr @_ZNK9__gnu_cxx17__normal_iteratorIPSt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS2_EESt6vectorIS5_SaIS5_EEEmiEl(ptr noundef nonnull align 8 dereferenceable(8) %8, i64 noundef 1) #15
+  %36 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator.27", ptr %7, i32 0, i32 0
   store ptr %35, ptr %36, align 8
-  %37 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPSt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS2_EESt6vectorIS5_SaIS5_EEEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %7) #11
+  %37 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPSt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS2_EESt6vectorIS5_SaIS5_EEEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %7) #15
   %38 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN2cm21static_reference_castI11TextContentSt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS3_EETnNSt9enable_ifIXsr3std10is_pointerIDTcldtclsr3stdE7declvalIT0_EE3getEEEE5valueEiE4typeELi0EEERT_RS8_(ptr noundef nonnull align 8 dereferenceable(8) %37)
-  %39 = call noundef ptr @_ZNK9__gnu_cxx17__normal_iteratorIPK26cmGeneratorExpressionTokenSt6vectorIS1_SaIS1_EEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %3) #11
-  %40 = getelementptr inbounds %struct.cmGeneratorExpressionToken, ptr %39, i32 0, i32 2
-  %41 = load i64, ptr %40, align 8
+  %39 = call noundef ptr @_ZNK9__gnu_cxx17__normal_iteratorIPK26cmGeneratorExpressionTokenSt6vectorIS1_SaIS1_EEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %3) #15
+  %40 = getelementptr inbounds nuw %struct.cmGeneratorExpressionToken, ptr %39, i32 0, i32 2
+  %41 = load i64, ptr %40, align 8, !tbaa !35
   call void @_ZN11TextContent6ExtendEm(ptr noundef nonnull align 8 dereferenceable(24) %38, i64 noundef %41)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #15
   br label %53
 
 42:                                               ; preds = %29
-  %43 = call noundef ptr @_ZNK9__gnu_cxx17__normal_iteratorIPK26cmGeneratorExpressionTokenSt6vectorIS1_SaIS1_EEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %3) #11
-  %44 = getelementptr inbounds %struct.cmGeneratorExpressionToken, ptr %43, i32 0, i32 1
-  %45 = call noundef ptr @_ZNK9__gnu_cxx17__normal_iteratorIPK26cmGeneratorExpressionTokenSt6vectorIS1_SaIS1_EEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %3) #11
-  %46 = getelementptr inbounds %struct.cmGeneratorExpressionToken, ptr %45, i32 0, i32 2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #15
+  %43 = call noundef ptr @_ZNK9__gnu_cxx17__normal_iteratorIPK26cmGeneratorExpressionTokenSt6vectorIS1_SaIS1_EEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %3) #15
+  %44 = getelementptr inbounds nuw %struct.cmGeneratorExpressionToken, ptr %43, i32 0, i32 1
+  %45 = call noundef ptr @_ZNK9__gnu_cxx17__normal_iteratorIPK26cmGeneratorExpressionTokenSt6vectorIS1_SaIS1_EEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %3) #15
+  %46 = getelementptr inbounds nuw %struct.cmGeneratorExpressionToken, ptr %45, i32 0, i32 2
   call void @_ZSt11make_uniqueI11TextContentJRKPKcRKmEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind writable sret(%"class.std::unique_ptr.28") align 8 %9, ptr noundef nonnull align 8 dereferenceable(8) %44, ptr noundef nonnull align 8 dereferenceable(8) %46)
-  %47 = load ptr, ptr %4, align 8
-  call void @_ZNSt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS0_EEC2I11TextContentS1_IS5_EvEEOS_IT_T0_E(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(8) %9) #11
+  %47 = load ptr, ptr %4, align 8, !tbaa !23
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #15
+  call void @_ZNSt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS0_EEC2I11TextContentS1_IS5_EvEEOS_IT_T0_E(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(8) %9) #15
   invoke void @_ZNSt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EE9push_backEOS4_(ptr noundef nonnull align 8 dereferenceable(24) %47, ptr noundef nonnull align 8 dereferenceable(8) %10)
           to label %48 unwind label %49
 
 48:                                               ; preds = %42
-  call void @_ZNSt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS0_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #11
-  call void @_ZNSt10unique_ptrI11TextContentSt14default_deleteIS0_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #11
+  call void @_ZNSt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS0_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #15
+  call void @_ZNSt10unique_ptrI11TextContentSt14default_deleteIS0_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #15
   br label %53
 
 49:                                               ; preds = %42
@@ -1968,8 +2182,10 @@ define internal void @_ZL10extendTextRSt6vectorISt10unique_ptrI30cmGeneratorExpr
   store ptr %51, ptr %11, align 8
   %52 = extractvalue { ptr, i32 } %50, 1
   store i32 %52, ptr %12, align 4
-  call void @_ZNSt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS0_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #11
-  call void @_ZNSt10unique_ptrI11TextContentSt14default_deleteIS0_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #11
+  call void @_ZNSt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS0_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #15
+  call void @_ZNSt10unique_ptrI11TextContentSt14default_deleteIS0_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #15
   br label %54
 
 53:                                               ; preds = %48, %31
@@ -1988,27 +2204,27 @@ declare i32 @__gxx_personality_v0(...)
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZN9__gnu_cxx17__normal_iteratorIPK26cmGeneratorExpressionTokenSt6vectorIS1_SaIS1_EEEppEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !20
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %3, i32 0, i32 0
-  %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds %struct.cmGeneratorExpressionToken, ptr %5, i32 1
-  store ptr %6, ptr %4, align 8
+  %4 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator", ptr %3, i32 0, i32 0
+  %5 = load ptr, ptr %4, align 8, !tbaa !22
+  %6 = getelementptr inbounds nuw %struct.cmGeneratorExpressionToken, ptr %5, i32 1
+  store ptr %6, ptr %4, align 8, !tbaa !22
   ret ptr %3
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef zeroext i1 @_ZN9__gnu_cxxeqIPK26cmGeneratorExpressionTokenSt6vectorIS1_SaIS1_EEEEbRKNS_17__normal_iteratorIT_T0_EESC_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #0 comdat {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef zeroext i1 @_ZN9__gnu_cxxeqIPK26cmGeneratorExpressionTokenSt6vectorIS1_SaIS1_EEEEbRKNS_17__normal_iteratorIT_T0_EESC_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #4 comdat {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  %5 = load ptr, ptr %3, align 8
-  %6 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPK26cmGeneratorExpressionTokenSt6vectorIS1_SaIS1_EEE4baseEv(ptr noundef nonnull align 8 dereferenceable(8) %5) #11
-  %7 = load ptr, ptr %6, align 8
-  %8 = load ptr, ptr %4, align 8
-  %9 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPK26cmGeneratorExpressionTokenSt6vectorIS1_SaIS1_EEE4baseEv(ptr noundef nonnull align 8 dereferenceable(8) %8) #11
-  %10 = load ptr, ptr %9, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !20
+  store ptr %1, ptr %4, align 8, !tbaa !20
+  %5 = load ptr, ptr %3, align 8, !tbaa !20
+  %6 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPK26cmGeneratorExpressionTokenSt6vectorIS1_SaIS1_EEE4baseEv(ptr noundef nonnull align 8 dereferenceable(8) %5) #15
+  %7 = load ptr, ptr %6, align 8, !tbaa !26
+  %8 = load ptr, ptr %4, align 8, !tbaa !20
+  %9 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPK26cmGeneratorExpressionTokenSt6vectorIS1_SaIS1_EEE4baseEv(ptr noundef nonnull align 8 dereferenceable(8) %8) #15
+  %10 = load ptr, ptr %9, align 8, !tbaa !26
   %11 = icmp eq ptr %7, %10
   ret i1 %11
 }
@@ -2018,38 +2234,42 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNKSt6vectorISt10unique_ptrI3
   %2 = alloca ptr, align 8
   %3 = alloca %"class.__gnu_cxx::__normal_iterator.36", align 8
   %4 = alloca %"class.__gnu_cxx::__normal_iterator.36", align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !23
   %5 = load ptr, ptr %2, align 8
-  %6 = call ptr @_ZNKSt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %5) #11
-  %7 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.36", ptr %3, i32 0, i32 0
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #15
+  %6 = call ptr @_ZNKSt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %5) #15
+  %7 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator.36", ptr %3, i32 0, i32 0
   store ptr %6, ptr %7, align 8
-  %8 = call ptr @_ZNKSt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %5) #11
-  %9 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.36", ptr %4, i32 0, i32 0
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #15
+  %8 = call ptr @_ZNKSt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %5) #15
+  %9 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator.36", ptr %4, i32 0, i32 0
   store ptr %8, ptr %9, align 8
-  %10 = call noundef zeroext i1 @_ZN9__gnu_cxxeqIPKSt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS2_EESt6vectorIS5_SaIS5_EEEEbRKNS_17__normal_iteratorIT_T0_EESG_(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %4) #11
+  %10 = call noundef zeroext i1 @_ZN9__gnu_cxxeqIPKSt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS2_EESt6vectorIS5_SaIS5_EEEEbRKNS_17__normal_iteratorIT_T0_EESG_(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %4) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #15
   ret i1 %10
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZSt11make_uniqueI26GeneratorExpressionContentJRKPKcmEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias writable sret(%"class.std::unique_ptr") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %2) #1 comdat personality ptr @__gxx_personality_v0 {
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr dso_local void @_ZSt11make_uniqueI26GeneratorExpressionContentJRKPKcmEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias writable sret(%"class.std::unique_ptr") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %2) #5 comdat personality ptr @__gxx_personality_v0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
   store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store ptr %2, ptr %6, align 8
-  %9 = call noalias noundef nonnull ptr @_Znwm(i64 noundef 72) #12
-  %10 = load ptr, ptr %5, align 8
-  %11 = load ptr, ptr %10, align 8
-  %12 = load ptr, ptr %6, align 8
-  %13 = load i64, ptr %12, align 8
+  store ptr %1, ptr %5, align 8, !tbaa !50
+  store ptr %2, ptr %6, align 8, !tbaa !52
+  %9 = call noalias noundef nonnull ptr @_Znwm(i64 noundef 72) #16
+  %10 = load ptr, ptr %5, align 8, !tbaa !50
+  %11 = load ptr, ptr %10, align 8, !tbaa !54
+  %12 = load ptr, ptr %6, align 8, !tbaa !52
+  %13 = load i64, ptr %12, align 8, !tbaa !39
   invoke void @_ZN26GeneratorExpressionContentC1EPKcm(ptr noundef nonnull align 8 dereferenceable(72) %9, ptr noundef %11, i64 noundef %13)
           to label %14 unwind label %15
 
 14:                                               ; preds = %3
-  call void @_ZNSt10unique_ptrI26GeneratorExpressionContentSt14default_deleteIS0_EEC2IS2_vEEPS0_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %9) #11
+  call void @_ZNSt10unique_ptrI26GeneratorExpressionContentSt14default_deleteIS0_EEC2IS2_vEEPS0_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %9) #15
   ret void
 
 15:                                               ; preds = %3
@@ -2059,7 +2279,7 @@ define linkonce_odr dso_local void @_ZSt11make_uniqueI26GeneratorExpressionConte
   store ptr %17, ptr %7, align 8
   %18 = extractvalue { ptr, i32 } %16, 1
   store i32 %18, ptr %8, align 4
-  call void @_ZdlPv(ptr noundef %9) #13
+  call void @_ZdlPvm(ptr noundef %9, i64 noundef 72) #17
   br label %19
 
 19:                                               ; preds = %15
@@ -2073,9 +2293,9 @@ define linkonce_odr dso_local void @_ZSt11make_uniqueI26GeneratorExpressionConte
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef ptr @_ZNKSt10unique_ptrI26GeneratorExpressionContentSt14default_deleteIS0_EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !55
   %3 = load ptr, ptr %2, align 8
-  %4 = call noundef ptr @_ZNKSt10unique_ptrI26GeneratorExpressionContentSt14default_deleteIS0_EE3getEv(ptr noundef nonnull align 8 dereferenceable(8) %3) #11
+  %4 = call noundef ptr @_ZNKSt10unique_ptrI26GeneratorExpressionContentSt14default_deleteIS0_EE3getEv(ptr noundef nonnull align 8 dereferenceable(8) %3) #15
   ret ptr %4
 }
 
@@ -2083,12 +2303,12 @@ define linkonce_odr dso_local noundef ptr @_ZNKSt10unique_ptrI26GeneratorExpress
 define linkonce_odr dso_local void @_ZN26GeneratorExpressionContent13SetIdentifierEOSt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS2_EESaIS5_EE(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) #0 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !57
+  store ptr %1, ptr %4, align 8, !tbaa !23
   %5 = load ptr, ptr %3, align 8
-  %6 = load ptr, ptr %4, align 8
-  %7 = getelementptr inbounds %struct.GeneratorExpressionContent, ptr %5, i32 0, i32 1
-  %8 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EEaSEOS6_(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %6) #11
+  %6 = load ptr, ptr %4, align 8, !tbaa !23
+  %7 = getelementptr inbounds nuw %struct.GeneratorExpressionContent, ptr %5, i32 0, i32 1
+  %8 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EEaSEOS6_(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %6) #15
   ret void
 }
 
@@ -2096,10 +2316,10 @@ define linkonce_odr dso_local void @_ZN26GeneratorExpressionContent13SetIdentifi
 define linkonce_odr dso_local void @_ZNSt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EE9push_backEOS4_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #1 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !23
+  store ptr %1, ptr %4, align 8, !tbaa !59
   %5 = load ptr, ptr %3, align 8
-  %6 = load ptr, ptr %4, align 8
+  %6 = load ptr, ptr %4, align 8, !tbaa !59
   %7 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EE12emplace_backIJS4_EEERS4_DpOT_(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(8) %6)
   ret void
 }
@@ -2108,14 +2328,14 @@ define linkonce_odr dso_local void @_ZNSt6vectorISt10unique_ptrI30cmGeneratorExp
 define linkonce_odr dso_local void @_ZNSt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS0_EEC2I26GeneratorExpressionContentS1_IS5_EvEEOS_IT_T0_E(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !59
+  store ptr %1, ptr %4, align 8, !tbaa !55
   %5 = load ptr, ptr %3, align 8
-  %6 = getelementptr inbounds %"class.std::unique_ptr.12", ptr %5, i32 0, i32 0
-  %7 = load ptr, ptr %4, align 8
-  %8 = call noundef ptr @_ZNSt10unique_ptrI26GeneratorExpressionContentSt14default_deleteIS0_EE7releaseEv(ptr noundef nonnull align 8 dereferenceable(8) %7) #11
-  %9 = load ptr, ptr %4, align 8
-  %10 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt10unique_ptrI26GeneratorExpressionContentSt14default_deleteIS0_EE11get_deleterEv(ptr noundef nonnull align 8 dereferenceable(8) %9) #11
+  %6 = getelementptr inbounds nuw %"class.std::unique_ptr.12", ptr %5, i32 0, i32 0
+  %7 = load ptr, ptr %4, align 8, !tbaa !55
+  %8 = call noundef ptr @_ZNSt10unique_ptrI26GeneratorExpressionContentSt14default_deleteIS0_EE7releaseEv(ptr noundef nonnull align 8 dereferenceable(8) %7) #15
+  %9 = load ptr, ptr %4, align 8, !tbaa !55
+  %10 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt10unique_ptrI26GeneratorExpressionContentSt14default_deleteIS0_EE11get_deleterEv(ptr noundef nonnull align 8 dereferenceable(8) %9) #15
   invoke void @_ZNSt15__uniq_ptr_dataI30cmGeneratorExpressionEvaluatorSt14default_deleteIS0_ELb1ELb1EECI2St15__uniq_ptr_implIS0_S2_EIS1_I26GeneratorExpressionContentEEEPS0_OT_(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef %8, ptr noundef nonnull align 1 dereferenceable(1) %10)
           to label %11 unwind label %12
 
@@ -2126,7 +2346,7 @@ define linkonce_odr dso_local void @_ZNSt10unique_ptrI30cmGeneratorExpressionEva
   %13 = landingpad { ptr, i32 }
           catch ptr null
   %14 = extractvalue { ptr, i32 } %13, 0
-  call void @__clang_call_terminate(ptr %14) #14
+  call void @__clang_call_terminate(ptr %14) #18
   unreachable
 }
 
@@ -2134,26 +2354,28 @@ define linkonce_odr dso_local void @_ZNSt10unique_ptrI30cmGeneratorExpressionEva
 define linkonce_odr dso_local void @_ZNSt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS0_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #0 comdat align 2 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !59
   %4 = load ptr, ptr %2, align 8
-  %5 = getelementptr inbounds %"class.std::unique_ptr.12", ptr %4, i32 0, i32 0
-  %6 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt15__uniq_ptr_implI30cmGeneratorExpressionEvaluatorSt14default_deleteIS0_EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(8) %5) #11
-  store ptr %6, ptr %3, align 8
-  %7 = load ptr, ptr %3, align 8
-  %8 = load ptr, ptr %7, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #15
+  %5 = getelementptr inbounds nuw %"class.std::unique_ptr.12", ptr %4, i32 0, i32 0
+  %6 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt15__uniq_ptr_implI30cmGeneratorExpressionEvaluatorSt14default_deleteIS0_EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(8) %5) #15
+  store ptr %6, ptr %3, align 8, !tbaa !61
+  %7 = load ptr, ptr %3, align 8, !tbaa !61
+  %8 = load ptr, ptr %7, align 8, !tbaa !63
   %9 = icmp ne ptr %8, null
   br i1 %9, label %10, label %14
 
 10:                                               ; preds = %1
-  %11 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS0_EE11get_deleterEv(ptr noundef nonnull align 8 dereferenceable(8) %4) #11
-  %12 = load ptr, ptr %3, align 8
-  %13 = load ptr, ptr %12, align 8
+  %11 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS0_EE11get_deleterEv(ptr noundef nonnull align 8 dereferenceable(8) %4) #15
+  %12 = load ptr, ptr %3, align 8, !tbaa !61
+  %13 = load ptr, ptr %12, align 8, !tbaa !63
   call void @_ZNKSt14default_deleteI30cmGeneratorExpressionEvaluatorEclEPS0_(ptr noundef nonnull align 1 dereferenceable(1) %11, ptr noundef %13)
   br label %14
 
 14:                                               ; preds = %10, %1
-  %15 = load ptr, ptr %3, align 8
-  store ptr null, ptr %15, align 8
+  %15 = load ptr, ptr %3, align 8, !tbaa !61
+  store ptr null, ptr %15, align 8, !tbaa !63
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #15
   ret void
 }
 
@@ -2161,20 +2383,21 @@ define linkonce_odr dso_local void @_ZNSt10unique_ptrI30cmGeneratorExpressionEva
 define linkonce_odr dso_local void @_ZNSt10unique_ptrI26GeneratorExpressionContentSt14default_deleteIS0_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !55
   %4 = load ptr, ptr %2, align 8
-  %5 = getelementptr inbounds %"class.std::unique_ptr", ptr %4, i32 0, i32 0
-  %6 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt15__uniq_ptr_implI26GeneratorExpressionContentSt14default_deleteIS0_EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(8) %5) #11
-  store ptr %6, ptr %3, align 8
-  %7 = load ptr, ptr %3, align 8
-  %8 = load ptr, ptr %7, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #15
+  %5 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %4, i32 0, i32 0
+  %6 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt15__uniq_ptr_implI26GeneratorExpressionContentSt14default_deleteIS0_EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(8) %5) #15
+  store ptr %6, ptr %3, align 8, !tbaa !65
+  %7 = load ptr, ptr %3, align 8, !tbaa !65
+  %8 = load ptr, ptr %7, align 8, !tbaa !57
   %9 = icmp ne ptr %8, null
   br i1 %9, label %10, label %15
 
 10:                                               ; preds = %1
-  %11 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt10unique_ptrI26GeneratorExpressionContentSt14default_deleteIS0_EE11get_deleterEv(ptr noundef nonnull align 8 dereferenceable(8) %4) #11
-  %12 = load ptr, ptr %3, align 8
-  %13 = load ptr, ptr %12, align 8
+  %11 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt10unique_ptrI26GeneratorExpressionContentSt14default_deleteIS0_EE11get_deleterEv(ptr noundef nonnull align 8 dereferenceable(8) %4) #15
+  %12 = load ptr, ptr %3, align 8, !tbaa !65
+  %13 = load ptr, ptr %12, align 8, !tbaa !57
   invoke void @_ZNKSt14default_deleteI26GeneratorExpressionContentEclEPS0_(ptr noundef nonnull align 1 dereferenceable(1) %11, ptr noundef %13)
           to label %14 unwind label %17
 
@@ -2182,33 +2405,34 @@ define linkonce_odr dso_local void @_ZNSt10unique_ptrI26GeneratorExpressionConte
   br label %15
 
 15:                                               ; preds = %14, %1
-  %16 = load ptr, ptr %3, align 8
-  store ptr null, ptr %16, align 8
+  %16 = load ptr, ptr %3, align 8, !tbaa !65
+  store ptr null, ptr %16, align 8, !tbaa !57
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #15
   ret void
 
 17:                                               ; preds = %10
   %18 = landingpad { ptr, i32 }
           catch ptr null
   %19 = extractvalue { ptr, i32 } %18, 0
-  call void @__clang_call_terminate(ptr %19) #14
+  call void @__clang_call_terminate(ptr %19) #18
   unreachable
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZNSt6vectorIS_ISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EESaIS6_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !67
   %3 = load ptr, ptr %2, align 8
-  call void @_ZNSt12_Vector_baseISt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS2_EESaIS5_EESaIS7_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #11
+  call void @_ZNSt12_Vector_baseISt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS2_EESaIS5_EESaIS7_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #15
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZNSt6vectorIN9__gnu_cxx17__normal_iteratorIPK26cmGeneratorExpressionTokenS_IS2_SaIS2_EEEESaIS7_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !69
   %3 = load ptr, ptr %2, align 8
-  call void @_ZNSt12_Vector_baseIN9__gnu_cxx17__normal_iteratorIPK26cmGeneratorExpressionTokenSt6vectorIS2_SaIS2_EEEESaIS8_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #11
+  call void @_ZNSt12_Vector_baseIN9__gnu_cxx17__normal_iteratorIPK26cmGeneratorExpressionTokenSt6vectorIS2_SaIS2_EEEESaIS8_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #15
   ret void
 }
 
@@ -2216,34 +2440,34 @@ define linkonce_odr dso_local void @_ZNSt6vectorIN9__gnu_cxx17__normal_iteratorI
 define linkonce_odr dso_local void @_ZNSt6vectorIS_ISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EESaIS6_EE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %1) #1 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca i64, align 8
-  store ptr %0, ptr %3, align 8
-  store i64 %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !67
+  store i64 %1, ptr %4, align 8, !tbaa !39
   %5 = load ptr, ptr %3, align 8
-  %6 = load i64, ptr %4, align 8
-  %7 = call noundef i64 @_ZNKSt6vectorIS_ISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EESaIS6_EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %5) #11
+  %6 = load i64, ptr %4, align 8, !tbaa !39
+  %7 = call noundef i64 @_ZNKSt6vectorIS_ISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EESaIS6_EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %5) #15
   %8 = icmp ugt i64 %6, %7
   br i1 %8, label %9, label %13
 
 9:                                                ; preds = %2
-  %10 = load i64, ptr %4, align 8
-  %11 = call noundef i64 @_ZNKSt6vectorIS_ISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EESaIS6_EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %5) #11
+  %10 = load i64, ptr %4, align 8, !tbaa !39
+  %11 = call noundef i64 @_ZNKSt6vectorIS_ISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EESaIS6_EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %5) #15
   %12 = sub i64 %10, %11
   call void @_ZNSt6vectorIS_ISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EESaIS6_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %5, i64 noundef %12)
   br label %24
 
 13:                                               ; preds = %2
-  %14 = load i64, ptr %4, align 8
-  %15 = call noundef i64 @_ZNKSt6vectorIS_ISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EESaIS6_EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %5) #11
+  %14 = load i64, ptr %4, align 8, !tbaa !39
+  %15 = call noundef i64 @_ZNKSt6vectorIS_ISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EESaIS6_EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %5) #15
   %16 = icmp ult i64 %14, %15
   br i1 %16, label %17, label %23
 
 17:                                               ; preds = %13
-  %18 = getelementptr inbounds %"struct.std::_Vector_base.8", ptr %5, i32 0, i32 0
-  %19 = getelementptr inbounds %"struct.std::_Vector_base<std::vector<std::unique_ptr<cmGeneratorExpressionEvaluator>>, std::allocator<std::vector<std::unique_ptr<cmGeneratorExpressionEvaluator>>>>::_Vector_impl_data", ptr %18, i32 0, i32 0
-  %20 = load ptr, ptr %19, align 8
-  %21 = load i64, ptr %4, align 8
-  %22 = getelementptr inbounds %"class.std::vector.0", ptr %20, i64 %21
-  call void @_ZNSt6vectorIS_ISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EESaIS6_EE15_M_erase_at_endEPS6_(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef %22) #11
+  %18 = getelementptr inbounds nuw %"struct.std::_Vector_base.8", ptr %5, i32 0, i32 0
+  %19 = getelementptr inbounds nuw %"struct.std::_Vector_base<std::vector<std::unique_ptr<cmGeneratorExpressionEvaluator>>, std::allocator<std::vector<std::unique_ptr<cmGeneratorExpressionEvaluator>>>>::_Vector_impl_data", ptr %18, i32 0, i32 0
+  %20 = load ptr, ptr %19, align 8, !tbaa !71
+  %21 = load i64, ptr %4, align 8, !tbaa !39
+  %22 = getelementptr inbounds nuw %"class.std::vector.0", ptr %20, i64 %21
+  call void @_ZNSt6vectorIS_ISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EESaIS6_EE15_M_erase_at_endEPS6_(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef %22) #15
   br label %23
 
 23:                                               ; preds = %17, %13
@@ -2256,14 +2480,14 @@ define linkonce_odr dso_local void @_ZNSt6vectorIS_ISt10unique_ptrI30cmGenerator
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef i64 @_ZNKSt6vectorIS_ISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EESaIS6_EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !67
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"struct.std::_Vector_base.8", ptr %3, i32 0, i32 0
-  %5 = getelementptr inbounds %"struct.std::_Vector_base<std::vector<std::unique_ptr<cmGeneratorExpressionEvaluator>>, std::allocator<std::vector<std::unique_ptr<cmGeneratorExpressionEvaluator>>>>::_Vector_impl_data", ptr %4, i32 0, i32 1
-  %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds %"struct.std::_Vector_base.8", ptr %3, i32 0, i32 0
-  %8 = getelementptr inbounds %"struct.std::_Vector_base<std::vector<std::unique_ptr<cmGeneratorExpressionEvaluator>>, std::allocator<std::vector<std::unique_ptr<cmGeneratorExpressionEvaluator>>>>::_Vector_impl_data", ptr %7, i32 0, i32 0
-  %9 = load ptr, ptr %8, align 8
+  %4 = getelementptr inbounds nuw %"struct.std::_Vector_base.8", ptr %3, i32 0, i32 0
+  %5 = getelementptr inbounds nuw %"struct.std::_Vector_base<std::vector<std::unique_ptr<cmGeneratorExpressionEvaluator>>, std::allocator<std::vector<std::unique_ptr<cmGeneratorExpressionEvaluator>>>>::_Vector_impl_data", ptr %4, i32 0, i32 1
+  %6 = load ptr, ptr %5, align 8, !tbaa !73
+  %7 = getelementptr inbounds nuw %"struct.std::_Vector_base.8", ptr %3, i32 0, i32 0
+  %8 = getelementptr inbounds nuw %"struct.std::_Vector_base<std::vector<std::unique_ptr<cmGeneratorExpressionEvaluator>>, std::allocator<std::vector<std::unique_ptr<cmGeneratorExpressionEvaluator>>>>::_Vector_impl_data", ptr %7, i32 0, i32 0
+  %9 = load ptr, ptr %8, align 8, !tbaa !71
   %10 = ptrtoint ptr %6 to i64
   %11 = ptrtoint ptr %9 to i64
   %12 = sub i64 %10, %11
@@ -2276,38 +2500,38 @@ define linkonce_odr dso_local void @_ZNSt6vectorIN9__gnu_cxx17__normal_iteratorI
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca %"class.__gnu_cxx::__normal_iterator.26", align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !69
+  store ptr %1, ptr %4, align 8, !tbaa !20
   %6 = load ptr, ptr %3, align 8
-  %7 = getelementptr inbounds %"struct.std::_Vector_base.21", ptr %6, i32 0, i32 0
-  %8 = getelementptr inbounds %"struct.std::_Vector_base<__gnu_cxx::__normal_iterator<const cmGeneratorExpressionToken *, std::vector<cmGeneratorExpressionToken>>, std::allocator<__gnu_cxx::__normal_iterator<const cmGeneratorExpressionToken *, std::vector<cmGeneratorExpressionToken>>>>::_Vector_impl_data", ptr %7, i32 0, i32 1
-  %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds %"struct.std::_Vector_base.21", ptr %6, i32 0, i32 0
-  %11 = getelementptr inbounds %"struct.std::_Vector_base<__gnu_cxx::__normal_iterator<const cmGeneratorExpressionToken *, std::vector<cmGeneratorExpressionToken>>, std::allocator<__gnu_cxx::__normal_iterator<const cmGeneratorExpressionToken *, std::vector<cmGeneratorExpressionToken>>>>::_Vector_impl_data", ptr %10, i32 0, i32 2
-  %12 = load ptr, ptr %11, align 8
+  %7 = getelementptr inbounds nuw %"struct.std::_Vector_base.21", ptr %6, i32 0, i32 0
+  %8 = getelementptr inbounds nuw %"struct.std::_Vector_base<__gnu_cxx::__normal_iterator<const cmGeneratorExpressionToken *, std::vector<cmGeneratorExpressionToken>>, std::allocator<__gnu_cxx::__normal_iterator<const cmGeneratorExpressionToken *, std::vector<cmGeneratorExpressionToken>>>>::_Vector_impl_data", ptr %7, i32 0, i32 1
+  %9 = load ptr, ptr %8, align 8, !tbaa !74
+  %10 = getelementptr inbounds nuw %"struct.std::_Vector_base.21", ptr %6, i32 0, i32 0
+  %11 = getelementptr inbounds nuw %"struct.std::_Vector_base<__gnu_cxx::__normal_iterator<const cmGeneratorExpressionToken *, std::vector<cmGeneratorExpressionToken>>, std::allocator<__gnu_cxx::__normal_iterator<const cmGeneratorExpressionToken *, std::vector<cmGeneratorExpressionToken>>>>::_Vector_impl_data", ptr %10, i32 0, i32 2
+  %12 = load ptr, ptr %11, align 8, !tbaa !76
   %13 = icmp ne ptr %9, %12
   br i1 %13, label %14, label %24
 
 14:                                               ; preds = %2
-  %15 = getelementptr inbounds %"struct.std::_Vector_base.21", ptr %6, i32 0, i32 0
-  %16 = getelementptr inbounds %"struct.std::_Vector_base.21", ptr %6, i32 0, i32 0
-  %17 = getelementptr inbounds %"struct.std::_Vector_base<__gnu_cxx::__normal_iterator<const cmGeneratorExpressionToken *, std::vector<cmGeneratorExpressionToken>>, std::allocator<__gnu_cxx::__normal_iterator<const cmGeneratorExpressionToken *, std::vector<cmGeneratorExpressionToken>>>>::_Vector_impl_data", ptr %16, i32 0, i32 1
-  %18 = load ptr, ptr %17, align 8
-  %19 = load ptr, ptr %4, align 8
-  call void @_ZNSt16allocator_traitsISaIN9__gnu_cxx17__normal_iteratorIPK26cmGeneratorExpressionTokenSt6vectorIS2_SaIS2_EEEEEE9constructIS8_JRKS8_EEEvRS9_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %15, ptr noundef %18, ptr noundef nonnull align 8 dereferenceable(8) %19) #11
-  %20 = getelementptr inbounds %"struct.std::_Vector_base.21", ptr %6, i32 0, i32 0
-  %21 = getelementptr inbounds %"struct.std::_Vector_base<__gnu_cxx::__normal_iterator<const cmGeneratorExpressionToken *, std::vector<cmGeneratorExpressionToken>>, std::allocator<__gnu_cxx::__normal_iterator<const cmGeneratorExpressionToken *, std::vector<cmGeneratorExpressionToken>>>>::_Vector_impl_data", ptr %20, i32 0, i32 1
-  %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %22, i32 1
-  store ptr %23, ptr %21, align 8
+  %15 = getelementptr inbounds nuw %"struct.std::_Vector_base.21", ptr %6, i32 0, i32 0
+  %16 = getelementptr inbounds nuw %"struct.std::_Vector_base.21", ptr %6, i32 0, i32 0
+  %17 = getelementptr inbounds nuw %"struct.std::_Vector_base<__gnu_cxx::__normal_iterator<const cmGeneratorExpressionToken *, std::vector<cmGeneratorExpressionToken>>, std::allocator<__gnu_cxx::__normal_iterator<const cmGeneratorExpressionToken *, std::vector<cmGeneratorExpressionToken>>>>::_Vector_impl_data", ptr %16, i32 0, i32 1
+  %18 = load ptr, ptr %17, align 8, !tbaa !74
+  %19 = load ptr, ptr %4, align 8, !tbaa !20
+  call void @_ZNSt16allocator_traitsISaIN9__gnu_cxx17__normal_iteratorIPK26cmGeneratorExpressionTokenSt6vectorIS2_SaIS2_EEEEEE9constructIS8_JRKS8_EEEvRS9_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %15, ptr noundef %18, ptr noundef nonnull align 8 dereferenceable(8) %19) #15
+  %20 = getelementptr inbounds nuw %"struct.std::_Vector_base.21", ptr %6, i32 0, i32 0
+  %21 = getelementptr inbounds nuw %"struct.std::_Vector_base<__gnu_cxx::__normal_iterator<const cmGeneratorExpressionToken *, std::vector<cmGeneratorExpressionToken>>, std::allocator<__gnu_cxx::__normal_iterator<const cmGeneratorExpressionToken *, std::vector<cmGeneratorExpressionToken>>>>::_Vector_impl_data", ptr %20, i32 0, i32 1
+  %22 = load ptr, ptr %21, align 8, !tbaa !74
+  %23 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator", ptr %22, i32 1
+  store ptr %23, ptr %21, align 8, !tbaa !74
   br label %30
 
 24:                                               ; preds = %2
-  %25 = call ptr @_ZNSt6vectorIN9__gnu_cxx17__normal_iteratorIPK26cmGeneratorExpressionTokenS_IS2_SaIS2_EEEESaIS7_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %6) #11
-  %26 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.26", ptr %5, i32 0, i32 0
+  %25 = call ptr @_ZNSt6vectorIN9__gnu_cxx17__normal_iteratorIPK26cmGeneratorExpressionTokenS_IS2_SaIS2_EEEESaIS7_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %6) #15
+  %26 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator.26", ptr %5, i32 0, i32 0
   store ptr %25, ptr %26, align 8
-  %27 = load ptr, ptr %4, align 8
-  %28 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.26", ptr %5, i32 0, i32 0
+  %27 = load ptr, ptr %4, align 8, !tbaa !20
+  %28 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator.26", ptr %5, i32 0, i32 0
   %29 = load ptr, ptr %28, align 8
   call void @_ZNSt6vectorIN9__gnu_cxx17__normal_iteratorIPK26cmGeneratorExpressionTokenS_IS2_SaIS2_EEEESaIS7_EE17_M_realloc_insertIJRKS7_EEEvNS1_IPS7_S9_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr %29, ptr noundef nonnull align 8 dereferenceable(8) %27)
   br label %30
@@ -2320,12 +2544,12 @@ define linkonce_odr dso_local void @_ZNSt6vectorIN9__gnu_cxx17__normal_iteratorI
 define linkonce_odr dso_local ptr @_ZNSt6vectorIS_ISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EESaIS6_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #0 comdat align 2 {
   %2 = alloca %"class.__gnu_cxx::__normal_iterator.25", align 8
   %3 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !67
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds %"struct.std::_Vector_base.8", ptr %4, i32 0, i32 0
-  %6 = getelementptr inbounds %"struct.std::_Vector_base<std::vector<std::unique_ptr<cmGeneratorExpressionEvaluator>>, std::allocator<std::vector<std::unique_ptr<cmGeneratorExpressionEvaluator>>>>::_Vector_impl_data", ptr %5, i32 0, i32 1
-  call void @_ZN9__gnu_cxx17__normal_iteratorIPSt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS3_EESaIS6_EES1_IS8_SaIS8_EEEC2ERKS9_(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %6) #11
-  %7 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.25", ptr %2, i32 0, i32 0
+  %5 = getelementptr inbounds nuw %"struct.std::_Vector_base.8", ptr %4, i32 0, i32 0
+  %6 = getelementptr inbounds nuw %"struct.std::_Vector_base<std::vector<std::unique_ptr<cmGeneratorExpressionEvaluator>>, std::allocator<std::vector<std::unique_ptr<cmGeneratorExpressionEvaluator>>>>::_Vector_impl_data", ptr %5, i32 0, i32 1
+  call void @_ZN9__gnu_cxx17__normal_iteratorIPSt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS3_EESaIS6_EES1_IS8_SaIS8_EEEC2ERKS9_(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %6) #15
+  %7 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator.25", ptr %2, i32 0, i32 0
   %8 = load ptr, ptr %7, align 8
   ret ptr %8
 }
@@ -2336,17 +2560,19 @@ define linkonce_odr dso_local ptr @_ZNK9__gnu_cxx17__normal_iteratorIPSt6vectorI
   %4 = alloca ptr, align 8
   %5 = alloca i64, align 8
   %6 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store i64 %1, ptr %5, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !77
+  store i64 %1, ptr %5, align 8, !tbaa !39
   %7 = load ptr, ptr %4, align 8
-  %8 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.25", ptr %7, i32 0, i32 0
-  %9 = load ptr, ptr %8, align 8
-  %10 = load i64, ptr %5, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #15
+  %8 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator.25", ptr %7, i32 0, i32 0
+  %9 = load ptr, ptr %8, align 8, !tbaa !79
+  %10 = load i64, ptr %5, align 8, !tbaa !39
   %11 = sub i64 0, %10
   %12 = getelementptr inbounds %"class.std::vector.0", ptr %9, i64 %11
-  store ptr %12, ptr %6, align 8
-  call void @_ZN9__gnu_cxx17__normal_iteratorIPSt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS3_EESaIS6_EES1_IS8_SaIS8_EEEC2ERKS9_(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %6) #11
-  %13 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.25", ptr %3, i32 0, i32 0
+  store ptr %12, ptr %6, align 8, !tbaa !23
+  call void @_ZN9__gnu_cxx17__normal_iteratorIPSt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS3_EESaIS6_EES1_IS8_SaIS8_EEEC2ERKS9_(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %6) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #15
+  %13 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator.25", ptr %3, i32 0, i32 0
   %14 = load ptr, ptr %13, align 8
   ret ptr %14
 }
@@ -2354,10 +2580,10 @@ define linkonce_odr dso_local ptr @_ZNK9__gnu_cxx17__normal_iteratorIPSt6vectorI
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(24) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPSt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS3_EESaIS6_EES1_IS8_SaIS8_EEEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !77
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.25", ptr %3, i32 0, i32 0
-  %5 = load ptr, ptr %4, align 8
+  %4 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator.25", ptr %3, i32 0, i32 0
+  %5 = load ptr, ptr %4, align 8, !tbaa !79
   ret ptr %5
 }
 
@@ -2372,23 +2598,25 @@ define internal void @_ZL12extendResultRSt6vectorISt10unique_ptrI30cmGeneratorEx
   %9 = alloca %"class.__gnu_cxx::__normal_iterator.36", align 8
   %10 = alloca %"class.__gnu_cxx::__normal_iterator.27", align 8
   %11 = alloca %"class.__gnu_cxx::__normal_iterator.27", align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  %12 = load ptr, ptr %3, align 8
-  %13 = call noundef zeroext i1 @_ZNKSt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EE5emptyEv(ptr noundef nonnull align 8 dereferenceable(24) %12) #11
+  store ptr %0, ptr %3, align 8, !tbaa !23
+  store ptr %1, ptr %4, align 8, !tbaa !23
+  %12 = load ptr, ptr %3, align 8, !tbaa !23
+  %13 = call noundef zeroext i1 @_ZNKSt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EE5emptyEv(ptr noundef nonnull align 8 dereferenceable(24) %12) #15
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #15
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #15
   br i1 %13, label %36, label %14
 
 14:                                               ; preds = %2
-  %15 = load ptr, ptr %3, align 8
-  %16 = call ptr @_ZNSt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %15) #11
-  %17 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.27", ptr %6, i32 0, i32 0
+  %15 = load ptr, ptr %3, align 8, !tbaa !23
+  %16 = call ptr @_ZNSt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %15) #15
+  %17 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator.27", ptr %6, i32 0, i32 0
   store ptr %16, ptr %17, align 8
-  %18 = call ptr @_ZNK9__gnu_cxx17__normal_iteratorIPSt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS2_EESt6vectorIS5_SaIS5_EEEmiEl(ptr noundef nonnull align 8 dereferenceable(8) %6, i64 noundef 1) #11
-  %19 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.27", ptr %5, i32 0, i32 0
+  %18 = call ptr @_ZNK9__gnu_cxx17__normal_iteratorIPSt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS2_EESt6vectorIS5_SaIS5_EEEmiEl(ptr noundef nonnull align 8 dereferenceable(8) %6, i64 noundef 1) #15
+  %19 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator.27", ptr %5, i32 0, i32 0
   store ptr %18, ptr %19, align 8
-  %20 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPSt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS2_EESt6vectorIS5_SaIS5_EEEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %5) #11
-  %21 = call noundef ptr @_ZNKSt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS0_EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %20) #11
-  %22 = load ptr, ptr %21, align 8
+  %20 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPSt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS2_EESt6vectorIS5_SaIS5_EEEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %5) #15
+  %21 = call noundef ptr @_ZNKSt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS0_EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %20) #15
+  %22 = load ptr, ptr %21, align 8, !tbaa !33
   %23 = getelementptr inbounds ptr, ptr %22, i64 2
   %24 = load ptr, ptr %23, align 8
   %25 = call noundef i32 %24(ptr noundef nonnull align 8 dereferenceable(8) %21)
@@ -2396,10 +2624,10 @@ define internal void @_ZL12extendResultRSt6vectorISt10unique_ptrI30cmGeneratorEx
   br i1 %26, label %27, label %36
 
 27:                                               ; preds = %14
-  %28 = load ptr, ptr %4, align 8
-  %29 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EE5frontEv(ptr noundef nonnull align 8 dereferenceable(24) %28) #11
-  %30 = call noundef ptr @_ZNKSt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS0_EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %29) #11
-  %31 = load ptr, ptr %30, align 8
+  %28 = load ptr, ptr %4, align 8, !tbaa !23
+  %29 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EE5frontEv(ptr noundef nonnull align 8 dereferenceable(24) %28) #15
+  %30 = call noundef ptr @_ZNKSt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS0_EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %29) #15
+  %31 = load ptr, ptr %30, align 8, !tbaa !33
   %32 = getelementptr inbounds ptr, ptr %31, i64 2
   %33 = load ptr, ptr %32, align 8
   %34 = call noundef i32 %33(ptr noundef nonnull align 8 dereferenceable(8) %30)
@@ -2408,39 +2636,47 @@ define internal void @_ZL12extendResultRSt6vectorISt10unique_ptrI30cmGeneratorEx
 
 36:                                               ; preds = %27, %14, %2
   %37 = phi i1 [ false, %14 ], [ false, %2 ], [ %35, %27 ]
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #15
   br i1 %37, label %38, label %58
 
 38:                                               ; preds = %36
-  %39 = load ptr, ptr %3, align 8
-  %40 = call ptr @_ZNSt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %39) #11
-  %41 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.27", ptr %8, i32 0, i32 0
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #15
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #15
+  %39 = load ptr, ptr %3, align 8, !tbaa !23
+  %40 = call ptr @_ZNSt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %39) #15
+  %41 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator.27", ptr %8, i32 0, i32 0
   store ptr %40, ptr %41, align 8
-  %42 = call ptr @_ZNK9__gnu_cxx17__normal_iteratorIPSt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS2_EESt6vectorIS5_SaIS5_EEEmiEl(ptr noundef nonnull align 8 dereferenceable(8) %8, i64 noundef 1) #11
-  %43 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.27", ptr %7, i32 0, i32 0
+  %42 = call ptr @_ZNK9__gnu_cxx17__normal_iteratorIPSt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS2_EESt6vectorIS5_SaIS5_EEEmiEl(ptr noundef nonnull align 8 dereferenceable(8) %8, i64 noundef 1) #15
+  %43 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator.27", ptr %7, i32 0, i32 0
   store ptr %42, ptr %43, align 8
-  %44 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPSt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS2_EESt6vectorIS5_SaIS5_EEEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %7) #11
+  %44 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPSt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS2_EESt6vectorIS5_SaIS5_EEEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %7) #15
   %45 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN2cm21static_reference_castI11TextContentSt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS3_EETnNSt9enable_ifIXsr3std10is_pointerIDTcldtclsr3stdE7declvalIT0_EE3getEEEE5valueEiE4typeELi0EEERT_RS8_(ptr noundef nonnull align 8 dereferenceable(8) %44)
-  %46 = load ptr, ptr %4, align 8
-  %47 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EE5frontEv(ptr noundef nonnull align 8 dereferenceable(24) %46) #11
+  %46 = load ptr, ptr %4, align 8, !tbaa !23
+  %47 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EE5frontEv(ptr noundef nonnull align 8 dereferenceable(24) %46) #15
   %48 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN2cm21static_reference_castI11TextContentSt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS3_EETnNSt9enable_ifIXsr3std10is_pointerIDTcldtclsr3stdE7declvalIT0_EE3getEEEE5valueEiE4typeELi0EEERT_RS8_(ptr noundef nonnull align 8 dereferenceable(8) %47)
   %49 = call noundef i64 @_ZNK11TextContent9GetLengthEv(ptr noundef nonnull align 8 dereferenceable(24) %48)
   call void @_ZN11TextContent6ExtendEm(ptr noundef nonnull align 8 dereferenceable(24) %45, i64 noundef %49)
-  %50 = load ptr, ptr %4, align 8
-  %51 = load ptr, ptr %4, align 8
-  %52 = call ptr @_ZNSt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %51) #11
-  %53 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.27", ptr %10, i32 0, i32 0
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #15
+  %50 = load ptr, ptr %4, align 8, !tbaa !23
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #15
+  %51 = load ptr, ptr %4, align 8, !tbaa !23
+  %52 = call ptr @_ZNSt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %51) #15
+  %53 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator.27", ptr %10, i32 0, i32 0
   store ptr %52, ptr %53, align 8
-  call void @_ZN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS2_EESt6vectorIS5_SaIS5_EEEC2IPS5_vEERKNS0_IT_SA_EE(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 8 dereferenceable(8) %10) #11
-  %54 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.36", ptr %9, i32 0, i32 0
+  call void @_ZN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS2_EESt6vectorIS5_SaIS5_EEEC2IPS5_vEERKNS0_IT_SA_EE(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 8 dereferenceable(8) %10) #15
+  %54 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator.36", ptr %9, i32 0, i32 0
   %55 = load ptr, ptr %54, align 8
   %56 = call ptr @_ZNSt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS4_S6_EE(ptr noundef nonnull align 8 dereferenceable(24) %50, ptr %55)
-  %57 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.27", ptr %11, i32 0, i32 0
+  %57 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator.27", ptr %11, i32 0, i32 0
   store ptr %56, ptr %57, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #15
   br label %58
 
 58:                                               ; preds = %38, %36
-  %59 = load ptr, ptr %3, align 8
-  %60 = load ptr, ptr %4, align 8
+  %59 = load ptr, ptr %3, align 8, !tbaa !23
+  %60 = load ptr, ptr %4, align 8, !tbaa !23
   call void @_ZN2cm6appendISt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS3_EESaIS6_EES8_TnNSt9enable_ifIXaaaaaasr2cm21is_sequence_containerIT_EE5valuesr2cm13is_unique_ptrINSA_10value_typeEEE5valuesr2cm13is_unique_ptrINT0_10value_typeEEE5valuesr3std14is_convertibleINSC_10value_type7pointerENSA_10value_type7pointerEEE5valueEiE4typeELi0EEEvRSA_OSC_(ptr noundef nonnull align 8 dereferenceable(24) %59, ptr noundef nonnull align 8 dereferenceable(24) %60)
   ret void
 }
@@ -2450,15 +2686,19 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNKSt6vectorIS_ISt10unique_pt
   %2 = alloca ptr, align 8
   %3 = alloca %"class.__gnu_cxx::__normal_iterator.44", align 8
   %4 = alloca %"class.__gnu_cxx::__normal_iterator.44", align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !67
   %5 = load ptr, ptr %2, align 8
-  %6 = call ptr @_ZNKSt6vectorIS_ISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EESaIS6_EE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %5) #11
-  %7 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.44", ptr %3, i32 0, i32 0
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #15
+  %6 = call ptr @_ZNKSt6vectorIS_ISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EESaIS6_EE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %5) #15
+  %7 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator.44", ptr %3, i32 0, i32 0
   store ptr %6, ptr %7, align 8
-  %8 = call ptr @_ZNKSt6vectorIS_ISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EESaIS6_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %5) #11
-  %9 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.44", ptr %4, i32 0, i32 0
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #15
+  %8 = call ptr @_ZNKSt6vectorIS_ISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EESaIS6_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %5) #15
+  %9 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator.44", ptr %4, i32 0, i32 0
   store ptr %8, ptr %9, align 8
-  %10 = call noundef zeroext i1 @_ZN9__gnu_cxxeqIPKSt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS3_EESaIS6_EES1_IS8_SaIS8_EEEEbRKNS_17__normal_iteratorIT_T0_EESI_(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %4) #11
+  %10 = call noundef zeroext i1 @_ZN9__gnu_cxxeqIPKSt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS3_EESaIS6_EES1_IS8_SaIS8_EEEEbRKNS_17__normal_iteratorIT_T0_EESI_(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %4) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #15
   ret i1 %10
 }
 
@@ -2466,12 +2706,12 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNKSt6vectorIS_ISt10unique_pt
 define linkonce_odr dso_local ptr @_ZNSt6vectorIS_ISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EESaIS6_EE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #0 comdat align 2 {
   %2 = alloca %"class.__gnu_cxx::__normal_iterator.25", align 8
   %3 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !67
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds %"struct.std::_Vector_base.8", ptr %4, i32 0, i32 0
-  %6 = getelementptr inbounds %"struct.std::_Vector_base<std::vector<std::unique_ptr<cmGeneratorExpressionEvaluator>>, std::allocator<std::vector<std::unique_ptr<cmGeneratorExpressionEvaluator>>>>::_Vector_impl_data", ptr %5, i32 0, i32 0
-  call void @_ZN9__gnu_cxx17__normal_iteratorIPSt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS3_EESaIS6_EES1_IS8_SaIS8_EEEC2ERKS9_(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %6) #11
-  %7 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.25", ptr %2, i32 0, i32 0
+  %5 = getelementptr inbounds nuw %"struct.std::_Vector_base.8", ptr %4, i32 0, i32 0
+  %6 = getelementptr inbounds nuw %"struct.std::_Vector_base<std::vector<std::unique_ptr<cmGeneratorExpressionEvaluator>>, std::allocator<std::vector<std::unique_ptr<cmGeneratorExpressionEvaluator>>>>::_Vector_impl_data", ptr %5, i32 0, i32 0
+  call void @_ZN9__gnu_cxx17__normal_iteratorIPSt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS3_EESaIS6_EES1_IS8_SaIS8_EEEC2ERKS9_(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %6) #15
+  %7 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator.25", ptr %2, i32 0, i32 0
   %8 = load ptr, ptr %7, align 8
   ret ptr %8
 }
@@ -2480,28 +2720,28 @@ define linkonce_odr dso_local ptr @_ZNSt6vectorIS_ISt10unique_ptrI30cmGeneratorE
 define linkonce_odr dso_local ptr @_ZNSt6vectorIN9__gnu_cxx17__normal_iteratorIPK26cmGeneratorExpressionTokenS_IS2_SaIS2_EEEESaIS7_EE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #0 comdat align 2 {
   %2 = alloca %"class.__gnu_cxx::__normal_iterator.26", align 8
   %3 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !69
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds %"struct.std::_Vector_base.21", ptr %4, i32 0, i32 0
-  %6 = getelementptr inbounds %"struct.std::_Vector_base<__gnu_cxx::__normal_iterator<const cmGeneratorExpressionToken *, std::vector<cmGeneratorExpressionToken>>, std::allocator<__gnu_cxx::__normal_iterator<const cmGeneratorExpressionToken *, std::vector<cmGeneratorExpressionToken>>>>::_Vector_impl_data", ptr %5, i32 0, i32 0
-  call void @_ZN9__gnu_cxx17__normal_iteratorIPNS0_IPK26cmGeneratorExpressionTokenSt6vectorIS1_SaIS1_EEEES4_IS7_SaIS7_EEEC2ERKS8_(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %6) #11
-  %7 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.26", ptr %2, i32 0, i32 0
+  %5 = getelementptr inbounds nuw %"struct.std::_Vector_base.21", ptr %4, i32 0, i32 0
+  %6 = getelementptr inbounds nuw %"struct.std::_Vector_base<__gnu_cxx::__normal_iterator<const cmGeneratorExpressionToken *, std::vector<cmGeneratorExpressionToken>>, std::allocator<__gnu_cxx::__normal_iterator<const cmGeneratorExpressionToken *, std::vector<cmGeneratorExpressionToken>>>>::_Vector_impl_data", ptr %5, i32 0, i32 0
+  call void @_ZN9__gnu_cxx17__normal_iteratorIPNS0_IPK26cmGeneratorExpressionTokenSt6vectorIS1_SaIS1_EEEES4_IS7_SaIS7_EEEC2ERKS8_(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %6) #15
+  %7 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator.26", ptr %2, i32 0, i32 0
   %8 = load ptr, ptr %7, align 8
   ret ptr %8
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef zeroext i1 @_ZN9__gnu_cxxneIPSt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS3_EESaIS6_EES1_IS8_SaIS8_EEEEbRKNS_17__normal_iteratorIT_T0_EESH_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #0 comdat {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef zeroext i1 @_ZN9__gnu_cxxneIPSt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS3_EESaIS6_EES1_IS8_SaIS8_EEEEbRKNS_17__normal_iteratorIT_T0_EESH_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #4 comdat {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  %5 = load ptr, ptr %3, align 8
-  %6 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPSt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS3_EESaIS6_EES1_IS8_SaIS8_EEE4baseEv(ptr noundef nonnull align 8 dereferenceable(8) %5) #11
-  %7 = load ptr, ptr %6, align 8
-  %8 = load ptr, ptr %4, align 8
-  %9 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPSt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS3_EESaIS6_EES1_IS8_SaIS8_EEE4baseEv(ptr noundef nonnull align 8 dereferenceable(8) %8) #11
-  %10 = load ptr, ptr %9, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !77
+  store ptr %1, ptr %4, align 8, !tbaa !77
+  %5 = load ptr, ptr %3, align 8, !tbaa !77
+  %6 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPSt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS3_EESaIS6_EES1_IS8_SaIS8_EEE4baseEv(ptr noundef nonnull align 8 dereferenceable(8) %5) #15
+  %7 = load ptr, ptr %6, align 8, !tbaa !23
+  %8 = load ptr, ptr %4, align 8, !tbaa !77
+  %9 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPSt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS3_EESaIS6_EES1_IS8_SaIS8_EEE4baseEv(ptr noundef nonnull align 8 dereferenceable(8) %8) #15
+  %10 = load ptr, ptr %9, align 8, !tbaa !23
   %11 = icmp ne ptr %7, %10
   ret i1 %11
 }
@@ -2509,25 +2749,25 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN9__gnu_cxxneIPSt6vectorISt1
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef ptr @_ZNK9__gnu_cxx17__normal_iteratorIPSt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS3_EESaIS6_EES1_IS8_SaIS8_EEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !77
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.25", ptr %3, i32 0, i32 0
-  %5 = load ptr, ptr %4, align 8
+  %4 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator.25", ptr %3, i32 0, i32 0
+  %5 = load ptr, ptr %4, align 8, !tbaa !79
   ret ptr %5
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef zeroext i1 @_ZN9__gnu_cxxneIPNS_17__normal_iteratorIPK26cmGeneratorExpressionTokenSt6vectorIS2_SaIS2_EEEES5_IS8_SaIS8_EEEEbRKNS1_IT_T0_EESG_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #0 comdat {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef zeroext i1 @_ZN9__gnu_cxxneIPNS_17__normal_iteratorIPK26cmGeneratorExpressionTokenSt6vectorIS2_SaIS2_EEEES5_IS8_SaIS8_EEEEbRKNS1_IT_T0_EESG_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #4 comdat {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  %5 = load ptr, ptr %3, align 8
-  %6 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPNS0_IPK26cmGeneratorExpressionTokenSt6vectorIS1_SaIS1_EEEES4_IS7_SaIS7_EEE4baseEv(ptr noundef nonnull align 8 dereferenceable(8) %5) #11
-  %7 = load ptr, ptr %6, align 8
-  %8 = load ptr, ptr %4, align 8
-  %9 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPNS0_IPK26cmGeneratorExpressionTokenSt6vectorIS1_SaIS1_EEEES4_IS7_SaIS7_EEE4baseEv(ptr noundef nonnull align 8 dereferenceable(8) %8) #11
-  %10 = load ptr, ptr %9, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !81
+  store ptr %1, ptr %4, align 8, !tbaa !81
+  %5 = load ptr, ptr %3, align 8, !tbaa !81
+  %6 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPNS0_IPK26cmGeneratorExpressionTokenSt6vectorIS1_SaIS1_EEEES4_IS7_SaIS7_EEE4baseEv(ptr noundef nonnull align 8 dereferenceable(8) %5) #15
+  %7 = load ptr, ptr %6, align 8, !tbaa !20
+  %8 = load ptr, ptr %4, align 8, !tbaa !81
+  %9 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPNS0_IPK26cmGeneratorExpressionTokenSt6vectorIS1_SaIS1_EEEES4_IS7_SaIS7_EEE4baseEv(ptr noundef nonnull align 8 dereferenceable(8) %8) #15
+  %10 = load ptr, ptr %9, align 8, !tbaa !20
   %11 = icmp ne ptr %7, %10
   ret i1 %11
 }
@@ -2536,12 +2776,12 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN9__gnu_cxxneIPNS_17__normal
 define linkonce_odr dso_local ptr @_ZNSt6vectorIN9__gnu_cxx17__normal_iteratorIPK26cmGeneratorExpressionTokenS_IS2_SaIS2_EEEESaIS7_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #0 comdat align 2 {
   %2 = alloca %"class.__gnu_cxx::__normal_iterator.26", align 8
   %3 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !69
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds %"struct.std::_Vector_base.21", ptr %4, i32 0, i32 0
-  %6 = getelementptr inbounds %"struct.std::_Vector_base<__gnu_cxx::__normal_iterator<const cmGeneratorExpressionToken *, std::vector<cmGeneratorExpressionToken>>, std::allocator<__gnu_cxx::__normal_iterator<const cmGeneratorExpressionToken *, std::vector<cmGeneratorExpressionToken>>>>::_Vector_impl_data", ptr %5, i32 0, i32 1
-  call void @_ZN9__gnu_cxx17__normal_iteratorIPNS0_IPK26cmGeneratorExpressionTokenSt6vectorIS1_SaIS1_EEEES4_IS7_SaIS7_EEEC2ERKS8_(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %6) #11
-  %7 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.26", ptr %2, i32 0, i32 0
+  %5 = getelementptr inbounds nuw %"struct.std::_Vector_base.21", ptr %4, i32 0, i32 0
+  %6 = getelementptr inbounds nuw %"struct.std::_Vector_base<__gnu_cxx::__normal_iterator<const cmGeneratorExpressionToken *, std::vector<cmGeneratorExpressionToken>>, std::allocator<__gnu_cxx::__normal_iterator<const cmGeneratorExpressionToken *, std::vector<cmGeneratorExpressionToken>>>>::_Vector_impl_data", ptr %5, i32 0, i32 1
+  call void @_ZN9__gnu_cxx17__normal_iteratorIPNS0_IPK26cmGeneratorExpressionTokenSt6vectorIS1_SaIS1_EEEES4_IS7_SaIS7_EEEC2ERKS8_(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %6) #15
+  %7 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator.26", ptr %2, i32 0, i32 0
   %8 = load ptr, ptr %7, align 8
   ret ptr %8
 }
@@ -2549,57 +2789,57 @@ define linkonce_odr dso_local ptr @_ZNSt6vectorIN9__gnu_cxx17__normal_iteratorIP
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPNS0_IPK26cmGeneratorExpressionTokenSt6vectorIS1_SaIS1_EEEES4_IS7_SaIS7_EEEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !81
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.26", ptr %3, i32 0, i32 0
-  %5 = load ptr, ptr %4, align 8
+  %4 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator.26", ptr %3, i32 0, i32 0
+  %5 = load ptr, ptr %4, align 8, !tbaa !83
   ret ptr %5
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZN9__gnu_cxx17__normal_iteratorIPSt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS3_EESaIS6_EES1_IS8_SaIS8_EEEppEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !77
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.25", ptr %3, i32 0, i32 0
-  %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds %"class.std::vector.0", ptr %5, i32 1
-  store ptr %6, ptr %4, align 8
+  %4 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator.25", ptr %3, i32 0, i32 0
+  %5 = load ptr, ptr %4, align 8, !tbaa !79
+  %6 = getelementptr inbounds nuw %"class.std::vector.0", ptr %5, i32 1
+  store ptr %6, ptr %4, align 8, !tbaa !79
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZN9__gnu_cxx17__normal_iteratorIPNS0_IPK26cmGeneratorExpressionTokenSt6vectorIS1_SaIS1_EEEES4_IS7_SaIS7_EEEppEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !81
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.26", ptr %3, i32 0, i32 0
-  %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %5, i32 1
-  store ptr %6, ptr %4, align 8
+  %4 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator.26", ptr %3, i32 0, i32 0
+  %5 = load ptr, ptr %4, align 8, !tbaa !83
+  %6 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator", ptr %5, i32 1
+  store ptr %6, ptr %4, align 8, !tbaa !83
   ret ptr %3
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZSt11make_uniqueI26GeneratorExpressionContentJRKPKcRmEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias writable sret(%"class.std::unique_ptr") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %2) #1 comdat personality ptr @__gxx_personality_v0 {
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr dso_local void @_ZSt11make_uniqueI26GeneratorExpressionContentJRKPKcRmEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias writable sret(%"class.std::unique_ptr") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %2) #5 comdat personality ptr @__gxx_personality_v0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
   store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store ptr %2, ptr %6, align 8
-  %9 = call noalias noundef nonnull ptr @_Znwm(i64 noundef 72) #12
-  %10 = load ptr, ptr %5, align 8
-  %11 = load ptr, ptr %10, align 8
-  %12 = load ptr, ptr %6, align 8
-  %13 = load i64, ptr %12, align 8
+  store ptr %1, ptr %5, align 8, !tbaa !50
+  store ptr %2, ptr %6, align 8, !tbaa !52
+  %9 = call noalias noundef nonnull ptr @_Znwm(i64 noundef 72) #16
+  %10 = load ptr, ptr %5, align 8, !tbaa !50
+  %11 = load ptr, ptr %10, align 8, !tbaa !54
+  %12 = load ptr, ptr %6, align 8, !tbaa !52
+  %13 = load i64, ptr %12, align 8, !tbaa !39
   invoke void @_ZN26GeneratorExpressionContentC1EPKcm(ptr noundef nonnull align 8 dereferenceable(72) %9, ptr noundef %11, i64 noundef %13)
           to label %14 unwind label %15
 
 14:                                               ; preds = %3
-  call void @_ZNSt10unique_ptrI26GeneratorExpressionContentSt14default_deleteIS0_EEC2IS2_vEEPS0_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %9) #11
+  call void @_ZNSt10unique_ptrI26GeneratorExpressionContentSt14default_deleteIS0_EEC2IS2_vEEPS0_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %9) #15
   ret void
 
 15:                                               ; preds = %3
@@ -2609,7 +2849,7 @@ define linkonce_odr dso_local void @_ZSt11make_uniqueI26GeneratorExpressionConte
   store ptr %17, ptr %7, align 8
   %18 = extractvalue { ptr, i32 } %16, 1
   store i32 %18, ptr %8, align 4
-  call void @_ZdlPv(ptr noundef %9) #13
+  call void @_ZdlPvm(ptr noundef %9, i64 noundef 72) #17
   br label %19
 
 19:                                               ; preds = %15
@@ -2624,93 +2864,93 @@ define linkonce_odr dso_local void @_ZSt11make_uniqueI26GeneratorExpressionConte
 define linkonce_odr dso_local void @_ZN26GeneratorExpressionContent13SetParametersEOSt6vectorIS0_ISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS2_EESaIS5_EESaIS7_EE(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) #0 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !57
+  store ptr %1, ptr %4, align 8, !tbaa !67
   %5 = load ptr, ptr %3, align 8
-  %6 = load ptr, ptr %4, align 8
-  %7 = getelementptr inbounds %struct.GeneratorExpressionContent, ptr %5, i32 0, i32 2
-  %8 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIS_ISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EESaIS6_EEaSEOS8_(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %6) #11
+  %6 = load ptr, ptr %4, align 8, !tbaa !67
+  %7 = getelementptr inbounds nuw %struct.GeneratorExpressionContent, ptr %5, i32 0, i32 2
+  %8 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIS_ISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EESaIS6_EEaSEOS8_(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %6) #15
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZNSt6vectorIN9__gnu_cxx17__normal_iteratorIPK26cmGeneratorExpressionTokenS_IS2_SaIS2_EEEESaIS7_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !69
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"struct.std::_Vector_base.21", ptr %3, i32 0, i32 0
-  %5 = getelementptr inbounds %"struct.std::_Vector_base<__gnu_cxx::__normal_iterator<const cmGeneratorExpressionToken *, std::vector<cmGeneratorExpressionToken>>, std::allocator<__gnu_cxx::__normal_iterator<const cmGeneratorExpressionToken *, std::vector<cmGeneratorExpressionToken>>>>::_Vector_impl_data", ptr %4, i32 0, i32 0
-  %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds %"struct.std::_Vector_base.21", ptr %3, i32 0, i32 0
-  %8 = getelementptr inbounds %"struct.std::_Vector_base<__gnu_cxx::__normal_iterator<const cmGeneratorExpressionToken *, std::vector<cmGeneratorExpressionToken>>, std::allocator<__gnu_cxx::__normal_iterator<const cmGeneratorExpressionToken *, std::vector<cmGeneratorExpressionToken>>>>::_Vector_impl_data", ptr %7, i32 0, i32 1
-  %9 = load ptr, ptr %8, align 8
-  %10 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt12_Vector_baseIN9__gnu_cxx17__normal_iteratorIPK26cmGeneratorExpressionTokenSt6vectorIS2_SaIS2_EEEESaIS8_EE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %3) #11
+  %4 = getelementptr inbounds nuw %"struct.std::_Vector_base.21", ptr %3, i32 0, i32 0
+  %5 = getelementptr inbounds nuw %"struct.std::_Vector_base<__gnu_cxx::__normal_iterator<const cmGeneratorExpressionToken *, std::vector<cmGeneratorExpressionToken>>, std::allocator<__gnu_cxx::__normal_iterator<const cmGeneratorExpressionToken *, std::vector<cmGeneratorExpressionToken>>>>::_Vector_impl_data", ptr %4, i32 0, i32 0
+  %6 = load ptr, ptr %5, align 8, !tbaa !85
+  %7 = getelementptr inbounds nuw %"struct.std::_Vector_base.21", ptr %3, i32 0, i32 0
+  %8 = getelementptr inbounds nuw %"struct.std::_Vector_base<__gnu_cxx::__normal_iterator<const cmGeneratorExpressionToken *, std::vector<cmGeneratorExpressionToken>>, std::allocator<__gnu_cxx::__normal_iterator<const cmGeneratorExpressionToken *, std::vector<cmGeneratorExpressionToken>>>>::_Vector_impl_data", ptr %7, i32 0, i32 1
+  %9 = load ptr, ptr %8, align 8, !tbaa !74
+  %10 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt12_Vector_baseIN9__gnu_cxx17__normal_iteratorIPK26cmGeneratorExpressionTokenSt6vectorIS2_SaIS2_EEEESaIS8_EE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %3) #15
   invoke void @_ZSt8_DestroyIPN9__gnu_cxx17__normal_iteratorIPK26cmGeneratorExpressionTokenSt6vectorIS2_SaIS2_EEEES8_EvT_SA_RSaIT0_E(ptr noundef %6, ptr noundef %9, ptr noundef nonnull align 1 dereferenceable(1) %10)
           to label %11 unwind label %12
 
 11:                                               ; preds = %1
-  call void @_ZNSt12_Vector_baseIN9__gnu_cxx17__normal_iteratorIPK26cmGeneratorExpressionTokenSt6vectorIS2_SaIS2_EEEESaIS8_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #11
+  call void @_ZNSt12_Vector_baseIN9__gnu_cxx17__normal_iteratorIPK26cmGeneratorExpressionTokenSt6vectorIS2_SaIS2_EEEESaIS8_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #15
   ret void
 
 12:                                               ; preds = %1
   %13 = landingpad { ptr, i32 }
           catch ptr null
   %14 = extractvalue { ptr, i32 } %13, 0
-  call void @__clang_call_terminate(ptr %14) #14
+  call void @__clang_call_terminate(ptr %14) #18
   unreachable
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZNSt6vectorIS_ISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EESaIS6_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !67
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"struct.std::_Vector_base.8", ptr %3, i32 0, i32 0
-  %5 = getelementptr inbounds %"struct.std::_Vector_base<std::vector<std::unique_ptr<cmGeneratorExpressionEvaluator>>, std::allocator<std::vector<std::unique_ptr<cmGeneratorExpressionEvaluator>>>>::_Vector_impl_data", ptr %4, i32 0, i32 0
-  %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds %"struct.std::_Vector_base.8", ptr %3, i32 0, i32 0
-  %8 = getelementptr inbounds %"struct.std::_Vector_base<std::vector<std::unique_ptr<cmGeneratorExpressionEvaluator>>, std::allocator<std::vector<std::unique_ptr<cmGeneratorExpressionEvaluator>>>>::_Vector_impl_data", ptr %7, i32 0, i32 1
-  %9 = load ptr, ptr %8, align 8
-  %10 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt12_Vector_baseISt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS2_EESaIS5_EESaIS7_EE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %3) #11
+  %4 = getelementptr inbounds nuw %"struct.std::_Vector_base.8", ptr %3, i32 0, i32 0
+  %5 = getelementptr inbounds nuw %"struct.std::_Vector_base<std::vector<std::unique_ptr<cmGeneratorExpressionEvaluator>>, std::allocator<std::vector<std::unique_ptr<cmGeneratorExpressionEvaluator>>>>::_Vector_impl_data", ptr %4, i32 0, i32 0
+  %6 = load ptr, ptr %5, align 8, !tbaa !71
+  %7 = getelementptr inbounds nuw %"struct.std::_Vector_base.8", ptr %3, i32 0, i32 0
+  %8 = getelementptr inbounds nuw %"struct.std::_Vector_base<std::vector<std::unique_ptr<cmGeneratorExpressionEvaluator>>, std::allocator<std::vector<std::unique_ptr<cmGeneratorExpressionEvaluator>>>>::_Vector_impl_data", ptr %7, i32 0, i32 1
+  %9 = load ptr, ptr %8, align 8, !tbaa !73
+  %10 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt12_Vector_baseISt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS2_EESaIS5_EESaIS7_EE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %3) #15
   invoke void @_ZSt8_DestroyIPSt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS2_EESaIS5_EES7_EvT_S9_RSaIT0_E(ptr noundef %6, ptr noundef %9, ptr noundef nonnull align 1 dereferenceable(1) %10)
           to label %11 unwind label %12
 
 11:                                               ; preds = %1
-  call void @_ZNSt12_Vector_baseISt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS2_EESaIS5_EESaIS7_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #11
+  call void @_ZNSt12_Vector_baseISt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS2_EESaIS5_EESaIS7_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #15
   ret void
 
 12:                                               ; preds = %1
   %13 = landingpad { ptr, i32 }
           catch ptr null
   %14 = extractvalue { ptr, i32 } %13, 0
-  call void @__clang_call_terminate(ptr %14) #14
+  call void @__clang_call_terminate(ptr %14) #18
   unreachable
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZNSt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !23
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"struct.std::_Vector_base.1", ptr %3, i32 0, i32 0
-  %5 = getelementptr inbounds %"struct.std::_Vector_base<std::unique_ptr<cmGeneratorExpressionEvaluator>, std::allocator<std::unique_ptr<cmGeneratorExpressionEvaluator>>>::_Vector_impl_data", ptr %4, i32 0, i32 0
-  %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds %"struct.std::_Vector_base.1", ptr %3, i32 0, i32 0
-  %8 = getelementptr inbounds %"struct.std::_Vector_base<std::unique_ptr<cmGeneratorExpressionEvaluator>, std::allocator<std::unique_ptr<cmGeneratorExpressionEvaluator>>>::_Vector_impl_data", ptr %7, i32 0, i32 1
-  %9 = load ptr, ptr %8, align 8
-  %10 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt12_Vector_baseISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %3) #11
+  %4 = getelementptr inbounds nuw %"struct.std::_Vector_base.1", ptr %3, i32 0, i32 0
+  %5 = getelementptr inbounds nuw %"struct.std::_Vector_base<std::unique_ptr<cmGeneratorExpressionEvaluator>, std::allocator<std::unique_ptr<cmGeneratorExpressionEvaluator>>>::_Vector_impl_data", ptr %4, i32 0, i32 0
+  %6 = load ptr, ptr %5, align 8, !tbaa !86
+  %7 = getelementptr inbounds nuw %"struct.std::_Vector_base.1", ptr %3, i32 0, i32 0
+  %8 = getelementptr inbounds nuw %"struct.std::_Vector_base<std::unique_ptr<cmGeneratorExpressionEvaluator>, std::allocator<std::unique_ptr<cmGeneratorExpressionEvaluator>>>::_Vector_impl_data", ptr %7, i32 0, i32 1
+  %9 = load ptr, ptr %8, align 8, !tbaa !88
+  %10 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt12_Vector_baseISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %3) #15
   invoke void @_ZSt8_DestroyIPSt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EES4_EvT_S6_RSaIT0_E(ptr noundef %6, ptr noundef %9, ptr noundef nonnull align 1 dereferenceable(1) %10)
           to label %11 unwind label %12
 
 11:                                               ; preds = %1
-  call void @_ZNSt12_Vector_baseISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #11
+  call void @_ZNSt12_Vector_baseISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #15
   ret void
 
 12:                                               ; preds = %1
   %13 = landingpad { ptr, i32 }
           catch ptr null
   %14 = extractvalue { ptr, i32 } %13, 0
-  call void @__clang_call_terminate(ptr %14) #14
+  call void @__clang_call_terminate(ptr %14) #18
   unreachable
 }
 
@@ -2718,12 +2958,12 @@ define linkonce_odr dso_local void @_ZNSt6vectorISt10unique_ptrI30cmGeneratorExp
 define linkonce_odr dso_local ptr @_ZNSt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #0 comdat align 2 {
   %2 = alloca %"class.__gnu_cxx::__normal_iterator.27", align 8
   %3 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !23
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds %"struct.std::_Vector_base.1", ptr %4, i32 0, i32 0
-  %6 = getelementptr inbounds %"struct.std::_Vector_base<std::unique_ptr<cmGeneratorExpressionEvaluator>, std::allocator<std::unique_ptr<cmGeneratorExpressionEvaluator>>>::_Vector_impl_data", ptr %5, i32 0, i32 1
-  call void @_ZN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS2_EESt6vectorIS5_SaIS5_EEEC2ERKS6_(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %6) #11
-  %7 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.27", ptr %2, i32 0, i32 0
+  %5 = getelementptr inbounds nuw %"struct.std::_Vector_base.1", ptr %4, i32 0, i32 0
+  %6 = getelementptr inbounds nuw %"struct.std::_Vector_base<std::unique_ptr<cmGeneratorExpressionEvaluator>, std::allocator<std::unique_ptr<cmGeneratorExpressionEvaluator>>>::_Vector_impl_data", ptr %5, i32 0, i32 1
+  call void @_ZN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS2_EESt6vectorIS5_SaIS5_EEEC2ERKS6_(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %6) #15
+  %7 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator.27", ptr %2, i32 0, i32 0
   %8 = load ptr, ptr %7, align 8
   ret ptr %8
 }
@@ -2734,17 +2974,19 @@ define linkonce_odr dso_local ptr @_ZNK9__gnu_cxx17__normal_iteratorIPSt10unique
   %4 = alloca ptr, align 8
   %5 = alloca i64, align 8
   %6 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store i64 %1, ptr %5, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !89
+  store i64 %1, ptr %5, align 8, !tbaa !39
   %7 = load ptr, ptr %4, align 8
-  %8 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.27", ptr %7, i32 0, i32 0
-  %9 = load ptr, ptr %8, align 8
-  %10 = load i64, ptr %5, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #15
+  %8 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator.27", ptr %7, i32 0, i32 0
+  %9 = load ptr, ptr %8, align 8, !tbaa !91
+  %10 = load i64, ptr %5, align 8, !tbaa !39
   %11 = sub i64 0, %10
   %12 = getelementptr inbounds %"class.std::unique_ptr.12", ptr %9, i64 %11
-  store ptr %12, ptr %6, align 8
-  call void @_ZN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS2_EESt6vectorIS5_SaIS5_EEEC2ERKS6_(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %6) #11
-  %13 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.27", ptr %3, i32 0, i32 0
+  store ptr %12, ptr %6, align 8, !tbaa !59
+  call void @_ZN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS2_EESt6vectorIS5_SaIS5_EEEC2ERKS6_(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %6) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #15
+  %13 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator.27", ptr %3, i32 0, i32 0
   %14 = load ptr, ptr %13, align 8
   ret ptr %14
 }
@@ -2752,28 +2994,28 @@ define linkonce_odr dso_local ptr @_ZNK9__gnu_cxx17__normal_iteratorIPSt10unique
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPSt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS2_EESt6vectorIS5_SaIS5_EEEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !89
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.27", ptr %3, i32 0, i32 0
-  %5 = load ptr, ptr %4, align 8
+  %4 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator.27", ptr %3, i32 0, i32 0
+  %5 = load ptr, ptr %4, align 8, !tbaa !91
   ret ptr %5
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef ptr @_ZNKSt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS0_EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !59
   %3 = load ptr, ptr %2, align 8
-  %4 = call noundef ptr @_ZNKSt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS0_EE3getEv(ptr noundef nonnull align 8 dereferenceable(8) %3) #11
+  %4 = call noundef ptr @_ZNKSt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS0_EE3getEv(ptr noundef nonnull align 8 dereferenceable(8) %3) #15
   ret ptr %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(24) ptr @_ZN2cm21static_reference_castI11TextContentSt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS3_EETnNSt9enable_ifIXsr3std10is_pointerIDTcldtclsr3stdE7declvalIT0_EE3getEEEE5valueEiE4typeELi0EEERT_RS8_(ptr noundef nonnull align 8 dereferenceable(8) %0) #0 comdat {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  %4 = call noundef ptr @_ZNKSt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS0_EE3getEv(ptr noundef nonnull align 8 dereferenceable(8) %3) #11
+  store ptr %0, ptr %2, align 8, !tbaa !59
+  %3 = load ptr, ptr %2, align 8, !tbaa !59
+  %4 = call noundef ptr @_ZNKSt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS0_EE3getEv(ptr noundef nonnull align 8 dereferenceable(8) %3) #15
   ret ptr %4
 }
 
@@ -2781,37 +3023,37 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(24) ptr @_
 define linkonce_odr dso_local void @_ZN11TextContent6ExtendEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %1) #0 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca i64, align 8
-  store ptr %0, ptr %3, align 8
-  store i64 %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !93
+  store i64 %1, ptr %4, align 8, !tbaa !39
   %5 = load ptr, ptr %3, align 8
-  %6 = load i64, ptr %4, align 8
-  %7 = getelementptr inbounds %struct.TextContent, ptr %5, i32 0, i32 2
-  %8 = load i64, ptr %7, align 8
+  %6 = load i64, ptr %4, align 8, !tbaa !39
+  %7 = getelementptr inbounds nuw %struct.TextContent, ptr %5, i32 0, i32 2
+  %8 = load i64, ptr %7, align 8, !tbaa !95
   %9 = add i64 %8, %6
-  store i64 %9, ptr %7, align 8
+  store i64 %9, ptr %7, align 8, !tbaa !95
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZSt11make_uniqueI11TextContentJRKPKcRKmEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias writable sret(%"class.std::unique_ptr.28") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %2) #1 comdat personality ptr @__gxx_personality_v0 {
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr dso_local void @_ZSt11make_uniqueI11TextContentJRKPKcRKmEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias writable sret(%"class.std::unique_ptr.28") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %2) #5 comdat personality ptr @__gxx_personality_v0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
   store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store ptr %2, ptr %6, align 8
-  %9 = call noalias noundef nonnull ptr @_Znwm(i64 noundef 24) #12
-  %10 = load ptr, ptr %5, align 8
-  %11 = load ptr, ptr %10, align 8
-  %12 = load ptr, ptr %6, align 8
-  %13 = load i64, ptr %12, align 8
+  store ptr %1, ptr %5, align 8, !tbaa !50
+  store ptr %2, ptr %6, align 8, !tbaa !52
+  %9 = call noalias noundef nonnull ptr @_Znwm(i64 noundef 24) #16
+  %10 = load ptr, ptr %5, align 8, !tbaa !50
+  %11 = load ptr, ptr %10, align 8, !tbaa !54
+  %12 = load ptr, ptr %6, align 8, !tbaa !52
+  %13 = load i64, ptr %12, align 8, !tbaa !39
   invoke void @_ZN11TextContentC2EPKcm(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef %11, i64 noundef %13)
           to label %14 unwind label %15
 
 14:                                               ; preds = %3
-  call void @_ZNSt10unique_ptrI11TextContentSt14default_deleteIS0_EEC2IS2_vEEPS0_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %9) #11
+  call void @_ZNSt10unique_ptrI11TextContentSt14default_deleteIS0_EEC2IS2_vEEPS0_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %9) #15
   ret void
 
 15:                                               ; preds = %3
@@ -2821,7 +3063,7 @@ define linkonce_odr dso_local void @_ZSt11make_uniqueI11TextContentJRKPKcRKmEENS
   store ptr %17, ptr %7, align 8
   %18 = extractvalue { ptr, i32 } %16, 1
   store i32 %18, ptr %8, align 4
-  call void @_ZdlPv(ptr noundef %9) #13
+  call void @_ZdlPvm(ptr noundef %9, i64 noundef 24) #17
   br label %19
 
 19:                                               ; preds = %15
@@ -2836,14 +3078,14 @@ define linkonce_odr dso_local void @_ZSt11make_uniqueI11TextContentJRKPKcRKmEENS
 define linkonce_odr dso_local void @_ZNSt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS0_EEC2I11TextContentS1_IS5_EvEEOS_IT_T0_E(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !59
+  store ptr %1, ptr %4, align 8, !tbaa !98
   %5 = load ptr, ptr %3, align 8
-  %6 = getelementptr inbounds %"class.std::unique_ptr.12", ptr %5, i32 0, i32 0
-  %7 = load ptr, ptr %4, align 8
-  %8 = call noundef ptr @_ZNSt10unique_ptrI11TextContentSt14default_deleteIS0_EE7releaseEv(ptr noundef nonnull align 8 dereferenceable(8) %7) #11
-  %9 = load ptr, ptr %4, align 8
-  %10 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt10unique_ptrI11TextContentSt14default_deleteIS0_EE11get_deleterEv(ptr noundef nonnull align 8 dereferenceable(8) %9) #11
+  %6 = getelementptr inbounds nuw %"class.std::unique_ptr.12", ptr %5, i32 0, i32 0
+  %7 = load ptr, ptr %4, align 8, !tbaa !98
+  %8 = call noundef ptr @_ZNSt10unique_ptrI11TextContentSt14default_deleteIS0_EE7releaseEv(ptr noundef nonnull align 8 dereferenceable(8) %7) #15
+  %9 = load ptr, ptr %4, align 8, !tbaa !98
+  %10 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt10unique_ptrI11TextContentSt14default_deleteIS0_EE11get_deleterEv(ptr noundef nonnull align 8 dereferenceable(8) %9) #15
   invoke void @_ZNSt15__uniq_ptr_dataI30cmGeneratorExpressionEvaluatorSt14default_deleteIS0_ELb1ELb1EECI2St15__uniq_ptr_implIS0_S2_EIS1_I11TextContentEEEPS0_OT_(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef %8, ptr noundef nonnull align 1 dereferenceable(1) %10)
           to label %11 unwind label %12
 
@@ -2854,7 +3096,7 @@ define linkonce_odr dso_local void @_ZNSt10unique_ptrI30cmGeneratorExpressionEva
   %13 = landingpad { ptr, i32 }
           catch ptr null
   %14 = extractvalue { ptr, i32 } %13, 0
-  call void @__clang_call_terminate(ptr %14) #14
+  call void @__clang_call_terminate(ptr %14) #18
   unreachable
 }
 
@@ -2862,20 +3104,21 @@ define linkonce_odr dso_local void @_ZNSt10unique_ptrI30cmGeneratorExpressionEva
 define linkonce_odr dso_local void @_ZNSt10unique_ptrI11TextContentSt14default_deleteIS0_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !98
   %4 = load ptr, ptr %2, align 8
-  %5 = getelementptr inbounds %"class.std::unique_ptr.28", ptr %4, i32 0, i32 0
-  %6 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt15__uniq_ptr_implI11TextContentSt14default_deleteIS0_EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(8) %5) #11
-  store ptr %6, ptr %3, align 8
-  %7 = load ptr, ptr %3, align 8
-  %8 = load ptr, ptr %7, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #15
+  %5 = getelementptr inbounds nuw %"class.std::unique_ptr.28", ptr %4, i32 0, i32 0
+  %6 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt15__uniq_ptr_implI11TextContentSt14default_deleteIS0_EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(8) %5) #15
+  store ptr %6, ptr %3, align 8, !tbaa !100
+  %7 = load ptr, ptr %3, align 8, !tbaa !100
+  %8 = load ptr, ptr %7, align 8, !tbaa !93
   %9 = icmp ne ptr %8, null
   br i1 %9, label %10, label %15
 
 10:                                               ; preds = %1
-  %11 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt10unique_ptrI11TextContentSt14default_deleteIS0_EE11get_deleterEv(ptr noundef nonnull align 8 dereferenceable(8) %4) #11
-  %12 = load ptr, ptr %3, align 8
-  %13 = load ptr, ptr %12, align 8
+  %11 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt10unique_ptrI11TextContentSt14default_deleteIS0_EE11get_deleterEv(ptr noundef nonnull align 8 dereferenceable(8) %4) #15
+  %12 = load ptr, ptr %3, align 8, !tbaa !100
+  %13 = load ptr, ptr %12, align 8, !tbaa !93
   invoke void @_ZNKSt14default_deleteI11TextContentEclEPS0_(ptr noundef nonnull align 1 dereferenceable(1) %11, ptr noundef %13)
           to label %14 unwind label %17
 
@@ -2883,15 +3126,16 @@ define linkonce_odr dso_local void @_ZNSt10unique_ptrI11TextContentSt14default_d
   br label %15
 
 15:                                               ; preds = %14, %1
-  %16 = load ptr, ptr %3, align 8
-  store ptr null, ptr %16, align 8
+  %16 = load ptr, ptr %3, align 8, !tbaa !100
+  store ptr null, ptr %16, align 8, !tbaa !93
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #15
   ret void
 
 17:                                               ; preds = %10
   %18 = landingpad { ptr, i32 }
           catch ptr null
   %19 = extractvalue { ptr, i32 } %18, 0
-  call void @__clang_call_terminate(ptr %19) #14
+  call void @__clang_call_terminate(ptr %19) #18
   unreachable
 }
 
@@ -2899,13 +3143,13 @@ define linkonce_odr dso_local void @_ZNSt10unique_ptrI11TextContentSt14default_d
 define linkonce_odr dso_local void @_ZNSt12_Vector_baseI26cmGeneratorExpressionTokenSaIS0_EEC2EOS2_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #0 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !102
+  store ptr %1, ptr %4, align 8, !tbaa !102
   %5 = load ptr, ptr %3, align 8
-  %6 = getelementptr inbounds %"struct.std::_Vector_base", ptr %5, i32 0, i32 0
-  %7 = load ptr, ptr %4, align 8
-  %8 = getelementptr inbounds %"struct.std::_Vector_base", ptr %7, i32 0, i32 0
-  call void @_ZNSt12_Vector_baseI26cmGeneratorExpressionTokenSaIS0_EE12_Vector_implC2EOS3_(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %8) #11
+  %6 = getelementptr inbounds nuw %"struct.std::_Vector_base", ptr %5, i32 0, i32 0
+  %7 = load ptr, ptr %4, align 8, !tbaa !102
+  %8 = getelementptr inbounds nuw %"struct.std::_Vector_base", ptr %7, i32 0, i32 0
+  call void @_ZNSt12_Vector_baseI26cmGeneratorExpressionTokenSaIS0_EE12_Vector_implC2EOS3_(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %8) #15
   ret void
 }
 
@@ -2913,13 +3157,13 @@ define linkonce_odr dso_local void @_ZNSt12_Vector_baseI26cmGeneratorExpressionT
 define linkonce_odr dso_local void @_ZNSt12_Vector_baseI26cmGeneratorExpressionTokenSaIS0_EE12_Vector_implC2EOS3_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #0 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !104
+  store ptr %1, ptr %4, align 8, !tbaa !104
   %5 = load ptr, ptr %3, align 8
-  %6 = load ptr, ptr %4, align 8
-  call void @_ZNSaI26cmGeneratorExpressionTokenEC2ERKS0_(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull align 1 dereferenceable(1) %6) #11
-  %7 = load ptr, ptr %4, align 8
-  call void @_ZNSt12_Vector_baseI26cmGeneratorExpressionTokenSaIS0_EE17_Vector_impl_dataC2EOS3_(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %7) #11
+  %6 = load ptr, ptr %4, align 8, !tbaa !104
+  call void @_ZNSaI26cmGeneratorExpressionTokenEC2ERKS0_(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull align 1 dereferenceable(1) %6) #15
+  %7 = load ptr, ptr %4, align 8, !tbaa !104
+  call void @_ZNSt12_Vector_baseI26cmGeneratorExpressionTokenSaIS0_EE17_Vector_impl_dataC2EOS3_(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %7) #15
   ret void
 }
 
@@ -2927,11 +3171,11 @@ define linkonce_odr dso_local void @_ZNSt12_Vector_baseI26cmGeneratorExpressionT
 define linkonce_odr dso_local void @_ZNSaI26cmGeneratorExpressionTokenEC2ERKS0_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %1) unnamed_addr #0 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !106
+  store ptr %1, ptr %4, align 8, !tbaa !106
   %5 = load ptr, ptr %3, align 8
-  %6 = load ptr, ptr %4, align 8
-  call void @_ZNSt15__new_allocatorI26cmGeneratorExpressionTokenEC2ERKS1_(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull align 1 dereferenceable(1) %6) #11
+  %6 = load ptr, ptr %4, align 8, !tbaa !106
+  call void @_ZNSt15__new_allocatorI26cmGeneratorExpressionTokenEC2ERKS1_(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull align 1 dereferenceable(1) %6) #15
   ret void
 }
 
@@ -2939,33 +3183,33 @@ define linkonce_odr dso_local void @_ZNSaI26cmGeneratorExpressionTokenEC2ERKS0_(
 define linkonce_odr dso_local void @_ZNSt12_Vector_baseI26cmGeneratorExpressionTokenSaIS0_EE17_Vector_impl_dataC2EOS3_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #0 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !108
+  store ptr %1, ptr %4, align 8, !tbaa !108
   %5 = load ptr, ptr %3, align 8
-  %6 = getelementptr inbounds %"struct.std::_Vector_base<cmGeneratorExpressionToken, std::allocator<cmGeneratorExpressionToken>>::_Vector_impl_data", ptr %5, i32 0, i32 0
-  %7 = load ptr, ptr %4, align 8
-  %8 = getelementptr inbounds %"struct.std::_Vector_base<cmGeneratorExpressionToken, std::allocator<cmGeneratorExpressionToken>>::_Vector_impl_data", ptr %7, i32 0, i32 0
-  %9 = load ptr, ptr %8, align 8
-  store ptr %9, ptr %6, align 8
-  %10 = getelementptr inbounds %"struct.std::_Vector_base<cmGeneratorExpressionToken, std::allocator<cmGeneratorExpressionToken>>::_Vector_impl_data", ptr %5, i32 0, i32 1
-  %11 = load ptr, ptr %4, align 8
-  %12 = getelementptr inbounds %"struct.std::_Vector_base<cmGeneratorExpressionToken, std::allocator<cmGeneratorExpressionToken>>::_Vector_impl_data", ptr %11, i32 0, i32 1
-  %13 = load ptr, ptr %12, align 8
-  store ptr %13, ptr %10, align 8
-  %14 = getelementptr inbounds %"struct.std::_Vector_base<cmGeneratorExpressionToken, std::allocator<cmGeneratorExpressionToken>>::_Vector_impl_data", ptr %5, i32 0, i32 2
-  %15 = load ptr, ptr %4, align 8
-  %16 = getelementptr inbounds %"struct.std::_Vector_base<cmGeneratorExpressionToken, std::allocator<cmGeneratorExpressionToken>>::_Vector_impl_data", ptr %15, i32 0, i32 2
-  %17 = load ptr, ptr %16, align 8
-  store ptr %17, ptr %14, align 8
-  %18 = load ptr, ptr %4, align 8
-  %19 = getelementptr inbounds %"struct.std::_Vector_base<cmGeneratorExpressionToken, std::allocator<cmGeneratorExpressionToken>>::_Vector_impl_data", ptr %18, i32 0, i32 2
-  store ptr null, ptr %19, align 8
-  %20 = load ptr, ptr %4, align 8
-  %21 = getelementptr inbounds %"struct.std::_Vector_base<cmGeneratorExpressionToken, std::allocator<cmGeneratorExpressionToken>>::_Vector_impl_data", ptr %20, i32 0, i32 1
-  store ptr null, ptr %21, align 8
-  %22 = load ptr, ptr %4, align 8
-  %23 = getelementptr inbounds %"struct.std::_Vector_base<cmGeneratorExpressionToken, std::allocator<cmGeneratorExpressionToken>>::_Vector_impl_data", ptr %22, i32 0, i32 0
-  store ptr null, ptr %23, align 8
+  %6 = getelementptr inbounds nuw %"struct.std::_Vector_base<cmGeneratorExpressionToken, std::allocator<cmGeneratorExpressionToken>>::_Vector_impl_data", ptr %5, i32 0, i32 0
+  %7 = load ptr, ptr %4, align 8, !tbaa !108
+  %8 = getelementptr inbounds nuw %"struct.std::_Vector_base<cmGeneratorExpressionToken, std::allocator<cmGeneratorExpressionToken>>::_Vector_impl_data", ptr %7, i32 0, i32 0
+  %9 = load ptr, ptr %8, align 8, !tbaa !110
+  store ptr %9, ptr %6, align 8, !tbaa !110
+  %10 = getelementptr inbounds nuw %"struct.std::_Vector_base<cmGeneratorExpressionToken, std::allocator<cmGeneratorExpressionToken>>::_Vector_impl_data", ptr %5, i32 0, i32 1
+  %11 = load ptr, ptr %4, align 8, !tbaa !108
+  %12 = getelementptr inbounds nuw %"struct.std::_Vector_base<cmGeneratorExpressionToken, std::allocator<cmGeneratorExpressionToken>>::_Vector_impl_data", ptr %11, i32 0, i32 1
+  %13 = load ptr, ptr %12, align 8, !tbaa !111
+  store ptr %13, ptr %10, align 8, !tbaa !111
+  %14 = getelementptr inbounds nuw %"struct.std::_Vector_base<cmGeneratorExpressionToken, std::allocator<cmGeneratorExpressionToken>>::_Vector_impl_data", ptr %5, i32 0, i32 2
+  %15 = load ptr, ptr %4, align 8, !tbaa !108
+  %16 = getelementptr inbounds nuw %"struct.std::_Vector_base<cmGeneratorExpressionToken, std::allocator<cmGeneratorExpressionToken>>::_Vector_impl_data", ptr %15, i32 0, i32 2
+  %17 = load ptr, ptr %16, align 8, !tbaa !112
+  store ptr %17, ptr %14, align 8, !tbaa !112
+  %18 = load ptr, ptr %4, align 8, !tbaa !108
+  %19 = getelementptr inbounds nuw %"struct.std::_Vector_base<cmGeneratorExpressionToken, std::allocator<cmGeneratorExpressionToken>>::_Vector_impl_data", ptr %18, i32 0, i32 2
+  store ptr null, ptr %19, align 8, !tbaa !112
+  %20 = load ptr, ptr %4, align 8, !tbaa !108
+  %21 = getelementptr inbounds nuw %"struct.std::_Vector_base<cmGeneratorExpressionToken, std::allocator<cmGeneratorExpressionToken>>::_Vector_impl_data", ptr %20, i32 0, i32 1
+  store ptr null, ptr %21, align 8, !tbaa !111
+  %22 = load ptr, ptr %4, align 8, !tbaa !108
+  %23 = getelementptr inbounds nuw %"struct.std::_Vector_base<cmGeneratorExpressionToken, std::allocator<cmGeneratorExpressionToken>>::_Vector_impl_data", ptr %22, i32 0, i32 0
+  store ptr null, ptr %23, align 8, !tbaa !110
   ret void
 }
 
@@ -2973,44 +3217,44 @@ define linkonce_odr dso_local void @_ZNSt12_Vector_baseI26cmGeneratorExpressionT
 define linkonce_odr dso_local void @_ZNSt15__new_allocatorI26cmGeneratorExpressionTokenEC2ERKS1_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %1) unnamed_addr #0 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !113
+  store ptr %1, ptr %4, align 8, !tbaa !113
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZNSt12_Vector_baseISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !115
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"struct.std::_Vector_base.1", ptr %3, i32 0, i32 0
-  call void @_ZNSt12_Vector_baseISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EE12_Vector_implC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #11
+  %4 = getelementptr inbounds nuw %"struct.std::_Vector_base.1", ptr %3, i32 0, i32 0
+  call void @_ZNSt12_Vector_baseISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EE12_Vector_implC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #15
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZNSt12_Vector_baseISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EE12_Vector_implC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !117
   %3 = load ptr, ptr %2, align 8
-  call void @_ZNSaISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS0_EEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #11
-  call void @_ZNSt12_Vector_baseISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EE17_Vector_impl_dataC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #11
+  call void @_ZNSaISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS0_EEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #15
+  call void @_ZNSt12_Vector_baseISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EE17_Vector_impl_dataC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #15
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZNSaISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS0_EEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !119
   %3 = load ptr, ptr %2, align 8
-  call void @_ZNSt15__new_allocatorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #11
+  call void @_ZNSt15__new_allocatorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #15
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZNSt15__new_allocatorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !121
   ret void
 }
 
@@ -3019,12 +3263,14 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(24) ptr @_
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca i8, align 1
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !23
+  store ptr %1, ptr %4, align 8, !tbaa !23
   %6 = load ptr, ptr %3, align 8
-  store i8 1, ptr %5, align 1
-  %7 = load ptr, ptr %4, align 8
-  call void @_ZNSt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EE14_M_move_assignEOS6_St17integral_constantIbLb1EE(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %7) #11
+  call void @llvm.lifetime.start.p0(i64 1, ptr %5) #15
+  store i8 1, ptr %5, align 1, !tbaa !40
+  %7 = load ptr, ptr %4, align 8, !tbaa !23
+  call void @_ZNSt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EE14_M_move_assignEOS6_St17integral_constantIbLb1EE(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %7) #15
+  call void @llvm.lifetime.end.p0(i64 1, ptr %5) #15
   ret ptr %6
 }
 
@@ -3034,35 +3280,39 @@ define linkonce_odr dso_local void @_ZNSt6vectorISt10unique_ptrI30cmGeneratorExp
   %4 = alloca ptr, align 8
   %5 = alloca %"class.std::vector.0", align 8
   %6 = alloca %"class.std::allocator.2", align 1
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !23
+  store ptr %1, ptr %4, align 8, !tbaa !23
   %7 = load ptr, ptr %3, align 8
-  call void @_ZNKSt12_Vector_baseISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EE13get_allocatorEv(ptr dead_on_unwind writable sret(%"class.std::allocator.2") align 1 %6, ptr noundef nonnull align 8 dereferenceable(24) %7) #11
-  call void @_ZNSt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EEC2ERKS5_(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 1 dereferenceable(1) %6) #11
-  call void @_ZNSaISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS0_EEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #11
-  %8 = getelementptr inbounds %"struct.std::_Vector_base.1", ptr %7, i32 0, i32 0
-  %9 = load ptr, ptr %4, align 8
-  %10 = getelementptr inbounds %"struct.std::_Vector_base.1", ptr %9, i32 0, i32 0
-  call void @_ZNSt12_Vector_baseISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EE17_Vector_impl_data12_M_swap_dataERS7_(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(24) %10) #11
-  %11 = getelementptr inbounds %"struct.std::_Vector_base.1", ptr %5, i32 0, i32 0
-  %12 = load ptr, ptr %4, align 8
-  %13 = getelementptr inbounds %"struct.std::_Vector_base.1", ptr %12, i32 0, i32 0
-  call void @_ZNSt12_Vector_baseISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EE17_Vector_impl_data12_M_swap_dataERS7_(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 dereferenceable(24) %13) #11
-  %14 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt12_Vector_baseISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %7) #11
-  %15 = load ptr, ptr %4, align 8
-  %16 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt12_Vector_baseISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %15) #11
+  call void @llvm.lifetime.start.p0(i64 24, ptr %5) #15
+  call void @llvm.lifetime.start.p0(i64 1, ptr %6) #15
+  call void @_ZNKSt12_Vector_baseISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EE13get_allocatorEv(ptr dead_on_unwind writable sret(%"class.std::allocator.2") align 1 %6, ptr noundef nonnull align 8 dereferenceable(24) %7) #15
+  call void @_ZNSt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EEC2ERKS5_(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 1 dereferenceable(1) %6) #15
+  call void @_ZNSt15__new_allocatorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #15
+  call void @llvm.lifetime.end.p0(i64 1, ptr %6) #15
+  %8 = getelementptr inbounds nuw %"struct.std::_Vector_base.1", ptr %7, i32 0, i32 0
+  %9 = load ptr, ptr %4, align 8, !tbaa !23
+  %10 = getelementptr inbounds nuw %"struct.std::_Vector_base.1", ptr %9, i32 0, i32 0
+  call void @_ZNSt12_Vector_baseISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EE17_Vector_impl_data12_M_swap_dataERS7_(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(24) %10) #15
+  %11 = getelementptr inbounds nuw %"struct.std::_Vector_base.1", ptr %5, i32 0, i32 0
+  %12 = load ptr, ptr %4, align 8, !tbaa !23
+  %13 = getelementptr inbounds nuw %"struct.std::_Vector_base.1", ptr %12, i32 0, i32 0
+  call void @_ZNSt12_Vector_baseISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EE17_Vector_impl_data12_M_swap_dataERS7_(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 dereferenceable(24) %13) #15
+  %14 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt12_Vector_baseISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %7) #15
+  %15 = load ptr, ptr %4, align 8, !tbaa !23
+  %16 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt12_Vector_baseISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %15) #15
   invoke void @_ZSt15__alloc_on_moveISaISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EEEEvRT_S7_(ptr noundef nonnull align 1 dereferenceable(1) %14, ptr noundef nonnull align 1 dereferenceable(1) %16)
           to label %17 unwind label %18
 
 17:                                               ; preds = %2
-  call void @_ZNSt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #11
+  call void @_ZNSt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #15
+  call void @llvm.lifetime.end.p0(i64 24, ptr %5) #15
   ret void
 
 18:                                               ; preds = %2
   %19 = landingpad { ptr, i32 }
           catch ptr null
   %20 = extractvalue { ptr, i32 } %19, 0
-  call void @__clang_call_terminate(ptr %20) #14
+  call void @__clang_call_terminate(ptr %20) #18
   unreachable
 }
 
@@ -3071,10 +3321,10 @@ define linkonce_odr dso_local void @_ZNKSt12_Vector_baseISt10unique_ptrI30cmGene
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %1, ptr %4, align 8, !tbaa !115
   %5 = load ptr, ptr %4, align 8
-  %6 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt12_Vector_baseISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %5) #11
-  call void @_ZNSaISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS0_EEEC2ERKS4_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %6) #11
+  %6 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt12_Vector_baseISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %5) #15
+  call void @_ZNSaISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS0_EEEC2ERKS4_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %6) #15
   ret void
 }
 
@@ -3082,20 +3332,11 @@ define linkonce_odr dso_local void @_ZNKSt12_Vector_baseISt10unique_ptrI30cmGene
 define linkonce_odr dso_local void @_ZNSt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EEC2ERKS5_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 1 dereferenceable(1) %1) unnamed_addr #0 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !23
+  store ptr %1, ptr %4, align 8, !tbaa !119
   %5 = load ptr, ptr %3, align 8
-  %6 = load ptr, ptr %4, align 8
-  call void @_ZNSt12_Vector_baseISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EEC2ERKS5_(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 1 dereferenceable(1) %6) #11
-  ret void
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZNSaISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS0_EEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #0 comdat align 2 {
-  %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  call void @_ZNSt15__new_allocatorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #11
+  %6 = load ptr, ptr %4, align 8, !tbaa !119
+  call void @_ZNSt12_Vector_baseISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EEC2ERKS5_(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 1 dereferenceable(1) %6) #15
   ret void
 }
 
@@ -3104,40 +3345,42 @@ define linkonce_odr dso_local void @_ZNSt12_Vector_baseISt10unique_ptrI30cmGener
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca %"struct.std::_Vector_base<std::unique_ptr<cmGeneratorExpressionEvaluator>, std::allocator<std::unique_ptr<cmGeneratorExpressionEvaluator>>>::_Vector_impl_data", align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !123
+  store ptr %1, ptr %4, align 8, !tbaa !123
   %6 = load ptr, ptr %3, align 8
-  call void @_ZNSt12_Vector_baseISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EE17_Vector_impl_dataC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #11
-  call void @_ZNSt12_Vector_baseISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EE17_Vector_impl_data12_M_copy_dataERKS7_(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %6) #11
-  %7 = load ptr, ptr %4, align 8
-  call void @_ZNSt12_Vector_baseISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EE17_Vector_impl_data12_M_copy_dataERKS7_(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %7) #11
-  %8 = load ptr, ptr %4, align 8
-  call void @_ZNSt12_Vector_baseISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EE17_Vector_impl_data12_M_copy_dataERKS7_(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(24) %5) #11
+  call void @llvm.lifetime.start.p0(i64 24, ptr %5) #15
+  call void @_ZNSt12_Vector_baseISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EE17_Vector_impl_dataC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #15
+  call void @_ZNSt12_Vector_baseISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EE17_Vector_impl_data12_M_copy_dataERKS7_(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %6) #15
+  %7 = load ptr, ptr %4, align 8, !tbaa !123
+  call void @_ZNSt12_Vector_baseISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EE17_Vector_impl_data12_M_copy_dataERKS7_(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %7) #15
+  %8 = load ptr, ptr %4, align 8, !tbaa !123
+  call void @_ZNSt12_Vector_baseISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EE17_Vector_impl_data12_M_copy_dataERKS7_(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(24) %5) #15
+  call void @llvm.lifetime.end.p0(i64 24, ptr %5) #15
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZSt15__alloc_on_moveISaISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EEEEvRT_S7_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %1) #0 comdat {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZSt15__alloc_on_moveISaISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EEEEvRT_S7_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %1) #4 comdat {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !119
+  store ptr %1, ptr %4, align 8, !tbaa !119
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt12_Vector_baseISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !115
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"struct.std::_Vector_base.1", ptr %3, i32 0, i32 0
+  %4 = getelementptr inbounds nuw %"struct.std::_Vector_base.1", ptr %3, i32 0, i32 0
   ret ptr %4
 }
 
-; Function Attrs: noreturn nounwind uwtable
-define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) #3 comdat {
-  %2 = call ptr @__cxa_begin_catch(ptr %0) #11
-  call void @_ZSt9terminatev() #14
+; Function Attrs: noinline noreturn nounwind uwtable
+define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) #6 comdat {
+  %2 = call ptr @__cxa_begin_catch(ptr %0) #15
+  call void @_ZSt9terminatev() #18
   unreachable
 }
 
@@ -3148,9 +3391,9 @@ declare void @_ZSt9terminatev()
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt12_Vector_baseISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !115
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"struct.std::_Vector_base.1", ptr %3, i32 0, i32 0
+  %4 = getelementptr inbounds nuw %"struct.std::_Vector_base.1", ptr %3, i32 0, i32 0
   ret ptr %4
 }
 
@@ -3158,11 +3401,11 @@ define linkonce_odr dso_local noundef nonnull align 1 dereferenceable(1) ptr @_Z
 define linkonce_odr dso_local void @_ZNSaISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS0_EEEC2ERKS4_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %1) unnamed_addr #0 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !119
+  store ptr %1, ptr %4, align 8, !tbaa !119
   %5 = load ptr, ptr %3, align 8
-  %6 = load ptr, ptr %4, align 8
-  call void @_ZNSt15__new_allocatorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EEEC2ERKS5_(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull align 1 dereferenceable(1) %6) #11
+  %6 = load ptr, ptr %4, align 8, !tbaa !119
+  call void @_ZNSt15__new_allocatorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EEEC2ERKS5_(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull align 1 dereferenceable(1) %6) #15
   ret void
 }
 
@@ -3170,8 +3413,8 @@ define linkonce_odr dso_local void @_ZNSaISt10unique_ptrI30cmGeneratorExpression
 define linkonce_odr dso_local void @_ZNSt15__new_allocatorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EEEC2ERKS5_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %1) unnamed_addr #0 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !121
+  store ptr %1, ptr %4, align 8, !tbaa !121
   ret void
 }
 
@@ -3179,12 +3422,12 @@ define linkonce_odr dso_local void @_ZNSt15__new_allocatorISt10unique_ptrI30cmGe
 define linkonce_odr dso_local void @_ZNSt12_Vector_baseISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EEC2ERKS5_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 1 dereferenceable(1) %1) unnamed_addr #0 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !115
+  store ptr %1, ptr %4, align 8, !tbaa !119
   %5 = load ptr, ptr %3, align 8
-  %6 = getelementptr inbounds %"struct.std::_Vector_base.1", ptr %5, i32 0, i32 0
-  %7 = load ptr, ptr %4, align 8
-  call void @_ZNSt12_Vector_baseISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EE12_Vector_implC2ERKS5_(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 1 dereferenceable(1) %7) #11
+  %6 = getelementptr inbounds nuw %"struct.std::_Vector_base.1", ptr %5, i32 0, i32 0
+  %7 = load ptr, ptr %4, align 8, !tbaa !119
+  call void @_ZNSt12_Vector_baseISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EE12_Vector_implC2ERKS5_(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 1 dereferenceable(1) %7) #15
   ret void
 }
 
@@ -3192,33 +3435,26 @@ define linkonce_odr dso_local void @_ZNSt12_Vector_baseISt10unique_ptrI30cmGener
 define linkonce_odr dso_local void @_ZNSt12_Vector_baseISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EE12_Vector_implC2ERKS5_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 1 dereferenceable(1) %1) unnamed_addr #0 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !117
+  store ptr %1, ptr %4, align 8, !tbaa !119
   %5 = load ptr, ptr %3, align 8
-  %6 = load ptr, ptr %4, align 8
-  call void @_ZNSaISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS0_EEEC2ERKS4_(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull align 1 dereferenceable(1) %6) #11
-  call void @_ZNSt12_Vector_baseISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EE17_Vector_impl_dataC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #11
-  ret void
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZNSt15__new_allocatorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #0 comdat align 2 {
-  %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  %6 = load ptr, ptr %4, align 8, !tbaa !119
+  call void @_ZNSaISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS0_EEEC2ERKS4_(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull align 1 dereferenceable(1) %6) #15
+  call void @_ZNSt12_Vector_baseISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EE17_Vector_impl_dataC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #15
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZNSt12_Vector_baseISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EE17_Vector_impl_dataC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !123
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"struct.std::_Vector_base<std::unique_ptr<cmGeneratorExpressionEvaluator>, std::allocator<std::unique_ptr<cmGeneratorExpressionEvaluator>>>::_Vector_impl_data", ptr %3, i32 0, i32 0
-  store ptr null, ptr %4, align 8
-  %5 = getelementptr inbounds %"struct.std::_Vector_base<std::unique_ptr<cmGeneratorExpressionEvaluator>, std::allocator<std::unique_ptr<cmGeneratorExpressionEvaluator>>>::_Vector_impl_data", ptr %3, i32 0, i32 1
-  store ptr null, ptr %5, align 8
-  %6 = getelementptr inbounds %"struct.std::_Vector_base<std::unique_ptr<cmGeneratorExpressionEvaluator>, std::allocator<std::unique_ptr<cmGeneratorExpressionEvaluator>>>::_Vector_impl_data", ptr %3, i32 0, i32 2
-  store ptr null, ptr %6, align 8
+  %4 = getelementptr inbounds nuw %"struct.std::_Vector_base<std::unique_ptr<cmGeneratorExpressionEvaluator>, std::allocator<std::unique_ptr<cmGeneratorExpressionEvaluator>>>::_Vector_impl_data", ptr %3, i32 0, i32 0
+  store ptr null, ptr %4, align 8, !tbaa !86
+  %5 = getelementptr inbounds nuw %"struct.std::_Vector_base<std::unique_ptr<cmGeneratorExpressionEvaluator>, std::allocator<std::unique_ptr<cmGeneratorExpressionEvaluator>>>::_Vector_impl_data", ptr %3, i32 0, i32 1
+  store ptr null, ptr %5, align 8, !tbaa !88
+  %6 = getelementptr inbounds nuw %"struct.std::_Vector_base<std::unique_ptr<cmGeneratorExpressionEvaluator>, std::allocator<std::unique_ptr<cmGeneratorExpressionEvaluator>>>::_Vector_impl_data", ptr %3, i32 0, i32 2
+  store ptr null, ptr %6, align 8, !tbaa !125
   ret void
 }
 
@@ -3226,110 +3462,110 @@ define linkonce_odr dso_local void @_ZNSt12_Vector_baseISt10unique_ptrI30cmGener
 define linkonce_odr dso_local void @_ZNSt12_Vector_baseISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EE17_Vector_impl_data12_M_copy_dataERKS7_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) #0 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !123
+  store ptr %1, ptr %4, align 8, !tbaa !123
   %5 = load ptr, ptr %3, align 8
-  %6 = load ptr, ptr %4, align 8
-  %7 = getelementptr inbounds %"struct.std::_Vector_base<std::unique_ptr<cmGeneratorExpressionEvaluator>, std::allocator<std::unique_ptr<cmGeneratorExpressionEvaluator>>>::_Vector_impl_data", ptr %6, i32 0, i32 0
-  %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds %"struct.std::_Vector_base<std::unique_ptr<cmGeneratorExpressionEvaluator>, std::allocator<std::unique_ptr<cmGeneratorExpressionEvaluator>>>::_Vector_impl_data", ptr %5, i32 0, i32 0
-  store ptr %8, ptr %9, align 8
-  %10 = load ptr, ptr %4, align 8
-  %11 = getelementptr inbounds %"struct.std::_Vector_base<std::unique_ptr<cmGeneratorExpressionEvaluator>, std::allocator<std::unique_ptr<cmGeneratorExpressionEvaluator>>>::_Vector_impl_data", ptr %10, i32 0, i32 1
-  %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds %"struct.std::_Vector_base<std::unique_ptr<cmGeneratorExpressionEvaluator>, std::allocator<std::unique_ptr<cmGeneratorExpressionEvaluator>>>::_Vector_impl_data", ptr %5, i32 0, i32 1
-  store ptr %12, ptr %13, align 8
-  %14 = load ptr, ptr %4, align 8
-  %15 = getelementptr inbounds %"struct.std::_Vector_base<std::unique_ptr<cmGeneratorExpressionEvaluator>, std::allocator<std::unique_ptr<cmGeneratorExpressionEvaluator>>>::_Vector_impl_data", ptr %14, i32 0, i32 2
-  %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds %"struct.std::_Vector_base<std::unique_ptr<cmGeneratorExpressionEvaluator>, std::allocator<std::unique_ptr<cmGeneratorExpressionEvaluator>>>::_Vector_impl_data", ptr %5, i32 0, i32 2
-  store ptr %16, ptr %17, align 8
+  %6 = load ptr, ptr %4, align 8, !tbaa !123
+  %7 = getelementptr inbounds nuw %"struct.std::_Vector_base<std::unique_ptr<cmGeneratorExpressionEvaluator>, std::allocator<std::unique_ptr<cmGeneratorExpressionEvaluator>>>::_Vector_impl_data", ptr %6, i32 0, i32 0
+  %8 = load ptr, ptr %7, align 8, !tbaa !86
+  %9 = getelementptr inbounds nuw %"struct.std::_Vector_base<std::unique_ptr<cmGeneratorExpressionEvaluator>, std::allocator<std::unique_ptr<cmGeneratorExpressionEvaluator>>>::_Vector_impl_data", ptr %5, i32 0, i32 0
+  store ptr %8, ptr %9, align 8, !tbaa !86
+  %10 = load ptr, ptr %4, align 8, !tbaa !123
+  %11 = getelementptr inbounds nuw %"struct.std::_Vector_base<std::unique_ptr<cmGeneratorExpressionEvaluator>, std::allocator<std::unique_ptr<cmGeneratorExpressionEvaluator>>>::_Vector_impl_data", ptr %10, i32 0, i32 1
+  %12 = load ptr, ptr %11, align 8, !tbaa !88
+  %13 = getelementptr inbounds nuw %"struct.std::_Vector_base<std::unique_ptr<cmGeneratorExpressionEvaluator>, std::allocator<std::unique_ptr<cmGeneratorExpressionEvaluator>>>::_Vector_impl_data", ptr %5, i32 0, i32 1
+  store ptr %12, ptr %13, align 8, !tbaa !88
+  %14 = load ptr, ptr %4, align 8, !tbaa !123
+  %15 = getelementptr inbounds nuw %"struct.std::_Vector_base<std::unique_ptr<cmGeneratorExpressionEvaluator>, std::allocator<std::unique_ptr<cmGeneratorExpressionEvaluator>>>::_Vector_impl_data", ptr %14, i32 0, i32 2
+  %16 = load ptr, ptr %15, align 8, !tbaa !125
+  %17 = getelementptr inbounds nuw %"struct.std::_Vector_base<std::unique_ptr<cmGeneratorExpressionEvaluator>, std::allocator<std::unique_ptr<cmGeneratorExpressionEvaluator>>>::_Vector_impl_data", ptr %5, i32 0, i32 2
+  store ptr %16, ptr %17, align 8, !tbaa !125
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZNSt12_Vector_baseISt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS2_EESaIS5_EESaIS7_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !126
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"struct.std::_Vector_base.8", ptr %3, i32 0, i32 0
-  call void @_ZNSt12_Vector_baseISt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS2_EESaIS5_EESaIS7_EE12_Vector_implC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #11
+  %4 = getelementptr inbounds nuw %"struct.std::_Vector_base.8", ptr %3, i32 0, i32 0
+  call void @_ZNSt12_Vector_baseISt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS2_EESaIS5_EESaIS7_EE12_Vector_implC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #15
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZNSt12_Vector_baseISt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS2_EESaIS5_EESaIS7_EE12_Vector_implC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !128
   %3 = load ptr, ptr %2, align 8
-  call void @_ZNSaISt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #11
-  call void @_ZNSt12_Vector_baseISt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS2_EESaIS5_EESaIS7_EE17_Vector_impl_dataC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #11
+  call void @_ZNSaISt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #15
+  call void @_ZNSt12_Vector_baseISt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS2_EESaIS5_EESaIS7_EE17_Vector_impl_dataC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #15
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZNSaISt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !130
   %3 = load ptr, ptr %2, align 8
-  call void @_ZNSt15__new_allocatorISt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS2_EESaIS5_EEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #11
+  call void @_ZNSt15__new_allocatorISt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS2_EESaIS5_EEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #15
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZNSt15__new_allocatorISt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS2_EESaIS5_EEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !132
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZNSt12_Vector_baseIN9__gnu_cxx17__normal_iteratorIPK26cmGeneratorExpressionTokenSt6vectorIS2_SaIS2_EEEESaIS8_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !134
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"struct.std::_Vector_base.21", ptr %3, i32 0, i32 0
-  call void @_ZNSt12_Vector_baseIN9__gnu_cxx17__normal_iteratorIPK26cmGeneratorExpressionTokenSt6vectorIS2_SaIS2_EEEESaIS8_EE12_Vector_implC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #11
+  %4 = getelementptr inbounds nuw %"struct.std::_Vector_base.21", ptr %3, i32 0, i32 0
+  call void @_ZNSt12_Vector_baseIN9__gnu_cxx17__normal_iteratorIPK26cmGeneratorExpressionTokenSt6vectorIS2_SaIS2_EEEESaIS8_EE12_Vector_implC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #15
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZNSt12_Vector_baseIN9__gnu_cxx17__normal_iteratorIPK26cmGeneratorExpressionTokenSt6vectorIS2_SaIS2_EEEESaIS8_EE12_Vector_implC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !136
   %3 = load ptr, ptr %2, align 8
-  call void @_ZNSaIN9__gnu_cxx17__normal_iteratorIPK26cmGeneratorExpressionTokenSt6vectorIS1_SaIS1_EEEEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #11
-  call void @_ZNSt12_Vector_baseIN9__gnu_cxx17__normal_iteratorIPK26cmGeneratorExpressionTokenSt6vectorIS2_SaIS2_EEEESaIS8_EE17_Vector_impl_dataC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #11
+  call void @_ZNSaIN9__gnu_cxx17__normal_iteratorIPK26cmGeneratorExpressionTokenSt6vectorIS1_SaIS1_EEEEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #15
+  call void @_ZNSt12_Vector_baseIN9__gnu_cxx17__normal_iteratorIPK26cmGeneratorExpressionTokenSt6vectorIS2_SaIS2_EEEESaIS8_EE17_Vector_impl_dataC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #15
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZNSaIN9__gnu_cxx17__normal_iteratorIPK26cmGeneratorExpressionTokenSt6vectorIS1_SaIS1_EEEEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !138
   %3 = load ptr, ptr %2, align 8
-  call void @_ZNSt15__new_allocatorIN9__gnu_cxx17__normal_iteratorIPK26cmGeneratorExpressionTokenSt6vectorIS2_SaIS2_EEEEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #11
+  call void @_ZNSt15__new_allocatorIN9__gnu_cxx17__normal_iteratorIPK26cmGeneratorExpressionTokenSt6vectorIS2_SaIS2_EEEEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #15
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZNSt12_Vector_baseIN9__gnu_cxx17__normal_iteratorIPK26cmGeneratorExpressionTokenSt6vectorIS2_SaIS2_EEEESaIS8_EE17_Vector_impl_dataC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !140
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"struct.std::_Vector_base<__gnu_cxx::__normal_iterator<const cmGeneratorExpressionToken *, std::vector<cmGeneratorExpressionToken>>, std::allocator<__gnu_cxx::__normal_iterator<const cmGeneratorExpressionToken *, std::vector<cmGeneratorExpressionToken>>>>::_Vector_impl_data", ptr %3, i32 0, i32 0
-  store ptr null, ptr %4, align 8
-  %5 = getelementptr inbounds %"struct.std::_Vector_base<__gnu_cxx::__normal_iterator<const cmGeneratorExpressionToken *, std::vector<cmGeneratorExpressionToken>>, std::allocator<__gnu_cxx::__normal_iterator<const cmGeneratorExpressionToken *, std::vector<cmGeneratorExpressionToken>>>>::_Vector_impl_data", ptr %3, i32 0, i32 1
-  store ptr null, ptr %5, align 8
-  %6 = getelementptr inbounds %"struct.std::_Vector_base<__gnu_cxx::__normal_iterator<const cmGeneratorExpressionToken *, std::vector<cmGeneratorExpressionToken>>, std::allocator<__gnu_cxx::__normal_iterator<const cmGeneratorExpressionToken *, std::vector<cmGeneratorExpressionToken>>>>::_Vector_impl_data", ptr %3, i32 0, i32 2
-  store ptr null, ptr %6, align 8
+  %4 = getelementptr inbounds nuw %"struct.std::_Vector_base<__gnu_cxx::__normal_iterator<const cmGeneratorExpressionToken *, std::vector<cmGeneratorExpressionToken>>, std::allocator<__gnu_cxx::__normal_iterator<const cmGeneratorExpressionToken *, std::vector<cmGeneratorExpressionToken>>>>::_Vector_impl_data", ptr %3, i32 0, i32 0
+  store ptr null, ptr %4, align 8, !tbaa !85
+  %5 = getelementptr inbounds nuw %"struct.std::_Vector_base<__gnu_cxx::__normal_iterator<const cmGeneratorExpressionToken *, std::vector<cmGeneratorExpressionToken>>, std::allocator<__gnu_cxx::__normal_iterator<const cmGeneratorExpressionToken *, std::vector<cmGeneratorExpressionToken>>>>::_Vector_impl_data", ptr %3, i32 0, i32 1
+  store ptr null, ptr %5, align 8, !tbaa !74
+  %6 = getelementptr inbounds nuw %"struct.std::_Vector_base<__gnu_cxx::__normal_iterator<const cmGeneratorExpressionToken *, std::vector<cmGeneratorExpressionToken>>, std::allocator<__gnu_cxx::__normal_iterator<const cmGeneratorExpressionToken *, std::vector<cmGeneratorExpressionToken>>>>::_Vector_impl_data", ptr %3, i32 0, i32 2
+  store ptr null, ptr %6, align 8, !tbaa !76
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZNSt15__new_allocatorIN9__gnu_cxx17__normal_iteratorIPK26cmGeneratorExpressionTokenSt6vectorIS2_SaIS2_EEEEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !142
   ret void
 }
 
@@ -3337,22 +3573,24 @@ define linkonce_odr dso_local void @_ZNSt15__new_allocatorIN9__gnu_cxx17__normal
 define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EE5frontEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
   %3 = alloca %"class.__gnu_cxx::__normal_iterator.27", align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !23
   %4 = load ptr, ptr %2, align 8
-  %5 = call ptr @_ZNSt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %4) #11
-  %6 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.27", ptr %3, i32 0, i32 0
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #15
+  %5 = call ptr @_ZNSt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %4) #15
+  %6 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator.27", ptr %3, i32 0, i32 0
   store ptr %5, ptr %6, align 8
-  %7 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPSt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS2_EESt6vectorIS5_SaIS5_EEEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %3) #11
+  %7 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPSt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS2_EESt6vectorIS5_SaIS5_EEEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %3) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #15
   ret ptr %7
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef i64 @_ZNK11TextContent9GetLengthEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !93
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %struct.TextContent, ptr %3, i32 0, i32 2
-  %5 = load i64, ptr %4, align 8
+  %4 = getelementptr inbounds nuw %struct.TextContent, ptr %3, i32 0, i32 2
+  %5 = load i64, ptr %4, align 8, !tbaa !95
   ret i64 %5
 }
 
@@ -3364,26 +3602,30 @@ define linkonce_odr dso_local ptr @_ZNSt6vectorISt10unique_ptrI30cmGeneratorExpr
   %6 = alloca %"class.__gnu_cxx::__normal_iterator.27", align 8
   %7 = alloca %"class.__gnu_cxx::__normal_iterator.27", align 8
   %8 = alloca %"class.__gnu_cxx::__normal_iterator.36", align 8
-  %9 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.36", ptr %4, i32 0, i32 0
+  %9 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator.36", ptr %4, i32 0, i32 0
   store ptr %1, ptr %9, align 8
-  store ptr %0, ptr %5, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !23
   %10 = load ptr, ptr %5, align 8
-  %11 = call ptr @_ZNSt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %10) #11
-  %12 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.27", ptr %7, i32 0, i32 0
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #15
+  %11 = call ptr @_ZNSt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %10) #15
+  %12 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator.27", ptr %7, i32 0, i32 0
   store ptr %11, ptr %12, align 8
-  %13 = call ptr @_ZNKSt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EE6cbeginEv(ptr noundef nonnull align 8 dereferenceable(24) %10) #11
-  %14 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.36", ptr %8, i32 0, i32 0
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #15
+  %13 = call ptr @_ZNKSt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EE6cbeginEv(ptr noundef nonnull align 8 dereferenceable(24) %10) #15
+  %14 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator.36", ptr %8, i32 0, i32 0
   store ptr %13, ptr %14, align 8
-  %15 = call noundef i64 @_ZN9__gnu_cxxmiIPKSt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS2_EESt6vectorIS5_SaIS5_EEEENS_17__normal_iteratorIT_T0_E15difference_typeERKSE_SH_(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(8) %8) #11
-  %16 = call ptr @_ZNK9__gnu_cxx17__normal_iteratorIPSt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS2_EESt6vectorIS5_SaIS5_EEEplEl(ptr noundef nonnull align 8 dereferenceable(8) %7, i64 noundef %15) #11
-  %17 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.27", ptr %6, i32 0, i32 0
+  %15 = call noundef i64 @_ZN9__gnu_cxxmiIPKSt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS2_EESt6vectorIS5_SaIS5_EEEENS_17__normal_iteratorIT_T0_E15difference_typeERKSE_SH_(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(8) %8) #15
+  %16 = call ptr @_ZNK9__gnu_cxx17__normal_iteratorIPSt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS2_EESt6vectorIS5_SaIS5_EEEplEl(ptr noundef nonnull align 8 dereferenceable(8) %7, i64 noundef %15) #15
+  %17 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator.27", ptr %6, i32 0, i32 0
   store ptr %16, ptr %17, align 8
-  %18 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.27", ptr %6, i32 0, i32 0
+  %18 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator.27", ptr %6, i32 0, i32 0
   %19 = load ptr, ptr %18, align 8
   %20 = call ptr @_ZNSt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EE8_M_eraseEN9__gnu_cxx17__normal_iteratorIPS4_S6_EE(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr %19)
-  %21 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.27", ptr %3, i32 0, i32 0
+  %21 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator.27", ptr %3, i32 0, i32 0
   store ptr %20, ptr %21, align 8
-  %22 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.27", ptr %3, i32 0, i32 0
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #15
+  %22 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator.27", ptr %3, i32 0, i32 0
   %23 = load ptr, ptr %22, align 8
   ret ptr %23
 }
@@ -3392,12 +3634,12 @@ define linkonce_odr dso_local ptr @_ZNSt6vectorISt10unique_ptrI30cmGeneratorExpr
 define linkonce_odr dso_local ptr @_ZNSt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #0 comdat align 2 {
   %2 = alloca %"class.__gnu_cxx::__normal_iterator.27", align 8
   %3 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !23
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds %"struct.std::_Vector_base.1", ptr %4, i32 0, i32 0
-  %6 = getelementptr inbounds %"struct.std::_Vector_base<std::unique_ptr<cmGeneratorExpressionEvaluator>, std::allocator<std::unique_ptr<cmGeneratorExpressionEvaluator>>>::_Vector_impl_data", ptr %5, i32 0, i32 0
-  call void @_ZN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS2_EESt6vectorIS5_SaIS5_EEEC2ERKS6_(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %6) #11
-  %7 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.27", ptr %2, i32 0, i32 0
+  %5 = getelementptr inbounds nuw %"struct.std::_Vector_base.1", ptr %4, i32 0, i32 0
+  %6 = getelementptr inbounds nuw %"struct.std::_Vector_base<std::unique_ptr<cmGeneratorExpressionEvaluator>, std::allocator<std::unique_ptr<cmGeneratorExpressionEvaluator>>>::_Vector_impl_data", ptr %5, i32 0, i32 0
+  call void @_ZN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS2_EESt6vectorIS5_SaIS5_EEEC2ERKS6_(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %6) #15
+  %7 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator.27", ptr %2, i32 0, i32 0
   %8 = load ptr, ptr %7, align 8
   ret ptr %8
 }
@@ -3406,14 +3648,14 @@ define linkonce_odr dso_local ptr @_ZNSt6vectorISt10unique_ptrI30cmGeneratorExpr
 define linkonce_odr dso_local void @_ZN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS2_EESt6vectorIS5_SaIS5_EEEC2IPS5_vEERKNS0_IT_SA_EE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #0 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !144
+  store ptr %1, ptr %4, align 8, !tbaa !89
   %5 = load ptr, ptr %3, align 8
-  %6 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.36", ptr %5, i32 0, i32 0
-  %7 = load ptr, ptr %4, align 8
-  %8 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPSt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS2_EESt6vectorIS5_SaIS5_EEE4baseEv(ptr noundef nonnull align 8 dereferenceable(8) %7) #11
-  %9 = load ptr, ptr %8, align 8
-  store ptr %9, ptr %6, align 8
+  %6 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator.36", ptr %5, i32 0, i32 0
+  %7 = load ptr, ptr %4, align 8, !tbaa !89
+  %8 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPSt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS2_EESt6vectorIS5_SaIS5_EEE4baseEv(ptr noundef nonnull align 8 dereferenceable(8) %7) #15
+  %9 = load ptr, ptr %8, align 8, !tbaa !59
+  store ptr %9, ptr %6, align 8, !tbaa !146
   ret void
 }
 
@@ -3425,31 +3667,31 @@ define linkonce_odr dso_local void @_ZN2cm6appendISt6vectorISt10unique_ptrI30cmG
   %6 = alloca %"class.__gnu_cxx::__normal_iterator.27", align 8
   %7 = alloca %"class.std::back_insert_iterator", align 8
   %8 = alloca %"class.std::back_insert_iterator", align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  %9 = load ptr, ptr %4, align 8
-  %10 = call ptr @_ZNSt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #11
-  %11 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.27", ptr %5, i32 0, i32 0
+  store ptr %0, ptr %3, align 8, !tbaa !23
+  store ptr %1, ptr %4, align 8, !tbaa !23
+  %9 = load ptr, ptr %4, align 8, !tbaa !23
+  %10 = call ptr @_ZNSt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #15
+  %11 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator.27", ptr %5, i32 0, i32 0
   store ptr %10, ptr %11, align 8
-  %12 = load ptr, ptr %4, align 8
-  %13 = call ptr @_ZNSt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %12) #11
-  %14 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.27", ptr %6, i32 0, i32 0
+  %12 = load ptr, ptr %4, align 8, !tbaa !23
+  %13 = call ptr @_ZNSt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %12) #15
+  %14 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator.27", ptr %6, i32 0, i32 0
   store ptr %13, ptr %14, align 8
-  %15 = load ptr, ptr %3, align 8
+  %15 = load ptr, ptr %3, align 8, !tbaa !23
   %16 = call ptr @_ZSt13back_inserterISt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS2_EESaIS5_EEESt20back_insert_iteratorIT_ERS9_(ptr noundef nonnull align 8 dereferenceable(24) %15)
-  %17 = getelementptr inbounds %"class.std::back_insert_iterator", ptr %7, i32 0, i32 0
+  %17 = getelementptr inbounds nuw %"class.std::back_insert_iterator", ptr %7, i32 0, i32 0
   store ptr %16, ptr %17, align 8
-  %18 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.27", ptr %5, i32 0, i32 0
+  %18 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator.27", ptr %5, i32 0, i32 0
   %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.27", ptr %6, i32 0, i32 0
+  %20 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator.27", ptr %6, i32 0, i32 0
   %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds %"class.std::back_insert_iterator", ptr %7, i32 0, i32 0
+  %22 = getelementptr inbounds nuw %"class.std::back_insert_iterator", ptr %7, i32 0, i32 0
   %23 = load ptr, ptr %22, align 8
   %24 = call ptr @_ZSt9transformIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS3_EESt6vectorIS6_SaIS6_EEEESt20back_insert_iteratorISA_EZN2cm6appendISA_SA_TnNSt9enable_ifIXaaaaaasr2cm21is_sequence_containerIT_EE5valuesr2cm13is_unique_ptrINSH_10value_typeEEE5valuesr2cm13is_unique_ptrINT0_10value_typeEEE5valuesr3std14is_convertibleINSJ_10value_type7pointerENSH_10value_type7pointerEEE5valueEiE4typeELi0EEEvRSH_OSJ_EUlRS6_E_ESJ_SH_SH_SJ_T1_(ptr %19, ptr %21, ptr %23)
-  %25 = getelementptr inbounds %"class.std::back_insert_iterator", ptr %8, i32 0, i32 0
+  %25 = getelementptr inbounds nuw %"class.std::back_insert_iterator", ptr %8, i32 0, i32 0
   store ptr %24, ptr %25, align 8
-  %26 = load ptr, ptr %4, align 8
-  call void @_ZNSt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EE5clearEv(ptr noundef nonnull align 8 dereferenceable(24) %26) #11
+  %26 = load ptr, ptr %4, align 8, !tbaa !23
+  call void @_ZNSt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EE5clearEv(ptr noundef nonnull align 8 dereferenceable(24) %26) #15
   ret void
 }
 
@@ -3464,51 +3706,55 @@ define linkonce_odr dso_local ptr @_ZNSt6vectorISt10unique_ptrI30cmGeneratorExpr
   %9 = alloca %"class.__gnu_cxx::__normal_iterator.27", align 8
   %10 = alloca %"class.__gnu_cxx::__normal_iterator.27", align 8
   %11 = alloca %"class.__gnu_cxx::__normal_iterator.27", align 8
-  %12 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.27", ptr %4, i32 0, i32 0
+  %12 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator.27", ptr %4, i32 0, i32 0
   store ptr %1, ptr %12, align 8
-  store ptr %0, ptr %5, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !23
   %13 = load ptr, ptr %5, align 8
-  %14 = call ptr @_ZNK9__gnu_cxx17__normal_iteratorIPSt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS2_EESt6vectorIS5_SaIS5_EEEplEl(ptr noundef nonnull align 8 dereferenceable(8) %4, i64 noundef 1) #11
-  %15 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.27", ptr %6, i32 0, i32 0
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #15
+  %14 = call ptr @_ZNK9__gnu_cxx17__normal_iteratorIPSt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS2_EESt6vectorIS5_SaIS5_EEEplEl(ptr noundef nonnull align 8 dereferenceable(8) %4, i64 noundef 1) #15
+  %15 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator.27", ptr %6, i32 0, i32 0
   store ptr %14, ptr %15, align 8
-  %16 = call ptr @_ZNSt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %13) #11
-  %17 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.27", ptr %7, i32 0, i32 0
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #15
+  %16 = call ptr @_ZNSt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %13) #15
+  %17 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator.27", ptr %7, i32 0, i32 0
   store ptr %16, ptr %17, align 8
-  %18 = call noundef zeroext i1 @_ZN9__gnu_cxxneIPSt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS2_EESt6vectorIS5_SaIS5_EEEEbRKNS_17__normal_iteratorIT_T0_EESF_(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(8) %7) #11
+  %18 = call noundef zeroext i1 @_ZN9__gnu_cxxneIPSt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS2_EESt6vectorIS5_SaIS5_EEEEbRKNS_17__normal_iteratorIT_T0_EESF_(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(8) %7) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #15
   br i1 %18, label %19, label %32
 
 19:                                               ; preds = %2
-  %20 = call ptr @_ZNK9__gnu_cxx17__normal_iteratorIPSt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS2_EESt6vectorIS5_SaIS5_EEEplEl(ptr noundef nonnull align 8 dereferenceable(8) %4, i64 noundef 1) #11
-  %21 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.27", ptr %8, i32 0, i32 0
+  %20 = call ptr @_ZNK9__gnu_cxx17__normal_iteratorIPSt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS2_EESt6vectorIS5_SaIS5_EEEplEl(ptr noundef nonnull align 8 dereferenceable(8) %4, i64 noundef 1) #15
+  %21 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator.27", ptr %8, i32 0, i32 0
   store ptr %20, ptr %21, align 8
-  %22 = call ptr @_ZNSt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %13) #11
-  %23 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.27", ptr %9, i32 0, i32 0
+  %22 = call ptr @_ZNSt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %13) #15
+  %23 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator.27", ptr %9, i32 0, i32 0
   store ptr %22, ptr %23, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %10, ptr align 8 %4, i64 8, i1 false)
-  %24 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.27", ptr %8, i32 0, i32 0
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %10, ptr align 8 %4, i64 8, i1 false), !tbaa.struct !148
+  %24 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator.27", ptr %8, i32 0, i32 0
   %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.27", ptr %9, i32 0, i32 0
+  %26 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator.27", ptr %9, i32 0, i32 0
   %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.27", ptr %10, i32 0, i32 0
+  %28 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator.27", ptr %10, i32 0, i32 0
   %29 = load ptr, ptr %28, align 8
   %30 = call ptr @_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS3_EESt6vectorIS6_SaIS6_EEEESB_ET0_T_SD_SC_(ptr %25, ptr %27, ptr %29)
-  %31 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.27", ptr %11, i32 0, i32 0
+  %31 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator.27", ptr %11, i32 0, i32 0
   store ptr %30, ptr %31, align 8
   br label %32
 
 32:                                               ; preds = %19, %2
-  %33 = getelementptr inbounds %"struct.std::_Vector_base.1", ptr %13, i32 0, i32 0
-  %34 = getelementptr inbounds %"struct.std::_Vector_base<std::unique_ptr<cmGeneratorExpressionEvaluator>, std::allocator<std::unique_ptr<cmGeneratorExpressionEvaluator>>>::_Vector_impl_data", ptr %33, i32 0, i32 1
-  %35 = load ptr, ptr %34, align 8
+  %33 = getelementptr inbounds nuw %"struct.std::_Vector_base.1", ptr %13, i32 0, i32 0
+  %34 = getelementptr inbounds nuw %"struct.std::_Vector_base<std::unique_ptr<cmGeneratorExpressionEvaluator>, std::allocator<std::unique_ptr<cmGeneratorExpressionEvaluator>>>::_Vector_impl_data", ptr %33, i32 0, i32 1
+  %35 = load ptr, ptr %34, align 8, !tbaa !88
   %36 = getelementptr inbounds %"class.std::unique_ptr.12", ptr %35, i32 -1
-  store ptr %36, ptr %34, align 8
-  %37 = getelementptr inbounds %"struct.std::_Vector_base.1", ptr %13, i32 0, i32 0
-  %38 = getelementptr inbounds %"struct.std::_Vector_base.1", ptr %13, i32 0, i32 0
-  %39 = getelementptr inbounds %"struct.std::_Vector_base<std::unique_ptr<cmGeneratorExpressionEvaluator>, std::allocator<std::unique_ptr<cmGeneratorExpressionEvaluator>>>::_Vector_impl_data", ptr %38, i32 0, i32 1
-  %40 = load ptr, ptr %39, align 8
-  call void @_ZNSt16allocator_traitsISaISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EEEE7destroyIS4_EEvRS5_PT_(ptr noundef nonnull align 1 dereferenceable(1) %37, ptr noundef %40) #11
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %3, ptr align 8 %4, i64 8, i1 false)
-  %41 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.27", ptr %3, i32 0, i32 0
+  store ptr %36, ptr %34, align 8, !tbaa !88
+  %37 = getelementptr inbounds nuw %"struct.std::_Vector_base.1", ptr %13, i32 0, i32 0
+  %38 = getelementptr inbounds nuw %"struct.std::_Vector_base.1", ptr %13, i32 0, i32 0
+  %39 = getelementptr inbounds nuw %"struct.std::_Vector_base<std::unique_ptr<cmGeneratorExpressionEvaluator>, std::allocator<std::unique_ptr<cmGeneratorExpressionEvaluator>>>::_Vector_impl_data", ptr %38, i32 0, i32 1
+  %40 = load ptr, ptr %39, align 8, !tbaa !88
+  call void @_ZNSt16allocator_traitsISaISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EEEE7destroyIS4_EEvRS5_PT_(ptr noundef nonnull align 1 dereferenceable(1) %37, ptr noundef %40) #15
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %3, ptr align 8 %4, i64 8, i1 false), !tbaa.struct !148
+  %41 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator.27", ptr %3, i32 0, i32 0
   %42 = load ptr, ptr %41, align 8
   ret ptr %42
 }
@@ -3519,32 +3765,34 @@ define linkonce_odr dso_local ptr @_ZNK9__gnu_cxx17__normal_iteratorIPSt10unique
   %4 = alloca ptr, align 8
   %5 = alloca i64, align 8
   %6 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store i64 %1, ptr %5, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !89
+  store i64 %1, ptr %5, align 8, !tbaa !39
   %7 = load ptr, ptr %4, align 8
-  %8 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.27", ptr %7, i32 0, i32 0
-  %9 = load ptr, ptr %8, align 8
-  %10 = load i64, ptr %5, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #15
+  %8 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator.27", ptr %7, i32 0, i32 0
+  %9 = load ptr, ptr %8, align 8, !tbaa !91
+  %10 = load i64, ptr %5, align 8, !tbaa !39
   %11 = getelementptr inbounds %"class.std::unique_ptr.12", ptr %9, i64 %10
-  store ptr %11, ptr %6, align 8
-  call void @_ZN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS2_EESt6vectorIS5_SaIS5_EEEC2ERKS6_(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %6) #11
-  %12 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.27", ptr %3, i32 0, i32 0
+  store ptr %11, ptr %6, align 8, !tbaa !59
+  call void @_ZN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS2_EESt6vectorIS5_SaIS5_EEEC2ERKS6_(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %6) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #15
+  %12 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator.27", ptr %3, i32 0, i32 0
   %13 = load ptr, ptr %12, align 8
   ret ptr %13
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef i64 @_ZN9__gnu_cxxmiIPKSt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS2_EESt6vectorIS5_SaIS5_EEEENS_17__normal_iteratorIT_T0_E15difference_typeERKSE_SH_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #0 comdat {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef i64 @_ZN9__gnu_cxxmiIPKSt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS2_EESt6vectorIS5_SaIS5_EEEENS_17__normal_iteratorIT_T0_E15difference_typeERKSE_SH_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #4 comdat {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  %5 = load ptr, ptr %3, align 8
-  %6 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS2_EESt6vectorIS5_SaIS5_EEE4baseEv(ptr noundef nonnull align 8 dereferenceable(8) %5) #11
-  %7 = load ptr, ptr %6, align 8
-  %8 = load ptr, ptr %4, align 8
-  %9 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS2_EESt6vectorIS5_SaIS5_EEE4baseEv(ptr noundef nonnull align 8 dereferenceable(8) %8) #11
-  %10 = load ptr, ptr %9, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !144
+  store ptr %1, ptr %4, align 8, !tbaa !144
+  %5 = load ptr, ptr %3, align 8, !tbaa !144
+  %6 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS2_EESt6vectorIS5_SaIS5_EEE4baseEv(ptr noundef nonnull align 8 dereferenceable(8) %5) #15
+  %7 = load ptr, ptr %6, align 8, !tbaa !59
+  %8 = load ptr, ptr %4, align 8, !tbaa !144
+  %9 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS2_EESt6vectorIS5_SaIS5_EEE4baseEv(ptr noundef nonnull align 8 dereferenceable(8) %8) #15
+  %10 = load ptr, ptr %9, align 8, !tbaa !59
   %11 = ptrtoint ptr %7 to i64
   %12 = ptrtoint ptr %10 to i64
   %13 = sub i64 %11, %12
@@ -3556,34 +3804,34 @@ define linkonce_odr dso_local noundef i64 @_ZN9__gnu_cxxmiIPKSt10unique_ptrI30cm
 define linkonce_odr dso_local ptr @_ZNKSt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EE6cbeginEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #0 comdat align 2 {
   %2 = alloca %"class.__gnu_cxx::__normal_iterator.36", align 8
   %3 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !23
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds %"struct.std::_Vector_base.1", ptr %4, i32 0, i32 0
-  %6 = getelementptr inbounds %"struct.std::_Vector_base<std::unique_ptr<cmGeneratorExpressionEvaluator>, std::allocator<std::unique_ptr<cmGeneratorExpressionEvaluator>>>::_Vector_impl_data", ptr %5, i32 0, i32 0
-  call void @_ZN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS2_EESt6vectorIS5_SaIS5_EEEC2ERKS7_(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %6) #11
-  %7 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.36", ptr %2, i32 0, i32 0
+  %5 = getelementptr inbounds nuw %"struct.std::_Vector_base.1", ptr %4, i32 0, i32 0
+  %6 = getelementptr inbounds nuw %"struct.std::_Vector_base<std::unique_ptr<cmGeneratorExpressionEvaluator>, std::allocator<std::unique_ptr<cmGeneratorExpressionEvaluator>>>::_Vector_impl_data", ptr %5, i32 0, i32 0
+  call void @_ZN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS2_EESt6vectorIS5_SaIS5_EEEC2ERKS7_(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %6) #15
+  %7 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator.36", ptr %2, i32 0, i32 0
   %8 = load ptr, ptr %7, align 8
   ret ptr %8
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef zeroext i1 @_ZN9__gnu_cxxneIPSt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS2_EESt6vectorIS5_SaIS5_EEEEbRKNS_17__normal_iteratorIT_T0_EESF_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #0 comdat {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef zeroext i1 @_ZN9__gnu_cxxneIPSt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS2_EESt6vectorIS5_SaIS5_EEEEbRKNS_17__normal_iteratorIT_T0_EESF_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #4 comdat {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  %5 = load ptr, ptr %3, align 8
-  %6 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPSt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS2_EESt6vectorIS5_SaIS5_EEE4baseEv(ptr noundef nonnull align 8 dereferenceable(8) %5) #11
-  %7 = load ptr, ptr %6, align 8
-  %8 = load ptr, ptr %4, align 8
-  %9 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPSt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS2_EESt6vectorIS5_SaIS5_EEE4baseEv(ptr noundef nonnull align 8 dereferenceable(8) %8) #11
-  %10 = load ptr, ptr %9, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !89
+  store ptr %1, ptr %4, align 8, !tbaa !89
+  %5 = load ptr, ptr %3, align 8, !tbaa !89
+  %6 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPSt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS2_EESt6vectorIS5_SaIS5_EEE4baseEv(ptr noundef nonnull align 8 dereferenceable(8) %5) #15
+  %7 = load ptr, ptr %6, align 8, !tbaa !59
+  %8 = load ptr, ptr %4, align 8, !tbaa !89
+  %9 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPSt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS2_EESt6vectorIS5_SaIS5_EEE4baseEv(ptr noundef nonnull align 8 dereferenceable(8) %8) #15
+  %10 = load ptr, ptr %9, align 8, !tbaa !59
   %11 = icmp ne ptr %7, %10
   ret i1 %11
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local ptr @_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS3_EESt6vectorIS6_SaIS6_EEEESB_ET0_T_SD_SC_(ptr %0, ptr %1, ptr %2) #1 comdat {
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr dso_local ptr @_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS3_EESt6vectorIS6_SaIS6_EEEESB_ET0_T_SD_SC_(ptr %0, ptr %1, ptr %2) #5 comdat {
   %4 = alloca %"class.__gnu_cxx::__normal_iterator.27", align 8
   %5 = alloca %"class.__gnu_cxx::__normal_iterator.27", align 8
   %6 = alloca %"class.__gnu_cxx::__normal_iterator.27", align 8
@@ -3593,35 +3841,35 @@ define linkonce_odr dso_local ptr @_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt1
   %10 = alloca %"class.__gnu_cxx::__normal_iterator.27", align 8
   %11 = alloca %"class.__gnu_cxx::__normal_iterator.27", align 8
   %12 = alloca %"class.__gnu_cxx::__normal_iterator.27", align 8
-  %13 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.27", ptr %5, i32 0, i32 0
+  %13 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator.27", ptr %5, i32 0, i32 0
   store ptr %0, ptr %13, align 8
-  %14 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.27", ptr %6, i32 0, i32 0
+  %14 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator.27", ptr %6, i32 0, i32 0
   store ptr %1, ptr %14, align 8
-  %15 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.27", ptr %7, i32 0, i32 0
+  %15 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator.27", ptr %7, i32 0, i32 0
   store ptr %2, ptr %15, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %9, ptr align 8 %5, i64 8, i1 false)
-  %16 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.27", ptr %9, i32 0, i32 0
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %9, ptr align 8 %5, i64 8, i1 false), !tbaa.struct !148
+  %16 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator.27", ptr %9, i32 0, i32 0
   %17 = load ptr, ptr %16, align 8
   %18 = call ptr @_ZSt12__miter_baseIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS3_EESt6vectorIS6_SaIS6_EEEEET_SC_(ptr %17)
-  %19 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.27", ptr %8, i32 0, i32 0
+  %19 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator.27", ptr %8, i32 0, i32 0
   store ptr %18, ptr %19, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %11, ptr align 8 %6, i64 8, i1 false)
-  %20 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.27", ptr %11, i32 0, i32 0
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %11, ptr align 8 %6, i64 8, i1 false), !tbaa.struct !148
+  %20 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator.27", ptr %11, i32 0, i32 0
   %21 = load ptr, ptr %20, align 8
   %22 = call ptr @_ZSt12__miter_baseIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS3_EESt6vectorIS6_SaIS6_EEEEET_SC_(ptr %21)
-  %23 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.27", ptr %10, i32 0, i32 0
+  %23 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator.27", ptr %10, i32 0, i32 0
   store ptr %22, ptr %23, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %12, ptr align 8 %7, i64 8, i1 false)
-  %24 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.27", ptr %8, i32 0, i32 0
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %12, ptr align 8 %7, i64 8, i1 false), !tbaa.struct !148
+  %24 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator.27", ptr %8, i32 0, i32 0
   %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.27", ptr %10, i32 0, i32 0
+  %26 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator.27", ptr %10, i32 0, i32 0
   %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.27", ptr %12, i32 0, i32 0
+  %28 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator.27", ptr %12, i32 0, i32 0
   %29 = load ptr, ptr %28, align 8
   %30 = call ptr @_ZSt13__copy_move_aILb1EN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS3_EESt6vectorIS6_SaIS6_EEEESB_ET1_T0_SD_SC_(ptr %25, ptr %27, ptr %29)
-  %31 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.27", ptr %4, i32 0, i32 0
+  %31 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator.27", ptr %4, i32 0, i32 0
   store ptr %30, ptr %31, align 8
-  %32 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.27", ptr %4, i32 0, i32 0
+  %32 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator.27", ptr %4, i32 0, i32 0
   %33 = load ptr, ptr %32, align 8
   ret ptr %33
 }
@@ -3630,25 +3878,25 @@ define linkonce_odr dso_local ptr @_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt1
 define linkonce_odr dso_local void @_ZNSt16allocator_traitsISaISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EEEE7destroyIS4_EEvRS5_PT_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1) #0 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  %5 = load ptr, ptr %3, align 8
-  %6 = load ptr, ptr %4, align 8
-  call void @_ZNSt15__new_allocatorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EEE7destroyIS4_EEvPT_(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef %6) #11
+  store ptr %0, ptr %3, align 8, !tbaa !119
+  store ptr %1, ptr %4, align 8, !tbaa !59
+  %5 = load ptr, ptr %3, align 8, !tbaa !119
+  %6 = load ptr, ptr %4, align 8, !tbaa !59
+  call void @_ZNSt15__new_allocatorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EEE7destroyIS4_EEvPT_(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef %6) #15
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPSt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS2_EESt6vectorIS5_SaIS5_EEE4baseEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !89
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.27", ptr %3, i32 0, i32 0
+  %4 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator.27", ptr %3, i32 0, i32 0
   ret ptr %4
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local ptr @_ZSt13__copy_move_aILb1EN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS3_EESt6vectorIS6_SaIS6_EEEESB_ET1_T0_SD_SC_(ptr %0, ptr %1, ptr %2) #1 comdat {
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr dso_local ptr @_ZSt13__copy_move_aILb1EN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS3_EESt6vectorIS6_SaIS6_EEEESB_ET1_T0_SD_SC_(ptr %0, ptr %1, ptr %2) #5 comdat {
   %4 = alloca %"class.__gnu_cxx::__normal_iterator.27", align 8
   %5 = alloca %"class.__gnu_cxx::__normal_iterator.27", align 8
   %6 = alloca %"class.__gnu_cxx::__normal_iterator.27", align 8
@@ -3657,85 +3905,85 @@ define linkonce_odr dso_local ptr @_ZSt13__copy_move_aILb1EN9__gnu_cxx17__normal
   %9 = alloca %"class.__gnu_cxx::__normal_iterator.27", align 8
   %10 = alloca %"class.__gnu_cxx::__normal_iterator.27", align 8
   %11 = alloca %"class.__gnu_cxx::__normal_iterator.27", align 8
-  %12 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.27", ptr %5, i32 0, i32 0
+  %12 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator.27", ptr %5, i32 0, i32 0
   store ptr %0, ptr %12, align 8
-  %13 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.27", ptr %6, i32 0, i32 0
+  %13 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator.27", ptr %6, i32 0, i32 0
   store ptr %1, ptr %13, align 8
-  %14 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.27", ptr %7, i32 0, i32 0
+  %14 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator.27", ptr %7, i32 0, i32 0
   store ptr %2, ptr %14, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %8, ptr align 8 %7, i64 8, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %9, ptr align 8 %5, i64 8, i1 false)
-  %15 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.27", ptr %9, i32 0, i32 0
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %8, ptr align 8 %7, i64 8, i1 false), !tbaa.struct !148
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %9, ptr align 8 %5, i64 8, i1 false), !tbaa.struct !148
+  %15 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator.27", ptr %9, i32 0, i32 0
   %16 = load ptr, ptr %15, align 8
-  %17 = call noundef ptr @_ZSt12__niter_baseIPSt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESt6vectorIS4_SaIS4_EEET_N9__gnu_cxx17__normal_iteratorIS9_T0_EE(ptr %16) #11
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %10, ptr align 8 %6, i64 8, i1 false)
-  %18 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.27", ptr %10, i32 0, i32 0
+  %17 = call noundef ptr @_ZSt12__niter_baseIPSt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESt6vectorIS4_SaIS4_EEET_N9__gnu_cxx17__normal_iteratorIS9_T0_EE(ptr %16) #15
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %10, ptr align 8 %6, i64 8, i1 false), !tbaa.struct !148
+  %18 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator.27", ptr %10, i32 0, i32 0
   %19 = load ptr, ptr %18, align 8
-  %20 = call noundef ptr @_ZSt12__niter_baseIPSt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESt6vectorIS4_SaIS4_EEET_N9__gnu_cxx17__normal_iteratorIS9_T0_EE(ptr %19) #11
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %11, ptr align 8 %7, i64 8, i1 false)
-  %21 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.27", ptr %11, i32 0, i32 0
+  %20 = call noundef ptr @_ZSt12__niter_baseIPSt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESt6vectorIS4_SaIS4_EEET_N9__gnu_cxx17__normal_iteratorIS9_T0_EE(ptr %19) #15
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %11, ptr align 8 %7, i64 8, i1 false), !tbaa.struct !148
+  %21 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator.27", ptr %11, i32 0, i32 0
   %22 = load ptr, ptr %21, align 8
-  %23 = call noundef ptr @_ZSt12__niter_baseIPSt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESt6vectorIS4_SaIS4_EEET_N9__gnu_cxx17__normal_iteratorIS9_T0_EE(ptr %22) #11
+  %23 = call noundef ptr @_ZSt12__niter_baseIPSt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESt6vectorIS4_SaIS4_EEET_N9__gnu_cxx17__normal_iteratorIS9_T0_EE(ptr %22) #15
   %24 = call noundef ptr @_ZSt14__copy_move_a1ILb1EPSt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EES5_ET1_T0_S7_S6_(ptr noundef %17, ptr noundef %20, ptr noundef %23)
-  %25 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.27", ptr %8, i32 0, i32 0
+  %25 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator.27", ptr %8, i32 0, i32 0
   %26 = load ptr, ptr %25, align 8
   %27 = call ptr @_ZSt12__niter_wrapIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS3_EESt6vectorIS6_SaIS6_EEEES7_ET_SC_T0_(ptr %26, ptr noundef %24)
-  %28 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.27", ptr %4, i32 0, i32 0
+  %28 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator.27", ptr %4, i32 0, i32 0
   store ptr %27, ptr %28, align 8
-  %29 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.27", ptr %4, i32 0, i32 0
+  %29 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator.27", ptr %4, i32 0, i32 0
   %30 = load ptr, ptr %29, align 8
   ret ptr %30
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local ptr @_ZSt12__miter_baseIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS3_EESt6vectorIS6_SaIS6_EEEEET_SC_(ptr %0) #0 comdat {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr dso_local ptr @_ZSt12__miter_baseIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS3_EESt6vectorIS6_SaIS6_EEEEET_SC_(ptr %0) #4 comdat {
   %2 = alloca %"class.__gnu_cxx::__normal_iterator.27", align 8
   %3 = alloca %"class.__gnu_cxx::__normal_iterator.27", align 8
-  %4 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.27", ptr %3, i32 0, i32 0
+  %4 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator.27", ptr %3, i32 0, i32 0
   store ptr %0, ptr %4, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %2, ptr align 8 %3, i64 8, i1 false)
-  %5 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.27", ptr %2, i32 0, i32 0
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %2, ptr align 8 %3, i64 8, i1 false), !tbaa.struct !148
+  %5 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator.27", ptr %2, i32 0, i32 0
   %6 = load ptr, ptr %5, align 8
   ret ptr %6
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local ptr @_ZSt12__niter_wrapIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS3_EESt6vectorIS6_SaIS6_EEEES7_ET_SC_T0_(ptr %0, ptr noundef %1) #0 comdat {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr dso_local ptr @_ZSt12__niter_wrapIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS3_EESt6vectorIS6_SaIS6_EEEES7_ET_SC_T0_(ptr %0, ptr noundef %1) #4 comdat {
   %3 = alloca %"class.__gnu_cxx::__normal_iterator.27", align 8
   %4 = alloca %"class.__gnu_cxx::__normal_iterator.27", align 8
   %5 = alloca ptr, align 8
   %6 = alloca %"class.__gnu_cxx::__normal_iterator.27", align 8
-  %7 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.27", ptr %4, i32 0, i32 0
+  %7 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator.27", ptr %4, i32 0, i32 0
   store ptr %0, ptr %7, align 8
-  store ptr %1, ptr %5, align 8
-  %8 = load ptr, ptr %5, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %6, ptr align 8 %4, i64 8, i1 false)
-  %9 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.27", ptr %6, i32 0, i32 0
+  store ptr %1, ptr %5, align 8, !tbaa !59
+  %8 = load ptr, ptr %5, align 8, !tbaa !59
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %6, ptr align 8 %4, i64 8, i1 false), !tbaa.struct !148
+  %9 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator.27", ptr %6, i32 0, i32 0
   %10 = load ptr, ptr %9, align 8
-  %11 = call noundef ptr @_ZSt12__niter_baseIPSt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESt6vectorIS4_SaIS4_EEET_N9__gnu_cxx17__normal_iteratorIS9_T0_EE(ptr %10) #11
+  %11 = call noundef ptr @_ZSt12__niter_baseIPSt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESt6vectorIS4_SaIS4_EEET_N9__gnu_cxx17__normal_iteratorIS9_T0_EE(ptr %10) #15
   %12 = ptrtoint ptr %8 to i64
   %13 = ptrtoint ptr %11 to i64
   %14 = sub i64 %12, %13
   %15 = sdiv exact i64 %14, 8
-  %16 = call ptr @_ZNK9__gnu_cxx17__normal_iteratorIPSt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS2_EESt6vectorIS5_SaIS5_EEEplEl(ptr noundef nonnull align 8 dereferenceable(8) %4, i64 noundef %15) #11
-  %17 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.27", ptr %3, i32 0, i32 0
+  %16 = call ptr @_ZNK9__gnu_cxx17__normal_iteratorIPSt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS2_EESt6vectorIS5_SaIS5_EEEplEl(ptr noundef nonnull align 8 dereferenceable(8) %4, i64 noundef %15) #15
+  %17 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator.27", ptr %3, i32 0, i32 0
   store ptr %16, ptr %17, align 8
-  %18 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.27", ptr %3, i32 0, i32 0
+  %18 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator.27", ptr %3, i32 0, i32 0
   %19 = load ptr, ptr %18, align 8
   ret ptr %19
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local noundef ptr @_ZSt14__copy_move_a1ILb1EPSt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EES5_ET1_T0_S7_S6_(ptr noundef %0, ptr noundef %1, ptr noundef %2) #1 comdat {
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr dso_local noundef ptr @_ZSt14__copy_move_a1ILb1EPSt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EES5_ET1_T0_S7_S6_(ptr noundef %0, ptr noundef %1, ptr noundef %2) #5 comdat {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store ptr %2, ptr %6, align 8
-  %7 = load ptr, ptr %4, align 8
-  %8 = load ptr, ptr %5, align 8
-  %9 = load ptr, ptr %6, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !59
+  store ptr %1, ptr %5, align 8, !tbaa !59
+  store ptr %2, ptr %6, align 8, !tbaa !59
+  %7 = load ptr, ptr %4, align 8, !tbaa !59
+  %8 = load ptr, ptr %5, align 8, !tbaa !59
+  %9 = load ptr, ptr %6, align 8, !tbaa !59
   %10 = call noundef ptr @_ZSt14__copy_move_a2ILb1EPSt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EES5_ET1_T0_S7_S6_(ptr noundef %7, ptr noundef %8, ptr noundef %9)
   ret ptr %10
 }
@@ -3743,24 +3991,24 @@ define linkonce_odr dso_local noundef ptr @_ZSt14__copy_move_a1ILb1EPSt10unique_
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef ptr @_ZSt12__niter_baseIPSt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESt6vectorIS4_SaIS4_EEET_N9__gnu_cxx17__normal_iteratorIS9_T0_EE(ptr %0) #0 comdat {
   %2 = alloca %"class.__gnu_cxx::__normal_iterator.27", align 8
-  %3 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.27", ptr %2, i32 0, i32 0
+  %3 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator.27", ptr %2, i32 0, i32 0
   store ptr %0, ptr %3, align 8
-  %4 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPSt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS2_EESt6vectorIS5_SaIS5_EEE4baseEv(ptr noundef nonnull align 8 dereferenceable(8) %2) #11
-  %5 = load ptr, ptr %4, align 8
+  %4 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPSt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS2_EESt6vectorIS5_SaIS5_EEE4baseEv(ptr noundef nonnull align 8 dereferenceable(8) %2) #15
+  %5 = load ptr, ptr %4, align 8, !tbaa !59
   ret ptr %5
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local noundef ptr @_ZSt14__copy_move_a2ILb1EPSt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EES5_ET1_T0_S7_S6_(ptr noundef %0, ptr noundef %1, ptr noundef %2) #1 comdat {
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr dso_local noundef ptr @_ZSt14__copy_move_a2ILb1EPSt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EES5_ET1_T0_S7_S6_(ptr noundef %0, ptr noundef %1, ptr noundef %2) #5 comdat {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store ptr %2, ptr %6, align 8
-  %7 = load ptr, ptr %4, align 8
-  %8 = load ptr, ptr %5, align 8
-  %9 = load ptr, ptr %6, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !59
+  store ptr %1, ptr %5, align 8, !tbaa !59
+  store ptr %2, ptr %6, align 8, !tbaa !59
+  %7 = load ptr, ptr %4, align 8, !tbaa !59
+  %8 = load ptr, ptr %5, align 8, !tbaa !59
+  %9 = load ptr, ptr %6, align 8, !tbaa !59
   %10 = call noundef ptr @_ZNSt11__copy_moveILb1ELb0ESt26random_access_iterator_tagE8__copy_mIPSt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS4_EES8_EET0_T_SA_S9_(ptr noundef %7, ptr noundef %8, ptr noundef %9)
   ret ptr %10
 }
@@ -3771,57 +4019,62 @@ define linkonce_odr dso_local noundef ptr @_ZNSt11__copy_moveILb1ELb0ESt26random
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca i64, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store ptr %2, ptr %6, align 8
-  %8 = load ptr, ptr %5, align 8
-  %9 = load ptr, ptr %4, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !59
+  store ptr %1, ptr %5, align 8, !tbaa !59
+  store ptr %2, ptr %6, align 8, !tbaa !59
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #15
+  %8 = load ptr, ptr %5, align 8, !tbaa !59
+  %9 = load ptr, ptr %4, align 8, !tbaa !59
   %10 = ptrtoint ptr %8 to i64
   %11 = ptrtoint ptr %9 to i64
   %12 = sub i64 %10, %11
   %13 = sdiv exact i64 %12, 8
-  store i64 %13, ptr %7, align 8
+  store i64 %13, ptr %7, align 8, !tbaa !39
   br label %14
 
-14:                                               ; preds = %25, %3
-  %15 = load i64, ptr %7, align 8
+14:                                               ; preds = %26, %3
+  %15 = load i64, ptr %7, align 8, !tbaa !39
   %16 = icmp sgt i64 %15, 0
-  br i1 %16, label %17, label %28
+  br i1 %16, label %18, label %17
 
 17:                                               ; preds = %14
-  %18 = load ptr, ptr %4, align 8
-  %19 = load ptr, ptr %6, align 8
-  %20 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS0_EEaSEOS3_(ptr noundef nonnull align 8 dereferenceable(8) %19, ptr noundef nonnull align 8 dereferenceable(8) %18) #11
-  %21 = load ptr, ptr %4, align 8
-  %22 = getelementptr inbounds %"class.std::unique_ptr.12", ptr %21, i32 1
-  store ptr %22, ptr %4, align 8
-  %23 = load ptr, ptr %6, align 8
-  %24 = getelementptr inbounds %"class.std::unique_ptr.12", ptr %23, i32 1
-  store ptr %24, ptr %6, align 8
-  br label %25
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #15
+  br label %29
 
-25:                                               ; preds = %17
-  %26 = load i64, ptr %7, align 8
-  %27 = add nsw i64 %26, -1
-  store i64 %27, ptr %7, align 8
-  br label %14, !llvm.loop !14
+18:                                               ; preds = %14
+  %19 = load ptr, ptr %4, align 8, !tbaa !59
+  %20 = load ptr, ptr %6, align 8, !tbaa !59
+  %21 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS0_EEaSEOS3_(ptr noundef nonnull align 8 dereferenceable(8) %20, ptr noundef nonnull align 8 dereferenceable(8) %19) #15
+  %22 = load ptr, ptr %4, align 8, !tbaa !59
+  %23 = getelementptr inbounds nuw %"class.std::unique_ptr.12", ptr %22, i32 1
+  store ptr %23, ptr %4, align 8, !tbaa !59
+  %24 = load ptr, ptr %6, align 8, !tbaa !59
+  %25 = getelementptr inbounds nuw %"class.std::unique_ptr.12", ptr %24, i32 1
+  store ptr %25, ptr %6, align 8, !tbaa !59
+  br label %26
 
-28:                                               ; preds = %14
-  %29 = load ptr, ptr %6, align 8
-  ret ptr %29
+26:                                               ; preds = %18
+  %27 = load i64, ptr %7, align 8, !tbaa !39
+  %28 = add nsw i64 %27, -1
+  store i64 %28, ptr %7, align 8, !tbaa !39
+  br label %14, !llvm.loop !149
+
+29:                                               ; preds = %17
+  %30 = load ptr, ptr %6, align 8, !tbaa !59
+  ret ptr %30
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS0_EEaSEOS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #0 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !59
+  store ptr %1, ptr %4, align 8, !tbaa !59
   %5 = load ptr, ptr %3, align 8
-  %6 = getelementptr inbounds %"class.std::unique_ptr.12", ptr %5, i32 0, i32 0
-  %7 = load ptr, ptr %4, align 8
-  %8 = getelementptr inbounds %"class.std::unique_ptr.12", ptr %7, i32 0, i32 0
-  %9 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt15__uniq_ptr_dataI30cmGeneratorExpressionEvaluatorSt14default_deleteIS0_ELb1ELb1EEaSEOS3_(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(8) %8) #11
+  %6 = getelementptr inbounds nuw %"class.std::unique_ptr.12", ptr %5, i32 0, i32 0
+  %7 = load ptr, ptr %4, align 8, !tbaa !59
+  %8 = getelementptr inbounds nuw %"class.std::unique_ptr.12", ptr %7, i32 0, i32 0
+  %9 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt15__uniq_ptr_dataI30cmGeneratorExpressionEvaluatorSt14default_deleteIS0_ELb1ELb1EEaSEOS3_(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(8) %8) #15
   ret ptr %5
 }
 
@@ -3829,11 +4082,11 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_Z
 define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt15__uniq_ptr_dataI30cmGeneratorExpressionEvaluatorSt14default_deleteIS0_ELb1ELb1EEaSEOS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #0 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !150
+  store ptr %1, ptr %4, align 8, !tbaa !150
   %5 = load ptr, ptr %3, align 8
-  %6 = load ptr, ptr %4, align 8
-  %7 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt15__uniq_ptr_implI30cmGeneratorExpressionEvaluatorSt14default_deleteIS0_EEaSEOS3_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %6) #11
+  %6 = load ptr, ptr %4, align 8, !tbaa !150
+  %7 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt15__uniq_ptr_implI30cmGeneratorExpressionEvaluatorSt14default_deleteIS0_EEaSEOS3_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %6) #15
   ret ptr %5
 }
 
@@ -3841,15 +4094,15 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_Z
 define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt15__uniq_ptr_implI30cmGeneratorExpressionEvaluatorSt14default_deleteIS0_EEaSEOS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #0 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !152
+  store ptr %1, ptr %4, align 8, !tbaa !152
   %5 = load ptr, ptr %3, align 8
-  %6 = load ptr, ptr %4, align 8
-  %7 = call noundef ptr @_ZNSt15__uniq_ptr_implI30cmGeneratorExpressionEvaluatorSt14default_deleteIS0_EE7releaseEv(ptr noundef nonnull align 8 dereferenceable(8) %6) #11
-  call void @_ZNSt15__uniq_ptr_implI30cmGeneratorExpressionEvaluatorSt14default_deleteIS0_EE5resetEPS0_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef %7) #11
-  %8 = load ptr, ptr %4, align 8
-  %9 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt15__uniq_ptr_implI30cmGeneratorExpressionEvaluatorSt14default_deleteIS0_EE10_M_deleterEv(ptr noundef nonnull align 8 dereferenceable(8) %8) #11
-  %10 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt15__uniq_ptr_implI30cmGeneratorExpressionEvaluatorSt14default_deleteIS0_EE10_M_deleterEv(ptr noundef nonnull align 8 dereferenceable(8) %5) #11
+  %6 = load ptr, ptr %4, align 8, !tbaa !152
+  %7 = call noundef ptr @_ZNSt15__uniq_ptr_implI30cmGeneratorExpressionEvaluatorSt14default_deleteIS0_EE7releaseEv(ptr noundef nonnull align 8 dereferenceable(8) %6) #15
+  call void @_ZNSt15__uniq_ptr_implI30cmGeneratorExpressionEvaluatorSt14default_deleteIS0_EE5resetEPS0_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef %7) #15
+  %8 = load ptr, ptr %4, align 8, !tbaa !152
+  %9 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt15__uniq_ptr_implI30cmGeneratorExpressionEvaluatorSt14default_deleteIS0_EE10_M_deleterEv(ptr noundef nonnull align 8 dereferenceable(8) %8) #15
+  %10 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt15__uniq_ptr_implI30cmGeneratorExpressionEvaluatorSt14default_deleteIS0_EE10_M_deleterEv(ptr noundef nonnull align 8 dereferenceable(8) %5) #15
   ret ptr %5
 }
 
@@ -3858,22 +4111,23 @@ define linkonce_odr dso_local void @_ZNSt15__uniq_ptr_implI30cmGeneratorExpressi
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !152
+  store ptr %1, ptr %4, align 8, !tbaa !63
   %6 = load ptr, ptr %3, align 8
-  %7 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt15__uniq_ptr_implI30cmGeneratorExpressionEvaluatorSt14default_deleteIS0_EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(8) %6) #11
-  %8 = load ptr, ptr %7, align 8
-  store ptr %8, ptr %5, align 8
-  %9 = load ptr, ptr %4, align 8
-  %10 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt15__uniq_ptr_implI30cmGeneratorExpressionEvaluatorSt14default_deleteIS0_EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(8) %6) #11
-  store ptr %9, ptr %10, align 8
-  %11 = load ptr, ptr %5, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #15
+  %7 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt15__uniq_ptr_implI30cmGeneratorExpressionEvaluatorSt14default_deleteIS0_EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(8) %6) #15
+  %8 = load ptr, ptr %7, align 8, !tbaa !63
+  store ptr %8, ptr %5, align 8, !tbaa !63
+  %9 = load ptr, ptr %4, align 8, !tbaa !63
+  %10 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt15__uniq_ptr_implI30cmGeneratorExpressionEvaluatorSt14default_deleteIS0_EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(8) %6) #15
+  store ptr %9, ptr %10, align 8, !tbaa !63
+  %11 = load ptr, ptr %5, align 8, !tbaa !63
   %12 = icmp ne ptr %11, null
   br i1 %12, label %13, label %17
 
 13:                                               ; preds = %2
-  %14 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt15__uniq_ptr_implI30cmGeneratorExpressionEvaluatorSt14default_deleteIS0_EE10_M_deleterEv(ptr noundef nonnull align 8 dereferenceable(8) %6) #11
-  %15 = load ptr, ptr %5, align 8
+  %14 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt15__uniq_ptr_implI30cmGeneratorExpressionEvaluatorSt14default_deleteIS0_EE10_M_deleterEv(ptr noundef nonnull align 8 dereferenceable(8) %6) #15
+  %15 = load ptr, ptr %5, align 8, !tbaa !63
   invoke void @_ZNKSt14default_deleteI30cmGeneratorExpressionEvaluatorEclEPS0_(ptr noundef nonnull align 1 dereferenceable(1) %14, ptr noundef %15)
           to label %16 unwind label %18
 
@@ -3881,13 +4135,14 @@ define linkonce_odr dso_local void @_ZNSt15__uniq_ptr_implI30cmGeneratorExpressi
   br label %17
 
 17:                                               ; preds = %16, %2
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #15
   ret void
 
 18:                                               ; preds = %13
   %19 = landingpad { ptr, i32 }
           catch ptr null
   %20 = extractvalue { ptr, i32 } %19, 0
-  call void @__clang_call_terminate(ptr %20) #14
+  call void @__clang_call_terminate(ptr %20) #18
   unreachable
 }
 
@@ -3895,34 +4150,36 @@ define linkonce_odr dso_local void @_ZNSt15__uniq_ptr_implI30cmGeneratorExpressi
 define linkonce_odr dso_local noundef ptr @_ZNSt15__uniq_ptr_implI30cmGeneratorExpressionEvaluatorSt14default_deleteIS0_EE7releaseEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !152
   %4 = load ptr, ptr %2, align 8
-  %5 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt15__uniq_ptr_implI30cmGeneratorExpressionEvaluatorSt14default_deleteIS0_EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(8) %4) #11
-  %6 = load ptr, ptr %5, align 8
-  store ptr %6, ptr %3, align 8
-  %7 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt15__uniq_ptr_implI30cmGeneratorExpressionEvaluatorSt14default_deleteIS0_EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(8) %4) #11
-  store ptr null, ptr %7, align 8
-  %8 = load ptr, ptr %3, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #15
+  %5 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt15__uniq_ptr_implI30cmGeneratorExpressionEvaluatorSt14default_deleteIS0_EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(8) %4) #15
+  %6 = load ptr, ptr %5, align 8, !tbaa !63
+  store ptr %6, ptr %3, align 8, !tbaa !63
+  %7 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt15__uniq_ptr_implI30cmGeneratorExpressionEvaluatorSt14default_deleteIS0_EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(8) %4) #15
+  store ptr null, ptr %7, align 8, !tbaa !63
+  %8 = load ptr, ptr %3, align 8, !tbaa !63
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #15
   ret ptr %8
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt15__uniq_ptr_implI30cmGeneratorExpressionEvaluatorSt14default_deleteIS0_EE10_M_deleterEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !152
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"class.std::__uniq_ptr_impl.14", ptr %3, i32 0, i32 0
-  %5 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZSt3getILm1EJP30cmGeneratorExpressionEvaluatorSt14default_deleteIS0_EEERNSt13tuple_elementIXT_ESt5tupleIJDpT0_EEE4typeERS8_(ptr noundef nonnull align 8 dereferenceable(8) %4) #11
+  %4 = getelementptr inbounds nuw %"class.std::__uniq_ptr_impl.14", ptr %3, i32 0, i32 0
+  %5 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZSt3getILm1EJP30cmGeneratorExpressionEvaluatorSt14default_deleteIS0_EEERNSt13tuple_elementIXT_ESt5tupleIJDpT0_EEE4typeERS8_(ptr noundef nonnull align 8 dereferenceable(8) %4) #15
   ret ptr %5
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt15__uniq_ptr_implI30cmGeneratorExpressionEvaluatorSt14default_deleteIS0_EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !152
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"class.std::__uniq_ptr_impl.14", ptr %3, i32 0, i32 0
-  %5 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt3getILm0EJP30cmGeneratorExpressionEvaluatorSt14default_deleteIS0_EEERNSt13tuple_elementIXT_ESt5tupleIJDpT0_EEE4typeERS8_(ptr noundef nonnull align 8 dereferenceable(8) %4) #11
+  %4 = getelementptr inbounds nuw %"class.std::__uniq_ptr_impl.14", ptr %3, i32 0, i32 0
+  %5 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt3getILm0EJP30cmGeneratorExpressionEvaluatorSt14default_deleteIS0_EEERNSt13tuple_elementIXT_ESt5tupleIJDpT0_EEE4typeERS8_(ptr noundef nonnull align 8 dereferenceable(8) %4) #15
   ret ptr %5
 }
 
@@ -3930,17 +4187,17 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_Z
 define linkonce_odr dso_local void @_ZNKSt14default_deleteI30cmGeneratorExpressionEvaluatorEclEPS0_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1) #0 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  %5 = load ptr, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !154
+  store ptr %1, ptr %4, align 8, !tbaa !63
+  %5 = load ptr, ptr %4, align 8, !tbaa !63
   %6 = icmp eq ptr %5, null
   br i1 %6, label %11, label %7
 
 7:                                                ; preds = %2
-  %8 = load ptr, ptr %5, align 8
+  %8 = load ptr, ptr %5, align 8, !tbaa !33
   %9 = getelementptr inbounds ptr, ptr %8, i64 1
   %10 = load ptr, ptr %9, align 8
-  call void %10(ptr noundef nonnull align 8 dereferenceable(8) %5) #11
+  call void %10(ptr noundef nonnull align 8 dereferenceable(8) %5) #15
   br label %11
 
 11:                                               ; preds = %7, %2
@@ -3950,71 +4207,71 @@ define linkonce_odr dso_local void @_ZNKSt14default_deleteI30cmGeneratorExpressi
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZSt3getILm0EJP30cmGeneratorExpressionEvaluatorSt14default_deleteIS0_EEERNSt13tuple_elementIXT_ESt5tupleIJDpT0_EEE4typeERS8_(ptr noundef nonnull align 8 dereferenceable(8) %0) #0 comdat {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  %4 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt12__get_helperILm0EP30cmGeneratorExpressionEvaluatorJSt14default_deleteIS0_EEERT0_RSt11_Tuple_implIXT_EJS4_DpT1_EE(ptr noundef nonnull align 8 dereferenceable(8) %3) #11
+  store ptr %0, ptr %2, align 8, !tbaa !156
+  %3 = load ptr, ptr %2, align 8, !tbaa !156
+  %4 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt12__get_helperILm0EP30cmGeneratorExpressionEvaluatorJSt14default_deleteIS0_EEERT0_RSt11_Tuple_implIXT_EJS4_DpT1_EE(ptr noundef nonnull align 8 dereferenceable(8) %3) #15
   ret ptr %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZSt12__get_helperILm0EP30cmGeneratorExpressionEvaluatorJSt14default_deleteIS0_EEERT0_RSt11_Tuple_implIXT_EJS4_DpT1_EE(ptr noundef nonnull align 8 dereferenceable(8) %0) #0 comdat {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  %4 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt11_Tuple_implILm0EJP30cmGeneratorExpressionEvaluatorSt14default_deleteIS0_EEE7_M_headERS4_(ptr noundef nonnull align 8 dereferenceable(8) %3) #11
+  store ptr %0, ptr %2, align 8, !tbaa !158
+  %3 = load ptr, ptr %2, align 8, !tbaa !158
+  %4 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt11_Tuple_implILm0EJP30cmGeneratorExpressionEvaluatorSt14default_deleteIS0_EEE7_M_headERS4_(ptr noundef nonnull align 8 dereferenceable(8) %3) #15
   ret ptr %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt11_Tuple_implILm0EJP30cmGeneratorExpressionEvaluatorSt14default_deleteIS0_EEE7_M_headERS4_(ptr noundef nonnull align 8 dereferenceable(8) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  %4 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt10_Head_baseILm0EP30cmGeneratorExpressionEvaluatorLb0EE7_M_headERS2_(ptr noundef nonnull align 8 dereferenceable(8) %3) #11
+  store ptr %0, ptr %2, align 8, !tbaa !158
+  %3 = load ptr, ptr %2, align 8, !tbaa !158
+  %4 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt10_Head_baseILm0EP30cmGeneratorExpressionEvaluatorLb0EE7_M_headERS2_(ptr noundef nonnull align 8 dereferenceable(8) %3) #15
   ret ptr %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt10_Head_baseILm0EP30cmGeneratorExpressionEvaluatorLb0EE7_M_headERS2_(ptr noundef nonnull align 8 dereferenceable(8) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"struct.std::_Head_base.19", ptr %3, i32 0, i32 0
+  store ptr %0, ptr %2, align 8, !tbaa !160
+  %3 = load ptr, ptr %2, align 8, !tbaa !160
+  %4 = getelementptr inbounds nuw %"struct.std::_Head_base.19", ptr %3, i32 0, i32 0
   ret ptr %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef nonnull align 1 dereferenceable(1) ptr @_ZSt3getILm1EJP30cmGeneratorExpressionEvaluatorSt14default_deleteIS0_EEERNSt13tuple_elementIXT_ESt5tupleIJDpT0_EEE4typeERS8_(ptr noundef nonnull align 8 dereferenceable(8) %0) #0 comdat {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  %4 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZSt12__get_helperILm1ESt14default_deleteI30cmGeneratorExpressionEvaluatorEJEERT0_RSt11_Tuple_implIXT_EJS3_DpT1_EE(ptr noundef nonnull align 1 dereferenceable(1) %3) #11
+  store ptr %0, ptr %2, align 8, !tbaa !156
+  %3 = load ptr, ptr %2, align 8, !tbaa !156
+  %4 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZSt12__get_helperILm1ESt14default_deleteI30cmGeneratorExpressionEvaluatorEJEERT0_RSt11_Tuple_implIXT_EJS3_DpT1_EE(ptr noundef nonnull align 1 dereferenceable(1) %3) #15
   ret ptr %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef nonnull align 1 dereferenceable(1) ptr @_ZSt12__get_helperILm1ESt14default_deleteI30cmGeneratorExpressionEvaluatorEJEERT0_RSt11_Tuple_implIXT_EJS3_DpT1_EE(ptr noundef nonnull align 1 dereferenceable(1) %0) #0 comdat {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  %4 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt11_Tuple_implILm1EJSt14default_deleteI30cmGeneratorExpressionEvaluatorEEE7_M_headERS3_(ptr noundef nonnull align 1 dereferenceable(1) %3) #11
+  store ptr %0, ptr %2, align 8, !tbaa !162
+  %3 = load ptr, ptr %2, align 8, !tbaa !162
+  %4 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt11_Tuple_implILm1EJSt14default_deleteI30cmGeneratorExpressionEvaluatorEEE7_M_headERS3_(ptr noundef nonnull align 1 dereferenceable(1) %3) #15
   ret ptr %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt11_Tuple_implILm1EJSt14default_deleteI30cmGeneratorExpressionEvaluatorEEE7_M_headERS3_(ptr noundef nonnull align 1 dereferenceable(1) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  %4 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt10_Head_baseILm1ESt14default_deleteI30cmGeneratorExpressionEvaluatorELb1EE7_M_headERS3_(ptr noundef nonnull align 1 dereferenceable(1) %3) #11
+  store ptr %0, ptr %2, align 8, !tbaa !162
+  %3 = load ptr, ptr %2, align 8, !tbaa !162
+  %4 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt10_Head_baseILm1ESt14default_deleteI30cmGeneratorExpressionEvaluatorELb1EE7_M_headERS3_(ptr noundef nonnull align 1 dereferenceable(1) %3) #15
   ret ptr %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt10_Head_baseILm1ESt14default_deleteI30cmGeneratorExpressionEvaluatorELb1EE7_M_headERS3_(ptr noundef nonnull align 1 dereferenceable(1) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !164
+  %3 = load ptr, ptr %2, align 8, !tbaa !164
   ret ptr %3
 }
 
@@ -4022,10 +4279,10 @@ define linkonce_odr dso_local noundef nonnull align 1 dereferenceable(1) ptr @_Z
 define linkonce_odr dso_local void @_ZNSt15__new_allocatorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EEE7destroyIS4_EEvPT_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1) #0 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  %5 = load ptr, ptr %4, align 8
-  call void @_ZNSt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS0_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #11
+  store ptr %0, ptr %3, align 8, !tbaa !121
+  store ptr %1, ptr %4, align 8, !tbaa !59
+  %5 = load ptr, ptr %4, align 8, !tbaa !59
+  call void @_ZNSt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS0_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #15
   ret void
 }
 
@@ -4033,22 +4290,22 @@ define linkonce_odr dso_local void @_ZNSt15__new_allocatorISt10unique_ptrI30cmGe
 define linkonce_odr dso_local void @_ZN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS2_EESt6vectorIS5_SaIS5_EEEC2ERKS6_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #0 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !89
+  store ptr %1, ptr %4, align 8, !tbaa !166
   %5 = load ptr, ptr %3, align 8
-  %6 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.27", ptr %5, i32 0, i32 0
-  %7 = load ptr, ptr %4, align 8
-  %8 = load ptr, ptr %7, align 8
-  store ptr %8, ptr %6, align 8
+  %6 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator.27", ptr %5, i32 0, i32 0
+  %7 = load ptr, ptr %4, align 8, !tbaa !166
+  %8 = load ptr, ptr %7, align 8, !tbaa !59
+  store ptr %8, ptr %6, align 8, !tbaa !91
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS2_EESt6vectorIS5_SaIS5_EEE4baseEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !144
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.36", ptr %3, i32 0, i32 0
+  %4 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator.36", ptr %3, i32 0, i32 0
   ret ptr %4
 }
 
@@ -4056,13 +4313,13 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_Z
 define linkonce_odr dso_local void @_ZN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS2_EESt6vectorIS5_SaIS5_EEEC2ERKS7_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #0 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !144
+  store ptr %1, ptr %4, align 8, !tbaa !166
   %5 = load ptr, ptr %3, align 8
-  %6 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.36", ptr %5, i32 0, i32 0
-  %7 = load ptr, ptr %4, align 8
-  %8 = load ptr, ptr %7, align 8
-  store ptr %8, ptr %6, align 8
+  %6 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator.36", ptr %5, i32 0, i32 0
+  %7 = load ptr, ptr %4, align 8, !tbaa !166
+  %8 = load ptr, ptr %7, align 8, !tbaa !59
+  store ptr %8, ptr %6, align 8, !tbaa !146
   ret void
 }
 
@@ -4076,20 +4333,21 @@ define linkonce_odr dso_local ptr @_ZSt9transformIN9__gnu_cxx17__normal_iterator
   %9 = alloca %"class.std::unique_ptr.12", align 8
   %10 = alloca ptr, align 8
   %11 = alloca i32, align 4
-  %12 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.27", ptr %5, i32 0, i32 0
+  %12 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator.27", ptr %5, i32 0, i32 0
   store ptr %0, ptr %12, align 8
-  %13 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.27", ptr %6, i32 0, i32 0
+  %13 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator.27", ptr %6, i32 0, i32 0
   store ptr %1, ptr %13, align 8
-  %14 = getelementptr inbounds %"class.std::back_insert_iterator", ptr %7, i32 0, i32 0
+  %14 = getelementptr inbounds nuw %"class.std::back_insert_iterator", ptr %7, i32 0, i32 0
   store ptr %2, ptr %14, align 8
   br label %15
 
 15:                                               ; preds = %23, %3
-  %16 = call noundef zeroext i1 @_ZN9__gnu_cxxneIPSt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS2_EESt6vectorIS5_SaIS5_EEEEbRKNS_17__normal_iteratorIT_T0_EESF_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %6) #11
+  %16 = call noundef zeroext i1 @_ZN9__gnu_cxxneIPSt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS2_EESt6vectorIS5_SaIS5_EEEEbRKNS_17__normal_iteratorIT_T0_EESF_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %6) #15
   br i1 %16, label %17, label %30
 
 17:                                               ; preds = %15
-  %18 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPSt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS2_EESt6vectorIS5_SaIS5_EEEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %5) #11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #15
+  %18 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPSt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS2_EESt6vectorIS5_SaIS5_EEEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %5) #15
   call void @_ZZN2cm6appendISt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS3_EESaIS6_EES8_TnNSt9enable_ifIXaaaaaasr2cm21is_sequence_containerIT_EE5valuesr2cm13is_unique_ptrINSA_10value_typeEEE5valuesr2cm13is_unique_ptrINT0_10value_typeEEE5valuesr3std14is_convertibleINSC_10value_type7pointerENSA_10value_type7pointerEEE5valueEiE4typeELi0EEEvRSA_OSC_ENKUlRS6_E_clESM_(ptr dead_on_unwind writable sret(%"class.std::unique_ptr.12") align 8 %9, ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef nonnull align 8 dereferenceable(8) %18)
   %19 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt20back_insert_iteratorISt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS2_EESaIS5_EEEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %7)
           to label %20 unwind label %26
@@ -4099,13 +4357,14 @@ define linkonce_odr dso_local ptr @_ZSt9transformIN9__gnu_cxx17__normal_iterator
           to label %22 unwind label %26
 
 22:                                               ; preds = %20
-  call void @_ZNSt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS0_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #11
+  call void @_ZNSt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS0_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #15
   br label %23
 
 23:                                               ; preds = %22
-  %24 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS2_EESt6vectorIS5_SaIS5_EEEppEv(ptr noundef nonnull align 8 dereferenceable(8) %5) #11
+  %24 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS2_EESt6vectorIS5_SaIS5_EEEppEv(ptr noundef nonnull align 8 dereferenceable(8) %5) #15
   %25 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt20back_insert_iteratorISt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS2_EESaIS5_EEEppEv(ptr noundef nonnull align 8 dereferenceable(8) %7)
-  br label %15, !llvm.loop !15
+  br label %15, !llvm.loop !168
 
 26:                                               ; preds = %20, %17
   %27 = landingpad { ptr, i32 }
@@ -4114,12 +4373,13 @@ define linkonce_odr dso_local ptr @_ZSt9transformIN9__gnu_cxx17__normal_iterator
   store ptr %28, ptr %10, align 8
   %29 = extractvalue { ptr, i32 } %27, 1
   store i32 %29, ptr %11, align 4
-  call void @_ZNSt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS0_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #11
+  call void @_ZNSt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS0_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #15
   br label %33
 
 30:                                               ; preds = %15
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %4, ptr align 8 %7, i64 8, i1 false)
-  %31 = getelementptr inbounds %"class.std::back_insert_iterator", ptr %4, i32 0, i32 0
+  %31 = getelementptr inbounds nuw %"class.std::back_insert_iterator", ptr %4, i32 0, i32 0
   %32 = load ptr, ptr %31, align 8
   ret ptr %32
 
@@ -4131,14 +4391,14 @@ define linkonce_odr dso_local ptr @_ZSt9transformIN9__gnu_cxx17__normal_iterator
   resume { ptr, i32 } %37
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local ptr @_ZSt13back_inserterISt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS2_EESaIS5_EEESt20back_insert_iteratorIT_ERS9_(ptr noundef nonnull align 8 dereferenceable(24) %0) #1 comdat {
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr dso_local ptr @_ZSt13back_inserterISt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS2_EESaIS5_EEESt20back_insert_iteratorIT_ERS9_(ptr noundef nonnull align 8 dereferenceable(24) %0) #5 comdat {
   %2 = alloca %"class.std::back_insert_iterator", align 8
   %3 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  %4 = load ptr, ptr %3, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !23
+  %4 = load ptr, ptr %3, align 8, !tbaa !23
   call void @_ZNSt20back_insert_iteratorISt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS2_EESaIS5_EEEC2ERS7_(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(24) %4)
-  %5 = getelementptr inbounds %"class.std::back_insert_iterator", ptr %2, i32 0, i32 0
+  %5 = getelementptr inbounds nuw %"class.std::back_insert_iterator", ptr %2, i32 0, i32 0
   %6 = load ptr, ptr %5, align 8
   ret ptr %6
 }
@@ -4146,32 +4406,32 @@ define linkonce_odr dso_local ptr @_ZSt13back_inserterISt6vectorISt10unique_ptrI
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZNSt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EE5clearEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !23
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"struct.std::_Vector_base.1", ptr %3, i32 0, i32 0
-  %5 = getelementptr inbounds %"struct.std::_Vector_base<std::unique_ptr<cmGeneratorExpressionEvaluator>, std::allocator<std::unique_ptr<cmGeneratorExpressionEvaluator>>>::_Vector_impl_data", ptr %4, i32 0, i32 0
-  %6 = load ptr, ptr %5, align 8
-  call void @_ZNSt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EE15_M_erase_at_endEPS4_(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef %6) #11
+  %4 = getelementptr inbounds nuw %"struct.std::_Vector_base.1", ptr %3, i32 0, i32 0
+  %5 = getelementptr inbounds nuw %"struct.std::_Vector_base<std::unique_ptr<cmGeneratorExpressionEvaluator>, std::allocator<std::unique_ptr<cmGeneratorExpressionEvaluator>>>::_Vector_impl_data", ptr %4, i32 0, i32 0
+  %6 = load ptr, ptr %5, align 8, !tbaa !86
+  call void @_ZNSt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EE15_M_erase_at_endEPS4_(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef %6) #15
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZZN2cm6appendISt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS3_EESaIS6_EES8_TnNSt9enable_ifIXaaaaaasr2cm21is_sequence_containerIT_EE5valuesr2cm13is_unique_ptrINSA_10value_typeEEE5valuesr2cm13is_unique_ptrINT0_10value_typeEEE5valuesr3std14is_convertibleINSC_10value_type7pointerENSA_10value_type7pointerEEE5valueEiE4typeELi0EEEvRSA_OSC_ENKUlRS6_E_clESM_(ptr dead_on_unwind noalias writable sret(%"class.std::unique_ptr.12") align 8 %0, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 8 dereferenceable(8) %2) #0 comdat align 2 {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZZN2cm6appendISt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS3_EESaIS6_EES8_TnNSt9enable_ifIXaaaaaasr2cm21is_sequence_containerIT_EE5valuesr2cm13is_unique_ptrINSA_10value_typeEEE5valuesr2cm13is_unique_ptrINT0_10value_typeEEE5valuesr3std14is_convertibleINSC_10value_type7pointerENSA_10value_type7pointerEEE5valueEiE4typeELi0EEEvRSA_OSC_ENKUlRS6_E_clESM_(ptr dead_on_unwind noalias writable sret(%"class.std::unique_ptr.12") align 8 %0, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 8 dereferenceable(8) %2) #4 comdat align 2 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store ptr %2, ptr %6, align 8
-  %7 = load ptr, ptr %6, align 8
-  call void @_ZNSt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS0_EEC2EOS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %7) #11
+  store ptr %1, ptr %5, align 8, !tbaa !169
+  store ptr %2, ptr %6, align 8, !tbaa !59
+  %7 = load ptr, ptr %6, align 8, !tbaa !59
+  call void @_ZNSt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS0_EEC2EOS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %7) #15
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt20back_insert_iteratorISt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS2_EESaIS5_EEEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !170
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
@@ -4180,12 +4440,12 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_Z
 define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt20back_insert_iteratorISt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS2_EESaIS5_EEEaSEOS5_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #1 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !170
+  store ptr %1, ptr %4, align 8, !tbaa !59
   %5 = load ptr, ptr %3, align 8
-  %6 = getelementptr inbounds %"class.std::back_insert_iterator", ptr %5, i32 0, i32 0
-  %7 = load ptr, ptr %6, align 8
-  %8 = load ptr, ptr %4, align 8
+  %6 = getelementptr inbounds nuw %"class.std::back_insert_iterator", ptr %5, i32 0, i32 0
+  %7 = load ptr, ptr %6, align 8, !tbaa !172
+  %8 = load ptr, ptr %4, align 8, !tbaa !59
   call void @_ZNSt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EE9push_backEOS4_(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(8) %8)
   ret ptr %5
 }
@@ -4193,19 +4453,19 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_Z
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS2_EESt6vectorIS5_SaIS5_EEEppEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !89
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.27", ptr %3, i32 0, i32 0
-  %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds %"class.std::unique_ptr.12", ptr %5, i32 1
-  store ptr %6, ptr %4, align 8
+  %4 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator.27", ptr %3, i32 0, i32 0
+  %5 = load ptr, ptr %4, align 8, !tbaa !91
+  %6 = getelementptr inbounds nuw %"class.std::unique_ptr.12", ptr %5, i32 1
+  store ptr %6, ptr %4, align 8, !tbaa !91
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt20back_insert_iteratorISt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS2_EESaIS5_EEEppEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !170
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
@@ -4214,13 +4474,13 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_Z
 define linkonce_odr dso_local void @_ZNSt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS0_EEC2EOS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #0 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !59
+  store ptr %1, ptr %4, align 8, !tbaa !59
   %5 = load ptr, ptr %3, align 8
-  %6 = getelementptr inbounds %"class.std::unique_ptr.12", ptr %5, i32 0, i32 0
-  %7 = load ptr, ptr %4, align 8
-  %8 = getelementptr inbounds %"class.std::unique_ptr.12", ptr %7, i32 0, i32 0
-  call void @_ZNSt15__uniq_ptr_dataI30cmGeneratorExpressionEvaluatorSt14default_deleteIS0_ELb1ELb1EEC2EOS3_(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(8) %8) #11
+  %6 = getelementptr inbounds nuw %"class.std::unique_ptr.12", ptr %5, i32 0, i32 0
+  %7 = load ptr, ptr %4, align 8, !tbaa !59
+  %8 = getelementptr inbounds nuw %"class.std::unique_ptr.12", ptr %7, i32 0, i32 0
+  call void @_ZNSt15__uniq_ptr_dataI30cmGeneratorExpressionEvaluatorSt14default_deleteIS0_ELb1ELb1EEC2EOS3_(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(8) %8) #15
   ret void
 }
 
@@ -4228,11 +4488,11 @@ define linkonce_odr dso_local void @_ZNSt10unique_ptrI30cmGeneratorExpressionEva
 define linkonce_odr dso_local void @_ZNSt15__uniq_ptr_dataI30cmGeneratorExpressionEvaluatorSt14default_deleteIS0_ELb1ELb1EEC2EOS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #0 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !150
+  store ptr %1, ptr %4, align 8, !tbaa !150
   %5 = load ptr, ptr %3, align 8
-  %6 = load ptr, ptr %4, align 8
-  call void @_ZNSt15__uniq_ptr_implI30cmGeneratorExpressionEvaluatorSt14default_deleteIS0_EEC2EOS3_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %6) #11
+  %6 = load ptr, ptr %4, align 8, !tbaa !150
+  call void @_ZNSt15__uniq_ptr_implI30cmGeneratorExpressionEvaluatorSt14default_deleteIS0_EEC2EOS3_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %6) #15
   ret void
 }
 
@@ -4240,16 +4500,16 @@ define linkonce_odr dso_local void @_ZNSt15__uniq_ptr_dataI30cmGeneratorExpressi
 define linkonce_odr dso_local void @_ZNSt15__uniq_ptr_implI30cmGeneratorExpressionEvaluatorSt14default_deleteIS0_EEC2EOS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #0 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !152
+  store ptr %1, ptr %4, align 8, !tbaa !152
   %5 = load ptr, ptr %3, align 8
-  %6 = getelementptr inbounds %"class.std::__uniq_ptr_impl.14", ptr %5, i32 0, i32 0
-  %7 = load ptr, ptr %4, align 8
-  %8 = getelementptr inbounds %"class.std::__uniq_ptr_impl.14", ptr %7, i32 0, i32 0
-  call void @_ZNSt5tupleIJP30cmGeneratorExpressionEvaluatorSt14default_deleteIS0_EEEC2EOS4_(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(8) %8) #11
-  %9 = load ptr, ptr %4, align 8
-  %10 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt15__uniq_ptr_implI30cmGeneratorExpressionEvaluatorSt14default_deleteIS0_EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(8) %9) #11
-  store ptr null, ptr %10, align 8
+  %6 = getelementptr inbounds nuw %"class.std::__uniq_ptr_impl.14", ptr %5, i32 0, i32 0
+  %7 = load ptr, ptr %4, align 8, !tbaa !152
+  %8 = getelementptr inbounds nuw %"class.std::__uniq_ptr_impl.14", ptr %7, i32 0, i32 0
+  call void @_ZNSt5tupleIJP30cmGeneratorExpressionEvaluatorSt14default_deleteIS0_EEEC2EOS4_(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(8) %8) #15
+  %9 = load ptr, ptr %4, align 8, !tbaa !152
+  %10 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt15__uniq_ptr_implI30cmGeneratorExpressionEvaluatorSt14default_deleteIS0_EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(8) %9) #15
+  store ptr null, ptr %10, align 8, !tbaa !63
   ret void
 }
 
@@ -4257,11 +4517,11 @@ define linkonce_odr dso_local void @_ZNSt15__uniq_ptr_implI30cmGeneratorExpressi
 define linkonce_odr dso_local void @_ZNSt5tupleIJP30cmGeneratorExpressionEvaluatorSt14default_deleteIS0_EEEC2EOS4_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #0 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !156
+  store ptr %1, ptr %4, align 8, !tbaa !156
   %5 = load ptr, ptr %3, align 8
-  %6 = load ptr, ptr %4, align 8
-  call void @_ZNSt11_Tuple_implILm0EJP30cmGeneratorExpressionEvaluatorSt14default_deleteIS0_EEEC2EOS4_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %6) #11
+  %6 = load ptr, ptr %4, align 8, !tbaa !156
+  call void @_ZNSt11_Tuple_implILm0EJP30cmGeneratorExpressionEvaluatorSt14default_deleteIS0_EEEC2EOS4_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %6) #15
   ret void
 }
 
@@ -4269,13 +4529,13 @@ define linkonce_odr dso_local void @_ZNSt5tupleIJP30cmGeneratorExpressionEvaluat
 define linkonce_odr dso_local void @_ZNSt11_Tuple_implILm0EJP30cmGeneratorExpressionEvaluatorSt14default_deleteIS0_EEEC2EOS4_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #0 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !158
+  store ptr %1, ptr %4, align 8, !tbaa !158
   %5 = load ptr, ptr %3, align 8
-  %6 = load ptr, ptr %4, align 8
-  call void @_ZNSt11_Tuple_implILm1EJSt14default_deleteI30cmGeneratorExpressionEvaluatorEEEC2EOS3_(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull align 1 dereferenceable(1) %6) #11
-  %7 = load ptr, ptr %4, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %5, ptr align 8 %7, i64 8, i1 false)
+  %6 = load ptr, ptr %4, align 8, !tbaa !158
+  call void @_ZNSt11_Tuple_implILm1EJSt14default_deleteI30cmGeneratorExpressionEvaluatorEEEC2EOS3_(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull align 1 dereferenceable(1) %6) #15
+  %7 = load ptr, ptr %4, align 8, !tbaa !158
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %5, ptr align 8 %7, i64 8, i1 false), !tbaa.struct !174
   ret void
 }
 
@@ -4283,8 +4543,8 @@ define linkonce_odr dso_local void @_ZNSt11_Tuple_implILm0EJP30cmGeneratorExpres
 define linkonce_odr dso_local void @_ZNSt11_Tuple_implILm1EJSt14default_deleteI30cmGeneratorExpressionEvaluatorEEEC2EOS3_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %1) unnamed_addr #0 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !162
+  store ptr %1, ptr %4, align 8, !tbaa !162
   ret void
 }
 
@@ -4292,12 +4552,12 @@ define linkonce_odr dso_local void @_ZNSt11_Tuple_implILm1EJSt14default_deleteI3
 define linkonce_odr dso_local void @_ZNSt20back_insert_iteratorISt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS2_EESaIS5_EEEC2ERS7_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #0 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !170
+  store ptr %1, ptr %4, align 8, !tbaa !23
   %5 = load ptr, ptr %3, align 8
-  %6 = getelementptr inbounds %"class.std::back_insert_iterator", ptr %5, i32 0, i32 0
-  %7 = load ptr, ptr %4, align 8
-  store ptr %7, ptr %6, align 8
+  %6 = getelementptr inbounds nuw %"class.std::back_insert_iterator", ptr %5, i32 0, i32 0
+  %7 = load ptr, ptr %4, align 8, !tbaa !23
+  store ptr %7, ptr %6, align 8, !tbaa !172
   ret void
 }
 
@@ -4306,71 +4566,73 @@ define linkonce_odr dso_local void @_ZNSt6vectorISt10unique_ptrI30cmGeneratorExp
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca i64, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !23
+  store ptr %1, ptr %4, align 8, !tbaa !59
   %6 = load ptr, ptr %3, align 8
-  %7 = getelementptr inbounds %"struct.std::_Vector_base.1", ptr %6, i32 0, i32 0
-  %8 = getelementptr inbounds %"struct.std::_Vector_base<std::unique_ptr<cmGeneratorExpressionEvaluator>, std::allocator<std::unique_ptr<cmGeneratorExpressionEvaluator>>>::_Vector_impl_data", ptr %7, i32 0, i32 1
-  %9 = load ptr, ptr %8, align 8
-  %10 = load ptr, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #15
+  %7 = getelementptr inbounds nuw %"struct.std::_Vector_base.1", ptr %6, i32 0, i32 0
+  %8 = getelementptr inbounds nuw %"struct.std::_Vector_base<std::unique_ptr<cmGeneratorExpressionEvaluator>, std::allocator<std::unique_ptr<cmGeneratorExpressionEvaluator>>>::_Vector_impl_data", ptr %7, i32 0, i32 1
+  %9 = load ptr, ptr %8, align 8, !tbaa !88
+  %10 = load ptr, ptr %4, align 8, !tbaa !59
   %11 = ptrtoint ptr %9 to i64
   %12 = ptrtoint ptr %10 to i64
   %13 = sub i64 %11, %12
   %14 = sdiv exact i64 %13, 8
-  store i64 %14, ptr %5, align 8
-  %15 = load i64, ptr %5, align 8
+  store i64 %14, ptr %5, align 8, !tbaa !39
+  %15 = load i64, ptr %5, align 8, !tbaa !39
   %16 = icmp ne i64 %15, 0
   br i1 %16, label %17, label %27
 
 17:                                               ; preds = %2
-  %18 = load ptr, ptr %4, align 8
-  %19 = getelementptr inbounds %"struct.std::_Vector_base.1", ptr %6, i32 0, i32 0
-  %20 = getelementptr inbounds %"struct.std::_Vector_base<std::unique_ptr<cmGeneratorExpressionEvaluator>, std::allocator<std::unique_ptr<cmGeneratorExpressionEvaluator>>>::_Vector_impl_data", ptr %19, i32 0, i32 1
-  %21 = load ptr, ptr %20, align 8
-  %22 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt12_Vector_baseISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %6) #11
+  %18 = load ptr, ptr %4, align 8, !tbaa !59
+  %19 = getelementptr inbounds nuw %"struct.std::_Vector_base.1", ptr %6, i32 0, i32 0
+  %20 = getelementptr inbounds nuw %"struct.std::_Vector_base<std::unique_ptr<cmGeneratorExpressionEvaluator>, std::allocator<std::unique_ptr<cmGeneratorExpressionEvaluator>>>::_Vector_impl_data", ptr %19, i32 0, i32 1
+  %21 = load ptr, ptr %20, align 8, !tbaa !88
+  %22 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt12_Vector_baseISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %6) #15
   invoke void @_ZSt8_DestroyIPSt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EES4_EvT_S6_RSaIT0_E(ptr noundef %18, ptr noundef %21, ptr noundef nonnull align 1 dereferenceable(1) %22)
           to label %23 unwind label %28
 
 23:                                               ; preds = %17
-  %24 = load ptr, ptr %4, align 8
-  %25 = getelementptr inbounds %"struct.std::_Vector_base.1", ptr %6, i32 0, i32 0
-  %26 = getelementptr inbounds %"struct.std::_Vector_base<std::unique_ptr<cmGeneratorExpressionEvaluator>, std::allocator<std::unique_ptr<cmGeneratorExpressionEvaluator>>>::_Vector_impl_data", ptr %25, i32 0, i32 1
-  store ptr %24, ptr %26, align 8
+  %24 = load ptr, ptr %4, align 8, !tbaa !59
+  %25 = getelementptr inbounds nuw %"struct.std::_Vector_base.1", ptr %6, i32 0, i32 0
+  %26 = getelementptr inbounds nuw %"struct.std::_Vector_base<std::unique_ptr<cmGeneratorExpressionEvaluator>, std::allocator<std::unique_ptr<cmGeneratorExpressionEvaluator>>>::_Vector_impl_data", ptr %25, i32 0, i32 1
+  store ptr %24, ptr %26, align 8, !tbaa !88
   br label %27
 
 27:                                               ; preds = %23, %2
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #15
   ret void
 
 28:                                               ; preds = %17
   %29 = landingpad { ptr, i32 }
           catch ptr null
   %30 = extractvalue { ptr, i32 } %29, 0
-  call void @__clang_call_terminate(ptr %30) #14
+  call void @__clang_call_terminate(ptr %30) #18
   unreachable
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZSt8_DestroyIPSt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EES4_EvT_S6_RSaIT0_E(ptr noundef %0, ptr noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %2) #1 comdat {
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr dso_local void @_ZSt8_DestroyIPSt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EES4_EvT_S6_RSaIT0_E(ptr noundef %0, ptr noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %2) #5 comdat {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store ptr %2, ptr %6, align 8
-  %7 = load ptr, ptr %4, align 8
-  %8 = load ptr, ptr %5, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !59
+  store ptr %1, ptr %5, align 8, !tbaa !59
+  store ptr %2, ptr %6, align 8, !tbaa !119
+  %7 = load ptr, ptr %4, align 8, !tbaa !59
+  %8 = load ptr, ptr %5, align 8, !tbaa !59
   call void @_ZSt8_DestroyIPSt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EEEvT_S6_(ptr noundef %7, ptr noundef %8)
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZSt8_DestroyIPSt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EEEvT_S6_(ptr noundef %0, ptr noundef %1) #1 comdat {
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr dso_local void @_ZSt8_DestroyIPSt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EEEvT_S6_(ptr noundef %0, ptr noundef %1) #5 comdat {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  %5 = load ptr, ptr %3, align 8
-  %6 = load ptr, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !59
+  store ptr %1, ptr %4, align 8, !tbaa !59
+  %5 = load ptr, ptr %3, align 8, !tbaa !59
+  %6 = load ptr, ptr %4, align 8, !tbaa !59
   call void @_ZNSt12_Destroy_auxILb0EE9__destroyIPSt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS3_EEEEvT_S8_(ptr noundef %5, ptr noundef %6)
   ret void
 }
@@ -4379,37 +4641,37 @@ define linkonce_odr dso_local void @_ZSt8_DestroyIPSt10unique_ptrI30cmGeneratorE
 define linkonce_odr dso_local void @_ZNSt12_Destroy_auxILb0EE9__destroyIPSt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS3_EEEEvT_S8_(ptr noundef %0, ptr noundef %1) #1 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !59
+  store ptr %1, ptr %4, align 8, !tbaa !59
   br label %5
 
 5:                                                ; preds = %11, %2
-  %6 = load ptr, ptr %3, align 8
-  %7 = load ptr, ptr %4, align 8
+  %6 = load ptr, ptr %3, align 8, !tbaa !59
+  %7 = load ptr, ptr %4, align 8, !tbaa !59
   %8 = icmp ne ptr %6, %7
   br i1 %8, label %9, label %14
 
 9:                                                ; preds = %5
-  %10 = load ptr, ptr %3, align 8
+  %10 = load ptr, ptr %3, align 8, !tbaa !59
   call void @_ZSt8_DestroyISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EEEvPT_(ptr noundef %10)
   br label %11
 
 11:                                               ; preds = %9
-  %12 = load ptr, ptr %3, align 8
-  %13 = getelementptr inbounds %"class.std::unique_ptr.12", ptr %12, i32 1
-  store ptr %13, ptr %3, align 8
-  br label %5, !llvm.loop !16
+  %12 = load ptr, ptr %3, align 8, !tbaa !59
+  %13 = getelementptr inbounds nuw %"class.std::unique_ptr.12", ptr %12, i32 1
+  store ptr %13, ptr %3, align 8, !tbaa !59
+  br label %5, !llvm.loop !175
 
 14:                                               ; preds = %5
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZSt8_DestroyISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EEEvPT_(ptr noundef %0) #0 comdat {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZSt8_DestroyISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EEEvPT_(ptr noundef %0) #4 comdat {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  call void @_ZNSt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS0_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #11
+  store ptr %0, ptr %2, align 8, !tbaa !59
+  %3 = load ptr, ptr %2, align 8, !tbaa !59
+  call void @_ZNSt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS0_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #15
   ret void
 }
 
@@ -4418,12 +4680,14 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(24) ptr @_
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca i8, align 1
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !67
+  store ptr %1, ptr %4, align 8, !tbaa !67
   %6 = load ptr, ptr %3, align 8
-  store i8 1, ptr %5, align 1
-  %7 = load ptr, ptr %4, align 8
-  call void @_ZNSt6vectorIS_ISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EESaIS6_EE14_M_move_assignEOS8_St17integral_constantIbLb1EE(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %7) #11
+  call void @llvm.lifetime.start.p0(i64 1, ptr %5) #15
+  store i8 1, ptr %5, align 1, !tbaa !40
+  %7 = load ptr, ptr %4, align 8, !tbaa !67
+  call void @_ZNSt6vectorIS_ISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EESaIS6_EE14_M_move_assignEOS8_St17integral_constantIbLb1EE(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %7) #15
+  call void @llvm.lifetime.end.p0(i64 1, ptr %5) #15
   ret ptr %6
 }
 
@@ -4433,35 +4697,39 @@ define linkonce_odr dso_local void @_ZNSt6vectorIS_ISt10unique_ptrI30cmGenerator
   %4 = alloca ptr, align 8
   %5 = alloca %"class.std::vector.7", align 8
   %6 = alloca %"class.std::allocator.9", align 1
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !67
+  store ptr %1, ptr %4, align 8, !tbaa !67
   %7 = load ptr, ptr %3, align 8
-  call void @_ZNKSt12_Vector_baseISt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS2_EESaIS5_EESaIS7_EE13get_allocatorEv(ptr dead_on_unwind writable sret(%"class.std::allocator.9") align 1 %6, ptr noundef nonnull align 8 dereferenceable(24) %7) #11
-  call void @_ZNSt6vectorIS_ISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EESaIS6_EEC2ERKS7_(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 1 dereferenceable(1) %6) #11
-  call void @_ZNSaISt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #11
-  %8 = getelementptr inbounds %"struct.std::_Vector_base.8", ptr %7, i32 0, i32 0
-  %9 = load ptr, ptr %4, align 8
-  %10 = getelementptr inbounds %"struct.std::_Vector_base.8", ptr %9, i32 0, i32 0
-  call void @_ZNSt12_Vector_baseISt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS2_EESaIS5_EESaIS7_EE17_Vector_impl_data12_M_swap_dataERSA_(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(24) %10) #11
-  %11 = getelementptr inbounds %"struct.std::_Vector_base.8", ptr %5, i32 0, i32 0
-  %12 = load ptr, ptr %4, align 8
-  %13 = getelementptr inbounds %"struct.std::_Vector_base.8", ptr %12, i32 0, i32 0
-  call void @_ZNSt12_Vector_baseISt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS2_EESaIS5_EESaIS7_EE17_Vector_impl_data12_M_swap_dataERSA_(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 dereferenceable(24) %13) #11
-  %14 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt12_Vector_baseISt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS2_EESaIS5_EESaIS7_EE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %7) #11
-  %15 = load ptr, ptr %4, align 8
-  %16 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt12_Vector_baseISt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS2_EESaIS5_EESaIS7_EE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %15) #11
+  call void @llvm.lifetime.start.p0(i64 24, ptr %5) #15
+  call void @llvm.lifetime.start.p0(i64 1, ptr %6) #15
+  call void @_ZNKSt12_Vector_baseISt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS2_EESaIS5_EESaIS7_EE13get_allocatorEv(ptr dead_on_unwind writable sret(%"class.std::allocator.9") align 1 %6, ptr noundef nonnull align 8 dereferenceable(24) %7) #15
+  call void @_ZNSt6vectorIS_ISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EESaIS6_EEC2ERKS7_(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 1 dereferenceable(1) %6) #15
+  call void @_ZNSt15__new_allocatorISt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS2_EESaIS5_EEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #15
+  call void @llvm.lifetime.end.p0(i64 1, ptr %6) #15
+  %8 = getelementptr inbounds nuw %"struct.std::_Vector_base.8", ptr %7, i32 0, i32 0
+  %9 = load ptr, ptr %4, align 8, !tbaa !67
+  %10 = getelementptr inbounds nuw %"struct.std::_Vector_base.8", ptr %9, i32 0, i32 0
+  call void @_ZNSt12_Vector_baseISt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS2_EESaIS5_EESaIS7_EE17_Vector_impl_data12_M_swap_dataERSA_(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(24) %10) #15
+  %11 = getelementptr inbounds nuw %"struct.std::_Vector_base.8", ptr %5, i32 0, i32 0
+  %12 = load ptr, ptr %4, align 8, !tbaa !67
+  %13 = getelementptr inbounds nuw %"struct.std::_Vector_base.8", ptr %12, i32 0, i32 0
+  call void @_ZNSt12_Vector_baseISt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS2_EESaIS5_EESaIS7_EE17_Vector_impl_data12_M_swap_dataERSA_(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 dereferenceable(24) %13) #15
+  %14 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt12_Vector_baseISt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS2_EESaIS5_EESaIS7_EE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %7) #15
+  %15 = load ptr, ptr %4, align 8, !tbaa !67
+  %16 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt12_Vector_baseISt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS2_EESaIS5_EESaIS7_EE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %15) #15
   invoke void @_ZSt15__alloc_on_moveISaISt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS2_EESaIS5_EEEEvRT_SA_(ptr noundef nonnull align 1 dereferenceable(1) %14, ptr noundef nonnull align 1 dereferenceable(1) %16)
           to label %17 unwind label %18
 
 17:                                               ; preds = %2
-  call void @_ZNSt6vectorIS_ISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EESaIS6_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #11
+  call void @_ZNSt6vectorIS_ISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EESaIS6_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #15
+  call void @llvm.lifetime.end.p0(i64 24, ptr %5) #15
   ret void
 
 18:                                               ; preds = %2
   %19 = landingpad { ptr, i32 }
           catch ptr null
   %20 = extractvalue { ptr, i32 } %19, 0
-  call void @__clang_call_terminate(ptr %20) #14
+  call void @__clang_call_terminate(ptr %20) #18
   unreachable
 }
 
@@ -4470,10 +4738,10 @@ define linkonce_odr dso_local void @_ZNKSt12_Vector_baseISt6vectorISt10unique_pt
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %1, ptr %4, align 8, !tbaa !126
   %5 = load ptr, ptr %4, align 8
-  %6 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt12_Vector_baseISt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS2_EESaIS5_EESaIS7_EE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %5) #11
-  call void @_ZNSaISt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EEEC2ERKS7_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %6) #11
+  %6 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt12_Vector_baseISt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS2_EESaIS5_EESaIS7_EE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %5) #15
+  call void @_ZNSaISt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EEEC2ERKS7_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %6) #15
   ret void
 }
 
@@ -4481,20 +4749,11 @@ define linkonce_odr dso_local void @_ZNKSt12_Vector_baseISt6vectorISt10unique_pt
 define linkonce_odr dso_local void @_ZNSt6vectorIS_ISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EESaIS6_EEC2ERKS7_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 1 dereferenceable(1) %1) unnamed_addr #0 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !67
+  store ptr %1, ptr %4, align 8, !tbaa !130
   %5 = load ptr, ptr %3, align 8
-  %6 = load ptr, ptr %4, align 8
-  call void @_ZNSt12_Vector_baseISt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS2_EESaIS5_EESaIS7_EEC2ERKS8_(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 1 dereferenceable(1) %6) #11
-  ret void
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZNSaISt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #0 comdat align 2 {
-  %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  call void @_ZNSt15__new_allocatorISt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS2_EESaIS5_EEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #11
+  %6 = load ptr, ptr %4, align 8, !tbaa !130
+  call void @_ZNSt12_Vector_baseISt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS2_EESaIS5_EESaIS7_EEC2ERKS8_(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 1 dereferenceable(1) %6) #15
   ret void
 }
 
@@ -4503,42 +4762,44 @@ define linkonce_odr dso_local void @_ZNSt12_Vector_baseISt6vectorISt10unique_ptr
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca %"struct.std::_Vector_base<std::vector<std::unique_ptr<cmGeneratorExpressionEvaluator>>, std::allocator<std::vector<std::unique_ptr<cmGeneratorExpressionEvaluator>>>>::_Vector_impl_data", align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !176
+  store ptr %1, ptr %4, align 8, !tbaa !176
   %6 = load ptr, ptr %3, align 8
-  call void @_ZNSt12_Vector_baseISt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS2_EESaIS5_EESaIS7_EE17_Vector_impl_dataC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #11
-  call void @_ZNSt12_Vector_baseISt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS2_EESaIS5_EESaIS7_EE17_Vector_impl_data12_M_copy_dataERKSA_(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %6) #11
-  %7 = load ptr, ptr %4, align 8
-  call void @_ZNSt12_Vector_baseISt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS2_EESaIS5_EESaIS7_EE17_Vector_impl_data12_M_copy_dataERKSA_(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %7) #11
-  %8 = load ptr, ptr %4, align 8
-  call void @_ZNSt12_Vector_baseISt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS2_EESaIS5_EESaIS7_EE17_Vector_impl_data12_M_copy_dataERKSA_(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(24) %5) #11
+  call void @llvm.lifetime.start.p0(i64 24, ptr %5) #15
+  call void @_ZNSt12_Vector_baseISt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS2_EESaIS5_EESaIS7_EE17_Vector_impl_dataC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #15
+  call void @_ZNSt12_Vector_baseISt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS2_EESaIS5_EESaIS7_EE17_Vector_impl_data12_M_copy_dataERKSA_(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %6) #15
+  %7 = load ptr, ptr %4, align 8, !tbaa !176
+  call void @_ZNSt12_Vector_baseISt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS2_EESaIS5_EESaIS7_EE17_Vector_impl_data12_M_copy_dataERKSA_(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %7) #15
+  %8 = load ptr, ptr %4, align 8, !tbaa !176
+  call void @_ZNSt12_Vector_baseISt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS2_EESaIS5_EESaIS7_EE17_Vector_impl_data12_M_copy_dataERKSA_(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(24) %5) #15
+  call void @llvm.lifetime.end.p0(i64 24, ptr %5) #15
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZSt15__alloc_on_moveISaISt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS2_EESaIS5_EEEEvRT_SA_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %1) #0 comdat {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZSt15__alloc_on_moveISaISt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS2_EESaIS5_EEEEvRT_SA_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %1) #4 comdat {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !130
+  store ptr %1, ptr %4, align 8, !tbaa !130
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt12_Vector_baseISt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS2_EESaIS5_EESaIS7_EE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !126
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"struct.std::_Vector_base.8", ptr %3, i32 0, i32 0
+  %4 = getelementptr inbounds nuw %"struct.std::_Vector_base.8", ptr %3, i32 0, i32 0
   ret ptr %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt12_Vector_baseISt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS2_EESaIS5_EESaIS7_EE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !126
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"struct.std::_Vector_base.8", ptr %3, i32 0, i32 0
+  %4 = getelementptr inbounds nuw %"struct.std::_Vector_base.8", ptr %3, i32 0, i32 0
   ret ptr %4
 }
 
@@ -4546,11 +4807,11 @@ define linkonce_odr dso_local noundef nonnull align 1 dereferenceable(1) ptr @_Z
 define linkonce_odr dso_local void @_ZNSaISt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EEEC2ERKS7_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %1) unnamed_addr #0 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !130
+  store ptr %1, ptr %4, align 8, !tbaa !130
   %5 = load ptr, ptr %3, align 8
-  %6 = load ptr, ptr %4, align 8
-  call void @_ZNSt15__new_allocatorISt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS2_EESaIS5_EEEC2ERKS8_(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull align 1 dereferenceable(1) %6) #11
+  %6 = load ptr, ptr %4, align 8, !tbaa !130
+  call void @_ZNSt15__new_allocatorISt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS2_EESaIS5_EEEC2ERKS8_(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull align 1 dereferenceable(1) %6) #15
   ret void
 }
 
@@ -4558,8 +4819,8 @@ define linkonce_odr dso_local void @_ZNSaISt6vectorISt10unique_ptrI30cmGenerator
 define linkonce_odr dso_local void @_ZNSt15__new_allocatorISt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS2_EESaIS5_EEEC2ERKS8_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %1) unnamed_addr #0 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !132
+  store ptr %1, ptr %4, align 8, !tbaa !132
   ret void
 }
 
@@ -4567,12 +4828,12 @@ define linkonce_odr dso_local void @_ZNSt15__new_allocatorISt6vectorISt10unique_
 define linkonce_odr dso_local void @_ZNSt12_Vector_baseISt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS2_EESaIS5_EESaIS7_EEC2ERKS8_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 1 dereferenceable(1) %1) unnamed_addr #0 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !126
+  store ptr %1, ptr %4, align 8, !tbaa !130
   %5 = load ptr, ptr %3, align 8
-  %6 = getelementptr inbounds %"struct.std::_Vector_base.8", ptr %5, i32 0, i32 0
-  %7 = load ptr, ptr %4, align 8
-  call void @_ZNSt12_Vector_baseISt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS2_EESaIS5_EESaIS7_EE12_Vector_implC2ERKS8_(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 1 dereferenceable(1) %7) #11
+  %6 = getelementptr inbounds nuw %"struct.std::_Vector_base.8", ptr %5, i32 0, i32 0
+  %7 = load ptr, ptr %4, align 8, !tbaa !130
+  call void @_ZNSt12_Vector_baseISt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS2_EESaIS5_EESaIS7_EE12_Vector_implC2ERKS8_(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 1 dereferenceable(1) %7) #15
   ret void
 }
 
@@ -4580,33 +4841,26 @@ define linkonce_odr dso_local void @_ZNSt12_Vector_baseISt6vectorISt10unique_ptr
 define linkonce_odr dso_local void @_ZNSt12_Vector_baseISt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS2_EESaIS5_EESaIS7_EE12_Vector_implC2ERKS8_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 1 dereferenceable(1) %1) unnamed_addr #0 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !128
+  store ptr %1, ptr %4, align 8, !tbaa !130
   %5 = load ptr, ptr %3, align 8
-  %6 = load ptr, ptr %4, align 8
-  call void @_ZNSaISt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EEEC2ERKS7_(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull align 1 dereferenceable(1) %6) #11
-  call void @_ZNSt12_Vector_baseISt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS2_EESaIS5_EESaIS7_EE17_Vector_impl_dataC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #11
-  ret void
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZNSt15__new_allocatorISt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS2_EESaIS5_EEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #0 comdat align 2 {
-  %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  %6 = load ptr, ptr %4, align 8, !tbaa !130
+  call void @_ZNSaISt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EEEC2ERKS7_(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull align 1 dereferenceable(1) %6) #15
+  call void @_ZNSt12_Vector_baseISt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS2_EESaIS5_EESaIS7_EE17_Vector_impl_dataC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #15
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZNSt12_Vector_baseISt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS2_EESaIS5_EESaIS7_EE17_Vector_impl_dataC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !176
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"struct.std::_Vector_base<std::vector<std::unique_ptr<cmGeneratorExpressionEvaluator>>, std::allocator<std::vector<std::unique_ptr<cmGeneratorExpressionEvaluator>>>>::_Vector_impl_data", ptr %3, i32 0, i32 0
-  store ptr null, ptr %4, align 8
-  %5 = getelementptr inbounds %"struct.std::_Vector_base<std::vector<std::unique_ptr<cmGeneratorExpressionEvaluator>>, std::allocator<std::vector<std::unique_ptr<cmGeneratorExpressionEvaluator>>>>::_Vector_impl_data", ptr %3, i32 0, i32 1
-  store ptr null, ptr %5, align 8
-  %6 = getelementptr inbounds %"struct.std::_Vector_base<std::vector<std::unique_ptr<cmGeneratorExpressionEvaluator>>, std::allocator<std::vector<std::unique_ptr<cmGeneratorExpressionEvaluator>>>>::_Vector_impl_data", ptr %3, i32 0, i32 2
-  store ptr null, ptr %6, align 8
+  %4 = getelementptr inbounds nuw %"struct.std::_Vector_base<std::vector<std::unique_ptr<cmGeneratorExpressionEvaluator>>, std::allocator<std::vector<std::unique_ptr<cmGeneratorExpressionEvaluator>>>>::_Vector_impl_data", ptr %3, i32 0, i32 0
+  store ptr null, ptr %4, align 8, !tbaa !71
+  %5 = getelementptr inbounds nuw %"struct.std::_Vector_base<std::vector<std::unique_ptr<cmGeneratorExpressionEvaluator>>, std::allocator<std::vector<std::unique_ptr<cmGeneratorExpressionEvaluator>>>>::_Vector_impl_data", ptr %3, i32 0, i32 1
+  store ptr null, ptr %5, align 8, !tbaa !73
+  %6 = getelementptr inbounds nuw %"struct.std::_Vector_base<std::vector<std::unique_ptr<cmGeneratorExpressionEvaluator>>, std::allocator<std::vector<std::unique_ptr<cmGeneratorExpressionEvaluator>>>>::_Vector_impl_data", ptr %3, i32 0, i32 2
+  store ptr null, ptr %6, align 8, !tbaa !178
   ret void
 }
 
@@ -4614,24 +4868,24 @@ define linkonce_odr dso_local void @_ZNSt12_Vector_baseISt6vectorISt10unique_ptr
 define linkonce_odr dso_local void @_ZNSt12_Vector_baseISt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS2_EESaIS5_EESaIS7_EE17_Vector_impl_data12_M_copy_dataERKSA_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) #0 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !176
+  store ptr %1, ptr %4, align 8, !tbaa !176
   %5 = load ptr, ptr %3, align 8
-  %6 = load ptr, ptr %4, align 8
-  %7 = getelementptr inbounds %"struct.std::_Vector_base<std::vector<std::unique_ptr<cmGeneratorExpressionEvaluator>>, std::allocator<std::vector<std::unique_ptr<cmGeneratorExpressionEvaluator>>>>::_Vector_impl_data", ptr %6, i32 0, i32 0
-  %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds %"struct.std::_Vector_base<std::vector<std::unique_ptr<cmGeneratorExpressionEvaluator>>, std::allocator<std::vector<std::unique_ptr<cmGeneratorExpressionEvaluator>>>>::_Vector_impl_data", ptr %5, i32 0, i32 0
-  store ptr %8, ptr %9, align 8
-  %10 = load ptr, ptr %4, align 8
-  %11 = getelementptr inbounds %"struct.std::_Vector_base<std::vector<std::unique_ptr<cmGeneratorExpressionEvaluator>>, std::allocator<std::vector<std::unique_ptr<cmGeneratorExpressionEvaluator>>>>::_Vector_impl_data", ptr %10, i32 0, i32 1
-  %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds %"struct.std::_Vector_base<std::vector<std::unique_ptr<cmGeneratorExpressionEvaluator>>, std::allocator<std::vector<std::unique_ptr<cmGeneratorExpressionEvaluator>>>>::_Vector_impl_data", ptr %5, i32 0, i32 1
-  store ptr %12, ptr %13, align 8
-  %14 = load ptr, ptr %4, align 8
-  %15 = getelementptr inbounds %"struct.std::_Vector_base<std::vector<std::unique_ptr<cmGeneratorExpressionEvaluator>>, std::allocator<std::vector<std::unique_ptr<cmGeneratorExpressionEvaluator>>>>::_Vector_impl_data", ptr %14, i32 0, i32 2
-  %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds %"struct.std::_Vector_base<std::vector<std::unique_ptr<cmGeneratorExpressionEvaluator>>, std::allocator<std::vector<std::unique_ptr<cmGeneratorExpressionEvaluator>>>>::_Vector_impl_data", ptr %5, i32 0, i32 2
-  store ptr %16, ptr %17, align 8
+  %6 = load ptr, ptr %4, align 8, !tbaa !176
+  %7 = getelementptr inbounds nuw %"struct.std::_Vector_base<std::vector<std::unique_ptr<cmGeneratorExpressionEvaluator>>, std::allocator<std::vector<std::unique_ptr<cmGeneratorExpressionEvaluator>>>>::_Vector_impl_data", ptr %6, i32 0, i32 0
+  %8 = load ptr, ptr %7, align 8, !tbaa !71
+  %9 = getelementptr inbounds nuw %"struct.std::_Vector_base<std::vector<std::unique_ptr<cmGeneratorExpressionEvaluator>>, std::allocator<std::vector<std::unique_ptr<cmGeneratorExpressionEvaluator>>>>::_Vector_impl_data", ptr %5, i32 0, i32 0
+  store ptr %8, ptr %9, align 8, !tbaa !71
+  %10 = load ptr, ptr %4, align 8, !tbaa !176
+  %11 = getelementptr inbounds nuw %"struct.std::_Vector_base<std::vector<std::unique_ptr<cmGeneratorExpressionEvaluator>>, std::allocator<std::vector<std::unique_ptr<cmGeneratorExpressionEvaluator>>>>::_Vector_impl_data", ptr %10, i32 0, i32 1
+  %12 = load ptr, ptr %11, align 8, !tbaa !73
+  %13 = getelementptr inbounds nuw %"struct.std::_Vector_base<std::vector<std::unique_ptr<cmGeneratorExpressionEvaluator>>, std::allocator<std::vector<std::unique_ptr<cmGeneratorExpressionEvaluator>>>>::_Vector_impl_data", ptr %5, i32 0, i32 1
+  store ptr %12, ptr %13, align 8, !tbaa !73
+  %14 = load ptr, ptr %4, align 8, !tbaa !176
+  %15 = getelementptr inbounds nuw %"struct.std::_Vector_base<std::vector<std::unique_ptr<cmGeneratorExpressionEvaluator>>, std::allocator<std::vector<std::unique_ptr<cmGeneratorExpressionEvaluator>>>>::_Vector_impl_data", ptr %14, i32 0, i32 2
+  %16 = load ptr, ptr %15, align 8, !tbaa !178
+  %17 = getelementptr inbounds nuw %"struct.std::_Vector_base<std::vector<std::unique_ptr<cmGeneratorExpressionEvaluator>>, std::allocator<std::vector<std::unique_ptr<cmGeneratorExpressionEvaluator>>>>::_Vector_impl_data", ptr %5, i32 0, i32 2
+  store ptr %16, ptr %17, align 8, !tbaa !178
   ret void
 }
 
@@ -4639,37 +4893,37 @@ define linkonce_odr dso_local void @_ZNSt12_Vector_baseISt6vectorISt10unique_ptr
 define linkonce_odr dso_local void @_ZN9__gnu_cxx17__normal_iteratorIPK26cmGeneratorExpressionTokenSt6vectorIS1_SaIS1_EEEC2ERKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #0 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !20
+  store ptr %1, ptr %4, align 8, !tbaa !179
   %5 = load ptr, ptr %3, align 8
-  %6 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %5, i32 0, i32 0
-  %7 = load ptr, ptr %4, align 8
-  %8 = load ptr, ptr %7, align 8
-  store ptr %8, ptr %6, align 8
+  %6 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator", ptr %5, i32 0, i32 0
+  %7 = load ptr, ptr %4, align 8, !tbaa !179
+  %8 = load ptr, ptr %7, align 8, !tbaa !26
+  store ptr %8, ptr %6, align 8, !tbaa !22
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPK26cmGeneratorExpressionTokenSt6vectorIS1_SaIS1_EEE4baseEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !20
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %3, i32 0, i32 0
+  %4 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator", ptr %3, i32 0, i32 0
   ret ptr %4
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef zeroext i1 @_ZN9__gnu_cxxeqIPKSt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS2_EESt6vectorIS5_SaIS5_EEEEbRKNS_17__normal_iteratorIT_T0_EESG_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #0 comdat {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef zeroext i1 @_ZN9__gnu_cxxeqIPKSt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS2_EESt6vectorIS5_SaIS5_EEEEbRKNS_17__normal_iteratorIT_T0_EESG_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #4 comdat {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  %5 = load ptr, ptr %3, align 8
-  %6 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS2_EESt6vectorIS5_SaIS5_EEE4baseEv(ptr noundef nonnull align 8 dereferenceable(8) %5) #11
-  %7 = load ptr, ptr %6, align 8
-  %8 = load ptr, ptr %4, align 8
-  %9 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS2_EESt6vectorIS5_SaIS5_EEE4baseEv(ptr noundef nonnull align 8 dereferenceable(8) %8) #11
-  %10 = load ptr, ptr %9, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !144
+  store ptr %1, ptr %4, align 8, !tbaa !144
+  %5 = load ptr, ptr %3, align 8, !tbaa !144
+  %6 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS2_EESt6vectorIS5_SaIS5_EEE4baseEv(ptr noundef nonnull align 8 dereferenceable(8) %5) #15
+  %7 = load ptr, ptr %6, align 8, !tbaa !59
+  %8 = load ptr, ptr %4, align 8, !tbaa !144
+  %9 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS2_EESt6vectorIS5_SaIS5_EEE4baseEv(ptr noundef nonnull align 8 dereferenceable(8) %8) #15
+  %10 = load ptr, ptr %9, align 8, !tbaa !59
   %11 = icmp eq ptr %7, %10
   ret i1 %11
 }
@@ -4678,12 +4932,12 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN9__gnu_cxxeqIPKSt10unique_p
 define linkonce_odr dso_local ptr @_ZNKSt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #0 comdat align 2 {
   %2 = alloca %"class.__gnu_cxx::__normal_iterator.36", align 8
   %3 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !23
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds %"struct.std::_Vector_base.1", ptr %4, i32 0, i32 0
-  %6 = getelementptr inbounds %"struct.std::_Vector_base<std::unique_ptr<cmGeneratorExpressionEvaluator>, std::allocator<std::unique_ptr<cmGeneratorExpressionEvaluator>>>::_Vector_impl_data", ptr %5, i32 0, i32 0
-  call void @_ZN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS2_EESt6vectorIS5_SaIS5_EEEC2ERKS7_(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %6) #11
-  %7 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.36", ptr %2, i32 0, i32 0
+  %5 = getelementptr inbounds nuw %"struct.std::_Vector_base.1", ptr %4, i32 0, i32 0
+  %6 = getelementptr inbounds nuw %"struct.std::_Vector_base<std::unique_ptr<cmGeneratorExpressionEvaluator>, std::allocator<std::unique_ptr<cmGeneratorExpressionEvaluator>>>::_Vector_impl_data", ptr %5, i32 0, i32 0
+  call void @_ZN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS2_EESt6vectorIS5_SaIS5_EEEC2ERKS7_(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %6) #15
+  %7 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator.36", ptr %2, i32 0, i32 0
   %8 = load ptr, ptr %7, align 8
   ret ptr %8
 }
@@ -4692,12 +4946,12 @@ define linkonce_odr dso_local ptr @_ZNKSt6vectorISt10unique_ptrI30cmGeneratorExp
 define linkonce_odr dso_local ptr @_ZNKSt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #0 comdat align 2 {
   %2 = alloca %"class.__gnu_cxx::__normal_iterator.36", align 8
   %3 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !23
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds %"struct.std::_Vector_base.1", ptr %4, i32 0, i32 0
-  %6 = getelementptr inbounds %"struct.std::_Vector_base<std::unique_ptr<cmGeneratorExpressionEvaluator>, std::allocator<std::unique_ptr<cmGeneratorExpressionEvaluator>>>::_Vector_impl_data", ptr %5, i32 0, i32 1
-  call void @_ZN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS2_EESt6vectorIS5_SaIS5_EEEC2ERKS7_(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %6) #11
-  %7 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.36", ptr %2, i32 0, i32 0
+  %5 = getelementptr inbounds nuw %"struct.std::_Vector_base.1", ptr %4, i32 0, i32 0
+  %6 = getelementptr inbounds nuw %"struct.std::_Vector_base<std::unique_ptr<cmGeneratorExpressionEvaluator>, std::allocator<std::unique_ptr<cmGeneratorExpressionEvaluator>>>::_Vector_impl_data", ptr %5, i32 0, i32 1
+  call void @_ZN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS2_EESt6vectorIS5_SaIS5_EEEC2ERKS7_(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %6) #15
+  %7 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator.36", ptr %2, i32 0, i32 0
   %8 = load ptr, ptr %7, align 8
   ret ptr %8
 }
@@ -4705,96 +4959,95 @@ define linkonce_odr dso_local ptr @_ZNKSt6vectorISt10unique_ptrI30cmGeneratorExp
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef ptr @_ZNKSt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS0_EE3getEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !59
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"class.std::unique_ptr.12", ptr %3, i32 0, i32 0
-  %5 = call noundef ptr @_ZNKSt15__uniq_ptr_implI30cmGeneratorExpressionEvaluatorSt14default_deleteIS0_EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(8) %4) #11
+  %4 = getelementptr inbounds nuw %"class.std::unique_ptr.12", ptr %3, i32 0, i32 0
+  %5 = call noundef ptr @_ZNKSt15__uniq_ptr_implI30cmGeneratorExpressionEvaluatorSt14default_deleteIS0_EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(8) %4) #15
   ret ptr %5
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef ptr @_ZNKSt15__uniq_ptr_implI30cmGeneratorExpressionEvaluatorSt14default_deleteIS0_EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !152
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"class.std::__uniq_ptr_impl.14", ptr %3, i32 0, i32 0
-  %5 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt3getILm0EJP30cmGeneratorExpressionEvaluatorSt14default_deleteIS0_EEERKNSt13tuple_elementIXT_ESt5tupleIJDpT0_EEE4typeERKS8_(ptr noundef nonnull align 8 dereferenceable(8) %4) #11
-  %6 = load ptr, ptr %5, align 8
+  %4 = getelementptr inbounds nuw %"class.std::__uniq_ptr_impl.14", ptr %3, i32 0, i32 0
+  %5 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt3getILm0EJP30cmGeneratorExpressionEvaluatorSt14default_deleteIS0_EEERKNSt13tuple_elementIXT_ESt5tupleIJDpT0_EEE4typeERKS8_(ptr noundef nonnull align 8 dereferenceable(8) %4) #15
+  %6 = load ptr, ptr %5, align 8, !tbaa !63
   ret ptr %6
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZSt3getILm0EJP30cmGeneratorExpressionEvaluatorSt14default_deleteIS0_EEERKNSt13tuple_elementIXT_ESt5tupleIJDpT0_EEE4typeERKS8_(ptr noundef nonnull align 8 dereferenceable(8) %0) #0 comdat {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  %4 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt12__get_helperILm0EP30cmGeneratorExpressionEvaluatorJSt14default_deleteIS0_EEERKT0_RKSt11_Tuple_implIXT_EJS4_DpT1_EE(ptr noundef nonnull align 8 dereferenceable(8) %3) #11
+  store ptr %0, ptr %2, align 8, !tbaa !156
+  %3 = load ptr, ptr %2, align 8, !tbaa !156
+  %4 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt12__get_helperILm0EP30cmGeneratorExpressionEvaluatorJSt14default_deleteIS0_EEERKT0_RKSt11_Tuple_implIXT_EJS4_DpT1_EE(ptr noundef nonnull align 8 dereferenceable(8) %3) #15
   ret ptr %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZSt12__get_helperILm0EP30cmGeneratorExpressionEvaluatorJSt14default_deleteIS0_EEERKT0_RKSt11_Tuple_implIXT_EJS4_DpT1_EE(ptr noundef nonnull align 8 dereferenceable(8) %0) #0 comdat {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  %4 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt11_Tuple_implILm0EJP30cmGeneratorExpressionEvaluatorSt14default_deleteIS0_EEE7_M_headERKS4_(ptr noundef nonnull align 8 dereferenceable(8) %3) #11
+  store ptr %0, ptr %2, align 8, !tbaa !158
+  %3 = load ptr, ptr %2, align 8, !tbaa !158
+  %4 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt11_Tuple_implILm0EJP30cmGeneratorExpressionEvaluatorSt14default_deleteIS0_EEE7_M_headERKS4_(ptr noundef nonnull align 8 dereferenceable(8) %3) #15
   ret ptr %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt11_Tuple_implILm0EJP30cmGeneratorExpressionEvaluatorSt14default_deleteIS0_EEE7_M_headERKS4_(ptr noundef nonnull align 8 dereferenceable(8) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  %4 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt10_Head_baseILm0EP30cmGeneratorExpressionEvaluatorLb0EE7_M_headERKS2_(ptr noundef nonnull align 8 dereferenceable(8) %3) #11
+  store ptr %0, ptr %2, align 8, !tbaa !158
+  %3 = load ptr, ptr %2, align 8, !tbaa !158
+  %4 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt10_Head_baseILm0EP30cmGeneratorExpressionEvaluatorLb0EE7_M_headERKS2_(ptr noundef nonnull align 8 dereferenceable(8) %3) #15
   ret ptr %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt10_Head_baseILm0EP30cmGeneratorExpressionEvaluatorLb0EE7_M_headERKS2_(ptr noundef nonnull align 8 dereferenceable(8) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"struct.std::_Head_base.19", ptr %3, i32 0, i32 0
+  store ptr %0, ptr %2, align 8, !tbaa !160
+  %3 = load ptr, ptr %2, align 8, !tbaa !160
+  %4 = getelementptr inbounds nuw %"struct.std::_Head_base.19", ptr %3, i32 0, i32 0
   ret ptr %4
 }
 
 ; Function Attrs: nobuiltin allocsize(0)
-declare noundef nonnull ptr @_Znwm(i64 noundef) #4
+declare noundef nonnull ptr @_Znwm(i64 noundef) #7
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN11TextContentC2EPKcm(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %1, i64 noundef %2) unnamed_addr #0 comdat align 2 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca i64, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store i64 %2, ptr %6, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !93
+  store ptr %1, ptr %5, align 8, !tbaa !54
+  store i64 %2, ptr %6, align 8, !tbaa !39
   %7 = load ptr, ptr %4, align 8
-  call void @_ZN30cmGeneratorExpressionEvaluatorC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #11
-  %8 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTV11TextContent, i32 0, i32 0, i32 2
-  store ptr %8, ptr %7, align 8
-  %9 = getelementptr inbounds %struct.TextContent, ptr %7, i32 0, i32 1
-  %10 = load ptr, ptr %5, align 8
-  store ptr %10, ptr %9, align 8
-  %11 = getelementptr inbounds %struct.TextContent, ptr %7, i32 0, i32 2
-  %12 = load i64, ptr %6, align 8
-  store i64 %12, ptr %11, align 8
+  call void @_ZN30cmGeneratorExpressionEvaluatorC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #15
+  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTV11TextContent, i32 0, i32 0, i32 2), ptr %7, align 8, !tbaa !33
+  %8 = getelementptr inbounds nuw %struct.TextContent, ptr %7, i32 0, i32 1
+  %9 = load ptr, ptr %5, align 8, !tbaa !54
+  store ptr %9, ptr %8, align 8, !tbaa !181
+  %10 = getelementptr inbounds nuw %struct.TextContent, ptr %7, i32 0, i32 2
+  %11 = load i64, ptr %6, align 8, !tbaa !39
+  store i64 %11, ptr %10, align 8, !tbaa !95
   ret void
 }
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPv(ptr noundef) #5
+declare void @_ZdlPvm(ptr noundef, i64 noundef) #8
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZNSt10unique_ptrI11TextContentSt14default_deleteIS0_EEC2IS2_vEEPS0_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !98
+  store ptr %1, ptr %4, align 8, !tbaa !93
   %5 = load ptr, ptr %3, align 8
-  %6 = getelementptr inbounds %"class.std::unique_ptr.28", ptr %5, i32 0, i32 0
-  %7 = load ptr, ptr %4, align 8
+  %6 = getelementptr inbounds nuw %"class.std::unique_ptr.28", ptr %5, i32 0, i32 0
+  %7 = load ptr, ptr %4, align 8, !tbaa !93
   invoke void @_ZNSt15__uniq_ptr_dataI11TextContentSt14default_deleteIS0_ELb1ELb1EECI2St15__uniq_ptr_implIS0_S2_EEPS0_(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef %7)
           to label %8 unwind label %9
 
@@ -4805,43 +5058,40 @@ define linkonce_odr dso_local void @_ZNSt10unique_ptrI11TextContentSt14default_d
   %10 = landingpad { ptr, i32 }
           catch ptr null
   %11 = extractvalue { ptr, i32 } %10, 0
-  call void @__clang_call_terminate(ptr %11) #14
+  call void @__clang_call_terminate(ptr %11) #18
   unreachable
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN30cmGeneratorExpressionEvaluatorC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !63
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTV30cmGeneratorExpressionEvaluator, i32 0, i32 0, i32 2
-  store ptr %4, ptr %3, align 8
+  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTV30cmGeneratorExpressionEvaluator, i32 0, i32 0, i32 2), ptr %3, align 8, !tbaa !33
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN11TextContentD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #0 comdat align 2 {
+define linkonce_odr dso_local void @_ZN30cmGeneratorExpressionEvaluatorD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  call void @_ZN30cmGeneratorExpressionEvaluatorD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #11
+  store ptr %0, ptr %2, align 8, !tbaa !63
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN11TextContentD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #0 comdat align 2 {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN11TextContentD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #4 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !93
   %3 = load ptr, ptr %2, align 8
-  call void @_ZN11TextContentD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #11
-  call void @_ZdlPv(ptr noundef %3) #13
+  call void @_ZN30cmGeneratorExpressionEvaluatorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #15
+  call void @_ZdlPvm(ptr noundef %3, i64 noundef 24) #17
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef i32 @_ZNK11TextContent7GetTypeEv(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !93
   ret i32 0
 }
 
@@ -4855,20 +5105,22 @@ define linkonce_odr dso_local void @_ZNK11TextContent8EvaluateB5cxx11EP28cmGener
   %10 = alloca ptr, align 8
   %11 = alloca i32, align 4
   store ptr %0, ptr %5, align 8
-  store ptr %1, ptr %6, align 8
-  store ptr %2, ptr %7, align 8
-  store ptr %3, ptr %8, align 8
+  store ptr %1, ptr %6, align 8, !tbaa !93
+  store ptr %2, ptr %7, align 8, !tbaa !182
+  store ptr %3, ptr %8, align 8, !tbaa !184
   %12 = load ptr, ptr %6, align 8
-  %13 = getelementptr inbounds %struct.TextContent, ptr %12, i32 0, i32 1
-  %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds %struct.TextContent, ptr %12, i32 0, i32 2
-  %16 = load i64, ptr %15, align 8
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %9) #11
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcmRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %14, i64 noundef %16, ptr noundef nonnull align 1 dereferenceable(1) %9)
+  %13 = getelementptr inbounds nuw %struct.TextContent, ptr %12, i32 0, i32 1
+  %14 = load ptr, ptr %13, align 8, !tbaa !181
+  %15 = getelementptr inbounds nuw %struct.TextContent, ptr %12, i32 0, i32 2
+  %16 = load i64, ptr %15, align 8, !tbaa !95
+  call void @llvm.lifetime.start.p0(i64 1, ptr %9) #15
+  call void @_ZNSaIcEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %9) #15
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EPKcmRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %14, i64 noundef %16, ptr noundef nonnull align 1 dereferenceable(1) %9)
           to label %17 unwind label %18
 
 17:                                               ; preds = %4
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %9) #11
+  call void @_ZNSt15__new_allocatorIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %9) #15
+  call void @llvm.lifetime.end.p0(i64 1, ptr %9) #15
   ret void
 
 18:                                               ; preds = %4
@@ -4878,7 +5130,8 @@ define linkonce_odr dso_local void @_ZNK11TextContent8EvaluateB5cxx11EP28cmGener
   store ptr %20, ptr %10, align 8
   %21 = extractvalue { ptr, i32 } %19, 1
   store i32 %21, ptr %11, align 4
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %9) #11
+  call void @_ZNSt15__new_allocatorIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %9) #15
+  call void @llvm.lifetime.end.p0(i64 1, ptr %9) #15
   br label %22
 
 22:                                               ; preds = %18
@@ -4890,41 +5143,644 @@ define linkonce_odr dso_local void @_ZNK11TextContent8EvaluateB5cxx11EP28cmGener
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN30cmGeneratorExpressionEvaluatorD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #0 comdat align 2 {
-  %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  ret void
-}
-
-; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN30cmGeneratorExpressionEvaluatorD0Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  call void @llvm.trap() #14
+  store ptr %0, ptr %2, align 8, !tbaa !63
+  call void @llvm.trap() #18
   unreachable
 }
 
 declare void @__cxa_pure_virtual() unnamed_addr
 
 ; Function Attrs: cold noreturn nounwind memory(inaccessiblemem: write)
-declare void @llvm.trap() #6
+declare void @llvm.trap() #9
 
-; Function Attrs: nounwind
-declare void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #7
-
-declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcmRKS3_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef, i64 noundef, ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #8
-
-; Function Attrs: nounwind
-declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #7
+; Function Attrs: mustprogress nounwind uwtable
+define available_externally void @_ZNSaIcEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #0 align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !186
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZNSt15__new_allocatorIcEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #15
+  ret void
+}
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZNSt15__uniq_ptr_dataI11TextContentSt14default_deleteIS0_ELb1ELb1EECI2St15__uniq_ptr_implIS0_S2_EEPS0_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #1 comdat align 2 {
+define available_externally void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EPKcmRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1, i64 noundef %2, ptr noundef nonnull align 1 dereferenceable(1) %3) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i64, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca i32, align 4
+  store ptr %0, ptr %5, align 8, !tbaa !188
+  store ptr %1, ptr %6, align 8, !tbaa !54
+  store i64 %2, ptr %7, align 8, !tbaa !39
+  store ptr %3, ptr %8, align 8, !tbaa !186
+  %11 = load ptr, ptr %5, align 8
+  %12 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %11, i32 0, i32 0
+  %13 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %11)
+  %14 = load ptr, ptr %8, align 8, !tbaa !186
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC2EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef %13, ptr noundef nonnull align 1 dereferenceable(1) %14)
+  %15 = load ptr, ptr %6, align 8, !tbaa !54
+  %16 = icmp eq ptr %15, null
+  br i1 %16, label %17, label %26
+
+17:                                               ; preds = %4
+  %18 = load i64, ptr %7, align 8, !tbaa !39
+  %19 = icmp ugt i64 %18, 0
+  br i1 %19, label %20, label %26
+
+20:                                               ; preds = %17
+  invoke void @_ZSt19__throw_logic_errorPKc(ptr noundef @.str) #19
+          to label %21 unwind label %22
+
+21:                                               ; preds = %20
+  unreachable
+
+22:                                               ; preds = %26, %20
+  %23 = landingpad { ptr, i32 }
+          cleanup
+  %24 = extractvalue { ptr, i32 } %23, 0
+  store ptr %24, ptr %9, align 8
+  %25 = extractvalue { ptr, i32 } %23, 1
+  store i32 %25, ptr %10, align 4
+  call void @_ZNSt15__new_allocatorIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %12) #15
+  br label %32
+
+26:                                               ; preds = %17, %4
+  %27 = load ptr, ptr %6, align 8, !tbaa !54
+  %28 = load ptr, ptr %6, align 8, !tbaa !54
+  %29 = load i64, ptr %7, align 8, !tbaa !39
+  %30 = getelementptr inbounds nuw i8, ptr %28, i64 %29
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef %27, ptr noundef %30)
+          to label %31 unwind label %22
+
+31:                                               ; preds = %26
+  ret void
+
+32:                                               ; preds = %22
+  %33 = load ptr, ptr %9, align 8
+  %34 = load i32, ptr %10, align 4
+  %35 = insertvalue { ptr, i32 } poison, ptr %33, 0
+  %36 = insertvalue { ptr, i32 } %35, i32 %34, 1
+  resume { ptr, i32 } %36
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZNSt15__new_allocatorIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !190
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZNSt15__new_allocatorIcEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !190
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define available_externally noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #0 align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !188
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %3, i32 0, i32 2
+  %5 = getelementptr inbounds [16 x i8], ptr %4, i64 0, i64 0
+  %6 = call noundef ptr @_ZNSt19__ptr_traits_ptr_toIPccLb0EE10pointer_toERc(ptr noundef nonnull align 1 dereferenceable(1) %5) #15
+  ret ptr %6
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define available_externally void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC2EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %2) unnamed_addr #0 align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !192
+  store ptr %1, ptr %5, align 8, !tbaa !54
+  store ptr %2, ptr %6, align 8, !tbaa !186
+  %7 = load ptr, ptr %4, align 8
+  %8 = load ptr, ptr %6, align 8, !tbaa !186
+  call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef nonnull align 1 dereferenceable(1) %8) #15
+  %9 = getelementptr inbounds nuw %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", ptr %7, i32 0, i32 0
+  %10 = load ptr, ptr %5, align 8, !tbaa !54
+  store ptr %10, ptr %9, align 8, !tbaa !194
+  ret void
+}
+
+; Function Attrs: noreturn
+declare void @_ZSt19__throw_logic_errorPKc(ptr noundef) #10
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1, ptr noundef %2) #1 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i64, align 8
+  %8 = alloca %struct._Guard, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !188
+  store ptr %1, ptr %5, align 8, !tbaa !54
+  store ptr %2, ptr %6, align 8, !tbaa !54
+  %11 = load ptr, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #15
+  %12 = load ptr, ptr %5, align 8, !tbaa !54
+  %13 = load ptr, ptr %6, align 8, !tbaa !54
+  %14 = call noundef i64 @_ZSt8distanceIPKcENSt15iterator_traitsIT_E15difference_typeES3_S3_(ptr noundef %12, ptr noundef %13)
+  store i64 %14, ptr %7, align 8, !tbaa !39
+  %15 = load i64, ptr %7, align 8, !tbaa !39
+  %16 = icmp ugt i64 %15, 15
+  br i1 %16, label %17, label %20
+
+17:                                               ; preds = %3
+  %18 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull align 8 dereferenceable(8) %7, i64 noundef 0)
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEPc(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef %18)
+  %19 = load i64, ptr %7, align 8, !tbaa !39
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_capacityEm(ptr noundef nonnull align 8 dereferenceable(32) %11, i64 noundef %19)
+  br label %22
+
+20:                                               ; preds = %3
+  %21 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE17_M_use_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %11) #15
+  br label %22
+
+22:                                               ; preds = %20, %17
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #15
+  call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardC2EPS4_(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef %11)
+  %23 = invoke noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %11)
+          to label %24 unwind label %30
+
+24:                                               ; preds = %22
+  %25 = load ptr, ptr %5, align 8, !tbaa !54
+  %26 = load ptr, ptr %6, align 8, !tbaa !54
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %23, ptr noundef %25, ptr noundef %26) #15
+  %27 = getelementptr inbounds nuw %struct._Guard, ptr %8, i32 0, i32 0
+  store ptr null, ptr %27, align 8, !tbaa !196
+  %28 = load i64, ptr %7, align 8, !tbaa !39
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) %11, i64 noundef %28)
+          to label %29 unwind label %30
+
+29:                                               ; preds = %24
+  call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #15
+  ret void
+
+30:                                               ; preds = %24, %22
+  %31 = landingpad { ptr, i32 }
+          cleanup
+  %32 = extractvalue { ptr, i32 } %31, 0
+  store ptr %32, ptr %9, align 8
+  %33 = extractvalue { ptr, i32 } %31, 1
+  store i32 %33, ptr %10, align 4
+  call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #15
+  br label %34
+
+34:                                               ; preds = %30
+  %35 = load ptr, ptr %9, align 8
+  %36 = load i32, ptr %10, align 4
+  %37 = insertvalue { ptr, i32 } poison, ptr %35, 0
+  %38 = insertvalue { ptr, i32 } %37, i32 %36, 1
+  resume { ptr, i32 } %38
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef ptr @_ZNSt19__ptr_traits_ptr_toIPccLb0EE10pointer_toERc(ptr noundef nonnull align 1 dereferenceable(1) %0) #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !54
+  %3 = load ptr, ptr %2, align 8, !tbaa !54
+  ret ptr %3
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define available_externally void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %1) unnamed_addr #0 align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !186
+  store ptr %1, ptr %4, align 8, !tbaa !186
   %5 = load ptr, ptr %3, align 8
-  %6 = load ptr, ptr %4, align 8
+  %6 = load ptr, ptr %4, align 8, !tbaa !186
+  call void @_ZNSt15__new_allocatorIcEC2ERKS0_(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull align 1 dereferenceable(1) %6) #15
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZNSt15__new_allocatorIcEC2ERKS0_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %1) unnamed_addr #0 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !190
+  store ptr %1, ptr %4, align 8, !tbaa !190
+  ret void
+}
+
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr dso_local noundef i64 @_ZSt8distanceIPKcENSt15iterator_traitsIT_E15difference_typeES3_S3_(ptr noundef %0, ptr noundef %1) #5 comdat {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !54
+  store ptr %1, ptr %4, align 8, !tbaa !54
+  %5 = load ptr, ptr %3, align 8, !tbaa !54
+  %6 = load ptr, ptr %4, align 8, !tbaa !54
+  call void @_ZSt19__iterator_categoryIPKcENSt15iterator_traitsIT_E17iterator_categoryERKS3_(ptr noundef nonnull align 8 dereferenceable(8) %3)
+  %7 = call noundef i64 @_ZSt10__distanceIPKcENSt15iterator_traitsIT_E15difference_typeES3_S3_St26random_access_iterator_tag(ptr noundef %5, ptr noundef %6)
+  ret i64 %7
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define available_externally void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEPc(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1) #0 align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !188
+  store ptr %1, ptr %4, align 8, !tbaa !54
+  %5 = load ptr, ptr %3, align 8
+  %6 = load ptr, ptr %4, align 8, !tbaa !54
+  %7 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %5, i32 0, i32 0
+  %8 = getelementptr inbounds nuw %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", ptr %7, i32 0, i32 0
+  store ptr %6, ptr %8, align 8, !tbaa !198
+  ret void
+}
+
+declare noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(8), i64 noundef) #11
+
+; Function Attrs: mustprogress nounwind uwtable
+define available_externally void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_capacityEm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %1) #0 align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !188
+  store i64 %1, ptr %4, align 8, !tbaa !39
+  %5 = load ptr, ptr %3, align 8
+  %6 = load i64, ptr %4, align 8, !tbaa !39
+  %7 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %5, i32 0, i32 2
+  store i64 %6, ptr %7, align 8, !tbaa !200
+  ret void
+}
+
+; Function Attrs: alwaysinline mustprogress nounwind uwtable
+define available_externally noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE17_M_use_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #12 align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !188
+  %3 = load ptr, ptr %2, align 8
+  %4 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %3)
+  ret ptr %4
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardC2EPS4_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #0 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !201
+  store ptr %1, ptr %4, align 8, !tbaa !188
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds nuw %struct._Guard, ptr %5, i32 0, i32 0
+  %7 = load ptr, ptr %4, align 8, !tbaa !188
+  store ptr %7, ptr %6, align 8, !tbaa !196
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define available_externally void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 align 2 personality ptr @__gxx_personality_v0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !54
+  store ptr %1, ptr %5, align 8, !tbaa !54
+  store ptr %2, ptr %6, align 8, !tbaa !54
+  %7 = load ptr, ptr %4, align 8, !tbaa !54
+  %8 = load ptr, ptr %5, align 8, !tbaa !54
+  %9 = load ptr, ptr %6, align 8, !tbaa !54
+  %10 = load ptr, ptr %5, align 8, !tbaa !54
+  %11 = ptrtoint ptr %9 to i64
+  %12 = ptrtoint ptr %10 to i64
+  %13 = sub i64 %11, %12
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_S_copyEPcPKcm(ptr noundef %7, ptr noundef %8, i64 noundef %13)
+          to label %14 unwind label %15
+
+14:                                               ; preds = %3
+  ret void
+
+15:                                               ; preds = %3
+  %16 = landingpad { ptr, i32 }
+          catch ptr null
+  %17 = extractvalue { ptr, i32 } %16, 0
+  call void @__clang_call_terminate(ptr %17) #18
+  unreachable
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define available_externally noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #0 align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !188
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %3, i32 0, i32 0
+  %5 = getelementptr inbounds nuw %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", ptr %4, i32 0, i32 0
+  %6 = load ptr, ptr %5, align 8, !tbaa !198
+  ret ptr %6
+}
+
+; Function Attrs: mustprogress uwtable
+define available_externally void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %1) #1 align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  %5 = alloca i8, align 1
+  store ptr %0, ptr %3, align 8, !tbaa !188
+  store i64 %1, ptr %4, align 8, !tbaa !39
+  %6 = load ptr, ptr %3, align 8
+  %7 = load i64, ptr %4, align 8, !tbaa !39
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) %6, i64 noundef %7)
+  %8 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %6)
+  %9 = load i64, ptr %4, align 8, !tbaa !39
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 %9
+  call void @llvm.lifetime.start.p0(i64 1, ptr %5) #15
+  store i8 0, ptr %5, align 1, !tbaa !200
+  call void @_ZNSt11char_traitsIcE6assignERcRKc(ptr noundef nonnull align 1 dereferenceable(1) %10, ptr noundef nonnull align 1 dereferenceable(1) %5) #15
+  call void @llvm.lifetime.end.p0(i64 1, ptr %5) #15
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !201
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %struct._Guard, ptr %3, i32 0, i32 0
+  %5 = load ptr, ptr %4, align 8, !tbaa !196
+  %6 = icmp ne ptr %5, null
+  br i1 %6, label %7, label %11
+
+7:                                                ; preds = %1
+  %8 = getelementptr inbounds nuw %struct._Guard, ptr %3, i32 0, i32 0
+  %9 = load ptr, ptr %8, align 8, !tbaa !196
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_disposeEv(ptr noundef nonnull align 8 dereferenceable(32) %9)
+          to label %10 unwind label %12
+
+10:                                               ; preds = %7
+  br label %11
+
+11:                                               ; preds = %10, %1
+  ret void
+
+12:                                               ; preds = %7
+  %13 = landingpad { ptr, i32 }
+          catch ptr null
+  %14 = extractvalue { ptr, i32 } %13, 0
+  call void @__clang_call_terminate(ptr %14) #18
+  unreachable
+}
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef i64 @_ZSt10__distanceIPKcENSt15iterator_traitsIT_E15difference_typeES3_S3_St26random_access_iterator_tag(ptr noundef %0, ptr noundef %1) #4 comdat {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !54
+  store ptr %1, ptr %4, align 8, !tbaa !54
+  %5 = load ptr, ptr %4, align 8, !tbaa !54
+  %6 = load ptr, ptr %3, align 8, !tbaa !54
+  %7 = ptrtoint ptr %5 to i64
+  %8 = ptrtoint ptr %6 to i64
+  %9 = sub i64 %7, %8
+  ret i64 %9
+}
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZSt19__iterator_categoryIPKcENSt15iterator_traitsIT_E17iterator_categoryERKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0) #4 comdat {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !50
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define available_externally void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_S_copyEPcPKcm(ptr noundef %0, ptr noundef %1, i64 noundef %2) #1 align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i64, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !54
+  store ptr %1, ptr %5, align 8, !tbaa !54
+  store i64 %2, ptr %6, align 8, !tbaa !39
+  %7 = load i64, ptr %6, align 8, !tbaa !39
+  %8 = icmp eq i64 %7, 1
+  br i1 %8, label %9, label %12
+
+9:                                                ; preds = %3
+  %10 = load ptr, ptr %4, align 8, !tbaa !54
+  %11 = load ptr, ptr %5, align 8, !tbaa !54
+  call void @_ZNSt11char_traitsIcE6assignERcRKc(ptr noundef nonnull align 1 dereferenceable(1) %10, ptr noundef nonnull align 1 dereferenceable(1) %11) #15
+  br label %17
+
+12:                                               ; preds = %3
+  %13 = load ptr, ptr %4, align 8, !tbaa !54
+  %14 = load ptr, ptr %5, align 8, !tbaa !54
+  %15 = load i64, ptr %6, align 8, !tbaa !39
+  %16 = call noundef ptr @_ZNSt11char_traitsIcE4copyEPcPKcm(ptr noundef %13, ptr noundef %14, i64 noundef %15)
+  br label %17
+
+17:                                               ; preds = %12, %9
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZNSt11char_traitsIcE6assignERcRKc(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %1) #0 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !54
+  store ptr %1, ptr %4, align 8, !tbaa !54
+  %5 = load ptr, ptr %4, align 8, !tbaa !54
+  %6 = load i8, ptr %5, align 1, !tbaa !200
+  %7 = load ptr, ptr %3, align 8, !tbaa !54
+  store i8 %6, ptr %7, align 1, !tbaa !200
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef ptr @_ZNSt11char_traitsIcE4copyEPcPKcm(ptr noundef %0, ptr noundef %1, i64 noundef %2) #0 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i64, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !54
+  store ptr %1, ptr %6, align 8, !tbaa !54
+  store i64 %2, ptr %7, align 8, !tbaa !39
+  %8 = load i64, ptr %7, align 8, !tbaa !39
+  %9 = icmp eq i64 %8, 0
+  br i1 %9, label %10, label %12
+
+10:                                               ; preds = %3
+  %11 = load ptr, ptr %5, align 8, !tbaa !54
+  store ptr %11, ptr %4, align 8
+  br label %16
+
+12:                                               ; preds = %3
+  %13 = load ptr, ptr %5, align 8, !tbaa !54
+  %14 = load ptr, ptr %6, align 8, !tbaa !54
+  %15 = load i64, ptr %7, align 8, !tbaa !39
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %13, ptr align 1 %14, i64 %15, i1 false)
+  store ptr %13, ptr %4, align 8
+  br label %16
+
+16:                                               ; preds = %12, %10
+  %17 = load ptr, ptr %4, align 8
+  ret ptr %17
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define available_externally void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %1) #0 align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !188
+  store i64 %1, ptr %4, align 8, !tbaa !39
+  %5 = load ptr, ptr %3, align 8
+  %6 = load i64, ptr %4, align 8, !tbaa !39
+  %7 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %5, i32 0, i32 1
+  store i64 %6, ptr %7, align 8, !tbaa !203
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define available_externally void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_disposeEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #1 align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !188
+  %3 = load ptr, ptr %2, align 8
+  %4 = call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv(ptr noundef nonnull align 8 dereferenceable(32) %3)
+  br i1 %4, label %8, label %5
+
+5:                                                ; preds = %1
+  %6 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %3, i32 0, i32 2
+  %7 = load i64, ptr %6, align 8, !tbaa !200
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_destroyEm(ptr noundef nonnull align 8 dereferenceable(32) %3, i64 noundef %7) #15
+  br label %8
+
+8:                                                ; preds = %5, %1
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define available_externally noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #1 align 2 {
+  %2 = alloca i1, align 1
+  %3 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !188
+  %4 = load ptr, ptr %3, align 8
+  %5 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %4)
+  %6 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %4)
+  %7 = icmp eq ptr %5, %6
+  br i1 %7, label %8, label %14
+
+8:                                                ; preds = %1
+  %9 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %4, i32 0, i32 1
+  %10 = load i64, ptr %9, align 8, !tbaa !203
+  %11 = icmp ugt i64 %10, 15
+  br i1 %11, label %12, label %13
+
+12:                                               ; preds = %8
+  unreachable
+
+13:                                               ; preds = %8
+  store i1 true, ptr %2, align 1
+  br label %15
+
+14:                                               ; preds = %1
+  store i1 false, ptr %2, align 1
+  br label %15
+
+15:                                               ; preds = %14, %13
+  %16 = load i1, ptr %2, align 1
+  ret i1 %16
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define available_externally void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_destroyEm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %1) #0 align 2 personality ptr @__gxx_personality_v0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !188
+  store i64 %1, ptr %4, align 8, !tbaa !39
+  %5 = load ptr, ptr %3, align 8
+  %6 = invoke noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE16_M_get_allocatorEv(ptr noundef nonnull align 8 dereferenceable(32) %5)
+          to label %7 unwind label %12
+
+7:                                                ; preds = %2
+  %8 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %5)
+  %9 = load i64, ptr %4, align 8, !tbaa !39
+  %10 = add i64 %9, 1
+  invoke void @_ZNSt16allocator_traitsISaIcEE10deallocateERS0_Pcm(ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef %8, i64 noundef %10)
+          to label %11 unwind label %12
+
+11:                                               ; preds = %7
+  ret void
+
+12:                                               ; preds = %7, %2
+  %13 = landingpad { ptr, i32 }
+          catch ptr null
+  %14 = extractvalue { ptr, i32 } %13, 0
+  call void @__clang_call_terminate(ptr %14) #18
+  unreachable
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define available_externally noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #0 align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !188
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %3, i32 0, i32 2
+  %5 = getelementptr inbounds [16 x i8], ptr %4, i64 0, i64 0
+  %6 = call noundef ptr @_ZNSt19__ptr_traits_ptr_toIPKcS0_Lb0EE10pointer_toERS0_(ptr noundef nonnull align 1 dereferenceable(1) %5) #15
+  ret ptr %6
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef ptr @_ZNSt19__ptr_traits_ptr_toIPKcS0_Lb0EE10pointer_toERS0_(ptr noundef nonnull align 1 dereferenceable(1) %0) #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !54
+  %3 = load ptr, ptr %2, align 8, !tbaa !54
+  ret ptr %3
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local void @_ZNSt16allocator_traitsISaIcEE10deallocateERS0_Pcm(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1, i64 noundef %2) #1 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i64, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !186
+  store ptr %1, ptr %5, align 8, !tbaa !54
+  store i64 %2, ptr %6, align 8, !tbaa !39
+  %7 = load ptr, ptr %4, align 8, !tbaa !186
+  %8 = load ptr, ptr %5, align 8, !tbaa !54
+  %9 = load i64, ptr %6, align 8, !tbaa !39
+  call void @_ZNSt15__new_allocatorIcE10deallocateEPcm(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef %8, i64 noundef %9)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define available_externally noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE16_M_get_allocatorEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #0 align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !188
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %3, i32 0, i32 0
+  ret ptr %4
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZNSt15__new_allocatorIcE10deallocateEPcm(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1, i64 noundef %2) #0 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i64, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !190
+  store ptr %1, ptr %5, align 8, !tbaa !54
+  store i64 %2, ptr %6, align 8, !tbaa !39
+  %7 = load ptr, ptr %5, align 8, !tbaa !54
+  %8 = load i64, ptr %6, align 8, !tbaa !39
+  %9 = mul i64 %8, 1
+  call void @_ZdlPvm(ptr noundef %7, i64 noundef %9) #17
+  ret void
+}
+
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr dso_local void @_ZNSt15__uniq_ptr_dataI11TextContentSt14default_deleteIS0_ELb1ELb1EECI2St15__uniq_ptr_implIS0_S2_EEPS0_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #5 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !204
+  store ptr %1, ptr %4, align 8, !tbaa !93
+  %5 = load ptr, ptr %3, align 8
+  %6 = load ptr, ptr %4, align 8, !tbaa !93
   call void @_ZNSt15__uniq_ptr_implI11TextContentSt14default_deleteIS0_EEC2EPS0_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef %6)
   ret void
 }
@@ -4933,21 +5789,21 @@ define linkonce_odr dso_local void @_ZNSt15__uniq_ptr_dataI11TextContentSt14defa
 define linkonce_odr dso_local void @_ZNSt15__uniq_ptr_implI11TextContentSt14default_deleteIS0_EEC2EPS0_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #0 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !206
+  store ptr %1, ptr %4, align 8, !tbaa !93
   %5 = load ptr, ptr %3, align 8
-  %6 = getelementptr inbounds %"class.std::__uniq_ptr_impl.30", ptr %5, i32 0, i32 0
-  call void @_ZNSt5tupleIJP11TextContentSt14default_deleteIS0_EEEC2ILb1ETnNSt9enable_ifIXclsr17_TupleConstraintsIXT_ES1_S3_EE37__is_implicitly_default_constructibleEEbE4typeELb1EEEv(ptr noundef nonnull align 8 dereferenceable(8) %6) #11
-  %7 = load ptr, ptr %4, align 8
-  %8 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt15__uniq_ptr_implI11TextContentSt14default_deleteIS0_EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(8) %5) #11
-  store ptr %7, ptr %8, align 8
+  %6 = getelementptr inbounds nuw %"class.std::__uniq_ptr_impl.30", ptr %5, i32 0, i32 0
+  call void @_ZNSt5tupleIJP11TextContentSt14default_deleteIS0_EEEC2ILb1ETnNSt9enable_ifIXclsr17_TupleConstraintsIXT_ES1_S3_EE37__is_implicitly_default_constructibleEEbE4typeELb1EEEv(ptr noundef nonnull align 8 dereferenceable(8) %6) #15
+  %7 = load ptr, ptr %4, align 8, !tbaa !93
+  %8 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt15__uniq_ptr_implI11TextContentSt14default_deleteIS0_EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(8) %5) #15
+  store ptr %7, ptr %8, align 8, !tbaa !93
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZNSt5tupleIJP11TextContentSt14default_deleteIS0_EEEC2ILb1ETnNSt9enable_ifIXclsr17_TupleConstraintsIXT_ES1_S3_EE37__is_implicitly_default_constructibleEEbE4typeELb1EEEv(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !208
   %3 = load ptr, ptr %2, align 8
   invoke void @_ZNSt11_Tuple_implILm0EJP11TextContentSt14default_deleteIS0_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
           to label %4 unwind label %5
@@ -4959,24 +5815,24 @@ define linkonce_odr dso_local void @_ZNSt5tupleIJP11TextContentSt14default_delet
   %6 = landingpad { ptr, i32 }
           catch ptr null
   %7 = extractvalue { ptr, i32 } %6, 0
-  call void @__clang_call_terminate(ptr %7) #14
+  call void @__clang_call_terminate(ptr %7) #18
   unreachable
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt15__uniq_ptr_implI11TextContentSt14default_deleteIS0_EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !206
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"class.std::__uniq_ptr_impl.30", ptr %3, i32 0, i32 0
-  %5 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt3getILm0EJP11TextContentSt14default_deleteIS0_EEERNSt13tuple_elementIXT_ESt5tupleIJDpT0_EEE4typeERS8_(ptr noundef nonnull align 8 dereferenceable(8) %4) #11
+  %4 = getelementptr inbounds nuw %"class.std::__uniq_ptr_impl.30", ptr %3, i32 0, i32 0
+  %5 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt3getILm0EJP11TextContentSt14default_deleteIS0_EEERNSt13tuple_elementIXT_ESt5tupleIJDpT0_EEE4typeERS8_(ptr noundef nonnull align 8 dereferenceable(8) %4) #15
   ret ptr %5
 }
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNSt11_Tuple_implILm0EJP11TextContentSt14default_deleteIS0_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #1 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !210
   %3 = load ptr, ptr %2, align 8
   call void @_ZNSt11_Tuple_implILm1EJSt14default_deleteI11TextContentEEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3)
   call void @_ZNSt10_Head_baseILm0EP11TextContentLb0EEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
@@ -4986,7 +5842,7 @@ define linkonce_odr dso_local void @_ZNSt11_Tuple_implILm0EJP11TextContentSt14de
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNSt11_Tuple_implILm1EJSt14default_deleteI11TextContentEEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #1 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !212
   %3 = load ptr, ptr %2, align 8
   call void @_ZNSt10_Head_baseILm1ESt14default_deleteI11TextContentELb1EEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3)
   ret void
@@ -4995,63 +5851,63 @@ define linkonce_odr dso_local void @_ZNSt11_Tuple_implILm1EJSt14default_deleteI1
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZNSt10_Head_baseILm0EP11TextContentLb0EEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !214
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"struct.std::_Head_base.35", ptr %3, i32 0, i32 0
-  store ptr null, ptr %4, align 8
+  %4 = getelementptr inbounds nuw %"struct.std::_Head_base.35", ptr %3, i32 0, i32 0
+  store ptr null, ptr %4, align 8, !tbaa !216
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZNSt10_Head_baseILm1ESt14default_deleteI11TextContentELb1EEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !218
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZSt3getILm0EJP11TextContentSt14default_deleteIS0_EEERNSt13tuple_elementIXT_ESt5tupleIJDpT0_EEE4typeERS8_(ptr noundef nonnull align 8 dereferenceable(8) %0) #0 comdat {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  %4 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt12__get_helperILm0EP11TextContentJSt14default_deleteIS0_EEERT0_RSt11_Tuple_implIXT_EJS4_DpT1_EE(ptr noundef nonnull align 8 dereferenceable(8) %3) #11
+  store ptr %0, ptr %2, align 8, !tbaa !208
+  %3 = load ptr, ptr %2, align 8, !tbaa !208
+  %4 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt12__get_helperILm0EP11TextContentJSt14default_deleteIS0_EEERT0_RSt11_Tuple_implIXT_EJS4_DpT1_EE(ptr noundef nonnull align 8 dereferenceable(8) %3) #15
   ret ptr %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZSt12__get_helperILm0EP11TextContentJSt14default_deleteIS0_EEERT0_RSt11_Tuple_implIXT_EJS4_DpT1_EE(ptr noundef nonnull align 8 dereferenceable(8) %0) #0 comdat {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  %4 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt11_Tuple_implILm0EJP11TextContentSt14default_deleteIS0_EEE7_M_headERS4_(ptr noundef nonnull align 8 dereferenceable(8) %3) #11
+  store ptr %0, ptr %2, align 8, !tbaa !210
+  %3 = load ptr, ptr %2, align 8, !tbaa !210
+  %4 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt11_Tuple_implILm0EJP11TextContentSt14default_deleteIS0_EEE7_M_headERS4_(ptr noundef nonnull align 8 dereferenceable(8) %3) #15
   ret ptr %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt11_Tuple_implILm0EJP11TextContentSt14default_deleteIS0_EEE7_M_headERS4_(ptr noundef nonnull align 8 dereferenceable(8) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  %4 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt10_Head_baseILm0EP11TextContentLb0EE7_M_headERS2_(ptr noundef nonnull align 8 dereferenceable(8) %3) #11
+  store ptr %0, ptr %2, align 8, !tbaa !210
+  %3 = load ptr, ptr %2, align 8, !tbaa !210
+  %4 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt10_Head_baseILm0EP11TextContentLb0EE7_M_headERS2_(ptr noundef nonnull align 8 dereferenceable(8) %3) #15
   ret ptr %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt10_Head_baseILm0EP11TextContentLb0EE7_M_headERS2_(ptr noundef nonnull align 8 dereferenceable(8) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"struct.std::_Head_base.35", ptr %3, i32 0, i32 0
+  store ptr %0, ptr %2, align 8, !tbaa !214
+  %3 = load ptr, ptr %2, align 8, !tbaa !214
+  %4 = getelementptr inbounds nuw %"struct.std::_Head_base.35", ptr %3, i32 0, i32 0
   ret ptr %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt10unique_ptrI11TextContentSt14default_deleteIS0_EE11get_deleterEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !98
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"class.std::unique_ptr.28", ptr %3, i32 0, i32 0
-  %5 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt15__uniq_ptr_implI11TextContentSt14default_deleteIS0_EE10_M_deleterEv(ptr noundef nonnull align 8 dereferenceable(8) %4) #11
+  %4 = getelementptr inbounds nuw %"class.std::unique_ptr.28", ptr %3, i32 0, i32 0
+  %5 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt15__uniq_ptr_implI11TextContentSt14default_deleteIS0_EE10_M_deleterEv(ptr noundef nonnull align 8 dereferenceable(8) %4) #15
   ret ptr %5
 }
 
@@ -5059,17 +5915,17 @@ define linkonce_odr dso_local noundef nonnull align 1 dereferenceable(1) ptr @_Z
 define linkonce_odr dso_local void @_ZNKSt14default_deleteI11TextContentEclEPS0_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1) #0 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  %5 = load ptr, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !220
+  store ptr %1, ptr %4, align 8, !tbaa !93
+  %5 = load ptr, ptr %4, align 8, !tbaa !93
   %6 = icmp eq ptr %5, null
   br i1 %6, label %11, label %7
 
 7:                                                ; preds = %2
-  %8 = load ptr, ptr %5, align 8
+  %8 = load ptr, ptr %5, align 8, !tbaa !33
   %9 = getelementptr inbounds ptr, ptr %8, i64 1
   %10 = load ptr, ptr %9, align 8
-  call void %10(ptr noundef nonnull align 8 dereferenceable(24) %5) #11
+  call void %10(ptr noundef nonnull align 8 dereferenceable(24) %5) #15
   br label %11
 
 11:                                               ; preds = %7, %2
@@ -5079,45 +5935,45 @@ define linkonce_odr dso_local void @_ZNKSt14default_deleteI11TextContentEclEPS0_
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt15__uniq_ptr_implI11TextContentSt14default_deleteIS0_EE10_M_deleterEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !206
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"class.std::__uniq_ptr_impl.30", ptr %3, i32 0, i32 0
-  %5 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZSt3getILm1EJP11TextContentSt14default_deleteIS0_EEERNSt13tuple_elementIXT_ESt5tupleIJDpT0_EEE4typeERS8_(ptr noundef nonnull align 8 dereferenceable(8) %4) #11
+  %4 = getelementptr inbounds nuw %"class.std::__uniq_ptr_impl.30", ptr %3, i32 0, i32 0
+  %5 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZSt3getILm1EJP11TextContentSt14default_deleteIS0_EEERNSt13tuple_elementIXT_ESt5tupleIJDpT0_EEE4typeERS8_(ptr noundef nonnull align 8 dereferenceable(8) %4) #15
   ret ptr %5
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef nonnull align 1 dereferenceable(1) ptr @_ZSt3getILm1EJP11TextContentSt14default_deleteIS0_EEERNSt13tuple_elementIXT_ESt5tupleIJDpT0_EEE4typeERS8_(ptr noundef nonnull align 8 dereferenceable(8) %0) #0 comdat {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  %4 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZSt12__get_helperILm1ESt14default_deleteI11TextContentEJEERT0_RSt11_Tuple_implIXT_EJS3_DpT1_EE(ptr noundef nonnull align 1 dereferenceable(1) %3) #11
+  store ptr %0, ptr %2, align 8, !tbaa !208
+  %3 = load ptr, ptr %2, align 8, !tbaa !208
+  %4 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZSt12__get_helperILm1ESt14default_deleteI11TextContentEJEERT0_RSt11_Tuple_implIXT_EJS3_DpT1_EE(ptr noundef nonnull align 1 dereferenceable(1) %3) #15
   ret ptr %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef nonnull align 1 dereferenceable(1) ptr @_ZSt12__get_helperILm1ESt14default_deleteI11TextContentEJEERT0_RSt11_Tuple_implIXT_EJS3_DpT1_EE(ptr noundef nonnull align 1 dereferenceable(1) %0) #0 comdat {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  %4 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt11_Tuple_implILm1EJSt14default_deleteI11TextContentEEE7_M_headERS3_(ptr noundef nonnull align 1 dereferenceable(1) %3) #11
+  store ptr %0, ptr %2, align 8, !tbaa !212
+  %3 = load ptr, ptr %2, align 8, !tbaa !212
+  %4 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt11_Tuple_implILm1EJSt14default_deleteI11TextContentEEE7_M_headERS3_(ptr noundef nonnull align 1 dereferenceable(1) %3) #15
   ret ptr %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt11_Tuple_implILm1EJSt14default_deleteI11TextContentEEE7_M_headERS3_(ptr noundef nonnull align 1 dereferenceable(1) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  %4 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt10_Head_baseILm1ESt14default_deleteI11TextContentELb1EE7_M_headERS3_(ptr noundef nonnull align 1 dereferenceable(1) %3) #11
+  store ptr %0, ptr %2, align 8, !tbaa !212
+  %3 = load ptr, ptr %2, align 8, !tbaa !212
+  %4 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt10_Head_baseILm1ESt14default_deleteI11TextContentELb1EE7_M_headERS3_(ptr noundef nonnull align 1 dereferenceable(1) %3) #15
   ret ptr %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt10_Head_baseILm1ESt14default_deleteI11TextContentELb1EE7_M_headERS3_(ptr noundef nonnull align 1 dereferenceable(1) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !218
+  %3 = load ptr, ptr %2, align 8, !tbaa !218
   ret ptr %3
 }
 
@@ -5126,44 +5982,44 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_Z
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca %"class.__gnu_cxx::__normal_iterator.27", align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !23
+  store ptr %1, ptr %4, align 8, !tbaa !59
   %6 = load ptr, ptr %3, align 8
-  %7 = getelementptr inbounds %"struct.std::_Vector_base.1", ptr %6, i32 0, i32 0
-  %8 = getelementptr inbounds %"struct.std::_Vector_base<std::unique_ptr<cmGeneratorExpressionEvaluator>, std::allocator<std::unique_ptr<cmGeneratorExpressionEvaluator>>>::_Vector_impl_data", ptr %7, i32 0, i32 1
-  %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds %"struct.std::_Vector_base.1", ptr %6, i32 0, i32 0
-  %11 = getelementptr inbounds %"struct.std::_Vector_base<std::unique_ptr<cmGeneratorExpressionEvaluator>, std::allocator<std::unique_ptr<cmGeneratorExpressionEvaluator>>>::_Vector_impl_data", ptr %10, i32 0, i32 2
-  %12 = load ptr, ptr %11, align 8
+  %7 = getelementptr inbounds nuw %"struct.std::_Vector_base.1", ptr %6, i32 0, i32 0
+  %8 = getelementptr inbounds nuw %"struct.std::_Vector_base<std::unique_ptr<cmGeneratorExpressionEvaluator>, std::allocator<std::unique_ptr<cmGeneratorExpressionEvaluator>>>::_Vector_impl_data", ptr %7, i32 0, i32 1
+  %9 = load ptr, ptr %8, align 8, !tbaa !88
+  %10 = getelementptr inbounds nuw %"struct.std::_Vector_base.1", ptr %6, i32 0, i32 0
+  %11 = getelementptr inbounds nuw %"struct.std::_Vector_base<std::unique_ptr<cmGeneratorExpressionEvaluator>, std::allocator<std::unique_ptr<cmGeneratorExpressionEvaluator>>>::_Vector_impl_data", ptr %10, i32 0, i32 2
+  %12 = load ptr, ptr %11, align 8, !tbaa !125
   %13 = icmp ne ptr %9, %12
   br i1 %13, label %14, label %24
 
 14:                                               ; preds = %2
-  %15 = getelementptr inbounds %"struct.std::_Vector_base.1", ptr %6, i32 0, i32 0
-  %16 = getelementptr inbounds %"struct.std::_Vector_base.1", ptr %6, i32 0, i32 0
-  %17 = getelementptr inbounds %"struct.std::_Vector_base<std::unique_ptr<cmGeneratorExpressionEvaluator>, std::allocator<std::unique_ptr<cmGeneratorExpressionEvaluator>>>::_Vector_impl_data", ptr %16, i32 0, i32 1
-  %18 = load ptr, ptr %17, align 8
-  %19 = load ptr, ptr %4, align 8
-  call void @_ZNSt16allocator_traitsISaISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EEEE9constructIS4_JS4_EEEvRS5_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %15, ptr noundef %18, ptr noundef nonnull align 8 dereferenceable(8) %19) #11
-  %20 = getelementptr inbounds %"struct.std::_Vector_base.1", ptr %6, i32 0, i32 0
-  %21 = getelementptr inbounds %"struct.std::_Vector_base<std::unique_ptr<cmGeneratorExpressionEvaluator>, std::allocator<std::unique_ptr<cmGeneratorExpressionEvaluator>>>::_Vector_impl_data", ptr %20, i32 0, i32 1
-  %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds %"class.std::unique_ptr.12", ptr %22, i32 1
-  store ptr %23, ptr %21, align 8
+  %15 = getelementptr inbounds nuw %"struct.std::_Vector_base.1", ptr %6, i32 0, i32 0
+  %16 = getelementptr inbounds nuw %"struct.std::_Vector_base.1", ptr %6, i32 0, i32 0
+  %17 = getelementptr inbounds nuw %"struct.std::_Vector_base<std::unique_ptr<cmGeneratorExpressionEvaluator>, std::allocator<std::unique_ptr<cmGeneratorExpressionEvaluator>>>::_Vector_impl_data", ptr %16, i32 0, i32 1
+  %18 = load ptr, ptr %17, align 8, !tbaa !88
+  %19 = load ptr, ptr %4, align 8, !tbaa !59
+  call void @_ZNSt16allocator_traitsISaISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EEEE9constructIS4_JS4_EEEvRS5_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %15, ptr noundef %18, ptr noundef nonnull align 8 dereferenceable(8) %19) #15
+  %20 = getelementptr inbounds nuw %"struct.std::_Vector_base.1", ptr %6, i32 0, i32 0
+  %21 = getelementptr inbounds nuw %"struct.std::_Vector_base<std::unique_ptr<cmGeneratorExpressionEvaluator>, std::allocator<std::unique_ptr<cmGeneratorExpressionEvaluator>>>::_Vector_impl_data", ptr %20, i32 0, i32 1
+  %22 = load ptr, ptr %21, align 8, !tbaa !88
+  %23 = getelementptr inbounds nuw %"class.std::unique_ptr.12", ptr %22, i32 1
+  store ptr %23, ptr %21, align 8, !tbaa !88
   br label %30
 
 24:                                               ; preds = %2
-  %25 = call ptr @_ZNSt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %6) #11
-  %26 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.27", ptr %5, i32 0, i32 0
+  %25 = call ptr @_ZNSt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %6) #15
+  %26 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator.27", ptr %5, i32 0, i32 0
   store ptr %25, ptr %26, align 8
-  %27 = load ptr, ptr %4, align 8
-  %28 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.27", ptr %5, i32 0, i32 0
+  %27 = load ptr, ptr %4, align 8, !tbaa !59
+  %28 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator.27", ptr %5, i32 0, i32 0
   %29 = load ptr, ptr %28, align 8
   call void @_ZNSt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr %29, ptr noundef nonnull align 8 dereferenceable(8) %27)
   br label %30
 
 30:                                               ; preds = %24, %14
-  %31 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EE4backEv(ptr noundef nonnull align 8 dereferenceable(24) %6) #11
+  %31 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EE4backEv(ptr noundef nonnull align 8 dereferenceable(24) %6) #15
   ret ptr %31
 }
 
@@ -5172,13 +6028,13 @@ define linkonce_odr dso_local void @_ZNSt16allocator_traitsISaISt10unique_ptrI30
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store ptr %2, ptr %6, align 8
-  %7 = load ptr, ptr %4, align 8
-  %8 = load ptr, ptr %5, align 8
-  %9 = load ptr, ptr %6, align 8
-  call void @_ZNSt15__new_allocatorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EEE9constructIS4_JS4_EEEvPT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef %8, ptr noundef nonnull align 8 dereferenceable(8) %9) #11
+  store ptr %0, ptr %4, align 8, !tbaa !119
+  store ptr %1, ptr %5, align 8, !tbaa !59
+  store ptr %2, ptr %6, align 8, !tbaa !59
+  %7 = load ptr, ptr %4, align 8, !tbaa !119
+  %8 = load ptr, ptr %5, align 8, !tbaa !59
+  %9 = load ptr, ptr %6, align 8, !tbaa !59
+  call void @_ZNSt15__new_allocatorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EEE9constructIS4_JS4_EEEvPT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef %8, ptr noundef nonnull align 8 dereferenceable(8) %9) #15
   ret void
 }
 
@@ -5194,79 +6050,93 @@ define linkonce_odr dso_local void @_ZNSt6vectorISt10unique_ptrI30cmGeneratorExp
   %11 = alloca %"class.__gnu_cxx::__normal_iterator.27", align 8
   %12 = alloca ptr, align 8
   %13 = alloca ptr, align 8
-  %14 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.27", ptr %4, i32 0, i32 0
+  %14 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator.27", ptr %4, i32 0, i32 0
   store ptr %1, ptr %14, align 8
-  store ptr %0, ptr %5, align 8
-  store ptr %2, ptr %6, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !23
+  store ptr %2, ptr %6, align 8, !tbaa !59
   %15 = load ptr, ptr %5, align 8
-  %16 = call noundef i64 @_ZNKSt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EE12_M_check_lenEmPKc(ptr noundef nonnull align 8 dereferenceable(24) %15, i64 noundef 1, ptr noundef @.str)
-  store i64 %16, ptr %7, align 8
-  %17 = getelementptr inbounds %"struct.std::_Vector_base.1", ptr %15, i32 0, i32 0
-  %18 = getelementptr inbounds %"struct.std::_Vector_base<std::unique_ptr<cmGeneratorExpressionEvaluator>, std::allocator<std::unique_ptr<cmGeneratorExpressionEvaluator>>>::_Vector_impl_data", ptr %17, i32 0, i32 0
-  %19 = load ptr, ptr %18, align 8
-  store ptr %19, ptr %8, align 8
-  %20 = getelementptr inbounds %"struct.std::_Vector_base.1", ptr %15, i32 0, i32 0
-  %21 = getelementptr inbounds %"struct.std::_Vector_base<std::unique_ptr<cmGeneratorExpressionEvaluator>, std::allocator<std::unique_ptr<cmGeneratorExpressionEvaluator>>>::_Vector_impl_data", ptr %20, i32 0, i32 1
-  %22 = load ptr, ptr %21, align 8
-  store ptr %22, ptr %9, align 8
-  %23 = call ptr @_ZNSt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %15) #11
-  %24 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.27", ptr %11, i32 0, i32 0
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #15
+  %16 = call noundef i64 @_ZNKSt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EE12_M_check_lenEmPKc(ptr noundef nonnull align 8 dereferenceable(24) %15, i64 noundef 1, ptr noundef @.str.1)
+  store i64 %16, ptr %7, align 8, !tbaa !39
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #15
+  %17 = getelementptr inbounds nuw %"struct.std::_Vector_base.1", ptr %15, i32 0, i32 0
+  %18 = getelementptr inbounds nuw %"struct.std::_Vector_base<std::unique_ptr<cmGeneratorExpressionEvaluator>, std::allocator<std::unique_ptr<cmGeneratorExpressionEvaluator>>>::_Vector_impl_data", ptr %17, i32 0, i32 0
+  %19 = load ptr, ptr %18, align 8, !tbaa !86
+  store ptr %19, ptr %8, align 8, !tbaa !59
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #15
+  %20 = getelementptr inbounds nuw %"struct.std::_Vector_base.1", ptr %15, i32 0, i32 0
+  %21 = getelementptr inbounds nuw %"struct.std::_Vector_base<std::unique_ptr<cmGeneratorExpressionEvaluator>, std::allocator<std::unique_ptr<cmGeneratorExpressionEvaluator>>>::_Vector_impl_data", ptr %20, i32 0, i32 1
+  %22 = load ptr, ptr %21, align 8, !tbaa !88
+  store ptr %22, ptr %9, align 8, !tbaa !59
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #15
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #15
+  %23 = call ptr @_ZNSt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %15) #15
+  %24 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator.27", ptr %11, i32 0, i32 0
   store ptr %23, ptr %24, align 8
-  %25 = call noundef i64 @_ZN9__gnu_cxxmiIPSt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS2_EESt6vectorIS5_SaIS5_EEEENS_17__normal_iteratorIT_T0_E15difference_typeERKSD_SG_(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(8) %11) #11
-  store i64 %25, ptr %10, align 8
-  %26 = load i64, ptr %7, align 8
+  %25 = call noundef i64 @_ZN9__gnu_cxxmiIPSt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS2_EESt6vectorIS5_SaIS5_EEEENS_17__normal_iteratorIT_T0_E15difference_typeERKSD_SG_(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(8) %11) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #15
+  store i64 %25, ptr %10, align 8, !tbaa !39
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #15
+  %26 = load i64, ptr %7, align 8, !tbaa !39
   %27 = call noundef ptr @_ZNSt12_Vector_baseISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EE11_M_allocateEm(ptr noundef nonnull align 8 dereferenceable(24) %15, i64 noundef %26)
-  store ptr %27, ptr %12, align 8
-  %28 = load ptr, ptr %12, align 8
-  store ptr %28, ptr %13, align 8
-  %29 = getelementptr inbounds %"struct.std::_Vector_base.1", ptr %15, i32 0, i32 0
-  %30 = load ptr, ptr %12, align 8
-  %31 = load i64, ptr %10, align 8
-  %32 = getelementptr inbounds %"class.std::unique_ptr.12", ptr %30, i64 %31
-  %33 = load ptr, ptr %6, align 8
-  call void @_ZNSt16allocator_traitsISaISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EEEE9constructIS4_JS4_EEEvRS5_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %29, ptr noundef %32, ptr noundef nonnull align 8 dereferenceable(8) %33) #11
-  store ptr null, ptr %13, align 8
-  %34 = load ptr, ptr %8, align 8
-  %35 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPSt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS2_EESt6vectorIS5_SaIS5_EEE4baseEv(ptr noundef nonnull align 8 dereferenceable(8) %4) #11
-  %36 = load ptr, ptr %35, align 8
-  %37 = load ptr, ptr %12, align 8
-  %38 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt12_Vector_baseISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %15) #11
-  %39 = call noundef ptr @_ZNSt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_(ptr noundef %34, ptr noundef %36, ptr noundef %37, ptr noundef nonnull align 1 dereferenceable(1) %38) #11
-  store ptr %39, ptr %13, align 8
-  %40 = load ptr, ptr %13, align 8
-  %41 = getelementptr inbounds %"class.std::unique_ptr.12", ptr %40, i32 1
-  store ptr %41, ptr %13, align 8
-  %42 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPSt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS2_EESt6vectorIS5_SaIS5_EEE4baseEv(ptr noundef nonnull align 8 dereferenceable(8) %4) #11
-  %43 = load ptr, ptr %42, align 8
-  %44 = load ptr, ptr %9, align 8
-  %45 = load ptr, ptr %13, align 8
-  %46 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt12_Vector_baseISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %15) #11
-  %47 = call noundef ptr @_ZNSt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_(ptr noundef %43, ptr noundef %44, ptr noundef %45, ptr noundef nonnull align 1 dereferenceable(1) %46) #11
-  store ptr %47, ptr %13, align 8
-  %48 = load ptr, ptr %8, align 8
-  %49 = getelementptr inbounds %"struct.std::_Vector_base.1", ptr %15, i32 0, i32 0
-  %50 = getelementptr inbounds %"struct.std::_Vector_base<std::unique_ptr<cmGeneratorExpressionEvaluator>, std::allocator<std::unique_ptr<cmGeneratorExpressionEvaluator>>>::_Vector_impl_data", ptr %49, i32 0, i32 2
-  %51 = load ptr, ptr %50, align 8
-  %52 = load ptr, ptr %8, align 8
+  store ptr %27, ptr %12, align 8, !tbaa !59
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #15
+  %28 = load ptr, ptr %12, align 8, !tbaa !59
+  store ptr %28, ptr %13, align 8, !tbaa !59
+  %29 = getelementptr inbounds nuw %"struct.std::_Vector_base.1", ptr %15, i32 0, i32 0
+  %30 = load ptr, ptr %12, align 8, !tbaa !59
+  %31 = load i64, ptr %10, align 8, !tbaa !39
+  %32 = getelementptr inbounds nuw %"class.std::unique_ptr.12", ptr %30, i64 %31
+  %33 = load ptr, ptr %6, align 8, !tbaa !59
+  call void @_ZNSt16allocator_traitsISaISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EEEE9constructIS4_JS4_EEEvRS5_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %29, ptr noundef %32, ptr noundef nonnull align 8 dereferenceable(8) %33) #15
+  store ptr null, ptr %13, align 8, !tbaa !59
+  %34 = load ptr, ptr %8, align 8, !tbaa !59
+  %35 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPSt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS2_EESt6vectorIS5_SaIS5_EEE4baseEv(ptr noundef nonnull align 8 dereferenceable(8) %4) #15
+  %36 = load ptr, ptr %35, align 8, !tbaa !59
+  %37 = load ptr, ptr %12, align 8, !tbaa !59
+  %38 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt12_Vector_baseISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %15) #15
+  %39 = call noundef ptr @_ZNSt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_(ptr noundef %34, ptr noundef %36, ptr noundef %37, ptr noundef nonnull align 1 dereferenceable(1) %38) #15
+  store ptr %39, ptr %13, align 8, !tbaa !59
+  %40 = load ptr, ptr %13, align 8, !tbaa !59
+  %41 = getelementptr inbounds nuw %"class.std::unique_ptr.12", ptr %40, i32 1
+  store ptr %41, ptr %13, align 8, !tbaa !59
+  %42 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPSt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS2_EESt6vectorIS5_SaIS5_EEE4baseEv(ptr noundef nonnull align 8 dereferenceable(8) %4) #15
+  %43 = load ptr, ptr %42, align 8, !tbaa !59
+  %44 = load ptr, ptr %9, align 8, !tbaa !59
+  %45 = load ptr, ptr %13, align 8, !tbaa !59
+  %46 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt12_Vector_baseISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %15) #15
+  %47 = call noundef ptr @_ZNSt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_(ptr noundef %43, ptr noundef %44, ptr noundef %45, ptr noundef nonnull align 1 dereferenceable(1) %46) #15
+  store ptr %47, ptr %13, align 8, !tbaa !59
+  %48 = load ptr, ptr %8, align 8, !tbaa !59
+  %49 = getelementptr inbounds nuw %"struct.std::_Vector_base.1", ptr %15, i32 0, i32 0
+  %50 = getelementptr inbounds nuw %"struct.std::_Vector_base<std::unique_ptr<cmGeneratorExpressionEvaluator>, std::allocator<std::unique_ptr<cmGeneratorExpressionEvaluator>>>::_Vector_impl_data", ptr %49, i32 0, i32 2
+  %51 = load ptr, ptr %50, align 8, !tbaa !125
+  %52 = load ptr, ptr %8, align 8, !tbaa !59
   %53 = ptrtoint ptr %51 to i64
   %54 = ptrtoint ptr %52 to i64
   %55 = sub i64 %53, %54
   %56 = sdiv exact i64 %55, 8
   call void @_ZNSt12_Vector_baseISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EE13_M_deallocateEPS4_m(ptr noundef nonnull align 8 dereferenceable(24) %15, ptr noundef %48, i64 noundef %56)
-  %57 = load ptr, ptr %12, align 8
-  %58 = getelementptr inbounds %"struct.std::_Vector_base.1", ptr %15, i32 0, i32 0
-  %59 = getelementptr inbounds %"struct.std::_Vector_base<std::unique_ptr<cmGeneratorExpressionEvaluator>, std::allocator<std::unique_ptr<cmGeneratorExpressionEvaluator>>>::_Vector_impl_data", ptr %58, i32 0, i32 0
-  store ptr %57, ptr %59, align 8
-  %60 = load ptr, ptr %13, align 8
-  %61 = getelementptr inbounds %"struct.std::_Vector_base.1", ptr %15, i32 0, i32 0
-  %62 = getelementptr inbounds %"struct.std::_Vector_base<std::unique_ptr<cmGeneratorExpressionEvaluator>, std::allocator<std::unique_ptr<cmGeneratorExpressionEvaluator>>>::_Vector_impl_data", ptr %61, i32 0, i32 1
-  store ptr %60, ptr %62, align 8
-  %63 = load ptr, ptr %12, align 8
-  %64 = load i64, ptr %7, align 8
-  %65 = getelementptr inbounds %"class.std::unique_ptr.12", ptr %63, i64 %64
-  %66 = getelementptr inbounds %"struct.std::_Vector_base.1", ptr %15, i32 0, i32 0
-  %67 = getelementptr inbounds %"struct.std::_Vector_base<std::unique_ptr<cmGeneratorExpressionEvaluator>, std::allocator<std::unique_ptr<cmGeneratorExpressionEvaluator>>>::_Vector_impl_data", ptr %66, i32 0, i32 2
-  store ptr %65, ptr %67, align 8
+  %57 = load ptr, ptr %12, align 8, !tbaa !59
+  %58 = getelementptr inbounds nuw %"struct.std::_Vector_base.1", ptr %15, i32 0, i32 0
+  %59 = getelementptr inbounds nuw %"struct.std::_Vector_base<std::unique_ptr<cmGeneratorExpressionEvaluator>, std::allocator<std::unique_ptr<cmGeneratorExpressionEvaluator>>>::_Vector_impl_data", ptr %58, i32 0, i32 0
+  store ptr %57, ptr %59, align 8, !tbaa !86
+  %60 = load ptr, ptr %13, align 8, !tbaa !59
+  %61 = getelementptr inbounds nuw %"struct.std::_Vector_base.1", ptr %15, i32 0, i32 0
+  %62 = getelementptr inbounds nuw %"struct.std::_Vector_base<std::unique_ptr<cmGeneratorExpressionEvaluator>, std::allocator<std::unique_ptr<cmGeneratorExpressionEvaluator>>>::_Vector_impl_data", ptr %61, i32 0, i32 1
+  store ptr %60, ptr %62, align 8, !tbaa !88
+  %63 = load ptr, ptr %12, align 8, !tbaa !59
+  %64 = load i64, ptr %7, align 8, !tbaa !39
+  %65 = getelementptr inbounds nuw %"class.std::unique_ptr.12", ptr %63, i64 %64
+  %66 = getelementptr inbounds nuw %"struct.std::_Vector_base.1", ptr %15, i32 0, i32 0
+  %67 = getelementptr inbounds nuw %"struct.std::_Vector_base<std::unique_ptr<cmGeneratorExpressionEvaluator>, std::allocator<std::unique_ptr<cmGeneratorExpressionEvaluator>>>::_Vector_impl_data", ptr %66, i32 0, i32 2
+  store ptr %65, ptr %67, align 8, !tbaa !125
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #15
   ret void
 }
 
@@ -5275,15 +6145,19 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_Z
   %2 = alloca ptr, align 8
   %3 = alloca %"class.__gnu_cxx::__normal_iterator.27", align 8
   %4 = alloca %"class.__gnu_cxx::__normal_iterator.27", align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !23
   %5 = load ptr, ptr %2, align 8
-  %6 = call ptr @_ZNSt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %5) #11
-  %7 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.27", ptr %4, i32 0, i32 0
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #15
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #15
+  %6 = call ptr @_ZNSt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %5) #15
+  %7 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator.27", ptr %4, i32 0, i32 0
   store ptr %6, ptr %7, align 8
-  %8 = call ptr @_ZNK9__gnu_cxx17__normal_iteratorIPSt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS2_EESt6vectorIS5_SaIS5_EEEmiEl(ptr noundef nonnull align 8 dereferenceable(8) %4, i64 noundef 1) #11
-  %9 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.27", ptr %3, i32 0, i32 0
+  %8 = call ptr @_ZNK9__gnu_cxx17__normal_iteratorIPSt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS2_EESt6vectorIS5_SaIS5_EEEmiEl(ptr noundef nonnull align 8 dereferenceable(8) %4, i64 noundef 1) #15
+  %9 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator.27", ptr %3, i32 0, i32 0
   store ptr %8, ptr %9, align 8
-  %10 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPSt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS2_EESt6vectorIS5_SaIS5_EEEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %3) #11
+  %10 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPSt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS2_EESt6vectorIS5_SaIS5_EEEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %3) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #15
   ret ptr %10
 }
 
@@ -5292,12 +6166,12 @@ define linkonce_odr dso_local void @_ZNSt15__new_allocatorISt10unique_ptrI30cmGe
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store ptr %2, ptr %6, align 8
-  %7 = load ptr, ptr %5, align 8
-  %8 = load ptr, ptr %6, align 8
-  call void @_ZNSt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS0_EEC2EOS3_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(8) %8) #11
+  store ptr %0, ptr %4, align 8, !tbaa !121
+  store ptr %1, ptr %5, align 8, !tbaa !59
+  store ptr %2, ptr %6, align 8, !tbaa !59
+  %7 = load ptr, ptr %5, align 8, !tbaa !59
+  %8 = load ptr, ptr %6, align 8, !tbaa !59
+  call void @_ZNSt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS0_EEC2EOS3_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(8) %8) #15
   ret void
 }
 
@@ -5308,66 +6182,70 @@ define linkonce_odr dso_local noundef i64 @_ZNKSt6vectorISt10unique_ptrI30cmGene
   %6 = alloca ptr, align 8
   %7 = alloca i64, align 8
   %8 = alloca i64, align 8
-  store ptr %0, ptr %4, align 8
-  store i64 %1, ptr %5, align 8
-  store ptr %2, ptr %6, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !23
+  store i64 %1, ptr %5, align 8, !tbaa !39
+  store ptr %2, ptr %6, align 8, !tbaa !54
   %9 = load ptr, ptr %4, align 8
-  %10 = call noundef i64 @_ZNKSt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EE8max_sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #11
-  %11 = call noundef i64 @_ZNKSt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #11
+  %10 = call noundef i64 @_ZNKSt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EE8max_sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #15
+  %11 = call noundef i64 @_ZNKSt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #15
   %12 = sub i64 %10, %11
-  %13 = load i64, ptr %5, align 8
+  %13 = load i64, ptr %5, align 8, !tbaa !39
   %14 = icmp ult i64 %12, %13
   br i1 %14, label %15, label %17
 
 15:                                               ; preds = %3
-  %16 = load ptr, ptr %6, align 8
-  call void @_ZSt20__throw_length_errorPKc(ptr noundef %16) #15
+  %16 = load ptr, ptr %6, align 8, !tbaa !54
+  call void @_ZSt20__throw_length_errorPKc(ptr noundef %16) #19
   unreachable
 
 17:                                               ; preds = %3
-  %18 = call noundef i64 @_ZNKSt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #11
-  %19 = call noundef i64 @_ZNKSt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #11
-  store i64 %19, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #15
+  %18 = call noundef i64 @_ZNKSt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #15
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #15
+  %19 = call noundef i64 @_ZNKSt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #15
+  store i64 %19, ptr %8, align 8, !tbaa !39
   %20 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt3maxImERKT_S2_S2_(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(8) %5)
-  %21 = load i64, ptr %20, align 8
+  %21 = load i64, ptr %20, align 8, !tbaa !39
   %22 = add i64 %18, %21
-  store i64 %22, ptr %7, align 8
-  %23 = load i64, ptr %7, align 8
-  %24 = call noundef i64 @_ZNKSt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #15
+  store i64 %22, ptr %7, align 8, !tbaa !39
+  %23 = load i64, ptr %7, align 8, !tbaa !39
+  %24 = call noundef i64 @_ZNKSt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #15
   %25 = icmp ult i64 %23, %24
   br i1 %25, label %30, label %26
 
 26:                                               ; preds = %17
-  %27 = load i64, ptr %7, align 8
-  %28 = call noundef i64 @_ZNKSt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EE8max_sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #11
+  %27 = load i64, ptr %7, align 8, !tbaa !39
+  %28 = call noundef i64 @_ZNKSt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EE8max_sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #15
   %29 = icmp ugt i64 %27, %28
   br i1 %29, label %30, label %32
 
 30:                                               ; preds = %26, %17
-  %31 = call noundef i64 @_ZNKSt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EE8max_sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #11
+  %31 = call noundef i64 @_ZNKSt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EE8max_sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #15
   br label %34
 
 32:                                               ; preds = %26
-  %33 = load i64, ptr %7, align 8
+  %33 = load i64, ptr %7, align 8, !tbaa !39
   br label %34
 
 34:                                               ; preds = %32, %30
   %35 = phi i64 [ %31, %30 ], [ %33, %32 ]
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #15
   ret i64 %35
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef i64 @_ZN9__gnu_cxxmiIPSt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS2_EESt6vectorIS5_SaIS5_EEEENS_17__normal_iteratorIT_T0_E15difference_typeERKSD_SG_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #0 comdat {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef i64 @_ZN9__gnu_cxxmiIPSt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS2_EESt6vectorIS5_SaIS5_EEEENS_17__normal_iteratorIT_T0_E15difference_typeERKSD_SG_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #4 comdat {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  %5 = load ptr, ptr %3, align 8
-  %6 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPSt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS2_EESt6vectorIS5_SaIS5_EEE4baseEv(ptr noundef nonnull align 8 dereferenceable(8) %5) #11
-  %7 = load ptr, ptr %6, align 8
-  %8 = load ptr, ptr %4, align 8
-  %9 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPSt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS2_EESt6vectorIS5_SaIS5_EEE4baseEv(ptr noundef nonnull align 8 dereferenceable(8) %8) #11
-  %10 = load ptr, ptr %9, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !89
+  store ptr %1, ptr %4, align 8, !tbaa !89
+  %5 = load ptr, ptr %3, align 8, !tbaa !89
+  %6 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPSt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS2_EESt6vectorIS5_SaIS5_EEE4baseEv(ptr noundef nonnull align 8 dereferenceable(8) %5) #15
+  %7 = load ptr, ptr %6, align 8, !tbaa !59
+  %8 = load ptr, ptr %4, align 8, !tbaa !89
+  %9 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPSt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS2_EESt6vectorIS5_SaIS5_EEE4baseEv(ptr noundef nonnull align 8 dereferenceable(8) %8) #15
+  %10 = load ptr, ptr %9, align 8, !tbaa !59
   %11 = ptrtoint ptr %7 to i64
   %12 = ptrtoint ptr %10 to i64
   %13 = sub i64 %11, %12
@@ -5379,16 +6257,16 @@ define linkonce_odr dso_local noundef i64 @_ZN9__gnu_cxxmiIPSt10unique_ptrI30cmG
 define linkonce_odr dso_local noundef ptr @_ZNSt12_Vector_baseISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EE11_M_allocateEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %1) #1 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca i64, align 8
-  store ptr %0, ptr %3, align 8
-  store i64 %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !115
+  store i64 %1, ptr %4, align 8, !tbaa !39
   %5 = load ptr, ptr %3, align 8
-  %6 = load i64, ptr %4, align 8
+  %6 = load i64, ptr %4, align 8, !tbaa !39
   %7 = icmp ne i64 %6, 0
   br i1 %7, label %8, label %12
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds %"struct.std::_Vector_base.1", ptr %5, i32 0, i32 0
-  %10 = load i64, ptr %4, align 8
+  %9 = getelementptr inbounds nuw %"struct.std::_Vector_base.1", ptr %5, i32 0, i32 0
+  %10 = load i64, ptr %4, align 8, !tbaa !39
   %11 = call noundef ptr @_ZNSt16allocator_traitsISaISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EEEE8allocateERS5_m(ptr noundef nonnull align 1 dereferenceable(1) %9, i64 noundef %10)
   br label %13
 
@@ -5406,15 +6284,15 @@ define linkonce_odr dso_local noundef ptr @_ZNSt6vectorISt10unique_ptrI30cmGener
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
-  store ptr %0, ptr %5, align 8
-  store ptr %1, ptr %6, align 8
-  store ptr %2, ptr %7, align 8
-  store ptr %3, ptr %8, align 8
-  %9 = load ptr, ptr %5, align 8
-  %10 = load ptr, ptr %6, align 8
-  %11 = load ptr, ptr %7, align 8
-  %12 = load ptr, ptr %8, align 8
-  %13 = call noundef ptr @_ZSt12__relocate_aIPSt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EES5_SaIS4_EET0_T_S8_S7_RT1_(ptr noundef %9, ptr noundef %10, ptr noundef %11, ptr noundef nonnull align 1 dereferenceable(1) %12) #11
+  store ptr %0, ptr %5, align 8, !tbaa !59
+  store ptr %1, ptr %6, align 8, !tbaa !59
+  store ptr %2, ptr %7, align 8, !tbaa !59
+  store ptr %3, ptr %8, align 8, !tbaa !119
+  %9 = load ptr, ptr %5, align 8, !tbaa !59
+  %10 = load ptr, ptr %6, align 8, !tbaa !59
+  %11 = load ptr, ptr %7, align 8, !tbaa !59
+  %12 = load ptr, ptr %8, align 8, !tbaa !119
+  %13 = call noundef ptr @_ZSt12__relocate_aIPSt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EES5_SaIS4_EET0_T_S8_S7_RT1_(ptr noundef %9, ptr noundef %10, ptr noundef %11, ptr noundef nonnull align 1 dereferenceable(1) %12) #15
   ret ptr %13
 }
 
@@ -5423,18 +6301,18 @@ define linkonce_odr dso_local void @_ZNSt12_Vector_baseISt10unique_ptrI30cmGener
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca i64, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store i64 %2, ptr %6, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !115
+  store ptr %1, ptr %5, align 8, !tbaa !59
+  store i64 %2, ptr %6, align 8, !tbaa !39
   %7 = load ptr, ptr %4, align 8
-  %8 = load ptr, ptr %5, align 8
+  %8 = load ptr, ptr %5, align 8, !tbaa !59
   %9 = icmp ne ptr %8, null
   br i1 %9, label %10, label %14
 
 10:                                               ; preds = %3
-  %11 = getelementptr inbounds %"struct.std::_Vector_base.1", ptr %7, i32 0, i32 0
-  %12 = load ptr, ptr %5, align 8
-  %13 = load i64, ptr %6, align 8
+  %11 = getelementptr inbounds nuw %"struct.std::_Vector_base.1", ptr %7, i32 0, i32 0
+  %12 = load ptr, ptr %5, align 8, !tbaa !59
+  %13 = load i64, ptr %6, align 8, !tbaa !39
   call void @_ZNSt16allocator_traitsISaISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EEEE10deallocateERS5_PS4_m(ptr noundef nonnull align 1 dereferenceable(1) %11, ptr noundef %12, i64 noundef %13)
   br label %14
 
@@ -5445,24 +6323,24 @@ define linkonce_odr dso_local void @_ZNSt12_Vector_baseISt10unique_ptrI30cmGener
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef i64 @_ZNKSt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EE8max_sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !23
   %3 = load ptr, ptr %2, align 8
-  %4 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt12_Vector_baseISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %3) #11
-  %5 = call noundef i64 @_ZNSt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EE11_S_max_sizeERKS5_(ptr noundef nonnull align 1 dereferenceable(1) %4) #11
+  %4 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt12_Vector_baseISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %3) #15
+  %5 = call noundef i64 @_ZNSt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EE11_S_max_sizeERKS5_(ptr noundef nonnull align 1 dereferenceable(1) %4) #15
   ret i64 %5
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef i64 @_ZNKSt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !23
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"struct.std::_Vector_base.1", ptr %3, i32 0, i32 0
-  %5 = getelementptr inbounds %"struct.std::_Vector_base<std::unique_ptr<cmGeneratorExpressionEvaluator>, std::allocator<std::unique_ptr<cmGeneratorExpressionEvaluator>>>::_Vector_impl_data", ptr %4, i32 0, i32 1
-  %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds %"struct.std::_Vector_base.1", ptr %3, i32 0, i32 0
-  %8 = getelementptr inbounds %"struct.std::_Vector_base<std::unique_ptr<cmGeneratorExpressionEvaluator>, std::allocator<std::unique_ptr<cmGeneratorExpressionEvaluator>>>::_Vector_impl_data", ptr %7, i32 0, i32 0
-  %9 = load ptr, ptr %8, align 8
+  %4 = getelementptr inbounds nuw %"struct.std::_Vector_base.1", ptr %3, i32 0, i32 0
+  %5 = getelementptr inbounds nuw %"struct.std::_Vector_base<std::unique_ptr<cmGeneratorExpressionEvaluator>, std::allocator<std::unique_ptr<cmGeneratorExpressionEvaluator>>>::_Vector_impl_data", ptr %4, i32 0, i32 1
+  %6 = load ptr, ptr %5, align 8, !tbaa !88
+  %7 = getelementptr inbounds nuw %"struct.std::_Vector_base.1", ptr %3, i32 0, i32 0
+  %8 = getelementptr inbounds nuw %"struct.std::_Vector_base<std::unique_ptr<cmGeneratorExpressionEvaluator>, std::allocator<std::unique_ptr<cmGeneratorExpressionEvaluator>>>::_Vector_impl_data", ptr %7, i32 0, i32 0
+  %9 = load ptr, ptr %8, align 8, !tbaa !86
   %10 = ptrtoint ptr %6 to i64
   %11 = ptrtoint ptr %9 to i64
   %12 = sub i64 %10, %11
@@ -5471,29 +6349,29 @@ define linkonce_odr dso_local noundef i64 @_ZNKSt6vectorISt10unique_ptrI30cmGene
 }
 
 ; Function Attrs: noreturn
-declare void @_ZSt20__throw_length_errorPKc(ptr noundef) #9
+declare void @_ZSt20__throw_length_errorPKc(ptr noundef) #10
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZSt3maxImERKT_S2_S2_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #0 comdat {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZSt3maxImERKT_S2_S2_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #4 comdat {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  %6 = load ptr, ptr %4, align 8
-  %7 = load i64, ptr %6, align 8
-  %8 = load ptr, ptr %5, align 8
-  %9 = load i64, ptr %8, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !52
+  store ptr %1, ptr %5, align 8, !tbaa !52
+  %6 = load ptr, ptr %4, align 8, !tbaa !52
+  %7 = load i64, ptr %6, align 8, !tbaa !39
+  %8 = load ptr, ptr %5, align 8, !tbaa !52
+  %9 = load i64, ptr %8, align 8, !tbaa !39
   %10 = icmp ult i64 %7, %9
   br i1 %10, label %11, label %13
 
 11:                                               ; preds = %2
-  %12 = load ptr, ptr %5, align 8
+  %12 = load ptr, ptr %5, align 8, !tbaa !52
   store ptr %12, ptr %3, align 8
   br label %15
 
 13:                                               ; preds = %2
-  %14 = load ptr, ptr %4, align 8
+  %14 = load ptr, ptr %4, align 8, !tbaa !52
   store ptr %14, ptr %3, align 8
   br label %15
 
@@ -5507,56 +6385,60 @@ define linkonce_odr dso_local noundef i64 @_ZNSt6vectorISt10unique_ptrI30cmGener
   %2 = alloca ptr, align 8
   %3 = alloca i64, align 8
   %4 = alloca i64, align 8
-  store ptr %0, ptr %2, align 8
-  store i64 1152921504606846975, ptr %3, align 8
-  %5 = load ptr, ptr %2, align 8
-  %6 = call noundef i64 @_ZNSt16allocator_traitsISaISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EEEE8max_sizeERKS5_(ptr noundef nonnull align 1 dereferenceable(1) %5) #11
-  store i64 %6, ptr %4, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !119
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #15
+  store i64 1152921504606846975, ptr %3, align 8, !tbaa !39
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #15
+  %5 = load ptr, ptr %2, align 8, !tbaa !119
+  %6 = call noundef i64 @_ZNSt16allocator_traitsISaISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EEEE8max_sizeERKS5_(ptr noundef nonnull align 1 dereferenceable(1) %5) #15
+  store i64 %6, ptr %4, align 8, !tbaa !39
   %7 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt3minImERKT_S2_S2_(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %4)
           to label %8 unwind label %10
 
 8:                                                ; preds = %1
-  %9 = load i64, ptr %7, align 8
+  %9 = load i64, ptr %7, align 8, !tbaa !39
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #15
   ret i64 %9
 
 10:                                               ; preds = %1
   %11 = landingpad { ptr, i32 }
           catch ptr null
   %12 = extractvalue { ptr, i32 } %11, 0
-  call void @__clang_call_terminate(ptr %12) #14
+  call void @__clang_call_terminate(ptr %12) #18
   unreachable
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef i64 @_ZNSt16allocator_traitsISaISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EEEE8max_sizeERKS5_(ptr noundef nonnull align 1 dereferenceable(1) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  %4 = call noundef i64 @_ZNKSt15__new_allocatorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EEE8max_sizeEv(ptr noundef nonnull align 1 dereferenceable(1) %3) #11
+  store ptr %0, ptr %2, align 8, !tbaa !119
+  %3 = load ptr, ptr %2, align 8, !tbaa !119
+  %4 = call noundef i64 @_ZNKSt15__new_allocatorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EEE8max_sizeEv(ptr noundef nonnull align 1 dereferenceable(1) %3) #15
   ret i64 %4
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZSt3minImERKT_S2_S2_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #0 comdat {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZSt3minImERKT_S2_S2_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #4 comdat {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  %6 = load ptr, ptr %5, align 8
-  %7 = load i64, ptr %6, align 8
-  %8 = load ptr, ptr %4, align 8
-  %9 = load i64, ptr %8, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !52
+  store ptr %1, ptr %5, align 8, !tbaa !52
+  %6 = load ptr, ptr %5, align 8, !tbaa !52
+  %7 = load i64, ptr %6, align 8, !tbaa !39
+  %8 = load ptr, ptr %4, align 8, !tbaa !52
+  %9 = load i64, ptr %8, align 8, !tbaa !39
   %10 = icmp ult i64 %7, %9
   br i1 %10, label %11, label %13
 
 11:                                               ; preds = %2
-  %12 = load ptr, ptr %5, align 8
+  %12 = load ptr, ptr %5, align 8, !tbaa !52
   store ptr %12, ptr %3, align 8
   br label %15
 
 13:                                               ; preds = %2
-  %14 = load ptr, ptr %4, align 8
+  %14 = load ptr, ptr %4, align 8, !tbaa !52
   store ptr %14, ptr %3, align 8
   br label %15
 
@@ -5568,16 +6450,16 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_Z
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef i64 @_ZNKSt15__new_allocatorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EEE8max_sizeEv(ptr noundef nonnull align 1 dereferenceable(1) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !121
   %3 = load ptr, ptr %2, align 8
-  %4 = call noundef i64 @_ZNKSt15__new_allocatorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EEE11_M_max_sizeEv(ptr noundef nonnull align 1 dereferenceable(1) %3) #11
+  %4 = call noundef i64 @_ZNKSt15__new_allocatorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EEE11_M_max_sizeEv(ptr noundef nonnull align 1 dereferenceable(1) %3) #15
   ret i64 %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef i64 @_ZNKSt15__new_allocatorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EEE11_M_max_sizeEv(ptr noundef nonnull align 1 dereferenceable(1) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !121
   ret i64 1152921504606846975
 }
 
@@ -5585,10 +6467,10 @@ define linkonce_odr dso_local noundef i64 @_ZNKSt15__new_allocatorISt10unique_pt
 define linkonce_odr dso_local noundef ptr @_ZNSt16allocator_traitsISaISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EEEE8allocateERS5_m(ptr noundef nonnull align 1 dereferenceable(1) %0, i64 noundef %1) #1 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca i64, align 8
-  store ptr %0, ptr %3, align 8
-  store i64 %1, ptr %4, align 8
-  %5 = load ptr, ptr %3, align 8
-  %6 = load i64, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !119
+  store i64 %1, ptr %4, align 8, !tbaa !39
+  %5 = load ptr, ptr %3, align 8, !tbaa !119
+  %6 = load i64, ptr %4, align 8, !tbaa !39
   %7 = call noundef ptr @_ZNSt15__new_allocatorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EEE8allocateEmPKv(ptr noundef nonnull align 1 dereferenceable(1) %5, i64 noundef %6, ptr noundef null)
   ret ptr %7
 }
@@ -5598,127 +6480,135 @@ define linkonce_odr dso_local noundef ptr @_ZNSt15__new_allocatorISt10unique_ptr
   %4 = alloca ptr, align 8
   %5 = alloca i64, align 8
   %6 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store i64 %1, ptr %5, align 8
-  store ptr %2, ptr %6, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !121
+  store i64 %1, ptr %5, align 8, !tbaa !39
+  store ptr %2, ptr %6, align 8, !tbaa !169
   %7 = load ptr, ptr %4, align 8
-  %8 = load i64, ptr %5, align 8
-  %9 = call noundef i64 @_ZNKSt15__new_allocatorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EEE11_M_max_sizeEv(ptr noundef nonnull align 1 dereferenceable(1) %7) #11
+  %8 = load i64, ptr %5, align 8, !tbaa !39
+  %9 = call noundef i64 @_ZNKSt15__new_allocatorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EEE11_M_max_sizeEv(ptr noundef nonnull align 1 dereferenceable(1) %7) #15
   %10 = icmp ugt i64 %8, %9
-  br i1 %10, label %11, label %16
+  %11 = zext i1 %10 to i64
+  %12 = call i64 @llvm.expect.i64(i64 %11, i64 0)
+  %13 = icmp ne i64 %12, 0
+  br i1 %13, label %14, label %19
 
-11:                                               ; preds = %3
-  %12 = load i64, ptr %5, align 8
-  %13 = icmp ugt i64 %12, 2305843009213693951
-  br i1 %13, label %14, label %15
+14:                                               ; preds = %3
+  %15 = load i64, ptr %5, align 8, !tbaa !39
+  %16 = icmp ugt i64 %15, 2305843009213693951
+  br i1 %16, label %17, label %18
 
-14:                                               ; preds = %11
-  call void @_ZSt28__throw_bad_array_new_lengthv() #15
+17:                                               ; preds = %14
+  call void @_ZSt28__throw_bad_array_new_lengthv() #19
   unreachable
 
-15:                                               ; preds = %11
-  call void @_ZSt17__throw_bad_allocv() #15
+18:                                               ; preds = %14
+  call void @_ZSt17__throw_bad_allocv() #19
   unreachable
 
-16:                                               ; preds = %3
-  %17 = load i64, ptr %5, align 8
-  %18 = mul i64 %17, 8
-  %19 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %18) #12
-  ret ptr %19
+19:                                               ; preds = %3
+  %20 = load i64, ptr %5, align 8, !tbaa !39
+  %21 = mul i64 %20, 8
+  %22 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %21) #16
+  ret ptr %22
 }
 
-; Function Attrs: noreturn
-declare void @_ZSt28__throw_bad_array_new_lengthv() #9
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(none)
+declare i64 @llvm.expect.i64(i64, i64) #13
 
 ; Function Attrs: noreturn
-declare void @_ZSt17__throw_bad_allocv() #9
+declare void @_ZSt28__throw_bad_array_new_lengthv() #10
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef ptr @_ZSt12__relocate_aIPSt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EES5_SaIS4_EET0_T_S8_S7_RT1_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull align 1 dereferenceable(1) %3) #0 comdat {
+; Function Attrs: noreturn
+declare void @_ZSt17__throw_bad_allocv() #10
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef ptr @_ZSt12__relocate_aIPSt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EES5_SaIS4_EET0_T_S8_S7_RT1_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull align 1 dereferenceable(1) %3) #4 comdat {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
-  store ptr %0, ptr %5, align 8
-  store ptr %1, ptr %6, align 8
-  store ptr %2, ptr %7, align 8
-  store ptr %3, ptr %8, align 8
-  %9 = load ptr, ptr %5, align 8
-  %10 = call noundef ptr @_ZSt12__niter_baseIPSt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EEET_S6_(ptr noundef %9) #11
-  %11 = load ptr, ptr %6, align 8
-  %12 = call noundef ptr @_ZSt12__niter_baseIPSt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EEET_S6_(ptr noundef %11) #11
-  %13 = load ptr, ptr %7, align 8
-  %14 = call noundef ptr @_ZSt12__niter_baseIPSt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EEET_S6_(ptr noundef %13) #11
-  %15 = load ptr, ptr %8, align 8
-  %16 = call noundef ptr @_ZSt14__relocate_a_1IPSt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EES5_SaIS4_EET0_T_S8_S7_RT1_(ptr noundef %10, ptr noundef %12, ptr noundef %14, ptr noundef nonnull align 1 dereferenceable(1) %15) #11
+  store ptr %0, ptr %5, align 8, !tbaa !59
+  store ptr %1, ptr %6, align 8, !tbaa !59
+  store ptr %2, ptr %7, align 8, !tbaa !59
+  store ptr %3, ptr %8, align 8, !tbaa !119
+  %9 = load ptr, ptr %5, align 8, !tbaa !59
+  %10 = call noundef ptr @_ZSt12__niter_baseIPSt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EEET_S6_(ptr noundef %9) #15
+  %11 = load ptr, ptr %6, align 8, !tbaa !59
+  %12 = call noundef ptr @_ZSt12__niter_baseIPSt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EEET_S6_(ptr noundef %11) #15
+  %13 = load ptr, ptr %7, align 8, !tbaa !59
+  %14 = call noundef ptr @_ZSt12__niter_baseIPSt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EEET_S6_(ptr noundef %13) #15
+  %15 = load ptr, ptr %8, align 8, !tbaa !119
+  %16 = call noundef ptr @_ZSt14__relocate_a_1IPSt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EES5_SaIS4_EET0_T_S8_S7_RT1_(ptr noundef %10, ptr noundef %12, ptr noundef %14, ptr noundef nonnull align 1 dereferenceable(1) %15) #15
   ret ptr %16
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef ptr @_ZSt14__relocate_a_1IPSt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EES5_SaIS4_EET0_T_S8_S7_RT1_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull align 1 dereferenceable(1) %3) #0 comdat {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef ptr @_ZSt14__relocate_a_1IPSt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EES5_SaIS4_EET0_T_S8_S7_RT1_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull align 1 dereferenceable(1) %3) #4 comdat {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
   %9 = alloca ptr, align 8
-  store ptr %0, ptr %5, align 8
-  store ptr %1, ptr %6, align 8
-  store ptr %2, ptr %7, align 8
-  store ptr %3, ptr %8, align 8
-  %10 = load ptr, ptr %7, align 8
-  store ptr %10, ptr %9, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !59
+  store ptr %1, ptr %6, align 8, !tbaa !59
+  store ptr %2, ptr %7, align 8, !tbaa !59
+  store ptr %3, ptr %8, align 8, !tbaa !119
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #15
+  %10 = load ptr, ptr %7, align 8, !tbaa !59
+  store ptr %10, ptr %9, align 8, !tbaa !59
   br label %11
 
 11:                                               ; preds = %19, %4
-  %12 = load ptr, ptr %5, align 8
-  %13 = load ptr, ptr %6, align 8
+  %12 = load ptr, ptr %5, align 8, !tbaa !59
+  %13 = load ptr, ptr %6, align 8, !tbaa !59
   %14 = icmp ne ptr %12, %13
   br i1 %14, label %15, label %24
 
 15:                                               ; preds = %11
-  %16 = load ptr, ptr %9, align 8
-  %17 = load ptr, ptr %5, align 8
-  %18 = load ptr, ptr %8, align 8
-  call void @_ZSt19__relocate_object_aISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EES4_SaIS4_EEvPT_PT0_RT1_(ptr noundef %16, ptr noundef %17, ptr noundef nonnull align 1 dereferenceable(1) %18) #11
+  %16 = load ptr, ptr %9, align 8, !tbaa !59
+  %17 = load ptr, ptr %5, align 8, !tbaa !59
+  %18 = load ptr, ptr %8, align 8, !tbaa !119
+  call void @_ZSt19__relocate_object_aISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EES4_SaIS4_EEvPT_PT0_RT1_(ptr noundef %16, ptr noundef %17, ptr noundef nonnull align 1 dereferenceable(1) %18) #15
   br label %19
 
 19:                                               ; preds = %15
-  %20 = load ptr, ptr %5, align 8
-  %21 = getelementptr inbounds %"class.std::unique_ptr.12", ptr %20, i32 1
-  store ptr %21, ptr %5, align 8
-  %22 = load ptr, ptr %9, align 8
-  %23 = getelementptr inbounds %"class.std::unique_ptr.12", ptr %22, i32 1
-  store ptr %23, ptr %9, align 8
-  br label %11, !llvm.loop !17
+  %20 = load ptr, ptr %5, align 8, !tbaa !59
+  %21 = getelementptr inbounds nuw %"class.std::unique_ptr.12", ptr %20, i32 1
+  store ptr %21, ptr %5, align 8, !tbaa !59
+  %22 = load ptr, ptr %9, align 8, !tbaa !59
+  %23 = getelementptr inbounds nuw %"class.std::unique_ptr.12", ptr %22, i32 1
+  store ptr %23, ptr %9, align 8, !tbaa !59
+  br label %11, !llvm.loop !222
 
 24:                                               ; preds = %11
-  %25 = load ptr, ptr %9, align 8
+  %25 = load ptr, ptr %9, align 8, !tbaa !59
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #15
   ret ptr %25
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef ptr @_ZSt12__niter_baseIPSt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EEET_S6_(ptr noundef %0) #0 comdat {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef ptr @_ZSt12__niter_baseIPSt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EEET_S6_(ptr noundef %0) #4 comdat {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !59
+  %3 = load ptr, ptr %2, align 8, !tbaa !59
   ret ptr %3
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZSt19__relocate_object_aISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EES4_SaIS4_EEvPT_PT0_RT1_(ptr noalias noundef %0, ptr noalias noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %2) #0 comdat {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZSt19__relocate_object_aISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EES4_SaIS4_EEvPT_PT0_RT1_(ptr noalias noundef %0, ptr noalias noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %2) #4 comdat {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store ptr %2, ptr %6, align 8
-  %7 = load ptr, ptr %6, align 8
-  %8 = load ptr, ptr %4, align 8
-  %9 = load ptr, ptr %5, align 8
-  call void @_ZNSt16allocator_traitsISaISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EEEE9constructIS4_JS4_EEEvRS5_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef %8, ptr noundef nonnull align 8 dereferenceable(8) %9) #11
-  %10 = load ptr, ptr %6, align 8
-  %11 = load ptr, ptr %5, align 8
-  call void @_ZNSt16allocator_traitsISaISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EEEE7destroyIS4_EEvRS5_PT_(ptr noundef nonnull align 1 dereferenceable(1) %10, ptr noundef %11) #11
+  store ptr %0, ptr %4, align 8, !tbaa !59
+  store ptr %1, ptr %5, align 8, !tbaa !59
+  store ptr %2, ptr %6, align 8, !tbaa !119
+  %7 = load ptr, ptr %6, align 8, !tbaa !119
+  %8 = load ptr, ptr %4, align 8, !tbaa !59
+  %9 = load ptr, ptr %5, align 8, !tbaa !59
+  call void @_ZNSt16allocator_traitsISaISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EEEE9constructIS4_JS4_EEEvRS5_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef %8, ptr noundef nonnull align 8 dereferenceable(8) %9) #15
+  %10 = load ptr, ptr %6, align 8, !tbaa !119
+  %11 = load ptr, ptr %5, align 8, !tbaa !59
+  call void @_ZNSt16allocator_traitsISaISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EEEE7destroyIS4_EEvRS5_PT_(ptr noundef nonnull align 1 dereferenceable(1) %10, ptr noundef %11) #15
   ret void
 }
 
@@ -5727,12 +6617,12 @@ define linkonce_odr dso_local void @_ZNSt16allocator_traitsISaISt10unique_ptrI30
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca i64, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store i64 %2, ptr %6, align 8
-  %7 = load ptr, ptr %4, align 8
-  %8 = load ptr, ptr %5, align 8
-  %9 = load i64, ptr %6, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !119
+  store ptr %1, ptr %5, align 8, !tbaa !59
+  store i64 %2, ptr %6, align 8, !tbaa !39
+  %7 = load ptr, ptr %4, align 8, !tbaa !119
+  %8 = load ptr, ptr %5, align 8, !tbaa !59
+  %9 = load i64, ptr %6, align 8, !tbaa !39
   call void @_ZNSt15__new_allocatorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EEE10deallocateEPS4_m(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef %8, i64 noundef %9)
   ret void
 }
@@ -5742,34 +6632,36 @@ define linkonce_odr dso_local void @_ZNSt15__new_allocatorISt10unique_ptrI30cmGe
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca i64, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store i64 %2, ptr %6, align 8
-  %7 = load ptr, ptr %5, align 8
-  call void @_ZdlPv(ptr noundef %7) #13
+  store ptr %0, ptr %4, align 8, !tbaa !121
+  store ptr %1, ptr %5, align 8, !tbaa !59
+  store i64 %2, ptr %6, align 8, !tbaa !39
+  %7 = load ptr, ptr %5, align 8, !tbaa !59
+  %8 = load i64, ptr %6, align 8, !tbaa !39
+  %9 = mul i64 %8, 8
+  call void @_ZdlPvm(ptr noundef %7, i64 noundef %9) #17
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef ptr @_ZNSt10unique_ptrI11TextContentSt14default_deleteIS0_EE7releaseEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !98
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"class.std::unique_ptr.28", ptr %3, i32 0, i32 0
-  %5 = call noundef ptr @_ZNSt15__uniq_ptr_implI11TextContentSt14default_deleteIS0_EE7releaseEv(ptr noundef nonnull align 8 dereferenceable(8) %4) #11
+  %4 = getelementptr inbounds nuw %"class.std::unique_ptr.28", ptr %3, i32 0, i32 0
+  %5 = call noundef ptr @_ZNSt15__uniq_ptr_implI11TextContentSt14default_deleteIS0_EE7releaseEv(ptr noundef nonnull align 8 dereferenceable(8) %4) #15
   ret ptr %5
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZNSt15__uniq_ptr_dataI30cmGeneratorExpressionEvaluatorSt14default_deleteIS0_ELb1ELb1EECI2St15__uniq_ptr_implIS0_S2_EIS1_I11TextContentEEEPS0_OT_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %2) unnamed_addr #1 comdat align 2 {
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr dso_local void @_ZNSt15__uniq_ptr_dataI30cmGeneratorExpressionEvaluatorSt14default_deleteIS0_ELb1ELb1EECI2St15__uniq_ptr_implIS0_S2_EIS1_I11TextContentEEEPS0_OT_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %2) unnamed_addr #5 comdat align 2 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store ptr %2, ptr %6, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !150
+  store ptr %1, ptr %5, align 8, !tbaa !63
+  store ptr %2, ptr %6, align 8, !tbaa !220
   %7 = load ptr, ptr %4, align 8
-  %8 = load ptr, ptr %5, align 8
+  %8 = load ptr, ptr %5, align 8, !tbaa !63
   %9 = load ptr, ptr %6, align 8
   call void @_ZNSt15__uniq_ptr_implI30cmGeneratorExpressionEvaluatorSt14default_deleteIS0_EEC2IS1_I11TextContentEEEPS0_OT_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %8, ptr noundef nonnull align 1 dereferenceable(1) %9)
   ret void
@@ -5779,14 +6671,16 @@ define linkonce_odr dso_local void @_ZNSt15__uniq_ptr_dataI30cmGeneratorExpressi
 define linkonce_odr dso_local noundef ptr @_ZNSt15__uniq_ptr_implI11TextContentSt14default_deleteIS0_EE7releaseEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !206
   %4 = load ptr, ptr %2, align 8
-  %5 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt15__uniq_ptr_implI11TextContentSt14default_deleteIS0_EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(8) %4) #11
-  %6 = load ptr, ptr %5, align 8
-  store ptr %6, ptr %3, align 8
-  %7 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt15__uniq_ptr_implI11TextContentSt14default_deleteIS0_EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(8) %4) #11
-  store ptr null, ptr %7, align 8
-  %8 = load ptr, ptr %3, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #15
+  %5 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt15__uniq_ptr_implI11TextContentSt14default_deleteIS0_EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(8) %4) #15
+  %6 = load ptr, ptr %5, align 8, !tbaa !93
+  store ptr %6, ptr %3, align 8, !tbaa !93
+  %7 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt15__uniq_ptr_implI11TextContentSt14default_deleteIS0_EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(8) %4) #15
+  store ptr null, ptr %7, align 8, !tbaa !93
+  %8 = load ptr, ptr %3, align 8, !tbaa !93
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #15
   ret ptr %8
 }
 
@@ -5795,13 +6689,13 @@ define linkonce_odr dso_local void @_ZNSt15__uniq_ptr_implI30cmGeneratorExpressi
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store ptr %2, ptr %6, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !152
+  store ptr %1, ptr %5, align 8, !tbaa !63
+  store ptr %2, ptr %6, align 8, !tbaa !220
   %7 = load ptr, ptr %4, align 8
-  %8 = getelementptr inbounds %"class.std::__uniq_ptr_impl.14", ptr %7, i32 0, i32 0
-  %9 = load ptr, ptr %6, align 8
-  call void @_ZNSt5tupleIJP30cmGeneratorExpressionEvaluatorSt14default_deleteIS0_EEEC2IRS1_S2_I11TextContentETnNSt9enable_ifIXclsr4_TCCIXntcl14__is_alloc_argIT_EEEEE29__is_implicitly_constructibleISA_T0_EEEbE4typeELb1EEEOSA_OSB_(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 1 dereferenceable(1) %9) #11
+  %8 = getelementptr inbounds nuw %"class.std::__uniq_ptr_impl.14", ptr %7, i32 0, i32 0
+  %9 = load ptr, ptr %6, align 8, !tbaa !220
+  call void @_ZNSt5tupleIJP30cmGeneratorExpressionEvaluatorSt14default_deleteIS0_EEEC2IRS1_S2_I11TextContentETnNSt9enable_ifIXclsr4_TCCIXntcl14__is_alloc_argIT_EEEEE29__is_implicitly_constructibleISA_T0_EEEbE4typeELb1EEEOSA_OSB_(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 1 dereferenceable(1) %9) #15
   ret void
 }
 
@@ -5810,12 +6704,12 @@ define linkonce_odr dso_local void @_ZNSt5tupleIJP30cmGeneratorExpressionEvaluat
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store ptr %2, ptr %6, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !156
+  store ptr %1, ptr %5, align 8, !tbaa !61
+  store ptr %2, ptr %6, align 8, !tbaa !220
   %7 = load ptr, ptr %4, align 8
-  %8 = load ptr, ptr %5, align 8
-  %9 = load ptr, ptr %6, align 8
+  %8 = load ptr, ptr %5, align 8, !tbaa !61
+  %9 = load ptr, ptr %6, align 8, !tbaa !220
   invoke void @_ZNSt11_Tuple_implILm0EJP30cmGeneratorExpressionEvaluatorSt14default_deleteIS0_EEEC2IRS1_JS2_I11TextContentEEvEEOT_DpOT0_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 1 dereferenceable(1) %9)
           to label %10 unwind label %11
 
@@ -5826,7 +6720,7 @@ define linkonce_odr dso_local void @_ZNSt5tupleIJP30cmGeneratorExpressionEvaluat
   %12 = landingpad { ptr, i32 }
           catch ptr null
   %13 = extractvalue { ptr, i32 } %12, 0
-  call void @__clang_call_terminate(ptr %13) #14
+  call void @__clang_call_terminate(ptr %13) #18
   unreachable
 }
 
@@ -5835,13 +6729,13 @@ define linkonce_odr dso_local void @_ZNSt11_Tuple_implILm0EJP30cmGeneratorExpres
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store ptr %2, ptr %6, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !158
+  store ptr %1, ptr %5, align 8, !tbaa !61
+  store ptr %2, ptr %6, align 8, !tbaa !220
   %7 = load ptr, ptr %4, align 8
-  %8 = load ptr, ptr %6, align 8
+  %8 = load ptr, ptr %6, align 8, !tbaa !220
   call void @_ZNSt11_Tuple_implILm1EJSt14default_deleteI30cmGeneratorExpressionEvaluatorEEEC2IS0_I11TextContentEEEOT_(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef nonnull align 1 dereferenceable(1) %8)
-  %9 = load ptr, ptr %5, align 8
+  %9 = load ptr, ptr %5, align 8, !tbaa !61
   call void @_ZNSt10_Head_baseILm0EP30cmGeneratorExpressionEvaluatorLb0EEC2IRS1_EEOT_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(8) %9)
   ret void
 }
@@ -5850,10 +6744,10 @@ define linkonce_odr dso_local void @_ZNSt11_Tuple_implILm0EJP30cmGeneratorExpres
 define linkonce_odr dso_local void @_ZNSt11_Tuple_implILm1EJSt14default_deleteI30cmGeneratorExpressionEvaluatorEEEC2IS0_I11TextContentEEEOT_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %1) unnamed_addr #1 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !162
+  store ptr %1, ptr %4, align 8, !tbaa !220
   %5 = load ptr, ptr %3, align 8
-  %6 = load ptr, ptr %4, align 8
+  %6 = load ptr, ptr %4, align 8, !tbaa !220
   call void @_ZNSt10_Head_baseILm1ESt14default_deleteI30cmGeneratorExpressionEvaluatorELb1EEC2IS0_I11TextContentEEEOT_(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull align 1 dereferenceable(1) %6)
   ret void
 }
@@ -5862,13 +6756,13 @@ define linkonce_odr dso_local void @_ZNSt11_Tuple_implILm1EJSt14default_deleteI3
 define linkonce_odr dso_local void @_ZNSt10_Head_baseILm0EP30cmGeneratorExpressionEvaluatorLb0EEC2IRS1_EEOT_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #0 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !160
+  store ptr %1, ptr %4, align 8, !tbaa !61
   %5 = load ptr, ptr %3, align 8
-  %6 = getelementptr inbounds %"struct.std::_Head_base.19", ptr %5, i32 0, i32 0
-  %7 = load ptr, ptr %4, align 8
-  %8 = load ptr, ptr %7, align 8
-  store ptr %8, ptr %6, align 8
+  %6 = getelementptr inbounds nuw %"struct.std::_Head_base.19", ptr %5, i32 0, i32 0
+  %7 = load ptr, ptr %4, align 8, !tbaa !61
+  %8 = load ptr, ptr %7, align 8, !tbaa !63
+  store ptr %8, ptr %6, align 8, !tbaa !223
   ret void
 }
 
@@ -5876,11 +6770,11 @@ define linkonce_odr dso_local void @_ZNSt10_Head_baseILm0EP30cmGeneratorExpressi
 define linkonce_odr dso_local void @_ZNSt10_Head_baseILm1ESt14default_deleteI30cmGeneratorExpressionEvaluatorELb1EEC2IS0_I11TextContentEEEOT_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %1) unnamed_addr #0 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !164
+  store ptr %1, ptr %4, align 8, !tbaa !220
   %5 = load ptr, ptr %3, align 8
-  %6 = load ptr, ptr %4, align 8
-  call void @_ZNSt14default_deleteI30cmGeneratorExpressionEvaluatorEC2I11TextContentvEERKS_IT_E(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull align 1 dereferenceable(1) %6) #11
+  %6 = load ptr, ptr %4, align 8, !tbaa !220
+  call void @_ZNSt14default_deleteI30cmGeneratorExpressionEvaluatorEC2I11TextContentvEERKS_IT_E(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull align 1 dereferenceable(1) %6) #15
   ret void
 }
 
@@ -5888,35 +6782,35 @@ define linkonce_odr dso_local void @_ZNSt10_Head_baseILm1ESt14default_deleteI30c
 define linkonce_odr dso_local void @_ZNSt14default_deleteI30cmGeneratorExpressionEvaluatorEC2I11TextContentvEERKS_IT_E(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %1) unnamed_addr #0 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !154
+  store ptr %1, ptr %4, align 8, !tbaa !220
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS0_EE11get_deleterEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !59
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"class.std::unique_ptr.12", ptr %3, i32 0, i32 0
-  %5 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt15__uniq_ptr_implI30cmGeneratorExpressionEvaluatorSt14default_deleteIS0_EE10_M_deleterEv(ptr noundef nonnull align 8 dereferenceable(8) %4) #11
+  %4 = getelementptr inbounds nuw %"class.std::unique_ptr.12", ptr %3, i32 0, i32 0
+  %5 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt15__uniq_ptr_implI30cmGeneratorExpressionEvaluatorSt14default_deleteIS0_EE10_M_deleterEv(ptr noundef nonnull align 8 dereferenceable(8) %4) #15
   ret ptr %5
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZNSt12_Vector_baseISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !115
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"struct.std::_Vector_base.1", ptr %3, i32 0, i32 0
-  %5 = getelementptr inbounds %"struct.std::_Vector_base<std::unique_ptr<cmGeneratorExpressionEvaluator>, std::allocator<std::unique_ptr<cmGeneratorExpressionEvaluator>>>::_Vector_impl_data", ptr %4, i32 0, i32 0
-  %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds %"struct.std::_Vector_base.1", ptr %3, i32 0, i32 0
-  %8 = getelementptr inbounds %"struct.std::_Vector_base<std::unique_ptr<cmGeneratorExpressionEvaluator>, std::allocator<std::unique_ptr<cmGeneratorExpressionEvaluator>>>::_Vector_impl_data", ptr %7, i32 0, i32 2
-  %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds %"struct.std::_Vector_base.1", ptr %3, i32 0, i32 0
-  %11 = getelementptr inbounds %"struct.std::_Vector_base<std::unique_ptr<cmGeneratorExpressionEvaluator>, std::allocator<std::unique_ptr<cmGeneratorExpressionEvaluator>>>::_Vector_impl_data", ptr %10, i32 0, i32 0
-  %12 = load ptr, ptr %11, align 8
+  %4 = getelementptr inbounds nuw %"struct.std::_Vector_base.1", ptr %3, i32 0, i32 0
+  %5 = getelementptr inbounds nuw %"struct.std::_Vector_base<std::unique_ptr<cmGeneratorExpressionEvaluator>, std::allocator<std::unique_ptr<cmGeneratorExpressionEvaluator>>>::_Vector_impl_data", ptr %4, i32 0, i32 0
+  %6 = load ptr, ptr %5, align 8, !tbaa !86
+  %7 = getelementptr inbounds nuw %"struct.std::_Vector_base.1", ptr %3, i32 0, i32 0
+  %8 = getelementptr inbounds nuw %"struct.std::_Vector_base<std::unique_ptr<cmGeneratorExpressionEvaluator>, std::allocator<std::unique_ptr<cmGeneratorExpressionEvaluator>>>::_Vector_impl_data", ptr %7, i32 0, i32 2
+  %9 = load ptr, ptr %8, align 8, !tbaa !125
+  %10 = getelementptr inbounds nuw %"struct.std::_Vector_base.1", ptr %3, i32 0, i32 0
+  %11 = getelementptr inbounds nuw %"struct.std::_Vector_base<std::unique_ptr<cmGeneratorExpressionEvaluator>, std::allocator<std::unique_ptr<cmGeneratorExpressionEvaluator>>>::_Vector_impl_data", ptr %10, i32 0, i32 0
+  %12 = load ptr, ptr %11, align 8, !tbaa !86
   %13 = ptrtoint ptr %9 to i64
   %14 = ptrtoint ptr %12 to i64
   %15 = sub i64 %13, %14
@@ -5925,38 +6819,36 @@ define linkonce_odr dso_local void @_ZNSt12_Vector_baseISt10unique_ptrI30cmGener
           to label %17 unwind label %19
 
 17:                                               ; preds = %1
-  %18 = getelementptr inbounds %"struct.std::_Vector_base.1", ptr %3, i32 0, i32 0
-  call void @_ZNSt12_Vector_baseISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EE12_Vector_implD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %18) #11
+  %18 = getelementptr inbounds nuw %"struct.std::_Vector_base.1", ptr %3, i32 0, i32 0
+  call void @_ZNSt15__new_allocatorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %18) #15
   ret void
 
 19:                                               ; preds = %1
   %20 = landingpad { ptr, i32 }
           catch ptr null
   %21 = extractvalue { ptr, i32 } %20, 0
-  call void @__clang_call_terminate(ptr %21) #14
+  call void @__clang_call_terminate(ptr %21) #18
   unreachable
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZNSt12_Vector_baseISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EE12_Vector_implD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #0 comdat align 2 {
+define linkonce_odr dso_local void @_ZNSt15__new_allocatorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  call void @_ZNSaISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS0_EEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #11
+  store ptr %0, ptr %2, align 8, !tbaa !121
   ret void
 }
 
-declare void @_ZN26GeneratorExpressionContentC1EPKcm(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef, i64 noundef) unnamed_addr #8
+declare void @_ZN26GeneratorExpressionContentC1EPKcm(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef, i64 noundef) unnamed_addr #11
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZNSt10unique_ptrI26GeneratorExpressionContentSt14default_deleteIS0_EEC2IS2_vEEPS0_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !55
+  store ptr %1, ptr %4, align 8, !tbaa !57
   %5 = load ptr, ptr %3, align 8
-  %6 = getelementptr inbounds %"class.std::unique_ptr", ptr %5, i32 0, i32 0
-  %7 = load ptr, ptr %4, align 8
+  %6 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %5, i32 0, i32 0
+  %7 = load ptr, ptr %4, align 8, !tbaa !57
   invoke void @_ZNSt15__uniq_ptr_dataI26GeneratorExpressionContentSt14default_deleteIS0_ELb1ELb1EECI2St15__uniq_ptr_implIS0_S2_EEPS0_(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef %7)
           to label %8 unwind label %9
 
@@ -5967,18 +6859,18 @@ define linkonce_odr dso_local void @_ZNSt10unique_ptrI26GeneratorExpressionConte
   %10 = landingpad { ptr, i32 }
           catch ptr null
   %11 = extractvalue { ptr, i32 } %10, 0
-  call void @__clang_call_terminate(ptr %11) #14
+  call void @__clang_call_terminate(ptr %11) #18
   unreachable
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZNSt15__uniq_ptr_dataI26GeneratorExpressionContentSt14default_deleteIS0_ELb1ELb1EECI2St15__uniq_ptr_implIS0_S2_EEPS0_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #1 comdat align 2 {
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr dso_local void @_ZNSt15__uniq_ptr_dataI26GeneratorExpressionContentSt14default_deleteIS0_ELb1ELb1EECI2St15__uniq_ptr_implIS0_S2_EEPS0_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #5 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !225
+  store ptr %1, ptr %4, align 8, !tbaa !57
   %5 = load ptr, ptr %3, align 8
-  %6 = load ptr, ptr %4, align 8
+  %6 = load ptr, ptr %4, align 8, !tbaa !57
   call void @_ZNSt15__uniq_ptr_implI26GeneratorExpressionContentSt14default_deleteIS0_EEC2EPS0_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef %6)
   ret void
 }
@@ -5987,21 +6879,21 @@ define linkonce_odr dso_local void @_ZNSt15__uniq_ptr_dataI26GeneratorExpression
 define linkonce_odr dso_local void @_ZNSt15__uniq_ptr_implI26GeneratorExpressionContentSt14default_deleteIS0_EEC2EPS0_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #0 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !227
+  store ptr %1, ptr %4, align 8, !tbaa !57
   %5 = load ptr, ptr %3, align 8
-  %6 = getelementptr inbounds %"class.std::__uniq_ptr_impl", ptr %5, i32 0, i32 0
-  call void @_ZNSt5tupleIJP26GeneratorExpressionContentSt14default_deleteIS0_EEEC2ILb1ETnNSt9enable_ifIXclsr17_TupleConstraintsIXT_ES1_S3_EE37__is_implicitly_default_constructibleEEbE4typeELb1EEEv(ptr noundef nonnull align 8 dereferenceable(8) %6) #11
-  %7 = load ptr, ptr %4, align 8
-  %8 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt15__uniq_ptr_implI26GeneratorExpressionContentSt14default_deleteIS0_EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(8) %5) #11
-  store ptr %7, ptr %8, align 8
+  %6 = getelementptr inbounds nuw %"class.std::__uniq_ptr_impl", ptr %5, i32 0, i32 0
+  call void @_ZNSt5tupleIJP26GeneratorExpressionContentSt14default_deleteIS0_EEEC2ILb1ETnNSt9enable_ifIXclsr17_TupleConstraintsIXT_ES1_S3_EE37__is_implicitly_default_constructibleEEbE4typeELb1EEEv(ptr noundef nonnull align 8 dereferenceable(8) %6) #15
+  %7 = load ptr, ptr %4, align 8, !tbaa !57
+  %8 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt15__uniq_ptr_implI26GeneratorExpressionContentSt14default_deleteIS0_EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(8) %5) #15
+  store ptr %7, ptr %8, align 8, !tbaa !57
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZNSt5tupleIJP26GeneratorExpressionContentSt14default_deleteIS0_EEEC2ILb1ETnNSt9enable_ifIXclsr17_TupleConstraintsIXT_ES1_S3_EE37__is_implicitly_default_constructibleEEbE4typeELb1EEEv(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !229
   %3 = load ptr, ptr %2, align 8
   invoke void @_ZNSt11_Tuple_implILm0EJP26GeneratorExpressionContentSt14default_deleteIS0_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
           to label %4 unwind label %5
@@ -6013,24 +6905,24 @@ define linkonce_odr dso_local void @_ZNSt5tupleIJP26GeneratorExpressionContentSt
   %6 = landingpad { ptr, i32 }
           catch ptr null
   %7 = extractvalue { ptr, i32 } %6, 0
-  call void @__clang_call_terminate(ptr %7) #14
+  call void @__clang_call_terminate(ptr %7) #18
   unreachable
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt15__uniq_ptr_implI26GeneratorExpressionContentSt14default_deleteIS0_EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !227
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"class.std::__uniq_ptr_impl", ptr %3, i32 0, i32 0
-  %5 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt3getILm0EJP26GeneratorExpressionContentSt14default_deleteIS0_EEERNSt13tuple_elementIXT_ESt5tupleIJDpT0_EEE4typeERS8_(ptr noundef nonnull align 8 dereferenceable(8) %4) #11
+  %4 = getelementptr inbounds nuw %"class.std::__uniq_ptr_impl", ptr %3, i32 0, i32 0
+  %5 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt3getILm0EJP26GeneratorExpressionContentSt14default_deleteIS0_EEERNSt13tuple_elementIXT_ESt5tupleIJDpT0_EEE4typeERS8_(ptr noundef nonnull align 8 dereferenceable(8) %4) #15
   ret ptr %5
 }
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNSt11_Tuple_implILm0EJP26GeneratorExpressionContentSt14default_deleteIS0_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #1 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !231
   %3 = load ptr, ptr %2, align 8
   call void @_ZNSt11_Tuple_implILm1EJSt14default_deleteI26GeneratorExpressionContentEEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3)
   call void @_ZNSt10_Head_baseILm0EP26GeneratorExpressionContentLb0EEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
@@ -6040,7 +6932,7 @@ define linkonce_odr dso_local void @_ZNSt11_Tuple_implILm0EJP26GeneratorExpressi
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNSt11_Tuple_implILm1EJSt14default_deleteI26GeneratorExpressionContentEEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #1 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !233
   %3 = load ptr, ptr %2, align 8
   call void @_ZNSt10_Head_baseILm1ESt14default_deleteI26GeneratorExpressionContentELb1EEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3)
   ret void
@@ -6049,63 +6941,63 @@ define linkonce_odr dso_local void @_ZNSt11_Tuple_implILm1EJSt14default_deleteI2
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZNSt10_Head_baseILm0EP26GeneratorExpressionContentLb0EEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !235
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"struct.std::_Head_base.6", ptr %3, i32 0, i32 0
-  store ptr null, ptr %4, align 8
+  %4 = getelementptr inbounds nuw %"struct.std::_Head_base.6", ptr %3, i32 0, i32 0
+  store ptr null, ptr %4, align 8, !tbaa !237
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZNSt10_Head_baseILm1ESt14default_deleteI26GeneratorExpressionContentELb1EEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !239
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZSt3getILm0EJP26GeneratorExpressionContentSt14default_deleteIS0_EEERNSt13tuple_elementIXT_ESt5tupleIJDpT0_EEE4typeERS8_(ptr noundef nonnull align 8 dereferenceable(8) %0) #0 comdat {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  %4 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt12__get_helperILm0EP26GeneratorExpressionContentJSt14default_deleteIS0_EEERT0_RSt11_Tuple_implIXT_EJS4_DpT1_EE(ptr noundef nonnull align 8 dereferenceable(8) %3) #11
+  store ptr %0, ptr %2, align 8, !tbaa !229
+  %3 = load ptr, ptr %2, align 8, !tbaa !229
+  %4 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt12__get_helperILm0EP26GeneratorExpressionContentJSt14default_deleteIS0_EEERT0_RSt11_Tuple_implIXT_EJS4_DpT1_EE(ptr noundef nonnull align 8 dereferenceable(8) %3) #15
   ret ptr %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZSt12__get_helperILm0EP26GeneratorExpressionContentJSt14default_deleteIS0_EEERT0_RSt11_Tuple_implIXT_EJS4_DpT1_EE(ptr noundef nonnull align 8 dereferenceable(8) %0) #0 comdat {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  %4 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt11_Tuple_implILm0EJP26GeneratorExpressionContentSt14default_deleteIS0_EEE7_M_headERS4_(ptr noundef nonnull align 8 dereferenceable(8) %3) #11
+  store ptr %0, ptr %2, align 8, !tbaa !231
+  %3 = load ptr, ptr %2, align 8, !tbaa !231
+  %4 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt11_Tuple_implILm0EJP26GeneratorExpressionContentSt14default_deleteIS0_EEE7_M_headERS4_(ptr noundef nonnull align 8 dereferenceable(8) %3) #15
   ret ptr %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt11_Tuple_implILm0EJP26GeneratorExpressionContentSt14default_deleteIS0_EEE7_M_headERS4_(ptr noundef nonnull align 8 dereferenceable(8) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  %4 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt10_Head_baseILm0EP26GeneratorExpressionContentLb0EE7_M_headERS2_(ptr noundef nonnull align 8 dereferenceable(8) %3) #11
+  store ptr %0, ptr %2, align 8, !tbaa !231
+  %3 = load ptr, ptr %2, align 8, !tbaa !231
+  %4 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt10_Head_baseILm0EP26GeneratorExpressionContentLb0EE7_M_headERS2_(ptr noundef nonnull align 8 dereferenceable(8) %3) #15
   ret ptr %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt10_Head_baseILm0EP26GeneratorExpressionContentLb0EE7_M_headERS2_(ptr noundef nonnull align 8 dereferenceable(8) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"struct.std::_Head_base.6", ptr %3, i32 0, i32 0
+  store ptr %0, ptr %2, align 8, !tbaa !235
+  %3 = load ptr, ptr %2, align 8, !tbaa !235
+  %4 = getelementptr inbounds nuw %"struct.std::_Head_base.6", ptr %3, i32 0, i32 0
   ret ptr %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt10unique_ptrI26GeneratorExpressionContentSt14default_deleteIS0_EE11get_deleterEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !55
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"class.std::unique_ptr", ptr %3, i32 0, i32 0
-  %5 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt15__uniq_ptr_implI26GeneratorExpressionContentSt14default_deleteIS0_EE10_M_deleterEv(ptr noundef nonnull align 8 dereferenceable(8) %4) #11
+  %4 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %3, i32 0, i32 0
+  %5 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt15__uniq_ptr_implI26GeneratorExpressionContentSt14default_deleteIS0_EE10_M_deleterEv(ptr noundef nonnull align 8 dereferenceable(8) %4) #15
   ret ptr %5
 }
 
@@ -6113,17 +7005,17 @@ define linkonce_odr dso_local noundef nonnull align 1 dereferenceable(1) ptr @_Z
 define linkonce_odr dso_local void @_ZNKSt14default_deleteI26GeneratorExpressionContentEclEPS0_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1) #0 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  %5 = load ptr, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !241
+  store ptr %1, ptr %4, align 8, !tbaa !57
+  %5 = load ptr, ptr %4, align 8, !tbaa !57
   %6 = icmp eq ptr %5, null
   br i1 %6, label %11, label %7
 
 7:                                                ; preds = %2
-  %8 = load ptr, ptr %5, align 8
+  %8 = load ptr, ptr %5, align 8, !tbaa !33
   %9 = getelementptr inbounds ptr, ptr %8, i64 1
   %10 = load ptr, ptr %9, align 8
-  call void %10(ptr noundef nonnull align 8 dereferenceable(72) %5) #11
+  call void %10(ptr noundef nonnull align 8 dereferenceable(72) %5) #15
   br label %11
 
 11:                                               ; preds = %7, %2
@@ -6133,125 +7025,125 @@ define linkonce_odr dso_local void @_ZNKSt14default_deleteI26GeneratorExpression
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt15__uniq_ptr_implI26GeneratorExpressionContentSt14default_deleteIS0_EE10_M_deleterEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !227
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"class.std::__uniq_ptr_impl", ptr %3, i32 0, i32 0
-  %5 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZSt3getILm1EJP26GeneratorExpressionContentSt14default_deleteIS0_EEERNSt13tuple_elementIXT_ESt5tupleIJDpT0_EEE4typeERS8_(ptr noundef nonnull align 8 dereferenceable(8) %4) #11
+  %4 = getelementptr inbounds nuw %"class.std::__uniq_ptr_impl", ptr %3, i32 0, i32 0
+  %5 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZSt3getILm1EJP26GeneratorExpressionContentSt14default_deleteIS0_EEERNSt13tuple_elementIXT_ESt5tupleIJDpT0_EEE4typeERS8_(ptr noundef nonnull align 8 dereferenceable(8) %4) #15
   ret ptr %5
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef nonnull align 1 dereferenceable(1) ptr @_ZSt3getILm1EJP26GeneratorExpressionContentSt14default_deleteIS0_EEERNSt13tuple_elementIXT_ESt5tupleIJDpT0_EEE4typeERS8_(ptr noundef nonnull align 8 dereferenceable(8) %0) #0 comdat {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  %4 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZSt12__get_helperILm1ESt14default_deleteI26GeneratorExpressionContentEJEERT0_RSt11_Tuple_implIXT_EJS3_DpT1_EE(ptr noundef nonnull align 1 dereferenceable(1) %3) #11
+  store ptr %0, ptr %2, align 8, !tbaa !229
+  %3 = load ptr, ptr %2, align 8, !tbaa !229
+  %4 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZSt12__get_helperILm1ESt14default_deleteI26GeneratorExpressionContentEJEERT0_RSt11_Tuple_implIXT_EJS3_DpT1_EE(ptr noundef nonnull align 1 dereferenceable(1) %3) #15
   ret ptr %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef nonnull align 1 dereferenceable(1) ptr @_ZSt12__get_helperILm1ESt14default_deleteI26GeneratorExpressionContentEJEERT0_RSt11_Tuple_implIXT_EJS3_DpT1_EE(ptr noundef nonnull align 1 dereferenceable(1) %0) #0 comdat {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  %4 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt11_Tuple_implILm1EJSt14default_deleteI26GeneratorExpressionContentEEE7_M_headERS3_(ptr noundef nonnull align 1 dereferenceable(1) %3) #11
+  store ptr %0, ptr %2, align 8, !tbaa !233
+  %3 = load ptr, ptr %2, align 8, !tbaa !233
+  %4 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt11_Tuple_implILm1EJSt14default_deleteI26GeneratorExpressionContentEEE7_M_headERS3_(ptr noundef nonnull align 1 dereferenceable(1) %3) #15
   ret ptr %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt11_Tuple_implILm1EJSt14default_deleteI26GeneratorExpressionContentEEE7_M_headERS3_(ptr noundef nonnull align 1 dereferenceable(1) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  %4 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt10_Head_baseILm1ESt14default_deleteI26GeneratorExpressionContentELb1EE7_M_headERS3_(ptr noundef nonnull align 1 dereferenceable(1) %3) #11
+  store ptr %0, ptr %2, align 8, !tbaa !233
+  %3 = load ptr, ptr %2, align 8, !tbaa !233
+  %4 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt10_Head_baseILm1ESt14default_deleteI26GeneratorExpressionContentELb1EE7_M_headERS3_(ptr noundef nonnull align 1 dereferenceable(1) %3) #15
   ret ptr %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt10_Head_baseILm1ESt14default_deleteI26GeneratorExpressionContentELb1EE7_M_headERS3_(ptr noundef nonnull align 1 dereferenceable(1) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !239
+  %3 = load ptr, ptr %2, align 8, !tbaa !239
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef ptr @_ZNKSt10unique_ptrI26GeneratorExpressionContentSt14default_deleteIS0_EE3getEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !55
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"class.std::unique_ptr", ptr %3, i32 0, i32 0
-  %5 = call noundef ptr @_ZNKSt15__uniq_ptr_implI26GeneratorExpressionContentSt14default_deleteIS0_EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(8) %4) #11
+  %4 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %3, i32 0, i32 0
+  %5 = call noundef ptr @_ZNKSt15__uniq_ptr_implI26GeneratorExpressionContentSt14default_deleteIS0_EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(8) %4) #15
   ret ptr %5
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef ptr @_ZNKSt15__uniq_ptr_implI26GeneratorExpressionContentSt14default_deleteIS0_EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !227
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"class.std::__uniq_ptr_impl", ptr %3, i32 0, i32 0
-  %5 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt3getILm0EJP26GeneratorExpressionContentSt14default_deleteIS0_EEERKNSt13tuple_elementIXT_ESt5tupleIJDpT0_EEE4typeERKS8_(ptr noundef nonnull align 8 dereferenceable(8) %4) #11
-  %6 = load ptr, ptr %5, align 8
+  %4 = getelementptr inbounds nuw %"class.std::__uniq_ptr_impl", ptr %3, i32 0, i32 0
+  %5 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt3getILm0EJP26GeneratorExpressionContentSt14default_deleteIS0_EEERKNSt13tuple_elementIXT_ESt5tupleIJDpT0_EEE4typeERKS8_(ptr noundef nonnull align 8 dereferenceable(8) %4) #15
+  %6 = load ptr, ptr %5, align 8, !tbaa !57
   ret ptr %6
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZSt3getILm0EJP26GeneratorExpressionContentSt14default_deleteIS0_EEERKNSt13tuple_elementIXT_ESt5tupleIJDpT0_EEE4typeERKS8_(ptr noundef nonnull align 8 dereferenceable(8) %0) #0 comdat {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  %4 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt12__get_helperILm0EP26GeneratorExpressionContentJSt14default_deleteIS0_EEERKT0_RKSt11_Tuple_implIXT_EJS4_DpT1_EE(ptr noundef nonnull align 8 dereferenceable(8) %3) #11
+  store ptr %0, ptr %2, align 8, !tbaa !229
+  %3 = load ptr, ptr %2, align 8, !tbaa !229
+  %4 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt12__get_helperILm0EP26GeneratorExpressionContentJSt14default_deleteIS0_EEERKT0_RKSt11_Tuple_implIXT_EJS4_DpT1_EE(ptr noundef nonnull align 8 dereferenceable(8) %3) #15
   ret ptr %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZSt12__get_helperILm0EP26GeneratorExpressionContentJSt14default_deleteIS0_EEERKT0_RKSt11_Tuple_implIXT_EJS4_DpT1_EE(ptr noundef nonnull align 8 dereferenceable(8) %0) #0 comdat {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  %4 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt11_Tuple_implILm0EJP26GeneratorExpressionContentSt14default_deleteIS0_EEE7_M_headERKS4_(ptr noundef nonnull align 8 dereferenceable(8) %3) #11
+  store ptr %0, ptr %2, align 8, !tbaa !231
+  %3 = load ptr, ptr %2, align 8, !tbaa !231
+  %4 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt11_Tuple_implILm0EJP26GeneratorExpressionContentSt14default_deleteIS0_EEE7_M_headERKS4_(ptr noundef nonnull align 8 dereferenceable(8) %3) #15
   ret ptr %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt11_Tuple_implILm0EJP26GeneratorExpressionContentSt14default_deleteIS0_EEE7_M_headERKS4_(ptr noundef nonnull align 8 dereferenceable(8) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  %4 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt10_Head_baseILm0EP26GeneratorExpressionContentLb0EE7_M_headERKS2_(ptr noundef nonnull align 8 dereferenceable(8) %3) #11
+  store ptr %0, ptr %2, align 8, !tbaa !231
+  %3 = load ptr, ptr %2, align 8, !tbaa !231
+  %4 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt10_Head_baseILm0EP26GeneratorExpressionContentLb0EE7_M_headERKS2_(ptr noundef nonnull align 8 dereferenceable(8) %3) #15
   ret ptr %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt10_Head_baseILm0EP26GeneratorExpressionContentLb0EE7_M_headERKS2_(ptr noundef nonnull align 8 dereferenceable(8) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"struct.std::_Head_base.6", ptr %3, i32 0, i32 0
+  store ptr %0, ptr %2, align 8, !tbaa !235
+  %3 = load ptr, ptr %2, align 8, !tbaa !235
+  %4 = getelementptr inbounds nuw %"struct.std::_Head_base.6", ptr %3, i32 0, i32 0
   ret ptr %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef ptr @_ZNSt10unique_ptrI26GeneratorExpressionContentSt14default_deleteIS0_EE7releaseEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !55
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"class.std::unique_ptr", ptr %3, i32 0, i32 0
-  %5 = call noundef ptr @_ZNSt15__uniq_ptr_implI26GeneratorExpressionContentSt14default_deleteIS0_EE7releaseEv(ptr noundef nonnull align 8 dereferenceable(8) %4) #11
+  %4 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %3, i32 0, i32 0
+  %5 = call noundef ptr @_ZNSt15__uniq_ptr_implI26GeneratorExpressionContentSt14default_deleteIS0_EE7releaseEv(ptr noundef nonnull align 8 dereferenceable(8) %4) #15
   ret ptr %5
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZNSt15__uniq_ptr_dataI30cmGeneratorExpressionEvaluatorSt14default_deleteIS0_ELb1ELb1EECI2St15__uniq_ptr_implIS0_S2_EIS1_I26GeneratorExpressionContentEEEPS0_OT_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %2) unnamed_addr #1 comdat align 2 {
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr dso_local void @_ZNSt15__uniq_ptr_dataI30cmGeneratorExpressionEvaluatorSt14default_deleteIS0_ELb1ELb1EECI2St15__uniq_ptr_implIS0_S2_EIS1_I26GeneratorExpressionContentEEEPS0_OT_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %2) unnamed_addr #5 comdat align 2 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store ptr %2, ptr %6, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !150
+  store ptr %1, ptr %5, align 8, !tbaa !63
+  store ptr %2, ptr %6, align 8, !tbaa !241
   %7 = load ptr, ptr %4, align 8
-  %8 = load ptr, ptr %5, align 8
+  %8 = load ptr, ptr %5, align 8, !tbaa !63
   %9 = load ptr, ptr %6, align 8
   call void @_ZNSt15__uniq_ptr_implI30cmGeneratorExpressionEvaluatorSt14default_deleteIS0_EEC2IS1_I26GeneratorExpressionContentEEEPS0_OT_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %8, ptr noundef nonnull align 1 dereferenceable(1) %9)
   ret void
@@ -6261,14 +7153,16 @@ define linkonce_odr dso_local void @_ZNSt15__uniq_ptr_dataI30cmGeneratorExpressi
 define linkonce_odr dso_local noundef ptr @_ZNSt15__uniq_ptr_implI26GeneratorExpressionContentSt14default_deleteIS0_EE7releaseEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !227
   %4 = load ptr, ptr %2, align 8
-  %5 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt15__uniq_ptr_implI26GeneratorExpressionContentSt14default_deleteIS0_EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(8) %4) #11
-  %6 = load ptr, ptr %5, align 8
-  store ptr %6, ptr %3, align 8
-  %7 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt15__uniq_ptr_implI26GeneratorExpressionContentSt14default_deleteIS0_EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(8) %4) #11
-  store ptr null, ptr %7, align 8
-  %8 = load ptr, ptr %3, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #15
+  %5 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt15__uniq_ptr_implI26GeneratorExpressionContentSt14default_deleteIS0_EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(8) %4) #15
+  %6 = load ptr, ptr %5, align 8, !tbaa !57
+  store ptr %6, ptr %3, align 8, !tbaa !57
+  %7 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt15__uniq_ptr_implI26GeneratorExpressionContentSt14default_deleteIS0_EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(8) %4) #15
+  store ptr null, ptr %7, align 8, !tbaa !57
+  %8 = load ptr, ptr %3, align 8, !tbaa !57
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #15
   ret ptr %8
 }
 
@@ -6277,13 +7171,13 @@ define linkonce_odr dso_local void @_ZNSt15__uniq_ptr_implI30cmGeneratorExpressi
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store ptr %2, ptr %6, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !152
+  store ptr %1, ptr %5, align 8, !tbaa !63
+  store ptr %2, ptr %6, align 8, !tbaa !241
   %7 = load ptr, ptr %4, align 8
-  %8 = getelementptr inbounds %"class.std::__uniq_ptr_impl.14", ptr %7, i32 0, i32 0
-  %9 = load ptr, ptr %6, align 8
-  call void @_ZNSt5tupleIJP30cmGeneratorExpressionEvaluatorSt14default_deleteIS0_EEEC2IRS1_S2_I26GeneratorExpressionContentETnNSt9enable_ifIXclsr4_TCCIXntcl14__is_alloc_argIT_EEEEE29__is_implicitly_constructibleISA_T0_EEEbE4typeELb1EEEOSA_OSB_(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 1 dereferenceable(1) %9) #11
+  %8 = getelementptr inbounds nuw %"class.std::__uniq_ptr_impl.14", ptr %7, i32 0, i32 0
+  %9 = load ptr, ptr %6, align 8, !tbaa !241
+  call void @_ZNSt5tupleIJP30cmGeneratorExpressionEvaluatorSt14default_deleteIS0_EEEC2IRS1_S2_I26GeneratorExpressionContentETnNSt9enable_ifIXclsr4_TCCIXntcl14__is_alloc_argIT_EEEEE29__is_implicitly_constructibleISA_T0_EEEbE4typeELb1EEEOSA_OSB_(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 1 dereferenceable(1) %9) #15
   ret void
 }
 
@@ -6292,12 +7186,12 @@ define linkonce_odr dso_local void @_ZNSt5tupleIJP30cmGeneratorExpressionEvaluat
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store ptr %2, ptr %6, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !156
+  store ptr %1, ptr %5, align 8, !tbaa !61
+  store ptr %2, ptr %6, align 8, !tbaa !241
   %7 = load ptr, ptr %4, align 8
-  %8 = load ptr, ptr %5, align 8
-  %9 = load ptr, ptr %6, align 8
+  %8 = load ptr, ptr %5, align 8, !tbaa !61
+  %9 = load ptr, ptr %6, align 8, !tbaa !241
   invoke void @_ZNSt11_Tuple_implILm0EJP30cmGeneratorExpressionEvaluatorSt14default_deleteIS0_EEEC2IRS1_JS2_I26GeneratorExpressionContentEEvEEOT_DpOT0_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 1 dereferenceable(1) %9)
           to label %10 unwind label %11
 
@@ -6308,7 +7202,7 @@ define linkonce_odr dso_local void @_ZNSt5tupleIJP30cmGeneratorExpressionEvaluat
   %12 = landingpad { ptr, i32 }
           catch ptr null
   %13 = extractvalue { ptr, i32 } %12, 0
-  call void @__clang_call_terminate(ptr %13) #14
+  call void @__clang_call_terminate(ptr %13) #18
   unreachable
 }
 
@@ -6317,13 +7211,13 @@ define linkonce_odr dso_local void @_ZNSt11_Tuple_implILm0EJP30cmGeneratorExpres
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store ptr %2, ptr %6, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !158
+  store ptr %1, ptr %5, align 8, !tbaa !61
+  store ptr %2, ptr %6, align 8, !tbaa !241
   %7 = load ptr, ptr %4, align 8
-  %8 = load ptr, ptr %6, align 8
+  %8 = load ptr, ptr %6, align 8, !tbaa !241
   call void @_ZNSt11_Tuple_implILm1EJSt14default_deleteI30cmGeneratorExpressionEvaluatorEEEC2IS0_I26GeneratorExpressionContentEEEOT_(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef nonnull align 1 dereferenceable(1) %8)
-  %9 = load ptr, ptr %5, align 8
+  %9 = load ptr, ptr %5, align 8, !tbaa !61
   call void @_ZNSt10_Head_baseILm0EP30cmGeneratorExpressionEvaluatorLb0EEC2IRS1_EEOT_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(8) %9)
   ret void
 }
@@ -6332,10 +7226,10 @@ define linkonce_odr dso_local void @_ZNSt11_Tuple_implILm0EJP30cmGeneratorExpres
 define linkonce_odr dso_local void @_ZNSt11_Tuple_implILm1EJSt14default_deleteI30cmGeneratorExpressionEvaluatorEEEC2IS0_I26GeneratorExpressionContentEEEOT_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %1) unnamed_addr #1 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !162
+  store ptr %1, ptr %4, align 8, !tbaa !241
   %5 = load ptr, ptr %3, align 8
-  %6 = load ptr, ptr %4, align 8
+  %6 = load ptr, ptr %4, align 8, !tbaa !241
   call void @_ZNSt10_Head_baseILm1ESt14default_deleteI30cmGeneratorExpressionEvaluatorELb1EEC2IS0_I26GeneratorExpressionContentEEEOT_(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull align 1 dereferenceable(1) %6)
   ret void
 }
@@ -6344,11 +7238,11 @@ define linkonce_odr dso_local void @_ZNSt11_Tuple_implILm1EJSt14default_deleteI3
 define linkonce_odr dso_local void @_ZNSt10_Head_baseILm1ESt14default_deleteI30cmGeneratorExpressionEvaluatorELb1EEC2IS0_I26GeneratorExpressionContentEEEOT_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %1) unnamed_addr #0 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !164
+  store ptr %1, ptr %4, align 8, !tbaa !241
   %5 = load ptr, ptr %3, align 8
-  %6 = load ptr, ptr %4, align 8
-  call void @_ZNSt14default_deleteI30cmGeneratorExpressionEvaluatorEC2I26GeneratorExpressionContentvEERKS_IT_E(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull align 1 dereferenceable(1) %6) #11
+  %6 = load ptr, ptr %4, align 8, !tbaa !241
+  call void @_ZNSt14default_deleteI30cmGeneratorExpressionEvaluatorEC2I26GeneratorExpressionContentvEERKS_IT_E(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull align 1 dereferenceable(1) %6) #15
   ret void
 }
 
@@ -6356,21 +7250,21 @@ define linkonce_odr dso_local void @_ZNSt10_Head_baseILm1ESt14default_deleteI30c
 define linkonce_odr dso_local void @_ZNSt14default_deleteI30cmGeneratorExpressionEvaluatorEC2I26GeneratorExpressionContentvEERKS_IT_E(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %1) unnamed_addr #0 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !154
+  store ptr %1, ptr %4, align 8, !tbaa !241
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZSt8_DestroyIPSt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS2_EESaIS5_EES7_EvT_S9_RSaIT0_E(ptr noundef %0, ptr noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %2) #1 comdat {
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr dso_local void @_ZSt8_DestroyIPSt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS2_EESaIS5_EES7_EvT_S9_RSaIT0_E(ptr noundef %0, ptr noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %2) #5 comdat {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store ptr %2, ptr %6, align 8
-  %7 = load ptr, ptr %4, align 8
-  %8 = load ptr, ptr %5, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !23
+  store ptr %1, ptr %5, align 8, !tbaa !23
+  store ptr %2, ptr %6, align 8, !tbaa !130
+  %7 = load ptr, ptr %4, align 8, !tbaa !23
+  %8 = load ptr, ptr %5, align 8, !tbaa !23
   call void @_ZSt8_DestroyIPSt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS2_EESaIS5_EEEvT_S9_(ptr noundef %7, ptr noundef %8)
   ret void
 }
@@ -6378,17 +7272,17 @@ define linkonce_odr dso_local void @_ZSt8_DestroyIPSt6vectorISt10unique_ptrI30cm
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZNSt12_Vector_baseISt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS2_EESaIS5_EESaIS7_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !126
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"struct.std::_Vector_base.8", ptr %3, i32 0, i32 0
-  %5 = getelementptr inbounds %"struct.std::_Vector_base<std::vector<std::unique_ptr<cmGeneratorExpressionEvaluator>>, std::allocator<std::vector<std::unique_ptr<cmGeneratorExpressionEvaluator>>>>::_Vector_impl_data", ptr %4, i32 0, i32 0
-  %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds %"struct.std::_Vector_base.8", ptr %3, i32 0, i32 0
-  %8 = getelementptr inbounds %"struct.std::_Vector_base<std::vector<std::unique_ptr<cmGeneratorExpressionEvaluator>>, std::allocator<std::vector<std::unique_ptr<cmGeneratorExpressionEvaluator>>>>::_Vector_impl_data", ptr %7, i32 0, i32 2
-  %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds %"struct.std::_Vector_base.8", ptr %3, i32 0, i32 0
-  %11 = getelementptr inbounds %"struct.std::_Vector_base<std::vector<std::unique_ptr<cmGeneratorExpressionEvaluator>>, std::allocator<std::vector<std::unique_ptr<cmGeneratorExpressionEvaluator>>>>::_Vector_impl_data", ptr %10, i32 0, i32 0
-  %12 = load ptr, ptr %11, align 8
+  %4 = getelementptr inbounds nuw %"struct.std::_Vector_base.8", ptr %3, i32 0, i32 0
+  %5 = getelementptr inbounds nuw %"struct.std::_Vector_base<std::vector<std::unique_ptr<cmGeneratorExpressionEvaluator>>, std::allocator<std::vector<std::unique_ptr<cmGeneratorExpressionEvaluator>>>>::_Vector_impl_data", ptr %4, i32 0, i32 0
+  %6 = load ptr, ptr %5, align 8, !tbaa !71
+  %7 = getelementptr inbounds nuw %"struct.std::_Vector_base.8", ptr %3, i32 0, i32 0
+  %8 = getelementptr inbounds nuw %"struct.std::_Vector_base<std::vector<std::unique_ptr<cmGeneratorExpressionEvaluator>>, std::allocator<std::vector<std::unique_ptr<cmGeneratorExpressionEvaluator>>>>::_Vector_impl_data", ptr %7, i32 0, i32 2
+  %9 = load ptr, ptr %8, align 8, !tbaa !178
+  %10 = getelementptr inbounds nuw %"struct.std::_Vector_base.8", ptr %3, i32 0, i32 0
+  %11 = getelementptr inbounds nuw %"struct.std::_Vector_base<std::vector<std::unique_ptr<cmGeneratorExpressionEvaluator>>, std::allocator<std::vector<std::unique_ptr<cmGeneratorExpressionEvaluator>>>>::_Vector_impl_data", ptr %10, i32 0, i32 0
+  %12 = load ptr, ptr %11, align 8, !tbaa !71
   %13 = ptrtoint ptr %9 to i64
   %14 = ptrtoint ptr %12 to i64
   %15 = sub i64 %13, %14
@@ -6397,26 +7291,26 @@ define linkonce_odr dso_local void @_ZNSt12_Vector_baseISt6vectorISt10unique_ptr
           to label %17 unwind label %19
 
 17:                                               ; preds = %1
-  %18 = getelementptr inbounds %"struct.std::_Vector_base.8", ptr %3, i32 0, i32 0
-  call void @_ZNSt12_Vector_baseISt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS2_EESaIS5_EESaIS7_EE12_Vector_implD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %18) #11
+  %18 = getelementptr inbounds nuw %"struct.std::_Vector_base.8", ptr %3, i32 0, i32 0
+  call void @_ZNSt15__new_allocatorISt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS2_EESaIS5_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %18) #15
   ret void
 
 19:                                               ; preds = %1
   %20 = landingpad { ptr, i32 }
           catch ptr null
   %21 = extractvalue { ptr, i32 } %20, 0
-  call void @__clang_call_terminate(ptr %21) #14
+  call void @__clang_call_terminate(ptr %21) #18
   unreachable
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZSt8_DestroyIPSt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS2_EESaIS5_EEEvT_S9_(ptr noundef %0, ptr noundef %1) #1 comdat {
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr dso_local void @_ZSt8_DestroyIPSt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS2_EESaIS5_EEEvT_S9_(ptr noundef %0, ptr noundef %1) #5 comdat {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  %5 = load ptr, ptr %3, align 8
-  %6 = load ptr, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !23
+  store ptr %1, ptr %4, align 8, !tbaa !23
+  %5 = load ptr, ptr %3, align 8, !tbaa !23
+  %6 = load ptr, ptr %4, align 8, !tbaa !23
   call void @_ZNSt12_Destroy_auxILb0EE9__destroyIPSt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS4_EESaIS7_EEEEvT_SB_(ptr noundef %5, ptr noundef %6)
   ret void
 }
@@ -6425,37 +7319,37 @@ define linkonce_odr dso_local void @_ZSt8_DestroyIPSt6vectorISt10unique_ptrI30cm
 define linkonce_odr dso_local void @_ZNSt12_Destroy_auxILb0EE9__destroyIPSt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS4_EESaIS7_EEEEvT_SB_(ptr noundef %0, ptr noundef %1) #1 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !23
+  store ptr %1, ptr %4, align 8, !tbaa !23
   br label %5
 
 5:                                                ; preds = %11, %2
-  %6 = load ptr, ptr %3, align 8
-  %7 = load ptr, ptr %4, align 8
+  %6 = load ptr, ptr %3, align 8, !tbaa !23
+  %7 = load ptr, ptr %4, align 8, !tbaa !23
   %8 = icmp ne ptr %6, %7
   br i1 %8, label %9, label %14
 
 9:                                                ; preds = %5
-  %10 = load ptr, ptr %3, align 8
+  %10 = load ptr, ptr %3, align 8, !tbaa !23
   call void @_ZSt8_DestroyISt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS2_EESaIS5_EEEvPT_(ptr noundef %10)
   br label %11
 
 11:                                               ; preds = %9
-  %12 = load ptr, ptr %3, align 8
-  %13 = getelementptr inbounds %"class.std::vector.0", ptr %12, i32 1
-  store ptr %13, ptr %3, align 8
-  br label %5, !llvm.loop !18
+  %12 = load ptr, ptr %3, align 8, !tbaa !23
+  %13 = getelementptr inbounds nuw %"class.std::vector.0", ptr %12, i32 1
+  store ptr %13, ptr %3, align 8, !tbaa !23
+  br label %5, !llvm.loop !243
 
 14:                                               ; preds = %5
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZSt8_DestroyISt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS2_EESaIS5_EEEvPT_(ptr noundef %0) #0 comdat {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZSt8_DestroyISt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS2_EESaIS5_EEEvPT_(ptr noundef %0) #4 comdat {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  call void @_ZNSt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #11
+  store ptr %0, ptr %2, align 8, !tbaa !23
+  %3 = load ptr, ptr %2, align 8, !tbaa !23
+  call void @_ZNSt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #15
   ret void
 }
 
@@ -6464,18 +7358,18 @@ define linkonce_odr dso_local void @_ZNSt12_Vector_baseISt6vectorISt10unique_ptr
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca i64, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store i64 %2, ptr %6, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !126
+  store ptr %1, ptr %5, align 8, !tbaa !23
+  store i64 %2, ptr %6, align 8, !tbaa !39
   %7 = load ptr, ptr %4, align 8
-  %8 = load ptr, ptr %5, align 8
+  %8 = load ptr, ptr %5, align 8, !tbaa !23
   %9 = icmp ne ptr %8, null
   br i1 %9, label %10, label %14
 
 10:                                               ; preds = %3
-  %11 = getelementptr inbounds %"struct.std::_Vector_base.8", ptr %7, i32 0, i32 0
-  %12 = load ptr, ptr %5, align 8
-  %13 = load i64, ptr %6, align 8
+  %11 = getelementptr inbounds nuw %"struct.std::_Vector_base.8", ptr %7, i32 0, i32 0
+  %12 = load ptr, ptr %5, align 8, !tbaa !23
+  %13 = load i64, ptr %6, align 8, !tbaa !39
   call void @_ZNSt16allocator_traitsISaISt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS2_EESaIS5_EEEE10deallocateERS8_PS7_m(ptr noundef nonnull align 1 dereferenceable(1) %11, ptr noundef %12, i64 noundef %13)
   br label %14
 
@@ -6484,11 +7378,9 @@ define linkonce_odr dso_local void @_ZNSt12_Vector_baseISt6vectorISt10unique_ptr
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZNSt12_Vector_baseISt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS2_EESaIS5_EESaIS7_EE12_Vector_implD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #0 comdat align 2 {
+define linkonce_odr dso_local void @_ZNSt15__new_allocatorISt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS2_EESaIS5_EEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  call void @_ZNSaISt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #11
+  store ptr %0, ptr %2, align 8, !tbaa !132
   ret void
 }
 
@@ -6497,12 +7389,12 @@ define linkonce_odr dso_local void @_ZNSt16allocator_traitsISaISt6vectorISt10uni
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca i64, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store i64 %2, ptr %6, align 8
-  %7 = load ptr, ptr %4, align 8
-  %8 = load ptr, ptr %5, align 8
-  %9 = load i64, ptr %6, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !130
+  store ptr %1, ptr %5, align 8, !tbaa !23
+  store i64 %2, ptr %6, align 8, !tbaa !39
+  %7 = load ptr, ptr %4, align 8, !tbaa !130
+  %8 = load ptr, ptr %5, align 8, !tbaa !23
+  %9 = load i64, ptr %6, align 8, !tbaa !39
   call void @_ZNSt15__new_allocatorISt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS2_EESaIS5_EEE10deallocateEPS7_m(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef %8, i64 noundef %9)
   ret void
 }
@@ -6512,24 +7404,26 @@ define linkonce_odr dso_local void @_ZNSt15__new_allocatorISt6vectorISt10unique_
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca i64, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store i64 %2, ptr %6, align 8
-  %7 = load ptr, ptr %5, align 8
-  call void @_ZdlPv(ptr noundef %7) #13
+  store ptr %0, ptr %4, align 8, !tbaa !132
+  store ptr %1, ptr %5, align 8, !tbaa !23
+  store i64 %2, ptr %6, align 8, !tbaa !39
+  %7 = load ptr, ptr %5, align 8, !tbaa !23
+  %8 = load i64, ptr %6, align 8, !tbaa !39
+  %9 = mul i64 %8, 24
+  call void @_ZdlPvm(ptr noundef %7, i64 noundef %9) #17
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZSt8_DestroyIPN9__gnu_cxx17__normal_iteratorIPK26cmGeneratorExpressionTokenSt6vectorIS2_SaIS2_EEEES8_EvT_SA_RSaIT0_E(ptr noundef %0, ptr noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %2) #1 comdat {
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr dso_local void @_ZSt8_DestroyIPN9__gnu_cxx17__normal_iteratorIPK26cmGeneratorExpressionTokenSt6vectorIS2_SaIS2_EEEES8_EvT_SA_RSaIT0_E(ptr noundef %0, ptr noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %2) #5 comdat {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store ptr %2, ptr %6, align 8
-  %7 = load ptr, ptr %4, align 8
-  %8 = load ptr, ptr %5, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !20
+  store ptr %1, ptr %5, align 8, !tbaa !20
+  store ptr %2, ptr %6, align 8, !tbaa !138
+  %7 = load ptr, ptr %4, align 8, !tbaa !20
+  %8 = load ptr, ptr %5, align 8, !tbaa !20
   call void @_ZSt8_DestroyIPN9__gnu_cxx17__normal_iteratorIPK26cmGeneratorExpressionTokenSt6vectorIS2_SaIS2_EEEEEvT_SA_(ptr noundef %7, ptr noundef %8)
   ret void
 }
@@ -6537,26 +7431,26 @@ define linkonce_odr dso_local void @_ZSt8_DestroyIPN9__gnu_cxx17__normal_iterato
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt12_Vector_baseIN9__gnu_cxx17__normal_iteratorIPK26cmGeneratorExpressionTokenSt6vectorIS2_SaIS2_EEEESaIS8_EE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !134
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"struct.std::_Vector_base.21", ptr %3, i32 0, i32 0
+  %4 = getelementptr inbounds nuw %"struct.std::_Vector_base.21", ptr %3, i32 0, i32 0
   ret ptr %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZNSt12_Vector_baseIN9__gnu_cxx17__normal_iteratorIPK26cmGeneratorExpressionTokenSt6vectorIS2_SaIS2_EEEESaIS8_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !134
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"struct.std::_Vector_base.21", ptr %3, i32 0, i32 0
-  %5 = getelementptr inbounds %"struct.std::_Vector_base<__gnu_cxx::__normal_iterator<const cmGeneratorExpressionToken *, std::vector<cmGeneratorExpressionToken>>, std::allocator<__gnu_cxx::__normal_iterator<const cmGeneratorExpressionToken *, std::vector<cmGeneratorExpressionToken>>>>::_Vector_impl_data", ptr %4, i32 0, i32 0
-  %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds %"struct.std::_Vector_base.21", ptr %3, i32 0, i32 0
-  %8 = getelementptr inbounds %"struct.std::_Vector_base<__gnu_cxx::__normal_iterator<const cmGeneratorExpressionToken *, std::vector<cmGeneratorExpressionToken>>, std::allocator<__gnu_cxx::__normal_iterator<const cmGeneratorExpressionToken *, std::vector<cmGeneratorExpressionToken>>>>::_Vector_impl_data", ptr %7, i32 0, i32 2
-  %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds %"struct.std::_Vector_base.21", ptr %3, i32 0, i32 0
-  %11 = getelementptr inbounds %"struct.std::_Vector_base<__gnu_cxx::__normal_iterator<const cmGeneratorExpressionToken *, std::vector<cmGeneratorExpressionToken>>, std::allocator<__gnu_cxx::__normal_iterator<const cmGeneratorExpressionToken *, std::vector<cmGeneratorExpressionToken>>>>::_Vector_impl_data", ptr %10, i32 0, i32 0
-  %12 = load ptr, ptr %11, align 8
+  %4 = getelementptr inbounds nuw %"struct.std::_Vector_base.21", ptr %3, i32 0, i32 0
+  %5 = getelementptr inbounds nuw %"struct.std::_Vector_base<__gnu_cxx::__normal_iterator<const cmGeneratorExpressionToken *, std::vector<cmGeneratorExpressionToken>>, std::allocator<__gnu_cxx::__normal_iterator<const cmGeneratorExpressionToken *, std::vector<cmGeneratorExpressionToken>>>>::_Vector_impl_data", ptr %4, i32 0, i32 0
+  %6 = load ptr, ptr %5, align 8, !tbaa !85
+  %7 = getelementptr inbounds nuw %"struct.std::_Vector_base.21", ptr %3, i32 0, i32 0
+  %8 = getelementptr inbounds nuw %"struct.std::_Vector_base<__gnu_cxx::__normal_iterator<const cmGeneratorExpressionToken *, std::vector<cmGeneratorExpressionToken>>, std::allocator<__gnu_cxx::__normal_iterator<const cmGeneratorExpressionToken *, std::vector<cmGeneratorExpressionToken>>>>::_Vector_impl_data", ptr %7, i32 0, i32 2
+  %9 = load ptr, ptr %8, align 8, !tbaa !76
+  %10 = getelementptr inbounds nuw %"struct.std::_Vector_base.21", ptr %3, i32 0, i32 0
+  %11 = getelementptr inbounds nuw %"struct.std::_Vector_base<__gnu_cxx::__normal_iterator<const cmGeneratorExpressionToken *, std::vector<cmGeneratorExpressionToken>>, std::allocator<__gnu_cxx::__normal_iterator<const cmGeneratorExpressionToken *, std::vector<cmGeneratorExpressionToken>>>>::_Vector_impl_data", ptr %10, i32 0, i32 0
+  %12 = load ptr, ptr %11, align 8, !tbaa !85
   %13 = ptrtoint ptr %9 to i64
   %14 = ptrtoint ptr %12 to i64
   %15 = sub i64 %13, %14
@@ -6565,26 +7459,26 @@ define linkonce_odr dso_local void @_ZNSt12_Vector_baseIN9__gnu_cxx17__normal_it
           to label %17 unwind label %19
 
 17:                                               ; preds = %1
-  %18 = getelementptr inbounds %"struct.std::_Vector_base.21", ptr %3, i32 0, i32 0
-  call void @_ZNSt12_Vector_baseIN9__gnu_cxx17__normal_iteratorIPK26cmGeneratorExpressionTokenSt6vectorIS2_SaIS2_EEEESaIS8_EE12_Vector_implD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %18) #11
+  %18 = getelementptr inbounds nuw %"struct.std::_Vector_base.21", ptr %3, i32 0, i32 0
+  call void @_ZNSt15__new_allocatorIN9__gnu_cxx17__normal_iteratorIPK26cmGeneratorExpressionTokenSt6vectorIS2_SaIS2_EEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %18) #15
   ret void
 
 19:                                               ; preds = %1
   %20 = landingpad { ptr, i32 }
           catch ptr null
   %21 = extractvalue { ptr, i32 } %20, 0
-  call void @__clang_call_terminate(ptr %21) #14
+  call void @__clang_call_terminate(ptr %21) #18
   unreachable
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZSt8_DestroyIPN9__gnu_cxx17__normal_iteratorIPK26cmGeneratorExpressionTokenSt6vectorIS2_SaIS2_EEEEEvT_SA_(ptr noundef %0, ptr noundef %1) #1 comdat {
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr dso_local void @_ZSt8_DestroyIPN9__gnu_cxx17__normal_iteratorIPK26cmGeneratorExpressionTokenSt6vectorIS2_SaIS2_EEEEEvT_SA_(ptr noundef %0, ptr noundef %1) #5 comdat {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  %5 = load ptr, ptr %3, align 8
-  %6 = load ptr, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !20
+  store ptr %1, ptr %4, align 8, !tbaa !20
+  %5 = load ptr, ptr %3, align 8, !tbaa !20
+  %6 = load ptr, ptr %4, align 8, !tbaa !20
   call void @_ZNSt12_Destroy_auxILb1EE9__destroyIPN9__gnu_cxx17__normal_iteratorIPK26cmGeneratorExpressionTokenSt6vectorIS4_SaIS4_EEEEEEvT_SC_(ptr noundef %5, ptr noundef %6)
   ret void
 }
@@ -6593,8 +7487,8 @@ define linkonce_odr dso_local void @_ZSt8_DestroyIPN9__gnu_cxx17__normal_iterato
 define linkonce_odr dso_local void @_ZNSt12_Destroy_auxILb1EE9__destroyIPN9__gnu_cxx17__normal_iteratorIPK26cmGeneratorExpressionTokenSt6vectorIS4_SaIS4_EEEEEEvT_SC_(ptr noundef %0, ptr noundef %1) #0 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !20
+  store ptr %1, ptr %4, align 8, !tbaa !20
   ret void
 }
 
@@ -6603,18 +7497,18 @@ define linkonce_odr dso_local void @_ZNSt12_Vector_baseIN9__gnu_cxx17__normal_it
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca i64, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store i64 %2, ptr %6, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !134
+  store ptr %1, ptr %5, align 8, !tbaa !20
+  store i64 %2, ptr %6, align 8, !tbaa !39
   %7 = load ptr, ptr %4, align 8
-  %8 = load ptr, ptr %5, align 8
+  %8 = load ptr, ptr %5, align 8, !tbaa !20
   %9 = icmp ne ptr %8, null
   br i1 %9, label %10, label %14
 
 10:                                               ; preds = %3
-  %11 = getelementptr inbounds %"struct.std::_Vector_base.21", ptr %7, i32 0, i32 0
-  %12 = load ptr, ptr %5, align 8
-  %13 = load i64, ptr %6, align 8
+  %11 = getelementptr inbounds nuw %"struct.std::_Vector_base.21", ptr %7, i32 0, i32 0
+  %12 = load ptr, ptr %5, align 8, !tbaa !20
+  %13 = load i64, ptr %6, align 8, !tbaa !39
   call void @_ZNSt16allocator_traitsISaIN9__gnu_cxx17__normal_iteratorIPK26cmGeneratorExpressionTokenSt6vectorIS2_SaIS2_EEEEEE10deallocateERS9_PS8_m(ptr noundef nonnull align 1 dereferenceable(1) %11, ptr noundef %12, i64 noundef %13)
   br label %14
 
@@ -6623,11 +7517,9 @@ define linkonce_odr dso_local void @_ZNSt12_Vector_baseIN9__gnu_cxx17__normal_it
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZNSt12_Vector_baseIN9__gnu_cxx17__normal_iteratorIPK26cmGeneratorExpressionTokenSt6vectorIS2_SaIS2_EEEESaIS8_EE12_Vector_implD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #0 comdat align 2 {
+define linkonce_odr dso_local void @_ZNSt15__new_allocatorIN9__gnu_cxx17__normal_iteratorIPK26cmGeneratorExpressionTokenSt6vectorIS2_SaIS2_EEEEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  call void @_ZNSaIN9__gnu_cxx17__normal_iteratorIPK26cmGeneratorExpressionTokenSt6vectorIS1_SaIS1_EEEEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #11
+  store ptr %0, ptr %2, align 8, !tbaa !142
   ret void
 }
 
@@ -6636,12 +7528,12 @@ define linkonce_odr dso_local void @_ZNSt16allocator_traitsISaIN9__gnu_cxx17__no
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca i64, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store i64 %2, ptr %6, align 8
-  %7 = load ptr, ptr %4, align 8
-  %8 = load ptr, ptr %5, align 8
-  %9 = load i64, ptr %6, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !138
+  store ptr %1, ptr %5, align 8, !tbaa !20
+  store i64 %2, ptr %6, align 8, !tbaa !39
+  %7 = load ptr, ptr %4, align 8, !tbaa !138
+  %8 = load ptr, ptr %5, align 8, !tbaa !20
+  %9 = load i64, ptr %6, align 8, !tbaa !39
   call void @_ZNSt15__new_allocatorIN9__gnu_cxx17__normal_iteratorIPK26cmGeneratorExpressionTokenSt6vectorIS2_SaIS2_EEEEE10deallocateEPS8_m(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef %8, i64 noundef %9)
   ret void
 }
@@ -6651,27 +7543,13 @@ define linkonce_odr dso_local void @_ZNSt15__new_allocatorIN9__gnu_cxx17__normal
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca i64, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store i64 %2, ptr %6, align 8
-  %7 = load ptr, ptr %5, align 8
-  call void @_ZdlPv(ptr noundef %7) #13
-  ret void
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZNSaIN9__gnu_cxx17__normal_iteratorIPK26cmGeneratorExpressionTokenSt6vectorIS1_SaIS1_EEEEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #0 comdat align 2 {
-  %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  call void @_ZNSt15__new_allocatorIN9__gnu_cxx17__normal_iteratorIPK26cmGeneratorExpressionTokenSt6vectorIS2_SaIS2_EEEEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #11
-  ret void
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZNSt15__new_allocatorIN9__gnu_cxx17__normal_iteratorIPK26cmGeneratorExpressionTokenSt6vectorIS2_SaIS2_EEEEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #0 comdat align 2 {
-  %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !142
+  store ptr %1, ptr %5, align 8, !tbaa !20
+  store i64 %2, ptr %6, align 8, !tbaa !39
+  %7 = load ptr, ptr %5, align 8, !tbaa !20
+  %8 = load i64, ptr %6, align 8, !tbaa !39
+  %9 = mul i64 %8, 8
+  call void @_ZdlPvm(ptr noundef %7, i64 noundef %9) #17
   ret void
 }
 
@@ -6687,36 +7565,38 @@ define linkonce_odr dso_local void @_ZNSt6vectorIS_ISt10unique_ptrI30cmGenerator
   %10 = alloca ptr, align 8
   %11 = alloca ptr, align 8
   %12 = alloca i32, align 4
-  store ptr %0, ptr %3, align 8
-  store i64 %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !67
+  store i64 %1, ptr %4, align 8, !tbaa !39
   %13 = load ptr, ptr %3, align 8
-  %14 = load i64, ptr %4, align 8
+  %14 = load i64, ptr %4, align 8, !tbaa !39
   %15 = icmp ne i64 %14, 0
   br i1 %15, label %16, label %115
 
 16:                                               ; preds = %2
-  %17 = call noundef i64 @_ZNKSt6vectorIS_ISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EESaIS6_EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %13) #11
-  store i64 %17, ptr %5, align 8
-  %18 = getelementptr inbounds %"struct.std::_Vector_base.8", ptr %13, i32 0, i32 0
-  %19 = getelementptr inbounds %"struct.std::_Vector_base<std::vector<std::unique_ptr<cmGeneratorExpressionEvaluator>>, std::allocator<std::vector<std::unique_ptr<cmGeneratorExpressionEvaluator>>>>::_Vector_impl_data", ptr %18, i32 0, i32 2
-  %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds %"struct.std::_Vector_base.8", ptr %13, i32 0, i32 0
-  %22 = getelementptr inbounds %"struct.std::_Vector_base<std::vector<std::unique_ptr<cmGeneratorExpressionEvaluator>>, std::allocator<std::vector<std::unique_ptr<cmGeneratorExpressionEvaluator>>>>::_Vector_impl_data", ptr %21, i32 0, i32 1
-  %23 = load ptr, ptr %22, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #15
+  %17 = call noundef i64 @_ZNKSt6vectorIS_ISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EESaIS6_EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %13) #15
+  store i64 %17, ptr %5, align 8, !tbaa !39
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #15
+  %18 = getelementptr inbounds nuw %"struct.std::_Vector_base.8", ptr %13, i32 0, i32 0
+  %19 = getelementptr inbounds nuw %"struct.std::_Vector_base<std::vector<std::unique_ptr<cmGeneratorExpressionEvaluator>>, std::allocator<std::vector<std::unique_ptr<cmGeneratorExpressionEvaluator>>>>::_Vector_impl_data", ptr %18, i32 0, i32 2
+  %20 = load ptr, ptr %19, align 8, !tbaa !178
+  %21 = getelementptr inbounds nuw %"struct.std::_Vector_base.8", ptr %13, i32 0, i32 0
+  %22 = getelementptr inbounds nuw %"struct.std::_Vector_base<std::vector<std::unique_ptr<cmGeneratorExpressionEvaluator>>, std::allocator<std::vector<std::unique_ptr<cmGeneratorExpressionEvaluator>>>>::_Vector_impl_data", ptr %21, i32 0, i32 1
+  %23 = load ptr, ptr %22, align 8, !tbaa !73
   %24 = ptrtoint ptr %20 to i64
   %25 = ptrtoint ptr %23 to i64
   %26 = sub i64 %24, %25
   %27 = sdiv exact i64 %26, 24
-  store i64 %27, ptr %6, align 8
-  %28 = load i64, ptr %5, align 8
-  %29 = call noundef i64 @_ZNKSt6vectorIS_ISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EESaIS6_EE8max_sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %13) #11
+  store i64 %27, ptr %6, align 8, !tbaa !39
+  %28 = load i64, ptr %5, align 8, !tbaa !39
+  %29 = call noundef i64 @_ZNKSt6vectorIS_ISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EESaIS6_EE8max_sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %13) #15
   %30 = icmp ugt i64 %28, %29
   br i1 %30, label %37, label %31
 
 31:                                               ; preds = %16
-  %32 = load i64, ptr %6, align 8
-  %33 = call noundef i64 @_ZNKSt6vectorIS_ISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EESaIS6_EE8max_sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %13) #11
-  %34 = load i64, ptr %5, align 8
+  %32 = load i64, ptr %6, align 8, !tbaa !39
+  %33 = call noundef i64 @_ZNKSt6vectorIS_ISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EESaIS6_EE8max_sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %13) #15
+  %34 = load i64, ptr %5, align 8, !tbaa !39
   %35 = sub i64 %33, %34
   %36 = icmp ugt i64 %32, %35
   br i1 %36, label %37, label %38
@@ -6725,43 +7605,47 @@ define linkonce_odr dso_local void @_ZNSt6vectorIS_ISt10unique_ptrI30cmGenerator
   unreachable
 
 38:                                               ; preds = %31
-  %39 = load i64, ptr %6, align 8
-  %40 = load i64, ptr %4, align 8
+  %39 = load i64, ptr %6, align 8, !tbaa !39
+  %40 = load i64, ptr %4, align 8, !tbaa !39
   %41 = icmp uge i64 %39, %40
   br i1 %41, label %42, label %51
 
 42:                                               ; preds = %38
-  %43 = getelementptr inbounds %"struct.std::_Vector_base.8", ptr %13, i32 0, i32 0
-  %44 = getelementptr inbounds %"struct.std::_Vector_base<std::vector<std::unique_ptr<cmGeneratorExpressionEvaluator>>, std::allocator<std::vector<std::unique_ptr<cmGeneratorExpressionEvaluator>>>>::_Vector_impl_data", ptr %43, i32 0, i32 1
-  %45 = load ptr, ptr %44, align 8
-  %46 = load i64, ptr %4, align 8
-  %47 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt12_Vector_baseISt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS2_EESaIS5_EESaIS7_EE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %13) #11
+  %43 = getelementptr inbounds nuw %"struct.std::_Vector_base.8", ptr %13, i32 0, i32 0
+  %44 = getelementptr inbounds nuw %"struct.std::_Vector_base<std::vector<std::unique_ptr<cmGeneratorExpressionEvaluator>>, std::allocator<std::vector<std::unique_ptr<cmGeneratorExpressionEvaluator>>>>::_Vector_impl_data", ptr %43, i32 0, i32 1
+  %45 = load ptr, ptr %44, align 8, !tbaa !73
+  %46 = load i64, ptr %4, align 8, !tbaa !39
+  %47 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt12_Vector_baseISt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS2_EESaIS5_EESaIS7_EE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %13) #15
   %48 = call noundef ptr @_ZSt27__uninitialized_default_n_aIPSt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS2_EESaIS5_EEmS7_ET_S9_T0_RSaIT1_E(ptr noundef %45, i64 noundef %46, ptr noundef nonnull align 1 dereferenceable(1) %47)
-  %49 = getelementptr inbounds %"struct.std::_Vector_base.8", ptr %13, i32 0, i32 0
-  %50 = getelementptr inbounds %"struct.std::_Vector_base<std::vector<std::unique_ptr<cmGeneratorExpressionEvaluator>>, std::allocator<std::vector<std::unique_ptr<cmGeneratorExpressionEvaluator>>>>::_Vector_impl_data", ptr %49, i32 0, i32 1
-  store ptr %48, ptr %50, align 8
+  %49 = getelementptr inbounds nuw %"struct.std::_Vector_base.8", ptr %13, i32 0, i32 0
+  %50 = getelementptr inbounds nuw %"struct.std::_Vector_base<std::vector<std::unique_ptr<cmGeneratorExpressionEvaluator>>, std::allocator<std::vector<std::unique_ptr<cmGeneratorExpressionEvaluator>>>>::_Vector_impl_data", ptr %49, i32 0, i32 1
+  store ptr %48, ptr %50, align 8, !tbaa !73
   br label %114
 
 51:                                               ; preds = %38
-  %52 = getelementptr inbounds %"struct.std::_Vector_base.8", ptr %13, i32 0, i32 0
-  %53 = getelementptr inbounds %"struct.std::_Vector_base<std::vector<std::unique_ptr<cmGeneratorExpressionEvaluator>>, std::allocator<std::vector<std::unique_ptr<cmGeneratorExpressionEvaluator>>>>::_Vector_impl_data", ptr %52, i32 0, i32 0
-  %54 = load ptr, ptr %53, align 8
-  store ptr %54, ptr %7, align 8
-  %55 = getelementptr inbounds %"struct.std::_Vector_base.8", ptr %13, i32 0, i32 0
-  %56 = getelementptr inbounds %"struct.std::_Vector_base<std::vector<std::unique_ptr<cmGeneratorExpressionEvaluator>>, std::allocator<std::vector<std::unique_ptr<cmGeneratorExpressionEvaluator>>>>::_Vector_impl_data", ptr %55, i32 0, i32 1
-  %57 = load ptr, ptr %56, align 8
-  store ptr %57, ptr %8, align 8
-  %58 = load i64, ptr %4, align 8
-  %59 = call noundef i64 @_ZNKSt6vectorIS_ISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EESaIS6_EE12_M_check_lenEmPKc(ptr noundef nonnull align 8 dereferenceable(24) %13, i64 noundef %58, ptr noundef @.str.1)
-  store i64 %59, ptr %9, align 8
-  %60 = load i64, ptr %9, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #15
+  %52 = getelementptr inbounds nuw %"struct.std::_Vector_base.8", ptr %13, i32 0, i32 0
+  %53 = getelementptr inbounds nuw %"struct.std::_Vector_base<std::vector<std::unique_ptr<cmGeneratorExpressionEvaluator>>, std::allocator<std::vector<std::unique_ptr<cmGeneratorExpressionEvaluator>>>>::_Vector_impl_data", ptr %52, i32 0, i32 0
+  %54 = load ptr, ptr %53, align 8, !tbaa !71
+  store ptr %54, ptr %7, align 8, !tbaa !23
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #15
+  %55 = getelementptr inbounds nuw %"struct.std::_Vector_base.8", ptr %13, i32 0, i32 0
+  %56 = getelementptr inbounds nuw %"struct.std::_Vector_base<std::vector<std::unique_ptr<cmGeneratorExpressionEvaluator>>, std::allocator<std::vector<std::unique_ptr<cmGeneratorExpressionEvaluator>>>>::_Vector_impl_data", ptr %55, i32 0, i32 1
+  %57 = load ptr, ptr %56, align 8, !tbaa !73
+  store ptr %57, ptr %8, align 8, !tbaa !23
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #15
+  %58 = load i64, ptr %4, align 8, !tbaa !39
+  %59 = call noundef i64 @_ZNKSt6vectorIS_ISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EESaIS6_EE12_M_check_lenEmPKc(ptr noundef nonnull align 8 dereferenceable(24) %13, i64 noundef %58, ptr noundef @.str.2)
+  store i64 %59, ptr %9, align 8, !tbaa !39
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #15
+  %60 = load i64, ptr %9, align 8, !tbaa !39
   %61 = call noundef ptr @_ZNSt12_Vector_baseISt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS2_EESaIS5_EESaIS7_EE11_M_allocateEm(ptr noundef nonnull align 8 dereferenceable(24) %13, i64 noundef %60)
-  store ptr %61, ptr %10, align 8
-  %62 = load ptr, ptr %10, align 8
-  %63 = load i64, ptr %5, align 8
-  %64 = getelementptr inbounds %"class.std::vector.0", ptr %62, i64 %63
-  %65 = load i64, ptr %4, align 8
-  %66 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt12_Vector_baseISt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS2_EESaIS5_EESaIS7_EE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %13) #11
+  store ptr %61, ptr %10, align 8, !tbaa !23
+  %62 = load ptr, ptr %10, align 8, !tbaa !23
+  %63 = load i64, ptr %5, align 8, !tbaa !39
+  %64 = getelementptr inbounds nuw %"class.std::vector.0", ptr %62, i64 %63
+  %65 = load i64, ptr %4, align 8, !tbaa !39
+  %66 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt12_Vector_baseISt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS2_EESaIS5_EESaIS7_EE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %13) #15
   %67 = invoke noundef ptr @_ZSt27__uninitialized_default_n_aIPSt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS2_EESaIS5_EEmS7_ET_S9_T0_RSaIT1_E(ptr noundef %64, i64 noundef %65, ptr noundef nonnull align 1 dereferenceable(1) %66)
           to label %68 unwind label %69
 
@@ -6779,14 +7663,14 @@ define linkonce_odr dso_local void @_ZNSt6vectorIS_ISt10unique_ptrI30cmGenerator
 
 73:                                               ; preds = %69
   %74 = load ptr, ptr %11, align 8
-  %75 = call ptr @__cxa_begin_catch(ptr %74) #11
-  %76 = load ptr, ptr %10, align 8
-  %77 = load i64, ptr %9, align 8
+  %75 = call ptr @__cxa_begin_catch(ptr %74) #15
+  %76 = load ptr, ptr %10, align 8, !tbaa !23
+  %77 = load i64, ptr %9, align 8, !tbaa !39
   invoke void @_ZNSt12_Vector_baseISt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS2_EESaIS5_EESaIS7_EE13_M_deallocateEPS7_m(ptr noundef nonnull align 8 dereferenceable(24) %13, ptr noundef %76, i64 noundef %77)
           to label %78 unwind label %79
 
 78:                                               ; preds = %73
-  invoke void @__cxa_rethrow() #15
+  invoke void @__cxa_rethrow() #19
           to label %124 unwind label %79
 
 79:                                               ; preds = %78, %73
@@ -6800,45 +7684,57 @@ define linkonce_odr dso_local void @_ZNSt6vectorIS_ISt10unique_ptrI30cmGenerator
           to label %83 unwind label %121
 
 83:                                               ; preds = %79
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #15
   br label %116
 
 84:                                               ; preds = %68
-  %85 = load ptr, ptr %7, align 8
-  %86 = load ptr, ptr %8, align 8
-  %87 = load ptr, ptr %10, align 8
-  %88 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt12_Vector_baseISt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS2_EESaIS5_EESaIS7_EE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %13) #11
-  %89 = call noundef ptr @_ZNSt6vectorIS_ISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_(ptr noundef %85, ptr noundef %86, ptr noundef %87, ptr noundef nonnull align 1 dereferenceable(1) %88) #11
-  %90 = load ptr, ptr %7, align 8
-  %91 = getelementptr inbounds %"struct.std::_Vector_base.8", ptr %13, i32 0, i32 0
-  %92 = getelementptr inbounds %"struct.std::_Vector_base<std::vector<std::unique_ptr<cmGeneratorExpressionEvaluator>>, std::allocator<std::vector<std::unique_ptr<cmGeneratorExpressionEvaluator>>>>::_Vector_impl_data", ptr %91, i32 0, i32 2
-  %93 = load ptr, ptr %92, align 8
-  %94 = load ptr, ptr %7, align 8
+  %85 = load ptr, ptr %7, align 8, !tbaa !23
+  %86 = load ptr, ptr %8, align 8, !tbaa !23
+  %87 = load ptr, ptr %10, align 8, !tbaa !23
+  %88 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt12_Vector_baseISt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS2_EESaIS5_EESaIS7_EE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %13) #15
+  %89 = call noundef ptr @_ZNSt6vectorIS_ISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_(ptr noundef %85, ptr noundef %86, ptr noundef %87, ptr noundef nonnull align 1 dereferenceable(1) %88) #15
+  %90 = load ptr, ptr %7, align 8, !tbaa !23
+  %91 = getelementptr inbounds nuw %"struct.std::_Vector_base.8", ptr %13, i32 0, i32 0
+  %92 = getelementptr inbounds nuw %"struct.std::_Vector_base<std::vector<std::unique_ptr<cmGeneratorExpressionEvaluator>>, std::allocator<std::vector<std::unique_ptr<cmGeneratorExpressionEvaluator>>>>::_Vector_impl_data", ptr %91, i32 0, i32 2
+  %93 = load ptr, ptr %92, align 8, !tbaa !178
+  %94 = load ptr, ptr %7, align 8, !tbaa !23
   %95 = ptrtoint ptr %93 to i64
   %96 = ptrtoint ptr %94 to i64
   %97 = sub i64 %95, %96
   %98 = sdiv exact i64 %97, 24
   call void @_ZNSt12_Vector_baseISt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS2_EESaIS5_EESaIS7_EE13_M_deallocateEPS7_m(ptr noundef nonnull align 8 dereferenceable(24) %13, ptr noundef %90, i64 noundef %98)
-  %99 = load ptr, ptr %10, align 8
-  %100 = getelementptr inbounds %"struct.std::_Vector_base.8", ptr %13, i32 0, i32 0
-  %101 = getelementptr inbounds %"struct.std::_Vector_base<std::vector<std::unique_ptr<cmGeneratorExpressionEvaluator>>, std::allocator<std::vector<std::unique_ptr<cmGeneratorExpressionEvaluator>>>>::_Vector_impl_data", ptr %100, i32 0, i32 0
-  store ptr %99, ptr %101, align 8
-  %102 = load ptr, ptr %10, align 8
-  %103 = load i64, ptr %5, align 8
-  %104 = getelementptr inbounds %"class.std::vector.0", ptr %102, i64 %103
-  %105 = load i64, ptr %4, align 8
-  %106 = getelementptr inbounds %"class.std::vector.0", ptr %104, i64 %105
-  %107 = getelementptr inbounds %"struct.std::_Vector_base.8", ptr %13, i32 0, i32 0
-  %108 = getelementptr inbounds %"struct.std::_Vector_base<std::vector<std::unique_ptr<cmGeneratorExpressionEvaluator>>, std::allocator<std::vector<std::unique_ptr<cmGeneratorExpressionEvaluator>>>>::_Vector_impl_data", ptr %107, i32 0, i32 1
-  store ptr %106, ptr %108, align 8
-  %109 = load ptr, ptr %10, align 8
-  %110 = load i64, ptr %9, align 8
-  %111 = getelementptr inbounds %"class.std::vector.0", ptr %109, i64 %110
-  %112 = getelementptr inbounds %"struct.std::_Vector_base.8", ptr %13, i32 0, i32 0
-  %113 = getelementptr inbounds %"struct.std::_Vector_base<std::vector<std::unique_ptr<cmGeneratorExpressionEvaluator>>, std::allocator<std::vector<std::unique_ptr<cmGeneratorExpressionEvaluator>>>>::_Vector_impl_data", ptr %112, i32 0, i32 2
-  store ptr %111, ptr %113, align 8
+  %99 = load ptr, ptr %10, align 8, !tbaa !23
+  %100 = getelementptr inbounds nuw %"struct.std::_Vector_base.8", ptr %13, i32 0, i32 0
+  %101 = getelementptr inbounds nuw %"struct.std::_Vector_base<std::vector<std::unique_ptr<cmGeneratorExpressionEvaluator>>, std::allocator<std::vector<std::unique_ptr<cmGeneratorExpressionEvaluator>>>>::_Vector_impl_data", ptr %100, i32 0, i32 0
+  store ptr %99, ptr %101, align 8, !tbaa !71
+  %102 = load ptr, ptr %10, align 8, !tbaa !23
+  %103 = load i64, ptr %5, align 8, !tbaa !39
+  %104 = getelementptr inbounds nuw %"class.std::vector.0", ptr %102, i64 %103
+  %105 = load i64, ptr %4, align 8, !tbaa !39
+  %106 = getelementptr inbounds nuw %"class.std::vector.0", ptr %104, i64 %105
+  %107 = getelementptr inbounds nuw %"struct.std::_Vector_base.8", ptr %13, i32 0, i32 0
+  %108 = getelementptr inbounds nuw %"struct.std::_Vector_base<std::vector<std::unique_ptr<cmGeneratorExpressionEvaluator>>, std::allocator<std::vector<std::unique_ptr<cmGeneratorExpressionEvaluator>>>>::_Vector_impl_data", ptr %107, i32 0, i32 1
+  store ptr %106, ptr %108, align 8, !tbaa !73
+  %109 = load ptr, ptr %10, align 8, !tbaa !23
+  %110 = load i64, ptr %9, align 8, !tbaa !39
+  %111 = getelementptr inbounds nuw %"class.std::vector.0", ptr %109, i64 %110
+  %112 = getelementptr inbounds nuw %"struct.std::_Vector_base.8", ptr %13, i32 0, i32 0
+  %113 = getelementptr inbounds nuw %"struct.std::_Vector_base<std::vector<std::unique_ptr<cmGeneratorExpressionEvaluator>>, std::allocator<std::vector<std::unique_ptr<cmGeneratorExpressionEvaluator>>>>::_Vector_impl_data", ptr %112, i32 0, i32 2
+  store ptr %111, ptr %113, align 8, !tbaa !178
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #15
   br label %114
 
 114:                                              ; preds = %84, %42
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #15
   br label %115
 
 115:                                              ; preds = %114, %2
@@ -6855,7 +7751,7 @@ define linkonce_odr dso_local void @_ZNSt6vectorIS_ISt10unique_ptrI30cmGenerator
   %122 = landingpad { ptr, i32 }
           catch ptr null
   %123 = extractvalue { ptr, i32 } %122, 0
-  call void @__clang_call_terminate(ptr %123) #14
+  call void @__clang_call_terminate(ptr %123) #18
   unreachable
 
 124:                                              ; preds = %78
@@ -6867,69 +7763,71 @@ define linkonce_odr dso_local void @_ZNSt6vectorIS_ISt10unique_ptrI30cmGenerator
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca i64, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !67
+  store ptr %1, ptr %4, align 8, !tbaa !23
   %6 = load ptr, ptr %3, align 8
-  %7 = getelementptr inbounds %"struct.std::_Vector_base.8", ptr %6, i32 0, i32 0
-  %8 = getelementptr inbounds %"struct.std::_Vector_base<std::vector<std::unique_ptr<cmGeneratorExpressionEvaluator>>, std::allocator<std::vector<std::unique_ptr<cmGeneratorExpressionEvaluator>>>>::_Vector_impl_data", ptr %7, i32 0, i32 1
-  %9 = load ptr, ptr %8, align 8
-  %10 = load ptr, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #15
+  %7 = getelementptr inbounds nuw %"struct.std::_Vector_base.8", ptr %6, i32 0, i32 0
+  %8 = getelementptr inbounds nuw %"struct.std::_Vector_base<std::vector<std::unique_ptr<cmGeneratorExpressionEvaluator>>, std::allocator<std::vector<std::unique_ptr<cmGeneratorExpressionEvaluator>>>>::_Vector_impl_data", ptr %7, i32 0, i32 1
+  %9 = load ptr, ptr %8, align 8, !tbaa !73
+  %10 = load ptr, ptr %4, align 8, !tbaa !23
   %11 = ptrtoint ptr %9 to i64
   %12 = ptrtoint ptr %10 to i64
   %13 = sub i64 %11, %12
   %14 = sdiv exact i64 %13, 24
-  store i64 %14, ptr %5, align 8
-  %15 = load i64, ptr %5, align 8
+  store i64 %14, ptr %5, align 8, !tbaa !39
+  %15 = load i64, ptr %5, align 8, !tbaa !39
   %16 = icmp ne i64 %15, 0
   br i1 %16, label %17, label %27
 
 17:                                               ; preds = %2
-  %18 = load ptr, ptr %4, align 8
-  %19 = getelementptr inbounds %"struct.std::_Vector_base.8", ptr %6, i32 0, i32 0
-  %20 = getelementptr inbounds %"struct.std::_Vector_base<std::vector<std::unique_ptr<cmGeneratorExpressionEvaluator>>, std::allocator<std::vector<std::unique_ptr<cmGeneratorExpressionEvaluator>>>>::_Vector_impl_data", ptr %19, i32 0, i32 1
-  %21 = load ptr, ptr %20, align 8
-  %22 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt12_Vector_baseISt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS2_EESaIS5_EESaIS7_EE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %6) #11
+  %18 = load ptr, ptr %4, align 8, !tbaa !23
+  %19 = getelementptr inbounds nuw %"struct.std::_Vector_base.8", ptr %6, i32 0, i32 0
+  %20 = getelementptr inbounds nuw %"struct.std::_Vector_base<std::vector<std::unique_ptr<cmGeneratorExpressionEvaluator>>, std::allocator<std::vector<std::unique_ptr<cmGeneratorExpressionEvaluator>>>>::_Vector_impl_data", ptr %19, i32 0, i32 1
+  %21 = load ptr, ptr %20, align 8, !tbaa !73
+  %22 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt12_Vector_baseISt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS2_EESaIS5_EESaIS7_EE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %6) #15
   invoke void @_ZSt8_DestroyIPSt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS2_EESaIS5_EES7_EvT_S9_RSaIT0_E(ptr noundef %18, ptr noundef %21, ptr noundef nonnull align 1 dereferenceable(1) %22)
           to label %23 unwind label %28
 
 23:                                               ; preds = %17
-  %24 = load ptr, ptr %4, align 8
-  %25 = getelementptr inbounds %"struct.std::_Vector_base.8", ptr %6, i32 0, i32 0
-  %26 = getelementptr inbounds %"struct.std::_Vector_base<std::vector<std::unique_ptr<cmGeneratorExpressionEvaluator>>, std::allocator<std::vector<std::unique_ptr<cmGeneratorExpressionEvaluator>>>>::_Vector_impl_data", ptr %25, i32 0, i32 1
-  store ptr %24, ptr %26, align 8
+  %24 = load ptr, ptr %4, align 8, !tbaa !23
+  %25 = getelementptr inbounds nuw %"struct.std::_Vector_base.8", ptr %6, i32 0, i32 0
+  %26 = getelementptr inbounds nuw %"struct.std::_Vector_base<std::vector<std::unique_ptr<cmGeneratorExpressionEvaluator>>, std::allocator<std::vector<std::unique_ptr<cmGeneratorExpressionEvaluator>>>>::_Vector_impl_data", ptr %25, i32 0, i32 1
+  store ptr %24, ptr %26, align 8, !tbaa !73
   br label %27
 
 27:                                               ; preds = %23, %2
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #15
   ret void
 
 28:                                               ; preds = %17
   %29 = landingpad { ptr, i32 }
           catch ptr null
   %30 = extractvalue { ptr, i32 } %29, 0
-  call void @__clang_call_terminate(ptr %30) #14
+  call void @__clang_call_terminate(ptr %30) #18
   unreachable
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef i64 @_ZNKSt6vectorIS_ISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EESaIS6_EE8max_sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !67
   %3 = load ptr, ptr %2, align 8
-  %4 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt12_Vector_baseISt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS2_EESaIS5_EESaIS7_EE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %3) #11
-  %5 = call noundef i64 @_ZNSt6vectorIS_ISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EESaIS6_EE11_S_max_sizeERKS7_(ptr noundef nonnull align 1 dereferenceable(1) %4) #11
+  %4 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt12_Vector_baseISt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS2_EESaIS5_EESaIS7_EE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %3) #15
+  %5 = call noundef i64 @_ZNSt6vectorIS_ISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EESaIS6_EE11_S_max_sizeERKS7_(ptr noundef nonnull align 1 dereferenceable(1) %4) #15
   ret i64 %5
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local noundef ptr @_ZSt27__uninitialized_default_n_aIPSt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS2_EESaIS5_EEmS7_ET_S9_T0_RSaIT1_E(ptr noundef %0, i64 noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %2) #1 comdat {
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr dso_local noundef ptr @_ZSt27__uninitialized_default_n_aIPSt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS2_EESaIS5_EEmS7_ET_S9_T0_RSaIT1_E(ptr noundef %0, i64 noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %2) #5 comdat {
   %4 = alloca ptr, align 8
   %5 = alloca i64, align 8
   %6 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store i64 %1, ptr %5, align 8
-  store ptr %2, ptr %6, align 8
-  %7 = load ptr, ptr %4, align 8
-  %8 = load i64, ptr %5, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !23
+  store i64 %1, ptr %5, align 8, !tbaa !39
+  store ptr %2, ptr %6, align 8, !tbaa !130
+  %7 = load ptr, ptr %4, align 8, !tbaa !23
+  %8 = load i64, ptr %5, align 8, !tbaa !39
   %9 = call noundef ptr @_ZSt25__uninitialized_default_nIPSt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS2_EESaIS5_EEmET_S9_T0_(ptr noundef %7, i64 noundef %8)
   ret ptr %9
 }
@@ -6941,51 +7839,55 @@ define linkonce_odr dso_local noundef i64 @_ZNKSt6vectorIS_ISt10unique_ptrI30cmG
   %6 = alloca ptr, align 8
   %7 = alloca i64, align 8
   %8 = alloca i64, align 8
-  store ptr %0, ptr %4, align 8
-  store i64 %1, ptr %5, align 8
-  store ptr %2, ptr %6, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !67
+  store i64 %1, ptr %5, align 8, !tbaa !39
+  store ptr %2, ptr %6, align 8, !tbaa !54
   %9 = load ptr, ptr %4, align 8
-  %10 = call noundef i64 @_ZNKSt6vectorIS_ISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EESaIS6_EE8max_sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #11
-  %11 = call noundef i64 @_ZNKSt6vectorIS_ISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EESaIS6_EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #11
+  %10 = call noundef i64 @_ZNKSt6vectorIS_ISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EESaIS6_EE8max_sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #15
+  %11 = call noundef i64 @_ZNKSt6vectorIS_ISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EESaIS6_EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #15
   %12 = sub i64 %10, %11
-  %13 = load i64, ptr %5, align 8
+  %13 = load i64, ptr %5, align 8, !tbaa !39
   %14 = icmp ult i64 %12, %13
   br i1 %14, label %15, label %17
 
 15:                                               ; preds = %3
-  %16 = load ptr, ptr %6, align 8
-  call void @_ZSt20__throw_length_errorPKc(ptr noundef %16) #15
+  %16 = load ptr, ptr %6, align 8, !tbaa !54
+  call void @_ZSt20__throw_length_errorPKc(ptr noundef %16) #19
   unreachable
 
 17:                                               ; preds = %3
-  %18 = call noundef i64 @_ZNKSt6vectorIS_ISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EESaIS6_EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #11
-  %19 = call noundef i64 @_ZNKSt6vectorIS_ISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EESaIS6_EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #11
-  store i64 %19, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #15
+  %18 = call noundef i64 @_ZNKSt6vectorIS_ISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EESaIS6_EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #15
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #15
+  %19 = call noundef i64 @_ZNKSt6vectorIS_ISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EESaIS6_EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #15
+  store i64 %19, ptr %8, align 8, !tbaa !39
   %20 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt3maxImERKT_S2_S2_(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(8) %5)
-  %21 = load i64, ptr %20, align 8
+  %21 = load i64, ptr %20, align 8, !tbaa !39
   %22 = add i64 %18, %21
-  store i64 %22, ptr %7, align 8
-  %23 = load i64, ptr %7, align 8
-  %24 = call noundef i64 @_ZNKSt6vectorIS_ISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EESaIS6_EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #15
+  store i64 %22, ptr %7, align 8, !tbaa !39
+  %23 = load i64, ptr %7, align 8, !tbaa !39
+  %24 = call noundef i64 @_ZNKSt6vectorIS_ISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EESaIS6_EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #15
   %25 = icmp ult i64 %23, %24
   br i1 %25, label %30, label %26
 
 26:                                               ; preds = %17
-  %27 = load i64, ptr %7, align 8
-  %28 = call noundef i64 @_ZNKSt6vectorIS_ISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EESaIS6_EE8max_sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #11
+  %27 = load i64, ptr %7, align 8, !tbaa !39
+  %28 = call noundef i64 @_ZNKSt6vectorIS_ISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EESaIS6_EE8max_sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #15
   %29 = icmp ugt i64 %27, %28
   br i1 %29, label %30, label %32
 
 30:                                               ; preds = %26, %17
-  %31 = call noundef i64 @_ZNKSt6vectorIS_ISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EESaIS6_EE8max_sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #11
+  %31 = call noundef i64 @_ZNKSt6vectorIS_ISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EESaIS6_EE8max_sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #15
   br label %34
 
 32:                                               ; preds = %26
-  %33 = load i64, ptr %7, align 8
+  %33 = load i64, ptr %7, align 8, !tbaa !39
   br label %34
 
 34:                                               ; preds = %32, %30
   %35 = phi i64 [ %31, %30 ], [ %33, %32 ]
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #15
   ret i64 %35
 }
 
@@ -6993,16 +7895,16 @@ define linkonce_odr dso_local noundef i64 @_ZNKSt6vectorIS_ISt10unique_ptrI30cmG
 define linkonce_odr dso_local noundef ptr @_ZNSt12_Vector_baseISt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS2_EESaIS5_EESaIS7_EE11_M_allocateEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %1) #1 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca i64, align 8
-  store ptr %0, ptr %3, align 8
-  store i64 %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !126
+  store i64 %1, ptr %4, align 8, !tbaa !39
   %5 = load ptr, ptr %3, align 8
-  %6 = load i64, ptr %4, align 8
+  %6 = load i64, ptr %4, align 8, !tbaa !39
   %7 = icmp ne i64 %6, 0
   br i1 %7, label %8, label %12
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds %"struct.std::_Vector_base.8", ptr %5, i32 0, i32 0
-  %10 = load i64, ptr %4, align 8
+  %9 = getelementptr inbounds nuw %"struct.std::_Vector_base.8", ptr %5, i32 0, i32 0
+  %10 = load i64, ptr %4, align 8, !tbaa !39
   %11 = call noundef ptr @_ZNSt16allocator_traitsISaISt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS2_EESaIS5_EEEE8allocateERS8_m(ptr noundef nonnull align 1 dereferenceable(1) %9, i64 noundef %10)
   br label %13
 
@@ -7024,15 +7926,15 @@ define linkonce_odr dso_local noundef ptr @_ZNSt6vectorIS_ISt10unique_ptrI30cmGe
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
-  store ptr %0, ptr %5, align 8
-  store ptr %1, ptr %6, align 8
-  store ptr %2, ptr %7, align 8
-  store ptr %3, ptr %8, align 8
-  %9 = load ptr, ptr %5, align 8
-  %10 = load ptr, ptr %6, align 8
-  %11 = load ptr, ptr %7, align 8
-  %12 = load ptr, ptr %8, align 8
-  %13 = call noundef ptr @_ZSt12__relocate_aIPSt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS2_EESaIS5_EES8_SaIS7_EET0_T_SB_SA_RT1_(ptr noundef %9, ptr noundef %10, ptr noundef %11, ptr noundef nonnull align 1 dereferenceable(1) %12) #11
+  store ptr %0, ptr %5, align 8, !tbaa !23
+  store ptr %1, ptr %6, align 8, !tbaa !23
+  store ptr %2, ptr %7, align 8, !tbaa !23
+  store ptr %3, ptr %8, align 8, !tbaa !130
+  %9 = load ptr, ptr %5, align 8, !tbaa !23
+  %10 = load ptr, ptr %6, align 8, !tbaa !23
+  %11 = load ptr, ptr %7, align 8, !tbaa !23
+  %12 = load ptr, ptr %8, align 8, !tbaa !130
+  %13 = call noundef ptr @_ZSt12__relocate_aIPSt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS2_EESaIS5_EES8_SaIS7_EET0_T_SB_SA_RT1_(ptr noundef %9, ptr noundef %10, ptr noundef %11, ptr noundef nonnull align 1 dereferenceable(1) %12) #15
   ret ptr %13
 }
 
@@ -7041,52 +7943,58 @@ define linkonce_odr dso_local noundef i64 @_ZNSt6vectorIS_ISt10unique_ptrI30cmGe
   %2 = alloca ptr, align 8
   %3 = alloca i64, align 8
   %4 = alloca i64, align 8
-  store ptr %0, ptr %2, align 8
-  store i64 384307168202282325, ptr %3, align 8
-  %5 = load ptr, ptr %2, align 8
-  %6 = call noundef i64 @_ZNSt16allocator_traitsISaISt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS2_EESaIS5_EEEE8max_sizeERKS8_(ptr noundef nonnull align 1 dereferenceable(1) %5) #11
-  store i64 %6, ptr %4, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !130
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #15
+  store i64 384307168202282325, ptr %3, align 8, !tbaa !39
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #15
+  %5 = load ptr, ptr %2, align 8, !tbaa !130
+  %6 = call noundef i64 @_ZNSt16allocator_traitsISaISt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS2_EESaIS5_EEEE8max_sizeERKS8_(ptr noundef nonnull align 1 dereferenceable(1) %5) #15
+  store i64 %6, ptr %4, align 8, !tbaa !39
   %7 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt3minImERKT_S2_S2_(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %4)
-  %8 = load i64, ptr %7, align 8
+  %8 = load i64, ptr %7, align 8, !tbaa !39
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #15
   ret i64 %8
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef i64 @_ZNSt16allocator_traitsISaISt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS2_EESaIS5_EEEE8max_sizeERKS8_(ptr noundef nonnull align 1 dereferenceable(1) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  %4 = call noundef i64 @_ZNKSt15__new_allocatorISt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS2_EESaIS5_EEE8max_sizeEv(ptr noundef nonnull align 1 dereferenceable(1) %3) #11
+  store ptr %0, ptr %2, align 8, !tbaa !130
+  %3 = load ptr, ptr %2, align 8, !tbaa !130
+  %4 = call noundef i64 @_ZNKSt15__new_allocatorISt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS2_EESaIS5_EEE8max_sizeEv(ptr noundef nonnull align 1 dereferenceable(1) %3) #15
   ret i64 %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef i64 @_ZNKSt15__new_allocatorISt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS2_EESaIS5_EEE8max_sizeEv(ptr noundef nonnull align 1 dereferenceable(1) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !132
   %3 = load ptr, ptr %2, align 8
-  %4 = call noundef i64 @_ZNKSt15__new_allocatorISt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS2_EESaIS5_EEE11_M_max_sizeEv(ptr noundef nonnull align 1 dereferenceable(1) %3) #11
+  %4 = call noundef i64 @_ZNKSt15__new_allocatorISt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS2_EESaIS5_EEE11_M_max_sizeEv(ptr noundef nonnull align 1 dereferenceable(1) %3) #15
   ret i64 %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef i64 @_ZNKSt15__new_allocatorISt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS2_EESaIS5_EEE11_M_max_sizeEv(ptr noundef nonnull align 1 dereferenceable(1) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !132
   ret i64 384307168202282325
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local noundef ptr @_ZSt25__uninitialized_default_nIPSt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS2_EESaIS5_EEmET_S9_T0_(ptr noundef %0, i64 noundef %1) #1 comdat {
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr dso_local noundef ptr @_ZSt25__uninitialized_default_nIPSt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS2_EESaIS5_EEmET_S9_T0_(ptr noundef %0, i64 noundef %1) #5 comdat {
   %3 = alloca ptr, align 8
   %4 = alloca i64, align 8
   %5 = alloca i8, align 1
-  store ptr %0, ptr %3, align 8
-  store i64 %1, ptr %4, align 8
-  store i8 1, ptr %5, align 1
-  %6 = load ptr, ptr %3, align 8
-  %7 = load i64, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !23
+  store i64 %1, ptr %4, align 8, !tbaa !39
+  call void @llvm.lifetime.start.p0(i64 1, ptr %5) #15
+  store i8 1, ptr %5, align 1, !tbaa !40
+  %6 = load ptr, ptr %3, align 8, !tbaa !23
+  %7 = load i64, ptr %4, align 8, !tbaa !39
   %8 = call noundef ptr @_ZNSt27__uninitialized_default_n_1ILb0EE18__uninit_default_nIPSt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS4_EESaIS7_EEmEET_SB_T0_(ptr noundef %6, i64 noundef %7)
+  call void @llvm.lifetime.end.p0(i64 1, ptr %5) #15
   ret ptr %8
 }
 
@@ -7097,19 +8005,20 @@ define linkonce_odr dso_local noundef ptr @_ZNSt27__uninitialized_default_n_1ILb
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
-  store ptr %0, ptr %3, align 8
-  store i64 %1, ptr %4, align 8
-  %8 = load ptr, ptr %3, align 8
-  store ptr %8, ptr %5, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !23
+  store i64 %1, ptr %4, align 8, !tbaa !39
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #15
+  %8 = load ptr, ptr %3, align 8, !tbaa !23
+  store ptr %8, ptr %5, align 8, !tbaa !23
   br label %9
 
 9:                                                ; preds = %15, %2
-  %10 = load i64, ptr %4, align 8
+  %10 = load i64, ptr %4, align 8, !tbaa !39
   %11 = icmp ugt i64 %10, 0
   br i1 %11, label %12, label %30
 
 12:                                               ; preds = %9
-  %13 = load ptr, ptr %5, align 8
+  %13 = load ptr, ptr %5, align 8, !tbaa !23
   invoke void @_ZSt10_ConstructISt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS2_EESaIS5_EEJEEvPT_DpOT0_(ptr noundef %13)
           to label %14 unwind label %20
 
@@ -7117,13 +8026,13 @@ define linkonce_odr dso_local noundef ptr @_ZNSt27__uninitialized_default_n_1ILb
   br label %15
 
 15:                                               ; preds = %14
-  %16 = load i64, ptr %4, align 8
+  %16 = load i64, ptr %4, align 8, !tbaa !39
   %17 = add i64 %16, -1
-  store i64 %17, ptr %4, align 8
-  %18 = load ptr, ptr %5, align 8
-  %19 = getelementptr inbounds %"class.std::vector.0", ptr %18, i32 1
-  store ptr %19, ptr %5, align 8
-  br label %9, !llvm.loop !19
+  store i64 %17, ptr %4, align 8, !tbaa !39
+  %18 = load ptr, ptr %5, align 8, !tbaa !23
+  %19 = getelementptr inbounds nuw %"class.std::vector.0", ptr %18, i32 1
+  store ptr %19, ptr %5, align 8, !tbaa !23
+  br label %9, !llvm.loop !244
 
 20:                                               ; preds = %12
   %21 = landingpad { ptr, i32 }
@@ -7136,18 +8045,19 @@ define linkonce_odr dso_local noundef ptr @_ZNSt27__uninitialized_default_n_1ILb
 
 24:                                               ; preds = %20
   %25 = load ptr, ptr %6, align 8
-  %26 = call ptr @__cxa_begin_catch(ptr %25) #11
-  %27 = load ptr, ptr %3, align 8
-  %28 = load ptr, ptr %5, align 8
+  %26 = call ptr @__cxa_begin_catch(ptr %25) #15
+  %27 = load ptr, ptr %3, align 8, !tbaa !23
+  %28 = load ptr, ptr %5, align 8, !tbaa !23
   invoke void @_ZSt8_DestroyIPSt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS2_EESaIS5_EEEvT_S9_(ptr noundef %27, ptr noundef %28)
           to label %29 unwind label %32
 
 29:                                               ; preds = %24
-  invoke void @__cxa_rethrow() #15
+  invoke void @__cxa_rethrow() #19
           to label %46 unwind label %32
 
 30:                                               ; preds = %9
-  %31 = load ptr, ptr %5, align 8
+  %31 = load ptr, ptr %5, align 8, !tbaa !23
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #15
   ret ptr %31
 
 32:                                               ; preds = %29, %24
@@ -7161,10 +8071,10 @@ define linkonce_odr dso_local noundef ptr @_ZNSt27__uninitialized_default_n_1ILb
           to label %36 unwind label %43
 
 36:                                               ; preds = %32
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #15
   br label %38
 
 37:                                               ; No predecessors!
-  call void @llvm.trap()
   unreachable
 
 38:                                               ; preds = %36
@@ -7178,34 +8088,34 @@ define linkonce_odr dso_local noundef ptr @_ZNSt27__uninitialized_default_n_1ILb
   %44 = landingpad { ptr, i32 }
           catch ptr null
   %45 = extractvalue { ptr, i32 } %44, 0
-  call void @__clang_call_terminate(ptr %45) #14
+  call void @__clang_call_terminate(ptr %45) #18
   unreachable
 
 46:                                               ; preds = %29
   unreachable
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZSt10_ConstructISt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS2_EESaIS5_EEJEEvPT_DpOT0_(ptr noundef %0) #0 comdat {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZSt10_ConstructISt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS2_EESaIS5_EEJEEvPT_DpOT0_(ptr noundef %0) #4 comdat {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !23
+  %3 = load ptr, ptr %2, align 8, !tbaa !23
   call void @llvm.memset.p0.i64(ptr align 8 %3, i8 0, i64 24, i1 false)
-  call void @_ZNSt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #11
+  call void @_ZNSt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #15
   ret void
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #10
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #14
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef ptr @_ZNSt16allocator_traitsISaISt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS2_EESaIS5_EEEE8allocateERS8_m(ptr noundef nonnull align 1 dereferenceable(1) %0, i64 noundef %1) #1 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca i64, align 8
-  store ptr %0, ptr %3, align 8
-  store i64 %1, ptr %4, align 8
-  %5 = load ptr, ptr %3, align 8
-  %6 = load i64, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !130
+  store i64 %1, ptr %4, align 8, !tbaa !39
+  %5 = load ptr, ptr %3, align 8, !tbaa !130
+  %6 = load i64, ptr %4, align 8, !tbaa !39
   %7 = call noundef ptr @_ZNSt15__new_allocatorISt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS2_EESaIS5_EEE8allocateEmPKv(ptr noundef nonnull align 1 dereferenceable(1) %5, i64 noundef %6, ptr noundef null)
   ret ptr %7
 }
@@ -7215,121 +8125,126 @@ define linkonce_odr dso_local noundef ptr @_ZNSt15__new_allocatorISt6vectorISt10
   %4 = alloca ptr, align 8
   %5 = alloca i64, align 8
   %6 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store i64 %1, ptr %5, align 8
-  store ptr %2, ptr %6, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !132
+  store i64 %1, ptr %5, align 8, !tbaa !39
+  store ptr %2, ptr %6, align 8, !tbaa !169
   %7 = load ptr, ptr %4, align 8
-  %8 = load i64, ptr %5, align 8
-  %9 = call noundef i64 @_ZNKSt15__new_allocatorISt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS2_EESaIS5_EEE11_M_max_sizeEv(ptr noundef nonnull align 1 dereferenceable(1) %7) #11
+  %8 = load i64, ptr %5, align 8, !tbaa !39
+  %9 = call noundef i64 @_ZNKSt15__new_allocatorISt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS2_EESaIS5_EEE11_M_max_sizeEv(ptr noundef nonnull align 1 dereferenceable(1) %7) #15
   %10 = icmp ugt i64 %8, %9
-  br i1 %10, label %11, label %16
+  %11 = zext i1 %10 to i64
+  %12 = call i64 @llvm.expect.i64(i64 %11, i64 0)
+  %13 = icmp ne i64 %12, 0
+  br i1 %13, label %14, label %19
 
-11:                                               ; preds = %3
-  %12 = load i64, ptr %5, align 8
-  %13 = icmp ugt i64 %12, 768614336404564650
-  br i1 %13, label %14, label %15
+14:                                               ; preds = %3
+  %15 = load i64, ptr %5, align 8, !tbaa !39
+  %16 = icmp ugt i64 %15, 768614336404564650
+  br i1 %16, label %17, label %18
 
-14:                                               ; preds = %11
-  call void @_ZSt28__throw_bad_array_new_lengthv() #15
+17:                                               ; preds = %14
+  call void @_ZSt28__throw_bad_array_new_lengthv() #19
   unreachable
 
-15:                                               ; preds = %11
-  call void @_ZSt17__throw_bad_allocv() #15
+18:                                               ; preds = %14
+  call void @_ZSt17__throw_bad_allocv() #19
   unreachable
 
-16:                                               ; preds = %3
-  %17 = load i64, ptr %5, align 8
-  %18 = mul i64 %17, 24
-  %19 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %18) #12
-  ret ptr %19
+19:                                               ; preds = %3
+  %20 = load i64, ptr %5, align 8, !tbaa !39
+  %21 = mul i64 %20, 24
+  %22 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %21) #16
+  ret ptr %22
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef ptr @_ZSt12__relocate_aIPSt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS2_EESaIS5_EES8_SaIS7_EET0_T_SB_SA_RT1_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull align 1 dereferenceable(1) %3) #0 comdat {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef ptr @_ZSt12__relocate_aIPSt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS2_EESaIS5_EES8_SaIS7_EET0_T_SB_SA_RT1_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull align 1 dereferenceable(1) %3) #4 comdat {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
-  store ptr %0, ptr %5, align 8
-  store ptr %1, ptr %6, align 8
-  store ptr %2, ptr %7, align 8
-  store ptr %3, ptr %8, align 8
-  %9 = load ptr, ptr %5, align 8
-  %10 = call noundef ptr @_ZSt12__niter_baseIPSt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS2_EESaIS5_EEET_S9_(ptr noundef %9) #11
-  %11 = load ptr, ptr %6, align 8
-  %12 = call noundef ptr @_ZSt12__niter_baseIPSt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS2_EESaIS5_EEET_S9_(ptr noundef %11) #11
-  %13 = load ptr, ptr %7, align 8
-  %14 = call noundef ptr @_ZSt12__niter_baseIPSt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS2_EESaIS5_EEET_S9_(ptr noundef %13) #11
-  %15 = load ptr, ptr %8, align 8
-  %16 = call noundef ptr @_ZSt14__relocate_a_1IPSt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS2_EESaIS5_EES8_SaIS7_EET0_T_SB_SA_RT1_(ptr noundef %10, ptr noundef %12, ptr noundef %14, ptr noundef nonnull align 1 dereferenceable(1) %15) #11
+  store ptr %0, ptr %5, align 8, !tbaa !23
+  store ptr %1, ptr %6, align 8, !tbaa !23
+  store ptr %2, ptr %7, align 8, !tbaa !23
+  store ptr %3, ptr %8, align 8, !tbaa !130
+  %9 = load ptr, ptr %5, align 8, !tbaa !23
+  %10 = call noundef ptr @_ZSt12__niter_baseIPSt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS2_EESaIS5_EEET_S9_(ptr noundef %9) #15
+  %11 = load ptr, ptr %6, align 8, !tbaa !23
+  %12 = call noundef ptr @_ZSt12__niter_baseIPSt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS2_EESaIS5_EEET_S9_(ptr noundef %11) #15
+  %13 = load ptr, ptr %7, align 8, !tbaa !23
+  %14 = call noundef ptr @_ZSt12__niter_baseIPSt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS2_EESaIS5_EEET_S9_(ptr noundef %13) #15
+  %15 = load ptr, ptr %8, align 8, !tbaa !130
+  %16 = call noundef ptr @_ZSt14__relocate_a_1IPSt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS2_EESaIS5_EES8_SaIS7_EET0_T_SB_SA_RT1_(ptr noundef %10, ptr noundef %12, ptr noundef %14, ptr noundef nonnull align 1 dereferenceable(1) %15) #15
   ret ptr %16
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef ptr @_ZSt14__relocate_a_1IPSt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS2_EESaIS5_EES8_SaIS7_EET0_T_SB_SA_RT1_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull align 1 dereferenceable(1) %3) #0 comdat {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef ptr @_ZSt14__relocate_a_1IPSt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS2_EESaIS5_EES8_SaIS7_EET0_T_SB_SA_RT1_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull align 1 dereferenceable(1) %3) #4 comdat {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
   %9 = alloca ptr, align 8
-  store ptr %0, ptr %5, align 8
-  store ptr %1, ptr %6, align 8
-  store ptr %2, ptr %7, align 8
-  store ptr %3, ptr %8, align 8
-  %10 = load ptr, ptr %7, align 8
-  store ptr %10, ptr %9, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !23
+  store ptr %1, ptr %6, align 8, !tbaa !23
+  store ptr %2, ptr %7, align 8, !tbaa !23
+  store ptr %3, ptr %8, align 8, !tbaa !130
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #15
+  %10 = load ptr, ptr %7, align 8, !tbaa !23
+  store ptr %10, ptr %9, align 8, !tbaa !23
   br label %11
 
 11:                                               ; preds = %19, %4
-  %12 = load ptr, ptr %5, align 8
-  %13 = load ptr, ptr %6, align 8
+  %12 = load ptr, ptr %5, align 8, !tbaa !23
+  %13 = load ptr, ptr %6, align 8, !tbaa !23
   %14 = icmp ne ptr %12, %13
   br i1 %14, label %15, label %24
 
 15:                                               ; preds = %11
-  %16 = load ptr, ptr %9, align 8
-  %17 = load ptr, ptr %5, align 8
-  %18 = load ptr, ptr %8, align 8
-  call void @_ZSt19__relocate_object_aISt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS2_EESaIS5_EES7_SaIS7_EEvPT_PT0_RT1_(ptr noundef %16, ptr noundef %17, ptr noundef nonnull align 1 dereferenceable(1) %18) #11
+  %16 = load ptr, ptr %9, align 8, !tbaa !23
+  %17 = load ptr, ptr %5, align 8, !tbaa !23
+  %18 = load ptr, ptr %8, align 8, !tbaa !130
+  call void @_ZSt19__relocate_object_aISt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS2_EESaIS5_EES7_SaIS7_EEvPT_PT0_RT1_(ptr noundef %16, ptr noundef %17, ptr noundef nonnull align 1 dereferenceable(1) %18) #15
   br label %19
 
 19:                                               ; preds = %15
-  %20 = load ptr, ptr %5, align 8
-  %21 = getelementptr inbounds %"class.std::vector.0", ptr %20, i32 1
-  store ptr %21, ptr %5, align 8
-  %22 = load ptr, ptr %9, align 8
-  %23 = getelementptr inbounds %"class.std::vector.0", ptr %22, i32 1
-  store ptr %23, ptr %9, align 8
-  br label %11, !llvm.loop !20
+  %20 = load ptr, ptr %5, align 8, !tbaa !23
+  %21 = getelementptr inbounds nuw %"class.std::vector.0", ptr %20, i32 1
+  store ptr %21, ptr %5, align 8, !tbaa !23
+  %22 = load ptr, ptr %9, align 8, !tbaa !23
+  %23 = getelementptr inbounds nuw %"class.std::vector.0", ptr %22, i32 1
+  store ptr %23, ptr %9, align 8, !tbaa !23
+  br label %11, !llvm.loop !245
 
 24:                                               ; preds = %11
-  %25 = load ptr, ptr %9, align 8
+  %25 = load ptr, ptr %9, align 8, !tbaa !23
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #15
   ret ptr %25
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef ptr @_ZSt12__niter_baseIPSt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS2_EESaIS5_EEET_S9_(ptr noundef %0) #0 comdat {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef ptr @_ZSt12__niter_baseIPSt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS2_EESaIS5_EEET_S9_(ptr noundef %0) #4 comdat {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !23
+  %3 = load ptr, ptr %2, align 8, !tbaa !23
   ret ptr %3
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZSt19__relocate_object_aISt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS2_EESaIS5_EES7_SaIS7_EEvPT_PT0_RT1_(ptr noalias noundef %0, ptr noalias noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %2) #0 comdat {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZSt19__relocate_object_aISt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS2_EESaIS5_EES7_SaIS7_EEvPT_PT0_RT1_(ptr noalias noundef %0, ptr noalias noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %2) #4 comdat {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store ptr %2, ptr %6, align 8
-  %7 = load ptr, ptr %6, align 8
-  %8 = load ptr, ptr %4, align 8
-  %9 = load ptr, ptr %5, align 8
-  call void @_ZNSt16allocator_traitsISaISt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS2_EESaIS5_EEEE9constructIS7_JS7_EEEvRS8_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef %8, ptr noundef nonnull align 8 dereferenceable(24) %9) #11
-  %10 = load ptr, ptr %6, align 8
-  %11 = load ptr, ptr %5, align 8
-  call void @_ZNSt16allocator_traitsISaISt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS2_EESaIS5_EEEE7destroyIS7_EEvRS8_PT_(ptr noundef nonnull align 1 dereferenceable(1) %10, ptr noundef %11) #11
+  store ptr %0, ptr %4, align 8, !tbaa !23
+  store ptr %1, ptr %5, align 8, !tbaa !23
+  store ptr %2, ptr %6, align 8, !tbaa !130
+  %7 = load ptr, ptr %6, align 8, !tbaa !130
+  %8 = load ptr, ptr %4, align 8, !tbaa !23
+  %9 = load ptr, ptr %5, align 8, !tbaa !23
+  call void @_ZNSt16allocator_traitsISaISt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS2_EESaIS5_EEEE9constructIS7_JS7_EEEvRS8_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef %8, ptr noundef nonnull align 8 dereferenceable(24) %9) #15
+  %10 = load ptr, ptr %6, align 8, !tbaa !130
+  %11 = load ptr, ptr %5, align 8, !tbaa !23
+  call void @_ZNSt16allocator_traitsISaISt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS2_EESaIS5_EEEE7destroyIS7_EEvRS8_PT_(ptr noundef nonnull align 1 dereferenceable(1) %10, ptr noundef %11) #15
   ret void
 }
 
@@ -7338,13 +8253,13 @@ define linkonce_odr dso_local void @_ZNSt16allocator_traitsISaISt6vectorISt10uni
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store ptr %2, ptr %6, align 8
-  %7 = load ptr, ptr %4, align 8
-  %8 = load ptr, ptr %5, align 8
-  %9 = load ptr, ptr %6, align 8
-  call void @_ZNSt15__new_allocatorISt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS2_EESaIS5_EEE9constructIS7_JS7_EEEvPT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef %8, ptr noundef nonnull align 8 dereferenceable(24) %9) #11
+  store ptr %0, ptr %4, align 8, !tbaa !130
+  store ptr %1, ptr %5, align 8, !tbaa !23
+  store ptr %2, ptr %6, align 8, !tbaa !23
+  %7 = load ptr, ptr %4, align 8, !tbaa !130
+  %8 = load ptr, ptr %5, align 8, !tbaa !23
+  %9 = load ptr, ptr %6, align 8, !tbaa !23
+  call void @_ZNSt15__new_allocatorISt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS2_EESaIS5_EEE9constructIS7_JS7_EEEvPT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef %8, ptr noundef nonnull align 8 dereferenceable(24) %9) #15
   ret void
 }
 
@@ -7352,11 +8267,11 @@ define linkonce_odr dso_local void @_ZNSt16allocator_traitsISaISt6vectorISt10uni
 define linkonce_odr dso_local void @_ZNSt16allocator_traitsISaISt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS2_EESaIS5_EEEE7destroyIS7_EEvRS8_PT_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1) #0 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  %5 = load ptr, ptr %3, align 8
-  %6 = load ptr, ptr %4, align 8
-  call void @_ZNSt15__new_allocatorISt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS2_EESaIS5_EEE7destroyIS7_EEvPT_(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef %6) #11
+  store ptr %0, ptr %3, align 8, !tbaa !130
+  store ptr %1, ptr %4, align 8, !tbaa !23
+  %5 = load ptr, ptr %3, align 8, !tbaa !130
+  %6 = load ptr, ptr %4, align 8, !tbaa !23
+  call void @_ZNSt15__new_allocatorISt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS2_EESaIS5_EEE7destroyIS7_EEvPT_(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef %6) #15
   ret void
 }
 
@@ -7365,12 +8280,12 @@ define linkonce_odr dso_local void @_ZNSt15__new_allocatorISt6vectorISt10unique_
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store ptr %2, ptr %6, align 8
-  %7 = load ptr, ptr %5, align 8
-  %8 = load ptr, ptr %6, align 8
-  call void @_ZNSt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EEC2EOS6_(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %8) #11
+  store ptr %0, ptr %4, align 8, !tbaa !132
+  store ptr %1, ptr %5, align 8, !tbaa !23
+  store ptr %2, ptr %6, align 8, !tbaa !23
+  %7 = load ptr, ptr %5, align 8, !tbaa !23
+  %8 = load ptr, ptr %6, align 8, !tbaa !23
+  call void @_ZNSt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EEC2EOS6_(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %8) #15
   ret void
 }
 
@@ -7378,11 +8293,11 @@ define linkonce_odr dso_local void @_ZNSt15__new_allocatorISt6vectorISt10unique_
 define linkonce_odr dso_local void @_ZNSt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EEC2EOS6_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #0 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !23
+  store ptr %1, ptr %4, align 8, !tbaa !23
   %5 = load ptr, ptr %3, align 8
-  %6 = load ptr, ptr %4, align 8
-  call void @_ZNSt12_Vector_baseISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EEC2EOS6_(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %6) #11
+  %6 = load ptr, ptr %4, align 8, !tbaa !23
+  call void @_ZNSt12_Vector_baseISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EEC2EOS6_(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %6) #15
   ret void
 }
 
@@ -7390,13 +8305,13 @@ define linkonce_odr dso_local void @_ZNSt6vectorISt10unique_ptrI30cmGeneratorExp
 define linkonce_odr dso_local void @_ZNSt12_Vector_baseISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EEC2EOS6_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #0 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !115
+  store ptr %1, ptr %4, align 8, !tbaa !115
   %5 = load ptr, ptr %3, align 8
-  %6 = getelementptr inbounds %"struct.std::_Vector_base.1", ptr %5, i32 0, i32 0
-  %7 = load ptr, ptr %4, align 8
-  %8 = getelementptr inbounds %"struct.std::_Vector_base.1", ptr %7, i32 0, i32 0
-  call void @_ZNSt12_Vector_baseISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EE12_Vector_implC2EOS7_(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %8) #11
+  %6 = getelementptr inbounds nuw %"struct.std::_Vector_base.1", ptr %5, i32 0, i32 0
+  %7 = load ptr, ptr %4, align 8, !tbaa !115
+  %8 = getelementptr inbounds nuw %"struct.std::_Vector_base.1", ptr %7, i32 0, i32 0
+  call void @_ZNSt12_Vector_baseISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EE12_Vector_implC2EOS7_(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %8) #15
   ret void
 }
 
@@ -7404,13 +8319,13 @@ define linkonce_odr dso_local void @_ZNSt12_Vector_baseISt10unique_ptrI30cmGener
 define linkonce_odr dso_local void @_ZNSt12_Vector_baseISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EE12_Vector_implC2EOS7_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #0 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !117
+  store ptr %1, ptr %4, align 8, !tbaa !117
   %5 = load ptr, ptr %3, align 8
-  %6 = load ptr, ptr %4, align 8
-  call void @_ZNSaISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS0_EEEC2ERKS4_(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull align 1 dereferenceable(1) %6) #11
-  %7 = load ptr, ptr %4, align 8
-  call void @_ZNSt12_Vector_baseISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EE17_Vector_impl_dataC2EOS7_(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %7) #11
+  %6 = load ptr, ptr %4, align 8, !tbaa !117
+  call void @_ZNSaISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS0_EEEC2ERKS4_(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull align 1 dereferenceable(1) %6) #15
+  %7 = load ptr, ptr %4, align 8, !tbaa !117
+  call void @_ZNSt12_Vector_baseISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EE17_Vector_impl_dataC2EOS7_(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %7) #15
   ret void
 }
 
@@ -7418,33 +8333,33 @@ define linkonce_odr dso_local void @_ZNSt12_Vector_baseISt10unique_ptrI30cmGener
 define linkonce_odr dso_local void @_ZNSt12_Vector_baseISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EE17_Vector_impl_dataC2EOS7_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #0 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !123
+  store ptr %1, ptr %4, align 8, !tbaa !123
   %5 = load ptr, ptr %3, align 8
-  %6 = getelementptr inbounds %"struct.std::_Vector_base<std::unique_ptr<cmGeneratorExpressionEvaluator>, std::allocator<std::unique_ptr<cmGeneratorExpressionEvaluator>>>::_Vector_impl_data", ptr %5, i32 0, i32 0
-  %7 = load ptr, ptr %4, align 8
-  %8 = getelementptr inbounds %"struct.std::_Vector_base<std::unique_ptr<cmGeneratorExpressionEvaluator>, std::allocator<std::unique_ptr<cmGeneratorExpressionEvaluator>>>::_Vector_impl_data", ptr %7, i32 0, i32 0
-  %9 = load ptr, ptr %8, align 8
-  store ptr %9, ptr %6, align 8
-  %10 = getelementptr inbounds %"struct.std::_Vector_base<std::unique_ptr<cmGeneratorExpressionEvaluator>, std::allocator<std::unique_ptr<cmGeneratorExpressionEvaluator>>>::_Vector_impl_data", ptr %5, i32 0, i32 1
-  %11 = load ptr, ptr %4, align 8
-  %12 = getelementptr inbounds %"struct.std::_Vector_base<std::unique_ptr<cmGeneratorExpressionEvaluator>, std::allocator<std::unique_ptr<cmGeneratorExpressionEvaluator>>>::_Vector_impl_data", ptr %11, i32 0, i32 1
-  %13 = load ptr, ptr %12, align 8
-  store ptr %13, ptr %10, align 8
-  %14 = getelementptr inbounds %"struct.std::_Vector_base<std::unique_ptr<cmGeneratorExpressionEvaluator>, std::allocator<std::unique_ptr<cmGeneratorExpressionEvaluator>>>::_Vector_impl_data", ptr %5, i32 0, i32 2
-  %15 = load ptr, ptr %4, align 8
-  %16 = getelementptr inbounds %"struct.std::_Vector_base<std::unique_ptr<cmGeneratorExpressionEvaluator>, std::allocator<std::unique_ptr<cmGeneratorExpressionEvaluator>>>::_Vector_impl_data", ptr %15, i32 0, i32 2
-  %17 = load ptr, ptr %16, align 8
-  store ptr %17, ptr %14, align 8
-  %18 = load ptr, ptr %4, align 8
-  %19 = getelementptr inbounds %"struct.std::_Vector_base<std::unique_ptr<cmGeneratorExpressionEvaluator>, std::allocator<std::unique_ptr<cmGeneratorExpressionEvaluator>>>::_Vector_impl_data", ptr %18, i32 0, i32 2
-  store ptr null, ptr %19, align 8
-  %20 = load ptr, ptr %4, align 8
-  %21 = getelementptr inbounds %"struct.std::_Vector_base<std::unique_ptr<cmGeneratorExpressionEvaluator>, std::allocator<std::unique_ptr<cmGeneratorExpressionEvaluator>>>::_Vector_impl_data", ptr %20, i32 0, i32 1
-  store ptr null, ptr %21, align 8
-  %22 = load ptr, ptr %4, align 8
-  %23 = getelementptr inbounds %"struct.std::_Vector_base<std::unique_ptr<cmGeneratorExpressionEvaluator>, std::allocator<std::unique_ptr<cmGeneratorExpressionEvaluator>>>::_Vector_impl_data", ptr %22, i32 0, i32 0
-  store ptr null, ptr %23, align 8
+  %6 = getelementptr inbounds nuw %"struct.std::_Vector_base<std::unique_ptr<cmGeneratorExpressionEvaluator>, std::allocator<std::unique_ptr<cmGeneratorExpressionEvaluator>>>::_Vector_impl_data", ptr %5, i32 0, i32 0
+  %7 = load ptr, ptr %4, align 8, !tbaa !123
+  %8 = getelementptr inbounds nuw %"struct.std::_Vector_base<std::unique_ptr<cmGeneratorExpressionEvaluator>, std::allocator<std::unique_ptr<cmGeneratorExpressionEvaluator>>>::_Vector_impl_data", ptr %7, i32 0, i32 0
+  %9 = load ptr, ptr %8, align 8, !tbaa !86
+  store ptr %9, ptr %6, align 8, !tbaa !86
+  %10 = getelementptr inbounds nuw %"struct.std::_Vector_base<std::unique_ptr<cmGeneratorExpressionEvaluator>, std::allocator<std::unique_ptr<cmGeneratorExpressionEvaluator>>>::_Vector_impl_data", ptr %5, i32 0, i32 1
+  %11 = load ptr, ptr %4, align 8, !tbaa !123
+  %12 = getelementptr inbounds nuw %"struct.std::_Vector_base<std::unique_ptr<cmGeneratorExpressionEvaluator>, std::allocator<std::unique_ptr<cmGeneratorExpressionEvaluator>>>::_Vector_impl_data", ptr %11, i32 0, i32 1
+  %13 = load ptr, ptr %12, align 8, !tbaa !88
+  store ptr %13, ptr %10, align 8, !tbaa !88
+  %14 = getelementptr inbounds nuw %"struct.std::_Vector_base<std::unique_ptr<cmGeneratorExpressionEvaluator>, std::allocator<std::unique_ptr<cmGeneratorExpressionEvaluator>>>::_Vector_impl_data", ptr %5, i32 0, i32 2
+  %15 = load ptr, ptr %4, align 8, !tbaa !123
+  %16 = getelementptr inbounds nuw %"struct.std::_Vector_base<std::unique_ptr<cmGeneratorExpressionEvaluator>, std::allocator<std::unique_ptr<cmGeneratorExpressionEvaluator>>>::_Vector_impl_data", ptr %15, i32 0, i32 2
+  %17 = load ptr, ptr %16, align 8, !tbaa !125
+  store ptr %17, ptr %14, align 8, !tbaa !125
+  %18 = load ptr, ptr %4, align 8, !tbaa !123
+  %19 = getelementptr inbounds nuw %"struct.std::_Vector_base<std::unique_ptr<cmGeneratorExpressionEvaluator>, std::allocator<std::unique_ptr<cmGeneratorExpressionEvaluator>>>::_Vector_impl_data", ptr %18, i32 0, i32 2
+  store ptr null, ptr %19, align 8, !tbaa !125
+  %20 = load ptr, ptr %4, align 8, !tbaa !123
+  %21 = getelementptr inbounds nuw %"struct.std::_Vector_base<std::unique_ptr<cmGeneratorExpressionEvaluator>, std::allocator<std::unique_ptr<cmGeneratorExpressionEvaluator>>>::_Vector_impl_data", ptr %20, i32 0, i32 1
+  store ptr null, ptr %21, align 8, !tbaa !88
+  %22 = load ptr, ptr %4, align 8, !tbaa !123
+  %23 = getelementptr inbounds nuw %"struct.std::_Vector_base<std::unique_ptr<cmGeneratorExpressionEvaluator>, std::allocator<std::unique_ptr<cmGeneratorExpressionEvaluator>>>::_Vector_impl_data", ptr %22, i32 0, i32 0
+  store ptr null, ptr %23, align 8, !tbaa !86
   ret void
 }
 
@@ -7452,10 +8367,10 @@ define linkonce_odr dso_local void @_ZNSt12_Vector_baseISt10unique_ptrI30cmGener
 define linkonce_odr dso_local void @_ZNSt15__new_allocatorISt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS2_EESaIS5_EEE7destroyIS7_EEvPT_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1) #0 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  %5 = load ptr, ptr %4, align 8
-  call void @_ZNSt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #11
+  store ptr %0, ptr %3, align 8, !tbaa !132
+  store ptr %1, ptr %4, align 8, !tbaa !23
+  %5 = load ptr, ptr %4, align 8, !tbaa !23
+  call void @_ZNSt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #15
   ret void
 }
 
@@ -7464,13 +8379,13 @@ define linkonce_odr dso_local void @_ZNSt16allocator_traitsISaIN9__gnu_cxx17__no
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store ptr %2, ptr %6, align 8
-  %7 = load ptr, ptr %4, align 8
-  %8 = load ptr, ptr %5, align 8
-  %9 = load ptr, ptr %6, align 8
-  call void @_ZNSt15__new_allocatorIN9__gnu_cxx17__normal_iteratorIPK26cmGeneratorExpressionTokenSt6vectorIS2_SaIS2_EEEEE9constructIS8_JRKS8_EEEvPT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef %8, ptr noundef nonnull align 8 dereferenceable(8) %9) #11
+  store ptr %0, ptr %4, align 8, !tbaa !138
+  store ptr %1, ptr %5, align 8, !tbaa !20
+  store ptr %2, ptr %6, align 8, !tbaa !20
+  %7 = load ptr, ptr %4, align 8, !tbaa !138
+  %8 = load ptr, ptr %5, align 8, !tbaa !20
+  %9 = load ptr, ptr %6, align 8, !tbaa !20
+  call void @_ZNSt15__new_allocatorIN9__gnu_cxx17__normal_iteratorIPK26cmGeneratorExpressionTokenSt6vectorIS2_SaIS2_EEEEE9constructIS8_JRKS8_EEEvPT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef %8, ptr noundef nonnull align 8 dereferenceable(8) %9) #15
   ret void
 }
 
@@ -7486,79 +8401,93 @@ define linkonce_odr dso_local void @_ZNSt6vectorIN9__gnu_cxx17__normal_iteratorI
   %11 = alloca %"class.__gnu_cxx::__normal_iterator.26", align 8
   %12 = alloca ptr, align 8
   %13 = alloca ptr, align 8
-  %14 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.26", ptr %4, i32 0, i32 0
+  %14 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator.26", ptr %4, i32 0, i32 0
   store ptr %1, ptr %14, align 8
-  store ptr %0, ptr %5, align 8
-  store ptr %2, ptr %6, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !69
+  store ptr %2, ptr %6, align 8, !tbaa !20
   %15 = load ptr, ptr %5, align 8
-  %16 = call noundef i64 @_ZNKSt6vectorIN9__gnu_cxx17__normal_iteratorIPK26cmGeneratorExpressionTokenS_IS2_SaIS2_EEEESaIS7_EE12_M_check_lenEmPKc(ptr noundef nonnull align 8 dereferenceable(24) %15, i64 noundef 1, ptr noundef @.str)
-  store i64 %16, ptr %7, align 8
-  %17 = getelementptr inbounds %"struct.std::_Vector_base.21", ptr %15, i32 0, i32 0
-  %18 = getelementptr inbounds %"struct.std::_Vector_base<__gnu_cxx::__normal_iterator<const cmGeneratorExpressionToken *, std::vector<cmGeneratorExpressionToken>>, std::allocator<__gnu_cxx::__normal_iterator<const cmGeneratorExpressionToken *, std::vector<cmGeneratorExpressionToken>>>>::_Vector_impl_data", ptr %17, i32 0, i32 0
-  %19 = load ptr, ptr %18, align 8
-  store ptr %19, ptr %8, align 8
-  %20 = getelementptr inbounds %"struct.std::_Vector_base.21", ptr %15, i32 0, i32 0
-  %21 = getelementptr inbounds %"struct.std::_Vector_base<__gnu_cxx::__normal_iterator<const cmGeneratorExpressionToken *, std::vector<cmGeneratorExpressionToken>>, std::allocator<__gnu_cxx::__normal_iterator<const cmGeneratorExpressionToken *, std::vector<cmGeneratorExpressionToken>>>>::_Vector_impl_data", ptr %20, i32 0, i32 1
-  %22 = load ptr, ptr %21, align 8
-  store ptr %22, ptr %9, align 8
-  %23 = call ptr @_ZNSt6vectorIN9__gnu_cxx17__normal_iteratorIPK26cmGeneratorExpressionTokenS_IS2_SaIS2_EEEESaIS7_EE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %15) #11
-  %24 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.26", ptr %11, i32 0, i32 0
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #15
+  %16 = call noundef i64 @_ZNKSt6vectorIN9__gnu_cxx17__normal_iteratorIPK26cmGeneratorExpressionTokenS_IS2_SaIS2_EEEESaIS7_EE12_M_check_lenEmPKc(ptr noundef nonnull align 8 dereferenceable(24) %15, i64 noundef 1, ptr noundef @.str.1)
+  store i64 %16, ptr %7, align 8, !tbaa !39
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #15
+  %17 = getelementptr inbounds nuw %"struct.std::_Vector_base.21", ptr %15, i32 0, i32 0
+  %18 = getelementptr inbounds nuw %"struct.std::_Vector_base<__gnu_cxx::__normal_iterator<const cmGeneratorExpressionToken *, std::vector<cmGeneratorExpressionToken>>, std::allocator<__gnu_cxx::__normal_iterator<const cmGeneratorExpressionToken *, std::vector<cmGeneratorExpressionToken>>>>::_Vector_impl_data", ptr %17, i32 0, i32 0
+  %19 = load ptr, ptr %18, align 8, !tbaa !85
+  store ptr %19, ptr %8, align 8, !tbaa !20
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #15
+  %20 = getelementptr inbounds nuw %"struct.std::_Vector_base.21", ptr %15, i32 0, i32 0
+  %21 = getelementptr inbounds nuw %"struct.std::_Vector_base<__gnu_cxx::__normal_iterator<const cmGeneratorExpressionToken *, std::vector<cmGeneratorExpressionToken>>, std::allocator<__gnu_cxx::__normal_iterator<const cmGeneratorExpressionToken *, std::vector<cmGeneratorExpressionToken>>>>::_Vector_impl_data", ptr %20, i32 0, i32 1
+  %22 = load ptr, ptr %21, align 8, !tbaa !74
+  store ptr %22, ptr %9, align 8, !tbaa !20
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #15
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #15
+  %23 = call ptr @_ZNSt6vectorIN9__gnu_cxx17__normal_iteratorIPK26cmGeneratorExpressionTokenS_IS2_SaIS2_EEEESaIS7_EE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %15) #15
+  %24 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator.26", ptr %11, i32 0, i32 0
   store ptr %23, ptr %24, align 8
-  %25 = call noundef i64 @_ZN9__gnu_cxxmiIPNS_17__normal_iteratorIPK26cmGeneratorExpressionTokenSt6vectorIS2_SaIS2_EEEES5_IS8_SaIS8_EEEENS1_IT_T0_E15difference_typeERKSE_SH_(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(8) %11) #11
-  store i64 %25, ptr %10, align 8
-  %26 = load i64, ptr %7, align 8
+  %25 = call noundef i64 @_ZN9__gnu_cxxmiIPNS_17__normal_iteratorIPK26cmGeneratorExpressionTokenSt6vectorIS2_SaIS2_EEEES5_IS8_SaIS8_EEEENS1_IT_T0_E15difference_typeERKSE_SH_(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(8) %11) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #15
+  store i64 %25, ptr %10, align 8, !tbaa !39
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #15
+  %26 = load i64, ptr %7, align 8, !tbaa !39
   %27 = call noundef ptr @_ZNSt12_Vector_baseIN9__gnu_cxx17__normal_iteratorIPK26cmGeneratorExpressionTokenSt6vectorIS2_SaIS2_EEEESaIS8_EE11_M_allocateEm(ptr noundef nonnull align 8 dereferenceable(24) %15, i64 noundef %26)
-  store ptr %27, ptr %12, align 8
-  %28 = load ptr, ptr %12, align 8
-  store ptr %28, ptr %13, align 8
-  %29 = getelementptr inbounds %"struct.std::_Vector_base.21", ptr %15, i32 0, i32 0
-  %30 = load ptr, ptr %12, align 8
-  %31 = load i64, ptr %10, align 8
-  %32 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %30, i64 %31
-  %33 = load ptr, ptr %6, align 8
-  call void @_ZNSt16allocator_traitsISaIN9__gnu_cxx17__normal_iteratorIPK26cmGeneratorExpressionTokenSt6vectorIS2_SaIS2_EEEEEE9constructIS8_JRKS8_EEEvRS9_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %29, ptr noundef %32, ptr noundef nonnull align 8 dereferenceable(8) %33) #11
-  store ptr null, ptr %13, align 8
-  %34 = load ptr, ptr %8, align 8
-  %35 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPNS0_IPK26cmGeneratorExpressionTokenSt6vectorIS1_SaIS1_EEEES4_IS7_SaIS7_EEE4baseEv(ptr noundef nonnull align 8 dereferenceable(8) %4) #11
-  %36 = load ptr, ptr %35, align 8
-  %37 = load ptr, ptr %12, align 8
-  %38 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt12_Vector_baseIN9__gnu_cxx17__normal_iteratorIPK26cmGeneratorExpressionTokenSt6vectorIS2_SaIS2_EEEESaIS8_EE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %15) #11
-  %39 = call noundef ptr @_ZNSt6vectorIN9__gnu_cxx17__normal_iteratorIPK26cmGeneratorExpressionTokenS_IS2_SaIS2_EEEESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_(ptr noundef %34, ptr noundef %36, ptr noundef %37, ptr noundef nonnull align 1 dereferenceable(1) %38) #11
-  store ptr %39, ptr %13, align 8
-  %40 = load ptr, ptr %13, align 8
-  %41 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %40, i32 1
-  store ptr %41, ptr %13, align 8
-  %42 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPNS0_IPK26cmGeneratorExpressionTokenSt6vectorIS1_SaIS1_EEEES4_IS7_SaIS7_EEE4baseEv(ptr noundef nonnull align 8 dereferenceable(8) %4) #11
-  %43 = load ptr, ptr %42, align 8
-  %44 = load ptr, ptr %9, align 8
-  %45 = load ptr, ptr %13, align 8
-  %46 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt12_Vector_baseIN9__gnu_cxx17__normal_iteratorIPK26cmGeneratorExpressionTokenSt6vectorIS2_SaIS2_EEEESaIS8_EE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %15) #11
-  %47 = call noundef ptr @_ZNSt6vectorIN9__gnu_cxx17__normal_iteratorIPK26cmGeneratorExpressionTokenS_IS2_SaIS2_EEEESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_(ptr noundef %43, ptr noundef %44, ptr noundef %45, ptr noundef nonnull align 1 dereferenceable(1) %46) #11
-  store ptr %47, ptr %13, align 8
-  %48 = load ptr, ptr %8, align 8
-  %49 = getelementptr inbounds %"struct.std::_Vector_base.21", ptr %15, i32 0, i32 0
-  %50 = getelementptr inbounds %"struct.std::_Vector_base<__gnu_cxx::__normal_iterator<const cmGeneratorExpressionToken *, std::vector<cmGeneratorExpressionToken>>, std::allocator<__gnu_cxx::__normal_iterator<const cmGeneratorExpressionToken *, std::vector<cmGeneratorExpressionToken>>>>::_Vector_impl_data", ptr %49, i32 0, i32 2
-  %51 = load ptr, ptr %50, align 8
-  %52 = load ptr, ptr %8, align 8
+  store ptr %27, ptr %12, align 8, !tbaa !20
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #15
+  %28 = load ptr, ptr %12, align 8, !tbaa !20
+  store ptr %28, ptr %13, align 8, !tbaa !20
+  %29 = getelementptr inbounds nuw %"struct.std::_Vector_base.21", ptr %15, i32 0, i32 0
+  %30 = load ptr, ptr %12, align 8, !tbaa !20
+  %31 = load i64, ptr %10, align 8, !tbaa !39
+  %32 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator", ptr %30, i64 %31
+  %33 = load ptr, ptr %6, align 8, !tbaa !20
+  call void @_ZNSt16allocator_traitsISaIN9__gnu_cxx17__normal_iteratorIPK26cmGeneratorExpressionTokenSt6vectorIS2_SaIS2_EEEEEE9constructIS8_JRKS8_EEEvRS9_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %29, ptr noundef %32, ptr noundef nonnull align 8 dereferenceable(8) %33) #15
+  store ptr null, ptr %13, align 8, !tbaa !20
+  %34 = load ptr, ptr %8, align 8, !tbaa !20
+  %35 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPNS0_IPK26cmGeneratorExpressionTokenSt6vectorIS1_SaIS1_EEEES4_IS7_SaIS7_EEE4baseEv(ptr noundef nonnull align 8 dereferenceable(8) %4) #15
+  %36 = load ptr, ptr %35, align 8, !tbaa !20
+  %37 = load ptr, ptr %12, align 8, !tbaa !20
+  %38 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt12_Vector_baseIN9__gnu_cxx17__normal_iteratorIPK26cmGeneratorExpressionTokenSt6vectorIS2_SaIS2_EEEESaIS8_EE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %15) #15
+  %39 = call noundef ptr @_ZNSt6vectorIN9__gnu_cxx17__normal_iteratorIPK26cmGeneratorExpressionTokenS_IS2_SaIS2_EEEESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_(ptr noundef %34, ptr noundef %36, ptr noundef %37, ptr noundef nonnull align 1 dereferenceable(1) %38) #15
+  store ptr %39, ptr %13, align 8, !tbaa !20
+  %40 = load ptr, ptr %13, align 8, !tbaa !20
+  %41 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator", ptr %40, i32 1
+  store ptr %41, ptr %13, align 8, !tbaa !20
+  %42 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPNS0_IPK26cmGeneratorExpressionTokenSt6vectorIS1_SaIS1_EEEES4_IS7_SaIS7_EEE4baseEv(ptr noundef nonnull align 8 dereferenceable(8) %4) #15
+  %43 = load ptr, ptr %42, align 8, !tbaa !20
+  %44 = load ptr, ptr %9, align 8, !tbaa !20
+  %45 = load ptr, ptr %13, align 8, !tbaa !20
+  %46 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt12_Vector_baseIN9__gnu_cxx17__normal_iteratorIPK26cmGeneratorExpressionTokenSt6vectorIS2_SaIS2_EEEESaIS8_EE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %15) #15
+  %47 = call noundef ptr @_ZNSt6vectorIN9__gnu_cxx17__normal_iteratorIPK26cmGeneratorExpressionTokenS_IS2_SaIS2_EEEESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_(ptr noundef %43, ptr noundef %44, ptr noundef %45, ptr noundef nonnull align 1 dereferenceable(1) %46) #15
+  store ptr %47, ptr %13, align 8, !tbaa !20
+  %48 = load ptr, ptr %8, align 8, !tbaa !20
+  %49 = getelementptr inbounds nuw %"struct.std::_Vector_base.21", ptr %15, i32 0, i32 0
+  %50 = getelementptr inbounds nuw %"struct.std::_Vector_base<__gnu_cxx::__normal_iterator<const cmGeneratorExpressionToken *, std::vector<cmGeneratorExpressionToken>>, std::allocator<__gnu_cxx::__normal_iterator<const cmGeneratorExpressionToken *, std::vector<cmGeneratorExpressionToken>>>>::_Vector_impl_data", ptr %49, i32 0, i32 2
+  %51 = load ptr, ptr %50, align 8, !tbaa !76
+  %52 = load ptr, ptr %8, align 8, !tbaa !20
   %53 = ptrtoint ptr %51 to i64
   %54 = ptrtoint ptr %52 to i64
   %55 = sub i64 %53, %54
   %56 = sdiv exact i64 %55, 8
   call void @_ZNSt12_Vector_baseIN9__gnu_cxx17__normal_iteratorIPK26cmGeneratorExpressionTokenSt6vectorIS2_SaIS2_EEEESaIS8_EE13_M_deallocateEPS8_m(ptr noundef nonnull align 8 dereferenceable(24) %15, ptr noundef %48, i64 noundef %56)
-  %57 = load ptr, ptr %12, align 8
-  %58 = getelementptr inbounds %"struct.std::_Vector_base.21", ptr %15, i32 0, i32 0
-  %59 = getelementptr inbounds %"struct.std::_Vector_base<__gnu_cxx::__normal_iterator<const cmGeneratorExpressionToken *, std::vector<cmGeneratorExpressionToken>>, std::allocator<__gnu_cxx::__normal_iterator<const cmGeneratorExpressionToken *, std::vector<cmGeneratorExpressionToken>>>>::_Vector_impl_data", ptr %58, i32 0, i32 0
-  store ptr %57, ptr %59, align 8
-  %60 = load ptr, ptr %13, align 8
-  %61 = getelementptr inbounds %"struct.std::_Vector_base.21", ptr %15, i32 0, i32 0
-  %62 = getelementptr inbounds %"struct.std::_Vector_base<__gnu_cxx::__normal_iterator<const cmGeneratorExpressionToken *, std::vector<cmGeneratorExpressionToken>>, std::allocator<__gnu_cxx::__normal_iterator<const cmGeneratorExpressionToken *, std::vector<cmGeneratorExpressionToken>>>>::_Vector_impl_data", ptr %61, i32 0, i32 1
-  store ptr %60, ptr %62, align 8
-  %63 = load ptr, ptr %12, align 8
-  %64 = load i64, ptr %7, align 8
-  %65 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %63, i64 %64
-  %66 = getelementptr inbounds %"struct.std::_Vector_base.21", ptr %15, i32 0, i32 0
-  %67 = getelementptr inbounds %"struct.std::_Vector_base<__gnu_cxx::__normal_iterator<const cmGeneratorExpressionToken *, std::vector<cmGeneratorExpressionToken>>, std::allocator<__gnu_cxx::__normal_iterator<const cmGeneratorExpressionToken *, std::vector<cmGeneratorExpressionToken>>>>::_Vector_impl_data", ptr %66, i32 0, i32 2
-  store ptr %65, ptr %67, align 8
+  %57 = load ptr, ptr %12, align 8, !tbaa !20
+  %58 = getelementptr inbounds nuw %"struct.std::_Vector_base.21", ptr %15, i32 0, i32 0
+  %59 = getelementptr inbounds nuw %"struct.std::_Vector_base<__gnu_cxx::__normal_iterator<const cmGeneratorExpressionToken *, std::vector<cmGeneratorExpressionToken>>, std::allocator<__gnu_cxx::__normal_iterator<const cmGeneratorExpressionToken *, std::vector<cmGeneratorExpressionToken>>>>::_Vector_impl_data", ptr %58, i32 0, i32 0
+  store ptr %57, ptr %59, align 8, !tbaa !85
+  %60 = load ptr, ptr %13, align 8, !tbaa !20
+  %61 = getelementptr inbounds nuw %"struct.std::_Vector_base.21", ptr %15, i32 0, i32 0
+  %62 = getelementptr inbounds nuw %"struct.std::_Vector_base<__gnu_cxx::__normal_iterator<const cmGeneratorExpressionToken *, std::vector<cmGeneratorExpressionToken>>, std::allocator<__gnu_cxx::__normal_iterator<const cmGeneratorExpressionToken *, std::vector<cmGeneratorExpressionToken>>>>::_Vector_impl_data", ptr %61, i32 0, i32 1
+  store ptr %60, ptr %62, align 8, !tbaa !74
+  %63 = load ptr, ptr %12, align 8, !tbaa !20
+  %64 = load i64, ptr %7, align 8, !tbaa !39
+  %65 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator", ptr %63, i64 %64
+  %66 = getelementptr inbounds nuw %"struct.std::_Vector_base.21", ptr %15, i32 0, i32 0
+  %67 = getelementptr inbounds nuw %"struct.std::_Vector_base<__gnu_cxx::__normal_iterator<const cmGeneratorExpressionToken *, std::vector<cmGeneratorExpressionToken>>, std::allocator<__gnu_cxx::__normal_iterator<const cmGeneratorExpressionToken *, std::vector<cmGeneratorExpressionToken>>>>::_Vector_impl_data", ptr %66, i32 0, i32 2
+  store ptr %65, ptr %67, align 8, !tbaa !76
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #15
   ret void
 }
 
@@ -7567,12 +8496,12 @@ define linkonce_odr dso_local void @_ZNSt15__new_allocatorIN9__gnu_cxx17__normal
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store ptr %2, ptr %6, align 8
-  %7 = load ptr, ptr %5, align 8
-  %8 = load ptr, ptr %6, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %7, ptr align 8 %8, i64 8, i1 false)
+  store ptr %0, ptr %4, align 8, !tbaa !142
+  store ptr %1, ptr %5, align 8, !tbaa !20
+  store ptr %2, ptr %6, align 8, !tbaa !20
+  %7 = load ptr, ptr %5, align 8, !tbaa !20
+  %8 = load ptr, ptr %6, align 8, !tbaa !20
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %7, ptr align 8 %8, i64 8, i1 false), !tbaa.struct !25
   ret void
 }
 
@@ -7583,66 +8512,70 @@ define linkonce_odr dso_local noundef i64 @_ZNKSt6vectorIN9__gnu_cxx17__normal_i
   %6 = alloca ptr, align 8
   %7 = alloca i64, align 8
   %8 = alloca i64, align 8
-  store ptr %0, ptr %4, align 8
-  store i64 %1, ptr %5, align 8
-  store ptr %2, ptr %6, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !69
+  store i64 %1, ptr %5, align 8, !tbaa !39
+  store ptr %2, ptr %6, align 8, !tbaa !54
   %9 = load ptr, ptr %4, align 8
-  %10 = call noundef i64 @_ZNKSt6vectorIN9__gnu_cxx17__normal_iteratorIPK26cmGeneratorExpressionTokenS_IS2_SaIS2_EEEESaIS7_EE8max_sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #11
-  %11 = call noundef i64 @_ZNKSt6vectorIN9__gnu_cxx17__normal_iteratorIPK26cmGeneratorExpressionTokenS_IS2_SaIS2_EEEESaIS7_EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #11
+  %10 = call noundef i64 @_ZNKSt6vectorIN9__gnu_cxx17__normal_iteratorIPK26cmGeneratorExpressionTokenS_IS2_SaIS2_EEEESaIS7_EE8max_sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #15
+  %11 = call noundef i64 @_ZNKSt6vectorIN9__gnu_cxx17__normal_iteratorIPK26cmGeneratorExpressionTokenS_IS2_SaIS2_EEEESaIS7_EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #15
   %12 = sub i64 %10, %11
-  %13 = load i64, ptr %5, align 8
+  %13 = load i64, ptr %5, align 8, !tbaa !39
   %14 = icmp ult i64 %12, %13
   br i1 %14, label %15, label %17
 
 15:                                               ; preds = %3
-  %16 = load ptr, ptr %6, align 8
-  call void @_ZSt20__throw_length_errorPKc(ptr noundef %16) #15
+  %16 = load ptr, ptr %6, align 8, !tbaa !54
+  call void @_ZSt20__throw_length_errorPKc(ptr noundef %16) #19
   unreachable
 
 17:                                               ; preds = %3
-  %18 = call noundef i64 @_ZNKSt6vectorIN9__gnu_cxx17__normal_iteratorIPK26cmGeneratorExpressionTokenS_IS2_SaIS2_EEEESaIS7_EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #11
-  %19 = call noundef i64 @_ZNKSt6vectorIN9__gnu_cxx17__normal_iteratorIPK26cmGeneratorExpressionTokenS_IS2_SaIS2_EEEESaIS7_EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #11
-  store i64 %19, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #15
+  %18 = call noundef i64 @_ZNKSt6vectorIN9__gnu_cxx17__normal_iteratorIPK26cmGeneratorExpressionTokenS_IS2_SaIS2_EEEESaIS7_EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #15
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #15
+  %19 = call noundef i64 @_ZNKSt6vectorIN9__gnu_cxx17__normal_iteratorIPK26cmGeneratorExpressionTokenS_IS2_SaIS2_EEEESaIS7_EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #15
+  store i64 %19, ptr %8, align 8, !tbaa !39
   %20 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt3maxImERKT_S2_S2_(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(8) %5)
-  %21 = load i64, ptr %20, align 8
+  %21 = load i64, ptr %20, align 8, !tbaa !39
   %22 = add i64 %18, %21
-  store i64 %22, ptr %7, align 8
-  %23 = load i64, ptr %7, align 8
-  %24 = call noundef i64 @_ZNKSt6vectorIN9__gnu_cxx17__normal_iteratorIPK26cmGeneratorExpressionTokenS_IS2_SaIS2_EEEESaIS7_EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #15
+  store i64 %22, ptr %7, align 8, !tbaa !39
+  %23 = load i64, ptr %7, align 8, !tbaa !39
+  %24 = call noundef i64 @_ZNKSt6vectorIN9__gnu_cxx17__normal_iteratorIPK26cmGeneratorExpressionTokenS_IS2_SaIS2_EEEESaIS7_EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #15
   %25 = icmp ult i64 %23, %24
   br i1 %25, label %30, label %26
 
 26:                                               ; preds = %17
-  %27 = load i64, ptr %7, align 8
-  %28 = call noundef i64 @_ZNKSt6vectorIN9__gnu_cxx17__normal_iteratorIPK26cmGeneratorExpressionTokenS_IS2_SaIS2_EEEESaIS7_EE8max_sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #11
+  %27 = load i64, ptr %7, align 8, !tbaa !39
+  %28 = call noundef i64 @_ZNKSt6vectorIN9__gnu_cxx17__normal_iteratorIPK26cmGeneratorExpressionTokenS_IS2_SaIS2_EEEESaIS7_EE8max_sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #15
   %29 = icmp ugt i64 %27, %28
   br i1 %29, label %30, label %32
 
 30:                                               ; preds = %26, %17
-  %31 = call noundef i64 @_ZNKSt6vectorIN9__gnu_cxx17__normal_iteratorIPK26cmGeneratorExpressionTokenS_IS2_SaIS2_EEEESaIS7_EE8max_sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #11
+  %31 = call noundef i64 @_ZNKSt6vectorIN9__gnu_cxx17__normal_iteratorIPK26cmGeneratorExpressionTokenS_IS2_SaIS2_EEEESaIS7_EE8max_sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #15
   br label %34
 
 32:                                               ; preds = %26
-  %33 = load i64, ptr %7, align 8
+  %33 = load i64, ptr %7, align 8, !tbaa !39
   br label %34
 
 34:                                               ; preds = %32, %30
   %35 = phi i64 [ %31, %30 ], [ %33, %32 ]
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #15
   ret i64 %35
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef i64 @_ZN9__gnu_cxxmiIPNS_17__normal_iteratorIPK26cmGeneratorExpressionTokenSt6vectorIS2_SaIS2_EEEES5_IS8_SaIS8_EEEENS1_IT_T0_E15difference_typeERKSE_SH_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #0 comdat {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef i64 @_ZN9__gnu_cxxmiIPNS_17__normal_iteratorIPK26cmGeneratorExpressionTokenSt6vectorIS2_SaIS2_EEEES5_IS8_SaIS8_EEEENS1_IT_T0_E15difference_typeERKSE_SH_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #4 comdat {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  %5 = load ptr, ptr %3, align 8
-  %6 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPNS0_IPK26cmGeneratorExpressionTokenSt6vectorIS1_SaIS1_EEEES4_IS7_SaIS7_EEE4baseEv(ptr noundef nonnull align 8 dereferenceable(8) %5) #11
-  %7 = load ptr, ptr %6, align 8
-  %8 = load ptr, ptr %4, align 8
-  %9 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPNS0_IPK26cmGeneratorExpressionTokenSt6vectorIS1_SaIS1_EEEES4_IS7_SaIS7_EEE4baseEv(ptr noundef nonnull align 8 dereferenceable(8) %8) #11
-  %10 = load ptr, ptr %9, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !81
+  store ptr %1, ptr %4, align 8, !tbaa !81
+  %5 = load ptr, ptr %3, align 8, !tbaa !81
+  %6 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPNS0_IPK26cmGeneratorExpressionTokenSt6vectorIS1_SaIS1_EEEES4_IS7_SaIS7_EEE4baseEv(ptr noundef nonnull align 8 dereferenceable(8) %5) #15
+  %7 = load ptr, ptr %6, align 8, !tbaa !20
+  %8 = load ptr, ptr %4, align 8, !tbaa !81
+  %9 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPNS0_IPK26cmGeneratorExpressionTokenSt6vectorIS1_SaIS1_EEEES4_IS7_SaIS7_EEE4baseEv(ptr noundef nonnull align 8 dereferenceable(8) %8) #15
+  %10 = load ptr, ptr %9, align 8, !tbaa !20
   %11 = ptrtoint ptr %7 to i64
   %12 = ptrtoint ptr %10 to i64
   %13 = sub i64 %11, %12
@@ -7654,16 +8587,16 @@ define linkonce_odr dso_local noundef i64 @_ZN9__gnu_cxxmiIPNS_17__normal_iterat
 define linkonce_odr dso_local noundef ptr @_ZNSt12_Vector_baseIN9__gnu_cxx17__normal_iteratorIPK26cmGeneratorExpressionTokenSt6vectorIS2_SaIS2_EEEESaIS8_EE11_M_allocateEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %1) #1 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca i64, align 8
-  store ptr %0, ptr %3, align 8
-  store i64 %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !134
+  store i64 %1, ptr %4, align 8, !tbaa !39
   %5 = load ptr, ptr %3, align 8
-  %6 = load i64, ptr %4, align 8
+  %6 = load i64, ptr %4, align 8, !tbaa !39
   %7 = icmp ne i64 %6, 0
   br i1 %7, label %8, label %12
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds %"struct.std::_Vector_base.21", ptr %5, i32 0, i32 0
-  %10 = load i64, ptr %4, align 8
+  %9 = getelementptr inbounds nuw %"struct.std::_Vector_base.21", ptr %5, i32 0, i32 0
+  %10 = load i64, ptr %4, align 8, !tbaa !39
   %11 = call noundef ptr @_ZNSt16allocator_traitsISaIN9__gnu_cxx17__normal_iteratorIPK26cmGeneratorExpressionTokenSt6vectorIS2_SaIS2_EEEEEE8allocateERS9_m(ptr noundef nonnull align 1 dereferenceable(1) %9, i64 noundef %10)
   br label %13
 
@@ -7681,48 +8614,48 @@ define linkonce_odr dso_local noundef ptr @_ZNSt6vectorIN9__gnu_cxx17__normal_it
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
-  store ptr %0, ptr %5, align 8
-  store ptr %1, ptr %6, align 8
-  store ptr %2, ptr %7, align 8
-  store ptr %3, ptr %8, align 8
-  %9 = load ptr, ptr %5, align 8
-  %10 = load ptr, ptr %6, align 8
-  %11 = load ptr, ptr %7, align 8
-  %12 = load ptr, ptr %8, align 8
-  %13 = call noundef ptr @_ZSt12__relocate_aIPN9__gnu_cxx17__normal_iteratorIPK26cmGeneratorExpressionTokenSt6vectorIS2_SaIS2_EEEES9_SaIS8_EET0_T_SC_SB_RT1_(ptr noundef %9, ptr noundef %10, ptr noundef %11, ptr noundef nonnull align 1 dereferenceable(1) %12) #11
+  store ptr %0, ptr %5, align 8, !tbaa !20
+  store ptr %1, ptr %6, align 8, !tbaa !20
+  store ptr %2, ptr %7, align 8, !tbaa !20
+  store ptr %3, ptr %8, align 8, !tbaa !138
+  %9 = load ptr, ptr %5, align 8, !tbaa !20
+  %10 = load ptr, ptr %6, align 8, !tbaa !20
+  %11 = load ptr, ptr %7, align 8, !tbaa !20
+  %12 = load ptr, ptr %8, align 8, !tbaa !138
+  %13 = call noundef ptr @_ZSt12__relocate_aIPN9__gnu_cxx17__normal_iteratorIPK26cmGeneratorExpressionTokenSt6vectorIS2_SaIS2_EEEES9_SaIS8_EET0_T_SC_SB_RT1_(ptr noundef %9, ptr noundef %10, ptr noundef %11, ptr noundef nonnull align 1 dereferenceable(1) %12) #15
   ret ptr %13
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPNS0_IPK26cmGeneratorExpressionTokenSt6vectorIS1_SaIS1_EEEES4_IS7_SaIS7_EEE4baseEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !81
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.26", ptr %3, i32 0, i32 0
+  %4 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator.26", ptr %3, i32 0, i32 0
   ret ptr %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef i64 @_ZNKSt6vectorIN9__gnu_cxx17__normal_iteratorIPK26cmGeneratorExpressionTokenS_IS2_SaIS2_EEEESaIS7_EE8max_sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !69
   %3 = load ptr, ptr %2, align 8
-  %4 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt12_Vector_baseIN9__gnu_cxx17__normal_iteratorIPK26cmGeneratorExpressionTokenSt6vectorIS2_SaIS2_EEEESaIS8_EE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %3) #11
-  %5 = call noundef i64 @_ZNSt6vectorIN9__gnu_cxx17__normal_iteratorIPK26cmGeneratorExpressionTokenS_IS2_SaIS2_EEEESaIS7_EE11_S_max_sizeERKS8_(ptr noundef nonnull align 1 dereferenceable(1) %4) #11
+  %4 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt12_Vector_baseIN9__gnu_cxx17__normal_iteratorIPK26cmGeneratorExpressionTokenSt6vectorIS2_SaIS2_EEEESaIS8_EE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %3) #15
+  %5 = call noundef i64 @_ZNSt6vectorIN9__gnu_cxx17__normal_iteratorIPK26cmGeneratorExpressionTokenS_IS2_SaIS2_EEEESaIS7_EE11_S_max_sizeERKS8_(ptr noundef nonnull align 1 dereferenceable(1) %4) #15
   ret i64 %5
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef i64 @_ZNKSt6vectorIN9__gnu_cxx17__normal_iteratorIPK26cmGeneratorExpressionTokenS_IS2_SaIS2_EEEESaIS7_EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !69
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"struct.std::_Vector_base.21", ptr %3, i32 0, i32 0
-  %5 = getelementptr inbounds %"struct.std::_Vector_base<__gnu_cxx::__normal_iterator<const cmGeneratorExpressionToken *, std::vector<cmGeneratorExpressionToken>>, std::allocator<__gnu_cxx::__normal_iterator<const cmGeneratorExpressionToken *, std::vector<cmGeneratorExpressionToken>>>>::_Vector_impl_data", ptr %4, i32 0, i32 1
-  %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds %"struct.std::_Vector_base.21", ptr %3, i32 0, i32 0
-  %8 = getelementptr inbounds %"struct.std::_Vector_base<__gnu_cxx::__normal_iterator<const cmGeneratorExpressionToken *, std::vector<cmGeneratorExpressionToken>>, std::allocator<__gnu_cxx::__normal_iterator<const cmGeneratorExpressionToken *, std::vector<cmGeneratorExpressionToken>>>>::_Vector_impl_data", ptr %7, i32 0, i32 0
-  %9 = load ptr, ptr %8, align 8
+  %4 = getelementptr inbounds nuw %"struct.std::_Vector_base.21", ptr %3, i32 0, i32 0
+  %5 = getelementptr inbounds nuw %"struct.std::_Vector_base<__gnu_cxx::__normal_iterator<const cmGeneratorExpressionToken *, std::vector<cmGeneratorExpressionToken>>, std::allocator<__gnu_cxx::__normal_iterator<const cmGeneratorExpressionToken *, std::vector<cmGeneratorExpressionToken>>>>::_Vector_impl_data", ptr %4, i32 0, i32 1
+  %6 = load ptr, ptr %5, align 8, !tbaa !74
+  %7 = getelementptr inbounds nuw %"struct.std::_Vector_base.21", ptr %3, i32 0, i32 0
+  %8 = getelementptr inbounds nuw %"struct.std::_Vector_base<__gnu_cxx::__normal_iterator<const cmGeneratorExpressionToken *, std::vector<cmGeneratorExpressionToken>>, std::allocator<__gnu_cxx::__normal_iterator<const cmGeneratorExpressionToken *, std::vector<cmGeneratorExpressionToken>>>>::_Vector_impl_data", ptr %7, i32 0, i32 0
+  %9 = load ptr, ptr %8, align 8, !tbaa !85
   %10 = ptrtoint ptr %6 to i64
   %11 = ptrtoint ptr %9 to i64
   %12 = sub i64 %10, %11
@@ -7735,47 +8668,51 @@ define linkonce_odr dso_local noundef i64 @_ZNSt6vectorIN9__gnu_cxx17__normal_it
   %2 = alloca ptr, align 8
   %3 = alloca i64, align 8
   %4 = alloca i64, align 8
-  store ptr %0, ptr %2, align 8
-  store i64 1152921504606846975, ptr %3, align 8
-  %5 = load ptr, ptr %2, align 8
-  %6 = call noundef i64 @_ZNSt16allocator_traitsISaIN9__gnu_cxx17__normal_iteratorIPK26cmGeneratorExpressionTokenSt6vectorIS2_SaIS2_EEEEEE8max_sizeERKS9_(ptr noundef nonnull align 1 dereferenceable(1) %5) #11
-  store i64 %6, ptr %4, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !138
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #15
+  store i64 1152921504606846975, ptr %3, align 8, !tbaa !39
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #15
+  %5 = load ptr, ptr %2, align 8, !tbaa !138
+  %6 = call noundef i64 @_ZNSt16allocator_traitsISaIN9__gnu_cxx17__normal_iteratorIPK26cmGeneratorExpressionTokenSt6vectorIS2_SaIS2_EEEEEE8max_sizeERKS9_(ptr noundef nonnull align 1 dereferenceable(1) %5) #15
+  store i64 %6, ptr %4, align 8, !tbaa !39
   %7 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt3minImERKT_S2_S2_(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %4)
-  %8 = load i64, ptr %7, align 8
+  %8 = load i64, ptr %7, align 8, !tbaa !39
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #15
   ret i64 %8
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt12_Vector_baseIN9__gnu_cxx17__normal_iteratorIPK26cmGeneratorExpressionTokenSt6vectorIS2_SaIS2_EEEESaIS8_EE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !134
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"struct.std::_Vector_base.21", ptr %3, i32 0, i32 0
+  %4 = getelementptr inbounds nuw %"struct.std::_Vector_base.21", ptr %3, i32 0, i32 0
   ret ptr %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef i64 @_ZNSt16allocator_traitsISaIN9__gnu_cxx17__normal_iteratorIPK26cmGeneratorExpressionTokenSt6vectorIS2_SaIS2_EEEEEE8max_sizeERKS9_(ptr noundef nonnull align 1 dereferenceable(1) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  %4 = call noundef i64 @_ZNKSt15__new_allocatorIN9__gnu_cxx17__normal_iteratorIPK26cmGeneratorExpressionTokenSt6vectorIS2_SaIS2_EEEEE8max_sizeEv(ptr noundef nonnull align 1 dereferenceable(1) %3) #11
+  store ptr %0, ptr %2, align 8, !tbaa !138
+  %3 = load ptr, ptr %2, align 8, !tbaa !138
+  %4 = call noundef i64 @_ZNKSt15__new_allocatorIN9__gnu_cxx17__normal_iteratorIPK26cmGeneratorExpressionTokenSt6vectorIS2_SaIS2_EEEEE8max_sizeEv(ptr noundef nonnull align 1 dereferenceable(1) %3) #15
   ret i64 %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef i64 @_ZNKSt15__new_allocatorIN9__gnu_cxx17__normal_iteratorIPK26cmGeneratorExpressionTokenSt6vectorIS2_SaIS2_EEEEE8max_sizeEv(ptr noundef nonnull align 1 dereferenceable(1) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !142
   %3 = load ptr, ptr %2, align 8
-  %4 = call noundef i64 @_ZNKSt15__new_allocatorIN9__gnu_cxx17__normal_iteratorIPK26cmGeneratorExpressionTokenSt6vectorIS2_SaIS2_EEEEE11_M_max_sizeEv(ptr noundef nonnull align 1 dereferenceable(1) %3) #11
+  %4 = call noundef i64 @_ZNKSt15__new_allocatorIN9__gnu_cxx17__normal_iteratorIPK26cmGeneratorExpressionTokenSt6vectorIS2_SaIS2_EEEEE11_M_max_sizeEv(ptr noundef nonnull align 1 dereferenceable(1) %3) #15
   ret i64 %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef i64 @_ZNKSt15__new_allocatorIN9__gnu_cxx17__normal_iteratorIPK26cmGeneratorExpressionTokenSt6vectorIS2_SaIS2_EEEEE11_M_max_sizeEv(ptr noundef nonnull align 1 dereferenceable(1) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !142
   ret i64 1152921504606846975
 }
 
@@ -7783,10 +8720,10 @@ define linkonce_odr dso_local noundef i64 @_ZNKSt15__new_allocatorIN9__gnu_cxx17
 define linkonce_odr dso_local noundef ptr @_ZNSt16allocator_traitsISaIN9__gnu_cxx17__normal_iteratorIPK26cmGeneratorExpressionTokenSt6vectorIS2_SaIS2_EEEEEE8allocateERS9_m(ptr noundef nonnull align 1 dereferenceable(1) %0, i64 noundef %1) #1 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca i64, align 8
-  store ptr %0, ptr %3, align 8
-  store i64 %1, ptr %4, align 8
-  %5 = load ptr, ptr %3, align 8
-  %6 = load i64, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !138
+  store i64 %1, ptr %4, align 8, !tbaa !39
+  %5 = load ptr, ptr %3, align 8, !tbaa !138
+  %6 = load i64, ptr %4, align 8, !tbaa !39
   %7 = call noundef ptr @_ZNSt15__new_allocatorIN9__gnu_cxx17__normal_iteratorIPK26cmGeneratorExpressionTokenSt6vectorIS2_SaIS2_EEEEE8allocateEmPKv(ptr noundef nonnull align 1 dereferenceable(1) %5, i64 noundef %6, ptr noundef null)
   ret ptr %7
 }
@@ -7796,121 +8733,126 @@ define linkonce_odr dso_local noundef ptr @_ZNSt15__new_allocatorIN9__gnu_cxx17_
   %4 = alloca ptr, align 8
   %5 = alloca i64, align 8
   %6 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store i64 %1, ptr %5, align 8
-  store ptr %2, ptr %6, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !142
+  store i64 %1, ptr %5, align 8, !tbaa !39
+  store ptr %2, ptr %6, align 8, !tbaa !169
   %7 = load ptr, ptr %4, align 8
-  %8 = load i64, ptr %5, align 8
-  %9 = call noundef i64 @_ZNKSt15__new_allocatorIN9__gnu_cxx17__normal_iteratorIPK26cmGeneratorExpressionTokenSt6vectorIS2_SaIS2_EEEEE11_M_max_sizeEv(ptr noundef nonnull align 1 dereferenceable(1) %7) #11
+  %8 = load i64, ptr %5, align 8, !tbaa !39
+  %9 = call noundef i64 @_ZNKSt15__new_allocatorIN9__gnu_cxx17__normal_iteratorIPK26cmGeneratorExpressionTokenSt6vectorIS2_SaIS2_EEEEE11_M_max_sizeEv(ptr noundef nonnull align 1 dereferenceable(1) %7) #15
   %10 = icmp ugt i64 %8, %9
-  br i1 %10, label %11, label %16
+  %11 = zext i1 %10 to i64
+  %12 = call i64 @llvm.expect.i64(i64 %11, i64 0)
+  %13 = icmp ne i64 %12, 0
+  br i1 %13, label %14, label %19
 
-11:                                               ; preds = %3
-  %12 = load i64, ptr %5, align 8
-  %13 = icmp ugt i64 %12, 2305843009213693951
-  br i1 %13, label %14, label %15
+14:                                               ; preds = %3
+  %15 = load i64, ptr %5, align 8, !tbaa !39
+  %16 = icmp ugt i64 %15, 2305843009213693951
+  br i1 %16, label %17, label %18
 
-14:                                               ; preds = %11
-  call void @_ZSt28__throw_bad_array_new_lengthv() #15
+17:                                               ; preds = %14
+  call void @_ZSt28__throw_bad_array_new_lengthv() #19
   unreachable
 
-15:                                               ; preds = %11
-  call void @_ZSt17__throw_bad_allocv() #15
+18:                                               ; preds = %14
+  call void @_ZSt17__throw_bad_allocv() #19
   unreachable
 
-16:                                               ; preds = %3
-  %17 = load i64, ptr %5, align 8
-  %18 = mul i64 %17, 8
-  %19 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %18) #12
-  ret ptr %19
+19:                                               ; preds = %3
+  %20 = load i64, ptr %5, align 8, !tbaa !39
+  %21 = mul i64 %20, 8
+  %22 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %21) #16
+  ret ptr %22
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef ptr @_ZSt12__relocate_aIPN9__gnu_cxx17__normal_iteratorIPK26cmGeneratorExpressionTokenSt6vectorIS2_SaIS2_EEEES9_SaIS8_EET0_T_SC_SB_RT1_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull align 1 dereferenceable(1) %3) #0 comdat {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef ptr @_ZSt12__relocate_aIPN9__gnu_cxx17__normal_iteratorIPK26cmGeneratorExpressionTokenSt6vectorIS2_SaIS2_EEEES9_SaIS8_EET0_T_SC_SB_RT1_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull align 1 dereferenceable(1) %3) #4 comdat {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
-  store ptr %0, ptr %5, align 8
-  store ptr %1, ptr %6, align 8
-  store ptr %2, ptr %7, align 8
-  store ptr %3, ptr %8, align 8
-  %9 = load ptr, ptr %5, align 8
-  %10 = call noundef ptr @_ZSt12__niter_baseIPN9__gnu_cxx17__normal_iteratorIPK26cmGeneratorExpressionTokenSt6vectorIS2_SaIS2_EEEEET_SA_(ptr noundef %9) #11
-  %11 = load ptr, ptr %6, align 8
-  %12 = call noundef ptr @_ZSt12__niter_baseIPN9__gnu_cxx17__normal_iteratorIPK26cmGeneratorExpressionTokenSt6vectorIS2_SaIS2_EEEEET_SA_(ptr noundef %11) #11
-  %13 = load ptr, ptr %7, align 8
-  %14 = call noundef ptr @_ZSt12__niter_baseIPN9__gnu_cxx17__normal_iteratorIPK26cmGeneratorExpressionTokenSt6vectorIS2_SaIS2_EEEEET_SA_(ptr noundef %13) #11
-  %15 = load ptr, ptr %8, align 8
-  %16 = call noundef ptr @_ZSt14__relocate_a_1IPN9__gnu_cxx17__normal_iteratorIPK26cmGeneratorExpressionTokenSt6vectorIS2_SaIS2_EEEES9_SaIS8_EET0_T_SC_SB_RT1_(ptr noundef %10, ptr noundef %12, ptr noundef %14, ptr noundef nonnull align 1 dereferenceable(1) %15) #11
+  store ptr %0, ptr %5, align 8, !tbaa !20
+  store ptr %1, ptr %6, align 8, !tbaa !20
+  store ptr %2, ptr %7, align 8, !tbaa !20
+  store ptr %3, ptr %8, align 8, !tbaa !138
+  %9 = load ptr, ptr %5, align 8, !tbaa !20
+  %10 = call noundef ptr @_ZSt12__niter_baseIPN9__gnu_cxx17__normal_iteratorIPK26cmGeneratorExpressionTokenSt6vectorIS2_SaIS2_EEEEET_SA_(ptr noundef %9) #15
+  %11 = load ptr, ptr %6, align 8, !tbaa !20
+  %12 = call noundef ptr @_ZSt12__niter_baseIPN9__gnu_cxx17__normal_iteratorIPK26cmGeneratorExpressionTokenSt6vectorIS2_SaIS2_EEEEET_SA_(ptr noundef %11) #15
+  %13 = load ptr, ptr %7, align 8, !tbaa !20
+  %14 = call noundef ptr @_ZSt12__niter_baseIPN9__gnu_cxx17__normal_iteratorIPK26cmGeneratorExpressionTokenSt6vectorIS2_SaIS2_EEEEET_SA_(ptr noundef %13) #15
+  %15 = load ptr, ptr %8, align 8, !tbaa !138
+  %16 = call noundef ptr @_ZSt14__relocate_a_1IPN9__gnu_cxx17__normal_iteratorIPK26cmGeneratorExpressionTokenSt6vectorIS2_SaIS2_EEEES9_SaIS8_EET0_T_SC_SB_RT1_(ptr noundef %10, ptr noundef %12, ptr noundef %14, ptr noundef nonnull align 1 dereferenceable(1) %15) #15
   ret ptr %16
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef ptr @_ZSt14__relocate_a_1IPN9__gnu_cxx17__normal_iteratorIPK26cmGeneratorExpressionTokenSt6vectorIS2_SaIS2_EEEES9_SaIS8_EET0_T_SC_SB_RT1_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull align 1 dereferenceable(1) %3) #0 comdat {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef ptr @_ZSt14__relocate_a_1IPN9__gnu_cxx17__normal_iteratorIPK26cmGeneratorExpressionTokenSt6vectorIS2_SaIS2_EEEES9_SaIS8_EET0_T_SC_SB_RT1_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull align 1 dereferenceable(1) %3) #4 comdat {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
   %9 = alloca ptr, align 8
-  store ptr %0, ptr %5, align 8
-  store ptr %1, ptr %6, align 8
-  store ptr %2, ptr %7, align 8
-  store ptr %3, ptr %8, align 8
-  %10 = load ptr, ptr %7, align 8
-  store ptr %10, ptr %9, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !20
+  store ptr %1, ptr %6, align 8, !tbaa !20
+  store ptr %2, ptr %7, align 8, !tbaa !20
+  store ptr %3, ptr %8, align 8, !tbaa !138
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #15
+  %10 = load ptr, ptr %7, align 8, !tbaa !20
+  store ptr %10, ptr %9, align 8, !tbaa !20
   br label %11
 
 11:                                               ; preds = %19, %4
-  %12 = load ptr, ptr %5, align 8
-  %13 = load ptr, ptr %6, align 8
+  %12 = load ptr, ptr %5, align 8, !tbaa !20
+  %13 = load ptr, ptr %6, align 8, !tbaa !20
   %14 = icmp ne ptr %12, %13
   br i1 %14, label %15, label %24
 
 15:                                               ; preds = %11
-  %16 = load ptr, ptr %9, align 8
-  %17 = load ptr, ptr %5, align 8
-  %18 = load ptr, ptr %8, align 8
-  call void @_ZSt19__relocate_object_aIN9__gnu_cxx17__normal_iteratorIPK26cmGeneratorExpressionTokenSt6vectorIS2_SaIS2_EEEES8_SaIS8_EEvPT_PT0_RT1_(ptr noundef %16, ptr noundef %17, ptr noundef nonnull align 1 dereferenceable(1) %18) #11
+  %16 = load ptr, ptr %9, align 8, !tbaa !20
+  %17 = load ptr, ptr %5, align 8, !tbaa !20
+  %18 = load ptr, ptr %8, align 8, !tbaa !138
+  call void @_ZSt19__relocate_object_aIN9__gnu_cxx17__normal_iteratorIPK26cmGeneratorExpressionTokenSt6vectorIS2_SaIS2_EEEES8_SaIS8_EEvPT_PT0_RT1_(ptr noundef %16, ptr noundef %17, ptr noundef nonnull align 1 dereferenceable(1) %18) #15
   br label %19
 
 19:                                               ; preds = %15
-  %20 = load ptr, ptr %5, align 8
-  %21 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %20, i32 1
-  store ptr %21, ptr %5, align 8
-  %22 = load ptr, ptr %9, align 8
-  %23 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %22, i32 1
-  store ptr %23, ptr %9, align 8
-  br label %11, !llvm.loop !21
+  %20 = load ptr, ptr %5, align 8, !tbaa !20
+  %21 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator", ptr %20, i32 1
+  store ptr %21, ptr %5, align 8, !tbaa !20
+  %22 = load ptr, ptr %9, align 8, !tbaa !20
+  %23 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator", ptr %22, i32 1
+  store ptr %23, ptr %9, align 8, !tbaa !20
+  br label %11, !llvm.loop !246
 
 24:                                               ; preds = %11
-  %25 = load ptr, ptr %9, align 8
+  %25 = load ptr, ptr %9, align 8, !tbaa !20
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #15
   ret ptr %25
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef ptr @_ZSt12__niter_baseIPN9__gnu_cxx17__normal_iteratorIPK26cmGeneratorExpressionTokenSt6vectorIS2_SaIS2_EEEEET_SA_(ptr noundef %0) #0 comdat {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef ptr @_ZSt12__niter_baseIPN9__gnu_cxx17__normal_iteratorIPK26cmGeneratorExpressionTokenSt6vectorIS2_SaIS2_EEEEET_SA_(ptr noundef %0) #4 comdat {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !20
+  %3 = load ptr, ptr %2, align 8, !tbaa !20
   ret ptr %3
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZSt19__relocate_object_aIN9__gnu_cxx17__normal_iteratorIPK26cmGeneratorExpressionTokenSt6vectorIS2_SaIS2_EEEES8_SaIS8_EEvPT_PT0_RT1_(ptr noalias noundef %0, ptr noalias noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %2) #0 comdat {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZSt19__relocate_object_aIN9__gnu_cxx17__normal_iteratorIPK26cmGeneratorExpressionTokenSt6vectorIS2_SaIS2_EEEES8_SaIS8_EEvPT_PT0_RT1_(ptr noalias noundef %0, ptr noalias noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %2) #4 comdat {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store ptr %2, ptr %6, align 8
-  %7 = load ptr, ptr %6, align 8
-  %8 = load ptr, ptr %4, align 8
-  %9 = load ptr, ptr %5, align 8
-  call void @_ZNSt16allocator_traitsISaIN9__gnu_cxx17__normal_iteratorIPK26cmGeneratorExpressionTokenSt6vectorIS2_SaIS2_EEEEEE9constructIS8_JS8_EEEvRS9_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef %8, ptr noundef nonnull align 8 dereferenceable(8) %9) #11
-  %10 = load ptr, ptr %6, align 8
-  %11 = load ptr, ptr %5, align 8
-  call void @_ZNSt16allocator_traitsISaIN9__gnu_cxx17__normal_iteratorIPK26cmGeneratorExpressionTokenSt6vectorIS2_SaIS2_EEEEEE7destroyIS8_EEvRS9_PT_(ptr noundef nonnull align 1 dereferenceable(1) %10, ptr noundef %11) #11
+  store ptr %0, ptr %4, align 8, !tbaa !20
+  store ptr %1, ptr %5, align 8, !tbaa !20
+  store ptr %2, ptr %6, align 8, !tbaa !138
+  %7 = load ptr, ptr %6, align 8, !tbaa !138
+  %8 = load ptr, ptr %4, align 8, !tbaa !20
+  %9 = load ptr, ptr %5, align 8, !tbaa !20
+  call void @_ZNSt16allocator_traitsISaIN9__gnu_cxx17__normal_iteratorIPK26cmGeneratorExpressionTokenSt6vectorIS2_SaIS2_EEEEEE9constructIS8_JS8_EEEvRS9_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef %8, ptr noundef nonnull align 8 dereferenceable(8) %9) #15
+  %10 = load ptr, ptr %6, align 8, !tbaa !138
+  %11 = load ptr, ptr %5, align 8, !tbaa !20
+  call void @_ZNSt16allocator_traitsISaIN9__gnu_cxx17__normal_iteratorIPK26cmGeneratorExpressionTokenSt6vectorIS2_SaIS2_EEEEEE7destroyIS8_EEvRS9_PT_(ptr noundef nonnull align 1 dereferenceable(1) %10, ptr noundef %11) #15
   ret void
 }
 
@@ -7919,13 +8861,13 @@ define linkonce_odr dso_local void @_ZNSt16allocator_traitsISaIN9__gnu_cxx17__no
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store ptr %2, ptr %6, align 8
-  %7 = load ptr, ptr %4, align 8
-  %8 = load ptr, ptr %5, align 8
-  %9 = load ptr, ptr %6, align 8
-  call void @_ZNSt15__new_allocatorIN9__gnu_cxx17__normal_iteratorIPK26cmGeneratorExpressionTokenSt6vectorIS2_SaIS2_EEEEE9constructIS8_JS8_EEEvPT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef %8, ptr noundef nonnull align 8 dereferenceable(8) %9) #11
+  store ptr %0, ptr %4, align 8, !tbaa !138
+  store ptr %1, ptr %5, align 8, !tbaa !20
+  store ptr %2, ptr %6, align 8, !tbaa !20
+  %7 = load ptr, ptr %4, align 8, !tbaa !138
+  %8 = load ptr, ptr %5, align 8, !tbaa !20
+  %9 = load ptr, ptr %6, align 8, !tbaa !20
+  call void @_ZNSt15__new_allocatorIN9__gnu_cxx17__normal_iteratorIPK26cmGeneratorExpressionTokenSt6vectorIS2_SaIS2_EEEEE9constructIS8_JS8_EEEvPT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef %8, ptr noundef nonnull align 8 dereferenceable(8) %9) #15
   ret void
 }
 
@@ -7933,11 +8875,11 @@ define linkonce_odr dso_local void @_ZNSt16allocator_traitsISaIN9__gnu_cxx17__no
 define linkonce_odr dso_local void @_ZNSt16allocator_traitsISaIN9__gnu_cxx17__normal_iteratorIPK26cmGeneratorExpressionTokenSt6vectorIS2_SaIS2_EEEEEE7destroyIS8_EEvRS9_PT_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1) #0 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  %5 = load ptr, ptr %3, align 8
-  %6 = load ptr, ptr %4, align 8
-  call void @_ZNSt15__new_allocatorIN9__gnu_cxx17__normal_iteratorIPK26cmGeneratorExpressionTokenSt6vectorIS2_SaIS2_EEEEE7destroyIS8_EEvPT_(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef %6) #11
+  store ptr %0, ptr %3, align 8, !tbaa !138
+  store ptr %1, ptr %4, align 8, !tbaa !20
+  %5 = load ptr, ptr %3, align 8, !tbaa !138
+  %6 = load ptr, ptr %4, align 8, !tbaa !20
+  call void @_ZNSt15__new_allocatorIN9__gnu_cxx17__normal_iteratorIPK26cmGeneratorExpressionTokenSt6vectorIS2_SaIS2_EEEEE7destroyIS8_EEvPT_(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef %6) #15
   ret void
 }
 
@@ -7946,12 +8888,12 @@ define linkonce_odr dso_local void @_ZNSt15__new_allocatorIN9__gnu_cxx17__normal
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store ptr %2, ptr %6, align 8
-  %7 = load ptr, ptr %5, align 8
-  %8 = load ptr, ptr %6, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %7, ptr align 8 %8, i64 8, i1 false)
+  store ptr %0, ptr %4, align 8, !tbaa !142
+  store ptr %1, ptr %5, align 8, !tbaa !20
+  store ptr %2, ptr %6, align 8, !tbaa !20
+  %7 = load ptr, ptr %5, align 8, !tbaa !20
+  %8 = load ptr, ptr %6, align 8, !tbaa !20
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %7, ptr align 8 %8, i64 8, i1 false), !tbaa.struct !25
   ret void
 }
 
@@ -7959,8 +8901,8 @@ define linkonce_odr dso_local void @_ZNSt15__new_allocatorIN9__gnu_cxx17__normal
 define linkonce_odr dso_local void @_ZNSt15__new_allocatorIN9__gnu_cxx17__normal_iteratorIPK26cmGeneratorExpressionTokenSt6vectorIS2_SaIS2_EEEEE7destroyIS8_EEvPT_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1) #0 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !142
+  store ptr %1, ptr %4, align 8, !tbaa !20
   ret void
 }
 
@@ -7968,28 +8910,28 @@ define linkonce_odr dso_local void @_ZNSt15__new_allocatorIN9__gnu_cxx17__normal
 define linkonce_odr dso_local void @_ZN9__gnu_cxx17__normal_iteratorIPSt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS3_EESaIS6_EES1_IS8_SaIS8_EEEC2ERKS9_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #0 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !77
+  store ptr %1, ptr %4, align 8, !tbaa !247
   %5 = load ptr, ptr %3, align 8
-  %6 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.25", ptr %5, i32 0, i32 0
-  %7 = load ptr, ptr %4, align 8
-  %8 = load ptr, ptr %7, align 8
-  store ptr %8, ptr %6, align 8
+  %6 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator.25", ptr %5, i32 0, i32 0
+  %7 = load ptr, ptr %4, align 8, !tbaa !247
+  %8 = load ptr, ptr %7, align 8, !tbaa !23
+  store ptr %8, ptr %6, align 8, !tbaa !79
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef zeroext i1 @_ZN9__gnu_cxxeqIPKSt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS3_EESaIS6_EES1_IS8_SaIS8_EEEEbRKNS_17__normal_iteratorIT_T0_EESI_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #0 comdat {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef zeroext i1 @_ZN9__gnu_cxxeqIPKSt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS3_EESaIS6_EES1_IS8_SaIS8_EEEEbRKNS_17__normal_iteratorIT_T0_EESI_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #4 comdat {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  %5 = load ptr, ptr %3, align 8
-  %6 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPKSt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS3_EESaIS6_EES1_IS8_SaIS8_EEE4baseEv(ptr noundef nonnull align 8 dereferenceable(8) %5) #11
-  %7 = load ptr, ptr %6, align 8
-  %8 = load ptr, ptr %4, align 8
-  %9 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPKSt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS3_EESaIS6_EES1_IS8_SaIS8_EEE4baseEv(ptr noundef nonnull align 8 dereferenceable(8) %8) #11
-  %10 = load ptr, ptr %9, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !249
+  store ptr %1, ptr %4, align 8, !tbaa !249
+  %5 = load ptr, ptr %3, align 8, !tbaa !249
+  %6 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPKSt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS3_EESaIS6_EES1_IS8_SaIS8_EEE4baseEv(ptr noundef nonnull align 8 dereferenceable(8) %5) #15
+  %7 = load ptr, ptr %6, align 8, !tbaa !23
+  %8 = load ptr, ptr %4, align 8, !tbaa !249
+  %9 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPKSt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS3_EESaIS6_EES1_IS8_SaIS8_EEE4baseEv(ptr noundef nonnull align 8 dereferenceable(8) %8) #15
+  %10 = load ptr, ptr %9, align 8, !tbaa !23
   %11 = icmp eq ptr %7, %10
   ret i1 %11
 }
@@ -7998,12 +8940,12 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN9__gnu_cxxeqIPKSt6vectorISt
 define linkonce_odr dso_local ptr @_ZNKSt6vectorIS_ISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EESaIS6_EE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #0 comdat align 2 {
   %2 = alloca %"class.__gnu_cxx::__normal_iterator.44", align 8
   %3 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !67
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds %"struct.std::_Vector_base.8", ptr %4, i32 0, i32 0
-  %6 = getelementptr inbounds %"struct.std::_Vector_base<std::vector<std::unique_ptr<cmGeneratorExpressionEvaluator>>, std::allocator<std::vector<std::unique_ptr<cmGeneratorExpressionEvaluator>>>>::_Vector_impl_data", ptr %5, i32 0, i32 0
-  call void @_ZN9__gnu_cxx17__normal_iteratorIPKSt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS3_EESaIS6_EES1_IS8_SaIS8_EEEC2ERKSA_(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %6) #11
-  %7 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.44", ptr %2, i32 0, i32 0
+  %5 = getelementptr inbounds nuw %"struct.std::_Vector_base.8", ptr %4, i32 0, i32 0
+  %6 = getelementptr inbounds nuw %"struct.std::_Vector_base<std::vector<std::unique_ptr<cmGeneratorExpressionEvaluator>>, std::allocator<std::vector<std::unique_ptr<cmGeneratorExpressionEvaluator>>>>::_Vector_impl_data", ptr %5, i32 0, i32 0
+  call void @_ZN9__gnu_cxx17__normal_iteratorIPKSt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS3_EESaIS6_EES1_IS8_SaIS8_EEEC2ERKSA_(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %6) #15
+  %7 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator.44", ptr %2, i32 0, i32 0
   %8 = load ptr, ptr %7, align 8
   ret ptr %8
 }
@@ -8012,12 +8954,12 @@ define linkonce_odr dso_local ptr @_ZNKSt6vectorIS_ISt10unique_ptrI30cmGenerator
 define linkonce_odr dso_local ptr @_ZNKSt6vectorIS_ISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EESaIS6_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #0 comdat align 2 {
   %2 = alloca %"class.__gnu_cxx::__normal_iterator.44", align 8
   %3 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !67
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds %"struct.std::_Vector_base.8", ptr %4, i32 0, i32 0
-  %6 = getelementptr inbounds %"struct.std::_Vector_base<std::vector<std::unique_ptr<cmGeneratorExpressionEvaluator>>, std::allocator<std::vector<std::unique_ptr<cmGeneratorExpressionEvaluator>>>>::_Vector_impl_data", ptr %5, i32 0, i32 1
-  call void @_ZN9__gnu_cxx17__normal_iteratorIPKSt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS3_EESaIS6_EES1_IS8_SaIS8_EEEC2ERKSA_(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %6) #11
-  %7 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.44", ptr %2, i32 0, i32 0
+  %5 = getelementptr inbounds nuw %"struct.std::_Vector_base.8", ptr %4, i32 0, i32 0
+  %6 = getelementptr inbounds nuw %"struct.std::_Vector_base<std::vector<std::unique_ptr<cmGeneratorExpressionEvaluator>>, std::allocator<std::vector<std::unique_ptr<cmGeneratorExpressionEvaluator>>>>::_Vector_impl_data", ptr %5, i32 0, i32 1
+  call void @_ZN9__gnu_cxx17__normal_iteratorIPKSt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS3_EESaIS6_EES1_IS8_SaIS8_EEEC2ERKSA_(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %6) #15
+  %7 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator.44", ptr %2, i32 0, i32 0
   %8 = load ptr, ptr %7, align 8
   ret ptr %8
 }
@@ -8025,9 +8967,9 @@ define linkonce_odr dso_local ptr @_ZNKSt6vectorIS_ISt10unique_ptrI30cmGenerator
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPKSt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS3_EESaIS6_EES1_IS8_SaIS8_EEE4baseEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !249
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.44", ptr %3, i32 0, i32 0
+  %4 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator.44", ptr %3, i32 0, i32 0
   ret ptr %4
 }
 
@@ -8035,13 +8977,13 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_Z
 define linkonce_odr dso_local void @_ZN9__gnu_cxx17__normal_iteratorIPKSt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS3_EESaIS6_EES1_IS8_SaIS8_EEEC2ERKSA_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #0 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !249
+  store ptr %1, ptr %4, align 8, !tbaa !247
   %5 = load ptr, ptr %3, align 8
-  %6 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.44", ptr %5, i32 0, i32 0
-  %7 = load ptr, ptr %4, align 8
-  %8 = load ptr, ptr %7, align 8
-  store ptr %8, ptr %6, align 8
+  %6 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator.44", ptr %5, i32 0, i32 0
+  %7 = load ptr, ptr %4, align 8, !tbaa !247
+  %8 = load ptr, ptr %7, align 8, !tbaa !23
+  store ptr %8, ptr %6, align 8, !tbaa !251
   ret void
 }
 
@@ -8049,63 +8991,300 @@ define linkonce_odr dso_local void @_ZN9__gnu_cxx17__normal_iteratorIPKSt6vector
 define linkonce_odr dso_local void @_ZN9__gnu_cxx17__normal_iteratorIPNS0_IPK26cmGeneratorExpressionTokenSt6vectorIS1_SaIS1_EEEES4_IS7_SaIS7_EEEC2ERKS8_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #0 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !81
+  store ptr %1, ptr %4, align 8, !tbaa !253
   %5 = load ptr, ptr %3, align 8
-  %6 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.26", ptr %5, i32 0, i32 0
-  %7 = load ptr, ptr %4, align 8
-  %8 = load ptr, ptr %7, align 8
-  store ptr %8, ptr %6, align 8
+  %6 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator.26", ptr %5, i32 0, i32 0
+  %7 = load ptr, ptr %4, align 8, !tbaa !253
+  %8 = load ptr, ptr %7, align 8, !tbaa !20
+  store ptr %8, ptr %6, align 8, !tbaa !83
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPSt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS3_EESaIS6_EES1_IS8_SaIS8_EEE4baseEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !77
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.25", ptr %3, i32 0, i32 0
+  %4 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator.25", ptr %3, i32 0, i32 0
   ret ptr %4
 }
 
-attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { cold noreturn nounwind memory(inaccessiblemem: write) }
-attributes #7 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #11 = { nounwind }
-attributes #12 = { builtin allocsize(0) }
-attributes #13 = { builtin nounwind }
-attributes #14 = { noreturn nounwind }
-attributes #15 = { noreturn }
+attributes #0 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #4 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { inlinehint mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { noinline noreturn nounwind uwtable "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { cold noreturn nounwind memory(inaccessiblemem: write) }
+attributes #10 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { alwaysinline mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { nocallback nofree nosync nounwind willreturn memory(none) }
+attributes #14 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #15 = { nounwind }
+attributes #16 = { builtin allocsize(0) }
+attributes #17 = { builtin nounwind }
+attributes #18 = { noreturn nounwind }
+attributes #19 = { noreturn }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+!llvm.module.flags = !{!0, !1, !2, !3}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
-!9 = distinct !{!9, !6}
-!10 = distinct !{!10, !6}
-!11 = distinct !{!11, !6}
-!12 = distinct !{!12, !6}
-!13 = distinct !{!13, !6}
-!14 = distinct !{!14, !6}
-!15 = distinct !{!15, !6}
-!16 = distinct !{!16, !6}
-!17 = distinct !{!17, !6}
-!18 = distinct !{!18, !6}
-!19 = distinct !{!19, !6}
-!20 = distinct !{!20, !6}
-!21 = distinct !{!21, !6}
+!4 = !{!5, !5, i64 0}
+!5 = !{!"p1 _ZTS27cmGeneratorExpressionParser", !6, i64 0}
+!6 = !{!"any pointer", !7, i64 0}
+!7 = !{!"omnipotent char", !8, i64 0}
+!8 = !{!"Simple C++ TBAA"}
+!9 = !{!10, !10, i64 0}
+!10 = !{!"p1 _ZTSSt6vectorI26cmGeneratorExpressionTokenSaIS0_EE", !6, i64 0}
+!11 = !{!12, !19, i64 32}
+!12 = !{!"_ZTS27cmGeneratorExpressionParser", !13, i64 0, !15, i64 8, !19, i64 32}
+!13 = !{!"_ZTSN9__gnu_cxx17__normal_iteratorIPK26cmGeneratorExpressionTokenSt6vectorIS1_SaIS1_EEEE", !14, i64 0}
+!14 = !{!"p1 _ZTS26cmGeneratorExpressionToken", !6, i64 0}
+!15 = !{!"_ZTSSt6vectorI26cmGeneratorExpressionTokenSaIS0_EE", !16, i64 0}
+!16 = !{!"_ZTSSt12_Vector_baseI26cmGeneratorExpressionTokenSaIS0_EE", !17, i64 0}
+!17 = !{!"_ZTSNSt12_Vector_baseI26cmGeneratorExpressionTokenSaIS0_EE12_Vector_implE", !18, i64 0}
+!18 = !{!"_ZTSNSt12_Vector_baseI26cmGeneratorExpressionTokenSaIS0_EE17_Vector_impl_dataE", !14, i64 0, !14, i64 8, !14, i64 16}
+!19 = !{!"int", !7, i64 0}
+!20 = !{!21, !21, i64 0}
+!21 = !{!"p1 _ZTSN9__gnu_cxx17__normal_iteratorIPK26cmGeneratorExpressionTokenSt6vectorIS1_SaIS1_EEEE", !6, i64 0}
+!22 = !{!13, !14, i64 0}
+!23 = !{!24, !24, i64 0}
+!24 = !{!"p1 _ZTSSt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EE", !6, i64 0}
+!25 = !{i64 0, i64 8, !26}
+!26 = !{!14, !14, i64 0}
+!27 = distinct !{!27, !28}
+!28 = !{!"llvm.loop.mustprogress"}
+!29 = !{!30, !19, i64 0}
+!30 = !{!"_ZTS26cmGeneratorExpressionToken", !19, i64 0, !31, i64 8, !32, i64 16}
+!31 = !{!"p1 omnipotent char", !6, i64 0}
+!32 = !{!"long", !7, i64 0}
+!33 = !{!34, !34, i64 0}
+!34 = !{!"vtable pointer", !8, i64 0}
+!35 = !{!30, !32, i64 16}
+!36 = !{!19, !19, i64 0}
+!37 = distinct !{!37, !28}
+!38 = !{!30, !31, i64 8}
+!39 = !{!32, !32, i64 0}
+!40 = !{!41, !41, i64 0}
+!41 = !{!"bool", !7, i64 0}
+!42 = distinct !{!42, !28}
+!43 = distinct !{!43, !28}
+!44 = distinct !{!44, !28}
+!45 = distinct !{!45, !28}
+!46 = distinct !{!46, !28}
+!47 = !{i8 0, i8 2}
+!48 = !{}
+!49 = distinct !{!49, !28}
+!50 = !{!51, !51, i64 0}
+!51 = !{!"p2 omnipotent char", !6, i64 0}
+!52 = !{!53, !53, i64 0}
+!53 = !{!"p1 long", !6, i64 0}
+!54 = !{!31, !31, i64 0}
+!55 = !{!56, !56, i64 0}
+!56 = !{!"p1 _ZTSSt10unique_ptrI26GeneratorExpressionContentSt14default_deleteIS0_EE", !6, i64 0}
+!57 = !{!58, !58, i64 0}
+!58 = !{!"p1 _ZTS26GeneratorExpressionContent", !6, i64 0}
+!59 = !{!60, !60, i64 0}
+!60 = !{!"p1 _ZTSSt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS0_EE", !6, i64 0}
+!61 = !{!62, !62, i64 0}
+!62 = !{!"p2 _ZTS30cmGeneratorExpressionEvaluator", !6, i64 0}
+!63 = !{!64, !64, i64 0}
+!64 = !{!"p1 _ZTS30cmGeneratorExpressionEvaluator", !6, i64 0}
+!65 = !{!66, !66, i64 0}
+!66 = !{!"p2 _ZTS26GeneratorExpressionContent", !6, i64 0}
+!67 = !{!68, !68, i64 0}
+!68 = !{!"p1 _ZTSSt6vectorIS_ISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EESaIS6_EE", !6, i64 0}
+!69 = !{!70, !70, i64 0}
+!70 = !{!"p1 _ZTSSt6vectorIN9__gnu_cxx17__normal_iteratorIPK26cmGeneratorExpressionTokenS_IS2_SaIS2_EEEESaIS7_EE", !6, i64 0}
+!71 = !{!72, !24, i64 0}
+!72 = !{!"_ZTSNSt12_Vector_baseISt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS2_EESaIS5_EESaIS7_EE17_Vector_impl_dataE", !24, i64 0, !24, i64 8, !24, i64 16}
+!73 = !{!72, !24, i64 8}
+!74 = !{!75, !21, i64 8}
+!75 = !{!"_ZTSNSt12_Vector_baseIN9__gnu_cxx17__normal_iteratorIPK26cmGeneratorExpressionTokenSt6vectorIS2_SaIS2_EEEESaIS8_EE17_Vector_impl_dataE", !21, i64 0, !21, i64 8, !21, i64 16}
+!76 = !{!75, !21, i64 16}
+!77 = !{!78, !78, i64 0}
+!78 = !{!"p1 _ZTSN9__gnu_cxx17__normal_iteratorIPSt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS3_EESaIS6_EES1_IS8_SaIS8_EEEE", !6, i64 0}
+!79 = !{!80, !24, i64 0}
+!80 = !{!"_ZTSN9__gnu_cxx17__normal_iteratorIPSt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS3_EESaIS6_EES1_IS8_SaIS8_EEEE", !24, i64 0}
+!81 = !{!82, !82, i64 0}
+!82 = !{!"p1 _ZTSN9__gnu_cxx17__normal_iteratorIPNS0_IPK26cmGeneratorExpressionTokenSt6vectorIS1_SaIS1_EEEES4_IS7_SaIS7_EEEE", !6, i64 0}
+!83 = !{!84, !21, i64 0}
+!84 = !{!"_ZTSN9__gnu_cxx17__normal_iteratorIPNS0_IPK26cmGeneratorExpressionTokenSt6vectorIS1_SaIS1_EEEES4_IS7_SaIS7_EEEE", !21, i64 0}
+!85 = !{!75, !21, i64 0}
+!86 = !{!87, !60, i64 0}
+!87 = !{!"_ZTSNSt12_Vector_baseISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EE17_Vector_impl_dataE", !60, i64 0, !60, i64 8, !60, i64 16}
+!88 = !{!87, !60, i64 8}
+!89 = !{!90, !90, i64 0}
+!90 = !{!"p1 _ZTSN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS2_EESt6vectorIS5_SaIS5_EEEE", !6, i64 0}
+!91 = !{!92, !60, i64 0}
+!92 = !{!"_ZTSN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS2_EESt6vectorIS5_SaIS5_EEEE", !60, i64 0}
+!93 = !{!94, !94, i64 0}
+!94 = !{!"p1 _ZTS11TextContent", !6, i64 0}
+!95 = !{!96, !32, i64 16}
+!96 = !{!"_ZTS11TextContent", !97, i64 0, !31, i64 8, !32, i64 16}
+!97 = !{!"_ZTS30cmGeneratorExpressionEvaluator"}
+!98 = !{!99, !99, i64 0}
+!99 = !{!"p1 _ZTSSt10unique_ptrI11TextContentSt14default_deleteIS0_EE", !6, i64 0}
+!100 = !{!101, !101, i64 0}
+!101 = !{!"p2 _ZTS11TextContent", !6, i64 0}
+!102 = !{!103, !103, i64 0}
+!103 = !{!"p1 _ZTSSt12_Vector_baseI26cmGeneratorExpressionTokenSaIS0_EE", !6, i64 0}
+!104 = !{!105, !105, i64 0}
+!105 = !{!"p1 _ZTSNSt12_Vector_baseI26cmGeneratorExpressionTokenSaIS0_EE12_Vector_implE", !6, i64 0}
+!106 = !{!107, !107, i64 0}
+!107 = !{!"p1 _ZTSSaI26cmGeneratorExpressionTokenE", !6, i64 0}
+!108 = !{!109, !109, i64 0}
+!109 = !{!"p1 _ZTSNSt12_Vector_baseI26cmGeneratorExpressionTokenSaIS0_EE17_Vector_impl_dataE", !6, i64 0}
+!110 = !{!18, !14, i64 0}
+!111 = !{!18, !14, i64 8}
+!112 = !{!18, !14, i64 16}
+!113 = !{!114, !114, i64 0}
+!114 = !{!"p1 _ZTSSt15__new_allocatorI26cmGeneratorExpressionTokenE", !6, i64 0}
+!115 = !{!116, !116, i64 0}
+!116 = !{!"p1 _ZTSSt12_Vector_baseISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EE", !6, i64 0}
+!117 = !{!118, !118, i64 0}
+!118 = !{!"p1 _ZTSNSt12_Vector_baseISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EE12_Vector_implE", !6, i64 0}
+!119 = !{!120, !120, i64 0}
+!120 = !{!"p1 _ZTSSaISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS0_EEE", !6, i64 0}
+!121 = !{!122, !122, i64 0}
+!122 = !{!"p1 _ZTSSt15__new_allocatorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EEE", !6, i64 0}
+!123 = !{!124, !124, i64 0}
+!124 = !{!"p1 _ZTSNSt12_Vector_baseISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EE17_Vector_impl_dataE", !6, i64 0}
+!125 = !{!87, !60, i64 16}
+!126 = !{!127, !127, i64 0}
+!127 = !{!"p1 _ZTSSt12_Vector_baseISt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS2_EESaIS5_EESaIS7_EE", !6, i64 0}
+!128 = !{!129, !129, i64 0}
+!129 = !{!"p1 _ZTSNSt12_Vector_baseISt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS2_EESaIS5_EESaIS7_EE12_Vector_implE", !6, i64 0}
+!130 = !{!131, !131, i64 0}
+!131 = !{!"p1 _ZTSSaISt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EEE", !6, i64 0}
+!132 = !{!133, !133, i64 0}
+!133 = !{!"p1 _ZTSSt15__new_allocatorISt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS2_EESaIS5_EEE", !6, i64 0}
+!134 = !{!135, !135, i64 0}
+!135 = !{!"p1 _ZTSSt12_Vector_baseIN9__gnu_cxx17__normal_iteratorIPK26cmGeneratorExpressionTokenSt6vectorIS2_SaIS2_EEEESaIS8_EE", !6, i64 0}
+!136 = !{!137, !137, i64 0}
+!137 = !{!"p1 _ZTSNSt12_Vector_baseIN9__gnu_cxx17__normal_iteratorIPK26cmGeneratorExpressionTokenSt6vectorIS2_SaIS2_EEEESaIS8_EE12_Vector_implE", !6, i64 0}
+!138 = !{!139, !139, i64 0}
+!139 = !{!"p1 _ZTSSaIN9__gnu_cxx17__normal_iteratorIPK26cmGeneratorExpressionTokenSt6vectorIS1_SaIS1_EEEEE", !6, i64 0}
+!140 = !{!141, !141, i64 0}
+!141 = !{!"p1 _ZTSNSt12_Vector_baseIN9__gnu_cxx17__normal_iteratorIPK26cmGeneratorExpressionTokenSt6vectorIS2_SaIS2_EEEESaIS8_EE17_Vector_impl_dataE", !6, i64 0}
+!142 = !{!143, !143, i64 0}
+!143 = !{!"p1 _ZTSSt15__new_allocatorIN9__gnu_cxx17__normal_iteratorIPK26cmGeneratorExpressionTokenSt6vectorIS2_SaIS2_EEEEE", !6, i64 0}
+!144 = !{!145, !145, i64 0}
+!145 = !{!"p1 _ZTSN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS2_EESt6vectorIS5_SaIS5_EEEE", !6, i64 0}
+!146 = !{!147, !60, i64 0}
+!147 = !{!"_ZTSN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS2_EESt6vectorIS5_SaIS5_EEEE", !60, i64 0}
+!148 = !{i64 0, i64 8, !59}
+!149 = distinct !{!149, !28}
+!150 = !{!151, !151, i64 0}
+!151 = !{!"p1 _ZTSSt15__uniq_ptr_dataI30cmGeneratorExpressionEvaluatorSt14default_deleteIS0_ELb1ELb1EE", !6, i64 0}
+!152 = !{!153, !153, i64 0}
+!153 = !{!"p1 _ZTSSt15__uniq_ptr_implI30cmGeneratorExpressionEvaluatorSt14default_deleteIS0_EE", !6, i64 0}
+!154 = !{!155, !155, i64 0}
+!155 = !{!"p1 _ZTSSt14default_deleteI30cmGeneratorExpressionEvaluatorE", !6, i64 0}
+!156 = !{!157, !157, i64 0}
+!157 = !{!"p1 _ZTSSt5tupleIJP30cmGeneratorExpressionEvaluatorSt14default_deleteIS0_EEE", !6, i64 0}
+!158 = !{!159, !159, i64 0}
+!159 = !{!"p1 _ZTSSt11_Tuple_implILm0EJP30cmGeneratorExpressionEvaluatorSt14default_deleteIS0_EEE", !6, i64 0}
+!160 = !{!161, !161, i64 0}
+!161 = !{!"p1 _ZTSSt10_Head_baseILm0EP30cmGeneratorExpressionEvaluatorLb0EE", !6, i64 0}
+!162 = !{!163, !163, i64 0}
+!163 = !{!"p1 _ZTSSt11_Tuple_implILm1EJSt14default_deleteI30cmGeneratorExpressionEvaluatorEEE", !6, i64 0}
+!164 = !{!165, !165, i64 0}
+!165 = !{!"p1 _ZTSSt10_Head_baseILm1ESt14default_deleteI30cmGeneratorExpressionEvaluatorELb1EE", !6, i64 0}
+!166 = !{!167, !167, i64 0}
+!167 = !{!"p2 _ZTSSt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS0_EE", !6, i64 0}
+!168 = distinct !{!168, !28}
+!169 = !{!6, !6, i64 0}
+!170 = !{!171, !171, i64 0}
+!171 = !{!"p1 _ZTSSt20back_insert_iteratorISt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS2_EESaIS5_EEE", !6, i64 0}
+!172 = !{!173, !24, i64 0}
+!173 = !{!"_ZTSSt20back_insert_iteratorISt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS2_EESaIS5_EEE", !24, i64 0}
+!174 = !{i64 0, i64 8, !63}
+!175 = distinct !{!175, !28}
+!176 = !{!177, !177, i64 0}
+!177 = !{!"p1 _ZTSNSt12_Vector_baseISt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS2_EESaIS5_EESaIS7_EE17_Vector_impl_dataE", !6, i64 0}
+!178 = !{!72, !24, i64 16}
+!179 = !{!180, !180, i64 0}
+!180 = !{!"p2 _ZTS26cmGeneratorExpressionToken", !6, i64 0}
+!181 = !{!96, !31, i64 8}
+!182 = !{!183, !183, i64 0}
+!183 = !{!"p1 _ZTS28cmGeneratorExpressionContext", !6, i64 0}
+!184 = !{!185, !185, i64 0}
+!185 = !{!"p1 _ZTS31cmGeneratorExpressionDAGChecker", !6, i64 0}
+!186 = !{!187, !187, i64 0}
+!187 = !{!"p1 _ZTSSaIcE", !6, i64 0}
+!188 = !{!189, !189, i64 0}
+!189 = !{!"p1 _ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE", !6, i64 0}
+!190 = !{!191, !191, i64 0}
+!191 = !{!"p1 _ZTSSt15__new_allocatorIcE", !6, i64 0}
+!192 = !{!193, !193, i64 0}
+!193 = !{!"p1 _ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderE", !6, i64 0}
+!194 = !{!195, !31, i64 0}
+!195 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderE", !31, i64 0}
+!196 = !{!197, !189, i64 0}
+!197 = !{!"_ZTSZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagE6_Guard", !189, i64 0}
+!198 = !{!199, !31, i64 0}
+!199 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE", !195, i64 0, !32, i64 8, !7, i64 16}
+!200 = !{!7, !7, i64 0}
+!201 = !{!202, !202, i64 0}
+!202 = !{!"p1 _ZTSZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagE6_Guard", !6, i64 0}
+!203 = !{!199, !32, i64 8}
+!204 = !{!205, !205, i64 0}
+!205 = !{!"p1 _ZTSSt15__uniq_ptr_dataI11TextContentSt14default_deleteIS0_ELb1ELb1EE", !6, i64 0}
+!206 = !{!207, !207, i64 0}
+!207 = !{!"p1 _ZTSSt15__uniq_ptr_implI11TextContentSt14default_deleteIS0_EE", !6, i64 0}
+!208 = !{!209, !209, i64 0}
+!209 = !{!"p1 _ZTSSt5tupleIJP11TextContentSt14default_deleteIS0_EEE", !6, i64 0}
+!210 = !{!211, !211, i64 0}
+!211 = !{!"p1 _ZTSSt11_Tuple_implILm0EJP11TextContentSt14default_deleteIS0_EEE", !6, i64 0}
+!212 = !{!213, !213, i64 0}
+!213 = !{!"p1 _ZTSSt11_Tuple_implILm1EJSt14default_deleteI11TextContentEEE", !6, i64 0}
+!214 = !{!215, !215, i64 0}
+!215 = !{!"p1 _ZTSSt10_Head_baseILm0EP11TextContentLb0EE", !6, i64 0}
+!216 = !{!217, !94, i64 0}
+!217 = !{!"_ZTSSt10_Head_baseILm0EP11TextContentLb0EE", !94, i64 0}
+!218 = !{!219, !219, i64 0}
+!219 = !{!"p1 _ZTSSt10_Head_baseILm1ESt14default_deleteI11TextContentELb1EE", !6, i64 0}
+!220 = !{!221, !221, i64 0}
+!221 = !{!"p1 _ZTSSt14default_deleteI11TextContentE", !6, i64 0}
+!222 = distinct !{!222, !28}
+!223 = !{!224, !64, i64 0}
+!224 = !{!"_ZTSSt10_Head_baseILm0EP30cmGeneratorExpressionEvaluatorLb0EE", !64, i64 0}
+!225 = !{!226, !226, i64 0}
+!226 = !{!"p1 _ZTSSt15__uniq_ptr_dataI26GeneratorExpressionContentSt14default_deleteIS0_ELb1ELb1EE", !6, i64 0}
+!227 = !{!228, !228, i64 0}
+!228 = !{!"p1 _ZTSSt15__uniq_ptr_implI26GeneratorExpressionContentSt14default_deleteIS0_EE", !6, i64 0}
+!229 = !{!230, !230, i64 0}
+!230 = !{!"p1 _ZTSSt5tupleIJP26GeneratorExpressionContentSt14default_deleteIS0_EEE", !6, i64 0}
+!231 = !{!232, !232, i64 0}
+!232 = !{!"p1 _ZTSSt11_Tuple_implILm0EJP26GeneratorExpressionContentSt14default_deleteIS0_EEE", !6, i64 0}
+!233 = !{!234, !234, i64 0}
+!234 = !{!"p1 _ZTSSt11_Tuple_implILm1EJSt14default_deleteI26GeneratorExpressionContentEEE", !6, i64 0}
+!235 = !{!236, !236, i64 0}
+!236 = !{!"p1 _ZTSSt10_Head_baseILm0EP26GeneratorExpressionContentLb0EE", !6, i64 0}
+!237 = !{!238, !58, i64 0}
+!238 = !{!"_ZTSSt10_Head_baseILm0EP26GeneratorExpressionContentLb0EE", !58, i64 0}
+!239 = !{!240, !240, i64 0}
+!240 = !{!"p1 _ZTSSt10_Head_baseILm1ESt14default_deleteI26GeneratorExpressionContentELb1EE", !6, i64 0}
+!241 = !{!242, !242, i64 0}
+!242 = !{!"p1 _ZTSSt14default_deleteI26GeneratorExpressionContentE", !6, i64 0}
+!243 = distinct !{!243, !28}
+!244 = distinct !{!244, !28}
+!245 = distinct !{!245, !28}
+!246 = distinct !{!246, !28}
+!247 = !{!248, !248, i64 0}
+!248 = !{!"p2 _ZTSSt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EE", !6, i64 0}
+!249 = !{!250, !250, i64 0}
+!250 = !{!"p1 _ZTSN9__gnu_cxx17__normal_iteratorIPKSt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS3_EESaIS6_EES1_IS8_SaIS8_EEEE", !6, i64 0}
+!251 = !{!252, !24, i64 0}
+!252 = !{!"_ZTSN9__gnu_cxx17__normal_iteratorIPKSt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS3_EESaIS6_EES1_IS8_SaIS8_EEEE", !24, i64 0}
+!253 = !{!254, !254, i64 0}
+!254 = !{!"p2 _ZTSN9__gnu_cxx17__normal_iteratorIPK26cmGeneratorExpressionTokenSt6vectorIS1_SaIS1_EEEE", !6, i64 0}

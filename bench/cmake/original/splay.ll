@@ -4,9 +4,9 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.curltime = type { i64, i32 }
 %struct.Curl_tree = type { ptr, ptr, ptr, ptr, %struct.curltime, ptr }
 
-@Curl_splayinsert.KEY_NOTUSED = internal constant %struct.curltime { i64 -1, i32 -1 }, align 8
-@Curl_splaygetbest.tv_zero = internal constant %struct.curltime zeroinitializer, align 8
-@Curl_splayremove.KEY_NOTUSED = internal constant %struct.curltime { i64 -1, i32 -1 }, align 8
+@Curl_splayinsert.KEY_NOTUSED = internal constant { i64, i32, [4 x i8] } { i64 -1, i32 -1, [4 x i8] zeroinitializer }, align 8
+@Curl_splaygetbest.tv_zero = internal constant { i64, i32, [4 x i8] } zeroinitializer, align 8
+@Curl_splayremove.KEY_NOTUSED = internal constant { i64, i32, [4 x i8] } { i64 -1, i32 -1, [4 x i8] zeroinitializer }, align 8
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @Curl_splay(i64 %0, i32 %1, ptr noundef %2) #0 {
@@ -17,387 +17,269 @@ define dso_local ptr @Curl_splay(i64 %0, i32 %1, ptr noundef %2) #0 {
   %8 = alloca ptr, align 8
   %9 = alloca ptr, align 8
   %10 = alloca ptr, align 8
-  %11 = alloca i64, align 8
-  %12 = getelementptr inbounds { i64, i32 }, ptr %5, i32 0, i32 0
-  store i64 %0, ptr %12, align 8
-  %13 = getelementptr inbounds { i64, i32 }, ptr %5, i32 0, i32 1
-  store i32 %1, ptr %13, align 8
-  store ptr %2, ptr %6, align 8
-  %14 = load ptr, ptr %6, align 8
-  %15 = icmp ne ptr %14, null
-  br i1 %15, label %18, label %16
+  %11 = alloca i32, align 4
+  %12 = alloca i64, align 8
+  %13 = getelementptr inbounds nuw { i64, i32 }, ptr %5, i32 0, i32 0
+  store i64 %0, ptr %13, align 8
+  %14 = getelementptr inbounds nuw { i64, i32 }, ptr %5, i32 0, i32 1
+  store i32 %1, ptr %14, align 8
+  store ptr %2, ptr %6, align 8, !tbaa !4
+  call void @llvm.lifetime.start.p0(i64 56, ptr %7) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #4
+  %15 = load ptr, ptr %6, align 8, !tbaa !4
+  %16 = icmp ne ptr %15, null
+  br i1 %16, label %18, label %17
 
-16:                                               ; preds = %3
-  %17 = load ptr, ptr %6, align 8
-  store ptr %17, ptr %4, align 8
-  br label %260
+17:                                               ; preds = %3
+  store ptr null, ptr %4, align 8
+  store i32 1, ptr %11, align 4
+  br label %160
 
 18:                                               ; preds = %3
-  %19 = getelementptr inbounds %struct.Curl_tree, ptr %7, i32 0, i32 1
-  store ptr null, ptr %19, align 8
-  %20 = getelementptr inbounds %struct.Curl_tree, ptr %7, i32 0, i32 0
-  store ptr null, ptr %20, align 8
-  store ptr %7, ptr %9, align 8
-  store ptr %7, ptr %8, align 8
+  %19 = getelementptr inbounds nuw %struct.Curl_tree, ptr %7, i32 0, i32 1
+  store ptr null, ptr %19, align 8, !tbaa !9
+  %20 = getelementptr inbounds nuw %struct.Curl_tree, ptr %7, i32 0, i32 0
+  store ptr null, ptr %20, align 8, !tbaa !14
+  store ptr %7, ptr %9, align 8, !tbaa !4
+  store ptr %7, ptr %8, align 8, !tbaa !4
   br label %21
 
-21:                                               ; preds = %239, %18
-  %22 = getelementptr inbounds %struct.curltime, ptr %5, i32 0, i32 0
-  %23 = load i64, ptr %22, align 8
-  %24 = load ptr, ptr %6, align 8
-  %25 = getelementptr inbounds %struct.Curl_tree, ptr %24, i32 0, i32 4
-  %26 = getelementptr inbounds %struct.curltime, ptr %25, i32 0, i32 0
-  %27 = load i64, ptr %26, align 8
-  %28 = icmp slt i64 %23, %27
-  br i1 %28, label %29, label %30
+21:                                               ; preds = %139, %18
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #4
+  %22 = load ptr, ptr %6, align 8, !tbaa !4
+  %23 = getelementptr inbounds nuw %struct.Curl_tree, ptr %22, i32 0, i32 4
+  %24 = getelementptr inbounds nuw { i64, i32 }, ptr %5, i32 0, i32 0
+  %25 = load i64, ptr %24, align 8
+  %26 = getelementptr inbounds nuw { i64, i32 }, ptr %5, i32 0, i32 1
+  %27 = load i32, ptr %26, align 8
+  %28 = getelementptr inbounds nuw { i64, i32 }, ptr %23, i32 0, i32 0
+  %29 = load i64, ptr %28, align 8
+  %30 = getelementptr inbounds nuw { i64, i32 }, ptr %23, i32 0, i32 1
+  %31 = load i32, ptr %30, align 8
+  %32 = call i64 @Curl_timediff_us(i64 %25, i32 %27, i64 %29, i32 %31)
+  store i64 %32, ptr %12, align 8, !tbaa !15
+  %33 = load i64, ptr %12, align 8, !tbaa !15
+  %34 = icmp slt i64 %33, 0
+  br i1 %34, label %35, label %83
 
-29:                                               ; preds = %21
-  br label %61
+35:                                               ; preds = %21
+  %36 = load ptr, ptr %6, align 8, !tbaa !4
+  %37 = getelementptr inbounds nuw %struct.Curl_tree, ptr %36, i32 0, i32 0
+  %38 = load ptr, ptr %37, align 8, !tbaa !14
+  %39 = icmp ne ptr %38, null
+  br i1 %39, label %41, label %40
 
-30:                                               ; preds = %21
-  %31 = getelementptr inbounds %struct.curltime, ptr %5, i32 0, i32 0
-  %32 = load i64, ptr %31, align 8
-  %33 = load ptr, ptr %6, align 8
-  %34 = getelementptr inbounds %struct.Curl_tree, ptr %33, i32 0, i32 4
-  %35 = getelementptr inbounds %struct.curltime, ptr %34, i32 0, i32 0
-  %36 = load i64, ptr %35, align 8
-  %37 = icmp sgt i64 %32, %36
-  br i1 %37, label %38, label %39
+40:                                               ; preds = %35
+  store i32 2, ptr %11, align 4
+  br label %137
 
-38:                                               ; preds = %30
-  br label %59
+41:                                               ; preds = %35
+  %42 = load ptr, ptr %6, align 8, !tbaa !4
+  %43 = getelementptr inbounds nuw %struct.Curl_tree, ptr %42, i32 0, i32 0
+  %44 = load ptr, ptr %43, align 8, !tbaa !14
+  %45 = getelementptr inbounds nuw %struct.Curl_tree, ptr %44, i32 0, i32 4
+  %46 = getelementptr inbounds nuw { i64, i32 }, ptr %5, i32 0, i32 0
+  %47 = load i64, ptr %46, align 8
+  %48 = getelementptr inbounds nuw { i64, i32 }, ptr %5, i32 0, i32 1
+  %49 = load i32, ptr %48, align 8
+  %50 = getelementptr inbounds nuw { i64, i32 }, ptr %45, i32 0, i32 0
+  %51 = load i64, ptr %50, align 8
+  %52 = getelementptr inbounds nuw { i64, i32 }, ptr %45, i32 0, i32 1
+  %53 = load i32, ptr %52, align 8
+  %54 = call i64 @Curl_timediff_us(i64 %47, i32 %49, i64 %51, i32 %53)
+  %55 = icmp slt i64 %54, 0
+  br i1 %55, label %56, label %75
 
-39:                                               ; preds = %30
-  %40 = getelementptr inbounds %struct.curltime, ptr %5, i32 0, i32 1
-  %41 = load i32, ptr %40, align 8
-  %42 = load ptr, ptr %6, align 8
-  %43 = getelementptr inbounds %struct.Curl_tree, ptr %42, i32 0, i32 4
-  %44 = getelementptr inbounds %struct.curltime, ptr %43, i32 0, i32 1
-  %45 = load i32, ptr %44, align 8
-  %46 = icmp slt i32 %41, %45
-  br i1 %46, label %47, label %48
+56:                                               ; preds = %41
+  %57 = load ptr, ptr %6, align 8, !tbaa !4
+  %58 = getelementptr inbounds nuw %struct.Curl_tree, ptr %57, i32 0, i32 0
+  %59 = load ptr, ptr %58, align 8, !tbaa !14
+  store ptr %59, ptr %10, align 8, !tbaa !4
+  %60 = load ptr, ptr %10, align 8, !tbaa !4
+  %61 = getelementptr inbounds nuw %struct.Curl_tree, ptr %60, i32 0, i32 1
+  %62 = load ptr, ptr %61, align 8, !tbaa !9
+  %63 = load ptr, ptr %6, align 8, !tbaa !4
+  %64 = getelementptr inbounds nuw %struct.Curl_tree, ptr %63, i32 0, i32 0
+  store ptr %62, ptr %64, align 8, !tbaa !14
+  %65 = load ptr, ptr %6, align 8, !tbaa !4
+  %66 = load ptr, ptr %10, align 8, !tbaa !4
+  %67 = getelementptr inbounds nuw %struct.Curl_tree, ptr %66, i32 0, i32 1
+  store ptr %65, ptr %67, align 8, !tbaa !9
+  %68 = load ptr, ptr %10, align 8, !tbaa !4
+  store ptr %68, ptr %6, align 8, !tbaa !4
+  %69 = load ptr, ptr %6, align 8, !tbaa !4
+  %70 = getelementptr inbounds nuw %struct.Curl_tree, ptr %69, i32 0, i32 0
+  %71 = load ptr, ptr %70, align 8, !tbaa !14
+  %72 = icmp ne ptr %71, null
+  br i1 %72, label %74, label %73
 
-47:                                               ; preds = %39
-  br label %57
+73:                                               ; preds = %56
+  store i32 2, ptr %11, align 4
+  br label %137
 
-48:                                               ; preds = %39
-  %49 = getelementptr inbounds %struct.curltime, ptr %5, i32 0, i32 1
-  %50 = load i32, ptr %49, align 8
-  %51 = load ptr, ptr %6, align 8
-  %52 = getelementptr inbounds %struct.Curl_tree, ptr %51, i32 0, i32 4
-  %53 = getelementptr inbounds %struct.curltime, ptr %52, i32 0, i32 1
-  %54 = load i32, ptr %53, align 8
-  %55 = icmp sgt i32 %50, %54
-  %56 = select i1 %55, i32 1, i32 0
-  br label %57
+74:                                               ; preds = %56
+  br label %75
 
-57:                                               ; preds = %48, %47
-  %58 = phi i32 [ -1, %47 ], [ %56, %48 ]
-  br label %59
+75:                                               ; preds = %74, %41
+  %76 = load ptr, ptr %6, align 8, !tbaa !4
+  %77 = load ptr, ptr %9, align 8, !tbaa !4
+  %78 = getelementptr inbounds nuw %struct.Curl_tree, ptr %77, i32 0, i32 0
+  store ptr %76, ptr %78, align 8, !tbaa !14
+  %79 = load ptr, ptr %6, align 8, !tbaa !4
+  store ptr %79, ptr %9, align 8, !tbaa !4
+  %80 = load ptr, ptr %6, align 8, !tbaa !4
+  %81 = getelementptr inbounds nuw %struct.Curl_tree, ptr %80, i32 0, i32 0
+  %82 = load ptr, ptr %81, align 8, !tbaa !14
+  store ptr %82, ptr %6, align 8, !tbaa !4
+  br label %136
 
-59:                                               ; preds = %57, %38
-  %60 = phi i32 [ 1, %38 ], [ %58, %57 ]
-  br label %61
+83:                                               ; preds = %21
+  %84 = load i64, ptr %12, align 8, !tbaa !15
+  %85 = icmp sgt i64 %84, 0
+  br i1 %85, label %86, label %134
 
-61:                                               ; preds = %59, %29
-  %62 = phi i32 [ -1, %29 ], [ %60, %59 ]
-  %63 = sext i32 %62 to i64
-  store i64 %63, ptr %11, align 8
-  %64 = load i64, ptr %11, align 8
-  %65 = icmp slt i64 %64, 0
-  br i1 %65, label %66, label %150
+86:                                               ; preds = %83
+  %87 = load ptr, ptr %6, align 8, !tbaa !4
+  %88 = getelementptr inbounds nuw %struct.Curl_tree, ptr %87, i32 0, i32 1
+  %89 = load ptr, ptr %88, align 8, !tbaa !9
+  %90 = icmp ne ptr %89, null
+  br i1 %90, label %92, label %91
 
-66:                                               ; preds = %61
-  %67 = load ptr, ptr %6, align 8
-  %68 = getelementptr inbounds %struct.Curl_tree, ptr %67, i32 0, i32 0
-  %69 = load ptr, ptr %68, align 8
-  %70 = icmp ne ptr %69, null
-  br i1 %70, label %72, label %71
+91:                                               ; preds = %86
+  store i32 2, ptr %11, align 4
+  br label %137
 
-71:                                               ; preds = %66
-  br label %240
+92:                                               ; preds = %86
+  %93 = load ptr, ptr %6, align 8, !tbaa !4
+  %94 = getelementptr inbounds nuw %struct.Curl_tree, ptr %93, i32 0, i32 1
+  %95 = load ptr, ptr %94, align 8, !tbaa !9
+  %96 = getelementptr inbounds nuw %struct.Curl_tree, ptr %95, i32 0, i32 4
+  %97 = getelementptr inbounds nuw { i64, i32 }, ptr %5, i32 0, i32 0
+  %98 = load i64, ptr %97, align 8
+  %99 = getelementptr inbounds nuw { i64, i32 }, ptr %5, i32 0, i32 1
+  %100 = load i32, ptr %99, align 8
+  %101 = getelementptr inbounds nuw { i64, i32 }, ptr %96, i32 0, i32 0
+  %102 = load i64, ptr %101, align 8
+  %103 = getelementptr inbounds nuw { i64, i32 }, ptr %96, i32 0, i32 1
+  %104 = load i32, ptr %103, align 8
+  %105 = call i64 @Curl_timediff_us(i64 %98, i32 %100, i64 %102, i32 %104)
+  %106 = icmp sgt i64 %105, 0
+  br i1 %106, label %107, label %126
 
-72:                                               ; preds = %66
-  %73 = getelementptr inbounds %struct.curltime, ptr %5, i32 0, i32 0
-  %74 = load i64, ptr %73, align 8
-  %75 = load ptr, ptr %6, align 8
-  %76 = getelementptr inbounds %struct.Curl_tree, ptr %75, i32 0, i32 0
-  %77 = load ptr, ptr %76, align 8
-  %78 = getelementptr inbounds %struct.Curl_tree, ptr %77, i32 0, i32 4
-  %79 = getelementptr inbounds %struct.curltime, ptr %78, i32 0, i32 0
-  %80 = load i64, ptr %79, align 8
-  %81 = icmp slt i64 %74, %80
-  br i1 %81, label %82, label %83
+107:                                              ; preds = %92
+  %108 = load ptr, ptr %6, align 8, !tbaa !4
+  %109 = getelementptr inbounds nuw %struct.Curl_tree, ptr %108, i32 0, i32 1
+  %110 = load ptr, ptr %109, align 8, !tbaa !9
+  store ptr %110, ptr %10, align 8, !tbaa !4
+  %111 = load ptr, ptr %10, align 8, !tbaa !4
+  %112 = getelementptr inbounds nuw %struct.Curl_tree, ptr %111, i32 0, i32 0
+  %113 = load ptr, ptr %112, align 8, !tbaa !14
+  %114 = load ptr, ptr %6, align 8, !tbaa !4
+  %115 = getelementptr inbounds nuw %struct.Curl_tree, ptr %114, i32 0, i32 1
+  store ptr %113, ptr %115, align 8, !tbaa !9
+  %116 = load ptr, ptr %6, align 8, !tbaa !4
+  %117 = load ptr, ptr %10, align 8, !tbaa !4
+  %118 = getelementptr inbounds nuw %struct.Curl_tree, ptr %117, i32 0, i32 0
+  store ptr %116, ptr %118, align 8, !tbaa !14
+  %119 = load ptr, ptr %10, align 8, !tbaa !4
+  store ptr %119, ptr %6, align 8, !tbaa !4
+  %120 = load ptr, ptr %6, align 8, !tbaa !4
+  %121 = getelementptr inbounds nuw %struct.Curl_tree, ptr %120, i32 0, i32 1
+  %122 = load ptr, ptr %121, align 8, !tbaa !9
+  %123 = icmp ne ptr %122, null
+  br i1 %123, label %125, label %124
 
-82:                                               ; preds = %72
-  br label %120
+124:                                              ; preds = %107
+  store i32 2, ptr %11, align 4
+  br label %137
 
-83:                                               ; preds = %72
-  %84 = getelementptr inbounds %struct.curltime, ptr %5, i32 0, i32 0
-  %85 = load i64, ptr %84, align 8
-  %86 = load ptr, ptr %6, align 8
-  %87 = getelementptr inbounds %struct.Curl_tree, ptr %86, i32 0, i32 0
-  %88 = load ptr, ptr %87, align 8
-  %89 = getelementptr inbounds %struct.Curl_tree, ptr %88, i32 0, i32 4
-  %90 = getelementptr inbounds %struct.curltime, ptr %89, i32 0, i32 0
-  %91 = load i64, ptr %90, align 8
-  %92 = icmp sgt i64 %85, %91
-  br i1 %92, label %93, label %94
+125:                                              ; preds = %107
+  br label %126
 
-93:                                               ; preds = %83
-  br label %118
+126:                                              ; preds = %125, %92
+  %127 = load ptr, ptr %6, align 8, !tbaa !4
+  %128 = load ptr, ptr %8, align 8, !tbaa !4
+  %129 = getelementptr inbounds nuw %struct.Curl_tree, ptr %128, i32 0, i32 1
+  store ptr %127, ptr %129, align 8, !tbaa !9
+  %130 = load ptr, ptr %6, align 8, !tbaa !4
+  store ptr %130, ptr %8, align 8, !tbaa !4
+  %131 = load ptr, ptr %6, align 8, !tbaa !4
+  %132 = getelementptr inbounds nuw %struct.Curl_tree, ptr %131, i32 0, i32 1
+  %133 = load ptr, ptr %132, align 8, !tbaa !9
+  store ptr %133, ptr %6, align 8, !tbaa !4
+  br label %135
 
-94:                                               ; preds = %83
-  %95 = getelementptr inbounds %struct.curltime, ptr %5, i32 0, i32 1
-  %96 = load i32, ptr %95, align 8
-  %97 = load ptr, ptr %6, align 8
-  %98 = getelementptr inbounds %struct.Curl_tree, ptr %97, i32 0, i32 0
-  %99 = load ptr, ptr %98, align 8
-  %100 = getelementptr inbounds %struct.Curl_tree, ptr %99, i32 0, i32 4
-  %101 = getelementptr inbounds %struct.curltime, ptr %100, i32 0, i32 1
-  %102 = load i32, ptr %101, align 8
-  %103 = icmp slt i32 %96, %102
-  br i1 %103, label %104, label %105
+134:                                              ; preds = %83
+  store i32 2, ptr %11, align 4
+  br label %137
 
-104:                                              ; preds = %94
-  br label %116
+135:                                              ; preds = %126
+  br label %136
 
-105:                                              ; preds = %94
-  %106 = getelementptr inbounds %struct.curltime, ptr %5, i32 0, i32 1
-  %107 = load i32, ptr %106, align 8
-  %108 = load ptr, ptr %6, align 8
-  %109 = getelementptr inbounds %struct.Curl_tree, ptr %108, i32 0, i32 0
-  %110 = load ptr, ptr %109, align 8
-  %111 = getelementptr inbounds %struct.Curl_tree, ptr %110, i32 0, i32 4
-  %112 = getelementptr inbounds %struct.curltime, ptr %111, i32 0, i32 1
-  %113 = load i32, ptr %112, align 8
-  %114 = icmp sgt i32 %107, %113
-  %115 = select i1 %114, i32 1, i32 0
-  br label %116
+136:                                              ; preds = %135, %75
+  store i32 0, ptr %11, align 4
+  br label %137
 
-116:                                              ; preds = %105, %104
-  %117 = phi i32 [ -1, %104 ], [ %115, %105 ]
-  br label %118
+137:                                              ; preds = %136, %134, %124, %91, %73, %40
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #4
+  %138 = load i32, ptr %11, align 4
+  switch i32 %138, label %162 [
+    i32 0, label %139
+    i32 2, label %140
+  ]
 
-118:                                              ; preds = %116, %93
-  %119 = phi i32 [ 1, %93 ], [ %117, %116 ]
-  br label %120
-
-120:                                              ; preds = %118, %82
-  %121 = phi i32 [ -1, %82 ], [ %119, %118 ]
-  %122 = icmp slt i32 %121, 0
-  br i1 %122, label %123, label %142
-
-123:                                              ; preds = %120
-  %124 = load ptr, ptr %6, align 8
-  %125 = getelementptr inbounds %struct.Curl_tree, ptr %124, i32 0, i32 0
-  %126 = load ptr, ptr %125, align 8
-  store ptr %126, ptr %10, align 8
-  %127 = load ptr, ptr %10, align 8
-  %128 = getelementptr inbounds %struct.Curl_tree, ptr %127, i32 0, i32 1
-  %129 = load ptr, ptr %128, align 8
-  %130 = load ptr, ptr %6, align 8
-  %131 = getelementptr inbounds %struct.Curl_tree, ptr %130, i32 0, i32 0
-  store ptr %129, ptr %131, align 8
-  %132 = load ptr, ptr %6, align 8
-  %133 = load ptr, ptr %10, align 8
-  %134 = getelementptr inbounds %struct.Curl_tree, ptr %133, i32 0, i32 1
-  store ptr %132, ptr %134, align 8
-  %135 = load ptr, ptr %10, align 8
-  store ptr %135, ptr %6, align 8
-  %136 = load ptr, ptr %6, align 8
-  %137 = getelementptr inbounds %struct.Curl_tree, ptr %136, i32 0, i32 0
-  %138 = load ptr, ptr %137, align 8
-  %139 = icmp ne ptr %138, null
-  br i1 %139, label %141, label %140
-
-140:                                              ; preds = %123
-  br label %240
-
-141:                                              ; preds = %123
-  br label %142
-
-142:                                              ; preds = %141, %120
-  %143 = load ptr, ptr %6, align 8
-  %144 = load ptr, ptr %9, align 8
-  %145 = getelementptr inbounds %struct.Curl_tree, ptr %144, i32 0, i32 0
-  store ptr %143, ptr %145, align 8
-  %146 = load ptr, ptr %6, align 8
-  store ptr %146, ptr %9, align 8
-  %147 = load ptr, ptr %6, align 8
-  %148 = getelementptr inbounds %struct.Curl_tree, ptr %147, i32 0, i32 0
-  %149 = load ptr, ptr %148, align 8
-  store ptr %149, ptr %6, align 8
-  br label %239
-
-150:                                              ; preds = %61
-  %151 = load i64, ptr %11, align 8
-  %152 = icmp sgt i64 %151, 0
-  br i1 %152, label %153, label %237
-
-153:                                              ; preds = %150
-  %154 = load ptr, ptr %6, align 8
-  %155 = getelementptr inbounds %struct.Curl_tree, ptr %154, i32 0, i32 1
-  %156 = load ptr, ptr %155, align 8
-  %157 = icmp ne ptr %156, null
-  br i1 %157, label %159, label %158
-
-158:                                              ; preds = %153
-  br label %240
-
-159:                                              ; preds = %153
-  %160 = getelementptr inbounds %struct.curltime, ptr %5, i32 0, i32 0
-  %161 = load i64, ptr %160, align 8
-  %162 = load ptr, ptr %6, align 8
-  %163 = getelementptr inbounds %struct.Curl_tree, ptr %162, i32 0, i32 1
-  %164 = load ptr, ptr %163, align 8
-  %165 = getelementptr inbounds %struct.Curl_tree, ptr %164, i32 0, i32 4
-  %166 = getelementptr inbounds %struct.curltime, ptr %165, i32 0, i32 0
-  %167 = load i64, ptr %166, align 8
-  %168 = icmp slt i64 %161, %167
-  br i1 %168, label %169, label %170
-
-169:                                              ; preds = %159
-  br label %207
-
-170:                                              ; preds = %159
-  %171 = getelementptr inbounds %struct.curltime, ptr %5, i32 0, i32 0
-  %172 = load i64, ptr %171, align 8
-  %173 = load ptr, ptr %6, align 8
-  %174 = getelementptr inbounds %struct.Curl_tree, ptr %173, i32 0, i32 1
-  %175 = load ptr, ptr %174, align 8
-  %176 = getelementptr inbounds %struct.Curl_tree, ptr %175, i32 0, i32 4
-  %177 = getelementptr inbounds %struct.curltime, ptr %176, i32 0, i32 0
-  %178 = load i64, ptr %177, align 8
-  %179 = icmp sgt i64 %172, %178
-  br i1 %179, label %180, label %181
-
-180:                                              ; preds = %170
-  br label %205
-
-181:                                              ; preds = %170
-  %182 = getelementptr inbounds %struct.curltime, ptr %5, i32 0, i32 1
-  %183 = load i32, ptr %182, align 8
-  %184 = load ptr, ptr %6, align 8
-  %185 = getelementptr inbounds %struct.Curl_tree, ptr %184, i32 0, i32 1
-  %186 = load ptr, ptr %185, align 8
-  %187 = getelementptr inbounds %struct.Curl_tree, ptr %186, i32 0, i32 4
-  %188 = getelementptr inbounds %struct.curltime, ptr %187, i32 0, i32 1
-  %189 = load i32, ptr %188, align 8
-  %190 = icmp slt i32 %183, %189
-  br i1 %190, label %191, label %192
-
-191:                                              ; preds = %181
-  br label %203
-
-192:                                              ; preds = %181
-  %193 = getelementptr inbounds %struct.curltime, ptr %5, i32 0, i32 1
-  %194 = load i32, ptr %193, align 8
-  %195 = load ptr, ptr %6, align 8
-  %196 = getelementptr inbounds %struct.Curl_tree, ptr %195, i32 0, i32 1
-  %197 = load ptr, ptr %196, align 8
-  %198 = getelementptr inbounds %struct.Curl_tree, ptr %197, i32 0, i32 4
-  %199 = getelementptr inbounds %struct.curltime, ptr %198, i32 0, i32 1
-  %200 = load i32, ptr %199, align 8
-  %201 = icmp sgt i32 %194, %200
-  %202 = select i1 %201, i32 1, i32 0
-  br label %203
-
-203:                                              ; preds = %192, %191
-  %204 = phi i32 [ -1, %191 ], [ %202, %192 ]
-  br label %205
-
-205:                                              ; preds = %203, %180
-  %206 = phi i32 [ 1, %180 ], [ %204, %203 ]
-  br label %207
-
-207:                                              ; preds = %205, %169
-  %208 = phi i32 [ -1, %169 ], [ %206, %205 ]
-  %209 = icmp sgt i32 %208, 0
-  br i1 %209, label %210, label %229
-
-210:                                              ; preds = %207
-  %211 = load ptr, ptr %6, align 8
-  %212 = getelementptr inbounds %struct.Curl_tree, ptr %211, i32 0, i32 1
-  %213 = load ptr, ptr %212, align 8
-  store ptr %213, ptr %10, align 8
-  %214 = load ptr, ptr %10, align 8
-  %215 = getelementptr inbounds %struct.Curl_tree, ptr %214, i32 0, i32 0
-  %216 = load ptr, ptr %215, align 8
-  %217 = load ptr, ptr %6, align 8
-  %218 = getelementptr inbounds %struct.Curl_tree, ptr %217, i32 0, i32 1
-  store ptr %216, ptr %218, align 8
-  %219 = load ptr, ptr %6, align 8
-  %220 = load ptr, ptr %10, align 8
-  %221 = getelementptr inbounds %struct.Curl_tree, ptr %220, i32 0, i32 0
-  store ptr %219, ptr %221, align 8
-  %222 = load ptr, ptr %10, align 8
-  store ptr %222, ptr %6, align 8
-  %223 = load ptr, ptr %6, align 8
-  %224 = getelementptr inbounds %struct.Curl_tree, ptr %223, i32 0, i32 1
-  %225 = load ptr, ptr %224, align 8
-  %226 = icmp ne ptr %225, null
-  br i1 %226, label %228, label %227
-
-227:                                              ; preds = %210
-  br label %240
-
-228:                                              ; preds = %210
-  br label %229
-
-229:                                              ; preds = %228, %207
-  %230 = load ptr, ptr %6, align 8
-  %231 = load ptr, ptr %8, align 8
-  %232 = getelementptr inbounds %struct.Curl_tree, ptr %231, i32 0, i32 1
-  store ptr %230, ptr %232, align 8
-  %233 = load ptr, ptr %6, align 8
-  store ptr %233, ptr %8, align 8
-  %234 = load ptr, ptr %6, align 8
-  %235 = getelementptr inbounds %struct.Curl_tree, ptr %234, i32 0, i32 1
-  %236 = load ptr, ptr %235, align 8
-  store ptr %236, ptr %6, align 8
-  br label %238
-
-237:                                              ; preds = %150
-  br label %240
-
-238:                                              ; preds = %229
-  br label %239
-
-239:                                              ; preds = %238, %142
+139:                                              ; preds = %137
   br label %21
 
-240:                                              ; preds = %237, %227, %158, %140, %71
-  %241 = load ptr, ptr %6, align 8
-  %242 = getelementptr inbounds %struct.Curl_tree, ptr %241, i32 0, i32 0
-  %243 = load ptr, ptr %242, align 8
-  %244 = load ptr, ptr %8, align 8
-  %245 = getelementptr inbounds %struct.Curl_tree, ptr %244, i32 0, i32 1
-  store ptr %243, ptr %245, align 8
-  %246 = load ptr, ptr %6, align 8
-  %247 = getelementptr inbounds %struct.Curl_tree, ptr %246, i32 0, i32 1
-  %248 = load ptr, ptr %247, align 8
-  %249 = load ptr, ptr %9, align 8
-  %250 = getelementptr inbounds %struct.Curl_tree, ptr %249, i32 0, i32 0
-  store ptr %248, ptr %250, align 8
-  %251 = getelementptr inbounds %struct.Curl_tree, ptr %7, i32 0, i32 1
-  %252 = load ptr, ptr %251, align 8
-  %253 = load ptr, ptr %6, align 8
-  %254 = getelementptr inbounds %struct.Curl_tree, ptr %253, i32 0, i32 0
-  store ptr %252, ptr %254, align 8
-  %255 = getelementptr inbounds %struct.Curl_tree, ptr %7, i32 0, i32 0
-  %256 = load ptr, ptr %255, align 8
-  %257 = load ptr, ptr %6, align 8
-  %258 = getelementptr inbounds %struct.Curl_tree, ptr %257, i32 0, i32 1
-  store ptr %256, ptr %258, align 8
-  %259 = load ptr, ptr %6, align 8
-  store ptr %259, ptr %4, align 8
-  br label %260
+140:                                              ; preds = %137
+  %141 = load ptr, ptr %6, align 8, !tbaa !4
+  %142 = getelementptr inbounds nuw %struct.Curl_tree, ptr %141, i32 0, i32 0
+  %143 = load ptr, ptr %142, align 8, !tbaa !14
+  %144 = load ptr, ptr %8, align 8, !tbaa !4
+  %145 = getelementptr inbounds nuw %struct.Curl_tree, ptr %144, i32 0, i32 1
+  store ptr %143, ptr %145, align 8, !tbaa !9
+  %146 = load ptr, ptr %6, align 8, !tbaa !4
+  %147 = getelementptr inbounds nuw %struct.Curl_tree, ptr %146, i32 0, i32 1
+  %148 = load ptr, ptr %147, align 8, !tbaa !9
+  %149 = load ptr, ptr %9, align 8, !tbaa !4
+  %150 = getelementptr inbounds nuw %struct.Curl_tree, ptr %149, i32 0, i32 0
+  store ptr %148, ptr %150, align 8, !tbaa !14
+  %151 = getelementptr inbounds nuw %struct.Curl_tree, ptr %7, i32 0, i32 1
+  %152 = load ptr, ptr %151, align 8, !tbaa !9
+  %153 = load ptr, ptr %6, align 8, !tbaa !4
+  %154 = getelementptr inbounds nuw %struct.Curl_tree, ptr %153, i32 0, i32 0
+  store ptr %152, ptr %154, align 8, !tbaa !14
+  %155 = getelementptr inbounds nuw %struct.Curl_tree, ptr %7, i32 0, i32 0
+  %156 = load ptr, ptr %155, align 8, !tbaa !14
+  %157 = load ptr, ptr %6, align 8, !tbaa !4
+  %158 = getelementptr inbounds nuw %struct.Curl_tree, ptr %157, i32 0, i32 1
+  store ptr %156, ptr %158, align 8, !tbaa !9
+  %159 = load ptr, ptr %6, align 8, !tbaa !4
+  store ptr %159, ptr %4, align 8
+  store i32 1, ptr %11, align 4
+  br label %160
 
-260:                                              ; preds = %240, %16
-  %261 = load ptr, ptr %4, align 8
-  ret ptr %261
+160:                                              ; preds = %140, %17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #4
+  call void @llvm.lifetime.end.p0(i64 56, ptr %7) #4
+  %161 = load ptr, ptr %4, align 8
+  ret ptr %161
+
+162:                                              ; preds = %137
+  unreachable
 }
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+
+declare i64 @Curl_timediff_us(i64, i32, i64, i32) #2
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @Curl_splayinsert(i64 %0, i32 %1, ptr noundef %2, ptr noundef %3) #0 {
@@ -405,262 +287,168 @@ define dso_local ptr @Curl_splayinsert(i64 %0, i32 %1, ptr noundef %2, ptr nound
   %6 = alloca %struct.curltime, align 8
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
-  %9 = getelementptr inbounds { i64, i32 }, ptr %6, i32 0, i32 0
+  %9 = getelementptr inbounds nuw { i64, i32 }, ptr %6, i32 0, i32 0
   store i64 %0, ptr %9, align 8
-  %10 = getelementptr inbounds { i64, i32 }, ptr %6, i32 0, i32 1
+  %10 = getelementptr inbounds nuw { i64, i32 }, ptr %6, i32 0, i32 1
   store i32 %1, ptr %10, align 8
-  store ptr %2, ptr %7, align 8
-  store ptr %3, ptr %8, align 8
-  %11 = load ptr, ptr %8, align 8
-  %12 = icmp ne ptr %11, null
-  br i1 %12, label %15, label %13
+  store ptr %2, ptr %7, align 8, !tbaa !4
+  store ptr %3, ptr %8, align 8, !tbaa !4
+  br label %11
 
-13:                                               ; preds = %4
-  %14 = load ptr, ptr %7, align 8
-  store ptr %14, ptr %5, align 8
-  br label %172
+11:                                               ; preds = %4
+  br label %12
 
-15:                                               ; preds = %4
-  %16 = load ptr, ptr %7, align 8
-  %17 = icmp ne ptr %16, null
-  br i1 %17, label %18, label %88
+12:                                               ; preds = %11
+  %13 = load ptr, ptr %7, align 8, !tbaa !4
+  %14 = icmp ne ptr %13, null
+  br i1 %14, label %15, label %57
 
-18:                                               ; preds = %15
-  %19 = load ptr, ptr %7, align 8
-  %20 = getelementptr inbounds { i64, i32 }, ptr %6, i32 0, i32 0
-  %21 = load i64, ptr %20, align 8
-  %22 = getelementptr inbounds { i64, i32 }, ptr %6, i32 0, i32 1
-  %23 = load i32, ptr %22, align 8
-  %24 = call ptr @Curl_splay(i64 %21, i32 %23, ptr noundef %19)
-  store ptr %24, ptr %7, align 8
-  %25 = getelementptr inbounds %struct.curltime, ptr %6, i32 0, i32 0
-  %26 = load i64, ptr %25, align 8
-  %27 = load ptr, ptr %7, align 8
-  %28 = getelementptr inbounds %struct.Curl_tree, ptr %27, i32 0, i32 4
-  %29 = getelementptr inbounds %struct.curltime, ptr %28, i32 0, i32 0
-  %30 = load i64, ptr %29, align 8
-  %31 = icmp slt i64 %26, %30
-  br i1 %31, label %32, label %33
+15:                                               ; preds = %12
+  %16 = load ptr, ptr %7, align 8, !tbaa !4
+  %17 = getelementptr inbounds nuw { i64, i32 }, ptr %6, i32 0, i32 0
+  %18 = load i64, ptr %17, align 8
+  %19 = getelementptr inbounds nuw { i64, i32 }, ptr %6, i32 0, i32 1
+  %20 = load i32, ptr %19, align 8
+  %21 = call ptr @Curl_splay(i64 %18, i32 %20, ptr noundef %16)
+  store ptr %21, ptr %7, align 8, !tbaa !4
+  br label %22
 
-32:                                               ; preds = %18
-  br label %64
+22:                                               ; preds = %15
+  br label %23
 
-33:                                               ; preds = %18
-  %34 = getelementptr inbounds %struct.curltime, ptr %6, i32 0, i32 0
-  %35 = load i64, ptr %34, align 8
-  %36 = load ptr, ptr %7, align 8
-  %37 = getelementptr inbounds %struct.Curl_tree, ptr %36, i32 0, i32 4
-  %38 = getelementptr inbounds %struct.curltime, ptr %37, i32 0, i32 0
-  %39 = load i64, ptr %38, align 8
-  %40 = icmp sgt i64 %35, %39
-  br i1 %40, label %41, label %42
+23:                                               ; preds = %22
+  %24 = load ptr, ptr %7, align 8, !tbaa !4
+  %25 = getelementptr inbounds nuw %struct.Curl_tree, ptr %24, i32 0, i32 4
+  %26 = getelementptr inbounds nuw { i64, i32 }, ptr %6, i32 0, i32 0
+  %27 = load i64, ptr %26, align 8
+  %28 = getelementptr inbounds nuw { i64, i32 }, ptr %6, i32 0, i32 1
+  %29 = load i32, ptr %28, align 8
+  %30 = getelementptr inbounds nuw { i64, i32 }, ptr %25, i32 0, i32 0
+  %31 = load i64, ptr %30, align 8
+  %32 = getelementptr inbounds nuw { i64, i32 }, ptr %25, i32 0, i32 1
+  %33 = load i32, ptr %32, align 8
+  %34 = call i64 @Curl_timediff_us(i64 %27, i32 %29, i64 %31, i32 %33)
+  %35 = icmp eq i64 %34, 0
+  br i1 %35, label %36, label %56
 
-41:                                               ; preds = %33
-  br label %62
+36:                                               ; preds = %23
+  %37 = load ptr, ptr %8, align 8, !tbaa !4
+  %38 = getelementptr inbounds nuw %struct.Curl_tree, ptr %37, i32 0, i32 4
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %38, ptr align 8 @Curl_splayinsert.KEY_NOTUSED, i64 16, i1 false), !tbaa.struct !16
+  %39 = load ptr, ptr %7, align 8, !tbaa !4
+  %40 = load ptr, ptr %8, align 8, !tbaa !4
+  %41 = getelementptr inbounds nuw %struct.Curl_tree, ptr %40, i32 0, i32 2
+  store ptr %39, ptr %41, align 8, !tbaa !18
+  %42 = load ptr, ptr %7, align 8, !tbaa !4
+  %43 = getelementptr inbounds nuw %struct.Curl_tree, ptr %42, i32 0, i32 3
+  %44 = load ptr, ptr %43, align 8, !tbaa !19
+  %45 = load ptr, ptr %8, align 8, !tbaa !4
+  %46 = getelementptr inbounds nuw %struct.Curl_tree, ptr %45, i32 0, i32 3
+  store ptr %44, ptr %46, align 8, !tbaa !19
+  %47 = load ptr, ptr %8, align 8, !tbaa !4
+  %48 = load ptr, ptr %7, align 8, !tbaa !4
+  %49 = getelementptr inbounds nuw %struct.Curl_tree, ptr %48, i32 0, i32 3
+  %50 = load ptr, ptr %49, align 8, !tbaa !19
+  %51 = getelementptr inbounds nuw %struct.Curl_tree, ptr %50, i32 0, i32 2
+  store ptr %47, ptr %51, align 8, !tbaa !18
+  %52 = load ptr, ptr %8, align 8, !tbaa !4
+  %53 = load ptr, ptr %7, align 8, !tbaa !4
+  %54 = getelementptr inbounds nuw %struct.Curl_tree, ptr %53, i32 0, i32 3
+  store ptr %52, ptr %54, align 8, !tbaa !19
+  %55 = load ptr, ptr %7, align 8, !tbaa !4
+  store ptr %55, ptr %5, align 8
+  br label %111
 
-42:                                               ; preds = %33
-  %43 = getelementptr inbounds %struct.curltime, ptr %6, i32 0, i32 1
-  %44 = load i32, ptr %43, align 8
-  %45 = load ptr, ptr %7, align 8
-  %46 = getelementptr inbounds %struct.Curl_tree, ptr %45, i32 0, i32 4
-  %47 = getelementptr inbounds %struct.curltime, ptr %46, i32 0, i32 1
-  %48 = load i32, ptr %47, align 8
-  %49 = icmp slt i32 %44, %48
-  br i1 %49, label %50, label %51
+56:                                               ; preds = %23
+  br label %57
 
-50:                                               ; preds = %42
-  br label %60
+57:                                               ; preds = %56, %12
+  %58 = load ptr, ptr %7, align 8, !tbaa !4
+  %59 = icmp ne ptr %58, null
+  br i1 %59, label %65, label %60
 
-51:                                               ; preds = %42
-  %52 = getelementptr inbounds %struct.curltime, ptr %6, i32 0, i32 1
-  %53 = load i32, ptr %52, align 8
-  %54 = load ptr, ptr %7, align 8
-  %55 = getelementptr inbounds %struct.Curl_tree, ptr %54, i32 0, i32 4
-  %56 = getelementptr inbounds %struct.curltime, ptr %55, i32 0, i32 1
-  %57 = load i32, ptr %56, align 8
-  %58 = icmp sgt i32 %53, %57
-  %59 = select i1 %58, i32 1, i32 0
-  br label %60
+60:                                               ; preds = %57
+  %61 = load ptr, ptr %8, align 8, !tbaa !4
+  %62 = getelementptr inbounds nuw %struct.Curl_tree, ptr %61, i32 0, i32 1
+  store ptr null, ptr %62, align 8, !tbaa !9
+  %63 = load ptr, ptr %8, align 8, !tbaa !4
+  %64 = getelementptr inbounds nuw %struct.Curl_tree, ptr %63, i32 0, i32 0
+  store ptr null, ptr %64, align 8, !tbaa !14
+  br label %101
 
-60:                                               ; preds = %51, %50
-  %61 = phi i32 [ -1, %50 ], [ %59, %51 ]
-  br label %62
+65:                                               ; preds = %57
+  %66 = load ptr, ptr %7, align 8, !tbaa !4
+  %67 = getelementptr inbounds nuw %struct.Curl_tree, ptr %66, i32 0, i32 4
+  %68 = getelementptr inbounds nuw { i64, i32 }, ptr %6, i32 0, i32 0
+  %69 = load i64, ptr %68, align 8
+  %70 = getelementptr inbounds nuw { i64, i32 }, ptr %6, i32 0, i32 1
+  %71 = load i32, ptr %70, align 8
+  %72 = getelementptr inbounds nuw { i64, i32 }, ptr %67, i32 0, i32 0
+  %73 = load i64, ptr %72, align 8
+  %74 = getelementptr inbounds nuw { i64, i32 }, ptr %67, i32 0, i32 1
+  %75 = load i32, ptr %74, align 8
+  %76 = call i64 @Curl_timediff_us(i64 %69, i32 %71, i64 %73, i32 %75)
+  %77 = icmp slt i64 %76, 0
+  br i1 %77, label %78, label %89
 
-62:                                               ; preds = %60, %41
-  %63 = phi i32 [ 1, %41 ], [ %61, %60 ]
-  br label %64
+78:                                               ; preds = %65
+  %79 = load ptr, ptr %7, align 8, !tbaa !4
+  %80 = getelementptr inbounds nuw %struct.Curl_tree, ptr %79, i32 0, i32 0
+  %81 = load ptr, ptr %80, align 8, !tbaa !14
+  %82 = load ptr, ptr %8, align 8, !tbaa !4
+  %83 = getelementptr inbounds nuw %struct.Curl_tree, ptr %82, i32 0, i32 0
+  store ptr %81, ptr %83, align 8, !tbaa !14
+  %84 = load ptr, ptr %7, align 8, !tbaa !4
+  %85 = load ptr, ptr %8, align 8, !tbaa !4
+  %86 = getelementptr inbounds nuw %struct.Curl_tree, ptr %85, i32 0, i32 1
+  store ptr %84, ptr %86, align 8, !tbaa !9
+  %87 = load ptr, ptr %7, align 8, !tbaa !4
+  %88 = getelementptr inbounds nuw %struct.Curl_tree, ptr %87, i32 0, i32 0
+  store ptr null, ptr %88, align 8, !tbaa !14
+  br label %100
 
-64:                                               ; preds = %62, %32
-  %65 = phi i32 [ -1, %32 ], [ %63, %62 ]
-  %66 = icmp eq i32 %65, 0
-  br i1 %66, label %67, label %87
+89:                                               ; preds = %65
+  %90 = load ptr, ptr %7, align 8, !tbaa !4
+  %91 = getelementptr inbounds nuw %struct.Curl_tree, ptr %90, i32 0, i32 1
+  %92 = load ptr, ptr %91, align 8, !tbaa !9
+  %93 = load ptr, ptr %8, align 8, !tbaa !4
+  %94 = getelementptr inbounds nuw %struct.Curl_tree, ptr %93, i32 0, i32 1
+  store ptr %92, ptr %94, align 8, !tbaa !9
+  %95 = load ptr, ptr %7, align 8, !tbaa !4
+  %96 = load ptr, ptr %8, align 8, !tbaa !4
+  %97 = getelementptr inbounds nuw %struct.Curl_tree, ptr %96, i32 0, i32 0
+  store ptr %95, ptr %97, align 8, !tbaa !14
+  %98 = load ptr, ptr %7, align 8, !tbaa !4
+  %99 = getelementptr inbounds nuw %struct.Curl_tree, ptr %98, i32 0, i32 1
+  store ptr null, ptr %99, align 8, !tbaa !9
+  br label %100
 
-67:                                               ; preds = %64
-  %68 = load ptr, ptr %8, align 8
-  %69 = getelementptr inbounds %struct.Curl_tree, ptr %68, i32 0, i32 4
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %69, ptr align 8 @Curl_splayinsert.KEY_NOTUSED, i64 16, i1 false)
-  %70 = load ptr, ptr %7, align 8
-  %71 = load ptr, ptr %8, align 8
-  %72 = getelementptr inbounds %struct.Curl_tree, ptr %71, i32 0, i32 2
-  store ptr %70, ptr %72, align 8
-  %73 = load ptr, ptr %7, align 8
-  %74 = getelementptr inbounds %struct.Curl_tree, ptr %73, i32 0, i32 3
-  %75 = load ptr, ptr %74, align 8
-  %76 = load ptr, ptr %8, align 8
-  %77 = getelementptr inbounds %struct.Curl_tree, ptr %76, i32 0, i32 3
-  store ptr %75, ptr %77, align 8
-  %78 = load ptr, ptr %8, align 8
-  %79 = load ptr, ptr %7, align 8
-  %80 = getelementptr inbounds %struct.Curl_tree, ptr %79, i32 0, i32 3
-  %81 = load ptr, ptr %80, align 8
-  %82 = getelementptr inbounds %struct.Curl_tree, ptr %81, i32 0, i32 2
-  store ptr %78, ptr %82, align 8
-  %83 = load ptr, ptr %8, align 8
-  %84 = load ptr, ptr %7, align 8
-  %85 = getelementptr inbounds %struct.Curl_tree, ptr %84, i32 0, i32 3
-  store ptr %83, ptr %85, align 8
-  %86 = load ptr, ptr %7, align 8
-  store ptr %86, ptr %5, align 8
-  br label %172
+100:                                              ; preds = %89, %78
+  br label %101
 
-87:                                               ; preds = %64
-  br label %88
+101:                                              ; preds = %100, %60
+  %102 = load ptr, ptr %8, align 8, !tbaa !4
+  %103 = getelementptr inbounds nuw %struct.Curl_tree, ptr %102, i32 0, i32 4
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %103, ptr align 8 %6, i64 16, i1 false), !tbaa.struct !16
+  %104 = load ptr, ptr %8, align 8, !tbaa !4
+  %105 = load ptr, ptr %8, align 8, !tbaa !4
+  %106 = getelementptr inbounds nuw %struct.Curl_tree, ptr %105, i32 0, i32 2
+  store ptr %104, ptr %106, align 8, !tbaa !18
+  %107 = load ptr, ptr %8, align 8, !tbaa !4
+  %108 = load ptr, ptr %8, align 8, !tbaa !4
+  %109 = getelementptr inbounds nuw %struct.Curl_tree, ptr %108, i32 0, i32 3
+  store ptr %107, ptr %109, align 8, !tbaa !19
+  %110 = load ptr, ptr %8, align 8, !tbaa !4
+  store ptr %110, ptr %5, align 8
+  br label %111
 
-88:                                               ; preds = %87, %15
-  %89 = load ptr, ptr %7, align 8
-  %90 = icmp ne ptr %89, null
-  br i1 %90, label %96, label %91
-
-91:                                               ; preds = %88
-  %92 = load ptr, ptr %8, align 8
-  %93 = getelementptr inbounds %struct.Curl_tree, ptr %92, i32 0, i32 1
-  store ptr null, ptr %93, align 8
-  %94 = load ptr, ptr %8, align 8
-  %95 = getelementptr inbounds %struct.Curl_tree, ptr %94, i32 0, i32 0
-  store ptr null, ptr %95, align 8
-  br label %162
-
-96:                                               ; preds = %88
-  %97 = getelementptr inbounds %struct.curltime, ptr %6, i32 0, i32 0
-  %98 = load i64, ptr %97, align 8
-  %99 = load ptr, ptr %7, align 8
-  %100 = getelementptr inbounds %struct.Curl_tree, ptr %99, i32 0, i32 4
-  %101 = getelementptr inbounds %struct.curltime, ptr %100, i32 0, i32 0
-  %102 = load i64, ptr %101, align 8
-  %103 = icmp slt i64 %98, %102
-  br i1 %103, label %104, label %105
-
-104:                                              ; preds = %96
-  br label %136
-
-105:                                              ; preds = %96
-  %106 = getelementptr inbounds %struct.curltime, ptr %6, i32 0, i32 0
-  %107 = load i64, ptr %106, align 8
-  %108 = load ptr, ptr %7, align 8
-  %109 = getelementptr inbounds %struct.Curl_tree, ptr %108, i32 0, i32 4
-  %110 = getelementptr inbounds %struct.curltime, ptr %109, i32 0, i32 0
-  %111 = load i64, ptr %110, align 8
-  %112 = icmp sgt i64 %107, %111
-  br i1 %112, label %113, label %114
-
-113:                                              ; preds = %105
-  br label %134
-
-114:                                              ; preds = %105
-  %115 = getelementptr inbounds %struct.curltime, ptr %6, i32 0, i32 1
-  %116 = load i32, ptr %115, align 8
-  %117 = load ptr, ptr %7, align 8
-  %118 = getelementptr inbounds %struct.Curl_tree, ptr %117, i32 0, i32 4
-  %119 = getelementptr inbounds %struct.curltime, ptr %118, i32 0, i32 1
-  %120 = load i32, ptr %119, align 8
-  %121 = icmp slt i32 %116, %120
-  br i1 %121, label %122, label %123
-
-122:                                              ; preds = %114
-  br label %132
-
-123:                                              ; preds = %114
-  %124 = getelementptr inbounds %struct.curltime, ptr %6, i32 0, i32 1
-  %125 = load i32, ptr %124, align 8
-  %126 = load ptr, ptr %7, align 8
-  %127 = getelementptr inbounds %struct.Curl_tree, ptr %126, i32 0, i32 4
-  %128 = getelementptr inbounds %struct.curltime, ptr %127, i32 0, i32 1
-  %129 = load i32, ptr %128, align 8
-  %130 = icmp sgt i32 %125, %129
-  %131 = select i1 %130, i32 1, i32 0
-  br label %132
-
-132:                                              ; preds = %123, %122
-  %133 = phi i32 [ -1, %122 ], [ %131, %123 ]
-  br label %134
-
-134:                                              ; preds = %132, %113
-  %135 = phi i32 [ 1, %113 ], [ %133, %132 ]
-  br label %136
-
-136:                                              ; preds = %134, %104
-  %137 = phi i32 [ -1, %104 ], [ %135, %134 ]
-  %138 = icmp slt i32 %137, 0
-  br i1 %138, label %139, label %150
-
-139:                                              ; preds = %136
-  %140 = load ptr, ptr %7, align 8
-  %141 = getelementptr inbounds %struct.Curl_tree, ptr %140, i32 0, i32 0
-  %142 = load ptr, ptr %141, align 8
-  %143 = load ptr, ptr %8, align 8
-  %144 = getelementptr inbounds %struct.Curl_tree, ptr %143, i32 0, i32 0
-  store ptr %142, ptr %144, align 8
-  %145 = load ptr, ptr %7, align 8
-  %146 = load ptr, ptr %8, align 8
-  %147 = getelementptr inbounds %struct.Curl_tree, ptr %146, i32 0, i32 1
-  store ptr %145, ptr %147, align 8
-  %148 = load ptr, ptr %7, align 8
-  %149 = getelementptr inbounds %struct.Curl_tree, ptr %148, i32 0, i32 0
-  store ptr null, ptr %149, align 8
-  br label %161
-
-150:                                              ; preds = %136
-  %151 = load ptr, ptr %7, align 8
-  %152 = getelementptr inbounds %struct.Curl_tree, ptr %151, i32 0, i32 1
-  %153 = load ptr, ptr %152, align 8
-  %154 = load ptr, ptr %8, align 8
-  %155 = getelementptr inbounds %struct.Curl_tree, ptr %154, i32 0, i32 1
-  store ptr %153, ptr %155, align 8
-  %156 = load ptr, ptr %7, align 8
-  %157 = load ptr, ptr %8, align 8
-  %158 = getelementptr inbounds %struct.Curl_tree, ptr %157, i32 0, i32 0
-  store ptr %156, ptr %158, align 8
-  %159 = load ptr, ptr %7, align 8
-  %160 = getelementptr inbounds %struct.Curl_tree, ptr %159, i32 0, i32 1
-  store ptr null, ptr %160, align 8
-  br label %161
-
-161:                                              ; preds = %150, %139
-  br label %162
-
-162:                                              ; preds = %161, %91
-  %163 = load ptr, ptr %8, align 8
-  %164 = getelementptr inbounds %struct.Curl_tree, ptr %163, i32 0, i32 4
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %164, ptr align 8 %6, i64 16, i1 false)
-  %165 = load ptr, ptr %8, align 8
-  %166 = load ptr, ptr %8, align 8
-  %167 = getelementptr inbounds %struct.Curl_tree, ptr %166, i32 0, i32 2
-  store ptr %165, ptr %167, align 8
-  %168 = load ptr, ptr %8, align 8
-  %169 = load ptr, ptr %8, align 8
-  %170 = getelementptr inbounds %struct.Curl_tree, ptr %169, i32 0, i32 3
-  store ptr %168, ptr %170, align 8
-  %171 = load ptr, ptr %8, align 8
-  store ptr %171, ptr %5, align 8
-  br label %172
-
-172:                                              ; preds = %162, %67, %13
-  %173 = load ptr, ptr %5, align 8
-  ret ptr %173
+111:                                              ; preds = %101, %36
+  %112 = load ptr, ptr %5, align 8
+  ret ptr %112
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #1
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @Curl_splaygetbest(i64 %0, i32 %1, ptr noundef %2, ptr noundef %3) #0 {
@@ -669,160 +457,127 @@ define dso_local ptr @Curl_splaygetbest(i64 %0, i32 %1, ptr noundef %2, ptr noun
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
   %9 = alloca ptr, align 8
-  %10 = getelementptr inbounds { i64, i32 }, ptr %6, i32 0, i32 0
-  store i64 %0, ptr %10, align 8
-  %11 = getelementptr inbounds { i64, i32 }, ptr %6, i32 0, i32 1
-  store i32 %1, ptr %11, align 8
-  store ptr %2, ptr %7, align 8
-  store ptr %3, ptr %8, align 8
-  %12 = load ptr, ptr %7, align 8
-  %13 = icmp ne ptr %12, null
-  br i1 %13, label %16, label %14
+  %10 = alloca i32, align 4
+  %11 = getelementptr inbounds nuw { i64, i32 }, ptr %6, i32 0, i32 0
+  store i64 %0, ptr %11, align 8
+  %12 = getelementptr inbounds nuw { i64, i32 }, ptr %6, i32 0, i32 1
+  store i32 %1, ptr %12, align 8
+  store ptr %2, ptr %7, align 8, !tbaa !4
+  store ptr %3, ptr %8, align 8, !tbaa !20
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #4
+  %13 = load ptr, ptr %7, align 8, !tbaa !4
+  %14 = icmp ne ptr %13, null
+  br i1 %14, label %17, label %15
 
-14:                                               ; preds = %4
-  %15 = load ptr, ptr %8, align 8
-  store ptr null, ptr %15, align 8
+15:                                               ; preds = %4
+  %16 = load ptr, ptr %8, align 8, !tbaa !20
+  store ptr null, ptr %16, align 8, !tbaa !4
   store ptr null, ptr %5, align 8
-  br label %109
+  store i32 1, ptr %10, align 4
+  br label %82
 
-16:                                               ; preds = %4
-  %17 = load ptr, ptr %7, align 8
-  %18 = load i64, ptr @Curl_splaygetbest.tv_zero, align 8
-  %19 = getelementptr inbounds { i64, i32 }, ptr @Curl_splaygetbest.tv_zero, i32 0, i32 1
-  %20 = load i32, ptr %19, align 8
-  %21 = call ptr @Curl_splay(i64 %18, i32 %20, ptr noundef %17)
-  store ptr %21, ptr %7, align 8
-  %22 = getelementptr inbounds %struct.curltime, ptr %6, i32 0, i32 0
-  %23 = load i64, ptr %22, align 8
-  %24 = load ptr, ptr %7, align 8
-  %25 = getelementptr inbounds %struct.Curl_tree, ptr %24, i32 0, i32 4
-  %26 = getelementptr inbounds %struct.curltime, ptr %25, i32 0, i32 0
-  %27 = load i64, ptr %26, align 8
-  %28 = icmp slt i64 %23, %27
-  br i1 %28, label %29, label %30
+17:                                               ; preds = %4
+  %18 = load ptr, ptr %7, align 8, !tbaa !4
+  %19 = load i64, ptr @Curl_splaygetbest.tv_zero, align 8
+  %20 = load i32, ptr getelementptr inbounds nuw ({ i64, i32 }, ptr @Curl_splaygetbest.tv_zero, i32 0, i32 1), align 8
+  %21 = call ptr @Curl_splay(i64 %19, i32 %20, ptr noundef %18)
+  store ptr %21, ptr %7, align 8, !tbaa !4
+  br label %22
 
-29:                                               ; preds = %16
-  br label %61
+22:                                               ; preds = %17
+  br label %23
 
-30:                                               ; preds = %16
-  %31 = getelementptr inbounds %struct.curltime, ptr %6, i32 0, i32 0
+23:                                               ; preds = %22
+  br label %24
+
+24:                                               ; preds = %23
+  %25 = load ptr, ptr %7, align 8, !tbaa !4
+  %26 = getelementptr inbounds nuw %struct.Curl_tree, ptr %25, i32 0, i32 4
+  %27 = getelementptr inbounds nuw { i64, i32 }, ptr %6, i32 0, i32 0
+  %28 = load i64, ptr %27, align 8
+  %29 = getelementptr inbounds nuw { i64, i32 }, ptr %6, i32 0, i32 1
+  %30 = load i32, ptr %29, align 8
+  %31 = getelementptr inbounds nuw { i64, i32 }, ptr %26, i32 0, i32 0
   %32 = load i64, ptr %31, align 8
-  %33 = load ptr, ptr %7, align 8
-  %34 = getelementptr inbounds %struct.Curl_tree, ptr %33, i32 0, i32 4
-  %35 = getelementptr inbounds %struct.curltime, ptr %34, i32 0, i32 0
-  %36 = load i64, ptr %35, align 8
-  %37 = icmp sgt i64 %32, %36
-  br i1 %37, label %38, label %39
+  %33 = getelementptr inbounds nuw { i64, i32 }, ptr %26, i32 0, i32 1
+  %34 = load i32, ptr %33, align 8
+  %35 = call i64 @Curl_timediff_us(i64 %28, i32 %30, i64 %32, i32 %34)
+  %36 = icmp slt i64 %35, 0
+  br i1 %36, label %37, label %40
 
-38:                                               ; preds = %30
-  br label %59
+37:                                               ; preds = %24
+  %38 = load ptr, ptr %8, align 8, !tbaa !20
+  store ptr null, ptr %38, align 8, !tbaa !4
+  %39 = load ptr, ptr %7, align 8, !tbaa !4
+  store ptr %39, ptr %5, align 8
+  store i32 1, ptr %10, align 4
+  br label %82
 
-39:                                               ; preds = %30
-  %40 = getelementptr inbounds %struct.curltime, ptr %6, i32 0, i32 1
-  %41 = load i32, ptr %40, align 8
-  %42 = load ptr, ptr %7, align 8
-  %43 = getelementptr inbounds %struct.Curl_tree, ptr %42, i32 0, i32 4
-  %44 = getelementptr inbounds %struct.curltime, ptr %43, i32 0, i32 1
-  %45 = load i32, ptr %44, align 8
-  %46 = icmp slt i32 %41, %45
-  br i1 %46, label %47, label %48
+40:                                               ; preds = %24
+  %41 = load ptr, ptr %7, align 8, !tbaa !4
+  %42 = getelementptr inbounds nuw %struct.Curl_tree, ptr %41, i32 0, i32 2
+  %43 = load ptr, ptr %42, align 8, !tbaa !18
+  store ptr %43, ptr %9, align 8, !tbaa !4
+  %44 = load ptr, ptr %9, align 8, !tbaa !4
+  %45 = load ptr, ptr %7, align 8, !tbaa !4
+  %46 = icmp ne ptr %44, %45
+  br i1 %46, label %47, label %75
 
-47:                                               ; preds = %39
-  br label %57
+47:                                               ; preds = %40
+  %48 = load ptr, ptr %9, align 8, !tbaa !4
+  %49 = getelementptr inbounds nuw %struct.Curl_tree, ptr %48, i32 0, i32 4
+  %50 = load ptr, ptr %7, align 8, !tbaa !4
+  %51 = getelementptr inbounds nuw %struct.Curl_tree, ptr %50, i32 0, i32 4
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %49, ptr align 8 %51, i64 16, i1 false), !tbaa.struct !16
+  %52 = load ptr, ptr %7, align 8, !tbaa !4
+  %53 = getelementptr inbounds nuw %struct.Curl_tree, ptr %52, i32 0, i32 1
+  %54 = load ptr, ptr %53, align 8, !tbaa !9
+  %55 = load ptr, ptr %9, align 8, !tbaa !4
+  %56 = getelementptr inbounds nuw %struct.Curl_tree, ptr %55, i32 0, i32 1
+  store ptr %54, ptr %56, align 8, !tbaa !9
+  %57 = load ptr, ptr %7, align 8, !tbaa !4
+  %58 = getelementptr inbounds nuw %struct.Curl_tree, ptr %57, i32 0, i32 0
+  %59 = load ptr, ptr %58, align 8, !tbaa !14
+  %60 = load ptr, ptr %9, align 8, !tbaa !4
+  %61 = getelementptr inbounds nuw %struct.Curl_tree, ptr %60, i32 0, i32 0
+  store ptr %59, ptr %61, align 8, !tbaa !14
+  %62 = load ptr, ptr %7, align 8, !tbaa !4
+  %63 = getelementptr inbounds nuw %struct.Curl_tree, ptr %62, i32 0, i32 3
+  %64 = load ptr, ptr %63, align 8, !tbaa !19
+  %65 = load ptr, ptr %9, align 8, !tbaa !4
+  %66 = getelementptr inbounds nuw %struct.Curl_tree, ptr %65, i32 0, i32 3
+  store ptr %64, ptr %66, align 8, !tbaa !19
+  %67 = load ptr, ptr %9, align 8, !tbaa !4
+  %68 = load ptr, ptr %7, align 8, !tbaa !4
+  %69 = getelementptr inbounds nuw %struct.Curl_tree, ptr %68, i32 0, i32 3
+  %70 = load ptr, ptr %69, align 8, !tbaa !19
+  %71 = getelementptr inbounds nuw %struct.Curl_tree, ptr %70, i32 0, i32 2
+  store ptr %67, ptr %71, align 8, !tbaa !18
+  %72 = load ptr, ptr %7, align 8, !tbaa !4
+  %73 = load ptr, ptr %8, align 8, !tbaa !20
+  store ptr %72, ptr %73, align 8, !tbaa !4
+  %74 = load ptr, ptr %9, align 8, !tbaa !4
+  store ptr %74, ptr %5, align 8
+  store i32 1, ptr %10, align 4
+  br label %82
 
-48:                                               ; preds = %39
-  %49 = getelementptr inbounds %struct.curltime, ptr %6, i32 0, i32 1
-  %50 = load i32, ptr %49, align 8
-  %51 = load ptr, ptr %7, align 8
-  %52 = getelementptr inbounds %struct.Curl_tree, ptr %51, i32 0, i32 4
-  %53 = getelementptr inbounds %struct.curltime, ptr %52, i32 0, i32 1
-  %54 = load i32, ptr %53, align 8
-  %55 = icmp sgt i32 %50, %54
-  %56 = select i1 %55, i32 1, i32 0
-  br label %57
+75:                                               ; preds = %40
+  %76 = load ptr, ptr %7, align 8, !tbaa !4
+  %77 = getelementptr inbounds nuw %struct.Curl_tree, ptr %76, i32 0, i32 1
+  %78 = load ptr, ptr %77, align 8, !tbaa !9
+  store ptr %78, ptr %9, align 8, !tbaa !4
+  %79 = load ptr, ptr %7, align 8, !tbaa !4
+  %80 = load ptr, ptr %8, align 8, !tbaa !20
+  store ptr %79, ptr %80, align 8, !tbaa !4
+  %81 = load ptr, ptr %9, align 8, !tbaa !4
+  store ptr %81, ptr %5, align 8
+  store i32 1, ptr %10, align 4
+  br label %82
 
-57:                                               ; preds = %48, %47
-  %58 = phi i32 [ -1, %47 ], [ %56, %48 ]
-  br label %59
-
-59:                                               ; preds = %57, %38
-  %60 = phi i32 [ 1, %38 ], [ %58, %57 ]
-  br label %61
-
-61:                                               ; preds = %59, %29
-  %62 = phi i32 [ -1, %29 ], [ %60, %59 ]
-  %63 = icmp slt i32 %62, 0
-  br i1 %63, label %64, label %67
-
-64:                                               ; preds = %61
-  %65 = load ptr, ptr %8, align 8
-  store ptr null, ptr %65, align 8
-  %66 = load ptr, ptr %7, align 8
-  store ptr %66, ptr %5, align 8
-  br label %109
-
-67:                                               ; preds = %61
-  %68 = load ptr, ptr %7, align 8
-  %69 = getelementptr inbounds %struct.Curl_tree, ptr %68, i32 0, i32 2
-  %70 = load ptr, ptr %69, align 8
-  store ptr %70, ptr %9, align 8
-  %71 = load ptr, ptr %9, align 8
-  %72 = load ptr, ptr %7, align 8
-  %73 = icmp ne ptr %71, %72
-  br i1 %73, label %74, label %102
-
-74:                                               ; preds = %67
-  %75 = load ptr, ptr %9, align 8
-  %76 = getelementptr inbounds %struct.Curl_tree, ptr %75, i32 0, i32 4
-  %77 = load ptr, ptr %7, align 8
-  %78 = getelementptr inbounds %struct.Curl_tree, ptr %77, i32 0, i32 4
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %76, ptr align 8 %78, i64 16, i1 false)
-  %79 = load ptr, ptr %7, align 8
-  %80 = getelementptr inbounds %struct.Curl_tree, ptr %79, i32 0, i32 1
-  %81 = load ptr, ptr %80, align 8
-  %82 = load ptr, ptr %9, align 8
-  %83 = getelementptr inbounds %struct.Curl_tree, ptr %82, i32 0, i32 1
-  store ptr %81, ptr %83, align 8
-  %84 = load ptr, ptr %7, align 8
-  %85 = getelementptr inbounds %struct.Curl_tree, ptr %84, i32 0, i32 0
-  %86 = load ptr, ptr %85, align 8
-  %87 = load ptr, ptr %9, align 8
-  %88 = getelementptr inbounds %struct.Curl_tree, ptr %87, i32 0, i32 0
-  store ptr %86, ptr %88, align 8
-  %89 = load ptr, ptr %7, align 8
-  %90 = getelementptr inbounds %struct.Curl_tree, ptr %89, i32 0, i32 3
-  %91 = load ptr, ptr %90, align 8
-  %92 = load ptr, ptr %9, align 8
-  %93 = getelementptr inbounds %struct.Curl_tree, ptr %92, i32 0, i32 3
-  store ptr %91, ptr %93, align 8
-  %94 = load ptr, ptr %9, align 8
-  %95 = load ptr, ptr %7, align 8
-  %96 = getelementptr inbounds %struct.Curl_tree, ptr %95, i32 0, i32 3
-  %97 = load ptr, ptr %96, align 8
-  %98 = getelementptr inbounds %struct.Curl_tree, ptr %97, i32 0, i32 2
-  store ptr %94, ptr %98, align 8
-  %99 = load ptr, ptr %7, align 8
-  %100 = load ptr, ptr %8, align 8
-  store ptr %99, ptr %100, align 8
-  %101 = load ptr, ptr %9, align 8
-  store ptr %101, ptr %5, align 8
-  br label %109
-
-102:                                              ; preds = %67
-  %103 = load ptr, ptr %7, align 8
-  %104 = getelementptr inbounds %struct.Curl_tree, ptr %103, i32 0, i32 1
-  %105 = load ptr, ptr %104, align 8
-  store ptr %105, ptr %9, align 8
-  %106 = load ptr, ptr %7, align 8
-  %107 = load ptr, ptr %8, align 8
-  store ptr %106, ptr %107, align 8
-  %108 = load ptr, ptr %9, align 8
-  store ptr %108, ptr %5, align 8
-  br label %109
-
-109:                                              ; preds = %102, %74, %64, %14
-  %110 = load ptr, ptr %5, align 8
-  ret ptr %110
+82:                                               ; preds = %75, %47, %37, %15
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #4
+  %83 = load ptr, ptr %5, align 8
+  ret ptr %83
 }
 
 ; Function Attrs: nounwind uwtable
@@ -832,233 +587,278 @@ define dso_local i32 @Curl_splayremove(ptr noundef %0, ptr noundef %1, ptr nound
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
-  store ptr %0, ptr %5, align 8
-  store ptr %1, ptr %6, align 8
-  store ptr %2, ptr %7, align 8
-  %9 = load ptr, ptr %5, align 8
-  %10 = icmp ne ptr %9, null
-  br i1 %10, label %11, label %14
+  %9 = alloca i32, align 4
+  store ptr %0, ptr %5, align 8, !tbaa !4
+  store ptr %1, ptr %6, align 8, !tbaa !4
+  store ptr %2, ptr %7, align 8, !tbaa !20
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #4
+  %10 = load ptr, ptr %5, align 8, !tbaa !4
+  %11 = icmp ne ptr %10, null
+  br i1 %11, label %13, label %12
 
-11:                                               ; preds = %3
-  %12 = load ptr, ptr %6, align 8
-  %13 = icmp ne ptr %12, null
-  br i1 %13, label %15, label %14
-
-14:                                               ; preds = %11, %3
+12:                                               ; preds = %3
   store i32 1, ptr %4, align 4
-  br label %151
+  store i32 1, ptr %9, align 4
+  br label %134
 
-15:                                               ; preds = %11
-  %16 = load ptr, ptr %6, align 8
-  %17 = getelementptr inbounds %struct.Curl_tree, ptr %16, i32 0, i32 4
-  %18 = getelementptr inbounds %struct.curltime, ptr %17, i32 0, i32 0
-  %19 = load i64, ptr %18, align 8
-  %20 = icmp slt i64 -1, %19
-  br i1 %20, label %21, label %22
+13:                                               ; preds = %3
+  br label %14
 
-21:                                               ; preds = %15
-  br label %47
+14:                                               ; preds = %13
+  br label %15
 
-22:                                               ; preds = %15
-  %23 = load ptr, ptr %6, align 8
-  %24 = getelementptr inbounds %struct.Curl_tree, ptr %23, i32 0, i32 4
-  %25 = getelementptr inbounds %struct.curltime, ptr %24, i32 0, i32 0
-  %26 = load i64, ptr %25, align 8
-  %27 = icmp sgt i64 -1, %26
-  br i1 %27, label %28, label %29
+15:                                               ; preds = %14
+  br label %16
 
-28:                                               ; preds = %22
-  br label %45
+16:                                               ; preds = %15
+  %17 = load ptr, ptr %6, align 8, !tbaa !4
+  %18 = getelementptr inbounds nuw %struct.Curl_tree, ptr %17, i32 0, i32 4
+  %19 = load i64, ptr @Curl_splayremove.KEY_NOTUSED, align 8
+  %20 = load i32, ptr getelementptr inbounds nuw ({ i64, i32 }, ptr @Curl_splayremove.KEY_NOTUSED, i32 0, i32 1), align 8
+  %21 = getelementptr inbounds nuw { i64, i32 }, ptr %18, i32 0, i32 0
+  %22 = load i64, ptr %21, align 8
+  %23 = getelementptr inbounds nuw { i64, i32 }, ptr %18, i32 0, i32 1
+  %24 = load i32, ptr %23, align 8
+  %25 = call i64 @Curl_timediff_us(i64 %19, i32 %20, i64 %22, i32 %24)
+  %26 = icmp eq i64 %25, 0
+  br i1 %26, label %27, label %54
 
-29:                                               ; preds = %22
-  %30 = load ptr, ptr %6, align 8
-  %31 = getelementptr inbounds %struct.Curl_tree, ptr %30, i32 0, i32 4
-  %32 = getelementptr inbounds %struct.curltime, ptr %31, i32 0, i32 1
-  %33 = load i32, ptr %32, align 8
-  %34 = icmp slt i32 -1, %33
-  br i1 %34, label %35, label %36
+27:                                               ; preds = %16
+  %28 = load ptr, ptr %6, align 8, !tbaa !4
+  %29 = getelementptr inbounds nuw %struct.Curl_tree, ptr %28, i32 0, i32 2
+  %30 = load ptr, ptr %29, align 8, !tbaa !18
+  %31 = load ptr, ptr %6, align 8, !tbaa !4
+  %32 = icmp eq ptr %30, %31
+  br i1 %32, label %33, label %34
 
-35:                                               ; preds = %29
-  br label %43
-
-36:                                               ; preds = %29
-  %37 = load ptr, ptr %6, align 8
-  %38 = getelementptr inbounds %struct.Curl_tree, ptr %37, i32 0, i32 4
-  %39 = getelementptr inbounds %struct.curltime, ptr %38, i32 0, i32 1
-  %40 = load i32, ptr %39, align 8
-  %41 = icmp sgt i32 -1, %40
-  %42 = select i1 %41, i32 1, i32 0
-  br label %43
-
-43:                                               ; preds = %36, %35
-  %44 = phi i32 [ -1, %35 ], [ %42, %36 ]
-  br label %45
-
-45:                                               ; preds = %43, %28
-  %46 = phi i32 [ 1, %28 ], [ %44, %43 ]
-  br label %47
-
-47:                                               ; preds = %45, %21
-  %48 = phi i32 [ -1, %21 ], [ %46, %45 ]
-  %49 = icmp eq i32 %48, 0
-  br i1 %49, label %50, label %77
-
-50:                                               ; preds = %47
-  %51 = load ptr, ptr %6, align 8
-  %52 = getelementptr inbounds %struct.Curl_tree, ptr %51, i32 0, i32 2
-  %53 = load ptr, ptr %52, align 8
-  %54 = load ptr, ptr %6, align 8
-  %55 = icmp eq ptr %53, %54
-  br i1 %55, label %56, label %57
-
-56:                                               ; preds = %50
+33:                                               ; preds = %27
   store i32 3, ptr %4, align 4
-  br label %151
+  store i32 1, ptr %9, align 4
+  br label %134
 
-57:                                               ; preds = %50
-  %58 = load ptr, ptr %6, align 8
-  %59 = getelementptr inbounds %struct.Curl_tree, ptr %58, i32 0, i32 2
-  %60 = load ptr, ptr %59, align 8
-  %61 = load ptr, ptr %6, align 8
-  %62 = getelementptr inbounds %struct.Curl_tree, ptr %61, i32 0, i32 3
-  %63 = load ptr, ptr %62, align 8
-  %64 = getelementptr inbounds %struct.Curl_tree, ptr %63, i32 0, i32 2
-  store ptr %60, ptr %64, align 8
-  %65 = load ptr, ptr %6, align 8
-  %66 = getelementptr inbounds %struct.Curl_tree, ptr %65, i32 0, i32 3
-  %67 = load ptr, ptr %66, align 8
-  %68 = load ptr, ptr %6, align 8
-  %69 = getelementptr inbounds %struct.Curl_tree, ptr %68, i32 0, i32 2
-  %70 = load ptr, ptr %69, align 8
-  %71 = getelementptr inbounds %struct.Curl_tree, ptr %70, i32 0, i32 3
-  store ptr %67, ptr %71, align 8
-  %72 = load ptr, ptr %6, align 8
-  %73 = load ptr, ptr %6, align 8
-  %74 = getelementptr inbounds %struct.Curl_tree, ptr %73, i32 0, i32 2
-  store ptr %72, ptr %74, align 8
-  %75 = load ptr, ptr %5, align 8
-  %76 = load ptr, ptr %7, align 8
-  store ptr %75, ptr %76, align 8
+34:                                               ; preds = %27
+  %35 = load ptr, ptr %6, align 8, !tbaa !4
+  %36 = getelementptr inbounds nuw %struct.Curl_tree, ptr %35, i32 0, i32 2
+  %37 = load ptr, ptr %36, align 8, !tbaa !18
+  %38 = load ptr, ptr %6, align 8, !tbaa !4
+  %39 = getelementptr inbounds nuw %struct.Curl_tree, ptr %38, i32 0, i32 3
+  %40 = load ptr, ptr %39, align 8, !tbaa !19
+  %41 = getelementptr inbounds nuw %struct.Curl_tree, ptr %40, i32 0, i32 2
+  store ptr %37, ptr %41, align 8, !tbaa !18
+  %42 = load ptr, ptr %6, align 8, !tbaa !4
+  %43 = getelementptr inbounds nuw %struct.Curl_tree, ptr %42, i32 0, i32 3
+  %44 = load ptr, ptr %43, align 8, !tbaa !19
+  %45 = load ptr, ptr %6, align 8, !tbaa !4
+  %46 = getelementptr inbounds nuw %struct.Curl_tree, ptr %45, i32 0, i32 2
+  %47 = load ptr, ptr %46, align 8, !tbaa !18
+  %48 = getelementptr inbounds nuw %struct.Curl_tree, ptr %47, i32 0, i32 3
+  store ptr %44, ptr %48, align 8, !tbaa !19
+  %49 = load ptr, ptr %6, align 8, !tbaa !4
+  %50 = load ptr, ptr %6, align 8, !tbaa !4
+  %51 = getelementptr inbounds nuw %struct.Curl_tree, ptr %50, i32 0, i32 2
+  store ptr %49, ptr %51, align 8, !tbaa !18
+  %52 = load ptr, ptr %5, align 8, !tbaa !4
+  %53 = load ptr, ptr %7, align 8, !tbaa !20
+  store ptr %52, ptr %53, align 8, !tbaa !4
   store i32 0, ptr %4, align 4
-  br label %151
+  store i32 1, ptr %9, align 4
+  br label %134
 
-77:                                               ; preds = %47
-  %78 = load ptr, ptr %6, align 8
-  %79 = getelementptr inbounds %struct.Curl_tree, ptr %78, i32 0, i32 4
-  %80 = load ptr, ptr %5, align 8
-  %81 = getelementptr inbounds { i64, i32 }, ptr %79, i32 0, i32 0
-  %82 = load i64, ptr %81, align 8
-  %83 = getelementptr inbounds { i64, i32 }, ptr %79, i32 0, i32 1
-  %84 = load i32, ptr %83, align 8
-  %85 = call ptr @Curl_splay(i64 %82, i32 %84, ptr noundef %80)
-  store ptr %85, ptr %5, align 8
-  %86 = load ptr, ptr %5, align 8
-  %87 = load ptr, ptr %6, align 8
-  %88 = icmp ne ptr %86, %87
-  br i1 %88, label %89, label %90
+54:                                               ; preds = %16
+  %55 = load ptr, ptr %6, align 8, !tbaa !4
+  %56 = getelementptr inbounds nuw %struct.Curl_tree, ptr %55, i32 0, i32 4
+  %57 = load ptr, ptr %5, align 8, !tbaa !4
+  %58 = getelementptr inbounds nuw { i64, i32 }, ptr %56, i32 0, i32 0
+  %59 = load i64, ptr %58, align 8
+  %60 = getelementptr inbounds nuw { i64, i32 }, ptr %56, i32 0, i32 1
+  %61 = load i32, ptr %60, align 8
+  %62 = call ptr @Curl_splay(i64 %59, i32 %61, ptr noundef %57)
+  store ptr %62, ptr %5, align 8, !tbaa !4
+  br label %63
 
-89:                                               ; preds = %77
+63:                                               ; preds = %54
+  br label %64
+
+64:                                               ; preds = %63
+  br label %65
+
+65:                                               ; preds = %64
+  %66 = load ptr, ptr %5, align 8, !tbaa !4
+  %67 = load ptr, ptr %6, align 8, !tbaa !4
+  %68 = icmp ne ptr %66, %67
+  br i1 %68, label %69, label %70
+
+69:                                               ; preds = %65
   store i32 2, ptr %4, align 4
-  br label %151
+  store i32 1, ptr %9, align 4
+  br label %134
 
-90:                                               ; preds = %77
-  %91 = load ptr, ptr %5, align 8
-  %92 = getelementptr inbounds %struct.Curl_tree, ptr %91, i32 0, i32 2
-  %93 = load ptr, ptr %92, align 8
-  store ptr %93, ptr %8, align 8
-  %94 = load ptr, ptr %8, align 8
-  %95 = load ptr, ptr %5, align 8
-  %96 = icmp ne ptr %94, %95
-  br i1 %96, label %97, label %122
+70:                                               ; preds = %65
+  %71 = load ptr, ptr %5, align 8, !tbaa !4
+  %72 = getelementptr inbounds nuw %struct.Curl_tree, ptr %71, i32 0, i32 2
+  %73 = load ptr, ptr %72, align 8, !tbaa !18
+  store ptr %73, ptr %8, align 8, !tbaa !4
+  %74 = load ptr, ptr %8, align 8, !tbaa !4
+  %75 = load ptr, ptr %5, align 8, !tbaa !4
+  %76 = icmp ne ptr %74, %75
+  br i1 %76, label %77, label %102
 
-97:                                               ; preds = %90
-  %98 = load ptr, ptr %8, align 8
-  %99 = getelementptr inbounds %struct.Curl_tree, ptr %98, i32 0, i32 4
-  %100 = load ptr, ptr %5, align 8
-  %101 = getelementptr inbounds %struct.Curl_tree, ptr %100, i32 0, i32 4
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %99, ptr align 8 %101, i64 16, i1 false)
-  %102 = load ptr, ptr %5, align 8
-  %103 = getelementptr inbounds %struct.Curl_tree, ptr %102, i32 0, i32 1
-  %104 = load ptr, ptr %103, align 8
-  %105 = load ptr, ptr %8, align 8
-  %106 = getelementptr inbounds %struct.Curl_tree, ptr %105, i32 0, i32 1
-  store ptr %104, ptr %106, align 8
-  %107 = load ptr, ptr %5, align 8
-  %108 = getelementptr inbounds %struct.Curl_tree, ptr %107, i32 0, i32 0
-  %109 = load ptr, ptr %108, align 8
-  %110 = load ptr, ptr %8, align 8
-  %111 = getelementptr inbounds %struct.Curl_tree, ptr %110, i32 0, i32 0
-  store ptr %109, ptr %111, align 8
-  %112 = load ptr, ptr %5, align 8
-  %113 = getelementptr inbounds %struct.Curl_tree, ptr %112, i32 0, i32 3
-  %114 = load ptr, ptr %113, align 8
-  %115 = load ptr, ptr %8, align 8
-  %116 = getelementptr inbounds %struct.Curl_tree, ptr %115, i32 0, i32 3
-  store ptr %114, ptr %116, align 8
-  %117 = load ptr, ptr %8, align 8
-  %118 = load ptr, ptr %5, align 8
-  %119 = getelementptr inbounds %struct.Curl_tree, ptr %118, i32 0, i32 3
-  %120 = load ptr, ptr %119, align 8
-  %121 = getelementptr inbounds %struct.Curl_tree, ptr %120, i32 0, i32 2
-  store ptr %117, ptr %121, align 8
-  br label %148
+77:                                               ; preds = %70
+  %78 = load ptr, ptr %8, align 8, !tbaa !4
+  %79 = getelementptr inbounds nuw %struct.Curl_tree, ptr %78, i32 0, i32 4
+  %80 = load ptr, ptr %5, align 8, !tbaa !4
+  %81 = getelementptr inbounds nuw %struct.Curl_tree, ptr %80, i32 0, i32 4
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %79, ptr align 8 %81, i64 16, i1 false), !tbaa.struct !16
+  %82 = load ptr, ptr %5, align 8, !tbaa !4
+  %83 = getelementptr inbounds nuw %struct.Curl_tree, ptr %82, i32 0, i32 1
+  %84 = load ptr, ptr %83, align 8, !tbaa !9
+  %85 = load ptr, ptr %8, align 8, !tbaa !4
+  %86 = getelementptr inbounds nuw %struct.Curl_tree, ptr %85, i32 0, i32 1
+  store ptr %84, ptr %86, align 8, !tbaa !9
+  %87 = load ptr, ptr %5, align 8, !tbaa !4
+  %88 = getelementptr inbounds nuw %struct.Curl_tree, ptr %87, i32 0, i32 0
+  %89 = load ptr, ptr %88, align 8, !tbaa !14
+  %90 = load ptr, ptr %8, align 8, !tbaa !4
+  %91 = getelementptr inbounds nuw %struct.Curl_tree, ptr %90, i32 0, i32 0
+  store ptr %89, ptr %91, align 8, !tbaa !14
+  %92 = load ptr, ptr %5, align 8, !tbaa !4
+  %93 = getelementptr inbounds nuw %struct.Curl_tree, ptr %92, i32 0, i32 3
+  %94 = load ptr, ptr %93, align 8, !tbaa !19
+  %95 = load ptr, ptr %8, align 8, !tbaa !4
+  %96 = getelementptr inbounds nuw %struct.Curl_tree, ptr %95, i32 0, i32 3
+  store ptr %94, ptr %96, align 8, !tbaa !19
+  %97 = load ptr, ptr %8, align 8, !tbaa !4
+  %98 = load ptr, ptr %5, align 8, !tbaa !4
+  %99 = getelementptr inbounds nuw %struct.Curl_tree, ptr %98, i32 0, i32 3
+  %100 = load ptr, ptr %99, align 8, !tbaa !19
+  %101 = getelementptr inbounds nuw %struct.Curl_tree, ptr %100, i32 0, i32 2
+  store ptr %97, ptr %101, align 8, !tbaa !18
+  br label %131
 
-122:                                              ; preds = %90
-  %123 = load ptr, ptr %5, align 8
-  %124 = getelementptr inbounds %struct.Curl_tree, ptr %123, i32 0, i32 0
-  %125 = load ptr, ptr %124, align 8
-  %126 = icmp ne ptr %125, null
-  br i1 %126, label %131, label %127
+102:                                              ; preds = %70
+  %103 = load ptr, ptr %5, align 8, !tbaa !4
+  %104 = getelementptr inbounds nuw %struct.Curl_tree, ptr %103, i32 0, i32 0
+  %105 = load ptr, ptr %104, align 8, !tbaa !14
+  %106 = icmp ne ptr %105, null
+  br i1 %106, label %111, label %107
 
-127:                                              ; preds = %122
-  %128 = load ptr, ptr %5, align 8
-  %129 = getelementptr inbounds %struct.Curl_tree, ptr %128, i32 0, i32 1
-  %130 = load ptr, ptr %129, align 8
-  store ptr %130, ptr %8, align 8
-  br label %147
+107:                                              ; preds = %102
+  %108 = load ptr, ptr %5, align 8, !tbaa !4
+  %109 = getelementptr inbounds nuw %struct.Curl_tree, ptr %108, i32 0, i32 1
+  %110 = load ptr, ptr %109, align 8, !tbaa !9
+  store ptr %110, ptr %8, align 8, !tbaa !4
+  br label %130
 
-131:                                              ; preds = %122
-  %132 = load ptr, ptr %6, align 8
-  %133 = getelementptr inbounds %struct.Curl_tree, ptr %132, i32 0, i32 4
-  %134 = load ptr, ptr %5, align 8
-  %135 = getelementptr inbounds %struct.Curl_tree, ptr %134, i32 0, i32 0
-  %136 = load ptr, ptr %135, align 8
-  %137 = getelementptr inbounds { i64, i32 }, ptr %133, i32 0, i32 0
-  %138 = load i64, ptr %137, align 8
-  %139 = getelementptr inbounds { i64, i32 }, ptr %133, i32 0, i32 1
-  %140 = load i32, ptr %139, align 8
-  %141 = call ptr @Curl_splay(i64 %138, i32 %140, ptr noundef %136)
-  store ptr %141, ptr %8, align 8
-  %142 = load ptr, ptr %5, align 8
-  %143 = getelementptr inbounds %struct.Curl_tree, ptr %142, i32 0, i32 1
-  %144 = load ptr, ptr %143, align 8
-  %145 = load ptr, ptr %8, align 8
-  %146 = getelementptr inbounds %struct.Curl_tree, ptr %145, i32 0, i32 1
-  store ptr %144, ptr %146, align 8
-  br label %147
+111:                                              ; preds = %102
+  %112 = load ptr, ptr %6, align 8, !tbaa !4
+  %113 = getelementptr inbounds nuw %struct.Curl_tree, ptr %112, i32 0, i32 4
+  %114 = load ptr, ptr %5, align 8, !tbaa !4
+  %115 = getelementptr inbounds nuw %struct.Curl_tree, ptr %114, i32 0, i32 0
+  %116 = load ptr, ptr %115, align 8, !tbaa !14
+  %117 = getelementptr inbounds nuw { i64, i32 }, ptr %113, i32 0, i32 0
+  %118 = load i64, ptr %117, align 8
+  %119 = getelementptr inbounds nuw { i64, i32 }, ptr %113, i32 0, i32 1
+  %120 = load i32, ptr %119, align 8
+  %121 = call ptr @Curl_splay(i64 %118, i32 %120, ptr noundef %116)
+  store ptr %121, ptr %8, align 8, !tbaa !4
+  br label %122
 
-147:                                              ; preds = %131, %127
-  br label %148
+122:                                              ; preds = %111
+  br label %123
 
-148:                                              ; preds = %147, %97
-  %149 = load ptr, ptr %8, align 8
-  %150 = load ptr, ptr %7, align 8
-  store ptr %149, ptr %150, align 8
+123:                                              ; preds = %122
+  br label %124
+
+124:                                              ; preds = %123
+  %125 = load ptr, ptr %5, align 8, !tbaa !4
+  %126 = getelementptr inbounds nuw %struct.Curl_tree, ptr %125, i32 0, i32 1
+  %127 = load ptr, ptr %126, align 8, !tbaa !9
+  %128 = load ptr, ptr %8, align 8, !tbaa !4
+  %129 = getelementptr inbounds nuw %struct.Curl_tree, ptr %128, i32 0, i32 1
+  store ptr %127, ptr %129, align 8, !tbaa !9
+  br label %130
+
+130:                                              ; preds = %124, %107
+  br label %131
+
+131:                                              ; preds = %130, %77
+  %132 = load ptr, ptr %8, align 8, !tbaa !4
+  %133 = load ptr, ptr %7, align 8, !tbaa !20
+  store ptr %132, ptr %133, align 8, !tbaa !4
   store i32 0, ptr %4, align 4
-  br label %151
+  store i32 1, ptr %9, align 4
+  br label %134
 
-151:                                              ; preds = %148, %89, %57, %56, %14
-  %152 = load i32, ptr %4, align 4
-  ret i32 %152
+134:                                              ; preds = %131, %69, %34, %33, %12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #4
+  %135 = load i32, ptr %4, align 4
+  ret i32 %135
 }
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+; Function Attrs: nounwind uwtable
+define dso_local void @Curl_splayset(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !4
+  store ptr %1, ptr %4, align 8, !tbaa !22
+  br label %5
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+5:                                                ; preds = %2
+  br label %6
+
+6:                                                ; preds = %5
+  %7 = load ptr, ptr %4, align 8, !tbaa !22
+  %8 = load ptr, ptr %3, align 8, !tbaa !4
+  %9 = getelementptr inbounds nuw %struct.Curl_tree, ptr %8, i32 0, i32 5
+  store ptr %7, ptr %9, align 8, !tbaa !23
+  ret void
+}
+
+; Function Attrs: nounwind uwtable
+define dso_local ptr @Curl_splayget(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !4
+  br label %3
+
+3:                                                ; preds = %1
+  br label %4
+
+4:                                                ; preds = %3
+  %5 = load ptr, ptr %2, align 8, !tbaa !4
+  %6 = getelementptr inbounds nuw %struct.Curl_tree, ptr %5, i32 0, i32 5
+  %7 = load ptr, ptr %6, align 8, !tbaa !23
+  ret ptr %7
+}
+
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #4 = { nounwind }
+
+!llvm.module.flags = !{!0, !1, !2, !3}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}
+!4 = !{!5, !5, i64 0}
+!5 = !{!"p1 _ZTS9Curl_tree", !6, i64 0}
+!6 = !{!"any pointer", !7, i64 0}
+!7 = !{!"omnipotent char", !8, i64 0}
+!8 = !{!"Simple C/C++ TBAA"}
+!9 = !{!10, !5, i64 8}
+!10 = !{!"Curl_tree", !5, i64 0, !5, i64 8, !5, i64 16, !5, i64 24, !11, i64 32, !6, i64 48}
+!11 = !{!"curltime", !12, i64 0, !13, i64 8}
+!12 = !{!"long", !7, i64 0}
+!13 = !{!"int", !7, i64 0}
+!14 = !{!10, !5, i64 0}
+!15 = !{!12, !12, i64 0}
+!16 = !{i64 0, i64 8, !15, i64 8, i64 4, !17}
+!17 = !{!13, !13, i64 0}
+!18 = !{!10, !5, i64 16}
+!19 = !{!10, !5, i64 24}
+!20 = !{!21, !21, i64 0}
+!21 = !{!"p2 _ZTS9Curl_tree", !6, i64 0}
+!22 = !{!6, !6, i64 0}
+!23 = !{!10, !6, i64 48}

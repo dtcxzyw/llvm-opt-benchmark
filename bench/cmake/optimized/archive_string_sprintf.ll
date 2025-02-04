@@ -1,5 +1,5 @@
-; ModuleID = 'bench/cmake/original/archive_string_sprintf.c.ll'
-source_filename = "bench/cmake/original/archive_string_sprintf.c.ll"
+; ModuleID = 'bench/cmake/original/archive_string_sprintf.ll'
+source_filename = "bench/cmake/original/archive_string_sprintf.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
@@ -13,20 +13,28 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define dso_local void @archive_string_sprintf(ptr noundef %0, ptr noundef %1, ...) local_unnamed_addr #0 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #7
   call void @llvm.va_start.p0(ptr nonnull %3)
   call void @archive_string_vsprintf(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %3)
   call void @llvm.va_end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #7
   ret void
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #2
+
 ; Function Attrs: nounwind uwtable
 define dso_local void @archive_string_vsprintf(ptr noundef %0, ptr noundef readonly %1, ptr noundef captures(none) %2) local_unnamed_addr #0 {
-  %4 = tail call ptr @archive_string_ensure(ptr noundef %0, i64 noundef 64) #6
+  %4 = tail call ptr @archive_string_ensure(ptr noundef %0, i64 noundef 64) #7
   %5 = icmp eq ptr %4, null
   br i1 %5, label %6, label %7
 
 6:                                                ; preds = %3
-  tail call void @__archive_errx(i32 noundef 1, ptr noundef nonnull @.str) #7
+  tail call void @__archive_errx(i32 noundef 1, ptr noundef nonnull @.str) #8
   unreachable
 
 7:                                                ; preds = %3
@@ -39,25 +47,25 @@ define dso_local void @archive_string_vsprintf(ptr noundef %0, ptr noundef reado
   br label %13
 
 11:                                               ; preds = %7
-  %12 = load ptr, ptr %0, align 8
-  store i8 0, ptr %12, align 1
+  %12 = load ptr, ptr %0, align 8, !tbaa !4
+  store i8 0, ptr %12, align 1, !tbaa !11
   br label %.loopexit
 
 13:                                               ; preds = %.preheader, %218
   %.058 = phi ptr [ %219, %218 ], [ %1, %.preheader ]
-  %14 = load i8, ptr %.058, align 1
+  %14 = load i8, ptr %.058, align 1, !tbaa !11
   switch i8 %14, label %15 [
     i8 0, label %.loopexit
     i8 37, label %17
   ]
 
 15:                                               ; preds = %13
-  %16 = tail call ptr @archive_strappend_char(ptr noundef %0, i8 noundef signext %14) #6
+  %16 = tail call ptr @archive_strappend_char(ptr noundef %0, i8 noundef signext %14) #7
   br label %218
 
 17:                                               ; preds = %13
   %18 = getelementptr inbounds nuw i8, ptr %.058, i64 1
-  %19 = load i8, ptr %18, align 1
+  %19 = load i8, ptr %18, align 1, !tbaa !11
   switch i8 %19, label %23 [
     i8 106, label %20
     i8 108, label %20
@@ -67,7 +75,7 @@ define dso_local void @archive_string_vsprintf(ptr noundef %0, ptr noundef reado
 20:                                               ; preds = %17, %17, %17
   %21 = getelementptr inbounds nuw i8, ptr %.058, i64 2
   %22 = zext nneg i8 %19 to i32
-  %.pr = load i8, ptr %21, align 1
+  %.pr = load i8, ptr %21, align 1, !tbaa !11
   br label %23
 
 23:                                               ; preds = %20, %17
@@ -87,7 +95,7 @@ define dso_local void @archive_string_vsprintf(ptr noundef %0, ptr noundef reado
   ]
 
 25:                                               ; preds = %23
-  %26 = tail call ptr @archive_strappend_char(ptr noundef %0, i8 noundef signext 37) #6
+  %26 = tail call ptr @archive_strappend_char(ptr noundef %0, i8 noundef signext 37) #7
   br label %218
 
 27:                                               ; preds = %23
@@ -111,9 +119,9 @@ define dso_local void @archive_string_vsprintf(ptr noundef %0, ptr noundef reado
 
 38:                                               ; preds = %35, %30
   %39 = phi ptr [ %33, %30 ], [ %36, %35 ]
-  %40 = load i32, ptr %39, align 4
+  %40 = load i32, ptr %39, align 4, !tbaa !12
   %41 = trunc i32 %40 to i8
-  %42 = tail call ptr @archive_strappend_char(ptr noundef %0, i8 noundef signext %41) #6
+  %42 = tail call ptr @archive_strappend_char(ptr noundef %0, i8 noundef signext %41) #7
   br label %218
 
 43:                                               ; preds = %23
@@ -144,7 +152,7 @@ define dso_local void @archive_string_vsprintf(ptr noundef %0, ptr noundef reado
 
 55:                                               ; preds = %52, %47
   %56 = phi ptr [ %50, %47 ], [ %53, %52 ]
-  %57 = load i64, ptr %56, align 8
+  %57 = load i64, ptr %56, align 8, !tbaa !14
   br label %95
 
 58:                                               ; preds = %43
@@ -166,7 +174,7 @@ define dso_local void @archive_string_vsprintf(ptr noundef %0, ptr noundef reado
 
 67:                                               ; preds = %64, %59
   %68 = phi ptr [ %62, %59 ], [ %65, %64 ]
-  %69 = load i64, ptr %68, align 8
+  %69 = load i64, ptr %68, align 8, !tbaa !14
   br label %95
 
 70:                                               ; preds = %43
@@ -188,7 +196,7 @@ define dso_local void @archive_string_vsprintf(ptr noundef %0, ptr noundef reado
 
 79:                                               ; preds = %76, %71
   %80 = phi ptr [ %74, %71 ], [ %77, %76 ]
-  %81 = load i64, ptr %80, align 8
+  %81 = load i64, ptr %80, align 8, !tbaa !14
   br label %95
 
 82:                                               ; preds = %43
@@ -210,7 +218,7 @@ define dso_local void @archive_string_vsprintf(ptr noundef %0, ptr noundef reado
 
 91:                                               ; preds = %88, %83
   %92 = phi ptr [ %86, %83 ], [ %89, %88 ]
-  %93 = load i32, ptr %92, align 4
+  %93 = load i32, ptr %92, align 4, !tbaa !12
   %94 = sext i32 %93 to i64
   br label %95
 
@@ -220,7 +228,7 @@ define dso_local void @archive_string_vsprintf(ptr noundef %0, ptr noundef reado
   br i1 %96, label %97, label %append_int.exit
 
 97:                                               ; preds = %95
-  %98 = tail call ptr @archive_strappend_char(ptr noundef %0, i8 noundef signext 45) #6
+  %98 = tail call ptr @archive_strappend_char(ptr noundef %0, i8 noundef signext 45) #7
   %99 = sub i64 0, %.057
   br label %append_int.exit
 
@@ -254,22 +262,22 @@ append_int.exit:                                  ; preds = %95, %97
 
 112:                                              ; preds = %109, %104
   %113 = phi ptr [ %107, %104 ], [ %110, %109 ]
-  %114 = load ptr, ptr %113, align 8
+  %114 = load ptr, ptr %113, align 8, !tbaa !15
   %115 = icmp eq ptr %114, null
   %spec.store.select = select i1 %115, ptr @.str.1, ptr %114
-  %116 = tail call i64 @wcslen(ptr noundef nonnull %spec.store.select) #8
-  %117 = tail call i32 @archive_string_append_from_wcs(ptr noundef %0, ptr noundef nonnull %spec.store.select, i64 noundef %116) #6
+  %116 = tail call i64 @wcslen(ptr noundef nonnull %spec.store.select) #9
+  %117 = tail call i32 @archive_string_append_from_wcs(ptr noundef %0, ptr noundef nonnull %spec.store.select, i64 noundef %116) #7
   %.not76 = icmp eq i32 %117, 0
   br i1 %.not76, label %218, label %118
 
 118:                                              ; preds = %112
-  %119 = tail call ptr @__errno_location() #9
-  %120 = load i32, ptr %119, align 4
+  %119 = tail call ptr @__errno_location() #10
+  %120 = load i32, ptr %119, align 4, !tbaa !12
   %121 = icmp eq i32 %120, 12
   br i1 %121, label %122, label %218
 
 122:                                              ; preds = %118
-  tail call void @__archive_errx(i32 noundef 1, ptr noundef nonnull @.str) #7
+  tail call void @__archive_errx(i32 noundef 1, ptr noundef nonnull @.str) #8
   unreachable
 
 123:                                              ; preds = %100
@@ -291,10 +299,10 @@ append_int.exit:                                  ; preds = %95, %97
 
 132:                                              ; preds = %129, %124
   %133 = phi ptr [ %127, %124 ], [ %130, %129 ]
-  %134 = load ptr, ptr %133, align 8
+  %134 = load ptr, ptr %133, align 8, !tbaa !17
   %135 = icmp eq ptr %134, null
   %spec.store.select1 = select i1 %135, ptr @.str.2, ptr %134
-  %136 = tail call ptr @archive_strcat(ptr noundef %0, ptr noundef nonnull %spec.store.select1) #6
+  %136 = tail call ptr @archive_strcat(ptr noundef %0, ptr noundef nonnull %spec.store.select1) #7
   br label %218
 
 137:                                              ; preds = %23
@@ -318,22 +326,22 @@ append_int.exit:                                  ; preds = %95, %97
 
 148:                                              ; preds = %145, %140
   %149 = phi ptr [ %143, %140 ], [ %146, %145 ]
-  %150 = load ptr, ptr %149, align 8
+  %150 = load ptr, ptr %149, align 8, !tbaa !15
   %151 = icmp eq ptr %150, null
   %spec.store.select2 = select i1 %151, ptr @.str.1, ptr %150
-  %152 = tail call i64 @wcslen(ptr noundef nonnull %spec.store.select2) #8
-  %153 = tail call i32 @archive_string_append_from_wcs(ptr noundef %0, ptr noundef nonnull %spec.store.select2, i64 noundef %152) #6
+  %152 = tail call i64 @wcslen(ptr noundef nonnull %spec.store.select2) #9
+  %153 = tail call i32 @archive_string_append_from_wcs(ptr noundef %0, ptr noundef nonnull %spec.store.select2, i64 noundef %152) #7
   %.not75 = icmp eq i32 %153, 0
   br i1 %.not75, label %218, label %154
 
 154:                                              ; preds = %148
-  %155 = tail call ptr @__errno_location() #9
-  %156 = load i32, ptr %155, align 4
+  %155 = tail call ptr @__errno_location() #10
+  %156 = load i32, ptr %155, align 4, !tbaa !12
   %157 = icmp eq i32 %156, 12
   br i1 %157, label %158, label %218
 
 158:                                              ; preds = %154
-  tail call void @__archive_errx(i32 noundef 1, ptr noundef nonnull @.str) #7
+  tail call void @__archive_errx(i32 noundef 1, ptr noundef nonnull @.str) #8
   unreachable
 
 159:                                              ; preds = %23, %23, %23, %23
@@ -364,7 +372,7 @@ append_int.exit:                                  ; preds = %95, %97
 
 171:                                              ; preds = %168, %163
   %172 = phi ptr [ %166, %163 ], [ %169, %168 ]
-  %173 = load i64, ptr %172, align 8
+  %173 = load i64, ptr %172, align 8, !tbaa !14
   br label %211
 
 174:                                              ; preds = %159
@@ -386,7 +394,7 @@ append_int.exit:                                  ; preds = %95, %97
 
 183:                                              ; preds = %180, %175
   %184 = phi ptr [ %178, %175 ], [ %181, %180 ]
-  %185 = load i64, ptr %184, align 8
+  %185 = load i64, ptr %184, align 8, !tbaa !14
   br label %211
 
 186:                                              ; preds = %159
@@ -408,7 +416,7 @@ append_int.exit:                                  ; preds = %95, %97
 
 195:                                              ; preds = %192, %187
   %196 = phi ptr [ %190, %187 ], [ %193, %192 ]
-  %197 = load i64, ptr %196, align 8
+  %197 = load i64, ptr %196, align 8, !tbaa !14
   br label %211
 
 198:                                              ; preds = %159
@@ -430,13 +438,13 @@ append_int.exit:                                  ; preds = %95, %97
 
 207:                                              ; preds = %204, %199
   %208 = phi ptr [ %202, %199 ], [ %205, %204 ]
-  %209 = load i32, ptr %208, align 4
+  %209 = load i32, ptr %208, align 4, !tbaa !12
   %210 = zext i32 %209 to i64
   br label %211
 
 211:                                              ; preds = %207, %195, %183, %171
   %.059 = phi i64 [ %210, %207 ], [ %197, %195 ], [ %185, %183 ], [ %173, %171 ]
-  %212 = load i8, ptr %.2, align 1
+  %212 = load i8, ptr %.2, align 1, !tbaa !11
   switch i8 %212, label %215 [
     i8 111, label %213
     i8 117, label %214
@@ -455,34 +463,40 @@ append_int.exit:                                  ; preds = %95, %97
   br label %218
 
 216:                                              ; preds = %23
-  %217 = tail call ptr @archive_strappend_char(ptr noundef %0, i8 noundef signext 37) #6
+  %217 = tail call ptr @archive_strappend_char(ptr noundef %0, i8 noundef signext 37) #7
   br label %218
 
 218:                                              ; preds = %25, %38, %append_int.exit, %216, %112, %118, %132, %154, %148, %215, %214, %213, %15
   %.1 = phi ptr [ %.058, %15 ], [ %.058, %216 ], [ %.2, %215 ], [ %.2, %214 ], [ %.2, %213 ], [ %.2, %154 ], [ %.2, %148 ], [ %.2, %118 ], [ %.2, %112 ], [ %.2, %132 ], [ %.2, %append_int.exit ], [ %.2, %38 ], [ %.2, %25 ]
   %219 = getelementptr inbounds nuw i8, ptr %.1, i64 1
-  br label %13, !llvm.loop !5
+  br label %13, !llvm.loop !18
 
 .loopexit:                                        ; preds = %13, %11
   ret void
 }
 
-declare ptr @archive_string_ensure(ptr noundef, i64 noundef) local_unnamed_addr #1
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+
+declare ptr @archive_string_ensure(ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: noreturn
-declare void @__archive_errx(i32 noundef, ptr noundef) local_unnamed_addr #2
+declare void @__archive_errx(i32 noundef, ptr noundef) local_unnamed_addr #4
 
-declare ptr @archive_strappend_char(ptr noundef, i8 noundef signext) local_unnamed_addr #1
+declare ptr @archive_strappend_char(ptr noundef, i8 noundef signext) local_unnamed_addr #3
 
-declare i32 @archive_string_append_from_wcs(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
+declare i32 @archive_string_append_from_wcs(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @wcslen(ptr noundef captures(none)) local_unnamed_addr #3
+declare i64 @wcslen(ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare ptr @__errno_location() local_unnamed_addr #4
+declare ptr @__errno_location() local_unnamed_addr #6
 
-declare ptr @archive_strcat(ptr noundef, ptr noundef) local_unnamed_addr #1
+declare ptr @archive_strcat(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @append_uint(ptr noundef %0, i64 noundef %1, i32 noundef range(i32 8, 17) %2) unnamed_addr #0 {
@@ -498,34 +512,42 @@ define internal fastcc void @append_uint(ptr noundef %0, i64 noundef %1, i32 nou
 7:                                                ; preds = %5, %3
   %8 = urem i64 %1, %4
   %9 = getelementptr inbounds nuw [17 x i8], ptr @append_uint.digits, i64 0, i64 %8
-  %10 = load i8, ptr %9, align 1
-  %11 = tail call ptr @archive_strappend_char(ptr noundef %0, i8 noundef signext %10) #6
+  %10 = load i8, ptr %9, align 1, !tbaa !11
+  %11 = tail call ptr @archive_strappend_char(ptr noundef %0, i8 noundef signext %10) #7
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start.p0(ptr) #5
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn }
+attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nounwind }
+attributes #8 = { noreturn nounwind }
+attributes #9 = { nounwind willreturn memory(read) }
+attributes #10 = { nounwind willreturn memory(none) }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end.p0(ptr) #5
-
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #6 = { nounwind }
-attributes #7 = { noreturn nounwind }
-attributes #8 = { nounwind willreturn memory(read) }
-attributes #9 = { nounwind willreturn memory(none) }
-
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+!llvm.module.flags = !{!0, !1, !2, !3}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
+!4 = !{!5, !6, i64 0}
+!5 = !{!"archive_string", !6, i64 0, !10, i64 8, !10, i64 16}
+!6 = !{!"p1 omnipotent char", !7, i64 0}
+!7 = !{!"any pointer", !8, i64 0}
+!8 = !{!"omnipotent char", !9, i64 0}
+!9 = !{!"Simple C/C++ TBAA"}
+!10 = !{!"long", !8, i64 0}
+!11 = !{!8, !8, i64 0}
+!12 = !{!13, !13, i64 0}
+!13 = !{!"int", !8, i64 0}
+!14 = !{!10, !10, i64 0}
+!15 = !{!16, !16, i64 0}
+!16 = !{!"p1 int", !7, i64 0}
+!17 = !{!6, !6, i64 0}
+!18 = distinct !{!18, !19}
+!19 = !{!"llvm.loop.mustprogress"}

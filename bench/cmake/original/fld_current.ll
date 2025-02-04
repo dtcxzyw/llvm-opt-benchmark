@@ -12,344 +12,356 @@ define dso_local i32 @set_current_field(ptr noundef %0, ptr noundef %1) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store i32 0, ptr %6, align 4
-  %7 = load ptr, ptr %4, align 8
-  %8 = icmp ne ptr %7, null
-  br i1 %8, label %9, label %12
+  %7 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !4
+  store ptr %1, ptr %5, align 8, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #4
+  store i32 0, ptr %6, align 4, !tbaa !11
+  %8 = load ptr, ptr %4, align 8, !tbaa !4
+  %9 = icmp ne ptr %8, null
+  br i1 %9, label %10, label %13
 
-9:                                                ; preds = %2
-  %10 = load ptr, ptr %5, align 8
-  %11 = icmp ne ptr %10, null
-  br i1 %11, label %14, label %12
+10:                                               ; preds = %2
+  %11 = load ptr, ptr %5, align 8, !tbaa !9
+  %12 = icmp ne ptr %11, null
+  br i1 %12, label %15, label %13
 
-12:                                               ; preds = %9, %2
-  %13 = call ptr @__errno_location() #3
-  store i32 -2, ptr %13, align 4
+13:                                               ; preds = %10, %2
+  %14 = call ptr @__errno_location() #5
+  store i32 -2, ptr %14, align 4, !tbaa !11
   store i32 -2, ptr %3, align 4
-  br label %193
+  store i32 1, ptr %7, align 4
+  br label %194
 
-14:                                               ; preds = %9
-  %15 = load ptr, ptr %4, align 8
-  %16 = load ptr, ptr %5, align 8
-  %17 = getelementptr inbounds %struct.fieldnode, ptr %16, i32 0, i32 20
-  %18 = load ptr, ptr %17, align 8
-  %19 = icmp ne ptr %15, %18
-  br i1 %19, label %26, label %20
+15:                                               ; preds = %10
+  %16 = load ptr, ptr %4, align 8, !tbaa !4
+  %17 = load ptr, ptr %5, align 8, !tbaa !9
+  %18 = getelementptr inbounds nuw %struct.fieldnode, ptr %17, i32 0, i32 20
+  %19 = load ptr, ptr %18, align 8, !tbaa !13
+  %20 = icmp ne ptr %16, %19
+  br i1 %20, label %27, label %21
 
-20:                                               ; preds = %14
-  %21 = load ptr, ptr %5, align 8
-  %22 = getelementptr inbounds %struct.fieldnode, ptr %21, i32 0, i32 16
-  %23 = load i32, ptr %22, align 8
-  %24 = and i32 %23, 3
-  %25 = icmp ne i32 %24, 3
-  br i1 %25, label %26, label %28
+21:                                               ; preds = %15
+  %22 = load ptr, ptr %5, align 8, !tbaa !9
+  %23 = getelementptr inbounds nuw %struct.fieldnode, ptr %22, i32 0, i32 16
+  %24 = load i32, ptr %23, align 8, !tbaa !18
+  %25 = and i32 %24, 3
+  %26 = icmp ne i32 %25, 3
+  br i1 %26, label %27, label %29
 
-26:                                               ; preds = %20, %14
-  %27 = call ptr @__errno_location() #3
-  store i32 -12, ptr %27, align 4
+27:                                               ; preds = %21, %15
+  %28 = call ptr @__errno_location() #5
+  store i32 -12, ptr %28, align 4, !tbaa !11
   store i32 -12, ptr %3, align 4
-  br label %193
+  store i32 1, ptr %7, align 4
+  br label %194
 
-28:                                               ; preds = %20
-  %29 = load ptr, ptr %4, align 8
-  %30 = getelementptr inbounds %struct.formnode, ptr %29, i32 0, i32 0
-  %31 = load i16, ptr %30, align 8
-  %32 = zext i16 %31 to i32
-  %33 = and i32 %32, 1
-  %34 = icmp ne i32 %33, 0
-  br i1 %34, label %44, label %35
+29:                                               ; preds = %21
+  %30 = load ptr, ptr %4, align 8, !tbaa !4
+  %31 = getelementptr inbounds nuw %struct.formnode, ptr %30, i32 0, i32 0
+  %32 = load i16, ptr %31, align 8, !tbaa !19
+  %33 = zext i16 %32 to i32
+  %34 = and i32 %33, 1
+  %35 = icmp ne i32 %34, 0
+  br i1 %35, label %45, label %36
 
-35:                                               ; preds = %28
-  %36 = load ptr, ptr %5, align 8
-  %37 = load ptr, ptr %4, align 8
-  %38 = getelementptr inbounds %struct.formnode, ptr %37, i32 0, i32 15
-  store ptr %36, ptr %38, align 8
-  %39 = load ptr, ptr %5, align 8
-  %40 = getelementptr inbounds %struct.fieldnode, ptr %39, i32 0, i32 11
-  %41 = load i16, ptr %40, align 8
-  %42 = load ptr, ptr %4, align 8
-  %43 = getelementptr inbounds %struct.formnode, ptr %42, i32 0, i32 9
-  store i16 %41, ptr %43, align 4
+36:                                               ; preds = %29
+  %37 = load ptr, ptr %5, align 8, !tbaa !9
+  %38 = load ptr, ptr %4, align 8, !tbaa !4
+  %39 = getelementptr inbounds nuw %struct.formnode, ptr %38, i32 0, i32 15
+  store ptr %37, ptr %39, align 8, !tbaa !23
+  %40 = load ptr, ptr %5, align 8, !tbaa !9
+  %41 = getelementptr inbounds nuw %struct.fieldnode, ptr %40, i32 0, i32 11
+  %42 = load i16, ptr %41, align 8, !tbaa !24
+  %43 = load ptr, ptr %4, align 8, !tbaa !4
+  %44 = getelementptr inbounds nuw %struct.formnode, ptr %43, i32 0, i32 9
+  store i16 %42, ptr %44, align 4, !tbaa !25
+  br label %191
+
+45:                                               ; preds = %29
+  %46 = load ptr, ptr %4, align 8, !tbaa !4
+  %47 = getelementptr inbounds nuw %struct.formnode, ptr %46, i32 0, i32 0
+  %48 = load i16, ptr %47, align 8, !tbaa !19
+  %49 = zext i16 %48 to i32
+  %50 = and i32 %49, 2
+  %51 = icmp ne i32 %50, 0
+  br i1 %51, label %52, label %53
+
+52:                                               ; preds = %45
+  store i32 -5, ptr %6, align 4, !tbaa !11
   br label %190
 
-44:                                               ; preds = %28
-  %45 = load ptr, ptr %4, align 8
-  %46 = getelementptr inbounds %struct.formnode, ptr %45, i32 0, i32 0
-  %47 = load i16, ptr %46, align 8
-  %48 = zext i16 %47 to i32
-  %49 = and i32 %48, 2
-  %50 = icmp ne i32 %49, 0
-  br i1 %50, label %51, label %52
+53:                                               ; preds = %45
+  %54 = load ptr, ptr %4, align 8, !tbaa !4
+  %55 = getelementptr inbounds nuw %struct.formnode, ptr %54, i32 0, i32 15
+  %56 = load ptr, ptr %55, align 8, !tbaa !23
+  %57 = load ptr, ptr %5, align 8, !tbaa !9
+  %58 = icmp ne ptr %56, %57
+  br i1 %58, label %59, label %189
 
-51:                                               ; preds = %44
-  store i32 -5, ptr %6, align 4
-  br label %189
+59:                                               ; preds = %53
+  %60 = load ptr, ptr %4, align 8, !tbaa !4
+  %61 = call zeroext i1 @_nc_Internal_Validation(ptr noundef %60)
+  br i1 %61, label %63, label %62
 
-52:                                               ; preds = %44
-  %53 = load ptr, ptr %4, align 8
-  %54 = getelementptr inbounds %struct.formnode, ptr %53, i32 0, i32 15
-  %55 = load ptr, ptr %54, align 8
-  %56 = load ptr, ptr %5, align 8
-  %57 = icmp ne ptr %55, %56
-  br i1 %57, label %58, label %188
-
-58:                                               ; preds = %52
-  %59 = load ptr, ptr %4, align 8
-  %60 = call zeroext i1 @_nc_Internal_Validation(ptr noundef %59)
-  br i1 %60, label %62, label %61
-
-61:                                               ; preds = %58
-  store i32 -13, ptr %6, align 4
-  br label %187
-
-62:                                               ; preds = %58
-  %63 = load ptr, ptr %4, align 8
-  %64 = icmp ne ptr %63, null
-  br i1 %64, label %65, label %87
-
-65:                                               ; preds = %62
-  %66 = load ptr, ptr %4, align 8
-  %67 = getelementptr inbounds %struct.formnode, ptr %66, i32 0, i32 21
-  %68 = load ptr, ptr %67, align 8
-  %69 = icmp ne ptr %68, null
-  br i1 %69, label %70, label %87
-
-70:                                               ; preds = %65
-  %71 = load ptr, ptr %4, align 8
-  %72 = getelementptr inbounds %struct.formnode, ptr %71, i32 0, i32 0
-  %73 = load i16, ptr %72, align 8
-  %74 = zext i16 %73 to i32
-  %75 = or i32 %74, 2
-  %76 = trunc i32 %75 to i16
-  store i16 %76, ptr %72, align 8
-  %77 = load ptr, ptr %4, align 8
-  %78 = getelementptr inbounds %struct.formnode, ptr %77, i32 0, i32 21
-  %79 = load ptr, ptr %78, align 8
-  %80 = load ptr, ptr %4, align 8
-  call void %79(ptr noundef %80)
-  %81 = load ptr, ptr %4, align 8
-  %82 = getelementptr inbounds %struct.formnode, ptr %81, i32 0, i32 0
-  %83 = load i16, ptr %82, align 8
-  %84 = zext i16 %83 to i32
-  %85 = and i32 %84, -3
-  %86 = trunc i32 %85 to i16
-  store i16 %86, ptr %82, align 8
-  br label %87
-
-87:                                               ; preds = %70, %65, %62
-  %88 = load ptr, ptr %5, align 8
-  %89 = getelementptr inbounds %struct.fieldnode, ptr %88, i32 0, i32 11
-  %90 = load i16, ptr %89, align 8
-  %91 = sext i16 %90 to i32
-  %92 = load ptr, ptr %4, align 8
-  %93 = getelementptr inbounds %struct.formnode, ptr %92, i32 0, i32 9
-  %94 = load i16, ptr %93, align 4
-  %95 = sext i16 %94 to i32
-  %96 = icmp ne i32 %91, %95
-  br i1 %96, label %97, label %155
-
-97:                                               ; preds = %87
-  %98 = load ptr, ptr %4, align 8
-  %99 = icmp ne ptr %98, null
-  br i1 %99, label %100, label %122
-
-100:                                              ; preds = %97
-  %101 = load ptr, ptr %4, align 8
-  %102 = getelementptr inbounds %struct.formnode, ptr %101, i32 0, i32 19
-  %103 = load ptr, ptr %102, align 8
-  %104 = icmp ne ptr %103, null
-  br i1 %104, label %105, label %122
-
-105:                                              ; preds = %100
-  %106 = load ptr, ptr %4, align 8
-  %107 = getelementptr inbounds %struct.formnode, ptr %106, i32 0, i32 0
-  %108 = load i16, ptr %107, align 8
-  %109 = zext i16 %108 to i32
-  %110 = or i32 %109, 2
-  %111 = trunc i32 %110 to i16
-  store i16 %111, ptr %107, align 8
-  %112 = load ptr, ptr %4, align 8
-  %113 = getelementptr inbounds %struct.formnode, ptr %112, i32 0, i32 19
-  %114 = load ptr, ptr %113, align 8
-  %115 = load ptr, ptr %4, align 8
-  call void %114(ptr noundef %115)
-  %116 = load ptr, ptr %4, align 8
-  %117 = getelementptr inbounds %struct.formnode, ptr %116, i32 0, i32 0
-  %118 = load i16, ptr %117, align 8
-  %119 = zext i16 %118 to i32
-  %120 = and i32 %119, -3
-  %121 = trunc i32 %120 to i16
-  store i16 %121, ptr %117, align 8
-  br label %122
-
-122:                                              ; preds = %105, %100, %97
-  %123 = load ptr, ptr %4, align 8
-  %124 = load ptr, ptr %5, align 8
-  %125 = getelementptr inbounds %struct.fieldnode, ptr %124, i32 0, i32 11
-  %126 = load i16, ptr %125, align 8
-  %127 = sext i16 %126 to i32
-  %128 = load ptr, ptr %5, align 8
-  %129 = call i32 @_nc_Set_Form_Page(ptr noundef %123, i32 noundef %127, ptr noundef %128)
-  store i32 %129, ptr %6, align 4
-  %130 = load ptr, ptr %4, align 8
-  %131 = icmp ne ptr %130, null
-  br i1 %131, label %132, label %154
-
-132:                                              ; preds = %122
-  %133 = load ptr, ptr %4, align 8
-  %134 = getelementptr inbounds %struct.formnode, ptr %133, i32 0, i32 18
-  %135 = load ptr, ptr %134, align 8
-  %136 = icmp ne ptr %135, null
-  br i1 %136, label %137, label %154
-
-137:                                              ; preds = %132
-  %138 = load ptr, ptr %4, align 8
-  %139 = getelementptr inbounds %struct.formnode, ptr %138, i32 0, i32 0
-  %140 = load i16, ptr %139, align 8
-  %141 = zext i16 %140 to i32
-  %142 = or i32 %141, 2
-  %143 = trunc i32 %142 to i16
-  store i16 %143, ptr %139, align 8
-  %144 = load ptr, ptr %4, align 8
-  %145 = getelementptr inbounds %struct.formnode, ptr %144, i32 0, i32 18
-  %146 = load ptr, ptr %145, align 8
-  %147 = load ptr, ptr %4, align 8
-  call void %146(ptr noundef %147)
-  %148 = load ptr, ptr %4, align 8
-  %149 = getelementptr inbounds %struct.formnode, ptr %148, i32 0, i32 0
-  %150 = load i16, ptr %149, align 8
-  %151 = zext i16 %150 to i32
-  %152 = and i32 %151, -3
-  %153 = trunc i32 %152 to i16
-  store i16 %153, ptr %149, align 8
-  br label %154
-
-154:                                              ; preds = %137, %132, %122
-  br label %159
-
-155:                                              ; preds = %87
-  %156 = load ptr, ptr %4, align 8
-  %157 = load ptr, ptr %5, align 8
-  %158 = call i32 @_nc_Set_Current_Field(ptr noundef %156, ptr noundef %157)
-  store i32 %158, ptr %6, align 4
-  br label %159
-
-159:                                              ; preds = %155, %154
-  %160 = load ptr, ptr %4, align 8
-  %161 = icmp ne ptr %160, null
-  br i1 %161, label %162, label %184
-
-162:                                              ; preds = %159
-  %163 = load ptr, ptr %4, align 8
-  %164 = getelementptr inbounds %struct.formnode, ptr %163, i32 0, i32 20
-  %165 = load ptr, ptr %164, align 8
-  %166 = icmp ne ptr %165, null
-  br i1 %166, label %167, label %184
-
-167:                                              ; preds = %162
-  %168 = load ptr, ptr %4, align 8
-  %169 = getelementptr inbounds %struct.formnode, ptr %168, i32 0, i32 0
-  %170 = load i16, ptr %169, align 8
-  %171 = zext i16 %170 to i32
-  %172 = or i32 %171, 2
-  %173 = trunc i32 %172 to i16
-  store i16 %173, ptr %169, align 8
-  %174 = load ptr, ptr %4, align 8
-  %175 = getelementptr inbounds %struct.formnode, ptr %174, i32 0, i32 20
-  %176 = load ptr, ptr %175, align 8
-  %177 = load ptr, ptr %4, align 8
-  call void %176(ptr noundef %177)
-  %178 = load ptr, ptr %4, align 8
-  %179 = getelementptr inbounds %struct.formnode, ptr %178, i32 0, i32 0
-  %180 = load i16, ptr %179, align 8
-  %181 = zext i16 %180 to i32
-  %182 = and i32 %181, -3
-  %183 = trunc i32 %182 to i16
-  store i16 %183, ptr %179, align 8
-  br label %184
-
-184:                                              ; preds = %167, %162, %159
-  %185 = load ptr, ptr %4, align 8
-  %186 = call i32 @_nc_Refresh_Current_Field(ptr noundef %185)
-  br label %187
-
-187:                                              ; preds = %184, %61
+62:                                               ; preds = %59
+  store i32 -13, ptr %6, align 4, !tbaa !11
   br label %188
 
-188:                                              ; preds = %187, %52
+63:                                               ; preds = %59
+  %64 = load ptr, ptr %4, align 8, !tbaa !4
+  %65 = icmp ne ptr %64, null
+  br i1 %65, label %66, label %88
+
+66:                                               ; preds = %63
+  %67 = load ptr, ptr %4, align 8, !tbaa !4
+  %68 = getelementptr inbounds nuw %struct.formnode, ptr %67, i32 0, i32 21
+  %69 = load ptr, ptr %68, align 8, !tbaa !26
+  %70 = icmp ne ptr %69, null
+  br i1 %70, label %71, label %88
+
+71:                                               ; preds = %66
+  %72 = load ptr, ptr %4, align 8, !tbaa !4
+  %73 = getelementptr inbounds nuw %struct.formnode, ptr %72, i32 0, i32 0
+  %74 = load i16, ptr %73, align 8, !tbaa !19
+  %75 = zext i16 %74 to i32
+  %76 = or i32 %75, 2
+  %77 = trunc i32 %76 to i16
+  store i16 %77, ptr %73, align 8, !tbaa !19
+  %78 = load ptr, ptr %4, align 8, !tbaa !4
+  %79 = getelementptr inbounds nuw %struct.formnode, ptr %78, i32 0, i32 21
+  %80 = load ptr, ptr %79, align 8, !tbaa !26
+  %81 = load ptr, ptr %4, align 8, !tbaa !4
+  call void %80(ptr noundef %81)
+  %82 = load ptr, ptr %4, align 8, !tbaa !4
+  %83 = getelementptr inbounds nuw %struct.formnode, ptr %82, i32 0, i32 0
+  %84 = load i16, ptr %83, align 8, !tbaa !19
+  %85 = zext i16 %84 to i32
+  %86 = and i32 %85, -3
+  %87 = trunc i32 %86 to i16
+  store i16 %87, ptr %83, align 8, !tbaa !19
+  br label %88
+
+88:                                               ; preds = %71, %66, %63
+  %89 = load ptr, ptr %5, align 8, !tbaa !9
+  %90 = getelementptr inbounds nuw %struct.fieldnode, ptr %89, i32 0, i32 11
+  %91 = load i16, ptr %90, align 8, !tbaa !24
+  %92 = sext i16 %91 to i32
+  %93 = load ptr, ptr %4, align 8, !tbaa !4
+  %94 = getelementptr inbounds nuw %struct.formnode, ptr %93, i32 0, i32 9
+  %95 = load i16, ptr %94, align 4, !tbaa !25
+  %96 = sext i16 %95 to i32
+  %97 = icmp ne i32 %92, %96
+  br i1 %97, label %98, label %156
+
+98:                                               ; preds = %88
+  %99 = load ptr, ptr %4, align 8, !tbaa !4
+  %100 = icmp ne ptr %99, null
+  br i1 %100, label %101, label %123
+
+101:                                              ; preds = %98
+  %102 = load ptr, ptr %4, align 8, !tbaa !4
+  %103 = getelementptr inbounds nuw %struct.formnode, ptr %102, i32 0, i32 19
+  %104 = load ptr, ptr %103, align 8, !tbaa !27
+  %105 = icmp ne ptr %104, null
+  br i1 %105, label %106, label %123
+
+106:                                              ; preds = %101
+  %107 = load ptr, ptr %4, align 8, !tbaa !4
+  %108 = getelementptr inbounds nuw %struct.formnode, ptr %107, i32 0, i32 0
+  %109 = load i16, ptr %108, align 8, !tbaa !19
+  %110 = zext i16 %109 to i32
+  %111 = or i32 %110, 2
+  %112 = trunc i32 %111 to i16
+  store i16 %112, ptr %108, align 8, !tbaa !19
+  %113 = load ptr, ptr %4, align 8, !tbaa !4
+  %114 = getelementptr inbounds nuw %struct.formnode, ptr %113, i32 0, i32 19
+  %115 = load ptr, ptr %114, align 8, !tbaa !27
+  %116 = load ptr, ptr %4, align 8, !tbaa !4
+  call void %115(ptr noundef %116)
+  %117 = load ptr, ptr %4, align 8, !tbaa !4
+  %118 = getelementptr inbounds nuw %struct.formnode, ptr %117, i32 0, i32 0
+  %119 = load i16, ptr %118, align 8, !tbaa !19
+  %120 = zext i16 %119 to i32
+  %121 = and i32 %120, -3
+  %122 = trunc i32 %121 to i16
+  store i16 %122, ptr %118, align 8, !tbaa !19
+  br label %123
+
+123:                                              ; preds = %106, %101, %98
+  %124 = load ptr, ptr %4, align 8, !tbaa !4
+  %125 = load ptr, ptr %5, align 8, !tbaa !9
+  %126 = getelementptr inbounds nuw %struct.fieldnode, ptr %125, i32 0, i32 11
+  %127 = load i16, ptr %126, align 8, !tbaa !24
+  %128 = sext i16 %127 to i32
+  %129 = load ptr, ptr %5, align 8, !tbaa !9
+  %130 = call i32 @_nc_Set_Form_Page(ptr noundef %124, i32 noundef %128, ptr noundef %129)
+  store i32 %130, ptr %6, align 4, !tbaa !11
+  %131 = load ptr, ptr %4, align 8, !tbaa !4
+  %132 = icmp ne ptr %131, null
+  br i1 %132, label %133, label %155
+
+133:                                              ; preds = %123
+  %134 = load ptr, ptr %4, align 8, !tbaa !4
+  %135 = getelementptr inbounds nuw %struct.formnode, ptr %134, i32 0, i32 18
+  %136 = load ptr, ptr %135, align 8, !tbaa !28
+  %137 = icmp ne ptr %136, null
+  br i1 %137, label %138, label %155
+
+138:                                              ; preds = %133
+  %139 = load ptr, ptr %4, align 8, !tbaa !4
+  %140 = getelementptr inbounds nuw %struct.formnode, ptr %139, i32 0, i32 0
+  %141 = load i16, ptr %140, align 8, !tbaa !19
+  %142 = zext i16 %141 to i32
+  %143 = or i32 %142, 2
+  %144 = trunc i32 %143 to i16
+  store i16 %144, ptr %140, align 8, !tbaa !19
+  %145 = load ptr, ptr %4, align 8, !tbaa !4
+  %146 = getelementptr inbounds nuw %struct.formnode, ptr %145, i32 0, i32 18
+  %147 = load ptr, ptr %146, align 8, !tbaa !28
+  %148 = load ptr, ptr %4, align 8, !tbaa !4
+  call void %147(ptr noundef %148)
+  %149 = load ptr, ptr %4, align 8, !tbaa !4
+  %150 = getelementptr inbounds nuw %struct.formnode, ptr %149, i32 0, i32 0
+  %151 = load i16, ptr %150, align 8, !tbaa !19
+  %152 = zext i16 %151 to i32
+  %153 = and i32 %152, -3
+  %154 = trunc i32 %153 to i16
+  store i16 %154, ptr %150, align 8, !tbaa !19
+  br label %155
+
+155:                                              ; preds = %138, %133, %123
+  br label %160
+
+156:                                              ; preds = %88
+  %157 = load ptr, ptr %4, align 8, !tbaa !4
+  %158 = load ptr, ptr %5, align 8, !tbaa !9
+  %159 = call i32 @_nc_Set_Current_Field(ptr noundef %157, ptr noundef %158)
+  store i32 %159, ptr %6, align 4, !tbaa !11
+  br label %160
+
+160:                                              ; preds = %156, %155
+  %161 = load ptr, ptr %4, align 8, !tbaa !4
+  %162 = icmp ne ptr %161, null
+  br i1 %162, label %163, label %185
+
+163:                                              ; preds = %160
+  %164 = load ptr, ptr %4, align 8, !tbaa !4
+  %165 = getelementptr inbounds nuw %struct.formnode, ptr %164, i32 0, i32 20
+  %166 = load ptr, ptr %165, align 8, !tbaa !29
+  %167 = icmp ne ptr %166, null
+  br i1 %167, label %168, label %185
+
+168:                                              ; preds = %163
+  %169 = load ptr, ptr %4, align 8, !tbaa !4
+  %170 = getelementptr inbounds nuw %struct.formnode, ptr %169, i32 0, i32 0
+  %171 = load i16, ptr %170, align 8, !tbaa !19
+  %172 = zext i16 %171 to i32
+  %173 = or i32 %172, 2
+  %174 = trunc i32 %173 to i16
+  store i16 %174, ptr %170, align 8, !tbaa !19
+  %175 = load ptr, ptr %4, align 8, !tbaa !4
+  %176 = getelementptr inbounds nuw %struct.formnode, ptr %175, i32 0, i32 20
+  %177 = load ptr, ptr %176, align 8, !tbaa !29
+  %178 = load ptr, ptr %4, align 8, !tbaa !4
+  call void %177(ptr noundef %178)
+  %179 = load ptr, ptr %4, align 8, !tbaa !4
+  %180 = getelementptr inbounds nuw %struct.formnode, ptr %179, i32 0, i32 0
+  %181 = load i16, ptr %180, align 8, !tbaa !19
+  %182 = zext i16 %181 to i32
+  %183 = and i32 %182, -3
+  %184 = trunc i32 %183 to i16
+  store i16 %184, ptr %180, align 8, !tbaa !19
+  br label %185
+
+185:                                              ; preds = %168, %163, %160
+  %186 = load ptr, ptr %4, align 8, !tbaa !4
+  %187 = call i32 @_nc_Refresh_Current_Field(ptr noundef %186)
+  br label %188
+
+188:                                              ; preds = %185, %62
   br label %189
 
-189:                                              ; preds = %188, %51
+189:                                              ; preds = %188, %53
   br label %190
 
-190:                                              ; preds = %189, %35
-  %191 = load i32, ptr %6, align 4
-  %192 = call ptr @__errno_location() #3
-  store i32 %191, ptr %192, align 4
-  store i32 %191, ptr %3, align 4
-  br label %193
+190:                                              ; preds = %189, %52
+  br label %191
 
-193:                                              ; preds = %190, %26, %12
-  %194 = load i32, ptr %3, align 4
-  ret i32 %194
+191:                                              ; preds = %190, %36
+  %192 = load i32, ptr %6, align 4, !tbaa !11
+  %193 = call ptr @__errno_location() #5
+  store i32 %192, ptr %193, align 4, !tbaa !11
+  store i32 %192, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %194
+
+194:                                              ; preds = %191, %27, %13
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #4
+  %195 = load i32, ptr %3, align 4
+  ret i32 %195
 }
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+
 ; Function Attrs: nounwind willreturn memory(none)
-declare ptr @__errno_location() #1
+declare ptr @__errno_location() #2
 
-declare zeroext i1 @_nc_Internal_Validation(ptr noundef) #2
+declare zeroext i1 @_nc_Internal_Validation(ptr noundef) #3
 
-declare i32 @_nc_Set_Form_Page(ptr noundef, i32 noundef, ptr noundef) #2
+declare i32 @_nc_Set_Form_Page(ptr noundef, i32 noundef, ptr noundef) #3
 
-declare i32 @_nc_Set_Current_Field(ptr noundef, ptr noundef) #2
+declare i32 @_nc_Set_Current_Field(ptr noundef, ptr noundef) #3
 
-declare i32 @_nc_Refresh_Current_Field(ptr noundef) #2
+declare i32 @_nc_Refresh_Current_Field(ptr noundef) #3
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @current_field(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !4
+  %3 = load ptr, ptr %2, align 8, !tbaa !4
   %4 = icmp ne ptr %3, null
   br i1 %4, label %5, label %7
 
 5:                                                ; preds = %1
-  %6 = load ptr, ptr %2, align 8
+  %6 = load ptr, ptr %2, align 8, !tbaa !4
   br label %9
 
 7:                                                ; preds = %1
-  %8 = load ptr, ptr @_nc_Default_Form, align 8
+  %8 = load ptr, ptr @_nc_Default_Form, align 8, !tbaa !4
   br label %9
 
 9:                                                ; preds = %7, %5
   %10 = phi ptr [ %6, %5 ], [ %8, %7 ]
-  store ptr %10, ptr %2, align 8
-  %11 = getelementptr inbounds %struct.formnode, ptr %10, i32 0, i32 15
-  %12 = load ptr, ptr %11, align 8
+  store ptr %10, ptr %2, align 8, !tbaa !4
+  %11 = getelementptr inbounds nuw %struct.formnode, ptr %10, i32 0, i32 15
+  %12 = load ptr, ptr %11, align 8, !tbaa !23
   ret ptr %12
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @field_index(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !9
+  %3 = load ptr, ptr %2, align 8, !tbaa !9
   %4 = icmp ne ptr %3, null
   br i1 %4, label %5, label %15
 
 5:                                                ; preds = %1
-  %6 = load ptr, ptr %2, align 8
-  %7 = getelementptr inbounds %struct.fieldnode, ptr %6, i32 0, i32 20
-  %8 = load ptr, ptr %7, align 8
+  %6 = load ptr, ptr %2, align 8, !tbaa !9
+  %7 = getelementptr inbounds nuw %struct.fieldnode, ptr %6, i32 0, i32 20
+  %8 = load ptr, ptr %7, align 8, !tbaa !13
   %9 = icmp ne ptr %8, null
   br i1 %9, label %10, label %15
 
 10:                                               ; preds = %5
-  %11 = load ptr, ptr %2, align 8
-  %12 = getelementptr inbounds %struct.fieldnode, ptr %11, i32 0, i32 12
-  %13 = load i16, ptr %12, align 2
+  %11 = load ptr, ptr %2, align 8, !tbaa !9
+  %12 = getelementptr inbounds nuw %struct.fieldnode, ptr %11, i32 0, i32 12
+  %13 = load i16, ptr %12, align 2, !tbaa !30
   %14 = sext i16 %13 to i32
   br label %16
 
@@ -361,15 +373,43 @@ define dso_local i32 @field_index(ptr noundef %0) #0 {
   ret i32 %17
 }
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nounwind willreturn memory(none) }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nounwind }
+attributes #5 = { nounwind willreturn memory(none) }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+!llvm.module.flags = !{!0, !1, !2, !3}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}
+!4 = !{!5, !5, i64 0}
+!5 = !{!"p1 _ZTS8formnode", !6, i64 0}
+!6 = !{!"any pointer", !7, i64 0}
+!7 = !{!"omnipotent char", !8, i64 0}
+!8 = !{!"Simple C/C++ TBAA"}
+!9 = !{!10, !10, i64 0}
+!10 = !{!"p1 _ZTS9fieldnode", !6, i64 0}
+!11 = !{!12, !12, i64 0}
+!12 = !{!"int", !7, i64 0}
+!13 = !{!14, !5, i64 80}
+!14 = !{!"fieldnode", !15, i64 0, !15, i64 2, !15, i64 4, !15, i64 6, !15, i64 8, !12, i64 12, !12, i64 16, !12, i64 20, !12, i64 24, !15, i64 28, !15, i64 30, !15, i64 32, !15, i64 34, !12, i64 36, !12, i64 40, !12, i64 44, !12, i64 48, !10, i64 56, !10, i64 64, !10, i64 72, !5, i64 80, !16, i64 88, !6, i64 96, !17, i64 104, !6, i64 112}
+!15 = !{!"short", !7, i64 0}
+!16 = !{!"p1 _ZTS8typenode", !6, i64 0}
+!17 = !{!"p1 omnipotent char", !6, i64 0}
+!18 = !{!14, !12, i64 48}
+!19 = !{!20, !15, i64 0}
+!20 = !{!"formnode", !15, i64 0, !15, i64 2, !15, i64 4, !12, i64 8, !12, i64 12, !12, i64 16, !12, i64 20, !15, i64 24, !15, i64 26, !15, i64 28, !12, i64 32, !21, i64 40, !21, i64 48, !21, i64 56, !22, i64 64, !10, i64 72, !6, i64 80, !6, i64 88, !6, i64 96, !6, i64 104, !6, i64 112, !6, i64 120}
+!21 = !{!"p1 _ZTS7_win_st", !6, i64 0}
+!22 = !{!"p2 _ZTS9fieldnode", !6, i64 0}
+!23 = !{!20, !10, i64 72}
+!24 = !{!14, !15, i64 32}
+!25 = !{!20, !15, i64 28}
+!26 = !{!20, !6, i64 120}
+!27 = !{!20, !6, i64 104}
+!28 = !{!20, !6, i64 96}
+!29 = !{!20, !6, i64 112}
+!30 = !{!14, !15, i64 34}

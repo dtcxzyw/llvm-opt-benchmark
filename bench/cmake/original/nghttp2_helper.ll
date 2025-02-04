@@ -70,107 +70,150 @@ define dso_local void @nghttp2_put_uint16be(ptr noundef %0, i16 noundef zeroext 
   %3 = alloca ptr, align 8
   %4 = alloca i16, align 2
   %5 = alloca i16, align 2
-  store ptr %0, ptr %3, align 8
-  store i16 %1, ptr %4, align 2
-  %6 = load i16, ptr %4, align 2
-  %7 = call zeroext i16 @htons(i16 noundef zeroext %6) #3
-  store i16 %7, ptr %5, align 2
-  %8 = load ptr, ptr %3, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !4
+  store i16 %1, ptr %4, align 2, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 2, ptr %5) #4
+  %6 = load i16, ptr %4, align 2, !tbaa !9
+  %7 = call zeroext i16 @__bswap_16(i16 noundef zeroext %6)
+  store i16 %7, ptr %5, align 2, !tbaa !9
+  %8 = load ptr, ptr %3, align 8, !tbaa !4
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %8, ptr align 2 %5, i64 2, i1 false)
+  call void @llvm.lifetime.end.p0(i64 2, ptr %5) #4
   ret void
 }
 
-; Function Attrs: nounwind willreturn memory(none)
-declare zeroext i16 @htons(i16 noundef zeroext) #1
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal zeroext i16 @__bswap_16(i16 noundef zeroext %0) #2 {
+  %2 = alloca i16, align 2
+  store i16 %0, ptr %2, align 2, !tbaa !9
+  %3 = load i16, ptr %2, align 2, !tbaa !9
+  %4 = zext i16 %3 to i32
+  %5 = ashr i32 %4, 8
+  %6 = and i32 %5, 255
+  %7 = load i16, ptr %2, align 2, !tbaa !9
+  %8 = zext i16 %7 to i32
+  %9 = and i32 %8, 255
+  %10 = shl i32 %9, 8
+  %11 = or i32 %6, %10
+  %12 = trunc i32 %11 to i16
+  ret i16 %12
+}
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @nghttp2_put_uint32be(ptr noundef %0, i32 noundef %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
-  store ptr %0, ptr %3, align 8
-  store i32 %1, ptr %4, align 4
-  %6 = load i32, ptr %4, align 4
-  %7 = call i32 @htonl(i32 noundef %6) #3
-  store i32 %7, ptr %5, align 4
-  %8 = load ptr, ptr %3, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !4
+  store i32 %1, ptr %4, align 4, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #4
+  %6 = load i32, ptr %4, align 4, !tbaa !11
+  %7 = call i32 @__bswap_32(i32 noundef %6)
+  store i32 %7, ptr %5, align 4, !tbaa !11
+  %8 = load ptr, ptr %3, align 8, !tbaa !4
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %8, ptr align 4 %5, i64 4, i1 false)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #4
   ret void
 }
 
-; Function Attrs: nounwind willreturn memory(none)
-declare i32 @htonl(i32 noundef) #1
+; Function Attrs: inlinehint nounwind uwtable
+define internal i32 @__bswap_32(i32 noundef %0) #2 {
+  %2 = alloca i32, align 4
+  store i32 %0, ptr %2, align 4, !tbaa !11
+  %3 = load i32, ptr %2, align 4, !tbaa !11
+  %4 = and i32 %3, -16777216
+  %5 = lshr i32 %4, 24
+  %6 = load i32, ptr %2, align 4, !tbaa !11
+  %7 = and i32 %6, 16711680
+  %8 = lshr i32 %7, 8
+  %9 = or i32 %5, %8
+  %10 = load i32, ptr %2, align 4, !tbaa !11
+  %11 = and i32 %10, 65280
+  %12 = shl i32 %11, 8
+  %13 = or i32 %9, %12
+  %14 = load i32, ptr %2, align 4, !tbaa !11
+  %15 = and i32 %14, 255
+  %16 = shl i32 %15, 24
+  %17 = or i32 %13, %16
+  ret i32 %17
+}
 
 ; Function Attrs: nounwind uwtable
 define dso_local zeroext i16 @nghttp2_get_uint16(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
   %3 = alloca i16, align 2
-  store ptr %0, ptr %2, align 8
-  %4 = load ptr, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !4
+  call void @llvm.lifetime.start.p0(i64 2, ptr %3) #4
+  %4 = load ptr, ptr %2, align 8, !tbaa !4
   call void @llvm.memcpy.p0.p0.i64(ptr align 2 %3, ptr align 1 %4, i64 2, i1 false)
-  %5 = load i16, ptr %3, align 2
-  %6 = call zeroext i16 @ntohs(i16 noundef zeroext %5) #3
+  %5 = load i16, ptr %3, align 2, !tbaa !9
+  %6 = call zeroext i16 @__bswap_16(i16 noundef zeroext %5)
+  call void @llvm.lifetime.end.p0(i64 2, ptr %3) #4
   ret i16 %6
 }
-
-; Function Attrs: nounwind willreturn memory(none)
-declare zeroext i16 @ntohs(i16 noundef zeroext) #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @nghttp2_get_uint32(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
   %3 = alloca i32, align 4
-  store ptr %0, ptr %2, align 8
-  %4 = load ptr, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %3) #4
+  %4 = load ptr, ptr %2, align 8, !tbaa !4
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %3, ptr align 1 %4, i64 4, i1 false)
-  %5 = load i32, ptr %3, align 4
-  %6 = call i32 @ntohl(i32 noundef %5) #3
+  %5 = load i32, ptr %3, align 4, !tbaa !11
+  %6 = call i32 @__bswap_32(i32 noundef %5)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %3) #4
   ret i32 %6
 }
-
-; Function Attrs: nounwind willreturn memory(none)
-declare i32 @ntohl(i32 noundef) #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @nghttp2_downcase(ptr noundef %0, i64 noundef %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8
-  store ptr %0, ptr %3, align 8
-  store i64 %1, ptr %4, align 8
-  store i64 0, ptr %5, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !4
+  store i64 %1, ptr %4, align 8, !tbaa !13
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #4
+  store i64 0, ptr %5, align 8, !tbaa !13
   br label %6
 
 6:                                                ; preds = %21, %2
-  %7 = load i64, ptr %5, align 8
-  %8 = load i64, ptr %4, align 8
+  %7 = load i64, ptr %5, align 8, !tbaa !13
+  %8 = load i64, ptr %4, align 8, !tbaa !13
   %9 = icmp ult i64 %7, %8
   br i1 %9, label %10, label %24
 
 10:                                               ; preds = %6
-  %11 = load ptr, ptr %3, align 8
-  %12 = load i64, ptr %5, align 8
-  %13 = getelementptr inbounds i8, ptr %11, i64 %12
-  %14 = load i8, ptr %13, align 1
+  %11 = load ptr, ptr %3, align 8, !tbaa !4
+  %12 = load i64, ptr %5, align 8, !tbaa !13
+  %13 = getelementptr inbounds nuw i8, ptr %11, i64 %12
+  %14 = load i8, ptr %13, align 1, !tbaa !15
   %15 = zext i8 %14 to i64
-  %16 = getelementptr inbounds [256 x i8], ptr @DOWNCASE_TBL, i64 0, i64 %15
-  %17 = load i8, ptr %16, align 1
-  %18 = load ptr, ptr %3, align 8
-  %19 = load i64, ptr %5, align 8
-  %20 = getelementptr inbounds i8, ptr %18, i64 %19
-  store i8 %17, ptr %20, align 1
+  %16 = getelementptr inbounds nuw [256 x i8], ptr @DOWNCASE_TBL, i64 0, i64 %15
+  %17 = load i8, ptr %16, align 1, !tbaa !15
+  %18 = load ptr, ptr %3, align 8, !tbaa !4
+  %19 = load i64, ptr %5, align 8, !tbaa !13
+  %20 = getelementptr inbounds nuw i8, ptr %18, i64 %19
+  store i8 %17, ptr %20, align 1, !tbaa !15
   br label %21
 
 21:                                               ; preds = %10
-  %22 = load i64, ptr %5, align 8
+  %22 = load i64, ptr %5, align 8, !tbaa !13
   %23 = add i64 %22, 1
-  store i64 %23, ptr %5, align 8
-  br label %6, !llvm.loop !5
+  store i64 %23, ptr %5, align 8, !tbaa !13
+  br label %6, !llvm.loop !16
 
 24:                                               ; preds = %6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #4
   ret void
 }
 
@@ -184,176 +227,189 @@ define dso_local i32 @nghttp2_adjust_local_window_size(ptr noundef %0, ptr nound
   %10 = alloca i32, align 4
   %11 = alloca i32, align 4
   %12 = alloca i32, align 4
-  store ptr %0, ptr %6, align 8
-  store ptr %1, ptr %7, align 8
-  store ptr %2, ptr %8, align 8
-  store ptr %3, ptr %9, align 8
-  %13 = load ptr, ptr %9, align 8
-  %14 = load i32, ptr %13, align 4
-  %15 = icmp sgt i32 %14, 0
-  br i1 %15, label %16, label %79
+  %13 = alloca i32, align 4
+  store ptr %0, ptr %6, align 8, !tbaa !18
+  store ptr %1, ptr %7, align 8, !tbaa !18
+  store ptr %2, ptr %8, align 8, !tbaa !18
+  store ptr %3, ptr %9, align 8, !tbaa !18
+  %14 = load ptr, ptr %9, align 8, !tbaa !18
+  %15 = load i32, ptr %14, align 4, !tbaa !11
+  %16 = icmp sgt i32 %15, 0
+  br i1 %16, label %17, label %81
 
-16:                                               ; preds = %4
-  %17 = load ptr, ptr %7, align 8
-  %18 = load i32, ptr %17, align 4
-  %19 = icmp sgt i32 0, %18
-  br i1 %19, label %20, label %21
+17:                                               ; preds = %4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #4
+  %18 = load ptr, ptr %7, align 8, !tbaa !18
+  %19 = load i32, ptr %18, align 4, !tbaa !11
+  %20 = icmp sgt i32 0, %19
+  br i1 %20, label %21, label %22
 
-20:                                               ; preds = %16
-  br label %24
+21:                                               ; preds = %17
+  br label %25
 
-21:                                               ; preds = %16
-  %22 = load ptr, ptr %7, align 8
-  %23 = load i32, ptr %22, align 4
-  br label %24
+22:                                               ; preds = %17
+  %23 = load ptr, ptr %7, align 8, !tbaa !18
+  %24 = load i32, ptr %23, align 4, !tbaa !11
+  br label %25
 
-24:                                               ; preds = %21, %20
-  %25 = phi i32 [ 0, %20 ], [ %23, %21 ]
-  %26 = load ptr, ptr %9, align 8
-  %27 = load i32, ptr %26, align 4
-  %28 = sub nsw i32 %25, %27
-  store i32 %28, ptr %12, align 4
-  %29 = load i32, ptr %12, align 4
-  %30 = icmp sge i32 %29, 0
-  br i1 %30, label %31, label %34
+25:                                               ; preds = %22, %21
+  %26 = phi i32 [ 0, %21 ], [ %24, %22 ]
+  %27 = load ptr, ptr %9, align 8, !tbaa !18
+  %28 = load i32, ptr %27, align 4, !tbaa !11
+  %29 = sub nsw i32 %26, %28
+  store i32 %29, ptr %12, align 4, !tbaa !11
+  %30 = load i32, ptr %12, align 4, !tbaa !11
+  %31 = icmp sge i32 %30, 0
+  br i1 %31, label %32, label %35
 
-31:                                               ; preds = %24
-  %32 = load i32, ptr %12, align 4
-  %33 = load ptr, ptr %7, align 8
-  store i32 %32, ptr %33, align 4
+32:                                               ; preds = %25
+  %33 = load i32, ptr %12, align 4, !tbaa !11
+  %34 = load ptr, ptr %7, align 8, !tbaa !18
+  store i32 %33, ptr %34, align 4, !tbaa !11
   store i32 0, ptr %5, align 4
-  br label %118
+  store i32 1, ptr %13, align 4
+  br label %80
 
-34:                                               ; preds = %24
-  %35 = load i32, ptr %12, align 4
-  %36 = sub nsw i32 0, %35
-  store i32 %36, ptr %11, align 4
-  %37 = load ptr, ptr %6, align 8
-  %38 = load i32, ptr %37, align 4
-  %39 = load i32, ptr %11, align 4
-  %40 = sub nsw i32 2147483647, %39
-  %41 = icmp sgt i32 %38, %40
-  br i1 %41, label %42, label %43
+35:                                               ; preds = %25
+  %36 = load i32, ptr %12, align 4, !tbaa !11
+  %37 = sub nsw i32 0, %36
+  store i32 %37, ptr %11, align 4, !tbaa !11
+  %38 = load ptr, ptr %6, align 8, !tbaa !18
+  %39 = load i32, ptr %38, align 4, !tbaa !11
+  %40 = load i32, ptr %11, align 4, !tbaa !11
+  %41 = sub nsw i32 2147483647, %40
+  %42 = icmp sgt i32 %39, %41
+  br i1 %42, label %43, label %44
 
-42:                                               ; preds = %34
+43:                                               ; preds = %35
   store i32 -524, ptr %5, align 4
-  br label %118
+  store i32 1, ptr %13, align 4
+  br label %80
 
-43:                                               ; preds = %34
-  %44 = load i32, ptr %11, align 4
-  %45 = load ptr, ptr %6, align 8
-  %46 = load i32, ptr %45, align 4
-  %47 = add nsw i32 %46, %44
-  store i32 %47, ptr %45, align 4
-  %48 = load ptr, ptr %8, align 8
-  %49 = load i32, ptr %48, align 4
-  %50 = load i32, ptr %11, align 4
-  %51 = icmp slt i32 %49, %50
-  br i1 %51, label %52, label %55
+44:                                               ; preds = %35
+  %45 = load i32, ptr %11, align 4, !tbaa !11
+  %46 = load ptr, ptr %6, align 8, !tbaa !18
+  %47 = load i32, ptr %46, align 4, !tbaa !11
+  %48 = add nsw i32 %47, %45
+  store i32 %48, ptr %46, align 4, !tbaa !11
+  %49 = load ptr, ptr %8, align 8, !tbaa !18
+  %50 = load i32, ptr %49, align 4, !tbaa !11
+  %51 = load i32, ptr %11, align 4, !tbaa !11
+  %52 = icmp slt i32 %50, %51
+  br i1 %52, label %53, label %56
 
-52:                                               ; preds = %43
-  %53 = load ptr, ptr %8, align 8
-  %54 = load i32, ptr %53, align 4
-  br label %57
+53:                                               ; preds = %44
+  %54 = load ptr, ptr %8, align 8, !tbaa !18
+  %55 = load i32, ptr %54, align 4, !tbaa !11
+  br label %58
 
-55:                                               ; preds = %43
-  %56 = load i32, ptr %11, align 4
-  br label %57
+56:                                               ; preds = %44
+  %57 = load i32, ptr %11, align 4, !tbaa !11
+  br label %58
 
-57:                                               ; preds = %55, %52
-  %58 = phi i32 [ %54, %52 ], [ %56, %55 ]
-  store i32 %58, ptr %10, align 4
-  %59 = load i32, ptr %10, align 4
-  %60 = load ptr, ptr %8, align 8
-  %61 = load i32, ptr %60, align 4
-  %62 = sub nsw i32 %61, %59
-  store i32 %62, ptr %60, align 4
-  %63 = load ptr, ptr %7, align 8
-  %64 = load i32, ptr %63, align 4
-  %65 = icmp slt i32 %64, 0
-  br i1 %65, label %66, label %71
+58:                                               ; preds = %56, %53
+  %59 = phi i32 [ %55, %53 ], [ %57, %56 ]
+  store i32 %59, ptr %10, align 4, !tbaa !11
+  %60 = load i32, ptr %10, align 4, !tbaa !11
+  %61 = load ptr, ptr %8, align 8, !tbaa !18
+  %62 = load i32, ptr %61, align 4, !tbaa !11
+  %63 = sub nsw i32 %62, %60
+  store i32 %63, ptr %61, align 4, !tbaa !11
+  %64 = load ptr, ptr %7, align 8, !tbaa !18
+  %65 = load i32, ptr %64, align 4, !tbaa !11
+  %66 = icmp slt i32 %65, 0
+  br i1 %66, label %67, label %72
 
-66:                                               ; preds = %57
-  %67 = load i32, ptr %10, align 4
-  %68 = load ptr, ptr %7, align 8
-  %69 = load i32, ptr %68, align 4
-  %70 = add nsw i32 %69, %67
-  store i32 %70, ptr %68, align 4
-  br label %74
+67:                                               ; preds = %58
+  %68 = load i32, ptr %10, align 4, !tbaa !11
+  %69 = load ptr, ptr %7, align 8, !tbaa !18
+  %70 = load i32, ptr %69, align 4, !tbaa !11
+  %71 = add nsw i32 %70, %68
+  store i32 %71, ptr %69, align 4, !tbaa !11
+  br label %75
 
-71:                                               ; preds = %57
-  %72 = load i32, ptr %10, align 4
-  %73 = load ptr, ptr %7, align 8
-  store i32 %72, ptr %73, align 4
-  br label %74
+72:                                               ; preds = %58
+  %73 = load i32, ptr %10, align 4, !tbaa !11
+  %74 = load ptr, ptr %7, align 8, !tbaa !18
+  store i32 %73, ptr %74, align 4, !tbaa !11
+  br label %75
 
-74:                                               ; preds = %71, %66
-  %75 = load i32, ptr %10, align 4
-  %76 = load ptr, ptr %9, align 8
-  %77 = load i32, ptr %76, align 4
-  %78 = sub nsw i32 %77, %75
-  store i32 %78, ptr %76, align 4
+75:                                               ; preds = %72, %67
+  %76 = load i32, ptr %10, align 4, !tbaa !11
+  %77 = load ptr, ptr %9, align 8, !tbaa !18
+  %78 = load i32, ptr %77, align 4, !tbaa !11
+  %79 = sub nsw i32 %78, %76
+  store i32 %79, ptr %77, align 4, !tbaa !11
   store i32 0, ptr %5, align 4
-  br label %118
+  store i32 1, ptr %13, align 4
+  br label %80
 
-79:                                               ; preds = %4
-  %80 = load ptr, ptr %6, align 8
-  %81 = load i32, ptr %80, align 4
-  %82 = load ptr, ptr %9, align 8
-  %83 = load i32, ptr %82, align 4
-  %84 = add nsw i32 %81, %83
-  %85 = icmp slt i32 %84, 0
-  br i1 %85, label %100, label %86
+80:                                               ; preds = %75, %43, %32
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #4
+  br label %120
 
-86:                                               ; preds = %79
-  %87 = load ptr, ptr %7, align 8
-  %88 = load i32, ptr %87, align 4
-  %89 = load ptr, ptr %9, align 8
-  %90 = load i32, ptr %89, align 4
-  %91 = sub nsw i32 -2147483648, %90
-  %92 = icmp slt i32 %88, %91
-  br i1 %92, label %100, label %93
+81:                                               ; preds = %4
+  %82 = load ptr, ptr %6, align 8, !tbaa !18
+  %83 = load i32, ptr %82, align 4, !tbaa !11
+  %84 = load ptr, ptr %9, align 8, !tbaa !18
+  %85 = load i32, ptr %84, align 4, !tbaa !11
+  %86 = add nsw i32 %83, %85
+  %87 = icmp slt i32 %86, 0
+  br i1 %87, label %102, label %88
 
-93:                                               ; preds = %86
-  %94 = load ptr, ptr %8, align 8
-  %95 = load i32, ptr %94, align 4
-  %96 = load ptr, ptr %9, align 8
-  %97 = load i32, ptr %96, align 4
-  %98 = add nsw i32 2147483647, %97
-  %99 = icmp sgt i32 %95, %98
-  br i1 %99, label %100, label %101
+88:                                               ; preds = %81
+  %89 = load ptr, ptr %7, align 8, !tbaa !18
+  %90 = load i32, ptr %89, align 4, !tbaa !11
+  %91 = load ptr, ptr %9, align 8, !tbaa !18
+  %92 = load i32, ptr %91, align 4, !tbaa !11
+  %93 = sub nsw i32 -2147483648, %92
+  %94 = icmp slt i32 %90, %93
+  br i1 %94, label %102, label %95
 
-100:                                              ; preds = %93, %86, %79
+95:                                               ; preds = %88
+  %96 = load ptr, ptr %8, align 8, !tbaa !18
+  %97 = load i32, ptr %96, align 4, !tbaa !11
+  %98 = load ptr, ptr %9, align 8, !tbaa !18
+  %99 = load i32, ptr %98, align 4, !tbaa !11
+  %100 = add nsw i32 2147483647, %99
+  %101 = icmp sgt i32 %97, %100
+  br i1 %101, label %102, label %103
+
+102:                                              ; preds = %95, %88, %81
   store i32 -524, ptr %5, align 4
-  br label %118
+  br label %120
 
-101:                                              ; preds = %93
-  %102 = load ptr, ptr %9, align 8
-  %103 = load i32, ptr %102, align 4
-  %104 = load ptr, ptr %6, align 8
-  %105 = load i32, ptr %104, align 4
-  %106 = add nsw i32 %105, %103
-  store i32 %106, ptr %104, align 4
-  %107 = load ptr, ptr %9, align 8
-  %108 = load i32, ptr %107, align 4
-  %109 = load ptr, ptr %7, align 8
-  %110 = load i32, ptr %109, align 4
-  %111 = add nsw i32 %110, %108
-  store i32 %111, ptr %109, align 4
-  %112 = load ptr, ptr %9, align 8
-  %113 = load i32, ptr %112, align 4
-  %114 = load ptr, ptr %8, align 8
-  %115 = load i32, ptr %114, align 4
-  %116 = sub nsw i32 %115, %113
-  store i32 %116, ptr %114, align 4
-  %117 = load ptr, ptr %9, align 8
-  store i32 0, ptr %117, align 4
+103:                                              ; preds = %95
+  %104 = load ptr, ptr %9, align 8, !tbaa !18
+  %105 = load i32, ptr %104, align 4, !tbaa !11
+  %106 = load ptr, ptr %6, align 8, !tbaa !18
+  %107 = load i32, ptr %106, align 4, !tbaa !11
+  %108 = add nsw i32 %107, %105
+  store i32 %108, ptr %106, align 4, !tbaa !11
+  %109 = load ptr, ptr %9, align 8, !tbaa !18
+  %110 = load i32, ptr %109, align 4, !tbaa !11
+  %111 = load ptr, ptr %7, align 8, !tbaa !18
+  %112 = load i32, ptr %111, align 4, !tbaa !11
+  %113 = add nsw i32 %112, %110
+  store i32 %113, ptr %111, align 4, !tbaa !11
+  %114 = load ptr, ptr %9, align 8, !tbaa !18
+  %115 = load i32, ptr %114, align 4, !tbaa !11
+  %116 = load ptr, ptr %8, align 8, !tbaa !18
+  %117 = load i32, ptr %116, align 4, !tbaa !11
+  %118 = sub nsw i32 %117, %115
+  store i32 %118, ptr %116, align 4, !tbaa !11
+  %119 = load ptr, ptr %9, align 8, !tbaa !18
+  store i32 0, ptr %119, align 4, !tbaa !11
   store i32 0, ptr %5, align 4
-  br label %118
+  br label %120
 
-118:                                              ; preds = %101, %100, %74, %42, %31
-  %119 = load i32, ptr %5, align 4
-  ret i32 %119
+120:                                              ; preds = %103, %102, %80
+  %121 = load i32, ptr %5, align 4
+  ret i32 %121
 }
 
 ; Function Attrs: nounwind uwtable
@@ -365,84 +421,91 @@ define dso_local i32 @nghttp2_increase_local_window_size(ptr noundef %0, ptr nou
   %9 = alloca ptr, align 8
   %10 = alloca i32, align 4
   %11 = alloca i32, align 4
-  store ptr %0, ptr %6, align 8
-  store ptr %1, ptr %7, align 8
-  store ptr %2, ptr %8, align 8
-  store ptr %3, ptr %9, align 8
-  %12 = load ptr, ptr %9, align 8
-  %13 = load i32, ptr %12, align 4
-  store i32 %13, ptr %11, align 4
-  %14 = load ptr, ptr %6, align 8
-  %15 = load i32, ptr %14, align 4
-  %16 = load i32, ptr %11, align 4
-  %17 = sub nsw i32 2147483647, %16
-  %18 = icmp sgt i32 %15, %17
-  br i1 %18, label %19, label %20
-
-19:                                               ; preds = %4
-  store i32 -524, ptr %5, align 4
-  br label %48
+  %12 = alloca i32, align 4
+  store ptr %0, ptr %6, align 8, !tbaa !18
+  store ptr %1, ptr %7, align 8, !tbaa !18
+  store ptr %2, ptr %8, align 8, !tbaa !18
+  store ptr %3, ptr %9, align 8, !tbaa !18
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #4
+  %13 = load ptr, ptr %9, align 8, !tbaa !18
+  %14 = load i32, ptr %13, align 4, !tbaa !11
+  store i32 %14, ptr %11, align 4, !tbaa !11
+  %15 = load ptr, ptr %6, align 8, !tbaa !18
+  %16 = load i32, ptr %15, align 4, !tbaa !11
+  %17 = load i32, ptr %11, align 4, !tbaa !11
+  %18 = sub nsw i32 2147483647, %17
+  %19 = icmp sgt i32 %16, %18
+  br i1 %19, label %20, label %21
 
 20:                                               ; preds = %4
-  %21 = load i32, ptr %11, align 4
-  %22 = load ptr, ptr %6, align 8
-  %23 = load i32, ptr %22, align 4
-  %24 = add nsw i32 %23, %21
-  store i32 %24, ptr %22, align 4
-  %25 = load ptr, ptr %8, align 8
-  %26 = load i32, ptr %25, align 4
-  %27 = load i32, ptr %11, align 4
-  %28 = icmp slt i32 %26, %27
-  br i1 %28, label %29, label %32
+  store i32 -524, ptr %5, align 4
+  store i32 1, ptr %12, align 4
+  br label %49
 
-29:                                               ; preds = %20
-  %30 = load ptr, ptr %8, align 8
-  %31 = load i32, ptr %30, align 4
-  br label %34
+21:                                               ; preds = %4
+  %22 = load i32, ptr %11, align 4, !tbaa !11
+  %23 = load ptr, ptr %6, align 8, !tbaa !18
+  %24 = load i32, ptr %23, align 4, !tbaa !11
+  %25 = add nsw i32 %24, %22
+  store i32 %25, ptr %23, align 4, !tbaa !11
+  %26 = load ptr, ptr %8, align 8, !tbaa !18
+  %27 = load i32, ptr %26, align 4, !tbaa !11
+  %28 = load i32, ptr %11, align 4, !tbaa !11
+  %29 = icmp slt i32 %27, %28
+  br i1 %29, label %30, label %33
 
-32:                                               ; preds = %20
-  %33 = load i32, ptr %11, align 4
-  br label %34
+30:                                               ; preds = %21
+  %31 = load ptr, ptr %8, align 8, !tbaa !18
+  %32 = load i32, ptr %31, align 4, !tbaa !11
+  br label %35
 
-34:                                               ; preds = %32, %29
-  %35 = phi i32 [ %31, %29 ], [ %33, %32 ]
-  store i32 %35, ptr %10, align 4
-  %36 = load i32, ptr %10, align 4
-  %37 = load ptr, ptr %8, align 8
-  %38 = load i32, ptr %37, align 4
-  %39 = sub nsw i32 %38, %36
-  store i32 %39, ptr %37, align 4
-  %40 = load i32, ptr %10, align 4
-  %41 = load ptr, ptr %7, align 8
-  %42 = load i32, ptr %41, align 4
-  %43 = add nsw i32 %42, %40
-  store i32 %43, ptr %41, align 4
-  %44 = load i32, ptr %10, align 4
-  %45 = load ptr, ptr %9, align 8
-  %46 = load i32, ptr %45, align 4
-  %47 = sub nsw i32 %46, %44
-  store i32 %47, ptr %45, align 4
+33:                                               ; preds = %21
+  %34 = load i32, ptr %11, align 4, !tbaa !11
+  br label %35
+
+35:                                               ; preds = %33, %30
+  %36 = phi i32 [ %32, %30 ], [ %34, %33 ]
+  store i32 %36, ptr %10, align 4, !tbaa !11
+  %37 = load i32, ptr %10, align 4, !tbaa !11
+  %38 = load ptr, ptr %8, align 8, !tbaa !18
+  %39 = load i32, ptr %38, align 4, !tbaa !11
+  %40 = sub nsw i32 %39, %37
+  store i32 %40, ptr %38, align 4, !tbaa !11
+  %41 = load i32, ptr %10, align 4, !tbaa !11
+  %42 = load ptr, ptr %7, align 8, !tbaa !18
+  %43 = load i32, ptr %42, align 4, !tbaa !11
+  %44 = add nsw i32 %43, %41
+  store i32 %44, ptr %42, align 4, !tbaa !11
+  %45 = load i32, ptr %10, align 4, !tbaa !11
+  %46 = load ptr, ptr %9, align 8, !tbaa !18
+  %47 = load i32, ptr %46, align 4, !tbaa !11
+  %48 = sub nsw i32 %47, %45
+  store i32 %48, ptr %46, align 4, !tbaa !11
   store i32 0, ptr %5, align 4
-  br label %48
+  store i32 1, ptr %12, align 4
+  br label %49
 
-48:                                               ; preds = %34, %19
-  %49 = load i32, ptr %5, align 4
-  ret i32 %49
+49:                                               ; preds = %35, %20
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #4
+  %50 = load i32, ptr %5, align 4
+  ret i32 %50
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @nghttp2_should_send_window_update(i32 noundef %0, i32 noundef %1) #0 {
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
-  store i32 %0, ptr %3, align 4
-  store i32 %1, ptr %4, align 4
-  %5 = load i32, ptr %4, align 4
+  store i32 %0, ptr %3, align 4, !tbaa !11
+  store i32 %1, ptr %4, align 4, !tbaa !11
+  %5 = load i32, ptr %4, align 4, !tbaa !11
   %6 = icmp sgt i32 %5, 0
   br i1 %6, label %7, label %12
 
 7:                                                ; preds = %2
-  %8 = load i32, ptr %4, align 4
-  %9 = load i32, ptr %3, align 4
+  %8 = load i32, ptr %4, align 4, !tbaa !11
+  %9 = load i32, ptr %3, align 4, !tbaa !11
   %10 = sdiv i32 %9, 2
   %11 = icmp sge i32 %8, %10
   br label %12
@@ -457,8 +520,8 @@ define dso_local i32 @nghttp2_should_send_window_update(i32 noundef %0, i32 noun
 define dso_local ptr @nghttp2_strerror(i32 noundef %0) #0 {
   %2 = alloca ptr, align 8
   %3 = alloca i32, align 4
-  store i32 %0, ptr %3, align 4
-  %4 = load i32, ptr %3, align 4
+  store i32 %0, ptr %3, align 4, !tbaa !11
+  %4 = load i32, ptr %3, align 4, !tbaa !11
   switch i32 %4, label %46 [
     i32 0, label %5
     i32 -501, label %6
@@ -682,83 +745,90 @@ define dso_local i32 @nghttp2_check_header_name(ptr noundef %0, i64 noundef %1) 
   %4 = alloca ptr, align 8
   %5 = alloca i64, align 8
   %6 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store i64 %1, ptr %5, align 8
-  %7 = load i64, ptr %5, align 8
-  %8 = icmp eq i64 %7, 0
-  br i1 %8, label %9, label %10
-
-9:                                                ; preds = %2
-  store i32 0, ptr %3, align 4
-  br label %45
+  %7 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !4
+  store i64 %1, ptr %5, align 8, !tbaa !13
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #4
+  %8 = load i64, ptr %5, align 8, !tbaa !13
+  %9 = icmp eq i64 %8, 0
+  br i1 %9, label %10, label %11
 
 10:                                               ; preds = %2
-  %11 = load ptr, ptr %4, align 8
-  %12 = load i8, ptr %11, align 1
-  %13 = zext i8 %12 to i32
-  %14 = icmp eq i32 %13, 58
-  br i1 %14, label %15, label %24
-
-15:                                               ; preds = %10
-  %16 = load i64, ptr %5, align 8
-  %17 = icmp eq i64 %16, 1
-  br i1 %17, label %18, label %19
-
-18:                                               ; preds = %15
   store i32 0, ptr %3, align 4
-  br label %45
+  store i32 1, ptr %7, align 4
+  br label %46
 
-19:                                               ; preds = %15
-  %20 = load ptr, ptr %4, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i32 1
-  store ptr %21, ptr %4, align 8
-  %22 = load i64, ptr %5, align 8
-  %23 = add i64 %22, -1
-  store i64 %23, ptr %5, align 8
-  br label %24
+11:                                               ; preds = %2
+  %12 = load ptr, ptr %4, align 8, !tbaa !4
+  %13 = load i8, ptr %12, align 1, !tbaa !15
+  %14 = zext i8 %13 to i32
+  %15 = icmp eq i32 %14, 58
+  br i1 %15, label %16, label %25
 
-24:                                               ; preds = %19, %10
-  %25 = load ptr, ptr %4, align 8
-  %26 = load i64, ptr %5, align 8
-  %27 = getelementptr inbounds i8, ptr %25, i64 %26
-  store ptr %27, ptr %6, align 8
-  br label %28
+16:                                               ; preds = %11
+  %17 = load i64, ptr %5, align 8, !tbaa !13
+  %18 = icmp eq i64 %17, 1
+  br i1 %18, label %19, label %20
 
-28:                                               ; preds = %41, %24
-  %29 = load ptr, ptr %4, align 8
-  %30 = load ptr, ptr %6, align 8
-  %31 = icmp ne ptr %29, %30
-  br i1 %31, label %32, label %44
-
-32:                                               ; preds = %28
-  %33 = load ptr, ptr %4, align 8
-  %34 = load i8, ptr %33, align 1
-  %35 = zext i8 %34 to i64
-  %36 = getelementptr inbounds [256 x i32], ptr @VALID_HD_NAME_CHARS, i64 0, i64 %35
-  %37 = load i32, ptr %36, align 4
-  %38 = icmp ne i32 %37, 0
-  br i1 %38, label %40, label %39
-
-39:                                               ; preds = %32
+19:                                               ; preds = %16
   store i32 0, ptr %3, align 4
-  br label %45
+  store i32 1, ptr %7, align 4
+  br label %46
 
-40:                                               ; preds = %32
-  br label %41
+20:                                               ; preds = %16
+  %21 = load ptr, ptr %4, align 8, !tbaa !4
+  %22 = getelementptr inbounds nuw i8, ptr %21, i32 1
+  store ptr %22, ptr %4, align 8, !tbaa !4
+  %23 = load i64, ptr %5, align 8, !tbaa !13
+  %24 = add i64 %23, -1
+  store i64 %24, ptr %5, align 8, !tbaa !13
+  br label %25
 
-41:                                               ; preds = %40
-  %42 = load ptr, ptr %4, align 8
-  %43 = getelementptr inbounds i8, ptr %42, i32 1
-  store ptr %43, ptr %4, align 8
-  br label %28, !llvm.loop !7
+25:                                               ; preds = %20, %11
+  %26 = load ptr, ptr %4, align 8, !tbaa !4
+  %27 = load i64, ptr %5, align 8, !tbaa !13
+  %28 = getelementptr inbounds nuw i8, ptr %26, i64 %27
+  store ptr %28, ptr %6, align 8, !tbaa !4
+  br label %29
 
-44:                                               ; preds = %28
+29:                                               ; preds = %42, %25
+  %30 = load ptr, ptr %4, align 8, !tbaa !4
+  %31 = load ptr, ptr %6, align 8, !tbaa !4
+  %32 = icmp ne ptr %30, %31
+  br i1 %32, label %33, label %45
+
+33:                                               ; preds = %29
+  %34 = load ptr, ptr %4, align 8, !tbaa !4
+  %35 = load i8, ptr %34, align 1, !tbaa !15
+  %36 = zext i8 %35 to i64
+  %37 = getelementptr inbounds nuw [256 x i32], ptr @VALID_HD_NAME_CHARS, i64 0, i64 %36
+  %38 = load i32, ptr %37, align 4, !tbaa !11
+  %39 = icmp ne i32 %38, 0
+  br i1 %39, label %41, label %40
+
+40:                                               ; preds = %33
+  store i32 0, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %46
+
+41:                                               ; preds = %33
+  br label %42
+
+42:                                               ; preds = %41
+  %43 = load ptr, ptr %4, align 8, !tbaa !4
+  %44 = getelementptr inbounds nuw i8, ptr %43, i32 1
+  store ptr %44, ptr %4, align 8, !tbaa !4
+  br label %29, !llvm.loop !20
+
+45:                                               ; preds = %29
   store i32 1, ptr %3, align 4
-  br label %45
+  store i32 1, ptr %7, align 4
+  br label %46
 
-45:                                               ; preds = %44, %39, %18, %9
-  %46 = load i32, ptr %3, align 4
-  ret i32 %46
+46:                                               ; preds = %45, %40, %19, %10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #4
+  %47 = load i32, ptr %3, align 4
+  ret i32 %47
 }
 
 ; Function Attrs: nounwind uwtable
@@ -767,49 +837,54 @@ define dso_local i32 @nghttp2_check_header_value(ptr noundef %0, i64 noundef %1)
   %4 = alloca ptr, align 8
   %5 = alloca i64, align 8
   %6 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store i64 %1, ptr %5, align 8
-  %7 = load ptr, ptr %4, align 8
-  %8 = load i64, ptr %5, align 8
-  %9 = getelementptr inbounds i8, ptr %7, i64 %8
-  store ptr %9, ptr %6, align 8
-  br label %10
+  %7 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !4
+  store i64 %1, ptr %5, align 8, !tbaa !13
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #4
+  %8 = load ptr, ptr %4, align 8, !tbaa !4
+  %9 = load i64, ptr %5, align 8, !tbaa !13
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 %9
+  store ptr %10, ptr %6, align 8, !tbaa !4
+  br label %11
 
-10:                                               ; preds = %23, %2
-  %11 = load ptr, ptr %4, align 8
-  %12 = load ptr, ptr %6, align 8
-  %13 = icmp ne ptr %11, %12
-  br i1 %13, label %14, label %26
+11:                                               ; preds = %24, %2
+  %12 = load ptr, ptr %4, align 8, !tbaa !4
+  %13 = load ptr, ptr %6, align 8, !tbaa !4
+  %14 = icmp ne ptr %12, %13
+  br i1 %14, label %15, label %27
 
-14:                                               ; preds = %10
-  %15 = load ptr, ptr %4, align 8
-  %16 = load i8, ptr %15, align 1
-  %17 = zext i8 %16 to i64
-  %18 = getelementptr inbounds [256 x i32], ptr @VALID_HD_VALUE_CHARS, i64 0, i64 %17
-  %19 = load i32, ptr %18, align 4
-  %20 = icmp ne i32 %19, 0
-  br i1 %20, label %22, label %21
+15:                                               ; preds = %11
+  %16 = load ptr, ptr %4, align 8, !tbaa !4
+  %17 = load i8, ptr %16, align 1, !tbaa !15
+  %18 = zext i8 %17 to i64
+  %19 = getelementptr inbounds nuw [256 x i32], ptr @VALID_HD_VALUE_CHARS, i64 0, i64 %18
+  %20 = load i32, ptr %19, align 4, !tbaa !11
+  %21 = icmp ne i32 %20, 0
+  br i1 %21, label %23, label %22
 
-21:                                               ; preds = %14
+22:                                               ; preds = %15
   store i32 0, ptr %3, align 4
-  br label %27
+  store i32 1, ptr %7, align 4
+  br label %28
 
-22:                                               ; preds = %14
-  br label %23
+23:                                               ; preds = %15
+  br label %24
 
-23:                                               ; preds = %22
-  %24 = load ptr, ptr %4, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i32 1
-  store ptr %25, ptr %4, align 8
-  br label %10, !llvm.loop !8
+24:                                               ; preds = %23
+  %25 = load ptr, ptr %4, align 8, !tbaa !4
+  %26 = getelementptr inbounds nuw i8, ptr %25, i32 1
+  store ptr %26, ptr %4, align 8, !tbaa !4
+  br label %11, !llvm.loop !21
 
-26:                                               ; preds = %10
+27:                                               ; preds = %11
   store i32 1, ptr %3, align 4
-  br label %27
+  store i32 1, ptr %7, align 4
+  br label %28
 
-27:                                               ; preds = %26, %21
-  %28 = load i32, ptr %3, align 4
-  ret i32 %28
+28:                                               ; preds = %27, %22
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #4
+  %29 = load i32, ptr %3, align 4
+  ret i32 %29
 }
 
 ; Function Attrs: nounwind uwtable
@@ -817,9 +892,9 @@ define dso_local i32 @nghttp2_check_header_value_rfc9113(ptr noundef %0, i64 nou
   %3 = alloca i32, align 4
   %4 = alloca ptr, align 8
   %5 = alloca i64, align 8
-  store ptr %0, ptr %4, align 8
-  store i64 %1, ptr %5, align 8
-  %6 = load i64, ptr %5, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !4
+  store i64 %1, ptr %5, align 8, !tbaa !13
+  %6 = load i64, ptr %5, align 8, !tbaa !13
   %7 = icmp eq i64 %6, 0
   br i1 %7, label %8, label %9
 
@@ -828,35 +903,35 @@ define dso_local i32 @nghttp2_check_header_value_rfc9113(ptr noundef %0, i64 nou
   br label %40
 
 9:                                                ; preds = %2
-  %10 = load ptr, ptr %4, align 8
-  %11 = load i8, ptr %10, align 1
+  %10 = load ptr, ptr %4, align 8, !tbaa !4
+  %11 = load i8, ptr %10, align 1, !tbaa !15
   %12 = zext i8 %11 to i32
   %13 = icmp eq i32 %12, 32
   br i1 %13, label %35, label %14
 
 14:                                               ; preds = %9
-  %15 = load ptr, ptr %4, align 8
-  %16 = load i8, ptr %15, align 1
+  %15 = load ptr, ptr %4, align 8, !tbaa !4
+  %16 = load i8, ptr %15, align 1, !tbaa !15
   %17 = zext i8 %16 to i32
   %18 = icmp eq i32 %17, 9
   br i1 %18, label %35, label %19
 
 19:                                               ; preds = %14
-  %20 = load ptr, ptr %4, align 8
-  %21 = load i64, ptr %5, align 8
-  %22 = getelementptr inbounds i8, ptr %20, i64 %21
+  %20 = load ptr, ptr %4, align 8, !tbaa !4
+  %21 = load i64, ptr %5, align 8, !tbaa !13
+  %22 = getelementptr inbounds nuw i8, ptr %20, i64 %21
   %23 = getelementptr inbounds i8, ptr %22, i64 -1
-  %24 = load i8, ptr %23, align 1
+  %24 = load i8, ptr %23, align 1, !tbaa !15
   %25 = zext i8 %24 to i32
   %26 = icmp eq i32 %25, 32
   br i1 %26, label %35, label %27
 
 27:                                               ; preds = %19
-  %28 = load ptr, ptr %4, align 8
-  %29 = load i64, ptr %5, align 8
-  %30 = getelementptr inbounds i8, ptr %28, i64 %29
+  %28 = load ptr, ptr %4, align 8, !tbaa !4
+  %29 = load i64, ptr %5, align 8, !tbaa !13
+  %30 = getelementptr inbounds nuw i8, ptr %28, i64 %29
   %31 = getelementptr inbounds i8, ptr %30, i64 -1
-  %32 = load i8, ptr %31, align 1
+  %32 = load i8, ptr %31, align 1, !tbaa !15
   %33 = zext i8 %32 to i32
   %34 = icmp eq i32 %33, 9
   br i1 %34, label %35, label %36
@@ -866,8 +941,8 @@ define dso_local i32 @nghttp2_check_header_value_rfc9113(ptr noundef %0, i64 nou
   br label %40
 
 36:                                               ; preds = %27
-  %37 = load ptr, ptr %4, align 8
-  %38 = load i64, ptr %5, align 8
+  %37 = load ptr, ptr %4, align 8, !tbaa !4
+  %38 = load i64, ptr %5, align 8, !tbaa !13
   %39 = call i32 @nghttp2_check_header_value(ptr noundef %37, i64 noundef %38)
   store i32 %39, ptr %3, align 4
   br label %40
@@ -883,58 +958,64 @@ define dso_local i32 @nghttp2_check_method(ptr noundef %0, i64 noundef %1) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca i64, align 8
   %6 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store i64 %1, ptr %5, align 8
-  %7 = load i64, ptr %5, align 8
-  %8 = icmp eq i64 %7, 0
-  br i1 %8, label %9, label %10
-
-9:                                                ; preds = %2
-  store i32 0, ptr %3, align 4
-  br label %31
+  %7 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !4
+  store i64 %1, ptr %5, align 8, !tbaa !13
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #4
+  %8 = load i64, ptr %5, align 8, !tbaa !13
+  %9 = icmp eq i64 %8, 0
+  br i1 %9, label %10, label %11
 
 10:                                               ; preds = %2
-  %11 = load ptr, ptr %4, align 8
-  %12 = load i64, ptr %5, align 8
-  %13 = getelementptr inbounds i8, ptr %11, i64 %12
-  store ptr %13, ptr %6, align 8
-  br label %14
-
-14:                                               ; preds = %27, %10
-  %15 = load ptr, ptr %4, align 8
-  %16 = load ptr, ptr %6, align 8
-  %17 = icmp ne ptr %15, %16
-  br i1 %17, label %18, label %30
-
-18:                                               ; preds = %14
-  %19 = load ptr, ptr %4, align 8
-  %20 = load i8, ptr %19, align 1
-  %21 = zext i8 %20 to i64
-  %22 = getelementptr inbounds [256 x i8], ptr @VALID_METHOD_CHARS, i64 0, i64 %21
-  %23 = load i8, ptr %22, align 1
-  %24 = icmp ne i8 %23, 0
-  br i1 %24, label %26, label %25
-
-25:                                               ; preds = %18
   store i32 0, ptr %3, align 4
-  br label %31
+  store i32 1, ptr %7, align 4
+  br label %32
 
-26:                                               ; preds = %18
-  br label %27
+11:                                               ; preds = %2
+  %12 = load ptr, ptr %4, align 8, !tbaa !4
+  %13 = load i64, ptr %5, align 8, !tbaa !13
+  %14 = getelementptr inbounds nuw i8, ptr %12, i64 %13
+  store ptr %14, ptr %6, align 8, !tbaa !4
+  br label %15
 
-27:                                               ; preds = %26
-  %28 = load ptr, ptr %4, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i32 1
-  store ptr %29, ptr %4, align 8
-  br label %14, !llvm.loop !9
+15:                                               ; preds = %28, %11
+  %16 = load ptr, ptr %4, align 8, !tbaa !4
+  %17 = load ptr, ptr %6, align 8, !tbaa !4
+  %18 = icmp ne ptr %16, %17
+  br i1 %18, label %19, label %31
 
-30:                                               ; preds = %14
+19:                                               ; preds = %15
+  %20 = load ptr, ptr %4, align 8, !tbaa !4
+  %21 = load i8, ptr %20, align 1, !tbaa !15
+  %22 = zext i8 %21 to i64
+  %23 = getelementptr inbounds nuw [256 x i8], ptr @VALID_METHOD_CHARS, i64 0, i64 %22
+  %24 = load i8, ptr %23, align 1, !tbaa !15
+  %25 = icmp ne i8 %24, 0
+  br i1 %25, label %27, label %26
+
+26:                                               ; preds = %19
+  store i32 0, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %32
+
+27:                                               ; preds = %19
+  br label %28
+
+28:                                               ; preds = %27
+  %29 = load ptr, ptr %4, align 8, !tbaa !4
+  %30 = getelementptr inbounds nuw i8, ptr %29, i32 1
+  store ptr %30, ptr %4, align 8, !tbaa !4
+  br label %15, !llvm.loop !22
+
+31:                                               ; preds = %15
   store i32 1, ptr %3, align 4
-  br label %31
+  store i32 1, ptr %7, align 4
+  br label %32
 
-31:                                               ; preds = %30, %25, %9
-  %32 = load i32, ptr %3, align 4
-  ret i32 %32
+32:                                               ; preds = %31, %26, %10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #4
+  %33 = load i32, ptr %3, align 4
+  ret i32 %33
 }
 
 ; Function Attrs: nounwind uwtable
@@ -943,49 +1024,54 @@ define dso_local i32 @nghttp2_check_path(ptr noundef %0, i64 noundef %1) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca i64, align 8
   %6 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store i64 %1, ptr %5, align 8
-  %7 = load ptr, ptr %4, align 8
-  %8 = load i64, ptr %5, align 8
-  %9 = getelementptr inbounds i8, ptr %7, i64 %8
-  store ptr %9, ptr %6, align 8
-  br label %10
+  %7 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !4
+  store i64 %1, ptr %5, align 8, !tbaa !13
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #4
+  %8 = load ptr, ptr %4, align 8, !tbaa !4
+  %9 = load i64, ptr %5, align 8, !tbaa !13
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 %9
+  store ptr %10, ptr %6, align 8, !tbaa !4
+  br label %11
 
-10:                                               ; preds = %23, %2
-  %11 = load ptr, ptr %4, align 8
-  %12 = load ptr, ptr %6, align 8
-  %13 = icmp ne ptr %11, %12
-  br i1 %13, label %14, label %26
+11:                                               ; preds = %24, %2
+  %12 = load ptr, ptr %4, align 8, !tbaa !4
+  %13 = load ptr, ptr %6, align 8, !tbaa !4
+  %14 = icmp ne ptr %12, %13
+  br i1 %14, label %15, label %27
 
-14:                                               ; preds = %10
-  %15 = load ptr, ptr %4, align 8
-  %16 = load i8, ptr %15, align 1
-  %17 = zext i8 %16 to i64
-  %18 = getelementptr inbounds [256 x i8], ptr @VALID_PATH_CHARS, i64 0, i64 %17
-  %19 = load i8, ptr %18, align 1
-  %20 = icmp ne i8 %19, 0
-  br i1 %20, label %22, label %21
+15:                                               ; preds = %11
+  %16 = load ptr, ptr %4, align 8, !tbaa !4
+  %17 = load i8, ptr %16, align 1, !tbaa !15
+  %18 = zext i8 %17 to i64
+  %19 = getelementptr inbounds nuw [256 x i8], ptr @VALID_PATH_CHARS, i64 0, i64 %18
+  %20 = load i8, ptr %19, align 1, !tbaa !15
+  %21 = icmp ne i8 %20, 0
+  br i1 %21, label %23, label %22
 
-21:                                               ; preds = %14
+22:                                               ; preds = %15
   store i32 0, ptr %3, align 4
-  br label %27
+  store i32 1, ptr %7, align 4
+  br label %28
 
-22:                                               ; preds = %14
-  br label %23
+23:                                               ; preds = %15
+  br label %24
 
-23:                                               ; preds = %22
-  %24 = load ptr, ptr %4, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i32 1
-  store ptr %25, ptr %4, align 8
-  br label %10, !llvm.loop !10
+24:                                               ; preds = %23
+  %25 = load ptr, ptr %4, align 8, !tbaa !4
+  %26 = getelementptr inbounds nuw i8, ptr %25, i32 1
+  store ptr %26, ptr %4, align 8, !tbaa !4
+  br label %11, !llvm.loop !23
 
-26:                                               ; preds = %10
+27:                                               ; preds = %11
   store i32 1, ptr %3, align 4
-  br label %27
+  store i32 1, ptr %7, align 4
+  br label %28
 
-27:                                               ; preds = %26, %21
-  %28 = load i32, ptr %3, align 4
-  ret i32 %28
+28:                                               ; preds = %27, %22
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #4
+  %29 = load i32, ptr %3, align 4
+  ret i32 %29
 }
 
 ; Function Attrs: nounwind uwtable
@@ -994,49 +1080,54 @@ define dso_local i32 @nghttp2_check_authority(ptr noundef %0, i64 noundef %1) #0
   %4 = alloca ptr, align 8
   %5 = alloca i64, align 8
   %6 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store i64 %1, ptr %5, align 8
-  %7 = load ptr, ptr %4, align 8
-  %8 = load i64, ptr %5, align 8
-  %9 = getelementptr inbounds i8, ptr %7, i64 %8
-  store ptr %9, ptr %6, align 8
-  br label %10
+  %7 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !4
+  store i64 %1, ptr %5, align 8, !tbaa !13
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #4
+  %8 = load ptr, ptr %4, align 8, !tbaa !4
+  %9 = load i64, ptr %5, align 8, !tbaa !13
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 %9
+  store ptr %10, ptr %6, align 8, !tbaa !4
+  br label %11
 
-10:                                               ; preds = %23, %2
-  %11 = load ptr, ptr %4, align 8
-  %12 = load ptr, ptr %6, align 8
-  %13 = icmp ne ptr %11, %12
-  br i1 %13, label %14, label %26
+11:                                               ; preds = %24, %2
+  %12 = load ptr, ptr %4, align 8, !tbaa !4
+  %13 = load ptr, ptr %6, align 8, !tbaa !4
+  %14 = icmp ne ptr %12, %13
+  br i1 %14, label %15, label %27
 
-14:                                               ; preds = %10
-  %15 = load ptr, ptr %4, align 8
-  %16 = load i8, ptr %15, align 1
-  %17 = zext i8 %16 to i64
-  %18 = getelementptr inbounds [256 x i8], ptr @VALID_AUTHORITY_CHARS, i64 0, i64 %17
-  %19 = load i8, ptr %18, align 1
-  %20 = icmp ne i8 %19, 0
-  br i1 %20, label %22, label %21
+15:                                               ; preds = %11
+  %16 = load ptr, ptr %4, align 8, !tbaa !4
+  %17 = load i8, ptr %16, align 1, !tbaa !15
+  %18 = zext i8 %17 to i64
+  %19 = getelementptr inbounds nuw [256 x i8], ptr @VALID_AUTHORITY_CHARS, i64 0, i64 %18
+  %20 = load i8, ptr %19, align 1, !tbaa !15
+  %21 = icmp ne i8 %20, 0
+  br i1 %21, label %23, label %22
 
-21:                                               ; preds = %14
+22:                                               ; preds = %15
   store i32 0, ptr %3, align 4
-  br label %27
+  store i32 1, ptr %7, align 4
+  br label %28
 
-22:                                               ; preds = %14
-  br label %23
+23:                                               ; preds = %15
+  br label %24
 
-23:                                               ; preds = %22
-  %24 = load ptr, ptr %4, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i32 1
-  store ptr %25, ptr %4, align 8
-  br label %10, !llvm.loop !11
+24:                                               ; preds = %23
+  %25 = load ptr, ptr %4, align 8, !tbaa !4
+  %26 = getelementptr inbounds nuw i8, ptr %25, i32 1
+  store ptr %26, ptr %4, align 8, !tbaa !4
+  br label %11, !llvm.loop !24
 
-26:                                               ; preds = %10
+27:                                               ; preds = %11
   store i32 1, ptr %3, align 4
-  br label %27
+  store i32 1, ptr %7, align 4
+  br label %28
 
-27:                                               ; preds = %26, %21
-  %28 = load i32, ptr %3, align 4
-  ret i32 %28
+28:                                               ; preds = %27, %22
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #4
+  %29 = load i32, ptr %3, align 4
+  ret i32 %29
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1045,26 +1136,26 @@ define dso_local ptr @nghttp2_cpymem(ptr noundef %0, ptr noundef %1, i64 noundef
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca i64, align 8
-  store ptr %0, ptr %5, align 8
-  store ptr %1, ptr %6, align 8
-  store i64 %2, ptr %7, align 8
-  %8 = load i64, ptr %7, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !4
+  store ptr %1, ptr %6, align 8, !tbaa !25
+  store i64 %2, ptr %7, align 8, !tbaa !13
+  %8 = load i64, ptr %7, align 8, !tbaa !13
   %9 = icmp eq i64 %8, 0
   br i1 %9, label %10, label %12
 
 10:                                               ; preds = %3
-  %11 = load ptr, ptr %5, align 8
+  %11 = load ptr, ptr %5, align 8, !tbaa !4
   store ptr %11, ptr %4, align 8
   br label %19
 
 12:                                               ; preds = %3
-  %13 = load ptr, ptr %5, align 8
-  %14 = load ptr, ptr %6, align 8
-  %15 = load i64, ptr %7, align 8
+  %13 = load ptr, ptr %5, align 8, !tbaa !4
+  %14 = load ptr, ptr %6, align 8, !tbaa !25
+  %15 = load i64, ptr %7, align 8, !tbaa !13
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %13, ptr align 1 %14, i64 %15, i1 false)
-  %16 = load ptr, ptr %5, align 8
-  %17 = load i64, ptr %7, align 8
-  %18 = getelementptr inbounds i8, ptr %16, i64 %17
+  %16 = load ptr, ptr %5, align 8, !tbaa !4
+  %17 = load i64, ptr %7, align 8, !tbaa !13
+  %18 = getelementptr inbounds nuw i8, ptr %16, i64 %17
   store ptr %18, ptr %4, align 8
   br label %19
 
@@ -1077,8 +1168,8 @@ define dso_local ptr @nghttp2_cpymem(ptr noundef %0, ptr noundef %1, i64 noundef
 define dso_local ptr @nghttp2_http2_strerror(i32 noundef %0) #0 {
   %2 = alloca ptr, align 8
   %3 = alloca i32, align 4
-  store i32 %0, ptr %3, align 4
-  %4 = load i32, ptr %3, align 4
+  store i32 %0, ptr %3, align 4, !tbaa !11
+  %4 = load i32, ptr %3, align 4, !tbaa !11
   switch i32 %4, label %19 [
     i32 0, label %5
     i32 1, label %6
@@ -1161,22 +1252,37 @@ define dso_local ptr @nghttp2_http2_strerror(i32 noundef %0) #0 {
   ret ptr %21
 }
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { nounwind willreturn memory(none) }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { inlinehint nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #4 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+!llvm.module.flags = !{!0, !1, !2, !3}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
-!9 = distinct !{!9, !6}
-!10 = distinct !{!10, !6}
-!11 = distinct !{!11, !6}
+!4 = !{!5, !5, i64 0}
+!5 = !{!"p1 omnipotent char", !6, i64 0}
+!6 = !{!"any pointer", !7, i64 0}
+!7 = !{!"omnipotent char", !8, i64 0}
+!8 = !{!"Simple C/C++ TBAA"}
+!9 = !{!10, !10, i64 0}
+!10 = !{!"short", !7, i64 0}
+!11 = !{!12, !12, i64 0}
+!12 = !{!"int", !7, i64 0}
+!13 = !{!14, !14, i64 0}
+!14 = !{!"long", !7, i64 0}
+!15 = !{!7, !7, i64 0}
+!16 = distinct !{!16, !17}
+!17 = !{!"llvm.loop.mustprogress"}
+!18 = !{!19, !19, i64 0}
+!19 = !{!"p1 int", !6, i64 0}
+!20 = distinct !{!20, !17}
+!21 = distinct !{!21, !17}
+!22 = distinct !{!22, !17}
+!23 = distinct !{!23, !17}
+!24 = distinct !{!24, !17}
+!25 = !{!6, !6, i64 0}

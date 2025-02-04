@@ -14,21 +14,26 @@ define dso_local void @archive_string_sprintf(ptr noundef %0, ptr noundef %1, ..
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca [1 x %struct.__va_list_tag], align 16
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !4
+  store ptr %1, ptr %4, align 8, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 24, ptr %5) #7
   %6 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %5, i64 0, i64 0
-  call void @llvm.va_start(ptr %6)
-  %7 = load ptr, ptr %3, align 8
-  %8 = load ptr, ptr %4, align 8
+  call void @llvm.va_start.p0(ptr %6)
+  %7 = load ptr, ptr %3, align 8, !tbaa !4
+  %8 = load ptr, ptr %4, align 8, !tbaa !9
   %9 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %5, i64 0, i64 0
   call void @archive_string_vsprintf(ptr noundef %7, ptr noundef %8, ptr noundef %9)
   %10 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %5, i64 0, i64 0
-  call void @llvm.va_end(ptr %10)
+  call void @llvm.va_end.p0(ptr %10)
+  call void @llvm.lifetime.end.p0(i64 24, ptr %5) #7
   ret void
 }
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+
 ; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #1
+declare void @llvm.va_start.p0(ptr) #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @archive_string_vsprintf(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
@@ -41,610 +46,655 @@ define dso_local void @archive_string_vsprintf(ptr noundef %0, ptr noundef %1, p
   %10 = alloca ptr, align 8
   %11 = alloca ptr, align 8
   %12 = alloca ptr, align 8
-  %13 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store ptr %2, ptr %6, align 8
-  %14 = load ptr, ptr %4, align 8
-  %15 = call ptr @archive_string_ensure(ptr noundef %14, i64 noundef 64)
-  %16 = icmp eq ptr %15, null
-  br i1 %16, label %17, label %18
-
-17:                                               ; preds = %3
-  call void @__archive_errx(i32 noundef 1, ptr noundef @.str) #6
-  unreachable
+  %13 = alloca i32, align 4
+  %14 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !4
+  store ptr %1, ptr %5, align 8, !tbaa !9
+  store ptr %2, ptr %6, align 8, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 1, ptr %7) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #7
+  %15 = load ptr, ptr %4, align 8, !tbaa !4
+  %16 = call ptr @archive_string_ensure(ptr noundef %15, i64 noundef 64)
+  %17 = icmp eq ptr %16, null
+  br i1 %17, label %18, label %19
 
 18:                                               ; preds = %3
-  %19 = load ptr, ptr %5, align 8
-  %20 = icmp eq ptr %19, null
-  br i1 %20, label %21, label %26
-
-21:                                               ; preds = %18
-  %22 = load ptr, ptr %4, align 8
-  %23 = getelementptr inbounds %struct.archive_string, ptr %22, i32 0, i32 0
-  %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 0
-  store i8 0, ptr %25, align 1
-  br label %349
-
-26:                                               ; preds = %18
-  %27 = load ptr, ptr %5, align 8
-  store ptr %27, ptr %10, align 8
-  br label %28
-
-28:                                               ; preds = %346, %26
-  %29 = load ptr, ptr %10, align 8
-  %30 = load i8, ptr %29, align 1
-  %31 = sext i8 %30 to i32
-  %32 = icmp ne i32 %31, 0
-  br i1 %32, label %33, label %349
-
-33:                                               ; preds = %28
-  %34 = load ptr, ptr %10, align 8
-  store ptr %34, ptr %13, align 8
-  %35 = load ptr, ptr %10, align 8
-  %36 = load i8, ptr %35, align 1
-  %37 = sext i8 %36 to i32
-  %38 = icmp ne i32 %37, 37
-  br i1 %38, label %39, label %44
-
-39:                                               ; preds = %33
-  %40 = load ptr, ptr %4, align 8
-  %41 = load ptr, ptr %10, align 8
-  %42 = load i8, ptr %41, align 1
-  %43 = call ptr @archive_strappend_char(ptr noundef %40, i8 noundef signext %42)
-  br label %346
-
-44:                                               ; preds = %33
-  %45 = load ptr, ptr %10, align 8
-  %46 = getelementptr inbounds i8, ptr %45, i32 1
-  store ptr %46, ptr %10, align 8
-  store i8 0, ptr %7, align 1
-  %47 = load ptr, ptr %10, align 8
-  %48 = load i8, ptr %47, align 1
-  %49 = sext i8 %48 to i32
-  switch i32 %49, label %55 [
-    i32 106, label %50
-    i32 108, label %50
-    i32 122, label %50
-  ]
-
-50:                                               ; preds = %44, %44, %44
-  %51 = load ptr, ptr %10, align 8
-  %52 = load i8, ptr %51, align 1
-  store i8 %52, ptr %7, align 1
-  %53 = load ptr, ptr %10, align 8
-  %54 = getelementptr inbounds i8, ptr %53, i32 1
-  store ptr %54, ptr %10, align 8
-  br label %55
-
-55:                                               ; preds = %50, %44
-  %56 = load ptr, ptr %10, align 8
-  %57 = load i8, ptr %56, align 1
-  %58 = sext i8 %57 to i32
-  switch i32 %58, label %339 [
-    i32 37, label %59
-    i32 99, label %62
-    i32 100, label %84
-    i32 115, label %159
-    i32 83, label %220
-    i32 111, label %253
-    i32 117, label %253
-    i32 120, label %253
-    i32 88, label %253
-  ]
-
-59:                                               ; preds = %55
-  %60 = load ptr, ptr %4, align 8
-  %61 = call ptr @archive_strappend_char(ptr noundef %60, i8 noundef signext 37)
-  br label %345
-
-62:                                               ; preds = %55
-  %63 = load ptr, ptr %6, align 8
-  %64 = getelementptr inbounds %struct.__va_list_tag, ptr %63, i32 0, i32 0
-  %65 = load i32, ptr %64, align 8
-  %66 = icmp ule i32 %65, 40
-  br i1 %66, label %67, label %72
-
-67:                                               ; preds = %62
-  %68 = getelementptr inbounds %struct.__va_list_tag, ptr %63, i32 0, i32 3
-  %69 = load ptr, ptr %68, align 8
-  %70 = getelementptr i8, ptr %69, i32 %65
-  %71 = add i32 %65, 8
-  store i32 %71, ptr %64, align 8
-  br label %76
-
-72:                                               ; preds = %62
-  %73 = getelementptr inbounds %struct.__va_list_tag, ptr %63, i32 0, i32 2
-  %74 = load ptr, ptr %73, align 8
-  %75 = getelementptr i8, ptr %74, i32 8
-  store ptr %75, ptr %73, align 8
-  br label %76
-
-76:                                               ; preds = %72, %67
-  %77 = phi ptr [ %70, %67 ], [ %74, %72 ]
-  %78 = load i32, ptr %77, align 4
-  %79 = sext i32 %78 to i64
-  store i64 %79, ptr %8, align 8
-  %80 = load ptr, ptr %4, align 8
-  %81 = load i64, ptr %8, align 8
-  %82 = trunc i64 %81 to i8
-  %83 = call ptr @archive_strappend_char(ptr noundef %80, i8 noundef signext %82)
-  br label %345
-
-84:                                               ; preds = %55
-  %85 = load i8, ptr %7, align 1
-  %86 = sext i8 %85 to i32
-  switch i32 %86, label %138 [
-    i32 106, label %87
-    i32 108, label %104
-    i32 122, label %121
-  ]
-
-87:                                               ; preds = %84
-  %88 = load ptr, ptr %6, align 8
-  %89 = getelementptr inbounds %struct.__va_list_tag, ptr %88, i32 0, i32 0
-  %90 = load i32, ptr %89, align 8
-  %91 = icmp ule i32 %90, 40
-  br i1 %91, label %92, label %97
-
-92:                                               ; preds = %87
-  %93 = getelementptr inbounds %struct.__va_list_tag, ptr %88, i32 0, i32 3
-  %94 = load ptr, ptr %93, align 8
-  %95 = getelementptr i8, ptr %94, i32 %90
-  %96 = add i32 %90, 8
-  store i32 %96, ptr %89, align 8
-  br label %101
-
-97:                                               ; preds = %87
-  %98 = getelementptr inbounds %struct.__va_list_tag, ptr %88, i32 0, i32 2
-  %99 = load ptr, ptr %98, align 8
-  %100 = getelementptr i8, ptr %99, i32 8
-  store ptr %100, ptr %98, align 8
-  br label %101
-
-101:                                              ; preds = %97, %92
-  %102 = phi ptr [ %95, %92 ], [ %99, %97 ]
-  %103 = load i64, ptr %102, align 8
-  store i64 %103, ptr %8, align 8
-  br label %156
-
-104:                                              ; preds = %84
-  %105 = load ptr, ptr %6, align 8
-  %106 = getelementptr inbounds %struct.__va_list_tag, ptr %105, i32 0, i32 0
-  %107 = load i32, ptr %106, align 8
-  %108 = icmp ule i32 %107, 40
-  br i1 %108, label %109, label %114
-
-109:                                              ; preds = %104
-  %110 = getelementptr inbounds %struct.__va_list_tag, ptr %105, i32 0, i32 3
-  %111 = load ptr, ptr %110, align 8
-  %112 = getelementptr i8, ptr %111, i32 %107
-  %113 = add i32 %107, 8
-  store i32 %113, ptr %106, align 8
-  br label %118
-
-114:                                              ; preds = %104
-  %115 = getelementptr inbounds %struct.__va_list_tag, ptr %105, i32 0, i32 2
-  %116 = load ptr, ptr %115, align 8
-  %117 = getelementptr i8, ptr %116, i32 8
-  store ptr %117, ptr %115, align 8
-  br label %118
-
-118:                                              ; preds = %114, %109
-  %119 = phi ptr [ %112, %109 ], [ %116, %114 ]
-  %120 = load i64, ptr %119, align 8
-  store i64 %120, ptr %8, align 8
-  br label %156
-
-121:                                              ; preds = %84
-  %122 = load ptr, ptr %6, align 8
-  %123 = getelementptr inbounds %struct.__va_list_tag, ptr %122, i32 0, i32 0
-  %124 = load i32, ptr %123, align 8
-  %125 = icmp ule i32 %124, 40
-  br i1 %125, label %126, label %131
-
-126:                                              ; preds = %121
-  %127 = getelementptr inbounds %struct.__va_list_tag, ptr %122, i32 0, i32 3
-  %128 = load ptr, ptr %127, align 8
-  %129 = getelementptr i8, ptr %128, i32 %124
-  %130 = add i32 %124, 8
-  store i32 %130, ptr %123, align 8
-  br label %135
-
-131:                                              ; preds = %121
-  %132 = getelementptr inbounds %struct.__va_list_tag, ptr %122, i32 0, i32 2
-  %133 = load ptr, ptr %132, align 8
-  %134 = getelementptr i8, ptr %133, i32 8
-  store ptr %134, ptr %132, align 8
-  br label %135
-
-135:                                              ; preds = %131, %126
-  %136 = phi ptr [ %129, %126 ], [ %133, %131 ]
-  %137 = load i64, ptr %136, align 8
-  store i64 %137, ptr %8, align 8
-  br label %156
-
-138:                                              ; preds = %84
-  %139 = load ptr, ptr %6, align 8
-  %140 = getelementptr inbounds %struct.__va_list_tag, ptr %139, i32 0, i32 0
-  %141 = load i32, ptr %140, align 8
-  %142 = icmp ule i32 %141, 40
-  br i1 %142, label %143, label %148
-
-143:                                              ; preds = %138
-  %144 = getelementptr inbounds %struct.__va_list_tag, ptr %139, i32 0, i32 3
-  %145 = load ptr, ptr %144, align 8
-  %146 = getelementptr i8, ptr %145, i32 %141
-  %147 = add i32 %141, 8
-  store i32 %147, ptr %140, align 8
-  br label %152
-
-148:                                              ; preds = %138
-  %149 = getelementptr inbounds %struct.__va_list_tag, ptr %139, i32 0, i32 2
-  %150 = load ptr, ptr %149, align 8
-  %151 = getelementptr i8, ptr %150, i32 8
-  store ptr %151, ptr %149, align 8
-  br label %152
-
-152:                                              ; preds = %148, %143
-  %153 = phi ptr [ %146, %143 ], [ %150, %148 ]
-  %154 = load i32, ptr %153, align 4
-  %155 = sext i32 %154 to i64
-  store i64 %155, ptr %8, align 8
-  br label %156
-
-156:                                              ; preds = %152, %135, %118, %101
-  %157 = load ptr, ptr %4, align 8
-  %158 = load i64, ptr %8, align 8
-  call void @append_int(ptr noundef %157, i64 noundef %158, i32 noundef 10)
-  br label %345
-
-159:                                              ; preds = %55
-  %160 = load i8, ptr %7, align 1
-  %161 = sext i8 %160 to i32
-  switch i32 %161, label %195 [
-    i32 108, label %162
-  ]
-
-162:                                              ; preds = %159
-  %163 = load ptr, ptr %6, align 8
-  %164 = getelementptr inbounds %struct.__va_list_tag, ptr %163, i32 0, i32 0
-  %165 = load i32, ptr %164, align 8
-  %166 = icmp ule i32 %165, 40
-  br i1 %166, label %167, label %172
-
-167:                                              ; preds = %162
-  %168 = getelementptr inbounds %struct.__va_list_tag, ptr %163, i32 0, i32 3
-  %169 = load ptr, ptr %168, align 8
-  %170 = getelementptr i8, ptr %169, i32 %165
-  %171 = add i32 %165, 8
-  store i32 %171, ptr %164, align 8
-  br label %176
-
-172:                                              ; preds = %162
-  %173 = getelementptr inbounds %struct.__va_list_tag, ptr %163, i32 0, i32 2
-  %174 = load ptr, ptr %173, align 8
-  %175 = getelementptr i8, ptr %174, i32 8
-  store ptr %175, ptr %173, align 8
-  br label %176
-
-176:                                              ; preds = %172, %167
-  %177 = phi ptr [ %170, %167 ], [ %174, %172 ]
-  %178 = load ptr, ptr %177, align 8
-  store ptr %178, ptr %12, align 8
-  %179 = load ptr, ptr %12, align 8
-  %180 = icmp eq ptr %179, null
-  br i1 %180, label %181, label %182
-
-181:                                              ; preds = %176
-  store ptr @.str.1, ptr %12, align 8
-  br label %182
-
-182:                                              ; preds = %181, %176
-  %183 = load ptr, ptr %4, align 8
-  %184 = load ptr, ptr %12, align 8
-  %185 = load ptr, ptr %12, align 8
-  %186 = call i64 @wcslen(ptr noundef %185) #7
-  %187 = call i32 @archive_string_append_from_wcs(ptr noundef %183, ptr noundef %184, i64 noundef %186)
-  %188 = icmp ne i32 %187, 0
-  br i1 %188, label %189, label %194
-
-189:                                              ; preds = %182
-  %190 = call ptr @__errno_location() #8
-  %191 = load i32, ptr %190, align 4
-  %192 = icmp eq i32 %191, 12
-  br i1 %192, label %193, label %194
-
-193:                                              ; preds = %189
-  call void @__archive_errx(i32 noundef 1, ptr noundef @.str) #6
+  call void @__archive_errx(i32 noundef 1, ptr noundef @.str) #8
   unreachable
 
-194:                                              ; preds = %189, %182
-  br label %219
+19:                                               ; preds = %3
+  %20 = load ptr, ptr %5, align 8, !tbaa !9
+  %21 = icmp eq ptr %20, null
+  br i1 %21, label %22, label %27
 
-195:                                              ; preds = %159
-  %196 = load ptr, ptr %6, align 8
-  %197 = getelementptr inbounds %struct.__va_list_tag, ptr %196, i32 0, i32 0
-  %198 = load i32, ptr %197, align 8
-  %199 = icmp ule i32 %198, 40
-  br i1 %199, label %200, label %205
+22:                                               ; preds = %19
+  %23 = load ptr, ptr %4, align 8, !tbaa !4
+  %24 = getelementptr inbounds nuw %struct.archive_string, ptr %23, i32 0, i32 0
+  %25 = load ptr, ptr %24, align 8, !tbaa !13
+  %26 = getelementptr inbounds i8, ptr %25, i64 0
+  store i8 0, ptr %26, align 1, !tbaa !16
+  store i32 1, ptr %13, align 4
+  br label %354
 
-200:                                              ; preds = %195
-  %201 = getelementptr inbounds %struct.__va_list_tag, ptr %196, i32 0, i32 3
-  %202 = load ptr, ptr %201, align 8
-  %203 = getelementptr i8, ptr %202, i32 %198
-  %204 = add i32 %198, 8
-  store i32 %204, ptr %197, align 8
-  br label %209
+27:                                               ; preds = %19
+  %28 = load ptr, ptr %5, align 8, !tbaa !9
+  store ptr %28, ptr %10, align 8, !tbaa !9
+  br label %29
 
-205:                                              ; preds = %195
-  %206 = getelementptr inbounds %struct.__va_list_tag, ptr %196, i32 0, i32 2
-  %207 = load ptr, ptr %206, align 8
-  %208 = getelementptr i8, ptr %207, i32 8
-  store ptr %208, ptr %206, align 8
-  br label %209
+29:                                               ; preds = %350, %27
+  %30 = load ptr, ptr %10, align 8, !tbaa !9
+  %31 = load i8, ptr %30, align 1, !tbaa !16
+  %32 = sext i8 %31 to i32
+  %33 = icmp ne i32 %32, 0
+  br i1 %33, label %34, label %353
 
-209:                                              ; preds = %205, %200
-  %210 = phi ptr [ %203, %200 ], [ %207, %205 ]
-  %211 = load ptr, ptr %210, align 8
-  store ptr %211, ptr %11, align 8
-  %212 = load ptr, ptr %11, align 8
-  %213 = icmp eq ptr %212, null
-  br i1 %213, label %214, label %215
+34:                                               ; preds = %29
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #7
+  %35 = load ptr, ptr %10, align 8, !tbaa !9
+  store ptr %35, ptr %14, align 8, !tbaa !9
+  %36 = load ptr, ptr %10, align 8, !tbaa !9
+  %37 = load i8, ptr %36, align 1, !tbaa !16
+  %38 = sext i8 %37 to i32
+  %39 = icmp ne i32 %38, 37
+  br i1 %39, label %40, label %45
 
-214:                                              ; preds = %209
-  store ptr @.str.2, ptr %11, align 8
-  br label %215
+40:                                               ; preds = %34
+  %41 = load ptr, ptr %4, align 8, !tbaa !4
+  %42 = load ptr, ptr %10, align 8, !tbaa !9
+  %43 = load i8, ptr %42, align 1, !tbaa !16
+  %44 = call ptr @archive_strappend_char(ptr noundef %41, i8 noundef signext %43)
+  store i32 4, ptr %13, align 4
+  br label %347
 
-215:                                              ; preds = %214, %209
-  %216 = load ptr, ptr %4, align 8
-  %217 = load ptr, ptr %11, align 8
-  %218 = call ptr @archive_strcat(ptr noundef %216, ptr noundef %217)
-  br label %219
-
-219:                                              ; preds = %215, %194
-  br label %345
-
-220:                                              ; preds = %55
-  %221 = load ptr, ptr %6, align 8
-  %222 = getelementptr inbounds %struct.__va_list_tag, ptr %221, i32 0, i32 0
-  %223 = load i32, ptr %222, align 8
-  %224 = icmp ule i32 %223, 40
-  br i1 %224, label %225, label %230
-
-225:                                              ; preds = %220
-  %226 = getelementptr inbounds %struct.__va_list_tag, ptr %221, i32 0, i32 3
-  %227 = load ptr, ptr %226, align 8
-  %228 = getelementptr i8, ptr %227, i32 %223
-  %229 = add i32 %223, 8
-  store i32 %229, ptr %222, align 8
-  br label %234
-
-230:                                              ; preds = %220
-  %231 = getelementptr inbounds %struct.__va_list_tag, ptr %221, i32 0, i32 2
-  %232 = load ptr, ptr %231, align 8
-  %233 = getelementptr i8, ptr %232, i32 8
-  store ptr %233, ptr %231, align 8
-  br label %234
-
-234:                                              ; preds = %230, %225
-  %235 = phi ptr [ %228, %225 ], [ %232, %230 ]
-  %236 = load ptr, ptr %235, align 8
-  store ptr %236, ptr %12, align 8
-  %237 = load ptr, ptr %12, align 8
-  %238 = icmp eq ptr %237, null
-  br i1 %238, label %239, label %240
-
-239:                                              ; preds = %234
-  store ptr @.str.1, ptr %12, align 8
-  br label %240
-
-240:                                              ; preds = %239, %234
-  %241 = load ptr, ptr %4, align 8
-  %242 = load ptr, ptr %12, align 8
-  %243 = load ptr, ptr %12, align 8
-  %244 = call i64 @wcslen(ptr noundef %243) #7
-  %245 = call i32 @archive_string_append_from_wcs(ptr noundef %241, ptr noundef %242, i64 noundef %244)
-  %246 = icmp ne i32 %245, 0
-  br i1 %246, label %247, label %252
-
-247:                                              ; preds = %240
-  %248 = call ptr @__errno_location() #8
-  %249 = load i32, ptr %248, align 4
-  %250 = icmp eq i32 %249, 12
-  br i1 %250, label %251, label %252
-
-251:                                              ; preds = %247
-  call void @__archive_errx(i32 noundef 1, ptr noundef @.str) #6
-  unreachable
-
-252:                                              ; preds = %247, %240
-  br label %345
-
-253:                                              ; preds = %55, %55, %55, %55
-  %254 = load i8, ptr %7, align 1
-  %255 = sext i8 %254 to i32
-  switch i32 %255, label %307 [
-    i32 106, label %256
-    i32 108, label %273
-    i32 122, label %290
+45:                                               ; preds = %34
+  %46 = load ptr, ptr %10, align 8, !tbaa !9
+  %47 = getelementptr inbounds nuw i8, ptr %46, i32 1
+  store ptr %47, ptr %10, align 8, !tbaa !9
+  store i8 0, ptr %7, align 1, !tbaa !16
+  %48 = load ptr, ptr %10, align 8, !tbaa !9
+  %49 = load i8, ptr %48, align 1, !tbaa !16
+  %50 = sext i8 %49 to i32
+  switch i32 %50, label %56 [
+    i32 106, label %51
+    i32 108, label %51
+    i32 122, label %51
   ]
 
-256:                                              ; preds = %253
-  %257 = load ptr, ptr %6, align 8
-  %258 = getelementptr inbounds %struct.__va_list_tag, ptr %257, i32 0, i32 0
-  %259 = load i32, ptr %258, align 8
-  %260 = icmp ule i32 %259, 40
-  br i1 %260, label %261, label %266
+51:                                               ; preds = %45, %45, %45
+  %52 = load ptr, ptr %10, align 8, !tbaa !9
+  %53 = load i8, ptr %52, align 1, !tbaa !16
+  store i8 %53, ptr %7, align 1, !tbaa !16
+  %54 = load ptr, ptr %10, align 8, !tbaa !9
+  %55 = getelementptr inbounds nuw i8, ptr %54, i32 1
+  store ptr %55, ptr %10, align 8, !tbaa !9
+  br label %56
 
-261:                                              ; preds = %256
-  %262 = getelementptr inbounds %struct.__va_list_tag, ptr %257, i32 0, i32 3
-  %263 = load ptr, ptr %262, align 8
-  %264 = getelementptr i8, ptr %263, i32 %259
-  %265 = add i32 %259, 8
-  store i32 %265, ptr %258, align 8
-  br label %270
-
-266:                                              ; preds = %256
-  %267 = getelementptr inbounds %struct.__va_list_tag, ptr %257, i32 0, i32 2
-  %268 = load ptr, ptr %267, align 8
-  %269 = getelementptr i8, ptr %268, i32 8
-  store ptr %269, ptr %267, align 8
-  br label %270
-
-270:                                              ; preds = %266, %261
-  %271 = phi ptr [ %264, %261 ], [ %268, %266 ]
-  %272 = load i64, ptr %271, align 8
-  store i64 %272, ptr %9, align 8
-  br label %325
-
-273:                                              ; preds = %253
-  %274 = load ptr, ptr %6, align 8
-  %275 = getelementptr inbounds %struct.__va_list_tag, ptr %274, i32 0, i32 0
-  %276 = load i32, ptr %275, align 8
-  %277 = icmp ule i32 %276, 40
-  br i1 %277, label %278, label %283
-
-278:                                              ; preds = %273
-  %279 = getelementptr inbounds %struct.__va_list_tag, ptr %274, i32 0, i32 3
-  %280 = load ptr, ptr %279, align 8
-  %281 = getelementptr i8, ptr %280, i32 %276
-  %282 = add i32 %276, 8
-  store i32 %282, ptr %275, align 8
-  br label %287
-
-283:                                              ; preds = %273
-  %284 = getelementptr inbounds %struct.__va_list_tag, ptr %274, i32 0, i32 2
-  %285 = load ptr, ptr %284, align 8
-  %286 = getelementptr i8, ptr %285, i32 8
-  store ptr %286, ptr %284, align 8
-  br label %287
-
-287:                                              ; preds = %283, %278
-  %288 = phi ptr [ %281, %278 ], [ %285, %283 ]
-  %289 = load i64, ptr %288, align 8
-  store i64 %289, ptr %9, align 8
-  br label %325
-
-290:                                              ; preds = %253
-  %291 = load ptr, ptr %6, align 8
-  %292 = getelementptr inbounds %struct.__va_list_tag, ptr %291, i32 0, i32 0
-  %293 = load i32, ptr %292, align 8
-  %294 = icmp ule i32 %293, 40
-  br i1 %294, label %295, label %300
-
-295:                                              ; preds = %290
-  %296 = getelementptr inbounds %struct.__va_list_tag, ptr %291, i32 0, i32 3
-  %297 = load ptr, ptr %296, align 8
-  %298 = getelementptr i8, ptr %297, i32 %293
-  %299 = add i32 %293, 8
-  store i32 %299, ptr %292, align 8
-  br label %304
-
-300:                                              ; preds = %290
-  %301 = getelementptr inbounds %struct.__va_list_tag, ptr %291, i32 0, i32 2
-  %302 = load ptr, ptr %301, align 8
-  %303 = getelementptr i8, ptr %302, i32 8
-  store ptr %303, ptr %301, align 8
-  br label %304
-
-304:                                              ; preds = %300, %295
-  %305 = phi ptr [ %298, %295 ], [ %302, %300 ]
-  %306 = load i64, ptr %305, align 8
-  store i64 %306, ptr %9, align 8
-  br label %325
-
-307:                                              ; preds = %253
-  %308 = load ptr, ptr %6, align 8
-  %309 = getelementptr inbounds %struct.__va_list_tag, ptr %308, i32 0, i32 0
-  %310 = load i32, ptr %309, align 8
-  %311 = icmp ule i32 %310, 40
-  br i1 %311, label %312, label %317
-
-312:                                              ; preds = %307
-  %313 = getelementptr inbounds %struct.__va_list_tag, ptr %308, i32 0, i32 3
-  %314 = load ptr, ptr %313, align 8
-  %315 = getelementptr i8, ptr %314, i32 %310
-  %316 = add i32 %310, 8
-  store i32 %316, ptr %309, align 8
-  br label %321
-
-317:                                              ; preds = %307
-  %318 = getelementptr inbounds %struct.__va_list_tag, ptr %308, i32 0, i32 2
-  %319 = load ptr, ptr %318, align 8
-  %320 = getelementptr i8, ptr %319, i32 8
-  store ptr %320, ptr %318, align 8
-  br label %321
-
-321:                                              ; preds = %317, %312
-  %322 = phi ptr [ %315, %312 ], [ %319, %317 ]
-  %323 = load i32, ptr %322, align 4
-  %324 = zext i32 %323 to i64
-  store i64 %324, ptr %9, align 8
-  br label %325
-
-325:                                              ; preds = %321, %304, %287, %270
-  %326 = load ptr, ptr %10, align 8
-  %327 = load i8, ptr %326, align 1
-  %328 = sext i8 %327 to i32
-  switch i32 %328, label %335 [
-    i32 111, label %329
-    i32 117, label %332
+56:                                               ; preds = %45, %51
+  %57 = load ptr, ptr %10, align 8, !tbaa !9
+  %58 = load i8, ptr %57, align 1, !tbaa !16
+  %59 = sext i8 %58 to i32
+  switch i32 %59, label %340 [
+    i32 37, label %60
+    i32 99, label %63
+    i32 100, label %85
+    i32 115, label %160
+    i32 83, label %221
+    i32 111, label %254
+    i32 117, label %254
+    i32 120, label %254
+    i32 88, label %254
   ]
 
-329:                                              ; preds = %325
-  %330 = load ptr, ptr %4, align 8
-  %331 = load i64, ptr %9, align 8
-  call void @append_uint(ptr noundef %330, i64 noundef %331, i32 noundef 8)
-  br label %338
-
-332:                                              ; preds = %325
-  %333 = load ptr, ptr %4, align 8
-  %334 = load i64, ptr %9, align 8
-  call void @append_uint(ptr noundef %333, i64 noundef %334, i32 noundef 10)
-  br label %338
-
-335:                                              ; preds = %325
-  %336 = load ptr, ptr %4, align 8
-  %337 = load i64, ptr %9, align 8
-  call void @append_uint(ptr noundef %336, i64 noundef %337, i32 noundef 16)
-  br label %338
-
-338:                                              ; preds = %335, %332, %329
-  br label %345
-
-339:                                              ; preds = %55
-  %340 = load ptr, ptr %13, align 8
-  store ptr %340, ptr %10, align 8
-  %341 = load ptr, ptr %4, align 8
-  %342 = load ptr, ptr %10, align 8
-  %343 = load i8, ptr %342, align 1
-  %344 = call ptr @archive_strappend_char(ptr noundef %341, i8 noundef signext %343)
-  br label %345
-
-345:                                              ; preds = %339, %338, %252, %219, %156, %76, %59
+60:                                               ; preds = %56
+  %61 = load ptr, ptr %4, align 8, !tbaa !4
+  %62 = call ptr @archive_strappend_char(ptr noundef %61, i8 noundef signext 37)
   br label %346
 
-346:                                              ; preds = %345, %39
-  %347 = load ptr, ptr %10, align 8
-  %348 = getelementptr inbounds i8, ptr %347, i32 1
-  store ptr %348, ptr %10, align 8
-  br label %28, !llvm.loop !5
+63:                                               ; preds = %56
+  %64 = load ptr, ptr %6, align 8, !tbaa !11
+  %65 = getelementptr inbounds nuw %struct.__va_list_tag, ptr %64, i32 0, i32 0
+  %66 = load i32, ptr %65, align 8
+  %67 = icmp ule i32 %66, 40
+  br i1 %67, label %68, label %73
 
-349:                                              ; preds = %28, %21
+68:                                               ; preds = %63
+  %69 = getelementptr inbounds nuw %struct.__va_list_tag, ptr %64, i32 0, i32 3
+  %70 = load ptr, ptr %69, align 8
+  %71 = getelementptr i8, ptr %70, i32 %66
+  %72 = add i32 %66, 8
+  store i32 %72, ptr %65, align 8
+  br label %77
+
+73:                                               ; preds = %63
+  %74 = getelementptr inbounds nuw %struct.__va_list_tag, ptr %64, i32 0, i32 2
+  %75 = load ptr, ptr %74, align 8
+  %76 = getelementptr i8, ptr %75, i32 8
+  store ptr %76, ptr %74, align 8
+  br label %77
+
+77:                                               ; preds = %73, %68
+  %78 = phi ptr [ %71, %68 ], [ %75, %73 ]
+  %79 = load i32, ptr %78, align 4, !tbaa !17
+  %80 = sext i32 %79 to i64
+  store i64 %80, ptr %8, align 8, !tbaa !19
+  %81 = load ptr, ptr %4, align 8, !tbaa !4
+  %82 = load i64, ptr %8, align 8, !tbaa !19
+  %83 = trunc i64 %82 to i8
+  %84 = call ptr @archive_strappend_char(ptr noundef %81, i8 noundef signext %83)
+  br label %346
+
+85:                                               ; preds = %56
+  %86 = load i8, ptr %7, align 1, !tbaa !16
+  %87 = sext i8 %86 to i32
+  switch i32 %87, label %139 [
+    i32 106, label %88
+    i32 108, label %105
+    i32 122, label %122
+  ]
+
+88:                                               ; preds = %85
+  %89 = load ptr, ptr %6, align 8, !tbaa !11
+  %90 = getelementptr inbounds nuw %struct.__va_list_tag, ptr %89, i32 0, i32 0
+  %91 = load i32, ptr %90, align 8
+  %92 = icmp ule i32 %91, 40
+  br i1 %92, label %93, label %98
+
+93:                                               ; preds = %88
+  %94 = getelementptr inbounds nuw %struct.__va_list_tag, ptr %89, i32 0, i32 3
+  %95 = load ptr, ptr %94, align 8
+  %96 = getelementptr i8, ptr %95, i32 %91
+  %97 = add i32 %91, 8
+  store i32 %97, ptr %90, align 8
+  br label %102
+
+98:                                               ; preds = %88
+  %99 = getelementptr inbounds nuw %struct.__va_list_tag, ptr %89, i32 0, i32 2
+  %100 = load ptr, ptr %99, align 8
+  %101 = getelementptr i8, ptr %100, i32 8
+  store ptr %101, ptr %99, align 8
+  br label %102
+
+102:                                              ; preds = %98, %93
+  %103 = phi ptr [ %96, %93 ], [ %100, %98 ]
+  %104 = load i64, ptr %103, align 8, !tbaa !19
+  store i64 %104, ptr %8, align 8, !tbaa !19
+  br label %157
+
+105:                                              ; preds = %85
+  %106 = load ptr, ptr %6, align 8, !tbaa !11
+  %107 = getelementptr inbounds nuw %struct.__va_list_tag, ptr %106, i32 0, i32 0
+  %108 = load i32, ptr %107, align 8
+  %109 = icmp ule i32 %108, 40
+  br i1 %109, label %110, label %115
+
+110:                                              ; preds = %105
+  %111 = getelementptr inbounds nuw %struct.__va_list_tag, ptr %106, i32 0, i32 3
+  %112 = load ptr, ptr %111, align 8
+  %113 = getelementptr i8, ptr %112, i32 %108
+  %114 = add i32 %108, 8
+  store i32 %114, ptr %107, align 8
+  br label %119
+
+115:                                              ; preds = %105
+  %116 = getelementptr inbounds nuw %struct.__va_list_tag, ptr %106, i32 0, i32 2
+  %117 = load ptr, ptr %116, align 8
+  %118 = getelementptr i8, ptr %117, i32 8
+  store ptr %118, ptr %116, align 8
+  br label %119
+
+119:                                              ; preds = %115, %110
+  %120 = phi ptr [ %113, %110 ], [ %117, %115 ]
+  %121 = load i64, ptr %120, align 8, !tbaa !19
+  store i64 %121, ptr %8, align 8, !tbaa !19
+  br label %157
+
+122:                                              ; preds = %85
+  %123 = load ptr, ptr %6, align 8, !tbaa !11
+  %124 = getelementptr inbounds nuw %struct.__va_list_tag, ptr %123, i32 0, i32 0
+  %125 = load i32, ptr %124, align 8
+  %126 = icmp ule i32 %125, 40
+  br i1 %126, label %127, label %132
+
+127:                                              ; preds = %122
+  %128 = getelementptr inbounds nuw %struct.__va_list_tag, ptr %123, i32 0, i32 3
+  %129 = load ptr, ptr %128, align 8
+  %130 = getelementptr i8, ptr %129, i32 %125
+  %131 = add i32 %125, 8
+  store i32 %131, ptr %124, align 8
+  br label %136
+
+132:                                              ; preds = %122
+  %133 = getelementptr inbounds nuw %struct.__va_list_tag, ptr %123, i32 0, i32 2
+  %134 = load ptr, ptr %133, align 8
+  %135 = getelementptr i8, ptr %134, i32 8
+  store ptr %135, ptr %133, align 8
+  br label %136
+
+136:                                              ; preds = %132, %127
+  %137 = phi ptr [ %130, %127 ], [ %134, %132 ]
+  %138 = load i64, ptr %137, align 8, !tbaa !19
+  store i64 %138, ptr %8, align 8, !tbaa !19
+  br label %157
+
+139:                                              ; preds = %85
+  %140 = load ptr, ptr %6, align 8, !tbaa !11
+  %141 = getelementptr inbounds nuw %struct.__va_list_tag, ptr %140, i32 0, i32 0
+  %142 = load i32, ptr %141, align 8
+  %143 = icmp ule i32 %142, 40
+  br i1 %143, label %144, label %149
+
+144:                                              ; preds = %139
+  %145 = getelementptr inbounds nuw %struct.__va_list_tag, ptr %140, i32 0, i32 3
+  %146 = load ptr, ptr %145, align 8
+  %147 = getelementptr i8, ptr %146, i32 %142
+  %148 = add i32 %142, 8
+  store i32 %148, ptr %141, align 8
+  br label %153
+
+149:                                              ; preds = %139
+  %150 = getelementptr inbounds nuw %struct.__va_list_tag, ptr %140, i32 0, i32 2
+  %151 = load ptr, ptr %150, align 8
+  %152 = getelementptr i8, ptr %151, i32 8
+  store ptr %152, ptr %150, align 8
+  br label %153
+
+153:                                              ; preds = %149, %144
+  %154 = phi ptr [ %147, %144 ], [ %151, %149 ]
+  %155 = load i32, ptr %154, align 4, !tbaa !17
+  %156 = sext i32 %155 to i64
+  store i64 %156, ptr %8, align 8, !tbaa !19
+  br label %157
+
+157:                                              ; preds = %153, %136, %119, %102
+  %158 = load ptr, ptr %4, align 8, !tbaa !4
+  %159 = load i64, ptr %8, align 8, !tbaa !19
+  call void @append_int(ptr noundef %158, i64 noundef %159, i32 noundef 10)
+  br label %346
+
+160:                                              ; preds = %56
+  %161 = load i8, ptr %7, align 1, !tbaa !16
+  %162 = sext i8 %161 to i32
+  switch i32 %162, label %196 [
+    i32 108, label %163
+  ]
+
+163:                                              ; preds = %160
+  %164 = load ptr, ptr %6, align 8, !tbaa !11
+  %165 = getelementptr inbounds nuw %struct.__va_list_tag, ptr %164, i32 0, i32 0
+  %166 = load i32, ptr %165, align 8
+  %167 = icmp ule i32 %166, 40
+  br i1 %167, label %168, label %173
+
+168:                                              ; preds = %163
+  %169 = getelementptr inbounds nuw %struct.__va_list_tag, ptr %164, i32 0, i32 3
+  %170 = load ptr, ptr %169, align 8
+  %171 = getelementptr i8, ptr %170, i32 %166
+  %172 = add i32 %166, 8
+  store i32 %172, ptr %165, align 8
+  br label %177
+
+173:                                              ; preds = %163
+  %174 = getelementptr inbounds nuw %struct.__va_list_tag, ptr %164, i32 0, i32 2
+  %175 = load ptr, ptr %174, align 8
+  %176 = getelementptr i8, ptr %175, i32 8
+  store ptr %176, ptr %174, align 8
+  br label %177
+
+177:                                              ; preds = %173, %168
+  %178 = phi ptr [ %171, %168 ], [ %175, %173 ]
+  %179 = load ptr, ptr %178, align 8, !tbaa !20
+  store ptr %179, ptr %12, align 8, !tbaa !20
+  %180 = load ptr, ptr %12, align 8, !tbaa !20
+  %181 = icmp eq ptr %180, null
+  br i1 %181, label %182, label %183
+
+182:                                              ; preds = %177
+  store ptr @.str.1, ptr %12, align 8, !tbaa !20
+  br label %183
+
+183:                                              ; preds = %182, %177
+  %184 = load ptr, ptr %4, align 8, !tbaa !4
+  %185 = load ptr, ptr %12, align 8, !tbaa !20
+  %186 = load ptr, ptr %12, align 8, !tbaa !20
+  %187 = call i64 @wcslen(ptr noundef %186) #9
+  %188 = call i32 @archive_string_append_from_wcs(ptr noundef %184, ptr noundef %185, i64 noundef %187)
+  %189 = icmp ne i32 %188, 0
+  br i1 %189, label %190, label %195
+
+190:                                              ; preds = %183
+  %191 = call ptr @__errno_location() #10
+  %192 = load i32, ptr %191, align 4, !tbaa !17
+  %193 = icmp eq i32 %192, 12
+  br i1 %193, label %194, label %195
+
+194:                                              ; preds = %190
+  call void @__archive_errx(i32 noundef 1, ptr noundef @.str) #8
+  unreachable
+
+195:                                              ; preds = %190, %183
+  br label %220
+
+196:                                              ; preds = %160
+  %197 = load ptr, ptr %6, align 8, !tbaa !11
+  %198 = getelementptr inbounds nuw %struct.__va_list_tag, ptr %197, i32 0, i32 0
+  %199 = load i32, ptr %198, align 8
+  %200 = icmp ule i32 %199, 40
+  br i1 %200, label %201, label %206
+
+201:                                              ; preds = %196
+  %202 = getelementptr inbounds nuw %struct.__va_list_tag, ptr %197, i32 0, i32 3
+  %203 = load ptr, ptr %202, align 8
+  %204 = getelementptr i8, ptr %203, i32 %199
+  %205 = add i32 %199, 8
+  store i32 %205, ptr %198, align 8
+  br label %210
+
+206:                                              ; preds = %196
+  %207 = getelementptr inbounds nuw %struct.__va_list_tag, ptr %197, i32 0, i32 2
+  %208 = load ptr, ptr %207, align 8
+  %209 = getelementptr i8, ptr %208, i32 8
+  store ptr %209, ptr %207, align 8
+  br label %210
+
+210:                                              ; preds = %206, %201
+  %211 = phi ptr [ %204, %201 ], [ %208, %206 ]
+  %212 = load ptr, ptr %211, align 8, !tbaa !9
+  store ptr %212, ptr %11, align 8, !tbaa !9
+  %213 = load ptr, ptr %11, align 8, !tbaa !9
+  %214 = icmp eq ptr %213, null
+  br i1 %214, label %215, label %216
+
+215:                                              ; preds = %210
+  store ptr @.str.2, ptr %11, align 8, !tbaa !9
+  br label %216
+
+216:                                              ; preds = %215, %210
+  %217 = load ptr, ptr %4, align 8, !tbaa !4
+  %218 = load ptr, ptr %11, align 8, !tbaa !9
+  %219 = call ptr @archive_strcat(ptr noundef %217, ptr noundef %218)
+  br label %220
+
+220:                                              ; preds = %216, %195
+  br label %346
+
+221:                                              ; preds = %56
+  %222 = load ptr, ptr %6, align 8, !tbaa !11
+  %223 = getelementptr inbounds nuw %struct.__va_list_tag, ptr %222, i32 0, i32 0
+  %224 = load i32, ptr %223, align 8
+  %225 = icmp ule i32 %224, 40
+  br i1 %225, label %226, label %231
+
+226:                                              ; preds = %221
+  %227 = getelementptr inbounds nuw %struct.__va_list_tag, ptr %222, i32 0, i32 3
+  %228 = load ptr, ptr %227, align 8
+  %229 = getelementptr i8, ptr %228, i32 %224
+  %230 = add i32 %224, 8
+  store i32 %230, ptr %223, align 8
+  br label %235
+
+231:                                              ; preds = %221
+  %232 = getelementptr inbounds nuw %struct.__va_list_tag, ptr %222, i32 0, i32 2
+  %233 = load ptr, ptr %232, align 8
+  %234 = getelementptr i8, ptr %233, i32 8
+  store ptr %234, ptr %232, align 8
+  br label %235
+
+235:                                              ; preds = %231, %226
+  %236 = phi ptr [ %229, %226 ], [ %233, %231 ]
+  %237 = load ptr, ptr %236, align 8, !tbaa !20
+  store ptr %237, ptr %12, align 8, !tbaa !20
+  %238 = load ptr, ptr %12, align 8, !tbaa !20
+  %239 = icmp eq ptr %238, null
+  br i1 %239, label %240, label %241
+
+240:                                              ; preds = %235
+  store ptr @.str.1, ptr %12, align 8, !tbaa !20
+  br label %241
+
+241:                                              ; preds = %240, %235
+  %242 = load ptr, ptr %4, align 8, !tbaa !4
+  %243 = load ptr, ptr %12, align 8, !tbaa !20
+  %244 = load ptr, ptr %12, align 8, !tbaa !20
+  %245 = call i64 @wcslen(ptr noundef %244) #9
+  %246 = call i32 @archive_string_append_from_wcs(ptr noundef %242, ptr noundef %243, i64 noundef %245)
+  %247 = icmp ne i32 %246, 0
+  br i1 %247, label %248, label %253
+
+248:                                              ; preds = %241
+  %249 = call ptr @__errno_location() #10
+  %250 = load i32, ptr %249, align 4, !tbaa !17
+  %251 = icmp eq i32 %250, 12
+  br i1 %251, label %252, label %253
+
+252:                                              ; preds = %248
+  call void @__archive_errx(i32 noundef 1, ptr noundef @.str) #8
+  unreachable
+
+253:                                              ; preds = %248, %241
+  br label %346
+
+254:                                              ; preds = %56, %56, %56, %56
+  %255 = load i8, ptr %7, align 1, !tbaa !16
+  %256 = sext i8 %255 to i32
+  switch i32 %256, label %308 [
+    i32 106, label %257
+    i32 108, label %274
+    i32 122, label %291
+  ]
+
+257:                                              ; preds = %254
+  %258 = load ptr, ptr %6, align 8, !tbaa !11
+  %259 = getelementptr inbounds nuw %struct.__va_list_tag, ptr %258, i32 0, i32 0
+  %260 = load i32, ptr %259, align 8
+  %261 = icmp ule i32 %260, 40
+  br i1 %261, label %262, label %267
+
+262:                                              ; preds = %257
+  %263 = getelementptr inbounds nuw %struct.__va_list_tag, ptr %258, i32 0, i32 3
+  %264 = load ptr, ptr %263, align 8
+  %265 = getelementptr i8, ptr %264, i32 %260
+  %266 = add i32 %260, 8
+  store i32 %266, ptr %259, align 8
+  br label %271
+
+267:                                              ; preds = %257
+  %268 = getelementptr inbounds nuw %struct.__va_list_tag, ptr %258, i32 0, i32 2
+  %269 = load ptr, ptr %268, align 8
+  %270 = getelementptr i8, ptr %269, i32 8
+  store ptr %270, ptr %268, align 8
+  br label %271
+
+271:                                              ; preds = %267, %262
+  %272 = phi ptr [ %265, %262 ], [ %269, %267 ]
+  %273 = load i64, ptr %272, align 8, !tbaa !19
+  store i64 %273, ptr %9, align 8, !tbaa !19
+  br label %326
+
+274:                                              ; preds = %254
+  %275 = load ptr, ptr %6, align 8, !tbaa !11
+  %276 = getelementptr inbounds nuw %struct.__va_list_tag, ptr %275, i32 0, i32 0
+  %277 = load i32, ptr %276, align 8
+  %278 = icmp ule i32 %277, 40
+  br i1 %278, label %279, label %284
+
+279:                                              ; preds = %274
+  %280 = getelementptr inbounds nuw %struct.__va_list_tag, ptr %275, i32 0, i32 3
+  %281 = load ptr, ptr %280, align 8
+  %282 = getelementptr i8, ptr %281, i32 %277
+  %283 = add i32 %277, 8
+  store i32 %283, ptr %276, align 8
+  br label %288
+
+284:                                              ; preds = %274
+  %285 = getelementptr inbounds nuw %struct.__va_list_tag, ptr %275, i32 0, i32 2
+  %286 = load ptr, ptr %285, align 8
+  %287 = getelementptr i8, ptr %286, i32 8
+  store ptr %287, ptr %285, align 8
+  br label %288
+
+288:                                              ; preds = %284, %279
+  %289 = phi ptr [ %282, %279 ], [ %286, %284 ]
+  %290 = load i64, ptr %289, align 8, !tbaa !19
+  store i64 %290, ptr %9, align 8, !tbaa !19
+  br label %326
+
+291:                                              ; preds = %254
+  %292 = load ptr, ptr %6, align 8, !tbaa !11
+  %293 = getelementptr inbounds nuw %struct.__va_list_tag, ptr %292, i32 0, i32 0
+  %294 = load i32, ptr %293, align 8
+  %295 = icmp ule i32 %294, 40
+  br i1 %295, label %296, label %301
+
+296:                                              ; preds = %291
+  %297 = getelementptr inbounds nuw %struct.__va_list_tag, ptr %292, i32 0, i32 3
+  %298 = load ptr, ptr %297, align 8
+  %299 = getelementptr i8, ptr %298, i32 %294
+  %300 = add i32 %294, 8
+  store i32 %300, ptr %293, align 8
+  br label %305
+
+301:                                              ; preds = %291
+  %302 = getelementptr inbounds nuw %struct.__va_list_tag, ptr %292, i32 0, i32 2
+  %303 = load ptr, ptr %302, align 8
+  %304 = getelementptr i8, ptr %303, i32 8
+  store ptr %304, ptr %302, align 8
+  br label %305
+
+305:                                              ; preds = %301, %296
+  %306 = phi ptr [ %299, %296 ], [ %303, %301 ]
+  %307 = load i64, ptr %306, align 8, !tbaa !19
+  store i64 %307, ptr %9, align 8, !tbaa !19
+  br label %326
+
+308:                                              ; preds = %254
+  %309 = load ptr, ptr %6, align 8, !tbaa !11
+  %310 = getelementptr inbounds nuw %struct.__va_list_tag, ptr %309, i32 0, i32 0
+  %311 = load i32, ptr %310, align 8
+  %312 = icmp ule i32 %311, 40
+  br i1 %312, label %313, label %318
+
+313:                                              ; preds = %308
+  %314 = getelementptr inbounds nuw %struct.__va_list_tag, ptr %309, i32 0, i32 3
+  %315 = load ptr, ptr %314, align 8
+  %316 = getelementptr i8, ptr %315, i32 %311
+  %317 = add i32 %311, 8
+  store i32 %317, ptr %310, align 8
+  br label %322
+
+318:                                              ; preds = %308
+  %319 = getelementptr inbounds nuw %struct.__va_list_tag, ptr %309, i32 0, i32 2
+  %320 = load ptr, ptr %319, align 8
+  %321 = getelementptr i8, ptr %320, i32 8
+  store ptr %321, ptr %319, align 8
+  br label %322
+
+322:                                              ; preds = %318, %313
+  %323 = phi ptr [ %316, %313 ], [ %320, %318 ]
+  %324 = load i32, ptr %323, align 4, !tbaa !17
+  %325 = zext i32 %324 to i64
+  store i64 %325, ptr %9, align 8, !tbaa !19
+  br label %326
+
+326:                                              ; preds = %322, %305, %288, %271
+  %327 = load ptr, ptr %10, align 8, !tbaa !9
+  %328 = load i8, ptr %327, align 1, !tbaa !16
+  %329 = sext i8 %328 to i32
+  switch i32 %329, label %336 [
+    i32 111, label %330
+    i32 117, label %333
+  ]
+
+330:                                              ; preds = %326
+  %331 = load ptr, ptr %4, align 8, !tbaa !4
+  %332 = load i64, ptr %9, align 8, !tbaa !19
+  call void @append_uint(ptr noundef %331, i64 noundef %332, i32 noundef 8)
+  br label %339
+
+333:                                              ; preds = %326
+  %334 = load ptr, ptr %4, align 8, !tbaa !4
+  %335 = load i64, ptr %9, align 8, !tbaa !19
+  call void @append_uint(ptr noundef %334, i64 noundef %335, i32 noundef 10)
+  br label %339
+
+336:                                              ; preds = %326
+  %337 = load ptr, ptr %4, align 8, !tbaa !4
+  %338 = load i64, ptr %9, align 8, !tbaa !19
+  call void @append_uint(ptr noundef %337, i64 noundef %338, i32 noundef 16)
+  br label %339
+
+339:                                              ; preds = %336, %333, %330
+  br label %346
+
+340:                                              ; preds = %56
+  %341 = load ptr, ptr %14, align 8, !tbaa !9
+  store ptr %341, ptr %10, align 8, !tbaa !9
+  %342 = load ptr, ptr %4, align 8, !tbaa !4
+  %343 = load ptr, ptr %10, align 8, !tbaa !9
+  %344 = load i8, ptr %343, align 1, !tbaa !16
+  %345 = call ptr @archive_strappend_char(ptr noundef %342, i8 noundef signext %344)
+  br label %346
+
+346:                                              ; preds = %340, %339, %253, %220, %157, %77, %60
+  store i32 0, ptr %13, align 4
+  br label %347
+
+347:                                              ; preds = %346, %40
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #7
+  %348 = load i32, ptr %13, align 4
+  switch i32 %348, label %357 [
+    i32 0, label %349
+    i32 4, label %350
+  ]
+
+349:                                              ; preds = %347
+  br label %350
+
+350:                                              ; preds = %349, %347
+  %351 = load ptr, ptr %10, align 8, !tbaa !9
+  %352 = getelementptr inbounds nuw i8, ptr %351, i32 1
+  store ptr %352, ptr %10, align 8, !tbaa !9
+  br label %29, !llvm.loop !22
+
+353:                                              ; preds = %29
+  store i32 0, ptr %13, align 4
+  br label %354
+
+354:                                              ; preds = %353, %22
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #7
+  call void @llvm.lifetime.end.p0(i64 1, ptr %7) #7
+  %355 = load i32, ptr %13, align 4
+  switch i32 %355, label %357 [
+    i32 0, label %356
+    i32 1, label %356
+  ]
+
+356:                                              ; preds = %354, %354
   ret void
+
+357:                                              ; preds = %354, %347
+  unreachable
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #1
+declare void @llvm.va_end.p0(ptr) #2
 
-declare ptr @archive_string_ensure(ptr noundef, i64 noundef) #2
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+
+declare ptr @archive_string_ensure(ptr noundef, i64 noundef) #3
 
 ; Function Attrs: noreturn
-declare void @__archive_errx(i32 noundef, ptr noundef) #3
+declare void @__archive_errx(i32 noundef, ptr noundef) #4
 
-declare ptr @archive_strappend_char(ptr noundef, i8 noundef signext) #2
+declare ptr @archive_strappend_char(ptr noundef, i8 noundef signext) #3
 
 ; Function Attrs: nounwind uwtable
 define internal void @append_int(ptr noundef %0, i64 noundef %1, i32 noundef %2) #0 {
@@ -652,17 +702,18 @@ define internal void @append_int(ptr noundef %0, i64 noundef %1, i32 noundef %2)
   %5 = alloca i64, align 8
   %6 = alloca i32, align 4
   %7 = alloca i64, align 8
-  store ptr %0, ptr %4, align 8
-  store i64 %1, ptr %5, align 8
-  store i32 %2, ptr %6, align 4
-  %8 = load i64, ptr %5, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !4
+  store i64 %1, ptr %5, align 8, !tbaa !19
+  store i32 %2, ptr %6, align 4, !tbaa !17
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #7
+  %8 = load i64, ptr %5, align 8, !tbaa !19
   %9 = icmp slt i64 %8, 0
   br i1 %9, label %10, label %21
 
 10:                                               ; preds = %3
-  %11 = load ptr, ptr %4, align 8
+  %11 = load ptr, ptr %4, align 8, !tbaa !4
   %12 = call ptr @archive_strappend_char(ptr noundef %11, i8 noundef signext 45)
-  %13 = load i64, ptr %5, align 8
+  %13 = load i64, ptr %5, align 8, !tbaa !19
   %14 = icmp eq i64 %13, -9223372036854775808
   br i1 %14, label %15, label %16
 
@@ -670,90 +721,110 @@ define internal void @append_int(ptr noundef %0, i64 noundef %1, i32 noundef %2)
   br label %19
 
 16:                                               ; preds = %10
-  %17 = load i64, ptr %5, align 8
+  %17 = load i64, ptr %5, align 8, !tbaa !19
   %18 = sub nsw i64 0, %17
   br label %19
 
 19:                                               ; preds = %16, %15
   %20 = phi i64 [ -9223372036854775808, %15 ], [ %18, %16 ]
-  store i64 %20, ptr %7, align 8
+  store i64 %20, ptr %7, align 8, !tbaa !19
   br label %23
 
 21:                                               ; preds = %3
-  %22 = load i64, ptr %5, align 8
-  store i64 %22, ptr %7, align 8
+  %22 = load i64, ptr %5, align 8, !tbaa !19
+  store i64 %22, ptr %7, align 8, !tbaa !19
   br label %23
 
 23:                                               ; preds = %21, %19
-  %24 = load ptr, ptr %4, align 8
-  %25 = load i64, ptr %7, align 8
-  %26 = load i32, ptr %6, align 4
+  %24 = load ptr, ptr %4, align 8, !tbaa !4
+  %25 = load i64, ptr %7, align 8, !tbaa !19
+  %26 = load i32, ptr %6, align 4, !tbaa !17
   call void @append_uint(ptr noundef %24, i64 noundef %25, i32 noundef %26)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #7
   ret void
 }
 
-declare i32 @archive_string_append_from_wcs(ptr noundef, ptr noundef, i64 noundef) #2
+declare i32 @archive_string_append_from_wcs(ptr noundef, ptr noundef, i64 noundef) #3
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare i64 @wcslen(ptr noundef) #4
+declare i64 @wcslen(ptr noundef) #5
 
 ; Function Attrs: nounwind willreturn memory(none)
-declare ptr @__errno_location() #5
+declare ptr @__errno_location() #6
 
-declare ptr @archive_strcat(ptr noundef, ptr noundef) #2
+declare ptr @archive_strcat(ptr noundef, ptr noundef) #3
 
 ; Function Attrs: nounwind uwtable
 define internal void @append_uint(ptr noundef %0, i64 noundef %1, i32 noundef %2) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca i64, align 8
   %6 = alloca i32, align 4
-  store ptr %0, ptr %4, align 8
-  store i64 %1, ptr %5, align 8
-  store i32 %2, ptr %6, align 4
-  %7 = load i64, ptr %5, align 8
-  %8 = load i32, ptr %6, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !4
+  store i64 %1, ptr %5, align 8, !tbaa !19
+  store i32 %2, ptr %6, align 4, !tbaa !17
+  %7 = load i64, ptr %5, align 8, !tbaa !19
+  %8 = load i32, ptr %6, align 4, !tbaa !17
   %9 = zext i32 %8 to i64
   %10 = icmp uge i64 %7, %9
   br i1 %10, label %11, label %18
 
 11:                                               ; preds = %3
-  %12 = load ptr, ptr %4, align 8
-  %13 = load i64, ptr %5, align 8
-  %14 = load i32, ptr %6, align 4
+  %12 = load ptr, ptr %4, align 8, !tbaa !4
+  %13 = load i64, ptr %5, align 8, !tbaa !19
+  %14 = load i32, ptr %6, align 4, !tbaa !17
   %15 = zext i32 %14 to i64
   %16 = udiv i64 %13, %15
-  %17 = load i32, ptr %6, align 4
+  %17 = load i32, ptr %6, align 4, !tbaa !17
   call void @append_uint(ptr noundef %12, i64 noundef %16, i32 noundef %17)
   br label %18
 
 18:                                               ; preds = %11, %3
-  %19 = load ptr, ptr %4, align 8
-  %20 = load i64, ptr %5, align 8
-  %21 = load i32, ptr %6, align 4
+  %19 = load ptr, ptr %4, align 8, !tbaa !4
+  %20 = load i64, ptr %5, align 8, !tbaa !19
+  %21 = load i32, ptr %6, align 4, !tbaa !17
   %22 = zext i32 %21 to i64
   %23 = urem i64 %20, %22
-  %24 = getelementptr inbounds [17 x i8], ptr @append_uint.digits, i64 0, i64 %23
-  %25 = load i8, ptr %24, align 1
+  %24 = getelementptr inbounds nuw [17 x i8], ptr @append_uint.digits, i64 0, i64 %23
+  %25 = load i8, ptr %24, align 1, !tbaa !16
   %26 = call ptr @archive_strappend_char(ptr noundef %19, i8 noundef signext %25)
   ret void
 }
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { nocallback nofree nosync nounwind willreturn }
-attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { noreturn }
-attributes #7 = { nounwind willreturn memory(read) }
-attributes #8 = { nounwind willreturn memory(none) }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { nocallback nofree nosync nounwind willreturn }
+attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nounwind willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nounwind }
+attributes #8 = { noreturn }
+attributes #9 = { nounwind willreturn memory(read) }
+attributes #10 = { nounwind willreturn memory(none) }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+!llvm.module.flags = !{!0, !1, !2, !3}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
+!4 = !{!5, !5, i64 0}
+!5 = !{!"p1 _ZTS14archive_string", !6, i64 0}
+!6 = !{!"any pointer", !7, i64 0}
+!7 = !{!"omnipotent char", !8, i64 0}
+!8 = !{!"Simple C/C++ TBAA"}
+!9 = !{!10, !10, i64 0}
+!10 = !{!"p1 omnipotent char", !6, i64 0}
+!11 = !{!12, !12, i64 0}
+!12 = !{!"p1 _ZTS13__va_list_tag", !6, i64 0}
+!13 = !{!14, !10, i64 0}
+!14 = !{!"archive_string", !10, i64 0, !15, i64 8, !15, i64 16}
+!15 = !{!"long", !7, i64 0}
+!16 = !{!7, !7, i64 0}
+!17 = !{!18, !18, i64 0}
+!18 = !{!"int", !7, i64 0}
+!19 = !{!15, !15, i64 0}
+!20 = !{!21, !21, i64 0}
+!21 = !{!"p1 int", !6, i64 0}
+!22 = distinct !{!22, !23}
+!23 = !{!"llvm.loop.mustprogress"}

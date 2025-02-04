@@ -11,10 +11,12 @@ supported_project = [
     "chibicc",
     "cjson",
     "clamav",
+    "cmake",
 ]
 
 modify_only = [
     "cjson",
+    "cmake",
 ]
 
 

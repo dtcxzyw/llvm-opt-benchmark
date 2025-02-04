@@ -1,13 +1,12 @@
-; ModuleID = 'bench/cmake/original/frm_def.c.ll'
-source_filename = "bench/cmake/original/frm_def.c.ll"
+; ModuleID = 'bench/cmake/original/frm_def.ll'
+source_filename = "bench/cmake/original/frm_def.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.formnode = type { i16, i16, i16, i32, i32, i32, i32, i16, i16, i16, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 %struct._PAGE = type { i16, i16, i16, i16 }
 
-@default_form = internal global %struct.formnode { i16 0, i16 0, i16 0, i32 0, i32 0, i32 0, i32 0, i16 -1, i16 -1, i16 -1, i32 3, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null }, align 8
 @_nc_Default_Form = dso_local local_unnamed_addr global ptr @default_form, align 8
+@default_form = internal global { i16, i16, i16, [2 x i8], i32, i32, i32, i32, i16, i16, i16, [2 x i8], i32, [4 x i8], ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr } { i16 0, i16 0, i16 0, [2 x i8] zeroinitializer, i32 0, i32 0, i32 0, i32 0, i16 -1, i16 -1, i16 -1, [2 x i8] zeroinitializer, i32 3, [4 x i8] zeroinitializer, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null }, align 8
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef ptr @new_form(ptr noundef %0) local_unnamed_addr #0 {
@@ -20,44 +19,44 @@ define dso_local noundef ptr @new_form(ptr noundef %0) local_unnamed_addr #0 {
   br label %37
 
 3:                                                ; preds = %1
-  %4 = load ptr, ptr @_nc_Default_Form, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %2, ptr noundef nonnull align 8 dereferenceable(128) %4, i64 128, i1 false)
+  %4 = load ptr, ptr @_nc_Default_Form, align 8, !tbaa !4
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %2, ptr noundef nonnull align 8 dereferenceable(128) %4, i64 128, i1 false), !tbaa.struct !9
   %5 = tail call fastcc i32 @Connect_Fields(ptr noundef nonnull %2, ptr noundef %0)
   %6 = icmp eq i32 %5, 0
   br i1 %6, label %7, label %Associate_Fields.exit
 
 7:                                                ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 26
-  %9 = load i16, ptr %8, align 2
+  %9 = load i16, ptr %8, align 2, !tbaa !21
   %10 = icmp sgt i16 %9, 0
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 28
   br i1 %10, label %12, label %14
 
 12:                                               ; preds = %7
-  store i16 0, ptr %11, align 4
+  store i16 0, ptr %11, align 4, !tbaa !23
   %13 = tail call i32 @form_driver(ptr noundef nonnull %2, i32 noundef -291056) #11
   br label %38
 
 14:                                               ; preds = %7
-  store i16 -1, ptr %11, align 4
+  store i16 -1, ptr %11, align 4, !tbaa !23
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 72
-  store ptr null, ptr %15, align 8
+  store ptr null, ptr %15, align 8, !tbaa !24
   br label %38
 
 Associate_Fields.exit:                            ; preds = %3
-  %16 = load i16, ptr %2, align 8
+  %16 = load i16, ptr %2, align 8, !tbaa !25
   %17 = and i16 %16, 1
   %.not8.i = icmp eq i16 %17, 0
   br i1 %.not8.i, label %18, label %free_form.exit
 
 18:                                               ; preds = %Associate_Fields.exit
   %19 = getelementptr inbounds nuw i8, ptr %2, i64 64
-  %20 = load ptr, ptr %19, align 8
+  %20 = load ptr, ptr %19, align 8, !tbaa !26
   %.not.i.i = icmp eq ptr %20, null
   br i1 %.not.i.i, label %Disconnect_Fields.exit.i, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %18
-  %21 = load ptr, ptr %20, align 8
+  %21 = load ptr, ptr %20, align 8, !tbaa !18
   %.not1820.i.i = icmp eq ptr %21, null
   br i1 %.not1820.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
 
@@ -65,38 +64,38 @@ Associate_Fields.exit:                            ; preds = %3
   %22 = phi ptr [ %29, %27 ], [ %21, %.preheader.i.i ]
   %.021.i.i = phi ptr [ %28, %27 ], [ %20, %.preheader.i.i ]
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 80
-  %24 = load ptr, ptr %23, align 8
+  %24 = load ptr, ptr %23, align 8, !tbaa !27
   %25 = icmp eq ptr %2, %24
   br i1 %25, label %26, label %27
 
 26:                                               ; preds = %.lr.ph.i.i
-  store ptr null, ptr %23, align 8
+  store ptr null, ptr %23, align 8, !tbaa !27
   br label %27
 
 27:                                               ; preds = %26, %.lr.ph.i.i
   %28 = getelementptr inbounds nuw i8, ptr %.021.i.i, i64 8
-  %29 = load ptr, ptr %28, align 8
+  %29 = load ptr, ptr %28, align 8, !tbaa !18
   %.not18.i.i = icmp eq ptr %29, null
-  br i1 %.not18.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !5
+  br i1 %.not18.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !31
 
 ._crit_edge.i.i:                                  ; preds = %27, %.preheader.i.i
   %30 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  store i16 0, ptr %30, align 4
+  store i16 0, ptr %30, align 4, !tbaa !33
   %31 = getelementptr inbounds nuw i8, ptr %2, i64 2
-  store i16 0, ptr %31, align 2
+  store i16 0, ptr %31, align 2, !tbaa !34
   %32 = getelementptr inbounds nuw i8, ptr %2, i64 26
-  store i16 -1, ptr %32, align 2
+  store i16 -1, ptr %32, align 2, !tbaa !21
   %33 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  store i16 -1, ptr %33, align 8
-  store ptr null, ptr %19, align 8
+  store i16 -1, ptr %33, align 8, !tbaa !35
+  store ptr null, ptr %19, align 8, !tbaa !26
   %34 = getelementptr inbounds nuw i8, ptr %2, i64 80
-  %35 = load ptr, ptr %34, align 8
+  %35 = load ptr, ptr %34, align 8, !tbaa !36
   %.not19.i.i = icmp eq ptr %35, null
   br i1 %.not19.i.i, label %Disconnect_Fields.exit.thread.i, label %Disconnect_Fields.exit.thread.sink.split.i
 
 Disconnect_Fields.exit.i:                         ; preds = %18
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %2, i64 80
-  %.pre.i = load ptr, ptr %.phi.trans.insert.i, align 8
+  %.pre.i = load ptr, ptr %.phi.trans.insert.i, align 8, !tbaa !36
   %.not9.i = icmp eq ptr %.pre.i, null
   br i1 %.not9.i, label %Disconnect_Fields.exit.thread.i, label %Disconnect_Fields.exit.thread.sink.split.i
 
@@ -112,13 +111,13 @@ Disconnect_Fields.exit.thread.i:                  ; preds = %Disconnect_Fields.e
 free_form.exit:                                   ; preds = %Associate_Fields.exit, %Disconnect_Fields.exit.thread.i
   %.sink11.i = phi i32 [ 0, %Disconnect_Fields.exit.thread.i ], [ -3, %Associate_Fields.exit ]
   %36 = tail call ptr @__errno_location() #10
-  store i32 %.sink11.i, ptr %36, align 4
+  store i32 %.sink11.i, ptr %36, align 4, !tbaa !12
   br label %37
 
 37:                                               ; preds = %._crit_edge, %free_form.exit
   %.pre-phi = phi ptr [ %.pre, %._crit_edge ], [ %36, %free_form.exit ]
   %.07.ph = phi i32 [ -1, %._crit_edge ], [ %5, %free_form.exit ]
-  store i32 %.07.ph, ptr %.pre-phi, align 4
+  store i32 %.07.ph, ptr %.pre-phi, align 4, !tbaa !12
   br label %38
 
 38:                                               ; preds = %14, %12, %37
@@ -138,19 +137,19 @@ define dso_local range(i32 -3, 1) i32 @free_form(ptr noundef %0) local_unnamed_a
   br i1 %.not, label %23, label %2
 
 2:                                                ; preds = %1
-  %3 = load i16, ptr %0, align 8
+  %3 = load i16, ptr %0, align 8, !tbaa !25
   %4 = and i16 %3, 1
   %.not8 = icmp eq i16 %4, 0
   br i1 %.not8, label %5, label %23
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %7 = load ptr, ptr %6, align 8
+  %7 = load ptr, ptr %6, align 8, !tbaa !26
   %.not.i = icmp eq ptr %7, null
   br i1 %.not.i, label %Disconnect_Fields.exit, label %.preheader.i
 
 .preheader.i:                                     ; preds = %5
-  %8 = load ptr, ptr %7, align 8
+  %8 = load ptr, ptr %7, align 8, !tbaa !18
   %.not1820.i = icmp eq ptr %8, null
   br i1 %.not1820.i, label %._crit_edge.i, label %.lr.ph.i
 
@@ -158,38 +157,38 @@ define dso_local range(i32 -3, 1) i32 @free_form(ptr noundef %0) local_unnamed_a
   %9 = phi ptr [ %16, %14 ], [ %8, %.preheader.i ]
   %.021.i = phi ptr [ %15, %14 ], [ %7, %.preheader.i ]
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 80
-  %11 = load ptr, ptr %10, align 8
+  %11 = load ptr, ptr %10, align 8, !tbaa !27
   %12 = icmp eq ptr %0, %11
   br i1 %12, label %13, label %14
 
 13:                                               ; preds = %.lr.ph.i
-  store ptr null, ptr %10, align 8
+  store ptr null, ptr %10, align 8, !tbaa !27
   br label %14
 
 14:                                               ; preds = %13, %.lr.ph.i
   %15 = getelementptr inbounds nuw i8, ptr %.021.i, i64 8
-  %16 = load ptr, ptr %15, align 8
+  %16 = load ptr, ptr %15, align 8, !tbaa !18
   %.not18.i = icmp eq ptr %16, null
-  br i1 %.not18.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !5
+  br i1 %.not18.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !31
 
 ._crit_edge.i:                                    ; preds = %14, %.preheader.i
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i16 0, ptr %17, align 4
+  store i16 0, ptr %17, align 4, !tbaa !33
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 0, ptr %18, align 2
+  store i16 0, ptr %18, align 2, !tbaa !34
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 26
-  store i16 -1, ptr %19, align 2
+  store i16 -1, ptr %19, align 2, !tbaa !21
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i16 -1, ptr %20, align 8
-  store ptr null, ptr %6, align 8
+  store i16 -1, ptr %20, align 8, !tbaa !35
+  store ptr null, ptr %6, align 8, !tbaa !26
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %22 = load ptr, ptr %21, align 8
+  %22 = load ptr, ptr %21, align 8, !tbaa !36
   %.not19.i = icmp eq ptr %22, null
   br i1 %.not19.i, label %Disconnect_Fields.exit.thread, label %Disconnect_Fields.exit.thread.sink.split
 
 Disconnect_Fields.exit:                           ; preds = %5
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %.pre = load ptr, ptr %.phi.trans.insert, align 8
+  %.pre = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !36
   %.not9 = icmp eq ptr %.pre, null
   br i1 %.not9, label %Disconnect_Fields.exit.thread, label %Disconnect_Fields.exit.thread.sink.split
 
@@ -205,7 +204,7 @@ Disconnect_Fields.exit.thread:                    ; preds = %Disconnect_Fields.e
 23:                                               ; preds = %2, %1, %Disconnect_Fields.exit.thread
   %.sink11 = phi i32 [ 0, %Disconnect_Fields.exit.thread ], [ -2, %1 ], [ -3, %2 ]
   %24 = tail call ptr @__errno_location() #10
-  store i32 %.sink11, ptr %24, align 4
+  store i32 %.sink11, ptr %24, align 4, !tbaa !12
   ret i32 %.sink11
 }
 
@@ -221,19 +220,19 @@ define dso_local range(i32 -4, 1) i32 @set_form_fields(ptr noundef %0, ptr nound
   br i1 %.not, label %Associate_Fields.exit.thread, label %3
 
 3:                                                ; preds = %2
-  %4 = load i16, ptr %0, align 8
+  %4 = load i16, ptr %0, align 8, !tbaa !25
   %5 = and i16 %4, 1
   %.not10 = icmp eq i16 %5, 0
   br i1 %.not10, label %6, label %Associate_Fields.exit.thread
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %8 = load ptr, ptr %7, align 8
+  %8 = load ptr, ptr %7, align 8, !tbaa !26
   %.not.i = icmp eq ptr %8, null
   br i1 %.not.i, label %Disconnect_Fields.exit, label %.preheader.i
 
 .preheader.i:                                     ; preds = %6
-  %9 = load ptr, ptr %8, align 8
+  %9 = load ptr, ptr %8, align 8, !tbaa !18
   %.not1820.i = icmp eq ptr %9, null
   br i1 %.not1820.i, label %._crit_edge.i, label %.lr.ph.i
 
@@ -241,32 +240,32 @@ define dso_local range(i32 -4, 1) i32 @set_form_fields(ptr noundef %0, ptr nound
   %10 = phi ptr [ %17, %15 ], [ %9, %.preheader.i ]
   %.021.i = phi ptr [ %16, %15 ], [ %8, %.preheader.i ]
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 80
-  %12 = load ptr, ptr %11, align 8
+  %12 = load ptr, ptr %11, align 8, !tbaa !27
   %13 = icmp eq ptr %0, %12
   br i1 %13, label %14, label %15
 
 14:                                               ; preds = %.lr.ph.i
-  store ptr null, ptr %11, align 8
+  store ptr null, ptr %11, align 8, !tbaa !27
   br label %15
 
 15:                                               ; preds = %14, %.lr.ph.i
   %16 = getelementptr inbounds nuw i8, ptr %.021.i, i64 8
-  %17 = load ptr, ptr %16, align 8
+  %17 = load ptr, ptr %16, align 8, !tbaa !18
   %.not18.i = icmp eq ptr %17, null
-  br i1 %.not18.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !5
+  br i1 %.not18.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !31
 
 ._crit_edge.i:                                    ; preds = %15, %.preheader.i
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i16 0, ptr %18, align 4
+  store i16 0, ptr %18, align 4, !tbaa !33
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 0, ptr %19, align 2
+  store i16 0, ptr %19, align 2, !tbaa !34
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 26
-  store i16 -1, ptr %20, align 2
+  store i16 -1, ptr %20, align 2, !tbaa !21
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i16 -1, ptr %21, align 8
-  store ptr null, ptr %7, align 8
+  store i16 -1, ptr %21, align 8, !tbaa !35
+  store ptr null, ptr %7, align 8, !tbaa !26
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %23 = load ptr, ptr %22, align 8
+  %23 = load ptr, ptr %22, align 8, !tbaa !36
   %.not19.i = icmp eq ptr %23, null
   br i1 %.not19.i, label %25, label %24
 
@@ -275,7 +274,7 @@ define dso_local range(i32 -4, 1) i32 @set_form_fields(ptr noundef %0, ptr nound
   br label %25
 
 25:                                               ; preds = %24, %._crit_edge.i
-  store ptr null, ptr %22, align 8
+  store ptr null, ptr %22, align 8, !tbaa !36
   br label %Disconnect_Fields.exit
 
 Disconnect_Fields.exit:                           ; preds = %6, %25
@@ -285,20 +284,20 @@ Disconnect_Fields.exit:                           ; preds = %6, %25
 
 28:                                               ; preds = %Disconnect_Fields.exit
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 26
-  %30 = load i16, ptr %29, align 2
+  %30 = load i16, ptr %29, align 2, !tbaa !21
   %31 = icmp sgt i16 %30, 0
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 28
   br i1 %31, label %33, label %35
 
 33:                                               ; preds = %28
-  store i16 0, ptr %32, align 4
+  store i16 0, ptr %32, align 4, !tbaa !23
   %34 = tail call i32 @form_driver(ptr noundef nonnull %0, i32 noundef -291056) #11
   br label %Associate_Fields.exit.thread
 
 35:                                               ; preds = %28
-  store i16 -1, ptr %32, align 4
+  store i16 -1, ptr %32, align 4, !tbaa !23
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  store ptr null, ptr %36, align 8
+  store ptr null, ptr %36, align 8, !tbaa !24
   br label %Associate_Fields.exit.thread
 
 Associate_Fields.exit:                            ; preds = %Disconnect_Fields.exit
@@ -308,23 +307,23 @@ Associate_Fields.exit:                            ; preds = %Disconnect_Fields.e
 Associate_Fields.exit.thread:                     ; preds = %Associate_Fields.exit, %33, %35, %3, %2
   %.sink = phi i32 [ -2, %2 ], [ -3, %3 ], [ %26, %35 ], [ %26, %33 ], [ %26, %Associate_Fields.exit ]
   %38 = tail call ptr @__errno_location() #10
-  store i32 %.sink, ptr %38, align 4
+  store i32 %.sink, ptr %38, align 4, !tbaa !12
   ret i32 %.sink
 }
 
 ; Function Attrs: nofree nounwind uwtable
 define internal fastcc range(i32 -4, 1) i32 @Connect_Fields(ptr noundef nonnull initializes((24, 28), (64, 72)) %0, ptr noundef %1) unnamed_addr #5 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  store ptr %1, ptr %3, align 8
+  store ptr %1, ptr %3, align 8, !tbaa !26
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i16 0, ptr %4, align 8
+  store i16 0, ptr %4, align 8, !tbaa !35
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 26
-  store i16 0, ptr %5, align 2
+  store i16 0, ptr %5, align 2, !tbaa !21
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %._crit_edge.thread, label %.preheader
 
 .preheader:                                       ; preds = %2
-  %6 = load ptr, ptr %1, align 8
+  %6 = load ptr, ptr %1, align 8, !tbaa !18
   %.not92100 = icmp eq ptr %6, null
   br i1 %.not92100, label %._crit_edge.thread, label %.lr.ph
 
@@ -333,7 +332,7 @@ define internal fastcc range(i32 -4, 1) i32 @Connect_Fields(ptr noundef nonnull 
   %7 = phi ptr [ %19, %17 ], [ %6, %.preheader ]
   %.083101 = phi i32 [ %.184, %17 ], [ 0, %.preheader ]
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 80
-  %9 = load ptr, ptr %8, align 8
+  %9 = load ptr, ptr %8, align 8, !tbaa !27
   %.not96 = icmp eq ptr %9, null
   br i1 %.not96, label %10, label %._crit_edge.thread
 
@@ -342,7 +341,7 @@ define internal fastcc range(i32 -4, 1) i32 @Connect_Fields(ptr noundef nonnull 
   br i1 %11, label %15, label %12
 
 12:                                               ; preds = %10
-  %13 = load i16, ptr %7, align 8
+  %13 = load i16, ptr %7, align 8, !tbaa !37
   %14 = and i16 %13, 4
   %.not97 = icmp eq i16 %14, 0
   br i1 %.not97, label %17, label %15
@@ -353,12 +352,12 @@ define internal fastcc range(i32 -4, 1) i32 @Connect_Fields(ptr noundef nonnull 
 
 17:                                               ; preds = %15, %12
   %.184 = phi i32 [ %16, %15 ], [ %.083101, %12 ]
-  store ptr %0, ptr %8, align 8
+  store ptr %0, ptr %8, align 8, !tbaa !27
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %18 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv.next
-  %19 = load ptr, ptr %18, align 8
+  %19 = load ptr, ptr %18, align 8, !tbaa !18
   %.not92 = icmp eq ptr %19, null
-  br i1 %.not92, label %._crit_edge, label %.lr.ph, !llvm.loop !7
+  br i1 %.not92, label %._crit_edge, label %.lr.ph, !llvm.loop !38
 
 ._crit_edge:                                      ; preds = %17
   %20 = sext i32 %.184 to i64
@@ -369,139 +368,146 @@ define internal fastcc range(i32 -4, 1) i32 @Connect_Fields(ptr noundef nonnull 
 
 23:                                               ; preds = %._crit_edge
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  store ptr %22, ptr %24, align 8
+  store ptr %22, ptr %24, align 8, !tbaa !36
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %.promoted = load i16, ptr %25, align 2, !tbaa !34
+  %.promoted104 = load i16, ptr %26, align 4, !tbaa !33
   %wide.trip.count = and i64 %indvars.iv.next, 4294967295
   br label %27
 
 27:                                               ; preds = %23, %68
-  %indvars.iv120 = phi i64 [ 0, %23 ], [ %indvars.iv.next121, %68 ]
-  %.080105 = phi ptr [ %22, %23 ], [ %.1, %68 ]
-  %28 = icmp eq i64 %indvars.iv120, 0
-  br i1 %28, label %29, label %30
+  %indvars.iv119 = phi i64 [ 0, %23 ], [ %indvars.iv.next120, %68 ]
+  %.080106 = phi ptr [ %22, %23 ], [ %.1, %68 ]
+  %28 = phi i16 [ %.promoted, %23 ], [ %63, %68 ]
+  %29 = phi i16 [ %.promoted104, %23 ], [ %69, %68 ]
+  %30 = icmp eq i64 %indvars.iv119, 0
+  br i1 %30, label %31, label %32
 
-29:                                               ; preds = %27
-  store i16 0, ptr %.080105, align 2
-  br label %40
+31:                                               ; preds = %27
+  store i16 0, ptr %.080106, align 2, !tbaa !39
+  br label %42
 
-30:                                               ; preds = %27
-  %31 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv120
-  %32 = load ptr, ptr %31, align 8
-  %33 = load i16, ptr %32, align 8
-  %34 = and i16 %33, 4
-  %.not95 = icmp eq i16 %34, 0
-  br i1 %.not95, label %40, label %35
+32:                                               ; preds = %27
+  %33 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv119
+  %34 = load ptr, ptr %33, align 8, !tbaa !18
+  %35 = load i16, ptr %34, align 8, !tbaa !37
+  %36 = and i16 %35, 4
+  %.not95 = icmp eq i16 %36, 0
+  br i1 %.not95, label %42, label %37
 
-35:                                               ; preds = %30
-  %36 = trunc i64 %indvars.iv120 to i16
-  %37 = add i16 %36, -1
-  %38 = getelementptr inbounds nuw i8, ptr %.080105, i64 2
-  store i16 %37, ptr %38, align 2
-  %39 = getelementptr inbounds nuw i8, ptr %.080105, i64 8
-  store i16 %36, ptr %39, align 2
-  br label %40
+37:                                               ; preds = %32
+  %38 = trunc i64 %indvars.iv119 to i16
+  %39 = add i16 %38, -1
+  %40 = getelementptr inbounds nuw i8, ptr %.080106, i64 2
+  store i16 %39, ptr %40, align 2, !tbaa !41
+  %41 = getelementptr inbounds nuw i8, ptr %.080106, i64 8
+  store i16 %38, ptr %41, align 2, !tbaa !39
+  br label %42
 
-40:                                               ; preds = %30, %35, %29
-  %.1 = phi ptr [ %.080105, %29 ], [ %39, %35 ], [ %.080105, %30 ]
-  %41 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv120
-  %42 = load ptr, ptr %41, align 8
-  %43 = getelementptr inbounds nuw i8, ptr %42, i64 6
-  %44 = load i16, ptr %43, align 2
-  %45 = sext i16 %44 to i32
-  %46 = getelementptr inbounds nuw i8, ptr %42, i64 2
-  %47 = load i16, ptr %46, align 2
-  %48 = sext i16 %47 to i32
-  %49 = add nsw i32 %48, %45
-  %50 = getelementptr inbounds nuw i8, ptr %42, i64 8
-  %51 = load i16, ptr %50, align 8
-  %52 = sext i16 %51 to i32
-  %53 = getelementptr inbounds nuw i8, ptr %42, i64 4
-  %54 = load i16, ptr %53, align 4
-  %55 = sext i16 %54 to i32
-  %56 = add nsw i32 %55, %52
-  %57 = load i16, ptr %25, align 2
-  %58 = sext i16 %57 to i32
-  %59 = icmp sgt i32 %49, %58
+42:                                               ; preds = %32, %37, %31
+  %43 = phi ptr [ %6, %31 ], [ %34, %37 ], [ %34, %32 ]
+  %.1 = phi ptr [ %.080106, %31 ], [ %41, %37 ], [ %.080106, %32 ]
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 6
+  %45 = load i16, ptr %44, align 2, !tbaa !42
+  %46 = sext i16 %45 to i32
+  %47 = getelementptr inbounds nuw i8, ptr %43, i64 2
+  %48 = load i16, ptr %47, align 2, !tbaa !43
+  %49 = sext i16 %48 to i32
+  %50 = add nsw i32 %49, %46
+  %51 = getelementptr inbounds nuw i8, ptr %43, i64 8
+  %52 = load i16, ptr %51, align 8, !tbaa !44
+  %53 = sext i16 %52 to i32
+  %54 = getelementptr inbounds nuw i8, ptr %43, i64 4
+  %55 = load i16, ptr %54, align 4, !tbaa !45
+  %56 = sext i16 %55 to i32
+  %57 = add nsw i32 %56, %53
+  %58 = sext i16 %28 to i32
+  %59 = icmp sgt i32 %50, %58
   br i1 %59, label %60, label %62
 
-60:                                               ; preds = %40
-  %61 = trunc i32 %49 to i16
-  store i16 %61, ptr %25, align 2
+60:                                               ; preds = %42
+  %61 = trunc i32 %50 to i16
+  store i16 %61, ptr %25, align 2, !tbaa !34
   br label %62
 
-62:                                               ; preds = %60, %40
-  %63 = load i16, ptr %26, align 4
-  %64 = sext i16 %63 to i32
-  %65 = icmp sgt i32 %56, %64
+62:                                               ; preds = %60, %42
+  %63 = phi i16 [ %61, %60 ], [ %28, %42 ]
+  %64 = sext i16 %29 to i32
+  %65 = icmp sgt i32 %57, %64
   br i1 %65, label %66, label %68
 
 66:                                               ; preds = %62
-  %67 = trunc i32 %56 to i16
-  store i16 %67, ptr %26, align 4
+  %67 = trunc i32 %57 to i16
+  store i16 %67, ptr %26, align 4, !tbaa !33
   br label %68
 
 68:                                               ; preds = %62, %66
-  %indvars.iv.next121 = add nuw nsw i64 %indvars.iv120, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next121, %wide.trip.count
-  br i1 %exitcond.not, label %69, label %27, !llvm.loop !8
+  %69 = phi i16 [ %29, %62 ], [ %67, %66 ]
+  %indvars.iv.next120 = add nuw nsw i64 %indvars.iv119, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next120, %wide.trip.count
+  br i1 %exitcond.not, label %70, label %27, !llvm.loop !46
 
-69:                                               ; preds = %68
-  %70 = trunc i64 %indvars.iv.next to i16
-  %71 = add i16 %70, -1
-  %72 = getelementptr inbounds nuw i8, ptr %.1, i64 2
-  store i16 %71, ptr %72, align 2
-  store i16 %70, ptr %4, align 8
-  %73 = trunc i32 %.184 to i16
-  store i16 %73, ptr %5, align 2
-  %74 = icmp sgt i16 %73, 0
-  br i1 %74, label %.lr.ph116, label %._crit_edge.thread
+70:                                               ; preds = %68
+  %71 = trunc i64 %indvars.iv.next to i16
+  %72 = add i16 %71, -1
+  %73 = getelementptr inbounds nuw i8, ptr %.1, i64 2
+  store i16 %72, ptr %73, align 2, !tbaa !41
+  store i16 %71, ptr %4, align 8, !tbaa !35
+  %74 = trunc i32 %.184 to i16
+  store i16 %74, ptr %5, align 2, !tbaa !21
+  %sext = shl i32 %.184, 16
+  %75 = ashr exact i32 %sext, 16
+  %76 = icmp sgt i32 %75, 0
+  br i1 %76, label %.lr.ph116.preheader, label %._crit_edge.thread
 
-.lr.ph116:                                        ; preds = %69, %._crit_edge111
-  %indvars.iv126 = phi i64 [ %indvars.iv.next127, %._crit_edge111 ], [ 0, %69 ]
-  %75 = load ptr, ptr %24, align 8
-  %76 = getelementptr inbounds nuw %struct._PAGE, ptr %75, i64 %indvars.iv126
-  %77 = load i16, ptr %76, align 2
-  %78 = getelementptr inbounds nuw %struct._PAGE, ptr %75, i64 %indvars.iv126, i32 1
-  %79 = load i16, ptr %78, align 2
-  %.not94106 = icmp sle i16 %77, %79
-  tail call void @llvm.assume(i1 %.not94106)
-  %80 = trunc i64 %indvars.iv126 to i16
-  %81 = sext i16 %77 to i64
-  br label %82
+.lr.ph116.preheader:                              ; preds = %70
+  %wide.trip.count129 = zext nneg i32 %75 to i64
+  br label %.lr.ph116
 
-82:                                               ; preds = %.lr.ph116, %Insert_Field_By_Position.exit
-  %indvars.iv123 = phi i64 [ %81, %.lr.ph116 ], [ %indvars.iv.next124, %Insert_Field_By_Position.exit ]
-  %.0108 = phi ptr [ null, %.lr.ph116 ], [ %.0.i, %Insert_Field_By_Position.exit ]
-  %83 = trunc i64 %indvars.iv123 to i16
-  %84 = getelementptr inbounds ptr, ptr %1, i64 %indvars.iv123
-  %85 = load ptr, ptr %84, align 8
-  %86 = getelementptr inbounds nuw i8, ptr %85, i64 34
-  store i16 %83, ptr %86, align 2
-  %87 = load ptr, ptr %84, align 8
-  %88 = getelementptr inbounds nuw i8, ptr %87, i64 32
-  store i16 %80, ptr %88, align 8
-  %89 = load ptr, ptr %84, align 8
-  %.not.i = icmp eq ptr %.0108, null
+.lr.ph116:                                        ; preds = %.lr.ph116.preheader, %._crit_edge112
+  %indvars.iv126 = phi i64 [ 0, %.lr.ph116.preheader ], [ %indvars.iv.next127, %._crit_edge112 ]
+  %77 = getelementptr inbounds nuw %struct._PAGE, ptr %22, i64 %indvars.iv126
+  %78 = load i16, ptr %77, align 2, !tbaa !39
+  %79 = getelementptr inbounds nuw i8, ptr %77, i64 2
+  %80 = load i16, ptr %79, align 2, !tbaa !41
+  %81 = sext i16 %80 to i64
+  %.not94107 = icmp sle i16 %78, %80
+  tail call void @llvm.assume(i1 %.not94107)
+  %82 = trunc i64 %indvars.iv126 to i16
+  %83 = sext i16 %78 to i64
+  br label %84
+
+84:                                               ; preds = %.lr.ph116, %Insert_Field_By_Position.exit
+  %indvars.iv121 = phi i64 [ %83, %.lr.ph116 ], [ %indvars.iv.next122, %Insert_Field_By_Position.exit ]
+  %.0109 = phi ptr [ null, %.lr.ph116 ], [ %.0.i, %Insert_Field_By_Position.exit ]
+  %85 = trunc i64 %indvars.iv121 to i16
+  %86 = getelementptr inbounds ptr, ptr %1, i64 %indvars.iv121
+  %87 = load ptr, ptr %86, align 8, !tbaa !18
+  %88 = getelementptr inbounds nuw i8, ptr %87, i64 34
+  store i16 %85, ptr %88, align 2, !tbaa !47
+  %89 = getelementptr inbounds nuw i8, ptr %87, i64 32
+  store i16 %82, ptr %89, align 8, !tbaa !48
+  %.not.i = icmp eq ptr %.0109, null
   br i1 %.not.i, label %93, label %.preheader.i
 
-.preheader.i:                                     ; preds = %82
-  %90 = getelementptr inbounds nuw i8, ptr %89, i64 6
-  %91 = load i16, ptr %90, align 2
-  %92 = getelementptr inbounds nuw i8, ptr %89, i64 8
+.preheader.i:                                     ; preds = %84
+  %90 = getelementptr inbounds nuw i8, ptr %87, i64 6
+  %91 = load i16, ptr %90, align 2, !tbaa !42
+  %92 = getelementptr inbounds nuw i8, ptr %87, i64 8
   br label %96
 
-93:                                               ; preds = %82
-  %94 = getelementptr inbounds nuw i8, ptr %89, i64 64
-  store ptr %89, ptr %94, align 8
-  %95 = getelementptr inbounds nuw i8, ptr %89, i64 56
-  store ptr %89, ptr %95, align 8
+93:                                               ; preds = %84
+  %94 = getelementptr inbounds nuw i8, ptr %87, i64 64
+  store ptr %87, ptr %94, align 8, !tbaa !49
+  %95 = getelementptr inbounds nuw i8, ptr %87, i64 56
+  store ptr %87, ptr %95, align 8, !tbaa !50
   br label %Insert_Field_By_Position.exit
 
 96:                                               ; preds = %.critedge.i, %.preheader.i
-  %.028.i = phi ptr [ %108, %.critedge.i ], [ %.0108, %.preheader.i ]
+  %.028.i = phi ptr [ %108, %.critedge.i ], [ %.0109, %.preheader.i ]
   %97 = getelementptr inbounds nuw i8, ptr %.028.i, i64 6
-  %98 = load i16, ptr %97, align 2
+  %98 = load i16, ptr %97, align 2, !tbaa !42
   %99 = icmp slt i16 %98, %91
   br i1 %99, label %.critedge.i, label %100
 
@@ -511,67 +517,59 @@ define internal fastcc range(i32 -4, 1) i32 @Connect_Fields(ptr noundef nonnull 
 
 102:                                              ; preds = %100
   %103 = getelementptr inbounds nuw i8, ptr %.028.i, i64 8
-  %104 = load i16, ptr %103, align 8
-  %105 = load i16, ptr %92, align 8
+  %104 = load i16, ptr %103, align 8, !tbaa !44
+  %105 = load i16, ptr %92, align 8, !tbaa !44
   %106 = icmp slt i16 %104, %105
   br i1 %106, label %.critedge.i, label %.critedge2.i
 
 .critedge.i:                                      ; preds = %102, %96
   %107 = getelementptr inbounds nuw i8, ptr %.028.i, i64 56
-  %108 = load ptr, ptr %107, align 8
-  %109 = icmp eq ptr %108, %.0108
-  br i1 %109, label %.critedge2.i, label %96, !llvm.loop !9
+  %108 = load ptr, ptr %107, align 8, !tbaa !50
+  %109 = icmp eq ptr %108, %.0109
+  br i1 %109, label %.critedge2.i, label %96, !llvm.loop !51
 
 .critedge2.i:                                     ; preds = %.critedge.i, %102, %100
-  %.029.i = phi ptr [ %.0108, %102 ], [ %.0108, %100 ], [ null, %.critedge.i ]
+  %.029.i = phi ptr [ %.0109, %102 ], [ %.0109, %100 ], [ null, %.critedge.i ]
   %.1.i = phi ptr [ %.028.i, %102 ], [ %.028.i, %100 ], [ %108, %.critedge.i ]
-  %110 = getelementptr inbounds nuw i8, ptr %89, i64 56
-  store ptr %.1.i, ptr %110, align 8
+  %110 = getelementptr inbounds nuw i8, ptr %87, i64 56
+  store ptr %.1.i, ptr %110, align 8, !tbaa !50
   %111 = getelementptr inbounds nuw i8, ptr %.1.i, i64 64
-  %112 = load ptr, ptr %111, align 8
-  %113 = getelementptr inbounds nuw i8, ptr %89, i64 64
-  store ptr %112, ptr %113, align 8
-  store ptr %89, ptr %111, align 8
-  %114 = load ptr, ptr %113, align 8
+  %112 = load ptr, ptr %111, align 8, !tbaa !49
+  %113 = getelementptr inbounds nuw i8, ptr %87, i64 64
+  store ptr %112, ptr %113, align 8, !tbaa !49
+  store ptr %87, ptr %111, align 8, !tbaa !49
+  %114 = load ptr, ptr %113, align 8, !tbaa !49
   %115 = getelementptr inbounds nuw i8, ptr %114, i64 56
-  store ptr %89, ptr %115, align 8
+  store ptr %87, ptr %115, align 8, !tbaa !50
   %116 = icmp eq ptr %.1.i, %.029.i
-  %spec.select.i = select i1 %116, ptr %89, ptr %.0108
+  %spec.select.i = select i1 %116, ptr %87, ptr %.0109
   br label %Insert_Field_By_Position.exit
 
 Insert_Field_By_Position.exit:                    ; preds = %93, %.critedge2.i
-  %.0.i = phi ptr [ %89, %93 ], [ %spec.select.i, %.critedge2.i ]
-  %indvars.iv.next124 = add nsw i64 %indvars.iv123, 1
-  %117 = load ptr, ptr %24, align 8
-  %118 = getelementptr inbounds nuw %struct._PAGE, ptr %117, i64 %indvars.iv126
-  %119 = getelementptr inbounds nuw i8, ptr %118, i64 2
-  %120 = load i16, ptr %119, align 2
-  %121 = sext i16 %120 to i64
-  %.not94.not = icmp slt i64 %indvars.iv123, %121
-  br i1 %.not94.not, label %82, label %._crit_edge111, !llvm.loop !10
+  %.0.i = phi ptr [ %87, %93 ], [ %spec.select.i, %.critedge2.i ]
+  %indvars.iv.next122 = add nsw i64 %indvars.iv121, 1
+  %exitcond125.not = icmp eq i64 %indvars.iv121, %81
+  br i1 %exitcond125.not, label %._crit_edge112, label %84, !llvm.loop !52
 
-._crit_edge111:                                   ; preds = %Insert_Field_By_Position.exit
-  %122 = getelementptr inbounds nuw i8, ptr %.0.i, i64 34
-  %123 = load i16, ptr %122, align 2
-  %124 = getelementptr inbounds nuw i8, ptr %118, i64 4
-  store i16 %123, ptr %124, align 2
-  %125 = getelementptr inbounds nuw i8, ptr %.0.i, i64 64
-  %126 = load ptr, ptr %125, align 8
-  %127 = getelementptr inbounds nuw i8, ptr %126, i64 34
-  %128 = load i16, ptr %127, align 2
-  %129 = load ptr, ptr %24, align 8
-  %130 = getelementptr inbounds nuw %struct._PAGE, ptr %129, i64 %indvars.iv126, i32 3
-  store i16 %128, ptr %130, align 2
+._crit_edge112:                                   ; preds = %Insert_Field_By_Position.exit
+  %117 = getelementptr inbounds nuw i8, ptr %.0.i, i64 34
+  %118 = load i16, ptr %117, align 2, !tbaa !47
+  %119 = getelementptr inbounds nuw i8, ptr %77, i64 4
+  store i16 %118, ptr %119, align 2, !tbaa !53
+  %120 = getelementptr inbounds nuw i8, ptr %.0.i, i64 64
+  %121 = load ptr, ptr %120, align 8, !tbaa !49
+  %122 = getelementptr inbounds nuw i8, ptr %121, i64 34
+  %123 = load i16, ptr %122, align 2, !tbaa !47
+  %124 = getelementptr inbounds nuw %struct._PAGE, ptr %22, i64 %indvars.iv126, i32 3
+  store i16 %123, ptr %124, align 2, !tbaa !54
   %indvars.iv.next127 = add nuw nsw i64 %indvars.iv126, 1
-  %131 = load i16, ptr %5, align 2
-  %132 = sext i16 %131 to i64
-  %133 = icmp slt i64 %indvars.iv.next127, %132
-  br i1 %133, label %.lr.ph116, label %._crit_edge.thread, !llvm.loop !11
+  %exitcond130.not = icmp eq i64 %indvars.iv.next127, %wide.trip.count129
+  br i1 %exitcond130.not, label %._crit_edge.thread, label %.lr.ph116, !llvm.loop !55
 
-._crit_edge.thread:                               ; preds = %.lr.ph, %._crit_edge111, %69, %._crit_edge, %.preheader, %2
-  %.sink = phi i32 [ 0, %2 ], [ -2, %.preheader ], [ -1, %._crit_edge ], [ 0, %69 ], [ 0, %._crit_edge111 ], [ -4, %.lr.ph ]
-  %134 = tail call ptr @__errno_location() #10
-  store i32 %.sink, ptr %134, align 4
+._crit_edge.thread:                               ; preds = %.lr.ph, %._crit_edge112, %70, %._crit_edge, %.preheader, %2
+  %.sink = phi i32 [ 0, %2 ], [ -2, %.preheader ], [ -1, %._crit_edge ], [ 0, %70 ], [ 0, %._crit_edge112 ], [ -4, %.lr.ph ]
+  %125 = tail call ptr @__errno_location() #10
+  store i32 %.sink, ptr %125, align 4, !tbaa !12
   ret i32 %.sink
 }
 
@@ -581,7 +579,7 @@ define dso_local ptr @form_fields(ptr noundef readonly %0) local_unnamed_addr #6
   %2 = load ptr, ptr @_nc_Default_Form, align 8
   %3 = select i1 %.not, ptr %2, ptr %0
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 64
-  %5 = load ptr, ptr %4, align 8
+  %5 = load ptr, ptr %4, align 8, !tbaa !26
   ret ptr %5
 }
 
@@ -591,7 +589,7 @@ define dso_local range(i32 -32768, 32768) i32 @field_count(ptr noundef readonly 
   %2 = load ptr, ptr @_nc_Default_Form, align 8
   %3 = select i1 %.not, ptr %2, ptr %0
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %5 = load i16, ptr %4, align 8
+  %5 = load i16, ptr %4, align 8, !tbaa !35
   %6 = sext i16 %5 to i32
   ret i32 %6
 }
@@ -601,30 +599,74 @@ declare i32 @form_driver(ptr noundef, i32 noundef) local_unnamed_addr #7
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #8
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nofree nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nofree nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #9 = { nounwind allocsize(0) }
 attributes #10 = { nounwind willreturn memory(none) }
 attributes #11 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+!llvm.module.flags = !{!0, !1, !2, !3}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
-!9 = distinct !{!9, !6}
-!10 = distinct !{!10, !6}
-!11 = distinct !{!11, !6}
+!4 = !{!5, !5, i64 0}
+!5 = !{!"p1 _ZTS8formnode", !6, i64 0}
+!6 = !{!"any pointer", !7, i64 0}
+!7 = !{!"omnipotent char", !8, i64 0}
+!8 = !{!"Simple C/C++ TBAA"}
+!9 = !{i64 0, i64 2, !10, i64 2, i64 2, !10, i64 4, i64 2, !10, i64 8, i64 4, !12, i64 12, i64 4, !12, i64 16, i64 4, !12, i64 20, i64 4, !12, i64 24, i64 2, !10, i64 26, i64 2, !10, i64 28, i64 2, !10, i64 32, i64 4, !12, i64 40, i64 8, !14, i64 48, i64 8, !14, i64 56, i64 8, !14, i64 64, i64 8, !16, i64 72, i64 8, !18, i64 80, i64 8, !20, i64 88, i64 8, !20, i64 96, i64 8, !20, i64 104, i64 8, !20, i64 112, i64 8, !20, i64 120, i64 8, !20}
+!10 = !{!11, !11, i64 0}
+!11 = !{!"short", !7, i64 0}
+!12 = !{!13, !13, i64 0}
+!13 = !{!"int", !7, i64 0}
+!14 = !{!15, !15, i64 0}
+!15 = !{!"p1 _ZTS7_win_st", !6, i64 0}
+!16 = !{!17, !17, i64 0}
+!17 = !{!"p2 _ZTS9fieldnode", !6, i64 0}
+!18 = !{!19, !19, i64 0}
+!19 = !{!"p1 _ZTS9fieldnode", !6, i64 0}
+!20 = !{!6, !6, i64 0}
+!21 = !{!22, !11, i64 26}
+!22 = !{!"formnode", !11, i64 0, !11, i64 2, !11, i64 4, !13, i64 8, !13, i64 12, !13, i64 16, !13, i64 20, !11, i64 24, !11, i64 26, !11, i64 28, !13, i64 32, !15, i64 40, !15, i64 48, !15, i64 56, !17, i64 64, !19, i64 72, !6, i64 80, !6, i64 88, !6, i64 96, !6, i64 104, !6, i64 112, !6, i64 120}
+!23 = !{!22, !11, i64 28}
+!24 = !{!22, !19, i64 72}
+!25 = !{!22, !11, i64 0}
+!26 = !{!22, !17, i64 64}
+!27 = !{!28, !5, i64 80}
+!28 = !{!"fieldnode", !11, i64 0, !11, i64 2, !11, i64 4, !11, i64 6, !11, i64 8, !13, i64 12, !13, i64 16, !13, i64 20, !13, i64 24, !11, i64 28, !11, i64 30, !11, i64 32, !11, i64 34, !13, i64 36, !13, i64 40, !13, i64 44, !13, i64 48, !19, i64 56, !19, i64 64, !19, i64 72, !5, i64 80, !29, i64 88, !6, i64 96, !30, i64 104, !6, i64 112}
+!29 = !{!"p1 _ZTS8typenode", !6, i64 0}
+!30 = !{!"p1 omnipotent char", !6, i64 0}
+!31 = distinct !{!31, !32}
+!32 = !{!"llvm.loop.mustprogress"}
+!33 = !{!22, !11, i64 4}
+!34 = !{!22, !11, i64 2}
+!35 = !{!22, !11, i64 24}
+!36 = !{!22, !6, i64 80}
+!37 = !{!28, !11, i64 0}
+!38 = distinct !{!38, !32}
+!39 = !{!40, !11, i64 0}
+!40 = !{!"", !11, i64 0, !11, i64 2, !11, i64 4, !11, i64 6}
+!41 = !{!40, !11, i64 2}
+!42 = !{!28, !11, i64 6}
+!43 = !{!28, !11, i64 2}
+!44 = !{!28, !11, i64 8}
+!45 = !{!28, !11, i64 4}
+!46 = distinct !{!46, !32}
+!47 = !{!28, !11, i64 34}
+!48 = !{!28, !11, i64 32}
+!49 = !{!28, !19, i64 64}
+!50 = !{!28, !19, i64 56}
+!51 = distinct !{!51, !32}
+!52 = distinct !{!52, !32}
+!53 = !{!40, !11, i64 4}
+!54 = !{!40, !11, i64 6}
+!55 = distinct !{!55, !32}

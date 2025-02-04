@@ -10,38 +10,38 @@ define dso_local zeroext i1 @Curl_cert_hostcheck(ptr noundef %0, i64 noundef %1,
   %7 = alloca i64, align 8
   %8 = alloca ptr, align 8
   %9 = alloca i64, align 8
-  store ptr %0, ptr %6, align 8
-  store i64 %1, ptr %7, align 8
-  store ptr %2, ptr %8, align 8
-  store i64 %3, ptr %9, align 8
-  %10 = load ptr, ptr %6, align 8
+  store ptr %0, ptr %6, align 8, !tbaa !4
+  store i64 %1, ptr %7, align 8, !tbaa !9
+  store ptr %2, ptr %8, align 8, !tbaa !4
+  store i64 %3, ptr %9, align 8, !tbaa !9
+  %10 = load ptr, ptr %6, align 8, !tbaa !4
   %11 = icmp ne ptr %10, null
   br i1 %11, label %12, label %31
 
 12:                                               ; preds = %4
-  %13 = load ptr, ptr %6, align 8
-  %14 = load i8, ptr %13, align 1
+  %13 = load ptr, ptr %6, align 8, !tbaa !4
+  %14 = load i8, ptr %13, align 1, !tbaa !11
   %15 = sext i8 %14 to i32
   %16 = icmp ne i32 %15, 0
   br i1 %16, label %17, label %31
 
 17:                                               ; preds = %12
-  %18 = load ptr, ptr %8, align 8
+  %18 = load ptr, ptr %8, align 8, !tbaa !4
   %19 = icmp ne ptr %18, null
   br i1 %19, label %20, label %31
 
 20:                                               ; preds = %17
-  %21 = load ptr, ptr %8, align 8
-  %22 = load i8, ptr %21, align 1
+  %21 = load ptr, ptr %8, align 8, !tbaa !4
+  %22 = load i8, ptr %21, align 1, !tbaa !11
   %23 = sext i8 %22 to i32
   %24 = icmp ne i32 %23, 0
   br i1 %24, label %25, label %31
 
 25:                                               ; preds = %20
-  %26 = load ptr, ptr %8, align 8
-  %27 = load i64, ptr %9, align 8
-  %28 = load ptr, ptr %6, align 8
-  %29 = load i64, ptr %7, align 8
+  %26 = load ptr, ptr %8, align 8, !tbaa !4
+  %27 = load i64, ptr %9, align 8, !tbaa !9
+  %28 = load ptr, ptr %6, align 8, !tbaa !4
+  %29 = load i64, ptr %7, align 8, !tbaa !9
   %30 = call zeroext i1 @hostmatch(ptr noundef %26, i64 noundef %27, ptr noundef %28, i64 noundef %29)
   store i1 %30, ptr %5, align 1
   br label %32
@@ -63,19 +63,18 @@ define internal zeroext i1 @hostmatch(ptr noundef %0, i64 noundef %1, ptr nounde
   %8 = alloca ptr, align 8
   %9 = alloca i64, align 8
   %10 = alloca ptr, align 8
-  %11 = alloca ptr, align 8
-  %12 = alloca i64, align 8
+  %11 = alloca i32, align 4
+  %12 = alloca ptr, align 8
   %13 = alloca i64, align 8
-  store ptr %0, ptr %6, align 8
-  store i64 %1, ptr %7, align 8
-  store ptr %2, ptr %8, align 8
-  store i64 %3, ptr %9, align 8
-  br label %14
-
-14:                                               ; preds = %4
+  %14 = alloca i64, align 8
+  store ptr %0, ptr %6, align 8, !tbaa !4
+  store i64 %1, ptr %7, align 8, !tbaa !9
+  store ptr %2, ptr %8, align 8, !tbaa !4
+  store i64 %3, ptr %9, align 8, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #4
   br label %15
 
-15:                                               ; preds = %14
+15:                                               ; preds = %4
   br label %16
 
 16:                                               ; preds = %15
@@ -94,138 +93,178 @@ define internal zeroext i1 @hostmatch(ptr noundef %0, i64 noundef %1, ptr nounde
   br label %21
 
 21:                                               ; preds = %20
-  %22 = load ptr, ptr %6, align 8
-  %23 = load i64, ptr %7, align 8
-  %24 = sub i64 %23, 1
-  %25 = getelementptr inbounds i8, ptr %22, i64 %24
-  %26 = load i8, ptr %25, align 1
-  %27 = sext i8 %26 to i32
-  %28 = icmp eq i32 %27, 46
-  br i1 %28, label %29, label %32
+  br label %22
 
-29:                                               ; preds = %21
-  %30 = load i64, ptr %7, align 8
-  %31 = add i64 %30, -1
-  store i64 %31, ptr %7, align 8
-  br label %32
+22:                                               ; preds = %21
+  br label %23
 
-32:                                               ; preds = %29, %21
-  %33 = load ptr, ptr %8, align 8
-  %34 = load i64, ptr %9, align 8
-  %35 = sub i64 %34, 1
-  %36 = getelementptr inbounds i8, ptr %33, i64 %35
-  %37 = load i8, ptr %36, align 1
-  %38 = sext i8 %37 to i32
-  %39 = icmp eq i32 %38, 46
-  br i1 %39, label %40, label %43
+23:                                               ; preds = %22
+  br label %24
 
-40:                                               ; preds = %32
-  %41 = load i64, ptr %9, align 8
-  %42 = add i64 %41, -1
-  store i64 %42, ptr %9, align 8
-  br label %43
+24:                                               ; preds = %23
+  br label %25
 
-43:                                               ; preds = %40, %32
-  %44 = load ptr, ptr %8, align 8
-  %45 = call i32 @strncmp(ptr noundef %44, ptr noundef @.str, i64 noundef 2) #3
-  %46 = icmp ne i32 %45, 0
-  br i1 %46, label %47, label %53
+25:                                               ; preds = %24
+  br label %26
 
-47:                                               ; preds = %43
-  %48 = load ptr, ptr %6, align 8
-  %49 = load i64, ptr %7, align 8
-  %50 = load ptr, ptr %8, align 8
-  %51 = load i64, ptr %9, align 8
-  %52 = call zeroext i1 @pmatch(ptr noundef %48, i64 noundef %49, ptr noundef %50, i64 noundef %51)
-  store i1 %52, ptr %5, align 1
-  br label %104
+26:                                               ; preds = %25
+  %27 = load ptr, ptr %6, align 8, !tbaa !4
+  %28 = load i64, ptr %7, align 8, !tbaa !9
+  %29 = sub i64 %28, 1
+  %30 = getelementptr inbounds nuw i8, ptr %27, i64 %29
+  %31 = load i8, ptr %30, align 1, !tbaa !11
+  %32 = sext i8 %31 to i32
+  %33 = icmp eq i32 %32, 46
+  br i1 %33, label %34, label %37
 
-53:                                               ; preds = %43
-  %54 = load ptr, ptr %6, align 8
-  %55 = call zeroext i1 @Curl_host_is_ipnum(ptr noundef %54)
-  br i1 %55, label %56, label %57
+34:                                               ; preds = %26
+  %35 = load i64, ptr %7, align 8, !tbaa !9
+  %36 = add i64 %35, -1
+  store i64 %36, ptr %7, align 8, !tbaa !9
+  br label %37
 
-56:                                               ; preds = %53
+37:                                               ; preds = %34, %26
+  %38 = load ptr, ptr %8, align 8, !tbaa !4
+  %39 = load i64, ptr %9, align 8, !tbaa !9
+  %40 = sub i64 %39, 1
+  %41 = getelementptr inbounds nuw i8, ptr %38, i64 %40
+  %42 = load i8, ptr %41, align 1, !tbaa !11
+  %43 = sext i8 %42 to i32
+  %44 = icmp eq i32 %43, 46
+  br i1 %44, label %45, label %48
+
+45:                                               ; preds = %37
+  %46 = load i64, ptr %9, align 8, !tbaa !9
+  %47 = add i64 %46, -1
+  store i64 %47, ptr %9, align 8, !tbaa !9
+  br label %48
+
+48:                                               ; preds = %45, %37
+  %49 = load ptr, ptr %8, align 8, !tbaa !4
+  %50 = call i32 @strncmp(ptr noundef %49, ptr noundef @.str, i64 noundef 2) #5
+  %51 = icmp ne i32 %50, 0
+  br i1 %51, label %52, label %58
+
+52:                                               ; preds = %48
+  %53 = load ptr, ptr %6, align 8, !tbaa !4
+  %54 = load i64, ptr %7, align 8, !tbaa !9
+  %55 = load ptr, ptr %8, align 8, !tbaa !4
+  %56 = load i64, ptr %9, align 8, !tbaa !9
+  %57 = call zeroext i1 @pmatch(ptr noundef %53, i64 noundef %54, ptr noundef %55, i64 noundef %56)
+  store i1 %57, ptr %5, align 1
+  store i32 1, ptr %11, align 4
+  br label %112
+
+58:                                               ; preds = %48
+  %59 = load ptr, ptr %6, align 8, !tbaa !4
+  %60 = call zeroext i1 @Curl_host_is_ipnum(ptr noundef %59)
+  br i1 %60, label %61, label %62
+
+61:                                               ; preds = %58
   store i1 false, ptr %5, align 1
-  br label %104
+  store i32 1, ptr %11, align 4
+  br label %112
 
-57:                                               ; preds = %53
-  br label %58
+62:                                               ; preds = %58
+  br label %63
 
-58:                                               ; preds = %57
-  %59 = load ptr, ptr %8, align 8
-  %60 = load i64, ptr %9, align 8
-  %61 = call ptr @memchr(ptr noundef %59, i32 noundef 46, i64 noundef %60) #3
-  store ptr %61, ptr %10, align 8
-  %62 = load ptr, ptr %10, align 8
-  %63 = icmp ne ptr %62, null
-  br i1 %63, label %64, label %70
+63:                                               ; preds = %62
+  %64 = load ptr, ptr %8, align 8, !tbaa !4
+  %65 = load i64, ptr %9, align 8, !tbaa !9
+  %66 = call ptr @memchr(ptr noundef %64, i32 noundef 46, i64 noundef %65) #5
+  store ptr %66, ptr %10, align 8, !tbaa !4
+  %67 = load ptr, ptr %10, align 8, !tbaa !4
+  %68 = icmp ne ptr %67, null
+  br i1 %68, label %69, label %75
 
-64:                                               ; preds = %58
-  %65 = load ptr, ptr %8, align 8
-  %66 = load i64, ptr %9, align 8
-  %67 = call ptr @Curl_memrchr(ptr noundef %65, i32 noundef 46, i64 noundef %66)
-  %68 = load ptr, ptr %10, align 8
-  %69 = icmp eq ptr %67, %68
-  br i1 %69, label %70, label %76
+69:                                               ; preds = %63
+  %70 = load ptr, ptr %8, align 8, !tbaa !4
+  %71 = load i64, ptr %9, align 8, !tbaa !9
+  %72 = call ptr @memrchr(ptr noundef %70, i32 noundef 46, i64 noundef %71) #5
+  %73 = load ptr, ptr %10, align 8, !tbaa !4
+  %74 = icmp eq ptr %72, %73
+  br i1 %74, label %75, label %81
 
-70:                                               ; preds = %64, %58
-  %71 = load ptr, ptr %6, align 8
-  %72 = load i64, ptr %7, align 8
-  %73 = load ptr, ptr %8, align 8
-  %74 = load i64, ptr %9, align 8
-  %75 = call zeroext i1 @pmatch(ptr noundef %71, i64 noundef %72, ptr noundef %73, i64 noundef %74)
-  store i1 %75, ptr %5, align 1
-  br label %104
+75:                                               ; preds = %69, %63
+  %76 = load ptr, ptr %6, align 8, !tbaa !4
+  %77 = load i64, ptr %7, align 8, !tbaa !9
+  %78 = load ptr, ptr %8, align 8, !tbaa !4
+  %79 = load i64, ptr %9, align 8, !tbaa !9
+  %80 = call zeroext i1 @pmatch(ptr noundef %76, i64 noundef %77, ptr noundef %78, i64 noundef %79)
+  store i1 %80, ptr %5, align 1
+  store i32 1, ptr %11, align 4
+  br label %112
 
-76:                                               ; preds = %64
-  %77 = load ptr, ptr %6, align 8
-  %78 = load i64, ptr %7, align 8
-  %79 = call ptr @memchr(ptr noundef %77, i32 noundef 46, i64 noundef %78) #3
-  store ptr %79, ptr %11, align 8
-  %80 = load ptr, ptr %11, align 8
-  %81 = icmp ne ptr %80, null
-  br i1 %81, label %82, label %102
+81:                                               ; preds = %69
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #4
+  %82 = load ptr, ptr %6, align 8, !tbaa !4
+  %83 = load i64, ptr %7, align 8, !tbaa !9
+  %84 = call ptr @memchr(ptr noundef %82, i32 noundef 46, i64 noundef %83) #5
+  store ptr %84, ptr %12, align 8, !tbaa !4
+  %85 = load ptr, ptr %12, align 8, !tbaa !4
+  %86 = icmp ne ptr %85, null
+  br i1 %86, label %87, label %107
 
-82:                                               ; preds = %76
-  %83 = load ptr, ptr %11, align 8
-  %84 = load ptr, ptr %6, align 8
-  %85 = ptrtoint ptr %83 to i64
-  %86 = ptrtoint ptr %84 to i64
-  %87 = sub i64 %85, %86
-  store i64 %87, ptr %12, align 8
-  %88 = load ptr, ptr %10, align 8
-  %89 = load ptr, ptr %8, align 8
+87:                                               ; preds = %81
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #4
+  %88 = load ptr, ptr %12, align 8, !tbaa !4
+  %89 = load ptr, ptr %6, align 8, !tbaa !4
   %90 = ptrtoint ptr %88 to i64
   %91 = ptrtoint ptr %89 to i64
   %92 = sub i64 %90, %91
-  store i64 %92, ptr %13, align 8
-  %93 = load ptr, ptr %11, align 8
-  %94 = load i64, ptr %7, align 8
-  %95 = load i64, ptr %12, align 8
-  %96 = sub i64 %94, %95
-  %97 = load ptr, ptr %10, align 8
-  %98 = load i64, ptr %9, align 8
-  %99 = load i64, ptr %13, align 8
-  %100 = sub i64 %98, %99
-  %101 = call zeroext i1 @pmatch(ptr noundef %93, i64 noundef %96, ptr noundef %97, i64 noundef %100)
-  store i1 %101, ptr %5, align 1
-  br label %104
+  store i64 %92, ptr %13, align 8, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #4
+  %93 = load ptr, ptr %10, align 8, !tbaa !4
+  %94 = load ptr, ptr %8, align 8, !tbaa !4
+  %95 = ptrtoint ptr %93 to i64
+  %96 = ptrtoint ptr %94 to i64
+  %97 = sub i64 %95, %96
+  store i64 %97, ptr %14, align 8, !tbaa !9
+  %98 = load ptr, ptr %12, align 8, !tbaa !4
+  %99 = load i64, ptr %7, align 8, !tbaa !9
+  %100 = load i64, ptr %13, align 8, !tbaa !9
+  %101 = sub i64 %99, %100
+  %102 = load ptr, ptr %10, align 8, !tbaa !4
+  %103 = load i64, ptr %9, align 8, !tbaa !9
+  %104 = load i64, ptr %14, align 8, !tbaa !9
+  %105 = sub i64 %103, %104
+  %106 = call zeroext i1 @pmatch(ptr noundef %98, i64 noundef %101, ptr noundef %102, i64 noundef %105)
+  store i1 %106, ptr %5, align 1
+  store i32 1, ptr %11, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #4
+  br label %108
 
-102:                                              ; preds = %76
-  br label %103
+107:                                              ; preds = %81
+  store i32 0, ptr %11, align 4
+  br label %108
 
-103:                                              ; preds = %102
+108:                                              ; preds = %107, %87
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #4
+  %109 = load i32, ptr %11, align 4
+  switch i32 %109, label %112 [
+    i32 0, label %110
+  ]
+
+110:                                              ; preds = %108
+  br label %111
+
+111:                                              ; preds = %110
   store i1 false, ptr %5, align 1
-  br label %104
+  store i32 1, ptr %11, align 4
+  br label %112
 
-104:                                              ; preds = %103, %82, %70, %56, %47
-  %105 = load i1, ptr %5, align 1
-  ret i1 %105
+112:                                              ; preds = %111, %108, %75, %61, %52
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #4
+  %113 = load i1, ptr %5, align 1
+  ret i1 %113
 }
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+
 ; Function Attrs: nounwind willreturn memory(read)
-declare i32 @strncmp(ptr noundef, ptr noundef, i64 noundef) #1
+declare i32 @strncmp(ptr noundef, ptr noundef, i64 noundef) #2
 
 ; Function Attrs: nounwind uwtable
 define internal zeroext i1 @pmatch(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3) #0 {
@@ -234,12 +273,12 @@ define internal zeroext i1 @pmatch(ptr noundef %0, i64 noundef %1, ptr noundef %
   %7 = alloca i64, align 8
   %8 = alloca ptr, align 8
   %9 = alloca i64, align 8
-  store ptr %0, ptr %6, align 8
-  store i64 %1, ptr %7, align 8
-  store ptr %2, ptr %8, align 8
-  store i64 %3, ptr %9, align 8
-  %10 = load i64, ptr %7, align 8
-  %11 = load i64, ptr %9, align 8
+  store ptr %0, ptr %6, align 8, !tbaa !4
+  store i64 %1, ptr %7, align 8, !tbaa !9
+  store ptr %2, ptr %8, align 8, !tbaa !4
+  store i64 %3, ptr %9, align 8, !tbaa !9
+  %10 = load i64, ptr %7, align 8, !tbaa !9
+  %11 = load i64, ptr %9, align 8, !tbaa !9
   %12 = icmp ne i64 %10, %11
   br i1 %12, label %13, label %14
 
@@ -248,9 +287,9 @@ define internal zeroext i1 @pmatch(ptr noundef %0, i64 noundef %1, ptr noundef %
   br label %20
 
 14:                                               ; preds = %4
-  %15 = load ptr, ptr %6, align 8
-  %16 = load ptr, ptr %8, align 8
-  %17 = load i64, ptr %7, align 8
+  %15 = load ptr, ptr %6, align 8, !tbaa !4
+  %16 = load ptr, ptr %8, align 8, !tbaa !4
+  %17 = load i64, ptr %7, align 8, !tbaa !9
   %18 = call i32 @curl_strnequal(ptr noundef %15, ptr noundef %16, i64 noundef %17)
   %19 = icmp ne i32 %18, 0
   store i1 %19, ptr %5, align 1
@@ -261,24 +300,37 @@ define internal zeroext i1 @pmatch(ptr noundef %0, i64 noundef %1, ptr noundef %
   ret i1 %21
 }
 
-declare zeroext i1 @Curl_host_is_ipnum(ptr noundef) #2
+declare zeroext i1 @Curl_host_is_ipnum(ptr noundef) #3
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare ptr @memchr(ptr noundef, i32 noundef, i64 noundef) #1
+declare ptr @memchr(ptr noundef, i32 noundef, i64 noundef) #2
 
-declare ptr @Curl_memrchr(ptr noundef, i32 noundef, i64 noundef) #2
+; Function Attrs: nounwind willreturn memory(read)
+declare ptr @memrchr(ptr noundef, i32 noundef, i64 noundef) #2
 
-declare i32 @curl_strnequal(ptr noundef, ptr noundef, i64 noundef) #2
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nounwind willreturn memory(read) }
+declare i32 @curl_strnequal(ptr noundef, ptr noundef, i64 noundef) #3
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { nounwind willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nounwind }
+attributes #5 = { nounwind willreturn memory(read) }
+
+!llvm.module.flags = !{!0, !1, !2, !3}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}
+!4 = !{!5, !5, i64 0}
+!5 = !{!"p1 omnipotent char", !6, i64 0}
+!6 = !{!"any pointer", !7, i64 0}
+!7 = !{!"omnipotent char", !8, i64 0}
+!8 = !{!"Simple C/C++ TBAA"}
+!9 = !{!10, !10, i64 0}
+!10 = !{!"long", !7, i64 0}
+!11 = !{!7, !7, i64 0}

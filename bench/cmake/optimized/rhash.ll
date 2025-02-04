@@ -1,5 +1,5 @@
-; ModuleID = 'bench/cmake/original/rhash.c.ll'
-source_filename = "bench/cmake/original/rhash.c.ll"
+; ModuleID = 'bench/cmake/original/rhash.ll'
+source_filename = "bench/cmake/original/rhash.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
@@ -20,7 +20,7 @@ declare void @rhash_init_algorithms(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define dso_local i32 @rhash_count() local_unnamed_addr #2 {
-  %1 = load i32, ptr @rhash_info_size, align 4
+  %1 = load i32, ptr @rhash_info_size, align 4, !tbaa !4
   ret i32 %1
 }
 
@@ -37,30 +37,30 @@ define dso_local noundef ptr @rhash_init_multi(i64 noundef %0, ptr noundef reado
   br label %8
 
 8:                                                ; preds = %14, %.preheader.i
-  %.05366.i = phi i32 [ 0, %.preheader.i ], [ %15, %14 ]
-  %.05565.i = phi i64 [ 0, %.preheader.i ], [ %23, %14 ]
-  %.05664.i = phi i64 [ 0, %.preheader.i ], [ %22, %14 ]
-  %9 = getelementptr inbounds i32, ptr %1, i64 %.05565.i
-  %10 = load i32, ptr %9, align 4
+  %.05576.i = phi i32 [ 0, %.preheader.i ], [ %15, %14 ]
+  %.05875.i = phi i64 [ 0, %.preheader.i ], [ %23, %14 ]
+  %.06074.i = phi i64 [ 0, %.preheader.i ], [ %22, %14 ]
+  %9 = getelementptr inbounds nuw i32, ptr %1, i64 %.05875.i
+  %10 = load i32, ptr %9, align 4, !tbaa !4
   %11 = add i32 %10, -1
   %or.cond.i = icmp ult i32 %11, 1023
   %12 = tail call range(i32 1, 11) i32 @llvm.ctpop.i32(i32 %10)
   %13 = icmp samesign ult i32 %12, 2
-  %or.cond61.i = select i1 %or.cond.i, i1 %13, i1 false
-  br i1 %or.cond61.i, label %14, label %.loopexit.sink.split.i
+  %or.cond66.i = select i1 %or.cond.i, i1 %13, i1 false
+  br i1 %or.cond66.i, label %14, label %.loopexit.sink.split.i
 
 14:                                               ; preds = %8
-  %15 = or i32 %10, %.05366.i
+  %15 = or i32 %10, %.05576.i
   %16 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %10, i1 true)
   %17 = zext nneg i32 %16 to i64
   %18 = getelementptr inbounds nuw %struct.rhash_hash_info, ptr %7, i64 %17, i32 1
-  %19 = load i64, ptr %18, align 8
+  %19 = load i64, ptr %18, align 8, !tbaa !8
   %20 = add i64 %19, 63
   %21 = and i64 %20, -64
-  %22 = add i64 %21, %.05664.i
-  %23 = add nuw i64 %.05565.i, 1
+  %22 = add i64 %21, %.06074.i
+  %23 = add nuw i64 %.05875.i, 1
   %exitcond.not.i = icmp eq i64 %23, %0
-  br i1 %exitcond.not.i, label %24, label %8, !llvm.loop !5
+  br i1 %exitcond.not.i, label %24, label %8, !llvm.loop !13
 
 24:                                               ; preds = %14
   %25 = add i64 %22, %4
@@ -72,46 +72,46 @@ define dso_local noundef ptr @rhash_init_multi(i64 noundef %0, ptr noundef reado
 29:                                               ; preds = %24
   tail call void @llvm.memset.p0.i64(ptr nonnull align 64 %27, i8 0, i64 %5, i1 false)
   %30 = getelementptr inbounds nuw i8, ptr %27, i64 8
-  store i32 %15, ptr %30, align 8
+  store i32 %15, ptr %30, align 8, !tbaa !15
   %31 = getelementptr inbounds nuw i8, ptr %27, i64 20
-  store i32 1, ptr %31, align 4
+  store i32 1, ptr %31, align 4, !tbaa !4
   %32 = getelementptr inbounds nuw i8, ptr %27, i64 24
-  store volatile i32 -1340228930, ptr %32, align 8
+  store volatile i32 -1340228930, ptr %32, align 8, !tbaa !4
   %33 = trunc i64 %0 to i32
   %34 = getelementptr inbounds nuw i8, ptr %27, i64 16
-  store i32 %33, ptr %34, align 16
-  %35 = getelementptr inbounds i8, ptr %27, i64 %5
+  store i32 %33, ptr %34, align 16, !tbaa !4
+  %35 = getelementptr inbounds nuw i8, ptr %27, i64 %5
   %36 = getelementptr inbounds nuw i8, ptr %27, i64 56
   br label %37
 
 37:                                               ; preds = %37, %29
-  %.05468.i = phi ptr [ %35, %29 ], [ %50, %37 ]
-  %.167.i = phi i64 [ 0, %29 ], [ %53, %37 ]
-  %38 = getelementptr inbounds i32, ptr %1, i64 %.167.i
-  %39 = load i32, ptr %38, align 4
+  %.05778.i = phi ptr [ %35, %29 ], [ %50, %37 ]
+  %.15977.i = phi i64 [ 0, %29 ], [ %53, %37 ]
+  %38 = getelementptr inbounds nuw i32, ptr %1, i64 %.15977.i
+  %39 = load i32, ptr %38, align 4, !tbaa !4
   %40 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %39, i1 true)
-  %41 = load ptr, ptr @rhash_info_table, align 8
+  %41 = load ptr, ptr @rhash_info_table, align 8, !tbaa !18
   %42 = zext nneg i32 %40 to i64
   %43 = getelementptr inbounds nuw %struct.rhash_hash_info, ptr %41, i64 %42
-  %44 = getelementptr inbounds [0 x %struct.rhash_vector_item], ptr %36, i64 0, i64 %.167.i
-  store ptr %43, ptr %44, align 8
+  %44 = getelementptr inbounds nuw [0 x %struct.rhash_vector_item], ptr %36, i64 0, i64 %.15977.i
+  store ptr %43, ptr %44, align 8, !tbaa !20
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 8
-  store ptr %.05468.i, ptr %45, align 16
+  store ptr %.05778.i, ptr %45, align 16, !tbaa !22
   %46 = getelementptr inbounds nuw i8, ptr %43, i64 8
-  %47 = load i64, ptr %46, align 8
+  %47 = load i64, ptr %46, align 8, !tbaa !8
   %48 = add i64 %47, 63
   %49 = and i64 %48, -64
-  %50 = getelementptr inbounds i8, ptr %.05468.i, i64 %49
+  %50 = getelementptr inbounds nuw i8, ptr %.05778.i, i64 %49
   %51 = getelementptr inbounds nuw i8, ptr %43, i64 24
-  %52 = load ptr, ptr %51, align 8
-  tail call void %52(ptr noundef %.05468.i) #15
-  %53 = add nuw i64 %.167.i, 1
-  %exitcond70.not.i = icmp eq i64 %53, %0
-  br i1 %exitcond70.not.i, label %rhash_alloc_multi.exit, label %37, !llvm.loop !7
+  %52 = load ptr, ptr %51, align 8, !tbaa !23
+  tail call void %52(ptr noundef %.05778.i) #15
+  %53 = add nuw i64 %.15977.i, 1
+  %exitcond80.not.i = icmp eq i64 %53, %0
+  br i1 %exitcond80.not.i, label %rhash_alloc_multi.exit, label %37, !llvm.loop !24
 
 .loopexit.sink.split.i:                           ; preds = %8, %2
   %54 = tail call ptr @__errno_location() #17
-  store i32 22, ptr %54, align 4
+  store i32 22, ptr %54, align 4, !tbaa !4
   br label %rhash_alloc_multi.exit
 
 rhash_alloc_multi.exit:                           ; preds = %37, %24, %.loopexit.sink.split.i
@@ -119,18 +119,24 @@ rhash_alloc_multi.exit:                           ; preds = %37, %24, %.loopexit
   ret ptr %.0.i
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
+
 ; Function Attrs: nounwind uwtable
 define dso_local noundef ptr @rhash_init(i32 noundef %0) local_unnamed_addr #0 {
   %2 = alloca i32, align 4
   %3 = alloca [32 x i32], align 16
-  store i32 %0, ptr %2, align 4
+  store i32 %0, ptr %2, align 4, !tbaa !4
   %4 = add i32 %0, -1
   %or.cond = icmp ult i32 %4, 1023
   br i1 %or.cond, label %7, label %5
 
 5:                                                ; preds = %1
   %6 = tail call ptr @__errno_location() #17
-  store i32 22, ptr %6, align 4
+  store i32 22, ptr %6, align 4, !tbaa !4
   br label %24
 
 7:                                                ; preds = %1
@@ -143,6 +149,7 @@ define dso_local noundef ptr @rhash_init(i32 noundef %0) local_unnamed_addr #0 {
   br label %24
 
 12:                                               ; preds = %7
+  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %3) #15
   %13 = sub nsw i32 0, %0
   %14 = and i32 %0, %13
   br label %15
@@ -156,18 +163,19 @@ define dso_local noundef ptr @rhash_init(i32 noundef %0) local_unnamed_addr #0 {
 
 17:                                               ; preds = %15
   %18 = add i64 %.0612, 1
-  %19 = getelementptr inbounds [32 x i32], ptr %3, i64 0, i64 %.0612
-  store i32 %.013, ptr %19, align 4
+  %19 = getelementptr inbounds nuw [32 x i32], ptr %3, i64 0, i64 %.0612
+  store i32 %.013, ptr %19, align 4, !tbaa !4
   br label %20
 
 20:                                               ; preds = %15, %17
   %.1 = phi i64 [ %18, %17 ], [ %.0612, %15 ]
   %21 = shl i32 %.013, 1
   %.not10 = icmp ugt i32 %21, %0
-  br i1 %.not10, label %22, label %15, !llvm.loop !8
+  br i1 %.not10, label %22, label %15, !llvm.loop !25
 
 22:                                               ; preds = %20
   %23 = call ptr @rhash_init_multi(i64 noundef %.1, ptr noundef nonnull %3)
+  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %3) #15
   br label %24
 
 24:                                               ; preds = %22, %10, %5
@@ -176,7 +184,7 @@ define dso_local noundef ptr @rhash_init(i32 noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare ptr @__errno_location() local_unnamed_addr #3
+declare ptr @__errno_location() local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @rhash_free(ptr noundef %0) local_unnamed_addr #0 {
@@ -185,9 +193,9 @@ define dso_local void @rhash_free(ptr noundef %0) local_unnamed_addr #0 {
 
 3:                                                ; preds = %1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store volatile i32 -556882451, ptr %4, align 8
+  store volatile i32 -556882451, ptr %4, align 8, !tbaa !4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %6 = load i32, ptr %5, align 8
+  %6 = load i32, ptr %5, align 8, !tbaa !4
   %.not15 = icmp eq i32 %6, 0
   br i1 %.not15, label %._crit_edge, label %.lr.ph
 
@@ -199,25 +207,25 @@ define dso_local void @rhash_free(ptr noundef %0) local_unnamed_addr #0 {
   %9 = phi i32 [ %6, %.lr.ph ], [ %18, %17 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %17 ]
   %10 = getelementptr inbounds nuw [0 x %struct.rhash_vector_item], ptr %7, i64 0, i64 %indvars.iv
-  %11 = load ptr, ptr %10, align 8
+  %11 = load ptr, ptr %10, align 8, !tbaa !20
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 48
-  %13 = load ptr, ptr %12, align 8
+  %13 = load ptr, ptr %12, align 8, !tbaa !26
   %.not = icmp eq ptr %13, null
   br i1 %.not, label %17, label %14
 
 14:                                               ; preds = %8
   %15 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %16 = load ptr, ptr %15, align 8
+  %16 = load ptr, ptr %15, align 8, !tbaa !22
   tail call void %13(ptr noundef %16) #15
-  %.pre = load i32, ptr %5, align 8
+  %.pre = load i32, ptr %5, align 8, !tbaa !4
   br label %17
 
-17:                                               ; preds = %8, %14
-  %18 = phi i32 [ %9, %8 ], [ %.pre, %14 ]
+17:                                               ; preds = %14, %8
+  %18 = phi i32 [ %.pre, %14 ], [ %9, %8 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %19 = zext i32 %18 to i64
   %20 = icmp samesign ult i64 %indvars.iv.next, %19
-  br i1 %20, label %8, label %._crit_edge, !llvm.loop !9
+  br i1 %20, label %8, label %._crit_edge, !llvm.loop !27
 
 ._crit_edge:                                      ; preds = %17, %3
   tail call void @free(ptr noundef nonnull %0) #15
@@ -228,14 +236,14 @@ define dso_local void @rhash_free(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #4
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @rhash_reset(ptr noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store volatile i32 -1340228930, ptr %2, align 8
+  store volatile i32 -1340228930, ptr %2, align 8, !tbaa !4
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %4 = load i32, ptr %3, align 8
+  %4 = load i32, ptr %3, align 8, !tbaa !4
   %.not16 = icmp eq i32 %4, 0
   br i1 %.not16, label %._crit_edge, label %.lr.ph
 
@@ -246,51 +254,51 @@ define dso_local void @rhash_reset(ptr noundef %0) local_unnamed_addr #0 {
 6:                                                ; preds = %.lr.ph, %14
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %14 ]
   %7 = getelementptr inbounds nuw [0 x %struct.rhash_vector_item], ptr %5, i64 0, i64 %indvars.iv
-  %8 = load ptr, ptr %7, align 8
+  %8 = load ptr, ptr %7, align 8, !tbaa !20
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 48
-  %10 = load ptr, ptr %9, align 8
+  %10 = load ptr, ptr %9, align 8, !tbaa !26
   %.not = icmp eq ptr %10, null
   br i1 %.not, label %14, label %11
 
 11:                                               ; preds = %6
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %13 = load ptr, ptr %12, align 8
+  %13 = load ptr, ptr %12, align 8, !tbaa !22
   tail call void %10(ptr noundef %13) #15
   br label %14
 
 14:                                               ; preds = %11, %6
   %15 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  %16 = load ptr, ptr %15, align 8
+  %16 = load ptr, ptr %15, align 8, !tbaa !23
   %17 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %18 = load ptr, ptr %17, align 8
+  %18 = load ptr, ptr %17, align 8, !tbaa !22
   tail call void %16(ptr noundef %18) #15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %19 = load i32, ptr %3, align 8
+  %19 = load i32, ptr %3, align 8, !tbaa !4
   %20 = zext i32 %19 to i64
   %21 = icmp samesign ult i64 %indvars.iv.next, %20
-  br i1 %21, label %6, label %._crit_edge, !llvm.loop !10
+  br i1 %21, label %6, label %._crit_edge, !llvm.loop !28
 
 ._crit_edge:                                      ; preds = %14, %1
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %23 = load i32, ptr %22, align 4
+  %23 = load i32, ptr %22, align 4, !tbaa !4
   %24 = and i32 %23, -3
-  store i32 %24, ptr %22, align 4
+  store i32 %24, ptr %22, align 4, !tbaa !4
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef i32 @rhash_update(ptr noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %5 = load volatile i32, ptr %4, align 8
+  %5 = load volatile i32, ptr %4, align 8, !tbaa !4
   %.not = icmp eq i32 %5, -1340228930
   br i1 %.not, label %6, label %.loopexit
 
 6:                                                ; preds = %3
-  %7 = load i64, ptr %0, align 8
+  %7 = load i64, ptr %0, align 8, !tbaa !29
   %8 = add i64 %7, %2
-  store i64 %8, ptr %0, align 8
+  store i64 %8, ptr %0, align 8, !tbaa !29
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %10 = load i32, ptr %9, align 8
+  %10 = load i32, ptr %9, align 8, !tbaa !4
   %.not16 = icmp eq i32 %10, 0
   br i1 %.not16, label %.loopexit, label %.lr.ph
 
@@ -301,17 +309,17 @@ define dso_local noundef i32 @rhash_update(ptr noundef %0, ptr noundef %1, i64 n
 12:                                               ; preds = %.lr.ph, %12
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %12 ]
   %13 = getelementptr inbounds nuw [0 x %struct.rhash_vector_item], ptr %11, i64 0, i64 %indvars.iv
-  %14 = load ptr, ptr %13, align 8
+  %14 = load ptr, ptr %13, align 8, !tbaa !20
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 32
-  %16 = load ptr, ptr %15, align 8
+  %16 = load ptr, ptr %15, align 8, !tbaa !30
   %17 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %18 = load ptr, ptr %17, align 8
+  %18 = load ptr, ptr %17, align 8, !tbaa !22
   tail call void %16(ptr noundef %18, ptr noundef %1, i64 noundef %2) #15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %19 = load i32, ptr %9, align 8
+  %19 = load i32, ptr %9, align 8, !tbaa !4
   %20 = zext i32 %19 to i64
   %21 = icmp samesign ult i64 %indvars.iv.next, %20
-  br i1 %21, label %12, label %.loopexit, !llvm.loop !11
+  br i1 %21, label %12, label %.loopexit, !llvm.loop !31
 
 .loopexit:                                        ; preds = %12, %6, %3
   ret i32 0
@@ -320,15 +328,16 @@ define dso_local noundef i32 @rhash_update(ptr noundef %0, ptr noundef %1, i64 n
 ; Function Attrs: nounwind uwtable
 define dso_local noundef i32 @rhash_final(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca [130 x i8], align 16
+  call void @llvm.lifetime.start.p0(i64 130, ptr nonnull %3) #15
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %5 = load i32, ptr %4, align 4
+  %5 = load i32, ptr %4, align 4, !tbaa !4
   %6 = and i32 %5, 3
   %7 = icmp eq i32 %6, 3
   br i1 %7, label %25, label %8
 
 8:                                                ; preds = %2
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %10 = load i32, ptr %9, align 8
+  %10 = load i32, ptr %9, align 8, !tbaa !4
   %.not18 = icmp eq i32 %10, 0
   br i1 %.not18, label %._crit_edge, label %.lr.ph
 
@@ -342,52 +351,53 @@ define dso_local noundef i32 @rhash_final(ptr noundef captures(none) %0, ptr nou
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %13 ]
   %.01516 = phi ptr [ %11, %.lr.ph ], [ %3, %13 ]
   %14 = getelementptr inbounds nuw [0 x %struct.rhash_vector_item], ptr %12, i64 0, i64 %indvars.iv
-  %15 = load ptr, ptr %14, align 8
+  %15 = load ptr, ptr %14, align 8, !tbaa !20
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 40
-  %17 = load ptr, ptr %16, align 8
+  %17 = load ptr, ptr %16, align 8, !tbaa !32
   %18 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %19 = load ptr, ptr %18, align 8
+  %19 = load ptr, ptr %18, align 8, !tbaa !22
   call void %17(ptr noundef %19, ptr noundef %.01516) #15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %20 = load i32, ptr %9, align 8
+  %20 = load i32, ptr %9, align 8, !tbaa !4
   %21 = zext i32 %20 to i64
   %22 = icmp samesign ult i64 %indvars.iv.next, %21
-  br i1 %22, label %13, label %._crit_edge.loopexit, !llvm.loop !12
+  br i1 %22, label %13, label %._crit_edge.loopexit, !llvm.loop !33
 
 ._crit_edge.loopexit:                             ; preds = %13
-  %.pre = load i32, ptr %4, align 4
+  %.pre = load i32, ptr %4, align 4, !tbaa !4
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %8
   %23 = phi i32 [ %.pre, %._crit_edge.loopexit ], [ %5, %8 ]
   %24 = or i32 %23, 2
-  store i32 %24, ptr %4, align 4
+  store i32 %24, ptr %4, align 4, !tbaa !4
   br label %25
 
 25:                                               ; preds = %2, %._crit_edge
+  call void @llvm.lifetime.end.p0(i64 130, ptr nonnull %3) #15
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(write, inaccessiblemem: none) uwtable
-define dso_local noundef i64 @rhash_export(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, i64 noundef %2) local_unnamed_addr #5 {
+define dso_local noundef i64 @rhash_export(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, i64 noundef %2) local_unnamed_addr #6 {
   %4 = tail call ptr @__errno_location() #17
-  store i32 22, ptr %4, align 4
+  store i32 22, ptr %4, align 4, !tbaa !4
   ret i64 0
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(write, inaccessiblemem: none) uwtable
-define dso_local noalias noundef ptr @rhash_import(ptr noundef readnone captures(none) %0, i64 noundef %1) local_unnamed_addr #5 {
+define dso_local noalias noundef ptr @rhash_import(ptr noundef readnone captures(none) %0, i64 noundef %1) local_unnamed_addr #6 {
   %3 = tail call ptr @__errno_location() #17
-  store i32 22, ptr %3, align 4
+  store i32 22, ptr %3, align 4, !tbaa !4
   ret ptr null
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @rhash_set_callback(ptr noundef writeonly captures(none) initializes((32, 48)) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #6 {
+define dso_local void @rhash_set_callback(ptr noundef writeonly captures(none) initializes((32, 48)) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #7 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr %1, ptr %4, align 8
+  store ptr %1, ptr %4, align 8, !tbaa !34
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store ptr %2, ptr %5, align 8
+  store ptr %2, ptr %5, align 8, !tbaa !34
   ret void
 }
 
@@ -398,17 +408,15 @@ define dso_local range(i32 -1, 1) i32 @rhash_msg(i32 noundef %0, ptr noundef %1,
   %7 = alloca [32 x i32], align 16
   %8 = and i32 %0, 1023
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %7)
-  store i32 %8, ptr %6, align 4
+  store i32 %8, ptr %6, align 4, !tbaa !4
   %9 = add nsw i32 %8, -1
   %or.cond.i = icmp ult i32 %9, 1023
   br i1 %or.cond.i, label %11, label %rhash_init.exit.thread
 
 rhash_init.exit.thread:                           ; preds = %4
   %10 = tail call ptr @__errno_location() #17
-  store i32 22, ptr %10, align 4
+  store i32 22, ptr %10, align 4, !tbaa !4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %7)
   br label %86
 
 11:                                               ; preds = %4
@@ -421,6 +429,7 @@ rhash_init.exit.thread:                           ; preds = %4
   br label %rhash_init.exit
 
 16:                                               ; preds = %11
+  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %7) #15
   %17 = sub nsw i32 0, %8
   %18 = and i32 %8, %17
   br label %19
@@ -434,39 +443,39 @@ rhash_init.exit.thread:                           ; preds = %4
 
 21:                                               ; preds = %19
   %22 = add i64 %.0612.i, 1
-  %23 = getelementptr inbounds [32 x i32], ptr %7, i64 0, i64 %.0612.i
-  store i32 %.013.i, ptr %23, align 4
+  %23 = getelementptr inbounds nuw [32 x i32], ptr %7, i64 0, i64 %.0612.i
+  store i32 %.013.i, ptr %23, align 4, !tbaa !4
   br label %24
 
 24:                                               ; preds = %21, %19
   %.1.i = phi i64 [ %22, %21 ], [ %.0612.i, %19 ]
   %25 = shl i32 %.013.i, 1
   %.not10.i = icmp ugt i32 %25, %8
-  br i1 %.not10.i, label %26, label %19, !llvm.loop !8
+  br i1 %.not10.i, label %26, label %19, !llvm.loop !25
 
 26:                                               ; preds = %24
   %27 = call ptr @rhash_init_multi(i64 noundef %.1.i, ptr noundef nonnull %7)
+  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %7) #15
   br label %rhash_init.exit
 
 rhash_init.exit:                                  ; preds = %14, %26
   %.07.i = phi ptr [ %15, %14 ], [ %27, %26 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %7)
   %28 = icmp eq ptr %.07.i, null
   br i1 %28, label %86, label %29
 
 29:                                               ; preds = %rhash_init.exit
   %30 = getelementptr inbounds nuw i8, ptr %.07.i, i64 24
-  %31 = load volatile i32, ptr %30, align 8
+  %31 = load volatile i32, ptr %30, align 8, !tbaa !4
   %.not.i = icmp eq i32 %31, -1340228930
   br i1 %.not.i, label %32, label %rhash_update.exit
 
 32:                                               ; preds = %29
-  %33 = load i64, ptr %.07.i, align 8
+  %33 = load i64, ptr %.07.i, align 8, !tbaa !29
   %34 = add i64 %33, %2
-  store i64 %34, ptr %.07.i, align 8
+  store i64 %34, ptr %.07.i, align 8, !tbaa !29
   %35 = getelementptr inbounds nuw i8, ptr %.07.i, i64 16
-  %36 = load i32, ptr %35, align 8
+  %36 = load i32, ptr %35, align 8, !tbaa !4
   %.not16.i = icmp eq i32 %36, 0
   br i1 %.not16.i, label %rhash_update.exit, label %.lr.ph.i
 
@@ -477,29 +486,29 @@ rhash_init.exit:                                  ; preds = %14, %26
 38:                                               ; preds = %38, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %38 ]
   %39 = getelementptr inbounds nuw [0 x %struct.rhash_vector_item], ptr %37, i64 0, i64 %indvars.iv.i
-  %40 = load ptr, ptr %39, align 8
+  %40 = load ptr, ptr %39, align 8, !tbaa !20
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 32
-  %42 = load ptr, ptr %41, align 8
+  %42 = load ptr, ptr %41, align 8, !tbaa !30
   %43 = getelementptr inbounds nuw i8, ptr %39, i64 8
-  %44 = load ptr, ptr %43, align 8
+  %44 = load ptr, ptr %43, align 8, !tbaa !22
   tail call void %42(ptr noundef %44, ptr noundef %1, i64 noundef %2) #15
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %45 = load i32, ptr %35, align 8
+  %45 = load i32, ptr %35, align 8, !tbaa !4
   %46 = zext i32 %45 to i64
   %47 = icmp samesign ult i64 %indvars.iv.next.i, %46
-  br i1 %47, label %38, label %rhash_update.exit, !llvm.loop !11
+  br i1 %47, label %38, label %rhash_update.exit, !llvm.loop !31
 
 rhash_update.exit:                                ; preds = %38, %29, %32
-  call void @llvm.lifetime.start.p0(i64 130, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(i64 130, ptr nonnull %5) #15
   %48 = getelementptr inbounds nuw i8, ptr %.07.i, i64 20
-  %49 = load i32, ptr %48, align 4
+  %49 = load i32, ptr %48, align 4, !tbaa !4
   %50 = and i32 %49, 3
   %51 = icmp eq i32 %50, 3
   br i1 %51, label %69, label %52
 
 52:                                               ; preds = %rhash_update.exit
   %53 = getelementptr inbounds nuw i8, ptr %.07.i, i64 16
-  %54 = load i32, ptr %53, align 8
+  %54 = load i32, ptr %53, align 8, !tbaa !4
   %.not18.i = icmp eq i32 %54, 0
   br i1 %.not18.i, label %._crit_edge.i, label %.lr.ph.i10
 
@@ -513,33 +522,33 @@ rhash_update.exit:                                ; preds = %38, %29, %32
   %indvars.iv.i12 = phi i64 [ 0, %.lr.ph.i10 ], [ %indvars.iv.next.i13, %57 ]
   %.01516.i = phi ptr [ %55, %.lr.ph.i10 ], [ %5, %57 ]
   %58 = getelementptr inbounds nuw [0 x %struct.rhash_vector_item], ptr %56, i64 0, i64 %indvars.iv.i12
-  %59 = load ptr, ptr %58, align 8
+  %59 = load ptr, ptr %58, align 8, !tbaa !20
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 40
-  %61 = load ptr, ptr %60, align 8
+  %61 = load ptr, ptr %60, align 8, !tbaa !32
   %62 = getelementptr inbounds nuw i8, ptr %58, i64 8
-  %63 = load ptr, ptr %62, align 8
+  %63 = load ptr, ptr %62, align 8, !tbaa !22
   call void %61(ptr noundef %63, ptr noundef %.01516.i) #15
   %indvars.iv.next.i13 = add nuw nsw i64 %indvars.iv.i12, 1
-  %64 = load i32, ptr %53, align 8
+  %64 = load i32, ptr %53, align 8, !tbaa !4
   %65 = zext i32 %64 to i64
   %66 = icmp samesign ult i64 %indvars.iv.next.i13, %65
-  br i1 %66, label %57, label %._crit_edge.loopexit.i, !llvm.loop !12
+  br i1 %66, label %57, label %._crit_edge.loopexit.i, !llvm.loop !33
 
 ._crit_edge.loopexit.i:                           ; preds = %57
-  %.pre.i = load i32, ptr %48, align 4
+  %.pre.i = load i32, ptr %48, align 4, !tbaa !4
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %52
   %67 = phi i32 [ %.pre.i, %._crit_edge.loopexit.i ], [ %49, %52 ]
   %68 = or i32 %67, 2
-  store i32 %68, ptr %48, align 4
+  store i32 %68, ptr %48, align 4, !tbaa !4
   br label %69
 
 69:                                               ; preds = %._crit_edge.i, %rhash_update.exit
-  call void @llvm.lifetime.end.p0(i64 130, ptr nonnull %5)
-  store volatile i32 -556882451, ptr %30, align 8
+  call void @llvm.lifetime.end.p0(i64 130, ptr nonnull %5) #15
+  store volatile i32 -556882451, ptr %30, align 8, !tbaa !4
   %70 = getelementptr inbounds nuw i8, ptr %.07.i, i64 16
-  %71 = load i32, ptr %70, align 8
+  %71 = load i32, ptr %70, align 8, !tbaa !4
   %.not15.i = icmp eq i32 %71, 0
   br i1 %.not15.i, label %rhash_free.exit, label %.lr.ph.i14
 
@@ -551,25 +560,25 @@ rhash_update.exit:                                ; preds = %38, %29, %32
   %74 = phi i32 [ %71, %.lr.ph.i14 ], [ %83, %82 ]
   %indvars.iv.i15 = phi i64 [ 0, %.lr.ph.i14 ], [ %indvars.iv.next.i18, %82 ]
   %75 = getelementptr inbounds nuw [0 x %struct.rhash_vector_item], ptr %72, i64 0, i64 %indvars.iv.i15
-  %76 = load ptr, ptr %75, align 8
+  %76 = load ptr, ptr %75, align 8, !tbaa !20
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 48
-  %78 = load ptr, ptr %77, align 8
+  %78 = load ptr, ptr %77, align 8, !tbaa !26
   %.not.i16 = icmp eq ptr %78, null
   br i1 %.not.i16, label %82, label %79
 
 79:                                               ; preds = %73
   %80 = getelementptr inbounds nuw i8, ptr %75, i64 8
-  %81 = load ptr, ptr %80, align 8
+  %81 = load ptr, ptr %80, align 8, !tbaa !22
   call void %78(ptr noundef %81) #15
-  %.pre.i17 = load i32, ptr %70, align 8
+  %.pre.i17 = load i32, ptr %70, align 8, !tbaa !4
   br label %82
 
 82:                                               ; preds = %79, %73
-  %83 = phi i32 [ %74, %73 ], [ %.pre.i17, %79 ]
+  %83 = phi i32 [ %.pre.i17, %79 ], [ %74, %73 ]
   %indvars.iv.next.i18 = add nuw nsw i64 %indvars.iv.i15, 1
   %84 = zext i32 %83 to i64
   %85 = icmp samesign ult i64 %indvars.iv.next.i18, %84
-  br i1 %85, label %73, label %rhash_free.exit, !llvm.loop !9
+  br i1 %85, label %73, label %rhash_free.exit, !llvm.loop !27
 
 rhash_free.exit:                                  ; preds = %82, %69
   call void @free(ptr noundef nonnull %.07.i) #15
@@ -583,7 +592,7 @@ rhash_free.exit:                                  ; preds = %82, %69
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 -1, 1) i32 @rhash_file_update(ptr noundef %0, ptr noundef captures(none) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %4 = load volatile i32, ptr %3, align 8
+  %4 = load volatile i32, ptr %3, align 8, !tbaa !4
   %.not = icmp eq i32 %4, -1340228930
   br i1 %.not, label %5, label %39
 
@@ -605,7 +614,7 @@ define dso_local range(i32 -1, 1) i32 @rhash_file_update(ptr noundef %0, ptr nou
   br label %12
 
 12:                                               ; preds = %.lr.ph, %37
-  %13 = load volatile i32, ptr %3, align 8
+  %13 = load volatile i32, ptr %3, align 8, !tbaa !4
   %.not25 = icmp eq i32 %13, -1340228930
   br i1 %.not25, label %14, label %._crit_edge
 
@@ -620,48 +629,48 @@ define dso_local range(i32 -1, 1) i32 @rhash_file_update(ptr noundef %0, ptr nou
   br i1 %.not27, label %37, label %18
 
 18:                                               ; preds = %17
-  %19 = load volatile i32, ptr %3, align 8
+  %19 = load volatile i32, ptr %3, align 8, !tbaa !4
   %.not.i = icmp eq i32 %19, -1340228930
   br i1 %.not.i, label %20, label %rhash_update.exit
 
 20:                                               ; preds = %18
-  %21 = load i64, ptr %0, align 8
+  %21 = load i64, ptr %0, align 8, !tbaa !29
   %22 = add i64 %21, %15
-  store i64 %22, ptr %0, align 8
-  %23 = load i32, ptr %8, align 8
+  store i64 %22, ptr %0, align 8, !tbaa !29
+  %23 = load i32, ptr %8, align 8, !tbaa !4
   %.not16.i = icmp eq i32 %23, 0
   br i1 %.not16.i, label %rhash_update.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %20, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %20 ]
   %24 = getelementptr inbounds nuw [0 x %struct.rhash_vector_item], ptr %9, i64 0, i64 %indvars.iv.i
-  %25 = load ptr, ptr %24, align 8
+  %25 = load ptr, ptr %24, align 8, !tbaa !20
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 32
-  %27 = load ptr, ptr %26, align 8
+  %27 = load ptr, ptr %26, align 8, !tbaa !30
   %28 = getelementptr inbounds nuw i8, ptr %24, i64 8
-  %29 = load ptr, ptr %28, align 8
+  %29 = load ptr, ptr %28, align 8, !tbaa !22
   tail call void %27(ptr noundef %29, ptr noundef nonnull %6, i64 noundef %15) #15
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %30 = load i32, ptr %8, align 8
+  %30 = load i32, ptr %8, align 8, !tbaa !4
   %31 = zext i32 %30 to i64
   %32 = icmp samesign ult i64 %indvars.iv.next.i, %31
-  br i1 %32, label %.lr.ph.i, label %rhash_update.exit, !llvm.loop !11
+  br i1 %32, label %.lr.ph.i, label %rhash_update.exit, !llvm.loop !31
 
 rhash_update.exit:                                ; preds = %.lr.ph.i, %18, %20
-  %33 = load ptr, ptr %10, align 8
+  %33 = load ptr, ptr %10, align 8, !tbaa !34
   %.not28 = icmp eq ptr %33, null
   br i1 %.not28, label %37, label %34
 
 34:                                               ; preds = %rhash_update.exit
-  %35 = load ptr, ptr %11, align 8
-  %36 = load i64, ptr %0, align 8
+  %35 = load ptr, ptr %11, align 8, !tbaa !34
+  %36 = load i64, ptr %0, align 8, !tbaa !29
   tail call void %33(ptr noundef %35, i64 noundef %36) #15
   br label %37
 
 37:                                               ; preds = %17, %34, %rhash_update.exit
   %38 = tail call i32 @feof(ptr noundef %1) #15
   %.not24 = icmp eq i32 %38, 0
-  br i1 %.not24, label %12, label %._crit_edge, !llvm.loop !13
+  br i1 %.not24, label %12, label %._crit_edge, !llvm.loop !35
 
 ._crit_edge:                                      ; preds = %37, %12, %14, %.preheader
   %.0 = phi i32 [ 0, %.preheader ], [ -1, %14 ], [ 0, %12 ], [ 0, %37 ]
@@ -674,16 +683,16 @@ rhash_update.exit:                                ; preds = %.lr.ph.i, %18, %20
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized,aligned") allocsize(1) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @aligned_alloc(i64 allocalign noundef, i64 noundef) local_unnamed_addr #7
+declare noalias noundef ptr @aligned_alloc(i64 allocalign noundef, i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @feof(ptr noundef captures(none)) local_unnamed_addr #8
+declare noundef i32 @feof(ptr noundef captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fread(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #8
+declare noundef i64 @fread(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: nofree nounwind memory(read)
-declare noundef i32 @ferror(ptr noundef captures(none)) local_unnamed_addr #9
+declare noundef i32 @ferror(ptr noundef captures(none)) local_unnamed_addr #10
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 -1, 1) i32 @rhash_file(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2) local_unnamed_addr #0 {
@@ -696,7 +705,7 @@ define dso_local range(i32 -1, 1) i32 @rhash_file(i32 noundef %0, ptr noundef re
 
 9:                                                ; preds = %3
   %10 = tail call ptr @__errno_location() #17
-  store i32 22, ptr %10, align 4
+  store i32 22, ptr %10, align 4, !tbaa !4
   br label %76
 
 11:                                               ; preds = %3
@@ -706,8 +715,7 @@ define dso_local range(i32 -1, 1) i32 @rhash_file(i32 noundef %0, ptr noundef re
 
 13:                                               ; preds = %11
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %6)
-  store i32 %7, ptr %5, align 4
+  store i32 %7, ptr %5, align 4, !tbaa !4
   %14 = tail call range(i32 1, 11) i32 @llvm.ctpop.i32(i32 %7)
   %15 = icmp samesign ult i32 %14, 2
   br i1 %15, label %16, label %18
@@ -717,6 +725,7 @@ define dso_local range(i32 -1, 1) i32 @rhash_file(i32 noundef %0, ptr noundef re
   br label %rhash_init.exit
 
 18:                                               ; preds = %13
+  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %6) #15
   %19 = sub nsw i32 0, %7
   %20 = and i32 %7, %19
   br label %21
@@ -730,24 +739,24 @@ define dso_local range(i32 -1, 1) i32 @rhash_file(i32 noundef %0, ptr noundef re
 
 23:                                               ; preds = %21
   %24 = add i64 %.0612.i, 1
-  %25 = getelementptr inbounds [32 x i32], ptr %6, i64 0, i64 %.0612.i
-  store i32 %.013.i, ptr %25, align 4
+  %25 = getelementptr inbounds nuw [32 x i32], ptr %6, i64 0, i64 %.0612.i
+  store i32 %.013.i, ptr %25, align 4, !tbaa !4
   br label %26
 
 26:                                               ; preds = %23, %21
   %.1.i = phi i64 [ %24, %23 ], [ %.0612.i, %21 ]
   %27 = shl i32 %.013.i, 1
   %.not10.i = icmp ugt i32 %27, %7
-  br i1 %.not10.i, label %28, label %21, !llvm.loop !8
+  br i1 %.not10.i, label %28, label %21, !llvm.loop !25
 
 28:                                               ; preds = %26
   %29 = call ptr @rhash_init_multi(i64 noundef %.1.i, ptr noundef nonnull %6)
+  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %6) #15
   br label %rhash_init.exit
 
 rhash_init.exit:                                  ; preds = %16, %28
   %.07.i = phi ptr [ %17, %16 ], [ %29, %28 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %6)
   %.not18 = icmp eq ptr %.07.i, null
   br i1 %.not18, label %30, label %32
 
@@ -762,16 +771,16 @@ rhash_init.exit:                                  ; preds = %16, %28
   br i1 %35, label %36, label %58
 
 36:                                               ; preds = %32
-  call void @llvm.lifetime.start.p0(i64 130, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(i64 130, ptr nonnull %4) #15
   %37 = getelementptr inbounds nuw i8, ptr %.07.i, i64 20
-  %38 = load i32, ptr %37, align 4
+  %38 = load i32, ptr %37, align 4, !tbaa !4
   %39 = and i32 %38, 3
   %40 = icmp eq i32 %39, 3
   br i1 %40, label %rhash_final.exit, label %41
 
 41:                                               ; preds = %36
   %42 = getelementptr inbounds nuw i8, ptr %.07.i, i64 16
-  %43 = load i32, ptr %42, align 8
+  %43 = load i32, ptr %42, align 8, !tbaa !4
   %.not18.i = icmp eq i32 %43, 0
   br i1 %.not18.i, label %._crit_edge.i, label %.lr.ph.i
 
@@ -785,37 +794,37 @@ rhash_init.exit:                                  ; preds = %16, %28
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %46 ]
   %.01516.i = phi ptr [ %44, %.lr.ph.i ], [ %4, %46 ]
   %47 = getelementptr inbounds nuw [0 x %struct.rhash_vector_item], ptr %45, i64 0, i64 %indvars.iv.i
-  %48 = load ptr, ptr %47, align 8
+  %48 = load ptr, ptr %47, align 8, !tbaa !20
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 40
-  %50 = load ptr, ptr %49, align 8
+  %50 = load ptr, ptr %49, align 8, !tbaa !32
   %51 = getelementptr inbounds nuw i8, ptr %47, i64 8
-  %52 = load ptr, ptr %51, align 8
+  %52 = load ptr, ptr %51, align 8, !tbaa !22
   call void %50(ptr noundef %52, ptr noundef %.01516.i) #15
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %53 = load i32, ptr %42, align 8
+  %53 = load i32, ptr %42, align 8, !tbaa !4
   %54 = zext i32 %53 to i64
   %55 = icmp samesign ult i64 %indvars.iv.next.i, %54
-  br i1 %55, label %46, label %._crit_edge.loopexit.i, !llvm.loop !12
+  br i1 %55, label %46, label %._crit_edge.loopexit.i, !llvm.loop !33
 
 ._crit_edge.loopexit.i:                           ; preds = %46
-  %.pre.i = load i32, ptr %37, align 4
+  %.pre.i = load i32, ptr %37, align 4, !tbaa !4
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %41
   %56 = phi i32 [ %.pre.i, %._crit_edge.loopexit.i ], [ %38, %41 ]
   %57 = or i32 %56, 2
-  store i32 %57, ptr %37, align 4
+  store i32 %57, ptr %37, align 4, !tbaa !4
   br label %rhash_final.exit
 
 rhash_final.exit:                                 ; preds = %36, %._crit_edge.i
-  call void @llvm.lifetime.end.p0(i64 130, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(i64 130, ptr nonnull %4) #15
   br label %58
 
 58:                                               ; preds = %32, %rhash_final.exit
   %59 = getelementptr inbounds nuw i8, ptr %.07.i, i64 24
-  store volatile i32 -556882451, ptr %59, align 8
+  store volatile i32 -556882451, ptr %59, align 8, !tbaa !4
   %60 = getelementptr inbounds nuw i8, ptr %.07.i, i64 16
-  %61 = load i32, ptr %60, align 8
+  %61 = load i32, ptr %60, align 8, !tbaa !4
   %.not15.i = icmp eq i32 %61, 0
   br i1 %.not15.i, label %rhash_free.exit, label %.lr.ph.i19
 
@@ -827,25 +836,25 @@ rhash_final.exit:                                 ; preds = %36, %._crit_edge.i
   %64 = phi i32 [ %61, %.lr.ph.i19 ], [ %73, %72 ]
   %indvars.iv.i20 = phi i64 [ 0, %.lr.ph.i19 ], [ %indvars.iv.next.i23, %72 ]
   %65 = getelementptr inbounds nuw [0 x %struct.rhash_vector_item], ptr %62, i64 0, i64 %indvars.iv.i20
-  %66 = load ptr, ptr %65, align 8
+  %66 = load ptr, ptr %65, align 8, !tbaa !20
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 48
-  %68 = load ptr, ptr %67, align 8
+  %68 = load ptr, ptr %67, align 8, !tbaa !26
   %.not.i21 = icmp eq ptr %68, null
   br i1 %.not.i21, label %72, label %69
 
 69:                                               ; preds = %63
   %70 = getelementptr inbounds nuw i8, ptr %65, i64 8
-  %71 = load ptr, ptr %70, align 8
+  %71 = load ptr, ptr %70, align 8, !tbaa !22
   call void %68(ptr noundef %71) #15
-  %.pre.i22 = load i32, ptr %60, align 8
+  %.pre.i22 = load i32, ptr %60, align 8, !tbaa !4
   br label %72
 
 72:                                               ; preds = %69, %63
-  %73 = phi i32 [ %64, %63 ], [ %.pre.i22, %69 ]
+  %73 = phi i32 [ %.pre.i22, %69 ], [ %64, %63 ]
   %indvars.iv.next.i23 = add nuw nsw i64 %indvars.iv.i20, 1
   %74 = zext i32 %73 to i64
   %75 = icmp samesign ult i64 %indvars.iv.next.i23, %74
-  br i1 %75, label %63, label %rhash_free.exit, !llvm.loop !9
+  br i1 %75, label %63, label %rhash_free.exit, !llvm.loop !27
 
 rhash_free.exit:                                  ; preds = %72, %58
   call void @free(ptr noundef nonnull %.07.i) #15
@@ -857,26 +866,26 @@ rhash_free.exit:                                  ; preds = %72, %58
 }
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @fopen64(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #8
+declare noalias noundef ptr @fopen64(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #8
+declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local i32 @rhash_get_digest_size(i32 noundef %0) local_unnamed_addr #10 {
+define dso_local i32 @rhash_get_digest_size(i32 noundef %0) local_unnamed_addr #11 {
   %2 = and i32 %0, 1023
   %3 = tail call range(i32 0, 11) i32 @llvm.ctpop.i32(i32 %2)
   %or.cond = icmp eq i32 %3, 1
   br i1 %or.cond, label %4, label %13
 
 4:                                                ; preds = %1
-  %5 = load ptr, ptr @rhash_info_table, align 8
+  %5 = load ptr, ptr @rhash_info_table, align 8, !tbaa !18
   %6 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %2, i1 true)
   %7 = zext nneg i32 %6 to i64
   %8 = getelementptr inbounds nuw %struct.rhash_hash_info, ptr %5, i64 %7
-  %9 = load ptr, ptr %8, align 8
+  %9 = load ptr, ptr %8, align 8, !tbaa !36
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %11 = load i64, ptr %10, align 8
+  %11 = load i64, ptr %10, align 8, !tbaa !37
   %12 = trunc i64 %11 to i32
   br label %13
 
@@ -886,7 +895,7 @@ define dso_local i32 @rhash_get_digest_size(i32 noundef %0) local_unnamed_addr #
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.cttz.i32(i32, i1 immarg) #11
+declare i32 @llvm.cttz.i32(i32, i1 immarg) #12
 
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @rhash_get_hash_length(i32 noundef %0) local_unnamed_addr #0 {
@@ -896,11 +905,11 @@ define dso_local i32 @rhash_get_hash_length(i32 noundef %0) local_unnamed_addr #
 
 3:                                                ; preds = %1
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  %5 = load i32, ptr %4, align 4
+  %5 = load i32, ptr %4, align 4, !tbaa !40
   %6 = and i32 %5, 1
   %.not4 = icmp eq i32 %6, 0
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %8 = load i64, ptr %7, align 8
+  %8 = load i64, ptr %7, align 8, !tbaa !37
   br i1 %.not4, label %13, label %9
 
 9:                                                ; preds = %3
@@ -929,7 +938,7 @@ define dso_local ptr @rhash_get_name(i32 noundef %0) local_unnamed_addr #0 {
 
 3:                                                ; preds = %1
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %5 = load ptr, ptr %4, align 8
+  %5 = load ptr, ptr %4, align 8, !tbaa !41
   br label %6
 
 6:                                                ; preds = %1, %3
@@ -945,7 +954,7 @@ define dso_local ptr @rhash_get_magnet_name(i32 noundef %0) local_unnamed_addr #
 
 3:                                                ; preds = %1
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %5 = load ptr, ptr %4, align 8
+  %5 = load ptr, ptr %4, align 8, !tbaa !42
   br label %6
 
 6:                                                ; preds = %1, %3
@@ -954,49 +963,72 @@ define dso_local ptr @rhash_get_magnet_name(i32 noundef %0) local_unnamed_addr #
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #12
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.ctpop.i32(i32) #13
+declare i32 @llvm.ctpop.i32(i32) #14
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #14
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #14
-
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nofree nosync nounwind willreturn memory(write, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized,aligned") allocsize(1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { nofree nounwind memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #12 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #13 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #14 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #4 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nofree nosync nounwind willreturn memory(write, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized,aligned") allocsize(1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { nofree nounwind memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #13 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #14 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #15 = { nounwind }
 attributes #16 = { nounwind allocsize(1) }
 attributes #17 = { nounwind willreturn memory(none) }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+!llvm.module.flags = !{!0, !1, !2, !3}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
-!9 = distinct !{!9, !6}
-!10 = distinct !{!10, !6}
-!11 = distinct !{!11, !6}
-!12 = distinct !{!12, !6}
-!13 = distinct !{!13, !6}
+!4 = !{!5, !5, i64 0}
+!5 = !{!"int", !6, i64 0}
+!6 = !{!"omnipotent char", !7, i64 0}
+!7 = !{!"Simple C/C++ TBAA"}
+!8 = !{!9, !12, i64 8}
+!9 = !{!"rhash_hash_info", !10, i64 0, !12, i64 8, !12, i64 16, !11, i64 24, !11, i64 32, !11, i64 40, !11, i64 48}
+!10 = !{!"p1 _ZTS10rhash_info", !11, i64 0}
+!11 = !{!"any pointer", !6, i64 0}
+!12 = !{!"long", !6, i64 0}
+!13 = distinct !{!13, !14}
+!14 = !{!"llvm.loop.mustprogress"}
+!15 = !{!16, !5, i64 8}
+!16 = !{!"rhash_context", !17, i64 0, !5, i64 8}
+!17 = !{!"long long", !6, i64 0}
+!18 = !{!19, !19, i64 0}
+!19 = !{!"p1 _ZTS15rhash_hash_info", !11, i64 0}
+!20 = !{!21, !19, i64 0}
+!21 = !{!"rhash_vector_item", !19, i64 0, !11, i64 8}
+!22 = !{!21, !11, i64 8}
+!23 = !{!9, !11, i64 24}
+!24 = distinct !{!24, !14}
+!25 = distinct !{!25, !14}
+!26 = !{!9, !11, i64 48}
+!27 = distinct !{!27, !14}
+!28 = distinct !{!28, !14}
+!29 = !{!16, !17, i64 0}
+!30 = !{!9, !11, i64 32}
+!31 = distinct !{!31, !14}
+!32 = !{!9, !11, i64 40}
+!33 = distinct !{!33, !14}
+!34 = !{!11, !11, i64 0}
+!35 = distinct !{!35, !14}
+!36 = !{!9, !10, i64 0}
+!37 = !{!38, !12, i64 8}
+!38 = !{!"rhash_info", !5, i64 0, !5, i64 4, !12, i64 8, !39, i64 16, !39, i64 24}
+!39 = !{!"p1 omnipotent char", !11, i64 0}
+!40 = !{!38, !5, i64 4}
+!41 = !{!38, !39, i64 16}
+!42 = !{!38, !39, i64 24}

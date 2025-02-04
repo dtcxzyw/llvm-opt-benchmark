@@ -1,5 +1,5 @@
-; ModuleID = 'bench/cmake/original/nghttp2_helper.c.ll'
-source_filename = "bench/cmake/original/nghttp2_helper.c.ll"
+; ModuleID = 'bench/cmake/original/nghttp2_helper.ll'
+source_filename = "bench/cmake/original/nghttp2_helper.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
@@ -68,89 +68,77 @@ target triple = "x86_64-pc-linux-gnu"
 @VALID_AUTHORITY_CHARS = internal unnamed_addr constant <{ [127 x i8], [129 x i8] }> <{ [127 x i8] c"\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\01\00\00\01\01\01\01\01\01\01\01\01\01\01\00\01\01\01\01\01\01\01\01\01\01\01\01\00\01\00\00\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\00\01\00\01\00\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\00\00\00\01", [129 x i8] zeroinitializer }>, align 16
 @switch.table.nghttp2_http2_strerror = private unnamed_addr constant [14 x ptr] [ptr @.str.42, ptr @.str.43, ptr @.str.44, ptr @.str.45, ptr @.str.46, ptr @.str.47, ptr @.str.48, ptr @.str.49, ptr @.str.50, ptr @.str.51, ptr @.str.52, ptr @.str.53, ptr @.str.54, ptr @.str.55], align 8
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: write) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local void @nghttp2_put_uint16be(ptr noundef writeonly captures(none) initializes((0, 2)) %0, i16 noundef zeroext %1) local_unnamed_addr #0 {
-  %3 = tail call zeroext i16 @htons(i16 noundef zeroext %1) #9
-  store i16 %3, ptr %0, align 1
+  %rev.i = tail call noundef i16 @llvm.bswap.i16(i16 %1)
+  store i16 %rev.i, ptr %0, align 1
   ret void
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare zeroext i16 @htons(i16 noundef zeroext) local_unnamed_addr #1
-
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #1
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: write) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local void @nghttp2_put_uint32be(ptr noundef writeonly captures(none) initializes((0, 4)) %0, i32 noundef %1) local_unnamed_addr #0 {
-  %3 = tail call i32 @htonl(i32 noundef %1) #9
+  %3 = tail call noundef i32 @llvm.bswap.i32(i32 %1)
   store i32 %3, ptr %0, align 1
   ret void
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare i32 @htonl(i32 noundef) local_unnamed_addr #1
-
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local zeroext i16 @nghttp2_get_uint16(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
+define dso_local noundef zeroext i16 @nghttp2_get_uint16(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
   %.0.copyload = load i16, ptr %0, align 1
-  %2 = tail call zeroext i16 @ntohs(i16 noundef zeroext %.0.copyload) #9
-  ret i16 %2
+  %rev.i = tail call noundef i16 @llvm.bswap.i16(i16 %.0.copyload)
+  ret i16 %rev.i
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare zeroext i16 @ntohs(i16 noundef zeroext) local_unnamed_addr #1
-
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local i32 @nghttp2_get_uint32(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
+define dso_local noundef i32 @nghttp2_get_uint32(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
   %.0.copyload = load i32, ptr %0, align 1
-  %2 = tail call i32 @ntohl(i32 noundef %.0.copyload) #9
+  %2 = tail call noundef i32 @llvm.bswap.i32(i32 %.0.copyload)
   ret i32 %2
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare i32 @ntohl(i32 noundef) local_unnamed_addr #1
-
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local void @nghttp2_downcase(ptr noundef captures(none) %0, i64 noundef %1) local_unnamed_addr #4 {
+define dso_local void @nghttp2_downcase(ptr noundef captures(none) %0, i64 noundef %1) local_unnamed_addr #3 {
   %.not = icmp eq i64 %1, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2, %.lr.ph
   %.06 = phi i64 [ %8, %.lr.ph ], [ 0, %2 ]
-  %3 = getelementptr inbounds i8, ptr %0, i64 %.06
-  %4 = load i8, ptr %3, align 1
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 %.06
+  %4 = load i8, ptr %3, align 1, !tbaa !4
   %5 = zext i8 %4 to i64
   %6 = getelementptr inbounds nuw [256 x i8], ptr @DOWNCASE_TBL, i64 0, i64 %5
-  %7 = load i8, ptr %6, align 1
-  store i8 %7, ptr %3, align 1
+  %7 = load i8, ptr %6, align 1, !tbaa !4
+  store i8 %7, ptr %3, align 1, !tbaa !4
   %8 = add nuw i64 %.06, 1
   %exitcond.not = icmp eq i64 %8, %1
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !5
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local range(i32 -524, 1) i32 @nghttp2_adjust_local_window_size(ptr noundef captures(none) %0, ptr noundef captures(none) %1, ptr noundef captures(none) %2, ptr noundef captures(none) %3) local_unnamed_addr #5 {
-  %5 = load i32, ptr %3, align 4
+define dso_local range(i32 -524, 1) i32 @nghttp2_adjust_local_window_size(ptr noundef captures(none) %0, ptr noundef captures(none) %1, ptr noundef captures(none) %2, ptr noundef captures(none) %3) local_unnamed_addr #4 {
+  %5 = load i32, ptr %3, align 4, !tbaa !9
   %6 = icmp sgt i32 %5, 0
   br i1 %6, label %7, label %25
 
 7:                                                ; preds = %4
-  %8 = load i32, ptr %1, align 4
+  %8 = load i32, ptr %1, align 4, !tbaa !9
   %spec.select = tail call i32 @llvm.smax.i32(i32 %8, i32 0)
   %9 = sub nsw i32 %spec.select, %5
   %10 = icmp sgt i32 %9, -1
   br i1 %10, label %11, label %12
 
 11:                                               ; preds = %7
-  store i32 %9, ptr %1, align 4
+  store i32 %9, ptr %1, align 4, !tbaa !9
   br label %44
 
 12:                                               ; preds = %7
-  %13 = load i32, ptr %0, align 4
+  %13 = load i32, ptr %0, align 4, !tbaa !9
   %14 = add nsw i32 %9, 2147483647
   %15 = icmp sgt i32 %13, %14
   br i1 %15, label %44, label %16
@@ -158,77 +146,77 @@ define dso_local range(i32 -524, 1) i32 @nghttp2_adjust_local_window_size(ptr no
 16:                                               ; preds = %12
   %17 = sub nsw i32 0, %9
   %18 = sub nsw i32 %13, %9
-  store i32 %18, ptr %0, align 4
-  %19 = load i32, ptr %2, align 4
+  store i32 %18, ptr %0, align 4, !tbaa !9
+  %19 = load i32, ptr %2, align 4, !tbaa !9
   %. = tail call i32 @llvm.smin.i32(i32 %19, i32 %17)
   %20 = sub nsw i32 %19, %.
-  store i32 %20, ptr %2, align 4
-  %21 = load i32, ptr %1, align 4
+  store i32 %20, ptr %2, align 4, !tbaa !9
+  %21 = load i32, ptr %1, align 4, !tbaa !9
   %22 = tail call i32 @llvm.smin.i32(i32 %21, i32 0)
   %storemerge = add nsw i32 %22, %.
-  store i32 %storemerge, ptr %1, align 4
-  %23 = load i32, ptr %3, align 4
+  store i32 %storemerge, ptr %1, align 4, !tbaa !9
+  %23 = load i32, ptr %3, align 4, !tbaa !9
   %24 = sub nsw i32 %23, %.
-  store i32 %24, ptr %3, align 4
+  store i32 %24, ptr %3, align 4, !tbaa !9
   br label %44
 
 25:                                               ; preds = %4
-  %26 = load i32, ptr %0, align 4
+  %26 = load i32, ptr %0, align 4, !tbaa !9
   %27 = add nsw i32 %26, %5
   %28 = icmp slt i32 %27, 0
   br i1 %28, label %44, label %29
 
 29:                                               ; preds = %25
-  %30 = load i32, ptr %1, align 4
+  %30 = load i32, ptr %1, align 4, !tbaa !9
   %31 = sub nsw i32 -2147483648, %5
   %32 = icmp slt i32 %30, %31
   br i1 %32, label %44, label %33
 
 33:                                               ; preds = %29
-  %34 = load i32, ptr %2, align 4
+  %34 = load i32, ptr %2, align 4, !tbaa !9
   %35 = add nsw i32 %5, 2147483647
   %36 = icmp sgt i32 %34, %35
   br i1 %36, label %44, label %37
 
 37:                                               ; preds = %33
-  store i32 %27, ptr %0, align 4
-  %38 = load i32, ptr %3, align 4
-  %39 = load i32, ptr %1, align 4
+  store i32 %27, ptr %0, align 4, !tbaa !9
+  %38 = load i32, ptr %3, align 4, !tbaa !9
+  %39 = load i32, ptr %1, align 4, !tbaa !9
   %40 = add nsw i32 %39, %38
-  store i32 %40, ptr %1, align 4
-  %41 = load i32, ptr %3, align 4
-  %42 = load i32, ptr %2, align 4
+  store i32 %40, ptr %1, align 4, !tbaa !9
+  %41 = load i32, ptr %3, align 4, !tbaa !9
+  %42 = load i32, ptr %2, align 4, !tbaa !9
   %43 = sub nsw i32 %42, %41
-  store i32 %43, ptr %2, align 4
-  store i32 0, ptr %3, align 4
+  store i32 %43, ptr %2, align 4, !tbaa !9
+  store i32 0, ptr %3, align 4, !tbaa !9
   br label %44
 
-44:                                               ; preds = %25, %29, %33, %12, %37, %16, %11
-  %.0 = phi i32 [ 0, %11 ], [ 0, %16 ], [ 0, %37 ], [ -524, %12 ], [ -524, %33 ], [ -524, %29 ], [ -524, %25 ]
-  ret i32 %.0
+44:                                               ; preds = %25, %29, %33, %11, %16, %12, %37
+  %.1 = phi i32 [ 0, %37 ], [ 0, %11 ], [ 0, %16 ], [ -524, %12 ], [ -524, %33 ], [ -524, %29 ], [ -524, %25 ]
+  ret i32 %.1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local range(i32 -524, 1) i32 @nghttp2_increase_local_window_size(ptr noundef captures(none) %0, ptr noundef captures(none) %1, ptr noundef captures(none) %2, ptr noundef captures(none) %3) local_unnamed_addr #5 {
-  %5 = load i32, ptr %3, align 4
-  %6 = load i32, ptr %0, align 4
+define dso_local range(i32 -524, 1) i32 @nghttp2_increase_local_window_size(ptr noundef captures(none) %0, ptr noundef captures(none) %1, ptr noundef captures(none) %2, ptr noundef captures(none) %3) local_unnamed_addr #4 {
+  %5 = load i32, ptr %3, align 4, !tbaa !9
+  %6 = load i32, ptr %0, align 4, !tbaa !9
   %7 = sub nsw i32 2147483647, %5
   %8 = icmp sgt i32 %6, %7
   br i1 %8, label %17, label %9
 
 9:                                                ; preds = %4
   %10 = add nsw i32 %6, %5
-  store i32 %10, ptr %0, align 4
-  %11 = load i32, ptr %2, align 4
+  store i32 %10, ptr %0, align 4, !tbaa !9
+  %11 = load i32, ptr %2, align 4, !tbaa !9
   %. = tail call i32 @llvm.smin.i32(i32 %11, i32 %5)
   %12 = sub nsw i32 %11, %.
-  store i32 %12, ptr %2, align 4
-  %13 = load i32, ptr %1, align 4
+  store i32 %12, ptr %2, align 4, !tbaa !9
+  %13 = load i32, ptr %1, align 4, !tbaa !9
   %14 = add nsw i32 %13, %.
-  store i32 %14, ptr %1, align 4
-  %15 = load i32, ptr %3, align 4
+  store i32 %14, ptr %1, align 4, !tbaa !9
+  %15 = load i32, ptr %3, align 4, !tbaa !9
   %16 = sub nsw i32 %15, %.
-  store i32 %16, ptr %3, align 4
+  store i32 %16, ptr %3, align 4, !tbaa !9
   br label %17
 
 17:                                               ; preds = %4, %9
@@ -237,7 +225,7 @@ define dso_local range(i32 -524, 1) i32 @nghttp2_increase_local_window_size(ptr 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local range(i32 0, 2) i32 @nghttp2_should_send_window_update(i32 noundef %0, i32 noundef %1) local_unnamed_addr #6 {
+define dso_local range(i32 0, 2) i32 @nghttp2_should_send_window_update(i32 noundef %0, i32 noundef %1) local_unnamed_addr #5 {
   %3 = icmp sgt i32 %1, 0
   br i1 %3, label %4, label %8
 
@@ -253,7 +241,7 @@ define dso_local range(i32 0, 2) i32 @nghttp2_should_send_window_update(i32 noun
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef nonnull ptr @nghttp2_strerror(i32 noundef %0) local_unnamed_addr #6 {
+define dso_local noundef nonnull ptr @nghttp2_strerror(i32 noundef %0) local_unnamed_addr #5 {
   switch i32 %0, label %42 [
     i32 0, label %43
     i32 -501, label %2
@@ -427,12 +415,12 @@ define dso_local noundef nonnull ptr @nghttp2_strerror(i32 noundef %0) local_unn
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define dso_local range(i32 0, 2) i32 @nghttp2_check_header_name(ptr noundef readonly %0, i64 noundef %1) local_unnamed_addr #7 {
+define dso_local range(i32 0, 2) i32 @nghttp2_check_header_name(ptr noundef readonly %0, i64 noundef %1) local_unnamed_addr #6 {
   %3 = icmp eq i64 %1, 0
   br i1 %3, label %.loopexit, label %4
 
 4:                                                ; preds = %2
-  %5 = load i8, ptr %0, align 1
+  %5 = load i8, ptr %0, align 1, !tbaa !4
   %6 = icmp eq i8 %5, 58
   br i1 %6, label %7, label %.lr.ph.preheader
 
@@ -448,20 +436,20 @@ define dso_local range(i32 0, 2) i32 @nghttp2_check_header_name(ptr noundef read
 .lr.ph.preheader:                                 ; preds = %4, %9
   %.012 = phi ptr [ %10, %9 ], [ %0, %4 ]
   %.011 = phi i64 [ %11, %9 ], [ %1, %4 ]
-  %12 = getelementptr inbounds i8, ptr %.012, i64 %.011
+  %12 = getelementptr inbounds nuw i8, ptr %.012, i64 %.011
   br label %.lr.ph
 
 13:                                               ; preds = %.lr.ph
   %14 = getelementptr inbounds nuw i8, ptr %.116, i64 1
   %.not = icmp eq ptr %14, %12
-  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !7
+  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !11
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %13
   %.116 = phi ptr [ %14, %13 ], [ %.012, %.lr.ph.preheader ]
-  %15 = load i8, ptr %.116, align 1
+  %15 = load i8, ptr %.116, align 1, !tbaa !4
   %16 = zext i8 %15 to i64
   %17 = getelementptr inbounds nuw [256 x i32], ptr @VALID_HD_NAME_CHARS, i64 0, i64 %16
-  %18 = load i32, ptr %17, align 4
+  %18 = load i32, ptr %17, align 4, !tbaa !9
   %.not14 = icmp eq i32 %18, 0
   br i1 %.not14, label %.loopexit, label %13
 
@@ -471,22 +459,22 @@ define dso_local range(i32 0, 2) i32 @nghttp2_check_header_name(ptr noundef read
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define dso_local range(i32 0, 2) i32 @nghttp2_check_header_value(ptr noundef readonly %0, i64 noundef %1) local_unnamed_addr #7 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 %1
-  %.not8 = icmp eq i64 %1, 0
+define dso_local range(i32 0, 2) i32 @nghttp2_check_header_value(ptr noundef readonly %0, i64 noundef %1) local_unnamed_addr #6 {
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 %1
+  %.not8 = icmp samesign eq i64 %1, 0
   br i1 %.not8, label %._crit_edge, label %.lr.ph
 
 4:                                                ; preds = %.lr.ph
   %5 = getelementptr inbounds nuw i8, ptr %.069, i64 1
   %.not = icmp eq ptr %5, %3
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !8
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !12
 
 .lr.ph:                                           ; preds = %2, %4
   %.069 = phi ptr [ %5, %4 ], [ %0, %2 ]
-  %6 = load i8, ptr %.069, align 1
+  %6 = load i8, ptr %.069, align 1, !tbaa !4
   %7 = zext i8 %6 to i64
   %8 = getelementptr inbounds nuw [256 x i32], ptr @VALID_HD_VALUE_CHARS, i64 0, i64 %7
-  %9 = load i32, ptr %8, align 4
+  %9 = load i32, ptr %8, align 4, !tbaa !9
   %.not7 = icmp eq i32 %9, 0
   br i1 %.not7, label %._crit_edge, label %4
 
@@ -496,21 +484,21 @@ define dso_local range(i32 0, 2) i32 @nghttp2_check_header_value(ptr noundef rea
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define dso_local range(i32 0, 2) i32 @nghttp2_check_header_value_rfc9113(ptr noundef readonly %0, i64 noundef %1) local_unnamed_addr #7 {
+define dso_local range(i32 0, 2) i32 @nghttp2_check_header_value_rfc9113(ptr noundef readonly %0, i64 noundef %1) local_unnamed_addr #6 {
   %3 = icmp eq i64 %1, 0
   br i1 %3, label %nghttp2_check_header_value.exit, label %4
 
 4:                                                ; preds = %2
-  %5 = load i8, ptr %0, align 1
+  %5 = load i8, ptr %0, align 1, !tbaa !4
   switch i8 %5, label %6 [
     i8 32, label %nghttp2_check_header_value.exit
     i8 9, label %nghttp2_check_header_value.exit
   ]
 
 6:                                                ; preds = %4
-  %7 = getelementptr inbounds i8, ptr %0, i64 %1
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 %1
   %8 = getelementptr inbounds i8, ptr %7, i64 -1
-  %9 = load i8, ptr %8, align 1
+  %9 = load i8, ptr %8, align 1, !tbaa !4
   switch i8 %9, label %.lr.ph.i [
     i8 32, label %nghttp2_check_header_value.exit
     i8 9, label %nghttp2_check_header_value.exit
@@ -519,14 +507,14 @@ define dso_local range(i32 0, 2) i32 @nghttp2_check_header_value_rfc9113(ptr nou
 10:                                               ; preds = %.lr.ph.i
   %11 = getelementptr inbounds nuw i8, ptr %.069.i, i64 1
   %.not.i = icmp eq ptr %11, %7
-  br i1 %.not.i, label %nghttp2_check_header_value.exit, label %.lr.ph.i, !llvm.loop !8
+  br i1 %.not.i, label %nghttp2_check_header_value.exit, label %.lr.ph.i, !llvm.loop !12
 
 .lr.ph.i:                                         ; preds = %6, %10
   %.069.i = phi ptr [ %11, %10 ], [ %0, %6 ]
-  %12 = load i8, ptr %.069.i, align 1
+  %12 = load i8, ptr %.069.i, align 1, !tbaa !4
   %13 = zext i8 %12 to i64
   %14 = getelementptr inbounds nuw [256 x i32], ptr @VALID_HD_VALUE_CHARS, i64 0, i64 %13
-  %15 = load i32, ptr %14, align 4
+  %15 = load i32, ptr %14, align 4, !tbaa !9
   %.not7.i = icmp eq i32 %15, 0
   br i1 %.not7.i, label %nghttp2_check_header_value.exit, label %10
 
@@ -536,25 +524,25 @@ nghttp2_check_header_value.exit:                  ; preds = %.lr.ph.i, %10, %4, 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define dso_local range(i32 0, 2) i32 @nghttp2_check_method(ptr noundef readonly %0, i64 noundef %1) local_unnamed_addr #7 {
+define dso_local range(i32 0, 2) i32 @nghttp2_check_method(ptr noundef readonly %0, i64 noundef %1) local_unnamed_addr #6 {
   %3 = icmp eq i64 %1, 0
   br i1 %3, label %.loopexit, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %2
-  %4 = getelementptr inbounds i8, ptr %0, i64 %1
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 %1
   br label %.lr.ph
 
 5:                                                ; preds = %.lr.ph
   %6 = getelementptr inbounds nuw i8, ptr %.0711, i64 1
   %.not = icmp eq ptr %6, %4
-  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !9
+  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !13
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %5
   %.0711 = phi ptr [ %6, %5 ], [ %0, %.lr.ph.preheader ]
-  %7 = load i8, ptr %.0711, align 1
+  %7 = load i8, ptr %.0711, align 1, !tbaa !4
   %8 = zext i8 %7 to i64
   %9 = getelementptr inbounds nuw [256 x i8], ptr @VALID_METHOD_CHARS, i64 0, i64 %8
-  %10 = load i8, ptr %9, align 1
+  %10 = load i8, ptr %9, align 1, !tbaa !4
   %.not9 = icmp eq i8 %10, 0
   br i1 %.not9, label %.loopexit, label %5
 
@@ -564,22 +552,22 @@ define dso_local range(i32 0, 2) i32 @nghttp2_check_method(ptr noundef readonly 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define dso_local range(i32 0, 2) i32 @nghttp2_check_path(ptr noundef readonly %0, i64 noundef %1) local_unnamed_addr #7 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 %1
-  %.not8 = icmp eq i64 %1, 0
+define dso_local range(i32 0, 2) i32 @nghttp2_check_path(ptr noundef readonly %0, i64 noundef %1) local_unnamed_addr #6 {
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 %1
+  %.not8 = icmp samesign eq i64 %1, 0
   br i1 %.not8, label %._crit_edge, label %.lr.ph
 
 4:                                                ; preds = %.lr.ph
   %5 = getelementptr inbounds nuw i8, ptr %.069, i64 1
   %.not = icmp eq ptr %5, %3
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !10
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !14
 
 .lr.ph:                                           ; preds = %2, %4
   %.069 = phi ptr [ %5, %4 ], [ %0, %2 ]
-  %6 = load i8, ptr %.069, align 1
+  %6 = load i8, ptr %.069, align 1, !tbaa !4
   %7 = zext i8 %6 to i64
   %8 = getelementptr inbounds nuw [256 x i8], ptr @VALID_PATH_CHARS, i64 0, i64 %7
-  %9 = load i8, ptr %8, align 1
+  %9 = load i8, ptr %8, align 1, !tbaa !4
   %.not7 = icmp eq i8 %9, 0
   br i1 %.not7, label %._crit_edge, label %4
 
@@ -589,22 +577,22 @@ define dso_local range(i32 0, 2) i32 @nghttp2_check_path(ptr noundef readonly %0
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define dso_local range(i32 0, 2) i32 @nghttp2_check_authority(ptr noundef readonly %0, i64 noundef %1) local_unnamed_addr #7 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 %1
-  %.not8 = icmp eq i64 %1, 0
+define dso_local range(i32 0, 2) i32 @nghttp2_check_authority(ptr noundef readonly %0, i64 noundef %1) local_unnamed_addr #6 {
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 %1
+  %.not8 = icmp samesign eq i64 %1, 0
   br i1 %.not8, label %._crit_edge, label %.lr.ph
 
 4:                                                ; preds = %.lr.ph
   %5 = getelementptr inbounds nuw i8, ptr %.069, i64 1
   %.not = icmp eq ptr %5, %3
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !11
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !15
 
 .lr.ph:                                           ; preds = %2, %4
   %.069 = phi ptr [ %5, %4 ], [ %0, %2 ]
-  %6 = load i8, ptr %.069, align 1
+  %6 = load i8, ptr %.069, align 1, !tbaa !4
   %7 = zext i8 %6 to i64
   %8 = getelementptr inbounds nuw [256 x i8], ptr @VALID_AUTHORITY_CHARS, i64 0, i64 %7
-  %9 = load i8, ptr %8, align 1
+  %9 = load i8, ptr %8, align 1, !tbaa !4
   %.not7 = icmp eq i8 %9, 0
   br i1 %.not7, label %._crit_edge, label %4
 
@@ -614,13 +602,13 @@ define dso_local range(i32 0, 2) i32 @nghttp2_check_authority(ptr noundef readon
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local ptr @nghttp2_cpymem(ptr noundef writeonly %0, ptr noundef readonly captures(none) %1, i64 noundef %2) local_unnamed_addr #5 {
+define dso_local ptr @nghttp2_cpymem(ptr noundef writeonly %0, ptr noundef readonly captures(none) %1, i64 noundef %2) local_unnamed_addr #4 {
   %4 = icmp eq i64 %2, 0
   br i1 %4, label %7, label %5
 
 5:                                                ; preds = %3
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %0, ptr align 1 %1, i64 %2, i1 false)
-  %6 = getelementptr inbounds i8, ptr %0, i64 %2
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 %2
   br label %7
 
 7:                                                ; preds = %3, %5
@@ -629,7 +617,7 @@ define dso_local ptr @nghttp2_cpymem(ptr noundef writeonly %0, ptr noundef reado
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef nonnull ptr @nghttp2_http2_strerror(i32 noundef %0) local_unnamed_addr #6 {
+define dso_local noundef nonnull ptr @nghttp2_http2_strerror(i32 noundef %0) local_unnamed_addr #5 {
   %2 = icmp ult i32 %0, 14
   br i1 %2, label %switch.lookup, label %4
 
@@ -645,33 +633,41 @@ switch.lookup:                                    ; preds = %1
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #8
+declare i16 @llvm.bswap.i16(i16) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #8
+declare i32 @llvm.bswap.i32(i32) #7
 
-attributes #0 = { mustprogress nofree nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { mustprogress nofree nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #9 = { nounwind willreturn memory(none) }
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smax.i32(i32, i32) #7
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smin.i32(i32, i32) #7
+
+attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+
+!llvm.module.flags = !{!0, !1, !2, !3}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
-!9 = distinct !{!9, !6}
-!10 = distinct !{!10, !6}
-!11 = distinct !{!11, !6}
+!4 = !{!5, !5, i64 0}
+!5 = !{!"omnipotent char", !6, i64 0}
+!6 = !{!"Simple C/C++ TBAA"}
+!7 = distinct !{!7, !8}
+!8 = !{!"llvm.loop.mustprogress"}
+!9 = !{!10, !10, i64 0}
+!10 = !{!"int", !5, i64 0}
+!11 = distinct !{!11, !8}
+!12 = distinct !{!12, !8}
+!13 = distinct !{!13, !8}
+!14 = distinct !{!14, !8}
+!15 = distinct !{!15, !8}

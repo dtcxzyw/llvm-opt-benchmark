@@ -1,9 +1,9 @@
-; ModuleID = 'bench/cmake/original/archive_write_add_filter_b64encode.c.ll'
-source_filename = "bench/cmake/original/archive_write_add_filter_b64encode.c.ll"
+; ModuleID = 'bench/cmake/original/archive_write_add_filter_b64encode.ll'
+source_filename = "bench/cmake/original/archive_write_add_filter_b64encode.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-@.str = private unnamed_addr constant [28 x i8] c"archive_write_add_filter_uu\00", align 1
+@.str = private unnamed_addr constant [35 x i8] c"archive_write_add_filter_b64encode\00", align 1
 @.str.1 = private unnamed_addr constant [41 x i8] c"Can't allocate data for b64encode filter\00", align 1
 @.str.2 = private unnamed_addr constant [2 x i8] c"-\00", align 1
 @.str.3 = private unnamed_addr constant [10 x i8] c"b64encode\00", align 1
@@ -20,45 +20,45 @@ target triple = "x86_64-pc-linux-gnu"
 define dso_local range(i32 -30, 1) i32 @archive_write_add_filter_b64encode(ptr noundef %0) local_unnamed_addr #0 {
   %2 = tail call ptr @__archive_write_allocate_filter(ptr noundef %0) #6
   %3 = tail call i32 @__archive_check_magic(ptr noundef %0, i32 noundef -1329217314, i32 noundef 1, ptr noundef nonnull @.str) #6
-  %4 = icmp eq i32 %3, -30
-  br i1 %4, label %22, label %5
+  %.not = icmp eq i32 %3, -30
+  br i1 %.not, label %21, label %4
 
-5:                                                ; preds = %1
-  %6 = tail call noalias dereferenceable_or_null(136) ptr @calloc(i64 noundef 1, i64 noundef 136) #7
-  %7 = icmp eq ptr %6, null
-  br i1 %7, label %8, label %11
+4:                                                ; preds = %1
+  %5 = tail call noalias dereferenceable_or_null(136) ptr @calloc(i64 noundef 1, i64 noundef 136) #7
+  %6 = icmp eq ptr %5, null
+  br i1 %6, label %7, label %10
 
-8:                                                ; preds = %5
-  %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %10 = load ptr, ptr %9, align 8
-  tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %10, i32 noundef 12, ptr noundef nonnull @.str.1) #6
-  br label %22
+7:                                                ; preds = %4
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %9 = load ptr, ptr %8, align 8, !tbaa !4
+  tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %9, i32 noundef 12, ptr noundef nonnull @.str.1) #6
+  br label %21
 
-11:                                               ; preds = %5
-  %12 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %13 = tail call ptr @archive_strncat(ptr noundef nonnull %12, ptr noundef nonnull @.str.2, i64 noundef 1) #6
-  store i32 420, ptr %6, align 8
-  %14 = getelementptr inbounds nuw i8, ptr %2, i64 72
-  store ptr %6, ptr %14, align 8
-  %15 = getelementptr inbounds nuw i8, ptr %2, i64 80
-  store ptr @.str.3, ptr %15, align 8
-  %16 = getelementptr inbounds nuw i8, ptr %2, i64 88
-  store i32 7, ptr %16, align 8
-  %17 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  store ptr @archive_filter_b64encode_open, ptr %17, align 8
-  %18 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  store ptr @archive_filter_b64encode_options, ptr %18, align 8
-  %19 = getelementptr inbounds nuw i8, ptr %2, i64 40
-  store ptr @archive_filter_b64encode_write, ptr %19, align 8
-  %20 = getelementptr inbounds nuw i8, ptr %2, i64 56
-  store ptr @archive_filter_b64encode_close, ptr %20, align 8
-  %21 = getelementptr inbounds nuw i8, ptr %2, i64 64
-  store ptr @archive_filter_b64encode_free, ptr %21, align 8
-  br label %22
+10:                                               ; preds = %4
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %12 = tail call ptr @archive_strncat(ptr noundef nonnull %11, ptr noundef nonnull @.str.2, i64 noundef 1) #6
+  store i32 420, ptr %5, align 8, !tbaa !14
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 72
+  store ptr %5, ptr %13, align 8, !tbaa !17
+  %14 = getelementptr inbounds nuw i8, ptr %2, i64 80
+  store ptr @.str.3, ptr %14, align 8, !tbaa !18
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 88
+  store i32 7, ptr %15, align 8, !tbaa !19
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  store ptr @archive_filter_b64encode_open, ptr %16, align 8, !tbaa !20
+  %17 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  store ptr @archive_filter_b64encode_options, ptr %17, align 8, !tbaa !21
+  %18 = getelementptr inbounds nuw i8, ptr %2, i64 40
+  store ptr @archive_filter_b64encode_write, ptr %18, align 8, !tbaa !22
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 56
+  store ptr @archive_filter_b64encode_close, ptr %19, align 8, !tbaa !23
+  %20 = getelementptr inbounds nuw i8, ptr %2, i64 64
+  store ptr @archive_filter_b64encode_free, ptr %20, align 8, !tbaa !24
+  br label %21
 
-22:                                               ; preds = %1, %11, %8
-  %.0 = phi i32 [ -30, %8 ], [ 0, %11 ], [ -30, %1 ]
-  ret i32 %.0
+21:                                               ; preds = %1, %10, %7
+  %.1 = phi i32 [ -30, %7 ], [ 0, %10 ], [ -30, %1 ]
+  ret i32 %.1
 }
 
 declare ptr @__archive_write_allocate_filter(ptr noundef) local_unnamed_addr #1
@@ -75,10 +75,10 @@ declare ptr @archive_strncat(ptr noundef, ptr noundef, i64 noundef) local_unname
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -30, 1) i32 @archive_filter_b64encode_open(ptr noundef captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %3 = load ptr, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8, !tbaa !17
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = load ptr, ptr %4, align 8
-  %6 = load i32, ptr %5, align 8
+  %5 = load ptr, ptr %4, align 8, !tbaa !4
+  %6 = load i32, ptr %5, align 8, !tbaa !25
   %7 = icmp eq i32 %6, -1329217314
   br i1 %7, label %8, label %16
 
@@ -100,7 +100,7 @@ define internal range(i32 -30, 1) i32 @archive_filter_b64encode_open(ptr noundef
 16:                                               ; preds = %8, %13, %12, %1
   %.020 = phi i64 [ %15, %13 ], [ 65536, %12 ], [ 65536, %1 ], [ %10, %8 ]
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 56
-  store i64 %.020, ptr %17, align 8
+  store i64 %.020, ptr %17, align 8, !tbaa !29
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %19 = add nsw i64 %.020, 512
   %20 = tail call ptr @archive_string_ensure(ptr noundef nonnull %18, i64 noundef %19) #6
@@ -108,16 +108,16 @@ define internal range(i32 -30, 1) i32 @archive_filter_b64encode_open(ptr noundef
   br i1 %21, label %22, label %24
 
 22:                                               ; preds = %16
-  %23 = load ptr, ptr %4, align 8
+  %23 = load ptr, ptr %4, align 8, !tbaa !4
   tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %23, i32 noundef 12, ptr noundef nonnull @.str.8) #6
   br label %28
 
 24:                                               ; preds = %16
-  %25 = load i32, ptr %3, align 8
+  %25 = load i32, ptr %3, align 8, !tbaa !14
   %26 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %27 = load ptr, ptr %26, align 8
+  %27 = load ptr, ptr %26, align 8, !tbaa !30
   tail call void (ptr, ptr, ...) @archive_string_sprintf(ptr noundef nonnull %18, ptr noundef nonnull @.str.9, i32 noundef %25, ptr noundef %27) #6
-  store ptr %3, ptr %2, align 8
+  store ptr %3, ptr %2, align 8, !tbaa !17
   br label %28
 
 28:                                               ; preds = %24, %22
@@ -128,7 +128,7 @@ define internal range(i32 -30, 1) i32 @archive_filter_b64encode_open(ptr noundef
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -25, 1) i32 @archive_filter_b64encode_options(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %5 = load ptr, ptr %4, align 8
+  %5 = load ptr, ptr %4, align 8, !tbaa !17
   %6 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(5) @.str.4) #8
   %7 = icmp eq i32 %6, 0
   br i1 %7, label %8, label %24
@@ -139,7 +139,7 @@ define internal range(i32 -25, 1) i32 @archive_filter_b64encode_options(ptr noun
 
 10:                                               ; preds = %8
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %12 = load ptr, ptr %11, align 8
+  %12 = load ptr, ptr %11, align 8, !tbaa !4
   tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %12, i32 noundef -1, ptr noundef nonnull @.str.5) #6
   br label %37
 
@@ -152,7 +152,7 @@ define internal range(i32 -25, 1) i32 @archive_filter_b64encode_options(ptr noun
   %.in.i = phi i64 [ %18, %17 ], [ %14, %13 ]
   %.013.i = phi ptr [ %20, %17 ], [ %2, %13 ]
   %.0812.i = phi i32 [ %22, %17 ], [ 0, %13 ]
-  %15 = load i8, ptr %.013.i, align 1
+  %15 = load i8, ptr %.013.i, align 1, !tbaa !31
   %16 = and i8 %15, -8
   %or.cond.i = icmp eq i8 %16, 48
   br i1 %or.cond.i, label %17, label %atol8.exit.loopexit
@@ -165,7 +165,7 @@ define internal range(i32 -25, 1) i32 @archive_filter_b64encode_options(ptr noun
   %21 = shl i32 %.0812.i, 3
   %22 = or disjoint i32 %21, %19
   %.not.i = icmp eq i64 %18, 0
-  br i1 %.not.i, label %atol8.exit.loopexit, label %.lr.ph.i, !llvm.loop !5
+  br i1 %.not.i, label %atol8.exit.loopexit, label %.lr.ph.i, !llvm.loop !32
 
 atol8.exit.loopexit:                              ; preds = %17, %.lr.ph.i
   %.08.lcssa.i.ph = phi i32 [ %.0812.i, %.lr.ph.i ], [ %22, %17 ]
@@ -174,7 +174,7 @@ atol8.exit.loopexit:                              ; preds = %17, %.lr.ph.i
 
 atol8.exit:                                       ; preds = %atol8.exit.loopexit, %13
   %.08.lcssa.i = phi i32 [ 0, %13 ], [ %23, %atol8.exit.loopexit ]
-  store i32 %.08.lcssa.i, ptr %5, align 8
+  store i32 %.08.lcssa.i, ptr %5, align 8, !tbaa !14
   br label %37
 
 24:                                               ; preds = %3
@@ -188,14 +188,14 @@ atol8.exit:                                       ; preds = %atol8.exit.loopexit
 
 29:                                               ; preds = %27
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %31 = load ptr, ptr %30, align 8
+  %31 = load ptr, ptr %30, align 8, !tbaa !4
   tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %31, i32 noundef -1, ptr noundef nonnull @.str.7) #6
   br label %37
 
 32:                                               ; preds = %27
   %33 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %34 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store i64 0, ptr %34, align 8
+  store i64 0, ptr %34, align 8, !tbaa !34
   %35 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #8
   %36 = tail call ptr @archive_strncat(ptr noundef nonnull %33, ptr noundef nonnull %2, i64 noundef %35) #6
   br label %37
@@ -208,13 +208,13 @@ atol8.exit:                                       ; preds = %atol8.exit.loopexit
 ; Function Attrs: nounwind uwtable
 define internal i32 @archive_filter_b64encode_write(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %5 = load ptr, ptr %4, align 8
+  %5 = load ptr, ptr %4, align 8, !tbaa !17
   %6 = icmp eq i64 %2, 0
   br i1 %6, label %.loopexit, label %7
 
 7:                                                ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 64
-  %9 = load i64, ptr %8, align 8
+  %9 = load i64, ptr %8, align 8, !tbaa !35
   %.not = icmp eq i64 %9, 0
   br i1 %.not, label %24, label %.preheader
 
@@ -231,16 +231,16 @@ define internal i32 @archive_filter_b64encode_write(ptr noundef readonly capture
   %.14350 = phi i64 [ %2, %.lr.ph ], [ %18, %12 ]
   %13 = phi i64 [ %9, %.lr.ph ], [ %16, %12 ]
   %14 = getelementptr inbounds nuw i8, ptr %.151, i64 1
-  %15 = load i8, ptr %.151, align 1
+  %15 = load i8, ptr %.151, align 1, !tbaa !31
   %16 = add nuw nsw i64 %13, 1
-  store i64 %16, ptr %8, align 8
+  store i64 %16, ptr %8, align 8, !tbaa !35
   %17 = getelementptr inbounds nuw [57 x i8], ptr %11, i64 0, i64 %13
-  store i8 %15, ptr %17, align 1
+  store i8 %15, ptr %17, align 1, !tbaa !31
   %18 = add i64 %.14350, -1
   %19 = icmp samesign ult i64 %13, 56
   %20 = icmp ne i64 %18, 0
   %21 = select i1 %19, i1 %20, i1 false
-  br i1 %21, label %12, label %._crit_edge, !llvm.loop !7
+  br i1 %21, label %12, label %._crit_edge, !llvm.loop !36
 
 ._crit_edge:                                      ; preds = %12
   br i1 %19, label %.loopexit, label %._crit_edge.thread
@@ -251,7 +251,7 @@ define internal i32 @archive_filter_b64encode_write(ptr noundef readonly capture
   %22 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %23 = getelementptr inbounds nuw i8, ptr %5, i64 72
   tail call fastcc void @la_b64_encode(ptr noundef nonnull %22, ptr noundef nonnull %23, i64 noundef 57)
-  store i64 0, ptr %8, align 8
+  store i64 0, ptr %8, align 8, !tbaa !35
   br label %24
 
 24:                                               ; preds = %._crit_edge.thread, %7
@@ -271,7 +271,7 @@ define internal i32 @archive_filter_b64encode_write(ptr noundef readonly capture
   %28 = add i64 %.24454, -57
   %29 = getelementptr inbounds nuw i8, ptr %.255, i64 57
   %30 = icmp ugt i64 %28, 56
-  br i1 %30, label %27, label %._crit_edge58, !llvm.loop !8
+  br i1 %30, label %27, label %._crit_edge58, !llvm.loop !37
 
 ._crit_edge58:                                    ; preds = %27, %24
   %.244.lcssa = phi i64 [ %.042, %24 ], [ %28, %27 ]
@@ -282,14 +282,14 @@ define internal i32 @archive_filter_b64encode_write(ptr noundef readonly capture
 31:                                               ; preds = %._crit_edge58
   %32 = getelementptr inbounds nuw i8, ptr %5, i64 72
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %32, ptr align 1 %.2.lcssa, i64 %.244.lcssa, i1 false)
-  store i64 %.244.lcssa, ptr %8, align 8
+  store i64 %.244.lcssa, ptr %8, align 8, !tbaa !35
   br label %33
 
 33:                                               ; preds = %31, %._crit_edge58
   %34 = getelementptr inbounds nuw i8, ptr %5, i64 40
   %35 = getelementptr inbounds nuw i8, ptr %5, i64 56
-  %36 = load i64, ptr %34, align 8
-  %37 = load i64, ptr %35, align 8
+  %36 = load i64, ptr %34, align 8, !tbaa !38
+  %37 = load i64, ptr %35, align 8, !tbaa !29
   %.not4961 = icmp ult i64 %36, %37
   br i1 %.not4961, label %.loopexit, label %.lr.ph63
 
@@ -300,21 +300,21 @@ define internal i32 @archive_filter_b64encode_write(ptr noundef readonly capture
 
 40:                                               ; preds = %.lr.ph63, %40
   %41 = phi i64 [ %37, %.lr.ph63 ], [ %50, %40 ]
-  %42 = load ptr, ptr %39, align 8
-  %43 = load ptr, ptr %38, align 8
+  %42 = load ptr, ptr %39, align 8, !tbaa !39
+  %43 = load ptr, ptr %38, align 8, !tbaa !40
   %44 = tail call i32 @__archive_write_filter(ptr noundef %42, ptr noundef %43, i64 noundef %41) #6
-  %45 = load ptr, ptr %38, align 8
-  %46 = load i64, ptr %35, align 8
-  %47 = getelementptr inbounds i8, ptr %45, i64 %46
-  %48 = load i64, ptr %34, align 8
+  %45 = load ptr, ptr %38, align 8, !tbaa !40
+  %46 = load i64, ptr %35, align 8, !tbaa !29
+  %47 = getelementptr inbounds nuw i8, ptr %45, i64 %46
+  %48 = load i64, ptr %34, align 8, !tbaa !38
   %49 = sub i64 %48, %46
   tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %45, ptr align 1 %47, i64 %49, i1 false)
-  %50 = load i64, ptr %35, align 8
-  %51 = load i64, ptr %34, align 8
+  %50 = load i64, ptr %35, align 8, !tbaa !29
+  %51 = load i64, ptr %34, align 8, !tbaa !38
   %52 = sub i64 %51, %50
-  store i64 %52, ptr %34, align 8
+  store i64 %52, ptr %34, align 8, !tbaa !38
   %.not49 = icmp ult i64 %52, %50
-  br i1 %.not49, label %.loopexit, label %40, !llvm.loop !9
+  br i1 %.not49, label %.loopexit, label %40, !llvm.loop !41
 
 .loopexit:                                        ; preds = %40, %33, %._crit_edge, %3
   %.041 = phi i32 [ 0, %3 ], [ 0, %._crit_edge ], [ 0, %33 ], [ %44, %40 ]
@@ -324,9 +324,9 @@ define internal i32 @archive_filter_b64encode_write(ptr noundef readonly capture
 ; Function Attrs: nounwind uwtable
 define internal i32 @archive_filter_b64encode_close(ptr noundef readonly captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %3 = load ptr, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8, !tbaa !17
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 64
-  %5 = load i64, ptr %4, align 8
+  %5 = load i64, ptr %4, align 8, !tbaa !35
   %.not = icmp eq i64 %5, 0
   br i1 %.not, label %9, label %6
 
@@ -340,13 +340,13 @@ define internal i32 @archive_filter_b64encode_close(ptr noundef readonly capture
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 32
   tail call void (ptr, ptr, ...) @archive_string_sprintf(ptr noundef nonnull %10, ptr noundef nonnull @.str.10) #6
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %12 = load ptr, ptr %11, align 8
+  %12 = load ptr, ptr %11, align 8, !tbaa !4
   %13 = tail call i32 @archive_write_set_bytes_in_last_block(ptr noundef %12, i32 noundef 1) #6
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %15 = load ptr, ptr %14, align 8
-  %16 = load ptr, ptr %10, align 8
+  %15 = load ptr, ptr %14, align 8, !tbaa !39
+  %16 = load ptr, ptr %10, align 8, !tbaa !40
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 40
-  %18 = load i64, ptr %17, align 8
+  %18 = load i64, ptr %17, align 8, !tbaa !38
   %19 = tail call i32 @__archive_write_filter(ptr noundef %15, ptr noundef %16, i64 noundef %18) #6
   ret i32 %19
 }
@@ -354,7 +354,7 @@ define internal i32 @archive_filter_b64encode_close(ptr noundef readonly capture
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @archive_filter_b64encode_free(ptr noundef readonly captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %3 = load ptr, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8, !tbaa !17
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   tail call void @archive_string_free(ptr noundef nonnull %4) #6
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 32
@@ -383,44 +383,44 @@ define internal fastcc void @la_b64_encode(ptr noundef %0, ptr noundef readonly 
 .lr.ph:                                           ; preds = %3, %.lr.ph
   %.037 = phi i64 [ %40, %.lr.ph ], [ %2, %3 ]
   %.03536 = phi ptr [ %39, %.lr.ph ], [ %1, %3 ]
-  %5 = load i8, ptr %.03536, align 1
+  %5 = load i8, ptr %.03536, align 1, !tbaa !31
   %6 = lshr i8 %5, 2
   %7 = zext nneg i8 %6 to i64
   %8 = getelementptr inbounds nuw [64 x i8], ptr @base64, i64 0, i64 %7
-  %9 = load i8, ptr %8, align 1
+  %9 = load i8, ptr %8, align 1, !tbaa !31
   %10 = tail call ptr @archive_strappend_char(ptr noundef %0, i8 noundef signext %9) #6
-  %11 = load i8, ptr %.03536, align 1
+  %11 = load i8, ptr %.03536, align 1, !tbaa !31
   %12 = shl i8 %11, 4
   %13 = and i8 %12, 48
   %14 = getelementptr inbounds nuw i8, ptr %.03536, i64 1
-  %15 = load i8, ptr %14, align 1
+  %15 = load i8, ptr %14, align 1, !tbaa !31
   %16 = lshr i8 %15, 4
   %17 = or disjoint i8 %13, %16
   %18 = zext nneg i8 %17 to i64
   %19 = getelementptr inbounds nuw [64 x i8], ptr @base64, i64 0, i64 %18
-  %20 = load i8, ptr %19, align 1
+  %20 = load i8, ptr %19, align 1, !tbaa !31
   %21 = tail call ptr @archive_strappend_char(ptr noundef %0, i8 noundef signext %20) #6
-  %22 = load i8, ptr %14, align 1
+  %22 = load i8, ptr %14, align 1, !tbaa !31
   %23 = shl i8 %22, 2
   %24 = and i8 %23, 60
   %25 = getelementptr inbounds nuw i8, ptr %.03536, i64 2
-  %26 = load i8, ptr %25, align 1
+  %26 = load i8, ptr %25, align 1, !tbaa !31
   %27 = lshr i8 %26, 6
   %28 = or disjoint i8 %24, %27
   %29 = zext nneg i8 %28 to i64
   %30 = getelementptr inbounds nuw [64 x i8], ptr @base64, i64 0, i64 %29
-  %31 = load i8, ptr %30, align 1
+  %31 = load i8, ptr %30, align 1, !tbaa !31
   %32 = tail call ptr @archive_strappend_char(ptr noundef %0, i8 noundef signext %31) #6
-  %33 = load i8, ptr %25, align 1
+  %33 = load i8, ptr %25, align 1, !tbaa !31
   %34 = and i8 %33, 63
   %35 = zext nneg i8 %34 to i64
   %36 = getelementptr inbounds nuw [64 x i8], ptr @base64, i64 0, i64 %35
-  %37 = load i8, ptr %36, align 1
+  %37 = load i8, ptr %36, align 1, !tbaa !31
   %38 = tail call ptr @archive_strappend_char(ptr noundef %0, i8 noundef signext %37) #6
   %39 = getelementptr inbounds nuw i8, ptr %.03536, i64 3
   %40 = add i64 %.037, -3
   %41 = icmp ugt i64 %40, 2
-  br i1 %41, label %.lr.ph, label %._crit_edge, !llvm.loop !10
+  br i1 %41, label %.lr.ph, label %._crit_edge, !llvm.loop !42
 
 ._crit_edge:                                      ; preds = %.lr.ph
   %.not = icmp eq i64 %40, 0
@@ -429,13 +429,13 @@ define internal fastcc void @la_b64_encode(ptr noundef %0, ptr noundef readonly 
 ._crit_edge.thread:                               ; preds = %3, %._crit_edge
   %.0.lcssa44 = phi i64 [ %40, %._crit_edge ], [ %2, %3 ]
   %.035.lcssa43 = phi ptr [ %39, %._crit_edge ], [ %1, %3 ]
-  %42 = load i8, ptr %.035.lcssa43, align 1
+  %42 = load i8, ptr %.035.lcssa43, align 1, !tbaa !31
   %43 = lshr i8 %42, 2
   %44 = zext nneg i8 %43 to i64
   %45 = getelementptr inbounds nuw [64 x i8], ptr @base64, i64 0, i64 %44
-  %46 = load i8, ptr %45, align 1
+  %46 = load i8, ptr %45, align 1, !tbaa !31
   %47 = tail call ptr @archive_strappend_char(ptr noundef %0, i8 noundef signext %46) #6
-  %48 = load i8, ptr %.035.lcssa43, align 1
+  %48 = load i8, ptr %.035.lcssa43, align 1, !tbaa !31
   %49 = shl i8 %48, 4
   %50 = and i8 %49, 48
   %51 = icmp eq i64 %.0.lcssa44, 1
@@ -444,25 +444,25 @@ define internal fastcc void @la_b64_encode(ptr noundef %0, ptr noundef readonly 
 52:                                               ; preds = %._crit_edge.thread
   %53 = zext nneg i8 %50 to i64
   %54 = getelementptr inbounds nuw [64 x i8], ptr @base64, i64 0, i64 %53
-  %55 = load i8, ptr %54, align 16
+  %55 = load i8, ptr %54, align 16, !tbaa !31
   %56 = tail call ptr @archive_strappend_char(ptr noundef %0, i8 noundef signext %55) #6
   br label %.sink.split
 
 57:                                               ; preds = %._crit_edge.thread
   %58 = getelementptr inbounds nuw i8, ptr %.035.lcssa43, i64 1
-  %59 = load i8, ptr %58, align 1
+  %59 = load i8, ptr %58, align 1, !tbaa !31
   %60 = lshr i8 %59, 4
   %61 = or disjoint i8 %60, %50
   %62 = zext nneg i8 %61 to i64
   %63 = getelementptr inbounds nuw [64 x i8], ptr @base64, i64 0, i64 %62
-  %64 = load i8, ptr %63, align 1
+  %64 = load i8, ptr %63, align 1, !tbaa !31
   %65 = tail call ptr @archive_strappend_char(ptr noundef %0, i8 noundef signext %64) #6
-  %66 = load i8, ptr %58, align 1
+  %66 = load i8, ptr %58, align 1, !tbaa !31
   %67 = shl i8 %66, 2
   %68 = and i8 %67, 60
   %69 = zext nneg i8 %68 to i64
   %70 = getelementptr inbounds nuw [64 x i8], ptr @base64, i64 0, i64 %69
-  %71 = load i8, ptr %70, align 4
+  %71 = load i8, ptr %70, align 4, !tbaa !31
   br label %.sink.split
 
 .sink.split:                                      ; preds = %57, %52
@@ -493,26 +493,58 @@ declare void @archive_string_free(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
 declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #5
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { nounwind }
 attributes #7 = { nounwind allocsize(0,1) }
 attributes #8 = { nounwind willreturn memory(read) }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+!llvm.module.flags = !{!0, !1, !2, !3}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
-!9 = distinct !{!9, !6}
-!10 = distinct !{!10, !6}
+!4 = !{!5, !9, i64 8}
+!5 = !{!"archive_write_filter", !6, i64 0, !9, i64 8, !11, i64 16, !10, i64 24, !10, i64 32, !10, i64 40, !10, i64 48, !10, i64 56, !10, i64 64, !10, i64 72, !12, i64 80, !13, i64 88, !13, i64 92, !13, i64 96, !13, i64 100}
+!6 = !{!"long", !7, i64 0}
+!7 = !{!"omnipotent char", !8, i64 0}
+!8 = !{!"Simple C/C++ TBAA"}
+!9 = !{!"p1 _ZTS7archive", !10, i64 0}
+!10 = !{!"any pointer", !7, i64 0}
+!11 = !{!"p1 _ZTS20archive_write_filter", !10, i64 0}
+!12 = !{!"p1 omnipotent char", !10, i64 0}
+!13 = !{!"int", !7, i64 0}
+!14 = !{!15, !13, i64 0}
+!15 = !{!"private_b64encode", !13, i64 0, !16, i64 8, !16, i64 32, !6, i64 56, !6, i64 64, !7, i64 72}
+!16 = !{!"archive_string", !12, i64 0, !6, i64 8, !6, i64 16}
+!17 = !{!5, !10, i64 72}
+!18 = !{!5, !12, i64 80}
+!19 = !{!5, !13, i64 88}
+!20 = !{!5, !10, i64 32}
+!21 = !{!5, !10, i64 24}
+!22 = !{!5, !10, i64 40}
+!23 = !{!5, !10, i64 56}
+!24 = !{!5, !10, i64 64}
+!25 = !{!26, !13, i64 0}
+!26 = !{!"archive", !13, i64 0, !13, i64 4, !27, i64 8, !13, i64 16, !12, i64 24, !13, i64 32, !13, i64 36, !12, i64 40, !16, i64 48, !12, i64 72, !13, i64 80, !13, i64 84, !28, i64 88, !12, i64 96, !6, i64 104, !6, i64 112, !6, i64 120, !7, i64 128, !6, i64 136}
+!27 = !{!"p1 _ZTS14archive_vtable", !10, i64 0}
+!28 = !{!"p1 _ZTS19archive_string_conv", !10, i64 0}
+!29 = !{!15, !6, i64 56}
+!30 = !{!15, !12, i64 8}
+!31 = !{!7, !7, i64 0}
+!32 = distinct !{!32, !33}
+!33 = !{!"llvm.loop.mustprogress"}
+!34 = !{!15, !6, i64 16}
+!35 = !{!15, !6, i64 64}
+!36 = distinct !{!36, !33}
+!37 = distinct !{!37, !33}
+!38 = !{!15, !6, i64 40}
+!39 = !{!5, !11, i64 16}
+!40 = !{!15, !12, i64 32}
+!41 = distinct !{!41, !33}
+!42 = distinct !{!42, !33}
