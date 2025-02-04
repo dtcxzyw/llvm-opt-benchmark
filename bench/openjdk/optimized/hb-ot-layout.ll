@@ -24890,9 +24890,9 @@ _ZN14hb_sparseset_tI23hb_bit_set_invertible_tE3addEj.exit: ; preds = %.lr.ph
   br i1 %58, label %_ZNK2OT8GSUBGPOS16get_feature_listEv.exit.i, label %128
 
 _ZNK2OT8GSUBGPOS16get_feature_listEv.exit.i:      ; preds = %38, %.thread
-  %.pre-phi31 = phi i32 [ %20, %.thread ], [ %56, %38 ]
+  %.pre-phi35 = phi i32 [ %20, %.thread ], [ %56, %38 ]
   %.0.i.i15 = phi ptr [ @_hb_NullPool, %.thread ], [ %.0.i.i.i.i, %38 ]
-  %.not.i.i.i = icmp samesign ult i32 %.011, %.pre-phi31
+  %.not.i.i.i = icmp samesign ult i32 %.011, %.pre-phi35
   br i1 %.not.i.i.i, label %59, label %63
 
 59:                                               ; preds = %_ZNK2OT8GSUBGPOS16get_feature_listEv.exit.i

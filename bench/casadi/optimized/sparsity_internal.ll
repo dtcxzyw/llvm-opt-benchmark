@@ -28642,7 +28642,7 @@ _ZNK6casadi16SparsityInternal7get_colEv.exit:     ; preds = %.loopexit.i, %_ZNSt
 _ZNSt6vectorIxSaIxEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %_ZNK6casadi16SparsityInternal7get_colEv.exit
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false)
   %.not.i.i.i.i = icmp eq ptr %.0.i.i.i.i.i.i, %.sroa.0.0
-  br i1 %.not.i.i.i.i, label %.thread167, label %85
+  br i1 %.not.i.i.i.i, label %.thread166, label %85
 
 85:                                               ; preds = %_ZNSt6vectorIxSaIxEE17_S_check_init_lenEmRKS0_.exit.i
   %86 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %81) #29
@@ -28691,9 +28691,9 @@ _ZSt6fill_nIPxmxET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i99: ; preds = %.noexc103
   store ptr %.0.i.i.i.i.i100, ptr %100, align 8
   br i1 %4, label %101, label %168
 
-.thread167:                                       ; preds = %_ZNSt6vectorIxSaIxEE17_S_check_init_lenEmRKS0_.exit.i
+.thread166:                                       ; preds = %_ZNSt6vectorIxSaIxEE17_S_check_init_lenEmRKS0_.exit.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, i8 0, i64 24, i1 false)
-  br i1 %4, label %.thread170, label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPxSt6vectorIxSaIxEEEES6_ET0_T_S8_S7_.exit
+  br i1 %4, label %.thread169, label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPxSt6vectorIxSaIxEEEES6_ET0_T_S8_S7_.exit
 
 101:                                              ; preds = %99
   %102 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -28707,7 +28707,7 @@ _ZSt6fill_nIPxmxET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i99: ; preds = %.noexc103
   %110 = icmp eq i64 %108, %109
   br i1 %110, label %.lr.ph156.preheader, label %121
 
-.thread170:                                       ; preds = %.thread167
+.thread169:                                       ; preds = %.thread166
   %111 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %112 = load ptr, ptr %111, align 8
   %113 = load ptr, ptr %2, align 8
@@ -28724,8 +28724,8 @@ _ZSt6fill_nIPxmxET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i99: ; preds = %.noexc103
   %120 = load ptr, ptr %52, align 8
   br label %.lr.ph156
 
-121:                                              ; preds = %.thread170, %101
-  %122 = phi ptr [ null, %.thread170 ], [ %94, %101 ]
+121:                                              ; preds = %.thread169, %101
+  %122 = phi ptr [ null, %.thread169 ], [ %94, %101 ]
   %123 = tail call ptr @__cxa_allocate_exception(i64 40) #30
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %13) #30
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull @.str.91, ptr noundef nonnull align 1 dereferenceable(1) %13)
@@ -28886,9 +28886,9 @@ _ZSt6fill_nIPxmxET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i99: ; preds = %.noexc103
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %94, ptr align 8 %.sroa.0.0, i64 %81, i1 false)
   br label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPxSt6vectorIxSaIxEEEES6_ET0_T_S8_S7_.exit
 
-_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPxSt6vectorIxSaIxEEEES6_ET0_T_S8_S7_.exit: ; preds = %.lr.ph156, %.thread170, %.thread167, %168
-  %169 = phi ptr [ %94, %168 ], [ null, %.thread167 ], [ null, %.thread170 ], [ %94, %.lr.ph156 ]
-  %170 = phi ptr [ %86, %168 ], [ null, %.thread167 ], [ null, %.thread170 ], [ %86, %.lr.ph156 ]
+_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPxSt6vectorIxSaIxEEEES6_ET0_T_S8_S7_.exit: ; preds = %.lr.ph156, %.thread169, %.thread166, %168
+  %169 = phi ptr [ %94, %168 ], [ null, %.thread166 ], [ null, %.thread169 ], [ %94, %.lr.ph156 ]
+  %170 = phi ptr [ %86, %168 ], [ null, %.thread166 ], [ null, %.thread169 ], [ %86, %.lr.ph156 ]
   br i1 %3, label %171, label %230
 
 171:                                              ; preds = %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPxSt6vectorIxSaIxEEEES6_ET0_T_S8_S7_.exit
@@ -29101,7 +29101,7 @@ _ZNSt6vectorIxSaIxEED2Ev.exit114:                 ; preds = %_ZNSt6vectorIxSaIxE
   br label %_ZNSt6vectorIxSaIxEED2Ev.exit116
 
 _ZNSt6vectorIxSaIxEED2Ev.exit116:                 ; preds = %_ZNSt6vectorIxSaIxEED2Ev.exit114, %242
-  %.not.i.i.i117 = icmp eq ptr %.sroa.0138.0..sroa.0138.0..sroa.0138.0.140, null
+  %.sroa.0138.0..sroa.0138.0..sroa.0138.0..sroa.0138.0.140 = icmp eq ptr %.sroa.0138.0..sroa.0138.0..sroa.0138.0.140, null
   br i1 %.not.i.i.i117, label %_ZNSt6vectorIxSaIxEED2Ev.exit118, label %243
 
 243:                                              ; preds = %_ZNSt6vectorIxSaIxEED2Ev.exit116

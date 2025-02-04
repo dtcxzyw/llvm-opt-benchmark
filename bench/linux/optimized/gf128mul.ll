@@ -538,59 +538,59 @@ define dso_local noundef ptr @gf128mul_init_64k_bbe(ptr noundef readonly capture
   br label %.preheader2, !llvm.loop !12
 
 .preheader2:                                      ; preds = %22, %40
-  %.pre7 = phi ptr [ %.pre6, %40 ], [ %20, %22 ]
-  %41 = phi i64 [ %67, %40 ], [ 0, %22 ]
+  %41 = phi ptr [ %.pre6, %40 ], [ %20, %22 ]
+  %42 = phi i64 [ %67, %40 ], [ 0, %22 ]
   br label %42
 
 42:                                               ; preds = %63, %.preheader2
   %43 = phi i32 [ 2, %.preheader2 ], [ %64, %63 ]
-  %44 = zext nneg i32 %43 to i64
-  %45 = sext i32 %43 to i64
-  %46 = getelementptr [256 x %struct.be128], ptr %.pre7, i64 0, i64 %44
-  %47 = getelementptr inbounds nuw i8, ptr %46, i64 8
+  %45 = zext nneg i32 %43 to i64
+  %46 = sext i32 %43 to i64
+  %47 = getelementptr [256 x %struct.be128], ptr %41, i64 0, i64 %44
+  %48 = getelementptr inbounds nuw i8, ptr %46, i64 8
   br label %48
 
 48:                                               ; preds = %48, %42
   %49 = phi i64 [ 1, %42 ], [ %61, %48 ]
-  %50 = add nuw nsw i64 %49, %45
-  %51 = getelementptr [256 x %struct.be128], ptr %.pre7, i64 0, i64 %50
-  %52 = getelementptr [256 x %struct.be128], ptr %.pre7, i64 0, i64 %49
-  %53 = load i64, ptr %46, align 8
-  %54 = load i64, ptr %52, align 8
-  %55 = xor i64 %54, %53
-  store i64 %55, ptr %51, align 8
+  %51 = add nuw nsw i64 %49, %45
+  %52 = getelementptr [256 x %struct.be128], ptr %41, i64 0, i64 %51
+  %53 = getelementptr [256 x %struct.be128], ptr %41, i64 0, i64 %49
+  %54 = load i64, ptr %46, align 8
+  %55 = load i64, ptr %52, align 8
+  %56 = xor i64 %54, %53
+  store i64 %56, ptr %51, align 8
   %56 = load i64, ptr %47, align 8
-  %57 = getelementptr inbounds nuw i8, ptr %52, i64 8
-  %58 = load i64, ptr %57, align 8
-  %59 = xor i64 %58, %56
-  %60 = getelementptr inbounds nuw i8, ptr %51, i64 8
+  %58 = getelementptr inbounds nuw i8, ptr %52, i64 8
+  %59 = load i64, ptr %57, align 8
+  %60 = xor i64 %59, %56
+  %61 = getelementptr inbounds nuw i8, ptr %51, i64 8
   store i64 %59, ptr %60, align 8
   %61 = add nuw nsw i64 %49, 1
-  %62 = icmp eq i64 %61, %44
+  %63 = icmp eq i64 %61, %44
   br i1 %62, label %63, label %48, !llvm.loop !13
 
 63:                                               ; preds = %48
   %64 = shl i32 %43, 1
-  %65 = icmp slt i32 %64, 256
+  %66 = icmp slt i32 %64, 256
   br i1 %65, label %42, label %66, !llvm.loop !14
 
 66:                                               ; preds = %63
   %67 = add nuw nsw i64 %41, 1
-  %68 = icmp eq i64 %41, 15
+  %69 = icmp eq i64 %42, 15
   br i1 %68, label %.loopexit, label %69
 
 69:                                               ; preds = %66
   %70 = getelementptr [16 x ptr], ptr %3, i64 0, i64 %67
-  %.pre6 = load ptr, ptr %70, align 8
+  %72 = load ptr, ptr %70, align 8
   br label %71
 
-71:                                               ; preds = %71, %69
+71:; preds = %71, %69
   %72 = phi i32 [ 128, %69 ], [ %90, %71 ]
   %73 = zext nneg i32 %72 to i64
-  %74 = getelementptr [256 x %struct.be128], ptr %.pre6, i64 0, i64 %73
-  %75 = getelementptr [256 x %struct.be128], ptr %.pre7, i64 0, i64 %73
+  %74 = getelementptr [256 x %struct.be128], ptr %72, i64 0, i64 %73
+  %75 = getelementptr [256 x %struct.be128], ptr %41, i64 0, i64 %73
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(16) %74, ptr noundef align 8 dereferenceable(16) %75, i64 16, i1 false)
-  %76 = load i64, ptr %74, align 8
+  %77 = load i64, ptr %74, align 8
   %77 = tail call i64 @llvm.bswap.i64(i64 %76)
   %78 = getelementptr inbounds nuw i8, ptr %74, i64 8
   %79 = load i64, ptr %78, align 8
@@ -602,15 +602,15 @@ define dso_local noundef ptr @gf128mul_init_64k_bbe(ptr noundef readonly capture
   %85 = tail call i64 @llvm.fshl.i64(i64 %77, i64 %80, i64 8)
   %86 = tail call i64 @llvm.bswap.i64(i64 %85)
   store i64 %86, ptr %74, align 8
-  %87 = shl i64 %80, 8
-  %88 = xor i64 %87, %84
+  %88 = shl i64 %80, 8
+  %88 = xor i64 %88, %84
   %89 = tail call i64 @llvm.bswap.i64(i64 %88)
   store i64 %89, ptr %78, align 8
-  %90 = lshr i32 %72, 1
+  %91 = lshr i32 %72, 1
   %91 = icmp samesign ult i32 %72, 2
   br i1 %91, label %40, label %71, !llvm.loop !15
 
-.loopexit:                                        ; preds = %66, %18, %1
+.loopexit:; preds = %66, %18, %1
   %92 = phi ptr [ null, %18 ], [ null, %1 ], [ %3, %66 ]
   ret ptr %92
 }

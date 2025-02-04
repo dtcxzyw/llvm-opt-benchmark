@@ -6024,7 +6024,7 @@ _ZN4llvm16dyn_cast_or_nullIN5clang12FunctionDeclEKNS1_4DeclEEEDaPT0_.exit: ; pre
   br i1 %661, label %662, label %664
 
 662:                                              ; preds = %658
-  %.sroa.03.0.copyload.i1494 = load i64, ptr %63, align 8
+  %663 = load i64, ptr %63, align 8
   %663 = and i64 %.sroa.03.0.copyload.i1494, -4503599627370497
   store i64 %663, ptr %63, align 8
   br label %664
@@ -6425,14 +6425,14 @@ _ZN5clangneENS_22specific_attr_iteratorINS_14NoSanitizeAttrEN4llvm11SmallVectorI
   %853 = and i64 %828, 16
   %.not.i1645.not.not = icmp eq i64 %853, 0
   %854 = and i64 %.sroa.03.0.copyload.i1646, -33
-  %spec.select2842 = select i1 %.not.i1645.not.not, i64 %.sroa.03.0.copyload.i1646, i64 %854
+  %spec.select2845 = select i1 %.not.i1645.not.not, i64 %.sroa.03.0.copyload.i1646, i64 %854
   %855 = and i64 %828, 32
   %.not.i1652.not.not = icmp eq i64 %855, 0
-  %856 = and i64 %spec.select2842, -17
-  %spec.select2843 = select i1 %.not.i1652.not.not, i64 %spec.select2842, i64 %856
+  %856 = and i64 %spec.select2845, -17
+  %spec.select2846 = select i1 %.not.i1652.not.not, i64 %spec.select2845, i64 %856
   %857 = and i64 %828, 57
-  %.not2850 = icmp eq i64 %857, 0
-  br i1 %.not2850, label %896, label %895
+  %.not2853 = icmp eq i64 %857, 0
+  br i1 %.not2853, label %896, label %895
 
 858:                                              ; preds = %_ZN5clangneENS_22specific_attr_iteratorINS_14NoSanitizeAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit
   %859 = load ptr, ptr %.sroa.02365.0, align 8, !tbaa !894
@@ -6502,14 +6502,14 @@ _ZNK5clang14NoSanitizeAttr7getMaskEv.exit:        ; preds = %_ZNK5clang14NoSanit
   br label %826
 
 895:                                              ; preds = %_ZN5clangneENS_22specific_attr_iteratorINS_14NoSanitizeAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.thread
-  store i64 %spec.select2843, ptr %63, align 8
+  store i64 %spec.select2846, ptr %63, align 8
   br label %896
 
 896:                                              ; preds = %_ZN5clangneENS_22specific_attr_iteratorINS_14NoSanitizeAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.thread, %895
   br i1 %810, label %897, label %903
 
 897:                                              ; preds = %896
-  %898 = and i64 %spec.select2843, 1048576
+  %898 = and i64 %spec.select2846, 1048576
   %899 = and i64 %848, 128
   %.not.i.i1660 = icmp ne i64 %898, 0
   %900 = icmp ne i64 %899, 0
@@ -6746,8 +6746,8 @@ _ZNK5clang22FunctionEffectIteratorINS_18FunctionEffectsRefEEdeEv.exit: ; preds =
   br label %.sink.split
 
 .sink.split:                                      ; preds = %_ZNK5clang22FunctionEffectIteratorINS_18FunctionEffectsRefEEdeEv.exit, %985
-  %.sink2844 = phi i32 [ 62, %985 ], [ 61, %_ZNK5clang22FunctionEffectIteratorINS_18FunctionEffectsRefEEdeEv.exit ]
-  call void @_ZN4llvm8Function9addFnAttrENS_9Attribute8AttrKindE(ptr noundef nonnull align 8 dereferenceable(136) %4, i32 noundef %.sink2844) #24
+  %.sink2847 = phi i32 [ 62, %985 ], [ 61, %_ZNK5clang22FunctionEffectIteratorINS_18FunctionEffectsRefEEdeEv.exit ]
+  call void @_ZN4llvm8Function9addFnAttrENS_9Attribute8AttrKindE(ptr noundef nonnull align 8 dereferenceable(136) %4, i32 noundef %.sink2847) #24
   br label %986
 
 986:                                              ; preds = %.sink.split, %_ZNK5clang22FunctionEffectIteratorINS_18FunctionEffectsRefEEdeEv.exit
@@ -7567,19 +7567,19 @@ _ZNK5clang4Decl7getAttrINS_15XRayLogArgsAttrEEEPT_v.exit.thread: ; preds = %1254
 1389:                                             ; preds = %1383
   %1390 = call noundef i32 @_ZNK5clang7CodeGen13CodeGenModule33isFunctionBlockedFromProfileInstrEPN4llvm8FunctionENS_14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(3608) %1385, ptr noundef %4, i32 %7) #24
   switch i32 %1390, label %1392 [
-    i32 1, label %.sink.split2845
+    i32 1, label %.sink.split2848
     i32 2, label %1391
   ]
 
 1391:                                             ; preds = %1389
-  br label %.sink.split2845
+  br label %.sink.split2848
 
-.sink.split2845:                                  ; preds = %1389, %1391
-  %.sink2846 = phi i32 [ 33, %1391 ], [ 66, %1389 ]
-  call void @_ZN4llvm8Function9addFnAttrENS_9Attribute8AttrKindE(ptr noundef nonnull align 8 dereferenceable(136) %4, i32 noundef %.sink2846) #24
+.sink.split2848:                                  ; preds = %1389, %1391
+  %.sink2849 = phi i32 [ 33, %1391 ], [ 66, %1389 ]
+  call void @_ZN4llvm8Function9addFnAttrENS_9Attribute8AttrKindE(ptr noundef nonnull align 8 dereferenceable(136) %4, i32 noundef %.sink2849) #24
   br label %1392
 
-1392:                                             ; preds = %.sink.split2845, %1389, %1383
+1392:                                             ; preds = %.sink.split2848, %1389, %1383
   br i1 %.not.i.i, label %.loopexit2533, label %1393
 
 1393:                                             ; preds = %1392

@@ -183,21 +183,21 @@ define hidden range(i32 -128, 274) i32 @ini_lex(ptr noundef %0) local_unnamed_ad
   %.promoted4067 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 40), align 8
   store ptr %.promoted4067, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 32), align 8
   %.not4074 = icmp ult ptr %.promoted4067, %2
-  %.pre4471 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 64), align 8
+  %.pre4472 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 64), align 8
   br i1 %.not4074, label %.lr.ph4075, label %._crit_edge
 
 .lr.ph4075:                                       ; preds = %1
   %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 24), align 8
-  %5 = icmp slt i32 %.pre4471, 4
-  %6 = icmp samesign ult i32 %.pre4471, 6
-  %7 = icmp eq i32 %.pre4471, 6
-  %8 = icmp samesign ult i32 %.pre4471, 8
-  %9 = icmp slt i32 %.pre4471, 2
-  %.not3642 = icmp eq i32 %.pre4471, 1
+  %5 = icmp slt i32 %.pre4472, 4
+  %6 = icmp samesign ult i32 %.pre4472, 6
+  %7 = icmp eq i32 %.pre4472, 6
+  %8 = icmp samesign ult i32 %.pre4472, 8
+  %9 = icmp slt i32 %.pre4472, 2
+  %.not3642 = icmp eq i32 %.pre4472, 1
   br label %11
 
 ._crit_edge:                                      ; preds = %.backedge3849, %1
-  switch i32 %.pre4471, label %.loopexit [
+  switch i32 %.pre4472, label %.loopexit [
     i32 3, label %10
     i32 8, label %10
   ]
@@ -242,7 +242,7 @@ define hidden range(i32 -128, 274) i32 @ini_lex(ptr noundef %0) local_unnamed_ad
   br i1 %.not3642, label %615, label %32
 
 23:                                               ; preds = %20
-  %.not3550 = icmp eq i32 %.pre4471, 3
+  %.not3550 = icmp eq i32 %.pre4472, 3
   %24 = load i8, ptr %.promoted4205, align 1
   br i1 %.not3550, label %1327, label %948
 
@@ -250,7 +250,7 @@ define hidden range(i32 -128, 274) i32 @ini_lex(ptr noundef %0) local_unnamed_ad
   br i1 %6, label %26, label %29
 
 26:                                               ; preds = %25
-  %27 = icmp eq i32 %.pre4471, 4
+  %27 = icmp eq i32 %.pre4472, 4
   %28 = load i8, ptr %.promoted4205, align 1
   br i1 %27, label %2546, label %2614
 
@@ -416,7 +416,7 @@ define hidden range(i32 -128, 274) i32 @ini_lex(ptr noundef %0) local_unnamed_ad
   br label %.loopexit
 
 .loopexit3734:                                    ; preds = %204, %428, %565, %509, %584, %562, %559, %528, %506, %503, %447, %425, %422, %230, %223, %208, %94, %78, %63, %569, %513, %432, %582, %578, %575, %526, %522, %519, %445, %441, %438, %228, %220, %214, %211, %105, %95, %90, %86, %79, %74, %64, %58, %56, %50, %48, %44, %41
-  %.promoted42056035 = phi ptr [ %.promoted4205, %584 ], [ %.promoted4205, %562 ], [ %.promoted4205, %559 ], [ %.promoted4205, %528 ], [ %.promoted4205, %506 ], [ %.promoted4205, %503 ], [ %.promoted4205, %447 ], [ %.promoted4205, %425 ], [ %.promoted4205, %422 ], [ %.promoted4205, %230 ], [ %.promoted4205, %223 ], [ %.promoted4205, %208 ], [ %.promoted4205, %94 ], [ %.promoted4205, %78 ], [ %.promoted4205, %63 ], [ %.promoted4205, %569 ], [ %.promoted4205, %513 ], [ %.promoted4205, %432 ], [ %.promoted4205, %582 ], [ %.promoted4205, %578 ], [ %.promoted4205, %575 ], [ %.promoted4205, %526 ], [ %.promoted4205, %522 ], [ %.promoted4205, %519 ], [ %.promoted4205, %445 ], [ %.promoted4205, %441 ], [ %.promoted4205, %438 ], [ %.promoted4205, %228 ], [ %.promoted4205, %220 ], [ %.promoted4205, %214 ], [ %.promoted4205, %211 ], [ %.promoted42056034, %105 ], [ %.promoted4205, %95 ], [ %.promoted4205, %90 ], [ %.promoted4205, %86 ], [ %.promoted4205, %79 ], [ %.promoted4205, %74 ], [ %.promoted4205, %64 ], [ %.promoted4205, %58 ], [ %.promoted4205, %56 ], [ %.promoted4205, %50 ], [ %.promoted4205, %48 ], [ %.promoted4205, %44 ], [ %.promoted4205, %41 ], [ %.promoted4205, %509 ], [ %.promoted4205, %565 ], [ %.promoted4205, %428 ], [ %.promoted4205, %204 ]
+  %.promoted42056037 = phi ptr [ %.promoted4205, %584 ], [ %.promoted4205, %562 ], [ %.promoted4205, %559 ], [ %.promoted4205, %528 ], [ %.promoted4205, %506 ], [ %.promoted4205, %503 ], [ %.promoted4205, %447 ], [ %.promoted4205, %425 ], [ %.promoted4205, %422 ], [ %.promoted4205, %230 ], [ %.promoted4205, %223 ], [ %.promoted4205, %208 ], [ %.promoted4205, %94 ], [ %.promoted4205, %78 ], [ %.promoted4205, %63 ], [ %.promoted4205, %569 ], [ %.promoted4205, %513 ], [ %.promoted4205, %432 ], [ %.promoted4205, %582 ], [ %.promoted4205, %578 ], [ %.promoted4205, %575 ], [ %.promoted4205, %526 ], [ %.promoted4205, %522 ], [ %.promoted4205, %519 ], [ %.promoted4205, %445 ], [ %.promoted4205, %441 ], [ %.promoted4205, %438 ], [ %.promoted4205, %228 ], [ %.promoted4205, %220 ], [ %.promoted4205, %214 ], [ %.promoted4205, %211 ], [ %.promoted42056036, %105 ], [ %.promoted4205, %95 ], [ %.promoted4205, %90 ], [ %.promoted4205, %86 ], [ %.promoted4205, %79 ], [ %.promoted4205, %74 ], [ %.promoted4205, %64 ], [ %.promoted4205, %58 ], [ %.promoted4205, %56 ], [ %.promoted4205, %50 ], [ %.promoted4205, %48 ], [ %.promoted4205, %44 ], [ %.promoted4205, %41 ], [ %.promoted4205, %509 ], [ %.promoted4205, %565 ], [ %.promoted4205, %428 ], [ %.promoted4205, %204 ]
   %100 = phi ptr [ %550, %584 ], [ %550, %562 ], [ %550, %559 ], [ %494, %528 ], [ %494, %506 ], [ %494, %503 ], [ %413, %447 ], [ %413, %425 ], [ %413, %422 ], [ %194, %230 ], [ %194, %223 ], [ %194, %208 ], [ %.promoted4205, %94 ], [ %.promoted4205, %78 ], [ %.promoted4205, %63 ], [ %550, %569 ], [ %494, %513 ], [ %413, %432 ], [ %550, %582 ], [ %550, %578 ], [ %550, %575 ], [ %494, %526 ], [ %494, %522 ], [ %494, %519 ], [ %413, %445 ], [ %413, %441 ], [ %413, %438 ], [ %194, %228 ], [ %194, %220 ], [ %194, %214 ], [ %194, %211 ], [ %106, %105 ], [ %.promoted4205, %95 ], [ %.promoted4205, %90 ], [ %.promoted4205, %86 ], [ %.promoted4205, %79 ], [ %.promoted4205, %74 ], [ %.promoted4205, %64 ], [ %.promoted4205, %58 ], [ %.promoted4205, %56 ], [ %.promoted4205, %50 ], [ %.promoted4205, %48 ], [ %.promoted4205, %44 ], [ %.promoted4205, %41 ], [ %494, %509 ], [ %550, %565 ], [ %413, %428 ], [ %194, %204 ]
   %101 = getelementptr inbounds nuw i8, ptr %100, i64 1
   store ptr %101, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 40), align 8
@@ -428,7 +428,7 @@ define hidden range(i32 -128, 274) i32 @ini_lex(ptr noundef %0) local_unnamed_ad
   br label %105
 
 105:                                              ; preds = %371, %361, %358, %357, %273, %263, %545, %537, %531, %485, %481, %477, %408, %404, %368, %345, %283, %279, %255, %378, %374, %362, %277, %276, %267, %266, %103
-  %.promoted42056034 = phi ptr [ %.promoted42056035, %103 ], [ %.promoted4205, %531 ], [ %.promoted4205, %485 ], [ %.promoted4205, %345 ], [ %.promoted4205, %255 ], [ %.promoted4205, %358 ], [ %.promoted4205, %362 ], [ %.promoted4205, %368 ], [ %.promoted4205, %374 ], [ %.promoted4205, %378 ], [ %.promoted4205, %537 ], [ %.promoted4205, %404 ], [ %.promoted4205, %266 ], [ %.promoted4205, %267 ], [ %.promoted4205, %408 ], [ %.promoted4205, %276 ], [ %.promoted4205, %277 ], [ %.promoted4205, %545 ], [ %.promoted4205, %477 ], [ %.promoted4205, %279 ], [ %.promoted4205, %481 ], [ %.promoted4205, %283 ], [ %.promoted4205, %263 ], [ %.promoted4205, %273 ], [ %.promoted4205, %357 ], [ %.promoted4205, %361 ], [ %.promoted4205, %371 ]
+  %.promoted42056036 = phi ptr [ %.promoted42056037, %103 ], [ %.promoted4205, %531 ], [ %.promoted4205, %485 ], [ %.promoted4205, %345 ], [ %.promoted4205, %255 ], [ %.promoted4205, %358 ], [ %.promoted4205, %362 ], [ %.promoted4205, %368 ], [ %.promoted4205, %374 ], [ %.promoted4205, %378 ], [ %.promoted4205, %537 ], [ %.promoted4205, %404 ], [ %.promoted4205, %266 ], [ %.promoted4205, %267 ], [ %.promoted4205, %408 ], [ %.promoted4205, %276 ], [ %.promoted4205, %277 ], [ %.promoted4205, %545 ], [ %.promoted4205, %477 ], [ %.promoted4205, %279 ], [ %.promoted4205, %481 ], [ %.promoted4205, %283 ], [ %.promoted4205, %263 ], [ %.promoted4205, %273 ], [ %.promoted4205, %357 ], [ %.promoted4205, %361 ], [ %.promoted4205, %371 ]
   %106 = phi ptr [ %101, %103 ], [ %534, %531 ], [ %486, %485 ], [ %346, %345 ], [ %256, %255 ], [ %350, %358 ], [ %350, %362 ], [ %350, %368 ], [ %350, %374 ], [ %350, %378 ], [ %538, %537 ], [ %405, %404 ], [ %260, %266 ], [ %260, %267 ], [ %409, %408 ], [ %270, %276 ], [ %270, %277 ], [ %546, %545 ], [ %478, %477 ], [ %280, %279 ], [ %482, %481 ], [ %284, %283 ], [ %260, %263 ], [ %270, %273 ], [ %350, %357 ], [ %350, %361 ], [ %350, %371 ]
   %.03235 = phi i8 [ %104, %103 ], [ %535, %531 ], [ %487, %485 ], [ %347, %345 ], [ %257, %255 ], [ %351, %358 ], [ %351, %362 ], [ %351, %368 ], [ %351, %374 ], [ %351, %378 ], [ %539, %537 ], [ %406, %404 ], [ %261, %266 ], [ %261, %267 ], [ %410, %408 ], [ %271, %276 ], [ %271, %277 ], [ %547, %545 ], [ %479, %477 ], [ %281, %279 ], [ %483, %481 ], [ %285, %283 ], [ %261, %263 ], [ %271, %273 ], [ %351, %357 ], [ %351, %361 ], [ %351, %371 ]
   %107 = zext i8 %.03235 to i64
@@ -444,7 +444,7 @@ define hidden range(i32 -128, 274) i32 @ini_lex(ptr noundef %0) local_unnamed_ad
   br i1 %or.cond25, label %.preheader3720, label %.loopexit3846
 
 .preheader3720:                                   ; preds = %228, %445, %526, %582, %111
-  %.promoted42056033 = phi ptr [ %.promoted4205, %228 ], [ %.promoted4205, %445 ], [ %.promoted4205, %526 ], [ %.promoted4205, %582 ], [ %.promoted42056034, %111 ]
+  %.promoted42056035 = phi ptr [ %.promoted4205, %228 ], [ %.promoted4205, %445 ], [ %.promoted4205, %526 ], [ %.promoted4205, %582 ], [ %.promoted42056036, %111 ]
   %.promoted4187 = phi ptr [ %194, %228 ], [ %413, %445 ], [ %494, %526 ], [ %550, %582 ], [ %106, %111 ]
   %113 = getelementptr inbounds nuw i8, ptr %.promoted4187, i64 1
   store ptr %113, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 40), align 8
@@ -452,10 +452,10 @@ define hidden range(i32 -128, 274) i32 @ini_lex(ptr noundef %0) local_unnamed_ad
   br i1 %114, label %.loopexit, label %.lr.ph4188
 
 .loopexit3846:                                    ; preds = %204, %220, %211, %230, %214, %111
-  %.promoted42056039 = phi ptr [ %.promoted4205, %220 ], [ %.promoted4205, %211 ], [ %.promoted4205, %230 ], [ %.promoted4205, %214 ], [ %.promoted42056034, %111 ], [ %.promoted4205, %204 ]
+  %.promoted42056041 = phi ptr [ %.promoted4205, %220 ], [ %.promoted4205, %211 ], [ %.promoted4205, %230 ], [ %.promoted4205, %214 ], [ %.promoted42056036, %111 ], [ %.promoted4205, %204 ]
   %115 = phi ptr [ %194, %220 ], [ %194, %211 ], [ %194, %230 ], [ %194, %214 ], [ %106, %111 ], [ %194, %204 ]
   %116 = ptrtoint ptr %115 to i64
-  %117 = ptrtoint ptr %.promoted42056039 to i64
+  %117 = ptrtoint ptr %.promoted42056041 to i64
   %118 = sub i64 %116, %117
   %119 = trunc i64 %118 to i32
   store i32 %119, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 16), align 8
@@ -464,7 +464,7 @@ define hidden range(i32 -128, 274) i32 @ini_lex(ptr noundef %0) local_unnamed_ad
 
 .lr.ph4178:                                       ; preds = %.loopexit3846, %122
   %storemerge36884176 = phi i32 [ %124, %122 ], [ %119, %.loopexit3846 ]
-  %120 = phi ptr [ %123, %122 ], [ %.promoted42056039, %.loopexit3846 ]
+  %120 = phi ptr [ %123, %122 ], [ %.promoted42056041, %.loopexit3846 ]
   %121 = load i8, ptr %120, align 1
   switch i8 %121, label %.lr.ph4183 [
     i8 32, label %122
@@ -507,14 +507,14 @@ define hidden range(i32 -128, 274) i32 @ini_lex(ptr noundef %0) local_unnamed_ad
   br label %.critedge
 
 .critedge:                                        ; preds = %122, %.critedge2, %.critedge.loopexit.split.loop.exit, %.loopexit3846
-  %131 = phi ptr [ %.promoted42056039, %.loopexit3846 ], [ %120, %.critedge.loopexit.split.loop.exit ], [ %120, %.critedge2 ], [ %123, %122 ]
+  %131 = phi ptr [ %.promoted42056041, %.loopexit3846 ], [ %120, %.critedge.loopexit.split.loop.exit ], [ %120, %.critedge2 ], [ %123, %122 ]
   %.lcssa3860 = phi i32 [ 0, %.loopexit3846 ], [ %130, %.critedge.loopexit.split.loop.exit ], [ 0, %.critedge2 ], [ 0, %122 ]
   %132 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 108), align 4
   %133 = icmp eq i32 %132, 2
   br i1 %133, label %134, label %137
 
 134:                                              ; preds = %.critedge
-  switch i32 %.pre4471, label %137 [
+  switch i32 %.pre4472, label %137 [
     i32 3, label %135
     i32 8, label %135
   ]
@@ -714,7 +714,7 @@ define hidden range(i32 -128, 274) i32 @ini_lex(ptr noundef %0) local_unnamed_ad
   ]
 
 .preheader3723.preheader:                         ; preds = %170, %63, %223
-  %.ph5354 = phi ptr [ %194, %223 ], [ %.promoted4205, %63 ], [ %156, %170 ]
+  %.ph5356 = phi ptr [ %194, %223 ], [ %.promoted4205, %63 ], [ %156, %170 ]
   br label %.preheader3723
 
 .preheader3725:                                   ; preds = %172, %63, %223
@@ -748,7 +748,7 @@ define hidden range(i32 -128, 274) i32 @ini_lex(ptr noundef %0) local_unnamed_ad
   br label %.loopexit
 
 .preheader3723:                                   ; preds = %.preheader3723.preheader, %240
-  %237 = phi ptr [ %238, %240 ], [ %.ph5354, %.preheader3723.preheader ]
+  %237 = phi ptr [ %238, %240 ], [ %.ph5356, %.preheader3723.preheader ]
   %238 = getelementptr inbounds nuw i8, ptr %237, i64 1
   store ptr %238, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 40), align 8
   %239 = icmp ugt ptr %238, %2
@@ -838,7 +838,7 @@ define hidden range(i32 -128, 274) i32 @ini_lex(ptr noundef %0) local_unnamed_ad
   ]
 
 .preheader3748.preheader:                         ; preds = %277, %481, %545, %273
-  %.ph5405 = phi ptr [ %270, %273 ], [ %546, %545 ], [ %482, %481 ], [ %270, %277 ]
+  %.ph5407 = phi ptr [ %270, %273 ], [ %546, %545 ], [ %482, %481 ], [ %270, %277 ]
   br label %.preheader3748
 
 274:                                              ; preds = %269
@@ -895,7 +895,7 @@ define hidden range(i32 -128, 274) i32 @ini_lex(ptr noundef %0) local_unnamed_ad
 
 295:                                              ; preds = %.lr.ph4188
   %296 = ptrtoint ptr %291 to i64
-  %297 = ptrtoint ptr %.promoted42056033 to i64
+  %297 = ptrtoint ptr %.promoted42056035 to i64
   %298 = sub i64 %296, %297
   %299 = trunc i64 %298 to i32
   store i32 %299, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 16), align 8
@@ -904,7 +904,7 @@ define hidden range(i32 -128, 274) i32 @ini_lex(ptr noundef %0) local_unnamed_ad
 
 .lr.ph4193:                                       ; preds = %295, %302
   %storemerge36854191 = phi i32 [ %304, %302 ], [ %299, %295 ]
-  %300 = phi ptr [ %303, %302 ], [ %.promoted42056033, %295 ]
+  %300 = phi ptr [ %303, %302 ], [ %.promoted42056035, %295 ]
   %301 = load i8, ptr %300, align 1
   switch i8 %301, label %.lr.ph4198 [
     i8 32, label %302
@@ -949,7 +949,7 @@ define hidden range(i32 -128, 274) i32 @ini_lex(ptr noundef %0) local_unnamed_ad
   br label %.critedge4
 
 .critedge4:                                       ; preds = %302, %295, %.critedge4.loopexit
-  %311 = phi ptr [ %300, %.critedge4.loopexit ], [ %.promoted42056033, %295 ], [ %303, %302 ]
+  %311 = phi ptr [ %300, %.critedge4.loopexit ], [ %.promoted42056035, %295 ], [ %303, %302 ]
   %.lcssa3857 = phi i64 [ %310, %.critedge4.loopexit ], [ 0, %295 ], [ 0, %302 ]
   store i32 1, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 64), align 8
   %312 = load i8, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 84), align 4
@@ -1058,7 +1058,7 @@ define hidden range(i32 -128, 274) i32 @ini_lex(ptr noundef %0) local_unnamed_ad
   ]
 
 .preheader3732.preheader:                         ; preds = %408, %531, %361
-  %.ph5365 = phi ptr [ %350, %361 ], [ %534, %531 ], [ %409, %408 ]
+  %.ph5367 = phi ptr [ %350, %361 ], [ %534, %531 ], [ %409, %408 ]
   br label %.preheader3732
 
 362:                                              ; preds = %359
@@ -1116,7 +1116,7 @@ define hidden range(i32 -128, 274) i32 @ini_lex(ptr noundef %0) local_unnamed_ad
   br i1 %386, label %387, label %391
 
 387:                                              ; preds = %.loopexit3730
-  switch i32 %.pre4471, label %391 [
+  switch i32 %.pre4472, label %391 [
     i32 3, label %388
     i32 8, label %388
   ]
@@ -1171,7 +1171,7 @@ define hidden range(i32 -128, 274) i32 @ini_lex(ptr noundef %0) local_unnamed_ad
   br i1 %or.cond73, label %.preheader3732.preheader, label %105
 
 .preheader3748:                                   ; preds = %.preheader3748.preheader, %430
-  %412 = phi ptr [ %413, %430 ], [ %.ph5405, %.preheader3748.preheader ]
+  %412 = phi ptr [ %413, %430 ], [ %.ph5407, %.preheader3748.preheader ]
   %413 = getelementptr inbounds nuw i8, ptr %412, i64 1
   store ptr %413, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 40), align 8
   %414 = icmp ugt ptr %413, %2
@@ -1270,7 +1270,7 @@ define hidden range(i32 -128, 274) i32 @ini_lex(ptr noundef %0) local_unnamed_ad
   br i1 %456, label %457, label %461
 
 457:                                              ; preds = %.loopexit3746
-  switch i32 %.pre4471, label %461 [
+  switch i32 %.pre4472, label %461 [
     i32 3, label %458
     i32 8, label %458
   ]
@@ -1353,7 +1353,7 @@ define hidden range(i32 -128, 274) i32 @ini_lex(ptr noundef %0) local_unnamed_ad
   br i1 %492, label %.loopexit, label %.lr.ph4170
 
 .preheader3732:                                   ; preds = %.preheader3732.preheader, %511
-  %493 = phi ptr [ %494, %511 ], [ %.ph5365, %.preheader3732.preheader ]
+  %493 = phi ptr [ %494, %511 ], [ %.ph5367, %.preheader3732.preheader ]
   %494 = getelementptr inbounds nuw i8, ptr %493, i64 1
   store ptr %494, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 40), align 8
   %495 = icmp ugt ptr %494, %2
@@ -1581,7 +1581,7 @@ define hidden range(i32 -128, 274) i32 @ini_lex(ptr noundef %0) local_unnamed_ad
   br i1 %593, label %594, label %598
 
 594:                                              ; preds = %.loopexit3738
-  switch i32 %.pre4471, label %598 [
+  switch i32 %.pre4472, label %598 [
     i32 3, label %595
     i32 8, label %595
   ]
@@ -1660,8 +1660,8 @@ define hidden range(i32 -128, 274) i32 @ini_lex(ptr noundef %0) local_unnamed_ad
 
 624:                                              ; preds = %622
   %625 = add nsw i8 %22, -9
-  %or.cond5302 = icmp ult i8 %625, 2
-  br i1 %or.cond5302, label %715, label %.loopexit3706
+  %or.cond5304 = icmp ult i8 %625, 2
+  br i1 %or.cond5304, label %715, label %.loopexit3706
 
 626:                                              ; preds = %622
   switch i8 %22, label %.loopexit3706 [
@@ -1684,8 +1684,8 @@ define hidden range(i32 -128, 274) i32 @ini_lex(ptr noundef %0) local_unnamed_ad
 633:                                              ; preds = %631
   %634 = icmp samesign ult i8 %22, 45
   %.not3651 = icmp eq i8 %22, 47
-  %or.cond5303 = or i1 %634, %.not3651
-  br i1 %or.cond5303, label %.loopexit3706, label %741
+  %or.cond5305 = or i1 %634, %.not3651
+  br i1 %or.cond5305, label %.loopexit3706, label %741
 
 635:                                              ; preds = %618
   %636 = icmp ult i8 %22, 92
@@ -1706,8 +1706,8 @@ define hidden range(i32 -128, 274) i32 @ini_lex(ptr noundef %0) local_unnamed_ad
 643:                                              ; preds = %637
   %644 = icmp samesign ult i8 %22, 65
   %.not3645 = icmp eq i8 %22, 91
-  %or.cond5304 = or i1 %644, %.not3645
-  br i1 %or.cond5304, label %.loopexit3706, label %.preheader3715.preheader
+  %or.cond5306 = or i1 %644, %.not3645
+  br i1 %or.cond5306, label %.loopexit3706, label %.preheader3715.preheader
 
 645:                                              ; preds = %635
   %646 = icmp ult i8 %22, 95
@@ -1722,8 +1722,8 @@ define hidden range(i32 -128, 274) i32 @ini_lex(ptr noundef %0) local_unnamed_ad
 648:                                              ; preds = %645
   %649 = icmp ne i8 %22, 96
   %650 = icmp ult i8 %22, 123
-  %or.cond5305 = and i1 %649, %650
-  br i1 %or.cond5305, label %.preheader3715.preheader, label %.loopexit3706
+  %or.cond5307 = and i1 %649, %650
+  br i1 %or.cond5307, label %.preheader3715.preheader, label %.loopexit3706
 
 .preheader3715.preheader:                         ; preds = %643, %648
   br label %.preheader3715
@@ -2383,8 +2383,8 @@ define hidden range(i32 -128, 274) i32 @ini_lex(ptr noundef %0) local_unnamed_ad
 
 957:                                              ; preds = %955
   %958 = add nsw i8 %24, -9
-  %or.cond5306 = icmp ult i8 %958, 2
-  br i1 %or.cond5306, label %1056, label %.loopexit3788
+  %or.cond5308 = icmp ult i8 %958, 2
+  br i1 %or.cond5308, label %1056, label %.loopexit3788
 
 959:                                              ; preds = %955
   switch i8 %24, label %.loopexit3788 [
@@ -2407,8 +2407,8 @@ define hidden range(i32 -128, 274) i32 @ini_lex(ptr noundef %0) local_unnamed_ad
 966:                                              ; preds = %964
   %967 = icmp samesign ult i8 %24, 45
   %.not3631 = icmp eq i8 %24, 47
-  %or.cond5307 = or i1 %967, %.not3631
-  br i1 %or.cond5307, label %.loopexit3788, label %1082
+  %or.cond5309 = or i1 %967, %.not3631
+  br i1 %or.cond5309, label %.loopexit3788, label %1082
 
 968:                                              ; preds = %951
   %969 = icmp ult i8 %24, 92
@@ -2429,8 +2429,8 @@ define hidden range(i32 -128, 274) i32 @ini_lex(ptr noundef %0) local_unnamed_ad
 976:                                              ; preds = %970
   %977 = icmp samesign ult i8 %24, 65
   %.not3625 = icmp eq i8 %24, 91
-  %or.cond5308 = or i1 %977, %.not3625
-  br i1 %or.cond5308, label %.loopexit3788, label %.preheader3798.preheader
+  %or.cond5310 = or i1 %977, %.not3625
+  br i1 %or.cond5310, label %.loopexit3788, label %.preheader3798.preheader
 
 978:                                              ; preds = %968
   %979 = icmp ult i8 %24, 95
@@ -2451,8 +2451,8 @@ define hidden range(i32 -128, 274) i32 @ini_lex(ptr noundef %0) local_unnamed_ad
 983:                                              ; preds = %978
   %984 = icmp ne i8 %24, 96
   %985 = icmp ult i8 %24, 123
-  %or.cond5309 = and i1 %984, %985
-  br i1 %or.cond5309, label %.preheader3798.preheader, label %.loopexit3788
+  %or.cond5311 = and i1 %984, %985
+  br i1 %or.cond5311, label %.preheader3798.preheader, label %.loopexit3788
 
 .preheader3798.preheader:                         ; preds = %976, %983
   br label %.preheader3798
@@ -2504,7 +2504,7 @@ define hidden range(i32 -128, 274) i32 @ini_lex(ptr noundef %0) local_unnamed_ad
   br i1 %1010, label %1011, label %1014
 
 1011:                                             ; preds = %1003
-  switch i32 %.pre4471, label %1014 [
+  switch i32 %.pre4472, label %1014 [
     i32 3, label %1012
     i32 8, label %1012
   ]
@@ -2723,7 +2723,7 @@ define hidden range(i32 -128, 274) i32 @ini_lex(ptr noundef %0) local_unnamed_ad
   ]
 
 .preheader3792.preheader:                         ; preds = %1082, %1105
-  %.ph5493 = phi ptr [ %1087, %1105 ], [ %1083, %1082 ]
+  %.ph5495 = phi ptr [ %1087, %1105 ], [ %1083, %1082 ]
   br label %.preheader3792
 
 1106:                                             ; preds = %1103
@@ -2754,7 +2754,7 @@ define hidden range(i32 -128, 274) i32 @ini_lex(ptr noundef %0) local_unnamed_ad
   br i1 %1119, label %1120, label %1123
 
 1120:                                             ; preds = %.loopexit3794
-  switch i32 %.pre4471, label %1123 [
+  switch i32 %.pre4472, label %1123 [
     i32 3, label %1121
     i32 8, label %1121
   ]
@@ -2871,7 +2871,7 @@ define hidden range(i32 -128, 274) i32 @ini_lex(ptr noundef %0) local_unnamed_ad
   br i1 %1173, label %1174, label %1177
 
 1174:                                             ; preds = %1166
-  switch i32 %.pre4471, label %1177 [
+  switch i32 %.pre4472, label %1177 [
     i32 3, label %1175
     i32 8, label %1175
   ]
@@ -3041,7 +3041,7 @@ define hidden range(i32 -128, 274) i32 @ini_lex(ptr noundef %0) local_unnamed_ad
   br i1 %.not3634, label %1284, label %.preheader3790
 
 .preheader3792:                                   ; preds = %.preheader3792.preheader, %1266
-  %1248 = phi ptr [ %1249, %1266 ], [ %.ph5493, %.preheader3792.preheader ]
+  %1248 = phi ptr [ %1249, %1266 ], [ %.ph5495, %.preheader3792.preheader ]
   %1249 = getelementptr inbounds nuw i8, ptr %1248, i64 1
   store ptr %1249, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 40), align 8
   store ptr %1249, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 48), align 8
@@ -3152,7 +3152,7 @@ define hidden range(i32 -128, 274) i32 @ini_lex(ptr noundef %0) local_unnamed_ad
   br i1 %1304, label %1305, label %1308
 
 1305:                                             ; preds = %1300
-  switch i32 %.pre4471, label %1308 [
+  switch i32 %.pre4472, label %1308 [
     i32 3, label %1306
     i32 8, label %1306
   ]
@@ -3229,16 +3229,16 @@ define hidden range(i32 -128, 274) i32 @ini_lex(ptr noundef %0) local_unnamed_ad
     i8 39, label %1470
     i8 45, label %1473
     i8 46, label %1473
-    i8 48, label %.preheader5466
-    i8 49, label %.preheader5466
-    i8 50, label %.preheader5466
-    i8 51, label %.preheader5466
-    i8 52, label %.preheader5466
-    i8 53, label %.preheader5466
-    i8 54, label %.preheader5466
-    i8 55, label %.preheader5466
-    i8 56, label %.preheader5466
-    i8 57, label %.preheader5466
+    i8 48, label %.preheader5468
+    i8 49, label %.preheader5468
+    i8 50, label %.preheader5468
+    i8 51, label %.preheader5468
+    i8 52, label %.preheader5468
+    i8 53, label %.preheader5468
+    i8 54, label %.preheader5468
+    i8 55, label %.preheader5468
+    i8 56, label %.preheader5468
+    i8 57, label %.preheader5468
     i8 59, label %.preheader3773.preheader
     i8 61, label %1548
     i8 65, label %.preheader3760
@@ -3295,7 +3295,7 @@ define hidden range(i32 -128, 274) i32 @ini_lex(ptr noundef %0) local_unnamed_ad
     i8 89, label %1785
   ]
 
-.preheader5466:                                   ; preds = %1330, %1330, %1330, %1330, %1330, %1330, %1330, %1330, %1330, %1330
+.preheader5468:                                   ; preds = %1330, %1330, %1330, %1330, %1330, %1330, %1330, %1330, %1330, %1330
   br label %1477
 
 1331:                                             ; preds = %1330, %1330, %1330, %1330, %1330, %1330, %1330, %1330
@@ -3320,7 +3320,7 @@ define hidden range(i32 -128, 274) i32 @ini_lex(ptr noundef %0) local_unnamed_ad
   br label %.loopexit
 
 .loopexit3754:                                    ; preds = %.lr.ph4161, %2236, %..loopexit3754_crit_edge, %1889, %1831, %1586, %1510, %1506, %1467, %1866, %1566, %1491, %1890, %1885, %1884, %1875, %1874, %1868, %1835, %1587, %1583, %1582, %1576, %1571, %1565, %1511, %1507, %1499, %1498, %1493, %1468, %1330
-  %1342 = phi ptr [ %.pre, %..loopexit3754_crit_edge ], [ %1857, %1889 ], [ %1826, %1831 ], [ %1551, %1586 ], [ %1479, %1510 ], [ %1479, %1506 ], [ %1464, %1467 ], [ %1857, %1866 ], [ %1551, %1566 ], [ %1479, %1491 ], [ %1857, %1890 ], [ %1857, %1885 ], [ %1857, %1884 ], [ %1857, %1875 ], [ %1857, %1874 ], [ %1857, %1868 ], [ %1826, %1835 ], [ %1551, %1587 ], [ %1551, %1583 ], [ %1551, %1582 ], [ %1551, %1576 ], [ %1551, %1571 ], [ %1551, %1565 ], [ %1479, %1511 ], [ %1479, %1507 ], [ %1479, %1499 ], [ %1479, %1498 ], [ %1479, %1493 ], [ %1464, %1468 ], [ %.promoted4205, %1330 ], [ %2234, %2236 ], [ %1846, %.lr.ph4161 ]
+  %1342 = phi ptr [ %.pre4473, %..loopexit3754_crit_edge ], [ %1857, %1889 ], [ %1826, %1831 ], [ %1551, %1586 ], [ %1479, %1510 ], [ %1479, %1506 ], [ %1464, %1467 ], [ %1857, %1866 ], [ %1551, %1566 ], [ %1479, %1491 ], [ %1857, %1890 ], [ %1857, %1885 ], [ %1857, %1884 ], [ %1857, %1875 ], [ %1857, %1874 ], [ %1857, %1868 ], [ %1826, %1835 ], [ %1551, %1587 ], [ %1551, %1583 ], [ %1551, %1582 ], [ %1551, %1576 ], [ %1551, %1571 ], [ %1551, %1565 ], [ %1479, %1511 ], [ %1479, %1507 ], [ %1479, %1499 ], [ %1479, %1498 ], [ %1479, %1493 ], [ %1464, %1468 ], [ %.promoted4205, %1330 ], [ %2234, %2236 ], [ %1846, %.lr.ph4161 ]
   %1343 = getelementptr inbounds nuw i8, ptr %1342, i64 1
   store ptr %1343, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 40), align 8
   store ptr %1343, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 48), align 8
@@ -3342,7 +3342,7 @@ define hidden range(i32 -128, 274) i32 @ini_lex(ptr noundef %0) local_unnamed_ad
   br i1 %.not3615, label %1352, label %..loopexit3754_crit_edge
 
 ..loopexit3754_crit_edge:                         ; preds = %1347
-  %.pre = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 40), align 8
+  %.pre4473 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 40), align 8
   br label %.loopexit3754
 
 1352:                                             ; preds = %1347
@@ -3445,7 +3445,7 @@ define hidden range(i32 -128, 274) i32 @ini_lex(ptr noundef %0) local_unnamed_ad
   br i1 %1399, label %.preheader3773.preheader, label %1400
 
 .preheader3773.preheader:                         ; preds = %1330, %1398
-  %.ph5471 = phi ptr [ %1382, %1398 ], [ %.promoted4205, %1330 ]
+  %.ph5473 = phi ptr [ %1382, %1398 ], [ %.promoted4205, %1330 ]
   br label %.preheader3773
 
 1400:                                             ; preds = %1392, %1398, %1396, %1388
@@ -3596,8 +3596,8 @@ define hidden range(i32 -128, 274) i32 @ini_lex(ptr noundef %0) local_unnamed_ad
   %or.cond199 = icmp ult i8 %1476, 10
   br i1 %or.cond199, label %.preheader3770.preheader, label %1347
 
-1477:                                             ; preds = %.preheader5466, %1481
-  %1478 = phi ptr [ %1479, %1481 ], [ %.promoted4205, %.preheader5466 ]
+1477:                                             ; preds = %.preheader5468, %1481
+  %1478 = phi ptr [ %1479, %1481 ], [ %.promoted4205, %.preheader5468 ]
   %1479 = getelementptr inbounds nuw i8, ptr %1478, i64 1
   store ptr %1479, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 40), align 8
   store ptr %1479, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 48), align 8
@@ -3665,7 +3665,7 @@ define hidden range(i32 -128, 274) i32 @ini_lex(ptr noundef %0) local_unnamed_ad
   ]
 
 .preheader3770.preheader:                         ; preds = %1473, %1506
-  %.ph5455 = phi ptr [ %1479, %1506 ], [ %1474, %1473 ]
+  %.ph5457 = phi ptr [ %1479, %1506 ], [ %1474, %1473 ]
   br label %.preheader3770
 
 1507:                                             ; preds = %1504
@@ -3739,7 +3739,7 @@ define hidden range(i32 -128, 274) i32 @ini_lex(ptr noundef %0) local_unnamed_ad
   br label %.loopexit
 
 .preheader3773:                                   ; preds = %.preheader3773.preheader, %1544
-  %1541 = phi ptr [ %1542, %1544 ], [ %.ph5471, %.preheader3773.preheader ]
+  %1541 = phi ptr [ %1542, %1544 ], [ %.ph5473, %.preheader3773.preheader ]
   %1542 = getelementptr inbounds nuw i8, ptr %1541, i64 1
   store ptr %1542, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 40), align 8
   %1543 = icmp ugt ptr %1542, %2
@@ -4394,8 +4394,8 @@ define hidden range(i32 -128, 274) i32 @ini_lex(ptr noundef %0) local_unnamed_ad
   br i1 %or.cond271, label %1588, label %1347
 
 1824:                                             ; preds = %1352, %1874, %1574, %1498
-  %.53245 = phi i32 [ %.43244, %1352 ], [ 2, %1574 ], [ 1, %1498 ], [ 1, %1874 ]
-  %1825 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 40), align 8
+  %1825 = phi i32 [ %.43244, %1352 ], [ 2, %1574 ], [ 1, %1498 ], [ 1, %1874 ]
+  %.53245 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 40), align 8
   %1826 = getelementptr inbounds nuw i8, ptr %1825, i64 1
   store ptr %1826, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 40), align 8
   %1827 = icmp ugt ptr %1826, %2
@@ -4476,7 +4476,7 @@ define hidden range(i32 -128, 274) i32 @ini_lex(ptr noundef %0) local_unnamed_ad
   br i1 %.not3613, label %2238, label %.preheader3768
 
 .preheader3770:                                   ; preds = %.preheader3770.preheader, %1882
-  %1856 = phi ptr [ %1857, %1882 ], [ %.ph5455, %.preheader3770.preheader ]
+  %1856 = phi ptr [ %1857, %1882 ], [ %.ph5457, %.preheader3770.preheader ]
   %1857 = getelementptr inbounds nuw i8, ptr %1856, i64 1
   store ptr %1857, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 40), align 8
   store ptr %1857, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 48), align 8
@@ -6332,8 +6332,8 @@ define hidden range(i32 -128, 274) i32 @ini_lex(ptr noundef %0) local_unnamed_ad
 
 2676:                                             ; preds = %2674
   %2677 = add nsw i8 %30, -9
-  %or.cond5310 = icmp ult i8 %2677, 2
-  br i1 %or.cond5310, label %2772, label %.loopexit3819
+  %or.cond5312 = icmp ult i8 %2677, 2
+  br i1 %or.cond5312, label %2772, label %.loopexit3819
 
 2678:                                             ; preds = %2674
   switch i8 %30, label %.loopexit3819 [
@@ -6356,8 +6356,8 @@ define hidden range(i32 -128, 274) i32 @ini_lex(ptr noundef %0) local_unnamed_ad
 2685:                                             ; preds = %2683
   %2686 = icmp samesign ult i8 %30, 45
   %.not3532 = icmp eq i8 %30, 47
-  %or.cond5311 = or i1 %2686, %.not3532
-  br i1 %or.cond5311, label %.loopexit3819, label %2795
+  %or.cond5313 = or i1 %2686, %.not3532
+  br i1 %or.cond5313, label %.loopexit3819, label %2795
 
 2687:                                             ; preds = %2670
   %2688 = icmp ult i8 %30, 93
@@ -6656,7 +6656,7 @@ define hidden range(i32 -128, 274) i32 @ini_lex(ptr noundef %0) local_unnamed_ad
   ]
 
 .preheader3821.preheader:                         ; preds = %2795, %2821
-  %.ph5547 = phi ptr [ %2800, %2821 ], [ %2796, %2795 ]
+  %.ph5549 = phi ptr [ %2800, %2821 ], [ %2796, %2795 ]
   br label %.preheader3821
 
 2822:                                             ; preds = %2816
@@ -6887,7 +6887,7 @@ define hidden range(i32 -128, 274) i32 @ini_lex(ptr noundef %0) local_unnamed_ad
   br label %.loopexit
 
 .preheader3821:                                   ; preds = %.preheader3821.preheader, %2945
-  %2925 = phi ptr [ %2926, %2945 ], [ %.ph5547, %.preheader3821.preheader ]
+  %2925 = phi ptr [ %2926, %2945 ], [ %.ph5549, %.preheader3821.preheader ]
   %2926 = getelementptr inbounds nuw i8, ptr %2925, i64 1
   store ptr %2926, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 40), align 8
   store ptr %2926, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 48), align 8
@@ -7261,7 +7261,7 @@ define hidden range(i32 -128, 274) i32 @ini_lex(ptr noundef %0) local_unnamed_ad
   br i1 %3069, label %.preheader3832.preheader, label %.loopexit3842
 
 .preheader3832.preheader:                         ; preds = %3187, %3068
-  %.ph5583 = phi ptr [ %.promoted4205, %3068 ], [ %3179, %3187 ]
+  %.ph5585 = phi ptr [ %.promoted4205, %3068 ], [ %3179, %3187 ]
   br label %.preheader3832
 
 3070:                                             ; preds = %3060
@@ -7340,11 +7340,11 @@ define hidden range(i32 -128, 274) i32 @ini_lex(ptr noundef %0) local_unnamed_ad
 ._crit_edge4087.loopexit:                         ; preds = %3091, %.lr.ph4086, %.lr.ph4086
   %.03236.lcssa.ph = phi ptr [ %.032364084, %.lr.ph4086 ], [ %.032364084, %.lr.ph4086 ], [ %.23238, %3091 ]
   %.lcssa3932.ph = phi ptr [ %3084, %.lr.ph4086 ], [ %3084, %.lr.ph4086 ], [ %3092, %3091 ]
-  %.pre4472 = ptrtoint ptr %.lcssa3932.ph to i64
+  %.pre4474 = ptrtoint ptr %.lcssa3932.ph to i64
   br label %._crit_edge4087
 
 ._crit_edge4087:                                  ; preds = %._crit_edge4087.loopexit, %._crit_edge4081
-  %.pre-phi = phi i64 [ %.pre4472, %._crit_edge4087.loopexit ], [ %3073, %._crit_edge4081 ]
+  %.pre-phi = phi i64 [ %.pre4474, %._crit_edge4087.loopexit ], [ %3073, %._crit_edge4081 ]
   %.03236.lcssa = phi ptr [ %.03236.lcssa.ph, %._crit_edge4087.loopexit ], [ null, %._crit_edge4081 ]
   %.not3513 = icmp eq ptr %.03236.lcssa, null
   %3094 = ptrtoint ptr %3082 to i64
@@ -7413,7 +7413,7 @@ define hidden range(i32 -128, 274) i32 @ini_lex(ptr noundef %0) local_unnamed_ad
   br i1 %3118, label %3119, label %3122
 
 3119:                                             ; preds = %.critedge12.thread
-  switch i32 %.pre4471, label %3122 [
+  switch i32 %.pre4472, label %3122 [
     i32 3, label %3120
     i32 8, label %3120
   ]
@@ -7519,7 +7519,7 @@ define hidden range(i32 -128, 274) i32 @ini_lex(ptr noundef %0) local_unnamed_ad
   br i1 %3169, label %.loopexit3844, label %3157
 
 .preheader3832:                                   ; preds = %.preheader3832.preheader, %3173
-  %3170 = phi ptr [ %3171, %3173 ], [ %.ph5583, %.preheader3832.preheader ]
+  %3170 = phi ptr [ %3171, %3173 ], [ %.ph5585, %.preheader3832.preheader ]
   %3171 = getelementptr inbounds nuw i8, ptr %3170, i64 1
   store ptr %3171, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 40), align 8
   %3172 = icmp ugt ptr %3171, %2

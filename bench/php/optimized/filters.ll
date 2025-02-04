@@ -2773,14 +2773,14 @@ define internal range(i32 0, 5) i32 @php_conv_qprint_decode_convert(ptr noundef 
 
 72:                                               ; preds = %26
   %73 = icmp eq i64 %.0137, 0
-  br i1 %73, label %149, label %.thread
+  br i1 %73, label %149, label %..thread_crit_edge
 
-.thread:                                          ; preds = %60, %64, %72
-  %74 = tail call ptr @__ctype_b_loc() #22
-  %75 = load ptr, ptr %74, align 8
+..thread_crit_edge:                               ; preds = %60, %64, %72
+  %.pre162 = tail call ptr @__ctype_b_loc() #22
+  %75 = load ptr, ptr %.pre162, align 8
   %76 = load i8, ptr %.0130, align 1
   %77 = zext i8 %76 to i64
-  %78 = getelementptr inbounds nuw i16, ptr %75, i64 %77
+  %.pre162 = getelementptr inbounds nuw i16, ptr %75, i64 %77
   %79 = load i16, ptr %78, align 2
   %80 = and i16 %79, 4096
   %.not157 = icmp eq i16 %80, 0

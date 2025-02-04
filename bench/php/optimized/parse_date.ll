@@ -44891,7 +44891,7 @@ add_pbf_error.exit516:                            ; preds = %259, %264
   br label %283
 
 283:                                              ; preds = %add_pbf_error.exit516, %255
-  %284 = load i8, ptr %77, align 1
+  %.promoted.i.i517 = load i8, ptr %77, align 1
   %285 = add i8 %284, -58
   %or.cond35.i.i518 = icmp ult i8 %285, -10
   br i1 %or.cond35.i.i518, label %.critedge.i.i530.preheader, label %.lr.ph.preheader.i.i519
@@ -45058,7 +45058,7 @@ add_pbf_error.exit540:                            ; preds = %339, %344
   br label %363
 
 363:                                              ; preds = %add_pbf_error.exit540, %335
-  %364 = phi i8 [ %.pre1147, %add_pbf_error.exit540 ], [ %.us-phi1034, %335 ]
+  %.promoted.i.i541 = phi i8 [ %.pre1147, %add_pbf_error.exit540 ], [ %.us-phi1034, %335 ]
   %365 = add i8 %364, -58
   %or.cond35.i.i542 = icmp ult i8 %365, -10
   br i1 %or.cond35.i.i542, label %.critedge.i.i554.preheader, label %.lr.ph.preheader.i.i543

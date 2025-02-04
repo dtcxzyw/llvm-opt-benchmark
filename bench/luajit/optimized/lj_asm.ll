@@ -699,7 +699,7 @@ asm_setup_target.exit:                            ; preds = %for.inc.i.i, %for.c
 
 for.cond:                                         ; preds = %for.cond.backedge, %asm_setup_target.exit
   %30 = phi ptr [ %.pre4023, %asm_setup_target.exit ], [ %.be, %for.cond.backedge ]
-  %31 = phi ptr [ %.pre, %asm_setup_target.exit ], [ %.be4136, %for.cond.backedge ]
+  %31 = phi ptr [ %.pre, %asm_setup_target.exit ], [ %.be4139, %for.cond.backedge ]
   %32 = load ptr, ptr %mctop, align 8
   store ptr %32, ptr %mcp, align 8
   %ir36 = getelementptr inbounds nuw i8, ptr %31, i64 32
@@ -3227,8 +3227,8 @@ if.then99.i.i:                                    ; preds = %while.body84.i.i
 
 if.then99.i.i.ra_alloc1.exit.i.i3288_crit_edge:   ; preds = %if.then99.i.i
   %conv.i.i.i3286 = zext nneg i8 %383 to i32
-  %.pre4043 = shl nuw i32 1, %conv.i.i.i3286
-  %.pre4044 = xor i32 %.pre4043, -1
+  %.pre4044 = shl nuw i32 1, %conv.i.i.i3286
+  %.pre4045 = xor i32 %.pre4044, -1
   br label %ra_alloc1.exit.i.i3288
 
 if.then.i112.i.i:                                 ; preds = %if.then99.i.i
@@ -3318,7 +3318,7 @@ ra_allocref.exit:                                 ; preds = %land.lhs.true30.i, 
   br label %ra_alloc1.exit.i.i3288
 
 ra_alloc1.exit.i.i3288:                           ; preds = %if.then99.i.i.ra_alloc1.exit.i.i3288_crit_edge, %ra_allocref.exit
-  %not.i114.i.i.pre-phi = phi i32 [ %.pre4044, %if.then99.i.i.ra_alloc1.exit.i.i3288_crit_edge ], [ %not55.i, %ra_allocref.exit ]
+  %not.i114.i.i.pre-phi = phi i32 [ %.pre4045, %if.then99.i.i.ra_alloc1.exit.i.i3288_crit_edge ], [ %not55.i, %ra_allocref.exit ]
   %399 = load i32, ptr %weakset.i.i, align 8
   %and2.i.i.i3290 = and i32 %399, %not.i114.i.i.pre-phi
   store i32 %and2.i.i.i3290, ptr %weakset.i.i, align 8
@@ -5437,8 +5437,8 @@ if.else165.i.i:                                   ; preds = %ra_alloc1.exit.i.i2
   br i1 %tobool.not.i3705, label %if.end175.i.i, label %if.end175.i.i.sink.split
 
 if.end175.i.i.sink.split:                         ; preds = %if.else165.i.i, %if.then159.i.i
-  %.sink4107 = phi i16 [ %730, %if.then159.i.i ], [ %736, %if.else165.i.i ]
-  %conv173.i.i = zext i16 %.sink4107 to i32
+  %.sink4109 = phi i16 [ %730, %if.then159.i.i ], [ %736, %if.else165.i.i ]
+  %conv173.i.i = zext i16 %.sink4109 to i32
   %call.i3707 = call fastcc i32 @ra_allocref(ptr noundef nonnull %as_, i32 noundef %conv173.i.i, i32 noundef %and151.i.i)
   %.pre4034 = load i32, ptr %weakset.i.i, align 8
   br label %if.end175.i.i
@@ -10057,10 +10057,10 @@ if.then73.i1670:                                  ; preds = %if.end69.i1668
 if.end78.i1608.thread:                            ; preds = %if.end.i1656, %if.then12.i1606
   %rb.addr.0.i1609.ph = phi i8 [ 5, %if.then12.i1606 ], [ 4, %if.end.i1656 ]
   %p.0.i1610.ph = phi ptr [ %add.ptr13.i1607, %if.then12.i1606 ], [ %incdec.ptr.i1657, %if.end.i1656 ]
-  %arrayidx85.i16164051 = getelementptr inbounds i8, ptr %p.0.i1610.ph, i64 -1
-  store i8 %rb.addr.0.i1609.ph, ptr %arrayidx85.i16164051, align 1
-  %arrayidx.i.i16184052 = getelementptr inbounds i8, ptr %p.0.i1610.ph, i64 -2
-  store i8 -57, ptr %arrayidx.i.i16184052, align 1
+  %arrayidx85.i16164052 = getelementptr inbounds i8, ptr %p.0.i1610.ph, i64 -1
+  store i8 %rb.addr.0.i1609.ph, ptr %arrayidx85.i16164052, align 1
+  %arrayidx.i.i16184053 = getelementptr inbounds i8, ptr %p.0.i1610.ph, i64 -2
+  store i8 -57, ptr %arrayidx.i.i16184053, align 1
   br label %emit_mrm.exit1679
 
 if.end78.i1608:                                   ; preds = %if.then73.i1670, %if.end69.i1668
@@ -10082,7 +10082,7 @@ if.then46.i.i1623:                                ; preds = %if.end78.i1608
   br label %emit_mrm.exit1679
 
 emit_mrm.exit1679:                                ; preds = %if.end78.i1608.thread, %mrmidx.i1632, %if.then46.i122.i1652, %if.end78.i1608, %if.then46.i.i1623
-  %storemerge.i1627 = phi ptr [ %incdec.ptr.i132.i1655, %if.then46.i122.i1652 ], [ %arrayidx.i155.i1644, %mrmidx.i1632 ], [ %incdec.ptr.i.i1626, %if.then46.i.i1623 ], [ %arrayidx.i.i1618, %if.end78.i1608 ], [ %arrayidx.i.i16184052, %if.end78.i1608.thread ]
+  %storemerge.i1627 = phi ptr [ %incdec.ptr.i132.i1655, %if.then46.i122.i1652 ], [ %arrayidx.i155.i1644, %mrmidx.i1632 ], [ %incdec.ptr.i.i1626, %if.then46.i.i1623 ], [ %arrayidx.i.i1618, %if.end78.i1608 ], [ %arrayidx.i.i16184053, %if.end78.i1608.thread ]
   store ptr %storemerge.i1627, ptr %mcp, align 8
   %1395 = load i32, ptr %mrm.i.i810, align 8
   %add.i285.i = add nsw i32 %1395, 4
@@ -10199,10 +10199,10 @@ if.then73.i1591:                                  ; preds = %if.end69.i1589
 if.end78.i1529.thread:                            ; preds = %if.end.i1577, %if.then12.i1527
   %rb.addr.0.i1530.ph = phi i8 [ 5, %if.then12.i1527 ], [ 4, %if.end.i1577 ]
   %p.0.i1531.ph = phi ptr [ %add.ptr13.i1528, %if.then12.i1527 ], [ %incdec.ptr.i1578, %if.end.i1577 ]
-  %arrayidx85.i15374060 = getelementptr inbounds i8, ptr %p.0.i1531.ph, i64 -1
-  store i8 %rb.addr.0.i1530.ph, ptr %arrayidx85.i15374060, align 1
-  %arrayidx.i.i15394061 = getelementptr inbounds i8, ptr %p.0.i1531.ph, i64 -2
-  store i8 -57, ptr %arrayidx.i.i15394061, align 1
+  %arrayidx85.i15374061 = getelementptr inbounds i8, ptr %p.0.i1531.ph, i64 -1
+  store i8 %rb.addr.0.i1530.ph, ptr %arrayidx85.i15374061, align 1
+  %arrayidx.i.i15394062 = getelementptr inbounds i8, ptr %p.0.i1531.ph, i64 -2
+  store i8 -57, ptr %arrayidx.i.i15394062, align 1
   br label %emit_mrm.exit1600
 
 if.end78.i1529:                                   ; preds = %if.then73.i1591, %if.end69.i1589
@@ -10224,7 +10224,7 @@ if.then46.i.i1544:                                ; preds = %if.end78.i1529
   br label %emit_mrm.exit1600
 
 emit_mrm.exit1600:                                ; preds = %if.end78.i1529.thread, %mrmidx.i1553, %if.then46.i122.i1573, %if.end78.i1529, %if.then46.i.i1544
-  %storemerge.i1548 = phi ptr [ %incdec.ptr.i132.i1576, %if.then46.i122.i1573 ], [ %arrayidx.i155.i1565, %mrmidx.i1553 ], [ %incdec.ptr.i.i1547, %if.then46.i.i1544 ], [ %arrayidx.i.i1539, %if.end78.i1529 ], [ %arrayidx.i.i15394061, %if.end78.i1529.thread ]
+  %storemerge.i1548 = phi ptr [ %incdec.ptr.i132.i1576, %if.then46.i122.i1573 ], [ %arrayidx.i155.i1565, %mrmidx.i1553 ], [ %incdec.ptr.i.i1547, %if.then46.i.i1544 ], [ %arrayidx.i.i1539, %if.end78.i1529 ], [ %arrayidx.i.i15394062, %if.end78.i1529.thread ]
   store ptr %storemerge.i1548, ptr %mcp, align 8
   br label %asm_ahustore.exit.i
 
@@ -10527,10 +10527,10 @@ if.then73.i1435:                                  ; preds = %if.end69.i1433
 if.end78.i1375.thread:                            ; preds = %if.end.i1421, %if.then12.i1373
   %rb.addr.0.i1376.ph = phi i8 [ 5, %if.then12.i1373 ], [ 4, %if.end.i1421 ]
   %p.0.i1377.ph = phi ptr [ %add.ptr13.i1374, %if.then12.i1373 ], [ %incdec.ptr.i1422, %if.end.i1421 ]
-  %arrayidx85.i13824069 = getelementptr inbounds i8, ptr %p.0.i1377.ph, i64 -1
-  store i8 %rb.addr.0.i1376.ph, ptr %arrayidx85.i13824069, align 1
-  %arrayidx.i.i13844070 = getelementptr inbounds i8, ptr %p.0.i1377.ph, i64 -2
-  store i8 -57, ptr %arrayidx.i.i13844070, align 1
+  %arrayidx85.i13824070 = getelementptr inbounds i8, ptr %p.0.i1377.ph, i64 -1
+  store i8 %rb.addr.0.i1376.ph, ptr %arrayidx85.i13824070, align 1
+  %arrayidx.i.i13844071 = getelementptr inbounds i8, ptr %p.0.i1377.ph, i64 -2
+  store i8 -57, ptr %arrayidx.i.i13844071, align 1
   br label %emit_mrm.exit1444
 
 if.end78.i1375:                                   ; preds = %if.then73.i1435, %if.end69.i1433
@@ -10552,7 +10552,7 @@ if.then46.i.i1389:                                ; preds = %if.end78.i1375
   br label %emit_mrm.exit1444
 
 emit_mrm.exit1444:                                ; preds = %if.end78.i1375.thread, %mrmidx.i1398, %if.then46.i122.i1417, %if.end78.i1375, %if.then46.i.i1389
-  %storemerge.i1393 = phi ptr [ %incdec.ptr.i132.i1420, %if.then46.i122.i1417 ], [ %arrayidx.i155.i1409, %mrmidx.i1398 ], [ %incdec.ptr.i.i1392, %if.then46.i.i1389 ], [ %arrayidx.i.i1384, %if.end78.i1375 ], [ %arrayidx.i.i13844070, %if.end78.i1375.thread ]
+  %storemerge.i1393 = phi ptr [ %incdec.ptr.i132.i1420, %if.then46.i122.i1417 ], [ %arrayidx.i155.i1409, %mrmidx.i1398 ], [ %incdec.ptr.i.i1392, %if.then46.i.i1389 ], [ %arrayidx.i.i1384, %if.end78.i1375 ], [ %arrayidx.i.i13844071, %if.end78.i1375.thread ]
   store ptr %storemerge.i1393, ptr %mcp, align 8
   br label %if.end80.i.i
 
@@ -10672,10 +10672,10 @@ if.then73.i:                                      ; preds = %if.end69.i1367
 if.end78.i.thread:                                ; preds = %if.end.i1363, %if.then12.i
   %rb.addr.0.i.ph = phi i8 [ 5, %if.then12.i ], [ 4, %if.end.i1363 ]
   %p.0.i1353.ph = phi ptr [ %add.ptr13.i, %if.then12.i ], [ %incdec.ptr.i1364, %if.end.i1363 ]
-  %arrayidx85.i4078 = getelementptr inbounds i8, ptr %p.0.i1353.ph, i64 -1
-  store i8 %rb.addr.0.i.ph, ptr %arrayidx85.i4078, align 1
-  %arrayidx.i.i13554079 = getelementptr inbounds i8, ptr %p.0.i1353.ph, i64 -2
-  store i8 -57, ptr %arrayidx.i.i13554079, align 1
+  %arrayidx85.i4079 = getelementptr inbounds i8, ptr %p.0.i1353.ph, i64 -1
+  store i8 %rb.addr.0.i.ph, ptr %arrayidx85.i4079, align 1
+  %arrayidx.i.i13554080 = getelementptr inbounds i8, ptr %p.0.i1353.ph, i64 -2
+  store i8 -57, ptr %arrayidx.i.i13554080, align 1
   br label %emit_mrm.exit
 
 if.end78.i:                                       ; preds = %if.then73.i, %if.end69.i1367
@@ -10697,7 +10697,7 @@ if.then46.i.i:                                    ; preds = %if.end78.i
   br label %emit_mrm.exit
 
 emit_mrm.exit:                                    ; preds = %if.end78.i.thread, %mrmidx.i, %if.then46.i122.i, %if.end78.i, %if.then46.i.i
-  %storemerge.i1359 = phi ptr [ %incdec.ptr.i132.i, %if.then46.i122.i ], [ %arrayidx.i155.i, %mrmidx.i ], [ %incdec.ptr.i.i1358, %if.then46.i.i ], [ %arrayidx.i.i1355, %if.end78.i ], [ %arrayidx.i.i13554079, %if.end78.i.thread ]
+  %storemerge.i1359 = phi ptr [ %incdec.ptr.i132.i, %if.then46.i122.i ], [ %arrayidx.i155.i, %mrmidx.i ], [ %incdec.ptr.i.i1358, %if.then46.i.i ], [ %arrayidx.i.i1355, %if.end78.i ], [ %arrayidx.i.i13554080, %if.end78.i.thread ]
   store ptr %storemerge.i1359, ptr %mcp, align 8
   br label %asm_ahustore.exit.i
 
@@ -15248,7 +15248,7 @@ if.end133:                                        ; preds = %asm_phi_fixup.exit
 
 for.cond.backedge:                                ; preds = %if.end133, %land.lhs.true88
   %.be = phi ptr [ null, %if.end133 ], [ %1851, %land.lhs.true88 ]
-  %.be4136 = phi ptr [ %call138, %if.end133 ], [ %1852, %land.lhs.true88 ]
+  %.be4139 = phi ptr [ %call138, %if.end133 ], [ %1852, %land.lhs.true88 ]
   br label %for.cond
 
 if.then144:                                       ; preds = %asm_snap_prev.exit621
@@ -15275,7 +15275,7 @@ if.end146:                                        ; preds = %asm_snap_prev.exit6
   br i1 %tobool159.not, label %if.else161, label %if.end146.if.end163_crit_edge
 
 if.end146.if.end163_crit_edge:                    ; preds = %if.end146
-  %.pre4042 = ptrtoint ptr %.pre4039 to i64
+  %.pre4043 = ptrtoint ptr %.pre4039 to i64
   br label %if.end163
 
 if.else161:                                       ; preds = %if.end146
@@ -15368,12 +15368,12 @@ for.body.preheader.i640:                          ; preds = %cond.end.i
 asm_tail_fixup.exit:                              ; preds = %cond.end.i, %for.body.preheader.i640
   store ptr %p.0.i, ptr %mctop, align 8
   %.pre4040 = load ptr, ptr %mcp, align 8
-  %.pre4041 = ptrtoint ptr %.pre4040 to i64
+  %.pre4042 = ptrtoint ptr %.pre4040 to i64
   br label %if.end163
 
 if.end163:                                        ; preds = %if.end146.if.end163_crit_edge, %asm_tail_fixup.exit
-  %sub.ptr.lhs.cast166.pre-phi = phi i64 [ %.pre4042, %if.end146.if.end163_crit_edge ], [ %p.030.i, %asm_tail_fixup.exit ]
-  %sub.ptr.rhs.cast167.pre-phi = phi i64 [ %sub.ptr.rhs.cast, %if.end146.if.end163_crit_edge ], [ %.pre4041, %asm_tail_fixup.exit ]
+  %sub.ptr.lhs.cast166.pre-phi = phi i64 [ %.pre4043, %if.end146.if.end163_crit_edge ], [ %p.030.i, %asm_tail_fixup.exit ]
+  %sub.ptr.rhs.cast167.pre-phi = phi i64 [ %sub.ptr.rhs.cast, %if.end146.if.end163_crit_edge ], [ %.pre4042, %asm_tail_fixup.exit ]
   %sub.ptr.sub168 = sub i64 %sub.ptr.lhs.cast166.pre-phi, %sub.ptr.rhs.cast167.pre-phi
   %conv169 = trunc i64 %sub.ptr.sub168 to i32
   %szmcode = getelementptr inbounds nuw i8, ptr %T, i64 84

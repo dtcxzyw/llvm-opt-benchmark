@@ -3064,7 +3064,7 @@ Wlc_ObjFanin0.exit:                               ; preds = %89, %Wlc_ObjHasArra
 128:                                              ; preds = %125
   %129 = load ptr, ptr %47, align 8, !tbaa !50
   %130 = tail call ptr @Abc_NamStr(ptr noundef %129, i32 noundef %127) #26
-  %.pre907 = trunc nuw nsw i64 %indvars.iv854 to i32
+  %.pre903 = trunc nuw nsw i64 %indvars.iv854 to i32
   br label %Wlc_ObjName.exit
 
 131:                                              ; preds = %125, %123
@@ -3073,7 +3073,7 @@ Wlc_ObjFanin0.exit:                               ; preds = %89, %Wlc_ObjHasArra
   br label %Wlc_ObjName.exit
 
 Wlc_ObjName.exit:                                 ; preds = %128, %131
-  %.pre-phi = phi i32 [ %.pre907, %128 ], [ %132, %131 ]
+  %.pre-phi = phi i32 [ %.pre903, %128 ], [ %132, %131 ]
   %.0.i = phi ptr [ %130, %128 ], [ @Wlc_ObjName.Buffer, %131 ]
   %134 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.4, i32 noundef %.pre-phi, ptr noundef %.0.i)
   %.pre868 = load i16, ptr %54, align 8

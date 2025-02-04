@@ -3159,9 +3159,9 @@ trajcoder_base_decompress.exit316:                ; preds = %.lr.ph.i312
   br label %570
 
 520:                                              ; preds = %._crit_edge664, %readbits.exit27.i, %.lr.ph.i17.i.thread
-  %521 = phi i8 [ %180, %.lr.ph.i17.i.thread ], [ %.pre665, %._crit_edge664 ], [ %174, %readbits.exit27.i ]
-  %.24447.ph490 = phi i32 [ 1, %.lr.ph.i17.i.thread ], [ 0, %._crit_edge664 ], [ %185, %readbits.exit27.i ]
-  %.32.ph491 = phi ptr [ %179, %.lr.ph.i17.i.thread ], [ %184, %._crit_edge664 ], [ %.0592, %readbits.exit27.i ]
+  %.24447.ph490 = phi i8 [ %180, %.lr.ph.i17.i.thread ], [ %.pre665, %._crit_edge664 ], [ %174, %readbits.exit27.i ]
+  %.32.ph491 = phi i32 [ 1, %.lr.ph.i17.i.thread ], [ 0, %._crit_edge664 ], [ %185, %readbits.exit27.i ]
+  %521 = phi ptr [ %179, %.lr.ph.i17.i.thread ], [ %184, %._crit_edge664 ], [ %.0592, %readbits.exit27.i ]
   %522 = lshr i32 128, %.24447.ph490
   br label %.lr.ph.i318
 

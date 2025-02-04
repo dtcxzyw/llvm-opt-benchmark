@@ -419,7 +419,7 @@ pglz_find_match.exit:                             ; preds = %._crit_edge.i
   %223 = sext i8 %222 to i32
   br i1 %60, label %240, label %224
 
-224:                                              ; preds = %219
+224:; preds = %219
   %225 = shl nsw i32 %223, 6
   %226 = getelementptr i8, ptr %.0151245, i64 1
   %227 = load i8, ptr %226, align 1
@@ -437,7 +437,7 @@ pglz_find_match.exit:                             ; preds = %._crit_edge.i
   %239 = xor i32 %235, %238
   br label %240
 
-240:                                              ; preds = %219, %224
+240: ; preds = %219, %224
   %241 = phi i32 [ %239, %224 ], [ %223, %219 ]
   %242 = and i32 %241, %41
   %243 = zext nneg i32 %242 to i64
@@ -447,14 +447,14 @@ pglz_find_match.exit:                             ; preds = %._crit_edge.i
   %247 = trunc nuw i8 %.0146246 to i1
   br i1 %247, label %248, label %267
 
-248:                                              ; preds = %240
+248: ; preds = %240
   %249 = getelementptr inbounds nuw i8, ptr %246, i64 8
   %250 = load ptr, ptr %249, align 8
   %251 = icmp eq ptr %250, null
   %252 = load ptr, ptr %246, align 16
   br i1 %251, label %253, label %262
 
-253:                                              ; preds = %248
+253:; preds = %248
   %254 = ptrtoint ptr %252 to i64
   %255 = sub i64 %254, ptrtoint (ptr @hist_entries to i64)
   %256 = lshr exact i64 %255, 5
@@ -466,21 +466,21 @@ pglz_find_match.exit:                             ; preds = %._crit_edge.i
   store i16 %257, ptr %261, align 2
   br label %263
 
-262:                                              ; preds = %248
+262:; preds = %248
   store ptr %252, ptr %250, align 8
   br label %263
 
-263:                                              ; preds = %262, %253
+263:; preds = %262, %253
   %.not190 = icmp eq ptr %252, null
   br i1 %.not190, label %267, label %264
 
-264:                                              ; preds = %263
+264:; preds = %263
   %265 = load ptr, ptr %249, align 8
   %266 = getelementptr inbounds nuw i8, ptr %252, i64 8
   store ptr %265, ptr %266, align 8
   br label %267
 
-267:                                              ; preds = %263, %264, %240
+267:; preds = %263, %264, %240
   %268 = load i16, ptr %244, align 2
   %269 = sext i16 %268 to i64
   %270 = getelementptr [4097 x %struct.PGLZ_HistEntry], ptr @hist_entries, i64 0, i64 %269
@@ -496,9 +496,9 @@ pglz_find_match.exit:                             ; preds = %._crit_edge.i
   %275 = trunc i32 %.0141247 to i16
   store i16 %275, ptr %244, align 2
   %276 = add i32 %.0141247, 1
-  %277 = icmp sgt i32 %276, 4096
-  %spec.select194 = select i1 %277, i8 1, i8 %.0146246
-  %spec.select195 = select i1 %277, i32 1, i32 %276
+  %spec.select194 = icmp sgt i32 %276, 4096
+  %spec.select195 = select i1 %277, i8 1, i8 %.0146246
+  %277 = select i1 %spec.select194, i32 1, i32 %276
   %278 = getelementptr i8, ptr %.0151245, i64 1
   br label %.loopexit
 
@@ -512,22 +512,22 @@ pglz_find_match.exit:                             ; preds = %._crit_edge.i
   %.3144 = phi i32 [ %spec.select195, %267 ], [ %spec.select193, %204 ]
   %.3 = phi ptr [ %221, %267 ], [ %.2, %204 ]
   %.2171 = shl i8 %.2171.in, 1
-  %279 = icmp ult ptr %.2153, %7
-  br i1 %279, label %50, label %._crit_edge.loopexit, !llvm.loop !10
+  %278 = icmp ult ptr %.2153, %7
+  br i1 %278, label %50, label %._crit_edge.loopexit, !llvm.loop !10
 
 ._crit_edge.loopexit:                             ; preds = %.loopexit
-  %.pre257 = ptrtoint ptr %.3 to i64
+  %.pre256 = ptrtoint ptr %.3 to i64
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %40, %._crit_edge.loopexit
-  %.pre-phi258 = phi i64 [ %.pre257, %._crit_edge.loopexit ], [ %45, %40 ]
+  %.pre-phi257 = phi i64 [ %.pre256, %._crit_edge.loopexit ], [ %45, %40 ]
   %.0161.lcssa = phi i8 [ %.2163, %._crit_edge.loopexit ], [ 0, %40 ]
   %.0154.lcssa = phi ptr [ %.2156, %._crit_edge.loopexit ], [ %5, %40 ]
   store i8 %.0161.lcssa, ptr %.0154.lcssa, align 1
-  %280 = sub i64 %.pre-phi258, %45
-  %281 = trunc i64 %280 to i32
-  %.not = icmp sgt i32 %.0160211, %281
-  %.196 = select i1 %.not, i32 %281, i32 -1
+  %279 = sub i64 %.pre-phi257, %45
+  %280 = trunc i64 %279 to i32
+  %.not = icmp sgt i32 %.0160211, %280
+  %.196 = select i1 %.not, i32 %280, i32 -1
   br label %.loopexit227
 
 .loopexit227:                                     ; preds = %54, %50, %._crit_edge, %4, %12, %15

@@ -7978,9 +7978,9 @@ define dso_local { i64, i64 } @_ZNK3tev11ImageCanvas17cropInImageCoordsEv(ptr no
 
 ._ZNK7nanogui5ArrayIiLm2EEngEv.exit.critedge_crit_edge: ; preds = %7
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %.pre86 = load i32, ptr %.phi.trans.insert, align 8
-  %.phi.trans.insert87 = getelementptr inbounds nuw i8, ptr %3, i64 12
-  %.pre88 = load i32, ptr %.phi.trans.insert87, align 4
+  %.pre85 = load i32, ptr %.phi.trans.insert, align 8
+  %.phi.trans.insert86 = getelementptr inbounds nuw i8, ptr %3, i64 12
+  %.pre87 = load i32, ptr %.phi.trans.insert86, align 4
   br label %_ZNK7nanogui5ArrayIiLm2EEngEv.exit.critedge
 
 _ZNKRSt3__18optionalIN3tev3BoxIiLj2EEEE5valueB8ne190000Ev.exit: ; preds = %7
@@ -8008,7 +8008,7 @@ _ZNKRSt3__18optionalIN3tev3BoxIiLj2EEEE5valueB8ne190000Ev.exit: ; preds = %7
   %33 = getelementptr inbounds nuw i8, ptr %3, i64 12
   %34 = load i32, ptr %33, align 4
   %35 = tail call i32 @llvm.smin.i32(i32 %27, i32 %34)
-  %.sroa.04.sroa.2.0.insert.ext.i = zext i32 %29 to i64
+  %36 = zext i32 %29 to i65
   %.sroa.04.sroa.2.0.insert.shift.i = shl nuw i64 %.sroa.04.sroa.2.0.insert.ext.i, 32
   %.sroa.04.sroa.0.0.insert.ext.i = zext i32 %28 to i64
   %.sroa.04.sroa.0.0.insert.insert.i = or disjoint i64 %.sroa.04.sroa.2.0.insert.shift.i, %.sroa.04.sroa.0.0.insert.ext.i
@@ -8018,26 +8018,26 @@ _ZNKRSt3__18optionalIN3tev3BoxIiLj2EEEE5valueB8ne190000Ev.exit: ; preds = %7
   %.sroa.0.sroa.0.0.insert.insert.i32 = or disjoint i64 %.sroa.0.sroa.2.0.insert.shift.i30, %.sroa.0.sroa.0.0.insert.ext.i31
   store i64 %.sroa.04.sroa.0.0.insert.insert.i, ptr %3, align 8
   store i64 %.sroa.0.sroa.0.0.insert.insert.i32, ptr %30, align 8
-  br label %36
+  br label %37
 
-36:                                               ; preds = %36, %_ZNKRSt3__18optionalIN3tev3BoxIiLj2EEEE5valueB8ne190000Ev.exit
-  %37 = phi i1 [ true, %_ZNKRSt3__18optionalIN3tev3BoxIiLj2EEEE5valueB8ne190000Ev.exit ], [ false, %36 ]
-  %indvars.iv.i.sroa.phi = phi ptr [ %3, %_ZNKRSt3__18optionalIN3tev3BoxIiLj2EEEE5valueB8ne190000Ev.exit ], [ %indvars.iv.i.sroa.gep58, %36 ]
-  %indvars.iv.i = phi i64 [ 0, %_ZNKRSt3__18optionalIN3tev3BoxIiLj2EEEE5valueB8ne190000Ev.exit ], [ 1, %36 ]
-  %.067.i = phi i1 [ true, %_ZNKRSt3__18optionalIN3tev3BoxIiLj2EEEE5valueB8ne190000Ev.exit ], [ %42, %36 ]
-  %38 = getelementptr inbounds nuw [2 x i32], ptr %30, i64 0, i64 %indvars.iv.i
-  %39 = load i32, ptr %38, align 4
-  %40 = load i32, ptr %indvars.iv.i.sroa.phi, align 4
-  %41 = icmp sge i32 %39, %40
-  %42 = and i1 %.067.i, %41
-  br i1 %37, label %36, label %_ZNK3tev3BoxIiLj2EE7isValidEv.exit, !llvm.loop !187
+37:                                               ; preds = %37, %_ZNKRSt3__18optionalIN3tev3BoxIiLj2EEEE5valueB8ne190000Ev.exit
+  %38 = phi i1 [ true, %_ZNKRSt3__18optionalIN3tev3BoxIiLj2EEEE5valueB8ne190000Ev.exit ], [ false, %37 ]
+  %indvars.iv.i.sroa.phi = phi ptr [ %3, %_ZNKRSt3__18optionalIN3tev3BoxIiLj2EEEE5valueB8ne190000Ev.exit ], [ %indvars.iv.i.sroa.gep58, %37 ]
+  %indvars.iv.i = phi i64 [ 0, %_ZNKRSt3__18optionalIN3tev3BoxIiLj2EEEE5valueB8ne190000Ev.exit ], [ 1, %37 ]
+  %.067.i = phi i1 [ true, %_ZNKRSt3__18optionalIN3tev3BoxIiLj2EEEE5valueB8ne190000Ev.exit ], [ %43, %37 ]
+  %39 = getelementptr inbounds nuw [2 x i32], ptr %30, i64 0, i64 %indvars.iv.i
+  %40 = load i32, ptr %39, align 4
+  %41 = load i32, ptr %indvars.iv.i.sroa.phi, align 4
+  %42 = icmp sge i32 %40, %41
+  %43 = and i1 %.067.i, %42
+  br i1 %38, label %37, label %_ZNK3tev3BoxIiLj2EE7isValidEv.exit, !llvm.loop !187
 
-_ZNK3tev3BoxIiLj2EE7isValidEv.exit:               ; preds = %36
-  br i1 %42, label %_ZNK7nanogui5ArrayIiLm2EEngEv.exit.critedge, label %_ZN7nanogui5ArrayIiLm2EEC2Ei.exit.critedge
+_ZNK3tev3BoxIiLj2EE7isValidEv.exit:               ; preds = %37
+  br i1 %43, label %_ZNK7nanogui5ArrayIiLm2EEngEv.exit.critedge, label %_ZN7nanogui5ArrayIiLm2EEC2Ei.exit.critedge
 
 _ZNK7nanogui5ArrayIiLm2EEngEv.exit.critedge:      ; preds = %._ZNK7nanogui5ArrayIiLm2EEngEv.exit.critedge_crit_edge, %_ZNK3tev3BoxIiLj2EE7isValidEv.exit
-  %43 = phi i32 [ %35, %_ZNK3tev3BoxIiLj2EE7isValidEv.exit ], [ %.pre88, %._ZNK7nanogui5ArrayIiLm2EEngEv.exit.critedge_crit_edge ]
-  %44 = phi i32 [ %32, %_ZNK3tev3BoxIiLj2EE7isValidEv.exit ], [ %.pre86, %._ZNK7nanogui5ArrayIiLm2EEngEv.exit.critedge_crit_edge ]
+  %44 = phi i32 [ %35, %_ZNK3tev3BoxIiLj2EE7isValidEv.exit ], [ %.pre87, %._ZNK7nanogui5ArrayIiLm2EEngEv.exit.critedge_crit_edge ]
+  %45 = phi i32 [ %32, %_ZNK3tev3BoxIiLj2EE7isValidEv.exit ], [ %.pre85, %._ZNK7nanogui5ArrayIiLm2EEngEv.exit.critedge_crit_edge ]
   %45 = phi i32 [ %29, %_ZNK3tev3BoxIiLj2EE7isValidEv.exit ], [ %.pre85, %._ZNK7nanogui5ArrayIiLm2EEngEv.exit.critedge_crit_edge ]
   %46 = phi i32 [ %28, %_ZNK3tev3BoxIiLj2EE7isValidEv.exit ], [ %.pre, %._ZNK7nanogui5ArrayIiLm2EEngEv.exit.critedge_crit_edge ]
   %47 = load i32, ptr %8, align 4
@@ -8048,7 +8048,7 @@ _ZNK7nanogui5ArrayIiLm2EEngEv.exit.critedge:      ; preds = %._ZNK7nanogui5Array
   %52 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %53 = sub nsw i32 %44, %47
   %54 = sub nsw i32 %43, %49
-  %.sroa.05.sroa.2.0.insert.ext.i39 = zext i32 %51 to i64
+  %55 = zext i32 %51 to i64
   %.sroa.05.sroa.2.0.insert.shift.i40 = shl nuw i64 %.sroa.05.sroa.2.0.insert.ext.i39, 32
   %.sroa.05.sroa.0.0.insert.ext.i41 = zext i32 %50 to i64
   %.sroa.05.sroa.0.0.insert.insert.i42 = or disjoint i64 %.sroa.05.sroa.2.0.insert.shift.i40, %.sroa.05.sroa.0.0.insert.ext.i41
@@ -8058,57 +8058,57 @@ _ZNK7nanogui5ArrayIiLm2EEngEv.exit.critedge:      ; preds = %._ZNK7nanogui5Array
   %.sroa.0.sroa.0.0.insert.insert.i46 = or disjoint i64 %.sroa.0.sroa.2.0.insert.shift.i44, %.sroa.0.sroa.0.0.insert.ext.i45
   store i64 %.sroa.05.sroa.0.0.insert.insert.i42, ptr %3, align 8
   store i64 %.sroa.0.sroa.0.0.insert.insert.i46, ptr %52, align 8
-  br label %55
+  br label %56
 
-55:                                               ; preds = %55, %_ZNK7nanogui5ArrayIiLm2EEngEv.exit.critedge
-  %56 = phi i1 [ true, %_ZNK7nanogui5ArrayIiLm2EEngEv.exit.critedge ], [ false, %55 ]
-  %indvars.iv.i49.sroa.phi = phi ptr [ %3, %_ZNK7nanogui5ArrayIiLm2EEngEv.exit.critedge ], [ %indvars.iv.i.sroa.gep58, %55 ]
-  %indvars.iv.i49 = phi i64 [ 0, %_ZNK7nanogui5ArrayIiLm2EEngEv.exit.critedge ], [ 1, %55 ]
-  %.067.i50 = phi i1 [ true, %_ZNK7nanogui5ArrayIiLm2EEngEv.exit.critedge ], [ %61, %55 ]
-  %57 = getelementptr inbounds nuw [2 x i32], ptr %52, i64 0, i64 %indvars.iv.i49
-  %58 = load i32, ptr %57, align 4
-  %59 = load i32, ptr %indvars.iv.i49.sroa.phi, align 4
-  %60 = icmp sge i32 %58, %59
-  %61 = and i1 %.067.i50, %60
-  br i1 %56, label %55, label %_ZNK3tev3BoxIiLj2EE7isValidEv.exit51, !llvm.loop !187
+56:                                               ; preds = %56, %_ZNK7nanogui5ArrayIiLm2EEngEv.exit.critedge
+  %57 = phi i1 [ true, %_ZNK7nanogui5ArrayIiLm2EEngEv.exit.critedge ], [ false, %56 ]
+  %indvars.iv.i49.sroa.phi = phi ptr [ %3, %_ZNK7nanogui5ArrayIiLm2EEngEv.exit.critedge ], [ %indvars.iv.i.sroa.gep58, %56 ]
+  %indvars.iv.i49 = phi i64 [ 0, %_ZNK7nanogui5ArrayIiLm2EEngEv.exit.critedge ], [ 1, %56 ]
+  %.067.i50 = phi i1 [ true, %_ZNK7nanogui5ArrayIiLm2EEngEv.exit.critedge ], [ %62, %56 ]
+  %58 = getelementptr inbounds nuw [2 x i32], ptr %52, i64 0, i64 %indvars.iv.i49
+  %59 = load i32, ptr %58, align 4
+  %60 = load i32, ptr %indvars.iv.i49.sroa.phi, align 4
+  %61 = icmp sge i32 %59, %60
+  %62 = and i1 %.067.i50, %61
+  br i1 %57, label %56, label %_ZNK3tev3BoxIiLj2EE7isValidEv.exit51, !llvm.loop !187
 
-_ZNK3tev3BoxIiLj2EE7isValidEv.exit51:             ; preds = %55
-  br i1 %61, label %_ZN7nanogui5ArrayIiLm2EEC2Ei.exit.critedge, label %62
+_ZNK3tev3BoxIiLj2EE7isValidEv.exit51:             ; preds = %56
+  br i1 %62, label %_ZN7nanogui5ArrayIiLm2EEC2Ei.exit.critedge, label %63
 
-62:                                               ; preds = %_ZNK3tev3BoxIiLj2EE7isValidEv.exit51
-  %63 = tail call ptr @__cxa_allocate_exception(i64 16) #35
+63:                                               ; preds = %_ZNK3tev3BoxIiLj2EE7isValidEv.exit51
+  %64 = tail call ptr @__cxa_allocate_exception(i64 16) #35
   invoke void @_ZN3fmt2v97vformatENS0_17basic_string_viewIcEENS0_17basic_format_argsINS0_20basic_format_contextINS0_8appenderEcEEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__1::basic_string") align 8 %4, ptr nonnull @.str.14, i64 26, i64 0, ptr nonnull %2)
-          to label %64 unwind label %.thread
+          to label %65 unwind label %.thread
 
-64:                                               ; preds = %62
-  invoke void @_ZNSt13runtime_errorC1ERKNSt3__112basic_stringIcNS0_11char_traitsIcEENS0_9allocatorIcEEEE(ptr noundef nonnull align 8 dereferenceable(16) %63, ptr noundef nonnull align 8 dereferenceable(24) %4)
-          to label %66 unwind label %.thread81
+65:                                               ; preds = %63
+  invoke void @_ZNSt13runtime_errorC1ERKNSt3__112basic_stringIcNS0_11char_traitsIcEENS0_9allocatorIcEEEE(ptr noundef nonnull align 8 dereferenceable(16) %64, ptr noundef nonnull align 8 dereferenceable(24) %4)
+          to label %67 unwind label %.thread81
 
-.thread81:                                        ; preds = %64
-  %65 = landingpad { ptr, i32 }
-          cleanup
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #35
-  br label %70
-
-66:                                               ; preds = %64
-  invoke void @__cxa_throw(ptr nonnull %63, ptr nonnull @_ZTISt13runtime_error, ptr nonnull @_ZNSt13runtime_errorD1Ev) #38
-          to label %72 unwind label %68
-
-.thread:                                          ; preds = %62
-  %67 = landingpad { ptr, i32 }
-          cleanup
-  br label %70
-
-68:                                               ; preds = %66
-  %69 = landingpad { ptr, i32 }
+.thread81:                                        ; preds = %65
+  %66 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #35
   br label %71
 
-70:                                               ; preds = %.thread81, %.thread
-  %.pn80 = phi { ptr, i32 } [ %67, %.thread ], [ %65, %.thread81 ]
-  call void @__cxa_free_exception(ptr %63) #35
+67:                                               ; preds = %65
+  invoke void @__cxa_throw(ptr nonnull %64, ptr nonnull @_ZTISt13runtime_error, ptr nonnull @_ZNSt13runtime_errorD1Ev) #38
+          to label %73 unwind label %69
+
+.thread:                                          ; preds = %63
+  %68 = landingpad { ptr, i32 }
+          cleanup
   br label %71
+
+69:                                               ; preds = %67
+  %70 = landingpad { ptr, i32 }
+          cleanup
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #35
+  br label %72
+
+71:                                               ; preds = %.thread81, %.thread
+  %.pn80 = phi { ptr, i32 } [ %68, %.thread ], [ %66, %.thread81 ]
+  call void @__cxa_free_exception(ptr %64) #35
+  br label %72
 
 _ZN7nanogui5ArrayIiLm2EEC2Ei.exit.critedge:       ; preds = %_ZNK3tev3BoxIiLj2EE7isValidEv.exit51, %_ZNK3tev3BoxIiLj2EE7isValidEv.exit, %1
   %.sroa.6.0 = phi i64 [ 0, %1 ], [ 0, %_ZNK3tev3BoxIiLj2EE7isValidEv.exit ], [ %.sroa.0.sroa.0.0.insert.insert.i46, %_ZNK3tev3BoxIiLj2EE7isValidEv.exit51 ]
@@ -8119,11 +8119,11 @@ _ZN7nanogui5ArrayIiLm2EEC2Ei.exit.critedge:       ; preds = %_ZNK3tev3BoxIiLj2EE
   %.fca.1.insert = insertvalue { i64, i64 } %.fca.0.insert, i64 %.sroa.6.0, 1
   ret { i64, i64 } %.fca.1.insert
 
-71:                                               ; preds = %68, %70
-  %.pn79 = phi { ptr, i32 } [ %69, %68 ], [ %.pn80, %70 ]
+72:                                               ; preds = %69, %71
+  %.pn79 = phi { ptr, i32 } [ %70, %69 ], [ %.pn80, %71 ]
   resume { ptr, i32 } %.pn79
 
-72:                                               ; preds = %66
+73:                                               ; preds = %67
   unreachable
 }
 
