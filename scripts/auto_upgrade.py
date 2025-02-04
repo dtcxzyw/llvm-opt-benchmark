@@ -14,6 +14,7 @@ supported_project = [
     "cmake",
     "coremark",
     "cpython",
+    "curl",
 ]
 
 modify_only = [
