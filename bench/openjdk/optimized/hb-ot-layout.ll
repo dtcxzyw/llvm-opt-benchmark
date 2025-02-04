@@ -24820,12 +24820,6 @@ define linkonce_odr hidden void @_ZN29hb_collect_features_context_t22compute_fea
   %.sink.in.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 56
   %23 = getelementptr inbounds nuw i8, ptr %3, i64 64
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %.pre = load i8, ptr @_hb_NullPool, align 16
-  %.pre28 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_hb_NullPool, i64 1), align 1
-  %.pre29 = zext i8 %.pre to i32
-  %.pre30 = shl nuw nsw i32 %.pre29, 8
-  %.pre32 = zext i8 %.pre28 to i32
-  %.pre34 = or disjoint i32 %.pre30, %.pre32
   br label %29
 
 .lr.ph:                                           ; preds = %7, %_ZN14hb_sparseset_tI23hb_bit_set_invertible_tE3addEj.exit
@@ -24895,10 +24889,10 @@ _ZN14hb_sparseset_tI23hb_bit_set_invertible_tE3addEj.exit: ; preds = %.lr.ph
   %58 = icmp ult i32 %.011, %20
   br i1 %58, label %_ZNK2OT8GSUBGPOS16get_feature_listEv.exit.i, label %128
 
-_ZNK2OT8GSUBGPOS16get_feature_listEv.exit.i:      ; preds = %.thread, %38
-  %.pre-phi35 = phi i32 [ %56, %38 ], [ %.pre34, %.thread ]
-  %.0.i.i15 = phi ptr [ %.0.i.i.i.i, %38 ], [ @_hb_NullPool, %.thread ]
-  %.not.i.i.i = icmp samesign ult i32 %.011, %.pre-phi35
+_ZNK2OT8GSUBGPOS16get_feature_listEv.exit.i:      ; preds = %38, %.thread
+  %.pre-phi31 = phi i32 [ %20, %.thread ], [ %56, %38 ]
+  %.0.i.i15 = phi ptr [ @_hb_NullPool, %.thread ], [ %.0.i.i.i.i, %38 ]
+  %.not.i.i.i = icmp samesign ult i32 %.011, %.pre-phi31
   br i1 %.not.i.i.i, label %59, label %63
 
 59:                                               ; preds = %_ZNK2OT8GSUBGPOS16get_feature_listEv.exit.i

@@ -2074,7 +2074,6 @@ define void @_ZN6LibRaw15ppg_interpolateEv(ptr noundef nonnull align 8 dereferen
   %229 = load ptr, ptr %5, align 8
   %230 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %.pre358 = load i16, ptr %6, align 2, !tbaa !79
-  %.pre359.pre = load i32, ptr %2, align 16
   br label %231
 
 231:                                              ; preds = %.lr.ph333, %._crit_edge330
@@ -2120,7 +2119,7 @@ define void @_ZN6LibRaw15ppg_interpolateEv(ptr noundef nonnull align 8 dereferen
   br label %263
 
 263:                                              ; preds = %253, %263
-  %264 = phi i32 [ %.pre359.pre, %253 ], [ %267, %263 ]
+  %264 = phi i32 [ 1, %253 ], [ %267, %263 ]
   %265 = phi i1 [ true, %253 ], [ false, %263 ]
   %indvars.iv345.sroa.phi = phi ptr [ %3, %253 ], [ %indvars.iv345.sroa.gep386, %263 ]
   %indvars.iv345.sroa.phi390 = phi ptr [ %.sroa.0, %253 ], [ %.sroa.6, %263 ]

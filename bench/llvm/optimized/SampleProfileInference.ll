@@ -3833,7 +3833,7 @@ select.unfold13.us.i.i.i:                         ; preds = %.split.us34.i.i.i
   br i1 %.not15.us.i.i.i, label %_ZN12_GLOBAL__N_112FlowAdjuster20canRebalanceSubgraphEPKN4llvm9FlowBlockERKSt6vectorIPS2_SaIS6_EESA_RS6_.exit.i.i, label %.lr.ph.split.us.split.i.i.i
 
 .lr.ph.split.split.us.preheader.i.i.i:            ; preds = %.lr.ph.i13.i.i, %.lr.ph.thread.i.i.i
-  %.val.i16.pre.i.i = phi ptr [ %.val65.i.i.i98, %.lr.ph.thread.i.i.i ], [ %.val.i14.i.i, %.lr.ph.i13.i.i ]
+  %.val67.i.i.i = phi ptr [ %.val65.i.i.i98, %.lr.ph.thread.i.i.i ], [ %.val.i14.i.i, %.lr.ph.i13.i.i ]
   br label %.lr.ph.split.split.us.i.i.i
 
 .lr.ph.split.split.us.i.i.i:                      ; preds = %select.unfold13.us42.i.i.i, %.lr.ph.split.split.us.preheader.i.i.i
@@ -3867,7 +3867,7 @@ select.unfold13.us42.i.i.i:                       ; preds = %.split.us.us.i.i.i,
   br i1 %1318, label %1335, label %1319
 
 1319:                                             ; preds = %1315, %.preheader.us44.i.i.i
-  %1320 = load ptr, ptr %.val.i16.pre.i.i, align 8, !tbaa !120
+  %1320 = load ptr, ptr %.val67.i.i.i, align 8, !tbaa !120
   %1321 = getelementptr inbounds nuw i8, ptr %1311, i64 8
   %1322 = load i64, ptr %1321, align 8, !tbaa !134
   %1323 = getelementptr inbounds nuw %"struct.llvm::FlowBlock", ptr %1320, i64 %1322
@@ -3908,7 +3908,7 @@ _ZN12_GLOBAL__N_112FlowAdjuster10ignoreJumpEPKN4llvm9FlowBlockES4_PKNS1_8FlowJum
   br i1 %1343, label %_ZN12_GLOBAL__N_112FlowAdjuster24rebalanceUnknownSubgraphEPKN4llvm9FlowBlockES4_RKSt6vectorIPS2_SaIS6_EE.exit.i.i, label %select.unfold13.us42.i.i.i
 
 _ZN12_GLOBAL__N_112FlowAdjuster20canRebalanceSubgraphEPKN4llvm9FlowBlockERKSt6vectorIPS2_SaIS6_EESA_RS6_.exit.i.i: ; preds = %select.unfold13.us.i.i.i, %select.unfold13.us42.i.i.i
-  %.val.i16.i.i = phi ptr [ %.val.i16.pre.i.i, %select.unfold13.us42.i.i.i ], [ %.val.i14.i.i, %select.unfold13.us.i.i.i ]
+  %.val.i16.i.i = phi ptr [ %.val67.i.i.i, %select.unfold13.us42.i.i.i ], [ %.val.i14.i.i, %select.unfold13.us.i.i.i ]
   %.1.i.i78 = phi ptr [ null, %select.unfold13.us42.i.i.i ], [ %1261, %select.unfold13.us.i.i.i ]
   %.val.val.i17.i.i = load ptr, ptr %.val.i16.i.i, align 8, !tbaa !120
   %1344 = getelementptr i8, ptr %.val.i16.i.i, i64 8

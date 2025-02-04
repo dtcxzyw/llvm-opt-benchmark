@@ -2674,11 +2674,7 @@ land.rhs.us:                                      ; preds = %land.rhs.lr.ph, %fo
   %opt.018.us = phi ptr [ %2, %for.inc27.us ], [ %1, %land.rhs.lr.ph ]
   %next6.us = getelementptr inbounds nuw i8, ptr %opt.018.us, i64 40
   %2 = load ptr, ptr %next6.us, align 8
-  br i1 %tobool7.not, label %land.rhs.us.if.end22.us_crit_edge, label %if.then8.us
-
-land.rhs.us.if.end22.us_crit_edge:                ; preds = %land.rhs.us
-  %.pre = load ptr, ptr %opt.018.us, align 8
-  br label %if.end22.us
+  br i1 %tobool7.not, label %if.end22.us, label %if.then8.us
 
 if.then8.us:                                      ; preds = %land.rhs.us
   %3 = load ptr, ptr %desc9, align 8
@@ -2698,8 +2694,8 @@ for.body12.us:                                    ; preds = %for.body12.lr.ph.us
   %tobool16.not.us = icmp eq i32 %call15.us, 0
   br i1 %tobool16.not.us, label %if.end22.us, label %for.cond10.us
 
-if.end22.us:                                      ; preds = %for.body12.us, %land.rhs.us.if.end22.us_crit_edge
-  %6 = phi ptr [ %.pre, %land.rhs.us.if.end22.us_crit_edge ], [ %14, %for.body12.us ]
+if.end22.us:                                      ; preds = %for.body12.us, %land.rhs.us
+  %6 = load ptr, ptr %opt.018.us, align 8
   %str.us = getelementptr inbounds nuw i8, ptr %opt.018.us, i64 8
   %7 = load ptr, ptr %str.us, align 8
   tail call void @qdict_put_str(ptr noundef %qdict.addr.0, ptr noundef %6, ptr noundef %7) #20

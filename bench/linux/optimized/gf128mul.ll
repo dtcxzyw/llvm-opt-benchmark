@@ -534,87 +534,85 @@ define dso_local noundef ptr @gf128mul_init_64k_bbe(ptr noundef readonly capture
   %39 = icmp slt i32 %26, 65
   br i1 %39, label %22, label %.preheader2, !llvm.loop !11
 
-40:                                               ; preds = %73
+40:                                               ; preds = %71
   br label %.preheader2, !llvm.loop !12
 
 .preheader2:                                      ; preds = %22, %40
-  %41 = phi ptr [ %.pre6, %40 ], [ %20, %22 ]
-  %42 = phi i64 [ %69, %40 ], [ 0, %22 ]
-  %43 = getelementptr [16 x ptr], ptr %3, i64 0, i64 %42
-  br label %44
+  %.pre7 = phi ptr [ %.pre6, %40 ], [ %20, %22 ]
+  %41 = phi i64 [ %67, %40 ], [ 0, %22 ]
+  br label %42
 
-44:                                               ; preds = %65, %.preheader2
-  %45 = phi i32 [ 2, %.preheader2 ], [ %66, %65 ]
-  %46 = zext nneg i32 %45 to i64
-  %47 = sext i32 %45 to i64
-  %48 = getelementptr [256 x %struct.be128], ptr %41, i64 0, i64 %46
-  %49 = getelementptr inbounds nuw i8, ptr %48, i64 8
-  br label %50
+42:                                               ; preds = %63, %.preheader2
+  %43 = phi i32 [ 2, %.preheader2 ], [ %64, %63 ]
+  %44 = zext nneg i32 %43 to i64
+  %45 = sext i32 %43 to i64
+  %46 = getelementptr [256 x %struct.be128], ptr %.pre7, i64 0, i64 %44
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 8
+  br label %48
 
-50:                                               ; preds = %50, %44
-  %51 = phi i64 [ 1, %44 ], [ %63, %50 ]
-  %52 = add nuw nsw i64 %51, %47
-  %53 = getelementptr [256 x %struct.be128], ptr %41, i64 0, i64 %52
-  %54 = getelementptr [256 x %struct.be128], ptr %41, i64 0, i64 %51
-  %55 = load i64, ptr %48, align 8
-  %56 = load i64, ptr %54, align 8
-  %57 = xor i64 %56, %55
-  store i64 %57, ptr %53, align 8
-  %58 = load i64, ptr %49, align 8
-  %59 = getelementptr inbounds nuw i8, ptr %54, i64 8
-  %60 = load i64, ptr %59, align 8
-  %61 = xor i64 %60, %58
-  %62 = getelementptr inbounds nuw i8, ptr %53, i64 8
-  store i64 %61, ptr %62, align 8
-  %63 = add nuw nsw i64 %51, 1
-  %64 = icmp eq i64 %63, %46
-  br i1 %64, label %65, label %50, !llvm.loop !13
+48:                                               ; preds = %48, %42
+  %49 = phi i64 [ 1, %42 ], [ %61, %48 ]
+  %50 = add nuw nsw i64 %49, %45
+  %51 = getelementptr [256 x %struct.be128], ptr %.pre7, i64 0, i64 %50
+  %52 = getelementptr [256 x %struct.be128], ptr %.pre7, i64 0, i64 %49
+  %53 = load i64, ptr %46, align 8
+  %54 = load i64, ptr %52, align 8
+  %55 = xor i64 %54, %53
+  store i64 %55, ptr %51, align 8
+  %56 = load i64, ptr %47, align 8
+  %57 = getelementptr inbounds nuw i8, ptr %52, i64 8
+  %58 = load i64, ptr %57, align 8
+  %59 = xor i64 %58, %56
+  %60 = getelementptr inbounds nuw i8, ptr %51, i64 8
+  store i64 %59, ptr %60, align 8
+  %61 = add nuw nsw i64 %49, 1
+  %62 = icmp eq i64 %61, %44
+  br i1 %62, label %63, label %48, !llvm.loop !13
 
-65:                                               ; preds = %50
-  %66 = shl i32 %45, 1
-  %67 = icmp slt i32 %66, 256
-  br i1 %67, label %44, label %68, !llvm.loop !14
+63:                                               ; preds = %48
+  %64 = shl i32 %43, 1
+  %65 = icmp slt i32 %64, 256
+  br i1 %65, label %42, label %66, !llvm.loop !14
 
-68:                                               ; preds = %65
-  %69 = add nuw nsw i64 %42, 1
-  %70 = icmp eq i64 %42, 15
-  br i1 %70, label %.loopexit, label %71
+66:                                               ; preds = %63
+  %67 = add nuw nsw i64 %41, 1
+  %68 = icmp eq i64 %41, 15
+  br i1 %68, label %.loopexit, label %69
 
-71:                                               ; preds = %68
-  %72 = getelementptr [16 x ptr], ptr %3, i64 0, i64 %69
-  %.pre6 = load ptr, ptr %72, align 8
-  %.pre7 = load ptr, ptr %43, align 8
-  br label %73
+69:                                               ; preds = %66
+  %70 = getelementptr [16 x ptr], ptr %3, i64 0, i64 %67
+  %.pre6 = load ptr, ptr %70, align 8
+  br label %71
 
-73:                                               ; preds = %73, %71
-  %74 = phi i32 [ 128, %71 ], [ %92, %73 ]
-  %75 = zext nneg i32 %74 to i64
-  %76 = getelementptr [256 x %struct.be128], ptr %.pre6, i64 0, i64 %75
-  %77 = getelementptr [256 x %struct.be128], ptr %.pre7, i64 0, i64 %75
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(16) %76, ptr noundef align 8 dereferenceable(16) %77, i64 16, i1 false)
-  %78 = load i64, ptr %76, align 8
-  %79 = tail call i64 @llvm.bswap.i64(i64 %78)
-  %80 = getelementptr inbounds nuw i8, ptr %76, i64 8
-  %81 = load i64, ptr %80, align 8
-  %82 = tail call i64 @llvm.bswap.i64(i64 %81)
-  %83 = lshr i64 %79, 56
-  %84 = getelementptr [256 x i16], ptr @gf128mul_table_be, i64 0, i64 %83
-  %85 = load i16, ptr %84, align 2
-  %86 = zext i16 %85 to i64
-  %87 = tail call i64 @llvm.fshl.i64(i64 %79, i64 %82, i64 8)
-  %88 = tail call i64 @llvm.bswap.i64(i64 %87)
-  store i64 %88, ptr %76, align 8
-  %89 = shl i64 %82, 8
-  %90 = xor i64 %89, %86
-  %91 = tail call i64 @llvm.bswap.i64(i64 %90)
-  store i64 %91, ptr %80, align 8
-  %92 = lshr i32 %74, 1
-  %93 = icmp samesign ult i32 %74, 2
-  br i1 %93, label %40, label %73, !llvm.loop !15
+71:                                               ; preds = %71, %69
+  %72 = phi i32 [ 128, %69 ], [ %90, %71 ]
+  %73 = zext nneg i32 %72 to i64
+  %74 = getelementptr [256 x %struct.be128], ptr %.pre6, i64 0, i64 %73
+  %75 = getelementptr [256 x %struct.be128], ptr %.pre7, i64 0, i64 %73
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(16) %74, ptr noundef align 8 dereferenceable(16) %75, i64 16, i1 false)
+  %76 = load i64, ptr %74, align 8
+  %77 = tail call i64 @llvm.bswap.i64(i64 %76)
+  %78 = getelementptr inbounds nuw i8, ptr %74, i64 8
+  %79 = load i64, ptr %78, align 8
+  %80 = tail call i64 @llvm.bswap.i64(i64 %79)
+  %81 = lshr i64 %77, 56
+  %82 = getelementptr [256 x i16], ptr @gf128mul_table_be, i64 0, i64 %81
+  %83 = load i16, ptr %82, align 2
+  %84 = zext i16 %83 to i64
+  %85 = tail call i64 @llvm.fshl.i64(i64 %77, i64 %80, i64 8)
+  %86 = tail call i64 @llvm.bswap.i64(i64 %85)
+  store i64 %86, ptr %74, align 8
+  %87 = shl i64 %80, 8
+  %88 = xor i64 %87, %84
+  %89 = tail call i64 @llvm.bswap.i64(i64 %88)
+  store i64 %89, ptr %78, align 8
+  %90 = lshr i32 %72, 1
+  %91 = icmp samesign ult i32 %72, 2
+  br i1 %91, label %40, label %71, !llvm.loop !15
 
-.loopexit:                                        ; preds = %68, %18, %1
-  %94 = phi ptr [ null, %18 ], [ null, %1 ], [ %3, %68 ]
-  ret ptr %94
+.loopexit:                                        ; preds = %66, %18, %1
+  %92 = phi ptr [ null, %18 ], [ null, %1 ], [ %3, %66 ]
+  ret ptr %92
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

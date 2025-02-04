@@ -64,28 +64,28 @@ list_length.exit.thread:                          ; preds = %6, %list_length.exi
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %30 = load i32, ptr %28, align 4
   %31 = icmp sgt i32 %30, 0
-  br i1 %31, label %.lr.ph181, label %._crit_edge
+  br i1 %31, label %.lr.ph182, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %addRangeClause.exit, %.lr.ph
   %.182155.lcssa = phi double [ %.081, %.lr.ph ], [ %.283, %addRangeClause.exit ]
-  %.0..0..0..pr.pre = load ptr, ptr %8, align 8
-  %.not97159 = icmp eq ptr %.0..0..0..pr.pre, null
+  %.lcssa = phi ptr [ null, %.lr.ph ], [ %193, %addRangeClause.exit ]
+  %.not97159 = icmp eq ptr %.lcssa, null
   br i1 %.not97159, label %.loopexit, label %.lr.ph163
 
-.lr.ph181:                                        ; preds = %.lr.ph, %addRangeClause.exit
+.lr.ph182:                                        ; preds = %.lr.ph, %addRangeClause.exit
   %32 = phi ptr [ %193, %addRangeClause.exit ], [ null, %.lr.ph ]
-  %.087154180 = phi i32 [ %36, %addRangeClause.exit ], [ -1, %.lr.ph ]
-  %.182155179 = phi double [ %.283, %addRangeClause.exit ], [ %.081, %.lr.ph ]
-  %indvars.iv178 = phi i64 [ %indvars.iv.next, %addRangeClause.exit ], [ 0, %.lr.ph ]
+  %.087154181 = phi i32 [ %36, %addRangeClause.exit ], [ -1, %.lr.ph ]
+  %.182155180 = phi double [ %.283, %addRangeClause.exit ], [ %.081, %.lr.ph ]
+  %indvars.iv179 = phi i64 [ %indvars.iv.next, %addRangeClause.exit ], [ 0, %.lr.ph ]
   %33 = load ptr, ptr %29, align 8
-  %34 = getelementptr %union.ListCell, ptr %33, i64 %indvars.iv178
+  %34 = getelementptr %union.ListCell, ptr %33, i64 %indvars.iv179
   %35 = load ptr, ptr %34, align 8
-  %36 = add nsw i32 %.087154180, 1
+  %36 = add nsw i32 %.087154181, 1
   %37 = load ptr, ptr %7, align 8
   %38 = call zeroext i1 @bms_is_member(i32 noundef %36, ptr noundef %37) #3
   br i1 %38, label %addRangeClause.exit, label %39
 
-39:                                               ; preds = %.lr.ph181
+39:                                               ; preds = %.lr.ph182
   %40 = call double @clause_selectivity_ext(ptr noundef %0, ptr noundef %35, i32 noundef %2, i32 noundef %3, ptr noundef %4, i1 noundef zeroext %5)
   %41 = load i32, ptr %35, align 4
   %42 = icmp eq i32 %41, 302
@@ -98,7 +98,7 @@ list_length.exit.thread:                          ; preds = %6, %list_length.exi
   br i1 %46, label %47, label %49
 
 47:                                               ; preds = %43
-  %48 = fmul double %.182155179, %40
+  %48 = fmul double %.182155180, %40
   br label %addRangeClause.exit
 
 49:                                               ; preds = %43
@@ -417,25 +417,25 @@ get_rightop.exit.i110:                            ; preds = %144, %145, %152, %l
   br label %addRangeClause.exit
 
 190:                                              ; preds = %.thread142
-  %191 = fmul double %.182155179, %40
+  %191 = fmul double %.182155180, %40
   br label %addRangeClause.exit
 
 is_opclause.exit.thread:                          ; preds = %79, %61, %54, %49, %72, %88, %list_length.exit105, %is_opclause.exit
-  %192 = fmul double %.182155179, %40
+  %192 = fmul double %.182155180, %40
   br label %addRangeClause.exit
 
-addRangeClause.exit:                              ; preds = %184, %183, %179, %177, %172, %168, %166, %137, %136, %132, %130, %125, %121, %119, %190, %.lr.ph181, %is_opclause.exit.thread, %47
-  %193 = phi ptr [ %32, %.lr.ph181 ], [ %32, %47 ], [ %32, %190 ], [ %32, %is_opclause.exit.thread ], [ %32, %119 ], [ %32, %121 ], [ %32, %125 ], [ %32, %130 ], [ %32, %132 ], [ %32, %136 ], [ %138, %137 ], [ %32, %166 ], [ %32, %168 ], [ %32, %172 ], [ %32, %177 ], [ %32, %179 ], [ %32, %183 ], [ %185, %184 ]
-  %.283 = phi double [ %.182155179, %.lr.ph181 ], [ %48, %47 ], [ %191, %190 ], [ %192, %is_opclause.exit.thread ], [ %.182155179, %119 ], [ %.182155179, %121 ], [ %.182155179, %125 ], [ %.182155179, %130 ], [ %.182155179, %132 ], [ %.182155179, %136 ], [ %.182155179, %137 ], [ %.182155179, %166 ], [ %.182155179, %168 ], [ %.182155179, %172 ], [ %.182155179, %177 ], [ %.182155179, %179 ], [ %.182155179, %183 ], [ %.182155179, %184 ]
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv178, 1
+addRangeClause.exit:                              ; preds = %184, %183, %179, %177, %172, %168, %166, %137, %136, %132, %130, %125, %121, %119, %190, %.lr.ph182, %is_opclause.exit.thread, %47
+  %193 = phi ptr [ %32, %.lr.ph182 ], [ %32, %47 ], [ %32, %190 ], [ %32, %is_opclause.exit.thread ], [ %32, %119 ], [ %32, %121 ], [ %32, %125 ], [ %32, %130 ], [ %32, %132 ], [ %32, %136 ], [ %138, %137 ], [ %32, %166 ], [ %32, %168 ], [ %32, %172 ], [ %32, %177 ], [ %32, %179 ], [ %32, %183 ], [ %185, %184 ]
+  %.283 = phi double [ %.182155180, %.lr.ph182 ], [ %48, %47 ], [ %191, %190 ], [ %192, %is_opclause.exit.thread ], [ %.182155180, %119 ], [ %.182155180, %121 ], [ %.182155180, %125 ], [ %.182155180, %130 ], [ %.182155180, %132 ], [ %.182155180, %136 ], [ %.182155180, %137 ], [ %.182155180, %166 ], [ %.182155180, %168 ], [ %.182155180, %172 ], [ %.182155180, %177 ], [ %.182155180, %179 ], [ %.182155180, %183 ], [ %.182155180, %184 ]
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv179, 1
   %194 = load i32, ptr %28, align 4
   %195 = sext i32 %194 to i64
   %196 = icmp slt i64 %indvars.iv.next, %195
-  br i1 %196, label %.lr.ph181, label %._crit_edge
+  br i1 %196, label %.lr.ph182, label %._crit_edge
 
 .lr.ph163:                                        ; preds = %._crit_edge, %228
   %.3161 = phi double [ %.4, %228 ], [ %.182155.lcssa, %._crit_edge ]
-  %.0.160 = phi ptr [ %229, %228 ], [ %.0..0..0..pr.pre, %._crit_edge ]
+  %.0.160 = phi ptr [ %229, %228 ], [ %.lcssa, %._crit_edge ]
   %197 = getelementptr inbounds nuw i8, ptr %.0.160, i64 16
   %198 = load i8, ptr %197, align 8
   %199 = trunc i8 %198 to i1

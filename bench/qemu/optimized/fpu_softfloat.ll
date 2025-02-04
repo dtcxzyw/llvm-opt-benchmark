@@ -2535,7 +2535,7 @@ lor.lhs.false.i.i:                                ; preds = %if.then6.i.i
   %cmp.i11.i.i = icmp eq i8 %5, 4
   %spec.select.i.i = and i1 %cmp.0.i, %cmp.i11.i.i
   %cond.fr31.i = freeze i1 %spec.select.i.i
-  br i1 %cond.fr31.i, label %19, label %do.end18.i
+  br i1 %cond.fr31.i, label %parts128_addsub.exit, label %do.end18.i
 
 pickNaN.exit.i:                                   ; preds = %if.end13.i
   %cmp.i8.i.i = icmp eq i8 %5, 4
@@ -2543,9 +2543,8 @@ pickNaN.exit.i:                                   ; preds = %if.end13.i
   %cond.fr.i = freeze i1 %spec.select25.i
   br i1 %cond.fr.i, label %19, label %if.then24.i
 
-19:                                               ; preds = %if.end13.i, %lor.lhs.false.i.i, %pickNaN.exit.i
-  %.pr.i.pre = load i8, ptr %pb, align 8
-  %cmp.i21.i = icmp eq i8 %.pr.i.pre, 5
+19:                                               ; preds = %if.end13.i, %pickNaN.exit.i
+  %cmp.i21.i = icmp eq i8 %5, 5
   br i1 %cmp.i21.i, label %if.then24.i, label %parts128_addsub.exit
 
 if.then24.i:                                      ; preds = %pickNaN.exit.i, %19
@@ -2562,9 +2561,9 @@ parts128_addsub.exitthread-pre-split:             ; preds = %if.then25.i, %if.th
   %.pr = load i8, ptr %retval.i7.0.ph, align 8
   br label %parts128_addsub.exit
 
-parts128_addsub.exit:                             ; preds = %parts128_addsub.exitthread-pre-split, %19
-  %21 = phi i8 [ %.pr, %parts128_addsub.exitthread-pre-split ], [ %.pr.i.pre, %19 ]
-  %retval.i7.0 = phi ptr [ %retval.i7.0.ph, %parts128_addsub.exitthread-pre-split ], [ %pb, %19 ]
+parts128_addsub.exit:                             ; preds = %lor.lhs.false.i.i, %parts128_addsub.exitthread-pre-split, %19
+  %21 = phi i8 [ %.pr, %parts128_addsub.exitthread-pre-split ], [ %5, %19 ], [ %5, %lor.lhs.false.i.i ]
+  %retval.i7.0 = phi ptr [ %retval.i7.0.ph, %parts128_addsub.exitthread-pre-split ], [ %pb, %19 ], [ %pb, %lor.lhs.false.i.i ]
   switch i8 %21, label %do.body21.i [
     i8 2, label %if.then.i63
     i8 1, label %sw.bb.i
@@ -2758,21 +2757,21 @@ floatx80_unpack_canonical.exit:                   ; preds = %sw.bb.i
   br label %return
 
 if.end:                                           ; preds = %if.then10.i, %if.else.i7
-  %11 = phi i8 [ %.pre132, %if.then10.i ], [ %cond17.i, %if.else.i7 ]
-  %12 = phi i8 [ %.pre131, %if.then10.i ], [ %frombool.i92, %if.else.i7 ]
-  %13 = trunc i8 %12 to i1
-  %tobool3.i = xor i1 %subtract, %13
+  %.pr.i.pre = phi i8 [ %.pre132, %if.then10.i ], [ %cond17.i, %if.else.i7 ]
+  %11 = phi i8 [ %.pre131, %if.then10.i ], [ %frombool.i92, %if.else.i7 ]
+  %12 = trunc i8 %11 to i1
+  %tobool3.i = xor i1 %subtract, %12
   %frombool4.i = zext i1 %tobool3.i to i8
-  %14 = load i8, ptr %pa, align 8
-  %conv5.i = zext nneg i8 %14 to i32
+  %13 = load i8, ptr %pa, align 8
+  %conv5.i = zext nneg i8 %13 to i32
   %shl.i = shl nuw i32 1, %conv5.i
-  %conv7.i = zext nneg i8 %11 to i32
+  %conv7.i = zext nneg i8 %.pr.i.pre to i32
   %shl8.i = shl nuw i32 1, %conv7.i
   %or.i65 = or i32 %shl8.i, %shl.i
-  %15 = load i8, ptr %.compoundliteral.sroa.2.0..sroa_idx.i, align 1
-  %16 = trunc i8 %15 to i1
-  %17 = xor i1 %tobool3.i, %16
-  br i1 %17, label %if.then.i68, label %if.else.i67
+  %14 = load i8, ptr %.compoundliteral.sroa.2.0..sroa_idx.i, align 1
+  %15 = trunc i8 %14 to i1
+  %16 = xor i1 %tobool3.i, %15
+  br i1 %16, label %if.then.i68, label %if.else.i67
 
 if.then.i68:                                      ; preds = %if.end
   switch i32 %or.i65, label %if.end31.i [
@@ -2786,8 +2785,8 @@ if.then20.i:                                      ; preds = %if.then.i68
 
 if.then25.i:                                      ; preds = %if.then.i68, %if.then20.i
   %float_rounding_mode.i = getelementptr inbounds nuw i8, ptr %status, i64 2
-  %18 = load i8, ptr %float_rounding_mode.i, align 2
-  %cmp27.i = icmp eq i8 %18, 1
+  %17 = load i8, ptr %float_rounding_mode.i, align 2
+  %cmp27.i = icmp eq i8 %17, 1
   %frombool30.i = zext i1 %cmp27.i to i8
   store i8 %frombool30.i, ptr %.compoundliteral.sroa.2.0..sroa_idx.i, align 1
   br label %parts128_addsub.exitthread-pre-split
@@ -2803,16 +2802,16 @@ if.end40.i:                                       ; preds = %if.end31.i
   br i1 %tobool42.i.not, label %if.end86.i, label %if.then43.i
 
 if.then43.i:                                      ; preds = %if.end40.i
-  %cmp46.i.not = icmp eq i8 %14, 3
+  %cmp46.i.not = icmp eq i8 %13, 3
   br i1 %cmp46.i.not, label %if.end49.i, label %return_b.i
 
 if.end49.i:                                       ; preds = %if.then43.i
-  %cmp52.i.not = icmp eq i8 %11, 3
+  %cmp52.i.not = icmp eq i8 %.pr.i.pre, 3
   br i1 %cmp52.i.not, label %if.end55.i, label %parts128_addsub.exit.thread
 
 if.end55.i:                                       ; preds = %if.end49.i
-  %19 = load i16, ptr %status, align 2
-  %or1.i99 = or i16 %19, 129
+  %18 = load i16, ptr %status, align 2
+  %or1.i99 = or i16 %18, 129
   store i16 %or1.i99, ptr %status, align 2
   store i8 4, ptr %pa, align 8
   store i8 0, ptr %.compoundliteral.sroa.2.0..sroa_idx.i, align 1
@@ -2842,16 +2841,16 @@ if.end80.i:                                       ; preds = %if.end70.i
   br i1 %tobool82.i.not, label %if.end86.i, label %parts128_addsub.exit.thread
 
 if.end86.i:                                       ; preds = %if.end80.i, %if.end40.i
-  %cmp89.i = icmp eq i8 %11, 1
+  %cmp89.i = icmp eq i8 %.pr.i.pre, 1
   br i1 %cmp89.i, label %if.then91.i, label %if.end99.i
 
 if.then91.i:                                      ; preds = %if.end86.i
-  %cmp94.i = icmp eq i8 %14, 2
+  %cmp94.i = icmp eq i8 %13, 2
   br i1 %cmp94.i, label %parts128_addsub.exit.thread119, label %if.else97.i
 
 parts128_addsub.exit.thread119:                   ; preds = %if.then91.i
-  %20 = load i8, ptr %floatx80_rounding_precision.i12, align 1
-  %idxprom.i121 = zext i8 %20 to i64
+  %19 = load i8, ptr %floatx80_rounding_precision.i12, align 1
+  %idxprom.i121 = zext i8 %19 to i64
   %arrayidx.i122 = getelementptr [3 x %struct.FloatFmt], ptr @floatx80_params, i64 0, i64 %idxprom.i121
   br label %sw.bb.i50
 
@@ -2860,11 +2859,11 @@ if.else97.i:                                      ; preds = %if.then91.i
   unreachable
 
 if.end99.i:                                       ; preds = %if.end86.i
-  %cmp103.i = icmp eq i8 %14, 1
+  %cmp103.i = icmp eq i8 %13, 1
   br i1 %cmp103.i, label %if.then105.i, label %if.else106.i
 
 if.then105.i:                                     ; preds = %if.end99.i
-  %cmp112.i = icmp eq i8 %11, 2
+  %cmp112.i = icmp eq i8 %.pr.i.pre, 2
   br i1 %cmp112.i, label %return_b.i, label %if.else115.i
 
 if.else106.i:                                     ; preds = %if.end99.i
@@ -2880,21 +2879,21 @@ return_b.i:                                       ; preds = %if.then105.i, %if.t
   br label %parts128_addsub.exitthread-pre-split
 
 p_nan.i:                                          ; preds = %if.end70.i, %if.end31.i
-  %cmp.i.i = icmp eq i8 %14, 5
-  %cmp.i17.i = icmp eq i8 %11, 5
+  %cmp.i.i = icmp eq i8 %13, 5
+  %cmp.i17.i = icmp eq i8 %.pr.i.pre, 5
   %or.cond = select i1 %cmp.i.i, i1 true, i1 %cmp.i17.i
   br i1 %or.cond, label %if.then.i105, label %if.end.i103
 
 if.then.i105:                                     ; preds = %p_nan.i
-  %21 = load i16, ptr %status, align 2
-  %or1.i.i = or i16 %21, 8193
+  %20 = load i16, ptr %status, align 2
+  %or1.i.i = or i16 %20, 8193
   store i16 %or1.i.i, ptr %status, align 2
   br label %if.end.i103
 
 if.end.i103:                                      ; preds = %p_nan.i, %if.then.i105
   %default_nan_mode.i = getelementptr inbounds nuw i8, ptr %status, i64 7
-  %22 = load i8, ptr %default_nan_mode.i, align 1
-  %tobool.i = trunc i8 %22 to i1
+  %21 = load i8, ptr %default_nan_mode.i, align 1
+  %tobool.i = trunc i8 %21 to i1
   br i1 %tobool.i, label %if.then3.i, label %if.else.i
 
 if.then3.i:                                       ; preds = %if.end.i103
@@ -2906,32 +2905,32 @@ if.then3.i:                                       ; preds = %if.end.i103
   br label %parts128_addsub.exitthread-pre-split
 
 if.else.i:                                        ; preds = %if.end.i103
-  %23 = load i64, ptr %.ph.i.sroa.gep, align 8
-  %24 = load i64, ptr %.ph.i.sroa.gep110, align 8
-  %cmp.i18.i = icmp eq i64 %23, %24
+  %22 = load i64, ptr %.ph.i.sroa.gep, align 8
+  %23 = load i64, ptr %.ph.i.sroa.gep110, align 8
+  %cmp.i18.i = icmp eq i64 %22, %23
   br i1 %cmp.i18.i, label %if.then.i.i, label %frac128_cmp.exit.i
 
 if.then.i.i:                                      ; preds = %if.else.i
-  %25 = load i64, ptr %.compoundliteral.sroa.5.0..sroa_idx.i, align 8
-  %26 = load i64, ptr %.compoundliteral.sroa.5.0..sroa_idx.i97, align 8
-  %cmp3.i.i = icmp eq i64 %25, %26
+  %24 = load i64, ptr %.compoundliteral.sroa.5.0..sroa_idx.i, align 8
+  %25 = load i64, ptr %.compoundliteral.sroa.5.0..sroa_idx.i97, align 8
+  %cmp3.i.i = icmp eq i64 %24, %25
   br i1 %cmp3.i.i, label %if.then6.i, label %frac128_cmp.exit.i
 
 frac128_cmp.exit.i:                               ; preds = %if.then.i.i, %if.else.i
-  %ta.0.i.i = phi i64 [ %25, %if.then.i.i ], [ %23, %if.else.i ]
-  %tb.0.i.i = phi i64 [ %26, %if.then.i.i ], [ %24, %if.else.i ]
+  %ta.0.i.i = phi i64 [ %24, %if.then.i.i ], [ %22, %if.else.i ]
+  %tb.0.i.i = phi i64 [ %25, %if.then.i.i ], [ %23, %if.else.i ]
   %cmp6.i.i = icmp ult i64 %ta.0.i.i, %tb.0.i.i
   br label %if.end13.i
 
 if.then6.i:                                       ; preds = %if.then.i.i
-  %27 = and i8 %15, 1
-  %28 = and i8 %12, 1
-  %cmp11.i = icmp samesign uge i8 %27, %28
+  %26 = and i8 %14, 1
+  %27 = and i8 %11, 1
+  %cmp11.i = icmp samesign uge i8 %26, %27
   br label %if.end13.i
 
 if.end13.i:                                       ; preds = %if.then6.i, %frac128_cmp.exit.i
   %cmp.0.i = phi i1 [ %cmp11.i, %if.then6.i ], [ %cmp6.i.i, %frac128_cmp.exit.i ]
-  switch i8 %14, label %29 [
+  switch i8 %13, label %28 [
     i8 5, label %pickNaN.exit.i
     i8 4, label %if.then6.i.i
   ]
@@ -2940,39 +2939,38 @@ if.then6.i.i:                                     ; preds = %if.end13.i
   br i1 %cmp.i17.i, label %parts128_addsub.exitthread-pre-split, label %lor.lhs.false.i.i
 
 lor.lhs.false.i.i:                                ; preds = %if.then6.i.i
-  %cmp.i11.i.i = icmp eq i8 %11, 4
+  %cmp.i11.i.i = icmp eq i8 %.pr.i.pre, 4
   %spec.select.i.i = and i1 %cmp.0.i, %cmp.i11.i.i
   %cond.fr31.i = freeze i1 %spec.select.i.i
-  br i1 %cond.fr31.i, label %29, label %parts128_addsub.exit.thread151
+  %.pre135153 = load i8, ptr %floatx80_rounding_precision.i12, align 1
+  br i1 %cond.fr31.i, label %parts128_addsub.exit, label %parts128_addsub.exit.thread154
 
-parts128_addsub.exit.thread151:                   ; preds = %lor.lhs.false.i.i
-  %.pre135150 = load i8, ptr %floatx80_rounding_precision.i12, align 1
-  %idxprom.i153 = zext i8 %.pre135150 to i64
-  %arrayidx.i154 = getelementptr [3 x %struct.FloatFmt], ptr @floatx80_params, i64 0, i64 %idxprom.i153
+parts128_addsub.exit.thread154:                   ; preds = %lor.lhs.false.i.i
+  %idxprom.i156 = zext i8 %.pre135153 to i64
+  %arrayidx.i157 = getelementptr [3 x %struct.FloatFmt], ptr @floatx80_params, i64 0, i64 %idxprom.i156
   br label %sw.bb16.i
 
 pickNaN.exit.i:                                   ; preds = %if.end13.i
-  %cmp.i8.i.i = icmp eq i8 %11, 4
+  %cmp.i8.i.i = icmp eq i8 %.pr.i.pre, 4
   %spec.select25.i = select i1 %cmp.i17.i, i1 %cmp.0.i, i1 %cmp.i8.i.i
   %cond.fr.i = freeze i1 %spec.select25.i
-  br i1 %cond.fr.i, label %29, label %.thread
+  br i1 %cond.fr.i, label %28, label %.thread
 
 .thread:                                          ; preds = %pickNaN.exit.i
   %.pre135141 = load i8, ptr %floatx80_rounding_precision.i12, align 1
   br label %parts128_addsub.exit.thread125
 
-29:                                               ; preds = %if.end13.i, %lor.lhs.false.i.i, %pickNaN.exit.i
-  %.pr.i.pre = load i8, ptr %pb, align 8
+28:                                               ; preds = %if.end13.i, %pickNaN.exit.i
   %cmp.i21.i = icmp eq i8 %.pr.i.pre, 5
   %.pre135 = load i8, ptr %floatx80_rounding_precision.i12, align 1
   br i1 %cmp.i21.i, label %parts128_addsub.exit.thread125, label %parts128_addsub.exit
 
-parts128_addsub.exit.thread125:                   ; preds = %.thread, %29
-  %.pre135144 = phi i8 [ %.pre135141, %.thread ], [ %.pre135, %29 ]
-  %.ph.i143 = phi ptr [ %pa, %.thread ], [ %pb, %29 ]
-  %.ph.i.sroa.phi142 = phi ptr [ %.ph.i.sroa.gep, %.thread ], [ %.ph.i.sroa.gep110, %29 ]
-  %30 = load i64, ptr %.ph.i.sroa.phi142, align 8
-  %or4.i.i.i = or i64 %30, 4611686018427387904
+parts128_addsub.exit.thread125:                   ; preds = %.thread, %28
+  %.pre135144 = phi i8 [ %.pre135141, %.thread ], [ %.pre135, %28 ]
+  %.ph.i143 = phi ptr [ %pa, %.thread ], [ %pb, %28 ]
+  %.ph.i.sroa.phi142 = phi ptr [ %.ph.i.sroa.gep, %.thread ], [ %.ph.i.sroa.gep110, %28 ]
+  %29 = load i64, ptr %.ph.i.sroa.phi142, align 8
+  %or4.i.i.i = or i64 %29, 4611686018427387904
   store i64 %or4.i.i.i, ptr %.ph.i.sroa.phi142, align 8
   store i8 4, ptr %.ph.i143, align 8
   %idxprom.i127 = zext i8 %.pre135144 to i64
@@ -2986,18 +2984,18 @@ parts128_addsub.exitthread-pre-split:             ; preds = %if.then25.i, %if.en
   br label %parts128_addsub.exit
 
 parts128_addsub.exit.thread:                      ; preds = %if.end80.i, %if.end49.i
-  %31 = load i8, ptr %floatx80_rounding_precision.i12, align 1
-  %idxprom.i114 = zext i8 %31 to i64
+  %30 = load i8, ptr %floatx80_rounding_precision.i12, align 1
+  %idxprom.i114 = zext i8 %30 to i64
   %arrayidx.i115 = getelementptr [3 x %struct.FloatFmt], ptr @floatx80_params, i64 0, i64 %idxprom.i114
   br label %floatx80_round_pack_canonical.exit.sink.split
 
-parts128_addsub.exit:                             ; preds = %parts128_addsub.exitthread-pre-split, %29
-  %32 = phi i8 [ %.pre134, %parts128_addsub.exitthread-pre-split ], [ %.pre135, %29 ]
-  %33 = phi i8 [ %.pr, %parts128_addsub.exitthread-pre-split ], [ %.pr.i.pre, %29 ]
-  %retval.i58.0 = phi ptr [ %retval.i58.0.ph, %parts128_addsub.exitthread-pre-split ], [ %pb, %29 ]
-  %idxprom.i = zext i8 %32 to i64
+parts128_addsub.exit:                             ; preds = %lor.lhs.false.i.i, %parts128_addsub.exitthread-pre-split, %28
+  %31 = phi i8 [ %.pre134, %parts128_addsub.exitthread-pre-split ], [ %.pre135, %28 ], [ %.pre135153, %lor.lhs.false.i.i ]
+  %32 = phi i8 [ %.pr, %parts128_addsub.exitthread-pre-split ], [ %.pr.i.pre, %28 ], [ %.pr.i.pre, %lor.lhs.false.i.i ]
+  %retval.i58.0 = phi ptr [ %retval.i58.0.ph, %parts128_addsub.exitthread-pre-split ], [ %pb, %28 ], [ %pb, %lor.lhs.false.i.i ]
+  %idxprom.i = zext i8 %31 to i64
   %arrayidx.i = getelementptr [3 x %struct.FloatFmt], ptr @floatx80_params, i64 0, i64 %idxprom.i
-  switch i8 %33, label %sw.default.i57 [
+  switch i8 %32, label %sw.default.i57 [
     i8 2, label %sw.bb.i50
     i8 3, label %floatx80_round_pack_canonical.exit.sink.split
     i8 1, label %floatx80_round_pack_canonical.exit
@@ -3007,57 +3005,57 @@ parts128_addsub.exit:                             ; preds = %parts128_addsub.exi
 
 sw.bb.i50:                                        ; preds = %parts128_addsub.exit.thread119, %parts128_addsub.exit
   %arrayidx.i124 = phi ptr [ %arrayidx.i122, %parts128_addsub.exit.thread119 ], [ %arrayidx.i, %parts128_addsub.exit ]
-  %34 = phi i8 [ %20, %parts128_addsub.exit.thread119 ], [ %32, %parts128_addsub.exit ]
+  %33 = phi i8 [ %19, %parts128_addsub.exit.thread119 ], [ %31, %parts128_addsub.exit ]
   %retval.i58.0123 = phi ptr [ %pa, %parts128_addsub.exit.thread119 ], [ %retval.i58.0, %parts128_addsub.exit ]
-  %cmp.i52 = icmp eq i8 %34, 0
+  %cmp.i52 = icmp eq i8 %33, 0
   br i1 %cmp.i52, label %if.then.i55, label %if.else.i53
 
 if.then.i55:                                      ; preds = %sw.bb.i50
   call fastcc void @parts128_uncanon_normal(ptr noundef %retval.i58.0123, ptr noundef nonnull %status, ptr noundef %arrayidx.i124)
   %frac_hi.i56 = getelementptr inbounds nuw i8, ptr %retval.i58.0123, i64 8
-  %35 = load i64, ptr %frac_hi.i56, align 8
+  %34 = load i64, ptr %frac_hi.i56, align 8
   %exp4.i = getelementptr inbounds nuw i8, ptr %retval.i58.0123, i64 4
-  %36 = load i32, ptr %exp4.i, align 4
+  %35 = load i32, ptr %exp4.i, align 4
   br label %if.end.i54
 
 if.else.i53:                                      ; preds = %sw.bb.i50
   %sign.i = getelementptr inbounds nuw i8, ptr %retval.i58.0123, i64 1
-  %37 = load i8, ptr %sign.i, align 1
+  %36 = load i8, ptr %sign.i, align 1
   %sign5.i = getelementptr inbounds nuw i8, ptr %p64.i, i64 1
-  %frombool.i = and i8 %37, 1
+  %frombool.i = and i8 %36, 1
   store i8 %frombool.i, ptr %sign5.i, align 1
   %exp6.i = getelementptr inbounds nuw i8, ptr %retval.i58.0123, i64 4
-  %38 = load i32, ptr %exp6.i, align 4
+  %37 = load i32, ptr %exp6.i, align 4
   %exp7.i = getelementptr inbounds nuw i8, ptr %p64.i, i64 4
-  store i32 %38, ptr %exp7.i, align 4
-  %39 = getelementptr i8, ptr %retval.i58.0123, i64 8
-  %retval.i58.0.val = load i64, ptr %39, align 8
-  %40 = getelementptr i8, ptr %retval.i58.0123, i64 16
-  %retval.i58.0.val86 = load i64, ptr %40, align 8
+  store i32 %37, ptr %exp7.i, align 4
+  %38 = getelementptr i8, ptr %retval.i58.0123, i64 8
+  %retval.i58.0.val = load i64, ptr %38, align 8
+  %39 = getelementptr i8, ptr %retval.i58.0123, i64 16
+  %retval.i58.0.val86 = load i64, ptr %39, align 8
   %cmp.i106 = icmp ne i64 %retval.i58.0.val86, 0
   %conv1.i = zext i1 %cmp.i106 to i64
   %or.i107 = or i64 %retval.i58.0.val, %conv1.i
-  %41 = getelementptr inbounds nuw i8, ptr %p64.i, i64 8
-  store i64 %or.i107, ptr %41, align 8
+  %40 = getelementptr inbounds nuw i8, ptr %p64.i, i64 8
+  store i64 %or.i107, ptr %40, align 8
   call fastcc void @parts64_uncanon_normal(ptr noundef %p64.i, ptr noundef nonnull %status, ptr noundef %arrayidx.i124)
-  %42 = load i64, ptr %41, align 8
-  %43 = load i32, ptr %exp7.i, align 4
+  %41 = load i64, ptr %40, align 8
+  %42 = load i32, ptr %exp7.i, align 4
   br label %if.end.i54
 
 if.end.i54:                                       ; preds = %if.else.i53, %if.then.i55
-  %exp.i46.0 = phi i32 [ %36, %if.then.i55 ], [ %43, %if.else.i53 ]
-  %frac.i.0 = phi i64 [ %35, %if.then.i55 ], [ %42, %if.else.i53 ]
+  %exp.i46.0 = phi i32 [ %35, %if.then.i55 ], [ %42, %if.else.i53 ]
+  %frac.i.0 = phi i64 [ %34, %if.then.i55 ], [ %41, %if.else.i53 ]
   %exp_max.i = getelementptr inbounds nuw i8, ptr %arrayidx.i124, i64 12
-  %44 = load i32, ptr %exp_max.i, align 4
-  %cmp9.i.not = icmp eq i32 %exp.i46.0, %44
+  %43 = load i32, ptr %exp_max.i, align 4
+  %cmp9.i.not = icmp eq i32 %exp.i46.0, %43
   br i1 %cmp9.i.not, label %floatx80_round_pack_canonical.exit.sink.split, label %floatx80_round_pack_canonical.exit
 
-sw.bb16.i:                                        ; preds = %parts128_addsub.exit.thread151, %parts128_addsub.exit.thread125, %parts128_addsub.exit, %parts128_addsub.exit
-  %arrayidx.i130 = phi ptr [ %arrayidx.i128, %parts128_addsub.exit.thread125 ], [ %arrayidx.i, %parts128_addsub.exit ], [ %arrayidx.i, %parts128_addsub.exit ], [ %arrayidx.i154, %parts128_addsub.exit.thread151 ]
-  %retval.i58.0129 = phi ptr [ %.ph.i143, %parts128_addsub.exit.thread125 ], [ %retval.i58.0, %parts128_addsub.exit ], [ %retval.i58.0, %parts128_addsub.exit ], [ %pa, %parts128_addsub.exit.thread151 ]
+sw.bb16.i:                                        ; preds = %parts128_addsub.exit.thread154, %parts128_addsub.exit.thread125, %parts128_addsub.exit, %parts128_addsub.exit
+  %arrayidx.i130 = phi ptr [ %arrayidx.i128, %parts128_addsub.exit.thread125 ], [ %arrayidx.i, %parts128_addsub.exit ], [ %arrayidx.i, %parts128_addsub.exit ], [ %arrayidx.i157, %parts128_addsub.exit.thread154 ]
+  %retval.i58.0129 = phi ptr [ %.ph.i143, %parts128_addsub.exit.thread125 ], [ %retval.i58.0, %parts128_addsub.exit ], [ %retval.i58.0, %parts128_addsub.exit ], [ %pa, %parts128_addsub.exit.thread154 ]
   %frac_hi17.i = getelementptr inbounds nuw i8, ptr %retval.i58.0129, i64 8
-  %45 = load i64, ptr %frac_hi17.i, align 8
-  %or.i = or i64 %45, -9223372036854775808
+  %44 = load i64, ptr %frac_hi17.i, align 8
+  %or.i = or i64 %44, -9223372036854775808
   br label %floatx80_round_pack_canonical.exit.sink.split
 
 sw.default.i57:                                   ; preds = %parts128_addsub.exit
@@ -3069,16 +3067,16 @@ floatx80_round_pack_canonical.exit.sink.split:    ; preds = %parts128_addsub.exi
   %retval.i58.0116.ph = phi ptr [ %retval.i58.0129, %sw.bb16.i ], [ %pa, %parts128_addsub.exit.thread ], [ %retval.i58.0123, %if.end.i54 ], [ %retval.i58.0, %parts128_addsub.exit ]
   %frac.i.1.ph = phi i64 [ %or.i, %sw.bb16.i ], [ -9223372036854775808, %parts128_addsub.exit.thread ], [ -9223372036854775808, %if.end.i54 ], [ -9223372036854775808, %parts128_addsub.exit ]
   %exp_max18.i = getelementptr inbounds nuw i8, ptr %arrayidx.i130.sink, i64 12
-  %46 = load i32, ptr %exp_max18.i, align 4
+  %45 = load i32, ptr %exp_max18.i, align 4
   br label %floatx80_round_pack_canonical.exit
 
 floatx80_round_pack_canonical.exit:               ; preds = %floatx80_round_pack_canonical.exit.sink.split, %parts128_addsub.exit, %if.end.i54
   %retval.i58.0116 = phi ptr [ %retval.i58.0123, %if.end.i54 ], [ %retval.i58.0, %parts128_addsub.exit ], [ %retval.i58.0116.ph, %floatx80_round_pack_canonical.exit.sink.split ]
-  %exp.i46.1 = phi i32 [ %exp.i46.0, %if.end.i54 ], [ 0, %parts128_addsub.exit ], [ %46, %floatx80_round_pack_canonical.exit.sink.split ]
+  %exp.i46.1 = phi i32 [ %exp.i46.0, %if.end.i54 ], [ 0, %parts128_addsub.exit ], [ %45, %floatx80_round_pack_canonical.exit.sink.split ]
   %frac.i.1 = phi i64 [ %frac.i.0, %if.end.i54 ], [ 0, %parts128_addsub.exit ], [ %frac.i.1.ph, %floatx80_round_pack_canonical.exit.sink.split ]
   %sign19.i = getelementptr inbounds nuw i8, ptr %retval.i58.0116, i64 1
-  %47 = load i8, ptr %sign19.i, align 1
-  %tobool20.i = trunc i8 %47 to i1
+  %46 = load i8, ptr %sign19.i, align 1
+  %tobool20.i = trunc i8 %46 to i1
   %shl.i108 = select i1 %tobool20.i, i32 32768, i32 0
   %add.i = add i32 %shl.i108, %exp.i46.1
   %conv2.i = trunc i32 %add.i to i16

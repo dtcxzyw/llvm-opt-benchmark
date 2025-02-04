@@ -44771,26 +44771,25 @@ add_pbf_error.exit507:                            ; preds = %183, %188
 217:                                              ; preds = %210
   %218 = tail call i32 @timelib_strncasecmp(ptr noundef nonnull %77, ptr noundef nonnull @.str.119, i64 noundef 2) #19
   %.not6.i = icmp eq i32 %218, 0
-  %.pre1147 = load ptr, ptr %8, align 8
   br i1 %.not6.i, label %225, label %219
 
 219:                                              ; preds = %217
-  %220 = tail call i32 @timelib_strncasecmp(ptr noundef %.pre1147, ptr noundef nonnull @.str.120, i64 noundef 2) #19
+  %220 = tail call i32 @timelib_strncasecmp(ptr noundef nonnull %77, ptr noundef nonnull @.str.120, i64 noundef 2) #19
   %.not7.i = icmp eq i32 %220, 0
   br i1 %.not7.i, label %225, label %221
 
 221:                                              ; preds = %219
-  %222 = tail call i32 @timelib_strncasecmp(ptr noundef %.pre1147, ptr noundef nonnull @.str.121, i64 noundef 2) #19
+  %222 = tail call i32 @timelib_strncasecmp(ptr noundef nonnull %77, ptr noundef nonnull @.str.121, i64 noundef 2) #19
   %.not8.i508 = icmp eq i32 %222, 0
   br i1 %.not8.i508, label %225, label %223
 
 223:                                              ; preds = %221
-  %224 = tail call i32 @timelib_strncasecmp(ptr noundef %.pre1147, ptr noundef nonnull @.str.122, i64 noundef 2) #19
+  %224 = tail call i32 @timelib_strncasecmp(ptr noundef nonnull %77, ptr noundef nonnull @.str.122, i64 noundef 2) #19
   %.not9.i = icmp eq i32 %224, 0
   br i1 %.not9.i, label %225, label %timelib_skip_day_suffix.exit
 
 225:                                              ; preds = %223, %221, %219, %217
-  %226 = getelementptr inbounds nuw i8, ptr %.pre1147, i64 2
+  %226 = getelementptr inbounds nuw i8, ptr %77, i64 2
   store ptr %226, ptr %8, align 8
   br label %timelib_skip_day_suffix.exit
 
@@ -44892,8 +44891,7 @@ add_pbf_error.exit516:                            ; preds = %259, %264
   br label %283
 
 283:                                              ; preds = %add_pbf_error.exit516, %255
-  %.promoted.i.i517 = load ptr, ptr %8, align 8
-  %284 = load i8, ptr %.promoted.i.i517, align 1
+  %284 = load i8, ptr %77, align 1
   %285 = add i8 %284, -58
   %or.cond35.i.i518 = icmp ult i8 %285, -10
   br i1 %or.cond35.i.i518, label %.critedge.i.i530.preheader, label %.lr.ph.preheader.i.i519
@@ -44903,7 +44901,7 @@ add_pbf_error.exit516:                            ; preds = %259, %264
   br i1 %286, label %timelib_get_nr.exit532.thread.loopexit, label %.lr.ph1052
 
 .lr.ph.preheader.i.i519:                          ; preds = %.lr.ph1052, %283
-  %.promoted36.i.i520 = phi ptr [ %.promoted.i.i517, %283 ], [ %289, %.lr.ph1052 ]
+  %.promoted36.i.i520 = phi ptr [ %77, %283 ], [ %289, %.lr.ph1052 ]
   br label %.lr.ph.i.i521
 
 .critedge.i.i530:                                 ; preds = %.lr.ph1052
@@ -44911,7 +44909,7 @@ add_pbf_error.exit516:                            ; preds = %259, %264
   br i1 %287, label %timelib_get_nr.exit532.thread.loopexit, label %.lr.ph1052
 
 .lr.ph1052:                                       ; preds = %.critedge.i.i530.preheader, %.critedge.i.i530
-  %288 = phi ptr [ %289, %.critedge.i.i530 ], [ %.promoted.i.i517, %.critedge.i.i530.preheader ]
+  %288 = phi ptr [ %289, %.critedge.i.i530 ], [ %77, %.critedge.i.i530.preheader ]
   %289 = getelementptr inbounds nuw i8, ptr %288, i64 1
   %290 = load i8, ptr %289, align 1
   %291 = add i8 %290, -58
@@ -44944,7 +44942,7 @@ timelib_get_nr.exit532:                           ; preds = %.lr.ph.i.i521
   br i1 %301, label %timelib_get_nr.exit532.thread, label %325
 
 timelib_get_nr.exit532.thread.loopexit:           ; preds = %.critedge.i.i530, %.critedge.i.i530.preheader
-  %.lcssa1050 = phi ptr [ %.promoted.i.i517, %.critedge.i.i530.preheader ], [ %289, %.critedge.i.i530 ]
+  %.lcssa1050 = phi ptr [ %77, %.critedge.i.i530.preheader ], [ %289, %.critedge.i.i530 ]
   store ptr %.lcssa1050, ptr %8, align 8
   br label %timelib_get_nr.exit532.thread
 
@@ -45056,11 +45054,11 @@ add_pbf_error.exit540:                            ; preds = %339, %344
   %361 = tail call noalias ptr @_estrdup(ptr noundef nonnull @.str.7) #19
   %362 = getelementptr inbounds nuw i8, ptr %354, i64 16
   store ptr %361, ptr %362, align 8
+  %.pre1147 = load i8, ptr %77, align 1
   br label %363
 
 363:                                              ; preds = %add_pbf_error.exit540, %335
-  %.promoted.i.i541 = load ptr, ptr %8, align 8
-  %364 = load i8, ptr %.promoted.i.i541, align 1
+  %364 = phi i8 [ %.pre1147, %add_pbf_error.exit540 ], [ %.us-phi1034, %335 ]
   %365 = add i8 %364, -58
   %or.cond35.i.i542 = icmp ult i8 %365, -10
   br i1 %or.cond35.i.i542, label %.critedge.i.i554.preheader, label %.lr.ph.preheader.i.i543
@@ -45070,7 +45068,7 @@ add_pbf_error.exit540:                            ; preds = %339, %344
   br i1 %366, label %timelib_get_nr.exit556.thread, label %.lr.ph1047
 
 .lr.ph.preheader.i.i543:                          ; preds = %.lr.ph1047, %363
-  %.promoted36.i.i544 = phi ptr [ %.promoted.i.i541, %363 ], [ %371, %.lr.ph1047 ]
+  %.promoted36.i.i544 = phi ptr [ %77, %363 ], [ %371, %.lr.ph1047 ]
   br label %.lr.ph.i.i545
 
 .critedge.i.i554:                                 ; preds = %.lr.ph1047
@@ -45078,7 +45076,7 @@ add_pbf_error.exit540:                            ; preds = %339, %344
   br i1 %367, label %timelib_get_nr.exit556.thread, label %.lr.ph1047
 
 timelib_get_nr.exit556.thread:                    ; preds = %.critedge.i.i554, %.critedge.i.i554.preheader
-  %.lcssa1045 = phi ptr [ %.promoted.i.i541, %.critedge.i.i554.preheader ], [ %371, %.critedge.i.i554 ]
+  %.lcssa1045 = phi ptr [ %77, %.critedge.i.i554.preheader ], [ %371, %.critedge.i.i554 ]
   store ptr %.lcssa1045, ptr %8, align 8
   %368 = load ptr, ptr %17, align 8
   %369 = getelementptr inbounds nuw i8, ptr %368, i64 8
@@ -45086,7 +45084,7 @@ timelib_get_nr.exit556.thread:                    ; preds = %.critedge.i.i554, %
   br label %385
 
 .lr.ph1047:                                       ; preds = %.critedge.i.i554.preheader, %.critedge.i.i554
-  %370 = phi ptr [ %371, %.critedge.i.i554 ], [ %.promoted.i.i541, %.critedge.i.i554.preheader ]
+  %370 = phi ptr [ %371, %.critedge.i.i554 ], [ %77, %.critedge.i.i554.preheader ]
   %371 = getelementptr inbounds nuw i8, ptr %370, i64 1
   %372 = load i8, ptr %371, align 1
   %373 = add i8 %372, -58

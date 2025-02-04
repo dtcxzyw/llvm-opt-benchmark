@@ -806,7 +806,7 @@ entry:
   br i1 %cmp, label %_ZNK4mold3elf12InputSectionINS0_5ALPHAEE4shdrEv.exit17, label %entry.if.end_crit_edge
 
 entry.if.end_crit_edge:                           ; preds = %entry
-  %.pre81 = and i64 %shndx, 4294967295
+  %.pre80 = and i64 %shndx, 4294967295
   br label %if.end
 
 _ZNK4mold3elf12InputSectionINS0_5ALPHAEE4shdrEv.exit17: ; preds = %entry
@@ -816,19 +816,19 @@ _ZNK4mold3elf12InputSectionINS0_5ALPHAEE4shdrEv.exit17: ; preds = %entry
   %2 = load ptr, ptr %data, align 8
   %conv.i = and i64 %shndx, 4294967295
   %3 = load ptr, ptr %elf_sections, align 8
-  %sh_size7.phi.trans.insert = getelementptr inbounds nuw %"struct.mold::elf::ElfShdr", ptr %3, i64 %conv.i, i32 5
-  %x.0.copyload.i18.pre = load i64, ptr %sh_size7.phi.trans.insert, align 1
   %sh_offset69 = getelementptr inbounds nuw %"struct.mold::elf::ElfShdr", ptr %3, i64 %conv.i, i32 4
   %x.0.copyload.i70.pn.pre = load i64, ptr %sh_offset69, align 1
   %add.ptr72 = getelementptr inbounds i8, ptr %2, i64 %x.0.copyload.i70.pn.pre
-  store i64 %x.0.copyload.i18.pre, ptr %contents, align 8
+  %sh_size7 = getelementptr inbounds nuw %"struct.mold::elf::ElfShdr", ptr %3, i64 %conv.i, i32 5
+  %x.0.copyload.i18 = load i64, ptr %sh_size7, align 1
+  store i64 %x.0.copyload.i18, ptr %contents, align 8
   %ref.tmp.sroa.2.0.contents.sroa_idx = getelementptr inbounds nuw i8, ptr %this, i64 32
   store ptr %add.ptr72, ptr %ref.tmp.sroa.2.0.contents.sroa_idx, align 8
   %.pre = load i64, ptr %_M_extent.i, align 8
   br label %if.end
 
 if.end:                                           ; preds = %entry.if.end_crit_edge, %_ZNK4mold3elf12InputSectionINS0_5ALPHAEE4shdrEv.exit17
-  %conv.i20.pre-phi = phi i64 [ %.pre81, %entry.if.end_crit_edge ], [ %conv.i, %_ZNK4mold3elf12InputSectionINS0_5ALPHAEE4shdrEv.exit17 ]
+  %conv.i20.pre-phi = phi i64 [ %.pre80, %entry.if.end_crit_edge ], [ %conv.i, %_ZNK4mold3elf12InputSectionINS0_5ALPHAEE4shdrEv.exit17 ]
   %4 = phi ptr [ null, %entry.if.end_crit_edge ], [ %add.ptr72, %_ZNK4mold3elf12InputSectionINS0_5ALPHAEE4shdrEv.exit17 ]
   %5 = phi i64 [ %0, %entry.if.end_crit_edge ], [ %.pre, %_ZNK4mold3elf12InputSectionINS0_5ALPHAEE4shdrEv.exit17 ]
   %cmp.i22 = icmp ugt i64 %5, %conv.i20.pre-phi
@@ -894,10 +894,10 @@ _ZNK4mold3elf12InputSectionINS0_5ALPHAEE4shdrEv.exit64: ; preds = %if.then.i61, 
   br label %if.end30
 
 if.end30:                                         ; preds = %_ZNK4mold3elf12InputSectionINS0_5ALPHAEE4shdrEv.exit64, %if.then12
-  %x.0.copyload.i65.sink82.in = phi ptr [ %sh_addralign, %_ZNK4mold3elf12InputSectionINS0_5ALPHAEE4shdrEv.exit64 ], [ %ch_addralign, %if.then12 ]
-  %x.0.copyload.i65.sink82 = load i64, ptr %x.0.copyload.i65.sink82.in, align 1
-  %cmp.i66 = icmp eq i64 %x.0.copyload.i65.sink82, 0
-  %11 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %x.0.copyload.i65.sink82, i1 true)
+  %x.0.copyload.i65.sink81.in = phi ptr [ %sh_addralign, %_ZNK4mold3elf12InputSectionINS0_5ALPHAEE4shdrEv.exit64 ], [ %ch_addralign, %if.then12 ]
+  %x.0.copyload.i65.sink81 = load i64, ptr %x.0.copyload.i65.sink81.in, align 1
+  %cmp.i66 = icmp eq i64 %x.0.copyload.i65.sink81, 0
+  %11 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %x.0.copyload.i65.sink81, i1 true)
   %12 = trunc nuw nsw i64 %11 to i8
   %storemerge = select i1 %cmp.i66, i8 0, i8 %12
   store i8 %storemerge, ptr %p2align, align 2

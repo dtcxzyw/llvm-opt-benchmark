@@ -2279,7 +2279,11 @@ readbits.exit.i.thread:                           ; preds = %173
 
 183:                                              ; preds = %.lr.ph.i17.i
   %184 = getelementptr inbounds nuw i8, ptr %.0592, i64 1
-  br i1 %.not.i194, label %520, label %186
+  br i1 %.not.i194, label %._crit_edge664, label %186
+
+._crit_edge664:                                   ; preds = %183
+  %.pre665 = load i8, ptr %184, align 1
+  br label %520
 
 readbits.exit27.i:                                ; preds = %.lr.ph.i17.i
   %185 = add nuw nsw i32 %.0423591, 2
@@ -3154,10 +3158,10 @@ trajcoder_base_decompress.exit316:                ; preds = %.lr.ph.i312
   %519 = sub nsw i32 %.0105597, %450
   br label %570
 
-520:                                              ; preds = %readbits.exit27.i, %183, %.lr.ph.i17.i.thread
-  %.24447.ph490 = phi i32 [ 1, %.lr.ph.i17.i.thread ], [ 0, %183 ], [ %185, %readbits.exit27.i ]
-  %.32.ph491 = phi ptr [ %179, %.lr.ph.i17.i.thread ], [ %184, %183 ], [ %.0592, %readbits.exit27.i ]
-  %521 = load i8, ptr %.32.ph491, align 1
+520:                                              ; preds = %._crit_edge664, %readbits.exit27.i, %.lr.ph.i17.i.thread
+  %521 = phi i8 [ %180, %.lr.ph.i17.i.thread ], [ %.pre665, %._crit_edge664 ], [ %174, %readbits.exit27.i ]
+  %.24447.ph490 = phi i32 [ 1, %.lr.ph.i17.i.thread ], [ 0, %._crit_edge664 ], [ %185, %readbits.exit27.i ]
+  %.32.ph491 = phi ptr [ %179, %.lr.ph.i17.i.thread ], [ %184, %._crit_edge664 ], [ %.0592, %readbits.exit27.i ]
   %522 = lshr i32 128, %.24447.ph490
   br label %.lr.ph.i318
 

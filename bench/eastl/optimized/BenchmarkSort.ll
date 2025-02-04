@@ -6721,12 +6721,11 @@ _ZN5eastl9allocator10deallocateEPvm.exit.i.i.i1870: ; preds = %if.then.i.i1868
   br label %_ZN5eastl12basic_stringIcNS_9allocatorEED2Ev.exit1871
 
 _ZN5eastl12basic_stringIcNS_9allocatorEED2Ev.exit1871: ; preds = %invoke.cont759, %if.then.i.i1868, %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i1870
-  %sortFunctions497.val138 = load ptr, ptr %sortFunctions497, align 8
-  %tobool.not.i.i1872 = icmp eq ptr %sortFunctions497.val138, null
+  %tobool.not.i.i1872 = icmp eq ptr %sortFunctions497.val123, null
   br i1 %tobool.not.i.i1872, label %_ZN5eastl6vectorIN12_GLOBAL__N_116SortFunctionTypeENS_9allocatorEED2Ev.exit1874, label %_ZN5eastl9allocator10deallocateEPvm.exit.i.i1873
 
 _ZN5eastl9allocator10deallocateEPvm.exit.i.i1873: ; preds = %_ZN5eastl12basic_stringIcNS_9allocatorEED2Ev.exit1871
-  call void @_ZdaPv(ptr noundef nonnull %sortFunctions497.val138) #26
+  call void @_ZdaPv(ptr noundef nonnull %sortFunctions497.val123) #26
   br label %_ZN5eastl6vectorIN12_GLOBAL__N_116SortFunctionTypeENS_9allocatorEED2Ev.exit1874
 
 _ZN5eastl6vectorIN12_GLOBAL__N_116SortFunctionTypeENS_9allocatorEED2Ev.exit1874: ; preds = %_ZN5eastl12basic_stringIcNS_9allocatorEED2Ev.exit1871, %_ZN5eastl9allocator10deallocateEPvm.exit.i.i1873

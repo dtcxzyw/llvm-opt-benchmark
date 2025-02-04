@@ -2773,27 +2773,23 @@ define internal range(i32 0, 5) i32 @php_conv_qprint_decode_convert(ptr noundef 
 
 72:                                               ; preds = %26
   %73 = icmp eq i64 %.0137, 0
-  br i1 %73, label %149, label %..thread_crit_edge
+  br i1 %73, label %149, label %.thread
 
-..thread_crit_edge:                               ; preds = %72
-  %.pre162 = load i8, ptr %.0130, align 1
-  br label %.thread
-
-.thread:                                          ; preds = %..thread_crit_edge, %60, %64
-  %74 = phi i8 [ %.pre162, %..thread_crit_edge ], [ %43, %60 ], [ %43, %64 ]
-  %75 = tail call ptr @__ctype_b_loc() #22
-  %76 = load ptr, ptr %75, align 8
-  %77 = zext i8 %74 to i64
-  %78 = getelementptr inbounds nuw i16, ptr %76, i64 %77
+.thread:                                          ; preds = %60, %64, %72
+  %74 = tail call ptr @__ctype_b_loc() #22
+  %75 = load ptr, ptr %74, align 8
+  %76 = load i8, ptr %.0130, align 1
+  %77 = zext i8 %76 to i64
+  %78 = getelementptr inbounds nuw i16, ptr %75, i64 %77
   %79 = load i16, ptr %78, align 2
   %80 = and i16 %79, 4096
   %.not157 = icmp eq i16 %80, 0
   br i1 %.not157, label %149, label %81
 
 81:                                               ; preds = %.thread
-  %82 = zext i8 %74 to i32
+  %82 = zext i8 %76 to i32
   %83 = shl i32 %.0120, 4
-  %84 = icmp ugt i8 %74, 64
+  %84 = icmp ugt i8 %76, 64
   %.v = select i1 %84, i32 -55, i32 -48
   %85 = add nsw i32 %.v, %82
   %86 = or i32 %85, %83

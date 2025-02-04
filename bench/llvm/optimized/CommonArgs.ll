@@ -25140,8 +25140,6 @@ _ZL9SDLSearchRKN5clang6driver6DriverERKN4llvm3opt7ArgListERNS4_11SmallVectorIPKc
   %1294 = load i64, ptr %409, align 8, !tbaa !36
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %70)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %70, ptr noundef nonnull align 8 dereferenceable(16) %7, i64 16, i1 false)
-  %.sroa.0.0.copyload143 = load ptr, ptr %8, align 8, !tbaa !24
-  %.sroa.2.0.copyload145 = load i64, ptr %.sroa.2149.0..sroa_idx, align 8, !tbaa !102
   br i1 %9, label %1295, label %1297
 
 1295:                                             ; preds = %1292
@@ -25736,8 +25734,8 @@ _ZN4llvmplERKNS_5TwineES2_.exit106.i:             ; preds = %1444
   store i8 2, ptr %589, align 8, !tbaa !170, !alias.scope !1279
   store i8 3, ptr %590, align 1, !tbaa !173, !alias.scope !1279
   store ptr %40, ptr %39, align 8, !alias.scope !1284
-  store ptr %.sroa.0.0.copyload143, ptr %595, align 8, !alias.scope !1284
-  store i64 %.sroa.2.0.copyload145, ptr %.sroa.2.0..sroa_idx.i.i.i167.i, align 8, !tbaa !37, !alias.scope !1284
+  store ptr %.sroa.0148.0.copyload, ptr %595, align 8, !alias.scope !1284
+  store i64 %.sroa.2149.0.copyload, ptr %.sroa.2.0..sroa_idx.i.i.i167.i, align 8, !tbaa !37, !alias.scope !1284
   br label %_ZN4llvmplERKNS_5TwineES2_.exit168.i
 
 _ZN4llvmplERKNS_5TwineES2_.exit168.i:             ; preds = %1452, %_ZN4llvmplERKNS_5TwineES2_.exit106.thread81.i
@@ -25897,7 +25895,7 @@ _ZN4llvm11SmallStringILj128EEpLENS_9StringRefE.exit179.i: ; preds = %1514, %_ZN4
   %1517 = phi i64 [ %.pre8.i.i175.i, %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i174.i ], [ %.pre.i.i177.i, %1514 ]
   %1518 = add i64 %1517, %1508
   store i64 %1518, ptr %611, align 8, !tbaa !212
-  %1519 = icmp eq i64 %.sroa.2.0.copyload145, 0
+  %1519 = icmp eq i64 %.sroa.2149.0.copyload, 0
   br i1 %1519, label %._crit_edge.i.i189.i, label %1520
 
 1520:                                             ; preds = %_ZN4llvm11SmallStringILj128EEpLENS_9StringRefE.exit179.i
@@ -25919,7 +25917,7 @@ _ZN4llvm11SmallStringILj128EEpLEc.exit182.i:      ; preds = %1523, %1520
   %1527 = load i64, ptr %611, align 8, !tbaa !212
   %1528 = add i64 %1527, 1
   store i64 %1528, ptr %611, align 8, !tbaa !212
-  %1529 = add i64 %1528, %.sroa.2.0.copyload145
+  %1529 = add i64 %1528, %.sroa.2149.0.copyload
   %1530 = load i64, ptr %612, align 8, !tbaa !213
   %1531 = icmp ult i64 %1530, %1529
   br i1 %1531, label %1532, label %_ZN4llvm11SmallStringILj128EEpLENS_9StringRefE.exit188.i
@@ -25933,9 +25931,9 @@ _ZN4llvm11SmallStringILj128EEpLENS_9StringRefE.exit188.i: ; preds = %1532, %_ZN4
   %.pre8.i.i184.i = phi i64 [ %1528, %_ZN4llvm11SmallStringILj128EEpLEc.exit182.i ], [ %.pre8.pre.i.i187.i, %1532 ]
   %1533 = load ptr, ptr %47, align 8, !tbaa !211
   %1534 = getelementptr inbounds nuw i8, ptr %1533, i64 %.pre8.i.i184.i
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %1534, ptr align 1 %.sroa.0.0.copyload143, i64 %.sroa.2.0.copyload145, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %1534, ptr align 1 %.sroa.0148.0.copyload, i64 %.sroa.2149.0.copyload, i1 false)
   %.pre.i.i186.i = load i64, ptr %611, align 8, !tbaa !212
-  %1535 = add i64 %.pre.i.i186.i, %.sroa.2.0.copyload145
+  %1535 = add i64 %.pre.i.i186.i, %.sroa.2149.0.copyload
   store i64 %1535, ptr %611, align 8, !tbaa !212
   br label %._crit_edge.i.i189.i
 

@@ -633,64 +633,63 @@ Abc_TtCofactor0.exit.critedge:                    ; preds = %58
 
 Abc_TtCofactor1.exit:                             ; preds = %58, %Abc_TtCofactor0.exit.critedge
   %80 = phi i64 [ %79, %Abc_TtCofactor0.exit.critedge ], [ %60, %58 ]
-  %81 = phi i64 [ %71, %Abc_TtCofactor0.exit.critedge ], [ %59, %58 ]
-  %.sink = phi i64 [ %76, %Abc_TtCofactor0.exit.critedge ], [ %60, %58 ]
-  store i64 %81, ptr %indvars.iv.i.sroa.gep74, align 8, !tbaa !24
-  store i64 %.sink, ptr %20, align 16, !tbaa !24
-  %82 = load i64, ptr %19, align 16
-  %.not.us.i.i = icmp eq i64 %82, %81
-  br label %83
+  %81 = phi i64 [ %68, %Abc_TtCofactor0.exit.critedge ], [ %59, %58 ]
+  %82 = phi i64 [ %71, %Abc_TtCofactor0.exit.critedge ], [ %59, %58 ]
+  %83 = phi i64 [ %76, %Abc_TtCofactor0.exit.critedge ], [ %60, %58 ]
+  store i64 %82, ptr %indvars.iv.i.sroa.gep74, align 8, !tbaa !24
+  store i64 %83, ptr %20, align 16, !tbaa !24
+  %.not.us.i.i = icmp eq i64 %81, %82
+  br label %84
 
-83:                                               ; preds = %.loopexit.i, %Abc_TtCofactor1.exit
+84:                                               ; preds = %.loopexit.i, %Abc_TtCofactor1.exit
   %indvars.iv.i49 = phi i64 [ 0, %Abc_TtCofactor1.exit ], [ %indvars.iv.next.i, %.loopexit.i ]
-  %.015.i = phi i32 [ 0, %Abc_TtCofactor1.exit ], [ %98, %.loopexit.i ]
+  %.015.i = phi i32 [ 0, %Abc_TtCofactor1.exit ], [ %99, %.loopexit.i ]
   %.not.i = icmp eq i64 %indvars.iv.i49, 6
-  br i1 %.not.i, label %.preheader.us.i.i.preheader, label %84
+  br i1 %.not.i, label %.preheader.us.i.i.preheader, label %85
 
-.preheader.us.i.i.preheader:                      ; preds = %83
+.preheader.us.i.i.preheader:                      ; preds = %84
   br i1 %.not.us.i.i, label %Abc_TtSupportSize.exit, label %Abc_TtHasVar.exit.i
 
-84:                                               ; preds = %83
-  %85 = trunc nuw nsw i64 %indvars.iv.i49 to i32
-  %86 = shl nuw nsw i32 1, %85
-  %87 = zext nneg i32 %86 to i64
-  %88 = getelementptr inbounds nuw [6 x i64], ptr @s_Truths6Neg, i64 0, i64 %indvars.iv.i49
-  %89 = load i64, ptr %88, align 8, !tbaa !24
-  br label %91
+85:                                               ; preds = %84
+  %86 = trunc nuw nsw i64 %indvars.iv.i49 to i32
+  %87 = shl nuw nsw i32 1, %86
+  %88 = zext nneg i32 %87 to i64
+  %89 = getelementptr inbounds nuw [6 x i64], ptr @s_Truths6Neg, i64 0, i64 %indvars.iv.i49
+  %90 = load i64, ptr %89, align 8, !tbaa !24
+  br label %92
 
-90:                                               ; preds = %91
+91:                                               ; preds = %92
   %indvars.iv.next54.i.i = add nuw nsw i64 %indvars.iv53.i.i, 1
   %exitcond58.not.i.i = icmp eq i64 %indvars.iv.next54.i.i, 2
-  br i1 %exitcond58.not.i.i, label %.loopexit.i, label %91, !llvm.loop !26
+  br i1 %exitcond58.not.i.i, label %.loopexit.i, label %92, !llvm.loop !26
 
-91:                                               ; preds = %90, %84
-  %indvars.iv53.i.i = phi i64 [ 0, %84 ], [ %indvars.iv.next54.i.i, %90 ]
-  %92 = getelementptr inbounds nuw i64, ptr %19, i64 %indvars.iv53.i.i
-  %93 = load i64, ptr %92, align 8, !tbaa !24
-  %94 = lshr i64 %93, %87
-  %95 = xor i64 %94, %93
-  %96 = and i64 %95, %89
-  %.not39.i.i = icmp eq i64 %96, 0
-  br i1 %.not39.i.i, label %90, label %Abc_TtHasVar.exit.i
+92:                                               ; preds = %91, %85
+  %indvars.iv53.i.i = phi i64 [ 0, %85 ], [ %indvars.iv.next54.i.i, %91 ]
+  %93 = getelementptr inbounds nuw i64, ptr %19, i64 %indvars.iv53.i.i
+  %94 = load i64, ptr %93, align 8, !tbaa !24
+  %95 = lshr i64 %94, %88
+  %96 = xor i64 %95, %94
+  %97 = and i64 %96, %90
+  %.not39.i.i = icmp eq i64 %97, 0
+  br i1 %.not39.i.i, label %91, label %Abc_TtHasVar.exit.i
 
-Abc_TtHasVar.exit.i:                              ; preds = %91, %.preheader.us.i.i.preheader
-  %97 = add nsw i32 %.015.i, 1
+Abc_TtHasVar.exit.i:                              ; preds = %92, %.preheader.us.i.i.preheader
+  %98 = add nsw i32 %.015.i, 1
   br label %.loopexit.i
 
-.loopexit.i:                                      ; preds = %90, %Abc_TtHasVar.exit.i
-  %98 = phi i32 [ %97, %Abc_TtHasVar.exit.i ], [ %.015.i, %90 ]
+.loopexit.i:                                      ; preds = %91, %Abc_TtHasVar.exit.i
+  %99 = phi i32 [ %98, %Abc_TtHasVar.exit.i ], [ %.015.i, %91 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i49, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 7
-  br i1 %exitcond.not.i, label %Abc_TtSupportSize.exit, label %83, !llvm.loop !27
+  br i1 %exitcond.not.i, label %Abc_TtSupportSize.exit, label %84, !llvm.loop !27
 
 Abc_TtSupportSize.exit:                           ; preds = %.preheader.us.i.i.preheader, %.loopexit.i
-  %99 = phi i32 [ %98, %.loopexit.i ], [ %.015.i, %.preheader.us.i.i.preheader ]
-  %100 = icmp slt i32 %99, 4
-  br i1 %100, label %102, label %.preheader.preheader
+  %100 = phi i32 [ %99, %.loopexit.i ], [ %.015.i, %.preheader.us.i.i.preheader ]
+  %101 = icmp slt i32 %100, 4
+  br i1 %101, label %102, label %.preheader.preheader
 
 .preheader.preheader:                             ; preds = %Abc_TtSupportSize.exit
-  %101 = load i64, ptr %20, align 16
-  %.not.us.i.i66 = icmp eq i64 %101, %80
+  %.not.us.i.i66 = icmp eq i64 %83, %80
   br label %.preheader
 
 102:                                              ; preds = %Abc_TtSupportSize.exit

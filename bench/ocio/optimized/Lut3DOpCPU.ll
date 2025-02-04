@@ -1895,10 +1895,11 @@ if.then178.i:                                     ; preds = %if.end176.i
   %80 = load i64, ptr %arrayidx181.i, align 8
   store i64 %80, ptr %arrayidx127.i, align 8
   store i64 %67, ptr %arrayidx181.i, align 8
+  %.pre.i = load i64, ptr %arrayidx127.i, align 8
   br label %for.body192.lr.ph.i
 
 for.body192.lr.ph.i:                              ; preds = %if.then178.i, %if.end176.i
-  %81 = load i64, ptr %arrayidx127.i, align 8
+  %81 = phi i64 [ %.pre.i, %if.then178.i ], [ %67, %if.end176.i ]
   %82 = load i64, ptr %arrayidx129.i, align 8
   %arrayidx188.i = getelementptr inbounds [4 x [4 x double]], ptr %U.i, i64 0, i64 %81, i64 %82
   %83 = load double, ptr %arrayidx188.i, align 8
