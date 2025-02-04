@@ -1,7 +1,7 @@
 # LLVM Opt Benchmark
 
 [![CI](https://github.com/dtcxzyw/llvm-opt-benchmark/actions/workflows/llvm-ci.yml/badge.svg?branch=main)](https://github.com/dtcxzyw/llvm-opt-benchmark/actions/workflows/llvm-ci.yml)
-![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/dtcxzyw/llvm-opt-benchmark)
+![GitHub repo size in bytes](https://img.shields.io/github/repo-size/dtcxzyw/llvm-opt-benchmark)
 
 LLVM Opt Benchmark is an LLVM IR dataset for data-driven compiler optimization research. This repository is also used by LLVM developers to evaluate the impact of their patches on real-world applications.
 
