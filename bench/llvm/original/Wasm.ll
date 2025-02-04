@@ -61,8 +61,8 @@ $_ZNSt11char_traitsIcE6lengthEPKc = comdat any
 define dso_local { ptr, i64 } @_ZN4llvm4wasm8toStringENS0_14WasmSymbolTypeE(i32 noundef %0) #0 {
   %2 = alloca %"class.llvm::StringRef", align 8
   %3 = alloca i32, align 4
-  store i32 %0, ptr %3, align 4
-  %4 = load i32, ptr %3, align 4
+  store i32 %0, ptr %3, align 4, !tbaa !3
+  %4 = load i32, ptr %3, align 4, !tbaa !3
   switch i32 %4, label %11 [
     i32 0, label %5
     i32 2, label %6
@@ -108,19 +108,19 @@ define dso_local { ptr, i64 } @_ZN4llvm4wasm8toStringENS0_14WasmSymbolTypeE(i32 
 define linkonce_odr hidden void @_ZN4llvm9StringRefC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) unnamed_addr #0 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !7
+  store ptr %1, ptr %4, align 8, !tbaa !10
   %5 = load ptr, ptr %3, align 8
   %6 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %5, i32 0, i32 0
-  %7 = load ptr, ptr %4, align 8
-  store ptr %7, ptr %6, align 8
+  %7 = load ptr, ptr %4, align 8, !tbaa !10
+  store ptr %7, ptr %6, align 8, !tbaa !12
   %8 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %5, i32 0, i32 1
-  %9 = load ptr, ptr %4, align 8
+  %9 = load ptr, ptr %4, align 8, !tbaa !10
   %10 = icmp ne ptr %9, null
   br i1 %10, label %11, label %14
 
 11:                                               ; preds = %2
-  %12 = load ptr, ptr %4, align 8
+  %12 = load ptr, ptr %4, align 8, !tbaa !10
   %13 = call noundef i64 @_ZNSt11char_traitsIcE6lengthEPKc(ptr noundef %12)
   br label %15
 
@@ -129,7 +129,7 @@ define linkonce_odr hidden void @_ZN4llvm9StringRefC2EPKc(ptr noundef nonnull al
 
 15:                                               ; preds = %14, %11
   %16 = phi i64 [ %13, %11 ], [ 0, %14 ]
-  store i64 %16, ptr %8, align 8
+  store i64 %16, ptr %8, align 8, !tbaa !15
   ret void
 }
 
@@ -137,8 +137,8 @@ define linkonce_odr hidden void @_ZN4llvm9StringRefC2EPKc(ptr noundef nonnull al
 define dso_local { ptr, i64 } @_ZN4llvm4wasm17relocTypetoStringEj(i32 noundef %0) #0 {
   %2 = alloca %"class.llvm::StringRef", align 8
   %3 = alloca i32, align 4
-  store i32 %0, ptr %3, align 4
-  %4 = load i32, ptr %3, align 4
+  store i32 %0, ptr %3, align 4, !tbaa !16
+  %4 = load i32, ptr %3, align 4, !tbaa !16
   switch i32 %4, label %32 [
     i32 0, label %5
     i32 1, label %6
@@ -289,8 +289,8 @@ define dso_local { ptr, i64 } @_ZN4llvm4wasm17relocTypetoStringEj(i32 noundef %0
 define dso_local { ptr, i64 } @_ZN4llvm4wasm19sectionTypeToStringEj(i32 noundef %0) #0 {
   %2 = alloca %"class.llvm::StringRef", align 8
   %3 = alloca i32, align 4
-  store i32 %0, ptr %3, align 4
-  %4 = load i32, ptr %3, align 4
+  store i32 %0, ptr %3, align 4, !tbaa !16
+  %4 = load i32, ptr %3, align 4, !tbaa !16
   switch i32 %4, label %19 [
     i32 0, label %5
     i32 1, label %6
@@ -376,8 +376,8 @@ define dso_local { ptr, i64 } @_ZN4llvm4wasm19sectionTypeToStringEj(i32 noundef 
 define dso_local noundef zeroext i1 @_ZN4llvm4wasm18relocTypeHasAddendEj(i32 noundef %0) #0 {
   %2 = alloca i1, align 1
   %3 = alloca i32, align 4
-  store i32 %0, ptr %3, align 4
-  %4 = load i32, ptr %3, align 4
+  store i32 %0, ptr %3, align 4, !tbaa !16
+  %4 = load i32, ptr %3, align 4, !tbaa !16
   switch i32 %4, label %6 [
     i32 3, label %5
     i32 14, label %5
@@ -411,8 +411,8 @@ define dso_local noundef zeroext i1 @_ZN4llvm4wasm18relocTypeHasAddendEj(i32 nou
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef i64 @_ZNSt11char_traitsIcE6lengthEPKc(ptr noundef %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !10
+  %3 = load ptr, ptr %2, align 8, !tbaa !10
   %4 = call i64 @strlen(ptr noundef %3) #2
   ret i64 %4
 }
@@ -420,13 +420,27 @@ define linkonce_odr hidden noundef i64 @_ZNSt11char_traitsIcE6lengthEPKc(ptr nou
 ; Function Attrs: nounwind
 declare i64 @strlen(ptr noundef) #1
 
-attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
+!3 = !{!4, !4, i64 0}
+!4 = !{!"_ZTSN4llvm4wasm14WasmSymbolTypeE", !5, i64 0}
+!5 = !{!"omnipotent char", !6, i64 0}
+!6 = !{!"Simple C++ TBAA"}
+!7 = !{!8, !8, i64 0}
+!8 = !{!"p1 _ZTSN4llvm9StringRefE", !9, i64 0}
+!9 = !{!"any pointer", !5, i64 0}
+!10 = !{!11, !11, i64 0}
+!11 = !{!"p1 omnipotent char", !9, i64 0}
+!12 = !{!13, !11, i64 0}
+!13 = !{!"_ZTSN4llvm9StringRefE", !11, i64 0, !14, i64 8}
+!14 = !{!"long", !5, i64 0}
+!15 = !{!13, !14, i64 8}
+!16 = !{!17, !17, i64 0}
+!17 = !{!"int", !5, i64 0}

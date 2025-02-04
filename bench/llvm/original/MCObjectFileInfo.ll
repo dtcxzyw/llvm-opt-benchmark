@@ -1,11 +1,9 @@
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%"struct.std::nullopt_t" = type { i8 }
-%"struct.std::in_place_t" = type { i8 }
 %"class.llvm::StringRef" = type { ptr, i64 }
 %"class.llvm::SectionKind" = type { i8, [3 x i8] }
-%"class.llvm::MCObjectFileInfo" = type { ptr, i8, i8, i8, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, %"struct.std::array", i8, ptr }
+%"class.llvm::MCObjectFileInfo" = type { ptr, i8, i8, i8, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, %"struct.std::array", i8, ptr }
 %"struct.std::array" = type { [11 x ptr] }
 %"class.llvm::Triple" = type { %"class.std::__cxx11::basic_string", i32, i32, i32, i32, i32, i32 }
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
@@ -125,7 +123,7 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.llvm::Twine" = type <{ %"union.llvm::Twine::Child", %"union.llvm::Twine::Child", i8, i8, [6 x i8] }>
 %"union.llvm::Twine::Child" = type { %struct.anon }
 %struct.anon = type { ptr, i64 }
-%"class.llvm::MCAsmInfo" = type <{ ptr, i32, i32, i8, i8, i8, i8, i8, i8, [2 x i8], i32, i32, i8, i8, i8, [5 x i8], ptr, %"class.llvm::StringRef", i8, i8, i8, [5 x i8], ptr, i8, i8, i8, [5 x i8], %"class.llvm::StringRef", %"class.llvm::StringRef", %"class.llvm::StringRef", ptr, ptr, ptr, ptr, ptr, i32, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, [2 x i8], ptr, i8, [7 x i8], ptr, ptr, ptr, ptr, i32, [4 x i8], ptr, ptr, ptr, ptr, i8, [7 x i8], ptr, ptr, ptr, ptr, ptr, ptr, i8, i8, i8, i8, i32, ptr, i8, i8, [2 x i8], i32, i8, i8, i8, i8, i8, i8, i8, i8, ptr, ptr, i8, i8, [2 x i8], i32, i32, i32, i32, i32, i8, [3 x i8], i32, i8, [3 x i8], i32, i8, i8, i8, i8, i8, i8, i8, i8, i8, [7 x i8], %"class.std::vector.121", %"struct.std::pair", i8, i8, i8, i8, i32, i8, i8, i8, i8, [4 x i8] }>
+%"class.llvm::MCAsmInfo" = type <{ ptr, i32, i32, i8, i8, i8, i8, i8, i8, i8, i8, i32, i32, i8, [7 x i8], ptr, %"class.llvm::StringRef", i8, [7 x i8], ptr, i8, i8, [6 x i8], %"class.llvm::StringRef", %"class.llvm::StringRef", %"class.llvm::StringRef", ptr, ptr, ptr, ptr, ptr, i32, i8, i8, i8, i8, i8, i8, i8, i8, [4 x i8], ptr, ptr, ptr, i32, [4 x i8], ptr, ptr, ptr, ptr, i8, [7 x i8], ptr, ptr, ptr, ptr, ptr, ptr, i8, i8, i8, i8, i32, ptr, i8, i8, [2 x i8], i32, i8, i8, i8, i8, i8, [3 x i8], ptr, ptr, i8, i8, [2 x i8], i32, i32, i32, i32, i32, i8, [3 x i8], i32, i8, [3 x i8], i32, i8, i8, i8, i8, i8, i8, i8, i8, %"class.std::vector.121", %"struct.std::pair", i8, i8, i8, i8, i32, i8, i8, i8, [5 x i8] }>
 %"class.std::vector.121" = type { %"struct.std::_Vector_base.122" }
 %"struct.std::_Vector_base.122" = type { %"struct.std::_Vector_base<llvm::MCCFIInstruction, std::allocator<llvm::MCCFIInstruction>>::_Vector_impl" }
 %"struct.std::_Vector_base<llvm::MCCFIInstruction, std::allocator<llvm::MCCFIInstruction>>::_Vector_impl" = type { %"struct.std::_Vector_base<llvm::MCCFIInstruction, std::allocator<llvm::MCCFIInstruction>>::_Vector_impl_data" }
@@ -332,6 +330,8 @@ $_ZNK4llvm6Triple14getEnvironmentEv = comdat any
 
 $_ZNK4llvm6Triple10getSubArchEv = comdat any
 
+$_ZNK4llvm9StringRef4sizeEv = comdat any
+
 $_ZNSt14__array_traitsIPN4llvm9MCSectionELm11EE6_S_refERA11_KS2_m = comdat any
 
 $_ZNK4llvm6Triple8isMIPS32Ev = comdat any
@@ -380,9 +380,15 @@ $_ZSt3endIcLm21EEPT_RAT0__S0_ = comdat any
 
 $_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IPcvEET_S7_RKS3_ = comdat any
 
+$_ZNSt15__new_allocatorIcEC2Ev = comdat any
+
 $_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPcEEvT_S7_St20forward_iterator_tag = comdat any
 
 $_ZSt19__iterator_categoryIPcENSt15iterator_traitsIT_E17iterator_categoryERKS2_ = comdat any
+
+$_ZNSt19__ptr_traits_ptr_toIPccLb0EE10pointer_toERc = comdat any
+
+$_ZNSt15__new_allocatorIcEC2ERKS0_ = comdat any
 
 $_ZSt8distanceIPcENSt15iterator_traitsIT_E15difference_typeES2_S2_ = comdat any
 
@@ -391,6 +397,16 @@ $_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPcEEvT_S7_
 $_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPcEEvT_S7_St20forward_iterator_tagEN6_GuardD2Ev = comdat any
 
 $_ZSt10__distanceIPcENSt15iterator_traitsIT_E15difference_typeES2_S2_St26random_access_iterator_tag = comdat any
+
+$_ZNSt11char_traitsIcE6assignERcRKc = comdat any
+
+$_ZNSt11char_traitsIcE4copyEPcPKcm = comdat any
+
+$_ZNSt19__ptr_traits_ptr_toIPKcS0_Lb0EE10pointer_toERS0_ = comdat any
+
+$_ZNSt16allocator_traitsISaIcEE10deallocateERS0_Pcm = comdat any
+
+$_ZNSt15__new_allocatorIcE10deallocateEPcm = comdat any
 
 $_ZNK4llvm6Triple9getVendorEv = comdat any
 
@@ -412,13 +428,13 @@ $_ZNK4llvm14StringMapEntryINS_18MCSymbolTableValueEE5firstEv = comdat any
 
 $_ZN4llvm8MCSymbol15getNameEntryPtrEv = comdat any
 
+$_ZNK4llvm14StringMapEntryINS_18MCSymbolTableValueEE6getKeyEv = comdat any
+
 $_ZNK4llvm14StringMapEntryINS_18MCSymbolTableValueEE10getKeyDataEv = comdat any
 
 $_ZNK4llvm18StringMapEntryBase12getKeyLengthEv = comdat any
 
 $_ZN4llvm9StringRefC2EPKcm = comdat any
-
-$_ZNK4llvm9StringRef4sizeEv = comdat any
 
 $_ZN4llvm8CastInfoINS_11MCSymbolELFEPKNS_8MCSymbolEvE6doCastERKS4_ = comdat any
 
@@ -452,9 +468,7 @@ $_ZNK4llvm5Twine9isNullaryEv = comdat any
 
 $_ZN4llvm5TwineC2ERKNS_9StringRefEPKc = comdat any
 
-$_ZSt7nullopt = comdat any
-
-$_ZSt8in_place = comdat any
+$_ZNSt15__new_allocatorIcED2Ev = comdat any
 
 @_ZN4llvm24DisableABIBreakingChecksE = external global i32, align 4
 @_ZN4llvm30VerifyDisableABIBreakingChecksE = weak hidden global ptr @_ZN4llvm24DisableABIBreakingChecksE, align 8
@@ -608,49 +622,48 @@ $_ZSt8in_place = comdat any
 @.str.147 = private unnamed_addr constant [5 x i8] c".ada\00", align 1
 @.str.148 = private unnamed_addr constant [7 x i8] c"B_IDRL\00", align 1
 @.str.149 = private unnamed_addr constant [7 x i8] c".rdata\00", align 1
-@.str.150 = private unnamed_addr constant [9 x i8] c".debug$S\00", align 1
-@.str.151 = private unnamed_addr constant [9 x i8] c".debug$T\00", align 1
-@.str.152 = private unnamed_addr constant [9 x i8] c".debug$H\00", align 1
-@.str.153 = private unnamed_addr constant [9 x i8] c".drectve\00", align 1
-@.str.154 = private unnamed_addr constant [7 x i8] c".pdata\00", align 1
-@.str.155 = private unnamed_addr constant [7 x i8] c".xdata\00", align 1
-@.str.156 = private unnamed_addr constant [8 x i8] c".sxdata\00", align 1
-@.str.157 = private unnamed_addr constant [11 x i8] c".gehcont$y\00", align 1
-@.str.158 = private unnamed_addr constant [9 x i8] c".gfids$y\00", align 1
-@.str.159 = private unnamed_addr constant [9 x i8] c".giats$y\00", align 1
-@.str.160 = private unnamed_addr constant [9 x i8] c".gljmp$y\00", align 1
-@.str.161 = private unnamed_addr constant [6 x i8] c".tls$\00", align 1
-@.str.162 = private unnamed_addr constant [25 x i8] c".rodata.gcc_except_table\00", align 1
-@.str.163 = private unnamed_addr constant [9 x i8] c"..text..\00", align 1
-@_ZSt7nullopt = linkonce_odr constant %"struct.std::nullopt_t" undef, comdat, align 1
-@.str.164 = private unnamed_addr constant [1 x i8] zeroinitializer, align 1
-@.str.165 = private unnamed_addr constant [10 x i8] c".rodata.8\00", align 1
-@.str.166 = private unnamed_addr constant [11 x i8] c".rodata.16\00", align 1
-@.str.167 = private unnamed_addr constant [4 x i8] c"TOC\00", align 1
-@.str.168 = private unnamed_addr constant [15 x i8] c".eh_info_table\00", align 1
-@.str.169 = private unnamed_addr constant [9 x i8] c".dwabrev\00", align 1
-@.str.170 = private unnamed_addr constant [8 x i8] c".dwinfo\00", align 1
-@.str.171 = private unnamed_addr constant [8 x i8] c".dwline\00", align 1
-@.str.172 = private unnamed_addr constant [9 x i8] c".dwframe\00", align 1
-@.str.173 = private unnamed_addr constant [9 x i8] c".dwpbnms\00", align 1
-@.str.174 = private unnamed_addr constant [9 x i8] c".dwpbtyp\00", align 1
-@.str.175 = private unnamed_addr constant [7 x i8] c".dwstr\00", align 1
-@.str.176 = private unnamed_addr constant [7 x i8] c".dwloc\00", align 1
-@.str.177 = private unnamed_addr constant [9 x i8] c".dwarnge\00", align 1
-@.str.178 = private unnamed_addr constant [9 x i8] c".dwrnges\00", align 1
-@.str.179 = private unnamed_addr constant [7 x i8] c".dwmac\00", align 1
-@.str.180 = private unnamed_addr constant [5 x i8] c"DXBC\00", align 1
-@.str.181 = private unnamed_addr constant [78 x i8] c"Cannot get DWARF comdat section for this object file format: not implemented.\00", align 1
-@.str.182 = private unnamed_addr constant [18 x i8] c".llvm_bb_addr_map\00", align 1
-@.str.183 = private unnamed_addr constant [12 x i8] c".kcfi_traps\00", align 1
-@.str.184 = private unnamed_addr constant [2 x i8] c"_\00", align 1
+@.str.150 = private unnamed_addr constant [9 x i8] c".impcall\00", align 1
+@.str.151 = private unnamed_addr constant [9 x i8] c".debug$S\00", align 1
+@.str.152 = private unnamed_addr constant [9 x i8] c".debug$T\00", align 1
+@.str.153 = private unnamed_addr constant [9 x i8] c".debug$H\00", align 1
+@.str.154 = private unnamed_addr constant [9 x i8] c".drectve\00", align 1
+@.str.155 = private unnamed_addr constant [7 x i8] c".pdata\00", align 1
+@.str.156 = private unnamed_addr constant [7 x i8] c".xdata\00", align 1
+@.str.157 = private unnamed_addr constant [8 x i8] c".sxdata\00", align 1
+@.str.158 = private unnamed_addr constant [11 x i8] c".gehcont$y\00", align 1
+@.str.159 = private unnamed_addr constant [9 x i8] c".gfids$y\00", align 1
+@.str.160 = private unnamed_addr constant [9 x i8] c".giats$y\00", align 1
+@.str.161 = private unnamed_addr constant [9 x i8] c".gljmp$y\00", align 1
+@.str.162 = private unnamed_addr constant [6 x i8] c".tls$\00", align 1
+@.str.163 = private unnamed_addr constant [25 x i8] c".rodata.gcc_except_table\00", align 1
+@.str.164 = private unnamed_addr constant [9 x i8] c"..text..\00", align 1
+@.str.165 = private unnamed_addr constant [1 x i8] zeroinitializer, align 1
+@.str.166 = private unnamed_addr constant [10 x i8] c".rodata.8\00", align 1
+@.str.167 = private unnamed_addr constant [11 x i8] c".rodata.16\00", align 1
+@.str.168 = private unnamed_addr constant [4 x i8] c"TOC\00", align 1
+@.str.169 = private unnamed_addr constant [15 x i8] c".eh_info_table\00", align 1
+@.str.170 = private unnamed_addr constant [9 x i8] c".dwabrev\00", align 1
+@.str.171 = private unnamed_addr constant [8 x i8] c".dwinfo\00", align 1
+@.str.172 = private unnamed_addr constant [8 x i8] c".dwline\00", align 1
+@.str.173 = private unnamed_addr constant [9 x i8] c".dwframe\00", align 1
+@.str.174 = private unnamed_addr constant [9 x i8] c".dwpbnms\00", align 1
+@.str.175 = private unnamed_addr constant [9 x i8] c".dwpbtyp\00", align 1
+@.str.176 = private unnamed_addr constant [7 x i8] c".dwstr\00", align 1
+@.str.177 = private unnamed_addr constant [7 x i8] c".dwloc\00", align 1
+@.str.178 = private unnamed_addr constant [9 x i8] c".dwarnge\00", align 1
+@.str.179 = private unnamed_addr constant [9 x i8] c".dwrnges\00", align 1
+@.str.180 = private unnamed_addr constant [7 x i8] c".dwmac\00", align 1
+@.str.181 = private unnamed_addr constant [5 x i8] c"DXBC\00", align 1
+@.str.182 = private unnamed_addr constant [78 x i8] c"Cannot get DWARF comdat section for this object file format: not implemented.\00", align 1
+@.str.183 = private unnamed_addr constant [18 x i8] c".llvm_bb_addr_map\00", align 1
+@.str.184 = private unnamed_addr constant [12 x i8] c".kcfi_traps\00", align 1
+@.str.185 = private unnamed_addr constant [2 x i8] c"_\00", align 1
 @_ZTVN4llvm16MCObjectFileInfoE = unnamed_addr constant { [5 x ptr] } { [5 x ptr] [ptr null, ptr null, ptr @_ZN4llvm16MCObjectFileInfoD1Ev, ptr @_ZN4llvm16MCObjectFileInfoD0Ev, ptr @_ZNK4llvm16MCObjectFileInfo23getTextSectionAlignmentEv] }, align 8
-@_ZSt8in_place = linkonce_odr constant %"struct.std::in_place_t" zeroinitializer, comdat, align 1
 
 @_ZN4llvm16MCObjectFileInfoD1Ev = unnamed_addr alias void (ptr), ptr @_ZN4llvm16MCObjectFileInfoD2Ev
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm16MCObjectFileInfo25initMachOMCObjectFileInfoERKNS_6TripleE(ptr noundef nonnull align 8 dereferenceable(912) %0, ptr noundef nonnull align 8 dereferenceable(56) %1) #0 align 2 {
+define dso_local void @_ZN4llvm16MCObjectFileInfo25initMachOMCObjectFileInfoERKNS_6TripleE(ptr noundef nonnull align 8 dereferenceable(920) %0, ptr noundef nonnull align 8 dereferenceable(56) %1) #0 align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca %"class.llvm::StringRef", align 8
@@ -855,13 +868,13 @@ define dso_local void @_ZN4llvm16MCObjectFileInfo25initMachOMCObjectFileInfoERKN
   %204 = alloca %"class.llvm::StringRef", align 8
   %205 = alloca %"class.llvm::StringRef", align 8
   %206 = alloca %"class.llvm::SectionKind", align 4
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  store ptr %1, ptr %4, align 8, !tbaa !8
   %207 = load ptr, ptr %3, align 8
   %208 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 1
-  store i8 0, ptr %208, align 8
-  %209 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 106
-  %210 = load ptr, ptr %209, align 8
+  store i8 0, ptr %208, align 8, !tbaa !10
+  %209 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 107
+  %210 = load ptr, ptr %209, align 8, !tbaa !17
   call void @_ZN4llvm9StringRefC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef @.str)
   call void @_ZN4llvm9StringRefC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef @.str.1)
   %211 = call i32 @_ZN4llvm11SectionKind11getReadOnlyEv()
@@ -877,37 +890,37 @@ define dso_local void @_ZN4llvm16MCObjectFileInfo25initMachOMCObjectFileInfoERKN
   %220 = load i64, ptr %219, align 8
   %221 = load i32, ptr %7, align 4
   %222 = call noundef ptr @_ZN4llvm9MCContext15getMachOSectionENS_9StringRefES1_jNS_11SectionKindEPKc(ptr noundef nonnull align 8 dereferenceable(2432) %210, ptr %214, i64 %216, ptr %218, i64 %220, i32 noundef 1744830475, i32 %221, ptr noundef null)
-  %223 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 60
-  store ptr %222, ptr %223, align 8
-  %224 = load ptr, ptr %4, align 8
+  %223 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 61
+  store ptr %222, ptr %223, align 8, !tbaa !18
+  %224 = load ptr, ptr %4, align 8, !tbaa !8
   %225 = call noundef zeroext i1 @_ZNK4llvm6Triple10isOSDarwinEv(ptr noundef nonnull align 8 dereferenceable(56) %224)
   br i1 %225, label %226, label %239
 
 226:                                              ; preds = %2
-  %227 = load ptr, ptr %4, align 8
+  %227 = load ptr, ptr %4, align 8, !tbaa !8
   %228 = call noundef i32 @_ZNK4llvm6Triple7getArchEv(ptr noundef nonnull align 8 dereferenceable(56) %227)
   %229 = icmp eq i32 %228, 3
   br i1 %229, label %237, label %230
 
 230:                                              ; preds = %226
-  %231 = load ptr, ptr %4, align 8
+  %231 = load ptr, ptr %4, align 8, !tbaa !8
   %232 = call noundef i32 @_ZNK4llvm6Triple7getArchEv(ptr noundef nonnull align 8 dereferenceable(56) %231)
   %233 = icmp eq i32 %232, 5
   br i1 %233, label %237, label %234
 
 234:                                              ; preds = %230
-  %235 = load ptr, ptr %4, align 8
+  %235 = load ptr, ptr %4, align 8, !tbaa !8
   %236 = call noundef zeroext i1 @_ZNK4llvm6Triple22isSimulatorEnvironmentEv(ptr noundef nonnull align 8 dereferenceable(56) %235)
   br i1 %236, label %237, label %239
 
 237:                                              ; preds = %234, %230, %226
   %238 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 2
-  store i8 1, ptr %238, align 1
+  store i8 1, ptr %238, align 1, !tbaa !19
   br label %239
 
 239:                                              ; preds = %237, %234, %2
-  %240 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 106
-  %241 = load ptr, ptr %240, align 8
+  %240 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 107
+  %241 = load ptr, ptr %240, align 8, !tbaa !17
   %242 = call noundef i32 @_ZNK4llvm9MCContext19emitDwarfUnwindInfoEv(ptr noundef nonnull align 8 dereferenceable(2432) %241)
   switch i32 %242, label %258 [
     i32 0, label %243
@@ -917,22 +930,22 @@ define dso_local void @_ZN4llvm16MCObjectFileInfo25initMachOMCObjectFileInfoERKN
 
 243:                                              ; preds = %239
   %244 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 3
-  store i8 0, ptr %244, align 2
+  store i8 0, ptr %244, align 2, !tbaa !20
   br label %258
 
 245:                                              ; preds = %239
   %246 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 3
-  store i8 1, ptr %246, align 2
+  store i8 1, ptr %246, align 2, !tbaa !20
   br label %258
 
 247:                                              ; preds = %239
-  %248 = load ptr, ptr %4, align 8
+  %248 = load ptr, ptr %4, align 8, !tbaa !8
   %249 = call noundef zeroext i1 @_ZNK4llvm6Triple10isWatchABIEv(ptr noundef nonnull align 8 dereferenceable(56) %248)
   br i1 %249, label %254, label %250
 
 250:                                              ; preds = %247
   %251 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 2
-  %252 = load i8, ptr %251, align 1
+  %252 = load i8, ptr %251, align 1, !tbaa !19, !range !21, !noundef !22
   %253 = trunc i8 %252 to i1
   br label %254
 
@@ -940,14 +953,14 @@ define dso_local void @_ZN4llvm16MCObjectFileInfo25initMachOMCObjectFileInfoERKN
   %255 = phi i1 [ true, %247 ], [ %253, %250 ]
   %256 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 3
   %257 = zext i1 %255 to i8
-  store i8 %257, ptr %256, align 2
+  store i8 %257, ptr %256, align 2, !tbaa !20
   br label %258
 
-258:                                              ; preds = %254, %245, %243, %239
+258:                                              ; preds = %239, %254, %245, %243
   %259 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 4
-  store i32 16, ptr %259, align 4
-  %260 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 106
-  %261 = load ptr, ptr %260, align 8
+  store i32 16, ptr %259, align 4, !tbaa !23
+  %260 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 107
+  %261 = load ptr, ptr %260, align 8, !tbaa !17
   call void @_ZN4llvm9StringRefC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef @.str)
   call void @_ZN4llvm9StringRefC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef @.str.2)
   %262 = call i32 @_ZN4llvm11SectionKind7getTextEv()
@@ -964,9 +977,9 @@ define dso_local void @_ZN4llvm16MCObjectFileInfo25initMachOMCObjectFileInfoERKN
   %272 = load i32, ptr %10, align 4
   %273 = call noundef ptr @_ZN4llvm9MCContext15getMachOSectionENS_9StringRefES1_jNS_11SectionKindEPKc(ptr noundef nonnull align 8 dereferenceable(2432) %261, ptr %265, i64 %267, ptr %269, i64 %271, i32 noundef -2147483648, i32 %272, ptr noundef null)
   %274 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 6
-  store ptr %273, ptr %274, align 8
-  %275 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 106
-  %276 = load ptr, ptr %275, align 8
+  store ptr %273, ptr %274, align 8, !tbaa !24
+  %275 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 107
+  %276 = load ptr, ptr %275, align 8, !tbaa !17
   call void @_ZN4llvm9StringRefC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef @.str.3)
   call void @_ZN4llvm9StringRefC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef @.str.4)
   %277 = call i32 @_ZN4llvm11SectionKind7getDataEv()
@@ -983,11 +996,11 @@ define dso_local void @_ZN4llvm16MCObjectFileInfo25initMachOMCObjectFileInfoERKN
   %287 = load i32, ptr %13, align 4
   %288 = call noundef ptr @_ZN4llvm9MCContext15getMachOSectionENS_9StringRefES1_jNS_11SectionKindEPKc(ptr noundef nonnull align 8 dereferenceable(2432) %276, ptr %280, i64 %282, ptr %284, i64 %286, i32 noundef 0, i32 %287, ptr noundef null)
   %289 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 7
-  store ptr %288, ptr %289, align 8
+  store ptr %288, ptr %289, align 8, !tbaa !25
   %290 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 8
-  store ptr null, ptr %290, align 8
-  %291 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 106
-  %292 = load ptr, ptr %291, align 8
+  store ptr null, ptr %290, align 8, !tbaa !26
+  %291 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 107
+  %292 = load ptr, ptr %291, align 8, !tbaa !17
   call void @_ZN4llvm9StringRefC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %14, ptr noundef @.str.3)
   call void @_ZN4llvm9StringRefC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %15, ptr noundef @.str.5)
   %293 = call i32 @_ZN4llvm11SectionKind7getDataEv()
@@ -1003,10 +1016,10 @@ define dso_local void @_ZN4llvm16MCObjectFileInfo25initMachOMCObjectFileInfoERKN
   %302 = load i64, ptr %301, align 8
   %303 = load i32, ptr %16, align 4
   %304 = call noundef ptr @_ZN4llvm9MCContext15getMachOSectionENS_9StringRefES1_jNS_11SectionKindEPKc(ptr noundef nonnull align 8 dereferenceable(2432) %292, ptr %296, i64 %298, ptr %300, i64 %302, i32 noundef 17, i32 %303, ptr noundef null)
-  %305 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 55
-  store ptr %304, ptr %305, align 8
-  %306 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 106
-  %307 = load ptr, ptr %306, align 8
+  %305 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 56
+  store ptr %304, ptr %305, align 8, !tbaa !27
+  %306 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 107
+  %307 = load ptr, ptr %306, align 8, !tbaa !17
   call void @_ZN4llvm9StringRefC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %17, ptr noundef @.str.3)
   call void @_ZN4llvm9StringRefC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %18, ptr noundef @.str.6)
   %308 = call i32 @_ZN4llvm11SectionKind12getThreadBSSEv()
@@ -1022,10 +1035,10 @@ define dso_local void @_ZN4llvm16MCObjectFileInfo25initMachOMCObjectFileInfoERKN
   %317 = load i64, ptr %316, align 8
   %318 = load i32, ptr %19, align 4
   %319 = call noundef ptr @_ZN4llvm9MCContext15getMachOSectionENS_9StringRefES1_jNS_11SectionKindEPKc(ptr noundef nonnull align 8 dereferenceable(2432) %307, ptr %311, i64 %313, ptr %315, i64 %317, i32 noundef 18, i32 %318, ptr noundef null)
-  %320 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 56
-  store ptr %319, ptr %320, align 8
-  %321 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 106
-  %322 = load ptr, ptr %321, align 8
+  %320 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 57
+  store ptr %319, ptr %320, align 8, !tbaa !28
+  %321 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 107
+  %322 = load ptr, ptr %321, align 8, !tbaa !17
   call void @_ZN4llvm9StringRefC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %20, ptr noundef @.str.3)
   call void @_ZN4llvm9StringRefC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %21, ptr noundef @.str.7)
   %323 = call i32 @_ZN4llvm11SectionKind7getDataEv()
@@ -1041,10 +1054,10 @@ define dso_local void @_ZN4llvm16MCObjectFileInfo25initMachOMCObjectFileInfoERKN
   %332 = load i64, ptr %331, align 8
   %333 = load i32, ptr %22, align 4
   %334 = call noundef ptr @_ZN4llvm9MCContext15getMachOSectionENS_9StringRefES1_jNS_11SectionKindEPKc(ptr noundef nonnull align 8 dereferenceable(2432) %322, ptr %326, i64 %328, ptr %330, i64 %332, i32 noundef 19, i32 %333, ptr noundef null)
-  %335 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 70
-  store ptr %334, ptr %335, align 8
-  %336 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 106
-  %337 = load ptr, ptr %336, align 8
+  %335 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 71
+  store ptr %334, ptr %335, align 8, !tbaa !29
+  %336 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 107
+  %337 = load ptr, ptr %336, align 8, !tbaa !17
   call void @_ZN4llvm9StringRefC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %23, ptr noundef @.str.3)
   call void @_ZN4llvm9StringRefC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %24, ptr noundef @.str.8)
   %338 = call i32 @_ZN4llvm11SectionKind7getDataEv()
@@ -1060,10 +1073,10 @@ define dso_local void @_ZN4llvm16MCObjectFileInfo25initMachOMCObjectFileInfoERKN
   %347 = load i64, ptr %346, align 8
   %348 = load i32, ptr %25, align 4
   %349 = call noundef ptr @_ZN4llvm9MCContext15getMachOSectionENS_9StringRefES1_jNS_11SectionKindEPKc(ptr noundef nonnull align 8 dereferenceable(2432) %337, ptr %341, i64 %343, ptr %345, i64 %347, i32 noundef 21, i32 %348, ptr noundef null)
-  %350 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 71
-  store ptr %349, ptr %350, align 8
-  %351 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 106
-  %352 = load ptr, ptr %351, align 8
+  %350 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 72
+  store ptr %349, ptr %350, align 8, !tbaa !30
+  %351 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 107
+  %352 = load ptr, ptr %351, align 8, !tbaa !17
   call void @_ZN4llvm9StringRefC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %26, ptr noundef @.str)
   call void @_ZN4llvm9StringRefC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %27, ptr noundef @.str.9)
   %353 = call i32 @_ZN4llvm11SectionKind24getMergeable1ByteCStringEv()
@@ -1079,10 +1092,10 @@ define dso_local void @_ZN4llvm16MCObjectFileInfo25initMachOMCObjectFileInfoERKN
   %362 = load i64, ptr %361, align 8
   %363 = load i32, ptr %28, align 4
   %364 = call noundef ptr @_ZN4llvm9MCContext15getMachOSectionENS_9StringRefES1_jNS_11SectionKindEPKc(ptr noundef nonnull align 8 dereferenceable(2432) %352, ptr %356, i64 %358, ptr %360, i64 %362, i32 noundef 2, i32 %363, ptr noundef null)
-  %365 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 72
-  store ptr %364, ptr %365, align 8
-  %366 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 106
-  %367 = load ptr, ptr %366, align 8
+  %365 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 73
+  store ptr %364, ptr %365, align 8, !tbaa !31
+  %366 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 107
+  %367 = load ptr, ptr %366, align 8, !tbaa !17
   call void @_ZN4llvm9StringRefC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %29, ptr noundef @.str)
   call void @_ZN4llvm9StringRefC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %30, ptr noundef @.str.10)
   %368 = call i32 @_ZN4llvm11SectionKind24getMergeable2ByteCStringEv()
@@ -1098,10 +1111,10 @@ define dso_local void @_ZN4llvm16MCObjectFileInfo25initMachOMCObjectFileInfoERKN
   %377 = load i64, ptr %376, align 8
   %378 = load i32, ptr %31, align 4
   %379 = call noundef ptr @_ZN4llvm9MCContext15getMachOSectionENS_9StringRefES1_jNS_11SectionKindEPKc(ptr noundef nonnull align 8 dereferenceable(2432) %367, ptr %371, i64 %373, ptr %375, i64 %377, i32 noundef 0, i32 %378, ptr noundef null)
-  %380 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 73
-  store ptr %379, ptr %380, align 8
-  %381 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 106
-  %382 = load ptr, ptr %381, align 8
+  %380 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 74
+  store ptr %379, ptr %380, align 8, !tbaa !32
+  %381 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 107
+  %382 = load ptr, ptr %381, align 8, !tbaa !17
   call void @_ZN4llvm9StringRefC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %32, ptr noundef @.str)
   call void @_ZN4llvm9StringRefC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %33, ptr noundef @.str.11)
   %383 = call i32 @_ZN4llvm11SectionKind18getMergeableConst4Ev()
@@ -1117,10 +1130,10 @@ define dso_local void @_ZN4llvm16MCObjectFileInfo25initMachOMCObjectFileInfoERKN
   %392 = load i64, ptr %391, align 8
   %393 = load i32, ptr %34, align 4
   %394 = call noundef ptr @_ZN4llvm9MCContext15getMachOSectionENS_9StringRefES1_jNS_11SectionKindEPKc(ptr noundef nonnull align 8 dereferenceable(2432) %382, ptr %386, i64 %388, ptr %390, i64 %392, i32 noundef 3, i32 %393, ptr noundef null)
-  %395 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 81
-  store ptr %394, ptr %395, align 8
-  %396 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 106
-  %397 = load ptr, ptr %396, align 8
+  %395 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 82
+  store ptr %394, ptr %395, align 8, !tbaa !33
+  %396 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 107
+  %397 = load ptr, ptr %396, align 8, !tbaa !17
   call void @_ZN4llvm9StringRefC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %35, ptr noundef @.str)
   call void @_ZN4llvm9StringRefC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %36, ptr noundef @.str.12)
   %398 = call i32 @_ZN4llvm11SectionKind18getMergeableConst8Ev()
@@ -1136,10 +1149,10 @@ define dso_local void @_ZN4llvm16MCObjectFileInfo25initMachOMCObjectFileInfoERKN
   %407 = load i64, ptr %406, align 8
   %408 = load i32, ptr %37, align 4
   %409 = call noundef ptr @_ZN4llvm9MCContext15getMachOSectionENS_9StringRefES1_jNS_11SectionKindEPKc(ptr noundef nonnull align 8 dereferenceable(2432) %397, ptr %401, i64 %403, ptr %405, i64 %407, i32 noundef 4, i32 %408, ptr noundef null)
-  %410 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 82
-  store ptr %409, ptr %410, align 8
-  %411 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 106
-  %412 = load ptr, ptr %411, align 8
+  %410 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 83
+  store ptr %409, ptr %410, align 8, !tbaa !34
+  %411 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 107
+  %412 = load ptr, ptr %411, align 8, !tbaa !17
   call void @_ZN4llvm9StringRefC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %38, ptr noundef @.str)
   call void @_ZN4llvm9StringRefC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %39, ptr noundef @.str.13)
   %413 = call i32 @_ZN4llvm11SectionKind19getMergeableConst16Ev()
@@ -1155,10 +1168,10 @@ define dso_local void @_ZN4llvm16MCObjectFileInfo25initMachOMCObjectFileInfoERKN
   %422 = load i64, ptr %421, align 8
   %423 = load i32, ptr %40, align 4
   %424 = call noundef ptr @_ZN4llvm9MCContext15getMachOSectionENS_9StringRefES1_jNS_11SectionKindEPKc(ptr noundef nonnull align 8 dereferenceable(2432) %412, ptr %416, i64 %418, ptr %420, i64 %422, i32 noundef 14, i32 %423, ptr noundef null)
-  %425 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 83
-  store ptr %424, ptr %425, align 8
-  %426 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 106
-  %427 = load ptr, ptr %426, align 8
+  %425 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 84
+  store ptr %424, ptr %425, align 8, !tbaa !35
+  %426 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 107
+  %427 = load ptr, ptr %426, align 8, !tbaa !17
   call void @_ZN4llvm9StringRefC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %41, ptr noundef @.str)
   call void @_ZN4llvm9StringRefC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %42, ptr noundef @.str.14)
   %428 = call i32 @_ZN4llvm11SectionKind11getReadOnlyEv()
@@ -1175,12 +1188,13 @@ define dso_local void @_ZN4llvm16MCObjectFileInfo25initMachOMCObjectFileInfoERKN
   %438 = load i32, ptr %43, align 4
   %439 = call noundef ptr @_ZN4llvm9MCContext15getMachOSectionENS_9StringRefES1_jNS_11SectionKindEPKc(ptr noundef nonnull align 8 dereferenceable(2432) %427, ptr %431, i64 %433, ptr %435, i64 %437, i32 noundef 0, i32 %438, ptr noundef null)
   %440 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 9
-  store ptr %439, ptr %440, align 8
-  %441 = load ptr, ptr %4, align 8
+  store ptr %439, ptr %440, align 8, !tbaa !36
+  call void @llvm.lifetime.start.p0(i64 4, ptr %44) #11
+  %441 = load ptr, ptr %4, align 8, !tbaa !8
   %442 = call noundef i32 @_ZNK4llvm6Triple7getArchEv(ptr noundef nonnull align 8 dereferenceable(56) %441)
-  store i32 %442, ptr %44, align 4
-  %443 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 106
-  %444 = load ptr, ptr %443, align 8
+  store i32 %442, ptr %44, align 4, !tbaa !37
+  %443 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 107
+  %444 = load ptr, ptr %443, align 8, !tbaa !17
   call void @_ZN4llvm9StringRefC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %45, ptr noundef @.str.3)
   call void @_ZN4llvm9StringRefC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %46, ptr noundef @.str.14)
   %445 = call i32 @_ZN4llvm11SectionKind18getReadOnlyWithRelEv()
@@ -1196,20 +1210,20 @@ define dso_local void @_ZN4llvm16MCObjectFileInfo25initMachOMCObjectFileInfoERKN
   %454 = load i64, ptr %453, align 8
   %455 = load i32, ptr %47, align 4
   %456 = call noundef ptr @_ZN4llvm9MCContext15getMachOSectionENS_9StringRefES1_jNS_11SectionKindEPKc(ptr noundef nonnull align 8 dereferenceable(2432) %444, ptr %448, i64 %450, ptr %452, i64 %454, i32 noundef 0, i32 %455, ptr noundef null)
-  %457 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 76
-  store ptr %456, ptr %457, align 8
-  %458 = load i32, ptr %44, align 4
+  %457 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 77
+  store ptr %456, ptr %457, align 8, !tbaa !39
+  %458 = load i32, ptr %44, align 4, !tbaa !37
   %459 = icmp eq i32 %458, 21
   br i1 %459, label %463, label %460
 
 460:                                              ; preds = %258
-  %461 = load i32, ptr %44, align 4
+  %461 = load i32, ptr %44, align 4, !tbaa !37
   %462 = icmp eq i32 %461, 23
   br i1 %462, label %463, label %512
 
 463:                                              ; preds = %460, %258
-  %464 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 106
-  %465 = load ptr, ptr %464, align 8
+  %464 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 107
+  %465 = load ptr, ptr %464, align 8, !tbaa !17
   call void @_ZN4llvm9StringRefC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %48, ptr noundef @.str)
   call void @_ZN4llvm9StringRefC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %49, ptr noundef @.str.15)
   %466 = call i32 @_ZN4llvm11SectionKind7getTextEv()
@@ -1225,10 +1239,10 @@ define dso_local void @_ZN4llvm16MCObjectFileInfo25initMachOMCObjectFileInfoERKN
   %475 = load i64, ptr %474, align 8
   %476 = load i32, ptr %50, align 4
   %477 = call noundef ptr @_ZN4llvm9MCContext15getMachOSectionENS_9StringRefES1_jNS_11SectionKindEPKc(ptr noundef nonnull align 8 dereferenceable(2432) %465, ptr %469, i64 %471, ptr %473, i64 %475, i32 noundef -2147483637, i32 %476, ptr noundef null)
-  %478 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 74
-  store ptr %477, ptr %478, align 8
-  %479 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 106
-  %480 = load ptr, ptr %479, align 8
+  %478 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 75
+  store ptr %477, ptr %478, align 8, !tbaa !40
+  %479 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 107
+  %480 = load ptr, ptr %479, align 8, !tbaa !17
   call void @_ZN4llvm9StringRefC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %51, ptr noundef @.str)
   call void @_ZN4llvm9StringRefC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %52, ptr noundef @.str.16)
   %481 = call i32 @_ZN4llvm11SectionKind11getReadOnlyEv()
@@ -1244,10 +1258,10 @@ define dso_local void @_ZN4llvm16MCObjectFileInfo25initMachOMCObjectFileInfoERKN
   %490 = load i64, ptr %489, align 8
   %491 = load i32, ptr %53, align 4
   %492 = call noundef ptr @_ZN4llvm9MCContext15getMachOSectionENS_9StringRefES1_jNS_11SectionKindEPKc(ptr noundef nonnull align 8 dereferenceable(2432) %480, ptr %484, i64 %486, ptr %488, i64 %490, i32 noundef 11, i32 %491, ptr noundef null)
-  %493 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 75
-  store ptr %492, ptr %493, align 8
-  %494 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 106
-  %495 = load ptr, ptr %494, align 8
+  %493 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 76
+  store ptr %492, ptr %493, align 8, !tbaa !41
+  %494 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 107
+  %495 = load ptr, ptr %494, align 8, !tbaa !17
   call void @_ZN4llvm9StringRefC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %54, ptr noundef @.str.3)
   call void @_ZN4llvm9StringRefC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %55, ptr noundef @.str.17)
   %496 = call i32 @_ZN4llvm11SectionKind7getDataEv()
@@ -1263,36 +1277,36 @@ define dso_local void @_ZN4llvm16MCObjectFileInfo25initMachOMCObjectFileInfoERKN
   %505 = load i64, ptr %504, align 8
   %506 = load i32, ptr %56, align 4
   %507 = call noundef ptr @_ZN4llvm9MCContext15getMachOSectionENS_9StringRefES1_jNS_11SectionKindEPKc(ptr noundef nonnull align 8 dereferenceable(2432) %495, ptr %499, i64 %501, ptr %503, i64 %505, i32 noundef 11, i32 %506, ptr noundef null)
-  %508 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 77
-  store ptr %507, ptr %508, align 8
-  %509 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 77
-  %510 = load ptr, ptr %509, align 8
-  %511 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 78
-  store ptr %510, ptr %511, align 8
+  %508 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 78
+  store ptr %507, ptr %508, align 8, !tbaa !42
+  %509 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 78
+  %510 = load ptr, ptr %509, align 8, !tbaa !42
+  %511 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 79
+  store ptr %510, ptr %511, align 8, !tbaa !43
   br label %525
 
 512:                                              ; preds = %460
   %513 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 6
-  %514 = load ptr, ptr %513, align 8
-  %515 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 74
-  store ptr %514, ptr %515, align 8
+  %514 = load ptr, ptr %513, align 8, !tbaa !24
+  %515 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 75
+  store ptr %514, ptr %515, align 8, !tbaa !40
   %516 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 9
-  %517 = load ptr, ptr %516, align 8
-  %518 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 75
-  store ptr %517, ptr %518, align 8
+  %517 = load ptr, ptr %516, align 8, !tbaa !36
+  %518 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 76
+  store ptr %517, ptr %518, align 8, !tbaa !41
   %519 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 7
-  %520 = load ptr, ptr %519, align 8
-  %521 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 77
-  store ptr %520, ptr %521, align 8
-  %522 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 76
-  %523 = load ptr, ptr %522, align 8
-  %524 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 78
-  store ptr %523, ptr %524, align 8
+  %520 = load ptr, ptr %519, align 8, !tbaa !25
+  %521 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 78
+  store ptr %520, ptr %521, align 8, !tbaa !42
+  %522 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 77
+  %523 = load ptr, ptr %522, align 8, !tbaa !39
+  %524 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 79
+  store ptr %523, ptr %524, align 8, !tbaa !43
   br label %525
 
 525:                                              ; preds = %512, %463
-  %526 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 106
-  %527 = load ptr, ptr %526, align 8
+  %526 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 107
+  %527 = load ptr, ptr %526, align 8, !tbaa !17
   call void @_ZN4llvm9StringRefC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %57, ptr noundef @.str.3)
   call void @_ZN4llvm9StringRefC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %58, ptr noundef @.str.18)
   %528 = call i32 @_ZN4llvm11SectionKind6getBSSEv()
@@ -1308,10 +1322,10 @@ define dso_local void @_ZN4llvm16MCObjectFileInfo25initMachOMCObjectFileInfoERKN
   %537 = load i64, ptr %536, align 8
   %538 = load i32, ptr %59, align 4
   %539 = call noundef ptr @_ZN4llvm9MCContext15getMachOSectionENS_9StringRefES1_jNS_11SectionKindEPKc(ptr noundef nonnull align 8 dereferenceable(2432) %527, ptr %531, i64 %533, ptr %535, i64 %537, i32 noundef 1, i32 %538, ptr noundef null)
-  %540 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 79
-  store ptr %539, ptr %540, align 8
-  %541 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 106
-  %542 = load ptr, ptr %541, align 8
+  %540 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 80
+  store ptr %539, ptr %540, align 8, !tbaa !44
+  %541 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 107
+  %542 = load ptr, ptr %541, align 8, !tbaa !17
   call void @_ZN4llvm9StringRefC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %60, ptr noundef @.str.3)
   call void @_ZN4llvm9StringRefC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %61, ptr noundef @.str.19)
   %543 = call i32 @_ZN4llvm11SectionKind6getBSSEv()
@@ -1327,10 +1341,10 @@ define dso_local void @_ZN4llvm16MCObjectFileInfo25initMachOMCObjectFileInfoERKN
   %552 = load i64, ptr %551, align 8
   %553 = load i32, ptr %62, align 4
   %554 = call noundef ptr @_ZN4llvm9MCContext15getMachOSectionENS_9StringRefES1_jNS_11SectionKindEPKc(ptr noundef nonnull align 8 dereferenceable(2432) %542, ptr %546, i64 %548, ptr %550, i64 %552, i32 noundef 1, i32 %553, ptr noundef null)
-  %555 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 80
-  store ptr %554, ptr %555, align 8
-  %556 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 106
-  %557 = load ptr, ptr %556, align 8
+  %555 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 81
+  store ptr %554, ptr %555, align 8, !tbaa !45
+  %556 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 107
+  %557 = load ptr, ptr %556, align 8, !tbaa !17
   call void @_ZN4llvm9StringRefC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %63, ptr noundef @.str.3)
   call void @_ZN4llvm9StringRefC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %64, ptr noundef @.str.20)
   %558 = call i32 @_ZN4llvm11SectionKind11getMetadataEv()
@@ -1346,10 +1360,10 @@ define dso_local void @_ZN4llvm16MCObjectFileInfo25initMachOMCObjectFileInfoERKN
   %567 = load i64, ptr %566, align 8
   %568 = load i32, ptr %65, align 4
   %569 = call noundef ptr @_ZN4llvm9MCContext15getMachOSectionENS_9StringRefES1_jNS_11SectionKindEPKc(ptr noundef nonnull align 8 dereferenceable(2432) %557, ptr %561, i64 %563, ptr %565, i64 %567, i32 noundef 7, i32 %568, ptr noundef null)
-  %570 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 84
-  store ptr %569, ptr %570, align 8
-  %571 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 106
-  %572 = load ptr, ptr %571, align 8
+  %570 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 85
+  store ptr %569, ptr %570, align 8, !tbaa !46
+  %571 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 107
+  %572 = load ptr, ptr %571, align 8, !tbaa !17
   call void @_ZN4llvm9StringRefC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %66, ptr noundef @.str.3)
   call void @_ZN4llvm9StringRefC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %67, ptr noundef @.str.21)
   %573 = call i32 @_ZN4llvm11SectionKind11getMetadataEv()
@@ -1365,10 +1379,10 @@ define dso_local void @_ZN4llvm16MCObjectFileInfo25initMachOMCObjectFileInfoERKN
   %582 = load i64, ptr %581, align 8
   %583 = load i32, ptr %68, align 4
   %584 = call noundef ptr @_ZN4llvm9MCContext15getMachOSectionENS_9StringRefES1_jNS_11SectionKindEPKc(ptr noundef nonnull align 8 dereferenceable(2432) %572, ptr %576, i64 %578, ptr %580, i64 %582, i32 noundef 6, i32 %583, ptr noundef null)
-  %585 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 85
-  store ptr %584, ptr %585, align 8
-  %586 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 106
-  %587 = load ptr, ptr %586, align 8
+  %585 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 86
+  store ptr %584, ptr %585, align 8, !tbaa !47
+  %586 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 107
+  %587 = load ptr, ptr %586, align 8, !tbaa !17
   call void @_ZN4llvm9StringRefC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %69, ptr noundef @.str.3)
   call void @_ZN4llvm9StringRefC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %70, ptr noundef @.str.22)
   %588 = call i32 @_ZN4llvm11SectionKind11getMetadataEv()
@@ -1384,10 +1398,10 @@ define dso_local void @_ZN4llvm16MCObjectFileInfo25initMachOMCObjectFileInfoERKN
   %597 = load i64, ptr %596, align 8
   %598 = load i32, ptr %71, align 4
   %599 = call noundef ptr @_ZN4llvm9MCContext15getMachOSectionENS_9StringRefES1_jNS_11SectionKindEPKc(ptr noundef nonnull align 8 dereferenceable(2432) %587, ptr %591, i64 %593, ptr %595, i64 %597, i32 noundef 20, i32 %598, ptr noundef null)
-  %600 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 86
-  store ptr %599, ptr %600, align 8
-  %601 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 106
-  %602 = load ptr, ptr %601, align 8
+  %600 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 87
+  store ptr %599, ptr %600, align 8, !tbaa !48
+  %601 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 107
+  %602 = load ptr, ptr %601, align 8, !tbaa !17
   call void @_ZN4llvm9StringRefC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %72, ptr noundef @.str.3)
   call void @_ZN4llvm9StringRefC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %73, ptr noundef @.str.23)
   %603 = call i32 @_ZN4llvm11SectionKind7getDataEv()
@@ -1403,10 +1417,10 @@ define dso_local void @_ZN4llvm16MCObjectFileInfo25initMachOMCObjectFileInfoERKN
   %612 = load i64, ptr %611, align 8
   %613 = load i32, ptr %74, align 4
   %614 = call noundef ptr @_ZN4llvm9MCContext15getMachOSectionENS_9StringRefES1_jNS_11SectionKindEPKc(ptr noundef nonnull align 8 dereferenceable(2432) %602, ptr %606, i64 %608, ptr %610, i64 %612, i32 noundef 0, i32 %613, ptr noundef null)
-  %615 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 87
-  store ptr %614, ptr %615, align 8
-  %616 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 106
-  %617 = load ptr, ptr %616, align 8
+  %615 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 88
+  store ptr %614, ptr %615, align 8, !tbaa !49
+  %616 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 107
+  %617 = load ptr, ptr %616, align 8, !tbaa !17
   call void @_ZN4llvm9StringRefC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %75, ptr noundef @.str)
   call void @_ZN4llvm9StringRefC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %76, ptr noundef @.str.24)
   %618 = call i32 @_ZN4llvm11SectionKind18getReadOnlyWithRelEv()
@@ -1423,20 +1437,20 @@ define dso_local void @_ZN4llvm16MCObjectFileInfo25initMachOMCObjectFileInfoERKN
   %628 = load i32, ptr %77, align 4
   %629 = call noundef ptr @_ZN4llvm9MCContext15getMachOSectionENS_9StringRefES1_jNS_11SectionKindEPKc(ptr noundef nonnull align 8 dereferenceable(2432) %617, ptr %621, i64 %623, ptr %625, i64 %627, i32 noundef 0, i32 %628, ptr noundef null)
   %630 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 10
-  store ptr %629, ptr %630, align 8
-  %631 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 51
-  store ptr null, ptr %631, align 8
-  %632 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 52
-  store ptr null, ptr %632, align 8
-  %633 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 53
-  store ptr null, ptr %633, align 8
-  %634 = load ptr, ptr %4, align 8
+  store ptr %629, ptr %630, align 8, !tbaa !50
+  %631 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 52
+  store ptr null, ptr %631, align 8, !tbaa !51
+  %632 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 53
+  store ptr null, ptr %632, align 8, !tbaa !52
+  %633 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 54
+  store ptr null, ptr %633, align 8, !tbaa !53
+  %634 = load ptr, ptr %4, align 8, !tbaa !8
   %635 = call noundef zeroext i1 @_ZL16useCompactUnwindRKN4llvm6TripleE(ptr noundef nonnull align 8 dereferenceable(56) %634)
   br i1 %635, label %636, label %679
 
 636:                                              ; preds = %525
-  %637 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 106
-  %638 = load ptr, ptr %637, align 8
+  %637 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 107
+  %638 = load ptr, ptr %637, align 8, !tbaa !17
   call void @_ZN4llvm9StringRefC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %78, ptr noundef @.str.25)
   call void @_ZN4llvm9StringRefC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %79, ptr noundef @.str.26)
   %639 = call i32 @_ZN4llvm11SectionKind11getReadOnlyEv()
@@ -1453,48 +1467,48 @@ define dso_local void @_ZN4llvm16MCObjectFileInfo25initMachOMCObjectFileInfoERKN
   %649 = load i32, ptr %80, align 4
   %650 = call noundef ptr @_ZN4llvm9MCContext15getMachOSectionENS_9StringRefES1_jNS_11SectionKindEPKc(ptr noundef nonnull align 8 dereferenceable(2432) %638, ptr %642, i64 %644, ptr %646, i64 %648, i32 noundef 33554432, i32 %649, ptr noundef null)
   %651 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 11
-  store ptr %650, ptr %651, align 8
-  %652 = load ptr, ptr %4, align 8
+  store ptr %650, ptr %651, align 8, !tbaa !54
+  %652 = load ptr, ptr %4, align 8, !tbaa !8
   %653 = call noundef zeroext i1 @_ZNK4llvm6Triple5isX86Ev(ptr noundef nonnull align 8 dereferenceable(56) %652)
   br i1 %653, label %654, label %656
 
 654:                                              ; preds = %636
   %655 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 5
-  store i32 67108864, ptr %655, align 8
+  store i32 67108864, ptr %655, align 8, !tbaa !55
   br label %678
 
 656:                                              ; preds = %636
-  %657 = load ptr, ptr %4, align 8
+  %657 = load ptr, ptr %4, align 8, !tbaa !8
   %658 = call noundef i32 @_ZNK4llvm6Triple7getArchEv(ptr noundef nonnull align 8 dereferenceable(56) %657)
   %659 = icmp eq i32 %658, 3
   br i1 %659, label %664, label %660
 
 660:                                              ; preds = %656
-  %661 = load ptr, ptr %4, align 8
+  %661 = load ptr, ptr %4, align 8, !tbaa !8
   %662 = call noundef i32 @_ZNK4llvm6Triple7getArchEv(ptr noundef nonnull align 8 dereferenceable(56) %661)
   %663 = icmp eq i32 %662, 5
   br i1 %663, label %664, label %666
 
 664:                                              ; preds = %660, %656
   %665 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 5
-  store i32 50331648, ptr %665, align 8
+  store i32 50331648, ptr %665, align 8, !tbaa !55
   br label %677
 
 666:                                              ; preds = %660
-  %667 = load ptr, ptr %4, align 8
+  %667 = load ptr, ptr %4, align 8, !tbaa !8
   %668 = call noundef i32 @_ZNK4llvm6Triple7getArchEv(ptr noundef nonnull align 8 dereferenceable(56) %667)
   %669 = icmp eq i32 %668, 1
   br i1 %669, label %674, label %670
 
 670:                                              ; preds = %666
-  %671 = load ptr, ptr %4, align 8
+  %671 = load ptr, ptr %4, align 8, !tbaa !8
   %672 = call noundef i32 @_ZNK4llvm6Triple7getArchEv(ptr noundef nonnull align 8 dereferenceable(56) %671)
   %673 = icmp eq i32 %672, 35
   br i1 %673, label %674, label %676
 
 674:                                              ; preds = %670, %666
   %675 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 5
-  store i32 67108864, ptr %675, align 8
+  store i32 67108864, ptr %675, align 8, !tbaa !55
   br label %676
 
 676:                                              ; preds = %674, %670
@@ -1507,8 +1521,8 @@ define dso_local void @_ZN4llvm16MCObjectFileInfo25initMachOMCObjectFileInfoERKN
   br label %679
 
 679:                                              ; preds = %678, %525
-  %680 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 106
-  %681 = load ptr, ptr %680, align 8
+  %680 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 107
+  %681 = load ptr, ptr %680, align 8, !tbaa !17
   call void @_ZN4llvm9StringRefC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %81, ptr noundef @.str.27)
   call void @_ZN4llvm9StringRefC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %82, ptr noundef @.str.28)
   %682 = call i32 @_ZN4llvm11SectionKind11getMetadataEv()
@@ -1524,10 +1538,10 @@ define dso_local void @_ZN4llvm16MCObjectFileInfo25initMachOMCObjectFileInfoERKN
   %691 = load i64, ptr %690, align 8
   %692 = load i32, ptr %83, align 4
   %693 = call noundef ptr @_ZN4llvm9MCContext15getMachOSectionENS_9StringRefES1_jNS_11SectionKindEPKc(ptr noundef nonnull align 8 dereferenceable(2432) %681, ptr %685, i64 %687, ptr %689, i64 %691, i32 noundef 33554432, i32 %692, ptr noundef @.str.29)
-  %694 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 26
-  store ptr %693, ptr %694, align 8
-  %695 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 106
-  %696 = load ptr, ptr %695, align 8
+  %694 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 27
+  store ptr %693, ptr %694, align 8, !tbaa !56
+  %695 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 107
+  %696 = load ptr, ptr %695, align 8, !tbaa !17
   call void @_ZN4llvm9StringRefC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %84, ptr noundef @.str.27)
   call void @_ZN4llvm9StringRefC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %85, ptr noundef @.str.30)
   %697 = call i32 @_ZN4llvm11SectionKind11getMetadataEv()
@@ -1543,10 +1557,10 @@ define dso_local void @_ZN4llvm16MCObjectFileInfo25initMachOMCObjectFileInfoERKN
   %706 = load i64, ptr %705, align 8
   %707 = load i32, ptr %86, align 4
   %708 = call noundef ptr @_ZN4llvm9MCContext15getMachOSectionENS_9StringRefES1_jNS_11SectionKindEPKc(ptr noundef nonnull align 8 dereferenceable(2432) %696, ptr %700, i64 %702, ptr %704, i64 %706, i32 noundef 33554432, i32 %707, ptr noundef @.str.31)
-  %709 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 27
-  store ptr %708, ptr %709, align 8
-  %710 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 106
-  %711 = load ptr, ptr %710, align 8
+  %709 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 28
+  store ptr %708, ptr %709, align 8, !tbaa !57
+  %710 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 107
+  %711 = load ptr, ptr %710, align 8, !tbaa !17
   call void @_ZN4llvm9StringRefC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %87, ptr noundef @.str.27)
   call void @_ZN4llvm9StringRefC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %88, ptr noundef @.str.32)
   %712 = call i32 @_ZN4llvm11SectionKind11getMetadataEv()
@@ -1562,10 +1576,10 @@ define dso_local void @_ZN4llvm16MCObjectFileInfo25initMachOMCObjectFileInfoERKN
   %721 = load i64, ptr %720, align 8
   %722 = load i32, ptr %89, align 4
   %723 = call noundef ptr @_ZN4llvm9MCContext15getMachOSectionENS_9StringRefES1_jNS_11SectionKindEPKc(ptr noundef nonnull align 8 dereferenceable(2432) %711, ptr %715, i64 %717, ptr %719, i64 %721, i32 noundef 33554432, i32 %722, ptr noundef @.str.33)
-  %724 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 28
-  store ptr %723, ptr %724, align 8
-  %725 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 106
-  %726 = load ptr, ptr %725, align 8
+  %724 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 29
+  store ptr %723, ptr %724, align 8, !tbaa !58
+  %725 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 107
+  %726 = load ptr, ptr %725, align 8, !tbaa !17
   call void @_ZN4llvm9StringRefC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %90, ptr noundef @.str.27)
   call void @_ZN4llvm9StringRefC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %91, ptr noundef @.str.34)
   %727 = call i32 @_ZN4llvm11SectionKind11getMetadataEv()
@@ -1581,10 +1595,10 @@ define dso_local void @_ZN4llvm16MCObjectFileInfo25initMachOMCObjectFileInfoERKN
   %736 = load i64, ptr %735, align 8
   %737 = load i32, ptr %92, align 4
   %738 = call noundef ptr @_ZN4llvm9MCContext15getMachOSectionENS_9StringRefES1_jNS_11SectionKindEPKc(ptr noundef nonnull align 8 dereferenceable(2432) %726, ptr %730, i64 %732, ptr %734, i64 %736, i32 noundef 33554432, i32 %737, ptr noundef @.str.35)
-  %739 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 29
-  store ptr %738, ptr %739, align 8
-  %740 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 106
-  %741 = load ptr, ptr %740, align 8
+  %739 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 30
+  store ptr %738, ptr %739, align 8, !tbaa !59
+  %740 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 107
+  %741 = load ptr, ptr %740, align 8, !tbaa !17
   call void @_ZN4llvm9StringRefC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %93, ptr noundef @.str.27)
   call void @_ZN4llvm9StringRefC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %94, ptr noundef @.str.36)
   %742 = call i32 @_ZN4llvm11SectionKind11getMetadataEv()
@@ -1600,10 +1614,10 @@ define dso_local void @_ZN4llvm16MCObjectFileInfo25initMachOMCObjectFileInfoERKN
   %751 = load i64, ptr %750, align 8
   %752 = load i32, ptr %95, align 4
   %753 = call noundef ptr @_ZN4llvm9MCContext15getMachOSectionENS_9StringRefES1_jNS_11SectionKindEPKc(ptr noundef nonnull align 8 dereferenceable(2432) %741, ptr %745, i64 %747, ptr %749, i64 %751, i32 noundef 33554432, i32 %752, ptr noundef @.str.37)
-  %754 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 30
-  store ptr %753, ptr %754, align 8
-  %755 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 106
-  %756 = load ptr, ptr %755, align 8
+  %754 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 31
+  store ptr %753, ptr %754, align 8, !tbaa !60
+  %755 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 107
+  %756 = load ptr, ptr %755, align 8, !tbaa !17
   call void @_ZN4llvm9StringRefC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %96, ptr noundef @.str.27)
   call void @_ZN4llvm9StringRefC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %97, ptr noundef @.str.38)
   %757 = call i32 @_ZN4llvm11SectionKind11getMetadataEv()
@@ -1619,10 +1633,10 @@ define dso_local void @_ZN4llvm16MCObjectFileInfo25initMachOMCObjectFileInfoERKN
   %766 = load i64, ptr %765, align 8
   %767 = load i32, ptr %98, align 4
   %768 = call noundef ptr @_ZN4llvm9MCContext15getMachOSectionENS_9StringRefES1_jNS_11SectionKindEPKc(ptr noundef nonnull align 8 dereferenceable(2432) %756, ptr %760, i64 %762, ptr %764, i64 %766, i32 noundef 33554432, i32 %767, ptr noundef null)
-  %769 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 50
-  store ptr %768, ptr %769, align 8
-  %770 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 106
-  %771 = load ptr, ptr %770, align 8
+  %769 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 51
+  store ptr %768, ptr %769, align 8, !tbaa !61
+  %770 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 107
+  %771 = load ptr, ptr %770, align 8, !tbaa !17
   call void @_ZN4llvm9StringRefC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %99, ptr noundef @.str.27)
   call void @_ZN4llvm9StringRefC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %100, ptr noundef @.str.39)
   %772 = call i32 @_ZN4llvm11SectionKind11getMetadataEv()
@@ -1638,10 +1652,10 @@ define dso_local void @_ZN4llvm16MCObjectFileInfo25initMachOMCObjectFileInfoERKN
   %781 = load i64, ptr %780, align 8
   %782 = load i32, ptr %101, align 4
   %783 = call noundef ptr @_ZN4llvm9MCContext15getMachOSectionENS_9StringRefES1_jNS_11SectionKindEPKc(ptr noundef nonnull align 8 dereferenceable(2432) %771, ptr %775, i64 %777, ptr %779, i64 %781, i32 noundef 33554432, i32 %782, ptr noundef @.str.40)
-  %784 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 12
-  store ptr %783, ptr %784, align 8
-  %785 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 106
-  %786 = load ptr, ptr %785, align 8
+  %784 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 13
+  store ptr %783, ptr %784, align 8, !tbaa !62
+  %785 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 107
+  %786 = load ptr, ptr %785, align 8, !tbaa !17
   call void @_ZN4llvm9StringRefC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %102, ptr noundef @.str.27)
   call void @_ZN4llvm9StringRefC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %103, ptr noundef @.str.41)
   %787 = call i32 @_ZN4llvm11SectionKind11getMetadataEv()
@@ -1657,10 +1671,10 @@ define dso_local void @_ZN4llvm16MCObjectFileInfo25initMachOMCObjectFileInfoERKN
   %796 = load i64, ptr %795, align 8
   %797 = load i32, ptr %104, align 4
   %798 = call noundef ptr @_ZN4llvm9MCContext15getMachOSectionENS_9StringRefES1_jNS_11SectionKindEPKc(ptr noundef nonnull align 8 dereferenceable(2432) %786, ptr %790, i64 %792, ptr %794, i64 %796, i32 noundef 33554432, i32 %797, ptr noundef @.str.42)
-  %799 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 13
-  store ptr %798, ptr %799, align 8
-  %800 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 106
-  %801 = load ptr, ptr %800, align 8
+  %799 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 14
+  store ptr %798, ptr %799, align 8, !tbaa !63
+  %800 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 107
+  %801 = load ptr, ptr %800, align 8, !tbaa !17
   call void @_ZN4llvm9StringRefC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %105, ptr noundef @.str.27)
   call void @_ZN4llvm9StringRefC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %106, ptr noundef @.str.43)
   %802 = call i32 @_ZN4llvm11SectionKind11getMetadataEv()
@@ -1676,10 +1690,10 @@ define dso_local void @_ZN4llvm16MCObjectFileInfo25initMachOMCObjectFileInfoERKN
   %811 = load i64, ptr %810, align 8
   %812 = load i32, ptr %107, align 4
   %813 = call noundef ptr @_ZN4llvm9MCContext15getMachOSectionENS_9StringRefES1_jNS_11SectionKindEPKc(ptr noundef nonnull align 8 dereferenceable(2432) %801, ptr %805, i64 %807, ptr %809, i64 %811, i32 noundef 33554432, i32 %812, ptr noundef @.str.44)
-  %814 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 14
-  store ptr %813, ptr %814, align 8
-  %815 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 106
-  %816 = load ptr, ptr %815, align 8
+  %814 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 15
+  store ptr %813, ptr %814, align 8, !tbaa !64
+  %815 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 107
+  %816 = load ptr, ptr %815, align 8, !tbaa !17
   call void @_ZN4llvm9StringRefC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %108, ptr noundef @.str.27)
   call void @_ZN4llvm9StringRefC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %109, ptr noundef @.str.45)
   %817 = call i32 @_ZN4llvm11SectionKind11getMetadataEv()
@@ -1695,10 +1709,10 @@ define dso_local void @_ZN4llvm16MCObjectFileInfo25initMachOMCObjectFileInfoERKN
   %826 = load i64, ptr %825, align 8
   %827 = load i32, ptr %110, align 4
   %828 = call noundef ptr @_ZN4llvm9MCContext15getMachOSectionENS_9StringRefES1_jNS_11SectionKindEPKc(ptr noundef nonnull align 8 dereferenceable(2432) %816, ptr %820, i64 %822, ptr %824, i64 %826, i32 noundef 33554432, i32 %827, ptr noundef @.str.46)
-  %829 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 15
-  store ptr %828, ptr %829, align 8
-  %830 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 106
-  %831 = load ptr, ptr %830, align 8
+  %829 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 16
+  store ptr %828, ptr %829, align 8, !tbaa !65
+  %830 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 107
+  %831 = load ptr, ptr %830, align 8, !tbaa !17
   call void @_ZN4llvm9StringRefC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %111, ptr noundef @.str.27)
   call void @_ZN4llvm9StringRefC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %112, ptr noundef @.str.47)
   %832 = call i32 @_ZN4llvm11SectionKind11getMetadataEv()
@@ -1714,10 +1728,10 @@ define dso_local void @_ZN4llvm16MCObjectFileInfo25initMachOMCObjectFileInfoERKN
   %841 = load i64, ptr %840, align 8
   %842 = load i32, ptr %113, align 4
   %843 = call noundef ptr @_ZN4llvm9MCContext15getMachOSectionENS_9StringRefES1_jNS_11SectionKindEPKc(ptr noundef nonnull align 8 dereferenceable(2432) %831, ptr %835, i64 %837, ptr %839, i64 %841, i32 noundef 33554432, i32 %842, ptr noundef @.str.48)
-  %844 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 16
-  store ptr %843, ptr %844, align 8
-  %845 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 106
-  %846 = load ptr, ptr %845, align 8
+  %844 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 17
+  store ptr %843, ptr %844, align 8, !tbaa !66
+  %845 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 107
+  %846 = load ptr, ptr %845, align 8, !tbaa !17
   call void @_ZN4llvm9StringRefC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %114, ptr noundef @.str.27)
   call void @_ZN4llvm9StringRefC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %115, ptr noundef @.str.49)
   %847 = call i32 @_ZN4llvm11SectionKind11getMetadataEv()
@@ -1733,10 +1747,10 @@ define dso_local void @_ZN4llvm16MCObjectFileInfo25initMachOMCObjectFileInfoERKN
   %856 = load i64, ptr %855, align 8
   %857 = load i32, ptr %116, align 4
   %858 = call noundef ptr @_ZN4llvm9MCContext15getMachOSectionENS_9StringRefES1_jNS_11SectionKindEPKc(ptr noundef nonnull align 8 dereferenceable(2432) %846, ptr %850, i64 %852, ptr %854, i64 %856, i32 noundef 33554432, i32 %857, ptr noundef null)
-  %859 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 25
-  store ptr %858, ptr %859, align 8
-  %860 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 106
-  %861 = load ptr, ptr %860, align 8
+  %859 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 26
+  store ptr %858, ptr %859, align 8, !tbaa !67
+  %860 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 107
+  %861 = load ptr, ptr %860, align 8, !tbaa !17
   call void @_ZN4llvm9StringRefC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %117, ptr noundef @.str.27)
   call void @_ZN4llvm9StringRefC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %118, ptr noundef @.str.50)
   %862 = call i32 @_ZN4llvm11SectionKind11getMetadataEv()
@@ -1752,10 +1766,10 @@ define dso_local void @_ZN4llvm16MCObjectFileInfo25initMachOMCObjectFileInfoERKN
   %871 = load i64, ptr %870, align 8
   %872 = load i32, ptr %119, align 4
   %873 = call noundef ptr @_ZN4llvm9MCContext15getMachOSectionENS_9StringRefES1_jNS_11SectionKindEPKc(ptr noundef nonnull align 8 dereferenceable(2432) %861, ptr %865, i64 %867, ptr %869, i64 %871, i32 noundef 33554432, i32 %872, ptr noundef null)
-  %874 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 17
-  store ptr %873, ptr %874, align 8
-  %875 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 106
-  %876 = load ptr, ptr %875, align 8
+  %874 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 18
+  store ptr %873, ptr %874, align 8, !tbaa !68
+  %875 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 107
+  %876 = load ptr, ptr %875, align 8, !tbaa !17
   call void @_ZN4llvm9StringRefC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %120, ptr noundef @.str.27)
   call void @_ZN4llvm9StringRefC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %121, ptr noundef @.str.51)
   %877 = call i32 @_ZN4llvm11SectionKind11getMetadataEv()
@@ -1771,10 +1785,10 @@ define dso_local void @_ZN4llvm16MCObjectFileInfo25initMachOMCObjectFileInfoERKN
   %886 = load i64, ptr %885, align 8
   %887 = load i32, ptr %122, align 4
   %888 = call noundef ptr @_ZN4llvm9MCContext15getMachOSectionENS_9StringRefES1_jNS_11SectionKindEPKc(ptr noundef nonnull align 8 dereferenceable(2432) %876, ptr %880, i64 %882, ptr %884, i64 %886, i32 noundef 33554432, i32 %887, ptr noundef null)
-  %889 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 48
-  store ptr %888, ptr %889, align 8
-  %890 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 106
-  %891 = load ptr, ptr %890, align 8
+  %889 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 49
+  store ptr %888, ptr %889, align 8, !tbaa !69
+  %890 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 107
+  %891 = load ptr, ptr %890, align 8, !tbaa !17
   call void @_ZN4llvm9StringRefC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %123, ptr noundef @.str.27)
   call void @_ZN4llvm9StringRefC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %124, ptr noundef @.str.52)
   %892 = call i32 @_ZN4llvm11SectionKind11getMetadataEv()
@@ -1790,10 +1804,10 @@ define dso_local void @_ZN4llvm16MCObjectFileInfo25initMachOMCObjectFileInfoERKN
   %901 = load i64, ptr %900, align 8
   %902 = load i32, ptr %125, align 4
   %903 = call noundef ptr @_ZN4llvm9MCContext15getMachOSectionENS_9StringRefES1_jNS_11SectionKindEPKc(ptr noundef nonnull align 8 dereferenceable(2432) %891, ptr %895, i64 %897, ptr %899, i64 %901, i32 noundef 33554432, i32 %902, ptr noundef null)
-  %904 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 49
-  store ptr %903, ptr %904, align 8
-  %905 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 106
-  %906 = load ptr, ptr %905, align 8
+  %904 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 50
+  store ptr %903, ptr %904, align 8, !tbaa !70
+  %905 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 107
+  %906 = load ptr, ptr %905, align 8, !tbaa !17
   call void @_ZN4llvm9StringRefC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %126, ptr noundef @.str.27)
   call void @_ZN4llvm9StringRefC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %127, ptr noundef @.str.53)
   %907 = call i32 @_ZN4llvm11SectionKind11getMetadataEv()
@@ -1809,10 +1823,10 @@ define dso_local void @_ZN4llvm16MCObjectFileInfo25initMachOMCObjectFileInfoERKN
   %916 = load i64, ptr %915, align 8
   %917 = load i32, ptr %128, align 4
   %918 = call noundef ptr @_ZN4llvm9MCContext15getMachOSectionENS_9StringRefES1_jNS_11SectionKindEPKc(ptr noundef nonnull align 8 dereferenceable(2432) %906, ptr %910, i64 %912, ptr %914, i64 %916, i32 noundef 33554432, i32 %917, ptr noundef @.str.54)
-  %919 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 19
-  store ptr %918, ptr %919, align 8
-  %920 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 106
-  %921 = load ptr, ptr %920, align 8
+  %919 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 20
+  store ptr %918, ptr %919, align 8, !tbaa !71
+  %920 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 107
+  %921 = load ptr, ptr %920, align 8, !tbaa !17
   call void @_ZN4llvm9StringRefC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %129, ptr noundef @.str.27)
   call void @_ZN4llvm9StringRefC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %130, ptr noundef @.str.55)
   %922 = call i32 @_ZN4llvm11SectionKind11getMetadataEv()
@@ -1828,10 +1842,10 @@ define dso_local void @_ZN4llvm16MCObjectFileInfo25initMachOMCObjectFileInfoERKN
   %931 = load i64, ptr %930, align 8
   %932 = load i32, ptr %131, align 4
   %933 = call noundef ptr @_ZN4llvm9MCContext15getMachOSectionENS_9StringRefES1_jNS_11SectionKindEPKc(ptr noundef nonnull align 8 dereferenceable(2432) %921, ptr %925, i64 %927, ptr %929, i64 %931, i32 noundef 33554432, i32 %932, ptr noundef @.str.56)
-  %934 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 40
-  store ptr %933, ptr %934, align 8
-  %935 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 106
-  %936 = load ptr, ptr %935, align 8
+  %934 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 41
+  store ptr %933, ptr %934, align 8, !tbaa !72
+  %935 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 107
+  %936 = load ptr, ptr %935, align 8, !tbaa !17
   call void @_ZN4llvm9StringRefC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %132, ptr noundef @.str.27)
   call void @_ZN4llvm9StringRefC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %133, ptr noundef @.str.57)
   %937 = call i32 @_ZN4llvm11SectionKind11getMetadataEv()
@@ -1847,10 +1861,10 @@ define dso_local void @_ZN4llvm16MCObjectFileInfo25initMachOMCObjectFileInfoERKN
   %946 = load i64, ptr %945, align 8
   %947 = load i32, ptr %134, align 4
   %948 = call noundef ptr @_ZN4llvm9MCContext15getMachOSectionENS_9StringRefES1_jNS_11SectionKindEPKc(ptr noundef nonnull align 8 dereferenceable(2432) %936, ptr %940, i64 %942, ptr %944, i64 %946, i32 noundef 33554432, i32 %947, ptr noundef @.str.42)
-  %949 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 41
-  store ptr %948, ptr %949, align 8
-  %950 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 106
-  %951 = load ptr, ptr %950, align 8
+  %949 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 42
+  store ptr %948, ptr %949, align 8, !tbaa !73
+  %950 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 107
+  %951 = load ptr, ptr %950, align 8, !tbaa !17
   call void @_ZN4llvm9StringRefC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %135, ptr noundef @.str.27)
   call void @_ZN4llvm9StringRefC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %136, ptr noundef @.str.58)
   %952 = call i32 @_ZN4llvm11SectionKind11getMetadataEv()
@@ -1866,10 +1880,10 @@ define dso_local void @_ZN4llvm16MCObjectFileInfo25initMachOMCObjectFileInfoERKN
   %961 = load i64, ptr %960, align 8
   %962 = load i32, ptr %137, align 4
   %963 = call noundef ptr @_ZN4llvm9MCContext15getMachOSectionENS_9StringRefES1_jNS_11SectionKindEPKc(ptr noundef nonnull align 8 dereferenceable(2432) %951, ptr %955, i64 %957, ptr %959, i64 %961, i32 noundef 33554432, i32 %962, ptr noundef @.str.59)
-  %964 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 20
-  store ptr %963, ptr %964, align 8
-  %965 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 106
-  %966 = load ptr, ptr %965, align 8
+  %964 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 21
+  store ptr %963, ptr %964, align 8, !tbaa !74
+  %965 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 107
+  %966 = load ptr, ptr %965, align 8, !tbaa !17
   call void @_ZN4llvm9StringRefC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %138, ptr noundef @.str.27)
   call void @_ZN4llvm9StringRefC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %139, ptr noundef @.str.60)
   %967 = call i32 @_ZN4llvm11SectionKind11getMetadataEv()
@@ -1885,10 +1899,10 @@ define dso_local void @_ZN4llvm16MCObjectFileInfo25initMachOMCObjectFileInfoERKN
   %976 = load i64, ptr %975, align 8
   %977 = load i32, ptr %140, align 4
   %978 = call noundef ptr @_ZN4llvm9MCContext15getMachOSectionENS_9StringRefES1_jNS_11SectionKindEPKc(ptr noundef nonnull align 8 dereferenceable(2432) %966, ptr %970, i64 %972, ptr %974, i64 %976, i32 noundef 33554432, i32 %977, ptr noundef @.str.59)
-  %979 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 43
-  store ptr %978, ptr %979, align 8
-  %980 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 106
-  %981 = load ptr, ptr %980, align 8
+  %979 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 44
+  store ptr %978, ptr %979, align 8, !tbaa !75
+  %980 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 107
+  %981 = load ptr, ptr %980, align 8, !tbaa !17
   call void @_ZN4llvm9StringRefC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %141, ptr noundef @.str.27)
   call void @_ZN4llvm9StringRefC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %142, ptr noundef @.str.61)
   %982 = call i32 @_ZN4llvm11SectionKind11getMetadataEv()
@@ -1904,10 +1918,10 @@ define dso_local void @_ZN4llvm16MCObjectFileInfo25initMachOMCObjectFileInfoERKN
   %991 = load i64, ptr %990, align 8
   %992 = load i32, ptr %143, align 4
   %993 = call noundef ptr @_ZN4llvm9MCContext15getMachOSectionENS_9StringRefES1_jNS_11SectionKindEPKc(ptr noundef nonnull align 8 dereferenceable(2432) %981, ptr %985, i64 %987, ptr %989, i64 %991, i32 noundef 33554432, i32 %992, ptr noundef null)
-  %994 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 21
-  store ptr %993, ptr %994, align 8
-  %995 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 106
-  %996 = load ptr, ptr %995, align 8
+  %994 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 22
+  store ptr %993, ptr %994, align 8, !tbaa !76
+  %995 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 107
+  %996 = load ptr, ptr %995, align 8, !tbaa !17
   call void @_ZN4llvm9StringRefC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %144, ptr noundef @.str.27)
   call void @_ZN4llvm9StringRefC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %145, ptr noundef @.str.62)
   %997 = call i32 @_ZN4llvm11SectionKind11getMetadataEv()
@@ -1923,10 +1937,10 @@ define dso_local void @_ZN4llvm16MCObjectFileInfo25initMachOMCObjectFileInfoERKN
   %1006 = load i64, ptr %1005, align 8
   %1007 = load i32, ptr %146, align 4
   %1008 = call noundef ptr @_ZN4llvm9MCContext15getMachOSectionENS_9StringRefES1_jNS_11SectionKindEPKc(ptr noundef nonnull align 8 dereferenceable(2432) %996, ptr %1000, i64 %1002, ptr %1004, i64 %1006, i32 noundef 33554432, i32 %1007, ptr noundef @.str.63)
-  %1009 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 22
-  store ptr %1008, ptr %1009, align 8
-  %1010 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 106
-  %1011 = load ptr, ptr %1010, align 8
+  %1009 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 23
+  store ptr %1008, ptr %1009, align 8, !tbaa !77
+  %1010 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 107
+  %1011 = load ptr, ptr %1010, align 8, !tbaa !17
   call void @_ZN4llvm9StringRefC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %147, ptr noundef @.str.27)
   call void @_ZN4llvm9StringRefC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %148, ptr noundef @.str.64)
   %1012 = call i32 @_ZN4llvm11SectionKind11getMetadataEv()
@@ -1942,10 +1956,10 @@ define dso_local void @_ZN4llvm16MCObjectFileInfo25initMachOMCObjectFileInfoERKN
   %1021 = load i64, ptr %1020, align 8
   %1022 = load i32, ptr %149, align 4
   %1023 = call noundef ptr @_ZN4llvm9MCContext15getMachOSectionENS_9StringRefES1_jNS_11SectionKindEPKc(ptr noundef nonnull align 8 dereferenceable(2432) %1011, ptr %1015, i64 %1017, ptr %1019, i64 %1021, i32 noundef 33554432, i32 %1022, ptr noundef @.str.63)
-  %1024 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 42
-  store ptr %1023, ptr %1024, align 8
-  %1025 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 106
-  %1026 = load ptr, ptr %1025, align 8
+  %1024 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 43
+  store ptr %1023, ptr %1024, align 8, !tbaa !78
+  %1025 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 107
+  %1026 = load ptr, ptr %1025, align 8, !tbaa !17
   call void @_ZN4llvm9StringRefC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %150, ptr noundef @.str.27)
   call void @_ZN4llvm9StringRefC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %151, ptr noundef @.str.65)
   %1027 = call i32 @_ZN4llvm11SectionKind11getMetadataEv()
@@ -1961,10 +1975,10 @@ define dso_local void @_ZN4llvm16MCObjectFileInfo25initMachOMCObjectFileInfoERKN
   %1036 = load i64, ptr %1035, align 8
   %1037 = load i32, ptr %152, align 4
   %1038 = call noundef ptr @_ZN4llvm9MCContext15getMachOSectionENS_9StringRefES1_jNS_11SectionKindEPKc(ptr noundef nonnull align 8 dereferenceable(2432) %1026, ptr %1030, i64 %1032, ptr %1034, i64 %1036, i32 noundef 33554432, i32 %1037, ptr noundef @.str.66)
-  %1039 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 23
-  store ptr %1038, ptr %1039, align 8
-  %1040 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 106
-  %1041 = load ptr, ptr %1040, align 8
+  %1039 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 24
+  store ptr %1038, ptr %1039, align 8, !tbaa !79
+  %1040 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 107
+  %1041 = load ptr, ptr %1040, align 8, !tbaa !17
   call void @_ZN4llvm9StringRefC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %153, ptr noundef @.str.27)
   call void @_ZN4llvm9StringRefC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %154, ptr noundef @.str.67)
   %1042 = call i32 @_ZN4llvm11SectionKind11getMetadataEv()
@@ -1980,10 +1994,10 @@ define dso_local void @_ZN4llvm16MCObjectFileInfo25initMachOMCObjectFileInfoERKN
   %1051 = load i64, ptr %1050, align 8
   %1052 = load i32, ptr %155, align 4
   %1053 = call noundef ptr @_ZN4llvm9MCContext15getMachOSectionENS_9StringRefES1_jNS_11SectionKindEPKc(ptr noundef nonnull align 8 dereferenceable(2432) %1041, ptr %1045, i64 %1047, ptr %1049, i64 %1051, i32 noundef 33554432, i32 %1052, ptr noundef @.str.68)
-  %1054 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 24
-  store ptr %1053, ptr %1054, align 8
-  %1055 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 106
-  %1056 = load ptr, ptr %1055, align 8
+  %1054 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 25
+  store ptr %1053, ptr %1054, align 8, !tbaa !80
+  %1055 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 107
+  %1056 = load ptr, ptr %1055, align 8, !tbaa !17
   call void @_ZN4llvm9StringRefC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %156, ptr noundef @.str.27)
   call void @_ZN4llvm9StringRefC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %157, ptr noundef @.str.69)
   %1057 = call i32 @_ZN4llvm11SectionKind11getMetadataEv()
@@ -1999,10 +2013,10 @@ define dso_local void @_ZN4llvm16MCObjectFileInfo25initMachOMCObjectFileInfoERKN
   %1066 = load i64, ptr %1065, align 8
   %1067 = load i32, ptr %158, align 4
   %1068 = call noundef ptr @_ZN4llvm9MCContext15getMachOSectionENS_9StringRefES1_jNS_11SectionKindEPKc(ptr noundef nonnull align 8 dereferenceable(2432) %1056, ptr %1060, i64 %1062, ptr %1064, i64 %1066, i32 noundef 33554432, i32 %1067, ptr noundef null)
-  %1069 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 18
-  store ptr %1068, ptr %1069, align 8
-  %1070 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 106
-  %1071 = load ptr, ptr %1070, align 8
+  %1069 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 19
+  store ptr %1068, ptr %1069, align 8, !tbaa !81
+  %1070 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 107
+  %1071 = load ptr, ptr %1070, align 8, !tbaa !17
   call void @_ZN4llvm9StringRefC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %159, ptr noundef @.str.27)
   call void @_ZN4llvm9StringRefC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %160, ptr noundef @.str.70)
   %1072 = call i32 @_ZN4llvm11SectionKind11getMetadataEv()
@@ -2018,10 +2032,10 @@ define dso_local void @_ZN4llvm16MCObjectFileInfo25initMachOMCObjectFileInfoERKN
   %1081 = load i64, ptr %1080, align 8
   %1082 = load i32, ptr %161, align 4
   %1083 = call noundef ptr @_ZN4llvm9MCContext15getMachOSectionENS_9StringRefES1_jNS_11SectionKindEPKc(ptr noundef nonnull align 8 dereferenceable(2432) %1071, ptr %1075, i64 %1077, ptr %1079, i64 %1081, i32 noundef 33554432, i32 %1082, ptr noundef null)
-  %1084 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 46
-  store ptr %1083, ptr %1084, align 8
-  %1085 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 106
-  %1086 = load ptr, ptr %1085, align 8
+  %1084 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 47
+  store ptr %1083, ptr %1084, align 8, !tbaa !82
+  %1085 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 107
+  %1086 = load ptr, ptr %1085, align 8, !tbaa !17
   call void @_ZN4llvm9StringRefC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %162, ptr noundef @.str.27)
   call void @_ZN4llvm9StringRefC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %163, ptr noundef @.str.71)
   %1087 = call i32 @_ZN4llvm11SectionKind11getMetadataEv()
@@ -2037,10 +2051,10 @@ define dso_local void @_ZN4llvm16MCObjectFileInfo25initMachOMCObjectFileInfoERKN
   %1096 = load i64, ptr %1095, align 8
   %1097 = load i32, ptr %164, align 4
   %1098 = call noundef ptr @_ZN4llvm9MCContext15getMachOSectionENS_9StringRefES1_jNS_11SectionKindEPKc(ptr noundef nonnull align 8 dereferenceable(2432) %1086, ptr %1090, i64 %1092, ptr %1094, i64 %1096, i32 noundef 33554432, i32 %1097, ptr noundef null)
-  %1099 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 47
-  store ptr %1098, ptr %1099, align 8
-  %1100 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 106
-  %1101 = load ptr, ptr %1100, align 8
+  %1099 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 48
+  store ptr %1098, ptr %1099, align 8, !tbaa !83
+  %1100 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 107
+  %1101 = load ptr, ptr %1100, align 8, !tbaa !17
   call void @_ZN4llvm9StringRefC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %165, ptr noundef @.str.72)
   call void @_ZN4llvm9StringRefC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %166, ptr noundef @.str.73)
   %1102 = call i32 @_ZN4llvm11SectionKind11getMetadataEv()
@@ -2056,10 +2070,10 @@ define dso_local void @_ZN4llvm16MCObjectFileInfo25initMachOMCObjectFileInfoERKN
   %1111 = load i64, ptr %1110, align 8
   %1112 = load i32, ptr %167, align 4
   %1113 = call noundef ptr @_ZN4llvm9MCContext15getMachOSectionENS_9StringRefES1_jNS_11SectionKindEPKc(ptr noundef nonnull align 8 dereferenceable(2432) %1101, ptr %1105, i64 %1107, ptr %1109, i64 %1111, i32 noundef 0, i32 %1112, ptr noundef null)
-  %1114 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 57
-  store ptr %1113, ptr %1114, align 8
-  %1115 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 106
-  %1116 = load ptr, ptr %1115, align 8
+  %1114 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 58
+  store ptr %1113, ptr %1114, align 8, !tbaa !84
+  %1115 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 107
+  %1116 = load ptr, ptr %1115, align 8, !tbaa !17
   call void @_ZN4llvm9StringRefC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %168, ptr noundef @.str.74)
   call void @_ZN4llvm9StringRefC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %169, ptr noundef @.str.75)
   %1117 = call i32 @_ZN4llvm11SectionKind11getMetadataEv()
@@ -2075,10 +2089,10 @@ define dso_local void @_ZN4llvm16MCObjectFileInfo25initMachOMCObjectFileInfoERKN
   %1126 = load i64, ptr %1125, align 8
   %1127 = load i32, ptr %170, align 4
   %1128 = call noundef ptr @_ZN4llvm9MCContext15getMachOSectionENS_9StringRefES1_jNS_11SectionKindEPKc(ptr noundef nonnull align 8 dereferenceable(2432) %1116, ptr %1120, i64 %1122, ptr %1124, i64 %1126, i32 noundef 0, i32 %1127, ptr noundef null)
-  %1129 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 58
-  store ptr %1128, ptr %1129, align 8
-  %1130 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 106
-  %1131 = load ptr, ptr %1130, align 8
+  %1129 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 59
+  store ptr %1128, ptr %1129, align 8, !tbaa !85
+  %1130 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 107
+  %1131 = load ptr, ptr %1130, align 8, !tbaa !17
   call void @_ZN4llvm9StringRefC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %171, ptr noundef @.str.76)
   call void @_ZN4llvm9StringRefC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %172, ptr noundef @.str.77)
   %1132 = call i32 @_ZN4llvm11SectionKind11getMetadataEv()
@@ -2094,19 +2108,19 @@ define dso_local void @_ZN4llvm16MCObjectFileInfo25initMachOMCObjectFileInfoERKN
   %1141 = load i64, ptr %1140, align 8
   %1142 = load i32, ptr %173, align 4
   %1143 = call noundef ptr @_ZN4llvm9MCContext15getMachOSectionENS_9StringRefES1_jNS_11SectionKindEPKc(ptr noundef nonnull align 8 dereferenceable(2432) %1131, ptr %1135, i64 %1137, ptr %1139, i64 %1141, i32 noundef 33554432, i32 %1142, ptr noundef null)
-  %1144 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 59
-  store ptr %1143, ptr %1144, align 8
-  %1145 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 106
-  %1146 = load ptr, ptr %1145, align 8
+  %1144 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 60
+  store ptr %1143, ptr %1144, align 8, !tbaa !86
+  %1145 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 107
+  %1146 = load ptr, ptr %1145, align 8, !tbaa !17
   %1147 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNK4llvm9MCContext30getSwift5ReflectionSegmentNameEv(ptr noundef nonnull align 8 dereferenceable(2432) %1146)
   %1148 = call noundef zeroext i1 @_ZNK4llvm9StringRef5emptyEv(ptr noundef nonnull align 8 dereferenceable(16) %1147)
   br i1 %1148, label %1370, label %1149
 
 1149:                                             ; preds = %679
-  %1150 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 106
-  %1151 = load ptr, ptr %1150, align 8
-  %1152 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 106
-  %1153 = load ptr, ptr %1152, align 8
+  %1150 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 107
+  %1151 = load ptr, ptr %1150, align 8, !tbaa !17
+  %1152 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 107
+  %1153 = load ptr, ptr %1152, align 8, !tbaa !17
   %1154 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNK4llvm9MCContext30getSwift5ReflectionSegmentNameEv(ptr noundef nonnull align 8 dereferenceable(2432) %1153)
   %1155 = call noundef ptr @_ZNK4llvm9StringRef4dataEv(ptr noundef nonnull align 8 dereferenceable(16) %1154)
   call void @_ZN4llvm9StringRefC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %174, ptr noundef %1155)
@@ -2124,13 +2138,13 @@ define dso_local void @_ZN4llvm16MCObjectFileInfo25initMachOMCObjectFileInfoERKN
   %1165 = load i64, ptr %1164, align 8
   %1166 = load i32, ptr %176, align 4
   %1167 = call noundef ptr @_ZN4llvm9MCContext15getMachOSectionENS_9StringRefES1_jNS_11SectionKindEPKc(ptr noundef nonnull align 8 dereferenceable(2432) %1151, ptr %1159, i64 %1161, ptr %1163, i64 %1165, i32 noundef 0, i32 %1166, ptr noundef null)
-  %1168 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 104
-  %1169 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt5arrayIPN4llvm9MCSectionELm11EEixEm(ptr noundef nonnull align 8 dereferenceable(88) %1168, i64 noundef 0) #8
-  store ptr %1167, ptr %1169, align 8
-  %1170 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 106
-  %1171 = load ptr, ptr %1170, align 8
-  %1172 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 106
-  %1173 = load ptr, ptr %1172, align 8
+  %1168 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 105
+  %1169 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt5arrayIPN4llvm9MCSectionELm11EEixEm(ptr noundef nonnull align 8 dereferenceable(88) %1168, i64 noundef 0) #11
+  store ptr %1167, ptr %1169, align 8, !tbaa !87
+  %1170 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 107
+  %1171 = load ptr, ptr %1170, align 8, !tbaa !17
+  %1172 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 107
+  %1173 = load ptr, ptr %1172, align 8, !tbaa !17
   %1174 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNK4llvm9MCContext30getSwift5ReflectionSegmentNameEv(ptr noundef nonnull align 8 dereferenceable(2432) %1173)
   %1175 = call noundef ptr @_ZNK4llvm9StringRef4dataEv(ptr noundef nonnull align 8 dereferenceable(16) %1174)
   call void @_ZN4llvm9StringRefC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %177, ptr noundef %1175)
@@ -2148,13 +2162,13 @@ define dso_local void @_ZN4llvm16MCObjectFileInfo25initMachOMCObjectFileInfoERKN
   %1185 = load i64, ptr %1184, align 8
   %1186 = load i32, ptr %179, align 4
   %1187 = call noundef ptr @_ZN4llvm9MCContext15getMachOSectionENS_9StringRefES1_jNS_11SectionKindEPKc(ptr noundef nonnull align 8 dereferenceable(2432) %1171, ptr %1179, i64 %1181, ptr %1183, i64 %1185, i32 noundef 0, i32 %1186, ptr noundef null)
-  %1188 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 104
-  %1189 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt5arrayIPN4llvm9MCSectionELm11EEixEm(ptr noundef nonnull align 8 dereferenceable(88) %1188, i64 noundef 1) #8
-  store ptr %1187, ptr %1189, align 8
-  %1190 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 106
-  %1191 = load ptr, ptr %1190, align 8
-  %1192 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 106
-  %1193 = load ptr, ptr %1192, align 8
+  %1188 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 105
+  %1189 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt5arrayIPN4llvm9MCSectionELm11EEixEm(ptr noundef nonnull align 8 dereferenceable(88) %1188, i64 noundef 1) #11
+  store ptr %1187, ptr %1189, align 8, !tbaa !87
+  %1190 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 107
+  %1191 = load ptr, ptr %1190, align 8, !tbaa !17
+  %1192 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 107
+  %1193 = load ptr, ptr %1192, align 8, !tbaa !17
   %1194 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNK4llvm9MCContext30getSwift5ReflectionSegmentNameEv(ptr noundef nonnull align 8 dereferenceable(2432) %1193)
   %1195 = call noundef ptr @_ZNK4llvm9StringRef4dataEv(ptr noundef nonnull align 8 dereferenceable(16) %1194)
   call void @_ZN4llvm9StringRefC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %180, ptr noundef %1195)
@@ -2172,13 +2186,13 @@ define dso_local void @_ZN4llvm16MCObjectFileInfo25initMachOMCObjectFileInfoERKN
   %1205 = load i64, ptr %1204, align 8
   %1206 = load i32, ptr %182, align 4
   %1207 = call noundef ptr @_ZN4llvm9MCContext15getMachOSectionENS_9StringRefES1_jNS_11SectionKindEPKc(ptr noundef nonnull align 8 dereferenceable(2432) %1191, ptr %1199, i64 %1201, ptr %1203, i64 %1205, i32 noundef 0, i32 %1206, ptr noundef null)
-  %1208 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 104
-  %1209 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt5arrayIPN4llvm9MCSectionELm11EEixEm(ptr noundef nonnull align 8 dereferenceable(88) %1208, i64 noundef 2) #8
-  store ptr %1207, ptr %1209, align 8
-  %1210 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 106
-  %1211 = load ptr, ptr %1210, align 8
-  %1212 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 106
-  %1213 = load ptr, ptr %1212, align 8
+  %1208 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 105
+  %1209 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt5arrayIPN4llvm9MCSectionELm11EEixEm(ptr noundef nonnull align 8 dereferenceable(88) %1208, i64 noundef 2) #11
+  store ptr %1207, ptr %1209, align 8, !tbaa !87
+  %1210 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 107
+  %1211 = load ptr, ptr %1210, align 8, !tbaa !17
+  %1212 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 107
+  %1213 = load ptr, ptr %1212, align 8, !tbaa !17
   %1214 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNK4llvm9MCContext30getSwift5ReflectionSegmentNameEv(ptr noundef nonnull align 8 dereferenceable(2432) %1213)
   %1215 = call noundef ptr @_ZNK4llvm9StringRef4dataEv(ptr noundef nonnull align 8 dereferenceable(16) %1214)
   call void @_ZN4llvm9StringRefC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %183, ptr noundef %1215)
@@ -2196,13 +2210,13 @@ define dso_local void @_ZN4llvm16MCObjectFileInfo25initMachOMCObjectFileInfoERKN
   %1225 = load i64, ptr %1224, align 8
   %1226 = load i32, ptr %185, align 4
   %1227 = call noundef ptr @_ZN4llvm9MCContext15getMachOSectionENS_9StringRefES1_jNS_11SectionKindEPKc(ptr noundef nonnull align 8 dereferenceable(2432) %1211, ptr %1219, i64 %1221, ptr %1223, i64 %1225, i32 noundef 0, i32 %1226, ptr noundef null)
-  %1228 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 104
-  %1229 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt5arrayIPN4llvm9MCSectionELm11EEixEm(ptr noundef nonnull align 8 dereferenceable(88) %1228, i64 noundef 3) #8
-  store ptr %1227, ptr %1229, align 8
-  %1230 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 106
-  %1231 = load ptr, ptr %1230, align 8
-  %1232 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 106
-  %1233 = load ptr, ptr %1232, align 8
+  %1228 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 105
+  %1229 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt5arrayIPN4llvm9MCSectionELm11EEixEm(ptr noundef nonnull align 8 dereferenceable(88) %1228, i64 noundef 3) #11
+  store ptr %1227, ptr %1229, align 8, !tbaa !87
+  %1230 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 107
+  %1231 = load ptr, ptr %1230, align 8, !tbaa !17
+  %1232 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 107
+  %1233 = load ptr, ptr %1232, align 8, !tbaa !17
   %1234 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNK4llvm9MCContext30getSwift5ReflectionSegmentNameEv(ptr noundef nonnull align 8 dereferenceable(2432) %1233)
   %1235 = call noundef ptr @_ZNK4llvm9StringRef4dataEv(ptr noundef nonnull align 8 dereferenceable(16) %1234)
   call void @_ZN4llvm9StringRefC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %186, ptr noundef %1235)
@@ -2220,13 +2234,13 @@ define dso_local void @_ZN4llvm16MCObjectFileInfo25initMachOMCObjectFileInfoERKN
   %1245 = load i64, ptr %1244, align 8
   %1246 = load i32, ptr %188, align 4
   %1247 = call noundef ptr @_ZN4llvm9MCContext15getMachOSectionENS_9StringRefES1_jNS_11SectionKindEPKc(ptr noundef nonnull align 8 dereferenceable(2432) %1231, ptr %1239, i64 %1241, ptr %1243, i64 %1245, i32 noundef 0, i32 %1246, ptr noundef null)
-  %1248 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 104
-  %1249 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt5arrayIPN4llvm9MCSectionELm11EEixEm(ptr noundef nonnull align 8 dereferenceable(88) %1248, i64 noundef 4) #8
-  store ptr %1247, ptr %1249, align 8
-  %1250 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 106
-  %1251 = load ptr, ptr %1250, align 8
-  %1252 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 106
-  %1253 = load ptr, ptr %1252, align 8
+  %1248 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 105
+  %1249 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt5arrayIPN4llvm9MCSectionELm11EEixEm(ptr noundef nonnull align 8 dereferenceable(88) %1248, i64 noundef 4) #11
+  store ptr %1247, ptr %1249, align 8, !tbaa !87
+  %1250 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 107
+  %1251 = load ptr, ptr %1250, align 8, !tbaa !17
+  %1252 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 107
+  %1253 = load ptr, ptr %1252, align 8, !tbaa !17
   %1254 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNK4llvm9MCContext30getSwift5ReflectionSegmentNameEv(ptr noundef nonnull align 8 dereferenceable(2432) %1253)
   %1255 = call noundef ptr @_ZNK4llvm9StringRef4dataEv(ptr noundef nonnull align 8 dereferenceable(16) %1254)
   call void @_ZN4llvm9StringRefC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %189, ptr noundef %1255)
@@ -2244,13 +2258,13 @@ define dso_local void @_ZN4llvm16MCObjectFileInfo25initMachOMCObjectFileInfoERKN
   %1265 = load i64, ptr %1264, align 8
   %1266 = load i32, ptr %191, align 4
   %1267 = call noundef ptr @_ZN4llvm9MCContext15getMachOSectionENS_9StringRefES1_jNS_11SectionKindEPKc(ptr noundef nonnull align 8 dereferenceable(2432) %1251, ptr %1259, i64 %1261, ptr %1263, i64 %1265, i32 noundef 0, i32 %1266, ptr noundef null)
-  %1268 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 104
-  %1269 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt5arrayIPN4llvm9MCSectionELm11EEixEm(ptr noundef nonnull align 8 dereferenceable(88) %1268, i64 noundef 5) #8
-  store ptr %1267, ptr %1269, align 8
-  %1270 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 106
-  %1271 = load ptr, ptr %1270, align 8
-  %1272 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 106
-  %1273 = load ptr, ptr %1272, align 8
+  %1268 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 105
+  %1269 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt5arrayIPN4llvm9MCSectionELm11EEixEm(ptr noundef nonnull align 8 dereferenceable(88) %1268, i64 noundef 5) #11
+  store ptr %1267, ptr %1269, align 8, !tbaa !87
+  %1270 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 107
+  %1271 = load ptr, ptr %1270, align 8, !tbaa !17
+  %1272 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 107
+  %1273 = load ptr, ptr %1272, align 8, !tbaa !17
   %1274 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNK4llvm9MCContext30getSwift5ReflectionSegmentNameEv(ptr noundef nonnull align 8 dereferenceable(2432) %1273)
   %1275 = call noundef ptr @_ZNK4llvm9StringRef4dataEv(ptr noundef nonnull align 8 dereferenceable(16) %1274)
   call void @_ZN4llvm9StringRefC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %192, ptr noundef %1275)
@@ -2268,13 +2282,13 @@ define dso_local void @_ZN4llvm16MCObjectFileInfo25initMachOMCObjectFileInfoERKN
   %1285 = load i64, ptr %1284, align 8
   %1286 = load i32, ptr %194, align 4
   %1287 = call noundef ptr @_ZN4llvm9MCContext15getMachOSectionENS_9StringRefES1_jNS_11SectionKindEPKc(ptr noundef nonnull align 8 dereferenceable(2432) %1271, ptr %1279, i64 %1281, ptr %1283, i64 %1285, i32 noundef 0, i32 %1286, ptr noundef null)
-  %1288 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 104
-  %1289 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt5arrayIPN4llvm9MCSectionELm11EEixEm(ptr noundef nonnull align 8 dereferenceable(88) %1288, i64 noundef 6) #8
-  store ptr %1287, ptr %1289, align 8
-  %1290 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 106
-  %1291 = load ptr, ptr %1290, align 8
-  %1292 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 106
-  %1293 = load ptr, ptr %1292, align 8
+  %1288 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 105
+  %1289 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt5arrayIPN4llvm9MCSectionELm11EEixEm(ptr noundef nonnull align 8 dereferenceable(88) %1288, i64 noundef 6) #11
+  store ptr %1287, ptr %1289, align 8, !tbaa !87
+  %1290 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 107
+  %1291 = load ptr, ptr %1290, align 8, !tbaa !17
+  %1292 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 107
+  %1293 = load ptr, ptr %1292, align 8, !tbaa !17
   %1294 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNK4llvm9MCContext30getSwift5ReflectionSegmentNameEv(ptr noundef nonnull align 8 dereferenceable(2432) %1293)
   %1295 = call noundef ptr @_ZNK4llvm9StringRef4dataEv(ptr noundef nonnull align 8 dereferenceable(16) %1294)
   call void @_ZN4llvm9StringRefC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %195, ptr noundef %1295)
@@ -2292,13 +2306,13 @@ define dso_local void @_ZN4llvm16MCObjectFileInfo25initMachOMCObjectFileInfoERKN
   %1305 = load i64, ptr %1304, align 8
   %1306 = load i32, ptr %197, align 4
   %1307 = call noundef ptr @_ZN4llvm9MCContext15getMachOSectionENS_9StringRefES1_jNS_11SectionKindEPKc(ptr noundef nonnull align 8 dereferenceable(2432) %1291, ptr %1299, i64 %1301, ptr %1303, i64 %1305, i32 noundef 0, i32 %1306, ptr noundef null)
-  %1308 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 104
-  %1309 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt5arrayIPN4llvm9MCSectionELm11EEixEm(ptr noundef nonnull align 8 dereferenceable(88) %1308, i64 noundef 7) #8
-  store ptr %1307, ptr %1309, align 8
-  %1310 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 106
-  %1311 = load ptr, ptr %1310, align 8
-  %1312 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 106
-  %1313 = load ptr, ptr %1312, align 8
+  %1308 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 105
+  %1309 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt5arrayIPN4llvm9MCSectionELm11EEixEm(ptr noundef nonnull align 8 dereferenceable(88) %1308, i64 noundef 7) #11
+  store ptr %1307, ptr %1309, align 8, !tbaa !87
+  %1310 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 107
+  %1311 = load ptr, ptr %1310, align 8, !tbaa !17
+  %1312 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 107
+  %1313 = load ptr, ptr %1312, align 8, !tbaa !17
   %1314 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNK4llvm9MCContext30getSwift5ReflectionSegmentNameEv(ptr noundef nonnull align 8 dereferenceable(2432) %1313)
   %1315 = call noundef ptr @_ZNK4llvm9StringRef4dataEv(ptr noundef nonnull align 8 dereferenceable(16) %1314)
   call void @_ZN4llvm9StringRefC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %198, ptr noundef %1315)
@@ -2316,13 +2330,13 @@ define dso_local void @_ZN4llvm16MCObjectFileInfo25initMachOMCObjectFileInfoERKN
   %1325 = load i64, ptr %1324, align 8
   %1326 = load i32, ptr %200, align 4
   %1327 = call noundef ptr @_ZN4llvm9MCContext15getMachOSectionENS_9StringRefES1_jNS_11SectionKindEPKc(ptr noundef nonnull align 8 dereferenceable(2432) %1311, ptr %1319, i64 %1321, ptr %1323, i64 %1325, i32 noundef 0, i32 %1326, ptr noundef null)
-  %1328 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 104
-  %1329 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt5arrayIPN4llvm9MCSectionELm11EEixEm(ptr noundef nonnull align 8 dereferenceable(88) %1328, i64 noundef 8) #8
-  store ptr %1327, ptr %1329, align 8
-  %1330 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 106
-  %1331 = load ptr, ptr %1330, align 8
-  %1332 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 106
-  %1333 = load ptr, ptr %1332, align 8
+  %1328 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 105
+  %1329 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt5arrayIPN4llvm9MCSectionELm11EEixEm(ptr noundef nonnull align 8 dereferenceable(88) %1328, i64 noundef 8) #11
+  store ptr %1327, ptr %1329, align 8, !tbaa !87
+  %1330 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 107
+  %1331 = load ptr, ptr %1330, align 8, !tbaa !17
+  %1332 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 107
+  %1333 = load ptr, ptr %1332, align 8, !tbaa !17
   %1334 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNK4llvm9MCContext30getSwift5ReflectionSegmentNameEv(ptr noundef nonnull align 8 dereferenceable(2432) %1333)
   %1335 = call noundef ptr @_ZNK4llvm9StringRef4dataEv(ptr noundef nonnull align 8 dereferenceable(16) %1334)
   call void @_ZN4llvm9StringRefC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %201, ptr noundef %1335)
@@ -2340,13 +2354,13 @@ define dso_local void @_ZN4llvm16MCObjectFileInfo25initMachOMCObjectFileInfoERKN
   %1345 = load i64, ptr %1344, align 8
   %1346 = load i32, ptr %203, align 4
   %1347 = call noundef ptr @_ZN4llvm9MCContext15getMachOSectionENS_9StringRefES1_jNS_11SectionKindEPKc(ptr noundef nonnull align 8 dereferenceable(2432) %1331, ptr %1339, i64 %1341, ptr %1343, i64 %1345, i32 noundef 0, i32 %1346, ptr noundef null)
-  %1348 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 104
-  %1349 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt5arrayIPN4llvm9MCSectionELm11EEixEm(ptr noundef nonnull align 8 dereferenceable(88) %1348, i64 noundef 9) #8
-  store ptr %1347, ptr %1349, align 8
-  %1350 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 106
-  %1351 = load ptr, ptr %1350, align 8
-  %1352 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 106
-  %1353 = load ptr, ptr %1352, align 8
+  %1348 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 105
+  %1349 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt5arrayIPN4llvm9MCSectionELm11EEixEm(ptr noundef nonnull align 8 dereferenceable(88) %1348, i64 noundef 9) #11
+  store ptr %1347, ptr %1349, align 8, !tbaa !87
+  %1350 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 107
+  %1351 = load ptr, ptr %1350, align 8, !tbaa !17
+  %1352 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 107
+  %1353 = load ptr, ptr %1352, align 8, !tbaa !17
   %1354 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNK4llvm9MCContext30getSwift5ReflectionSegmentNameEv(ptr noundef nonnull align 8 dereferenceable(2432) %1353)
   %1355 = call noundef ptr @_ZNK4llvm9StringRef4dataEv(ptr noundef nonnull align 8 dereferenceable(16) %1354)
   call void @_ZN4llvm9StringRefC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %204, ptr noundef %1355)
@@ -2364,16 +2378,17 @@ define dso_local void @_ZN4llvm16MCObjectFileInfo25initMachOMCObjectFileInfoERKN
   %1365 = load i64, ptr %1364, align 8
   %1366 = load i32, ptr %206, align 4
   %1367 = call noundef ptr @_ZN4llvm9MCContext15getMachOSectionENS_9StringRefES1_jNS_11SectionKindEPKc(ptr noundef nonnull align 8 dereferenceable(2432) %1351, ptr %1359, i64 %1361, ptr %1363, i64 %1365, i32 noundef 0, i32 %1366, ptr noundef null)
-  %1368 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 104
-  %1369 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt5arrayIPN4llvm9MCSectionELm11EEixEm(ptr noundef nonnull align 8 dereferenceable(88) %1368, i64 noundef 10) #8
-  store ptr %1367, ptr %1369, align 8
+  %1368 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 105
+  %1369 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt5arrayIPN4llvm9MCSectionELm11EEixEm(ptr noundef nonnull align 8 dereferenceable(88) %1368, i64 noundef 10) #11
+  store ptr %1367, ptr %1369, align 8, !tbaa !87
   br label %1370
 
 1370:                                             ; preds = %1149, %679
-  %1371 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 70
-  %1372 = load ptr, ptr %1371, align 8
-  %1373 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 54
-  store ptr %1372, ptr %1373, align 8
+  %1371 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 71
+  %1372 = load ptr, ptr %1371, align 8, !tbaa !29
+  %1373 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %207, i32 0, i32 55
+  store ptr %1372, ptr %1373, align 8, !tbaa !88
+  call void @llvm.lifetime.end.p0(i64 4, ptr %44) #11
   ret void
 }
 
@@ -2397,15 +2412,15 @@ define linkonce_odr hidden noundef ptr @_ZN4llvm9MCContext15getMachOSectionENS_9
   %21 = getelementptr inbounds nuw { ptr, i64 }, ptr %10, i32 0, i32 1
   store i64 %4, ptr %21, align 8
   store i32 %6, ptr %11, align 4
-  store ptr %0, ptr %12, align 8
-  store i32 %5, ptr %13, align 4
-  store ptr %7, ptr %14, align 8
+  store ptr %0, ptr %12, align 8, !tbaa !89
+  store i32 %5, ptr %13, align 4, !tbaa !90
+  store ptr %7, ptr %14, align 8, !tbaa !91
   %22 = load ptr, ptr %12, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %15, ptr align 8 %9, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %16, ptr align 8 %10, i64 16, i1 false)
-  %23 = load i32, ptr %13, align 4
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %17, ptr align 4 %11, i64 4, i1 false)
-  %24 = load ptr, ptr %14, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %15, ptr align 8 %9, i64 16, i1 false), !tbaa.struct !93
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %16, ptr align 8 %10, i64 16, i1 false), !tbaa.struct !93
+  %23 = load i32, ptr %13, align 4, !tbaa !90
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %17, ptr align 4 %11, i64 4, i1 false), !tbaa.struct !96
+  %24 = load ptr, ptr %14, align 8, !tbaa !91
   %25 = getelementptr inbounds nuw { ptr, i64 }, ptr %15, i32 0, i32 0
   %26 = load ptr, ptr %25, align 8
   %27 = getelementptr inbounds nuw { ptr, i64 }, ptr %15, i32 0, i32 1
@@ -2423,19 +2438,19 @@ define linkonce_odr hidden noundef ptr @_ZN4llvm9MCContext15getMachOSectionENS_9
 define linkonce_odr hidden void @_ZN4llvm9StringRefC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) unnamed_addr #0 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !98
+  store ptr %1, ptr %4, align 8, !tbaa !91
   %5 = load ptr, ptr %3, align 8
   %6 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %5, i32 0, i32 0
-  %7 = load ptr, ptr %4, align 8
-  store ptr %7, ptr %6, align 8
+  %7 = load ptr, ptr %4, align 8, !tbaa !91
+  store ptr %7, ptr %6, align 8, !tbaa !100
   %8 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %5, i32 0, i32 1
-  %9 = load ptr, ptr %4, align 8
+  %9 = load ptr, ptr %4, align 8, !tbaa !91
   %10 = icmp ne ptr %9, null
   br i1 %10, label %11, label %14
 
 11:                                               ; preds = %2
-  %12 = load ptr, ptr %4, align 8
+  %12 = load ptr, ptr %4, align 8, !tbaa !91
   %13 = call noundef i64 @_ZNSt11char_traitsIcE6lengthEPKc(ptr noundef %12)
   br label %15
 
@@ -2444,7 +2459,7 @@ define linkonce_odr hidden void @_ZN4llvm9StringRefC2EPKc(ptr noundef nonnull al
 
 15:                                               ; preds = %14, %11
   %16 = phi i64 [ %13, %11 ], [ 0, %14 ]
-  store i64 %16, ptr %8, align 8
+  store i64 %16, ptr %8, align 8, !tbaa !102
   ret void
 }
 
@@ -2461,7 +2476,7 @@ define linkonce_odr hidden i32 @_ZN4llvm11SectionKind11getReadOnlyEv() #0 comdat
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK4llvm6Triple10isOSDarwinEv(ptr noundef nonnull align 8 dereferenceable(56) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !8
   %3 = load ptr, ptr %2, align 8
   %4 = call noundef zeroext i1 @_ZNK4llvm6Triple8isMacOSXEv(ptr noundef nonnull align 8 dereferenceable(56) %3)
   br i1 %4, label %13, label %5
@@ -2490,20 +2505,20 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK4llvm6Triple10isOSDarwinEv(pt
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef i32 @_ZNK4llvm6Triple7getArchEv(ptr noundef nonnull align 8 dereferenceable(56) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw %"class.llvm::Triple", ptr %3, i32 0, i32 1
-  %5 = load i32, ptr %4, align 8
+  %5 = load i32, ptr %4, align 8, !tbaa !103
   ret i32 %5
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK4llvm6Triple22isSimulatorEnvironmentEv(ptr noundef nonnull align 8 dereferenceable(56) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !8
   %3 = load ptr, ptr %2, align 8
   %4 = call noundef i32 @_ZNK4llvm6Triple14getEnvironmentEv(ptr noundef nonnull align 8 dereferenceable(56) %3)
-  %5 = icmp eq i32 %4, 23
+  %5 = icmp eq i32 %4, 31
   ret i1 %5
 }
 
@@ -2512,10 +2527,10 @@ declare noundef i32 @_ZNK4llvm9MCContext19emitDwarfUnwindInfoEv(ptr noundef nonn
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK4llvm6Triple10isWatchABIEv(ptr noundef nonnull align 8 dereferenceable(56) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !8
   %3 = load ptr, ptr %2, align 8
   %4 = call noundef i32 @_ZNK4llvm6Triple10getSubArchEv(ptr noundef nonnull align 8 dereferenceable(56) %3)
-  %5 = icmp eq i32 %4, 25
+  %5 = icmp eq i32 %4, 26
   ret i1 %5
 }
 
@@ -2599,6 +2614,9 @@ define linkonce_odr hidden i32 @_ZN4llvm11SectionKind19getMergeableConst16Ev() #
   ret i32 %4
 }
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
+
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden i32 @_ZN4llvm11SectionKind18getReadOnlyWithRelEv() #0 comdat align 2 {
   %1 = alloca %"class.llvm::SectionKind", align 4
@@ -2633,8 +2651,8 @@ define linkonce_odr hidden i32 @_ZN4llvm11SectionKind11getMetadataEv() #0 comdat
 define internal noundef zeroext i1 @_ZL16useCompactUnwindRKN4llvm6TripleE(ptr noundef nonnull align 8 dereferenceable(56) %0) #0 {
   %2 = alloca i1, align 1
   %3 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  %4 = load ptr, ptr %3, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !8
+  %4 = load ptr, ptr %3, align 8, !tbaa !8
   %5 = call noundef zeroext i1 @_ZNK4llvm6Triple10isOSDarwinEv(ptr noundef nonnull align 8 dereferenceable(56) %4)
   br i1 %5, label %7, label %6
 
@@ -2643,13 +2661,13 @@ define internal noundef zeroext i1 @_ZL16useCompactUnwindRKN4llvm6TripleE(ptr no
   br label %43
 
 7:                                                ; preds = %1
-  %8 = load ptr, ptr %3, align 8
+  %8 = load ptr, ptr %3, align 8, !tbaa !8
   %9 = call noundef i32 @_ZNK4llvm6Triple7getArchEv(ptr noundef nonnull align 8 dereferenceable(56) %8)
   %10 = icmp eq i32 %9, 3
   br i1 %10, label %15, label %11
 
 11:                                               ; preds = %7
-  %12 = load ptr, ptr %3, align 8
+  %12 = load ptr, ptr %3, align 8, !tbaa !8
   %13 = call noundef i32 @_ZNK4llvm6Triple7getArchEv(ptr noundef nonnull align 8 dereferenceable(56) %12)
   %14 = icmp eq i32 %13, 5
   br i1 %14, label %15, label %16
@@ -2659,7 +2677,7 @@ define internal noundef zeroext i1 @_ZL16useCompactUnwindRKN4llvm6TripleE(ptr no
   br label %43
 
 16:                                               ; preds = %11
-  %17 = load ptr, ptr %3, align 8
+  %17 = load ptr, ptr %3, align 8, !tbaa !8
   %18 = call noundef zeroext i1 @_ZNK4llvm6Triple10isWatchABIEv(ptr noundef nonnull align 8 dereferenceable(56) %17)
   br i1 %18, label %19, label %20
 
@@ -2668,12 +2686,12 @@ define internal noundef zeroext i1 @_ZL16useCompactUnwindRKN4llvm6TripleE(ptr no
   br label %43
 
 20:                                               ; preds = %16
-  %21 = load ptr, ptr %3, align 8
+  %21 = load ptr, ptr %3, align 8, !tbaa !8
   %22 = call noundef zeroext i1 @_ZNK4llvm6Triple8isMacOSXEv(ptr noundef nonnull align 8 dereferenceable(56) %21)
   br i1 %22, label %23, label %27
 
 23:                                               ; preds = %20
-  %24 = load ptr, ptr %3, align 8
+  %24 = load ptr, ptr %3, align 8, !tbaa !8
   %25 = call noundef zeroext i1 @_ZNK4llvm6Triple17isMacOSXVersionLTEjjj(ptr noundef nonnull align 8 dereferenceable(56) %24, i32 noundef 10, i32 noundef 6, i32 noundef 0)
   br i1 %25, label %27, label %26
 
@@ -2682,12 +2700,12 @@ define internal noundef zeroext i1 @_ZL16useCompactUnwindRKN4llvm6TripleE(ptr no
   br label %43
 
 27:                                               ; preds = %23, %20
-  %28 = load ptr, ptr %3, align 8
+  %28 = load ptr, ptr %3, align 8, !tbaa !8
   %29 = call noundef zeroext i1 @_ZNK4llvm6Triple5isiOSEv(ptr noundef nonnull align 8 dereferenceable(56) %28)
   br i1 %29, label %30, label %34
 
 30:                                               ; preds = %27
-  %31 = load ptr, ptr %3, align 8
+  %31 = load ptr, ptr %3, align 8, !tbaa !8
   %32 = call noundef zeroext i1 @_ZNK4llvm6Triple5isX86Ev(ptr noundef nonnull align 8 dereferenceable(56) %31)
   br i1 %32, label %33, label %34
 
@@ -2696,7 +2714,7 @@ define internal noundef zeroext i1 @_ZL16useCompactUnwindRKN4llvm6TripleE(ptr no
   br label %43
 
 34:                                               ; preds = %30, %27
-  %35 = load ptr, ptr %3, align 8
+  %35 = load ptr, ptr %3, align 8, !tbaa !8
   %36 = call noundef zeroext i1 @_ZNK4llvm6Triple22isSimulatorEnvironmentEv(ptr noundef nonnull align 8 dereferenceable(56) %35)
   br i1 %36, label %37, label %38
 
@@ -2705,7 +2723,7 @@ define internal noundef zeroext i1 @_ZL16useCompactUnwindRKN4llvm6TripleE(ptr no
   br label %43
 
 38:                                               ; preds = %34
-  %39 = load ptr, ptr %3, align 8
+  %39 = load ptr, ptr %3, align 8, !tbaa !8
   %40 = call noundef zeroext i1 @_ZNK4llvm6Triple6isXROSEv(ptr noundef nonnull align 8 dereferenceable(56) %39)
   br i1 %40, label %41, label %42
 
@@ -2725,7 +2743,7 @@ define internal noundef zeroext i1 @_ZL16useCompactUnwindRKN4llvm6TripleE(ptr no
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK4llvm6Triple5isX86Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !8
   %3 = load ptr, ptr %2, align 8
   %4 = call noundef i32 @_ZNK4llvm6Triple7getArchEv(ptr noundef nonnull align 8 dereferenceable(56) %3)
   %5 = icmp eq i32 %4, 37
@@ -2744,7 +2762,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK4llvm6Triple5isX86Ev(ptr noun
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZNK4llvm9MCContext30getSwift5ReflectionSegmentNameEv(ptr noundef nonnull align 8 dereferenceable(2432) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !89
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw %"class.llvm::MCContext", ptr %3, i32 0, i32 1
   ret ptr %4
@@ -2753,21 +2771,20 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZNK
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK4llvm9StringRef5emptyEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !98
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %3, i32 0, i32 1
-  %5 = load i64, ptr %4, align 8
-  %6 = icmp eq i64 %5, 0
-  ret i1 %6
+  %4 = call noundef i64 @_ZNK4llvm9StringRef4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %3)
+  %5 = icmp eq i64 %4, 0
+  ret i1 %5
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZNK4llvm9StringRef4dataEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !98
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %3, i32 0, i32 0
-  %5 = load ptr, ptr %4, align 8
+  %5 = load ptr, ptr %4, align 8, !tbaa !100
   ret ptr %5
 }
 
@@ -2775,17 +2792,20 @@ define linkonce_odr hidden noundef ptr @_ZNK4llvm9StringRef4dataEv(ptr noundef n
 define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt5arrayIPN4llvm9MCSectionELm11EEixEm(ptr noundef nonnull align 8 dereferenceable(88) %0, i64 noundef %1) #0 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca i64, align 8
-  store ptr %0, ptr %3, align 8
-  store i64 %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !112
+  store i64 %1, ptr %4, align 8, !tbaa !94
   %5 = load ptr, ptr %3, align 8
   %6 = getelementptr inbounds nuw %"struct.std::array", ptr %5, i32 0, i32 0
-  %7 = load i64, ptr %4, align 8
-  %8 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt14__array_traitsIPN4llvm9MCSectionELm11EE6_S_refERA11_KS2_m(ptr noundef nonnull align 8 dereferenceable(88) %6, i64 noundef %7) #8
+  %7 = load i64, ptr %4, align 8, !tbaa !94
+  %8 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt14__array_traitsIPN4llvm9MCSectionELm11EE6_S_refERA11_KS2_m(ptr noundef nonnull align 8 dereferenceable(88) %6, i64 noundef %7) #11
   ret ptr %8
 }
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
+
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm16MCObjectFileInfo23initELFMCObjectFileInfoERKNS_6TripleEb(ptr noundef nonnull align 8 dereferenceable(912) %0, ptr noundef nonnull align 8 dereferenceable(56) %1, i1 noundef zeroext %2) #0 align 2 {
+define dso_local void @_ZN4llvm16MCObjectFileInfo23initELFMCObjectFileInfoERKNS_6TripleEb(ptr noundef nonnull align 8 dereferenceable(920) %0, ptr noundef nonnull align 8 dereferenceable(56) %1, i1 noundef zeroext %2) #0 align 2 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca i8, align 1
@@ -2848,12 +2868,12 @@ define dso_local void @_ZN4llvm16MCObjectFileInfo23initELFMCObjectFileInfoERKNS_
   %63 = alloca %"class.llvm::Twine", align 8
   %64 = alloca %"class.llvm::Twine", align 8
   %65 = alloca %"class.llvm::Twine", align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !3
+  store ptr %1, ptr %5, align 8, !tbaa !8
   %66 = zext i1 %2 to i8
-  store i8 %66, ptr %6, align 1
+  store i8 %66, ptr %6, align 1, !tbaa !114
   %67 = load ptr, ptr %4, align 8
-  %68 = load ptr, ptr %5, align 8
+  %68 = load ptr, ptr %5, align 8, !tbaa !8
   %69 = call noundef i32 @_ZNK4llvm6Triple7getArchEv(ptr noundef nonnull align 8 dereferenceable(56) %68)
   switch i32 %69, label %101 [
     i32 16, label %70
@@ -2872,500 +2892,618 @@ define dso_local void @_ZN4llvm16MCObjectFileInfo23initELFMCObjectFileInfoERKNS_
   ]
 
 70:                                               ; preds = %3, %3, %3, %3
-  %71 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %67, i32 0, i32 105
-  %72 = load i8, ptr %71, align 8
+  %71 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %67, i32 0, i32 106
+  %72 = load i8, ptr %71, align 8, !tbaa !115, !range !21, !noundef !22
   %73 = trunc i8 %72 to i1
   br i1 %73, label %74, label %76
 
 74:                                               ; preds = %70
   %75 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %67, i32 0, i32 4
-  store i32 27, ptr %75, align 4
+  store i32 27, ptr %75, align 4, !tbaa !23
   br label %84
 
 76:                                               ; preds = %70
-  %77 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %67, i32 0, i32 106
-  %78 = load ptr, ptr %77, align 8
+  %77 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %67, i32 0, i32 107
+  %78 = load ptr, ptr %77, align 8, !tbaa !17
   %79 = call noundef ptr @_ZNK4llvm9MCContext10getAsmInfoEv(ptr noundef nonnull align 8 dereferenceable(2432) %78)
-  %80 = call noundef i32 @_ZNK4llvm9MCAsmInfo18getCodePointerSizeEv(ptr noundef nonnull align 8 dereferenceable(484) %79)
+  %80 = call noundef i32 @_ZNK4llvm9MCAsmInfo18getCodePointerSizeEv(ptr noundef nonnull align 8 dereferenceable(451) %79)
   %81 = icmp eq i32 %80, 4
   %82 = select i1 %81, i32 11, i32 12
   %83 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %67, i32 0, i32 4
-  store i32 %82, ptr %83, align 4
+  store i32 %82, ptr %83, align 4, !tbaa !23
   br label %84
 
 84:                                               ; preds = %76, %74
   br label %103
 
 85:                                               ; preds = %3, %3, %3, %3, %3
-  %86 = load i8, ptr %6, align 1
+  %86 = load i8, ptr %6, align 1, !tbaa !114, !range !21, !noundef !22
   %87 = trunc i8 %86 to i1
   %88 = select i1 %87, i32 12, i32 11
   %89 = or i32 16, %88
   %90 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %67, i32 0, i32 4
-  store i32 %89, ptr %90, align 4
+  store i32 %89, ptr %90, align 4, !tbaa !23
   br label %103
 
 91:                                               ; preds = %3, %3
   %92 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %67, i32 0, i32 4
-  store i32 12, ptr %92, align 4
+  store i32 12, ptr %92, align 4, !tbaa !23
   br label %103
 
 93:                                               ; preds = %3
-  %94 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %67, i32 0, i32 105
-  %95 = load i8, ptr %94, align 8
+  %94 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %67, i32 0, i32 106
+  %95 = load i8, ptr %94, align 8, !tbaa !115, !range !21, !noundef !22
   %96 = trunc i8 %95 to i1
   %97 = select i1 %96, i32 16, i32 0
   %98 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %67, i32 0, i32 4
-  store i32 %97, ptr %98, align 4
+  store i32 %97, ptr %98, align 4, !tbaa !23
   br label %103
 
 99:                                               ; preds = %3
   %100 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %67, i32 0, i32 4
-  store i32 11, ptr %100, align 4
+  store i32 11, ptr %100, align 4, !tbaa !23
   br label %103
 
 101:                                              ; preds = %3
   %102 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %67, i32 0, i32 4
-  store i32 27, ptr %102, align 4
+  store i32 27, ptr %102, align 4, !tbaa !23
   br label %103
 
 103:                                              ; preds = %101, %99, %93, %91, %85, %84
-  %104 = load ptr, ptr %5, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #11
+  %104 = load ptr, ptr %5, align 8, !tbaa !8
   %105 = call noundef i32 @_ZNK4llvm6Triple7getArchEv(ptr noundef nonnull align 8 dereferenceable(56) %104)
   %106 = icmp eq i32 %105, 38
   %107 = select i1 %106, i32 1879048193, i32 1
-  store i32 %107, ptr %7, align 4
-  store i32 2, ptr %8, align 4
-  %108 = load ptr, ptr %5, align 8
+  store i32 %107, ptr %7, align 4, !tbaa !90
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #11
+  store i32 2, ptr %8, align 4, !tbaa !90
+  %108 = load ptr, ptr %5, align 8, !tbaa !8
   %109 = call noundef zeroext i1 @_ZNK4llvm6Triple11isOSSolarisEv(ptr noundef nonnull align 8 dereferenceable(56) %108)
   br i1 %109, label %110, label %117
 
 110:                                              ; preds = %103
-  %111 = load ptr, ptr %5, align 8
+  %111 = load ptr, ptr %5, align 8, !tbaa !8
   %112 = call noundef i32 @_ZNK4llvm6Triple7getArchEv(ptr noundef nonnull align 8 dereferenceable(56) %111)
   %113 = icmp ne i32 %112, 38
   br i1 %113, label %114, label %117
 
 114:                                              ; preds = %110
-  %115 = load i32, ptr %8, align 4
+  %115 = load i32, ptr %8, align 4, !tbaa !90
   %116 = or i32 %115, 1
-  store i32 %116, ptr %8, align 4
+  store i32 %116, ptr %8, align 4, !tbaa !90
   br label %117
 
 117:                                              ; preds = %114, %110, %103
-  %118 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %67, i32 0, i32 106
-  %119 = load ptr, ptr %118, align 8
+  %118 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %67, i32 0, i32 107
+  %119 = load ptr, ptr %118, align 8, !tbaa !17
+  call void @llvm.lifetime.start.p0(i64 40, ptr %9) #11
   call void @_ZN4llvm5TwineC2EPKc(ptr noundef nonnull align 8 dereferenceable(34) %9, ptr noundef @.str.88)
   %120 = call noundef ptr @_ZN4llvm9MCContext13getELFSectionERKNS_5TwineEjj(ptr noundef nonnull align 8 dereferenceable(2432) %119, ptr noundef nonnull align 8 dereferenceable(34) %9, i32 noundef 8, i32 noundef 3)
   %121 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %67, i32 0, i32 8
-  store ptr %120, ptr %121, align 8
-  %122 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %67, i32 0, i32 106
-  %123 = load ptr, ptr %122, align 8
+  store ptr %120, ptr %121, align 8, !tbaa !26
+  call void @llvm.lifetime.end.p0(i64 40, ptr %9) #11
+  %122 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %67, i32 0, i32 107
+  %123 = load ptr, ptr %122, align 8, !tbaa !17
+  call void @llvm.lifetime.start.p0(i64 40, ptr %10) #11
   call void @_ZN4llvm5TwineC2EPKc(ptr noundef nonnull align 8 dereferenceable(34) %10, ptr noundef @.str.89)
   %124 = call noundef ptr @_ZN4llvm9MCContext13getELFSectionERKNS_5TwineEjj(ptr noundef nonnull align 8 dereferenceable(2432) %123, ptr noundef nonnull align 8 dereferenceable(34) %10, i32 noundef 1, i32 noundef 6)
   %125 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %67, i32 0, i32 6
-  store ptr %124, ptr %125, align 8
-  %126 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %67, i32 0, i32 106
-  %127 = load ptr, ptr %126, align 8
+  store ptr %124, ptr %125, align 8, !tbaa !24
+  call void @llvm.lifetime.end.p0(i64 40, ptr %10) #11
+  %126 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %67, i32 0, i32 107
+  %127 = load ptr, ptr %126, align 8, !tbaa !17
+  call void @llvm.lifetime.start.p0(i64 40, ptr %11) #11
   call void @_ZN4llvm5TwineC2EPKc(ptr noundef nonnull align 8 dereferenceable(34) %11, ptr noundef @.str.90)
   %128 = call noundef ptr @_ZN4llvm9MCContext13getELFSectionERKNS_5TwineEjj(ptr noundef nonnull align 8 dereferenceable(2432) %127, ptr noundef nonnull align 8 dereferenceable(34) %11, i32 noundef 1, i32 noundef 3)
   %129 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %67, i32 0, i32 7
-  store ptr %128, ptr %129, align 8
-  %130 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %67, i32 0, i32 106
-  %131 = load ptr, ptr %130, align 8
+  store ptr %128, ptr %129, align 8, !tbaa !25
+  call void @llvm.lifetime.end.p0(i64 40, ptr %11) #11
+  %130 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %67, i32 0, i32 107
+  %131 = load ptr, ptr %130, align 8, !tbaa !17
+  call void @llvm.lifetime.start.p0(i64 40, ptr %12) #11
   call void @_ZN4llvm5TwineC2EPKc(ptr noundef nonnull align 8 dereferenceable(34) %12, ptr noundef @.str.91)
   %132 = call noundef ptr @_ZN4llvm9MCContext13getELFSectionERKNS_5TwineEjj(ptr noundef nonnull align 8 dereferenceable(2432) %131, ptr noundef nonnull align 8 dereferenceable(34) %12, i32 noundef 1, i32 noundef 2)
   %133 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %67, i32 0, i32 9
-  store ptr %132, ptr %133, align 8
-  %134 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %67, i32 0, i32 106
-  %135 = load ptr, ptr %134, align 8
+  store ptr %132, ptr %133, align 8, !tbaa !36
+  call void @llvm.lifetime.end.p0(i64 40, ptr %12) #11
+  %134 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %67, i32 0, i32 107
+  %135 = load ptr, ptr %134, align 8, !tbaa !17
+  call void @llvm.lifetime.start.p0(i64 40, ptr %13) #11
   call void @_ZN4llvm5TwineC2EPKc(ptr noundef nonnull align 8 dereferenceable(34) %13, ptr noundef @.str.92)
   %136 = call noundef ptr @_ZN4llvm9MCContext13getELFSectionERKNS_5TwineEjj(ptr noundef nonnull align 8 dereferenceable(2432) %135, ptr noundef nonnull align 8 dereferenceable(34) %13, i32 noundef 1, i32 noundef 1027)
-  %137 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %67, i32 0, i32 55
-  store ptr %136, ptr %137, align 8
-  %138 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %67, i32 0, i32 106
-  %139 = load ptr, ptr %138, align 8
+  %137 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %67, i32 0, i32 56
+  store ptr %136, ptr %137, align 8, !tbaa !27
+  call void @llvm.lifetime.end.p0(i64 40, ptr %13) #11
+  %138 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %67, i32 0, i32 107
+  %139 = load ptr, ptr %138, align 8, !tbaa !17
+  call void @llvm.lifetime.start.p0(i64 40, ptr %14) #11
   call void @_ZN4llvm5TwineC2EPKc(ptr noundef nonnull align 8 dereferenceable(34) %14, ptr noundef @.str.93)
   %140 = call noundef ptr @_ZN4llvm9MCContext13getELFSectionERKNS_5TwineEjj(ptr noundef nonnull align 8 dereferenceable(2432) %139, ptr noundef nonnull align 8 dereferenceable(34) %14, i32 noundef 8, i32 noundef 1027)
-  %141 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %67, i32 0, i32 56
-  store ptr %140, ptr %141, align 8
-  %142 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %67, i32 0, i32 106
-  %143 = load ptr, ptr %142, align 8
+  %141 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %67, i32 0, i32 57
+  store ptr %140, ptr %141, align 8, !tbaa !28
+  call void @llvm.lifetime.end.p0(i64 40, ptr %14) #11
+  %142 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %67, i32 0, i32 107
+  %143 = load ptr, ptr %142, align 8, !tbaa !17
+  call void @llvm.lifetime.start.p0(i64 40, ptr %15) #11
   call void @_ZN4llvm5TwineC2EPKc(ptr noundef nonnull align 8 dereferenceable(34) %15, ptr noundef @.str.94)
   %144 = call noundef ptr @_ZN4llvm9MCContext13getELFSectionERKNS_5TwineEjj(ptr noundef nonnull align 8 dereferenceable(2432) %143, ptr noundef nonnull align 8 dereferenceable(34) %15, i32 noundef 1, i32 noundef 3)
-  %145 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %67, i32 0, i32 65
-  store ptr %144, ptr %145, align 8
-  %146 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %67, i32 0, i32 106
-  %147 = load ptr, ptr %146, align 8
+  %145 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %67, i32 0, i32 66
+  store ptr %144, ptr %145, align 8, !tbaa !116
+  call void @llvm.lifetime.end.p0(i64 40, ptr %15) #11
+  %146 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %67, i32 0, i32 107
+  %147 = load ptr, ptr %146, align 8, !tbaa !17
+  call void @llvm.lifetime.start.p0(i64 40, ptr %16) #11
   call void @_ZN4llvm5TwineC2EPKc(ptr noundef nonnull align 8 dereferenceable(34) %16, ptr noundef @.str.95)
   %148 = call noundef ptr @_ZN4llvm9MCContext13getELFSectionERKNS_5TwineEjjj(ptr noundef nonnull align 8 dereferenceable(2432) %147, ptr noundef nonnull align 8 dereferenceable(34) %16, i32 noundef 1, i32 noundef 18, i32 noundef 4)
-  %149 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %67, i32 0, i32 66
-  store ptr %148, ptr %149, align 8
-  %150 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %67, i32 0, i32 106
-  %151 = load ptr, ptr %150, align 8
+  %149 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %67, i32 0, i32 67
+  store ptr %148, ptr %149, align 8, !tbaa !117
+  call void @llvm.lifetime.end.p0(i64 40, ptr %16) #11
+  %150 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %67, i32 0, i32 107
+  %151 = load ptr, ptr %150, align 8, !tbaa !17
+  call void @llvm.lifetime.start.p0(i64 40, ptr %17) #11
   call void @_ZN4llvm5TwineC2EPKc(ptr noundef nonnull align 8 dereferenceable(34) %17, ptr noundef @.str.96)
   %152 = call noundef ptr @_ZN4llvm9MCContext13getELFSectionERKNS_5TwineEjjj(ptr noundef nonnull align 8 dereferenceable(2432) %151, ptr noundef nonnull align 8 dereferenceable(34) %17, i32 noundef 1, i32 noundef 18, i32 noundef 8)
-  %153 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %67, i32 0, i32 67
-  store ptr %152, ptr %153, align 8
-  %154 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %67, i32 0, i32 106
-  %155 = load ptr, ptr %154, align 8
+  %153 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %67, i32 0, i32 68
+  store ptr %152, ptr %153, align 8, !tbaa !118
+  call void @llvm.lifetime.end.p0(i64 40, ptr %17) #11
+  %154 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %67, i32 0, i32 107
+  %155 = load ptr, ptr %154, align 8, !tbaa !17
+  call void @llvm.lifetime.start.p0(i64 40, ptr %18) #11
   call void @_ZN4llvm5TwineC2EPKc(ptr noundef nonnull align 8 dereferenceable(34) %18, ptr noundef @.str.97)
   %156 = call noundef ptr @_ZN4llvm9MCContext13getELFSectionERKNS_5TwineEjjj(ptr noundef nonnull align 8 dereferenceable(2432) %155, ptr noundef nonnull align 8 dereferenceable(34) %18, i32 noundef 1, i32 noundef 18, i32 noundef 16)
-  %157 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %67, i32 0, i32 68
-  store ptr %156, ptr %157, align 8
-  %158 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %67, i32 0, i32 106
-  %159 = load ptr, ptr %158, align 8
+  %157 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %67, i32 0, i32 69
+  store ptr %156, ptr %157, align 8, !tbaa !119
+  call void @llvm.lifetime.end.p0(i64 40, ptr %18) #11
+  %158 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %67, i32 0, i32 107
+  %159 = load ptr, ptr %158, align 8, !tbaa !17
+  call void @llvm.lifetime.start.p0(i64 40, ptr %19) #11
   call void @_ZN4llvm5TwineC2EPKc(ptr noundef nonnull align 8 dereferenceable(34) %19, ptr noundef @.str.98)
   %160 = call noundef ptr @_ZN4llvm9MCContext13getELFSectionERKNS_5TwineEjjj(ptr noundef nonnull align 8 dereferenceable(2432) %159, ptr noundef nonnull align 8 dereferenceable(34) %19, i32 noundef 1, i32 noundef 18, i32 noundef 32)
-  %161 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %67, i32 0, i32 69
-  store ptr %160, ptr %161, align 8
-  %162 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %67, i32 0, i32 106
-  %163 = load ptr, ptr %162, align 8
+  %161 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %67, i32 0, i32 70
+  store ptr %160, ptr %161, align 8, !tbaa !120
+  call void @llvm.lifetime.end.p0(i64 40, ptr %19) #11
+  %162 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %67, i32 0, i32 107
+  %163 = load ptr, ptr %162, align 8, !tbaa !17
+  call void @llvm.lifetime.start.p0(i64 40, ptr %20) #11
   call void @_ZN4llvm5TwineC2EPKc(ptr noundef nonnull align 8 dereferenceable(34) %20, ptr noundef @.str.99)
   %164 = call noundef ptr @_ZN4llvm9MCContext13getELFSectionERKNS_5TwineEjj(ptr noundef nonnull align 8 dereferenceable(2432) %163, ptr noundef nonnull align 8 dereferenceable(34) %20, i32 noundef 1, i32 noundef 2)
   %165 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %67, i32 0, i32 10
-  store ptr %164, ptr %165, align 8
-  %166 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %67, i32 0, i32 51
-  store ptr null, ptr %166, align 8
-  %167 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %67, i32 0, i32 52
-  store ptr null, ptr %167, align 8
-  store i32 1, ptr %21, align 4
-  %168 = load ptr, ptr %5, align 8
+  store ptr %164, ptr %165, align 8, !tbaa !50
+  call void @llvm.lifetime.end.p0(i64 40, ptr %20) #11
+  %166 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %67, i32 0, i32 52
+  store ptr null, ptr %166, align 8, !tbaa !51
+  %167 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %67, i32 0, i32 53
+  store ptr null, ptr %167, align 8, !tbaa !52
+  call void @llvm.lifetime.start.p0(i64 4, ptr %21) #11
+  store i32 1, ptr %21, align 4, !tbaa !90
+  %168 = load ptr, ptr %5, align 8, !tbaa !8
   %169 = call noundef zeroext i1 @_ZNK4llvm6Triple6isMIPSEv(ptr noundef nonnull align 8 dereferenceable(56) %168)
   br i1 %169, label %170, label %171
 
 170:                                              ; preds = %117
-  store i32 1879048222, ptr %21, align 4
+  store i32 1879048222, ptr %21, align 4, !tbaa !90
   br label %171
 
 171:                                              ; preds = %170, %117
-  %172 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %67, i32 0, i32 106
-  %173 = load ptr, ptr %172, align 8
+  %172 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %67, i32 0, i32 107
+  %173 = load ptr, ptr %172, align 8, !tbaa !17
+  call void @llvm.lifetime.start.p0(i64 40, ptr %22) #11
   call void @_ZN4llvm5TwineC2EPKc(ptr noundef nonnull align 8 dereferenceable(34) %22, ptr noundef @.str.100)
-  %174 = load i32, ptr %21, align 4
+  %174 = load i32, ptr %21, align 4, !tbaa !90
   %175 = call noundef ptr @_ZN4llvm9MCContext13getELFSectionERKNS_5TwineEjj(ptr noundef nonnull align 8 dereferenceable(2432) %173, ptr noundef nonnull align 8 dereferenceable(34) %22, i32 noundef %174, i32 noundef 0)
-  %176 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %67, i32 0, i32 12
-  store ptr %175, ptr %176, align 8
-  %177 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %67, i32 0, i32 106
-  %178 = load ptr, ptr %177, align 8
+  %176 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %67, i32 0, i32 13
+  store ptr %175, ptr %176, align 8, !tbaa !62
+  call void @llvm.lifetime.end.p0(i64 40, ptr %22) #11
+  %177 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %67, i32 0, i32 107
+  %178 = load ptr, ptr %177, align 8, !tbaa !17
+  call void @llvm.lifetime.start.p0(i64 40, ptr %23) #11
   call void @_ZN4llvm5TwineC2EPKc(ptr noundef nonnull align 8 dereferenceable(34) %23, ptr noundef @.str.101)
-  %179 = load i32, ptr %21, align 4
+  %179 = load i32, ptr %21, align 4, !tbaa !90
   %180 = call noundef ptr @_ZN4llvm9MCContext13getELFSectionERKNS_5TwineEjj(ptr noundef nonnull align 8 dereferenceable(2432) %178, ptr noundef nonnull align 8 dereferenceable(34) %23, i32 noundef %179, i32 noundef 0)
-  %181 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %67, i32 0, i32 13
-  store ptr %180, ptr %181, align 8
-  %182 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %67, i32 0, i32 106
-  %183 = load ptr, ptr %182, align 8
+  %181 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %67, i32 0, i32 14
+  store ptr %180, ptr %181, align 8, !tbaa !63
+  call void @llvm.lifetime.end.p0(i64 40, ptr %23) #11
+  %182 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %67, i32 0, i32 107
+  %183 = load ptr, ptr %182, align 8, !tbaa !17
+  call void @llvm.lifetime.start.p0(i64 40, ptr %24) #11
   call void @_ZN4llvm5TwineC2EPKc(ptr noundef nonnull align 8 dereferenceable(34) %24, ptr noundef @.str.102)
-  %184 = load i32, ptr %21, align 4
+  %184 = load i32, ptr %21, align 4, !tbaa !90
   %185 = call noundef ptr @_ZN4llvm9MCContext13getELFSectionERKNS_5TwineEjj(ptr noundef nonnull align 8 dereferenceable(2432) %183, ptr noundef nonnull align 8 dereferenceable(34) %24, i32 noundef %184, i32 noundef 0)
-  %186 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %67, i32 0, i32 14
-  store ptr %185, ptr %186, align 8
-  %187 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %67, i32 0, i32 106
-  %188 = load ptr, ptr %187, align 8
+  %186 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %67, i32 0, i32 15
+  store ptr %185, ptr %186, align 8, !tbaa !64
+  call void @llvm.lifetime.end.p0(i64 40, ptr %24) #11
+  %187 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %67, i32 0, i32 107
+  %188 = load ptr, ptr %187, align 8, !tbaa !17
+  call void @llvm.lifetime.start.p0(i64 40, ptr %25) #11
   call void @_ZN4llvm5TwineC2EPKc(ptr noundef nonnull align 8 dereferenceable(34) %25, ptr noundef @.str.103)
-  %189 = load i32, ptr %21, align 4
+  %189 = load i32, ptr %21, align 4, !tbaa !90
   %190 = call noundef ptr @_ZN4llvm9MCContext13getELFSectionERKNS_5TwineEjjj(ptr noundef nonnull align 8 dereferenceable(2432) %188, ptr noundef nonnull align 8 dereferenceable(34) %25, i32 noundef %189, i32 noundef 48, i32 noundef 1)
-  %191 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %67, i32 0, i32 15
-  store ptr %190, ptr %191, align 8
-  %192 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %67, i32 0, i32 106
-  %193 = load ptr, ptr %192, align 8
+  %191 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %67, i32 0, i32 16
+  store ptr %190, ptr %191, align 8, !tbaa !65
+  call void @llvm.lifetime.end.p0(i64 40, ptr %25) #11
+  %192 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %67, i32 0, i32 107
+  %193 = load ptr, ptr %192, align 8, !tbaa !17
+  call void @llvm.lifetime.start.p0(i64 40, ptr %26) #11
   call void @_ZN4llvm5TwineC2EPKc(ptr noundef nonnull align 8 dereferenceable(34) %26, ptr noundef @.str.104)
-  %194 = load i32, ptr %21, align 4
+  %194 = load i32, ptr %21, align 4, !tbaa !90
   %195 = call noundef ptr @_ZN4llvm9MCContext13getELFSectionERKNS_5TwineEjj(ptr noundef nonnull align 8 dereferenceable(2432) %193, ptr noundef nonnull align 8 dereferenceable(34) %26, i32 noundef %194, i32 noundef 0)
-  %196 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %67, i32 0, i32 16
-  store ptr %195, ptr %196, align 8
-  %197 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %67, i32 0, i32 106
-  %198 = load ptr, ptr %197, align 8
+  %196 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %67, i32 0, i32 17
+  store ptr %195, ptr %196, align 8, !tbaa !66
+  call void @llvm.lifetime.end.p0(i64 40, ptr %26) #11
+  %197 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %67, i32 0, i32 107
+  %198 = load ptr, ptr %197, align 8, !tbaa !17
+  call void @llvm.lifetime.start.p0(i64 40, ptr %27) #11
   call void @_ZN4llvm5TwineC2EPKc(ptr noundef nonnull align 8 dereferenceable(34) %27, ptr noundef @.str.105)
-  %199 = load i32, ptr %21, align 4
+  %199 = load i32, ptr %21, align 4, !tbaa !90
   %200 = call noundef ptr @_ZN4llvm9MCContext13getELFSectionERKNS_5TwineEjj(ptr noundef nonnull align 8 dereferenceable(2432) %198, ptr noundef nonnull align 8 dereferenceable(34) %27, i32 noundef %199, i32 noundef 0)
-  %201 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %67, i32 0, i32 25
-  store ptr %200, ptr %201, align 8
-  %202 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %67, i32 0, i32 106
-  %203 = load ptr, ptr %202, align 8
+  %201 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %67, i32 0, i32 26
+  store ptr %200, ptr %201, align 8, !tbaa !67
+  call void @llvm.lifetime.end.p0(i64 40, ptr %27) #11
+  %202 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %67, i32 0, i32 107
+  %203 = load ptr, ptr %202, align 8, !tbaa !17
+  call void @llvm.lifetime.start.p0(i64 40, ptr %28) #11
   call void @_ZN4llvm5TwineC2EPKc(ptr noundef nonnull align 8 dereferenceable(34) %28, ptr noundef @.str.106)
-  %204 = load i32, ptr %21, align 4
+  %204 = load i32, ptr %21, align 4, !tbaa !90
   %205 = call noundef ptr @_ZN4llvm9MCContext13getELFSectionERKNS_5TwineEjj(ptr noundef nonnull align 8 dereferenceable(2432) %203, ptr noundef nonnull align 8 dereferenceable(34) %28, i32 noundef %204, i32 noundef 0)
-  %206 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %67, i32 0, i32 17
-  store ptr %205, ptr %206, align 8
-  %207 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %67, i32 0, i32 106
-  %208 = load ptr, ptr %207, align 8
+  %206 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %67, i32 0, i32 18
+  store ptr %205, ptr %206, align 8, !tbaa !68
+  call void @llvm.lifetime.end.p0(i64 40, ptr %28) #11
+  %207 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %67, i32 0, i32 107
+  %208 = load ptr, ptr %207, align 8, !tbaa !17
+  call void @llvm.lifetime.start.p0(i64 40, ptr %29) #11
   call void @_ZN4llvm5TwineC2EPKc(ptr noundef nonnull align 8 dereferenceable(34) %29, ptr noundef @.str.107)
-  %209 = load i32, ptr %21, align 4
+  %209 = load i32, ptr %21, align 4, !tbaa !90
   %210 = call noundef ptr @_ZN4llvm9MCContext13getELFSectionERKNS_5TwineEjj(ptr noundef nonnull align 8 dereferenceable(2432) %208, ptr noundef nonnull align 8 dereferenceable(34) %29, i32 noundef %209, i32 noundef 0)
-  %211 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %67, i32 0, i32 48
-  store ptr %210, ptr %211, align 8
-  %212 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %67, i32 0, i32 106
-  %213 = load ptr, ptr %212, align 8
+  %211 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %67, i32 0, i32 49
+  store ptr %210, ptr %211, align 8, !tbaa !69
+  call void @llvm.lifetime.end.p0(i64 40, ptr %29) #11
+  %212 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %67, i32 0, i32 107
+  %213 = load ptr, ptr %212, align 8, !tbaa !17
+  call void @llvm.lifetime.start.p0(i64 40, ptr %30) #11
   call void @_ZN4llvm5TwineC2EPKc(ptr noundef nonnull align 8 dereferenceable(34) %30, ptr noundef @.str.108)
-  %214 = load i32, ptr %21, align 4
+  %214 = load i32, ptr %21, align 4, !tbaa !90
   %215 = call noundef ptr @_ZN4llvm9MCContext13getELFSectionERKNS_5TwineEjj(ptr noundef nonnull align 8 dereferenceable(2432) %213, ptr noundef nonnull align 8 dereferenceable(34) %30, i32 noundef %214, i32 noundef 0)
-  %216 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %67, i32 0, i32 49
-  store ptr %215, ptr %216, align 8
-  %217 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %67, i32 0, i32 106
-  %218 = load ptr, ptr %217, align 8
+  %216 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %67, i32 0, i32 50
+  store ptr %215, ptr %216, align 8, !tbaa !70
+  call void @llvm.lifetime.end.p0(i64 40, ptr %30) #11
+  %217 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %67, i32 0, i32 107
+  %218 = load ptr, ptr %217, align 8, !tbaa !17
+  call void @llvm.lifetime.start.p0(i64 40, ptr %31) #11
   call void @_ZN4llvm5TwineC2EPKc(ptr noundef nonnull align 8 dereferenceable(34) %31, ptr noundef @.str.109)
-  %219 = load i32, ptr %21, align 4
+  %219 = load i32, ptr %21, align 4, !tbaa !90
   %220 = call noundef ptr @_ZN4llvm9MCContext13getELFSectionERKNS_5TwineEjjj(ptr noundef nonnull align 8 dereferenceable(2432) %218, ptr noundef nonnull align 8 dereferenceable(34) %31, i32 noundef %219, i32 noundef 48, i32 noundef 1)
-  %221 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %67, i32 0, i32 19
-  store ptr %220, ptr %221, align 8
-  %222 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %67, i32 0, i32 106
-  %223 = load ptr, ptr %222, align 8
+  %221 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %67, i32 0, i32 20
+  store ptr %220, ptr %221, align 8, !tbaa !71
+  call void @llvm.lifetime.end.p0(i64 40, ptr %31) #11
+  %222 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %67, i32 0, i32 107
+  %223 = load ptr, ptr %222, align 8, !tbaa !17
+  call void @llvm.lifetime.start.p0(i64 40, ptr %32) #11
   call void @_ZN4llvm5TwineC2EPKc(ptr noundef nonnull align 8 dereferenceable(34) %32, ptr noundef @.str.110)
-  %224 = load i32, ptr %21, align 4
+  %224 = load i32, ptr %21, align 4, !tbaa !90
   %225 = call noundef ptr @_ZN4llvm9MCContext13getELFSectionERKNS_5TwineEjj(ptr noundef nonnull align 8 dereferenceable(2432) %223, ptr noundef nonnull align 8 dereferenceable(34) %32, i32 noundef %224, i32 noundef 0)
-  %226 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %67, i32 0, i32 20
-  store ptr %225, ptr %226, align 8
-  %227 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %67, i32 0, i32 106
-  %228 = load ptr, ptr %227, align 8
+  %226 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %67, i32 0, i32 21
+  store ptr %225, ptr %226, align 8, !tbaa !74
+  call void @llvm.lifetime.end.p0(i64 40, ptr %32) #11
+  %227 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %67, i32 0, i32 107
+  %228 = load ptr, ptr %227, align 8, !tbaa !17
+  call void @llvm.lifetime.start.p0(i64 40, ptr %33) #11
   call void @_ZN4llvm5TwineC2EPKc(ptr noundef nonnull align 8 dereferenceable(34) %33, ptr noundef @.str.111)
-  %229 = load i32, ptr %21, align 4
+  %229 = load i32, ptr %21, align 4, !tbaa !90
   %230 = call noundef ptr @_ZN4llvm9MCContext13getELFSectionERKNS_5TwineEjj(ptr noundef nonnull align 8 dereferenceable(2432) %228, ptr noundef nonnull align 8 dereferenceable(34) %33, i32 noundef %229, i32 noundef 0)
-  %231 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %67, i32 0, i32 21
-  store ptr %230, ptr %231, align 8
-  %232 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %67, i32 0, i32 106
-  %233 = load ptr, ptr %232, align 8
+  %231 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %67, i32 0, i32 22
+  store ptr %230, ptr %231, align 8, !tbaa !76
+  call void @llvm.lifetime.end.p0(i64 40, ptr %33) #11
+  %232 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %67, i32 0, i32 107
+  %233 = load ptr, ptr %232, align 8, !tbaa !17
+  call void @llvm.lifetime.start.p0(i64 40, ptr %34) #11
   call void @_ZN4llvm5TwineC2EPKc(ptr noundef nonnull align 8 dereferenceable(34) %34, ptr noundef @.str.112)
-  %234 = load i32, ptr %21, align 4
+  %234 = load i32, ptr %21, align 4, !tbaa !90
   %235 = call noundef ptr @_ZN4llvm9MCContext13getELFSectionERKNS_5TwineEjj(ptr noundef nonnull align 8 dereferenceable(2432) %233, ptr noundef nonnull align 8 dereferenceable(34) %34, i32 noundef %234, i32 noundef 0)
-  %236 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %67, i32 0, i32 22
-  store ptr %235, ptr %236, align 8
-  %237 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %67, i32 0, i32 106
-  %238 = load ptr, ptr %237, align 8
+  %236 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %67, i32 0, i32 23
+  store ptr %235, ptr %236, align 8, !tbaa !77
+  call void @llvm.lifetime.end.p0(i64 40, ptr %34) #11
+  %237 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %67, i32 0, i32 107
+  %238 = load ptr, ptr %237, align 8, !tbaa !17
+  call void @llvm.lifetime.start.p0(i64 40, ptr %35) #11
   call void @_ZN4llvm5TwineC2EPKc(ptr noundef nonnull align 8 dereferenceable(34) %35, ptr noundef @.str.113)
-  %239 = load i32, ptr %21, align 4
+  %239 = load i32, ptr %21, align 4, !tbaa !90
   %240 = call noundef ptr @_ZN4llvm9MCContext13getELFSectionERKNS_5TwineEjj(ptr noundef nonnull align 8 dereferenceable(2432) %238, ptr noundef nonnull align 8 dereferenceable(34) %35, i32 noundef %239, i32 noundef 0)
-  %241 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %67, i32 0, i32 23
-  store ptr %240, ptr %241, align 8
-  %242 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %67, i32 0, i32 106
-  %243 = load ptr, ptr %242, align 8
+  %241 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %67, i32 0, i32 24
+  store ptr %240, ptr %241, align 8, !tbaa !79
+  call void @llvm.lifetime.end.p0(i64 40, ptr %35) #11
+  %242 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %67, i32 0, i32 107
+  %243 = load ptr, ptr %242, align 8, !tbaa !17
+  call void @llvm.lifetime.start.p0(i64 40, ptr %36) #11
   call void @_ZN4llvm5TwineC2EPKc(ptr noundef nonnull align 8 dereferenceable(34) %36, ptr noundef @.str.114)
-  %244 = load i32, ptr %21, align 4
+  %244 = load i32, ptr %21, align 4, !tbaa !90
   %245 = call noundef ptr @_ZN4llvm9MCContext13getELFSectionERKNS_5TwineEjj(ptr noundef nonnull align 8 dereferenceable(2432) %243, ptr noundef nonnull align 8 dereferenceable(34) %36, i32 noundef %244, i32 noundef 0)
-  %246 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %67, i32 0, i32 24
-  store ptr %245, ptr %246, align 8
-  %247 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %67, i32 0, i32 106
-  %248 = load ptr, ptr %247, align 8
+  %246 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %67, i32 0, i32 25
+  store ptr %245, ptr %246, align 8, !tbaa !80
+  call void @llvm.lifetime.end.p0(i64 40, ptr %36) #11
+  %247 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %67, i32 0, i32 107
+  %248 = load ptr, ptr %247, align 8, !tbaa !17
+  call void @llvm.lifetime.start.p0(i64 40, ptr %37) #11
   call void @_ZN4llvm5TwineC2EPKc(ptr noundef nonnull align 8 dereferenceable(34) %37, ptr noundef @.str.115)
   %249 = call noundef ptr @_ZN4llvm9MCContext13getELFSectionERKNS_5TwineEjj(ptr noundef nonnull align 8 dereferenceable(2432) %248, ptr noundef nonnull align 8 dereferenceable(34) %37, i32 noundef 1, i32 noundef 0)
-  %250 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %67, i32 0, i32 26
-  store ptr %249, ptr %250, align 8
-  %251 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %67, i32 0, i32 106
-  %252 = load ptr, ptr %251, align 8
+  %250 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %67, i32 0, i32 27
+  store ptr %249, ptr %250, align 8, !tbaa !56
+  call void @llvm.lifetime.end.p0(i64 40, ptr %37) #11
+  %251 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %67, i32 0, i32 107
+  %252 = load ptr, ptr %251, align 8, !tbaa !17
+  call void @llvm.lifetime.start.p0(i64 40, ptr %38) #11
   call void @_ZN4llvm5TwineC2EPKc(ptr noundef nonnull align 8 dereferenceable(34) %38, ptr noundef @.str.116)
   %253 = call noundef ptr @_ZN4llvm9MCContext13getELFSectionERKNS_5TwineEjj(ptr noundef nonnull align 8 dereferenceable(2432) %252, ptr noundef nonnull align 8 dereferenceable(34) %38, i32 noundef 1, i32 noundef 0)
-  %254 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %67, i32 0, i32 27
-  store ptr %253, ptr %254, align 8
-  %255 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %67, i32 0, i32 106
-  %256 = load ptr, ptr %255, align 8
+  %254 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %67, i32 0, i32 28
+  store ptr %253, ptr %254, align 8, !tbaa !57
+  call void @llvm.lifetime.end.p0(i64 40, ptr %38) #11
+  %255 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %67, i32 0, i32 107
+  %256 = load ptr, ptr %255, align 8, !tbaa !17
+  call void @llvm.lifetime.start.p0(i64 40, ptr %39) #11
   call void @_ZN4llvm5TwineC2EPKc(ptr noundef nonnull align 8 dereferenceable(34) %39, ptr noundef @.str.117)
   %257 = call noundef ptr @_ZN4llvm9MCContext13getELFSectionERKNS_5TwineEjj(ptr noundef nonnull align 8 dereferenceable(2432) %256, ptr noundef nonnull align 8 dereferenceable(34) %39, i32 noundef 1, i32 noundef 0)
-  %258 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %67, i32 0, i32 28
-  store ptr %257, ptr %258, align 8
-  %259 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %67, i32 0, i32 106
-  %260 = load ptr, ptr %259, align 8
+  %258 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %67, i32 0, i32 29
+  store ptr %257, ptr %258, align 8, !tbaa !58
+  call void @llvm.lifetime.end.p0(i64 40, ptr %39) #11
+  %259 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %67, i32 0, i32 107
+  %260 = load ptr, ptr %259, align 8, !tbaa !17
+  call void @llvm.lifetime.start.p0(i64 40, ptr %40) #11
   call void @_ZN4llvm5TwineC2EPKc(ptr noundef nonnull align 8 dereferenceable(34) %40, ptr noundef @.str.118)
   %261 = call noundef ptr @_ZN4llvm9MCContext13getELFSectionERKNS_5TwineEjj(ptr noundef nonnull align 8 dereferenceable(2432) %260, ptr noundef nonnull align 8 dereferenceable(34) %40, i32 noundef 1, i32 noundef 0)
-  %262 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %67, i32 0, i32 29
-  store ptr %261, ptr %262, align 8
-  %263 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %67, i32 0, i32 106
-  %264 = load ptr, ptr %263, align 8
+  %262 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %67, i32 0, i32 30
+  store ptr %261, ptr %262, align 8, !tbaa !59
+  call void @llvm.lifetime.end.p0(i64 40, ptr %40) #11
+  %263 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %67, i32 0, i32 107
+  %264 = load ptr, ptr %263, align 8, !tbaa !17
+  call void @llvm.lifetime.start.p0(i64 40, ptr %41) #11
   call void @_ZN4llvm5TwineC2EPKc(ptr noundef nonnull align 8 dereferenceable(34) %41, ptr noundef @.str.119)
   %265 = call noundef ptr @_ZN4llvm9MCContext13getELFSectionERKNS_5TwineEjj(ptr noundef nonnull align 8 dereferenceable(2432) %264, ptr noundef nonnull align 8 dereferenceable(34) %41, i32 noundef 1, i32 noundef 0)
-  %266 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %67, i32 0, i32 30
-  store ptr %265, ptr %266, align 8
-  %267 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %67, i32 0, i32 106
-  %268 = load ptr, ptr %267, align 8
+  %266 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %67, i32 0, i32 31
+  store ptr %265, ptr %266, align 8, !tbaa !60
+  call void @llvm.lifetime.end.p0(i64 40, ptr %41) #11
+  %267 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %67, i32 0, i32 107
+  %268 = load ptr, ptr %267, align 8, !tbaa !17
+  call void @llvm.lifetime.start.p0(i64 40, ptr %42) #11
   call void @_ZN4llvm5TwineC2EPKc(ptr noundef nonnull align 8 dereferenceable(34) %42, ptr noundef @.str.120)
-  %269 = load i32, ptr %21, align 4
+  %269 = load i32, ptr %21, align 4, !tbaa !90
   %270 = call noundef ptr @_ZN4llvm9MCContext13getELFSectionERKNS_5TwineEjj(ptr noundef nonnull align 8 dereferenceable(2432) %268, ptr noundef nonnull align 8 dereferenceable(34) %42, i32 noundef %269, i32 noundef 0)
-  %271 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %67, i32 0, i32 40
-  store ptr %270, ptr %271, align 8
-  %272 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %67, i32 0, i32 106
-  %273 = load ptr, ptr %272, align 8
+  %271 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %67, i32 0, i32 41
+  store ptr %270, ptr %271, align 8, !tbaa !72
+  call void @llvm.lifetime.end.p0(i64 40, ptr %42) #11
+  %272 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %67, i32 0, i32 107
+  %273 = load ptr, ptr %272, align 8, !tbaa !17
+  call void @llvm.lifetime.start.p0(i64 40, ptr %43) #11
   call void @_ZN4llvm5TwineC2EPKc(ptr noundef nonnull align 8 dereferenceable(34) %43, ptr noundef @.str.121)
-  %274 = load i32, ptr %21, align 4
+  %274 = load i32, ptr %21, align 4, !tbaa !90
   %275 = call noundef ptr @_ZN4llvm9MCContext13getELFSectionERKNS_5TwineEjj(ptr noundef nonnull align 8 dereferenceable(2432) %273, ptr noundef nonnull align 8 dereferenceable(34) %43, i32 noundef %274, i32 noundef 0)
-  %276 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %67, i32 0, i32 41
-  store ptr %275, ptr %276, align 8
-  %277 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %67, i32 0, i32 106
-  %278 = load ptr, ptr %277, align 8
+  %276 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %67, i32 0, i32 42
+  store ptr %275, ptr %276, align 8, !tbaa !73
+  call void @llvm.lifetime.end.p0(i64 40, ptr %43) #11
+  %277 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %67, i32 0, i32 107
+  %278 = load ptr, ptr %277, align 8, !tbaa !17
+  call void @llvm.lifetime.start.p0(i64 40, ptr %44) #11
   call void @_ZN4llvm5TwineC2EPKc(ptr noundef nonnull align 8 dereferenceable(34) %44, ptr noundef @.str.122)
-  %279 = load i32, ptr %21, align 4
+  %279 = load i32, ptr %21, align 4, !tbaa !90
   %280 = call noundef ptr @_ZN4llvm9MCContext13getELFSectionERKNS_5TwineEjj(ptr noundef nonnull align 8 dereferenceable(2432) %278, ptr noundef nonnull align 8 dereferenceable(34) %44, i32 noundef %279, i32 noundef 0)
-  %281 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %67, i32 0, i32 42
-  store ptr %280, ptr %281, align 8
-  %282 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %67, i32 0, i32 106
-  %283 = load ptr, ptr %282, align 8
+  %281 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %67, i32 0, i32 43
+  store ptr %280, ptr %281, align 8, !tbaa !78
+  call void @llvm.lifetime.end.p0(i64 40, ptr %44) #11
+  %282 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %67, i32 0, i32 107
+  %283 = load ptr, ptr %282, align 8, !tbaa !17
+  call void @llvm.lifetime.start.p0(i64 40, ptr %45) #11
   call void @_ZN4llvm5TwineC2EPKc(ptr noundef nonnull align 8 dereferenceable(34) %45, ptr noundef @.str.123)
-  %284 = load i32, ptr %21, align 4
+  %284 = load i32, ptr %21, align 4, !tbaa !90
   %285 = call noundef ptr @_ZN4llvm9MCContext13getELFSectionERKNS_5TwineEjj(ptr noundef nonnull align 8 dereferenceable(2432) %283, ptr noundef nonnull align 8 dereferenceable(34) %45, i32 noundef %284, i32 noundef 0)
-  %286 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %67, i32 0, i32 43
-  store ptr %285, ptr %286, align 8
-  %287 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %67, i32 0, i32 106
-  %288 = load ptr, ptr %287, align 8
+  %286 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %67, i32 0, i32 44
+  store ptr %285, ptr %286, align 8, !tbaa !75
+  call void @llvm.lifetime.end.p0(i64 40, ptr %45) #11
+  %287 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %67, i32 0, i32 107
+  %288 = load ptr, ptr %287, align 8, !tbaa !17
+  call void @llvm.lifetime.start.p0(i64 40, ptr %46) #11
   call void @_ZN4llvm5TwineC2EPKc(ptr noundef nonnull align 8 dereferenceable(34) %46, ptr noundef @.str.124)
-  %289 = load i32, ptr %21, align 4
+  %289 = load i32, ptr %21, align 4, !tbaa !90
   %290 = call noundef ptr @_ZN4llvm9MCContext13getELFSectionERKNS_5TwineEjj(ptr noundef nonnull align 8 dereferenceable(2432) %288, ptr noundef nonnull align 8 dereferenceable(34) %46, i32 noundef %289, i32 noundef -2147483648)
-  %291 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %67, i32 0, i32 31
-  store ptr %290, ptr %291, align 8
-  %292 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %67, i32 0, i32 106
-  %293 = load ptr, ptr %292, align 8
+  %291 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %67, i32 0, i32 32
+  store ptr %290, ptr %291, align 8, !tbaa !121
+  call void @llvm.lifetime.end.p0(i64 40, ptr %46) #11
+  %292 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %67, i32 0, i32 107
+  %293 = load ptr, ptr %292, align 8, !tbaa !17
+  call void @llvm.lifetime.start.p0(i64 40, ptr %47) #11
   call void @_ZN4llvm5TwineC2EPKc(ptr noundef nonnull align 8 dereferenceable(34) %47, ptr noundef @.str.125)
-  %294 = load i32, ptr %21, align 4
+  %294 = load i32, ptr %21, align 4, !tbaa !90
   %295 = call noundef ptr @_ZN4llvm9MCContext13getELFSectionERKNS_5TwineEjj(ptr noundef nonnull align 8 dereferenceable(2432) %293, ptr noundef nonnull align 8 dereferenceable(34) %47, i32 noundef %294, i32 noundef -2147483648)
-  %296 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %67, i32 0, i32 32
-  store ptr %295, ptr %296, align 8
-  %297 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %67, i32 0, i32 106
-  %298 = load ptr, ptr %297, align 8
+  %296 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %67, i32 0, i32 33
+  store ptr %295, ptr %296, align 8, !tbaa !122
+  call void @llvm.lifetime.end.p0(i64 40, ptr %47) #11
+  %297 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %67, i32 0, i32 107
+  %298 = load ptr, ptr %297, align 8, !tbaa !17
+  call void @llvm.lifetime.start.p0(i64 40, ptr %48) #11
   call void @_ZN4llvm5TwineC2EPKc(ptr noundef nonnull align 8 dereferenceable(34) %48, ptr noundef @.str.126)
-  %299 = load i32, ptr %21, align 4
+  %299 = load i32, ptr %21, align 4, !tbaa !90
   %300 = call noundef ptr @_ZN4llvm9MCContext13getELFSectionERKNS_5TwineEjj(ptr noundef nonnull align 8 dereferenceable(2432) %298, ptr noundef nonnull align 8 dereferenceable(34) %48, i32 noundef %299, i32 noundef -2147483648)
-  %301 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %67, i32 0, i32 33
-  store ptr %300, ptr %301, align 8
-  %302 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %67, i32 0, i32 106
-  %303 = load ptr, ptr %302, align 8
+  %301 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %67, i32 0, i32 34
+  store ptr %300, ptr %301, align 8, !tbaa !123
+  call void @llvm.lifetime.end.p0(i64 40, ptr %48) #11
+  %302 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %67, i32 0, i32 107
+  %303 = load ptr, ptr %302, align 8, !tbaa !17
+  call void @llvm.lifetime.start.p0(i64 40, ptr %49) #11
   call void @_ZN4llvm5TwineC2EPKc(ptr noundef nonnull align 8 dereferenceable(34) %49, ptr noundef @.str.127)
-  %304 = load i32, ptr %21, align 4
+  %304 = load i32, ptr %21, align 4, !tbaa !90
   %305 = call noundef ptr @_ZN4llvm9MCContext13getELFSectionERKNS_5TwineEjjj(ptr noundef nonnull align 8 dereferenceable(2432) %303, ptr noundef nonnull align 8 dereferenceable(34) %49, i32 noundef %304, i32 noundef -2147483600, i32 noundef 1)
-  %306 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %67, i32 0, i32 34
-  store ptr %305, ptr %306, align 8
-  %307 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %67, i32 0, i32 106
-  %308 = load ptr, ptr %307, align 8
+  %306 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %67, i32 0, i32 35
+  store ptr %305, ptr %306, align 8, !tbaa !124
+  call void @llvm.lifetime.end.p0(i64 40, ptr %49) #11
+  %307 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %67, i32 0, i32 107
+  %308 = load ptr, ptr %307, align 8, !tbaa !17
+  call void @llvm.lifetime.start.p0(i64 40, ptr %50) #11
   call void @_ZN4llvm5TwineC2EPKc(ptr noundef nonnull align 8 dereferenceable(34) %50, ptr noundef @.str.128)
-  %309 = load i32, ptr %21, align 4
+  %309 = load i32, ptr %21, align 4, !tbaa !90
   %310 = call noundef ptr @_ZN4llvm9MCContext13getELFSectionERKNS_5TwineEjj(ptr noundef nonnull align 8 dereferenceable(2432) %308, ptr noundef nonnull align 8 dereferenceable(34) %50, i32 noundef %309, i32 noundef -2147483648)
-  %311 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %67, i32 0, i32 35
-  store ptr %310, ptr %311, align 8
-  %312 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %67, i32 0, i32 106
-  %313 = load ptr, ptr %312, align 8
+  %311 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %67, i32 0, i32 36
+  store ptr %310, ptr %311, align 8, !tbaa !125
+  call void @llvm.lifetime.end.p0(i64 40, ptr %50) #11
+  %312 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %67, i32 0, i32 107
+  %313 = load ptr, ptr %312, align 8, !tbaa !17
+  call void @llvm.lifetime.start.p0(i64 40, ptr %51) #11
   call void @_ZN4llvm5TwineC2EPKc(ptr noundef nonnull align 8 dereferenceable(34) %51, ptr noundef @.str.129)
-  %314 = load i32, ptr %21, align 4
+  %314 = load i32, ptr %21, align 4, !tbaa !90
   %315 = call noundef ptr @_ZN4llvm9MCContext13getELFSectionERKNS_5TwineEjj(ptr noundef nonnull align 8 dereferenceable(2432) %313, ptr noundef nonnull align 8 dereferenceable(34) %51, i32 noundef %314, i32 noundef -2147483648)
-  %316 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %67, i32 0, i32 36
-  store ptr %315, ptr %316, align 8
-  %317 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %67, i32 0, i32 106
-  %318 = load ptr, ptr %317, align 8
+  %316 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %67, i32 0, i32 37
+  store ptr %315, ptr %316, align 8, !tbaa !126
+  call void @llvm.lifetime.end.p0(i64 40, ptr %51) #11
+  %317 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %67, i32 0, i32 107
+  %318 = load ptr, ptr %317, align 8, !tbaa !17
+  call void @llvm.lifetime.start.p0(i64 40, ptr %52) #11
   call void @_ZN4llvm5TwineC2EPKc(ptr noundef nonnull align 8 dereferenceable(34) %52, ptr noundef @.str.130)
-  %319 = load i32, ptr %21, align 4
+  %319 = load i32, ptr %21, align 4, !tbaa !90
   %320 = call noundef ptr @_ZN4llvm9MCContext13getELFSectionERKNS_5TwineEjj(ptr noundef nonnull align 8 dereferenceable(2432) %318, ptr noundef nonnull align 8 dereferenceable(34) %52, i32 noundef %319, i32 noundef -2147483648)
-  %321 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %67, i32 0, i32 37
-  store ptr %320, ptr %321, align 8
-  %322 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %67, i32 0, i32 106
-  %323 = load ptr, ptr %322, align 8
+  %321 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %67, i32 0, i32 38
+  store ptr %320, ptr %321, align 8, !tbaa !127
+  call void @llvm.lifetime.end.p0(i64 40, ptr %52) #11
+  %322 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %67, i32 0, i32 107
+  %323 = load ptr, ptr %322, align 8, !tbaa !17
+  call void @llvm.lifetime.start.p0(i64 40, ptr %53) #11
   call void @_ZN4llvm5TwineC2EPKc(ptr noundef nonnull align 8 dereferenceable(34) %53, ptr noundef @.str.131)
-  %324 = load i32, ptr %21, align 4
+  %324 = load i32, ptr %21, align 4, !tbaa !90
   %325 = call noundef ptr @_ZN4llvm9MCContext13getELFSectionERKNS_5TwineEjj(ptr noundef nonnull align 8 dereferenceable(2432) %323, ptr noundef nonnull align 8 dereferenceable(34) %53, i32 noundef %324, i32 noundef -2147483648)
-  %326 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %67, i32 0, i32 44
-  store ptr %325, ptr %326, align 8
-  %327 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %67, i32 0, i32 106
-  %328 = load ptr, ptr %327, align 8
+  %326 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %67, i32 0, i32 45
+  store ptr %325, ptr %326, align 8, !tbaa !128
+  call void @llvm.lifetime.end.p0(i64 40, ptr %53) #11
+  %327 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %67, i32 0, i32 107
+  %328 = load ptr, ptr %327, align 8, !tbaa !17
+  call void @llvm.lifetime.start.p0(i64 40, ptr %54) #11
   call void @_ZN4llvm5TwineC2EPKc(ptr noundef nonnull align 8 dereferenceable(34) %54, ptr noundef @.str.132)
-  %329 = load i32, ptr %21, align 4
+  %329 = load i32, ptr %21, align 4, !tbaa !90
   %330 = call noundef ptr @_ZN4llvm9MCContext13getELFSectionERKNS_5TwineEjj(ptr noundef nonnull align 8 dereferenceable(2432) %328, ptr noundef nonnull align 8 dereferenceable(34) %54, i32 noundef %329, i32 noundef -2147483648)
-  %331 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %67, i32 0, i32 38
-  store ptr %330, ptr %331, align 8
-  %332 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %67, i32 0, i32 106
-  %333 = load ptr, ptr %332, align 8
+  %331 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %67, i32 0, i32 39
+  store ptr %330, ptr %331, align 8, !tbaa !129
+  call void @llvm.lifetime.end.p0(i64 40, ptr %54) #11
+  %332 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %67, i32 0, i32 107
+  %333 = load ptr, ptr %332, align 8, !tbaa !17
+  call void @llvm.lifetime.start.p0(i64 40, ptr %55) #11
   call void @_ZN4llvm5TwineC2EPKc(ptr noundef nonnull align 8 dereferenceable(34) %55, ptr noundef @.str.133)
-  %334 = load i32, ptr %21, align 4
+  %334 = load i32, ptr %21, align 4, !tbaa !90
   %335 = call noundef ptr @_ZN4llvm9MCContext13getELFSectionERKNS_5TwineEjj(ptr noundef nonnull align 8 dereferenceable(2432) %333, ptr noundef nonnull align 8 dereferenceable(34) %55, i32 noundef %334, i32 noundef -2147483648)
-  %336 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %67, i32 0, i32 39
-  store ptr %335, ptr %336, align 8
-  %337 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %67, i32 0, i32 106
-  %338 = load ptr, ptr %337, align 8
+  %336 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %67, i32 0, i32 40
+  store ptr %335, ptr %336, align 8, !tbaa !130
+  call void @llvm.lifetime.end.p0(i64 40, ptr %55) #11
+  %337 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %67, i32 0, i32 107
+  %338 = load ptr, ptr %337, align 8, !tbaa !17
+  call void @llvm.lifetime.start.p0(i64 40, ptr %56) #11
   call void @_ZN4llvm5TwineC2EPKc(ptr noundef nonnull align 8 dereferenceable(34) %56, ptr noundef @.str.134)
-  %339 = load i32, ptr %21, align 4
+  %339 = load i32, ptr %21, align 4, !tbaa !90
   %340 = call noundef ptr @_ZN4llvm9MCContext13getELFSectionERKNS_5TwineEjj(ptr noundef nonnull align 8 dereferenceable(2432) %338, ptr noundef nonnull align 8 dereferenceable(34) %56, i32 noundef %339, i32 noundef -2147483648)
-  %341 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %67, i32 0, i32 45
-  store ptr %340, ptr %341, align 8
-  %342 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %67, i32 0, i32 106
-  %343 = load ptr, ptr %342, align 8
+  %341 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %67, i32 0, i32 46
+  store ptr %340, ptr %341, align 8, !tbaa !131
+  call void @llvm.lifetime.end.p0(i64 40, ptr %56) #11
+  %342 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %67, i32 0, i32 107
+  %343 = load ptr, ptr %342, align 8, !tbaa !17
+  call void @llvm.lifetime.start.p0(i64 40, ptr %57) #11
   call void @_ZN4llvm5TwineC2EPKc(ptr noundef nonnull align 8 dereferenceable(34) %57, ptr noundef @.str.135)
-  %344 = load i32, ptr %21, align 4
+  %344 = load i32, ptr %21, align 4, !tbaa !90
   %345 = call noundef ptr @_ZN4llvm9MCContext13getELFSectionERKNS_5TwineEjj(ptr noundef nonnull align 8 dereferenceable(2432) %343, ptr noundef nonnull align 8 dereferenceable(34) %57, i32 noundef %344, i32 noundef 0)
-  %346 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %67, i32 0, i32 46
-  store ptr %345, ptr %346, align 8
-  %347 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %67, i32 0, i32 106
-  %348 = load ptr, ptr %347, align 8
+  %346 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %67, i32 0, i32 47
+  store ptr %345, ptr %346, align 8, !tbaa !82
+  call void @llvm.lifetime.end.p0(i64 40, ptr %57) #11
+  %347 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %67, i32 0, i32 107
+  %348 = load ptr, ptr %347, align 8, !tbaa !17
+  call void @llvm.lifetime.start.p0(i64 40, ptr %58) #11
   call void @_ZN4llvm5TwineC2EPKc(ptr noundef nonnull align 8 dereferenceable(34) %58, ptr noundef @.str.136)
-  %349 = load i32, ptr %21, align 4
+  %349 = load i32, ptr %21, align 4, !tbaa !90
   %350 = call noundef ptr @_ZN4llvm9MCContext13getELFSectionERKNS_5TwineEjj(ptr noundef nonnull align 8 dereferenceable(2432) %348, ptr noundef nonnull align 8 dereferenceable(34) %58, i32 noundef %349, i32 noundef 0)
-  %351 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %67, i32 0, i32 47
-  store ptr %350, ptr %351, align 8
-  %352 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %67, i32 0, i32 106
-  %353 = load ptr, ptr %352, align 8
+  %351 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %67, i32 0, i32 48
+  store ptr %350, ptr %351, align 8, !tbaa !83
+  call void @llvm.lifetime.end.p0(i64 40, ptr %58) #11
+  %352 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %67, i32 0, i32 107
+  %353 = load ptr, ptr %352, align 8, !tbaa !17
+  call void @llvm.lifetime.start.p0(i64 40, ptr %59) #11
   call void @_ZN4llvm5TwineC2EPKc(ptr noundef nonnull align 8 dereferenceable(34) %59, ptr noundef @.str.137)
   %354 = call noundef ptr @_ZN4llvm9MCContext13getELFSectionERKNS_5TwineEjj(ptr noundef nonnull align 8 dereferenceable(2432) %353, ptr noundef nonnull align 8 dereferenceable(34) %59, i32 noundef 1, i32 noundef 2)
-  %355 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %67, i32 0, i32 57
-  store ptr %354, ptr %355, align 8
-  %356 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %67, i32 0, i32 106
-  %357 = load ptr, ptr %356, align 8
+  %355 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %67, i32 0, i32 58
+  store ptr %354, ptr %355, align 8, !tbaa !84
+  call void @llvm.lifetime.end.p0(i64 40, ptr %59) #11
+  %356 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %67, i32 0, i32 107
+  %357 = load ptr, ptr %356, align 8, !tbaa !17
+  call void @llvm.lifetime.start.p0(i64 40, ptr %60) #11
   call void @_ZN4llvm5TwineC2EPKc(ptr noundef nonnull align 8 dereferenceable(34) %60, ptr noundef @.str.138)
   %358 = call noundef ptr @_ZN4llvm9MCContext13getELFSectionERKNS_5TwineEjj(ptr noundef nonnull align 8 dereferenceable(2432) %357, ptr noundef nonnull align 8 dereferenceable(34) %60, i32 noundef 1, i32 noundef 2)
-  %359 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %67, i32 0, i32 58
-  store ptr %358, ptr %359, align 8
-  %360 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %67, i32 0, i32 106
-  %361 = load ptr, ptr %360, align 8
+  %359 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %67, i32 0, i32 59
+  store ptr %358, ptr %359, align 8, !tbaa !85
+  call void @llvm.lifetime.end.p0(i64 40, ptr %60) #11
+  %360 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %67, i32 0, i32 107
+  %361 = load ptr, ptr %360, align 8, !tbaa !17
+  call void @llvm.lifetime.start.p0(i64 40, ptr %61) #11
   call void @_ZN4llvm5TwineC2EPKc(ptr noundef nonnull align 8 dereferenceable(34) %61, ptr noundef @.str.139)
-  %362 = load i32, ptr %7, align 4
-  %363 = load i32, ptr %8, align 4
+  %362 = load i32, ptr %7, align 4, !tbaa !90
+  %363 = load i32, ptr %8, align 4, !tbaa !90
   %364 = call noundef ptr @_ZN4llvm9MCContext13getELFSectionERKNS_5TwineEjj(ptr noundef nonnull align 8 dereferenceable(2432) %361, ptr noundef nonnull align 8 dereferenceable(34) %61, i32 noundef %362, i32 noundef %363)
-  %365 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %67, i32 0, i32 60
-  store ptr %364, ptr %365, align 8
-  %366 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %67, i32 0, i32 106
-  %367 = load ptr, ptr %366, align 8
+  %365 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %67, i32 0, i32 61
+  store ptr %364, ptr %365, align 8, !tbaa !18
+  call void @llvm.lifetime.end.p0(i64 40, ptr %61) #11
+  %366 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %67, i32 0, i32 107
+  %367 = load ptr, ptr %366, align 8, !tbaa !17
+  call void @llvm.lifetime.start.p0(i64 40, ptr %62) #11
   call void @_ZN4llvm5TwineC2EPKc(ptr noundef nonnull align 8 dereferenceable(34) %62, ptr noundef @.str.140)
   %368 = call noundef ptr @_ZN4llvm9MCContext13getELFSectionERKNS_5TwineEjj(ptr noundef nonnull align 8 dereferenceable(2432) %367, ptr noundef nonnull align 8 dereferenceable(34) %62, i32 noundef 1, i32 noundef 0)
-  %369 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %67, i32 0, i32 61
-  store ptr %368, ptr %369, align 8
-  %370 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %67, i32 0, i32 106
-  %371 = load ptr, ptr %370, align 8
+  %369 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %67, i32 0, i32 62
+  store ptr %368, ptr %369, align 8, !tbaa !132
+  call void @llvm.lifetime.end.p0(i64 40, ptr %62) #11
+  %370 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %67, i32 0, i32 107
+  %371 = load ptr, ptr %370, align 8, !tbaa !17
+  call void @llvm.lifetime.start.p0(i64 40, ptr %63) #11
   call void @_ZN4llvm5TwineC2EPKc(ptr noundef nonnull align 8 dereferenceable(34) %63, ptr noundef @.str.141)
-  %372 = load i32, ptr %21, align 4
+  %372 = load i32, ptr %21, align 4, !tbaa !90
   %373 = call noundef ptr @_ZN4llvm9MCContext13getELFSectionERKNS_5TwineEjj(ptr noundef nonnull align 8 dereferenceable(2432) %371, ptr noundef nonnull align 8 dereferenceable(34) %63, i32 noundef %372, i32 noundef 0)
-  %374 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %67, i32 0, i32 62
-  store ptr %373, ptr %374, align 8
-  %375 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %67, i32 0, i32 106
-  %376 = load ptr, ptr %375, align 8
+  %374 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %67, i32 0, i32 63
+  store ptr %373, ptr %374, align 8, !tbaa !133
+  call void @llvm.lifetime.end.p0(i64 40, ptr %63) #11
+  %375 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %67, i32 0, i32 107
+  %376 = load ptr, ptr %375, align 8, !tbaa !17
+  call void @llvm.lifetime.start.p0(i64 40, ptr %64) #11
   call void @_ZN4llvm5TwineC2EPKc(ptr noundef nonnull align 8 dereferenceable(34) %64, ptr noundef @.str.142)
-  %377 = load i32, ptr %21, align 4
+  %377 = load i32, ptr %21, align 4, !tbaa !90
   %378 = call noundef ptr @_ZN4llvm9MCContext13getELFSectionERKNS_5TwineEjj(ptr noundef nonnull align 8 dereferenceable(2432) %376, ptr noundef nonnull align 8 dereferenceable(34) %64, i32 noundef %377, i32 noundef 0)
-  %379 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %67, i32 0, i32 63
-  store ptr %378, ptr %379, align 8
-  %380 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %67, i32 0, i32 106
-  %381 = load ptr, ptr %380, align 8
+  %379 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %67, i32 0, i32 64
+  store ptr %378, ptr %379, align 8, !tbaa !134
+  call void @llvm.lifetime.end.p0(i64 40, ptr %64) #11
+  %380 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %67, i32 0, i32 107
+  %381 = load ptr, ptr %380, align 8, !tbaa !17
+  call void @llvm.lifetime.start.p0(i64 40, ptr %65) #11
   call void @_ZN4llvm5TwineC2EPKc(ptr noundef nonnull align 8 dereferenceable(34) %65, ptr noundef @.str.143)
   %382 = call noundef ptr @_ZN4llvm9MCContext13getELFSectionERKNS_5TwineEjj(ptr noundef nonnull align 8 dereferenceable(2432) %381, ptr noundef nonnull align 8 dereferenceable(34) %65, i32 noundef 1, i32 noundef 0)
-  %383 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %67, i32 0, i32 64
-  store ptr %382, ptr %383, align 8
+  %383 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %67, i32 0, i32 65
+  store ptr %382, ptr %383, align 8, !tbaa !135
+  call void @llvm.lifetime.end.p0(i64 40, ptr %65) #11
+  call void @llvm.lifetime.end.p0(i64 4, ptr %21) #11
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #11
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #11
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZNK4llvm9MCContext10getAsmInfoEv(ptr noundef nonnull align 8 dereferenceable(2432) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !89
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw %"class.llvm::MCContext", ptr %3, i32 0, i32 7
-  %5 = load ptr, ptr %4, align 8
+  %5 = load ptr, ptr %4, align 8, !tbaa !136
   ret ptr %5
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef i32 @_ZNK4llvm9MCAsmInfo18getCodePointerSizeEv(ptr noundef nonnull align 8 dereferenceable(484) %0) #0 comdat align 2 {
+define linkonce_odr hidden noundef i32 @_ZNK4llvm9MCAsmInfo18getCodePointerSizeEv(ptr noundef nonnull align 8 dereferenceable(451) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !280
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw %"class.llvm::MCAsmInfo", ptr %3, i32 0, i32 1
-  %5 = load i32, ptr %4, align 8
+  %5 = load i32, ptr %4, align 8, !tbaa !281
   ret i32 %5
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK4llvm6Triple11isOSSolarisEv(ptr noundef nonnull align 8 dereferenceable(56) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !8
   %3 = load ptr, ptr %2, align 8
   %4 = call noundef i32 @_ZNK4llvm6Triple5getOSEv(ptr noundef nonnull align 8 dereferenceable(56) %3)
   %5 = icmp eq i32 %4, 12
@@ -3379,16 +3517,18 @@ define linkonce_odr hidden noundef ptr @_ZN4llvm9MCContext13getELFSectionERKNS_5
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
   %9 = alloca %"class.llvm::Twine", align 8
-  store ptr %0, ptr %5, align 8
-  store ptr %1, ptr %6, align 8
-  store i32 %2, ptr %7, align 4
-  store i32 %3, ptr %8, align 4
+  store ptr %0, ptr %5, align 8, !tbaa !89
+  store ptr %1, ptr %6, align 8, !tbaa !294
+  store i32 %2, ptr %7, align 4, !tbaa !90
+  store i32 %3, ptr %8, align 4, !tbaa !90
   %10 = load ptr, ptr %5, align 8
-  %11 = load ptr, ptr %6, align 8
-  %12 = load i32, ptr %7, align 4
-  %13 = load i32, ptr %8, align 4
-  call void @_ZN4llvm5TwineC2EPKc(ptr noundef nonnull align 8 dereferenceable(34) %9, ptr noundef @.str.164)
+  %11 = load ptr, ptr %6, align 8, !tbaa !294
+  %12 = load i32, ptr %7, align 4, !tbaa !90
+  %13 = load i32, ptr %8, align 4, !tbaa !90
+  call void @llvm.lifetime.start.p0(i64 40, ptr %9) #11
+  call void @_ZN4llvm5TwineC2EPKc(ptr noundef nonnull align 8 dereferenceable(34) %9, ptr noundef @.str.165)
   %14 = call noundef ptr @_ZN4llvm9MCContext13getELFSectionERKNS_5TwineEjjjS3_b(ptr noundef nonnull align 8 dereferenceable(2432) %10, ptr noundef nonnull align 8 dereferenceable(34) %11, i32 noundef %12, i32 noundef %13, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(34) %9, i1 noundef zeroext false)
+  call void @llvm.lifetime.end.p0(i64 40, ptr %9) #11
   ret ptr %14
 }
 
@@ -3396,31 +3536,31 @@ define linkonce_odr hidden noundef ptr @_ZN4llvm9MCContext13getELFSectionERKNS_5
 define linkonce_odr hidden void @_ZN4llvm5TwineC2EPKc(ptr noundef nonnull align 8 dereferenceable(34) %0, ptr noundef %1) unnamed_addr #0 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !294
+  store ptr %1, ptr %4, align 8, !tbaa !91
   %5 = load ptr, ptr %3, align 8
   %6 = getelementptr inbounds nuw %"class.llvm::Twine", ptr %5, i32 0, i32 2
-  store i8 1, ptr %6, align 8
+  store i8 1, ptr %6, align 8, !tbaa !296
   %7 = getelementptr inbounds nuw %"class.llvm::Twine", ptr %5, i32 0, i32 3
-  store i8 1, ptr %7, align 1
-  %8 = load ptr, ptr %4, align 8
+  store i8 1, ptr %7, align 1, !tbaa !299
+  %8 = load ptr, ptr %4, align 8, !tbaa !91
   %9 = getelementptr inbounds i8, ptr %8, i64 0
-  %10 = load i8, ptr %9, align 1
+  %10 = load i8, ptr %9, align 1, !tbaa !97
   %11 = sext i8 %10 to i32
   %12 = icmp ne i32 %11, 0
   br i1 %12, label %13, label %17
 
 13:                                               ; preds = %2
-  %14 = load ptr, ptr %4, align 8
+  %14 = load ptr, ptr %4, align 8, !tbaa !91
   %15 = getelementptr inbounds nuw %"class.llvm::Twine", ptr %5, i32 0, i32 0
-  store ptr %14, ptr %15, align 8
+  store ptr %14, ptr %15, align 8, !tbaa !97
   %16 = getelementptr inbounds nuw %"class.llvm::Twine", ptr %5, i32 0, i32 2
-  store i8 3, ptr %16, align 8
+  store i8 3, ptr %16, align 8, !tbaa !296
   br label %19
 
 17:                                               ; preds = %2
   %18 = getelementptr inbounds nuw %"class.llvm::Twine", ptr %5, i32 0, i32 2
-  store i8 1, ptr %18, align 8
+  store i8 1, ptr %18, align 8, !tbaa !296
   br label %19
 
 19:                                               ; preds = %17, %13
@@ -3435,25 +3575,27 @@ define linkonce_odr hidden noundef ptr @_ZN4llvm9MCContext13getELFSectionERKNS_5
   %9 = alloca i32, align 4
   %10 = alloca i32, align 4
   %11 = alloca %"class.llvm::Twine", align 8
-  store ptr %0, ptr %6, align 8
-  store ptr %1, ptr %7, align 8
-  store i32 %2, ptr %8, align 4
-  store i32 %3, ptr %9, align 4
-  store i32 %4, ptr %10, align 4
+  store ptr %0, ptr %6, align 8, !tbaa !89
+  store ptr %1, ptr %7, align 8, !tbaa !294
+  store i32 %2, ptr %8, align 4, !tbaa !90
+  store i32 %3, ptr %9, align 4, !tbaa !90
+  store i32 %4, ptr %10, align 4, !tbaa !90
   %12 = load ptr, ptr %6, align 8
-  %13 = load ptr, ptr %7, align 8
-  %14 = load i32, ptr %8, align 4
-  %15 = load i32, ptr %9, align 4
-  %16 = load i32, ptr %10, align 4
-  call void @_ZN4llvm5TwineC2EPKc(ptr noundef nonnull align 8 dereferenceable(34) %11, ptr noundef @.str.164)
+  %13 = load ptr, ptr %7, align 8, !tbaa !294
+  %14 = load i32, ptr %8, align 4, !tbaa !90
+  %15 = load i32, ptr %9, align 4, !tbaa !90
+  %16 = load i32, ptr %10, align 4, !tbaa !90
+  call void @llvm.lifetime.start.p0(i64 40, ptr %11) #11
+  call void @_ZN4llvm5TwineC2EPKc(ptr noundef nonnull align 8 dereferenceable(34) %11, ptr noundef @.str.165)
   %17 = call noundef ptr @_ZN4llvm9MCContext13getELFSectionERKNS_5TwineEjjjS3_bjPKNS_11MCSymbolELFE(ptr noundef nonnull align 8 dereferenceable(2432) %12, ptr noundef nonnull align 8 dereferenceable(34) %13, i32 noundef %14, i32 noundef %15, i32 noundef %16, ptr noundef nonnull align 8 dereferenceable(34) %11, i1 noundef zeroext false, i32 noundef -1, ptr noundef null)
+  call void @llvm.lifetime.end.p0(i64 40, ptr %11) #11
   ret ptr %17
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK4llvm6Triple6isMIPSEv(ptr noundef nonnull align 8 dereferenceable(56) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !8
   %3 = load ptr, ptr %2, align 8
   %4 = call noundef zeroext i1 @_ZNK4llvm6Triple8isMIPS32Ev(ptr noundef nonnull align 8 dereferenceable(56) %3)
   br i1 %4, label %7, label %5
@@ -3468,7 +3610,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK4llvm6Triple6isMIPSEv(ptr nou
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm16MCObjectFileInfo24initGOFFMCObjectFileInfoERKNS_6TripleE(ptr noundef nonnull align 8 dereferenceable(912) %0, ptr noundef nonnull align 8 dereferenceable(56) %1) #0 align 2 {
+define dso_local void @_ZN4llvm16MCObjectFileInfo24initGOFFMCObjectFileInfoERKNS_6TripleE(ptr noundef nonnull align 8 dereferenceable(920) %0, ptr noundef nonnull align 8 dereferenceable(56) %1) #0 align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca %"class.llvm::StringRef", align 8
@@ -3485,11 +3627,11 @@ define dso_local void @_ZN4llvm16MCObjectFileInfo24initGOFFMCObjectFileInfoERKNS
   %16 = alloca %"class.llvm::SectionKind", align 4
   %17 = alloca %"class.llvm::StringRef", align 8
   %18 = alloca %"class.llvm::SectionKind", align 4
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  store ptr %1, ptr %4, align 8, !tbaa !8
   %19 = load ptr, ptr %3, align 8
-  %20 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %19, i32 0, i32 106
-  %21 = load ptr, ptr %20, align 8
+  %20 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %19, i32 0, i32 107
+  %21 = load ptr, ptr %20, align 8, !tbaa !17
   call void @_ZN4llvm9StringRefC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef @.str.89)
   %22 = call i32 @_ZN4llvm11SectionKind7getTextEv()
   %23 = trunc i32 %22 to i8
@@ -3501,9 +3643,9 @@ define dso_local void @_ZN4llvm16MCObjectFileInfo24initGOFFMCObjectFileInfoERKNS
   %28 = load i32, ptr %6, align 4
   %29 = call noundef ptr @_ZN4llvm9MCContext14getGOFFSectionENS_9StringRefENS_11SectionKindEPNS_9MCSectionEj(ptr noundef nonnull align 8 dereferenceable(2432) %21, ptr %25, i64 %27, i32 %28, ptr noundef null, i32 noundef 0)
   %30 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %19, i32 0, i32 6
-  store ptr %29, ptr %30, align 8
-  %31 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %19, i32 0, i32 106
-  %32 = load ptr, ptr %31, align 8
+  store ptr %29, ptr %30, align 8, !tbaa !24
+  %31 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %19, i32 0, i32 107
+  %32 = load ptr, ptr %31, align 8, !tbaa !17
   call void @_ZN4llvm9StringRefC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef @.str.88)
   %33 = call i32 @_ZN4llvm11SectionKind6getBSSEv()
   %34 = trunc i32 %33 to i8
@@ -3515,41 +3657,41 @@ define dso_local void @_ZN4llvm16MCObjectFileInfo24initGOFFMCObjectFileInfoERKNS
   %39 = load i32, ptr %8, align 4
   %40 = call noundef ptr @_ZN4llvm9MCContext14getGOFFSectionENS_9StringRefENS_11SectionKindEPNS_9MCSectionEj(ptr noundef nonnull align 8 dereferenceable(2432) %32, ptr %36, i64 %38, i32 %39, ptr noundef null, i32 noundef 0)
   %41 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %19, i32 0, i32 8
-  store ptr %40, ptr %41, align 8
-  %42 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %19, i32 0, i32 106
-  %43 = load ptr, ptr %42, align 8
+  store ptr %40, ptr %41, align 8, !tbaa !26
+  %42 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %19, i32 0, i32 107
+  %43 = load ptr, ptr %42, align 8, !tbaa !17
   call void @_ZN4llvm9StringRefC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef @.str.144)
   %44 = call i32 @_ZN4llvm11SectionKind11getMetadataEv()
   %45 = trunc i32 %44 to i8
   store i8 %45, ptr %10, align 4
   %46 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %19, i32 0, i32 6
-  %47 = load ptr, ptr %46, align 8
+  %47 = load ptr, ptr %46, align 8, !tbaa !24
   %48 = getelementptr inbounds nuw { ptr, i64 }, ptr %9, i32 0, i32 0
   %49 = load ptr, ptr %48, align 8
   %50 = getelementptr inbounds nuw { ptr, i64 }, ptr %9, i32 0, i32 1
   %51 = load i64, ptr %50, align 8
   %52 = load i32, ptr %10, align 4
   %53 = call noundef ptr @_ZN4llvm9MCContext14getGOFFSectionENS_9StringRefENS_11SectionKindEPNS_9MCSectionEj(ptr noundef nonnull align 8 dereferenceable(2432) %43, ptr %49, i64 %51, i32 %52, ptr noundef %47, i32 noundef 2)
-  %54 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %19, i32 0, i32 96
-  store ptr %53, ptr %54, align 8
-  %55 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %19, i32 0, i32 106
-  %56 = load ptr, ptr %55, align 8
+  %54 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %19, i32 0, i32 97
+  store ptr %53, ptr %54, align 8, !tbaa !300
+  %55 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %19, i32 0, i32 107
+  %56 = load ptr, ptr %55, align 8, !tbaa !17
   call void @_ZN4llvm9StringRefC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef @.str.145)
   %57 = call i32 @_ZN4llvm11SectionKind11getMetadataEv()
   %58 = trunc i32 %57 to i8
   store i8 %58, ptr %12, align 4
   %59 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %19, i32 0, i32 6
-  %60 = load ptr, ptr %59, align 8
+  %60 = load ptr, ptr %59, align 8, !tbaa !24
   %61 = getelementptr inbounds nuw { ptr, i64 }, ptr %11, i32 0, i32 0
   %62 = load ptr, ptr %61, align 8
   %63 = getelementptr inbounds nuw { ptr, i64 }, ptr %11, i32 0, i32 1
   %64 = load i64, ptr %63, align 8
   %65 = load i32, ptr %12, align 4
   %66 = call noundef ptr @_ZN4llvm9MCContext14getGOFFSectionENS_9StringRefENS_11SectionKindEPNS_9MCSectionEj(ptr noundef nonnull align 8 dereferenceable(2432) %56, ptr %62, i64 %64, i32 %65, ptr noundef %60, i32 noundef 4)
-  %67 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %19, i32 0, i32 97
-  store ptr %66, ptr %67, align 8
-  %68 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %19, i32 0, i32 106
-  %69 = load ptr, ptr %68, align 8
+  %67 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %19, i32 0, i32 98
+  store ptr %66, ptr %67, align 8, !tbaa !301
+  %68 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %19, i32 0, i32 107
+  %69 = load ptr, ptr %68, align 8, !tbaa !17
   call void @_ZN4llvm9StringRefC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %13, ptr noundef @.str.146)
   %70 = call i32 @_ZN4llvm11SectionKind7getDataEv()
   %71 = trunc i32 %70 to i8
@@ -3560,10 +3702,10 @@ define dso_local void @_ZN4llvm16MCObjectFileInfo24initGOFFMCObjectFileInfoERKNS
   %75 = load i64, ptr %74, align 8
   %76 = load i32, ptr %14, align 4
   %77 = call noundef ptr @_ZN4llvm9MCContext14getGOFFSectionENS_9StringRefENS_11SectionKindEPNS_9MCSectionEj(ptr noundef nonnull align 8 dereferenceable(2432) %69, ptr %73, i64 %75, i32 %76, ptr noundef null, i32 noundef 0)
-  %78 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %19, i32 0, i32 98
-  store ptr %77, ptr %78, align 8
-  %79 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %19, i32 0, i32 106
-  %80 = load ptr, ptr %79, align 8
+  %78 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %19, i32 0, i32 99
+  store ptr %77, ptr %78, align 8, !tbaa !302
+  %79 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %19, i32 0, i32 107
+  %80 = load ptr, ptr %79, align 8, !tbaa !17
   call void @_ZN4llvm9StringRefC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %15, ptr noundef @.str.147)
   %81 = call i32 @_ZN4llvm11SectionKind7getDataEv()
   %82 = trunc i32 %81 to i8
@@ -3574,10 +3716,10 @@ define dso_local void @_ZN4llvm16MCObjectFileInfo24initGOFFMCObjectFileInfoERKNS
   %86 = load i64, ptr %85, align 8
   %87 = load i32, ptr %16, align 4
   %88 = call noundef ptr @_ZN4llvm9MCContext14getGOFFSectionENS_9StringRefENS_11SectionKindEPNS_9MCSectionEj(ptr noundef nonnull align 8 dereferenceable(2432) %80, ptr %84, i64 %86, i32 %87, ptr noundef null, i32 noundef 0)
-  %89 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %19, i32 0, i32 99
-  store ptr %88, ptr %89, align 8
-  %90 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %19, i32 0, i32 106
-  %91 = load ptr, ptr %90, align 8
+  %89 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %19, i32 0, i32 100
+  store ptr %88, ptr %89, align 8, !tbaa !303
+  %90 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %19, i32 0, i32 107
+  %91 = load ptr, ptr %90, align 8, !tbaa !17
   call void @_ZN4llvm9StringRefC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %17, ptr noundef @.str.148)
   %92 = call i32 @_ZN4llvm11SectionKind7getDataEv()
   %93 = trunc i32 %92 to i8
@@ -3588,15 +3730,15 @@ define dso_local void @_ZN4llvm16MCObjectFileInfo24initGOFFMCObjectFileInfoERKNS
   %97 = load i64, ptr %96, align 8
   %98 = load i32, ptr %18, align 4
   %99 = call noundef ptr @_ZN4llvm9MCContext14getGOFFSectionENS_9StringRefENS_11SectionKindEPNS_9MCSectionEj(ptr noundef nonnull align 8 dereferenceable(2432) %91, ptr %95, i64 %97, i32 %98, ptr noundef null, i32 noundef 0)
-  %100 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %19, i32 0, i32 100
-  store ptr %99, ptr %100, align 8
+  %100 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %19, i32 0, i32 101
+  store ptr %99, ptr %100, align 8, !tbaa !304
   ret void
 }
 
 declare noundef ptr @_ZN4llvm9MCContext14getGOFFSectionENS_9StringRefENS_11SectionKindEPNS_9MCSectionEj(ptr noundef nonnull align 8 dereferenceable(2432), ptr, i64, i32, ptr noundef, i32 noundef) #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm16MCObjectFileInfo24initCOFFMCObjectFileInfoERKNS_6TripleE(ptr noundef nonnull align 8 dereferenceable(912) %0, ptr noundef nonnull align 8 dereferenceable(56) %1) #0 align 2 {
+define dso_local void @_ZN4llvm16MCObjectFileInfo24initCOFFMCObjectFileInfoERKNS_6TripleE(ptr noundef nonnull align 8 dereferenceable(920) %0, ptr noundef nonnull align 8 dereferenceable(56) %1) #0 align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca %"class.llvm::StringRef", align 8
@@ -3654,616 +3796,638 @@ define dso_local void @_ZN4llvm16MCObjectFileInfo24initCOFFMCObjectFileInfoERKNS
   %57 = alloca %"class.llvm::StringRef", align 8
   %58 = alloca %"class.llvm::StringRef", align 8
   %59 = alloca %"class.llvm::StringRef", align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  %60 = load ptr, ptr %3, align 8
-  %61 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %60, i32 0, i32 106
-  %62 = load ptr, ptr %61, align 8
+  %60 = alloca %"class.llvm::StringRef", align 8
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  store ptr %1, ptr %4, align 8, !tbaa !8
+  %61 = load ptr, ptr %3, align 8
+  %62 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %61, i32 0, i32 107
+  %63 = load ptr, ptr %62, align 8, !tbaa !17
   call void @_ZN4llvm9StringRefC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef @.str.139)
-  %63 = getelementptr inbounds nuw { ptr, i64 }, ptr %5, i32 0, i32 0
-  %64 = load ptr, ptr %63, align 8
-  %65 = getelementptr inbounds nuw { ptr, i64 }, ptr %5, i32 0, i32 1
-  %66 = load i64, ptr %65, align 8
-  %67 = call noundef ptr @_ZN4llvm9MCContext14getCOFFSectionENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(2432) %62, ptr %64, i64 %66, i32 noundef 1073741888)
-  %68 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %60, i32 0, i32 60
-  store ptr %67, ptr %68, align 8
-  %69 = load ptr, ptr %4, align 8
-  %70 = call noundef i32 @_ZNK4llvm6Triple7getArchEv(ptr noundef nonnull align 8 dereferenceable(56) %69)
-  %71 = icmp eq i32 %70, 35
-  %72 = zext i1 %71 to i8
-  store i8 %72, ptr %6, align 1
-  %73 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %60, i32 0, i32 106
-  %74 = load ptr, ptr %73, align 8
+  %64 = getelementptr inbounds nuw { ptr, i64 }, ptr %5, i32 0, i32 0
+  %65 = load ptr, ptr %64, align 8
+  %66 = getelementptr inbounds nuw { ptr, i64 }, ptr %5, i32 0, i32 1
+  %67 = load i64, ptr %66, align 8
+  %68 = call noundef ptr @_ZN4llvm9MCContext14getCOFFSectionENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(2432) %63, ptr %65, i64 %67, i32 noundef 1073741888)
+  %69 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %61, i32 0, i32 61
+  store ptr %68, ptr %69, align 8, !tbaa !18
+  call void @llvm.lifetime.start.p0(i64 1, ptr %6) #11
+  %70 = load ptr, ptr %4, align 8, !tbaa !8
+  %71 = call noundef i32 @_ZNK4llvm6Triple7getArchEv(ptr noundef nonnull align 8 dereferenceable(56) %70)
+  %72 = icmp eq i32 %71, 35
+  %73 = zext i1 %72 to i8
+  store i8 %73, ptr %6, align 1, !tbaa !114
+  %74 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %61, i32 0, i32 107
+  %75 = load ptr, ptr %74, align 8, !tbaa !17
   call void @_ZN4llvm9StringRefC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef @.str.88)
-  %75 = getelementptr inbounds nuw { ptr, i64 }, ptr %7, i32 0, i32 0
-  %76 = load ptr, ptr %75, align 8
-  %77 = getelementptr inbounds nuw { ptr, i64 }, ptr %7, i32 0, i32 1
-  %78 = load i64, ptr %77, align 8
-  %79 = call noundef ptr @_ZN4llvm9MCContext14getCOFFSectionENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(2432) %74, ptr %76, i64 %78, i32 noundef -1073741696)
-  %80 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %60, i32 0, i32 8
-  store ptr %79, ptr %80, align 8
-  %81 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %60, i32 0, i32 106
-  %82 = load ptr, ptr %81, align 8
+  %76 = getelementptr inbounds nuw { ptr, i64 }, ptr %7, i32 0, i32 0
+  %77 = load ptr, ptr %76, align 8
+  %78 = getelementptr inbounds nuw { ptr, i64 }, ptr %7, i32 0, i32 1
+  %79 = load i64, ptr %78, align 8
+  %80 = call noundef ptr @_ZN4llvm9MCContext14getCOFFSectionENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(2432) %75, ptr %77, i64 %79, i32 noundef -1073741696)
+  %81 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %61, i32 0, i32 8
+  store ptr %80, ptr %81, align 8, !tbaa !26
+  %82 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %61, i32 0, i32 107
+  %83 = load ptr, ptr %82, align 8, !tbaa !17
   call void @_ZN4llvm9StringRefC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef @.str.89)
-  %83 = load i8, ptr %6, align 1
-  %84 = trunc i8 %83 to i1
-  %85 = select i1 %84, i32 131072, i32 0
-  %86 = or i32 %85, 32
-  %87 = or i32 %86, 536870912
-  %88 = or i32 %87, 1073741824
-  %89 = getelementptr inbounds nuw { ptr, i64 }, ptr %8, i32 0, i32 0
-  %90 = load ptr, ptr %89, align 8
-  %91 = getelementptr inbounds nuw { ptr, i64 }, ptr %8, i32 0, i32 1
-  %92 = load i64, ptr %91, align 8
-  %93 = call noundef ptr @_ZN4llvm9MCContext14getCOFFSectionENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(2432) %82, ptr %90, i64 %92, i32 noundef %88)
-  %94 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %60, i32 0, i32 6
-  store ptr %93, ptr %94, align 8
-  %95 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %60, i32 0, i32 106
-  %96 = load ptr, ptr %95, align 8
+  %84 = load i8, ptr %6, align 1, !tbaa !114, !range !21, !noundef !22
+  %85 = trunc i8 %84 to i1
+  %86 = select i1 %85, i32 131072, i32 0
+  %87 = or i32 %86, 32
+  %88 = or i32 %87, 536870912
+  %89 = or i32 %88, 1073741824
+  %90 = getelementptr inbounds nuw { ptr, i64 }, ptr %8, i32 0, i32 0
+  %91 = load ptr, ptr %90, align 8
+  %92 = getelementptr inbounds nuw { ptr, i64 }, ptr %8, i32 0, i32 1
+  %93 = load i64, ptr %92, align 8
+  %94 = call noundef ptr @_ZN4llvm9MCContext14getCOFFSectionENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(2432) %83, ptr %91, i64 %93, i32 noundef %89)
+  %95 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %61, i32 0, i32 6
+  store ptr %94, ptr %95, align 8, !tbaa !24
+  %96 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %61, i32 0, i32 107
+  %97 = load ptr, ptr %96, align 8, !tbaa !17
   call void @_ZN4llvm9StringRefC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef @.str.90)
-  %97 = getelementptr inbounds nuw { ptr, i64 }, ptr %9, i32 0, i32 0
-  %98 = load ptr, ptr %97, align 8
-  %99 = getelementptr inbounds nuw { ptr, i64 }, ptr %9, i32 0, i32 1
-  %100 = load i64, ptr %99, align 8
-  %101 = call noundef ptr @_ZN4llvm9MCContext14getCOFFSectionENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(2432) %96, ptr %98, i64 %100, i32 noundef -1073741760)
-  %102 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %60, i32 0, i32 7
-  store ptr %101, ptr %102, align 8
-  %103 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %60, i32 0, i32 106
-  %104 = load ptr, ptr %103, align 8
+  %98 = getelementptr inbounds nuw { ptr, i64 }, ptr %9, i32 0, i32 0
+  %99 = load ptr, ptr %98, align 8
+  %100 = getelementptr inbounds nuw { ptr, i64 }, ptr %9, i32 0, i32 1
+  %101 = load i64, ptr %100, align 8
+  %102 = call noundef ptr @_ZN4llvm9MCContext14getCOFFSectionENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(2432) %97, ptr %99, i64 %101, i32 noundef -1073741760)
+  %103 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %61, i32 0, i32 7
+  store ptr %102, ptr %103, align 8, !tbaa !25
+  %104 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %61, i32 0, i32 107
+  %105 = load ptr, ptr %104, align 8, !tbaa !17
   call void @_ZN4llvm9StringRefC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef @.str.149)
-  %105 = getelementptr inbounds nuw { ptr, i64 }, ptr %10, i32 0, i32 0
-  %106 = load ptr, ptr %105, align 8
-  %107 = getelementptr inbounds nuw { ptr, i64 }, ptr %10, i32 0, i32 1
-  %108 = load i64, ptr %107, align 8
-  %109 = call noundef ptr @_ZN4llvm9MCContext14getCOFFSectionENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(2432) %104, ptr %106, i64 %108, i32 noundef 1073741888)
-  %110 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %60, i32 0, i32 9
-  store ptr %109, ptr %110, align 8
-  %111 = load ptr, ptr %4, align 8
-  %112 = call noundef i32 @_ZNK4llvm6Triple7getArchEv(ptr noundef nonnull align 8 dereferenceable(56) %111)
-  %113 = icmp eq i32 %112, 38
-  br i1 %113, label %126, label %114
+  %106 = getelementptr inbounds nuw { ptr, i64 }, ptr %10, i32 0, i32 0
+  %107 = load ptr, ptr %106, align 8
+  %108 = getelementptr inbounds nuw { ptr, i64 }, ptr %10, i32 0, i32 1
+  %109 = load i64, ptr %108, align 8
+  %110 = call noundef ptr @_ZN4llvm9MCContext14getCOFFSectionENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(2432) %105, ptr %107, i64 %109, i32 noundef 1073741888)
+  %111 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %61, i32 0, i32 9
+  store ptr %110, ptr %111, align 8, !tbaa !36
+  %112 = load ptr, ptr %4, align 8, !tbaa !8
+  %113 = call noundef i32 @_ZNK4llvm6Triple7getArchEv(ptr noundef nonnull align 8 dereferenceable(56) %112)
+  %114 = icmp eq i32 %113, 38
+  br i1 %114, label %127, label %115
 
-114:                                              ; preds = %2
-  %115 = load ptr, ptr %4, align 8
-  %116 = call noundef i32 @_ZNK4llvm6Triple7getArchEv(ptr noundef nonnull align 8 dereferenceable(56) %115)
-  %117 = icmp eq i32 %116, 3
-  br i1 %117, label %126, label %118
+115:                                              ; preds = %2
+  %116 = load ptr, ptr %4, align 8, !tbaa !8
+  %117 = call noundef i32 @_ZNK4llvm6Triple7getArchEv(ptr noundef nonnull align 8 dereferenceable(56) %116)
+  %118 = icmp eq i32 %117, 3
+  br i1 %118, label %127, label %119
 
-118:                                              ; preds = %114
-  %119 = load ptr, ptr %4, align 8
-  %120 = call noundef i32 @_ZNK4llvm6Triple7getArchEv(ptr noundef nonnull align 8 dereferenceable(56) %119)
-  %121 = icmp eq i32 %120, 1
-  br i1 %121, label %126, label %122
+119:                                              ; preds = %115
+  %120 = load ptr, ptr %4, align 8, !tbaa !8
+  %121 = call noundef i32 @_ZNK4llvm6Triple7getArchEv(ptr noundef nonnull align 8 dereferenceable(56) %120)
+  %122 = icmp eq i32 %121, 1
+  br i1 %122, label %127, label %123
 
-122:                                              ; preds = %118
-  %123 = load ptr, ptr %4, align 8
-  %124 = call noundef i32 @_ZNK4llvm6Triple7getArchEv(ptr noundef nonnull align 8 dereferenceable(56) %123)
-  %125 = icmp eq i32 %124, 35
-  br i1 %125, label %126, label %128
+123:                                              ; preds = %119
+  %124 = load ptr, ptr %4, align 8, !tbaa !8
+  %125 = call noundef i32 @_ZNK4llvm6Triple7getArchEv(ptr noundef nonnull align 8 dereferenceable(56) %124)
+  %126 = icmp eq i32 %125, 35
+  br i1 %126, label %127, label %129
 
-126:                                              ; preds = %122, %118, %114, %2
-  %127 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %60, i32 0, i32 10
-  store ptr null, ptr %127, align 8
-  br label %137
+127:                                              ; preds = %123, %119, %115, %2
+  %128 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %61, i32 0, i32 10
+  store ptr null, ptr %128, align 8, !tbaa !50
+  br label %138
 
-128:                                              ; preds = %122
-  %129 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %60, i32 0, i32 106
-  %130 = load ptr, ptr %129, align 8
+129:                                              ; preds = %123
+  %130 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %61, i32 0, i32 107
+  %131 = load ptr, ptr %130, align 8, !tbaa !17
   call void @_ZN4llvm9StringRefC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef @.str.99)
-  %131 = getelementptr inbounds nuw { ptr, i64 }, ptr %11, i32 0, i32 0
-  %132 = load ptr, ptr %131, align 8
-  %133 = getelementptr inbounds nuw { ptr, i64 }, ptr %11, i32 0, i32 1
-  %134 = load i64, ptr %133, align 8
-  %135 = call noundef ptr @_ZN4llvm9MCContext14getCOFFSectionENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(2432) %130, ptr %132, i64 %134, i32 noundef 1073741888)
-  %136 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %60, i32 0, i32 10
-  store ptr %135, ptr %136, align 8
-  br label %137
+  %132 = getelementptr inbounds nuw { ptr, i64 }, ptr %11, i32 0, i32 0
+  %133 = load ptr, ptr %132, align 8
+  %134 = getelementptr inbounds nuw { ptr, i64 }, ptr %11, i32 0, i32 1
+  %135 = load i64, ptr %134, align 8
+  %136 = call noundef ptr @_ZN4llvm9MCContext14getCOFFSectionENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(2432) %131, ptr %133, i64 %135, i32 noundef 1073741888)
+  %137 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %61, i32 0, i32 10
+  store ptr %136, ptr %137, align 8, !tbaa !50
+  br label %138
 
-137:                                              ; preds = %128, %126
-  %138 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %60, i32 0, i32 106
-  %139 = load ptr, ptr %138, align 8
+138:                                              ; preds = %129, %127
+  %139 = load ptr, ptr %4, align 8, !tbaa !8
+  %140 = call noundef i32 @_ZNK4llvm6Triple7getArchEv(ptr noundef nonnull align 8 dereferenceable(56) %139)
+  %141 = icmp eq i32 %140, 3
+  br i1 %141, label %142, label %151
+
+142:                                              ; preds = %138
+  %143 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %61, i32 0, i32 107
+  %144 = load ptr, ptr %143, align 8, !tbaa !17
   call void @_ZN4llvm9StringRefC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef @.str.150)
-  %140 = getelementptr inbounds nuw { ptr, i64 }, ptr %12, i32 0, i32 0
-  %141 = load ptr, ptr %140, align 8
-  %142 = getelementptr inbounds nuw { ptr, i64 }, ptr %12, i32 0, i32 1
-  %143 = load i64, ptr %142, align 8
-  %144 = call noundef ptr @_ZN4llvm9MCContext14getCOFFSectionENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(2432) %139, ptr %141, i64 %143, i32 noundef 1107296320)
-  %145 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %60, i32 0, i32 51
-  store ptr %144, ptr %145, align 8
-  %146 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %60, i32 0, i32 106
-  %147 = load ptr, ptr %146, align 8
+  %145 = getelementptr inbounds nuw { ptr, i64 }, ptr %12, i32 0, i32 0
+  %146 = load ptr, ptr %145, align 8
+  %147 = getelementptr inbounds nuw { ptr, i64 }, ptr %12, i32 0, i32 1
+  %148 = load i64, ptr %147, align 8
+  %149 = call noundef ptr @_ZN4llvm9MCContext14getCOFFSectionENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(2432) %144, ptr %146, i64 %148, i32 noundef 512)
+  %150 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %61, i32 0, i32 12
+  store ptr %149, ptr %150, align 8, !tbaa !305
+  br label %151
+
+151:                                              ; preds = %142, %138
+  %152 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %61, i32 0, i32 107
+  %153 = load ptr, ptr %152, align 8, !tbaa !17
   call void @_ZN4llvm9StringRefC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %13, ptr noundef @.str.151)
-  %148 = getelementptr inbounds nuw { ptr, i64 }, ptr %13, i32 0, i32 0
-  %149 = load ptr, ptr %148, align 8
-  %150 = getelementptr inbounds nuw { ptr, i64 }, ptr %13, i32 0, i32 1
-  %151 = load i64, ptr %150, align 8
-  %152 = call noundef ptr @_ZN4llvm9MCContext14getCOFFSectionENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(2432) %147, ptr %149, i64 %151, i32 noundef 1107296320)
-  %153 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %60, i32 0, i32 52
-  store ptr %152, ptr %153, align 8
-  %154 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %60, i32 0, i32 106
+  %154 = getelementptr inbounds nuw { ptr, i64 }, ptr %13, i32 0, i32 0
   %155 = load ptr, ptr %154, align 8
+  %156 = getelementptr inbounds nuw { ptr, i64 }, ptr %13, i32 0, i32 1
+  %157 = load i64, ptr %156, align 8
+  %158 = call noundef ptr @_ZN4llvm9MCContext14getCOFFSectionENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(2432) %153, ptr %155, i64 %157, i32 noundef 1107296320)
+  %159 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %61, i32 0, i32 52
+  store ptr %158, ptr %159, align 8, !tbaa !51
+  %160 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %61, i32 0, i32 107
+  %161 = load ptr, ptr %160, align 8, !tbaa !17
   call void @_ZN4llvm9StringRefC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %14, ptr noundef @.str.152)
-  %156 = getelementptr inbounds nuw { ptr, i64 }, ptr %14, i32 0, i32 0
-  %157 = load ptr, ptr %156, align 8
-  %158 = getelementptr inbounds nuw { ptr, i64 }, ptr %14, i32 0, i32 1
-  %159 = load i64, ptr %158, align 8
-  %160 = call noundef ptr @_ZN4llvm9MCContext14getCOFFSectionENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(2432) %155, ptr %157, i64 %159, i32 noundef 1107296320)
-  %161 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %60, i32 0, i32 53
-  store ptr %160, ptr %161, align 8
-  %162 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %60, i32 0, i32 106
+  %162 = getelementptr inbounds nuw { ptr, i64 }, ptr %14, i32 0, i32 0
   %163 = load ptr, ptr %162, align 8
-  call void @_ZN4llvm9StringRefC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %15, ptr noundef @.str.100)
-  %164 = getelementptr inbounds nuw { ptr, i64 }, ptr %15, i32 0, i32 0
-  %165 = load ptr, ptr %164, align 8
-  %166 = getelementptr inbounds nuw { ptr, i64 }, ptr %15, i32 0, i32 1
-  %167 = load i64, ptr %166, align 8
-  %168 = call noundef ptr @_ZN4llvm9MCContext14getCOFFSectionENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(2432) %163, ptr %165, i64 %167, i32 noundef 1107296320)
-  %169 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %60, i32 0, i32 12
-  store ptr %168, ptr %169, align 8
-  %170 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %60, i32 0, i32 106
+  %164 = getelementptr inbounds nuw { ptr, i64 }, ptr %14, i32 0, i32 1
+  %165 = load i64, ptr %164, align 8
+  %166 = call noundef ptr @_ZN4llvm9MCContext14getCOFFSectionENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(2432) %161, ptr %163, i64 %165, i32 noundef 1107296320)
+  %167 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %61, i32 0, i32 53
+  store ptr %166, ptr %167, align 8, !tbaa !52
+  %168 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %61, i32 0, i32 107
+  %169 = load ptr, ptr %168, align 8, !tbaa !17
+  call void @_ZN4llvm9StringRefC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %15, ptr noundef @.str.153)
+  %170 = getelementptr inbounds nuw { ptr, i64 }, ptr %15, i32 0, i32 0
   %171 = load ptr, ptr %170, align 8
-  call void @_ZN4llvm9StringRefC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %16, ptr noundef @.str.101)
-  %172 = getelementptr inbounds nuw { ptr, i64 }, ptr %16, i32 0, i32 0
-  %173 = load ptr, ptr %172, align 8
-  %174 = getelementptr inbounds nuw { ptr, i64 }, ptr %16, i32 0, i32 1
-  %175 = load i64, ptr %174, align 8
-  %176 = call noundef ptr @_ZN4llvm9MCContext14getCOFFSectionENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(2432) %171, ptr %173, i64 %175, i32 noundef 1107296320)
-  %177 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %60, i32 0, i32 13
-  store ptr %176, ptr %177, align 8
-  %178 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %60, i32 0, i32 106
+  %172 = getelementptr inbounds nuw { ptr, i64 }, ptr %15, i32 0, i32 1
+  %173 = load i64, ptr %172, align 8
+  %174 = call noundef ptr @_ZN4llvm9MCContext14getCOFFSectionENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(2432) %169, ptr %171, i64 %173, i32 noundef 1107296320)
+  %175 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %61, i32 0, i32 54
+  store ptr %174, ptr %175, align 8, !tbaa !53
+  %176 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %61, i32 0, i32 107
+  %177 = load ptr, ptr %176, align 8, !tbaa !17
+  call void @_ZN4llvm9StringRefC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %16, ptr noundef @.str.100)
+  %178 = getelementptr inbounds nuw { ptr, i64 }, ptr %16, i32 0, i32 0
   %179 = load ptr, ptr %178, align 8
-  call void @_ZN4llvm9StringRefC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %17, ptr noundef @.str.102)
-  %180 = getelementptr inbounds nuw { ptr, i64 }, ptr %17, i32 0, i32 0
-  %181 = load ptr, ptr %180, align 8
-  %182 = getelementptr inbounds nuw { ptr, i64 }, ptr %17, i32 0, i32 1
-  %183 = load i64, ptr %182, align 8
-  %184 = call noundef ptr @_ZN4llvm9MCContext14getCOFFSectionENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(2432) %179, ptr %181, i64 %183, i32 noundef 1107296320)
-  %185 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %60, i32 0, i32 14
-  store ptr %184, ptr %185, align 8
-  %186 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %60, i32 0, i32 106
+  %180 = getelementptr inbounds nuw { ptr, i64 }, ptr %16, i32 0, i32 1
+  %181 = load i64, ptr %180, align 8
+  %182 = call noundef ptr @_ZN4llvm9MCContext14getCOFFSectionENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(2432) %177, ptr %179, i64 %181, i32 noundef 1107296320)
+  %183 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %61, i32 0, i32 13
+  store ptr %182, ptr %183, align 8, !tbaa !62
+  %184 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %61, i32 0, i32 107
+  %185 = load ptr, ptr %184, align 8, !tbaa !17
+  call void @_ZN4llvm9StringRefC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %17, ptr noundef @.str.101)
+  %186 = getelementptr inbounds nuw { ptr, i64 }, ptr %17, i32 0, i32 0
   %187 = load ptr, ptr %186, align 8
-  call void @_ZN4llvm9StringRefC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %18, ptr noundef @.str.103)
-  %188 = getelementptr inbounds nuw { ptr, i64 }, ptr %18, i32 0, i32 0
-  %189 = load ptr, ptr %188, align 8
-  %190 = getelementptr inbounds nuw { ptr, i64 }, ptr %18, i32 0, i32 1
-  %191 = load i64, ptr %190, align 8
-  %192 = call noundef ptr @_ZN4llvm9MCContext14getCOFFSectionENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(2432) %187, ptr %189, i64 %191, i32 noundef 1107296320)
-  %193 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %60, i32 0, i32 15
-  store ptr %192, ptr %193, align 8
-  %194 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %60, i32 0, i32 106
+  %188 = getelementptr inbounds nuw { ptr, i64 }, ptr %17, i32 0, i32 1
+  %189 = load i64, ptr %188, align 8
+  %190 = call noundef ptr @_ZN4llvm9MCContext14getCOFFSectionENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(2432) %185, ptr %187, i64 %189, i32 noundef 1107296320)
+  %191 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %61, i32 0, i32 14
+  store ptr %190, ptr %191, align 8, !tbaa !63
+  %192 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %61, i32 0, i32 107
+  %193 = load ptr, ptr %192, align 8, !tbaa !17
+  call void @_ZN4llvm9StringRefC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %18, ptr noundef @.str.102)
+  %194 = getelementptr inbounds nuw { ptr, i64 }, ptr %18, i32 0, i32 0
   %195 = load ptr, ptr %194, align 8
-  call void @_ZN4llvm9StringRefC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %19, ptr noundef @.str.104)
-  %196 = getelementptr inbounds nuw { ptr, i64 }, ptr %19, i32 0, i32 0
-  %197 = load ptr, ptr %196, align 8
-  %198 = getelementptr inbounds nuw { ptr, i64 }, ptr %19, i32 0, i32 1
-  %199 = load i64, ptr %198, align 8
-  %200 = call noundef ptr @_ZN4llvm9MCContext14getCOFFSectionENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(2432) %195, ptr %197, i64 %199, i32 noundef 1107296320)
-  %201 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %60, i32 0, i32 16
-  store ptr %200, ptr %201, align 8
-  %202 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %60, i32 0, i32 106
+  %196 = getelementptr inbounds nuw { ptr, i64 }, ptr %18, i32 0, i32 1
+  %197 = load i64, ptr %196, align 8
+  %198 = call noundef ptr @_ZN4llvm9MCContext14getCOFFSectionENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(2432) %193, ptr %195, i64 %197, i32 noundef 1107296320)
+  %199 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %61, i32 0, i32 15
+  store ptr %198, ptr %199, align 8, !tbaa !64
+  %200 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %61, i32 0, i32 107
+  %201 = load ptr, ptr %200, align 8, !tbaa !17
+  call void @_ZN4llvm9StringRefC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %19, ptr noundef @.str.103)
+  %202 = getelementptr inbounds nuw { ptr, i64 }, ptr %19, i32 0, i32 0
   %203 = load ptr, ptr %202, align 8
-  call void @_ZN4llvm9StringRefC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %20, ptr noundef @.str.105)
-  %204 = getelementptr inbounds nuw { ptr, i64 }, ptr %20, i32 0, i32 0
-  %205 = load ptr, ptr %204, align 8
-  %206 = getelementptr inbounds nuw { ptr, i64 }, ptr %20, i32 0, i32 1
-  %207 = load i64, ptr %206, align 8
-  %208 = call noundef ptr @_ZN4llvm9MCContext14getCOFFSectionENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(2432) %203, ptr %205, i64 %207, i32 noundef 1107296320)
-  %209 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %60, i32 0, i32 25
-  store ptr %208, ptr %209, align 8
-  %210 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %60, i32 0, i32 106
+  %204 = getelementptr inbounds nuw { ptr, i64 }, ptr %19, i32 0, i32 1
+  %205 = load i64, ptr %204, align 8
+  %206 = call noundef ptr @_ZN4llvm9MCContext14getCOFFSectionENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(2432) %201, ptr %203, i64 %205, i32 noundef 1107296320)
+  %207 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %61, i32 0, i32 16
+  store ptr %206, ptr %207, align 8, !tbaa !65
+  %208 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %61, i32 0, i32 107
+  %209 = load ptr, ptr %208, align 8, !tbaa !17
+  call void @_ZN4llvm9StringRefC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %20, ptr noundef @.str.104)
+  %210 = getelementptr inbounds nuw { ptr, i64 }, ptr %20, i32 0, i32 0
   %211 = load ptr, ptr %210, align 8
-  call void @_ZN4llvm9StringRefC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %21, ptr noundef @.str.106)
-  %212 = getelementptr inbounds nuw { ptr, i64 }, ptr %21, i32 0, i32 0
-  %213 = load ptr, ptr %212, align 8
-  %214 = getelementptr inbounds nuw { ptr, i64 }, ptr %21, i32 0, i32 1
-  %215 = load i64, ptr %214, align 8
-  %216 = call noundef ptr @_ZN4llvm9MCContext14getCOFFSectionENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(2432) %211, ptr %213, i64 %215, i32 noundef 1107296320)
-  %217 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %60, i32 0, i32 17
-  store ptr %216, ptr %217, align 8
-  %218 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %60, i32 0, i32 106
+  %212 = getelementptr inbounds nuw { ptr, i64 }, ptr %20, i32 0, i32 1
+  %213 = load i64, ptr %212, align 8
+  %214 = call noundef ptr @_ZN4llvm9MCContext14getCOFFSectionENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(2432) %209, ptr %211, i64 %213, i32 noundef 1107296320)
+  %215 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %61, i32 0, i32 17
+  store ptr %214, ptr %215, align 8, !tbaa !66
+  %216 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %61, i32 0, i32 107
+  %217 = load ptr, ptr %216, align 8, !tbaa !17
+  call void @_ZN4llvm9StringRefC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %21, ptr noundef @.str.105)
+  %218 = getelementptr inbounds nuw { ptr, i64 }, ptr %21, i32 0, i32 0
   %219 = load ptr, ptr %218, align 8
-  call void @_ZN4llvm9StringRefC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %22, ptr noundef @.str.107)
-  %220 = getelementptr inbounds nuw { ptr, i64 }, ptr %22, i32 0, i32 0
-  %221 = load ptr, ptr %220, align 8
-  %222 = getelementptr inbounds nuw { ptr, i64 }, ptr %22, i32 0, i32 1
-  %223 = load i64, ptr %222, align 8
-  %224 = call noundef ptr @_ZN4llvm9MCContext14getCOFFSectionENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(2432) %219, ptr %221, i64 %223, i32 noundef 1107296320)
-  %225 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %60, i32 0, i32 48
-  store ptr %224, ptr %225, align 8
-  %226 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %60, i32 0, i32 106
+  %220 = getelementptr inbounds nuw { ptr, i64 }, ptr %21, i32 0, i32 1
+  %221 = load i64, ptr %220, align 8
+  %222 = call noundef ptr @_ZN4llvm9MCContext14getCOFFSectionENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(2432) %217, ptr %219, i64 %221, i32 noundef 1107296320)
+  %223 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %61, i32 0, i32 26
+  store ptr %222, ptr %223, align 8, !tbaa !67
+  %224 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %61, i32 0, i32 107
+  %225 = load ptr, ptr %224, align 8, !tbaa !17
+  call void @_ZN4llvm9StringRefC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %22, ptr noundef @.str.106)
+  %226 = getelementptr inbounds nuw { ptr, i64 }, ptr %22, i32 0, i32 0
   %227 = load ptr, ptr %226, align 8
-  call void @_ZN4llvm9StringRefC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %23, ptr noundef @.str.108)
-  %228 = getelementptr inbounds nuw { ptr, i64 }, ptr %23, i32 0, i32 0
-  %229 = load ptr, ptr %228, align 8
-  %230 = getelementptr inbounds nuw { ptr, i64 }, ptr %23, i32 0, i32 1
-  %231 = load i64, ptr %230, align 8
-  %232 = call noundef ptr @_ZN4llvm9MCContext14getCOFFSectionENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(2432) %227, ptr %229, i64 %231, i32 noundef 1107296320)
-  %233 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %60, i32 0, i32 49
-  store ptr %232, ptr %233, align 8
-  %234 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %60, i32 0, i32 106
+  %228 = getelementptr inbounds nuw { ptr, i64 }, ptr %22, i32 0, i32 1
+  %229 = load i64, ptr %228, align 8
+  %230 = call noundef ptr @_ZN4llvm9MCContext14getCOFFSectionENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(2432) %225, ptr %227, i64 %229, i32 noundef 1107296320)
+  %231 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %61, i32 0, i32 18
+  store ptr %230, ptr %231, align 8, !tbaa !68
+  %232 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %61, i32 0, i32 107
+  %233 = load ptr, ptr %232, align 8, !tbaa !17
+  call void @_ZN4llvm9StringRefC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %23, ptr noundef @.str.107)
+  %234 = getelementptr inbounds nuw { ptr, i64 }, ptr %23, i32 0, i32 0
   %235 = load ptr, ptr %234, align 8
-  call void @_ZN4llvm9StringRefC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %24, ptr noundef @.str.109)
-  %236 = getelementptr inbounds nuw { ptr, i64 }, ptr %24, i32 0, i32 0
-  %237 = load ptr, ptr %236, align 8
-  %238 = getelementptr inbounds nuw { ptr, i64 }, ptr %24, i32 0, i32 1
-  %239 = load i64, ptr %238, align 8
-  %240 = call noundef ptr @_ZN4llvm9MCContext14getCOFFSectionENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(2432) %235, ptr %237, i64 %239, i32 noundef 1107296320)
-  %241 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %60, i32 0, i32 19
-  store ptr %240, ptr %241, align 8
-  %242 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %60, i32 0, i32 106
+  %236 = getelementptr inbounds nuw { ptr, i64 }, ptr %23, i32 0, i32 1
+  %237 = load i64, ptr %236, align 8
+  %238 = call noundef ptr @_ZN4llvm9MCContext14getCOFFSectionENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(2432) %233, ptr %235, i64 %237, i32 noundef 1107296320)
+  %239 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %61, i32 0, i32 49
+  store ptr %238, ptr %239, align 8, !tbaa !69
+  %240 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %61, i32 0, i32 107
+  %241 = load ptr, ptr %240, align 8, !tbaa !17
+  call void @_ZN4llvm9StringRefC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %24, ptr noundef @.str.108)
+  %242 = getelementptr inbounds nuw { ptr, i64 }, ptr %24, i32 0, i32 0
   %243 = load ptr, ptr %242, align 8
-  call void @_ZN4llvm9StringRefC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %25, ptr noundef @.str.120)
-  %244 = getelementptr inbounds nuw { ptr, i64 }, ptr %25, i32 0, i32 0
-  %245 = load ptr, ptr %244, align 8
-  %246 = getelementptr inbounds nuw { ptr, i64 }, ptr %25, i32 0, i32 1
-  %247 = load i64, ptr %246, align 8
-  %248 = call noundef ptr @_ZN4llvm9MCContext14getCOFFSectionENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(2432) %243, ptr %245, i64 %247, i32 noundef 1107296320)
-  %249 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %60, i32 0, i32 40
-  store ptr %248, ptr %249, align 8
-  %250 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %60, i32 0, i32 106
+  %244 = getelementptr inbounds nuw { ptr, i64 }, ptr %24, i32 0, i32 1
+  %245 = load i64, ptr %244, align 8
+  %246 = call noundef ptr @_ZN4llvm9MCContext14getCOFFSectionENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(2432) %241, ptr %243, i64 %245, i32 noundef 1107296320)
+  %247 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %61, i32 0, i32 50
+  store ptr %246, ptr %247, align 8, !tbaa !70
+  %248 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %61, i32 0, i32 107
+  %249 = load ptr, ptr %248, align 8, !tbaa !17
+  call void @_ZN4llvm9StringRefC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %25, ptr noundef @.str.109)
+  %250 = getelementptr inbounds nuw { ptr, i64 }, ptr %25, i32 0, i32 0
   %251 = load ptr, ptr %250, align 8
-  call void @_ZN4llvm9StringRefC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %26, ptr noundef @.str.110)
-  %252 = getelementptr inbounds nuw { ptr, i64 }, ptr %26, i32 0, i32 0
-  %253 = load ptr, ptr %252, align 8
-  %254 = getelementptr inbounds nuw { ptr, i64 }, ptr %26, i32 0, i32 1
-  %255 = load i64, ptr %254, align 8
-  %256 = call noundef ptr @_ZN4llvm9MCContext14getCOFFSectionENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(2432) %251, ptr %253, i64 %255, i32 noundef 1107296320)
-  %257 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %60, i32 0, i32 20
-  store ptr %256, ptr %257, align 8
-  %258 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %60, i32 0, i32 106
+  %252 = getelementptr inbounds nuw { ptr, i64 }, ptr %25, i32 0, i32 1
+  %253 = load i64, ptr %252, align 8
+  %254 = call noundef ptr @_ZN4llvm9MCContext14getCOFFSectionENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(2432) %249, ptr %251, i64 %253, i32 noundef 1107296320)
+  %255 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %61, i32 0, i32 20
+  store ptr %254, ptr %255, align 8, !tbaa !71
+  %256 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %61, i32 0, i32 107
+  %257 = load ptr, ptr %256, align 8, !tbaa !17
+  call void @_ZN4llvm9StringRefC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %26, ptr noundef @.str.120)
+  %258 = getelementptr inbounds nuw { ptr, i64 }, ptr %26, i32 0, i32 0
   %259 = load ptr, ptr %258, align 8
-  call void @_ZN4llvm9StringRefC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %27, ptr noundef @.str.123)
-  %260 = getelementptr inbounds nuw { ptr, i64 }, ptr %27, i32 0, i32 0
-  %261 = load ptr, ptr %260, align 8
-  %262 = getelementptr inbounds nuw { ptr, i64 }, ptr %27, i32 0, i32 1
-  %263 = load i64, ptr %262, align 8
-  %264 = call noundef ptr @_ZN4llvm9MCContext14getCOFFSectionENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(2432) %259, ptr %261, i64 %263, i32 noundef 1107296320)
-  %265 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %60, i32 0, i32 43
-  store ptr %264, ptr %265, align 8
-  %266 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %60, i32 0, i32 106
+  %260 = getelementptr inbounds nuw { ptr, i64 }, ptr %26, i32 0, i32 1
+  %261 = load i64, ptr %260, align 8
+  %262 = call noundef ptr @_ZN4llvm9MCContext14getCOFFSectionENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(2432) %257, ptr %259, i64 %261, i32 noundef 1107296320)
+  %263 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %61, i32 0, i32 41
+  store ptr %262, ptr %263, align 8, !tbaa !72
+  %264 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %61, i32 0, i32 107
+  %265 = load ptr, ptr %264, align 8, !tbaa !17
+  call void @_ZN4llvm9StringRefC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %27, ptr noundef @.str.110)
+  %266 = getelementptr inbounds nuw { ptr, i64 }, ptr %27, i32 0, i32 0
   %267 = load ptr, ptr %266, align 8
-  call void @_ZN4llvm9StringRefC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %28, ptr noundef @.str.111)
-  %268 = getelementptr inbounds nuw { ptr, i64 }, ptr %28, i32 0, i32 0
-  %269 = load ptr, ptr %268, align 8
-  %270 = getelementptr inbounds nuw { ptr, i64 }, ptr %28, i32 0, i32 1
-  %271 = load i64, ptr %270, align 8
-  %272 = call noundef ptr @_ZN4llvm9MCContext14getCOFFSectionENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(2432) %267, ptr %269, i64 %271, i32 noundef 1107296320)
-  %273 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %60, i32 0, i32 21
-  store ptr %272, ptr %273, align 8
-  %274 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %60, i32 0, i32 106
+  %268 = getelementptr inbounds nuw { ptr, i64 }, ptr %27, i32 0, i32 1
+  %269 = load i64, ptr %268, align 8
+  %270 = call noundef ptr @_ZN4llvm9MCContext14getCOFFSectionENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(2432) %265, ptr %267, i64 %269, i32 noundef 1107296320)
+  %271 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %61, i32 0, i32 21
+  store ptr %270, ptr %271, align 8, !tbaa !74
+  %272 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %61, i32 0, i32 107
+  %273 = load ptr, ptr %272, align 8, !tbaa !17
+  call void @_ZN4llvm9StringRefC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %28, ptr noundef @.str.123)
+  %274 = getelementptr inbounds nuw { ptr, i64 }, ptr %28, i32 0, i32 0
   %275 = load ptr, ptr %274, align 8
-  call void @_ZN4llvm9StringRefC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %29, ptr noundef @.str.112)
-  %276 = getelementptr inbounds nuw { ptr, i64 }, ptr %29, i32 0, i32 0
-  %277 = load ptr, ptr %276, align 8
-  %278 = getelementptr inbounds nuw { ptr, i64 }, ptr %29, i32 0, i32 1
-  %279 = load i64, ptr %278, align 8
-  %280 = call noundef ptr @_ZN4llvm9MCContext14getCOFFSectionENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(2432) %275, ptr %277, i64 %279, i32 noundef 1107296320)
-  %281 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %60, i32 0, i32 22
-  store ptr %280, ptr %281, align 8
-  %282 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %60, i32 0, i32 106
+  %276 = getelementptr inbounds nuw { ptr, i64 }, ptr %28, i32 0, i32 1
+  %277 = load i64, ptr %276, align 8
+  %278 = call noundef ptr @_ZN4llvm9MCContext14getCOFFSectionENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(2432) %273, ptr %275, i64 %277, i32 noundef 1107296320)
+  %279 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %61, i32 0, i32 44
+  store ptr %278, ptr %279, align 8, !tbaa !75
+  %280 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %61, i32 0, i32 107
+  %281 = load ptr, ptr %280, align 8, !tbaa !17
+  call void @_ZN4llvm9StringRefC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %29, ptr noundef @.str.111)
+  %282 = getelementptr inbounds nuw { ptr, i64 }, ptr %29, i32 0, i32 0
   %283 = load ptr, ptr %282, align 8
-  call void @_ZN4llvm9StringRefC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %30, ptr noundef @.str.122)
-  %284 = getelementptr inbounds nuw { ptr, i64 }, ptr %30, i32 0, i32 0
-  %285 = load ptr, ptr %284, align 8
-  %286 = getelementptr inbounds nuw { ptr, i64 }, ptr %30, i32 0, i32 1
-  %287 = load i64, ptr %286, align 8
-  %288 = call noundef ptr @_ZN4llvm9MCContext14getCOFFSectionENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(2432) %283, ptr %285, i64 %287, i32 noundef 1107296320)
-  %289 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %60, i32 0, i32 42
-  store ptr %288, ptr %289, align 8
-  %290 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %60, i32 0, i32 106
+  %284 = getelementptr inbounds nuw { ptr, i64 }, ptr %29, i32 0, i32 1
+  %285 = load i64, ptr %284, align 8
+  %286 = call noundef ptr @_ZN4llvm9MCContext14getCOFFSectionENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(2432) %281, ptr %283, i64 %285, i32 noundef 1107296320)
+  %287 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %61, i32 0, i32 22
+  store ptr %286, ptr %287, align 8, !tbaa !76
+  %288 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %61, i32 0, i32 107
+  %289 = load ptr, ptr %288, align 8, !tbaa !17
+  call void @_ZN4llvm9StringRefC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %30, ptr noundef @.str.112)
+  %290 = getelementptr inbounds nuw { ptr, i64 }, ptr %30, i32 0, i32 0
   %291 = load ptr, ptr %290, align 8
-  call void @_ZN4llvm9StringRefC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %31, ptr noundef @.str.113)
-  %292 = getelementptr inbounds nuw { ptr, i64 }, ptr %31, i32 0, i32 0
-  %293 = load ptr, ptr %292, align 8
-  %294 = getelementptr inbounds nuw { ptr, i64 }, ptr %31, i32 0, i32 1
-  %295 = load i64, ptr %294, align 8
-  %296 = call noundef ptr @_ZN4llvm9MCContext14getCOFFSectionENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(2432) %291, ptr %293, i64 %295, i32 noundef 1107296320)
-  %297 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %60, i32 0, i32 23
-  store ptr %296, ptr %297, align 8
-  %298 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %60, i32 0, i32 106
+  %292 = getelementptr inbounds nuw { ptr, i64 }, ptr %30, i32 0, i32 1
+  %293 = load i64, ptr %292, align 8
+  %294 = call noundef ptr @_ZN4llvm9MCContext14getCOFFSectionENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(2432) %289, ptr %291, i64 %293, i32 noundef 1107296320)
+  %295 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %61, i32 0, i32 23
+  store ptr %294, ptr %295, align 8, !tbaa !77
+  %296 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %61, i32 0, i32 107
+  %297 = load ptr, ptr %296, align 8, !tbaa !17
+  call void @_ZN4llvm9StringRefC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %31, ptr noundef @.str.122)
+  %298 = getelementptr inbounds nuw { ptr, i64 }, ptr %31, i32 0, i32 0
   %299 = load ptr, ptr %298, align 8
-  call void @_ZN4llvm9StringRefC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %32, ptr noundef @.str.114)
-  %300 = getelementptr inbounds nuw { ptr, i64 }, ptr %32, i32 0, i32 0
-  %301 = load ptr, ptr %300, align 8
-  %302 = getelementptr inbounds nuw { ptr, i64 }, ptr %32, i32 0, i32 1
-  %303 = load i64, ptr %302, align 8
-  %304 = call noundef ptr @_ZN4llvm9MCContext14getCOFFSectionENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(2432) %299, ptr %301, i64 %303, i32 noundef 1107296320)
-  %305 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %60, i32 0, i32 24
-  store ptr %304, ptr %305, align 8
-  %306 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %60, i32 0, i32 106
+  %300 = getelementptr inbounds nuw { ptr, i64 }, ptr %31, i32 0, i32 1
+  %301 = load i64, ptr %300, align 8
+  %302 = call noundef ptr @_ZN4llvm9MCContext14getCOFFSectionENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(2432) %297, ptr %299, i64 %301, i32 noundef 1107296320)
+  %303 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %61, i32 0, i32 43
+  store ptr %302, ptr %303, align 8, !tbaa !78
+  %304 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %61, i32 0, i32 107
+  %305 = load ptr, ptr %304, align 8, !tbaa !17
+  call void @_ZN4llvm9StringRefC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %32, ptr noundef @.str.113)
+  %306 = getelementptr inbounds nuw { ptr, i64 }, ptr %32, i32 0, i32 0
   %307 = load ptr, ptr %306, align 8
-  call void @_ZN4llvm9StringRefC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %33, ptr noundef @.str.132)
-  %308 = getelementptr inbounds nuw { ptr, i64 }, ptr %33, i32 0, i32 0
-  %309 = load ptr, ptr %308, align 8
-  %310 = getelementptr inbounds nuw { ptr, i64 }, ptr %33, i32 0, i32 1
-  %311 = load i64, ptr %310, align 8
-  %312 = call noundef ptr @_ZN4llvm9MCContext14getCOFFSectionENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(2432) %307, ptr %309, i64 %311, i32 noundef 1107296320)
-  %313 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %60, i32 0, i32 38
-  store ptr %312, ptr %313, align 8
-  %314 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %60, i32 0, i32 106
+  %308 = getelementptr inbounds nuw { ptr, i64 }, ptr %32, i32 0, i32 1
+  %309 = load i64, ptr %308, align 8
+  %310 = call noundef ptr @_ZN4llvm9MCContext14getCOFFSectionENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(2432) %305, ptr %307, i64 %309, i32 noundef 1107296320)
+  %311 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %61, i32 0, i32 24
+  store ptr %310, ptr %311, align 8, !tbaa !79
+  %312 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %61, i32 0, i32 107
+  %313 = load ptr, ptr %312, align 8, !tbaa !17
+  call void @_ZN4llvm9StringRefC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %33, ptr noundef @.str.114)
+  %314 = getelementptr inbounds nuw { ptr, i64 }, ptr %33, i32 0, i32 0
   %315 = load ptr, ptr %314, align 8
-  call void @_ZN4llvm9StringRefC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %34, ptr noundef @.str.133)
-  %316 = getelementptr inbounds nuw { ptr, i64 }, ptr %34, i32 0, i32 0
-  %317 = load ptr, ptr %316, align 8
-  %318 = getelementptr inbounds nuw { ptr, i64 }, ptr %34, i32 0, i32 1
-  %319 = load i64, ptr %318, align 8
-  %320 = call noundef ptr @_ZN4llvm9MCContext14getCOFFSectionENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(2432) %315, ptr %317, i64 %319, i32 noundef 1107296320)
-  %321 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %60, i32 0, i32 39
-  store ptr %320, ptr %321, align 8
-  %322 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %60, i32 0, i32 106
+  %316 = getelementptr inbounds nuw { ptr, i64 }, ptr %33, i32 0, i32 1
+  %317 = load i64, ptr %316, align 8
+  %318 = call noundef ptr @_ZN4llvm9MCContext14getCOFFSectionENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(2432) %313, ptr %315, i64 %317, i32 noundef 1107296320)
+  %319 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %61, i32 0, i32 25
+  store ptr %318, ptr %319, align 8, !tbaa !80
+  %320 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %61, i32 0, i32 107
+  %321 = load ptr, ptr %320, align 8, !tbaa !17
+  call void @_ZN4llvm9StringRefC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %34, ptr noundef @.str.132)
+  %322 = getelementptr inbounds nuw { ptr, i64 }, ptr %34, i32 0, i32 0
   %323 = load ptr, ptr %322, align 8
-  call void @_ZN4llvm9StringRefC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %35, ptr noundef @.str.124)
-  %324 = getelementptr inbounds nuw { ptr, i64 }, ptr %35, i32 0, i32 0
-  %325 = load ptr, ptr %324, align 8
-  %326 = getelementptr inbounds nuw { ptr, i64 }, ptr %35, i32 0, i32 1
-  %327 = load i64, ptr %326, align 8
-  %328 = call noundef ptr @_ZN4llvm9MCContext14getCOFFSectionENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(2432) %323, ptr %325, i64 %327, i32 noundef 1107296320)
-  %329 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %60, i32 0, i32 31
-  store ptr %328, ptr %329, align 8
-  %330 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %60, i32 0, i32 106
+  %324 = getelementptr inbounds nuw { ptr, i64 }, ptr %34, i32 0, i32 1
+  %325 = load i64, ptr %324, align 8
+  %326 = call noundef ptr @_ZN4llvm9MCContext14getCOFFSectionENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(2432) %321, ptr %323, i64 %325, i32 noundef 1107296320)
+  %327 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %61, i32 0, i32 39
+  store ptr %326, ptr %327, align 8, !tbaa !129
+  %328 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %61, i32 0, i32 107
+  %329 = load ptr, ptr %328, align 8, !tbaa !17
+  call void @_ZN4llvm9StringRefC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %35, ptr noundef @.str.133)
+  %330 = getelementptr inbounds nuw { ptr, i64 }, ptr %35, i32 0, i32 0
   %331 = load ptr, ptr %330, align 8
-  call void @_ZN4llvm9StringRefC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %36, ptr noundef @.str.125)
-  %332 = getelementptr inbounds nuw { ptr, i64 }, ptr %36, i32 0, i32 0
-  %333 = load ptr, ptr %332, align 8
-  %334 = getelementptr inbounds nuw { ptr, i64 }, ptr %36, i32 0, i32 1
-  %335 = load i64, ptr %334, align 8
-  %336 = call noundef ptr @_ZN4llvm9MCContext14getCOFFSectionENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(2432) %331, ptr %333, i64 %335, i32 noundef 1107296320)
-  %337 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %60, i32 0, i32 32
-  store ptr %336, ptr %337, align 8
-  %338 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %60, i32 0, i32 106
+  %332 = getelementptr inbounds nuw { ptr, i64 }, ptr %35, i32 0, i32 1
+  %333 = load i64, ptr %332, align 8
+  %334 = call noundef ptr @_ZN4llvm9MCContext14getCOFFSectionENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(2432) %329, ptr %331, i64 %333, i32 noundef 1107296320)
+  %335 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %61, i32 0, i32 40
+  store ptr %334, ptr %335, align 8, !tbaa !130
+  %336 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %61, i32 0, i32 107
+  %337 = load ptr, ptr %336, align 8, !tbaa !17
+  call void @_ZN4llvm9StringRefC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %36, ptr noundef @.str.124)
+  %338 = getelementptr inbounds nuw { ptr, i64 }, ptr %36, i32 0, i32 0
   %339 = load ptr, ptr %338, align 8
-  call void @_ZN4llvm9StringRefC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %37, ptr noundef @.str.126)
-  %340 = getelementptr inbounds nuw { ptr, i64 }, ptr %37, i32 0, i32 0
-  %341 = load ptr, ptr %340, align 8
-  %342 = getelementptr inbounds nuw { ptr, i64 }, ptr %37, i32 0, i32 1
-  %343 = load i64, ptr %342, align 8
-  %344 = call noundef ptr @_ZN4llvm9MCContext14getCOFFSectionENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(2432) %339, ptr %341, i64 %343, i32 noundef 1107296320)
-  %345 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %60, i32 0, i32 33
-  store ptr %344, ptr %345, align 8
-  %346 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %60, i32 0, i32 106
+  %340 = getelementptr inbounds nuw { ptr, i64 }, ptr %36, i32 0, i32 1
+  %341 = load i64, ptr %340, align 8
+  %342 = call noundef ptr @_ZN4llvm9MCContext14getCOFFSectionENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(2432) %337, ptr %339, i64 %341, i32 noundef 1107296320)
+  %343 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %61, i32 0, i32 32
+  store ptr %342, ptr %343, align 8, !tbaa !121
+  %344 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %61, i32 0, i32 107
+  %345 = load ptr, ptr %344, align 8, !tbaa !17
+  call void @_ZN4llvm9StringRefC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %37, ptr noundef @.str.125)
+  %346 = getelementptr inbounds nuw { ptr, i64 }, ptr %37, i32 0, i32 0
   %347 = load ptr, ptr %346, align 8
-  call void @_ZN4llvm9StringRefC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %38, ptr noundef @.str.127)
-  %348 = getelementptr inbounds nuw { ptr, i64 }, ptr %38, i32 0, i32 0
-  %349 = load ptr, ptr %348, align 8
-  %350 = getelementptr inbounds nuw { ptr, i64 }, ptr %38, i32 0, i32 1
-  %351 = load i64, ptr %350, align 8
-  %352 = call noundef ptr @_ZN4llvm9MCContext14getCOFFSectionENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(2432) %347, ptr %349, i64 %351, i32 noundef 1107296320)
-  %353 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %60, i32 0, i32 34
-  store ptr %352, ptr %353, align 8
-  %354 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %60, i32 0, i32 106
+  %348 = getelementptr inbounds nuw { ptr, i64 }, ptr %37, i32 0, i32 1
+  %349 = load i64, ptr %348, align 8
+  %350 = call noundef ptr @_ZN4llvm9MCContext14getCOFFSectionENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(2432) %345, ptr %347, i64 %349, i32 noundef 1107296320)
+  %351 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %61, i32 0, i32 33
+  store ptr %350, ptr %351, align 8, !tbaa !122
+  %352 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %61, i32 0, i32 107
+  %353 = load ptr, ptr %352, align 8, !tbaa !17
+  call void @_ZN4llvm9StringRefC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %38, ptr noundef @.str.126)
+  %354 = getelementptr inbounds nuw { ptr, i64 }, ptr %38, i32 0, i32 0
   %355 = load ptr, ptr %354, align 8
-  call void @_ZN4llvm9StringRefC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %39, ptr noundef @.str.128)
-  %356 = getelementptr inbounds nuw { ptr, i64 }, ptr %39, i32 0, i32 0
-  %357 = load ptr, ptr %356, align 8
-  %358 = getelementptr inbounds nuw { ptr, i64 }, ptr %39, i32 0, i32 1
-  %359 = load i64, ptr %358, align 8
-  %360 = call noundef ptr @_ZN4llvm9MCContext14getCOFFSectionENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(2432) %355, ptr %357, i64 %359, i32 noundef 1107296320)
-  %361 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %60, i32 0, i32 35
-  store ptr %360, ptr %361, align 8
-  %362 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %60, i32 0, i32 106
+  %356 = getelementptr inbounds nuw { ptr, i64 }, ptr %38, i32 0, i32 1
+  %357 = load i64, ptr %356, align 8
+  %358 = call noundef ptr @_ZN4llvm9MCContext14getCOFFSectionENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(2432) %353, ptr %355, i64 %357, i32 noundef 1107296320)
+  %359 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %61, i32 0, i32 34
+  store ptr %358, ptr %359, align 8, !tbaa !123
+  %360 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %61, i32 0, i32 107
+  %361 = load ptr, ptr %360, align 8, !tbaa !17
+  call void @_ZN4llvm9StringRefC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %39, ptr noundef @.str.127)
+  %362 = getelementptr inbounds nuw { ptr, i64 }, ptr %39, i32 0, i32 0
   %363 = load ptr, ptr %362, align 8
-  call void @_ZN4llvm9StringRefC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %40, ptr noundef @.str.129)
-  %364 = getelementptr inbounds nuw { ptr, i64 }, ptr %40, i32 0, i32 0
-  %365 = load ptr, ptr %364, align 8
-  %366 = getelementptr inbounds nuw { ptr, i64 }, ptr %40, i32 0, i32 1
-  %367 = load i64, ptr %366, align 8
-  %368 = call noundef ptr @_ZN4llvm9MCContext14getCOFFSectionENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(2432) %363, ptr %365, i64 %367, i32 noundef 1107296320)
-  %369 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %60, i32 0, i32 36
-  store ptr %368, ptr %369, align 8
-  %370 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %60, i32 0, i32 106
+  %364 = getelementptr inbounds nuw { ptr, i64 }, ptr %39, i32 0, i32 1
+  %365 = load i64, ptr %364, align 8
+  %366 = call noundef ptr @_ZN4llvm9MCContext14getCOFFSectionENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(2432) %361, ptr %363, i64 %365, i32 noundef 1107296320)
+  %367 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %61, i32 0, i32 35
+  store ptr %366, ptr %367, align 8, !tbaa !124
+  %368 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %61, i32 0, i32 107
+  %369 = load ptr, ptr %368, align 8, !tbaa !17
+  call void @_ZN4llvm9StringRefC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %40, ptr noundef @.str.128)
+  %370 = getelementptr inbounds nuw { ptr, i64 }, ptr %40, i32 0, i32 0
   %371 = load ptr, ptr %370, align 8
-  call void @_ZN4llvm9StringRefC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %41, ptr noundef @.str.130)
-  %372 = getelementptr inbounds nuw { ptr, i64 }, ptr %41, i32 0, i32 0
-  %373 = load ptr, ptr %372, align 8
-  %374 = getelementptr inbounds nuw { ptr, i64 }, ptr %41, i32 0, i32 1
-  %375 = load i64, ptr %374, align 8
-  %376 = call noundef ptr @_ZN4llvm9MCContext14getCOFFSectionENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(2432) %371, ptr %373, i64 %375, i32 noundef 1107296320)
-  %377 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %60, i32 0, i32 37
-  store ptr %376, ptr %377, align 8
-  %378 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %60, i32 0, i32 106
+  %372 = getelementptr inbounds nuw { ptr, i64 }, ptr %40, i32 0, i32 1
+  %373 = load i64, ptr %372, align 8
+  %374 = call noundef ptr @_ZN4llvm9MCContext14getCOFFSectionENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(2432) %369, ptr %371, i64 %373, i32 noundef 1107296320)
+  %375 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %61, i32 0, i32 36
+  store ptr %374, ptr %375, align 8, !tbaa !125
+  %376 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %61, i32 0, i32 107
+  %377 = load ptr, ptr %376, align 8, !tbaa !17
+  call void @_ZN4llvm9StringRefC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %41, ptr noundef @.str.129)
+  %378 = getelementptr inbounds nuw { ptr, i64 }, ptr %41, i32 0, i32 0
   %379 = load ptr, ptr %378, align 8
-  call void @_ZN4llvm9StringRefC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %42, ptr noundef @.str.121)
-  %380 = getelementptr inbounds nuw { ptr, i64 }, ptr %42, i32 0, i32 0
-  %381 = load ptr, ptr %380, align 8
-  %382 = getelementptr inbounds nuw { ptr, i64 }, ptr %42, i32 0, i32 1
-  %383 = load i64, ptr %382, align 8
-  %384 = call noundef ptr @_ZN4llvm9MCContext14getCOFFSectionENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(2432) %379, ptr %381, i64 %383, i32 noundef 1107296320)
-  %385 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %60, i32 0, i32 41
-  store ptr %384, ptr %385, align 8
-  %386 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %60, i32 0, i32 106
+  %380 = getelementptr inbounds nuw { ptr, i64 }, ptr %41, i32 0, i32 1
+  %381 = load i64, ptr %380, align 8
+  %382 = call noundef ptr @_ZN4llvm9MCContext14getCOFFSectionENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(2432) %377, ptr %379, i64 %381, i32 noundef 1107296320)
+  %383 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %61, i32 0, i32 37
+  store ptr %382, ptr %383, align 8, !tbaa !126
+  %384 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %61, i32 0, i32 107
+  %385 = load ptr, ptr %384, align 8, !tbaa !17
+  call void @_ZN4llvm9StringRefC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %42, ptr noundef @.str.130)
+  %386 = getelementptr inbounds nuw { ptr, i64 }, ptr %42, i32 0, i32 0
   %387 = load ptr, ptr %386, align 8
-  call void @_ZN4llvm9StringRefC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %43, ptr noundef @.str.135)
-  %388 = getelementptr inbounds nuw { ptr, i64 }, ptr %43, i32 0, i32 0
-  %389 = load ptr, ptr %388, align 8
-  %390 = getelementptr inbounds nuw { ptr, i64 }, ptr %43, i32 0, i32 1
-  %391 = load i64, ptr %390, align 8
-  %392 = call noundef ptr @_ZN4llvm9MCContext14getCOFFSectionENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(2432) %387, ptr %389, i64 %391, i32 noundef 1107296320)
-  %393 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %60, i32 0, i32 46
-  store ptr %392, ptr %393, align 8
-  %394 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %60, i32 0, i32 106
+  %388 = getelementptr inbounds nuw { ptr, i64 }, ptr %42, i32 0, i32 1
+  %389 = load i64, ptr %388, align 8
+  %390 = call noundef ptr @_ZN4llvm9MCContext14getCOFFSectionENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(2432) %385, ptr %387, i64 %389, i32 noundef 1107296320)
+  %391 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %61, i32 0, i32 38
+  store ptr %390, ptr %391, align 8, !tbaa !127
+  %392 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %61, i32 0, i32 107
+  %393 = load ptr, ptr %392, align 8, !tbaa !17
+  call void @_ZN4llvm9StringRefC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %43, ptr noundef @.str.121)
+  %394 = getelementptr inbounds nuw { ptr, i64 }, ptr %43, i32 0, i32 0
   %395 = load ptr, ptr %394, align 8
-  call void @_ZN4llvm9StringRefC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %44, ptr noundef @.str.136)
-  %396 = getelementptr inbounds nuw { ptr, i64 }, ptr %44, i32 0, i32 0
-  %397 = load ptr, ptr %396, align 8
-  %398 = getelementptr inbounds nuw { ptr, i64 }, ptr %44, i32 0, i32 1
-  %399 = load i64, ptr %398, align 8
-  %400 = call noundef ptr @_ZN4llvm9MCContext14getCOFFSectionENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(2432) %395, ptr %397, i64 %399, i32 noundef 1107296320)
-  %401 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %60, i32 0, i32 47
-  store ptr %400, ptr %401, align 8
-  %402 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %60, i32 0, i32 106
+  %396 = getelementptr inbounds nuw { ptr, i64 }, ptr %43, i32 0, i32 1
+  %397 = load i64, ptr %396, align 8
+  %398 = call noundef ptr @_ZN4llvm9MCContext14getCOFFSectionENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(2432) %393, ptr %395, i64 %397, i32 noundef 1107296320)
+  %399 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %61, i32 0, i32 42
+  store ptr %398, ptr %399, align 8, !tbaa !73
+  %400 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %61, i32 0, i32 107
+  %401 = load ptr, ptr %400, align 8, !tbaa !17
+  call void @_ZN4llvm9StringRefC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %44, ptr noundef @.str.135)
+  %402 = getelementptr inbounds nuw { ptr, i64 }, ptr %44, i32 0, i32 0
   %403 = load ptr, ptr %402, align 8
-  call void @_ZN4llvm9StringRefC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %45, ptr noundef @.str.115)
-  %404 = getelementptr inbounds nuw { ptr, i64 }, ptr %45, i32 0, i32 0
-  %405 = load ptr, ptr %404, align 8
-  %406 = getelementptr inbounds nuw { ptr, i64 }, ptr %45, i32 0, i32 1
-  %407 = load i64, ptr %406, align 8
-  %408 = call noundef ptr @_ZN4llvm9MCContext14getCOFFSectionENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(2432) %403, ptr %405, i64 %407, i32 noundef 1107296320)
-  %409 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %60, i32 0, i32 26
-  store ptr %408, ptr %409, align 8
-  %410 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %60, i32 0, i32 106
+  %404 = getelementptr inbounds nuw { ptr, i64 }, ptr %44, i32 0, i32 1
+  %405 = load i64, ptr %404, align 8
+  %406 = call noundef ptr @_ZN4llvm9MCContext14getCOFFSectionENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(2432) %401, ptr %403, i64 %405, i32 noundef 1107296320)
+  %407 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %61, i32 0, i32 47
+  store ptr %406, ptr %407, align 8, !tbaa !82
+  %408 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %61, i32 0, i32 107
+  %409 = load ptr, ptr %408, align 8, !tbaa !17
+  call void @_ZN4llvm9StringRefC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %45, ptr noundef @.str.136)
+  %410 = getelementptr inbounds nuw { ptr, i64 }, ptr %45, i32 0, i32 0
   %411 = load ptr, ptr %410, align 8
-  call void @_ZN4llvm9StringRefC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %46, ptr noundef @.str.116)
-  %412 = getelementptr inbounds nuw { ptr, i64 }, ptr %46, i32 0, i32 0
-  %413 = load ptr, ptr %412, align 8
-  %414 = getelementptr inbounds nuw { ptr, i64 }, ptr %46, i32 0, i32 1
-  %415 = load i64, ptr %414, align 8
-  %416 = call noundef ptr @_ZN4llvm9MCContext14getCOFFSectionENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(2432) %411, ptr %413, i64 %415, i32 noundef 1107296320)
-  %417 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %60, i32 0, i32 27
-  store ptr %416, ptr %417, align 8
-  %418 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %60, i32 0, i32 106
+  %412 = getelementptr inbounds nuw { ptr, i64 }, ptr %45, i32 0, i32 1
+  %413 = load i64, ptr %412, align 8
+  %414 = call noundef ptr @_ZN4llvm9MCContext14getCOFFSectionENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(2432) %409, ptr %411, i64 %413, i32 noundef 1107296320)
+  %415 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %61, i32 0, i32 48
+  store ptr %414, ptr %415, align 8, !tbaa !83
+  %416 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %61, i32 0, i32 107
+  %417 = load ptr, ptr %416, align 8, !tbaa !17
+  call void @_ZN4llvm9StringRefC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %46, ptr noundef @.str.115)
+  %418 = getelementptr inbounds nuw { ptr, i64 }, ptr %46, i32 0, i32 0
   %419 = load ptr, ptr %418, align 8
-  call void @_ZN4llvm9StringRefC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %47, ptr noundef @.str.118)
-  %420 = getelementptr inbounds nuw { ptr, i64 }, ptr %47, i32 0, i32 0
-  %421 = load ptr, ptr %420, align 8
-  %422 = getelementptr inbounds nuw { ptr, i64 }, ptr %47, i32 0, i32 1
-  %423 = load i64, ptr %422, align 8
-  %424 = call noundef ptr @_ZN4llvm9MCContext14getCOFFSectionENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(2432) %419, ptr %421, i64 %423, i32 noundef 1107296320)
-  %425 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %60, i32 0, i32 29
-  store ptr %424, ptr %425, align 8
-  %426 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %60, i32 0, i32 106
+  %420 = getelementptr inbounds nuw { ptr, i64 }, ptr %46, i32 0, i32 1
+  %421 = load i64, ptr %420, align 8
+  %422 = call noundef ptr @_ZN4llvm9MCContext14getCOFFSectionENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(2432) %417, ptr %419, i64 %421, i32 noundef 1107296320)
+  %423 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %61, i32 0, i32 27
+  store ptr %422, ptr %423, align 8, !tbaa !56
+  %424 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %61, i32 0, i32 107
+  %425 = load ptr, ptr %424, align 8, !tbaa !17
+  call void @_ZN4llvm9StringRefC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %47, ptr noundef @.str.116)
+  %426 = getelementptr inbounds nuw { ptr, i64 }, ptr %47, i32 0, i32 0
   %427 = load ptr, ptr %426, align 8
-  call void @_ZN4llvm9StringRefC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %48, ptr noundef @.str.119)
-  %428 = getelementptr inbounds nuw { ptr, i64 }, ptr %48, i32 0, i32 0
-  %429 = load ptr, ptr %428, align 8
-  %430 = getelementptr inbounds nuw { ptr, i64 }, ptr %48, i32 0, i32 1
-  %431 = load i64, ptr %430, align 8
-  %432 = call noundef ptr @_ZN4llvm9MCContext14getCOFFSectionENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(2432) %427, ptr %429, i64 %431, i32 noundef 1107296320)
-  %433 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %60, i32 0, i32 30
-  store ptr %432, ptr %433, align 8
-  %434 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %60, i32 0, i32 106
+  %428 = getelementptr inbounds nuw { ptr, i64 }, ptr %47, i32 0, i32 1
+  %429 = load i64, ptr %428, align 8
+  %430 = call noundef ptr @_ZN4llvm9MCContext14getCOFFSectionENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(2432) %425, ptr %427, i64 %429, i32 noundef 1107296320)
+  %431 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %61, i32 0, i32 28
+  store ptr %430, ptr %431, align 8, !tbaa !57
+  %432 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %61, i32 0, i32 107
+  %433 = load ptr, ptr %432, align 8, !tbaa !17
+  call void @_ZN4llvm9StringRefC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %48, ptr noundef @.str.118)
+  %434 = getelementptr inbounds nuw { ptr, i64 }, ptr %48, i32 0, i32 0
   %435 = load ptr, ptr %434, align 8
-  call void @_ZN4llvm9StringRefC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %49, ptr noundef @.str.117)
-  %436 = getelementptr inbounds nuw { ptr, i64 }, ptr %49, i32 0, i32 0
-  %437 = load ptr, ptr %436, align 8
-  %438 = getelementptr inbounds nuw { ptr, i64 }, ptr %49, i32 0, i32 1
-  %439 = load i64, ptr %438, align 8
-  %440 = call noundef ptr @_ZN4llvm9MCContext14getCOFFSectionENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(2432) %435, ptr %437, i64 %439, i32 noundef 1107296320)
-  %441 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %60, i32 0, i32 28
-  store ptr %440, ptr %441, align 8
-  %442 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %60, i32 0, i32 106
+  %436 = getelementptr inbounds nuw { ptr, i64 }, ptr %48, i32 0, i32 1
+  %437 = load i64, ptr %436, align 8
+  %438 = call noundef ptr @_ZN4llvm9MCContext14getCOFFSectionENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(2432) %433, ptr %435, i64 %437, i32 noundef 1107296320)
+  %439 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %61, i32 0, i32 30
+  store ptr %438, ptr %439, align 8, !tbaa !59
+  %440 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %61, i32 0, i32 107
+  %441 = load ptr, ptr %440, align 8, !tbaa !17
+  call void @_ZN4llvm9StringRefC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %49, ptr noundef @.str.119)
+  %442 = getelementptr inbounds nuw { ptr, i64 }, ptr %49, i32 0, i32 0
   %443 = load ptr, ptr %442, align 8
-  call void @_ZN4llvm9StringRefC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %50, ptr noundef @.str.153)
-  %444 = getelementptr inbounds nuw { ptr, i64 }, ptr %50, i32 0, i32 0
-  %445 = load ptr, ptr %444, align 8
-  %446 = getelementptr inbounds nuw { ptr, i64 }, ptr %50, i32 0, i32 1
-  %447 = load i64, ptr %446, align 8
-  %448 = call noundef ptr @_ZN4llvm9MCContext14getCOFFSectionENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(2432) %443, ptr %445, i64 %447, i32 noundef 2560)
-  %449 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %60, i32 0, i32 88
-  store ptr %448, ptr %449, align 8
-  %450 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %60, i32 0, i32 106
+  %444 = getelementptr inbounds nuw { ptr, i64 }, ptr %49, i32 0, i32 1
+  %445 = load i64, ptr %444, align 8
+  %446 = call noundef ptr @_ZN4llvm9MCContext14getCOFFSectionENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(2432) %441, ptr %443, i64 %445, i32 noundef 1107296320)
+  %447 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %61, i32 0, i32 31
+  store ptr %446, ptr %447, align 8, !tbaa !60
+  %448 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %61, i32 0, i32 107
+  %449 = load ptr, ptr %448, align 8, !tbaa !17
+  call void @_ZN4llvm9StringRefC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %50, ptr noundef @.str.117)
+  %450 = getelementptr inbounds nuw { ptr, i64 }, ptr %50, i32 0, i32 0
   %451 = load ptr, ptr %450, align 8
+  %452 = getelementptr inbounds nuw { ptr, i64 }, ptr %50, i32 0, i32 1
+  %453 = load i64, ptr %452, align 8
+  %454 = call noundef ptr @_ZN4llvm9MCContext14getCOFFSectionENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(2432) %449, ptr %451, i64 %453, i32 noundef 1107296320)
+  %455 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %61, i32 0, i32 29
+  store ptr %454, ptr %455, align 8, !tbaa !58
+  %456 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %61, i32 0, i32 107
+  %457 = load ptr, ptr %456, align 8, !tbaa !17
   call void @_ZN4llvm9StringRefC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %51, ptr noundef @.str.154)
-  %452 = getelementptr inbounds nuw { ptr, i64 }, ptr %51, i32 0, i32 0
-  %453 = load ptr, ptr %452, align 8
-  %454 = getelementptr inbounds nuw { ptr, i64 }, ptr %51, i32 0, i32 1
-  %455 = load i64, ptr %454, align 8
-  %456 = call noundef ptr @_ZN4llvm9MCContext14getCOFFSectionENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(2432) %451, ptr %453, i64 %455, i32 noundef 1073741888)
-  %457 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %60, i32 0, i32 89
-  store ptr %456, ptr %457, align 8
-  %458 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %60, i32 0, i32 106
+  %458 = getelementptr inbounds nuw { ptr, i64 }, ptr %51, i32 0, i32 0
   %459 = load ptr, ptr %458, align 8
+  %460 = getelementptr inbounds nuw { ptr, i64 }, ptr %51, i32 0, i32 1
+  %461 = load i64, ptr %460, align 8
+  %462 = call noundef ptr @_ZN4llvm9MCContext14getCOFFSectionENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(2432) %457, ptr %459, i64 %461, i32 noundef 2560)
+  %463 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %61, i32 0, i32 89
+  store ptr %462, ptr %463, align 8, !tbaa !306
+  %464 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %61, i32 0, i32 107
+  %465 = load ptr, ptr %464, align 8, !tbaa !17
   call void @_ZN4llvm9StringRefC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %52, ptr noundef @.str.155)
-  %460 = getelementptr inbounds nuw { ptr, i64 }, ptr %52, i32 0, i32 0
-  %461 = load ptr, ptr %460, align 8
-  %462 = getelementptr inbounds nuw { ptr, i64 }, ptr %52, i32 0, i32 1
-  %463 = load i64, ptr %462, align 8
-  %464 = call noundef ptr @_ZN4llvm9MCContext14getCOFFSectionENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(2432) %459, ptr %461, i64 %463, i32 noundef 1073741888)
-  %465 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %60, i32 0, i32 90
-  store ptr %464, ptr %465, align 8
-  %466 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %60, i32 0, i32 106
+  %466 = getelementptr inbounds nuw { ptr, i64 }, ptr %52, i32 0, i32 0
   %467 = load ptr, ptr %466, align 8
+  %468 = getelementptr inbounds nuw { ptr, i64 }, ptr %52, i32 0, i32 1
+  %469 = load i64, ptr %468, align 8
+  %470 = call noundef ptr @_ZN4llvm9MCContext14getCOFFSectionENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(2432) %465, ptr %467, i64 %469, i32 noundef 1073741888)
+  %471 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %61, i32 0, i32 90
+  store ptr %470, ptr %471, align 8, !tbaa !307
+  %472 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %61, i32 0, i32 107
+  %473 = load ptr, ptr %472, align 8, !tbaa !17
   call void @_ZN4llvm9StringRefC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %53, ptr noundef @.str.156)
-  %468 = getelementptr inbounds nuw { ptr, i64 }, ptr %53, i32 0, i32 0
-  %469 = load ptr, ptr %468, align 8
-  %470 = getelementptr inbounds nuw { ptr, i64 }, ptr %53, i32 0, i32 1
-  %471 = load i64, ptr %470, align 8
-  %472 = call noundef ptr @_ZN4llvm9MCContext14getCOFFSectionENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(2432) %467, ptr %469, i64 %471, i32 noundef 512)
-  %473 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %60, i32 0, i32 91
-  store ptr %472, ptr %473, align 8
-  %474 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %60, i32 0, i32 106
+  %474 = getelementptr inbounds nuw { ptr, i64 }, ptr %53, i32 0, i32 0
   %475 = load ptr, ptr %474, align 8
+  %476 = getelementptr inbounds nuw { ptr, i64 }, ptr %53, i32 0, i32 1
+  %477 = load i64, ptr %476, align 8
+  %478 = call noundef ptr @_ZN4llvm9MCContext14getCOFFSectionENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(2432) %473, ptr %475, i64 %477, i32 noundef 1073741888)
+  %479 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %61, i32 0, i32 91
+  store ptr %478, ptr %479, align 8, !tbaa !308
+  %480 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %61, i32 0, i32 107
+  %481 = load ptr, ptr %480, align 8, !tbaa !17
   call void @_ZN4llvm9StringRefC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %54, ptr noundef @.str.157)
-  %476 = getelementptr inbounds nuw { ptr, i64 }, ptr %54, i32 0, i32 0
-  %477 = load ptr, ptr %476, align 8
-  %478 = getelementptr inbounds nuw { ptr, i64 }, ptr %54, i32 0, i32 1
-  %479 = load i64, ptr %478, align 8
-  %480 = call noundef ptr @_ZN4llvm9MCContext14getCOFFSectionENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(2432) %475, ptr %477, i64 %479, i32 noundef 1073741888)
-  %481 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %60, i32 0, i32 92
-  store ptr %480, ptr %481, align 8
-  %482 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %60, i32 0, i32 106
+  %482 = getelementptr inbounds nuw { ptr, i64 }, ptr %54, i32 0, i32 0
   %483 = load ptr, ptr %482, align 8
+  %484 = getelementptr inbounds nuw { ptr, i64 }, ptr %54, i32 0, i32 1
+  %485 = load i64, ptr %484, align 8
+  %486 = call noundef ptr @_ZN4llvm9MCContext14getCOFFSectionENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(2432) %481, ptr %483, i64 %485, i32 noundef 512)
+  %487 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %61, i32 0, i32 92
+  store ptr %486, ptr %487, align 8, !tbaa !309
+  %488 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %61, i32 0, i32 107
+  %489 = load ptr, ptr %488, align 8, !tbaa !17
   call void @_ZN4llvm9StringRefC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %55, ptr noundef @.str.158)
-  %484 = getelementptr inbounds nuw { ptr, i64 }, ptr %55, i32 0, i32 0
-  %485 = load ptr, ptr %484, align 8
-  %486 = getelementptr inbounds nuw { ptr, i64 }, ptr %55, i32 0, i32 1
-  %487 = load i64, ptr %486, align 8
-  %488 = call noundef ptr @_ZN4llvm9MCContext14getCOFFSectionENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(2432) %483, ptr %485, i64 %487, i32 noundef 1073741888)
-  %489 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %60, i32 0, i32 93
-  store ptr %488, ptr %489, align 8
-  %490 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %60, i32 0, i32 106
+  %490 = getelementptr inbounds nuw { ptr, i64 }, ptr %55, i32 0, i32 0
   %491 = load ptr, ptr %490, align 8
+  %492 = getelementptr inbounds nuw { ptr, i64 }, ptr %55, i32 0, i32 1
+  %493 = load i64, ptr %492, align 8
+  %494 = call noundef ptr @_ZN4llvm9MCContext14getCOFFSectionENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(2432) %489, ptr %491, i64 %493, i32 noundef 1073741888)
+  %495 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %61, i32 0, i32 93
+  store ptr %494, ptr %495, align 8, !tbaa !310
+  %496 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %61, i32 0, i32 107
+  %497 = load ptr, ptr %496, align 8, !tbaa !17
   call void @_ZN4llvm9StringRefC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %56, ptr noundef @.str.159)
-  %492 = getelementptr inbounds nuw { ptr, i64 }, ptr %56, i32 0, i32 0
-  %493 = load ptr, ptr %492, align 8
-  %494 = getelementptr inbounds nuw { ptr, i64 }, ptr %56, i32 0, i32 1
-  %495 = load i64, ptr %494, align 8
-  %496 = call noundef ptr @_ZN4llvm9MCContext14getCOFFSectionENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(2432) %491, ptr %493, i64 %495, i32 noundef 1073741888)
-  %497 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %60, i32 0, i32 94
-  store ptr %496, ptr %497, align 8
-  %498 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %60, i32 0, i32 106
+  %498 = getelementptr inbounds nuw { ptr, i64 }, ptr %56, i32 0, i32 0
   %499 = load ptr, ptr %498, align 8
+  %500 = getelementptr inbounds nuw { ptr, i64 }, ptr %56, i32 0, i32 1
+  %501 = load i64, ptr %500, align 8
+  %502 = call noundef ptr @_ZN4llvm9MCContext14getCOFFSectionENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(2432) %497, ptr %499, i64 %501, i32 noundef 1073741888)
+  %503 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %61, i32 0, i32 94
+  store ptr %502, ptr %503, align 8, !tbaa !311
+  %504 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %61, i32 0, i32 107
+  %505 = load ptr, ptr %504, align 8, !tbaa !17
   call void @_ZN4llvm9StringRefC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %57, ptr noundef @.str.160)
-  %500 = getelementptr inbounds nuw { ptr, i64 }, ptr %57, i32 0, i32 0
-  %501 = load ptr, ptr %500, align 8
-  %502 = getelementptr inbounds nuw { ptr, i64 }, ptr %57, i32 0, i32 1
-  %503 = load i64, ptr %502, align 8
-  %504 = call noundef ptr @_ZN4llvm9MCContext14getCOFFSectionENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(2432) %499, ptr %501, i64 %503, i32 noundef 1073741888)
-  %505 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %60, i32 0, i32 95
-  store ptr %504, ptr %505, align 8
-  %506 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %60, i32 0, i32 106
+  %506 = getelementptr inbounds nuw { ptr, i64 }, ptr %57, i32 0, i32 0
   %507 = load ptr, ptr %506, align 8
+  %508 = getelementptr inbounds nuw { ptr, i64 }, ptr %57, i32 0, i32 1
+  %509 = load i64, ptr %508, align 8
+  %510 = call noundef ptr @_ZN4llvm9MCContext14getCOFFSectionENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(2432) %505, ptr %507, i64 %509, i32 noundef 1073741888)
+  %511 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %61, i32 0, i32 95
+  store ptr %510, ptr %511, align 8, !tbaa !312
+  %512 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %61, i32 0, i32 107
+  %513 = load ptr, ptr %512, align 8, !tbaa !17
   call void @_ZN4llvm9StringRefC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %58, ptr noundef @.str.161)
-  %508 = getelementptr inbounds nuw { ptr, i64 }, ptr %58, i32 0, i32 0
-  %509 = load ptr, ptr %508, align 8
-  %510 = getelementptr inbounds nuw { ptr, i64 }, ptr %58, i32 0, i32 1
-  %511 = load i64, ptr %510, align 8
-  %512 = call noundef ptr @_ZN4llvm9MCContext14getCOFFSectionENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(2432) %507, ptr %509, i64 %511, i32 noundef -1073741760)
-  %513 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %60, i32 0, i32 55
-  store ptr %512, ptr %513, align 8
-  %514 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %60, i32 0, i32 106
+  %514 = getelementptr inbounds nuw { ptr, i64 }, ptr %58, i32 0, i32 0
   %515 = load ptr, ptr %514, align 8
-  call void @_ZN4llvm9StringRefC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %59, ptr noundef @.str.137)
-  %516 = getelementptr inbounds nuw { ptr, i64 }, ptr %59, i32 0, i32 0
-  %517 = load ptr, ptr %516, align 8
-  %518 = getelementptr inbounds nuw { ptr, i64 }, ptr %59, i32 0, i32 1
-  %519 = load i64, ptr %518, align 8
-  %520 = call noundef ptr @_ZN4llvm9MCContext14getCOFFSectionENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(2432) %515, ptr %517, i64 %519, i32 noundef 1073741888)
-  %521 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %60, i32 0, i32 57
-  store ptr %520, ptr %521, align 8
+  %516 = getelementptr inbounds nuw { ptr, i64 }, ptr %58, i32 0, i32 1
+  %517 = load i64, ptr %516, align 8
+  %518 = call noundef ptr @_ZN4llvm9MCContext14getCOFFSectionENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(2432) %513, ptr %515, i64 %517, i32 noundef 1073741888)
+  %519 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %61, i32 0, i32 96
+  store ptr %518, ptr %519, align 8, !tbaa !313
+  %520 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %61, i32 0, i32 107
+  %521 = load ptr, ptr %520, align 8, !tbaa !17
+  call void @_ZN4llvm9StringRefC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %59, ptr noundef @.str.162)
+  %522 = getelementptr inbounds nuw { ptr, i64 }, ptr %59, i32 0, i32 0
+  %523 = load ptr, ptr %522, align 8
+  %524 = getelementptr inbounds nuw { ptr, i64 }, ptr %59, i32 0, i32 1
+  %525 = load i64, ptr %524, align 8
+  %526 = call noundef ptr @_ZN4llvm9MCContext14getCOFFSectionENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(2432) %521, ptr %523, i64 %525, i32 noundef -1073741760)
+  %527 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %61, i32 0, i32 56
+  store ptr %526, ptr %527, align 8, !tbaa !27
+  %528 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %61, i32 0, i32 107
+  %529 = load ptr, ptr %528, align 8, !tbaa !17
+  call void @_ZN4llvm9StringRefC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %60, ptr noundef @.str.137)
+  %530 = getelementptr inbounds nuw { ptr, i64 }, ptr %60, i32 0, i32 0
+  %531 = load ptr, ptr %530, align 8
+  %532 = getelementptr inbounds nuw { ptr, i64 }, ptr %60, i32 0, i32 1
+  %533 = load i64, ptr %532, align 8
+  %534 = call noundef ptr @_ZN4llvm9MCContext14getCOFFSectionENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(2432) %529, ptr %531, i64 %533, i32 noundef 1073741888)
+  %535 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %61, i32 0, i32 58
+  store ptr %534, ptr %535, align 8, !tbaa !84
+  call void @llvm.lifetime.end.p0(i64 1, ptr %6) #11
   ret void
 }
 
 declare noundef ptr @_ZN4llvm9MCContext14getCOFFSectionENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(2432), ptr, i64, i32 noundef) #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm16MCObjectFileInfo25initSPIRVMCObjectFileInfoERKNS_6TripleE(ptr noundef nonnull align 8 dereferenceable(912) %0, ptr noundef nonnull align 8 dereferenceable(56) %1) #0 align 2 {
+define dso_local void @_ZN4llvm16MCObjectFileInfo25initSPIRVMCObjectFileInfoERKNS_6TripleE(ptr noundef nonnull align 8 dereferenceable(920) %0, ptr noundef nonnull align 8 dereferenceable(56) %1) #0 align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  store ptr %1, ptr %4, align 8, !tbaa !8
   %5 = load ptr, ptr %3, align 8
-  %6 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %5, i32 0, i32 106
-  %7 = load ptr, ptr %6, align 8
+  %6 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %5, i32 0, i32 107
+  %7 = load ptr, ptr %6, align 8, !tbaa !17
   %8 = call noundef ptr @_ZN4llvm9MCContext15getSPIRVSectionEv(ptr noundef nonnull align 8 dereferenceable(2432) %7)
   %9 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %5, i32 0, i32 6
-  store ptr %8, ptr %9, align 8
+  store ptr %8, ptr %9, align 8, !tbaa !24
   ret void
 }
 
 declare noundef ptr @_ZN4llvm9MCContext15getSPIRVSectionEv(ptr noundef nonnull align 8 dereferenceable(2432)) #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm16MCObjectFileInfo24initWasmMCObjectFileInfoERKNS_6TripleE(ptr noundef nonnull align 8 dereferenceable(912) %0, ptr noundef nonnull align 8 dereferenceable(56) %1) #0 align 2 {
+define dso_local void @_ZN4llvm16MCObjectFileInfo24initWasmMCObjectFileInfoERKNS_6TripleE(ptr noundef nonnull align 8 dereferenceable(920) %0, ptr noundef nonnull align 8 dereferenceable(56) %1) #0 align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca %"class.llvm::Twine", align 8
@@ -4342,11 +4506,12 @@ define dso_local void @_ZN4llvm16MCObjectFileInfo24initWasmMCObjectFileInfoERKNS
   %78 = alloca %"class.llvm::SectionKind", align 4
   %79 = alloca %"class.llvm::Twine", align 8
   %80 = alloca %"class.llvm::SectionKind", align 4
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  store ptr %1, ptr %4, align 8, !tbaa !8
   %81 = load ptr, ptr %3, align 8
-  %82 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %81, i32 0, i32 106
-  %83 = load ptr, ptr %82, align 8
+  %82 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %81, i32 0, i32 107
+  %83 = load ptr, ptr %82, align 8, !tbaa !17
+  call void @llvm.lifetime.start.p0(i64 40, ptr %5) #11
   call void @_ZN4llvm5TwineC2EPKc(ptr noundef nonnull align 8 dereferenceable(34) %5, ptr noundef @.str.89)
   %84 = call i32 @_ZN4llvm11SectionKind7getTextEv()
   %85 = trunc i32 %84 to i8
@@ -4354,9 +4519,11 @@ define dso_local void @_ZN4llvm16MCObjectFileInfo24initWasmMCObjectFileInfoERKNS
   %86 = load i32, ptr %6, align 4
   %87 = call noundef ptr @_ZN4llvm9MCContext14getWasmSectionERKNS_5TwineENS_11SectionKindEj(ptr noundef nonnull align 8 dereferenceable(2432) %83, ptr noundef nonnull align 8 dereferenceable(34) %5, i32 %86, i32 noundef 0)
   %88 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %81, i32 0, i32 6
-  store ptr %87, ptr %88, align 8
-  %89 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %81, i32 0, i32 106
-  %90 = load ptr, ptr %89, align 8
+  store ptr %87, ptr %88, align 8, !tbaa !24
+  call void @llvm.lifetime.end.p0(i64 40, ptr %5) #11
+  %89 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %81, i32 0, i32 107
+  %90 = load ptr, ptr %89, align 8, !tbaa !17
+  call void @llvm.lifetime.start.p0(i64 40, ptr %7) #11
   call void @_ZN4llvm5TwineC2EPKc(ptr noundef nonnull align 8 dereferenceable(34) %7, ptr noundef @.str.90)
   %91 = call i32 @_ZN4llvm11SectionKind7getDataEv()
   %92 = trunc i32 %91 to i8
@@ -4364,367 +4531,440 @@ define dso_local void @_ZN4llvm16MCObjectFileInfo24initWasmMCObjectFileInfoERKNS
   %93 = load i32, ptr %8, align 4
   %94 = call noundef ptr @_ZN4llvm9MCContext14getWasmSectionERKNS_5TwineENS_11SectionKindEj(ptr noundef nonnull align 8 dereferenceable(2432) %90, ptr noundef nonnull align 8 dereferenceable(34) %7, i32 %93, i32 noundef 0)
   %95 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %81, i32 0, i32 7
-  store ptr %94, ptr %95, align 8
-  %96 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %81, i32 0, i32 106
-  %97 = load ptr, ptr %96, align 8
+  store ptr %94, ptr %95, align 8, !tbaa !25
+  call void @llvm.lifetime.end.p0(i64 40, ptr %7) #11
+  %96 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %81, i32 0, i32 107
+  %97 = load ptr, ptr %96, align 8, !tbaa !17
+  call void @llvm.lifetime.start.p0(i64 40, ptr %9) #11
   call void @_ZN4llvm5TwineC2EPKc(ptr noundef nonnull align 8 dereferenceable(34) %9, ptr noundef @.str.102)
   %98 = call i32 @_ZN4llvm11SectionKind11getMetadataEv()
   %99 = trunc i32 %98 to i8
   store i8 %99, ptr %10, align 4
   %100 = load i32, ptr %10, align 4
   %101 = call noundef ptr @_ZN4llvm9MCContext14getWasmSectionERKNS_5TwineENS_11SectionKindEj(ptr noundef nonnull align 8 dereferenceable(2432) %97, ptr noundef nonnull align 8 dereferenceable(34) %9, i32 %100, i32 noundef 0)
-  %102 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %81, i32 0, i32 14
-  store ptr %101, ptr %102, align 8
-  %103 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %81, i32 0, i32 106
-  %104 = load ptr, ptr %103, align 8
+  %102 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %81, i32 0, i32 15
+  store ptr %101, ptr %102, align 8, !tbaa !64
+  call void @llvm.lifetime.end.p0(i64 40, ptr %9) #11
+  %103 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %81, i32 0, i32 107
+  %104 = load ptr, ptr %103, align 8, !tbaa !17
+  call void @llvm.lifetime.start.p0(i64 40, ptr %11) #11
   call void @_ZN4llvm5TwineC2EPKc(ptr noundef nonnull align 8 dereferenceable(34) %11, ptr noundef @.str.103)
   %105 = call i32 @_ZN4llvm11SectionKind11getMetadataEv()
   %106 = trunc i32 %105 to i8
   store i8 %106, ptr %12, align 4
   %107 = load i32, ptr %12, align 4
   %108 = call noundef ptr @_ZN4llvm9MCContext14getWasmSectionERKNS_5TwineENS_11SectionKindEj(ptr noundef nonnull align 8 dereferenceable(2432) %104, ptr noundef nonnull align 8 dereferenceable(34) %11, i32 %107, i32 noundef 1)
-  %109 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %81, i32 0, i32 15
-  store ptr %108, ptr %109, align 8
-  %110 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %81, i32 0, i32 106
-  %111 = load ptr, ptr %110, align 8
+  %109 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %81, i32 0, i32 16
+  store ptr %108, ptr %109, align 8, !tbaa !65
+  call void @llvm.lifetime.end.p0(i64 40, ptr %11) #11
+  %110 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %81, i32 0, i32 107
+  %111 = load ptr, ptr %110, align 8, !tbaa !17
+  call void @llvm.lifetime.start.p0(i64 40, ptr %13) #11
   call void @_ZN4llvm5TwineC2EPKc(ptr noundef nonnull align 8 dereferenceable(34) %13, ptr noundef @.str.109)
   %112 = call i32 @_ZN4llvm11SectionKind11getMetadataEv()
   %113 = trunc i32 %112 to i8
   store i8 %113, ptr %14, align 4
   %114 = load i32, ptr %14, align 4
   %115 = call noundef ptr @_ZN4llvm9MCContext14getWasmSectionERKNS_5TwineENS_11SectionKindEj(ptr noundef nonnull align 8 dereferenceable(2432) %111, ptr noundef nonnull align 8 dereferenceable(34) %13, i32 %114, i32 noundef 1)
-  %116 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %81, i32 0, i32 19
-  store ptr %115, ptr %116, align 8
-  %117 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %81, i32 0, i32 106
-  %118 = load ptr, ptr %117, align 8
+  %116 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %81, i32 0, i32 20
+  store ptr %115, ptr %116, align 8, !tbaa !71
+  call void @llvm.lifetime.end.p0(i64 40, ptr %13) #11
+  %117 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %81, i32 0, i32 107
+  %118 = load ptr, ptr %117, align 8, !tbaa !17
+  call void @llvm.lifetime.start.p0(i64 40, ptr %15) #11
   call void @_ZN4llvm5TwineC2EPKc(ptr noundef nonnull align 8 dereferenceable(34) %15, ptr noundef @.str.110)
   %119 = call i32 @_ZN4llvm11SectionKind11getMetadataEv()
   %120 = trunc i32 %119 to i8
   store i8 %120, ptr %16, align 4
   %121 = load i32, ptr %16, align 4
   %122 = call noundef ptr @_ZN4llvm9MCContext14getWasmSectionERKNS_5TwineENS_11SectionKindEj(ptr noundef nonnull align 8 dereferenceable(2432) %118, ptr noundef nonnull align 8 dereferenceable(34) %15, i32 %121, i32 noundef 0)
-  %123 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %81, i32 0, i32 20
-  store ptr %122, ptr %123, align 8
-  %124 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %81, i32 0, i32 106
-  %125 = load ptr, ptr %124, align 8
+  %123 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %81, i32 0, i32 21
+  store ptr %122, ptr %123, align 8, !tbaa !74
+  call void @llvm.lifetime.end.p0(i64 40, ptr %15) #11
+  %124 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %81, i32 0, i32 107
+  %125 = load ptr, ptr %124, align 8, !tbaa !17
+  call void @llvm.lifetime.start.p0(i64 40, ptr %17) #11
   call void @_ZN4llvm5TwineC2EPKc(ptr noundef nonnull align 8 dereferenceable(34) %17, ptr noundef @.str.100)
   %126 = call i32 @_ZN4llvm11SectionKind11getMetadataEv()
   %127 = trunc i32 %126 to i8
   store i8 %127, ptr %18, align 4
   %128 = load i32, ptr %18, align 4
   %129 = call noundef ptr @_ZN4llvm9MCContext14getWasmSectionERKNS_5TwineENS_11SectionKindEj(ptr noundef nonnull align 8 dereferenceable(2432) %125, ptr noundef nonnull align 8 dereferenceable(34) %17, i32 %128, i32 noundef 0)
-  %130 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %81, i32 0, i32 12
-  store ptr %129, ptr %130, align 8
-  %131 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %81, i32 0, i32 106
-  %132 = load ptr, ptr %131, align 8
+  %130 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %81, i32 0, i32 13
+  store ptr %129, ptr %130, align 8, !tbaa !62
+  call void @llvm.lifetime.end.p0(i64 40, ptr %17) #11
+  %131 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %81, i32 0, i32 107
+  %132 = load ptr, ptr %131, align 8, !tbaa !17
+  call void @llvm.lifetime.start.p0(i64 40, ptr %19) #11
   call void @_ZN4llvm5TwineC2EPKc(ptr noundef nonnull align 8 dereferenceable(34) %19, ptr noundef @.str.111)
   %133 = call i32 @_ZN4llvm11SectionKind11getMetadataEv()
   %134 = trunc i32 %133 to i8
   store i8 %134, ptr %20, align 4
   %135 = load i32, ptr %20, align 4
   %136 = call noundef ptr @_ZN4llvm9MCContext14getWasmSectionERKNS_5TwineENS_11SectionKindEj(ptr noundef nonnull align 8 dereferenceable(2432) %132, ptr noundef nonnull align 8 dereferenceable(34) %19, i32 %135, i32 noundef 0)
-  %137 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %81, i32 0, i32 21
-  store ptr %136, ptr %137, align 8
-  %138 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %81, i32 0, i32 106
-  %139 = load ptr, ptr %138, align 8
+  %137 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %81, i32 0, i32 22
+  store ptr %136, ptr %137, align 8, !tbaa !76
+  call void @llvm.lifetime.end.p0(i64 40, ptr %19) #11
+  %138 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %81, i32 0, i32 107
+  %139 = load ptr, ptr %138, align 8, !tbaa !17
+  call void @llvm.lifetime.start.p0(i64 40, ptr %21) #11
   call void @_ZN4llvm5TwineC2EPKc(ptr noundef nonnull align 8 dereferenceable(34) %21, ptr noundef @.str.112)
   %140 = call i32 @_ZN4llvm11SectionKind11getMetadataEv()
   %141 = trunc i32 %140 to i8
   store i8 %141, ptr %22, align 4
   %142 = load i32, ptr %22, align 4
   %143 = call noundef ptr @_ZN4llvm9MCContext14getWasmSectionERKNS_5TwineENS_11SectionKindEj(ptr noundef nonnull align 8 dereferenceable(2432) %139, ptr noundef nonnull align 8 dereferenceable(34) %21, i32 %142, i32 noundef 0)
-  %144 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %81, i32 0, i32 22
-  store ptr %143, ptr %144, align 8
-  %145 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %81, i32 0, i32 106
-  %146 = load ptr, ptr %145, align 8
+  %144 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %81, i32 0, i32 23
+  store ptr %143, ptr %144, align 8, !tbaa !77
+  call void @llvm.lifetime.end.p0(i64 40, ptr %21) #11
+  %145 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %81, i32 0, i32 107
+  %146 = load ptr, ptr %145, align 8, !tbaa !17
+  call void @llvm.lifetime.start.p0(i64 40, ptr %23) #11
   call void @_ZN4llvm5TwineC2EPKc(ptr noundef nonnull align 8 dereferenceable(34) %23, ptr noundef @.str.113)
   %147 = call i32 @_ZN4llvm11SectionKind11getMetadataEv()
   %148 = trunc i32 %147 to i8
   store i8 %148, ptr %24, align 4
   %149 = load i32, ptr %24, align 4
   %150 = call noundef ptr @_ZN4llvm9MCContext14getWasmSectionERKNS_5TwineENS_11SectionKindEj(ptr noundef nonnull align 8 dereferenceable(2432) %146, ptr noundef nonnull align 8 dereferenceable(34) %23, i32 %149, i32 noundef 0)
-  %151 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %81, i32 0, i32 23
-  store ptr %150, ptr %151, align 8
-  %152 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %81, i32 0, i32 106
-  %153 = load ptr, ptr %152, align 8
+  %151 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %81, i32 0, i32 24
+  store ptr %150, ptr %151, align 8, !tbaa !79
+  call void @llvm.lifetime.end.p0(i64 40, ptr %23) #11
+  %152 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %81, i32 0, i32 107
+  %153 = load ptr, ptr %152, align 8, !tbaa !17
+  call void @llvm.lifetime.start.p0(i64 40, ptr %25) #11
   call void @_ZN4llvm5TwineC2EPKc(ptr noundef nonnull align 8 dereferenceable(34) %25, ptr noundef @.str.114)
   %154 = call i32 @_ZN4llvm11SectionKind11getMetadataEv()
   %155 = trunc i32 %154 to i8
   store i8 %155, ptr %26, align 4
   %156 = load i32, ptr %26, align 4
   %157 = call noundef ptr @_ZN4llvm9MCContext14getWasmSectionERKNS_5TwineENS_11SectionKindEj(ptr noundef nonnull align 8 dereferenceable(2432) %153, ptr noundef nonnull align 8 dereferenceable(34) %25, i32 %156, i32 noundef 0)
-  %158 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %81, i32 0, i32 24
-  store ptr %157, ptr %158, align 8
-  %159 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %81, i32 0, i32 106
-  %160 = load ptr, ptr %159, align 8
+  %158 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %81, i32 0, i32 25
+  store ptr %157, ptr %158, align 8, !tbaa !80
+  call void @llvm.lifetime.end.p0(i64 40, ptr %25) #11
+  %159 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %81, i32 0, i32 107
+  %160 = load ptr, ptr %159, align 8, !tbaa !17
+  call void @llvm.lifetime.start.p0(i64 40, ptr %27) #11
   call void @_ZN4llvm5TwineC2EPKc(ptr noundef nonnull align 8 dereferenceable(34) %27, ptr noundef @.str.135)
   %161 = call i32 @_ZN4llvm11SectionKind11getMetadataEv()
   %162 = trunc i32 %161 to i8
   store i8 %162, ptr %28, align 4
   %163 = load i32, ptr %28, align 4
   %164 = call noundef ptr @_ZN4llvm9MCContext14getWasmSectionERKNS_5TwineENS_11SectionKindEj(ptr noundef nonnull align 8 dereferenceable(2432) %160, ptr noundef nonnull align 8 dereferenceable(34) %27, i32 %163, i32 noundef 0)
-  %165 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %81, i32 0, i32 46
-  store ptr %164, ptr %165, align 8
-  %166 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %81, i32 0, i32 106
-  %167 = load ptr, ptr %166, align 8
+  %165 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %81, i32 0, i32 47
+  store ptr %164, ptr %165, align 8, !tbaa !82
+  call void @llvm.lifetime.end.p0(i64 40, ptr %27) #11
+  %166 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %81, i32 0, i32 107
+  %167 = load ptr, ptr %166, align 8, !tbaa !17
+  call void @llvm.lifetime.start.p0(i64 40, ptr %29) #11
   call void @_ZN4llvm5TwineC2EPKc(ptr noundef nonnull align 8 dereferenceable(34) %29, ptr noundef @.str.136)
   %168 = call i32 @_ZN4llvm11SectionKind11getMetadataEv()
   %169 = trunc i32 %168 to i8
   store i8 %169, ptr %30, align 4
   %170 = load i32, ptr %30, align 4
   %171 = call noundef ptr @_ZN4llvm9MCContext14getWasmSectionERKNS_5TwineENS_11SectionKindEj(ptr noundef nonnull align 8 dereferenceable(2432) %167, ptr noundef nonnull align 8 dereferenceable(34) %29, i32 %170, i32 noundef 0)
-  %172 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %81, i32 0, i32 47
-  store ptr %171, ptr %172, align 8
-  %173 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %81, i32 0, i32 106
-  %174 = load ptr, ptr %173, align 8
+  %172 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %81, i32 0, i32 48
+  store ptr %171, ptr %172, align 8, !tbaa !83
+  call void @llvm.lifetime.end.p0(i64 40, ptr %29) #11
+  %173 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %81, i32 0, i32 107
+  %174 = load ptr, ptr %173, align 8, !tbaa !17
+  call void @llvm.lifetime.start.p0(i64 40, ptr %31) #11
   call void @_ZN4llvm5TwineC2EPKc(ptr noundef nonnull align 8 dereferenceable(34) %31, ptr noundef @.str.101)
   %175 = call i32 @_ZN4llvm11SectionKind11getMetadataEv()
   %176 = trunc i32 %175 to i8
   store i8 %176, ptr %32, align 4
   %177 = load i32, ptr %32, align 4
   %178 = call noundef ptr @_ZN4llvm9MCContext14getWasmSectionERKNS_5TwineENS_11SectionKindEj(ptr noundef nonnull align 8 dereferenceable(2432) %174, ptr noundef nonnull align 8 dereferenceable(34) %31, i32 %177, i32 noundef 0)
-  %179 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %81, i32 0, i32 13
-  store ptr %178, ptr %179, align 8
-  %180 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %81, i32 0, i32 106
-  %181 = load ptr, ptr %180, align 8
+  %179 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %81, i32 0, i32 14
+  store ptr %178, ptr %179, align 8, !tbaa !63
+  call void @llvm.lifetime.end.p0(i64 40, ptr %31) #11
+  %180 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %81, i32 0, i32 107
+  %181 = load ptr, ptr %180, align 8, !tbaa !17
+  call void @llvm.lifetime.start.p0(i64 40, ptr %33) #11
   call void @_ZN4llvm5TwineC2EPKc(ptr noundef nonnull align 8 dereferenceable(34) %33, ptr noundef @.str.104)
   %182 = call i32 @_ZN4llvm11SectionKind11getMetadataEv()
   %183 = trunc i32 %182 to i8
   store i8 %183, ptr %34, align 4
   %184 = load i32, ptr %34, align 4
   %185 = call noundef ptr @_ZN4llvm9MCContext14getWasmSectionERKNS_5TwineENS_11SectionKindEj(ptr noundef nonnull align 8 dereferenceable(2432) %181, ptr noundef nonnull align 8 dereferenceable(34) %33, i32 %184, i32 noundef 0)
-  %186 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %81, i32 0, i32 16
-  store ptr %185, ptr %186, align 8
-  %187 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %81, i32 0, i32 106
-  %188 = load ptr, ptr %187, align 8
+  %186 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %81, i32 0, i32 17
+  store ptr %185, ptr %186, align 8, !tbaa !66
+  call void @llvm.lifetime.end.p0(i64 40, ptr %33) #11
+  %187 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %81, i32 0, i32 107
+  %188 = load ptr, ptr %187, align 8, !tbaa !17
+  call void @llvm.lifetime.start.p0(i64 40, ptr %35) #11
   call void @_ZN4llvm5TwineC2EPKc(ptr noundef nonnull align 8 dereferenceable(34) %35, ptr noundef @.str.105)
   %189 = call i32 @_ZN4llvm11SectionKind11getMetadataEv()
   %190 = trunc i32 %189 to i8
   store i8 %190, ptr %36, align 4
   %191 = load i32, ptr %36, align 4
   %192 = call noundef ptr @_ZN4llvm9MCContext14getWasmSectionERKNS_5TwineENS_11SectionKindEj(ptr noundef nonnull align 8 dereferenceable(2432) %188, ptr noundef nonnull align 8 dereferenceable(34) %35, i32 %191, i32 noundef 0)
-  %193 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %81, i32 0, i32 25
-  store ptr %192, ptr %193, align 8
-  %194 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %81, i32 0, i32 106
-  %195 = load ptr, ptr %194, align 8
+  %193 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %81, i32 0, i32 26
+  store ptr %192, ptr %193, align 8, !tbaa !67
+  call void @llvm.lifetime.end.p0(i64 40, ptr %35) #11
+  %194 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %81, i32 0, i32 107
+  %195 = load ptr, ptr %194, align 8, !tbaa !17
+  call void @llvm.lifetime.start.p0(i64 40, ptr %37) #11
   call void @_ZN4llvm5TwineC2EPKc(ptr noundef nonnull align 8 dereferenceable(34) %37, ptr noundef @.str.106)
   %196 = call i32 @_ZN4llvm11SectionKind11getMetadataEv()
   %197 = trunc i32 %196 to i8
   store i8 %197, ptr %38, align 4
   %198 = load i32, ptr %38, align 4
   %199 = call noundef ptr @_ZN4llvm9MCContext14getWasmSectionERKNS_5TwineENS_11SectionKindEj(ptr noundef nonnull align 8 dereferenceable(2432) %195, ptr noundef nonnull align 8 dereferenceable(34) %37, i32 %198, i32 noundef 0)
-  %200 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %81, i32 0, i32 17
-  store ptr %199, ptr %200, align 8
-  %201 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %81, i32 0, i32 106
-  %202 = load ptr, ptr %201, align 8
+  %200 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %81, i32 0, i32 18
+  store ptr %199, ptr %200, align 8, !tbaa !68
+  call void @llvm.lifetime.end.p0(i64 40, ptr %37) #11
+  %201 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %81, i32 0, i32 107
+  %202 = load ptr, ptr %201, align 8, !tbaa !17
+  call void @llvm.lifetime.start.p0(i64 40, ptr %39) #11
   call void @_ZN4llvm5TwineC2EPKc(ptr noundef nonnull align 8 dereferenceable(34) %39, ptr noundef @.str.107)
   %203 = call i32 @_ZN4llvm11SectionKind11getMetadataEv()
   %204 = trunc i32 %203 to i8
   store i8 %204, ptr %40, align 4
   %205 = load i32, ptr %40, align 4
   %206 = call noundef ptr @_ZN4llvm9MCContext14getWasmSectionERKNS_5TwineENS_11SectionKindEj(ptr noundef nonnull align 8 dereferenceable(2432) %202, ptr noundef nonnull align 8 dereferenceable(34) %39, i32 %205, i32 noundef 0)
-  %207 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %81, i32 0, i32 48
-  store ptr %206, ptr %207, align 8
-  %208 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %81, i32 0, i32 106
-  %209 = load ptr, ptr %208, align 8
+  %207 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %81, i32 0, i32 49
+  store ptr %206, ptr %207, align 8, !tbaa !69
+  call void @llvm.lifetime.end.p0(i64 40, ptr %39) #11
+  %208 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %81, i32 0, i32 107
+  %209 = load ptr, ptr %208, align 8, !tbaa !17
+  call void @llvm.lifetime.start.p0(i64 40, ptr %41) #11
   call void @_ZN4llvm5TwineC2EPKc(ptr noundef nonnull align 8 dereferenceable(34) %41, ptr noundef @.str.108)
   %210 = call i32 @_ZN4llvm11SectionKind11getMetadataEv()
   %211 = trunc i32 %210 to i8
   store i8 %211, ptr %42, align 4
   %212 = load i32, ptr %42, align 4
   %213 = call noundef ptr @_ZN4llvm9MCContext14getWasmSectionERKNS_5TwineENS_11SectionKindEj(ptr noundef nonnull align 8 dereferenceable(2432) %209, ptr noundef nonnull align 8 dereferenceable(34) %41, i32 %212, i32 noundef 0)
-  %214 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %81, i32 0, i32 49
-  store ptr %213, ptr %214, align 8
-  %215 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %81, i32 0, i32 106
-  %216 = load ptr, ptr %215, align 8
+  %214 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %81, i32 0, i32 50
+  store ptr %213, ptr %214, align 8, !tbaa !70
+  call void @llvm.lifetime.end.p0(i64 40, ptr %41) #11
+  %215 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %81, i32 0, i32 107
+  %216 = load ptr, ptr %215, align 8, !tbaa !17
+  call void @llvm.lifetime.start.p0(i64 40, ptr %43) #11
   call void @_ZN4llvm5TwineC2EPKc(ptr noundef nonnull align 8 dereferenceable(34) %43, ptr noundef @.str.115)
   %217 = call i32 @_ZN4llvm11SectionKind11getMetadataEv()
   %218 = trunc i32 %217 to i8
   store i8 %218, ptr %44, align 4
   %219 = load i32, ptr %44, align 4
   %220 = call noundef ptr @_ZN4llvm9MCContext14getWasmSectionERKNS_5TwineENS_11SectionKindEj(ptr noundef nonnull align 8 dereferenceable(2432) %216, ptr noundef nonnull align 8 dereferenceable(34) %43, i32 %219, i32 noundef 0)
-  %221 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %81, i32 0, i32 26
-  store ptr %220, ptr %221, align 8
-  %222 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %81, i32 0, i32 106
-  %223 = load ptr, ptr %222, align 8
+  %221 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %81, i32 0, i32 27
+  store ptr %220, ptr %221, align 8, !tbaa !56
+  call void @llvm.lifetime.end.p0(i64 40, ptr %43) #11
+  %222 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %81, i32 0, i32 107
+  %223 = load ptr, ptr %222, align 8, !tbaa !17
+  call void @llvm.lifetime.start.p0(i64 40, ptr %45) #11
   call void @_ZN4llvm5TwineC2EPKc(ptr noundef nonnull align 8 dereferenceable(34) %45, ptr noundef @.str.120)
   %224 = call i32 @_ZN4llvm11SectionKind11getMetadataEv()
   %225 = trunc i32 %224 to i8
   store i8 %225, ptr %46, align 4
   %226 = load i32, ptr %46, align 4
   %227 = call noundef ptr @_ZN4llvm9MCContext14getWasmSectionERKNS_5TwineENS_11SectionKindEj(ptr noundef nonnull align 8 dereferenceable(2432) %223, ptr noundef nonnull align 8 dereferenceable(34) %45, i32 %226, i32 noundef 0)
-  %228 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %81, i32 0, i32 40
-  store ptr %227, ptr %228, align 8
-  %229 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %81, i32 0, i32 106
-  %230 = load ptr, ptr %229, align 8
+  %228 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %81, i32 0, i32 41
+  store ptr %227, ptr %228, align 8, !tbaa !72
+  call void @llvm.lifetime.end.p0(i64 40, ptr %45) #11
+  %229 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %81, i32 0, i32 107
+  %230 = load ptr, ptr %229, align 8, !tbaa !17
+  call void @llvm.lifetime.start.p0(i64 40, ptr %47) #11
   call void @_ZN4llvm5TwineC2EPKc(ptr noundef nonnull align 8 dereferenceable(34) %47, ptr noundef @.str.121)
   %231 = call i32 @_ZN4llvm11SectionKind11getMetadataEv()
   %232 = trunc i32 %231 to i8
   store i8 %232, ptr %48, align 4
   %233 = load i32, ptr %48, align 4
   %234 = call noundef ptr @_ZN4llvm9MCContext14getWasmSectionERKNS_5TwineENS_11SectionKindEj(ptr noundef nonnull align 8 dereferenceable(2432) %230, ptr noundef nonnull align 8 dereferenceable(34) %47, i32 %233, i32 noundef 0)
-  %235 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %81, i32 0, i32 41
-  store ptr %234, ptr %235, align 8
-  %236 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %81, i32 0, i32 106
-  %237 = load ptr, ptr %236, align 8
+  %235 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %81, i32 0, i32 42
+  store ptr %234, ptr %235, align 8, !tbaa !73
+  call void @llvm.lifetime.end.p0(i64 40, ptr %47) #11
+  %236 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %81, i32 0, i32 107
+  %237 = load ptr, ptr %236, align 8, !tbaa !17
+  call void @llvm.lifetime.start.p0(i64 40, ptr %49) #11
   call void @_ZN4llvm5TwineC2EPKc(ptr noundef nonnull align 8 dereferenceable(34) %49, ptr noundef @.str.122)
   %238 = call i32 @_ZN4llvm11SectionKind11getMetadataEv()
   %239 = trunc i32 %238 to i8
   store i8 %239, ptr %50, align 4
   %240 = load i32, ptr %50, align 4
   %241 = call noundef ptr @_ZN4llvm9MCContext14getWasmSectionERKNS_5TwineENS_11SectionKindEj(ptr noundef nonnull align 8 dereferenceable(2432) %237, ptr noundef nonnull align 8 dereferenceable(34) %49, i32 %240, i32 noundef 0)
-  %242 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %81, i32 0, i32 42
-  store ptr %241, ptr %242, align 8
-  %243 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %81, i32 0, i32 106
-  %244 = load ptr, ptr %243, align 8
+  %242 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %81, i32 0, i32 43
+  store ptr %241, ptr %242, align 8, !tbaa !78
+  call void @llvm.lifetime.end.p0(i64 40, ptr %49) #11
+  %243 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %81, i32 0, i32 107
+  %244 = load ptr, ptr %243, align 8, !tbaa !17
+  call void @llvm.lifetime.start.p0(i64 40, ptr %51) #11
   call void @_ZN4llvm5TwineC2EPKc(ptr noundef nonnull align 8 dereferenceable(34) %51, ptr noundef @.str.123)
   %245 = call i32 @_ZN4llvm11SectionKind11getMetadataEv()
   %246 = trunc i32 %245 to i8
   store i8 %246, ptr %52, align 4
   %247 = load i32, ptr %52, align 4
   %248 = call noundef ptr @_ZN4llvm9MCContext14getWasmSectionERKNS_5TwineENS_11SectionKindEj(ptr noundef nonnull align 8 dereferenceable(2432) %244, ptr noundef nonnull align 8 dereferenceable(34) %51, i32 %247, i32 noundef 0)
-  %249 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %81, i32 0, i32 43
-  store ptr %248, ptr %249, align 8
-  %250 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %81, i32 0, i32 106
-  %251 = load ptr, ptr %250, align 8
+  %249 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %81, i32 0, i32 44
+  store ptr %248, ptr %249, align 8, !tbaa !75
+  call void @llvm.lifetime.end.p0(i64 40, ptr %51) #11
+  %250 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %81, i32 0, i32 107
+  %251 = load ptr, ptr %250, align 8, !tbaa !17
+  call void @llvm.lifetime.start.p0(i64 40, ptr %53) #11
   call void @_ZN4llvm5TwineC2EPKc(ptr noundef nonnull align 8 dereferenceable(34) %53, ptr noundef @.str.124)
   %252 = call i32 @_ZN4llvm11SectionKind11getMetadataEv()
   %253 = trunc i32 %252 to i8
   store i8 %253, ptr %54, align 4
   %254 = load i32, ptr %54, align 4
   %255 = call noundef ptr @_ZN4llvm9MCContext14getWasmSectionERKNS_5TwineENS_11SectionKindEj(ptr noundef nonnull align 8 dereferenceable(2432) %251, ptr noundef nonnull align 8 dereferenceable(34) %53, i32 %254, i32 noundef 0)
-  %256 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %81, i32 0, i32 31
-  store ptr %255, ptr %256, align 8
-  %257 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %81, i32 0, i32 106
-  %258 = load ptr, ptr %257, align 8
+  %256 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %81, i32 0, i32 32
+  store ptr %255, ptr %256, align 8, !tbaa !121
+  call void @llvm.lifetime.end.p0(i64 40, ptr %53) #11
+  %257 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %81, i32 0, i32 107
+  %258 = load ptr, ptr %257, align 8, !tbaa !17
+  call void @llvm.lifetime.start.p0(i64 40, ptr %55) #11
   call void @_ZN4llvm5TwineC2EPKc(ptr noundef nonnull align 8 dereferenceable(34) %55, ptr noundef @.str.125)
   %259 = call i32 @_ZN4llvm11SectionKind11getMetadataEv()
   %260 = trunc i32 %259 to i8
   store i8 %260, ptr %56, align 4
   %261 = load i32, ptr %56, align 4
   %262 = call noundef ptr @_ZN4llvm9MCContext14getWasmSectionERKNS_5TwineENS_11SectionKindEj(ptr noundef nonnull align 8 dereferenceable(2432) %258, ptr noundef nonnull align 8 dereferenceable(34) %55, i32 %261, i32 noundef 0)
-  %263 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %81, i32 0, i32 32
-  store ptr %262, ptr %263, align 8
-  %264 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %81, i32 0, i32 106
-  %265 = load ptr, ptr %264, align 8
+  %263 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %81, i32 0, i32 33
+  store ptr %262, ptr %263, align 8, !tbaa !122
+  call void @llvm.lifetime.end.p0(i64 40, ptr %55) #11
+  %264 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %81, i32 0, i32 107
+  %265 = load ptr, ptr %264, align 8, !tbaa !17
+  call void @llvm.lifetime.start.p0(i64 40, ptr %57) #11
   call void @_ZN4llvm5TwineC2EPKc(ptr noundef nonnull align 8 dereferenceable(34) %57, ptr noundef @.str.126)
   %266 = call i32 @_ZN4llvm11SectionKind11getMetadataEv()
   %267 = trunc i32 %266 to i8
   store i8 %267, ptr %58, align 4
   %268 = load i32, ptr %58, align 4
   %269 = call noundef ptr @_ZN4llvm9MCContext14getWasmSectionERKNS_5TwineENS_11SectionKindEj(ptr noundef nonnull align 8 dereferenceable(2432) %265, ptr noundef nonnull align 8 dereferenceable(34) %57, i32 %268, i32 noundef 0)
-  %270 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %81, i32 0, i32 33
-  store ptr %269, ptr %270, align 8
-  %271 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %81, i32 0, i32 106
-  %272 = load ptr, ptr %271, align 8
+  %270 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %81, i32 0, i32 34
+  store ptr %269, ptr %270, align 8, !tbaa !123
+  call void @llvm.lifetime.end.p0(i64 40, ptr %57) #11
+  %271 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %81, i32 0, i32 107
+  %272 = load ptr, ptr %271, align 8, !tbaa !17
+  call void @llvm.lifetime.start.p0(i64 40, ptr %59) #11
   call void @_ZN4llvm5TwineC2EPKc(ptr noundef nonnull align 8 dereferenceable(34) %59, ptr noundef @.str.127)
   %273 = call i32 @_ZN4llvm11SectionKind11getMetadataEv()
   %274 = trunc i32 %273 to i8
   store i8 %274, ptr %60, align 4
   %275 = load i32, ptr %60, align 4
   %276 = call noundef ptr @_ZN4llvm9MCContext14getWasmSectionERKNS_5TwineENS_11SectionKindEj(ptr noundef nonnull align 8 dereferenceable(2432) %272, ptr noundef nonnull align 8 dereferenceable(34) %59, i32 %275, i32 noundef 1)
-  %277 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %81, i32 0, i32 34
-  store ptr %276, ptr %277, align 8
-  %278 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %81, i32 0, i32 106
-  %279 = load ptr, ptr %278, align 8
+  %277 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %81, i32 0, i32 35
+  store ptr %276, ptr %277, align 8, !tbaa !124
+  call void @llvm.lifetime.end.p0(i64 40, ptr %59) #11
+  %278 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %81, i32 0, i32 107
+  %279 = load ptr, ptr %278, align 8, !tbaa !17
+  call void @llvm.lifetime.start.p0(i64 40, ptr %61) #11
   call void @_ZN4llvm5TwineC2EPKc(ptr noundef nonnull align 8 dereferenceable(34) %61, ptr noundef @.str.128)
   %280 = call i32 @_ZN4llvm11SectionKind11getMetadataEv()
   %281 = trunc i32 %280 to i8
   store i8 %281, ptr %62, align 4
   %282 = load i32, ptr %62, align 4
   %283 = call noundef ptr @_ZN4llvm9MCContext14getWasmSectionERKNS_5TwineENS_11SectionKindEj(ptr noundef nonnull align 8 dereferenceable(2432) %279, ptr noundef nonnull align 8 dereferenceable(34) %61, i32 %282, i32 noundef 0)
-  %284 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %81, i32 0, i32 35
-  store ptr %283, ptr %284, align 8
-  %285 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %81, i32 0, i32 106
-  %286 = load ptr, ptr %285, align 8
+  %284 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %81, i32 0, i32 36
+  store ptr %283, ptr %284, align 8, !tbaa !125
+  call void @llvm.lifetime.end.p0(i64 40, ptr %61) #11
+  %285 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %81, i32 0, i32 107
+  %286 = load ptr, ptr %285, align 8, !tbaa !17
+  call void @llvm.lifetime.start.p0(i64 40, ptr %63) #11
   call void @_ZN4llvm5TwineC2EPKc(ptr noundef nonnull align 8 dereferenceable(34) %63, ptr noundef @.str.129)
   %287 = call i32 @_ZN4llvm11SectionKind11getMetadataEv()
   %288 = trunc i32 %287 to i8
   store i8 %288, ptr %64, align 4
   %289 = load i32, ptr %64, align 4
   %290 = call noundef ptr @_ZN4llvm9MCContext14getWasmSectionERKNS_5TwineENS_11SectionKindEj(ptr noundef nonnull align 8 dereferenceable(2432) %286, ptr noundef nonnull align 8 dereferenceable(34) %63, i32 %289, i32 noundef 0)
-  %291 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %81, i32 0, i32 36
-  store ptr %290, ptr %291, align 8
-  %292 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %81, i32 0, i32 106
-  %293 = load ptr, ptr %292, align 8
+  %291 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %81, i32 0, i32 37
+  store ptr %290, ptr %291, align 8, !tbaa !126
+  call void @llvm.lifetime.end.p0(i64 40, ptr %63) #11
+  %292 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %81, i32 0, i32 107
+  %293 = load ptr, ptr %292, align 8, !tbaa !17
+  call void @llvm.lifetime.start.p0(i64 40, ptr %65) #11
   call void @_ZN4llvm5TwineC2EPKc(ptr noundef nonnull align 8 dereferenceable(34) %65, ptr noundef @.str.130)
   %294 = call i32 @_ZN4llvm11SectionKind11getMetadataEv()
   %295 = trunc i32 %294 to i8
   store i8 %295, ptr %66, align 4
   %296 = load i32, ptr %66, align 4
   %297 = call noundef ptr @_ZN4llvm9MCContext14getWasmSectionERKNS_5TwineENS_11SectionKindEj(ptr noundef nonnull align 8 dereferenceable(2432) %293, ptr noundef nonnull align 8 dereferenceable(34) %65, i32 %296, i32 noundef 0)
-  %298 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %81, i32 0, i32 37
-  store ptr %297, ptr %298, align 8
-  %299 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %81, i32 0, i32 106
-  %300 = load ptr, ptr %299, align 8
+  %298 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %81, i32 0, i32 38
+  store ptr %297, ptr %298, align 8, !tbaa !127
+  call void @llvm.lifetime.end.p0(i64 40, ptr %65) #11
+  %299 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %81, i32 0, i32 107
+  %300 = load ptr, ptr %299, align 8, !tbaa !17
+  call void @llvm.lifetime.start.p0(i64 40, ptr %67) #11
   call void @_ZN4llvm5TwineC2EPKc(ptr noundef nonnull align 8 dereferenceable(34) %67, ptr noundef @.str.131)
   %301 = call i32 @_ZN4llvm11SectionKind11getMetadataEv()
   %302 = trunc i32 %301 to i8
   store i8 %302, ptr %68, align 4
   %303 = load i32, ptr %68, align 4
   %304 = call noundef ptr @_ZN4llvm9MCContext14getWasmSectionERKNS_5TwineENS_11SectionKindEj(ptr noundef nonnull align 8 dereferenceable(2432) %300, ptr noundef nonnull align 8 dereferenceable(34) %67, i32 %303, i32 noundef 0)
-  %305 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %81, i32 0, i32 44
-  store ptr %304, ptr %305, align 8
-  %306 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %81, i32 0, i32 106
-  %307 = load ptr, ptr %306, align 8
+  %305 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %81, i32 0, i32 45
+  store ptr %304, ptr %305, align 8, !tbaa !128
+  call void @llvm.lifetime.end.p0(i64 40, ptr %67) #11
+  %306 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %81, i32 0, i32 107
+  %307 = load ptr, ptr %306, align 8, !tbaa !17
+  call void @llvm.lifetime.start.p0(i64 40, ptr %69) #11
   call void @_ZN4llvm5TwineC2EPKc(ptr noundef nonnull align 8 dereferenceable(34) %69, ptr noundef @.str.132)
   %308 = call i32 @_ZN4llvm11SectionKind11getMetadataEv()
   %309 = trunc i32 %308 to i8
   store i8 %309, ptr %70, align 4
   %310 = load i32, ptr %70, align 4
   %311 = call noundef ptr @_ZN4llvm9MCContext14getWasmSectionERKNS_5TwineENS_11SectionKindEj(ptr noundef nonnull align 8 dereferenceable(2432) %307, ptr noundef nonnull align 8 dereferenceable(34) %69, i32 %310, i32 noundef 0)
-  %312 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %81, i32 0, i32 38
-  store ptr %311, ptr %312, align 8
-  %313 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %81, i32 0, i32 106
-  %314 = load ptr, ptr %313, align 8
+  %312 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %81, i32 0, i32 39
+  store ptr %311, ptr %312, align 8, !tbaa !129
+  call void @llvm.lifetime.end.p0(i64 40, ptr %69) #11
+  %313 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %81, i32 0, i32 107
+  %314 = load ptr, ptr %313, align 8, !tbaa !17
+  call void @llvm.lifetime.start.p0(i64 40, ptr %71) #11
   call void @_ZN4llvm5TwineC2EPKc(ptr noundef nonnull align 8 dereferenceable(34) %71, ptr noundef @.str.133)
   %315 = call i32 @_ZN4llvm11SectionKind11getMetadataEv()
   %316 = trunc i32 %315 to i8
   store i8 %316, ptr %72, align 4
   %317 = load i32, ptr %72, align 4
   %318 = call noundef ptr @_ZN4llvm9MCContext14getWasmSectionERKNS_5TwineENS_11SectionKindEj(ptr noundef nonnull align 8 dereferenceable(2432) %314, ptr noundef nonnull align 8 dereferenceable(34) %71, i32 %317, i32 noundef 0)
-  %319 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %81, i32 0, i32 39
-  store ptr %318, ptr %319, align 8
-  %320 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %81, i32 0, i32 106
-  %321 = load ptr, ptr %320, align 8
+  %319 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %81, i32 0, i32 40
+  store ptr %318, ptr %319, align 8, !tbaa !130
+  call void @llvm.lifetime.end.p0(i64 40, ptr %71) #11
+  %320 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %81, i32 0, i32 107
+  %321 = load ptr, ptr %320, align 8, !tbaa !17
+  call void @llvm.lifetime.start.p0(i64 40, ptr %73) #11
   call void @_ZN4llvm5TwineC2EPKc(ptr noundef nonnull align 8 dereferenceable(34) %73, ptr noundef @.str.134)
   %322 = call i32 @_ZN4llvm11SectionKind11getMetadataEv()
   %323 = trunc i32 %322 to i8
   store i8 %323, ptr %74, align 4
   %324 = load i32, ptr %74, align 4
   %325 = call noundef ptr @_ZN4llvm9MCContext14getWasmSectionERKNS_5TwineENS_11SectionKindEj(ptr noundef nonnull align 8 dereferenceable(2432) %321, ptr noundef nonnull align 8 dereferenceable(34) %73, i32 %324, i32 noundef 0)
-  %326 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %81, i32 0, i32 45
-  store ptr %325, ptr %326, align 8
-  %327 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %81, i32 0, i32 106
-  %328 = load ptr, ptr %327, align 8
+  %326 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %81, i32 0, i32 46
+  store ptr %325, ptr %326, align 8, !tbaa !131
+  call void @llvm.lifetime.end.p0(i64 40, ptr %73) #11
+  %327 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %81, i32 0, i32 107
+  %328 = load ptr, ptr %327, align 8, !tbaa !17
+  call void @llvm.lifetime.start.p0(i64 40, ptr %75) #11
   call void @_ZN4llvm5TwineC2EPKc(ptr noundef nonnull align 8 dereferenceable(34) %75, ptr noundef @.str.135)
   %329 = call i32 @_ZN4llvm11SectionKind11getMetadataEv()
   %330 = trunc i32 %329 to i8
   store i8 %330, ptr %76, align 4
   %331 = load i32, ptr %76, align 4
   %332 = call noundef ptr @_ZN4llvm9MCContext14getWasmSectionERKNS_5TwineENS_11SectionKindEj(ptr noundef nonnull align 8 dereferenceable(2432) %328, ptr noundef nonnull align 8 dereferenceable(34) %75, i32 %331, i32 noundef 0)
-  %333 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %81, i32 0, i32 46
-  store ptr %332, ptr %333, align 8
-  %334 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %81, i32 0, i32 106
-  %335 = load ptr, ptr %334, align 8
+  %333 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %81, i32 0, i32 47
+  store ptr %332, ptr %333, align 8, !tbaa !82
+  call void @llvm.lifetime.end.p0(i64 40, ptr %75) #11
+  %334 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %81, i32 0, i32 107
+  %335 = load ptr, ptr %334, align 8, !tbaa !17
+  call void @llvm.lifetime.start.p0(i64 40, ptr %77) #11
   call void @_ZN4llvm5TwineC2EPKc(ptr noundef nonnull align 8 dereferenceable(34) %77, ptr noundef @.str.136)
   %336 = call i32 @_ZN4llvm11SectionKind11getMetadataEv()
   %337 = trunc i32 %336 to i8
   store i8 %337, ptr %78, align 4
   %338 = load i32, ptr %78, align 4
   %339 = call noundef ptr @_ZN4llvm9MCContext14getWasmSectionERKNS_5TwineENS_11SectionKindEj(ptr noundef nonnull align 8 dereferenceable(2432) %335, ptr noundef nonnull align 8 dereferenceable(34) %77, i32 %338, i32 noundef 0)
-  %340 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %81, i32 0, i32 47
-  store ptr %339, ptr %340, align 8
-  %341 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %81, i32 0, i32 106
-  %342 = load ptr, ptr %341, align 8
-  call void @_ZN4llvm5TwineC2EPKc(ptr noundef nonnull align 8 dereferenceable(34) %79, ptr noundef @.str.162)
+  %340 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %81, i32 0, i32 48
+  store ptr %339, ptr %340, align 8, !tbaa !83
+  call void @llvm.lifetime.end.p0(i64 40, ptr %77) #11
+  %341 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %81, i32 0, i32 107
+  %342 = load ptr, ptr %341, align 8, !tbaa !17
+  call void @llvm.lifetime.start.p0(i64 40, ptr %79) #11
+  call void @_ZN4llvm5TwineC2EPKc(ptr noundef nonnull align 8 dereferenceable(34) %79, ptr noundef @.str.163)
   %343 = call i32 @_ZN4llvm11SectionKind18getReadOnlyWithRelEv()
   %344 = trunc i32 %343 to i8
   store i8 %344, ptr %80, align 4
   %345 = load i32, ptr %80, align 4
   %346 = call noundef ptr @_ZN4llvm9MCContext14getWasmSectionERKNS_5TwineENS_11SectionKindEj(ptr noundef nonnull align 8 dereferenceable(2432) %342, ptr noundef nonnull align 8 dereferenceable(34) %79, i32 %345, i32 noundef 0)
   %347 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %81, i32 0, i32 10
-  store ptr %346, ptr %347, align 8
+  store ptr %346, ptr %347, align 8, !tbaa !50
+  call void @llvm.lifetime.end.p0(i64 40, ptr %79) #11
   ret void
 }
 
@@ -4737,21 +4977,23 @@ define linkonce_odr hidden noundef ptr @_ZN4llvm9MCContext14getWasmSectionERKNS_
   %9 = alloca %"class.llvm::SectionKind", align 4
   %10 = alloca %"class.llvm::Twine", align 8
   store i32 %2, ptr %5, align 4
-  store ptr %0, ptr %6, align 8
-  store ptr %1, ptr %7, align 8
-  store i32 %3, ptr %8, align 4
+  store ptr %0, ptr %6, align 8, !tbaa !89
+  store ptr %1, ptr %7, align 8, !tbaa !294
+  store i32 %3, ptr %8, align 4, !tbaa !90
   %11 = load ptr, ptr %6, align 8
-  %12 = load ptr, ptr %7, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %9, ptr align 4 %5, i64 4, i1 false)
-  %13 = load i32, ptr %8, align 4
-  call void @_ZN4llvm5TwineC2EPKc(ptr noundef nonnull align 8 dereferenceable(34) %10, ptr noundef @.str.164)
+  %12 = load ptr, ptr %7, align 8, !tbaa !294
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %9, ptr align 4 %5, i64 4, i1 false), !tbaa.struct !96
+  %13 = load i32, ptr %8, align 4, !tbaa !90
+  call void @llvm.lifetime.start.p0(i64 40, ptr %10) #11
+  call void @_ZN4llvm5TwineC2EPKc(ptr noundef nonnull align 8 dereferenceable(34) %10, ptr noundef @.str.165)
   %14 = load i32, ptr %9, align 4
   %15 = call noundef ptr @_ZN4llvm9MCContext14getWasmSectionERKNS_5TwineENS_11SectionKindEjS3_j(ptr noundef nonnull align 8 dereferenceable(2432) %11, ptr noundef nonnull align 8 dereferenceable(34) %12, i32 %14, i32 noundef %13, ptr noundef nonnull align 8 dereferenceable(34) %10, i32 noundef -1)
+  call void @llvm.lifetime.end.p0(i64 40, ptr %10) #11
   ret ptr %15
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm16MCObjectFileInfo25initXCOFFMCObjectFileInfoERKNS_6TripleE(ptr noundef nonnull align 8 dereferenceable(912) %0, ptr noundef nonnull align 8 dereferenceable(56) %1) #0 align 2 {
+define dso_local void @_ZN4llvm16MCObjectFileInfo25initXCOFFMCObjectFileInfoERKNS_6TripleE(ptr noundef nonnull align 8 dereferenceable(920) %0, ptr noundef nonnull align 8 dereferenceable(56) %1) #0 align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca %"class.llvm::StringRef", align 8
@@ -4881,18 +5123,19 @@ define dso_local void @_ZN4llvm16MCObjectFileInfo25initXCOFFMCObjectFileInfoERKN
   %129 = alloca %"class.std::optional.126", align 4
   %130 = alloca i32, align 4
   %131 = alloca i24, align 4
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  store ptr %1, ptr %4, align 8, !tbaa !8
   %132 = load ptr, ptr %3, align 8
-  %133 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %132, i32 0, i32 106
-  %134 = load ptr, ptr %133, align 8
-  call void @_ZN4llvm9StringRefC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef @.str.163)
+  %133 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %132, i32 0, i32 107
+  %134 = load ptr, ptr %133, align 8, !tbaa !17
+  call void @_ZN4llvm9StringRefC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef @.str.164)
   %135 = call i32 @_ZN4llvm11SectionKind7getTextEv()
   %136 = trunc i32 %135 to i8
   store i8 %136, ptr %6, align 4
+  call void @llvm.lifetime.start.p0(i64 2, ptr %8) #11
   call void @_ZN4llvm5XCOFF15CsectPropertiesC2ENS0_19StorageMappingClassENS0_10SymbolTypeE(ptr noundef nonnull align 1 dereferenceable(2) %8, i8 noundef zeroext 0, i8 noundef zeroext 1)
-  call void @_ZNSt8optionalIN4llvm5XCOFF15CsectPropertiesEEC2IS2_TnNSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS3_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_IS7_ISt10in_place_tSE_EESt16is_constructibleIS2_JSA_EESt14is_convertibleISA_S2_EEEbE4typeELb1EEEOSA_(ptr noundef nonnull align 1 dereferenceable(3) %7, ptr noundef nonnull align 1 dereferenceable(2) %8) #8
-  call void @_ZNSt8optionalIN4llvm5XCOFF24DwarfSectionSubtypeFlagsEEC2ESt9nullopt_t(ptr noundef nonnull align 4 dereferenceable(8) %9) #8
+  call void @_ZNSt8optionalIN4llvm5XCOFF15CsectPropertiesEEC2IS2_TnNSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS3_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_IS7_ISt10in_place_tSE_EESt16is_constructibleIS2_JSA_EESt14is_convertibleISA_S2_EEEbE4typeELb1EEEOSA_(ptr noundef nonnull align 1 dereferenceable(3) %7, ptr noundef nonnull align 1 dereferenceable(2) %8) #11
+  call void @_ZNSt8optionalIN4llvm5XCOFF24DwarfSectionSubtypeFlagsEEC2ESt9nullopt_t(ptr noundef nonnull align 4 dereferenceable(8) %9) #11
   %137 = getelementptr inbounds nuw { ptr, i64 }, ptr %5, i32 0, i32 0
   %138 = load ptr, ptr %137, align 8
   %139 = getelementptr inbounds nuw { ptr, i64 }, ptr %5, i32 0, i32 1
@@ -4908,34 +5151,37 @@ define dso_local void @_ZN4llvm16MCObjectFileInfo25initXCOFFMCObjectFileInfoERKN
   %148 = load i64, ptr %147, align 4
   %149 = call noundef ptr @_ZN4llvm9MCContext15getXCOFFSectionENS_9StringRefENS_11SectionKindESt8optionalINS_5XCOFF15CsectPropertiesEEbS3_INS4_24DwarfSectionSubtypeFlagsEE(ptr noundef nonnull align 8 dereferenceable(2432) %134, ptr %138, i64 %140, i32 %141, i24 %145, i1 noundef zeroext true, i64 %148)
   %150 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %132, i32 0, i32 6
-  store ptr %149, ptr %150, align 8
+  store ptr %149, ptr %150, align 8, !tbaa !24
+  call void @llvm.lifetime.end.p0(i64 2, ptr %8) #11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #11
   %151 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %132, i32 0, i32 6
-  %152 = load ptr, ptr %151, align 8
-  store ptr %152, ptr %11, align 8
-  %153 = load ptr, ptr %11, align 8
+  %152 = load ptr, ptr %151, align 8, !tbaa !24
+  store ptr %152, ptr %11, align 8, !tbaa !314
+  %153 = load ptr, ptr %11, align 8, !tbaa !314
   %154 = call noundef ptr @_ZNK4llvm14MCSectionXCOFF17getQualNameSymbolEv(ptr noundef nonnull align 8 dereferenceable(192) %153)
-  call void @_ZN4llvm9StringRefC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef @.str.164)
+  call void @_ZN4llvm9StringRefC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef @.str.165)
   %155 = getelementptr inbounds nuw { ptr, i64 }, ptr %12, i32 0, i32 0
   %156 = load ptr, ptr %155, align 8
   %157 = getelementptr inbounds nuw { ptr, i64 }, ptr %12, i32 0, i32 1
   %158 = load i64, ptr %157, align 8
   call void @_ZN4llvm13MCSymbolXCOFF18setSymbolTableNameENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(73) %154, ptr %156, i64 %158)
-  %159 = load ptr, ptr %11, align 8
-  call void @_ZN4llvm9StringRefC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %13, ptr noundef @.str.164)
+  %159 = load ptr, ptr %11, align 8, !tbaa !314
+  call void @_ZN4llvm9StringRefC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %13, ptr noundef @.str.165)
   %160 = getelementptr inbounds nuw { ptr, i64 }, ptr %13, i32 0, i32 0
   %161 = load ptr, ptr %160, align 8
   %162 = getelementptr inbounds nuw { ptr, i64 }, ptr %13, i32 0, i32 1
   %163 = load i64, ptr %162, align 8
   call void @_ZN4llvm14MCSectionXCOFF18setSymbolTableNameENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(192) %159, ptr %161, i64 %163)
-  %164 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %132, i32 0, i32 106
-  %165 = load ptr, ptr %164, align 8
+  %164 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %132, i32 0, i32 107
+  %165 = load ptr, ptr %164, align 8, !tbaa !17
   call void @_ZN4llvm9StringRefC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %14, ptr noundef @.str.90)
   %166 = call i32 @_ZN4llvm11SectionKind7getDataEv()
   %167 = trunc i32 %166 to i8
   store i8 %167, ptr %15, align 4
+  call void @llvm.lifetime.start.p0(i64 2, ptr %17) #11
   call void @_ZN4llvm5XCOFF15CsectPropertiesC2ENS0_19StorageMappingClassENS0_10SymbolTypeE(ptr noundef nonnull align 1 dereferenceable(2) %17, i8 noundef zeroext 5, i8 noundef zeroext 1)
-  call void @_ZNSt8optionalIN4llvm5XCOFF15CsectPropertiesEEC2IS2_TnNSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS3_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_IS7_ISt10in_place_tSE_EESt16is_constructibleIS2_JSA_EESt14is_convertibleISA_S2_EEEbE4typeELb1EEEOSA_(ptr noundef nonnull align 1 dereferenceable(3) %16, ptr noundef nonnull align 1 dereferenceable(2) %17) #8
-  call void @_ZNSt8optionalIN4llvm5XCOFF24DwarfSectionSubtypeFlagsEEC2ESt9nullopt_t(ptr noundef nonnull align 4 dereferenceable(8) %18) #8
+  call void @_ZNSt8optionalIN4llvm5XCOFF15CsectPropertiesEEC2IS2_TnNSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS3_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_IS7_ISt10in_place_tSE_EESt16is_constructibleIS2_JSA_EESt14is_convertibleISA_S2_EEEbE4typeELb1EEEOSA_(ptr noundef nonnull align 1 dereferenceable(3) %16, ptr noundef nonnull align 1 dereferenceable(2) %17) #11
+  call void @_ZNSt8optionalIN4llvm5XCOFF24DwarfSectionSubtypeFlagsEEC2ESt9nullopt_t(ptr noundef nonnull align 4 dereferenceable(8) %18) #11
   %168 = getelementptr inbounds nuw { ptr, i64 }, ptr %14, i32 0, i32 0
   %169 = load ptr, ptr %168, align 8
   %170 = getelementptr inbounds nuw { ptr, i64 }, ptr %14, i32 0, i32 1
@@ -4951,16 +5197,18 @@ define dso_local void @_ZN4llvm16MCObjectFileInfo25initXCOFFMCObjectFileInfoERKN
   %179 = load i64, ptr %178, align 4
   %180 = call noundef ptr @_ZN4llvm9MCContext15getXCOFFSectionENS_9StringRefENS_11SectionKindESt8optionalINS_5XCOFF15CsectPropertiesEEbS3_INS4_24DwarfSectionSubtypeFlagsEE(ptr noundef nonnull align 8 dereferenceable(2432) %165, ptr %169, i64 %171, i32 %172, i24 %176, i1 noundef zeroext true, i64 %179)
   %181 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %132, i32 0, i32 7
-  store ptr %180, ptr %181, align 8
-  %182 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %132, i32 0, i32 106
-  %183 = load ptr, ptr %182, align 8
+  store ptr %180, ptr %181, align 8, !tbaa !25
+  call void @llvm.lifetime.end.p0(i64 2, ptr %17) #11
+  %182 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %132, i32 0, i32 107
+  %183 = load ptr, ptr %182, align 8, !tbaa !17
   call void @_ZN4llvm9StringRefC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %20, ptr noundef @.str.91)
   %184 = call i32 @_ZN4llvm11SectionKind11getReadOnlyEv()
   %185 = trunc i32 %184 to i8
   store i8 %185, ptr %21, align 4
+  call void @llvm.lifetime.start.p0(i64 2, ptr %23) #11
   call void @_ZN4llvm5XCOFF15CsectPropertiesC2ENS0_19StorageMappingClassENS0_10SymbolTypeE(ptr noundef nonnull align 1 dereferenceable(2) %23, i8 noundef zeroext 1, i8 noundef zeroext 1)
-  call void @_ZNSt8optionalIN4llvm5XCOFF15CsectPropertiesEEC2IS2_TnNSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS3_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_IS7_ISt10in_place_tSE_EESt16is_constructibleIS2_JSA_EESt14is_convertibleISA_S2_EEEbE4typeELb1EEEOSA_(ptr noundef nonnull align 1 dereferenceable(3) %22, ptr noundef nonnull align 1 dereferenceable(2) %23) #8
-  call void @_ZNSt8optionalIN4llvm5XCOFF24DwarfSectionSubtypeFlagsEEC2ESt9nullopt_t(ptr noundef nonnull align 4 dereferenceable(8) %24) #8
+  call void @_ZNSt8optionalIN4llvm5XCOFF15CsectPropertiesEEC2IS2_TnNSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS3_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_IS7_ISt10in_place_tSE_EESt16is_constructibleIS2_JSA_EESt14is_convertibleISA_S2_EEEbE4typeELb1EEEOSA_(ptr noundef nonnull align 1 dereferenceable(3) %22, ptr noundef nonnull align 1 dereferenceable(2) %23) #11
+  call void @_ZNSt8optionalIN4llvm5XCOFF24DwarfSectionSubtypeFlagsEEC2ESt9nullopt_t(ptr noundef nonnull align 4 dereferenceable(8) %24) #11
   %186 = getelementptr inbounds nuw { ptr, i64 }, ptr %20, i32 0, i32 0
   %187 = load ptr, ptr %186, align 8
   %188 = getelementptr inbounds nuw { ptr, i64 }, ptr %20, i32 0, i32 1
@@ -4976,22 +5224,24 @@ define dso_local void @_ZN4llvm16MCObjectFileInfo25initXCOFFMCObjectFileInfoERKN
   %197 = load i64, ptr %196, align 4
   %198 = call noundef ptr @_ZN4llvm9MCContext15getXCOFFSectionENS_9StringRefENS_11SectionKindESt8optionalINS_5XCOFF15CsectPropertiesEEbS3_INS4_24DwarfSectionSubtypeFlagsEE(ptr noundef nonnull align 8 dereferenceable(2432) %183, ptr %187, i64 %189, i32 %190, i24 %194, i1 noundef zeroext true, i64 %197)
   %199 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %132, i32 0, i32 9
-  store ptr %198, ptr %199, align 8
+  store ptr %198, ptr %199, align 8, !tbaa !36
+  call void @llvm.lifetime.end.p0(i64 2, ptr %23) #11
   %200 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %132, i32 0, i32 9
-  %201 = load ptr, ptr %200, align 8
+  %201 = load ptr, ptr %200, align 8, !tbaa !36
   call void @_ZN4llvm5AlignC2Em(ptr noundef nonnull align 1 dereferenceable(1) %26, i64 noundef 4)
   %202 = getelementptr inbounds nuw %"struct.llvm::Align", ptr %26, i32 0, i32 0
   %203 = load i8, ptr %202, align 1
   call void @_ZN4llvm9MCSection12setAlignmentENS_5AlignE(ptr noundef nonnull align 8 dereferenceable(148) %201, i8 %203)
-  %204 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %132, i32 0, i32 106
-  %205 = load ptr, ptr %204, align 8
-  call void @_ZN4llvm9StringRefC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %27, ptr noundef @.str.165)
+  %204 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %132, i32 0, i32 107
+  %205 = load ptr, ptr %204, align 8, !tbaa !17
+  call void @_ZN4llvm9StringRefC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %27, ptr noundef @.str.166)
   %206 = call i32 @_ZN4llvm11SectionKind11getReadOnlyEv()
   %207 = trunc i32 %206 to i8
   store i8 %207, ptr %28, align 4
+  call void @llvm.lifetime.start.p0(i64 2, ptr %30) #11
   call void @_ZN4llvm5XCOFF15CsectPropertiesC2ENS0_19StorageMappingClassENS0_10SymbolTypeE(ptr noundef nonnull align 1 dereferenceable(2) %30, i8 noundef zeroext 1, i8 noundef zeroext 1)
-  call void @_ZNSt8optionalIN4llvm5XCOFF15CsectPropertiesEEC2IS2_TnNSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS3_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_IS7_ISt10in_place_tSE_EESt16is_constructibleIS2_JSA_EESt14is_convertibleISA_S2_EEEbE4typeELb1EEEOSA_(ptr noundef nonnull align 1 dereferenceable(3) %29, ptr noundef nonnull align 1 dereferenceable(2) %30) #8
-  call void @_ZNSt8optionalIN4llvm5XCOFF24DwarfSectionSubtypeFlagsEEC2ESt9nullopt_t(ptr noundef nonnull align 4 dereferenceable(8) %31) #8
+  call void @_ZNSt8optionalIN4llvm5XCOFF15CsectPropertiesEEC2IS2_TnNSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS3_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_IS7_ISt10in_place_tSE_EESt16is_constructibleIS2_JSA_EESt14is_convertibleISA_S2_EEEbE4typeELb1EEEOSA_(ptr noundef nonnull align 1 dereferenceable(3) %29, ptr noundef nonnull align 1 dereferenceable(2) %30) #11
+  call void @_ZNSt8optionalIN4llvm5XCOFF24DwarfSectionSubtypeFlagsEEC2ESt9nullopt_t(ptr noundef nonnull align 4 dereferenceable(8) %31) #11
   %208 = getelementptr inbounds nuw { ptr, i64 }, ptr %27, i32 0, i32 0
   %209 = load ptr, ptr %208, align 8
   %210 = getelementptr inbounds nuw { ptr, i64 }, ptr %27, i32 0, i32 1
@@ -5006,23 +5256,25 @@ define dso_local void @_ZN4llvm16MCObjectFileInfo25initXCOFFMCObjectFileInfoERKN
   %218 = getelementptr inbounds nuw %"struct.std::_Optional_base.127", ptr %217, i32 0, i32 0
   %219 = load i64, ptr %218, align 4
   %220 = call noundef ptr @_ZN4llvm9MCContext15getXCOFFSectionENS_9StringRefENS_11SectionKindESt8optionalINS_5XCOFF15CsectPropertiesEEbS3_INS4_24DwarfSectionSubtypeFlagsEE(ptr noundef nonnull align 8 dereferenceable(2432) %205, ptr %209, i64 %211, i32 %212, i24 %216, i1 noundef zeroext true, i64 %219)
-  %221 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %132, i32 0, i32 102
-  store ptr %220, ptr %221, align 8
-  %222 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %132, i32 0, i32 102
-  %223 = load ptr, ptr %222, align 8
+  %221 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %132, i32 0, i32 103
+  store ptr %220, ptr %221, align 8, !tbaa !316
+  call void @llvm.lifetime.end.p0(i64 2, ptr %30) #11
+  %222 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %132, i32 0, i32 103
+  %223 = load ptr, ptr %222, align 8, !tbaa !316
   call void @_ZN4llvm5AlignC2Em(ptr noundef nonnull align 1 dereferenceable(1) %33, i64 noundef 8)
   %224 = getelementptr inbounds nuw %"struct.llvm::Align", ptr %33, i32 0, i32 0
   %225 = load i8, ptr %224, align 1
   call void @_ZN4llvm9MCSection12setAlignmentENS_5AlignE(ptr noundef nonnull align 8 dereferenceable(148) %223, i8 %225)
-  %226 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %132, i32 0, i32 106
-  %227 = load ptr, ptr %226, align 8
-  call void @_ZN4llvm9StringRefC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %34, ptr noundef @.str.166)
+  %226 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %132, i32 0, i32 107
+  %227 = load ptr, ptr %226, align 8, !tbaa !17
+  call void @_ZN4llvm9StringRefC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %34, ptr noundef @.str.167)
   %228 = call i32 @_ZN4llvm11SectionKind11getReadOnlyEv()
   %229 = trunc i32 %228 to i8
   store i8 %229, ptr %35, align 4
+  call void @llvm.lifetime.start.p0(i64 2, ptr %37) #11
   call void @_ZN4llvm5XCOFF15CsectPropertiesC2ENS0_19StorageMappingClassENS0_10SymbolTypeE(ptr noundef nonnull align 1 dereferenceable(2) %37, i8 noundef zeroext 1, i8 noundef zeroext 1)
-  call void @_ZNSt8optionalIN4llvm5XCOFF15CsectPropertiesEEC2IS2_TnNSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS3_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_IS7_ISt10in_place_tSE_EESt16is_constructibleIS2_JSA_EESt14is_convertibleISA_S2_EEEbE4typeELb1EEEOSA_(ptr noundef nonnull align 1 dereferenceable(3) %36, ptr noundef nonnull align 1 dereferenceable(2) %37) #8
-  call void @_ZNSt8optionalIN4llvm5XCOFF24DwarfSectionSubtypeFlagsEEC2ESt9nullopt_t(ptr noundef nonnull align 4 dereferenceable(8) %38) #8
+  call void @_ZNSt8optionalIN4llvm5XCOFF15CsectPropertiesEEC2IS2_TnNSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS3_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_IS7_ISt10in_place_tSE_EESt16is_constructibleIS2_JSA_EESt14is_convertibleISA_S2_EEEbE4typeELb1EEEOSA_(ptr noundef nonnull align 1 dereferenceable(3) %36, ptr noundef nonnull align 1 dereferenceable(2) %37) #11
+  call void @_ZNSt8optionalIN4llvm5XCOFF24DwarfSectionSubtypeFlagsEEC2ESt9nullopt_t(ptr noundef nonnull align 4 dereferenceable(8) %38) #11
   %230 = getelementptr inbounds nuw { ptr, i64 }, ptr %34, i32 0, i32 0
   %231 = load ptr, ptr %230, align 8
   %232 = getelementptr inbounds nuw { ptr, i64 }, ptr %34, i32 0, i32 1
@@ -5037,23 +5289,25 @@ define dso_local void @_ZN4llvm16MCObjectFileInfo25initXCOFFMCObjectFileInfoERKN
   %240 = getelementptr inbounds nuw %"struct.std::_Optional_base.127", ptr %239, i32 0, i32 0
   %241 = load i64, ptr %240, align 4
   %242 = call noundef ptr @_ZN4llvm9MCContext15getXCOFFSectionENS_9StringRefENS_11SectionKindESt8optionalINS_5XCOFF15CsectPropertiesEEbS3_INS4_24DwarfSectionSubtypeFlagsEE(ptr noundef nonnull align 8 dereferenceable(2432) %227, ptr %231, i64 %233, i32 %234, i24 %238, i1 noundef zeroext true, i64 %241)
-  %243 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %132, i32 0, i32 103
-  store ptr %242, ptr %243, align 8
-  %244 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %132, i32 0, i32 103
-  %245 = load ptr, ptr %244, align 8
+  %243 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %132, i32 0, i32 104
+  store ptr %242, ptr %243, align 8, !tbaa !317
+  call void @llvm.lifetime.end.p0(i64 2, ptr %37) #11
+  %244 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %132, i32 0, i32 104
+  %245 = load ptr, ptr %244, align 8, !tbaa !317
   call void @_ZN4llvm5AlignC2Em(ptr noundef nonnull align 1 dereferenceable(1) %40, i64 noundef 16)
   %246 = getelementptr inbounds nuw %"struct.llvm::Align", ptr %40, i32 0, i32 0
   %247 = load i8, ptr %246, align 1
   call void @_ZN4llvm9MCSection12setAlignmentENS_5AlignE(ptr noundef nonnull align 8 dereferenceable(148) %245, i8 %247)
-  %248 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %132, i32 0, i32 106
-  %249 = load ptr, ptr %248, align 8
+  %248 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %132, i32 0, i32 107
+  %249 = load ptr, ptr %248, align 8, !tbaa !17
   call void @_ZN4llvm9StringRefC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %41, ptr noundef @.str.92)
   %250 = call i32 @_ZN4llvm11SectionKind13getThreadDataEv()
   %251 = trunc i32 %250 to i8
   store i8 %251, ptr %42, align 4
+  call void @llvm.lifetime.start.p0(i64 2, ptr %44) #11
   call void @_ZN4llvm5XCOFF15CsectPropertiesC2ENS0_19StorageMappingClassENS0_10SymbolTypeE(ptr noundef nonnull align 1 dereferenceable(2) %44, i8 noundef zeroext 20, i8 noundef zeroext 1)
-  call void @_ZNSt8optionalIN4llvm5XCOFF15CsectPropertiesEEC2IS2_TnNSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS3_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_IS7_ISt10in_place_tSE_EESt16is_constructibleIS2_JSA_EESt14is_convertibleISA_S2_EEEbE4typeELb1EEEOSA_(ptr noundef nonnull align 1 dereferenceable(3) %43, ptr noundef nonnull align 1 dereferenceable(2) %44) #8
-  call void @_ZNSt8optionalIN4llvm5XCOFF24DwarfSectionSubtypeFlagsEEC2ESt9nullopt_t(ptr noundef nonnull align 4 dereferenceable(8) %45) #8
+  call void @_ZNSt8optionalIN4llvm5XCOFF15CsectPropertiesEEC2IS2_TnNSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS3_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_IS7_ISt10in_place_tSE_EESt16is_constructibleIS2_JSA_EESt14is_convertibleISA_S2_EEEbE4typeELb1EEEOSA_(ptr noundef nonnull align 1 dereferenceable(3) %43, ptr noundef nonnull align 1 dereferenceable(2) %44) #11
+  call void @_ZNSt8optionalIN4llvm5XCOFF24DwarfSectionSubtypeFlagsEEC2ESt9nullopt_t(ptr noundef nonnull align 4 dereferenceable(8) %45) #11
   %252 = getelementptr inbounds nuw { ptr, i64 }, ptr %41, i32 0, i32 0
   %253 = load ptr, ptr %252, align 8
   %254 = getelementptr inbounds nuw { ptr, i64 }, ptr %41, i32 0, i32 1
@@ -5068,17 +5322,19 @@ define dso_local void @_ZN4llvm16MCObjectFileInfo25initXCOFFMCObjectFileInfoERKN
   %262 = getelementptr inbounds nuw %"struct.std::_Optional_base.127", ptr %261, i32 0, i32 0
   %263 = load i64, ptr %262, align 4
   %264 = call noundef ptr @_ZN4llvm9MCContext15getXCOFFSectionENS_9StringRefENS_11SectionKindESt8optionalINS_5XCOFF15CsectPropertiesEEbS3_INS4_24DwarfSectionSubtypeFlagsEE(ptr noundef nonnull align 8 dereferenceable(2432) %249, ptr %253, i64 %255, i32 %256, i24 %260, i1 noundef zeroext true, i64 %263)
-  %265 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %132, i32 0, i32 55
-  store ptr %264, ptr %265, align 8
-  %266 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %132, i32 0, i32 106
-  %267 = load ptr, ptr %266, align 8
-  call void @_ZN4llvm9StringRefC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %47, ptr noundef @.str.167)
+  %265 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %132, i32 0, i32 56
+  store ptr %264, ptr %265, align 8, !tbaa !27
+  call void @llvm.lifetime.end.p0(i64 2, ptr %44) #11
+  %266 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %132, i32 0, i32 107
+  %267 = load ptr, ptr %266, align 8, !tbaa !17
+  call void @_ZN4llvm9StringRefC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %47, ptr noundef @.str.168)
   %268 = call i32 @_ZN4llvm11SectionKind7getDataEv()
   %269 = trunc i32 %268 to i8
   store i8 %269, ptr %48, align 4
+  call void @llvm.lifetime.start.p0(i64 2, ptr %50) #11
   call void @_ZN4llvm5XCOFF15CsectPropertiesC2ENS0_19StorageMappingClassENS0_10SymbolTypeE(ptr noundef nonnull align 1 dereferenceable(2) %50, i8 noundef zeroext 15, i8 noundef zeroext 1)
-  call void @_ZNSt8optionalIN4llvm5XCOFF15CsectPropertiesEEC2IS2_TnNSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS3_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_IS7_ISt10in_place_tSE_EESt16is_constructibleIS2_JSA_EESt14is_convertibleISA_S2_EEEbE4typeELb1EEEOSA_(ptr noundef nonnull align 1 dereferenceable(3) %49, ptr noundef nonnull align 1 dereferenceable(2) %50) #8
-  call void @_ZNSt8optionalIN4llvm5XCOFF24DwarfSectionSubtypeFlagsEEC2ESt9nullopt_t(ptr noundef nonnull align 4 dereferenceable(8) %51) #8
+  call void @_ZNSt8optionalIN4llvm5XCOFF15CsectPropertiesEEC2IS2_TnNSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS3_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_IS7_ISt10in_place_tSE_EESt16is_constructibleIS2_JSA_EESt14is_convertibleISA_S2_EEEbE4typeELb1EEEOSA_(ptr noundef nonnull align 1 dereferenceable(3) %49, ptr noundef nonnull align 1 dereferenceable(2) %50) #11
+  call void @_ZNSt8optionalIN4llvm5XCOFF24DwarfSectionSubtypeFlagsEEC2ESt9nullopt_t(ptr noundef nonnull align 4 dereferenceable(8) %51) #11
   %270 = getelementptr inbounds nuw { ptr, i64 }, ptr %47, i32 0, i32 0
   %271 = load ptr, ptr %270, align 8
   %272 = getelementptr inbounds nuw { ptr, i64 }, ptr %47, i32 0, i32 1
@@ -5093,23 +5349,25 @@ define dso_local void @_ZN4llvm16MCObjectFileInfo25initXCOFFMCObjectFileInfoERKN
   %280 = getelementptr inbounds nuw %"struct.std::_Optional_base.127", ptr %279, i32 0, i32 0
   %281 = load i64, ptr %280, align 4
   %282 = call noundef ptr @_ZN4llvm9MCContext15getXCOFFSectionENS_9StringRefENS_11SectionKindESt8optionalINS_5XCOFF15CsectPropertiesEEbS3_INS4_24DwarfSectionSubtypeFlagsEE(ptr noundef nonnull align 8 dereferenceable(2432) %267, ptr %271, i64 %273, i32 %274, i24 %278, i1 noundef zeroext false, i64 %281)
-  %283 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %132, i32 0, i32 101
-  store ptr %282, ptr %283, align 8
-  %284 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %132, i32 0, i32 101
-  %285 = load ptr, ptr %284, align 8
+  %283 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %132, i32 0, i32 102
+  store ptr %282, ptr %283, align 8, !tbaa !318
+  call void @llvm.lifetime.end.p0(i64 2, ptr %50) #11
+  %284 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %132, i32 0, i32 102
+  %285 = load ptr, ptr %284, align 8, !tbaa !318
   call void @_ZN4llvm5AlignC2Em(ptr noundef nonnull align 1 dereferenceable(1) %53, i64 noundef 4)
   %286 = getelementptr inbounds nuw %"struct.llvm::Align", ptr %53, i32 0, i32 0
   %287 = load i8, ptr %286, align 1
   call void @_ZN4llvm9MCSection12setAlignmentENS_5AlignE(ptr noundef nonnull align 8 dereferenceable(148) %285, i8 %287)
-  %288 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %132, i32 0, i32 106
-  %289 = load ptr, ptr %288, align 8
+  %288 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %132, i32 0, i32 107
+  %289 = load ptr, ptr %288, align 8, !tbaa !17
   call void @_ZN4llvm9StringRefC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %54, ptr noundef @.str.99)
   %290 = call i32 @_ZN4llvm11SectionKind11getReadOnlyEv()
   %291 = trunc i32 %290 to i8
   store i8 %291, ptr %55, align 4
+  call void @llvm.lifetime.start.p0(i64 2, ptr %57) #11
   call void @_ZN4llvm5XCOFF15CsectPropertiesC2ENS0_19StorageMappingClassENS0_10SymbolTypeE(ptr noundef nonnull align 1 dereferenceable(2) %57, i8 noundef zeroext 1, i8 noundef zeroext 1)
-  call void @_ZNSt8optionalIN4llvm5XCOFF15CsectPropertiesEEC2IS2_TnNSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS3_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_IS7_ISt10in_place_tSE_EESt16is_constructibleIS2_JSA_EESt14is_convertibleISA_S2_EEEbE4typeELb1EEEOSA_(ptr noundef nonnull align 1 dereferenceable(3) %56, ptr noundef nonnull align 1 dereferenceable(2) %57) #8
-  call void @_ZNSt8optionalIN4llvm5XCOFF24DwarfSectionSubtypeFlagsEEC2ESt9nullopt_t(ptr noundef nonnull align 4 dereferenceable(8) %58) #8
+  call void @_ZNSt8optionalIN4llvm5XCOFF15CsectPropertiesEEC2IS2_TnNSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS3_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_IS7_ISt10in_place_tSE_EESt16is_constructibleIS2_JSA_EESt14is_convertibleISA_S2_EEEbE4typeELb1EEEOSA_(ptr noundef nonnull align 1 dereferenceable(3) %56, ptr noundef nonnull align 1 dereferenceable(2) %57) #11
+  call void @_ZNSt8optionalIN4llvm5XCOFF24DwarfSectionSubtypeFlagsEEC2ESt9nullopt_t(ptr noundef nonnull align 4 dereferenceable(8) %58) #11
   %292 = getelementptr inbounds nuw { ptr, i64 }, ptr %54, i32 0, i32 0
   %293 = load ptr, ptr %292, align 8
   %294 = getelementptr inbounds nuw { ptr, i64 }, ptr %54, i32 0, i32 1
@@ -5125,16 +5383,18 @@ define dso_local void @_ZN4llvm16MCObjectFileInfo25initXCOFFMCObjectFileInfoERKN
   %303 = load i64, ptr %302, align 4
   %304 = call noundef ptr @_ZN4llvm9MCContext15getXCOFFSectionENS_9StringRefENS_11SectionKindESt8optionalINS_5XCOFF15CsectPropertiesEEbS3_INS4_24DwarfSectionSubtypeFlagsEE(ptr noundef nonnull align 8 dereferenceable(2432) %289, ptr %293, i64 %295, i32 %296, i24 %300, i1 noundef zeroext false, i64 %303)
   %305 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %132, i32 0, i32 10
-  store ptr %304, ptr %305, align 8
-  %306 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %132, i32 0, i32 106
-  %307 = load ptr, ptr %306, align 8
-  call void @_ZN4llvm9StringRefC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %60, ptr noundef @.str.168)
+  store ptr %304, ptr %305, align 8, !tbaa !50
+  call void @llvm.lifetime.end.p0(i64 2, ptr %57) #11
+  %306 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %132, i32 0, i32 107
+  %307 = load ptr, ptr %306, align 8, !tbaa !17
+  call void @_ZN4llvm9StringRefC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %60, ptr noundef @.str.169)
   %308 = call i32 @_ZN4llvm11SectionKind7getDataEv()
   %309 = trunc i32 %308 to i8
   store i8 %309, ptr %61, align 4
+  call void @llvm.lifetime.start.p0(i64 2, ptr %63) #11
   call void @_ZN4llvm5XCOFF15CsectPropertiesC2ENS0_19StorageMappingClassENS0_10SymbolTypeE(ptr noundef nonnull align 1 dereferenceable(2) %63, i8 noundef zeroext 5, i8 noundef zeroext 1)
-  call void @_ZNSt8optionalIN4llvm5XCOFF15CsectPropertiesEEC2IS2_TnNSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS3_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_IS7_ISt10in_place_tSE_EESt16is_constructibleIS2_JSA_EESt14is_convertibleISA_S2_EEEbE4typeELb1EEEOSA_(ptr noundef nonnull align 1 dereferenceable(3) %62, ptr noundef nonnull align 1 dereferenceable(2) %63) #8
-  call void @_ZNSt8optionalIN4llvm5XCOFF24DwarfSectionSubtypeFlagsEEC2ESt9nullopt_t(ptr noundef nonnull align 4 dereferenceable(8) %64) #8
+  call void @_ZNSt8optionalIN4llvm5XCOFF15CsectPropertiesEEC2IS2_TnNSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS3_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_IS7_ISt10in_place_tSE_EESt16is_constructibleIS2_JSA_EESt14is_convertibleISA_S2_EEEbE4typeELb1EEEOSA_(ptr noundef nonnull align 1 dereferenceable(3) %62, ptr noundef nonnull align 1 dereferenceable(2) %63) #11
+  call void @_ZNSt8optionalIN4llvm5XCOFF24DwarfSectionSubtypeFlagsEEC2ESt9nullopt_t(ptr noundef nonnull align 4 dereferenceable(8) %64) #11
   %310 = getelementptr inbounds nuw { ptr, i64 }, ptr %60, i32 0, i32 0
   %311 = load ptr, ptr %310, align 8
   %312 = getelementptr inbounds nuw { ptr, i64 }, ptr %60, i32 0, i32 1
@@ -5150,16 +5410,18 @@ define dso_local void @_ZN4llvm16MCObjectFileInfo25initXCOFFMCObjectFileInfoERKN
   %321 = load i64, ptr %320, align 4
   %322 = call noundef ptr @_ZN4llvm9MCContext15getXCOFFSectionENS_9StringRefENS_11SectionKindESt8optionalINS_5XCOFF15CsectPropertiesEEbS3_INS4_24DwarfSectionSubtypeFlagsEE(ptr noundef nonnull align 8 dereferenceable(2432) %307, ptr %311, i64 %313, i32 %314, i24 %318, i1 noundef zeroext false, i64 %321)
   %323 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %132, i32 0, i32 11
-  store ptr %322, ptr %323, align 8
-  %324 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %132, i32 0, i32 106
-  %325 = load ptr, ptr %324, align 8
-  call void @_ZN4llvm9StringRefC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %66, ptr noundef @.str.169)
+  store ptr %322, ptr %323, align 8, !tbaa !54
+  call void @llvm.lifetime.end.p0(i64 2, ptr %63) #11
+  %324 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %132, i32 0, i32 107
+  %325 = load ptr, ptr %324, align 8, !tbaa !17
+  call void @_ZN4llvm9StringRefC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %66, ptr noundef @.str.170)
   %326 = call i32 @_ZN4llvm11SectionKind11getMetadataEv()
   %327 = trunc i32 %326 to i8
   store i8 %327, ptr %67, align 4
-  call void @_ZNSt8optionalIN4llvm5XCOFF15CsectPropertiesEEC2ESt9nullopt_t(ptr noundef nonnull align 1 dereferenceable(3) %68) #8
-  store i32 393216, ptr %70, align 4
-  call void @_ZNSt8optionalIN4llvm5XCOFF24DwarfSectionSubtypeFlagsEEC2IS2_TnNSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS3_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_IS7_ISt10in_place_tSE_EESt16is_constructibleIS2_JSA_EESt14is_convertibleISA_S2_EEEbE4typeELb1EEEOSA_(ptr noundef nonnull align 4 dereferenceable(8) %69, ptr noundef nonnull align 4 dereferenceable(4) %70) #8
+  call void @_ZNSt8optionalIN4llvm5XCOFF15CsectPropertiesEEC2ESt9nullopt_t(ptr noundef nonnull align 1 dereferenceable(3) %68) #11
+  call void @llvm.lifetime.start.p0(i64 4, ptr %70) #11
+  store i32 393216, ptr %70, align 4, !tbaa !319
+  call void @_ZNSt8optionalIN4llvm5XCOFF24DwarfSectionSubtypeFlagsEEC2IS2_TnNSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS3_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_IS7_ISt10in_place_tSE_EESt16is_constructibleIS2_JSA_EESt14is_convertibleISA_S2_EEEbE4typeELb1EEEOSA_(ptr noundef nonnull align 4 dereferenceable(8) %69, ptr noundef nonnull align 4 dereferenceable(4) %70) #11
   %328 = getelementptr inbounds nuw { ptr, i64 }, ptr %66, i32 0, i32 0
   %329 = load ptr, ptr %328, align 8
   %330 = getelementptr inbounds nuw { ptr, i64 }, ptr %66, i32 0, i32 1
@@ -5174,17 +5436,19 @@ define dso_local void @_ZN4llvm16MCObjectFileInfo25initXCOFFMCObjectFileInfoERKN
   %338 = getelementptr inbounds nuw %"struct.std::_Optional_base.127", ptr %337, i32 0, i32 0
   %339 = load i64, ptr %338, align 4
   %340 = call noundef ptr @_ZN4llvm9MCContext15getXCOFFSectionENS_9StringRefENS_11SectionKindESt8optionalINS_5XCOFF15CsectPropertiesEEbS3_INS4_24DwarfSectionSubtypeFlagsEE(ptr noundef nonnull align 8 dereferenceable(2432) %325, ptr %329, i64 %331, i32 %332, i24 %336, i1 noundef zeroext true, i64 %339)
-  %341 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %132, i32 0, i32 12
-  store ptr %340, ptr %341, align 8
-  %342 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %132, i32 0, i32 106
-  %343 = load ptr, ptr %342, align 8
-  call void @_ZN4llvm9StringRefC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %72, ptr noundef @.str.170)
+  %341 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %132, i32 0, i32 13
+  store ptr %340, ptr %341, align 8, !tbaa !62
+  call void @llvm.lifetime.end.p0(i64 4, ptr %70) #11
+  %342 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %132, i32 0, i32 107
+  %343 = load ptr, ptr %342, align 8, !tbaa !17
+  call void @_ZN4llvm9StringRefC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %72, ptr noundef @.str.171)
   %344 = call i32 @_ZN4llvm11SectionKind11getMetadataEv()
   %345 = trunc i32 %344 to i8
   store i8 %345, ptr %73, align 4
-  call void @_ZNSt8optionalIN4llvm5XCOFF15CsectPropertiesEEC2ESt9nullopt_t(ptr noundef nonnull align 1 dereferenceable(3) %74) #8
-  store i32 65536, ptr %76, align 4
-  call void @_ZNSt8optionalIN4llvm5XCOFF24DwarfSectionSubtypeFlagsEEC2IS2_TnNSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS3_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_IS7_ISt10in_place_tSE_EESt16is_constructibleIS2_JSA_EESt14is_convertibleISA_S2_EEEbE4typeELb1EEEOSA_(ptr noundef nonnull align 4 dereferenceable(8) %75, ptr noundef nonnull align 4 dereferenceable(4) %76) #8
+  call void @_ZNSt8optionalIN4llvm5XCOFF15CsectPropertiesEEC2ESt9nullopt_t(ptr noundef nonnull align 1 dereferenceable(3) %74) #11
+  call void @llvm.lifetime.start.p0(i64 4, ptr %76) #11
+  store i32 65536, ptr %76, align 4, !tbaa !319
+  call void @_ZNSt8optionalIN4llvm5XCOFF24DwarfSectionSubtypeFlagsEEC2IS2_TnNSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS3_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_IS7_ISt10in_place_tSE_EESt16is_constructibleIS2_JSA_EESt14is_convertibleISA_S2_EEEbE4typeELb1EEEOSA_(ptr noundef nonnull align 4 dereferenceable(8) %75, ptr noundef nonnull align 4 dereferenceable(4) %76) #11
   %346 = getelementptr inbounds nuw { ptr, i64 }, ptr %72, i32 0, i32 0
   %347 = load ptr, ptr %346, align 8
   %348 = getelementptr inbounds nuw { ptr, i64 }, ptr %72, i32 0, i32 1
@@ -5199,17 +5463,19 @@ define dso_local void @_ZN4llvm16MCObjectFileInfo25initXCOFFMCObjectFileInfoERKN
   %356 = getelementptr inbounds nuw %"struct.std::_Optional_base.127", ptr %355, i32 0, i32 0
   %357 = load i64, ptr %356, align 4
   %358 = call noundef ptr @_ZN4llvm9MCContext15getXCOFFSectionENS_9StringRefENS_11SectionKindESt8optionalINS_5XCOFF15CsectPropertiesEEbS3_INS4_24DwarfSectionSubtypeFlagsEE(ptr noundef nonnull align 8 dereferenceable(2432) %343, ptr %347, i64 %349, i32 %350, i24 %354, i1 noundef zeroext true, i64 %357)
-  %359 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %132, i32 0, i32 13
-  store ptr %358, ptr %359, align 8
-  %360 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %132, i32 0, i32 106
-  %361 = load ptr, ptr %360, align 8
-  call void @_ZN4llvm9StringRefC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %78, ptr noundef @.str.171)
+  %359 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %132, i32 0, i32 14
+  store ptr %358, ptr %359, align 8, !tbaa !63
+  call void @llvm.lifetime.end.p0(i64 4, ptr %76) #11
+  %360 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %132, i32 0, i32 107
+  %361 = load ptr, ptr %360, align 8, !tbaa !17
+  call void @_ZN4llvm9StringRefC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %78, ptr noundef @.str.172)
   %362 = call i32 @_ZN4llvm11SectionKind11getMetadataEv()
   %363 = trunc i32 %362 to i8
   store i8 %363, ptr %79, align 4
-  call void @_ZNSt8optionalIN4llvm5XCOFF15CsectPropertiesEEC2ESt9nullopt_t(ptr noundef nonnull align 1 dereferenceable(3) %80) #8
-  store i32 131072, ptr %82, align 4
-  call void @_ZNSt8optionalIN4llvm5XCOFF24DwarfSectionSubtypeFlagsEEC2IS2_TnNSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS3_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_IS7_ISt10in_place_tSE_EESt16is_constructibleIS2_JSA_EESt14is_convertibleISA_S2_EEEbE4typeELb1EEEOSA_(ptr noundef nonnull align 4 dereferenceable(8) %81, ptr noundef nonnull align 4 dereferenceable(4) %82) #8
+  call void @_ZNSt8optionalIN4llvm5XCOFF15CsectPropertiesEEC2ESt9nullopt_t(ptr noundef nonnull align 1 dereferenceable(3) %80) #11
+  call void @llvm.lifetime.start.p0(i64 4, ptr %82) #11
+  store i32 131072, ptr %82, align 4, !tbaa !319
+  call void @_ZNSt8optionalIN4llvm5XCOFF24DwarfSectionSubtypeFlagsEEC2IS2_TnNSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS3_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_IS7_ISt10in_place_tSE_EESt16is_constructibleIS2_JSA_EESt14is_convertibleISA_S2_EEEbE4typeELb1EEEOSA_(ptr noundef nonnull align 4 dereferenceable(8) %81, ptr noundef nonnull align 4 dereferenceable(4) %82) #11
   %364 = getelementptr inbounds nuw { ptr, i64 }, ptr %78, i32 0, i32 0
   %365 = load ptr, ptr %364, align 8
   %366 = getelementptr inbounds nuw { ptr, i64 }, ptr %78, i32 0, i32 1
@@ -5224,17 +5490,19 @@ define dso_local void @_ZN4llvm16MCObjectFileInfo25initXCOFFMCObjectFileInfoERKN
   %374 = getelementptr inbounds nuw %"struct.std::_Optional_base.127", ptr %373, i32 0, i32 0
   %375 = load i64, ptr %374, align 4
   %376 = call noundef ptr @_ZN4llvm9MCContext15getXCOFFSectionENS_9StringRefENS_11SectionKindESt8optionalINS_5XCOFF15CsectPropertiesEEbS3_INS4_24DwarfSectionSubtypeFlagsEE(ptr noundef nonnull align 8 dereferenceable(2432) %361, ptr %365, i64 %367, i32 %368, i24 %372, i1 noundef zeroext true, i64 %375)
-  %377 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %132, i32 0, i32 14
-  store ptr %376, ptr %377, align 8
-  %378 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %132, i32 0, i32 106
-  %379 = load ptr, ptr %378, align 8
-  call void @_ZN4llvm9StringRefC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %84, ptr noundef @.str.172)
+  %377 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %132, i32 0, i32 15
+  store ptr %376, ptr %377, align 8, !tbaa !64
+  call void @llvm.lifetime.end.p0(i64 4, ptr %82) #11
+  %378 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %132, i32 0, i32 107
+  %379 = load ptr, ptr %378, align 8, !tbaa !17
+  call void @_ZN4llvm9StringRefC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %84, ptr noundef @.str.173)
   %380 = call i32 @_ZN4llvm11SectionKind11getMetadataEv()
   %381 = trunc i32 %380 to i8
   store i8 %381, ptr %85, align 4
-  call void @_ZNSt8optionalIN4llvm5XCOFF15CsectPropertiesEEC2ESt9nullopt_t(ptr noundef nonnull align 1 dereferenceable(3) %86) #8
-  store i32 655360, ptr %88, align 4
-  call void @_ZNSt8optionalIN4llvm5XCOFF24DwarfSectionSubtypeFlagsEEC2IS2_TnNSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS3_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_IS7_ISt10in_place_tSE_EESt16is_constructibleIS2_JSA_EESt14is_convertibleISA_S2_EEEbE4typeELb1EEEOSA_(ptr noundef nonnull align 4 dereferenceable(8) %87, ptr noundef nonnull align 4 dereferenceable(4) %88) #8
+  call void @_ZNSt8optionalIN4llvm5XCOFF15CsectPropertiesEEC2ESt9nullopt_t(ptr noundef nonnull align 1 dereferenceable(3) %86) #11
+  call void @llvm.lifetime.start.p0(i64 4, ptr %88) #11
+  store i32 655360, ptr %88, align 4, !tbaa !319
+  call void @_ZNSt8optionalIN4llvm5XCOFF24DwarfSectionSubtypeFlagsEEC2IS2_TnNSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS3_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_IS7_ISt10in_place_tSE_EESt16is_constructibleIS2_JSA_EESt14is_convertibleISA_S2_EEEbE4typeELb1EEEOSA_(ptr noundef nonnull align 4 dereferenceable(8) %87, ptr noundef nonnull align 4 dereferenceable(4) %88) #11
   %382 = getelementptr inbounds nuw { ptr, i64 }, ptr %84, i32 0, i32 0
   %383 = load ptr, ptr %382, align 8
   %384 = getelementptr inbounds nuw { ptr, i64 }, ptr %84, i32 0, i32 1
@@ -5249,17 +5517,19 @@ define dso_local void @_ZN4llvm16MCObjectFileInfo25initXCOFFMCObjectFileInfoERKN
   %392 = getelementptr inbounds nuw %"struct.std::_Optional_base.127", ptr %391, i32 0, i32 0
   %393 = load i64, ptr %392, align 4
   %394 = call noundef ptr @_ZN4llvm9MCContext15getXCOFFSectionENS_9StringRefENS_11SectionKindESt8optionalINS_5XCOFF15CsectPropertiesEEbS3_INS4_24DwarfSectionSubtypeFlagsEE(ptr noundef nonnull align 8 dereferenceable(2432) %379, ptr %383, i64 %385, i32 %386, i24 %390, i1 noundef zeroext true, i64 %393)
-  %395 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %132, i32 0, i32 16
-  store ptr %394, ptr %395, align 8
-  %396 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %132, i32 0, i32 106
-  %397 = load ptr, ptr %396, align 8
-  call void @_ZN4llvm9StringRefC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %90, ptr noundef @.str.173)
+  %395 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %132, i32 0, i32 17
+  store ptr %394, ptr %395, align 8, !tbaa !66
+  call void @llvm.lifetime.end.p0(i64 4, ptr %88) #11
+  %396 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %132, i32 0, i32 107
+  %397 = load ptr, ptr %396, align 8, !tbaa !17
+  call void @_ZN4llvm9StringRefC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %90, ptr noundef @.str.174)
   %398 = call i32 @_ZN4llvm11SectionKind11getMetadataEv()
   %399 = trunc i32 %398 to i8
   store i8 %399, ptr %91, align 4
-  call void @_ZNSt8optionalIN4llvm5XCOFF15CsectPropertiesEEC2ESt9nullopt_t(ptr noundef nonnull align 1 dereferenceable(3) %92) #8
-  store i32 196608, ptr %94, align 4
-  call void @_ZNSt8optionalIN4llvm5XCOFF24DwarfSectionSubtypeFlagsEEC2IS2_TnNSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS3_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_IS7_ISt10in_place_tSE_EESt16is_constructibleIS2_JSA_EESt14is_convertibleISA_S2_EEEbE4typeELb1EEEOSA_(ptr noundef nonnull align 4 dereferenceable(8) %93, ptr noundef nonnull align 4 dereferenceable(4) %94) #8
+  call void @_ZNSt8optionalIN4llvm5XCOFF15CsectPropertiesEEC2ESt9nullopt_t(ptr noundef nonnull align 1 dereferenceable(3) %92) #11
+  call void @llvm.lifetime.start.p0(i64 4, ptr %94) #11
+  store i32 196608, ptr %94, align 4, !tbaa !319
+  call void @_ZNSt8optionalIN4llvm5XCOFF24DwarfSectionSubtypeFlagsEEC2IS2_TnNSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS3_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_IS7_ISt10in_place_tSE_EESt16is_constructibleIS2_JSA_EESt14is_convertibleISA_S2_EEEbE4typeELb1EEEOSA_(ptr noundef nonnull align 4 dereferenceable(8) %93, ptr noundef nonnull align 4 dereferenceable(4) %94) #11
   %400 = getelementptr inbounds nuw { ptr, i64 }, ptr %90, i32 0, i32 0
   %401 = load ptr, ptr %400, align 8
   %402 = getelementptr inbounds nuw { ptr, i64 }, ptr %90, i32 0, i32 1
@@ -5274,17 +5544,19 @@ define dso_local void @_ZN4llvm16MCObjectFileInfo25initXCOFFMCObjectFileInfoERKN
   %410 = getelementptr inbounds nuw %"struct.std::_Optional_base.127", ptr %409, i32 0, i32 0
   %411 = load i64, ptr %410, align 4
   %412 = call noundef ptr @_ZN4llvm9MCContext15getXCOFFSectionENS_9StringRefENS_11SectionKindESt8optionalINS_5XCOFF15CsectPropertiesEEbS3_INS4_24DwarfSectionSubtypeFlagsEE(ptr noundef nonnull align 8 dereferenceable(2432) %397, ptr %401, i64 %403, i32 %404, i24 %408, i1 noundef zeroext true, i64 %411)
-  %413 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %132, i32 0, i32 25
-  store ptr %412, ptr %413, align 8
-  %414 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %132, i32 0, i32 106
-  %415 = load ptr, ptr %414, align 8
-  call void @_ZN4llvm9StringRefC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %96, ptr noundef @.str.174)
+  %413 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %132, i32 0, i32 26
+  store ptr %412, ptr %413, align 8, !tbaa !67
+  call void @llvm.lifetime.end.p0(i64 4, ptr %94) #11
+  %414 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %132, i32 0, i32 107
+  %415 = load ptr, ptr %414, align 8, !tbaa !17
+  call void @_ZN4llvm9StringRefC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %96, ptr noundef @.str.175)
   %416 = call i32 @_ZN4llvm11SectionKind11getMetadataEv()
   %417 = trunc i32 %416 to i8
   store i8 %417, ptr %97, align 4
-  call void @_ZNSt8optionalIN4llvm5XCOFF15CsectPropertiesEEC2ESt9nullopt_t(ptr noundef nonnull align 1 dereferenceable(3) %98) #8
-  store i32 262144, ptr %100, align 4
-  call void @_ZNSt8optionalIN4llvm5XCOFF24DwarfSectionSubtypeFlagsEEC2IS2_TnNSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS3_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_IS7_ISt10in_place_tSE_EESt16is_constructibleIS2_JSA_EESt14is_convertibleISA_S2_EEEbE4typeELb1EEEOSA_(ptr noundef nonnull align 4 dereferenceable(8) %99, ptr noundef nonnull align 4 dereferenceable(4) %100) #8
+  call void @_ZNSt8optionalIN4llvm5XCOFF15CsectPropertiesEEC2ESt9nullopt_t(ptr noundef nonnull align 1 dereferenceable(3) %98) #11
+  call void @llvm.lifetime.start.p0(i64 4, ptr %100) #11
+  store i32 262144, ptr %100, align 4, !tbaa !319
+  call void @_ZNSt8optionalIN4llvm5XCOFF24DwarfSectionSubtypeFlagsEEC2IS2_TnNSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS3_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_IS7_ISt10in_place_tSE_EESt16is_constructibleIS2_JSA_EESt14is_convertibleISA_S2_EEEbE4typeELb1EEEOSA_(ptr noundef nonnull align 4 dereferenceable(8) %99, ptr noundef nonnull align 4 dereferenceable(4) %100) #11
   %418 = getelementptr inbounds nuw { ptr, i64 }, ptr %96, i32 0, i32 0
   %419 = load ptr, ptr %418, align 8
   %420 = getelementptr inbounds nuw { ptr, i64 }, ptr %96, i32 0, i32 1
@@ -5299,17 +5571,19 @@ define dso_local void @_ZN4llvm16MCObjectFileInfo25initXCOFFMCObjectFileInfoERKN
   %428 = getelementptr inbounds nuw %"struct.std::_Optional_base.127", ptr %427, i32 0, i32 0
   %429 = load i64, ptr %428, align 4
   %430 = call noundef ptr @_ZN4llvm9MCContext15getXCOFFSectionENS_9StringRefENS_11SectionKindESt8optionalINS_5XCOFF15CsectPropertiesEEbS3_INS4_24DwarfSectionSubtypeFlagsEE(ptr noundef nonnull align 8 dereferenceable(2432) %415, ptr %419, i64 %421, i32 %422, i24 %426, i1 noundef zeroext true, i64 %429)
-  %431 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %132, i32 0, i32 17
-  store ptr %430, ptr %431, align 8
-  %432 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %132, i32 0, i32 106
-  %433 = load ptr, ptr %432, align 8
-  call void @_ZN4llvm9StringRefC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %102, ptr noundef @.str.175)
+  %431 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %132, i32 0, i32 18
+  store ptr %430, ptr %431, align 8, !tbaa !68
+  call void @llvm.lifetime.end.p0(i64 4, ptr %100) #11
+  %432 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %132, i32 0, i32 107
+  %433 = load ptr, ptr %432, align 8, !tbaa !17
+  call void @_ZN4llvm9StringRefC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %102, ptr noundef @.str.176)
   %434 = call i32 @_ZN4llvm11SectionKind11getMetadataEv()
   %435 = trunc i32 %434 to i8
   store i8 %435, ptr %103, align 4
-  call void @_ZNSt8optionalIN4llvm5XCOFF15CsectPropertiesEEC2ESt9nullopt_t(ptr noundef nonnull align 1 dereferenceable(3) %104) #8
-  store i32 458752, ptr %106, align 4
-  call void @_ZNSt8optionalIN4llvm5XCOFF24DwarfSectionSubtypeFlagsEEC2IS2_TnNSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS3_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_IS7_ISt10in_place_tSE_EESt16is_constructibleIS2_JSA_EESt14is_convertibleISA_S2_EEEbE4typeELb1EEEOSA_(ptr noundef nonnull align 4 dereferenceable(8) %105, ptr noundef nonnull align 4 dereferenceable(4) %106) #8
+  call void @_ZNSt8optionalIN4llvm5XCOFF15CsectPropertiesEEC2ESt9nullopt_t(ptr noundef nonnull align 1 dereferenceable(3) %104) #11
+  call void @llvm.lifetime.start.p0(i64 4, ptr %106) #11
+  store i32 458752, ptr %106, align 4, !tbaa !319
+  call void @_ZNSt8optionalIN4llvm5XCOFF24DwarfSectionSubtypeFlagsEEC2IS2_TnNSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS3_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_IS7_ISt10in_place_tSE_EESt16is_constructibleIS2_JSA_EESt14is_convertibleISA_S2_EEEbE4typeELb1EEEOSA_(ptr noundef nonnull align 4 dereferenceable(8) %105, ptr noundef nonnull align 4 dereferenceable(4) %106) #11
   %436 = getelementptr inbounds nuw { ptr, i64 }, ptr %102, i32 0, i32 0
   %437 = load ptr, ptr %436, align 8
   %438 = getelementptr inbounds nuw { ptr, i64 }, ptr %102, i32 0, i32 1
@@ -5324,17 +5598,19 @@ define dso_local void @_ZN4llvm16MCObjectFileInfo25initXCOFFMCObjectFileInfoERKN
   %446 = getelementptr inbounds nuw %"struct.std::_Optional_base.127", ptr %445, i32 0, i32 0
   %447 = load i64, ptr %446, align 4
   %448 = call noundef ptr @_ZN4llvm9MCContext15getXCOFFSectionENS_9StringRefENS_11SectionKindESt8optionalINS_5XCOFF15CsectPropertiesEEbS3_INS4_24DwarfSectionSubtypeFlagsEE(ptr noundef nonnull align 8 dereferenceable(2432) %433, ptr %437, i64 %439, i32 %440, i24 %444, i1 noundef zeroext true, i64 %447)
-  %449 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %132, i32 0, i32 19
-  store ptr %448, ptr %449, align 8
-  %450 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %132, i32 0, i32 106
-  %451 = load ptr, ptr %450, align 8
-  call void @_ZN4llvm9StringRefC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %108, ptr noundef @.str.176)
+  %449 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %132, i32 0, i32 20
+  store ptr %448, ptr %449, align 8, !tbaa !71
+  call void @llvm.lifetime.end.p0(i64 4, ptr %106) #11
+  %450 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %132, i32 0, i32 107
+  %451 = load ptr, ptr %450, align 8, !tbaa !17
+  call void @_ZN4llvm9StringRefC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %108, ptr noundef @.str.177)
   %452 = call i32 @_ZN4llvm11SectionKind11getMetadataEv()
   %453 = trunc i32 %452 to i8
   store i8 %453, ptr %109, align 4
-  call void @_ZNSt8optionalIN4llvm5XCOFF15CsectPropertiesEEC2ESt9nullopt_t(ptr noundef nonnull align 1 dereferenceable(3) %110) #8
-  store i32 589824, ptr %112, align 4
-  call void @_ZNSt8optionalIN4llvm5XCOFF24DwarfSectionSubtypeFlagsEEC2IS2_TnNSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS3_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_IS7_ISt10in_place_tSE_EESt16is_constructibleIS2_JSA_EESt14is_convertibleISA_S2_EEEbE4typeELb1EEEOSA_(ptr noundef nonnull align 4 dereferenceable(8) %111, ptr noundef nonnull align 4 dereferenceable(4) %112) #8
+  call void @_ZNSt8optionalIN4llvm5XCOFF15CsectPropertiesEEC2ESt9nullopt_t(ptr noundef nonnull align 1 dereferenceable(3) %110) #11
+  call void @llvm.lifetime.start.p0(i64 4, ptr %112) #11
+  store i32 589824, ptr %112, align 4, !tbaa !319
+  call void @_ZNSt8optionalIN4llvm5XCOFF24DwarfSectionSubtypeFlagsEEC2IS2_TnNSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS3_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_IS7_ISt10in_place_tSE_EESt16is_constructibleIS2_JSA_EESt14is_convertibleISA_S2_EEEbE4typeELb1EEEOSA_(ptr noundef nonnull align 4 dereferenceable(8) %111, ptr noundef nonnull align 4 dereferenceable(4) %112) #11
   %454 = getelementptr inbounds nuw { ptr, i64 }, ptr %108, i32 0, i32 0
   %455 = load ptr, ptr %454, align 8
   %456 = getelementptr inbounds nuw { ptr, i64 }, ptr %108, i32 0, i32 1
@@ -5349,17 +5625,19 @@ define dso_local void @_ZN4llvm16MCObjectFileInfo25initXCOFFMCObjectFileInfoERKN
   %464 = getelementptr inbounds nuw %"struct.std::_Optional_base.127", ptr %463, i32 0, i32 0
   %465 = load i64, ptr %464, align 4
   %466 = call noundef ptr @_ZN4llvm9MCContext15getXCOFFSectionENS_9StringRefENS_11SectionKindESt8optionalINS_5XCOFF15CsectPropertiesEEbS3_INS4_24DwarfSectionSubtypeFlagsEE(ptr noundef nonnull align 8 dereferenceable(2432) %451, ptr %455, i64 %457, i32 %458, i24 %462, i1 noundef zeroext true, i64 %465)
-  %467 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %132, i32 0, i32 20
-  store ptr %466, ptr %467, align 8
-  %468 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %132, i32 0, i32 106
-  %469 = load ptr, ptr %468, align 8
-  call void @_ZN4llvm9StringRefC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %114, ptr noundef @.str.177)
+  %467 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %132, i32 0, i32 21
+  store ptr %466, ptr %467, align 8, !tbaa !74
+  call void @llvm.lifetime.end.p0(i64 4, ptr %112) #11
+  %468 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %132, i32 0, i32 107
+  %469 = load ptr, ptr %468, align 8, !tbaa !17
+  call void @_ZN4llvm9StringRefC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %114, ptr noundef @.str.178)
   %470 = call i32 @_ZN4llvm11SectionKind11getMetadataEv()
   %471 = trunc i32 %470 to i8
   store i8 %471, ptr %115, align 4
-  call void @_ZNSt8optionalIN4llvm5XCOFF15CsectPropertiesEEC2ESt9nullopt_t(ptr noundef nonnull align 1 dereferenceable(3) %116) #8
-  store i32 327680, ptr %118, align 4
-  call void @_ZNSt8optionalIN4llvm5XCOFF24DwarfSectionSubtypeFlagsEEC2IS2_TnNSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS3_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_IS7_ISt10in_place_tSE_EESt16is_constructibleIS2_JSA_EESt14is_convertibleISA_S2_EEEbE4typeELb1EEEOSA_(ptr noundef nonnull align 4 dereferenceable(8) %117, ptr noundef nonnull align 4 dereferenceable(4) %118) #8
+  call void @_ZNSt8optionalIN4llvm5XCOFF15CsectPropertiesEEC2ESt9nullopt_t(ptr noundef nonnull align 1 dereferenceable(3) %116) #11
+  call void @llvm.lifetime.start.p0(i64 4, ptr %118) #11
+  store i32 327680, ptr %118, align 4, !tbaa !319
+  call void @_ZNSt8optionalIN4llvm5XCOFF24DwarfSectionSubtypeFlagsEEC2IS2_TnNSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS3_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_IS7_ISt10in_place_tSE_EESt16is_constructibleIS2_JSA_EESt14is_convertibleISA_S2_EEEbE4typeELb1EEEOSA_(ptr noundef nonnull align 4 dereferenceable(8) %117, ptr noundef nonnull align 4 dereferenceable(4) %118) #11
   %472 = getelementptr inbounds nuw { ptr, i64 }, ptr %114, i32 0, i32 0
   %473 = load ptr, ptr %472, align 8
   %474 = getelementptr inbounds nuw { ptr, i64 }, ptr %114, i32 0, i32 1
@@ -5374,17 +5652,19 @@ define dso_local void @_ZN4llvm16MCObjectFileInfo25initXCOFFMCObjectFileInfoERKN
   %482 = getelementptr inbounds nuw %"struct.std::_Optional_base.127", ptr %481, i32 0, i32 0
   %483 = load i64, ptr %482, align 4
   %484 = call noundef ptr @_ZN4llvm9MCContext15getXCOFFSectionENS_9StringRefENS_11SectionKindESt8optionalINS_5XCOFF15CsectPropertiesEEbS3_INS4_24DwarfSectionSubtypeFlagsEE(ptr noundef nonnull align 8 dereferenceable(2432) %469, ptr %473, i64 %475, i32 %476, i24 %480, i1 noundef zeroext true, i64 %483)
-  %485 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %132, i32 0, i32 21
-  store ptr %484, ptr %485, align 8
-  %486 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %132, i32 0, i32 106
-  %487 = load ptr, ptr %486, align 8
-  call void @_ZN4llvm9StringRefC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %120, ptr noundef @.str.178)
+  %485 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %132, i32 0, i32 22
+  store ptr %484, ptr %485, align 8, !tbaa !76
+  call void @llvm.lifetime.end.p0(i64 4, ptr %118) #11
+  %486 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %132, i32 0, i32 107
+  %487 = load ptr, ptr %486, align 8, !tbaa !17
+  call void @_ZN4llvm9StringRefC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %120, ptr noundef @.str.179)
   %488 = call i32 @_ZN4llvm11SectionKind11getMetadataEv()
   %489 = trunc i32 %488 to i8
   store i8 %489, ptr %121, align 4
-  call void @_ZNSt8optionalIN4llvm5XCOFF15CsectPropertiesEEC2ESt9nullopt_t(ptr noundef nonnull align 1 dereferenceable(3) %122) #8
-  store i32 524288, ptr %124, align 4
-  call void @_ZNSt8optionalIN4llvm5XCOFF24DwarfSectionSubtypeFlagsEEC2IS2_TnNSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS3_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_IS7_ISt10in_place_tSE_EESt16is_constructibleIS2_JSA_EESt14is_convertibleISA_S2_EEEbE4typeELb1EEEOSA_(ptr noundef nonnull align 4 dereferenceable(8) %123, ptr noundef nonnull align 4 dereferenceable(4) %124) #8
+  call void @_ZNSt8optionalIN4llvm5XCOFF15CsectPropertiesEEC2ESt9nullopt_t(ptr noundef nonnull align 1 dereferenceable(3) %122) #11
+  call void @llvm.lifetime.start.p0(i64 4, ptr %124) #11
+  store i32 524288, ptr %124, align 4, !tbaa !319
+  call void @_ZNSt8optionalIN4llvm5XCOFF24DwarfSectionSubtypeFlagsEEC2IS2_TnNSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS3_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_IS7_ISt10in_place_tSE_EESt16is_constructibleIS2_JSA_EESt14is_convertibleISA_S2_EEEbE4typeELb1EEEOSA_(ptr noundef nonnull align 4 dereferenceable(8) %123, ptr noundef nonnull align 4 dereferenceable(4) %124) #11
   %490 = getelementptr inbounds nuw { ptr, i64 }, ptr %120, i32 0, i32 0
   %491 = load ptr, ptr %490, align 8
   %492 = getelementptr inbounds nuw { ptr, i64 }, ptr %120, i32 0, i32 1
@@ -5399,17 +5679,19 @@ define dso_local void @_ZN4llvm16MCObjectFileInfo25initXCOFFMCObjectFileInfoERKN
   %500 = getelementptr inbounds nuw %"struct.std::_Optional_base.127", ptr %499, i32 0, i32 0
   %501 = load i64, ptr %500, align 4
   %502 = call noundef ptr @_ZN4llvm9MCContext15getXCOFFSectionENS_9StringRefENS_11SectionKindESt8optionalINS_5XCOFF15CsectPropertiesEEbS3_INS4_24DwarfSectionSubtypeFlagsEE(ptr noundef nonnull align 8 dereferenceable(2432) %487, ptr %491, i64 %493, i32 %494, i24 %498, i1 noundef zeroext true, i64 %501)
-  %503 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %132, i32 0, i32 22
-  store ptr %502, ptr %503, align 8
-  %504 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %132, i32 0, i32 106
-  %505 = load ptr, ptr %504, align 8
-  call void @_ZN4llvm9StringRefC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %126, ptr noundef @.str.179)
+  %503 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %132, i32 0, i32 23
+  store ptr %502, ptr %503, align 8, !tbaa !77
+  call void @llvm.lifetime.end.p0(i64 4, ptr %124) #11
+  %504 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %132, i32 0, i32 107
+  %505 = load ptr, ptr %504, align 8, !tbaa !17
+  call void @_ZN4llvm9StringRefC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %126, ptr noundef @.str.180)
   %506 = call i32 @_ZN4llvm11SectionKind11getMetadataEv()
   %507 = trunc i32 %506 to i8
   store i8 %507, ptr %127, align 4
-  call void @_ZNSt8optionalIN4llvm5XCOFF15CsectPropertiesEEC2ESt9nullopt_t(ptr noundef nonnull align 1 dereferenceable(3) %128) #8
-  store i32 720896, ptr %130, align 4
-  call void @_ZNSt8optionalIN4llvm5XCOFF24DwarfSectionSubtypeFlagsEEC2IS2_TnNSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS3_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_IS7_ISt10in_place_tSE_EESt16is_constructibleIS2_JSA_EESt14is_convertibleISA_S2_EEEbE4typeELb1EEEOSA_(ptr noundef nonnull align 4 dereferenceable(8) %129, ptr noundef nonnull align 4 dereferenceable(4) %130) #8
+  call void @_ZNSt8optionalIN4llvm5XCOFF15CsectPropertiesEEC2ESt9nullopt_t(ptr noundef nonnull align 1 dereferenceable(3) %128) #11
+  call void @llvm.lifetime.start.p0(i64 4, ptr %130) #11
+  store i32 720896, ptr %130, align 4, !tbaa !319
+  call void @_ZNSt8optionalIN4llvm5XCOFF24DwarfSectionSubtypeFlagsEEC2IS2_TnNSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS3_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_IS7_ISt10in_place_tSE_EESt16is_constructibleIS2_JSA_EESt14is_convertibleISA_S2_EEEbE4typeELb1EEEOSA_(ptr noundef nonnull align 4 dereferenceable(8) %129, ptr noundef nonnull align 4 dereferenceable(4) %130) #11
   %508 = getelementptr inbounds nuw { ptr, i64 }, ptr %126, i32 0, i32 0
   %509 = load ptr, ptr %508, align 8
   %510 = getelementptr inbounds nuw { ptr, i64 }, ptr %126, i32 0, i32 1
@@ -5424,8 +5706,10 @@ define dso_local void @_ZN4llvm16MCObjectFileInfo25initXCOFFMCObjectFileInfoERKN
   %518 = getelementptr inbounds nuw %"struct.std::_Optional_base.127", ptr %517, i32 0, i32 0
   %519 = load i64, ptr %518, align 4
   %520 = call noundef ptr @_ZN4llvm9MCContext15getXCOFFSectionENS_9StringRefENS_11SectionKindESt8optionalINS_5XCOFF15CsectPropertiesEEbS3_INS4_24DwarfSectionSubtypeFlagsEE(ptr noundef nonnull align 8 dereferenceable(2432) %505, ptr %509, i64 %511, i32 %512, i24 %516, i1 noundef zeroext true, i64 %519)
-  %521 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %132, i32 0, i32 23
-  store ptr %520, ptr %521, align 8
+  %521 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %132, i32 0, i32 24
+  store ptr %520, ptr %521, align 8, !tbaa !79
+  call void @llvm.lifetime.end.p0(i64 4, ptr %130) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #11
   ret void
 }
 
@@ -5436,16 +5720,16 @@ define linkonce_odr hidden void @_ZN4llvm5XCOFF15CsectPropertiesC2ENS0_19Storage
   %4 = alloca ptr, align 8
   %5 = alloca i8, align 1
   %6 = alloca i8, align 1
-  store ptr %0, ptr %4, align 8
-  store i8 %1, ptr %5, align 1
-  store i8 %2, ptr %6, align 1
+  store ptr %0, ptr %4, align 8, !tbaa !321
+  store i8 %1, ptr %5, align 1, !tbaa !323
+  store i8 %2, ptr %6, align 1, !tbaa !325
   %7 = load ptr, ptr %4, align 8
   %8 = getelementptr inbounds nuw %"struct.llvm::XCOFF::CsectProperties", ptr %7, i32 0, i32 0
-  %9 = load i8, ptr %5, align 1
-  store i8 %9, ptr %8, align 1
+  %9 = load i8, ptr %5, align 1, !tbaa !323
+  store i8 %9, ptr %8, align 1, !tbaa !327
   %10 = getelementptr inbounds nuw %"struct.llvm::XCOFF::CsectProperties", ptr %7, i32 0, i32 1
-  %11 = load i8, ptr %6, align 1
-  store i8 %11, ptr %10, align 1
+  %11 = load i8, ptr %6, align 1, !tbaa !325
+  store i8 %11, ptr %10, align 1, !tbaa !329
   ret void
 }
 
@@ -5453,10 +5737,10 @@ define linkonce_odr hidden void @_ZN4llvm5XCOFF15CsectPropertiesC2ENS0_19Storage
 define linkonce_odr hidden void @_ZNSt8optionalIN4llvm5XCOFF15CsectPropertiesEEC2IS2_TnNSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS3_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_IS7_ISt10in_place_tSE_EESt16is_constructibleIS2_JSA_EESt14is_convertibleISA_S2_EEEbE4typeELb1EEEOSA_(ptr noundef nonnull align 1 dereferenceable(3) %0, ptr noundef nonnull align 1 dereferenceable(2) %1) unnamed_addr #0 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !330
+  store ptr %1, ptr %4, align 8, !tbaa !321
   %5 = load ptr, ptr %3, align 8
-  %6 = load ptr, ptr %4, align 8
+  %6 = load ptr, ptr %4, align 8, !tbaa !321
   call void @_ZNSt14_Optional_baseIN4llvm5XCOFF15CsectPropertiesELb1ELb1EEC2IJS2_ETnNSt9enable_ifIX18is_constructible_vIS2_DpT_EEbE4typeELb0EEESt10in_place_tDpOS6_(ptr noundef nonnull align 1 dereferenceable(3) %5, ptr noundef nonnull align 1 dereferenceable(2) %6)
   ret void
 }
@@ -5464,22 +5748,22 @@ define linkonce_odr hidden void @_ZNSt8optionalIN4llvm5XCOFF15CsectPropertiesEEC
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt8optionalIN4llvm5XCOFF24DwarfSectionSubtypeFlagsEEC2ESt9nullopt_t(ptr noundef nonnull align 4 dereferenceable(8) %0) unnamed_addr #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !332
   %3 = load ptr, ptr %2, align 8
-  call void @_ZNSt14_Optional_baseIN4llvm5XCOFF24DwarfSectionSubtypeFlagsELb1ELb1EEC2Ev(ptr noundef nonnull align 4 dereferenceable(8) %3) #8
+  call void @_ZNSt14_Optional_baseIN4llvm5XCOFF24DwarfSectionSubtypeFlagsELb1ELb1EEC2Ev(ptr noundef nonnull align 4 dereferenceable(8) %3) #11
   ret void
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZNK4llvm14MCSectionXCOFF17getQualNameSymbolEv(ptr noundef nonnull align 8 dereferenceable(192) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !314
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw %"class.llvm::MCSectionXCOFF", ptr %3, i32 0, i32 2
-  %5 = load ptr, ptr %4, align 8
+  %5 = load ptr, ptr %4, align 8, !tbaa !334
   ret ptr %5
 }
 
@@ -5491,12 +5775,12 @@ define linkonce_odr hidden void @_ZN4llvm13MCSymbolXCOFF18setSymbolTableNameENS_
   store ptr %1, ptr %6, align 8
   %7 = getelementptr inbounds nuw { ptr, i64 }, ptr %4, i32 0, i32 1
   store i64 %2, ptr %7, align 8
-  store ptr %0, ptr %5, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !362
   %8 = load ptr, ptr %5, align 8
   %9 = getelementptr inbounds nuw %"class.llvm::MCSymbolXCOFF", ptr %8, i32 0, i32 7
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %9, ptr align 8 %4, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %9, ptr align 8 %4, i64 16, i1 false), !tbaa.struct !93
   %10 = getelementptr inbounds nuw %"class.llvm::MCSymbolXCOFF", ptr %8, i32 0, i32 8
-  store i8 1, ptr %10, align 8
+  store i8 1, ptr %10, align 8, !tbaa !363
   ret void
 }
 
@@ -5508,10 +5792,10 @@ define linkonce_odr hidden void @_ZN4llvm14MCSectionXCOFF18setSymbolTableNameENS
   store ptr %1, ptr %6, align 8
   %7 = getelementptr inbounds nuw { ptr, i64 }, ptr %4, i32 0, i32 1
   store i64 %2, ptr %7, align 8
-  store ptr %0, ptr %5, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !314
   %8 = load ptr, ptr %5, align 8
   %9 = getelementptr inbounds nuw %"class.llvm::MCSectionXCOFF", ptr %8, i32 0, i32 3
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %9, ptr align 8 %4, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %9, ptr align 8 %4, i64 16, i1 false), !tbaa.struct !93
   ret void
 }
 
@@ -5521,10 +5805,10 @@ define linkonce_odr hidden void @_ZN4llvm9MCSection12setAlignmentENS_5AlignE(ptr
   %4 = alloca ptr, align 8
   %5 = getelementptr inbounds nuw %"struct.llvm::Align", ptr %3, i32 0, i32 0
   store i8 %1, ptr %5, align 1
-  store ptr %0, ptr %4, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !87
   %6 = load ptr, ptr %4, align 8
   %7 = getelementptr inbounds nuw %"class.llvm::MCSection", ptr %6, i32 0, i32 4
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %7, ptr align 1 %3, i64 1, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %7, ptr align 1 %3, i64 1, i1 false), !tbaa.struct !96
   ret void
 }
 
@@ -5532,16 +5816,16 @@ define linkonce_odr hidden void @_ZN4llvm9MCSection12setAlignmentENS_5AlignE(ptr
 define linkonce_odr hidden void @_ZN4llvm5AlignC2Em(ptr noundef nonnull align 1 dereferenceable(1) %0, i64 noundef %1) unnamed_addr #0 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca i64, align 8
-  store ptr %0, ptr %3, align 8
-  store i64 %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !375
+  store i64 %1, ptr %4, align 8, !tbaa !94
   %5 = load ptr, ptr %3, align 8
   %6 = getelementptr inbounds nuw %"struct.llvm::Align", ptr %5, i32 0, i32 0
-  store i8 0, ptr %6, align 1
-  %7 = load i64, ptr %4, align 8
+  store i8 0, ptr %6, align 1, !tbaa !377
+  %7 = load i64, ptr %4, align 8, !tbaa !94
   %8 = call noundef i32 @_ZN4llvm7Log2_64Em(i64 noundef %7)
   %9 = trunc i32 %8 to i8
   %10 = getelementptr inbounds nuw %"struct.llvm::Align", ptr %5, i32 0, i32 0
-  store i8 %9, ptr %10, align 1
+  store i8 %9, ptr %10, align 1, !tbaa !377
   ret void
 }
 
@@ -5558,9 +5842,9 @@ define linkonce_odr hidden i32 @_ZN4llvm11SectionKind13getThreadDataEv() #0 comd
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt8optionalIN4llvm5XCOFF15CsectPropertiesEEC2ESt9nullopt_t(ptr noundef nonnull align 1 dereferenceable(3) %0) unnamed_addr #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !330
   %3 = load ptr, ptr %2, align 8
-  call void @_ZNSt14_Optional_baseIN4llvm5XCOFF15CsectPropertiesELb1ELb1EEC2Ev(ptr noundef nonnull align 1 dereferenceable(3) %3) #8
+  call void @_ZNSt14_Optional_baseIN4llvm5XCOFF15CsectPropertiesELb1ELb1EEC2Ev(ptr noundef nonnull align 1 dereferenceable(3) %3) #11
   ret void
 }
 
@@ -5568,26 +5852,26 @@ define linkonce_odr hidden void @_ZNSt8optionalIN4llvm5XCOFF15CsectPropertiesEEC
 define linkonce_odr hidden void @_ZNSt8optionalIN4llvm5XCOFF24DwarfSectionSubtypeFlagsEEC2IS2_TnNSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS3_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_IS7_ISt10in_place_tSE_EESt16is_constructibleIS2_JSA_EESt14is_convertibleISA_S2_EEEbE4typeELb1EEEOSA_(ptr noundef nonnull align 4 dereferenceable(8) %0, ptr noundef nonnull align 4 dereferenceable(4) %1) unnamed_addr #0 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !332
+  store ptr %1, ptr %4, align 8, !tbaa !378
   %5 = load ptr, ptr %3, align 8
-  %6 = load ptr, ptr %4, align 8
+  %6 = load ptr, ptr %4, align 8, !tbaa !378
   call void @_ZNSt14_Optional_baseIN4llvm5XCOFF24DwarfSectionSubtypeFlagsELb1ELb1EEC2IJS2_ETnNSt9enable_ifIX18is_constructible_vIS2_DpT_EEbE4typeELb0EEESt10in_place_tDpOS6_(ptr noundef nonnull align 4 dereferenceable(8) %5, ptr noundef nonnull align 4 dereferenceable(4) %6)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm16MCObjectFileInfo29initDXContainerObjectFileInfoERKNS_6TripleE(ptr noundef nonnull align 8 dereferenceable(912) %0, ptr noundef nonnull align 8 dereferenceable(56) %1) #0 align 2 {
+define dso_local void @_ZN4llvm16MCObjectFileInfo29initDXContainerObjectFileInfoERKNS_6TripleE(ptr noundef nonnull align 8 dereferenceable(920) %0, ptr noundef nonnull align 8 dereferenceable(56) %1) #0 align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca %"class.llvm::StringRef", align 8
   %6 = alloca %"class.llvm::SectionKind", align 4
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  store ptr %1, ptr %4, align 8, !tbaa !8
   %7 = load ptr, ptr %3, align 8
-  %8 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %7, i32 0, i32 106
-  %9 = load ptr, ptr %8, align 8
-  call void @_ZN4llvm9StringRefC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef @.str.180)
+  %8 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %7, i32 0, i32 107
+  %9 = load ptr, ptr %8, align 8, !tbaa !17
+  call void @_ZN4llvm9StringRefC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef @.str.181)
   %10 = call i32 @_ZN4llvm11SectionKind7getTextEv()
   %11 = trunc i32 %10 to i8
   store i8 %11, ptr %6, align 4
@@ -5598,82 +5882,83 @@ define dso_local void @_ZN4llvm16MCObjectFileInfo29initDXContainerObjectFileInfo
   %16 = load i32, ptr %6, align 4
   %17 = call noundef ptr @_ZN4llvm9MCContext21getDXContainerSectionENS_9StringRefENS_11SectionKindE(ptr noundef nonnull align 8 dereferenceable(2432) %9, ptr %13, i64 %15, i32 %16)
   %18 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %7, i32 0, i32 6
-  store ptr %17, ptr %18, align 8
+  store ptr %17, ptr %18, align 8, !tbaa !24
   ret void
 }
 
 declare noundef ptr @_ZN4llvm9MCContext21getDXContainerSectionENS_9StringRefENS_11SectionKindE(ptr noundef nonnull align 8 dereferenceable(2432), ptr, i64, i32) #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm16MCObjectFileInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(912) %0) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm16MCObjectFileInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(920) %0) unnamed_addr #0 align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !3
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm16MCObjectFileInfoD0Ev(ptr noundef nonnull align 8 dereferenceable(912) %0) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm16MCObjectFileInfoD0Ev(ptr noundef nonnull align 8 dereferenceable(920) %0) unnamed_addr #0 align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !3
   %3 = load ptr, ptr %2, align 8
-  call void @_ZN4llvm16MCObjectFileInfoD1Ev(ptr noundef nonnull align 8 dereferenceable(912) %3) #8
-  call void @_ZdlPvm(ptr noundef %3, i64 noundef 912) #9
+  call void @_ZN4llvm16MCObjectFileInfoD1Ev(ptr noundef nonnull align 8 dereferenceable(920) %3) #11
+  call void @_ZdlPvm(ptr noundef %3, i64 noundef 920) #12
   ret void
 }
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPvm(ptr noundef, i64 noundef) #3
+declare void @_ZdlPvm(ptr noundef, i64 noundef) #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm16MCObjectFileInfo20initMCObjectFileInfoERNS_9MCContextEbb(ptr noundef nonnull align 8 dereferenceable(912) %0, ptr noundef nonnull align 8 dereferenceable(2432) %1, i1 noundef zeroext %2, i1 noundef zeroext %3) #0 align 2 {
+define dso_local void @_ZN4llvm16MCObjectFileInfo20initMCObjectFileInfoERNS_9MCContextEbb(ptr noundef nonnull align 8 dereferenceable(920) %0, ptr noundef nonnull align 8 dereferenceable(2432) %1, i1 noundef zeroext %2, i1 noundef zeroext %3) #0 align 2 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca i8, align 1
   %8 = alloca i8, align 1
   %9 = alloca ptr, align 8
-  store ptr %0, ptr %5, align 8
-  store ptr %1, ptr %6, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !3
+  store ptr %1, ptr %6, align 8, !tbaa !89
   %10 = zext i1 %2 to i8
-  store i8 %10, ptr %7, align 1
+  store i8 %10, ptr %7, align 1, !tbaa !114
   %11 = zext i1 %3 to i8
-  store i8 %11, ptr %8, align 1
+  store i8 %11, ptr %8, align 1, !tbaa !114
   %12 = load ptr, ptr %5, align 8
-  %13 = load i8, ptr %7, align 1
+  %13 = load i8, ptr %7, align 1, !tbaa !114, !range !21, !noundef !22
   %14 = trunc i8 %13 to i1
-  %15 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %12, i32 0, i32 105
+  %15 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %12, i32 0, i32 106
   %16 = zext i1 %14 to i8
-  store i8 %16, ptr %15, align 8
-  %17 = load ptr, ptr %6, align 8
-  %18 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %12, i32 0, i32 106
-  store ptr %17, ptr %18, align 8
+  store i8 %16, ptr %15, align 8, !tbaa !115
+  %17 = load ptr, ptr %6, align 8, !tbaa !89
+  %18 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %12, i32 0, i32 107
+  store ptr %17, ptr %18, align 8, !tbaa !17
   %19 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %12, i32 0, i32 1
-  store i8 1, ptr %19, align 8
+  store i8 1, ptr %19, align 8, !tbaa !10
   %20 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %12, i32 0, i32 2
-  store i8 0, ptr %20, align 1
+  store i8 0, ptr %20, align 1, !tbaa !19
   %21 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %12, i32 0, i32 3
-  store i8 0, ptr %21, align 2
+  store i8 0, ptr %21, align 2, !tbaa !20
   %22 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %12, i32 0, i32 4
-  store i32 0, ptr %22, align 4
+  store i32 0, ptr %22, align 4, !tbaa !23
   %23 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %12, i32 0, i32 5
-  store i32 0, ptr %23, align 8
-  %24 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %12, i32 0, i32 60
-  store ptr null, ptr %24, align 8
+  store i32 0, ptr %23, align 8, !tbaa !55
+  %24 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %12, i32 0, i32 61
+  store ptr null, ptr %24, align 8, !tbaa !18
   %25 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %12, i32 0, i32 11
-  store ptr null, ptr %25, align 8
-  %26 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %12, i32 0, i32 27
-  store ptr null, ptr %26, align 8
-  %27 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %12, i32 0, i32 28
-  store ptr null, ptr %27, align 8
-  %28 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %12, i32 0, i32 29
-  store ptr null, ptr %28, align 8
-  %29 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %12, i32 0, i32 30
-  store ptr null, ptr %29, align 8
-  %30 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %12, i32 0, i32 106
-  %31 = load ptr, ptr %30, align 8
+  store ptr null, ptr %25, align 8, !tbaa !54
+  %26 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %12, i32 0, i32 28
+  store ptr null, ptr %26, align 8, !tbaa !57
+  %27 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %12, i32 0, i32 29
+  store ptr null, ptr %27, align 8, !tbaa !58
+  %28 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %12, i32 0, i32 30
+  store ptr null, ptr %28, align 8, !tbaa !59
+  %29 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %12, i32 0, i32 31
+  store ptr null, ptr %29, align 8, !tbaa !60
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #11
+  %30 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %12, i32 0, i32 107
+  %31 = load ptr, ptr %30, align 8, !tbaa !17
   %32 = call noundef nonnull align 8 dereferenceable(56) ptr @_ZNK4llvm9MCContext15getTargetTripleEv(ptr noundef nonnull align 8 dereferenceable(2432) %31)
-  store ptr %32, ptr %9, align 8
-  %33 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %12, i32 0, i32 106
-  %34 = load ptr, ptr %33, align 8
+  store ptr %32, ptr %9, align 8, !tbaa !8
+  %33 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %12, i32 0, i32 107
+  %34 = load ptr, ptr %33, align 8, !tbaa !17
   %35 = call noundef i32 @_ZNK4llvm9MCContext17getObjectFileTypeEv(ptr noundef nonnull align 8 dereferenceable(2432) %34)
   switch i32 %35, label %54 [
     i32 0, label %36
@@ -5687,55 +5972,56 @@ define dso_local void @_ZN4llvm16MCObjectFileInfo20initMCObjectFileInfoERNS_9MCC
   ]
 
 36:                                               ; preds = %4
-  %37 = load ptr, ptr %9, align 8
-  call void @_ZN4llvm16MCObjectFileInfo25initMachOMCObjectFileInfoERKNS_6TripleE(ptr noundef nonnull align 8 dereferenceable(912) %12, ptr noundef nonnull align 8 dereferenceable(56) %37)
+  %37 = load ptr, ptr %9, align 8, !tbaa !8
+  call void @_ZN4llvm16MCObjectFileInfo25initMachOMCObjectFileInfoERKNS_6TripleE(ptr noundef nonnull align 8 dereferenceable(920) %12, ptr noundef nonnull align 8 dereferenceable(56) %37)
   br label %54
 
 38:                                               ; preds = %4
-  %39 = load ptr, ptr %9, align 8
-  call void @_ZN4llvm16MCObjectFileInfo24initCOFFMCObjectFileInfoERKNS_6TripleE(ptr noundef nonnull align 8 dereferenceable(912) %12, ptr noundef nonnull align 8 dereferenceable(56) %39)
+  %39 = load ptr, ptr %9, align 8, !tbaa !8
+  call void @_ZN4llvm16MCObjectFileInfo24initCOFFMCObjectFileInfoERKNS_6TripleE(ptr noundef nonnull align 8 dereferenceable(920) %12, ptr noundef nonnull align 8 dereferenceable(56) %39)
   br label %54
 
 40:                                               ; preds = %4
-  %41 = load ptr, ptr %9, align 8
-  %42 = load i8, ptr %8, align 1
+  %41 = load ptr, ptr %9, align 8, !tbaa !8
+  %42 = load i8, ptr %8, align 1, !tbaa !114, !range !21, !noundef !22
   %43 = trunc i8 %42 to i1
-  call void @_ZN4llvm16MCObjectFileInfo23initELFMCObjectFileInfoERKNS_6TripleEb(ptr noundef nonnull align 8 dereferenceable(912) %12, ptr noundef nonnull align 8 dereferenceable(56) %41, i1 noundef zeroext %43)
+  call void @_ZN4llvm16MCObjectFileInfo23initELFMCObjectFileInfoERKNS_6TripleEb(ptr noundef nonnull align 8 dereferenceable(920) %12, ptr noundef nonnull align 8 dereferenceable(56) %41, i1 noundef zeroext %43)
   br label %54
 
 44:                                               ; preds = %4
-  %45 = load ptr, ptr %9, align 8
-  call void @_ZN4llvm16MCObjectFileInfo24initGOFFMCObjectFileInfoERKNS_6TripleE(ptr noundef nonnull align 8 dereferenceable(912) %12, ptr noundef nonnull align 8 dereferenceable(56) %45)
+  %45 = load ptr, ptr %9, align 8, !tbaa !8
+  call void @_ZN4llvm16MCObjectFileInfo24initGOFFMCObjectFileInfoERKNS_6TripleE(ptr noundef nonnull align 8 dereferenceable(920) %12, ptr noundef nonnull align 8 dereferenceable(56) %45)
   br label %54
 
 46:                                               ; preds = %4
-  %47 = load ptr, ptr %9, align 8
-  call void @_ZN4llvm16MCObjectFileInfo25initSPIRVMCObjectFileInfoERKNS_6TripleE(ptr noundef nonnull align 8 dereferenceable(912) %12, ptr noundef nonnull align 8 dereferenceable(56) %47)
+  %47 = load ptr, ptr %9, align 8, !tbaa !8
+  call void @_ZN4llvm16MCObjectFileInfo25initSPIRVMCObjectFileInfoERKNS_6TripleE(ptr noundef nonnull align 8 dereferenceable(920) %12, ptr noundef nonnull align 8 dereferenceable(56) %47)
   br label %54
 
 48:                                               ; preds = %4
-  %49 = load ptr, ptr %9, align 8
-  call void @_ZN4llvm16MCObjectFileInfo24initWasmMCObjectFileInfoERKNS_6TripleE(ptr noundef nonnull align 8 dereferenceable(912) %12, ptr noundef nonnull align 8 dereferenceable(56) %49)
+  %49 = load ptr, ptr %9, align 8, !tbaa !8
+  call void @_ZN4llvm16MCObjectFileInfo24initWasmMCObjectFileInfoERKNS_6TripleE(ptr noundef nonnull align 8 dereferenceable(920) %12, ptr noundef nonnull align 8 dereferenceable(56) %49)
   br label %54
 
 50:                                               ; preds = %4
-  %51 = load ptr, ptr %9, align 8
-  call void @_ZN4llvm16MCObjectFileInfo25initXCOFFMCObjectFileInfoERKNS_6TripleE(ptr noundef nonnull align 8 dereferenceable(912) %12, ptr noundef nonnull align 8 dereferenceable(56) %51)
+  %51 = load ptr, ptr %9, align 8, !tbaa !8
+  call void @_ZN4llvm16MCObjectFileInfo25initXCOFFMCObjectFileInfoERKNS_6TripleE(ptr noundef nonnull align 8 dereferenceable(920) %12, ptr noundef nonnull align 8 dereferenceable(56) %51)
   br label %54
 
 52:                                               ; preds = %4
-  %53 = load ptr, ptr %9, align 8
-  call void @_ZN4llvm16MCObjectFileInfo29initDXContainerObjectFileInfoERKNS_6TripleE(ptr noundef nonnull align 8 dereferenceable(912) %12, ptr noundef nonnull align 8 dereferenceable(56) %53)
+  %53 = load ptr, ptr %9, align 8, !tbaa !8
+  call void @_ZN4llvm16MCObjectFileInfo29initDXContainerObjectFileInfoERKNS_6TripleE(ptr noundef nonnull align 8 dereferenceable(920) %12, ptr noundef nonnull align 8 dereferenceable(56) %53)
   br label %54
 
-54:                                               ; preds = %52, %50, %48, %46, %44, %40, %38, %36, %4
+54:                                               ; preds = %4, %52, %50, %48, %46, %44, %40, %38, %36
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #11
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef nonnull align 8 dereferenceable(56) ptr @_ZNK4llvm9MCContext15getTargetTripleEv(ptr noundef nonnull align 8 dereferenceable(2432) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !89
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw %"class.llvm::MCContext", ptr %3, i32 0, i32 2
   ret ptr %4
@@ -5744,15 +6030,15 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(56) ptr @_ZNK
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef i32 @_ZNK4llvm9MCContext17getObjectFileTypeEv(ptr noundef nonnull align 8 dereferenceable(2432) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !89
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw %"class.llvm::MCContext", ptr %3, i32 0, i32 0
-  %5 = load i32, ptr %4, align 8
+  %5 = load i32, ptr %4, align 8, !tbaa !379
   ret i32 %5
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef ptr @_ZNK4llvm16MCObjectFileInfo21getDwarfComdatSectionEPKcm(ptr noundef nonnull align 8 dereferenceable(912) %0, ptr noundef %1, i64 noundef %2) #0 align 2 {
+define dso_local noundef ptr @_ZNK4llvm16MCObjectFileInfo21getDwarfComdatSectionEPKcm(ptr noundef nonnull align 8 dereferenceable(920) %0, ptr noundef %1, i64 noundef %2) #0 align 2 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -5764,12 +6050,12 @@ define dso_local noundef ptr @_ZNK4llvm16MCObjectFileInfo21getDwarfComdatSection
   %12 = alloca %"class.llvm::SectionKind", align 4
   %13 = alloca %"class.llvm::Twine", align 8
   %14 = alloca %"class.std::__cxx11::basic_string", align 8
-  store ptr %0, ptr %5, align 8
-  store ptr %1, ptr %6, align 8
-  store i64 %2, ptr %7, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !3
+  store ptr %1, ptr %6, align 8, !tbaa !91
+  store i64 %2, ptr %7, align 8, !tbaa !94
   %15 = load ptr, ptr %5, align 8
-  %16 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %15, i32 0, i32 106
-  %17 = load ptr, ptr %16, align 8
+  %16 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %15, i32 0, i32 107
+  %17 = load ptr, ptr %16, align 8, !tbaa !17
   %18 = call noundef nonnull align 8 dereferenceable(56) ptr @_ZNK4llvm9MCContext15getTargetTripleEv(ptr noundef nonnull align 8 dereferenceable(2432) %17)
   %19 = call noundef i32 @_ZNK4llvm6Triple15getObjectFormatEv(ptr noundef nonnull align 8 dereferenceable(56) %18)
   switch i32 %19, label %36 [
@@ -5785,37 +6071,49 @@ define dso_local noundef ptr @_ZNK4llvm16MCObjectFileInfo21getDwarfComdatSection
   ]
 
 20:                                               ; preds = %3
-  %21 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %15, i32 0, i32 106
-  %22 = load ptr, ptr %21, align 8
-  %23 = load ptr, ptr %6, align 8
+  %21 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %15, i32 0, i32 107
+  %22 = load ptr, ptr %21, align 8, !tbaa !17
+  call void @llvm.lifetime.start.p0(i64 40, ptr %8) #11
+  %23 = load ptr, ptr %6, align 8, !tbaa !91
   call void @_ZN4llvm5TwineC2EPKc(ptr noundef nonnull align 8 dereferenceable(34) %8, ptr noundef %23)
-  %24 = load i64, ptr %7, align 8
+  call void @llvm.lifetime.start.p0(i64 40, ptr %9) #11
+  call void @llvm.lifetime.start.p0(i64 32, ptr %10) #11
+  %24 = load i64, ptr %7, align 8, !tbaa !94
   call void @_ZN4llvm6utostrB5cxx11Emb(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %10, i64 noundef %24, i1 noundef zeroext false)
   call void @_ZN4llvm5TwineC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(34) %9, ptr noundef nonnull align 8 dereferenceable(32) %10)
   %25 = call noundef ptr @_ZN4llvm9MCContext13getELFSectionERKNS_5TwineEjjjS3_b(ptr noundef nonnull align 8 dereferenceable(2432) %22, ptr noundef nonnull align 8 dereferenceable(34) %8, i32 noundef 1, i32 noundef 512, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(34) %9, i1 noundef zeroext true)
   store ptr %25, ptr %4, align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #8
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #11
+  call void @llvm.lifetime.end.p0(i64 32, ptr %10) #11
+  call void @llvm.lifetime.end.p0(i64 40, ptr %9) #11
+  call void @llvm.lifetime.end.p0(i64 40, ptr %8) #11
   br label %37
 
 26:                                               ; preds = %3
-  %27 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %15, i32 0, i32 106
-  %28 = load ptr, ptr %27, align 8
-  %29 = load ptr, ptr %6, align 8
+  %27 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %15, i32 0, i32 107
+  %28 = load ptr, ptr %27, align 8, !tbaa !17
+  call void @llvm.lifetime.start.p0(i64 40, ptr %11) #11
+  %29 = load ptr, ptr %6, align 8, !tbaa !91
   call void @_ZN4llvm5TwineC2EPKc(ptr noundef nonnull align 8 dereferenceable(34) %11, ptr noundef %29)
   %30 = call i32 @_ZN4llvm11SectionKind11getMetadataEv()
   %31 = trunc i32 %30 to i8
   store i8 %31, ptr %12, align 4
-  %32 = load i64, ptr %7, align 8
+  call void @llvm.lifetime.start.p0(i64 40, ptr %13) #11
+  call void @llvm.lifetime.start.p0(i64 32, ptr %14) #11
+  %32 = load i64, ptr %7, align 8, !tbaa !94
   call void @_ZN4llvm6utostrB5cxx11Emb(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %14, i64 noundef %32, i1 noundef zeroext false)
   call void @_ZN4llvm5TwineC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(34) %13, ptr noundef nonnull align 8 dereferenceable(32) %14)
   %33 = load i32, ptr %12, align 4
   %34 = call noundef ptr @_ZN4llvm9MCContext14getWasmSectionERKNS_5TwineENS_11SectionKindEjS3_j(ptr noundef nonnull align 8 dereferenceable(2432) %28, ptr noundef nonnull align 8 dereferenceable(34) %11, i32 %33, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(34) %13, i32 noundef -1)
   store ptr %34, ptr %4, align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %14) #8
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %14) #11
+  call void @llvm.lifetime.end.p0(i64 32, ptr %14) #11
+  call void @llvm.lifetime.end.p0(i64 40, ptr %13) #11
+  call void @llvm.lifetime.end.p0(i64 40, ptr %11) #11
   br label %37
 
 35:                                               ; preds = %3, %3, %3, %3, %3, %3, %3
-  call void @_ZN4llvm18report_fatal_errorEPKcb(ptr noundef @.str.181, i1 noundef zeroext true) #10
+  call void @_ZN4llvm18report_fatal_errorEPKcb(ptr noundef @.str.182, i1 noundef zeroext true) #13
   unreachable
 
 36:                                               ; preds = %3
@@ -5829,10 +6127,10 @@ define dso_local noundef ptr @_ZNK4llvm16MCObjectFileInfo21getDwarfComdatSection
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef i32 @_ZNK4llvm6Triple15getObjectFormatEv(ptr noundef nonnull align 8 dereferenceable(56) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw %"class.llvm::Triple", ptr %3, i32 0, i32 6
-  %5 = load i32, ptr %4, align 4
+  %5 = load i32, ptr %4, align 4, !tbaa !380
   ret i32 %5
 }
 
@@ -5845,28 +6143,28 @@ define linkonce_odr hidden noundef ptr @_ZN4llvm9MCContext13getELFSectionERKNS_5
   %12 = alloca i32, align 4
   %13 = alloca ptr, align 8
   %14 = alloca i8, align 1
-  store ptr %0, ptr %8, align 8
-  store ptr %1, ptr %9, align 8
-  store i32 %2, ptr %10, align 4
-  store i32 %3, ptr %11, align 4
-  store i32 %4, ptr %12, align 4
-  store ptr %5, ptr %13, align 8
+  store ptr %0, ptr %8, align 8, !tbaa !89
+  store ptr %1, ptr %9, align 8, !tbaa !294
+  store i32 %2, ptr %10, align 4, !tbaa !90
+  store i32 %3, ptr %11, align 4, !tbaa !90
+  store i32 %4, ptr %12, align 4, !tbaa !90
+  store ptr %5, ptr %13, align 8, !tbaa !294
   %15 = zext i1 %6 to i8
-  store i8 %15, ptr %14, align 1
+  store i8 %15, ptr %14, align 1, !tbaa !114
   %16 = load ptr, ptr %8, align 8
-  %17 = load ptr, ptr %9, align 8
-  %18 = load i32, ptr %10, align 4
-  %19 = load i32, ptr %11, align 4
-  %20 = load i32, ptr %12, align 4
-  %21 = load ptr, ptr %13, align 8
-  %22 = load i8, ptr %14, align 1
+  %17 = load ptr, ptr %9, align 8, !tbaa !294
+  %18 = load i32, ptr %10, align 4, !tbaa !90
+  %19 = load i32, ptr %11, align 4, !tbaa !90
+  %20 = load i32, ptr %12, align 4, !tbaa !90
+  %21 = load ptr, ptr %13, align 8, !tbaa !294
+  %22 = load i8, ptr %14, align 1, !tbaa !114, !range !21, !noundef !22
   %23 = trunc i8 %22 to i1
   %24 = call noundef ptr @_ZN4llvm9MCContext13getELFSectionERKNS_5TwineEjjjS3_bjPKNS_11MCSymbolELFE(ptr noundef nonnull align 8 dereferenceable(2432) %16, ptr noundef nonnull align 8 dereferenceable(34) %17, i32 noundef %18, i32 noundef %19, i32 noundef %20, ptr noundef nonnull align 8 dereferenceable(34) %21, i1 noundef zeroext %23, i32 noundef -1, ptr noundef null)
   ret ptr %24
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN4llvm6utostrB5cxx11Emb(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, i64 noundef %1, i1 noundef zeroext %2) #0 comdat {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN4llvm6utostrB5cxx11Emb(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, i64 noundef %1, i1 noundef zeroext %2) #5 comdat {
   %4 = alloca ptr, align 8
   %5 = alloca i64, align 8
   %6 = alloca i8, align 1
@@ -5874,64 +6172,70 @@ define linkonce_odr hidden void @_ZN4llvm6utostrB5cxx11Emb(ptr dead_on_unwind no
   %8 = alloca ptr, align 8
   %9 = alloca %"class.std::allocator", align 1
   store ptr %0, ptr %4, align 8
-  store i64 %1, ptr %5, align 8
+  store i64 %1, ptr %5, align 8, !tbaa !94
   %10 = zext i1 %2 to i8
-  store i8 %10, ptr %6, align 1
-  %11 = call noundef ptr @_ZSt3endIcLm21EEPT_RAT0__S0_(ptr noundef nonnull align 1 dereferenceable(21) %7) #8
-  store ptr %11, ptr %8, align 8
-  %12 = load i64, ptr %5, align 8
+  store i8 %10, ptr %6, align 1, !tbaa !114
+  call void @llvm.lifetime.start.p0(i64 21, ptr %7) #11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #11
+  %11 = call noundef ptr @_ZSt3endIcLm21EEPT_RAT0__S0_(ptr noundef nonnull align 1 dereferenceable(21) %7) #11
+  store ptr %11, ptr %8, align 8, !tbaa !91
+  %12 = load i64, ptr %5, align 8, !tbaa !94
   %13 = icmp eq i64 %12, 0
   br i1 %13, label %14, label %17
 
 14:                                               ; preds = %3
-  %15 = load ptr, ptr %8, align 8
+  %15 = load ptr, ptr %8, align 8, !tbaa !91
   %16 = getelementptr inbounds i8, ptr %15, i32 -1
-  store ptr %16, ptr %8, align 8
-  store i8 48, ptr %16, align 1
+  store ptr %16, ptr %8, align 8, !tbaa !91
+  store i8 48, ptr %16, align 1, !tbaa !97
   br label %17
 
 17:                                               ; preds = %14, %3
   br label %18
 
 18:                                               ; preds = %21, %17
-  %19 = load i64, ptr %5, align 8
+  %19 = load i64, ptr %5, align 8, !tbaa !94
   %20 = icmp ne i64 %19, 0
   br i1 %20, label %21, label %32
 
 21:                                               ; preds = %18
-  %22 = load i64, ptr %5, align 8
+  %22 = load i64, ptr %5, align 8, !tbaa !94
   %23 = urem i64 %22, 10
   %24 = trunc i64 %23 to i8
   %25 = sext i8 %24 to i32
   %26 = add nsw i32 48, %25
   %27 = trunc i32 %26 to i8
-  %28 = load ptr, ptr %8, align 8
+  %28 = load ptr, ptr %8, align 8, !tbaa !91
   %29 = getelementptr inbounds i8, ptr %28, i32 -1
-  store ptr %29, ptr %8, align 8
-  store i8 %27, ptr %29, align 1
-  %30 = load i64, ptr %5, align 8
+  store ptr %29, ptr %8, align 8, !tbaa !91
+  store i8 %27, ptr %29, align 1, !tbaa !97
+  %30 = load i64, ptr %5, align 8, !tbaa !94
   %31 = udiv i64 %30, 10
-  store i64 %31, ptr %5, align 8
-  br label %18, !llvm.loop !4
+  store i64 %31, ptr %5, align 8, !tbaa !94
+  br label %18, !llvm.loop !381
 
 32:                                               ; preds = %18
-  %33 = load i8, ptr %6, align 1
+  %33 = load i8, ptr %6, align 1, !tbaa !114, !range !21, !noundef !22
   %34 = trunc i8 %33 to i1
   br i1 %34, label %35, label %38
 
 35:                                               ; preds = %32
-  %36 = load ptr, ptr %8, align 8
+  %36 = load ptr, ptr %8, align 8, !tbaa !91
   %37 = getelementptr inbounds i8, ptr %36, i32 -1
-  store ptr %37, ptr %8, align 8
-  store i8 45, ptr %37, align 1
+  store ptr %37, ptr %8, align 8, !tbaa !91
+  store i8 45, ptr %37, align 1, !tbaa !97
   br label %38
 
 38:                                               ; preds = %35, %32
-  %39 = load ptr, ptr %8, align 8
-  %40 = call noundef ptr @_ZSt3endIcLm21EEPT_RAT0__S0_(ptr noundef nonnull align 1 dereferenceable(21) %7) #8
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %9) #8
+  %39 = load ptr, ptr %8, align 8, !tbaa !91
+  %40 = call noundef ptr @_ZSt3endIcLm21EEPT_RAT0__S0_(ptr noundef nonnull align 1 dereferenceable(21) %7) #11
+  call void @llvm.lifetime.start.p0(i64 1, ptr %9) #11
+  call void @_ZNSaIcEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %9) #11
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IPcvEET_S7_RKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %39, ptr noundef %40, ptr noundef nonnull align 1 dereferenceable(1) %9)
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %9) #8
+  call void @_ZNSt15__new_allocatorIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %9) #11
+  call void @llvm.lifetime.end.p0(i64 1, ptr %9) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #11
+  call void @llvm.lifetime.end.p0(i64 21, ptr %7) #11
   ret void
 }
 
@@ -5939,29 +6243,37 @@ define linkonce_odr hidden void @_ZN4llvm6utostrB5cxx11Emb(ptr dead_on_unwind no
 define linkonce_odr hidden void @_ZN4llvm5TwineC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(34) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #0 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !294
+  store ptr %1, ptr %4, align 8, !tbaa !383
   %5 = load ptr, ptr %3, align 8
   %6 = getelementptr inbounds nuw %"class.llvm::Twine", ptr %5, i32 0, i32 2
-  store i8 4, ptr %6, align 8
+  store i8 4, ptr %6, align 8, !tbaa !296
   %7 = getelementptr inbounds nuw %"class.llvm::Twine", ptr %5, i32 0, i32 3
-  store i8 1, ptr %7, align 1
-  %8 = load ptr, ptr %4, align 8
+  store i8 1, ptr %7, align 1, !tbaa !299
+  %8 = load ptr, ptr %4, align 8, !tbaa !383
   %9 = getelementptr inbounds nuw %"class.llvm::Twine", ptr %5, i32 0, i32 0
-  store ptr %8, ptr %9, align 8
+  store ptr %8, ptr %9, align 8, !tbaa !97
   ret void
 }
 
-; Function Attrs: nounwind
-declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #4
+; Function Attrs: mustprogress nounwind uwtable
+define available_externally void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #0 align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !383
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_disposeEv(ptr noundef nonnull align 8 dereferenceable(32) %3)
+  %4 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %3, i32 0, i32 0
+  call void @_ZNSt15__new_allocatorIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #11
+  ret void
+}
 
 declare noundef ptr @_ZN4llvm9MCContext14getWasmSectionERKNS_5TwineENS_11SectionKindEjS3_j(ptr noundef nonnull align 8 dereferenceable(2432), ptr noundef nonnull align 8 dereferenceable(34), i32, i32 noundef, ptr noundef nonnull align 8 dereferenceable(34), i32 noundef) #1
 
 ; Function Attrs: noreturn
-declare void @_ZN4llvm18report_fatal_errorEPKcb(ptr noundef, i1 noundef zeroext) #5
+declare void @_ZN4llvm18report_fatal_errorEPKcb(ptr noundef, i1 noundef zeroext) #6
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef ptr @_ZNK4llvm16MCObjectFileInfo20getStackSizesSectionERKNS_9MCSectionE(ptr noundef nonnull align 8 dereferenceable(912) %0, ptr noundef nonnull align 8 dereferenceable(148) %1) #0 align 2 {
+define dso_local noundef ptr @_ZNK4llvm16MCObjectFileInfo20getStackSizesSectionERKNS_9MCSectionE(ptr noundef nonnull align 8 dereferenceable(920) %0, ptr noundef nonnull align 8 dereferenceable(148) %1) #0 align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
@@ -5972,42 +6284,47 @@ define dso_local noundef ptr @_ZNK4llvm16MCObjectFileInfo20getStackSizesSectionE
   %10 = alloca %"class.llvm::StringRef", align 8
   %11 = alloca %"class.llvm::Twine", align 8
   %12 = alloca %"class.llvm::Twine", align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !3
+  store ptr %1, ptr %5, align 8, !tbaa !87
   %13 = load ptr, ptr %4, align 8
-  %14 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %13, i32 0, i32 106
-  %15 = load ptr, ptr %14, align 8
+  %14 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %13, i32 0, i32 107
+  %15 = load ptr, ptr %14, align 8, !tbaa !17
   %16 = call noundef i32 @_ZNK4llvm9MCContext17getObjectFileTypeEv(ptr noundef nonnull align 8 dereferenceable(2432) %15)
   %17 = icmp ne i32 %16, 1
   br i1 %17, label %23, label %18
 
 18:                                               ; preds = %2
-  %19 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %13, i32 0, i32 106
-  %20 = load ptr, ptr %19, align 8
+  %19 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %13, i32 0, i32 107
+  %20 = load ptr, ptr %19, align 8, !tbaa !17
   %21 = call noundef nonnull align 8 dereferenceable(56) ptr @_ZNK4llvm9MCContext15getTargetTripleEv(ptr noundef nonnull align 8 dereferenceable(2432) %20)
   %22 = call noundef zeroext i1 @_ZNK4llvm6Triple5isPS4Ev(ptr noundef nonnull align 8 dereferenceable(56) %21)
   br i1 %22, label %23, label %26
 
 23:                                               ; preds = %18, %2
-  %24 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %13, i32 0, i32 61
-  %25 = load ptr, ptr %24, align 8
+  %24 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %13, i32 0, i32 62
+  %25 = load ptr, ptr %24, align 8, !tbaa !132
   store ptr %25, ptr %3, align 8
   br label %51
 
 26:                                               ; preds = %18
-  %27 = load ptr, ptr %5, align 8
-  store ptr %27, ptr %6, align 8
-  store i32 128, ptr %7, align 4
-  call void @_ZN4llvm9StringRefC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #8
-  %28 = load ptr, ptr %6, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #11
+  %27 = load ptr, ptr %5, align 8, !tbaa !87
+  store ptr %27, ptr %6, align 8, !tbaa !385
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #11
+  store i32 128, ptr %7, align 4, !tbaa !90
+  call void @llvm.lifetime.start.p0(i64 16, ptr %8) #11
+  call void @_ZN4llvm9StringRefC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #11
+  %28 = load ptr, ptr %6, align 8, !tbaa !385
   %29 = call noundef ptr @_ZNK4llvm12MCSectionELF8getGroupEv(ptr noundef nonnull align 8 dereferenceable(200) %28)
-  store ptr %29, ptr %9, align 8
-  %30 = load ptr, ptr %9, align 8
+  store ptr %29, ptr %9, align 8, !tbaa !387
+  %30 = load ptr, ptr %9, align 8, !tbaa !387
   %31 = icmp ne ptr %30, null
   br i1 %31, label %32, label %41
 
 32:                                               ; preds = %26
-  %33 = load ptr, ptr %9, align 8
+  call void @llvm.lifetime.start.p0(i64 16, ptr %10) #11
+  %33 = load ptr, ptr %9, align 8, !tbaa !387
   %34 = call { ptr, i64 } @_ZNK4llvm8MCSymbol7getNameEv(ptr noundef nonnull align 8 dereferenceable(32) %33)
   %35 = getelementptr inbounds nuw { ptr, i64 }, ptr %10, i32 0, i32 0
   %36 = extractvalue { ptr, i64 } %34, 0
@@ -6015,25 +6332,34 @@ define dso_local noundef ptr @_ZNK4llvm16MCObjectFileInfo20getStackSizesSectionE
   %37 = getelementptr inbounds nuw { ptr, i64 }, ptr %10, i32 0, i32 1
   %38 = extractvalue { ptr, i64 } %34, 1
   store i64 %38, ptr %37, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %8, ptr align 8 %10, i64 16, i1 false)
-  %39 = load i32, ptr %7, align 4
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %8, ptr align 8 %10, i64 16, i1 false), !tbaa.struct !93
+  call void @llvm.lifetime.end.p0(i64 16, ptr %10) #11
+  %39 = load i32, ptr %7, align 4, !tbaa !90
   %40 = or i32 %39, 512
-  store i32 %40, ptr %7, align 4
+  store i32 %40, ptr %7, align 4, !tbaa !90
   br label %41
 
 41:                                               ; preds = %32, %26
-  %42 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %13, i32 0, i32 106
-  %43 = load ptr, ptr %42, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #11
+  %42 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %13, i32 0, i32 107
+  %43 = load ptr, ptr %42, align 8, !tbaa !17
+  call void @llvm.lifetime.start.p0(i64 40, ptr %11) #11
   call void @_ZN4llvm5TwineC2EPKc(ptr noundef nonnull align 8 dereferenceable(34) %11, ptr noundef @.str.140)
-  %44 = load i32, ptr %7, align 4
+  %44 = load i32, ptr %7, align 4, !tbaa !90
+  call void @llvm.lifetime.start.p0(i64 40, ptr %12) #11
   call void @_ZN4llvm5TwineC2ERKNS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(34) %12, ptr noundef nonnull align 8 dereferenceable(16) %8)
-  %45 = load ptr, ptr %6, align 8
+  %45 = load ptr, ptr %6, align 8, !tbaa !385
   %46 = call noundef i32 @_ZNK4llvm12MCSectionELF11getUniqueIDEv(ptr noundef nonnull align 8 dereferenceable(200) %45)
-  %47 = load ptr, ptr %5, align 8
+  %47 = load ptr, ptr %5, align 8, !tbaa !87
   %48 = call noundef ptr @_ZNK4llvm9MCSection14getBeginSymbolEv(ptr noundef nonnull align 8 dereferenceable(148) %47)
   %49 = call noundef ptr @_ZN4llvm4castINS_11MCSymbolELFEKNS_8MCSymbolEEEDcPT0_(ptr noundef %48)
   %50 = call noundef ptr @_ZN4llvm9MCContext13getELFSectionERKNS_5TwineEjjjS3_bjPKNS_11MCSymbolELFE(ptr noundef nonnull align 8 dereferenceable(2432) %43, ptr noundef nonnull align 8 dereferenceable(34) %11, i32 noundef 1, i32 noundef %44, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(34) %12, i1 noundef zeroext true, i32 noundef %46, ptr noundef %49)
   store ptr %50, ptr %3, align 8
+  call void @llvm.lifetime.end.p0(i64 40, ptr %12) #11
+  call void @llvm.lifetime.end.p0(i64 40, ptr %11) #11
+  call void @llvm.lifetime.end.p0(i64 16, ptr %8) #11
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #11
   br label %51
 
 51:                                               ; preds = %41, %23
@@ -6044,7 +6370,7 @@ define dso_local noundef ptr @_ZNK4llvm16MCObjectFileInfo20getStackSizesSectionE
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK4llvm6Triple5isPS4Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !8
   %3 = load ptr, ptr %2, align 8
   %4 = call noundef i32 @_ZNK4llvm6Triple7getArchEv(ptr noundef nonnull align 8 dereferenceable(56) %3)
   %5 = icmp eq i32 %4, 38
@@ -6068,19 +6394,19 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK4llvm6Triple5isPS4Ev(ptr noun
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvm9StringRefC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !98
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %3, i32 0, i32 0
-  store ptr null, ptr %4, align 8
+  store ptr null, ptr %4, align 8, !tbaa !100
   %5 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %3, i32 0, i32 1
-  store i64 0, ptr %5, align 8
+  store i64 0, ptr %5, align 8, !tbaa !102
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZNK4llvm12MCSectionELF8getGroupEv(ptr noundef nonnull align 8 dereferenceable(200) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !385
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw %"class.llvm::MCSectionELF", ptr %3, i32 0, i32 6
   %5 = call noundef ptr @_ZNK4llvm14PointerIntPairIPKNS_11MCSymbolELFELj1EbNS_21PointerLikeTypeTraitsIS3_EENS_18PointerIntPairInfoIS3_Lj1ES5_EEE10getPointerEv(ptr noundef nonnull align 8 dereferenceable(8) %4)
@@ -6091,7 +6417,7 @@ define linkonce_odr hidden noundef ptr @_ZNK4llvm12MCSectionELF8getGroupEv(ptr n
 define linkonce_odr hidden { ptr, i64 } @_ZNK4llvm8MCSymbol7getNameEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #0 comdat align 2 {
   %2 = alloca %"class.llvm::StringRef", align 8
   %3 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !387
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw %"class.llvm::MCSymbol", ptr %4, i32 0, i32 1
   %6 = load i64, ptr %5, align 8
@@ -6102,12 +6428,12 @@ define linkonce_odr hidden { ptr, i64 } @_ZNK4llvm8MCSymbol7getNameEv(ptr nounde
 
 10:                                               ; preds = %1
   call void @llvm.memset.p0.i64(ptr align 8 %2, i8 0, i64 16, i1 false)
-  call void @_ZN4llvm9StringRefC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %2) #8
+  call void @_ZN4llvm9StringRefC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %2) #11
   br label %19
 
 11:                                               ; preds = %1
   %12 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK4llvm8MCSymbol15getNameEntryPtrEv(ptr noundef nonnull align 8 dereferenceable(32) %4)
-  %13 = load ptr, ptr %12, align 8
+  %13 = load ptr, ptr %12, align 8, !tbaa !388
   %14 = call { ptr, i64 } @_ZNK4llvm14StringMapEntryINS_18MCSymbolTableValueEE5firstEv(ptr noundef nonnull align 8 dereferenceable(24) %13)
   %15 = getelementptr inbounds nuw { ptr, i64 }, ptr %2, i32 0, i32 0
   %16 = extractvalue { ptr, i64 } %14, 0
@@ -6128,40 +6454,40 @@ declare noundef ptr @_ZN4llvm9MCContext13getELFSectionERKNS_5TwineEjjjS3_bjPKNS_
 define linkonce_odr hidden void @_ZN4llvm5TwineC2ERKNS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(34) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #0 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !294
+  store ptr %1, ptr %4, align 8, !tbaa !98
   %5 = load ptr, ptr %3, align 8
   %6 = getelementptr inbounds nuw %"class.llvm::Twine", ptr %5, i32 0, i32 2
-  store i8 5, ptr %6, align 8
+  store i8 5, ptr %6, align 8, !tbaa !296
   %7 = getelementptr inbounds nuw %"class.llvm::Twine", ptr %5, i32 0, i32 3
-  store i8 1, ptr %7, align 1
-  %8 = load ptr, ptr %4, align 8
+  store i8 1, ptr %7, align 1, !tbaa !299
+  %8 = load ptr, ptr %4, align 8, !tbaa !98
   %9 = call noundef ptr @_ZNK4llvm9StringRef4dataEv(ptr noundef nonnull align 8 dereferenceable(16) %8)
   %10 = getelementptr inbounds nuw %"class.llvm::Twine", ptr %5, i32 0, i32 0
   %11 = getelementptr inbounds nuw %struct.anon, ptr %10, i32 0, i32 0
-  store ptr %9, ptr %11, align 8
-  %12 = load ptr, ptr %4, align 8
+  store ptr %9, ptr %11, align 8, !tbaa !97
+  %12 = load ptr, ptr %4, align 8, !tbaa !98
   %13 = call noundef i64 @_ZNK4llvm9StringRef4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %12)
   %14 = getelementptr inbounds nuw %"class.llvm::Twine", ptr %5, i32 0, i32 0
   %15 = getelementptr inbounds nuw %struct.anon, ptr %14, i32 0, i32 1
-  store i64 %13, ptr %15, align 8
+  store i64 %13, ptr %15, align 8, !tbaa !97
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef i32 @_ZNK4llvm12MCSectionELF11getUniqueIDEv(ptr noundef nonnull align 8 dereferenceable(200) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !385
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw %"class.llvm::MCSectionELF", ptr %3, i32 0, i32 3
-  %5 = load i32, ptr %4, align 4
+  %5 = load i32, ptr %4, align 4, !tbaa !390
   ret i32 %5
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef ptr @_ZN4llvm4castINS_11MCSymbolELFEKNS_8MCSymbolEEEDcPT0_(ptr noundef %0) #0 comdat {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr hidden noundef ptr @_ZN4llvm4castINS_11MCSymbolELFEKNS_8MCSymbolEEEDcPT0_(ptr noundef %0) #5 comdat {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !387
   %3 = call noundef ptr @_ZN4llvm8CastInfoINS_11MCSymbolELFEPKNS_8MCSymbolEvE6doCastERKS4_(ptr noundef nonnull align 8 dereferenceable(8) %2)
   ret ptr %3
 }
@@ -6169,14 +6495,14 @@ define linkonce_odr hidden noundef ptr @_ZN4llvm4castINS_11MCSymbolELFEKNS_8MCSy
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZNK4llvm9MCSection14getBeginSymbolEv(ptr noundef nonnull align 8 dereferenceable(148) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !87
   %3 = load ptr, ptr %2, align 8
   %4 = call noundef ptr @_ZN4llvm9MCSection14getBeginSymbolEv(ptr noundef nonnull align 8 dereferenceable(148) %3)
   ret ptr %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef ptr @_ZNK4llvm16MCObjectFileInfo19getBBAddrMapSectionERKNS_9MCSectionE(ptr noundef nonnull align 8 dereferenceable(912) %0, ptr noundef nonnull align 8 dereferenceable(148) %1) #0 align 2 {
+define dso_local noundef ptr @_ZNK4llvm16MCObjectFileInfo19getBBAddrMapSectionERKNS_9MCSectionE(ptr noundef nonnull align 8 dereferenceable(920) %0, ptr noundef nonnull align 8 dereferenceable(148) %1) #0 align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
@@ -6187,11 +6513,11 @@ define dso_local noundef ptr @_ZNK4llvm16MCObjectFileInfo19getBBAddrMapSectionER
   %10 = alloca %"class.llvm::StringRef", align 8
   %11 = alloca %"class.llvm::Twine", align 8
   %12 = alloca %"class.llvm::Twine", align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !3
+  store ptr %1, ptr %5, align 8, !tbaa !87
   %13 = load ptr, ptr %4, align 8
-  %14 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %13, i32 0, i32 106
-  %15 = load ptr, ptr %14, align 8
+  %14 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %13, i32 0, i32 107
+  %15 = load ptr, ptr %14, align 8, !tbaa !17
   %16 = call noundef i32 @_ZNK4llvm9MCContext17getObjectFileTypeEv(ptr noundef nonnull align 8 dereferenceable(2432) %15)
   %17 = icmp ne i32 %16, 1
   br i1 %17, label %18, label %19
@@ -6201,19 +6527,24 @@ define dso_local noundef ptr @_ZNK4llvm16MCObjectFileInfo19getBBAddrMapSectionER
   br label %44
 
 19:                                               ; preds = %2
-  %20 = load ptr, ptr %5, align 8
-  store ptr %20, ptr %6, align 8
-  store i32 128, ptr %7, align 4
-  call void @_ZN4llvm9StringRefC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #8
-  %21 = load ptr, ptr %6, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #11
+  %20 = load ptr, ptr %5, align 8, !tbaa !87
+  store ptr %20, ptr %6, align 8, !tbaa !385
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #11
+  store i32 128, ptr %7, align 4, !tbaa !90
+  call void @llvm.lifetime.start.p0(i64 16, ptr %8) #11
+  call void @_ZN4llvm9StringRefC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #11
+  %21 = load ptr, ptr %6, align 8, !tbaa !385
   %22 = call noundef ptr @_ZNK4llvm12MCSectionELF8getGroupEv(ptr noundef nonnull align 8 dereferenceable(200) %21)
-  store ptr %22, ptr %9, align 8
-  %23 = load ptr, ptr %9, align 8
+  store ptr %22, ptr %9, align 8, !tbaa !387
+  %23 = load ptr, ptr %9, align 8, !tbaa !387
   %24 = icmp ne ptr %23, null
   br i1 %24, label %25, label %34
 
 25:                                               ; preds = %19
-  %26 = load ptr, ptr %9, align 8
+  call void @llvm.lifetime.start.p0(i64 16, ptr %10) #11
+  %26 = load ptr, ptr %9, align 8, !tbaa !387
   %27 = call { ptr, i64 } @_ZNK4llvm8MCSymbol7getNameEv(ptr noundef nonnull align 8 dereferenceable(32) %26)
   %28 = getelementptr inbounds nuw { ptr, i64 }, ptr %10, i32 0, i32 0
   %29 = extractvalue { ptr, i64 } %27, 0
@@ -6221,25 +6552,34 @@ define dso_local noundef ptr @_ZNK4llvm16MCObjectFileInfo19getBBAddrMapSectionER
   %30 = getelementptr inbounds nuw { ptr, i64 }, ptr %10, i32 0, i32 1
   %31 = extractvalue { ptr, i64 } %27, 1
   store i64 %31, ptr %30, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %8, ptr align 8 %10, i64 16, i1 false)
-  %32 = load i32, ptr %7, align 4
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %8, ptr align 8 %10, i64 16, i1 false), !tbaa.struct !93
+  call void @llvm.lifetime.end.p0(i64 16, ptr %10) #11
+  %32 = load i32, ptr %7, align 4, !tbaa !90
   %33 = or i32 %32, 512
-  store i32 %33, ptr %7, align 4
+  store i32 %33, ptr %7, align 4, !tbaa !90
   br label %34
 
 34:                                               ; preds = %25, %19
-  %35 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %13, i32 0, i32 106
-  %36 = load ptr, ptr %35, align 8
-  call void @_ZN4llvm5TwineC2EPKc(ptr noundef nonnull align 8 dereferenceable(34) %11, ptr noundef @.str.182)
-  %37 = load i32, ptr %7, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #11
+  %35 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %13, i32 0, i32 107
+  %36 = load ptr, ptr %35, align 8, !tbaa !17
+  call void @llvm.lifetime.start.p0(i64 40, ptr %11) #11
+  call void @_ZN4llvm5TwineC2EPKc(ptr noundef nonnull align 8 dereferenceable(34) %11, ptr noundef @.str.183)
+  %37 = load i32, ptr %7, align 4, !tbaa !90
+  call void @llvm.lifetime.start.p0(i64 40, ptr %12) #11
   call void @_ZN4llvm5TwineC2ERKNS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(34) %12, ptr noundef nonnull align 8 dereferenceable(16) %8)
-  %38 = load ptr, ptr %6, align 8
+  %38 = load ptr, ptr %6, align 8, !tbaa !385
   %39 = call noundef i32 @_ZNK4llvm12MCSectionELF11getUniqueIDEv(ptr noundef nonnull align 8 dereferenceable(200) %38)
-  %40 = load ptr, ptr %5, align 8
+  %40 = load ptr, ptr %5, align 8, !tbaa !87
   %41 = call noundef ptr @_ZNK4llvm9MCSection14getBeginSymbolEv(ptr noundef nonnull align 8 dereferenceable(148) %40)
   %42 = call noundef ptr @_ZN4llvm4castINS_11MCSymbolELFEKNS_8MCSymbolEEEDcPT0_(ptr noundef %41)
   %43 = call noundef ptr @_ZN4llvm9MCContext13getELFSectionERKNS_5TwineEjjjS3_bjPKNS_11MCSymbolELFE(ptr noundef nonnull align 8 dereferenceable(2432) %36, ptr noundef nonnull align 8 dereferenceable(34) %11, i32 noundef 1879002122, i32 noundef %37, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(34) %12, i1 noundef zeroext true, i32 noundef %39, ptr noundef %42)
   store ptr %43, ptr %3, align 8
+  call void @llvm.lifetime.end.p0(i64 40, ptr %12) #11
+  call void @llvm.lifetime.end.p0(i64 40, ptr %11) #11
+  call void @llvm.lifetime.end.p0(i64 16, ptr %8) #11
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #11
   br label %44
 
 44:                                               ; preds = %34, %18
@@ -6248,7 +6588,7 @@ define dso_local noundef ptr @_ZNK4llvm16MCObjectFileInfo19getBBAddrMapSectionER
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef ptr @_ZNK4llvm16MCObjectFileInfo18getKCFITrapSectionERKNS_9MCSectionE(ptr noundef nonnull align 8 dereferenceable(912) %0, ptr noundef nonnull align 8 dereferenceable(148) %1) #0 align 2 {
+define dso_local noundef ptr @_ZNK4llvm16MCObjectFileInfo18getKCFITrapSectionERKNS_9MCSectionE(ptr noundef nonnull align 8 dereferenceable(920) %0, ptr noundef nonnull align 8 dereferenceable(148) %1) #0 align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
@@ -6259,11 +6599,11 @@ define dso_local noundef ptr @_ZNK4llvm16MCObjectFileInfo18getKCFITrapSectionERK
   %10 = alloca %"class.llvm::StringRef", align 8
   %11 = alloca %"class.llvm::Twine", align 8
   %12 = alloca %"class.llvm::Twine", align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !3
+  store ptr %1, ptr %5, align 8, !tbaa !87
   %13 = load ptr, ptr %4, align 8
-  %14 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %13, i32 0, i32 106
-  %15 = load ptr, ptr %14, align 8
+  %14 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %13, i32 0, i32 107
+  %15 = load ptr, ptr %14, align 8, !tbaa !17
   %16 = call noundef i32 @_ZNK4llvm9MCContext17getObjectFileTypeEv(ptr noundef nonnull align 8 dereferenceable(2432) %15)
   %17 = icmp ne i32 %16, 1
   br i1 %17, label %18, label %19
@@ -6273,19 +6613,24 @@ define dso_local noundef ptr @_ZNK4llvm16MCObjectFileInfo18getKCFITrapSectionERK
   br label %44
 
 19:                                               ; preds = %2
-  %20 = load ptr, ptr %5, align 8
-  store ptr %20, ptr %6, align 8
-  store i32 130, ptr %7, align 4
-  call void @_ZN4llvm9StringRefC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #8
-  %21 = load ptr, ptr %6, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #11
+  %20 = load ptr, ptr %5, align 8, !tbaa !87
+  store ptr %20, ptr %6, align 8, !tbaa !385
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #11
+  store i32 130, ptr %7, align 4, !tbaa !90
+  call void @llvm.lifetime.start.p0(i64 16, ptr %8) #11
+  call void @_ZN4llvm9StringRefC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #11
+  %21 = load ptr, ptr %6, align 8, !tbaa !385
   %22 = call noundef ptr @_ZNK4llvm12MCSectionELF8getGroupEv(ptr noundef nonnull align 8 dereferenceable(200) %21)
-  store ptr %22, ptr %9, align 8
-  %23 = load ptr, ptr %9, align 8
+  store ptr %22, ptr %9, align 8, !tbaa !387
+  %23 = load ptr, ptr %9, align 8, !tbaa !387
   %24 = icmp ne ptr %23, null
   br i1 %24, label %25, label %34
 
 25:                                               ; preds = %19
-  %26 = load ptr, ptr %9, align 8
+  call void @llvm.lifetime.start.p0(i64 16, ptr %10) #11
+  %26 = load ptr, ptr %9, align 8, !tbaa !387
   %27 = call { ptr, i64 } @_ZNK4llvm8MCSymbol7getNameEv(ptr noundef nonnull align 8 dereferenceable(32) %26)
   %28 = getelementptr inbounds nuw { ptr, i64 }, ptr %10, i32 0, i32 0
   %29 = extractvalue { ptr, i64 } %27, 0
@@ -6293,25 +6638,34 @@ define dso_local noundef ptr @_ZNK4llvm16MCObjectFileInfo18getKCFITrapSectionERK
   %30 = getelementptr inbounds nuw { ptr, i64 }, ptr %10, i32 0, i32 1
   %31 = extractvalue { ptr, i64 } %27, 1
   store i64 %31, ptr %30, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %8, ptr align 8 %10, i64 16, i1 false)
-  %32 = load i32, ptr %7, align 4
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %8, ptr align 8 %10, i64 16, i1 false), !tbaa.struct !93
+  call void @llvm.lifetime.end.p0(i64 16, ptr %10) #11
+  %32 = load i32, ptr %7, align 4, !tbaa !90
   %33 = or i32 %32, 512
-  store i32 %33, ptr %7, align 4
+  store i32 %33, ptr %7, align 4, !tbaa !90
   br label %34
 
 34:                                               ; preds = %25, %19
-  %35 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %13, i32 0, i32 106
-  %36 = load ptr, ptr %35, align 8
-  call void @_ZN4llvm5TwineC2EPKc(ptr noundef nonnull align 8 dereferenceable(34) %11, ptr noundef @.str.183)
-  %37 = load i32, ptr %7, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #11
+  %35 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %13, i32 0, i32 107
+  %36 = load ptr, ptr %35, align 8, !tbaa !17
+  call void @llvm.lifetime.start.p0(i64 40, ptr %11) #11
+  call void @_ZN4llvm5TwineC2EPKc(ptr noundef nonnull align 8 dereferenceable(34) %11, ptr noundef @.str.184)
+  %37 = load i32, ptr %7, align 4, !tbaa !90
+  call void @llvm.lifetime.start.p0(i64 40, ptr %12) #11
   call void @_ZN4llvm5TwineC2ERKNS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(34) %12, ptr noundef nonnull align 8 dereferenceable(16) %8)
-  %38 = load ptr, ptr %6, align 8
+  %38 = load ptr, ptr %6, align 8, !tbaa !385
   %39 = call noundef i32 @_ZNK4llvm12MCSectionELF11getUniqueIDEv(ptr noundef nonnull align 8 dereferenceable(200) %38)
-  %40 = load ptr, ptr %5, align 8
+  %40 = load ptr, ptr %5, align 8, !tbaa !87
   %41 = call noundef ptr @_ZNK4llvm9MCSection14getBeginSymbolEv(ptr noundef nonnull align 8 dereferenceable(148) %40)
   %42 = call noundef ptr @_ZN4llvm4castINS_11MCSymbolELFEKNS_8MCSymbolEEEDcPT0_(ptr noundef %41)
   %43 = call noundef ptr @_ZN4llvm9MCContext13getELFSectionERKNS_5TwineEjjjS3_bjPKNS_11MCSymbolELFE(ptr noundef nonnull align 8 dereferenceable(2432) %36, ptr noundef nonnull align 8 dereferenceable(34) %11, i32 noundef 1, i32 noundef %37, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(34) %12, i1 noundef zeroext true, i32 noundef %39, ptr noundef %42)
   store ptr %43, ptr %3, align 8
+  call void @llvm.lifetime.end.p0(i64 40, ptr %12) #11
+  call void @llvm.lifetime.end.p0(i64 40, ptr %11) #11
+  call void @llvm.lifetime.end.p0(i64 16, ptr %8) #11
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #11
   br label %44
 
 44:                                               ; preds = %34, %18
@@ -6320,7 +6674,7 @@ define dso_local noundef ptr @_ZNK4llvm16MCObjectFileInfo18getKCFITrapSectionERK
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef ptr @_ZNK4llvm16MCObjectFileInfo21getPseudoProbeSectionERKNS_9MCSectionE(ptr noundef nonnull align 8 dereferenceable(912) %0, ptr noundef nonnull align 8 dereferenceable(148) %1) #0 align 2 {
+define dso_local noundef ptr @_ZNK4llvm16MCObjectFileInfo21getPseudoProbeSectionERKNS_9MCSectionE(ptr noundef nonnull align 8 dereferenceable(920) %0, ptr noundef nonnull align 8 dereferenceable(148) %1) #0 align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
@@ -6332,35 +6686,40 @@ define dso_local noundef ptr @_ZNK4llvm16MCObjectFileInfo21getPseudoProbeSection
   %11 = alloca %"class.llvm::Twine", align 8
   %12 = alloca %"class.llvm::StringRef", align 8
   %13 = alloca %"class.llvm::Twine", align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !3
+  store ptr %1, ptr %5, align 8, !tbaa !87
   %14 = load ptr, ptr %4, align 8
-  %15 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %14, i32 0, i32 106
-  %16 = load ptr, ptr %15, align 8
+  %15 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %14, i32 0, i32 107
+  %16 = load ptr, ptr %15, align 8, !tbaa !17
   %17 = call noundef i32 @_ZNK4llvm9MCContext17getObjectFileTypeEv(ptr noundef nonnull align 8 dereferenceable(2432) %16)
   %18 = icmp ne i32 %17, 1
   br i1 %18, label %19, label %22
 
 19:                                               ; preds = %2
-  %20 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %14, i32 0, i32 62
-  %21 = load ptr, ptr %20, align 8
+  %20 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %14, i32 0, i32 63
+  %21 = load ptr, ptr %20, align 8, !tbaa !133
   store ptr %21, ptr %3, align 8
   br label %54
 
 22:                                               ; preds = %2
-  %23 = load ptr, ptr %5, align 8
-  store ptr %23, ptr %6, align 8
-  store i32 128, ptr %7, align 4
-  call void @_ZN4llvm9StringRefC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #8
-  %24 = load ptr, ptr %6, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #11
+  %23 = load ptr, ptr %5, align 8, !tbaa !87
+  store ptr %23, ptr %6, align 8, !tbaa !385
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #11
+  store i32 128, ptr %7, align 4, !tbaa !90
+  call void @llvm.lifetime.start.p0(i64 16, ptr %8) #11
+  call void @_ZN4llvm9StringRefC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #11
+  %24 = load ptr, ptr %6, align 8, !tbaa !385
   %25 = call noundef ptr @_ZNK4llvm12MCSectionELF8getGroupEv(ptr noundef nonnull align 8 dereferenceable(200) %24)
-  store ptr %25, ptr %9, align 8
-  %26 = load ptr, ptr %9, align 8
+  store ptr %25, ptr %9, align 8, !tbaa !387
+  %26 = load ptr, ptr %9, align 8, !tbaa !387
   %27 = icmp ne ptr %26, null
   br i1 %27, label %28, label %37
 
 28:                                               ; preds = %22
-  %29 = load ptr, ptr %9, align 8
+  call void @llvm.lifetime.start.p0(i64 16, ptr %10) #11
+  %29 = load ptr, ptr %9, align 8, !tbaa !387
   %30 = call { ptr, i64 } @_ZNK4llvm8MCSymbol7getNameEv(ptr noundef nonnull align 8 dereferenceable(32) %29)
   %31 = getelementptr inbounds nuw { ptr, i64 }, ptr %10, i32 0, i32 0
   %32 = extractvalue { ptr, i64 } %30, 0
@@ -6368,17 +6727,21 @@ define dso_local noundef ptr @_ZNK4llvm16MCObjectFileInfo21getPseudoProbeSection
   %33 = getelementptr inbounds nuw { ptr, i64 }, ptr %10, i32 0, i32 1
   %34 = extractvalue { ptr, i64 } %30, 1
   store i64 %34, ptr %33, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %8, ptr align 8 %10, i64 16, i1 false)
-  %35 = load i32, ptr %7, align 4
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %8, ptr align 8 %10, i64 16, i1 false), !tbaa.struct !93
+  call void @llvm.lifetime.end.p0(i64 16, ptr %10) #11
+  %35 = load i32, ptr %7, align 4, !tbaa !90
   %36 = or i32 %35, 512
-  store i32 %36, ptr %7, align 4
+  store i32 %36, ptr %7, align 4, !tbaa !90
   br label %37
 
 37:                                               ; preds = %28, %22
-  %38 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %14, i32 0, i32 106
-  %39 = load ptr, ptr %38, align 8
-  %40 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %14, i32 0, i32 62
-  %41 = load ptr, ptr %40, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #11
+  %38 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %14, i32 0, i32 107
+  %39 = load ptr, ptr %38, align 8, !tbaa !17
+  call void @llvm.lifetime.start.p0(i64 40, ptr %11) #11
+  call void @llvm.lifetime.start.p0(i64 16, ptr %12) #11
+  %40 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %14, i32 0, i32 63
+  %41 = load ptr, ptr %40, align 8, !tbaa !133
   %42 = call { ptr, i64 } @_ZNK4llvm9MCSection7getNameEv(ptr noundef nonnull align 8 dereferenceable(148) %41)
   %43 = getelementptr inbounds nuw { ptr, i64 }, ptr %12, i32 0, i32 0
   %44 = extractvalue { ptr, i64 } %42, 0
@@ -6387,15 +6750,22 @@ define dso_local noundef ptr @_ZNK4llvm16MCObjectFileInfo21getPseudoProbeSection
   %46 = extractvalue { ptr, i64 } %42, 1
   store i64 %46, ptr %45, align 8
   call void @_ZN4llvm5TwineC2ERKNS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(34) %11, ptr noundef nonnull align 8 dereferenceable(16) %12)
-  %47 = load i32, ptr %7, align 4
+  %47 = load i32, ptr %7, align 4, !tbaa !90
+  call void @llvm.lifetime.start.p0(i64 40, ptr %13) #11
   call void @_ZN4llvm5TwineC2ERKNS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(34) %13, ptr noundef nonnull align 8 dereferenceable(16) %8)
-  %48 = load ptr, ptr %6, align 8
+  %48 = load ptr, ptr %6, align 8, !tbaa !385
   %49 = call noundef i32 @_ZNK4llvm12MCSectionELF11getUniqueIDEv(ptr noundef nonnull align 8 dereferenceable(200) %48)
-  %50 = load ptr, ptr %5, align 8
+  %50 = load ptr, ptr %5, align 8, !tbaa !87
   %51 = call noundef ptr @_ZNK4llvm9MCSection14getBeginSymbolEv(ptr noundef nonnull align 8 dereferenceable(148) %50)
   %52 = call noundef ptr @_ZN4llvm4castINS_11MCSymbolELFEKNS_8MCSymbolEEEDcPT0_(ptr noundef %51)
   %53 = call noundef ptr @_ZN4llvm9MCContext13getELFSectionERKNS_5TwineEjjjS3_bjPKNS_11MCSymbolELFE(ptr noundef nonnull align 8 dereferenceable(2432) %39, ptr noundef nonnull align 8 dereferenceable(34) %11, i32 noundef 1, i32 noundef %47, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(34) %13, i1 noundef zeroext true, i32 noundef %49, ptr noundef %52)
   store ptr %53, ptr %3, align 8
+  call void @llvm.lifetime.end.p0(i64 40, ptr %13) #11
+  call void @llvm.lifetime.end.p0(i64 16, ptr %12) #11
+  call void @llvm.lifetime.end.p0(i64 40, ptr %11) #11
+  call void @llvm.lifetime.end.p0(i64 16, ptr %8) #11
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #11
   br label %54
 
 54:                                               ; preds = %37, %19
@@ -6407,16 +6777,16 @@ define dso_local noundef ptr @_ZNK4llvm16MCObjectFileInfo21getPseudoProbeSection
 define linkonce_odr hidden { ptr, i64 } @_ZNK4llvm9MCSection7getNameEv(ptr noundef nonnull align 8 dereferenceable(148) %0) #0 comdat align 2 {
   %2 = alloca %"class.llvm::StringRef", align 8
   %3 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !87
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw %"class.llvm::MCSection", ptr %4, i32 0, i32 13
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %2, ptr align 8 %5, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %2, ptr align 8 %5, i64 16, i1 false), !tbaa.struct !93
   %6 = load { ptr, i64 }, ptr %2, align 8
   ret { ptr, i64 } %6
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef ptr @_ZNK4llvm16MCObjectFileInfo25getPseudoProbeDescSectionENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(912) %0, ptr %1, i64 %2) #0 align 2 {
+define dso_local noundef ptr @_ZNK4llvm16MCObjectFileInfo25getPseudoProbeDescSectionENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(920) %0, ptr %1, i64 %2) #0 align 2 {
   %4 = alloca ptr, align 8
   %5 = alloca %"class.llvm::StringRef", align 8
   %6 = alloca ptr, align 8
@@ -6432,17 +6802,17 @@ define dso_local noundef ptr @_ZNK4llvm16MCObjectFileInfo25getPseudoProbeDescSec
   store ptr %1, ptr %15, align 8
   %16 = getelementptr inbounds nuw { ptr, i64 }, ptr %5, i32 0, i32 1
   store i64 %2, ptr %16, align 8
-  store ptr %0, ptr %6, align 8
+  store ptr %0, ptr %6, align 8, !tbaa !3
   %17 = load ptr, ptr %6, align 8
-  %18 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %17, i32 0, i32 106
-  %19 = load ptr, ptr %18, align 8
+  %18 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %17, i32 0, i32 107
+  %19 = load ptr, ptr %18, align 8, !tbaa !17
   %20 = call noundef i32 @_ZNK4llvm9MCContext17getObjectFileTypeEv(ptr noundef nonnull align 8 dereferenceable(2432) %19)
   %21 = icmp eq i32 %20, 1
   br i1 %21, label %22, label %56
 
 22:                                               ; preds = %3
-  %23 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %17, i32 0, i32 106
-  %24 = load ptr, ptr %23, align 8
+  %23 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %17, i32 0, i32 107
+  %24 = load ptr, ptr %23, align 8, !tbaa !17
   %25 = call noundef nonnull align 8 dereferenceable(56) ptr @_ZNK4llvm9MCContext15getTargetTripleEv(ptr noundef nonnull align 8 dereferenceable(2432) %24)
   %26 = call noundef zeroext i1 @_ZNK4llvm6Triple14supportsCOMDATEv(ptr noundef nonnull align 8 dereferenceable(56) %25)
   br i1 %26, label %27, label %55
@@ -6452,16 +6822,20 @@ define dso_local noundef ptr @_ZNK4llvm16MCObjectFileInfo25getPseudoProbeDescSec
   br i1 %28, label %55, label %29
 
 29:                                               ; preds = %27
-  %30 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %17, i32 0, i32 63
-  %31 = load ptr, ptr %30, align 8
-  store ptr %31, ptr %7, align 8
-  %32 = load ptr, ptr %7, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #11
+  %30 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %17, i32 0, i32 64
+  %31 = load ptr, ptr %30, align 8, !tbaa !134
+  store ptr %31, ptr %7, align 8, !tbaa !385
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #11
+  %32 = load ptr, ptr %7, align 8, !tbaa !385
   %33 = call noundef i32 @_ZNK4llvm12MCSectionELF8getFlagsEv(ptr noundef nonnull align 8 dereferenceable(200) %32)
   %34 = or i32 %33, 512
-  store i32 %34, ptr %8, align 4
-  %35 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %17, i32 0, i32 106
-  %36 = load ptr, ptr %35, align 8
-  %37 = load ptr, ptr %7, align 8
+  store i32 %34, ptr %8, align 4, !tbaa !90
+  %35 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %17, i32 0, i32 107
+  %36 = load ptr, ptr %35, align 8, !tbaa !17
+  call void @llvm.lifetime.start.p0(i64 40, ptr %9) #11
+  call void @llvm.lifetime.start.p0(i64 16, ptr %10) #11
+  %37 = load ptr, ptr %7, align 8, !tbaa !385
   %38 = call { ptr, i64 } @_ZNK4llvm9MCSection7getNameEv(ptr noundef nonnull align 8 dereferenceable(148) %37)
   %39 = getelementptr inbounds nuw { ptr, i64 }, ptr %10, i32 0, i32 0
   %40 = extractvalue { ptr, i64 } %38, 0
@@ -6470,12 +6844,15 @@ define dso_local noundef ptr @_ZNK4llvm16MCObjectFileInfo25getPseudoProbeDescSec
   %42 = extractvalue { ptr, i64 } %38, 1
   store i64 %42, ptr %41, align 8
   call void @_ZN4llvm5TwineC2ERKNS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(34) %9, ptr noundef nonnull align 8 dereferenceable(16) %10)
-  %43 = load ptr, ptr %7, align 8
+  %43 = load ptr, ptr %7, align 8, !tbaa !385
   %44 = call noundef i32 @_ZNK4llvm12MCSectionELF7getTypeEv(ptr noundef nonnull align 8 dereferenceable(200) %43)
-  %45 = load i32, ptr %8, align 4
-  %46 = load ptr, ptr %7, align 8
+  %45 = load i32, ptr %8, align 4, !tbaa !90
+  %46 = load ptr, ptr %7, align 8, !tbaa !385
   %47 = call noundef i32 @_ZNK4llvm12MCSectionELF12getEntrySizeEv(ptr noundef nonnull align 8 dereferenceable(200) %46)
-  %48 = load ptr, ptr %7, align 8
+  call void @llvm.lifetime.start.p0(i64 40, ptr %11) #11
+  call void @llvm.lifetime.start.p0(i64 40, ptr %12) #11
+  call void @llvm.lifetime.start.p0(i64 16, ptr %13) #11
+  %48 = load ptr, ptr %7, align 8, !tbaa !385
   %49 = call { ptr, i64 } @_ZNK4llvm9MCSection7getNameEv(ptr noundef nonnull align 8 dereferenceable(148) %48)
   %50 = getelementptr inbounds nuw { ptr, i64 }, ptr %13, i32 0, i32 0
   %51 = extractvalue { ptr, i64 } %49, 0
@@ -6483,19 +6860,28 @@ define dso_local noundef ptr @_ZNK4llvm16MCObjectFileInfo25getPseudoProbeDescSec
   %52 = getelementptr inbounds nuw { ptr, i64 }, ptr %13, i32 0, i32 1
   %53 = extractvalue { ptr, i64 } %49, 1
   store i64 %53, ptr %52, align 8
-  call void @_ZN4llvmplERKNS_9StringRefEPKc(ptr dead_on_unwind writable sret(%"class.llvm::Twine") align 8 %12, ptr noundef nonnull align 8 dereferenceable(16) %13, ptr noundef @.str.184)
+  call void @_ZN4llvmplERKNS_9StringRefEPKc(ptr dead_on_unwind writable sret(%"class.llvm::Twine") align 8 %12, ptr noundef nonnull align 8 dereferenceable(16) %13, ptr noundef @.str.185)
+  call void @llvm.lifetime.start.p0(i64 40, ptr %14) #11
   call void @_ZN4llvm5TwineC2ERKNS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(34) %14, ptr noundef nonnull align 8 dereferenceable(16) %5)
   call void @_ZN4llvmplERKNS_5TwineES2_(ptr dead_on_unwind writable sret(%"class.llvm::Twine") align 8 %11, ptr noundef nonnull align 8 dereferenceable(34) %12, ptr noundef nonnull align 8 dereferenceable(34) %14)
   %54 = call noundef ptr @_ZN4llvm9MCContext13getELFSectionERKNS_5TwineEjjjS3_b(ptr noundef nonnull align 8 dereferenceable(2432) %36, ptr noundef nonnull align 8 dereferenceable(34) %9, i32 noundef %44, i32 noundef %45, i32 noundef %47, ptr noundef nonnull align 8 dereferenceable(34) %11, i1 noundef zeroext true)
   store ptr %54, ptr %4, align 8
+  call void @llvm.lifetime.end.p0(i64 40, ptr %14) #11
+  call void @llvm.lifetime.end.p0(i64 16, ptr %13) #11
+  call void @llvm.lifetime.end.p0(i64 40, ptr %12) #11
+  call void @llvm.lifetime.end.p0(i64 40, ptr %11) #11
+  call void @llvm.lifetime.end.p0(i64 16, ptr %10) #11
+  call void @llvm.lifetime.end.p0(i64 40, ptr %9) #11
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #11
   br label %59
 
 55:                                               ; preds = %27, %22
   br label %56
 
 56:                                               ; preds = %55, %3
-  %57 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %17, i32 0, i32 63
-  %58 = load ptr, ptr %57, align 8
+  %57 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %17, i32 0, i32 64
+  %58 = load ptr, ptr %57, align 8, !tbaa !134
   store ptr %58, ptr %4, align 8
   br label %59
 
@@ -6507,7 +6893,7 @@ define dso_local noundef ptr @_ZNK4llvm16MCObjectFileInfo25getPseudoProbeDescSec
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK4llvm6Triple14supportsCOMDATEv(ptr noundef nonnull align 8 dereferenceable(56) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !8
   %3 = load ptr, ptr %2, align 8
   %4 = call noundef zeroext i1 @_ZNK4llvm6Triple18isOSBinFormatMachOEv(ptr noundef nonnull align 8 dereferenceable(56) %3)
   br i1 %4, label %9, label %5
@@ -6529,69 +6915,69 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK4llvm6Triple14supportsCOMDATE
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef i32 @_ZNK4llvm12MCSectionELF8getFlagsEv(ptr noundef nonnull align 8 dereferenceable(200) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !385
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw %"class.llvm::MCSectionELF", ptr %3, i32 0, i32 2
-  %5 = load i32, ptr %4, align 8
+  %5 = load i32, ptr %4, align 8, !tbaa !394
   ret i32 %5
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef i32 @_ZNK4llvm12MCSectionELF7getTypeEv(ptr noundef nonnull align 8 dereferenceable(200) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !385
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw %"class.llvm::MCSectionELF", ptr %3, i32 0, i32 1
-  %5 = load i32, ptr %4, align 4
+  %5 = load i32, ptr %4, align 4, !tbaa !395
   ret i32 %5
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef i32 @_ZNK4llvm12MCSectionELF12getEntrySizeEv(ptr noundef nonnull align 8 dereferenceable(200) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !385
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw %"class.llvm::MCSectionELF", ptr %3, i32 0, i32 4
-  %5 = load i32, ptr %4, align 8
+  %5 = load i32, ptr %4, align 8, !tbaa !396
   ret i32 %5
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN4llvmplERKNS_5TwineES2_(ptr dead_on_unwind noalias writable sret(%"class.llvm::Twine") align 8 %0, ptr noundef nonnull align 8 dereferenceable(34) %1, ptr noundef nonnull align 8 dereferenceable(34) %2) #0 comdat {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN4llvmplERKNS_5TwineES2_(ptr dead_on_unwind noalias writable sret(%"class.llvm::Twine") align 8 %0, ptr noundef nonnull align 8 dereferenceable(34) %1, ptr noundef nonnull align 8 dereferenceable(34) %2) #5 comdat {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
-  store ptr %1, ptr %4, align 8
-  store ptr %2, ptr %5, align 8
-  %6 = load ptr, ptr %4, align 8
-  %7 = load ptr, ptr %5, align 8
+  store ptr %1, ptr %4, align 8, !tbaa !294
+  store ptr %2, ptr %5, align 8, !tbaa !294
+  %6 = load ptr, ptr %4, align 8, !tbaa !294
+  %7 = load ptr, ptr %5, align 8, !tbaa !294
   call void @_ZNK4llvm5Twine6concatERKS0_(ptr dead_on_unwind writable sret(%"class.llvm::Twine") align 8 %0, ptr noundef nonnull align 8 dereferenceable(34) %6, ptr noundef nonnull align 8 dereferenceable(34) %7)
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN4llvmplERKNS_9StringRefEPKc(ptr dead_on_unwind noalias writable sret(%"class.llvm::Twine") align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef %2) #0 comdat {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN4llvmplERKNS_9StringRefEPKc(ptr dead_on_unwind noalias writable sret(%"class.llvm::Twine") align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef %2) #5 comdat {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
-  store ptr %1, ptr %4, align 8
-  store ptr %2, ptr %5, align 8
-  %6 = load ptr, ptr %4, align 8
-  %7 = load ptr, ptr %5, align 8
+  store ptr %1, ptr %4, align 8, !tbaa !98
+  store ptr %2, ptr %5, align 8, !tbaa !91
+  %6 = load ptr, ptr %4, align 8, !tbaa !98
+  %7 = load ptr, ptr %5, align 8, !tbaa !91
   call void @_ZN4llvm5TwineC2ERKNS_9StringRefEPKc(ptr noundef nonnull align 8 dereferenceable(34) %0, ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef %7)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef ptr @_ZNK4llvm16MCObjectFileInfo19getLLVMStatsSectionEv(ptr noundef nonnull align 8 dereferenceable(912) %0) #0 align 2 {
+define dso_local noundef ptr @_ZNK4llvm16MCObjectFileInfo19getLLVMStatsSectionEv(ptr noundef nonnull align 8 dereferenceable(920) %0) #0 align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !3
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %3, i32 0, i32 64
-  %5 = load ptr, ptr %4, align 8
+  %4 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %3, i32 0, i32 65
+  %5 = load ptr, ptr %4, align 8, !tbaa !135
   ret ptr %5
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef ptr @_ZNK4llvm16MCObjectFileInfo12getPCSectionENS_9StringRefEPKNS_9MCSectionE(ptr noundef nonnull align 8 dereferenceable(912) %0, ptr %1, i64 %2, ptr noundef %3) #0 align 2 {
+define dso_local noundef ptr @_ZNK4llvm16MCObjectFileInfo12getPCSectionENS_9StringRefEPKNS_9MCSectionE(ptr noundef nonnull align 8 dereferenceable(920) %0, ptr %1, i64 %2, ptr noundef %3) #0 align 2 {
   %5 = alloca ptr, align 8
   %6 = alloca %"class.llvm::StringRef", align 8
   %7 = alloca ptr, align 8
@@ -6607,11 +6993,11 @@ define dso_local noundef ptr @_ZNK4llvm16MCObjectFileInfo12getPCSectionENS_9Stri
   store ptr %1, ptr %16, align 8
   %17 = getelementptr inbounds nuw { ptr, i64 }, ptr %6, i32 0, i32 1
   store i64 %2, ptr %17, align 8
-  store ptr %0, ptr %7, align 8
-  store ptr %3, ptr %8, align 8
+  store ptr %0, ptr %7, align 8, !tbaa !3
+  store ptr %3, ptr %8, align 8, !tbaa !87
   %18 = load ptr, ptr %7, align 8
-  %19 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %18, i32 0, i32 106
-  %20 = load ptr, ptr %19, align 8
+  %19 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %18, i32 0, i32 107
+  %20 = load ptr, ptr %19, align 8, !tbaa !17
   %21 = call noundef i32 @_ZNK4llvm9MCContext17getObjectFileTypeEv(ptr noundef nonnull align 8 dereferenceable(2432) %20)
   %22 = icmp ne i32 %21, 1
   br i1 %22, label %23, label %24
@@ -6621,29 +7007,34 @@ define dso_local noundef ptr @_ZNK4llvm16MCObjectFileInfo12getPCSectionENS_9Stri
   br label %54
 
 24:                                               ; preds = %4
-  store i32 131, ptr %9, align 4
-  %25 = load ptr, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #11
+  store i32 131, ptr %9, align 4, !tbaa !90
+  %25 = load ptr, ptr %8, align 8, !tbaa !87
   %26 = icmp ne ptr %25, null
   br i1 %26, label %29, label %27
 
 27:                                               ; preds = %24
-  %28 = call noundef ptr @_ZNK4llvm16MCObjectFileInfo14getTextSectionEv(ptr noundef nonnull align 8 dereferenceable(912) %18)
-  store ptr %28, ptr %8, align 8
+  %28 = call noundef ptr @_ZNK4llvm16MCObjectFileInfo14getTextSectionEv(ptr noundef nonnull align 8 dereferenceable(920) %18)
+  store ptr %28, ptr %8, align 8, !tbaa !87
   br label %29
 
 29:                                               ; preds = %27, %24
-  call void @_ZN4llvm9StringRefC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %10) #8
-  %30 = load ptr, ptr %8, align 8
-  store ptr %30, ptr %11, align 8
-  %31 = load ptr, ptr %11, align 8
+  call void @llvm.lifetime.start.p0(i64 16, ptr %10) #11
+  call void @_ZN4llvm9StringRefC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %10) #11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #11
+  %30 = load ptr, ptr %8, align 8, !tbaa !87
+  store ptr %30, ptr %11, align 8, !tbaa !385
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #11
+  %31 = load ptr, ptr %11, align 8, !tbaa !385
   %32 = call noundef ptr @_ZNK4llvm12MCSectionELF8getGroupEv(ptr noundef nonnull align 8 dereferenceable(200) %31)
-  store ptr %32, ptr %12, align 8
-  %33 = load ptr, ptr %12, align 8
+  store ptr %32, ptr %12, align 8, !tbaa !387
+  %33 = load ptr, ptr %12, align 8, !tbaa !387
   %34 = icmp ne ptr %33, null
   br i1 %34, label %35, label %44
 
 35:                                               ; preds = %29
-  %36 = load ptr, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 16, ptr %13) #11
+  %36 = load ptr, ptr %12, align 8, !tbaa !387
   %37 = call { ptr, i64 } @_ZNK4llvm8MCSymbol7getNameEv(ptr noundef nonnull align 8 dereferenceable(32) %36)
   %38 = getelementptr inbounds nuw { ptr, i64 }, ptr %13, i32 0, i32 0
   %39 = extractvalue { ptr, i64 } %37, 0
@@ -6651,25 +7042,34 @@ define dso_local noundef ptr @_ZNK4llvm16MCObjectFileInfo12getPCSectionENS_9Stri
   %40 = getelementptr inbounds nuw { ptr, i64 }, ptr %13, i32 0, i32 1
   %41 = extractvalue { ptr, i64 } %37, 1
   store i64 %41, ptr %40, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %10, ptr align 8 %13, i64 16, i1 false)
-  %42 = load i32, ptr %9, align 4
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %10, ptr align 8 %13, i64 16, i1 false), !tbaa.struct !93
+  call void @llvm.lifetime.end.p0(i64 16, ptr %13) #11
+  %42 = load i32, ptr %9, align 4, !tbaa !90
   %43 = or i32 %42, 512
-  store i32 %43, ptr %9, align 4
+  store i32 %43, ptr %9, align 4, !tbaa !90
   br label %44
 
 44:                                               ; preds = %35, %29
-  %45 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %18, i32 0, i32 106
-  %46 = load ptr, ptr %45, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #11
+  %45 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %18, i32 0, i32 107
+  %46 = load ptr, ptr %45, align 8, !tbaa !17
+  call void @llvm.lifetime.start.p0(i64 40, ptr %14) #11
   call void @_ZN4llvm5TwineC2ERKNS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(34) %14, ptr noundef nonnull align 8 dereferenceable(16) %6)
-  %47 = load i32, ptr %9, align 4
+  %47 = load i32, ptr %9, align 4, !tbaa !90
+  call void @llvm.lifetime.start.p0(i64 40, ptr %15) #11
   call void @_ZN4llvm5TwineC2ERKNS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(34) %15, ptr noundef nonnull align 8 dereferenceable(16) %10)
-  %48 = load ptr, ptr %11, align 8
+  %48 = load ptr, ptr %11, align 8, !tbaa !385
   %49 = call noundef i32 @_ZNK4llvm12MCSectionELF11getUniqueIDEv(ptr noundef nonnull align 8 dereferenceable(200) %48)
-  %50 = load ptr, ptr %8, align 8
+  %50 = load ptr, ptr %8, align 8, !tbaa !87
   %51 = call noundef ptr @_ZNK4llvm9MCSection14getBeginSymbolEv(ptr noundef nonnull align 8 dereferenceable(148) %50)
   %52 = call noundef ptr @_ZN4llvm4castINS_11MCSymbolELFEKNS_8MCSymbolEEEDcPT0_(ptr noundef %51)
   %53 = call noundef ptr @_ZN4llvm9MCContext13getELFSectionERKNS_5TwineEjjjS3_bjPKNS_11MCSymbolELFE(ptr noundef nonnull align 8 dereferenceable(2432) %46, ptr noundef nonnull align 8 dereferenceable(34) %14, i32 noundef 1, i32 noundef %47, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(34) %15, i1 noundef zeroext true, i32 noundef %49, ptr noundef %52)
   store ptr %53, ptr %5, align 8
+  call void @llvm.lifetime.end.p0(i64 40, ptr %15) #11
+  call void @llvm.lifetime.end.p0(i64 40, ptr %14) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #11
+  call void @llvm.lifetime.end.p0(i64 16, ptr %10) #11
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #11
   br label %54
 
 54:                                               ; preds = %44, %23
@@ -6678,19 +7078,19 @@ define dso_local noundef ptr @_ZNK4llvm16MCObjectFileInfo12getPCSectionENS_9Stri
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef ptr @_ZNK4llvm16MCObjectFileInfo14getTextSectionEv(ptr noundef nonnull align 8 dereferenceable(912) %0) #0 comdat align 2 {
+define linkonce_odr hidden noundef ptr @_ZNK4llvm16MCObjectFileInfo14getTextSectionEv(ptr noundef nonnull align 8 dereferenceable(920) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !3
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw %"class.llvm::MCObjectFileInfo", ptr %3, i32 0, i32 6
-  %5 = load ptr, ptr %4, align 8
+  %5 = load ptr, ptr %4, align 8, !tbaa !24
   ret ptr %5
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef i32 @_ZNK4llvm16MCObjectFileInfo23getTextSectionAlignmentEv(ptr noundef nonnull align 8 dereferenceable(912) %0) unnamed_addr #0 comdat align 2 {
+define linkonce_odr hidden noundef i32 @_ZNK4llvm16MCObjectFileInfo23getTextSectionAlignmentEv(ptr noundef nonnull align 8 dereferenceable(920) %0) unnamed_addr #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !3
   ret i32 4
 }
 
@@ -6699,21 +7099,21 @@ declare noundef ptr @_ZN4llvm9MCContext15getMachOSectionENS_9StringRefES1_jjNS_1
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef i64 @_ZNSt11char_traitsIcE6lengthEPKc(ptr noundef %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  %4 = call i64 @strlen(ptr noundef %3) #8
+  store ptr %0, ptr %2, align 8, !tbaa !91
+  %3 = load ptr, ptr %2, align 8, !tbaa !91
+  %4 = call i64 @strlen(ptr noundef %3) #11
   ret i64 %4
 }
 
 ; Function Attrs: nounwind
-declare i64 @strlen(ptr noundef) #4
+declare i64 @strlen(ptr noundef) #7
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden i32 @_ZN4llvm11SectionKind3getENS0_4KindE(i32 noundef %0) #0 comdat align 2 {
   %2 = alloca %"class.llvm::SectionKind", align 4
   %3 = alloca i32, align 4
-  store i32 %0, ptr %3, align 4
-  %4 = load i32, ptr %3, align 4
+  store i32 %0, ptr %3, align 4, !tbaa !397
+  %4 = load i32, ptr %3, align 4, !tbaa !397
   %5 = trunc i32 %4 to i8
   store i8 %5, ptr %2, align 4
   %6 = load i32, ptr %2, align 4
@@ -6723,7 +7123,7 @@ define linkonce_odr hidden i32 @_ZN4llvm11SectionKind3getENS0_4KindE(i32 noundef
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK4llvm6Triple8isMacOSXEv(ptr noundef nonnull align 8 dereferenceable(56) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !8
   %3 = load ptr, ptr %2, align 8
   %4 = call noundef i32 @_ZNK4llvm6Triple5getOSEv(ptr noundef nonnull align 8 dereferenceable(56) %3)
   %5 = icmp eq i32 %4, 1
@@ -6742,7 +7142,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK4llvm6Triple8isMacOSXEv(ptr n
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK4llvm6Triple5isiOSEv(ptr noundef nonnull align 8 dereferenceable(56) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !8
   %3 = load ptr, ptr %2, align 8
   %4 = call noundef i32 @_ZNK4llvm6Triple5getOSEv(ptr noundef nonnull align 8 dereferenceable(56) %3)
   %5 = icmp eq i32 %4, 5
@@ -6760,7 +7160,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK4llvm6Triple5isiOSEv(ptr noun
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK4llvm6Triple9isWatchOSEv(ptr noundef nonnull align 8 dereferenceable(56) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !8
   %3 = load ptr, ptr %2, align 8
   %4 = call noundef i32 @_ZNK4llvm6Triple5getOSEv(ptr noundef nonnull align 8 dereferenceable(56) %3)
   %5 = icmp eq i32 %4, 27
@@ -6770,7 +7170,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK4llvm6Triple9isWatchOSEv(ptr 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK4llvm6Triple11isDriverKitEv(ptr noundef nonnull align 8 dereferenceable(56) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !8
   %3 = load ptr, ptr %2, align 8
   %4 = call noundef i32 @_ZNK4llvm6Triple5getOSEv(ptr noundef nonnull align 8 dereferenceable(56) %3)
   %5 = icmp eq i32 %4, 29
@@ -6780,7 +7180,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK4llvm6Triple11isDriverKitEv(p
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK4llvm6Triple6isXROSEv(ptr noundef nonnull align 8 dereferenceable(56) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !8
   %3 = load ptr, ptr %2, align 8
   %4 = call noundef i32 @_ZNK4llvm6Triple5getOSEv(ptr noundef nonnull align 8 dereferenceable(56) %3)
   %5 = icmp eq i32 %4, 30
@@ -6790,17 +7190,17 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK4llvm6Triple6isXROSEv(ptr nou
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef i32 @_ZNK4llvm6Triple5getOSEv(ptr noundef nonnull align 8 dereferenceable(56) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw %"class.llvm::Triple", ptr %3, i32 0, i32 4
-  %5 = load i32, ptr %4, align 4
+  %5 = load i32, ptr %4, align 4, !tbaa !398
   ret i32 %5
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK4llvm6Triple6isTvOSEv(ptr noundef nonnull align 8 dereferenceable(56) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !8
   %3 = load ptr, ptr %2, align 8
   %4 = call noundef i32 @_ZNK4llvm6Triple5getOSEv(ptr noundef nonnull align 8 dereferenceable(56) %3)
   %5 = icmp eq i32 %4, 26
@@ -6810,41 +7210,51 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK4llvm6Triple6isTvOSEv(ptr nou
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef i32 @_ZNK4llvm6Triple14getEnvironmentEv(ptr noundef nonnull align 8 dereferenceable(56) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw %"class.llvm::Triple", ptr %3, i32 0, i32 5
-  %5 = load i32, ptr %4, align 8
+  %5 = load i32, ptr %4, align 8, !tbaa !399
   ret i32 %5
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef i32 @_ZNK4llvm6Triple10getSubArchEv(ptr noundef nonnull align 8 dereferenceable(56) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw %"class.llvm::Triple", ptr %3, i32 0, i32 2
-  %5 = load i32, ptr %4, align 4
+  %5 = load i32, ptr %4, align 4, !tbaa !400
   ret i32 %5
 }
 
 declare noundef zeroext i1 @_ZNK4llvm6Triple17isMacOSXVersionLTEjjj(ptr noundef nonnull align 8 dereferenceable(56), i32 noundef, i32 noundef, i32 noundef) #1
 
 ; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef i64 @_ZNK4llvm9StringRef4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !98
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %3, i32 0, i32 1
+  %5 = load i64, ptr %4, align 8, !tbaa !102
+  ret i64 %5
+}
+
+; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt14__array_traitsIPN4llvm9MCSectionELm11EE6_S_refERA11_KS2_m(ptr noundef nonnull align 8 dereferenceable(88) %0, i64 noundef %1) #0 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca i64, align 8
-  store ptr %0, ptr %3, align 8
-  store i64 %1, ptr %4, align 8
-  %5 = load ptr, ptr %3, align 8
-  %6 = load i64, ptr %4, align 8
-  %7 = getelementptr inbounds [11 x ptr], ptr %5, i64 0, i64 %6
+  store ptr %0, ptr %3, align 8, !tbaa !401
+  store i64 %1, ptr %4, align 8, !tbaa !94
+  %5 = load ptr, ptr %3, align 8, !tbaa !401
+  %6 = load i64, ptr %4, align 8, !tbaa !94
+  %7 = getelementptr inbounds nuw [11 x ptr], ptr %5, i64 0, i64 %6
   ret ptr %7
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK4llvm6Triple8isMIPS32Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !8
   %3 = load ptr, ptr %2, align 8
   %4 = call noundef i32 @_ZNK4llvm6Triple7getArchEv(ptr noundef nonnull align 8 dereferenceable(56) %3)
   %5 = icmp eq i32 %4, 16
@@ -6863,7 +7273,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK4llvm6Triple8isMIPS32Ev(ptr n
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK4llvm6Triple8isMIPS64Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !8
   %3 = load ptr, ptr %2, align 8
   %4 = call noundef i32 @_ZNK4llvm6Triple7getArchEv(ptr noundef nonnull align 8 dereferenceable(56) %3)
   %5 = icmp eq i32 %4, 18
@@ -6883,21 +7293,21 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK4llvm6Triple8isMIPS64Ev(ptr n
 define linkonce_odr hidden void @_ZNSt14_Optional_baseIN4llvm5XCOFF15CsectPropertiesELb1ELb1EEC2IJS2_ETnNSt9enable_ifIX18is_constructible_vIS2_DpT_EEbE4typeELb0EEESt10in_place_tDpOS6_(ptr noundef nonnull align 1 dereferenceable(3) %0, ptr noundef nonnull align 1 dereferenceable(2) %1) unnamed_addr #0 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !403
+  store ptr %1, ptr %4, align 8, !tbaa !321
   %5 = load ptr, ptr %3, align 8
   %6 = getelementptr inbounds nuw %"struct.std::_Optional_base", ptr %5, i32 0, i32 0
-  %7 = load ptr, ptr %4, align 8
+  %7 = load ptr, ptr %4, align 8, !tbaa !321
   call void @_ZNSt17_Optional_payloadIN4llvm5XCOFF15CsectPropertiesELb1ELb1ELb1EECI2St22_Optional_payload_baseIS2_EIJS2_EEESt10in_place_tDpOT_(ptr noundef nonnull align 1 dereferenceable(3) %6, ptr noundef nonnull align 1 dereferenceable(2) %7)
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNSt17_Optional_payloadIN4llvm5XCOFF15CsectPropertiesELb1ELb1ELb1EECI2St22_Optional_payload_baseIS2_EIJS2_EEESt10in_place_tDpOT_(ptr noundef nonnull align 1 dereferenceable(3) %0, ptr noundef nonnull align 1 dereferenceable(2) %1) unnamed_addr #0 comdat align 2 {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZNSt17_Optional_payloadIN4llvm5XCOFF15CsectPropertiesELb1ELb1ELb1EECI2St22_Optional_payload_baseIS2_EIJS2_EEESt10in_place_tDpOT_(ptr noundef nonnull align 1 dereferenceable(3) %0, ptr noundef nonnull align 1 dereferenceable(2) %1) unnamed_addr #5 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !405
+  store ptr %1, ptr %4, align 8, !tbaa !321
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZNSt22_Optional_payload_baseIN4llvm5XCOFF15CsectPropertiesEEC2IJS2_EEESt10in_place_tDpOT_(ptr noundef nonnull align 1 dereferenceable(3) %5, ptr noundef nonnull align 1 dereferenceable(2) %6)
@@ -6908,14 +7318,14 @@ define linkonce_odr hidden void @_ZNSt17_Optional_payloadIN4llvm5XCOFF15CsectPro
 define linkonce_odr hidden void @_ZNSt22_Optional_payload_baseIN4llvm5XCOFF15CsectPropertiesEEC2IJS2_EEESt10in_place_tDpOT_(ptr noundef nonnull align 1 dereferenceable(3) %0, ptr noundef nonnull align 1 dereferenceable(2) %1) unnamed_addr #0 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !407
+  store ptr %1, ptr %4, align 8, !tbaa !321
   %5 = load ptr, ptr %3, align 8
   %6 = getelementptr inbounds nuw %"struct.std::_Optional_payload_base", ptr %5, i32 0, i32 0
-  %7 = load ptr, ptr %4, align 8
+  %7 = load ptr, ptr %4, align 8, !tbaa !321
   call void @_ZNSt22_Optional_payload_baseIN4llvm5XCOFF15CsectPropertiesEE8_StorageIS2_Lb1EEC2IJS2_EEESt10in_place_tDpOT_(ptr noundef nonnull align 1 dereferenceable(2) %6, ptr noundef nonnull align 1 dereferenceable(2) %7)
   %8 = getelementptr inbounds nuw %"struct.std::_Optional_payload_base", ptr %5, i32 0, i32 1
-  store i8 1, ptr %8, align 1
+  store i8 1, ptr %8, align 1, !tbaa !409
   ret void
 }
 
@@ -6923,57 +7333,57 @@ define linkonce_odr hidden void @_ZNSt22_Optional_payload_baseIN4llvm5XCOFF15Cse
 define linkonce_odr hidden void @_ZNSt22_Optional_payload_baseIN4llvm5XCOFF15CsectPropertiesEE8_StorageIS2_Lb1EEC2IJS2_EEESt10in_place_tDpOT_(ptr noundef nonnull align 1 dereferenceable(2) %0, ptr noundef nonnull align 1 dereferenceable(2) %1) unnamed_addr #0 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !410
+  store ptr %1, ptr %4, align 8, !tbaa !321
   %5 = load ptr, ptr %3, align 8
-  %6 = load ptr, ptr %4, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %5, ptr align 1 %6, i64 2, i1 false)
+  %6 = load ptr, ptr %4, align 8, !tbaa !321
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %5, ptr align 1 %6, i64 2, i1 false), !tbaa.struct !412
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt14_Optional_baseIN4llvm5XCOFF24DwarfSectionSubtypeFlagsELb1ELb1EEC2Ev(ptr noundef nonnull align 4 dereferenceable(8) %0) unnamed_addr #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !413
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw %"struct.std::_Optional_base.127", ptr %3, i32 0, i32 0
-  call void @_ZNSt17_Optional_payloadIN4llvm5XCOFF24DwarfSectionSubtypeFlagsELb1ELb1ELb1EEC2Ev(ptr noundef nonnull align 4 dereferenceable(5) %4) #8
+  call void @_ZNSt17_Optional_payloadIN4llvm5XCOFF24DwarfSectionSubtypeFlagsELb1ELb1ELb1EEC2Ev(ptr noundef nonnull align 4 dereferenceable(5) %4) #11
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt17_Optional_payloadIN4llvm5XCOFF24DwarfSectionSubtypeFlagsELb1ELb1ELb1EEC2Ev(ptr noundef nonnull align 4 dereferenceable(5) %0) unnamed_addr #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !415
   %3 = load ptr, ptr %2, align 8
-  call void @_ZNSt22_Optional_payload_baseIN4llvm5XCOFF24DwarfSectionSubtypeFlagsEEC2Ev(ptr noundef nonnull align 4 dereferenceable(5) %3) #8
+  call void @_ZNSt22_Optional_payload_baseIN4llvm5XCOFF24DwarfSectionSubtypeFlagsEEC2Ev(ptr noundef nonnull align 4 dereferenceable(5) %3) #11
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt22_Optional_payload_baseIN4llvm5XCOFF24DwarfSectionSubtypeFlagsEEC2Ev(ptr noundef nonnull align 4 dereferenceable(5) %0) unnamed_addr #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !417
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw %"struct.std::_Optional_payload_base.130", ptr %3, i32 0, i32 0
-  call void @_ZNSt22_Optional_payload_baseIN4llvm5XCOFF24DwarfSectionSubtypeFlagsEE8_StorageIS2_Lb1EEC2Ev(ptr noundef nonnull align 4 dereferenceable(4) %4) #8
+  call void @_ZNSt22_Optional_payload_baseIN4llvm5XCOFF24DwarfSectionSubtypeFlagsEE8_StorageIS2_Lb1EEC2Ev(ptr noundef nonnull align 4 dereferenceable(4) %4) #11
   %5 = getelementptr inbounds nuw %"struct.std::_Optional_payload_base.130", ptr %3, i32 0, i32 1
-  store i8 0, ptr %5, align 4
+  store i8 0, ptr %5, align 4, !tbaa !419
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt22_Optional_payload_baseIN4llvm5XCOFF24DwarfSectionSubtypeFlagsEE8_StorageIS2_Lb1EEC2Ev(ptr noundef nonnull align 4 dereferenceable(4) %0) unnamed_addr #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !420
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef i32 @_ZN4llvm7Log2_64Em(i64 noundef %0) #0 comdat {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr hidden noundef i32 @_ZN4llvm7Log2_64Em(i64 noundef %0) #5 comdat {
   %2 = alloca i64, align 8
-  store i64 %0, ptr %2, align 8
-  %3 = load i64, ptr %2, align 8
+  store i64 %0, ptr %2, align 8, !tbaa !94
+  %3 = load i64, ptr %2, align 8, !tbaa !94
   %4 = call noundef i32 @_ZN4llvm11countl_zeroImEEiT_(i64 noundef %3)
   %5 = sub nsw i32 63, %4
   ret i32 %5
@@ -6982,8 +7392,8 @@ define linkonce_odr hidden noundef i32 @_ZN4llvm7Log2_64Em(i64 noundef %0) #0 co
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef i32 @_ZN4llvm11countl_zeroImEEiT_(i64 noundef %0) #0 comdat {
   %2 = alloca i64, align 8
-  store i64 %0, ptr %2, align 8
-  %3 = load i64, ptr %2, align 8
+  store i64 %0, ptr %2, align 8, !tbaa !94
+  %3 = load i64, ptr %2, align 8, !tbaa !94
   %4 = call noundef i32 @_ZN4llvm6detail19LeadingZerosCounterImLm8EE5countEm(i64 noundef %3)
   ret i32 %4
 }
@@ -6992,8 +7402,8 @@ define linkonce_odr noundef i32 @_ZN4llvm11countl_zeroImEEiT_(i64 noundef %0) #0
 define linkonce_odr hidden noundef i32 @_ZN4llvm6detail19LeadingZerosCounterImLm8EE5countEm(i64 noundef %0) #0 comdat align 2 {
   %2 = alloca i32, align 4
   %3 = alloca i64, align 8
-  store i64 %0, ptr %3, align 8
-  %4 = load i64, ptr %3, align 8
+  store i64 %0, ptr %3, align 8, !tbaa !94
+  %4 = load i64, ptr %3, align 8, !tbaa !94
   %5 = icmp eq i64 %4, 0
   br i1 %5, label %6, label %7
 
@@ -7002,7 +7412,7 @@ define linkonce_odr hidden noundef i32 @_ZN4llvm6detail19LeadingZerosCounterImLm
   br label %11
 
 7:                                                ; preds = %1
-  %8 = load i64, ptr %3, align 8
+  %8 = load i64, ptr %3, align 8, !tbaa !94
   %9 = call i64 @llvm.ctlz.i64(i64 %8, i1 true)
   %10 = trunc i64 %9 to i32
   store i32 %10, ptr %2, align 4
@@ -7014,43 +7424,43 @@ define linkonce_odr hidden noundef i32 @_ZN4llvm6detail19LeadingZerosCounterImLm
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.ctlz.i64(i64, i1 immarg) #6
+declare i64 @llvm.ctlz.i64(i64, i1 immarg) #8
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt14_Optional_baseIN4llvm5XCOFF15CsectPropertiesELb1ELb1EEC2Ev(ptr noundef nonnull align 1 dereferenceable(3) %0) unnamed_addr #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !403
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw %"struct.std::_Optional_base", ptr %3, i32 0, i32 0
-  call void @_ZNSt17_Optional_payloadIN4llvm5XCOFF15CsectPropertiesELb1ELb1ELb1EEC2Ev(ptr noundef nonnull align 1 dereferenceable(3) %4) #8
+  call void @_ZNSt17_Optional_payloadIN4llvm5XCOFF15CsectPropertiesELb1ELb1ELb1EEC2Ev(ptr noundef nonnull align 1 dereferenceable(3) %4) #11
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt17_Optional_payloadIN4llvm5XCOFF15CsectPropertiesELb1ELb1ELb1EEC2Ev(ptr noundef nonnull align 1 dereferenceable(3) %0) unnamed_addr #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !405
   %3 = load ptr, ptr %2, align 8
-  call void @_ZNSt22_Optional_payload_baseIN4llvm5XCOFF15CsectPropertiesEEC2Ev(ptr noundef nonnull align 1 dereferenceable(3) %3) #8
+  call void @_ZNSt22_Optional_payload_baseIN4llvm5XCOFF15CsectPropertiesEEC2Ev(ptr noundef nonnull align 1 dereferenceable(3) %3) #11
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt22_Optional_payload_baseIN4llvm5XCOFF15CsectPropertiesEEC2Ev(ptr noundef nonnull align 1 dereferenceable(3) %0) unnamed_addr #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !407
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw %"struct.std::_Optional_payload_base", ptr %3, i32 0, i32 0
-  call void @_ZNSt22_Optional_payload_baseIN4llvm5XCOFF15CsectPropertiesEE8_StorageIS2_Lb1EEC2Ev(ptr noundef nonnull align 1 dereferenceable(2) %4) #8
+  call void @_ZNSt22_Optional_payload_baseIN4llvm5XCOFF15CsectPropertiesEE8_StorageIS2_Lb1EEC2Ev(ptr noundef nonnull align 1 dereferenceable(2) %4) #11
   %5 = getelementptr inbounds nuw %"struct.std::_Optional_payload_base", ptr %3, i32 0, i32 1
-  store i8 0, ptr %5, align 1
+  store i8 0, ptr %5, align 1, !tbaa !409
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt22_Optional_payload_baseIN4llvm5XCOFF15CsectPropertiesEE8_StorageIS2_Lb1EEC2Ev(ptr noundef nonnull align 1 dereferenceable(2) %0) unnamed_addr #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !410
   ret void
 }
 
@@ -7058,21 +7468,21 @@ define linkonce_odr hidden void @_ZNSt22_Optional_payload_baseIN4llvm5XCOFF15Cse
 define linkonce_odr hidden void @_ZNSt14_Optional_baseIN4llvm5XCOFF24DwarfSectionSubtypeFlagsELb1ELb1EEC2IJS2_ETnNSt9enable_ifIX18is_constructible_vIS2_DpT_EEbE4typeELb0EEESt10in_place_tDpOS6_(ptr noundef nonnull align 4 dereferenceable(8) %0, ptr noundef nonnull align 4 dereferenceable(4) %1) unnamed_addr #0 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !413
+  store ptr %1, ptr %4, align 8, !tbaa !378
   %5 = load ptr, ptr %3, align 8
   %6 = getelementptr inbounds nuw %"struct.std::_Optional_base.127", ptr %5, i32 0, i32 0
-  %7 = load ptr, ptr %4, align 8
+  %7 = load ptr, ptr %4, align 8, !tbaa !378
   call void @_ZNSt17_Optional_payloadIN4llvm5XCOFF24DwarfSectionSubtypeFlagsELb1ELb1ELb1EECI2St22_Optional_payload_baseIS2_EIJS2_EEESt10in_place_tDpOT_(ptr noundef nonnull align 4 dereferenceable(5) %6, ptr noundef nonnull align 4 dereferenceable(4) %7)
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNSt17_Optional_payloadIN4llvm5XCOFF24DwarfSectionSubtypeFlagsELb1ELb1ELb1EECI2St22_Optional_payload_baseIS2_EIJS2_EEESt10in_place_tDpOT_(ptr noundef nonnull align 4 dereferenceable(5) %0, ptr noundef nonnull align 4 dereferenceable(4) %1) unnamed_addr #0 comdat align 2 {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZNSt17_Optional_payloadIN4llvm5XCOFF24DwarfSectionSubtypeFlagsELb1ELb1ELb1EECI2St22_Optional_payload_baseIS2_EIJS2_EEESt10in_place_tDpOT_(ptr noundef nonnull align 4 dereferenceable(5) %0, ptr noundef nonnull align 4 dereferenceable(4) %1) unnamed_addr #5 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !415
+  store ptr %1, ptr %4, align 8, !tbaa !378
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZNSt22_Optional_payload_baseIN4llvm5XCOFF24DwarfSectionSubtypeFlagsEEC2IJS2_EEESt10in_place_tDpOT_(ptr noundef nonnull align 4 dereferenceable(5) %5, ptr noundef nonnull align 4 dereferenceable(4) %6)
@@ -7083,14 +7493,14 @@ define linkonce_odr hidden void @_ZNSt17_Optional_payloadIN4llvm5XCOFF24DwarfSec
 define linkonce_odr hidden void @_ZNSt22_Optional_payload_baseIN4llvm5XCOFF24DwarfSectionSubtypeFlagsEEC2IJS2_EEESt10in_place_tDpOT_(ptr noundef nonnull align 4 dereferenceable(5) %0, ptr noundef nonnull align 4 dereferenceable(4) %1) unnamed_addr #0 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !417
+  store ptr %1, ptr %4, align 8, !tbaa !378
   %5 = load ptr, ptr %3, align 8
   %6 = getelementptr inbounds nuw %"struct.std::_Optional_payload_base.130", ptr %5, i32 0, i32 0
-  %7 = load ptr, ptr %4, align 8
+  %7 = load ptr, ptr %4, align 8, !tbaa !378
   call void @_ZNSt22_Optional_payload_baseIN4llvm5XCOFF24DwarfSectionSubtypeFlagsEE8_StorageIS2_Lb1EEC2IJS2_EEESt10in_place_tDpOT_(ptr noundef nonnull align 4 dereferenceable(4) %6, ptr noundef nonnull align 4 dereferenceable(4) %7)
   %8 = getelementptr inbounds nuw %"struct.std::_Optional_payload_base.130", ptr %5, i32 0, i32 1
-  store i8 1, ptr %8, align 4
+  store i8 1, ptr %8, align 4, !tbaa !419
   ret void
 }
 
@@ -7098,27 +7508,33 @@ define linkonce_odr hidden void @_ZNSt22_Optional_payload_baseIN4llvm5XCOFF24Dwa
 define linkonce_odr hidden void @_ZNSt22_Optional_payload_baseIN4llvm5XCOFF24DwarfSectionSubtypeFlagsEE8_StorageIS2_Lb1EEC2IJS2_EEESt10in_place_tDpOT_(ptr noundef nonnull align 4 dereferenceable(4) %0, ptr noundef nonnull align 4 dereferenceable(4) %1) unnamed_addr #0 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !420
+  store ptr %1, ptr %4, align 8, !tbaa !378
   %5 = load ptr, ptr %3, align 8
-  %6 = load ptr, ptr %4, align 8
-  %7 = load i32, ptr %6, align 4
-  store i32 %7, ptr %5, align 4
+  %6 = load ptr, ptr %4, align 8, !tbaa !378
+  %7 = load i32, ptr %6, align 4, !tbaa !319
+  store i32 %7, ptr %5, align 4, !tbaa !97
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef ptr @_ZSt3endIcLm21EEPT_RAT0__S0_(ptr noundef nonnull align 1 dereferenceable(21) %0) #0 comdat {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr noundef ptr @_ZSt3endIcLm21EEPT_RAT0__S0_(ptr noundef nonnull align 1 dereferenceable(21) %0) #5 comdat {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !91
+  %3 = load ptr, ptr %2, align 8, !tbaa !91
   %4 = getelementptr inbounds [21 x i8], ptr %3, i64 0, i64 0
-  %5 = getelementptr inbounds i8, ptr %4, i64 21
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 21
   ret ptr %5
 }
 
-; Function Attrs: nounwind
-declare void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #4
+; Function Attrs: mustprogress nounwind uwtable
+define available_externally void @_ZNSaIcEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #0 align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !422
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZNSt15__new_allocatorIcEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #11
+  ret void
+}
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IPcvEET_S7_RKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull align 1 dereferenceable(1) %3) unnamed_addr #0 comdat align 2 {
@@ -7126,137 +7542,270 @@ define linkonce_odr hidden void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcE
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
-  store ptr %0, ptr %5, align 8
-  store ptr %1, ptr %6, align 8
-  store ptr %2, ptr %7, align 8
-  store ptr %3, ptr %8, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !383
+  store ptr %1, ptr %6, align 8, !tbaa !91
+  store ptr %2, ptr %7, align 8, !tbaa !91
+  store ptr %3, ptr %8, align 8, !tbaa !422
   %9 = load ptr, ptr %5, align 8
   %10 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %9, i32 0, i32 0
   %11 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %9)
-  %12 = load ptr, ptr %8, align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef %11, ptr noundef nonnull align 1 dereferenceable(1) %12)
+  %12 = load ptr, ptr %8, align 8, !tbaa !422
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC2EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef %11, ptr noundef nonnull align 1 dereferenceable(1) %12)
   %13 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %9, i32 0, i32 1
-  store i64 0, ptr %13, align 8
-  %14 = load ptr, ptr %6, align 8
-  %15 = load ptr, ptr %7, align 8
+  store i64 0, ptr %13, align 8, !tbaa !424
+  %14 = load ptr, ptr %6, align 8, !tbaa !91
+  %15 = load ptr, ptr %7, align 8, !tbaa !91
   call void @_ZSt19__iterator_categoryIPcENSt15iterator_traitsIT_E17iterator_categoryERKS2_(ptr noundef nonnull align 8 dereferenceable(8) %6)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPcEEvT_S7_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef %14, ptr noundef %15)
   ret void
 }
 
-; Function Attrs: nounwind
-declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #4
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZNSt15__new_allocatorIcEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !425
+  ret void
+}
 
-declare noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32)) #1
+; Function Attrs: mustprogress nounwind uwtable
+define available_externally noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #0 align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !383
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %3, i32 0, i32 2
+  %5 = getelementptr inbounds [16 x i8], ptr %4, i64 0, i64 0
+  %6 = call noundef ptr @_ZNSt19__ptr_traits_ptr_toIPccLb0EE10pointer_toERc(ptr noundef nonnull align 1 dereferenceable(1) %5) #11
+  ret ptr %6
+}
 
-declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef, ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #1
+; Function Attrs: mustprogress nounwind uwtable
+define available_externally void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC2EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %2) unnamed_addr #0 align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !427
+  store ptr %1, ptr %5, align 8, !tbaa !91
+  store ptr %2, ptr %6, align 8, !tbaa !422
+  %7 = load ptr, ptr %4, align 8
+  %8 = load ptr, ptr %6, align 8, !tbaa !422
+  call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef nonnull align 1 dereferenceable(1) %8) #11
+  %9 = getelementptr inbounds nuw %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", ptr %7, i32 0, i32 0
+  %10 = load ptr, ptr %5, align 8, !tbaa !91
+  store ptr %10, ptr %9, align 8, !tbaa !429
+  ret void
+}
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPcEEvT_S7_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1, ptr noundef %2) #0 comdat align 2 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
-  %7 = alloca ptr, align 8
-  %8 = alloca i64, align 8
-  %9 = alloca %struct._Guard, align 8
-  store ptr %0, ptr %5, align 8
-  store ptr %1, ptr %6, align 8
-  store ptr %2, ptr %7, align 8
-  %10 = load ptr, ptr %5, align 8
-  %11 = load ptr, ptr %6, align 8
-  %12 = load ptr, ptr %7, align 8
-  %13 = call noundef i64 @_ZSt8distanceIPcENSt15iterator_traitsIT_E15difference_typeES2_S2_(ptr noundef %11, ptr noundef %12)
-  store i64 %13, ptr %8, align 8
-  %14 = load i64, ptr %8, align 8
-  %15 = icmp ugt i64 %14, 15
-  br i1 %15, label %16, label %19
+  %7 = alloca i64, align 8
+  %8 = alloca %struct._Guard, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !383
+  store ptr %1, ptr %5, align 8, !tbaa !91
+  store ptr %2, ptr %6, align 8, !tbaa !91
+  %9 = load ptr, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #11
+  %10 = load ptr, ptr %5, align 8, !tbaa !91
+  %11 = load ptr, ptr %6, align 8, !tbaa !91
+  %12 = call noundef i64 @_ZSt8distanceIPcENSt15iterator_traitsIT_E15difference_typeES2_S2_(ptr noundef %10, ptr noundef %11)
+  store i64 %12, ptr %7, align 8, !tbaa !94
+  %13 = load i64, ptr %7, align 8, !tbaa !94
+  %14 = icmp ugt i64 %13, 15
+  br i1 %14, label %15, label %18
 
-16:                                               ; preds = %3
-  %17 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 8 dereferenceable(8) %8, i64 noundef 0)
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEPc(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef %17)
-  %18 = load i64, ptr %8, align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_capacityEm(ptr noundef nonnull align 8 dereferenceable(32) %10, i64 noundef %18)
-  br label %22
+15:                                               ; preds = %3
+  %16 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(8) %7, i64 noundef 0)
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEPc(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef %16)
+  %17 = load i64, ptr %7, align 8, !tbaa !94
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_capacityEm(ptr noundef nonnull align 8 dereferenceable(32) %9, i64 noundef %17)
+  br label %20
 
-19:                                               ; preds = %3
-  store ptr %10, ptr %4, align 8
-  %20 = load ptr, ptr %4, align 8
-  %21 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %20) #8
-  br label %22
+18:                                               ; preds = %3
+  %19 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE17_M_use_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %9) #11
+  br label %20
 
-22:                                               ; preds = %19, %16
-  call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPcEEvT_S7_St20forward_iterator_tagEN6_GuardC2EPS4_(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef %10)
-  %23 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %10)
-  %24 = load ptr, ptr %6, align 8
-  %25 = load ptr, ptr %7, align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcS5_S5_(ptr noundef %23, ptr noundef %24, ptr noundef %25) #8
-  %26 = getelementptr inbounds nuw %struct._Guard, ptr %9, i32 0, i32 0
-  store ptr null, ptr %26, align 8
-  %27 = load i64, ptr %8, align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) %10, i64 noundef %27)
-  call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPcEEvT_S7_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #8
+20:                                               ; preds = %18, %15
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #11
+  call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPcEEvT_S7_St20forward_iterator_tagEN6_GuardC2EPS4_(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef %9)
+  %21 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %9)
+  %22 = load ptr, ptr %5, align 8, !tbaa !91
+  %23 = load ptr, ptr %6, align 8, !tbaa !91
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcS5_S5_(ptr noundef %21, ptr noundef %22, ptr noundef %23) #11
+  %24 = getelementptr inbounds nuw %struct._Guard, ptr %8, i32 0, i32 0
+  store ptr null, ptr %24, align 8, !tbaa !430
+  %25 = load i64, ptr %7, align 8, !tbaa !94
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) %9, i64 noundef %25)
+  call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPcEEvT_S7_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #11
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZSt19__iterator_categoryIPcENSt15iterator_traitsIT_E17iterator_categoryERKS2_(ptr noundef nonnull align 8 dereferenceable(8) %0) #0 comdat {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr void @_ZSt19__iterator_categoryIPcENSt15iterator_traitsIT_E17iterator_categoryERKS2_(ptr noundef nonnull align 8 dereferenceable(8) %0) #5 comdat {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !432
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef i64 @_ZSt8distanceIPcENSt15iterator_traitsIT_E15difference_typeES2_S2_(ptr noundef %0, ptr noundef %1) #0 comdat {
+define linkonce_odr hidden noundef ptr @_ZNSt19__ptr_traits_ptr_toIPccLb0EE10pointer_toERc(ptr noundef nonnull align 1 dereferenceable(1) %0) #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !91
+  %3 = load ptr, ptr %2, align 8, !tbaa !91
+  ret ptr %3
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define available_externally void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %1) unnamed_addr #0 align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !422
+  store ptr %1, ptr %4, align 8, !tbaa !422
   %5 = load ptr, ptr %3, align 8
-  %6 = load ptr, ptr %4, align 8
+  %6 = load ptr, ptr %4, align 8, !tbaa !422
+  call void @_ZNSt15__new_allocatorIcEC2ERKS0_(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull align 1 dereferenceable(1) %6) #11
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZNSt15__new_allocatorIcEC2ERKS0_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %1) unnamed_addr #0 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !425
+  store ptr %1, ptr %4, align 8, !tbaa !425
+  ret void
+}
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr noundef i64 @_ZSt8distanceIPcENSt15iterator_traitsIT_E15difference_typeES2_S2_(ptr noundef %0, ptr noundef %1) #5 comdat {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !91
+  store ptr %1, ptr %4, align 8, !tbaa !91
+  %5 = load ptr, ptr %3, align 8, !tbaa !91
+  %6 = load ptr, ptr %4, align 8, !tbaa !91
   call void @_ZSt19__iterator_categoryIPcENSt15iterator_traitsIT_E17iterator_categoryERKS2_(ptr noundef nonnull align 8 dereferenceable(8) %3)
   %7 = call noundef i64 @_ZSt10__distanceIPcENSt15iterator_traitsIT_E15difference_typeES2_S2_St26random_access_iterator_tag(ptr noundef %5, ptr noundef %6)
   ret i64 %7
 }
 
-declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEPc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) #1
+; Function Attrs: mustprogress nounwind uwtable
+define available_externally void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEPc(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1) #0 align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !383
+  store ptr %1, ptr %4, align 8, !tbaa !91
+  %5 = load ptr, ptr %3, align 8
+  %6 = load ptr, ptr %4, align 8, !tbaa !91
+  %7 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %5, i32 0, i32 0
+  %8 = getelementptr inbounds nuw %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", ptr %7, i32 0, i32 0
+  store ptr %6, ptr %8, align 8, !tbaa !434
+  ret void
+}
 
 declare noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(8), i64 noundef) #1
 
-declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_capacityEm(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef) #1
+; Function Attrs: mustprogress nounwind uwtable
+define available_externally void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_capacityEm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %1) #0 align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !383
+  store i64 %1, ptr %4, align 8, !tbaa !94
+  %5 = load ptr, ptr %3, align 8
+  %6 = load i64, ptr %4, align 8, !tbaa !94
+  %7 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %5, i32 0, i32 2
+  store i64 %6, ptr %7, align 8, !tbaa !97
+  ret void
+}
+
+; Function Attrs: alwaysinline mustprogress nounwind uwtable
+define available_externally noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE17_M_use_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #9 align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !383
+  %3 = load ptr, ptr %2, align 8
+  %4 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %3)
+  ret ptr %4
+}
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPcEEvT_S7_St20forward_iterator_tagEN6_GuardC2EPS4_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #0 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !435
+  store ptr %1, ptr %4, align 8, !tbaa !383
   %5 = load ptr, ptr %3, align 8
   %6 = getelementptr inbounds nuw %struct._Guard, ptr %5, i32 0, i32 0
-  %7 = load ptr, ptr %4, align 8
-  store ptr %7, ptr %6, align 8
+  %7 = load ptr, ptr %4, align 8, !tbaa !383
+  store ptr %7, ptr %6, align 8, !tbaa !430
   ret void
 }
 
-; Function Attrs: nounwind
-declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcS5_S5_(ptr noundef, ptr noundef, ptr noundef) #4
+; Function Attrs: mustprogress nounwind uwtable
+define available_externally void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcS5_S5_(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !91
+  store ptr %1, ptr %5, align 8, !tbaa !91
+  store ptr %2, ptr %6, align 8, !tbaa !91
+  %7 = load ptr, ptr %4, align 8, !tbaa !91
+  %8 = load ptr, ptr %5, align 8, !tbaa !91
+  %9 = load ptr, ptr %6, align 8, !tbaa !91
+  %10 = load ptr, ptr %5, align 8, !tbaa !91
+  %11 = ptrtoint ptr %9 to i64
+  %12 = ptrtoint ptr %10 to i64
+  %13 = sub i64 %11, %12
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_S_copyEPcPKcm(ptr noundef %7, ptr noundef %8, i64 noundef %13)
+  ret void
+}
 
-declare noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEv(ptr noundef nonnull align 8 dereferenceable(32)) #1
+; Function Attrs: mustprogress nounwind uwtable
+define available_externally noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #0 align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !383
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %3, i32 0, i32 0
+  %5 = getelementptr inbounds nuw %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", ptr %4, i32 0, i32 0
+  %6 = load ptr, ptr %5, align 8, !tbaa !434
+  ret ptr %6
+}
 
-declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef) #1
+; Function Attrs: mustprogress nounwind uwtable
+define available_externally void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %1) #0 align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  %5 = alloca i8, align 1
+  store ptr %0, ptr %3, align 8, !tbaa !383
+  store i64 %1, ptr %4, align 8, !tbaa !94
+  %6 = load ptr, ptr %3, align 8
+  %7 = load i64, ptr %4, align 8, !tbaa !94
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) %6, i64 noundef %7)
+  %8 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %6)
+  %9 = load i64, ptr %4, align 8, !tbaa !94
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 %9
+  call void @llvm.lifetime.start.p0(i64 1, ptr %5) #11
+  store i8 0, ptr %5, align 1, !tbaa !97
+  call void @_ZNSt11char_traitsIcE6assignERcRKc(ptr noundef nonnull align 1 dereferenceable(1) %10, ptr noundef nonnull align 1 dereferenceable(1) %5) #11
+  call void @llvm.lifetime.end.p0(i64 1, ptr %5) #11
+  ret void
+}
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPcEEvT_S7_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !435
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw %struct._Guard, ptr %3, i32 0, i32 0
-  %5 = load ptr, ptr %4, align 8
+  %5 = load ptr, ptr %4, align 8, !tbaa !430
   %6 = icmp ne ptr %5, null
   br i1 %6, label %7, label %10
 
 7:                                                ; preds = %1
   %8 = getelementptr inbounds nuw %struct._Guard, ptr %3, i32 0, i32 0
-  %9 = load ptr, ptr %8, align 8
+  %9 = load ptr, ptr %8, align 8, !tbaa !430
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_disposeEv(ptr noundef nonnull align 8 dereferenceable(32) %9)
   br label %10
 
@@ -7264,36 +7813,244 @@ define linkonce_odr hidden void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIc
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef i64 @_ZSt10__distanceIPcENSt15iterator_traitsIT_E15difference_typeES2_S2_St26random_access_iterator_tag(ptr noundef %0, ptr noundef %1) #0 comdat {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr noundef i64 @_ZSt10__distanceIPcENSt15iterator_traitsIT_E15difference_typeES2_S2_St26random_access_iterator_tag(ptr noundef %0, ptr noundef %1) #5 comdat {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  %5 = load ptr, ptr %4, align 8
-  %6 = load ptr, ptr %3, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !91
+  store ptr %1, ptr %4, align 8, !tbaa !91
+  %5 = load ptr, ptr %4, align 8, !tbaa !91
+  %6 = load ptr, ptr %3, align 8, !tbaa !91
   %7 = ptrtoint ptr %5 to i64
   %8 = ptrtoint ptr %6 to i64
   %9 = sub i64 %7, %8
   ret i64 %9
 }
 
-declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_disposeEv(ptr noundef nonnull align 8 dereferenceable(32)) #1
+; Function Attrs: mustprogress nounwind uwtable
+define available_externally void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_S_copyEPcPKcm(ptr noundef %0, ptr noundef %1, i64 noundef %2) #0 align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i64, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !91
+  store ptr %1, ptr %5, align 8, !tbaa !91
+  store i64 %2, ptr %6, align 8, !tbaa !94
+  %7 = load i64, ptr %6, align 8, !tbaa !94
+  %8 = icmp eq i64 %7, 1
+  br i1 %8, label %9, label %12
+
+9:                                                ; preds = %3
+  %10 = load ptr, ptr %4, align 8, !tbaa !91
+  %11 = load ptr, ptr %5, align 8, !tbaa !91
+  call void @_ZNSt11char_traitsIcE6assignERcRKc(ptr noundef nonnull align 1 dereferenceable(1) %10, ptr noundef nonnull align 1 dereferenceable(1) %11) #11
+  br label %17
+
+12:                                               ; preds = %3
+  %13 = load ptr, ptr %4, align 8, !tbaa !91
+  %14 = load ptr, ptr %5, align 8, !tbaa !91
+  %15 = load i64, ptr %6, align 8, !tbaa !94
+  %16 = call noundef ptr @_ZNSt11char_traitsIcE4copyEPcPKcm(ptr noundef %13, ptr noundef %14, i64 noundef %15)
+  br label %17
+
+17:                                               ; preds = %12, %9
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZNSt11char_traitsIcE6assignERcRKc(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %1) #0 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !91
+  store ptr %1, ptr %4, align 8, !tbaa !91
+  %5 = load ptr, ptr %4, align 8, !tbaa !91
+  %6 = load i8, ptr %5, align 1, !tbaa !97
+  %7 = load ptr, ptr %3, align 8, !tbaa !91
+  store i8 %6, ptr %7, align 1, !tbaa !97
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef ptr @_ZNSt11char_traitsIcE4copyEPcPKcm(ptr noundef %0, ptr noundef %1, i64 noundef %2) #0 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i64, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !91
+  store ptr %1, ptr %6, align 8, !tbaa !91
+  store i64 %2, ptr %7, align 8, !tbaa !94
+  %8 = load i64, ptr %7, align 8, !tbaa !94
+  %9 = icmp eq i64 %8, 0
+  br i1 %9, label %10, label %12
+
+10:                                               ; preds = %3
+  %11 = load ptr, ptr %5, align 8, !tbaa !91
+  store ptr %11, ptr %4, align 8
+  br label %16
+
+12:                                               ; preds = %3
+  %13 = load ptr, ptr %5, align 8, !tbaa !91
+  %14 = load ptr, ptr %6, align 8, !tbaa !91
+  %15 = load i64, ptr %7, align 8, !tbaa !94
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %13, ptr align 1 %14, i64 %15, i1 false)
+  store ptr %13, ptr %4, align 8
+  br label %16
+
+16:                                               ; preds = %12, %10
+  %17 = load ptr, ptr %4, align 8
+  ret ptr %17
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define available_externally void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %1) #0 align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !383
+  store i64 %1, ptr %4, align 8, !tbaa !94
+  %5 = load ptr, ptr %3, align 8
+  %6 = load i64, ptr %4, align 8, !tbaa !94
+  %7 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %5, i32 0, i32 1
+  store i64 %6, ptr %7, align 8, !tbaa !424
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define available_externally void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_disposeEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #0 align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !383
+  %3 = load ptr, ptr %2, align 8
+  %4 = call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv(ptr noundef nonnull align 8 dereferenceable(32) %3)
+  br i1 %4, label %8, label %5
+
+5:                                                ; preds = %1
+  %6 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %3, i32 0, i32 2
+  %7 = load i64, ptr %6, align 8, !tbaa !97
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_destroyEm(ptr noundef nonnull align 8 dereferenceable(32) %3, i64 noundef %7) #11
+  br label %8
+
+8:                                                ; preds = %5, %1
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define available_externally noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #0 align 2 {
+  %2 = alloca i1, align 1
+  %3 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !383
+  %4 = load ptr, ptr %3, align 8
+  %5 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %4)
+  %6 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %4)
+  %7 = icmp eq ptr %5, %6
+  br i1 %7, label %8, label %14
+
+8:                                                ; preds = %1
+  %9 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %4, i32 0, i32 1
+  %10 = load i64, ptr %9, align 8, !tbaa !424
+  %11 = icmp ugt i64 %10, 15
+  br i1 %11, label %12, label %13
+
+12:                                               ; preds = %8
+  unreachable
+
+13:                                               ; preds = %8
+  store i1 true, ptr %2, align 1
+  br label %15
+
+14:                                               ; preds = %1
+  store i1 false, ptr %2, align 1
+  br label %15
+
+15:                                               ; preds = %14, %13
+  %16 = load i1, ptr %2, align 1
+  ret i1 %16
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define available_externally void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_destroyEm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %1) #0 align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !383
+  store i64 %1, ptr %4, align 8, !tbaa !94
+  %5 = load ptr, ptr %3, align 8
+  %6 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE16_M_get_allocatorEv(ptr noundef nonnull align 8 dereferenceable(32) %5)
+  %7 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %5)
+  %8 = load i64, ptr %4, align 8, !tbaa !94
+  %9 = add i64 %8, 1
+  call void @_ZNSt16allocator_traitsISaIcEE10deallocateERS0_Pcm(ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef %7, i64 noundef %9)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define available_externally noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #0 align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !383
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %3, i32 0, i32 2
+  %5 = getelementptr inbounds [16 x i8], ptr %4, i64 0, i64 0
+  %6 = call noundef ptr @_ZNSt19__ptr_traits_ptr_toIPKcS0_Lb0EE10pointer_toERS0_(ptr noundef nonnull align 1 dereferenceable(1) %5) #11
+  ret ptr %6
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef ptr @_ZNSt19__ptr_traits_ptr_toIPKcS0_Lb0EE10pointer_toERS0_(ptr noundef nonnull align 1 dereferenceable(1) %0) #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !91
+  %3 = load ptr, ptr %2, align 8, !tbaa !91
+  ret ptr %3
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZNSt16allocator_traitsISaIcEE10deallocateERS0_Pcm(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1, i64 noundef %2) #0 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i64, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !422
+  store ptr %1, ptr %5, align 8, !tbaa !91
+  store i64 %2, ptr %6, align 8, !tbaa !94
+  %7 = load ptr, ptr %4, align 8, !tbaa !422
+  %8 = load ptr, ptr %5, align 8, !tbaa !91
+  %9 = load i64, ptr %6, align 8, !tbaa !94
+  call void @_ZNSt15__new_allocatorIcE10deallocateEPcm(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef %8, i64 noundef %9)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define available_externally noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE16_M_get_allocatorEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #0 align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !383
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %3, i32 0, i32 0
+  ret ptr %4
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZNSt15__new_allocatorIcE10deallocateEPcm(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1, i64 noundef %2) #0 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i64, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !425
+  store ptr %1, ptr %5, align 8, !tbaa !91
+  store i64 %2, ptr %6, align 8, !tbaa !94
+  %7 = load ptr, ptr %5, align 8, !tbaa !91
+  %8 = load i64, ptr %6, align 8, !tbaa !94
+  %9 = mul i64 %8, 1
+  call void @_ZdlPvm(ptr noundef %7, i64 noundef %9) #12
+  ret void
+}
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef i32 @_ZNK4llvm6Triple9getVendorEv(ptr noundef nonnull align 8 dereferenceable(56) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw %"class.llvm::Triple", ptr %3, i32 0, i32 3
-  %5 = load i32, ptr %4, align 8
+  %5 = load i32, ptr %4, align 8, !tbaa !437
   ret i32 %5
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZNK4llvm14PointerIntPairIPKNS_11MCSymbolELFELj1EbNS_21PointerLikeTypeTraitsIS3_EENS_18PointerIntPairInfoIS3_Lj1ES5_EEE10getPointerEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !438
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw %"class.llvm::PointerIntPair", ptr %3, i32 0, i32 0
   %5 = call noundef i64 @_ZNK4llvm6detail13PunnedPointerIPKNS_11MCSymbolELFEEcvlEv(ptr noundef nonnull align 8 dereferenceable(8) %4)
@@ -7304,8 +8061,8 @@ define linkonce_odr hidden noundef ptr @_ZNK4llvm14PointerIntPairIPKNS_11MCSymbo
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZN4llvm18PointerIntPairInfoIPKNS_11MCSymbolELFELj1ENS_21PointerLikeTypeTraitsIS3_EEE10getPointerEl(i64 noundef %0) #0 comdat align 2 {
   %2 = alloca i64, align 8
-  store i64 %0, ptr %2, align 8
-  %3 = load i64, ptr %2, align 8
+  store i64 %0, ptr %2, align 8, !tbaa !94
+  %3 = load i64, ptr %2, align 8, !tbaa !94
   %4 = and i64 %3, -8
   %5 = inttoptr i64 %4 to ptr
   %6 = call noundef ptr @_ZN4llvm21PointerLikeTypeTraitsIPKNS_11MCSymbolELFEE18getFromVoidPointerEPKv(ptr noundef %5)
@@ -7315,26 +8072,26 @@ define linkonce_odr hidden noundef ptr @_ZN4llvm18PointerIntPairInfoIPKNS_11MCSy
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef i64 @_ZNK4llvm6detail13PunnedPointerIPKNS_11MCSymbolELFEEcvlEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !440
   %3 = load ptr, ptr %2, align 8
   %4 = call noundef i64 @_ZNK4llvm6detail13PunnedPointerIPKNS_11MCSymbolELFEE5asIntEv(ptr noundef nonnull align 8 dereferenceable(8) %3)
   ret i64 %4
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef ptr @_ZN4llvm21PointerLikeTypeTraitsIPKNS_11MCSymbolELFEE18getFromVoidPointerEPKv(ptr noundef %0) #0 comdat align 2 {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr hidden noundef ptr @_ZN4llvm21PointerLikeTypeTraitsIPKNS_11MCSymbolELFEE18getFromVoidPointerEPKv(ptr noundef %0) #5 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !378
+  %3 = load ptr, ptr %2, align 8, !tbaa !378
   %4 = call noundef ptr @_ZN4llvm21PointerLikeTypeTraitsIPNS_11MCSymbolELFEE18getFromVoidPointerEPv(ptr noundef %3)
   ret ptr %4
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef ptr @_ZN4llvm21PointerLikeTypeTraitsIPNS_11MCSymbolELFEE18getFromVoidPointerEPv(ptr noundef %0) #0 comdat align 2 {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr hidden noundef ptr @_ZN4llvm21PointerLikeTypeTraitsIPNS_11MCSymbolELFEE18getFromVoidPointerEPv(ptr noundef %0) #5 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !378
+  %3 = load ptr, ptr %2, align 8, !tbaa !378
   ret ptr %3
 }
 
@@ -7342,23 +8099,25 @@ define linkonce_odr hidden noundef ptr @_ZN4llvm21PointerLikeTypeTraitsIPNS_11MC
 define linkonce_odr hidden noundef i64 @_ZNK4llvm6detail13PunnedPointerIPKNS_11MCSymbolELFEE5asIntEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
   %3 = alloca i64, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !440
   %4 = load ptr, ptr %2, align 8
-  store i64 0, ptr %3, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #11
+  store i64 0, ptr %3, align 8, !tbaa !94
   %5 = getelementptr inbounds nuw %"struct.llvm::detail::PunnedPointer", ptr %4, i32 0, i32 0
   %6 = getelementptr inbounds [8 x i8], ptr %5, i64 0, i64 0
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %3, ptr align 8 %6, i64 8, i1 false)
-  %7 = load i64, ptr %3, align 8
+  %7 = load i64, ptr %3, align 8, !tbaa !94
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #11
   ret i64 %7
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNK4llvm8MCSymbol15getNameEntryPtrEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !387
   %3 = load ptr, ptr %2, align 8
   %4 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm8MCSymbol15getNameEntryPtrEv(ptr noundef nonnull align 8 dereferenceable(32) %3)
   ret ptr %4
@@ -7368,7 +8127,38 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNK4
 define linkonce_odr hidden { ptr, i64 } @_ZNK4llvm14StringMapEntryINS_18MCSymbolTableValueEE5firstEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #0 comdat align 2 {
   %2 = alloca %"class.llvm::StringRef", align 8
   %3 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !388
+  %4 = load ptr, ptr %3, align 8
+  %5 = call { ptr, i64 } @_ZNK4llvm14StringMapEntryINS_18MCSymbolTableValueEE6getKeyEv(ptr noundef nonnull align 8 dereferenceable(24) %4)
+  %6 = getelementptr inbounds nuw { ptr, i64 }, ptr %2, i32 0, i32 0
+  %7 = extractvalue { ptr, i64 } %5, 0
+  store ptr %7, ptr %6, align 8
+  %8 = getelementptr inbounds nuw { ptr, i64 }, ptr %2, i32 0, i32 1
+  %9 = extractvalue { ptr, i64 } %5, 1
+  store i64 %9, ptr %8, align 8
+  %10 = load { ptr, i64 }, ptr %2, align 8
+  ret { ptr, i64 } %10
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm8MCSymbol15getNameEntryPtrEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !387
+  %4 = load ptr, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #11
+  store ptr %4, ptr %3, align 8, !tbaa !378
+  %5 = load ptr, ptr %3, align 8, !tbaa !378
+  %6 = getelementptr inbounds %"union.llvm::MCSymbol::NameEntryStorageTy", ptr %5, i64 -1
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #11
+  ret ptr %6
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden { ptr, i64 } @_ZNK4llvm14StringMapEntryINS_18MCSymbolTableValueEE6getKeyEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #0 comdat align 2 {
+  %2 = alloca %"class.llvm::StringRef", align 8
+  %3 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !388
   %4 = load ptr, ptr %3, align 8
   %5 = call noundef ptr @_ZNK4llvm14StringMapEntryINS_18MCSymbolTableValueEE10getKeyDataEv(ptr noundef nonnull align 8 dereferenceable(24) %4)
   %6 = call noundef i64 @_ZNK4llvm18StringMapEntryBase12getKeyLengthEv(ptr noundef nonnull align 8 dereferenceable(8) %4)
@@ -7378,21 +8168,9 @@ define linkonce_odr hidden { ptr, i64 } @_ZNK4llvm14StringMapEntryINS_18MCSymbol
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm8MCSymbol15getNameEntryPtrEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #0 comdat align 2 {
-  %2 = alloca ptr, align 8
-  %3 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %4 = load ptr, ptr %2, align 8
-  store ptr %4, ptr %3, align 8
-  %5 = load ptr, ptr %3, align 8
-  %6 = getelementptr inbounds %"union.llvm::MCSymbol::NameEntryStorageTy", ptr %5, i64 -1
-  ret ptr %6
-}
-
-; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZNK4llvm14StringMapEntryINS_18MCSymbolTableValueEE10getKeyDataEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !388
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds %"class.llvm::StringMapEntry", ptr %3, i64 1
   ret ptr %4
@@ -7401,10 +8179,10 @@ define linkonce_odr hidden noundef ptr @_ZNK4llvm14StringMapEntryINS_18MCSymbolT
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef i64 @_ZNK4llvm18StringMapEntryBase12getKeyLengthEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !442
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw %"class.llvm::StringMapEntryBase", ptr %3, i32 0, i32 0
-  %5 = load i64, ptr %4, align 8
+  %5 = load i64, ptr %4, align 8, !tbaa !444
   ret i64 %5
 }
 
@@ -7413,35 +8191,25 @@ define linkonce_odr hidden void @_ZN4llvm9StringRefC2EPKcm(ptr noundef nonnull a
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca i64, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store i64 %2, ptr %6, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !98
+  store ptr %1, ptr %5, align 8, !tbaa !91
+  store i64 %2, ptr %6, align 8, !tbaa !94
   %7 = load ptr, ptr %4, align 8
   %8 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %7, i32 0, i32 0
-  %9 = load ptr, ptr %5, align 8
-  store ptr %9, ptr %8, align 8
+  %9 = load ptr, ptr %5, align 8, !tbaa !91
+  store ptr %9, ptr %8, align 8, !tbaa !100
   %10 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %7, i32 0, i32 1
-  %11 = load i64, ptr %6, align 8
-  store i64 %11, ptr %10, align 8
+  %11 = load i64, ptr %6, align 8, !tbaa !94
+  store i64 %11, ptr %10, align 8, !tbaa !102
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef i64 @_ZNK4llvm9StringRef4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #0 comdat align 2 {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr hidden noundef ptr @_ZN4llvm8CastInfoINS_11MCSymbolELFEPKNS_8MCSymbolEvE6doCastERKS4_(ptr noundef nonnull align 8 dereferenceable(8) %0) #5 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %3, i32 0, i32 1
-  %5 = load i64, ptr %4, align 8
-  ret i64 %5
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef ptr @_ZN4llvm8CastInfoINS_11MCSymbolELFEPKNS_8MCSymbolEvE6doCastERKS4_(ptr noundef nonnull align 8 dereferenceable(8) %0) #0 comdat align 2 {
-  %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  %4 = load ptr, ptr %3, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !446
+  %3 = load ptr, ptr %2, align 8, !tbaa !446
+  %4 = load ptr, ptr %3, align 8, !tbaa !387
   %5 = call noundef ptr @_ZN4llvm16cast_convert_valINS_11MCSymbolELFEPKNS_8MCSymbolES4_E4doitES4_(ptr noundef %4)
   ret ptr %5
 }
@@ -7449,25 +8217,25 @@ define linkonce_odr hidden noundef ptr @_ZN4llvm8CastInfoINS_11MCSymbolELFEPKNS_
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZN4llvm16cast_convert_valINS_11MCSymbolELFEPKNS_8MCSymbolES4_E4doitES4_(ptr noundef %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !387
+  %3 = load ptr, ptr %2, align 8, !tbaa !387
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZN4llvm9MCSection14getBeginSymbolEv(ptr noundef nonnull align 8 dereferenceable(148) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !87
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw %"class.llvm::MCSection", ptr %3, i32 0, i32 2
-  %5 = load ptr, ptr %4, align 8
+  %5 = load ptr, ptr %4, align 8, !tbaa !448
   ret ptr %5
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK4llvm6Triple18isOSBinFormatMachOEv(ptr noundef nonnull align 8 dereferenceable(56) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !8
   %3 = load ptr, ptr %2, align 8
   %4 = call noundef i32 @_ZNK4llvm6Triple15getObjectFormatEv(ptr noundef nonnull align 8 dereferenceable(56) %3)
   %5 = icmp eq i32 %4, 5
@@ -7477,7 +8245,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK4llvm6Triple18isOSBinFormatMa
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK4llvm6Triple18isOSBinFormatXCOFFEv(ptr noundef nonnull align 8 dereferenceable(56) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !8
   %3 = load ptr, ptr %2, align 8
   %4 = call noundef i32 @_ZNK4llvm6Triple15getObjectFormatEv(ptr noundef nonnull align 8 dereferenceable(56) %3)
   %5 = icmp eq i32 %4, 8
@@ -7487,15 +8255,15 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK4llvm6Triple18isOSBinFormatXC
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK4llvm6Triple24isOSBinFormatDXContainerEv(ptr noundef nonnull align 8 dereferenceable(56) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !8
   %3 = load ptr, ptr %2, align 8
   %4 = call noundef i32 @_ZNK4llvm6Triple15getObjectFormatEv(ptr noundef nonnull align 8 dereferenceable(56) %3)
   %5 = icmp eq i32 %4, 2
   ret i1 %5
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNK4llvm5Twine6concatERKS0_(ptr dead_on_unwind noalias writable sret(%"class.llvm::Twine") align 8 %0, ptr noundef nonnull align 8 dereferenceable(34) %1, ptr noundef nonnull align 8 dereferenceable(34) %2) #0 comdat align 2 {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZNK4llvm5Twine6concatERKS0_(ptr dead_on_unwind noalias writable sret(%"class.llvm::Twine") align 8 %0, ptr noundef nonnull align 8 dereferenceable(34) %1, ptr noundef nonnull align 8 dereferenceable(34) %2) #5 comdat align 2 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca %"union.llvm::Twine::Child", align 8
@@ -7504,14 +8272,14 @@ define linkonce_odr hidden void @_ZNK4llvm5Twine6concatERKS0_(ptr dead_on_unwind
   %9 = alloca i8, align 1
   %10 = alloca %"union.llvm::Twine::Child", align 8
   %11 = alloca %"union.llvm::Twine::Child", align 8
-  store ptr %1, ptr %4, align 8
-  store ptr %2, ptr %5, align 8
+  store ptr %1, ptr %4, align 8, !tbaa !294
+  store ptr %2, ptr %5, align 8, !tbaa !294
   %12 = load ptr, ptr %4, align 8
   %13 = call noundef zeroext i1 @_ZNK4llvm5Twine6isNullEv(ptr noundef nonnull align 8 dereferenceable(34) %12)
   br i1 %13, label %17, label %14
 
 14:                                               ; preds = %3
-  %15 = load ptr, ptr %5, align 8
+  %15 = load ptr, ptr %5, align 8, !tbaa !294
   %16 = call noundef zeroext i1 @_ZNK4llvm5Twine6isNullEv(ptr noundef nonnull align 8 dereferenceable(34) %15)
   br i1 %16, label %17, label %18
 
@@ -7524,54 +8292,58 @@ define linkonce_odr hidden void @_ZNK4llvm5Twine6concatERKS0_(ptr dead_on_unwind
   br i1 %19, label %20, label %22
 
 20:                                               ; preds = %18
-  %21 = load ptr, ptr %5, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %0, ptr align 8 %21, i64 40, i1 false)
+  %21 = load ptr, ptr %5, align 8, !tbaa !294
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %0, ptr align 8 %21, i64 40, i1 false), !tbaa.struct !449
   br label %51
 
 22:                                               ; preds = %18
-  %23 = load ptr, ptr %5, align 8
+  %23 = load ptr, ptr %5, align 8, !tbaa !294
   %24 = call noundef zeroext i1 @_ZNK4llvm5Twine7isEmptyEv(ptr noundef nonnull align 8 dereferenceable(34) %23)
   br i1 %24, label %25, label %26
 
 25:                                               ; preds = %22
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %0, ptr align 8 %12, i64 40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %0, ptr align 8 %12, i64 40, i1 false), !tbaa.struct !449
   br label %51
 
 26:                                               ; preds = %22
-  store ptr %12, ptr %6, align 8
-  %27 = load ptr, ptr %5, align 8
-  store ptr %27, ptr %7, align 8
-  store i8 2, ptr %8, align 1
-  store i8 2, ptr %9, align 1
+  call void @llvm.lifetime.start.p0(i64 16, ptr %6) #11
+  call void @llvm.lifetime.start.p0(i64 16, ptr %7) #11
+  store ptr %12, ptr %6, align 8, !tbaa !97
+  %27 = load ptr, ptr %5, align 8, !tbaa !294
+  store ptr %27, ptr %7, align 8, !tbaa !97
+  call void @llvm.lifetime.start.p0(i64 1, ptr %8) #11
+  store i8 2, ptr %8, align 1, !tbaa !450
+  call void @llvm.lifetime.start.p0(i64 1, ptr %9) #11
+  store i8 2, ptr %9, align 1, !tbaa !450
   %28 = call noundef zeroext i1 @_ZNK4llvm5Twine7isUnaryEv(ptr noundef nonnull align 8 dereferenceable(34) %12)
   br i1 %28, label %29, label %32
 
 29:                                               ; preds = %26
   %30 = getelementptr inbounds nuw %"class.llvm::Twine", ptr %12, i32 0, i32 0
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %6, ptr align 8 %30, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %6, ptr align 8 %30, i64 16, i1 false), !tbaa.struct !451
   %31 = call noundef zeroext i8 @_ZNK4llvm5Twine10getLHSKindEv(ptr noundef nonnull align 8 dereferenceable(34) %12)
-  store i8 %31, ptr %8, align 1
+  store i8 %31, ptr %8, align 1, !tbaa !450
   br label %32
 
 32:                                               ; preds = %29, %26
-  %33 = load ptr, ptr %5, align 8
+  %33 = load ptr, ptr %5, align 8, !tbaa !294
   %34 = call noundef zeroext i1 @_ZNK4llvm5Twine7isUnaryEv(ptr noundef nonnull align 8 dereferenceable(34) %33)
   br i1 %34, label %35, label %40
 
 35:                                               ; preds = %32
-  %36 = load ptr, ptr %5, align 8
+  %36 = load ptr, ptr %5, align 8, !tbaa !294
   %37 = getelementptr inbounds nuw %"class.llvm::Twine", ptr %36, i32 0, i32 0
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %7, ptr align 8 %37, i64 16, i1 false)
-  %38 = load ptr, ptr %5, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %7, ptr align 8 %37, i64 16, i1 false), !tbaa.struct !451
+  %38 = load ptr, ptr %5, align 8, !tbaa !294
   %39 = call noundef zeroext i8 @_ZNK4llvm5Twine10getLHSKindEv(ptr noundef nonnull align 8 dereferenceable(34) %38)
-  store i8 %39, ptr %9, align 1
+  store i8 %39, ptr %9, align 1, !tbaa !450
   br label %40
 
 40:                                               ; preds = %35, %32
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %10, ptr align 8 %6, i64 16, i1 false)
-  %41 = load i8, ptr %8, align 1
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %11, ptr align 8 %7, i64 16, i1 false)
-  %42 = load i8, ptr %9, align 1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %10, ptr align 8 %6, i64 16, i1 false), !tbaa.struct !451
+  %41 = load i8, ptr %8, align 1, !tbaa !450
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %11, ptr align 8 %7, i64 16, i1 false), !tbaa.struct !451
+  %42 = load i8, ptr %9, align 1, !tbaa !450
   %43 = getelementptr inbounds nuw { ptr, i64 }, ptr %10, i32 0, i32 0
   %44 = load ptr, ptr %43, align 8
   %45 = getelementptr inbounds nuw { ptr, i64 }, ptr %10, i32 0, i32 1
@@ -7581,6 +8353,10 @@ define linkonce_odr hidden void @_ZNK4llvm5Twine6concatERKS0_(ptr dead_on_unwind
   %49 = getelementptr inbounds nuw { ptr, i64 }, ptr %11, i32 0, i32 1
   %50 = load i64, ptr %49, align 8
   call void @_ZN4llvm5TwineC2ENS0_5ChildENS0_8NodeKindES1_S2_(ptr noundef nonnull align 8 dereferenceable(34) %0, ptr %44, i64 %46, i8 noundef zeroext %41, ptr %48, i64 %50, i8 noundef zeroext %42)
+  call void @llvm.lifetime.end.p0(i64 1, ptr %9) #11
+  call void @llvm.lifetime.end.p0(i64 1, ptr %8) #11
+  call void @llvm.lifetime.end.p0(i64 16, ptr %7) #11
+  call void @llvm.lifetime.end.p0(i64 16, ptr %6) #11
   br label %51
 
 51:                                               ; preds = %40, %25, %20, %17
@@ -7590,7 +8366,7 @@ define linkonce_odr hidden void @_ZNK4llvm5Twine6concatERKS0_(ptr dead_on_unwind
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK4llvm5Twine6isNullEv(ptr noundef nonnull align 8 dereferenceable(34) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !294
   %3 = load ptr, ptr %2, align 8
   %4 = call noundef zeroext i8 @_ZNK4llvm5Twine10getLHSKindEv(ptr noundef nonnull align 8 dereferenceable(34) %3)
   %5 = zext i8 %4 to i32
@@ -7602,21 +8378,21 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK4llvm5Twine6isNullEv(ptr noun
 define linkonce_odr hidden void @_ZN4llvm5TwineC2ENS0_8NodeKindE(ptr noundef nonnull align 8 dereferenceable(34) %0, i8 noundef zeroext %1) unnamed_addr #0 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca i8, align 1
-  store ptr %0, ptr %3, align 8
-  store i8 %1, ptr %4, align 1
+  store ptr %0, ptr %3, align 8, !tbaa !294
+  store i8 %1, ptr %4, align 1, !tbaa !450
   %5 = load ptr, ptr %3, align 8
   %6 = getelementptr inbounds nuw %"class.llvm::Twine", ptr %5, i32 0, i32 2
-  %7 = load i8, ptr %4, align 1
-  store i8 %7, ptr %6, align 8
+  %7 = load i8, ptr %4, align 1, !tbaa !450
+  store i8 %7, ptr %6, align 8, !tbaa !296
   %8 = getelementptr inbounds nuw %"class.llvm::Twine", ptr %5, i32 0, i32 3
-  store i8 1, ptr %8, align 1
+  store i8 1, ptr %8, align 1, !tbaa !299
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK4llvm5Twine7isEmptyEv(ptr noundef nonnull align 8 dereferenceable(34) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !294
   %3 = load ptr, ptr %2, align 8
   %4 = call noundef zeroext i8 @_ZNK4llvm5Twine10getLHSKindEv(ptr noundef nonnull align 8 dereferenceable(34) %3)
   %5 = zext i8 %4 to i32
@@ -7627,7 +8403,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK4llvm5Twine7isEmptyEv(ptr nou
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK4llvm5Twine7isUnaryEv(ptr noundef nonnull align 8 dereferenceable(34) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !294
   %3 = load ptr, ptr %2, align 8
   %4 = call noundef zeroext i8 @_ZNK4llvm5Twine10getRHSKindEv(ptr noundef nonnull align 8 dereferenceable(34) %3)
   %5 = zext i8 %4 to i32
@@ -7647,10 +8423,10 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK4llvm5Twine7isUnaryEv(ptr nou
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef zeroext i8 @_ZNK4llvm5Twine10getLHSKindEv(ptr noundef nonnull align 8 dereferenceable(34) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !294
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw %"class.llvm::Twine", ptr %3, i32 0, i32 2
-  %5 = load i8, ptr %4, align 8
+  %5 = load i8, ptr %4, align 8, !tbaa !296
   ret i8 %5
 }
 
@@ -7669,37 +8445,37 @@ define linkonce_odr hidden void @_ZN4llvm5TwineC2ENS0_5ChildENS0_8NodeKindES1_S2
   store ptr %4, ptr %15, align 8
   %16 = getelementptr inbounds nuw { ptr, i64 }, ptr %9, i32 0, i32 1
   store i64 %5, ptr %16, align 8
-  store ptr %0, ptr %10, align 8
-  store i8 %3, ptr %11, align 1
-  store i8 %6, ptr %12, align 1
+  store ptr %0, ptr %10, align 8, !tbaa !294
+  store i8 %3, ptr %11, align 1, !tbaa !450
+  store i8 %6, ptr %12, align 1, !tbaa !450
   %17 = load ptr, ptr %10, align 8
   %18 = getelementptr inbounds nuw %"class.llvm::Twine", ptr %17, i32 0, i32 0
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %18, ptr align 8 %8, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %18, ptr align 8 %8, i64 16, i1 false), !tbaa.struct !451
   %19 = getelementptr inbounds nuw %"class.llvm::Twine", ptr %17, i32 0, i32 1
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %19, ptr align 8 %9, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %19, ptr align 8 %9, i64 16, i1 false), !tbaa.struct !451
   %20 = getelementptr inbounds nuw %"class.llvm::Twine", ptr %17, i32 0, i32 2
-  %21 = load i8, ptr %11, align 1
-  store i8 %21, ptr %20, align 8
+  %21 = load i8, ptr %11, align 1, !tbaa !450
+  store i8 %21, ptr %20, align 8, !tbaa !296
   %22 = getelementptr inbounds nuw %"class.llvm::Twine", ptr %17, i32 0, i32 3
-  %23 = load i8, ptr %12, align 1
-  store i8 %23, ptr %22, align 1
+  %23 = load i8, ptr %12, align 1, !tbaa !450
+  store i8 %23, ptr %22, align 1, !tbaa !299
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef zeroext i8 @_ZNK4llvm5Twine10getRHSKindEv(ptr noundef nonnull align 8 dereferenceable(34) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !294
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw %"class.llvm::Twine", ptr %3, i32 0, i32 3
-  %5 = load i8, ptr %4, align 1
+  %5 = load i8, ptr %4, align 1, !tbaa !299
   ret i8 %5
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK4llvm5Twine9isNullaryEv(ptr noundef nonnull align 8 dereferenceable(34) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !294
   %3 = load ptr, ptr %2, align 8
   %4 = call noundef zeroext i1 @_ZNK4llvm5Twine6isNullEv(ptr noundef nonnull align 8 dereferenceable(34) %3)
   br i1 %4, label %7, label %5
@@ -7718,47 +8494,503 @@ define linkonce_odr hidden void @_ZN4llvm5TwineC2ERKNS_9StringRefEPKc(ptr nounde
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store ptr %2, ptr %6, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !294
+  store ptr %1, ptr %5, align 8, !tbaa !98
+  store ptr %2, ptr %6, align 8, !tbaa !91
   %7 = load ptr, ptr %4, align 8
   %8 = getelementptr inbounds nuw %"class.llvm::Twine", ptr %7, i32 0, i32 2
-  store i8 5, ptr %8, align 8
+  store i8 5, ptr %8, align 8, !tbaa !296
   %9 = getelementptr inbounds nuw %"class.llvm::Twine", ptr %7, i32 0, i32 3
-  store i8 3, ptr %9, align 1
-  %10 = load ptr, ptr %5, align 8
+  store i8 3, ptr %9, align 1, !tbaa !299
+  %10 = load ptr, ptr %5, align 8, !tbaa !98
   %11 = call noundef ptr @_ZNK4llvm9StringRef4dataEv(ptr noundef nonnull align 8 dereferenceable(16) %10)
   %12 = getelementptr inbounds nuw %"class.llvm::Twine", ptr %7, i32 0, i32 0
   %13 = getelementptr inbounds nuw %struct.anon, ptr %12, i32 0, i32 0
-  store ptr %11, ptr %13, align 8
-  %14 = load ptr, ptr %5, align 8
+  store ptr %11, ptr %13, align 8, !tbaa !97
+  %14 = load ptr, ptr %5, align 8, !tbaa !98
   %15 = call noundef i64 @_ZNK4llvm9StringRef4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %14)
   %16 = getelementptr inbounds nuw %"class.llvm::Twine", ptr %7, i32 0, i32 0
   %17 = getelementptr inbounds nuw %struct.anon, ptr %16, i32 0, i32 1
-  store i64 %15, ptr %17, align 8
-  %18 = load ptr, ptr %6, align 8
+  store i64 %15, ptr %17, align 8, !tbaa !97
+  %18 = load ptr, ptr %6, align 8, !tbaa !91
   %19 = getelementptr inbounds nuw %"class.llvm::Twine", ptr %7, i32 0, i32 1
-  store ptr %18, ptr %19, align 8
+  store ptr %18, ptr %19, align 8, !tbaa !97
   ret void
 }
 
-attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #7 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #8 = { nounwind }
-attributes #9 = { builtin nounwind }
-attributes #10 = { noreturn }
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZNSt15__new_allocatorIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !425
+  ret void
+}
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+attributes #0 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #4 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #9 = { alwaysinline mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #11 = { nounwind }
+attributes #12 = { builtin nounwind }
+attributes #13 = { noreturn }
+
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
+!3 = !{!4, !4, i64 0}
+!4 = !{!"p1 _ZTSN4llvm16MCObjectFileInfoE", !5, i64 0}
+!5 = !{!"any pointer", !6, i64 0}
+!6 = !{!"omnipotent char", !7, i64 0}
+!7 = !{!"Simple C++ TBAA"}
+!8 = !{!9, !9, i64 0}
+!9 = !{!"p1 _ZTSN4llvm6TripleE", !5, i64 0}
+!10 = !{!11, !12, i64 8}
+!11 = !{!"_ZTSN4llvm16MCObjectFileInfoE", !12, i64 8, !12, i64 9, !12, i64 10, !13, i64 12, !13, i64 16, !14, i64 24, !14, i64 32, !14, i64 40, !14, i64 48, !14, i64 56, !14, i64 64, !14, i64 72, !14, i64 80, !14, i64 88, !14, i64 96, !14, i64 104, !14, i64 112, !14, i64 120, !14, i64 128, !14, i64 136, !14, i64 144, !14, i64 152, !14, i64 160, !14, i64 168, !14, i64 176, !14, i64 184, !14, i64 192, !14, i64 200, !14, i64 208, !14, i64 216, !14, i64 224, !14, i64 232, !14, i64 240, !14, i64 248, !14, i64 256, !14, i64 264, !14, i64 272, !14, i64 280, !14, i64 288, !14, i64 296, !14, i64 304, !14, i64 312, !14, i64 320, !14, i64 328, !14, i64 336, !14, i64 344, !14, i64 352, !14, i64 360, !14, i64 368, !14, i64 376, !14, i64 384, !14, i64 392, !14, i64 400, !14, i64 408, !14, i64 416, !14, i64 424, !14, i64 432, !14, i64 440, !14, i64 448, !14, i64 456, !14, i64 464, !14, i64 472, !14, i64 480, !14, i64 488, !14, i64 496, !14, i64 504, !14, i64 512, !14, i64 520, !14, i64 528, !14, i64 536, !14, i64 544, !14, i64 552, !14, i64 560, !14, i64 568, !14, i64 576, !14, i64 584, !14, i64 592, !14, i64 600, !14, i64 608, !14, i64 616, !14, i64 624, !14, i64 632, !14, i64 640, !14, i64 648, !14, i64 656, !14, i64 664, !14, i64 672, !14, i64 680, !14, i64 688, !14, i64 696, !14, i64 704, !14, i64 712, !14, i64 720, !14, i64 728, !14, i64 736, !14, i64 744, !14, i64 752, !14, i64 760, !14, i64 768, !14, i64 776, !14, i64 784, !14, i64 792, !14, i64 800, !14, i64 808, !15, i64 816, !12, i64 904, !16, i64 912}
+!12 = !{!"bool", !6, i64 0}
+!13 = !{!"int", !6, i64 0}
+!14 = !{!"p1 _ZTSN4llvm9MCSectionE", !5, i64 0}
+!15 = !{!"_ZTSSt5arrayIPN4llvm9MCSectionELm11EE", !6, i64 0}
+!16 = !{!"p1 _ZTSN4llvm9MCContextE", !5, i64 0}
+!17 = !{!11, !16, i64 912}
+!18 = !{!11, !14, i64 464}
+!19 = !{!11, !12, i64 9}
+!20 = !{!11, !12, i64 10}
+!21 = !{i8 0, i8 2}
+!22 = !{}
+!23 = !{!11, !13, i64 12}
+!24 = !{!11, !14, i64 24}
+!25 = !{!11, !14, i64 32}
+!26 = !{!11, !14, i64 40}
+!27 = !{!11, !14, i64 424}
+!28 = !{!11, !14, i64 432}
+!29 = !{!11, !14, i64 544}
+!30 = !{!11, !14, i64 552}
+!31 = !{!11, !14, i64 560}
+!32 = !{!11, !14, i64 568}
+!33 = !{!11, !14, i64 632}
+!34 = !{!11, !14, i64 640}
+!35 = !{!11, !14, i64 648}
+!36 = !{!11, !14, i64 48}
+!37 = !{!38, !38, i64 0}
+!38 = !{!"_ZTSN4llvm6Triple8ArchTypeE", !6, i64 0}
+!39 = !{!11, !14, i64 592}
+!40 = !{!11, !14, i64 576}
+!41 = !{!11, !14, i64 584}
+!42 = !{!11, !14, i64 600}
+!43 = !{!11, !14, i64 608}
+!44 = !{!11, !14, i64 616}
+!45 = !{!11, !14, i64 624}
+!46 = !{!11, !14, i64 656}
+!47 = !{!11, !14, i64 664}
+!48 = !{!11, !14, i64 672}
+!49 = !{!11, !14, i64 680}
+!50 = !{!11, !14, i64 56}
+!51 = !{!11, !14, i64 392}
+!52 = !{!11, !14, i64 400}
+!53 = !{!11, !14, i64 408}
+!54 = !{!11, !14, i64 64}
+!55 = !{!11, !13, i64 16}
+!56 = !{!11, !14, i64 192}
+!57 = !{!11, !14, i64 200}
+!58 = !{!11, !14, i64 208}
+!59 = !{!11, !14, i64 216}
+!60 = !{!11, !14, i64 224}
+!61 = !{!11, !14, i64 384}
+!62 = !{!11, !14, i64 80}
+!63 = !{!11, !14, i64 88}
+!64 = !{!11, !14, i64 96}
+!65 = !{!11, !14, i64 104}
+!66 = !{!11, !14, i64 112}
+!67 = !{!11, !14, i64 184}
+!68 = !{!11, !14, i64 120}
+!69 = !{!11, !14, i64 368}
+!70 = !{!11, !14, i64 376}
+!71 = !{!11, !14, i64 136}
+!72 = !{!11, !14, i64 304}
+!73 = !{!11, !14, i64 312}
+!74 = !{!11, !14, i64 144}
+!75 = !{!11, !14, i64 328}
+!76 = !{!11, !14, i64 152}
+!77 = !{!11, !14, i64 160}
+!78 = !{!11, !14, i64 320}
+!79 = !{!11, !14, i64 168}
+!80 = !{!11, !14, i64 176}
+!81 = !{!11, !14, i64 128}
+!82 = !{!11, !14, i64 352}
+!83 = !{!11, !14, i64 360}
+!84 = !{!11, !14, i64 440}
+!85 = !{!11, !14, i64 448}
+!86 = !{!11, !14, i64 456}
+!87 = !{!14, !14, i64 0}
+!88 = !{!11, !14, i64 416}
+!89 = !{!16, !16, i64 0}
+!90 = !{!13, !13, i64 0}
+!91 = !{!92, !92, i64 0}
+!92 = !{!"p1 omnipotent char", !5, i64 0}
+!93 = !{i64 0, i64 8, !91, i64 8, i64 8, !94}
+!94 = !{!95, !95, i64 0}
+!95 = !{!"long", !6, i64 0}
+!96 = !{i64 0, i64 1, !97}
+!97 = !{!6, !6, i64 0}
+!98 = !{!99, !99, i64 0}
+!99 = !{!"p1 _ZTSN4llvm9StringRefE", !5, i64 0}
+!100 = !{!101, !92, i64 0}
+!101 = !{!"_ZTSN4llvm9StringRefE", !92, i64 0, !95, i64 8}
+!102 = !{!101, !95, i64 8}
+!103 = !{!104, !38, i64 32}
+!104 = !{!"_ZTSN4llvm6TripleE", !105, i64 0, !38, i64 32, !107, i64 36, !108, i64 40, !109, i64 44, !110, i64 48, !111, i64 52}
+!105 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE", !106, i64 0, !95, i64 8, !6, i64 16}
+!106 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderE", !92, i64 0}
+!107 = !{!"_ZTSN4llvm6Triple11SubArchTypeE", !6, i64 0}
+!108 = !{!"_ZTSN4llvm6Triple10VendorTypeE", !6, i64 0}
+!109 = !{!"_ZTSN4llvm6Triple6OSTypeE", !6, i64 0}
+!110 = !{!"_ZTSN4llvm6Triple15EnvironmentTypeE", !6, i64 0}
+!111 = !{!"_ZTSN4llvm6Triple16ObjectFormatTypeE", !6, i64 0}
+!112 = !{!113, !113, i64 0}
+!113 = !{!"p1 _ZTSSt5arrayIPN4llvm9MCSectionELm11EE", !5, i64 0}
+!114 = !{!12, !12, i64 0}
+!115 = !{!11, !12, i64 904}
+!116 = !{!11, !14, i64 504}
+!117 = !{!11, !14, i64 512}
+!118 = !{!11, !14, i64 520}
+!119 = !{!11, !14, i64 528}
+!120 = !{!11, !14, i64 536}
+!121 = !{!11, !14, i64 232}
+!122 = !{!11, !14, i64 240}
+!123 = !{!11, !14, i64 248}
+!124 = !{!11, !14, i64 256}
+!125 = !{!11, !14, i64 264}
+!126 = !{!11, !14, i64 272}
+!127 = !{!11, !14, i64 280}
+!128 = !{!11, !14, i64 336}
+!129 = !{!11, !14, i64 288}
+!130 = !{!11, !14, i64 296}
+!131 = !{!11, !14, i64 344}
+!132 = !{!11, !14, i64 472}
+!133 = !{!11, !14, i64 480}
+!134 = !{!11, !14, i64 488}
+!135 = !{!11, !14, i64 496}
+!136 = !{!137, !153, i64 152}
+!137 = !{!"_ZTSN4llvm9MCContextE", !138, i64 0, !101, i64 8, !104, i64 24, !139, i64 80, !140, i64 88, !146, i64 96, !151, i64 120, !153, i64 152, !154, i64 160, !4, i64 168, !155, i64 176, !156, i64 184, !163, i64 192, !163, i64 288, !174, i64 384, !175, i64 480, !176, i64 576, !177, i64 672, !178, i64 768, !179, i64 864, !180, i64 960, !181, i64 1056, !182, i64 1152, !183, i64 1248, !184, i64 1344, !189, i64 1376, !191, i64 1400, !192, i64 1432, !6, i64 1456, !105, i64 1464, !194, i64 1496, !12, i64 1504, !201, i64 1512, !208, i64 1664, !105, i64 1680, !212, i64 1712, !221, i64 1760, !12, i64 1776, !12, i64 1777, !13, i64 1780, !223, i64 1784, !232, i64 1824, !101, i64 1848, !101, i64 1864, !222, i64 1880, !237, i64 1882, !12, i64 1883, !12, i64 1884, !13, i64 1888, !238, i64 1896, !247, i64 1952, !248, i64 1976, !253, i64 2024, !254, i64 2048, !259, i64 2096, !264, i64 2144, !269, i64 2192, !270, i64 2216, !271, i64 2240, !12, i64 2336, !272, i64 2344, !12, i64 2352, !273, i64 2360, !274, i64 2384, !276, i64 2408}
+!138 = !{!"_ZTSN4llvm9MCContext11EnvironmentE", !6, i64 0}
+!139 = !{!"p1 _ZTSN4llvm9SourceMgrE", !5, i64 0}
+!140 = !{!"_ZTSSt10unique_ptrIN4llvm9SourceMgrESt14default_deleteIS1_EE", !141, i64 0}
+!141 = !{!"_ZTSSt15__uniq_ptr_dataIN4llvm9SourceMgrESt14default_deleteIS1_ELb1ELb1EE", !142, i64 0}
+!142 = !{!"_ZTSSt15__uniq_ptr_implIN4llvm9SourceMgrESt14default_deleteIS1_EE", !143, i64 0}
+!143 = !{!"_ZTSSt5tupleIJPN4llvm9SourceMgrESt14default_deleteIS1_EEE", !144, i64 0}
+!144 = !{!"_ZTSSt11_Tuple_implILm0EJPN4llvm9SourceMgrESt14default_deleteIS1_EEE", !145, i64 0}
+!145 = !{!"_ZTSSt10_Head_baseILm0EPN4llvm9SourceMgrELb0EE", !139, i64 0}
+!146 = !{!"_ZTSSt6vectorIPKN4llvm6MDNodeESaIS3_EE", !147, i64 0}
+!147 = !{!"_ZTSSt12_Vector_baseIPKN4llvm6MDNodeESaIS3_EE", !148, i64 0}
+!148 = !{!"_ZTSNSt12_Vector_baseIPKN4llvm6MDNodeESaIS3_EE12_Vector_implE", !149, i64 0}
+!149 = !{!"_ZTSNSt12_Vector_baseIPKN4llvm6MDNodeESaIS3_EE17_Vector_impl_dataE", !150, i64 0, !150, i64 8, !150, i64 16}
+!150 = !{!"p2 _ZTSN4llvm6MDNodeE", !5, i64 0}
+!151 = !{!"_ZTSSt8functionIFvRKN4llvm12SMDiagnosticEbRKNS0_9SourceMgrERSt6vectorIPKNS0_6MDNodeESaISA_EEEE", !152, i64 0, !5, i64 24}
+!152 = !{!"_ZTSSt14_Function_base", !6, i64 0, !5, i64 16}
+!153 = !{!"p1 _ZTSN4llvm9MCAsmInfoE", !5, i64 0}
+!154 = !{!"p1 _ZTSN4llvm14MCRegisterInfoE", !5, i64 0}
+!155 = !{!"p1 _ZTSN4llvm15MCSubtargetInfoE", !5, i64 0}
+!156 = !{!"_ZTSSt10unique_ptrIN4llvm15CodeViewContextESt14default_deleteIS1_EE", !157, i64 0}
+!157 = !{!"_ZTSSt15__uniq_ptr_dataIN4llvm15CodeViewContextESt14default_deleteIS1_ELb1ELb1EE", !158, i64 0}
+!158 = !{!"_ZTSSt15__uniq_ptr_implIN4llvm15CodeViewContextESt14default_deleteIS1_EE", !159, i64 0}
+!159 = !{!"_ZTSSt5tupleIJPN4llvm15CodeViewContextESt14default_deleteIS1_EEE", !160, i64 0}
+!160 = !{!"_ZTSSt11_Tuple_implILm0EJPN4llvm15CodeViewContextESt14default_deleteIS1_EEE", !161, i64 0}
+!161 = !{!"_ZTSSt10_Head_baseILm0EPN4llvm15CodeViewContextELb0EE", !162, i64 0}
+!162 = !{!"p1 _ZTSN4llvm15CodeViewContextE", !5, i64 0}
+!163 = !{!"_ZTSN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEE", !92, i64 0, !92, i64 8, !164, i64 16, !170, i64 64, !95, i64 80, !95, i64 88}
+!164 = !{!"_ZTSN4llvm11SmallVectorIPvLj4EEE", !165, i64 0, !169, i64 16}
+!165 = !{!"_ZTSN4llvm15SmallVectorImplIPvEE", !166, i64 0}
+!166 = !{!"_ZTSN4llvm23SmallVectorTemplateBaseIPvLb1EEE", !167, i64 0}
+!167 = !{!"_ZTSN4llvm25SmallVectorTemplateCommonIPvvEE", !168, i64 0}
+!168 = !{!"_ZTSN4llvm15SmallVectorBaseIjEE", !5, i64 0, !13, i64 8, !13, i64 12}
+!169 = !{!"_ZTSN4llvm18SmallVectorStorageIPvLj4EEE", !6, i64 0}
+!170 = !{!"_ZTSN4llvm11SmallVectorISt4pairIPvmELj0EEE", !171, i64 0}
+!171 = !{!"_ZTSN4llvm15SmallVectorImplISt4pairIPvmEEE", !172, i64 0}
+!172 = !{!"_ZTSN4llvm23SmallVectorTemplateBaseISt4pairIPvmELb1EEE", !173, i64 0}
+!173 = !{!"_ZTSN4llvm25SmallVectorTemplateCommonISt4pairIPvmEvEE", !168, i64 0}
+!174 = !{!"_ZTSN4llvm24SpecificBumpPtrAllocatorINS_13MCSectionCOFFEEE", !163, i64 0}
+!175 = !{!"_ZTSN4llvm24SpecificBumpPtrAllocatorINS_20MCSectionDXContainerEEE", !163, i64 0}
+!176 = !{!"_ZTSN4llvm24SpecificBumpPtrAllocatorINS_12MCSectionELFEEE", !163, i64 0}
+!177 = !{!"_ZTSN4llvm24SpecificBumpPtrAllocatorINS_14MCSectionMachOEEE", !163, i64 0}
+!178 = !{!"_ZTSN4llvm24SpecificBumpPtrAllocatorINS_13MCSectionGOFFEEE", !163, i64 0}
+!179 = !{!"_ZTSN4llvm24SpecificBumpPtrAllocatorINS_14MCSectionSPIRVEEE", !163, i64 0}
+!180 = !{!"_ZTSN4llvm24SpecificBumpPtrAllocatorINS_13MCSectionWasmEEE", !163, i64 0}
+!181 = !{!"_ZTSN4llvm24SpecificBumpPtrAllocatorINS_14MCSectionXCOFFEEE", !163, i64 0}
+!182 = !{!"_ZTSN4llvm24SpecificBumpPtrAllocatorINS_6MCInstEEE", !163, i64 0}
+!183 = !{!"_ZTSN4llvm24SpecificBumpPtrAllocatorINS_4wasm13WasmSignatureEEE", !163, i64 0}
+!184 = !{!"_ZTSN4llvm9StringMapINS_18MCSymbolTableValueERNS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEEEE", !185, i64 0, !187, i64 24}
+!185 = !{!"_ZTSN4llvm13StringMapImplE", !186, i64 0, !13, i64 8, !13, i64 12, !13, i64 16, !13, i64 20}
+!186 = !{!"p2 _ZTSN4llvm18StringMapEntryBaseE", !5, i64 0}
+!187 = !{!"_ZTSN4llvm6detail15AllocatorHolderIRNS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEEEE", !188, i64 0}
+!188 = !{!"p1 _ZTSN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEE", !5, i64 0}
+!189 = !{!"_ZTSN4llvm8DenseMapISt4pairIjjEPNS_8MCSymbolENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S4_EEEE", !190, i64 0, !13, i64 8, !13, i64 12, !13, i64 16}
+!190 = !{!"p1 _ZTSN4llvm6detail12DenseMapPairISt4pairIjjEPNS_8MCSymbolEEE", !5, i64 0}
+!191 = !{!"_ZTSN4llvm9StringMapIPNS_8MCSymbolERNS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEEEE", !185, i64 0, !187, i64 24}
+!192 = !{!"_ZTSN4llvm8DenseMapIjPNS_7MCLabelENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS2_EEEE", !193, i64 0, !13, i64 8, !13, i64 12, !13, i64 16}
+!193 = !{!"p1 _ZTSN4llvm6detail12DenseMapPairIjPNS_7MCLabelEEE", !5, i64 0}
+!194 = !{!"_ZTSSt10unique_ptrIN4llvm14raw_fd_ostreamESt14default_deleteIS1_EE", !195, i64 0}
+!195 = !{!"_ZTSSt15__uniq_ptr_dataIN4llvm14raw_fd_ostreamESt14default_deleteIS1_ELb1ELb1EE", !196, i64 0}
+!196 = !{!"_ZTSSt15__uniq_ptr_implIN4llvm14raw_fd_ostreamESt14default_deleteIS1_EE", !197, i64 0}
+!197 = !{!"_ZTSSt5tupleIJPN4llvm14raw_fd_ostreamESt14default_deleteIS1_EEE", !198, i64 0}
+!198 = !{!"_ZTSSt11_Tuple_implILm0EJPN4llvm14raw_fd_ostreamESt14default_deleteIS1_EEE", !199, i64 0}
+!199 = !{!"_ZTSSt10_Head_baseILm0EPN4llvm14raw_fd_ostreamELb0EE", !200, i64 0}
+!200 = !{!"p1 _ZTSN4llvm14raw_fd_ostreamE", !5, i64 0}
+!201 = !{!"_ZTSN4llvm11SmallStringILj128EEE", !202, i64 0}
+!202 = !{!"_ZTSN4llvm11SmallVectorIcLj128EEE", !203, i64 0, !207, i64 24}
+!203 = !{!"_ZTSN4llvm15SmallVectorImplIcEE", !204, i64 0}
+!204 = !{!"_ZTSN4llvm23SmallVectorTemplateBaseIcLb1EEE", !205, i64 0}
+!205 = !{!"_ZTSN4llvm25SmallVectorTemplateCommonIcvEE", !206, i64 0}
+!206 = !{!"_ZTSN4llvm15SmallVectorBaseImEE", !5, i64 0, !95, i64 8, !95, i64 16}
+!207 = !{!"_ZTSN4llvm18SmallVectorStorageIcLj128EEE", !6, i64 0}
+!208 = !{!"_ZTSN4llvm11SmallVectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_ELj0EEE", !209, i64 0}
+!209 = !{!"_ZTSN4llvm15SmallVectorImplISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_EEE", !210, i64 0}
+!210 = !{!"_ZTSN4llvm23SmallVectorTemplateBaseISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_ELb0EEE", !211, i64 0}
+!211 = !{!"_ZTSN4llvm25SmallVectorTemplateCommonISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_EvEE", !168, i64 0}
+!212 = !{!"_ZTSSt3mapIjN4llvm16MCDwarfLineTableESt4lessIjESaISt4pairIKjS1_EEE", !213, i64 0}
+!213 = !{!"_ZTSSt8_Rb_treeIjSt4pairIKjN4llvm16MCDwarfLineTableEESt10_Select1stIS4_ESt4lessIjESaIS4_EE", !214, i64 0}
+!214 = !{!"_ZTSNSt8_Rb_treeIjSt4pairIKjN4llvm16MCDwarfLineTableEESt10_Select1stIS4_ESt4lessIjESaIS4_EE13_Rb_tree_implIS8_Lb1EEE", !215, i64 0, !217, i64 8}
+!215 = !{!"_ZTSSt20_Rb_tree_key_compareISt4lessIjEE", !216, i64 0}
+!216 = !{!"_ZTSSt4lessIjE"}
+!217 = !{!"_ZTSSt15_Rb_tree_header", !218, i64 0, !95, i64 32}
+!218 = !{!"_ZTSSt18_Rb_tree_node_base", !219, i64 0, !220, i64 8, !220, i64 16, !220, i64 24}
+!219 = !{!"_ZTSSt14_Rb_tree_color", !6, i64 0}
+!220 = !{!"p1 _ZTSSt18_Rb_tree_node_base", !5, i64 0}
+!221 = !{!"_ZTSN4llvm10MCDwarfLocE", !13, i64 0, !13, i64 4, !222, i64 8, !6, i64 10, !6, i64 11, !13, i64 12}
+!222 = !{!"short", !6, i64 0}
+!223 = !{!"_ZTSN4llvm9SetVectorIPNS_9MCSectionENS_11SmallVectorIS2_Lj0EEENS_8DenseSetIS2_NS_12DenseMapInfoIS2_vEEEELj0EEE", !224, i64 0, !228, i64 24}
+!224 = !{!"_ZTSN4llvm8DenseSetIPNS_9MCSectionENS_12DenseMapInfoIS2_vEEEE", !225, i64 0}
+!225 = !{!"_ZTSN4llvm6detail12DenseSetImplIPNS_9MCSectionENS_8DenseMapIS3_NS0_13DenseSetEmptyENS_12DenseMapInfoIS3_vEENS0_12DenseSetPairIS3_EEEES7_EE", !226, i64 0}
+!226 = !{!"_ZTSN4llvm8DenseMapIPNS_9MCSectionENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS2_vEENS3_12DenseSetPairIS2_EEEE", !227, i64 0, !13, i64 8, !13, i64 12, !13, i64 16}
+!227 = !{!"p1 _ZTSN4llvm6detail12DenseSetPairIPNS_9MCSectionEEE", !5, i64 0}
+!228 = !{!"_ZTSN4llvm11SmallVectorIPNS_9MCSectionELj0EEE", !229, i64 0}
+!229 = !{!"_ZTSN4llvm15SmallVectorImplIPNS_9MCSectionEEE", !230, i64 0}
+!230 = !{!"_ZTSN4llvm23SmallVectorTemplateBaseIPNS_9MCSectionELb1EEE", !231, i64 0}
+!231 = !{!"_ZTSN4llvm25SmallVectorTemplateCommonIPNS_9MCSectionEvEE", !168, i64 0}
+!232 = !{!"_ZTSSt6vectorIN4llvm20MCGenDwarfLabelEntryESaIS1_EE", !233, i64 0}
+!233 = !{!"_ZTSSt12_Vector_baseIN4llvm20MCGenDwarfLabelEntryESaIS1_EE", !234, i64 0}
+!234 = !{!"_ZTSNSt12_Vector_baseIN4llvm20MCGenDwarfLabelEntryESaIS1_EE12_Vector_implE", !235, i64 0}
+!235 = !{!"_ZTSNSt12_Vector_baseIN4llvm20MCGenDwarfLabelEntryESaIS1_EE17_Vector_impl_dataE", !236, i64 0, !236, i64 8, !236, i64 16}
+!236 = !{!"p1 _ZTSN4llvm20MCGenDwarfLabelEntryE", !5, i64 0}
+!237 = !{!"_ZTSN4llvm5dwarf11DwarfFormatE", !6, i64 0}
+!238 = !{!"_ZTSN4llvm18MCPseudoProbeTableE", !239, i64 0}
+!239 = !{!"_ZTSN4llvm21MCPseudoProbeSectionsE", !240, i64 0}
+!240 = !{!"_ZTSSt13unordered_mapIPN4llvm8MCSymbolENS0_23MCPseudoProbeInlineTreeESt4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_S3_EEE", !241, i64 0}
+!241 = !{!"_ZTSSt10_HashtableIPN4llvm8MCSymbolESt4pairIKS2_NS0_23MCPseudoProbeInlineTreeEESaIS6_ENSt8__detail10_Select1stESt8equal_toIS2_ESt4hashIS2_ENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE", !242, i64 0, !95, i64 8, !243, i64 16, !95, i64 24, !245, i64 32, !244, i64 48}
+!242 = !{!"p2 _ZTSNSt8__detail15_Hash_node_baseE", !5, i64 0}
+!243 = !{!"_ZTSNSt8__detail15_Hash_node_baseE", !244, i64 0}
+!244 = !{!"p1 _ZTSNSt8__detail15_Hash_node_baseE", !5, i64 0}
+!245 = !{!"_ZTSNSt8__detail20_Prime_rehash_policyE", !246, i64 0, !95, i64 8}
+!246 = !{!"float", !6, i64 0}
+!247 = !{!"_ZTSN4llvm9StringMapIPNS_14MCSectionMachOENS_15MallocAllocatorEEE", !185, i64 0}
+!248 = !{!"_ZTSSt3mapIN4llvm9MCContext14COFFSectionKeyEPNS0_13MCSectionCOFFESt4lessIS2_ESaISt4pairIKS2_S4_EEE", !249, i64 0}
+!249 = !{!"_ZTSSt8_Rb_treeIN4llvm9MCContext14COFFSectionKeyESt4pairIKS2_PNS0_13MCSectionCOFFEESt10_Select1stIS7_ESt4lessIS2_ESaIS7_EE", !250, i64 0}
+!250 = !{!"_ZTSNSt8_Rb_treeIN4llvm9MCContext14COFFSectionKeyESt4pairIKS2_PNS0_13MCSectionCOFFEESt10_Select1stIS7_ESt4lessIS2_ESaIS7_EE13_Rb_tree_implISB_Lb1EEE", !251, i64 0, !217, i64 8}
+!251 = !{!"_ZTSSt20_Rb_tree_key_compareISt4lessIN4llvm9MCContext14COFFSectionKeyEEE", !252, i64 0}
+!252 = !{!"_ZTSSt4lessIN4llvm9MCContext14COFFSectionKeyEE"}
+!253 = !{!"_ZTSN4llvm9StringMapIPNS_12MCSectionELFENS_15MallocAllocatorEEE", !185, i64 0}
+!254 = !{!"_ZTSSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN4llvm13MCSectionGOFFESt4lessIS5_ESaISt4pairIKS5_S8_EEE", !255, i64 0}
+!255 = !{!"_ZTSSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_PN4llvm13MCSectionGOFFEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE", !256, i64 0}
+!256 = !{!"_ZTSNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_PN4llvm13MCSectionGOFFEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE13_Rb_tree_implISF_Lb1EEE", !257, i64 0, !217, i64 8}
+!257 = !{!"_ZTSSt20_Rb_tree_key_compareISt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE", !258, i64 0}
+!258 = !{!"_ZTSSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE"}
+!259 = !{!"_ZTSSt3mapIN4llvm9MCContext14WasmSectionKeyEPNS0_13MCSectionWasmESt4lessIS2_ESaISt4pairIKS2_S4_EEE", !260, i64 0}
+!260 = !{!"_ZTSSt8_Rb_treeIN4llvm9MCContext14WasmSectionKeyESt4pairIKS2_PNS0_13MCSectionWasmEESt10_Select1stIS7_ESt4lessIS2_ESaIS7_EE", !261, i64 0}
+!261 = !{!"_ZTSNSt8_Rb_treeIN4llvm9MCContext14WasmSectionKeyESt4pairIKS2_PNS0_13MCSectionWasmEESt10_Select1stIS7_ESt4lessIS2_ESaIS7_EE13_Rb_tree_implISB_Lb1EEE", !262, i64 0, !217, i64 8}
+!262 = !{!"_ZTSSt20_Rb_tree_key_compareISt4lessIN4llvm9MCContext14WasmSectionKeyEEE", !263, i64 0}
+!263 = !{!"_ZTSSt4lessIN4llvm9MCContext14WasmSectionKeyEE"}
+!264 = !{!"_ZTSSt3mapIN4llvm9MCContext15XCOFFSectionKeyEPNS0_14MCSectionXCOFFESt4lessIS2_ESaISt4pairIKS2_S4_EEE", !265, i64 0}
+!265 = !{!"_ZTSSt8_Rb_treeIN4llvm9MCContext15XCOFFSectionKeyESt4pairIKS2_PNS0_14MCSectionXCOFFEESt10_Select1stIS7_ESt4lessIS2_ESaIS7_EE", !266, i64 0}
+!266 = !{!"_ZTSNSt8_Rb_treeIN4llvm9MCContext15XCOFFSectionKeyESt4pairIKS2_PNS0_14MCSectionXCOFFEESt10_Select1stIS7_ESt4lessIS2_ESaIS7_EE13_Rb_tree_implISB_Lb1EEE", !267, i64 0, !217, i64 8}
+!267 = !{!"_ZTSSt20_Rb_tree_key_compareISt4lessIN4llvm9MCContext15XCOFFSectionKeyEEE", !268, i64 0}
+!268 = !{!"_ZTSSt4lessIN4llvm9MCContext15XCOFFSectionKeyEE"}
+!269 = !{!"_ZTSN4llvm9StringMapIPNS_20MCSectionDXContainerENS_15MallocAllocatorEEE", !185, i64 0}
+!270 = !{!"_ZTSN4llvm9StringMapIbNS_15MallocAllocatorEEE", !185, i64 0}
+!271 = !{!"_ZTSN4llvm24SpecificBumpPtrAllocatorINS_15MCSubtargetInfoEEE", !163, i64 0}
+!272 = !{!"p1 _ZTSN4llvm15MCTargetOptionsE", !5, i64 0}
+!273 = !{!"_ZTSN4llvm9StringMapINS_10MCAsmMacroENS_15MallocAllocatorEEE", !185, i64 0}
+!274 = !{!"_ZTSN4llvm8DenseMapISt5tupleIJNS_9StringRefEjjEEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEE", !275, i64 0, !13, i64 8, !13, i64 12, !13, i64 16}
+!275 = !{!"p1 _ZTSN4llvm6detail12DenseMapPairISt5tupleIJNS_9StringRefEjjEEjEE", !5, i64 0}
+!276 = !{!"_ZTSN4llvm8DenseSetINS_9StringRefENS_12DenseMapInfoIS1_vEEEE", !277, i64 0}
+!277 = !{!"_ZTSN4llvm6detail12DenseSetImplINS_9StringRefENS_8DenseMapIS2_NS0_13DenseSetEmptyENS_12DenseMapInfoIS2_vEENS0_12DenseSetPairIS2_EEEES6_EE", !278, i64 0}
+!278 = !{!"_ZTSN4llvm8DenseMapINS_9StringRefENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS1_vEENS2_12DenseSetPairIS1_EEEE", !279, i64 0, !13, i64 8, !13, i64 12, !13, i64 16}
+!279 = !{!"p1 _ZTSN4llvm6detail12DenseSetPairINS_9StringRefEEE", !5, i64 0}
+!280 = !{!153, !153, i64 0}
+!281 = !{!282, !13, i64 8}
+!282 = !{!"_ZTSN4llvm9MCAsmInfoE", !13, i64 8, !13, i64 12, !12, i64 16, !12, i64 17, !12, i64 18, !12, i64 19, !12, i64 20, !12, i64 21, !12, i64 22, !13, i64 24, !13, i64 28, !12, i64 32, !92, i64 40, !101, i64 48, !12, i64 64, !92, i64 72, !12, i64 80, !12, i64 81, !101, i64 88, !101, i64 104, !101, i64 120, !92, i64 136, !92, i64 144, !92, i64 152, !92, i64 160, !92, i64 168, !13, i64 176, !12, i64 180, !12, i64 181, !12, i64 182, !12, i64 183, !12, i64 184, !12, i64 185, !12, i64 186, !12, i64 187, !92, i64 192, !92, i64 200, !92, i64 208, !283, i64 216, !92, i64 224, !92, i64 232, !92, i64 240, !92, i64 248, !12, i64 256, !92, i64 264, !92, i64 272, !92, i64 280, !92, i64 288, !92, i64 296, !92, i64 304, !12, i64 312, !12, i64 313, !12, i64 314, !12, i64 315, !13, i64 316, !92, i64 320, !12, i64 328, !12, i64 329, !284, i64 332, !12, i64 336, !12, i64 337, !12, i64 338, !12, i64 339, !12, i64 340, !92, i64 344, !92, i64 352, !12, i64 360, !12, i64 361, !285, i64 364, !285, i64 368, !285, i64 372, !285, i64 376, !285, i64 380, !12, i64 384, !286, i64 388, !12, i64 392, !287, i64 396, !12, i64 400, !12, i64 401, !12, i64 402, !12, i64 403, !12, i64 404, !12, i64 405, !12, i64 406, !288, i64 408, !293, i64 432, !12, i64 440, !12, i64 441, !12, i64 442, !13, i64 444, !12, i64 448, !12, i64 449, !12, i64 450}
+!283 = !{!"_ZTSN4llvm9MCAsmInfo20AsmCharLiteralSyntaxE", !6, i64 0}
+!284 = !{!"_ZTSN4llvm5LCOMM9LCOMMTypeE", !6, i64 0}
+!285 = !{!"_ZTSN4llvm12MCSymbolAttrE", !6, i64 0}
+!286 = !{!"_ZTSN4llvm17ExceptionHandlingE", !6, i64 0}
+!287 = !{!"_ZTSN4llvm5WinEH12EncodingTypeE", !6, i64 0}
+!288 = !{!"_ZTSSt6vectorIN4llvm16MCCFIInstructionESaIS1_EE", !289, i64 0}
+!289 = !{!"_ZTSSt12_Vector_baseIN4llvm16MCCFIInstructionESaIS1_EE", !290, i64 0}
+!290 = !{!"_ZTSNSt12_Vector_baseIN4llvm16MCCFIInstructionESaIS1_EE12_Vector_implE", !291, i64 0}
+!291 = !{!"_ZTSNSt12_Vector_baseIN4llvm16MCCFIInstructionESaIS1_EE17_Vector_impl_dataE", !292, i64 0, !292, i64 8, !292, i64 16}
+!292 = !{!"p1 _ZTSN4llvm16MCCFIInstructionE", !5, i64 0}
+!293 = !{!"_ZTSSt4pairIiiE", !13, i64 0, !13, i64 4}
+!294 = !{!295, !295, i64 0}
+!295 = !{!"p1 _ZTSN4llvm5TwineE", !5, i64 0}
+!296 = !{!297, !298, i64 32}
+!297 = !{!"_ZTSN4llvm5TwineE", !6, i64 0, !6, i64 16, !298, i64 32, !298, i64 33}
+!298 = !{!"_ZTSN4llvm5Twine8NodeKindE", !6, i64 0}
+!299 = !{!297, !298, i64 33}
+!300 = !{!11, !14, i64 752}
+!301 = !{!11, !14, i64 760}
+!302 = !{!11, !14, i64 768}
+!303 = !{!11, !14, i64 776}
+!304 = !{!11, !14, i64 784}
+!305 = !{!11, !14, i64 72}
+!306 = !{!11, !14, i64 688}
+!307 = !{!11, !14, i64 696}
+!308 = !{!11, !14, i64 704}
+!309 = !{!11, !14, i64 712}
+!310 = !{!11, !14, i64 720}
+!311 = !{!11, !14, i64 728}
+!312 = !{!11, !14, i64 736}
+!313 = !{!11, !14, i64 744}
+!314 = !{!315, !315, i64 0}
+!315 = !{!"p1 _ZTSN4llvm14MCSectionXCOFFE", !5, i64 0}
+!316 = !{!11, !14, i64 800}
+!317 = !{!11, !14, i64 808}
+!318 = !{!11, !14, i64 792}
+!319 = !{!320, !320, i64 0}
+!320 = !{!"_ZTSN4llvm5XCOFF24DwarfSectionSubtypeFlagsE", !6, i64 0}
+!321 = !{!322, !322, i64 0}
+!322 = !{!"p1 _ZTSN4llvm5XCOFF15CsectPropertiesE", !5, i64 0}
+!323 = !{!324, !324, i64 0}
+!324 = !{!"_ZTSN4llvm5XCOFF19StorageMappingClassE", !6, i64 0}
+!325 = !{!326, !326, i64 0}
+!326 = !{!"_ZTSN4llvm5XCOFF10SymbolTypeE", !6, i64 0}
+!327 = !{!328, !324, i64 0}
+!328 = !{!"_ZTSN4llvm5XCOFF15CsectPropertiesE", !324, i64 0, !326, i64 1}
+!329 = !{!328, !326, i64 1}
+!330 = !{!331, !331, i64 0}
+!331 = !{!"p1 _ZTSSt8optionalIN4llvm5XCOFF15CsectPropertiesEE", !5, i64 0}
+!332 = !{!333, !333, i64 0}
+!333 = !{!"p1 _ZTSSt8optionalIN4llvm5XCOFF24DwarfSectionSubtypeFlagsEE", !5, i64 0}
+!334 = !{!335, !355, i64 152}
+!335 = !{!"_ZTSN4llvm14MCSectionXCOFFE", !336, i64 0, !351, i64 148, !355, i64 152, !101, i64 160, !356, i64 176, !12, i64 184, !360, i64 188}
+!336 = !{!"_ZTSN4llvm9MCSectionE", !337, i64 8, !338, i64 16, !338, i64 24, !339, i64 32, !13, i64 36, !340, i64 40, !13, i64 44, !12, i64 48, !12, i64 48, !12, i64 48, !12, i64 48, !12, i64 48, !12, i64 48, !341, i64 56, !345, i64 88, !101, i64 128, !350, i64 144}
+!337 = !{!"p1 _ZTSN4llvm9MCSection8FragListE", !5, i64 0}
+!338 = !{!"p1 _ZTSN4llvm8MCSymbolE", !5, i64 0}
+!339 = !{!"_ZTSN4llvm5AlignE", !6, i64 0}
+!340 = !{!"_ZTSN4llvm9MCSection19BundleLockStateTypeE", !6, i64 0}
+!341 = !{!"_ZTSN4llvm15MCDummyFragmentE", !342, i64 0}
+!342 = !{!"_ZTSN4llvm10MCFragmentE", !343, i64 0, !14, i64 8, !95, i64 16, !13, i64 24, !344, i64 28, !12, i64 29, !12, i64 29, !12, i64 29, !12, i64 29}
+!343 = !{!"p1 _ZTSN4llvm10MCFragmentE", !5, i64 0}
+!344 = !{!"_ZTSN4llvm10MCFragment12FragmentTypeE", !6, i64 0}
+!345 = !{!"_ZTSN4llvm11SmallVectorISt4pairIjNS_9MCSection8FragListEELj1EEE", !346, i64 0, !349, i64 16}
+!346 = !{!"_ZTSN4llvm15SmallVectorImplISt4pairIjNS_9MCSection8FragListEEEE", !347, i64 0}
+!347 = !{!"_ZTSN4llvm23SmallVectorTemplateBaseISt4pairIjNS_9MCSection8FragListEELb1EEE", !348, i64 0}
+!348 = !{!"_ZTSN4llvm25SmallVectorTemplateCommonISt4pairIjNS_9MCSection8FragListEEvEE", !168, i64 0}
+!349 = !{!"_ZTSN4llvm18SmallVectorStorageISt4pairIjNS_9MCSection8FragListEELj1EEE", !6, i64 0}
+!350 = !{!"_ZTSN4llvm9MCSection14SectionVariantE", !6, i64 0}
+!351 = !{!"_ZTSSt8optionalIN4llvm5XCOFF15CsectPropertiesEE", !352, i64 0}
+!352 = !{!"_ZTSSt14_Optional_baseIN4llvm5XCOFF15CsectPropertiesELb1ELb1EE", !353, i64 0}
+!353 = !{!"_ZTSSt17_Optional_payloadIN4llvm5XCOFF15CsectPropertiesELb1ELb1ELb1EE", !354, i64 0}
+!354 = !{!"_ZTSSt22_Optional_payload_baseIN4llvm5XCOFF15CsectPropertiesEE", !6, i64 0, !12, i64 2}
+!355 = !{!"p1 _ZTSN4llvm13MCSymbolXCOFFE", !5, i64 0}
+!356 = !{!"_ZTSSt8optionalIN4llvm5XCOFF24DwarfSectionSubtypeFlagsEE", !357, i64 0}
+!357 = !{!"_ZTSSt14_Optional_baseIN4llvm5XCOFF24DwarfSectionSubtypeFlagsELb1ELb1EE", !358, i64 0}
+!358 = !{!"_ZTSSt17_Optional_payloadIN4llvm5XCOFF24DwarfSectionSubtypeFlagsELb1ELb1ELb1EE", !359, i64 0}
+!359 = !{!"_ZTSSt22_Optional_payload_baseIN4llvm5XCOFF24DwarfSectionSubtypeFlagsEE", !6, i64 0, !12, i64 4}
+!360 = !{!"_ZTSN4llvm11SectionKindE", !361, i64 0}
+!361 = !{!"_ZTSN4llvm11SectionKind4KindE", !6, i64 0}
+!362 = !{!355, !355, i64 0}
+!363 = !{!364, !12, i64 72}
+!364 = !{!"_ZTSN4llvm13MCSymbolXCOFFE", !365, i64 0, !366, i64 32, !370, i64 34, !315, i64 40, !374, i64 48, !101, i64 56, !12, i64 72}
+!365 = !{!"_ZTSN4llvm8MCSymbolE", !343, i64 0, !13, i64 8, !13, i64 8, !13, i64 8, !13, i64 8, !13, i64 8, !13, i64 8, !13, i64 8, !13, i64 8, !13, i64 9, !13, i64 9, !13, i64 9, !13, i64 9, !13, i64 12, !13, i64 16, !6, i64 24}
+!366 = !{!"_ZTSSt8optionalIN4llvm5XCOFF12StorageClassEE", !367, i64 0}
+!367 = !{!"_ZTSSt14_Optional_baseIN4llvm5XCOFF12StorageClassELb1ELb1EE", !368, i64 0}
+!368 = !{!"_ZTSSt17_Optional_payloadIN4llvm5XCOFF12StorageClassELb1ELb1ELb1EE", !369, i64 0}
+!369 = !{!"_ZTSSt22_Optional_payload_baseIN4llvm5XCOFF12StorageClassEE", !6, i64 0, !12, i64 1}
+!370 = !{!"_ZTSSt8optionalIN4llvm13MCSymbolXCOFF9CodeModelEE", !371, i64 0}
+!371 = !{!"_ZTSSt14_Optional_baseIN4llvm13MCSymbolXCOFF9CodeModelELb1ELb1EE", !372, i64 0}
+!372 = !{!"_ZTSSt17_Optional_payloadIN4llvm13MCSymbolXCOFF9CodeModelELb1ELb1ELb1EE", !373, i64 0}
+!373 = !{!"_ZTSSt22_Optional_payload_baseIN4llvm13MCSymbolXCOFF9CodeModelEE", !6, i64 0, !12, i64 1}
+!374 = !{!"_ZTSN4llvm5XCOFF14VisibilityTypeE", !6, i64 0}
+!375 = !{!376, !376, i64 0}
+!376 = !{!"p1 _ZTSN4llvm5AlignE", !5, i64 0}
+!377 = !{!339, !6, i64 0}
+!378 = !{!5, !5, i64 0}
+!379 = !{!137, !138, i64 0}
+!380 = !{!104, !111, i64 52}
+!381 = distinct !{!381, !382}
+!382 = !{!"llvm.loop.mustprogress"}
+!383 = !{!384, !384, i64 0}
+!384 = !{!"p1 _ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE", !5, i64 0}
+!385 = !{!386, !386, i64 0}
+!386 = !{!"p1 _ZTSN4llvm12MCSectionELFE", !5, i64 0}
+!387 = !{!338, !338, i64 0}
+!388 = !{!389, !389, i64 0}
+!389 = !{!"p1 _ZTSN4llvm14StringMapEntryINS_18MCSymbolTableValueEEE", !5, i64 0}
+!390 = !{!391, !13, i64 156}
+!391 = !{!"_ZTSN4llvm12MCSectionELFE", !336, i64 0, !13, i64 148, !13, i64 152, !13, i64 156, !13, i64 160, !392, i64 168, !338, i64 176, !95, i64 184, !95, i64 192}
+!392 = !{!"_ZTSN4llvm14PointerIntPairIPKNS_11MCSymbolELFELj1EbNS_21PointerLikeTypeTraitsIS3_EENS_18PointerIntPairInfoIS3_Lj1ES5_EEEE", !393, i64 0}
+!393 = !{!"_ZTSN4llvm6detail13PunnedPointerIPKNS_11MCSymbolELFEEE", !6, i64 0}
+!394 = !{!391, !13, i64 152}
+!395 = !{!391, !13, i64 148}
+!396 = !{!391, !13, i64 160}
+!397 = !{!361, !361, i64 0}
+!398 = !{!104, !109, i64 44}
+!399 = !{!104, !110, i64 48}
+!400 = !{!104, !107, i64 36}
+!401 = !{!402, !402, i64 0}
+!402 = !{!"p2 _ZTSN4llvm9MCSectionE", !5, i64 0}
+!403 = !{!404, !404, i64 0}
+!404 = !{!"p1 _ZTSSt14_Optional_baseIN4llvm5XCOFF15CsectPropertiesELb1ELb1EE", !5, i64 0}
+!405 = !{!406, !406, i64 0}
+!406 = !{!"p1 _ZTSSt17_Optional_payloadIN4llvm5XCOFF15CsectPropertiesELb1ELb1ELb1EE", !5, i64 0}
+!407 = !{!408, !408, i64 0}
+!408 = !{!"p1 _ZTSSt22_Optional_payload_baseIN4llvm5XCOFF15CsectPropertiesEE", !5, i64 0}
+!409 = !{!354, !12, i64 2}
+!410 = !{!411, !411, i64 0}
+!411 = !{!"p1 _ZTSNSt22_Optional_payload_baseIN4llvm5XCOFF15CsectPropertiesEE8_StorageIS2_Lb1EEE", !5, i64 0}
+!412 = !{i64 0, i64 1, !323, i64 1, i64 1, !325}
+!413 = !{!414, !414, i64 0}
+!414 = !{!"p1 _ZTSSt14_Optional_baseIN4llvm5XCOFF24DwarfSectionSubtypeFlagsELb1ELb1EE", !5, i64 0}
+!415 = !{!416, !416, i64 0}
+!416 = !{!"p1 _ZTSSt17_Optional_payloadIN4llvm5XCOFF24DwarfSectionSubtypeFlagsELb1ELb1ELb1EE", !5, i64 0}
+!417 = !{!418, !418, i64 0}
+!418 = !{!"p1 _ZTSSt22_Optional_payload_baseIN4llvm5XCOFF24DwarfSectionSubtypeFlagsEE", !5, i64 0}
+!419 = !{!359, !12, i64 4}
+!420 = !{!421, !421, i64 0}
+!421 = !{!"p1 _ZTSNSt22_Optional_payload_baseIN4llvm5XCOFF24DwarfSectionSubtypeFlagsEE8_StorageIS2_Lb1EEE", !5, i64 0}
+!422 = !{!423, !423, i64 0}
+!423 = !{!"p1 _ZTSSaIcE", !5, i64 0}
+!424 = !{!105, !95, i64 8}
+!425 = !{!426, !426, i64 0}
+!426 = !{!"p1 _ZTSSt15__new_allocatorIcE", !5, i64 0}
+!427 = !{!428, !428, i64 0}
+!428 = !{!"p1 _ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderE", !5, i64 0}
+!429 = !{!106, !92, i64 0}
+!430 = !{!431, !384, i64 0}
+!431 = !{!"_ZTSZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPcEEvT_S7_St20forward_iterator_tagE6_Guard", !384, i64 0}
+!432 = !{!433, !433, i64 0}
+!433 = !{!"p2 omnipotent char", !5, i64 0}
+!434 = !{!105, !92, i64 0}
+!435 = !{!436, !436, i64 0}
+!436 = !{!"p1 _ZTSZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPcEEvT_S7_St20forward_iterator_tagE6_Guard", !5, i64 0}
+!437 = !{!104, !108, i64 40}
+!438 = !{!439, !439, i64 0}
+!439 = !{!"p1 _ZTSN4llvm14PointerIntPairIPKNS_11MCSymbolELFELj1EbNS_21PointerLikeTypeTraitsIS3_EENS_18PointerIntPairInfoIS3_Lj1ES5_EEEE", !5, i64 0}
+!440 = !{!441, !441, i64 0}
+!441 = !{!"p1 _ZTSN4llvm6detail13PunnedPointerIPKNS_11MCSymbolELFEEE", !5, i64 0}
+!442 = !{!443, !443, i64 0}
+!443 = !{!"p1 _ZTSN4llvm18StringMapEntryBaseE", !5, i64 0}
+!444 = !{!445, !95, i64 0}
+!445 = !{!"_ZTSN4llvm18StringMapEntryBaseE", !95, i64 0}
+!446 = !{!447, !447, i64 0}
+!447 = !{!"p2 _ZTSN4llvm8MCSymbolE", !5, i64 0}
+!448 = !{!336, !338, i64 16}
+!449 = !{i64 0, i64 16, !97, i64 16, i64 16, !97, i64 32, i64 1, !450, i64 33, i64 1, !450}
+!450 = !{!298, !298, i64 0}
+!451 = !{i64 0, i64 16, !97}

@@ -224,45 +224,47 @@ define dso_local void @_ZN4llvm21MultiHazardRecognizer19AddHazardRecognizerEOSt1
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  store ptr %1, ptr %4, align 8, !tbaa !8
   %6 = load ptr, ptr %3, align 8
   %7 = getelementptr inbounds nuw %"class.llvm::ScheduleHazardRecognizer", ptr %6, i32 0, i32 1
-  %8 = load ptr, ptr %4, align 8
-  %9 = call noundef ptr @_ZNKSt10unique_ptrIN4llvm24ScheduleHazardRecognizerESt14default_deleteIS1_EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %8) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #8
+  %8 = load ptr, ptr %4, align 8, !tbaa !8
+  %9 = call noundef ptr @_ZNKSt10unique_ptrIN4llvm24ScheduleHazardRecognizerESt14default_deleteIS1_EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %8) #8
   %10 = call noundef i32 @_ZNK4llvm24ScheduleHazardRecognizer15getMaxLookAheadEv(ptr noundef nonnull align 8 dereferenceable(12) %9)
-  store i32 %10, ptr %5, align 4
+  store i32 %10, ptr %5, align 4, !tbaa !10
   %11 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZSt3maxIjERKT_S2_S2_(ptr noundef nonnull align 4 dereferenceable(4) %7, ptr noundef nonnull align 4 dereferenceable(4) %5)
-  %12 = load i32, ptr %11, align 4
+  %12 = load i32, ptr %11, align 4, !tbaa !10
   %13 = getelementptr inbounds nuw %"class.llvm::ScheduleHazardRecognizer", ptr %6, i32 0, i32 1
-  store i32 %12, ptr %13, align 8
+  store i32 %12, ptr %13, align 8, !tbaa !12
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #8
   %14 = getelementptr inbounds nuw %"class.llvm::MultiHazardRecognizer", ptr %6, i32 0, i32 1
-  %15 = load ptr, ptr %4, align 8
+  %15 = load ptr, ptr %4, align 8, !tbaa !8
   call void @_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_24ScheduleHazardRecognizerESt14default_deleteIS2_EELb0EE9push_backEOS5_(ptr noundef nonnull align 8 dereferenceable(16) %14, ptr noundef nonnull align 8 dereferenceable(8) %15)
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef nonnull align 4 dereferenceable(4) ptr @_ZSt3maxIjERKT_S2_S2_(ptr noundef nonnull align 4 dereferenceable(4) %0, ptr noundef nonnull align 4 dereferenceable(4) %1) #0 comdat {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr noundef nonnull align 4 dereferenceable(4) ptr @_ZSt3maxIjERKT_S2_S2_(ptr noundef nonnull align 4 dereferenceable(4) %0, ptr noundef nonnull align 4 dereferenceable(4) %1) #1 comdat {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  %6 = load ptr, ptr %4, align 8
-  %7 = load i32, ptr %6, align 4
-  %8 = load ptr, ptr %5, align 8
-  %9 = load i32, ptr %8, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !14
+  store ptr %1, ptr %5, align 8, !tbaa !14
+  %6 = load ptr, ptr %4, align 8, !tbaa !14
+  %7 = load i32, ptr %6, align 4, !tbaa !10
+  %8 = load ptr, ptr %5, align 8, !tbaa !14
+  %9 = load i32, ptr %8, align 4, !tbaa !10
   %10 = icmp ult i32 %7, %9
   br i1 %10, label %11, label %13
 
 11:                                               ; preds = %2
-  %12 = load ptr, ptr %5, align 8
+  %12 = load ptr, ptr %5, align 8, !tbaa !14
   store ptr %12, ptr %3, align 8
   br label %15
 
 13:                                               ; preds = %2
-  %14 = load ptr, ptr %4, align 8
+  %14 = load ptr, ptr %4, align 8, !tbaa !14
   store ptr %14, ptr %3, align 8
   br label %15
 
@@ -271,42 +273,50 @@ define linkonce_odr noundef nonnull align 4 dereferenceable(4) ptr @_ZSt3maxIjER
   ret ptr %16
 }
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
+
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZNKSt10unique_ptrIN4llvm24ScheduleHazardRecognizerESt14default_deleteIS1_EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !8
   %3 = load ptr, ptr %2, align 8
-  %4 = call noundef ptr @_ZNKSt10unique_ptrIN4llvm24ScheduleHazardRecognizerESt14default_deleteIS1_EE3getEv(ptr noundef nonnull align 8 dereferenceable(8) %3) #5
+  %4 = call noundef ptr @_ZNKSt10unique_ptrIN4llvm24ScheduleHazardRecognizerESt14default_deleteIS1_EE3getEv(ptr noundef nonnull align 8 dereferenceable(8) %3) #8
   ret ptr %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef i32 @_ZNK4llvm24ScheduleHazardRecognizer15getMaxLookAheadEv(ptr noundef nonnull align 8 dereferenceable(12) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !16
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw %"class.llvm::ScheduleHazardRecognizer", ptr %3, i32 0, i32 1
-  %5 = load i32, ptr %4, align 8
+  %5 = load i32, ptr %4, align 8, !tbaa !12
   ret i32 %5
 }
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_24ScheduleHazardRecognizerESt14default_deleteIS2_EELb0EE9push_backEOS5_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #0 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !18
+  store ptr %1, ptr %4, align 8, !tbaa !8
   %6 = load ptr, ptr %3, align 8
-  %7 = load ptr, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #8
+  %7 = load ptr, ptr %4, align 8, !tbaa !8
   %8 = call noundef ptr @_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_24ScheduleHazardRecognizerESt14default_deleteIS2_EELb0EE28reserveForParamAndGetAddressERS5_m(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(8) %7, i64 noundef 1)
-  store ptr %8, ptr %5, align 8
+  store ptr %8, ptr %5, align 8, !tbaa !8
   %9 = call noundef ptr @_ZN4llvm25SmallVectorTemplateCommonISt10unique_ptrINS_24ScheduleHazardRecognizerESt14default_deleteIS2_EEvE3endEv(ptr noundef nonnull align 8 dereferenceable(16) %6)
-  %10 = load ptr, ptr %5, align 8
-  call void @_ZNSt10unique_ptrIN4llvm24ScheduleHazardRecognizerESt14default_deleteIS1_EEC2EOS4_(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 8 dereferenceable(8) %10) #5
+  %10 = load ptr, ptr %5, align 8, !tbaa !8
+  call void @_ZNSt10unique_ptrIN4llvm24ScheduleHazardRecognizerESt14default_deleteIS1_EEC2EOS4_(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 8 dereferenceable(8) %10) #8
   %11 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %6)
   %12 = add i64 %11, 1
   call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %6, i64 noundef %12)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #8
   ret void
 }
 
@@ -315,15 +325,15 @@ define dso_local noundef zeroext i1 @_ZNK4llvm21MultiHazardRecognizer12atIssueLi
   %2 = alloca ptr, align 8
   %3 = alloca %"struct.std::_Mem_fn", align 8
   %4 = alloca { i64, i64 }, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !3
   %5 = load ptr, ptr %2, align 8
   %6 = getelementptr inbounds nuw %"class.llvm::MultiHazardRecognizer", ptr %5, i32 0, i32 1
-  store { i64, i64 } { i64 17, i64 0 }, ptr %4, align 8
+  store { i64, i64 } { i64 17, i64 0 }, ptr %4, align 8, !tbaa !20
   %7 = getelementptr inbounds nuw { i64, i64 }, ptr %4, i32 0, i32 0
   %8 = load i64, ptr %7, align 8
   %9 = getelementptr inbounds nuw { i64, i64 }, ptr %4, i32 0, i32 1
   %10 = load i64, ptr %9, align 8
-  %11 = call { i64, i64 } @_ZSt6mem_fnIKFbvEN4llvm24ScheduleHazardRecognizerEESt7_Mem_fnIMT0_T_ES6_(i64 %8, i64 %10) #5
+  %11 = call { i64, i64 } @_ZSt6mem_fnIKFbvEN4llvm24ScheduleHazardRecognizerEESt7_Mem_fnIMT0_T_ES6_(i64 %8, i64 %10) #8
   %12 = getelementptr inbounds nuw %"struct.std::_Mem_fn", ptr %3, i32 0, i32 0
   %13 = getelementptr inbounds nuw %"class.std::_Mem_fn_base", ptr %12, i32 0, i32 0
   %14 = getelementptr inbounds nuw { i64, i64 }, ptr %13, i32 0, i32 0
@@ -349,10 +359,10 @@ define linkonce_odr noundef zeroext i1 @_ZN4llvm6any_ofIRKNS_11SmallVectorISt10u
   store i64 %1, ptr %7, align 8
   %8 = getelementptr inbounds nuw { i64, i64 }, ptr %4, i32 0, i32 1
   store i64 %2, ptr %8, align 8
-  store ptr %0, ptr %5, align 8
-  %9 = load ptr, ptr %5, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !21
+  %9 = load ptr, ptr %5, align 8, !tbaa !21
   %10 = call noundef ptr @_ZN4llvm9adl_beginIRKNS_11SmallVectorISt10unique_ptrINS_24ScheduleHazardRecognizerESt14default_deleteIS3_EELj4EEEEEDTclsr10adl_detailE10begin_implclsr3stdE7forwardIT_Efp_EEEOSA_(ptr noundef nonnull align 8 dereferenceable(48) %9)
-  %11 = load ptr, ptr %5, align 8
+  %11 = load ptr, ptr %5, align 8, !tbaa !21
   %12 = call noundef ptr @_ZN4llvm7adl_endIRKNS_11SmallVectorISt10unique_ptrINS_24ScheduleHazardRecognizerESt14default_deleteIS3_EELj4EEEEEDTclsr10adl_detailE8end_implclsr3stdE7forwardIT_Efp_EEEOSA_(ptr noundef nonnull align 8 dereferenceable(48) %11)
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %6, ptr align 8 %4, i64 16, i1 false)
   %13 = getelementptr inbounds nuw { i64, i64 }, ptr %6, i32 0, i32 0
@@ -363,8 +373,8 @@ define linkonce_odr noundef zeroext i1 @_ZN4llvm6any_ofIRKNS_11SmallVectorISt10u
   ret i1 %17
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr { i64, i64 } @_ZSt6mem_fnIKFbvEN4llvm24ScheduleHazardRecognizerEESt7_Mem_fnIMT0_T_ES6_(i64 %0, i64 %1) #0 comdat {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr { i64, i64 } @_ZSt6mem_fnIKFbvEN4llvm24ScheduleHazardRecognizerEESt7_Mem_fnIMT0_T_ES6_(i64 %0, i64 %1) #1 comdat {
   %3 = alloca %"struct.std::_Mem_fn", align 8
   %4 = alloca { i64, i64 }, align 8
   %5 = alloca { i64, i64 }, align 8
@@ -373,15 +383,15 @@ define linkonce_odr { i64, i64 } @_ZSt6mem_fnIKFbvEN4llvm24ScheduleHazardRecogni
   store i64 %0, ptr %7, align 8
   %8 = getelementptr inbounds nuw { i64, i64 }, ptr %4, i32 0, i32 1
   store i64 %1, ptr %8, align 8
-  %9 = load { i64, i64 }, ptr %4, align 8
-  store { i64, i64 } %9, ptr %5, align 8
-  %10 = load { i64, i64 }, ptr %5, align 8
-  store { i64, i64 } %10, ptr %6, align 8
+  %9 = load { i64, i64 }, ptr %4, align 8, !tbaa !20
+  store { i64, i64 } %9, ptr %5, align 8, !tbaa !20
+  %10 = load { i64, i64 }, ptr %5, align 8, !tbaa !20
+  store { i64, i64 } %10, ptr %6, align 8, !tbaa !20
   %11 = getelementptr inbounds nuw { i64, i64 }, ptr %6, i32 0, i32 0
   %12 = load i64, ptr %11, align 8
   %13 = getelementptr inbounds nuw { i64, i64 }, ptr %6, i32 0, i32 1
   %14 = load i64, ptr %13, align 8
-  call void @_ZNSt7_Mem_fnIMN4llvm24ScheduleHazardRecognizerEKFbvEECI2St12_Mem_fn_baseIS3_Lb1EEES3_(ptr noundef nonnull align 8 dereferenceable(16) %3, i64 %12, i64 %14) #5
+  call void @_ZNSt7_Mem_fnIMN4llvm24ScheduleHazardRecognizerEKFbvEECI2St12_Mem_fn_baseIS3_Lb1EEES3_(ptr noundef nonnull align 8 dereferenceable(16) %3, i64 %12, i64 %14) #8
   %15 = getelementptr inbounds nuw %"struct.std::_Mem_fn", ptr %3, i32 0, i32 0
   %16 = getelementptr inbounds nuw %"class.std::_Mem_fn_base", ptr %15, i32 0, i32 0
   %17 = load { i64, i64 }, ptr %16, align 8
@@ -397,85 +407,131 @@ define dso_local noundef i32 @_ZN4llvm21MultiHazardRecognizer13getHazardTypeEPNS
   %8 = alloca ptr, align 8
   %9 = alloca ptr, align 8
   %10 = alloca ptr, align 8
-  %11 = alloca ptr, align 8
-  %12 = alloca i32, align 4
-  store ptr %0, ptr %5, align 8
-  store ptr %1, ptr %6, align 8
-  store i32 %2, ptr %7, align 4
-  %13 = load ptr, ptr %5, align 8
-  %14 = getelementptr inbounds nuw %"class.llvm::MultiHazardRecognizer", ptr %13, i32 0, i32 1
-  store ptr %14, ptr %8, align 8
-  %15 = load ptr, ptr %8, align 8
-  %16 = call noundef ptr @_ZN4llvm25SmallVectorTemplateCommonISt10unique_ptrINS_24ScheduleHazardRecognizerESt14default_deleteIS2_EEvE5beginEv(ptr noundef nonnull align 8 dereferenceable(16) %15)
-  store ptr %16, ptr %9, align 8
-  %17 = load ptr, ptr %8, align 8
-  %18 = call noundef ptr @_ZN4llvm25SmallVectorTemplateCommonISt10unique_ptrINS_24ScheduleHazardRecognizerESt14default_deleteIS2_EEvE3endEv(ptr noundef nonnull align 8 dereferenceable(16) %17)
-  store ptr %18, ptr %10, align 8
-  br label %19
+  %11 = alloca i32, align 4
+  %12 = alloca ptr, align 8
+  %13 = alloca i32, align 4
+  store ptr %0, ptr %5, align 8, !tbaa !3
+  store ptr %1, ptr %6, align 8, !tbaa !23
+  store i32 %2, ptr %7, align 4, !tbaa !10
+  %14 = load ptr, ptr %5, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #8
+  %15 = getelementptr inbounds nuw %"class.llvm::MultiHazardRecognizer", ptr %14, i32 0, i32 1
+  store ptr %15, ptr %8, align 8, !tbaa !21
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #8
+  %16 = load ptr, ptr %8, align 8, !tbaa !21
+  %17 = call noundef ptr @_ZN4llvm25SmallVectorTemplateCommonISt10unique_ptrINS_24ScheduleHazardRecognizerESt14default_deleteIS2_EEvE5beginEv(ptr noundef nonnull align 8 dereferenceable(16) %16)
+  store ptr %17, ptr %9, align 8, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #8
+  %18 = load ptr, ptr %8, align 8, !tbaa !21
+  %19 = call noundef ptr @_ZN4llvm25SmallVectorTemplateCommonISt10unique_ptrINS_24ScheduleHazardRecognizerESt14default_deleteIS2_EEvE3endEv(ptr noundef nonnull align 8 dereferenceable(16) %18)
+  store ptr %19, ptr %10, align 8, !tbaa !8
+  br label %20
 
-19:                                               ; preds = %38, %3
-  %20 = load ptr, ptr %9, align 8
-  %21 = load ptr, ptr %10, align 8
-  %22 = icmp ne ptr %20, %21
-  br i1 %22, label %23, label %41
+20:                                               ; preds = %46, %3
+  %21 = load ptr, ptr %9, align 8, !tbaa !8
+  %22 = load ptr, ptr %10, align 8, !tbaa !8
+  %23 = icmp ne ptr %21, %22
+  br i1 %23, label %25, label %24
 
-23:                                               ; preds = %19
-  %24 = load ptr, ptr %9, align 8
-  store ptr %24, ptr %11, align 8
-  %25 = load ptr, ptr %11, align 8
-  %26 = call noundef ptr @_ZNKSt10unique_ptrIN4llvm24ScheduleHazardRecognizerESt14default_deleteIS1_EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %25) #5
-  %27 = load ptr, ptr %6, align 8
-  %28 = load i32, ptr %7, align 4
-  %29 = load ptr, ptr %26, align 8
-  %30 = getelementptr inbounds ptr, ptr %29, i64 3
-  %31 = load ptr, ptr %30, align 8
-  %32 = call noundef i32 %31(ptr noundef nonnull align 8 dereferenceable(12) %26, ptr noundef %27, i32 noundef %28)
-  store i32 %32, ptr %12, align 4
-  %33 = load i32, ptr %12, align 4
-  %34 = icmp ne i32 %33, 0
-  br i1 %34, label %35, label %37
+24:                                               ; preds = %20
+  store i32 2, ptr %11, align 4
+  br label %49
 
-35:                                               ; preds = %23
-  %36 = load i32, ptr %12, align 4
-  store i32 %36, ptr %4, align 4
-  br label %42
+25:                                               ; preds = %20
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #8
+  %26 = load ptr, ptr %9, align 8, !tbaa !8
+  store ptr %26, ptr %12, align 8, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #8
+  %27 = load ptr, ptr %12, align 8, !tbaa !8
+  %28 = call noundef ptr @_ZNKSt10unique_ptrIN4llvm24ScheduleHazardRecognizerESt14default_deleteIS1_EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %27) #8
+  %29 = load ptr, ptr %6, align 8, !tbaa !23
+  %30 = load i32, ptr %7, align 4, !tbaa !10
+  %31 = load ptr, ptr %28, align 8, !tbaa !25
+  %32 = getelementptr inbounds ptr, ptr %31, i64 3
+  %33 = load ptr, ptr %32, align 8
+  %34 = call noundef i32 %33(ptr noundef nonnull align 8 dereferenceable(12) %28, ptr noundef %29, i32 noundef %30)
+  store i32 %34, ptr %13, align 4, !tbaa !27
+  %35 = load i32, ptr %13, align 4, !tbaa !27
+  %36 = icmp ne i32 %35, 0
+  br i1 %36, label %37, label %39
 
-37:                                               ; preds = %23
-  br label %38
+37:                                               ; preds = %25
+  %38 = load i32, ptr %13, align 4, !tbaa !27
+  store i32 %38, ptr %4, align 4
+  store i32 1, ptr %11, align 4
+  br label %40
 
-38:                                               ; preds = %37
-  %39 = load ptr, ptr %9, align 8
-  %40 = getelementptr inbounds %"class.std::unique_ptr", ptr %39, i32 1
-  store ptr %40, ptr %9, align 8
-  br label %19
+39:                                               ; preds = %25
+  store i32 0, ptr %11, align 4
+  br label %40
 
-41:                                               ; preds = %19
+40:                                               ; preds = %39, %37
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #8
+  %41 = load i32, ptr %11, align 4
+  switch i32 %41, label %43 [
+    i32 0, label %42
+  ]
+
+42:                                               ; preds = %40
+  store i32 0, ptr %11, align 4
+  br label %43
+
+43:                                               ; preds = %42, %40
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #8
+  %44 = load i32, ptr %11, align 4
+  switch i32 %44, label %49 [
+    i32 0, label %45
+  ]
+
+45:                                               ; preds = %43
+  br label %46
+
+46:                                               ; preds = %45
+  %47 = load ptr, ptr %9, align 8, !tbaa !8
+  %48 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %47, i32 1
+  store ptr %48, ptr %9, align 8, !tbaa !8
+  br label %20
+
+49:                                               ; preds = %43, %24
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #8
+  %50 = load i32, ptr %11, align 4
+  switch i32 %50, label %54 [
+    i32 2, label %51
+    i32 1, label %52
+  ]
+
+51:                                               ; preds = %49
   store i32 0, ptr %4, align 4
-  br label %42
+  br label %52
 
-42:                                               ; preds = %41, %35
-  %43 = load i32, ptr %4, align 4
-  ret i32 %43
+52:                                               ; preds = %51, %49
+  %53 = load i32, ptr %4, align 4
+  ret i32 %53
+
+54:                                               ; preds = %49
+  unreachable
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZN4llvm25SmallVectorTemplateCommonISt10unique_ptrINS_24ScheduleHazardRecognizerESt14default_deleteIS2_EEvE5beginEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !29
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw %"class.llvm::SmallVectorBase", ptr %3, i32 0, i32 0
-  %5 = load ptr, ptr %4, align 8
+  %5 = load ptr, ptr %4, align 8, !tbaa !31
   ret ptr %5
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZN4llvm25SmallVectorTemplateCommonISt10unique_ptrINS_24ScheduleHazardRecognizerESt14default_deleteIS2_EEvE3endEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !29
   %3 = load ptr, ptr %2, align 8
   %4 = call noundef ptr @_ZN4llvm25SmallVectorTemplateCommonISt10unique_ptrINS_24ScheduleHazardRecognizerESt14default_deleteIS2_EEvE5beginEv(ptr noundef nonnull align 8 dereferenceable(16) %3)
   %5 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %3)
-  %6 = getelementptr inbounds %"class.std::unique_ptr", ptr %4, i64 %5
+  %6 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %4, i64 %5
   ret ptr %6
 }
 
@@ -486,42 +542,53 @@ define dso_local void @_ZN4llvm21MultiHazardRecognizer5ResetEv(ptr noundef nonnu
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !3
   %7 = load ptr, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #8
   %8 = getelementptr inbounds nuw %"class.llvm::MultiHazardRecognizer", ptr %7, i32 0, i32 1
-  store ptr %8, ptr %3, align 8
-  %9 = load ptr, ptr %3, align 8
+  store ptr %8, ptr %3, align 8, !tbaa !21
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #8
+  %9 = load ptr, ptr %3, align 8, !tbaa !21
   %10 = call noundef ptr @_ZN4llvm25SmallVectorTemplateCommonISt10unique_ptrINS_24ScheduleHazardRecognizerESt14default_deleteIS2_EEvE5beginEv(ptr noundef nonnull align 8 dereferenceable(16) %9)
-  store ptr %10, ptr %4, align 8
-  %11 = load ptr, ptr %3, align 8
+  store ptr %10, ptr %4, align 8, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #8
+  %11 = load ptr, ptr %3, align 8, !tbaa !21
   %12 = call noundef ptr @_ZN4llvm25SmallVectorTemplateCommonISt10unique_ptrINS_24ScheduleHazardRecognizerESt14default_deleteIS2_EEvE3endEv(ptr noundef nonnull align 8 dereferenceable(16) %11)
-  store ptr %12, ptr %5, align 8
+  store ptr %12, ptr %5, align 8, !tbaa !8
   br label %13
 
-13:                                               ; preds = %24, %1
-  %14 = load ptr, ptr %4, align 8
-  %15 = load ptr, ptr %5, align 8
+13:                                               ; preds = %25, %1
+  %14 = load ptr, ptr %4, align 8, !tbaa !8
+  %15 = load ptr, ptr %5, align 8, !tbaa !8
   %16 = icmp ne ptr %14, %15
-  br i1 %16, label %17, label %27
+  br i1 %16, label %18, label %17
 
 17:                                               ; preds = %13
-  %18 = load ptr, ptr %4, align 8
-  store ptr %18, ptr %6, align 8
-  %19 = load ptr, ptr %6, align 8
-  %20 = call noundef ptr @_ZNKSt10unique_ptrIN4llvm24ScheduleHazardRecognizerESt14default_deleteIS1_EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %19) #5
-  %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds ptr, ptr %21, i64 4
-  %23 = load ptr, ptr %22, align 8
-  call void %23(ptr noundef nonnull align 8 dereferenceable(12) %20)
-  br label %24
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #8
+  br label %28
 
-24:                                               ; preds = %17
-  %25 = load ptr, ptr %4, align 8
-  %26 = getelementptr inbounds %"class.std::unique_ptr", ptr %25, i32 1
-  store ptr %26, ptr %4, align 8
+18:                                               ; preds = %13
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #8
+  %19 = load ptr, ptr %4, align 8, !tbaa !8
+  store ptr %19, ptr %6, align 8, !tbaa !8
+  %20 = load ptr, ptr %6, align 8, !tbaa !8
+  %21 = call noundef ptr @_ZNKSt10unique_ptrIN4llvm24ScheduleHazardRecognizerESt14default_deleteIS1_EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %20) #8
+  %22 = load ptr, ptr %21, align 8, !tbaa !25
+  %23 = getelementptr inbounds ptr, ptr %22, i64 4
+  %24 = load ptr, ptr %23, align 8
+  call void %24(ptr noundef nonnull align 8 dereferenceable(12) %21)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #8
+  br label %25
+
+25:                                               ; preds = %18
+  %26 = load ptr, ptr %4, align 8, !tbaa !8
+  %27 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %26, i32 1
+  store ptr %27, ptr %4, align 8, !tbaa !8
   br label %13
 
-27:                                               ; preds = %13
+28:                                               ; preds = %17
   ret void
 }
 
@@ -533,44 +600,55 @@ define dso_local void @_ZN4llvm21MultiHazardRecognizer15EmitInstructionEPNS_5SUn
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  store ptr %1, ptr %4, align 8, !tbaa !23
   %9 = load ptr, ptr %3, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #8
   %10 = getelementptr inbounds nuw %"class.llvm::MultiHazardRecognizer", ptr %9, i32 0, i32 1
-  store ptr %10, ptr %5, align 8
-  %11 = load ptr, ptr %5, align 8
+  store ptr %10, ptr %5, align 8, !tbaa !21
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #8
+  %11 = load ptr, ptr %5, align 8, !tbaa !21
   %12 = call noundef ptr @_ZN4llvm25SmallVectorTemplateCommonISt10unique_ptrINS_24ScheduleHazardRecognizerESt14default_deleteIS2_EEvE5beginEv(ptr noundef nonnull align 8 dereferenceable(16) %11)
-  store ptr %12, ptr %6, align 8
-  %13 = load ptr, ptr %5, align 8
+  store ptr %12, ptr %6, align 8, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #8
+  %13 = load ptr, ptr %5, align 8, !tbaa !21
   %14 = call noundef ptr @_ZN4llvm25SmallVectorTemplateCommonISt10unique_ptrINS_24ScheduleHazardRecognizerESt14default_deleteIS2_EEvE3endEv(ptr noundef nonnull align 8 dereferenceable(16) %13)
-  store ptr %14, ptr %7, align 8
+  store ptr %14, ptr %7, align 8, !tbaa !8
   br label %15
 
-15:                                               ; preds = %27, %2
-  %16 = load ptr, ptr %6, align 8
-  %17 = load ptr, ptr %7, align 8
+15:                                               ; preds = %28, %2
+  %16 = load ptr, ptr %6, align 8, !tbaa !8
+  %17 = load ptr, ptr %7, align 8, !tbaa !8
   %18 = icmp ne ptr %16, %17
-  br i1 %18, label %19, label %30
+  br i1 %18, label %20, label %19
 
 19:                                               ; preds = %15
-  %20 = load ptr, ptr %6, align 8
-  store ptr %20, ptr %8, align 8
-  %21 = load ptr, ptr %8, align 8
-  %22 = call noundef ptr @_ZNKSt10unique_ptrIN4llvm24ScheduleHazardRecognizerESt14default_deleteIS1_EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %21) #5
-  %23 = load ptr, ptr %4, align 8
-  %24 = load ptr, ptr %22, align 8
-  %25 = getelementptr inbounds ptr, ptr %24, i64 5
-  %26 = load ptr, ptr %25, align 8
-  call void %26(ptr noundef nonnull align 8 dereferenceable(12) %22, ptr noundef %23)
-  br label %27
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #8
+  br label %31
 
-27:                                               ; preds = %19
-  %28 = load ptr, ptr %6, align 8
-  %29 = getelementptr inbounds %"class.std::unique_ptr", ptr %28, i32 1
-  store ptr %29, ptr %6, align 8
+20:                                               ; preds = %15
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #8
+  %21 = load ptr, ptr %6, align 8, !tbaa !8
+  store ptr %21, ptr %8, align 8, !tbaa !8
+  %22 = load ptr, ptr %8, align 8, !tbaa !8
+  %23 = call noundef ptr @_ZNKSt10unique_ptrIN4llvm24ScheduleHazardRecognizerESt14default_deleteIS1_EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %22) #8
+  %24 = load ptr, ptr %4, align 8, !tbaa !23
+  %25 = load ptr, ptr %23, align 8, !tbaa !25
+  %26 = getelementptr inbounds ptr, ptr %25, i64 5
+  %27 = load ptr, ptr %26, align 8
+  call void %27(ptr noundef nonnull align 8 dereferenceable(12) %23, ptr noundef %24)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #8
+  br label %28
+
+28:                                               ; preds = %20
+  %29 = load ptr, ptr %6, align 8, !tbaa !8
+  %30 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %29, i32 1
+  store ptr %30, ptr %6, align 8, !tbaa !8
   br label %15
 
-30:                                               ; preds = %15
+31:                                               ; preds = %19
   ret void
 }
 
@@ -582,44 +660,55 @@ define dso_local void @_ZN4llvm21MultiHazardRecognizer15EmitInstructionEPNS_12Ma
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  store ptr %1, ptr %4, align 8, !tbaa !33
   %9 = load ptr, ptr %3, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #8
   %10 = getelementptr inbounds nuw %"class.llvm::MultiHazardRecognizer", ptr %9, i32 0, i32 1
-  store ptr %10, ptr %5, align 8
-  %11 = load ptr, ptr %5, align 8
+  store ptr %10, ptr %5, align 8, !tbaa !21
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #8
+  %11 = load ptr, ptr %5, align 8, !tbaa !21
   %12 = call noundef ptr @_ZN4llvm25SmallVectorTemplateCommonISt10unique_ptrINS_24ScheduleHazardRecognizerESt14default_deleteIS2_EEvE5beginEv(ptr noundef nonnull align 8 dereferenceable(16) %11)
-  store ptr %12, ptr %6, align 8
-  %13 = load ptr, ptr %5, align 8
+  store ptr %12, ptr %6, align 8, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #8
+  %13 = load ptr, ptr %5, align 8, !tbaa !21
   %14 = call noundef ptr @_ZN4llvm25SmallVectorTemplateCommonISt10unique_ptrINS_24ScheduleHazardRecognizerESt14default_deleteIS2_EEvE3endEv(ptr noundef nonnull align 8 dereferenceable(16) %13)
-  store ptr %14, ptr %7, align 8
+  store ptr %14, ptr %7, align 8, !tbaa !8
   br label %15
 
-15:                                               ; preds = %27, %2
-  %16 = load ptr, ptr %6, align 8
-  %17 = load ptr, ptr %7, align 8
+15:                                               ; preds = %28, %2
+  %16 = load ptr, ptr %6, align 8, !tbaa !8
+  %17 = load ptr, ptr %7, align 8, !tbaa !8
   %18 = icmp ne ptr %16, %17
-  br i1 %18, label %19, label %30
+  br i1 %18, label %20, label %19
 
 19:                                               ; preds = %15
-  %20 = load ptr, ptr %6, align 8
-  store ptr %20, ptr %8, align 8
-  %21 = load ptr, ptr %8, align 8
-  %22 = call noundef ptr @_ZNKSt10unique_ptrIN4llvm24ScheduleHazardRecognizerESt14default_deleteIS1_EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %21) #5
-  %23 = load ptr, ptr %4, align 8
-  %24 = load ptr, ptr %22, align 8
-  %25 = getelementptr inbounds ptr, ptr %24, i64 6
-  %26 = load ptr, ptr %25, align 8
-  call void %26(ptr noundef nonnull align 8 dereferenceable(12) %22, ptr noundef %23)
-  br label %27
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #8
+  br label %31
 
-27:                                               ; preds = %19
-  %28 = load ptr, ptr %6, align 8
-  %29 = getelementptr inbounds %"class.std::unique_ptr", ptr %28, i32 1
-  store ptr %29, ptr %6, align 8
+20:                                               ; preds = %15
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #8
+  %21 = load ptr, ptr %6, align 8, !tbaa !8
+  store ptr %21, ptr %8, align 8, !tbaa !8
+  %22 = load ptr, ptr %8, align 8, !tbaa !8
+  %23 = call noundef ptr @_ZNKSt10unique_ptrIN4llvm24ScheduleHazardRecognizerESt14default_deleteIS1_EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %22) #8
+  %24 = load ptr, ptr %4, align 8, !tbaa !33
+  %25 = load ptr, ptr %23, align 8, !tbaa !25
+  %26 = getelementptr inbounds ptr, ptr %25, i64 6
+  %27 = load ptr, ptr %26, align 8
+  call void %27(ptr noundef nonnull align 8 dereferenceable(12) %23, ptr noundef %24)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #8
+  br label %28
+
+28:                                               ; preds = %20
+  %29 = load ptr, ptr %6, align 8, !tbaa !8
+  %30 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %29, i32 1
+  store ptr %30, ptr %6, align 8, !tbaa !8
   br label %15
 
-30:                                               ; preds = %15
+31:                                               ; preds = %19
   ret void
 }
 
@@ -629,62 +718,64 @@ define dso_local noundef i32 @_ZN4llvm21MultiHazardRecognizer12PreEmitNoopsEPNS_
   %4 = alloca ptr, align 8
   %5 = alloca %class.anon, align 8
   %6 = alloca %class.anon, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  store ptr %1, ptr %4, align 8, !tbaa !23
   %7 = load ptr, ptr %3, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #8
   %8 = getelementptr inbounds nuw %class.anon, ptr %5, i32 0, i32 0
-  %9 = load ptr, ptr %4, align 8
-  store ptr %9, ptr %8, align 8
+  %9 = load ptr, ptr %4, align 8, !tbaa !23
+  store ptr %9, ptr %8, align 8, !tbaa !35
   %10 = getelementptr inbounds nuw %"class.llvm::MultiHazardRecognizer", ptr %7, i32 0, i32 1
   %11 = call noundef ptr @_ZN4llvm25SmallVectorTemplateCommonISt10unique_ptrINS_24ScheduleHazardRecognizerESt14default_deleteIS2_EEvE5beginEv(ptr noundef nonnull align 8 dereferenceable(16) %10)
   %12 = getelementptr inbounds nuw %"class.llvm::MultiHazardRecognizer", ptr %7, i32 0, i32 1
   %13 = call noundef ptr @_ZN4llvm25SmallVectorTemplateCommonISt10unique_ptrINS_24ScheduleHazardRecognizerESt14default_deleteIS2_EEvE3endEv(ptr noundef nonnull align 8 dereferenceable(16) %12)
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %6, ptr align 8 %5, i64 8, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %6, ptr align 8 %5, i64 8, i1 false), !tbaa.struct !37
   %14 = getelementptr inbounds nuw %class.anon, ptr %6, i32 0, i32 0
   %15 = load ptr, ptr %14, align 8
   %16 = call noundef i32 @"_ZSt10accumulateIPSt10unique_ptrIN4llvm24ScheduleHazardRecognizerESt14default_deleteIS2_EEjZNS1_21MultiHazardRecognizer12PreEmitNoopsEPNS1_5SUnitEE3$_0ET0_T_SC_SB_T1_"(ptr noundef %11, ptr noundef %13, i32 noundef 0, ptr %15)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #8
   ret i32 %16
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define internal noundef i32 @"_ZSt10accumulateIPSt10unique_ptrIN4llvm24ScheduleHazardRecognizerESt14default_deleteIS2_EEjZNS1_21MultiHazardRecognizer12PreEmitNoopsEPNS1_5SUnitEE3$_0ET0_T_SC_SB_T1_"(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr %3) #0 {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define internal noundef i32 @"_ZSt10accumulateIPSt10unique_ptrIN4llvm24ScheduleHazardRecognizerESt14default_deleteIS2_EEjZNS1_21MultiHazardRecognizer12PreEmitNoopsEPNS1_5SUnitEE3$_0ET0_T_SC_SB_T1_"(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr %3) #1 {
   %5 = alloca %class.anon, align 8
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
   %9 = getelementptr inbounds nuw %class.anon, ptr %5, i32 0, i32 0
   store ptr %3, ptr %9, align 8
-  store ptr %0, ptr %6, align 8
-  store ptr %1, ptr %7, align 8
-  store i32 %2, ptr %8, align 4
+  store ptr %0, ptr %6, align 8, !tbaa !8
+  store ptr %1, ptr %7, align 8, !tbaa !8
+  store i32 %2, ptr %8, align 4, !tbaa !10
   br label %10
 
 10:                                               ; preds = %18, %4
-  %11 = load ptr, ptr %6, align 8
-  %12 = load ptr, ptr %7, align 8
+  %11 = load ptr, ptr %6, align 8, !tbaa !8
+  %12 = load ptr, ptr %7, align 8, !tbaa !8
   %13 = icmp ne ptr %11, %12
   br i1 %13, label %14, label %21
 
 14:                                               ; preds = %10
-  %15 = load i32, ptr %8, align 4
-  %16 = load ptr, ptr %6, align 8
+  %15 = load i32, ptr %8, align 4, !tbaa !10
+  %16 = load ptr, ptr %6, align 8, !tbaa !8
   %17 = call noundef i32 @"_ZZN4llvm21MultiHazardRecognizer12PreEmitNoopsEPNS_5SUnitEENK3$_0clEjRSt10unique_ptrINS_24ScheduleHazardRecognizerESt14default_deleteIS5_EE"(ptr noundef nonnull align 8 dereferenceable(8) %5, i32 noundef %15, ptr noundef nonnull align 8 dereferenceable(8) %16)
-  store i32 %17, ptr %8, align 4
+  store i32 %17, ptr %8, align 4, !tbaa !10
   br label %18
 
 18:                                               ; preds = %14
-  %19 = load ptr, ptr %6, align 8
-  %20 = getelementptr inbounds %"class.std::unique_ptr", ptr %19, i32 1
-  store ptr %20, ptr %6, align 8
-  br label %10, !llvm.loop !4
+  %19 = load ptr, ptr %6, align 8, !tbaa !8
+  %20 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %19, i32 1
+  store ptr %20, ptr %6, align 8, !tbaa !8
+  br label %10, !llvm.loop !38
 
 21:                                               ; preds = %10
-  %22 = load i32, ptr %8, align 4
+  %22 = load i32, ptr %8, align 4, !tbaa !10
   ret i32 %22
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #1
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef i32 @_ZN4llvm21MultiHazardRecognizer12PreEmitNoopsEPNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %1) unnamed_addr #0 align 2 {
@@ -692,57 +783,59 @@ define dso_local noundef i32 @_ZN4llvm21MultiHazardRecognizer12PreEmitNoopsEPNS_
   %4 = alloca ptr, align 8
   %5 = alloca %class.anon.2, align 8
   %6 = alloca %class.anon.2, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  store ptr %1, ptr %4, align 8, !tbaa !33
   %7 = load ptr, ptr %3, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #8
   %8 = getelementptr inbounds nuw %class.anon.2, ptr %5, i32 0, i32 0
-  %9 = load ptr, ptr %4, align 8
-  store ptr %9, ptr %8, align 8
+  %9 = load ptr, ptr %4, align 8, !tbaa !33
+  store ptr %9, ptr %8, align 8, !tbaa !40
   %10 = getelementptr inbounds nuw %"class.llvm::MultiHazardRecognizer", ptr %7, i32 0, i32 1
   %11 = call noundef ptr @_ZN4llvm25SmallVectorTemplateCommonISt10unique_ptrINS_24ScheduleHazardRecognizerESt14default_deleteIS2_EEvE5beginEv(ptr noundef nonnull align 8 dereferenceable(16) %10)
   %12 = getelementptr inbounds nuw %"class.llvm::MultiHazardRecognizer", ptr %7, i32 0, i32 1
   %13 = call noundef ptr @_ZN4llvm25SmallVectorTemplateCommonISt10unique_ptrINS_24ScheduleHazardRecognizerESt14default_deleteIS2_EEvE3endEv(ptr noundef nonnull align 8 dereferenceable(16) %12)
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %6, ptr align 8 %5, i64 8, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %6, ptr align 8 %5, i64 8, i1 false), !tbaa.struct !42
   %14 = getelementptr inbounds nuw %class.anon.2, ptr %6, i32 0, i32 0
   %15 = load ptr, ptr %14, align 8
   %16 = call noundef i32 @"_ZSt10accumulateIPSt10unique_ptrIN4llvm24ScheduleHazardRecognizerESt14default_deleteIS2_EEjZNS1_21MultiHazardRecognizer12PreEmitNoopsEPNS1_12MachineInstrEE3$_0ET0_T_SC_SB_T1_"(ptr noundef %11, ptr noundef %13, i32 noundef 0, ptr %15)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #8
   ret i32 %16
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define internal noundef i32 @"_ZSt10accumulateIPSt10unique_ptrIN4llvm24ScheduleHazardRecognizerESt14default_deleteIS2_EEjZNS1_21MultiHazardRecognizer12PreEmitNoopsEPNS1_12MachineInstrEE3$_0ET0_T_SC_SB_T1_"(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr %3) #0 {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define internal noundef i32 @"_ZSt10accumulateIPSt10unique_ptrIN4llvm24ScheduleHazardRecognizerESt14default_deleteIS2_EEjZNS1_21MultiHazardRecognizer12PreEmitNoopsEPNS1_12MachineInstrEE3$_0ET0_T_SC_SB_T1_"(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr %3) #1 {
   %5 = alloca %class.anon.2, align 8
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
   %9 = getelementptr inbounds nuw %class.anon.2, ptr %5, i32 0, i32 0
   store ptr %3, ptr %9, align 8
-  store ptr %0, ptr %6, align 8
-  store ptr %1, ptr %7, align 8
-  store i32 %2, ptr %8, align 4
+  store ptr %0, ptr %6, align 8, !tbaa !8
+  store ptr %1, ptr %7, align 8, !tbaa !8
+  store i32 %2, ptr %8, align 4, !tbaa !10
   br label %10
 
 10:                                               ; preds = %18, %4
-  %11 = load ptr, ptr %6, align 8
-  %12 = load ptr, ptr %7, align 8
+  %11 = load ptr, ptr %6, align 8, !tbaa !8
+  %12 = load ptr, ptr %7, align 8, !tbaa !8
   %13 = icmp ne ptr %11, %12
   br i1 %13, label %14, label %21
 
 14:                                               ; preds = %10
-  %15 = load i32, ptr %8, align 4
-  %16 = load ptr, ptr %6, align 8
+  %15 = load i32, ptr %8, align 4, !tbaa !10
+  %16 = load ptr, ptr %6, align 8, !tbaa !8
   %17 = call noundef i32 @"_ZZN4llvm21MultiHazardRecognizer12PreEmitNoopsEPNS_12MachineInstrEENK3$_0clEjRSt10unique_ptrINS_24ScheduleHazardRecognizerESt14default_deleteIS5_EE"(ptr noundef nonnull align 8 dereferenceable(8) %5, i32 noundef %15, ptr noundef nonnull align 8 dereferenceable(8) %16)
-  store i32 %17, ptr %8, align 4
+  store i32 %17, ptr %8, align 4, !tbaa !10
   br label %18
 
 18:                                               ; preds = %14
-  %19 = load ptr, ptr %6, align 8
-  %20 = getelementptr inbounds %"class.std::unique_ptr", ptr %19, i32 1
-  store ptr %20, ptr %6, align 8
-  br label %10, !llvm.loop !6
+  %19 = load ptr, ptr %6, align 8, !tbaa !8
+  %20 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %19, i32 1
+  store ptr %20, ptr %6, align 8, !tbaa !8
+  br label %10, !llvm.loop !43
 
 21:                                               ; preds = %10
-  %22 = load i32, ptr %8, align 4
+  %22 = load i32, ptr %8, align 4, !tbaa !10
   ret i32 %22
 }
 
@@ -752,17 +845,19 @@ define dso_local noundef zeroext i1 @_ZN4llvm21MultiHazardRecognizer19ShouldPref
   %4 = alloca ptr, align 8
   %5 = alloca %class.anon.3, align 8
   %6 = alloca %class.anon.3, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  store ptr %1, ptr %4, align 8, !tbaa !23
   %7 = load ptr, ptr %3, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #8
   %8 = getelementptr inbounds nuw %class.anon.3, ptr %5, i32 0, i32 0
-  %9 = load ptr, ptr %4, align 8
-  store ptr %9, ptr %8, align 8
+  %9 = load ptr, ptr %4, align 8, !tbaa !23
+  store ptr %9, ptr %8, align 8, !tbaa !44
   %10 = getelementptr inbounds nuw %"class.llvm::MultiHazardRecognizer", ptr %7, i32 0, i32 1
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %6, ptr align 8 %5, i64 8, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %6, ptr align 8 %5, i64 8, i1 false), !tbaa.struct !37
   %11 = getelementptr inbounds nuw %class.anon.3, ptr %6, i32 0, i32 0
   %12 = load ptr, ptr %11, align 8
   %13 = call noundef zeroext i1 @"_ZN4llvm6any_ofIRNS_11SmallVectorISt10unique_ptrINS_24ScheduleHazardRecognizerESt14default_deleteIS3_EELj4EEEZNS_21MultiHazardRecognizer19ShouldPreferAnotherEPNS_5SUnitEE3$_0EEbOT_T0_"(ptr noundef nonnull align 8 dereferenceable(48) %10, ptr %12)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #8
   ret i1 %13
 }
 
@@ -773,12 +868,12 @@ define internal noundef zeroext i1 @"_ZN4llvm6any_ofIRNS_11SmallVectorISt10uniqu
   %5 = alloca %class.anon.3, align 8
   %6 = getelementptr inbounds nuw %class.anon.3, ptr %3, i32 0, i32 0
   store ptr %1, ptr %6, align 8
-  store ptr %0, ptr %4, align 8
-  %7 = load ptr, ptr %4, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !21
+  %7 = load ptr, ptr %4, align 8, !tbaa !21
   %8 = call noundef ptr @_ZN4llvm9adl_beginIRNS_11SmallVectorISt10unique_ptrINS_24ScheduleHazardRecognizerESt14default_deleteIS3_EELj4EEEEEDTclsr10adl_detailE10begin_implclsr3stdE7forwardIT_Efp_EEEOS9_(ptr noundef nonnull align 8 dereferenceable(48) %7)
-  %9 = load ptr, ptr %4, align 8
+  %9 = load ptr, ptr %4, align 8, !tbaa !21
   %10 = call noundef ptr @_ZN4llvm7adl_endIRNS_11SmallVectorISt10unique_ptrINS_24ScheduleHazardRecognizerESt14default_deleteIS3_EELj4EEEEEDTclsr10adl_detailE8end_implclsr3stdE7forwardIT_Efp_EEEOS9_(ptr noundef nonnull align 8 dereferenceable(48) %9)
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %5, ptr align 8 %3, i64 8, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %5, ptr align 8 %3, i64 8, i1 false), !tbaa.struct !37
   %11 = getelementptr inbounds nuw %class.anon.3, ptr %5, i32 0, i32 0
   %12 = load ptr, ptr %11, align 8
   %13 = call noundef zeroext i1 @"_ZSt6any_ofIPSt10unique_ptrIN4llvm24ScheduleHazardRecognizerESt14default_deleteIS2_EEZNS1_21MultiHazardRecognizer19ShouldPreferAnotherEPNS1_5SUnitEE3$_0EbT_SB_T0_"(ptr noundef %8, ptr noundef %10, ptr %12)
@@ -792,42 +887,53 @@ define dso_local void @_ZN4llvm21MultiHazardRecognizer12AdvanceCycleEv(ptr nound
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !3
   %7 = load ptr, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #8
   %8 = getelementptr inbounds nuw %"class.llvm::MultiHazardRecognizer", ptr %7, i32 0, i32 1
-  store ptr %8, ptr %3, align 8
-  %9 = load ptr, ptr %3, align 8
+  store ptr %8, ptr %3, align 8, !tbaa !21
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #8
+  %9 = load ptr, ptr %3, align 8, !tbaa !21
   %10 = call noundef ptr @_ZN4llvm25SmallVectorTemplateCommonISt10unique_ptrINS_24ScheduleHazardRecognizerESt14default_deleteIS2_EEvE5beginEv(ptr noundef nonnull align 8 dereferenceable(16) %9)
-  store ptr %10, ptr %4, align 8
-  %11 = load ptr, ptr %3, align 8
+  store ptr %10, ptr %4, align 8, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #8
+  %11 = load ptr, ptr %3, align 8, !tbaa !21
   %12 = call noundef ptr @_ZN4llvm25SmallVectorTemplateCommonISt10unique_ptrINS_24ScheduleHazardRecognizerESt14default_deleteIS2_EEvE3endEv(ptr noundef nonnull align 8 dereferenceable(16) %11)
-  store ptr %12, ptr %5, align 8
+  store ptr %12, ptr %5, align 8, !tbaa !8
   br label %13
 
-13:                                               ; preds = %24, %1
-  %14 = load ptr, ptr %4, align 8
-  %15 = load ptr, ptr %5, align 8
+13:                                               ; preds = %25, %1
+  %14 = load ptr, ptr %4, align 8, !tbaa !8
+  %15 = load ptr, ptr %5, align 8, !tbaa !8
   %16 = icmp ne ptr %14, %15
-  br i1 %16, label %17, label %27
+  br i1 %16, label %18, label %17
 
 17:                                               ; preds = %13
-  %18 = load ptr, ptr %4, align 8
-  store ptr %18, ptr %6, align 8
-  %19 = load ptr, ptr %6, align 8
-  %20 = call noundef ptr @_ZNKSt10unique_ptrIN4llvm24ScheduleHazardRecognizerESt14default_deleteIS1_EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %19) #5
-  %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds ptr, ptr %21, i64 10
-  %23 = load ptr, ptr %22, align 8
-  call void %23(ptr noundef nonnull align 8 dereferenceable(12) %20)
-  br label %24
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #8
+  br label %28
 
-24:                                               ; preds = %17
-  %25 = load ptr, ptr %4, align 8
-  %26 = getelementptr inbounds %"class.std::unique_ptr", ptr %25, i32 1
-  store ptr %26, ptr %4, align 8
+18:                                               ; preds = %13
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #8
+  %19 = load ptr, ptr %4, align 8, !tbaa !8
+  store ptr %19, ptr %6, align 8, !tbaa !8
+  %20 = load ptr, ptr %6, align 8, !tbaa !8
+  %21 = call noundef ptr @_ZNKSt10unique_ptrIN4llvm24ScheduleHazardRecognizerESt14default_deleteIS1_EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %20) #8
+  %22 = load ptr, ptr %21, align 8, !tbaa !25
+  %23 = getelementptr inbounds ptr, ptr %22, i64 10
+  %24 = load ptr, ptr %23, align 8
+  call void %24(ptr noundef nonnull align 8 dereferenceable(12) %21)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #8
+  br label %25
+
+25:                                               ; preds = %18
+  %26 = load ptr, ptr %4, align 8, !tbaa !8
+  %27 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %26, i32 1
+  store ptr %27, ptr %4, align 8, !tbaa !8
   br label %13
 
-27:                                               ; preds = %13
+28:                                               ; preds = %17
   ret void
 }
 
@@ -838,42 +944,53 @@ define dso_local void @_ZN4llvm21MultiHazardRecognizer11RecedeCycleEv(ptr nounde
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !3
   %7 = load ptr, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #8
   %8 = getelementptr inbounds nuw %"class.llvm::MultiHazardRecognizer", ptr %7, i32 0, i32 1
-  store ptr %8, ptr %3, align 8
-  %9 = load ptr, ptr %3, align 8
+  store ptr %8, ptr %3, align 8, !tbaa !21
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #8
+  %9 = load ptr, ptr %3, align 8, !tbaa !21
   %10 = call noundef ptr @_ZN4llvm25SmallVectorTemplateCommonISt10unique_ptrINS_24ScheduleHazardRecognizerESt14default_deleteIS2_EEvE5beginEv(ptr noundef nonnull align 8 dereferenceable(16) %9)
-  store ptr %10, ptr %4, align 8
-  %11 = load ptr, ptr %3, align 8
+  store ptr %10, ptr %4, align 8, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #8
+  %11 = load ptr, ptr %3, align 8, !tbaa !21
   %12 = call noundef ptr @_ZN4llvm25SmallVectorTemplateCommonISt10unique_ptrINS_24ScheduleHazardRecognizerESt14default_deleteIS2_EEvE3endEv(ptr noundef nonnull align 8 dereferenceable(16) %11)
-  store ptr %12, ptr %5, align 8
+  store ptr %12, ptr %5, align 8, !tbaa !8
   br label %13
 
-13:                                               ; preds = %24, %1
-  %14 = load ptr, ptr %4, align 8
-  %15 = load ptr, ptr %5, align 8
+13:                                               ; preds = %25, %1
+  %14 = load ptr, ptr %4, align 8, !tbaa !8
+  %15 = load ptr, ptr %5, align 8, !tbaa !8
   %16 = icmp ne ptr %14, %15
-  br i1 %16, label %17, label %27
+  br i1 %16, label %18, label %17
 
 17:                                               ; preds = %13
-  %18 = load ptr, ptr %4, align 8
-  store ptr %18, ptr %6, align 8
-  %19 = load ptr, ptr %6, align 8
-  %20 = call noundef ptr @_ZNKSt10unique_ptrIN4llvm24ScheduleHazardRecognizerESt14default_deleteIS1_EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %19) #5
-  %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds ptr, ptr %21, i64 11
-  %23 = load ptr, ptr %22, align 8
-  call void %23(ptr noundef nonnull align 8 dereferenceable(12) %20)
-  br label %24
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #8
+  br label %28
 
-24:                                               ; preds = %17
-  %25 = load ptr, ptr %4, align 8
-  %26 = getelementptr inbounds %"class.std::unique_ptr", ptr %25, i32 1
-  store ptr %26, ptr %4, align 8
+18:                                               ; preds = %13
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #8
+  %19 = load ptr, ptr %4, align 8, !tbaa !8
+  store ptr %19, ptr %6, align 8, !tbaa !8
+  %20 = load ptr, ptr %6, align 8, !tbaa !8
+  %21 = call noundef ptr @_ZNKSt10unique_ptrIN4llvm24ScheduleHazardRecognizerESt14default_deleteIS1_EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %20) #8
+  %22 = load ptr, ptr %21, align 8, !tbaa !25
+  %23 = getelementptr inbounds ptr, ptr %22, i64 11
+  %24 = load ptr, ptr %23, align 8
+  call void %24(ptr noundef nonnull align 8 dereferenceable(12) %21)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #8
+  br label %25
+
+25:                                               ; preds = %18
+  %26 = load ptr, ptr %4, align 8, !tbaa !8
+  %27 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %26, i32 1
+  store ptr %27, ptr %4, align 8, !tbaa !8
   br label %13
 
-27:                                               ; preds = %13
+28:                                               ; preds = %17
   ret void
 }
 
@@ -884,64 +1001,75 @@ define dso_local void @_ZN4llvm21MultiHazardRecognizer8EmitNoopEv(ptr noundef no
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !3
   %7 = load ptr, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #8
   %8 = getelementptr inbounds nuw %"class.llvm::MultiHazardRecognizer", ptr %7, i32 0, i32 1
-  store ptr %8, ptr %3, align 8
-  %9 = load ptr, ptr %3, align 8
+  store ptr %8, ptr %3, align 8, !tbaa !21
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #8
+  %9 = load ptr, ptr %3, align 8, !tbaa !21
   %10 = call noundef ptr @_ZN4llvm25SmallVectorTemplateCommonISt10unique_ptrINS_24ScheduleHazardRecognizerESt14default_deleteIS2_EEvE5beginEv(ptr noundef nonnull align 8 dereferenceable(16) %9)
-  store ptr %10, ptr %4, align 8
-  %11 = load ptr, ptr %3, align 8
+  store ptr %10, ptr %4, align 8, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #8
+  %11 = load ptr, ptr %3, align 8, !tbaa !21
   %12 = call noundef ptr @_ZN4llvm25SmallVectorTemplateCommonISt10unique_ptrINS_24ScheduleHazardRecognizerESt14default_deleteIS2_EEvE3endEv(ptr noundef nonnull align 8 dereferenceable(16) %11)
-  store ptr %12, ptr %5, align 8
+  store ptr %12, ptr %5, align 8, !tbaa !8
   br label %13
 
-13:                                               ; preds = %24, %1
-  %14 = load ptr, ptr %4, align 8
-  %15 = load ptr, ptr %5, align 8
+13:                                               ; preds = %25, %1
+  %14 = load ptr, ptr %4, align 8, !tbaa !8
+  %15 = load ptr, ptr %5, align 8, !tbaa !8
   %16 = icmp ne ptr %14, %15
-  br i1 %16, label %17, label %27
+  br i1 %16, label %18, label %17
 
 17:                                               ; preds = %13
-  %18 = load ptr, ptr %4, align 8
-  store ptr %18, ptr %6, align 8
-  %19 = load ptr, ptr %6, align 8
-  %20 = call noundef ptr @_ZNKSt10unique_ptrIN4llvm24ScheduleHazardRecognizerESt14default_deleteIS1_EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %19) #5
-  %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds ptr, ptr %21, i64 12
-  %23 = load ptr, ptr %22, align 8
-  call void %23(ptr noundef nonnull align 8 dereferenceable(12) %20)
-  br label %24
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #8
+  br label %28
 
-24:                                               ; preds = %17
-  %25 = load ptr, ptr %4, align 8
-  %26 = getelementptr inbounds %"class.std::unique_ptr", ptr %25, i32 1
-  store ptr %26, ptr %4, align 8
+18:                                               ; preds = %13
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #8
+  %19 = load ptr, ptr %4, align 8, !tbaa !8
+  store ptr %19, ptr %6, align 8, !tbaa !8
+  %20 = load ptr, ptr %6, align 8, !tbaa !8
+  %21 = call noundef ptr @_ZNKSt10unique_ptrIN4llvm24ScheduleHazardRecognizerESt14default_deleteIS1_EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %20) #8
+  %22 = load ptr, ptr %21, align 8, !tbaa !25
+  %23 = getelementptr inbounds ptr, ptr %22, i64 12
+  %24 = load ptr, ptr %23, align 8
+  call void %24(ptr noundef nonnull align 8 dereferenceable(12) %21)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #8
+  br label %25
+
+25:                                               ; preds = %18
+  %26 = load ptr, ptr %4, align 8, !tbaa !8
+  %27 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %26, i32 1
+  store ptr %27, ptr %4, align 8, !tbaa !8
   br label %13
 
-27:                                               ; preds = %13
+28:                                               ; preds = %17
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN4llvm21MultiHazardRecognizerD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #0 comdat align 2 {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN4llvm21MultiHazardRecognizerD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #1 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !3
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 112) ({ [16 x ptr] }, ptr @_ZTVN4llvm21MultiHazardRecognizerE, i32 0, i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds inrange(-16, 112) ({ [16 x ptr] }, ptr @_ZTVN4llvm21MultiHazardRecognizerE, i32 0, i32 0, i32 2), ptr %3, align 8, !tbaa !25
   %4 = getelementptr inbounds nuw %"class.llvm::MultiHazardRecognizer", ptr %3, i32 0, i32 1
-  call void @_ZN4llvm11SmallVectorISt10unique_ptrINS_24ScheduleHazardRecognizerESt14default_deleteIS2_EELj4EED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %4) #5
-  call void @_ZN4llvm24ScheduleHazardRecognizerD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %3) #5
+  call void @_ZN4llvm11SmallVectorISt10unique_ptrINS_24ScheduleHazardRecognizerESt14default_deleteIS2_EELj4EED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %4) #8
+  call void @_ZN4llvm24ScheduleHazardRecognizerD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %3) #8
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN4llvm21MultiHazardRecognizerD0Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #0 comdat align 2 {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN4llvm21MultiHazardRecognizerD0Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #1 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !3
   %3 = load ptr, ptr %2, align 8
-  call void @_ZN4llvm21MultiHazardRecognizerD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %3) #5
-  call void @_ZdlPvm(ptr noundef %3, i64 noundef 64) #6
+  call void @_ZN4llvm21MultiHazardRecognizerD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %3) #8
+  call void @_ZdlPvm(ptr noundef %3, i64 noundef 64) #9
   ret void
 }
 
@@ -950,71 +1078,76 @@ define linkonce_odr hidden void @_ZN4llvm24ScheduleHazardRecognizer9EmitNoopsEj(
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
-  store ptr %0, ptr %3, align 8
-  store i32 %1, ptr %4, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !16
+  store i32 %1, ptr %4, align 4, !tbaa !10
   %6 = load ptr, ptr %3, align 8
-  store i32 0, ptr %5, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #8
+  store i32 0, ptr %5, align 4, !tbaa !10
   br label %7
 
-7:                                                ; preds = %15, %2
-  %8 = load i32, ptr %5, align 4
-  %9 = load i32, ptr %4, align 4
+7:                                                ; preds = %16, %2
+  %8 = load i32, ptr %5, align 4, !tbaa !10
+  %9 = load i32, ptr %4, align 4, !tbaa !10
   %10 = icmp ult i32 %8, %9
-  br i1 %10, label %11, label %18
+  br i1 %10, label %12, label %11
 
 11:                                               ; preds = %7
-  %12 = load ptr, ptr %6, align 8
-  %13 = getelementptr inbounds ptr, ptr %12, i64 12
-  %14 = load ptr, ptr %13, align 8
-  call void %14(ptr noundef nonnull align 8 dereferenceable(12) %6)
-  br label %15
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #8
+  br label %19
 
-15:                                               ; preds = %11
-  %16 = load i32, ptr %5, align 4
-  %17 = add i32 %16, 1
-  store i32 %17, ptr %5, align 4
-  br label %7, !llvm.loop !7
+12:                                               ; preds = %7
+  %13 = load ptr, ptr %6, align 8, !tbaa !25
+  %14 = getelementptr inbounds ptr, ptr %13, i64 12
+  %15 = load ptr, ptr %14, align 8
+  call void %15(ptr noundef nonnull align 8 dereferenceable(12) %6)
+  br label %16
 
-18:                                               ; preds = %7
+16:                                               ; preds = %12
+  %17 = load i32, ptr %5, align 4, !tbaa !10
+  %18 = add i32 %17, 1
+  store i32 %18, ptr %5, align 4, !tbaa !10
+  br label %7, !llvm.loop !46
+
+19:                                               ; preds = %11
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvm11SmallVectorISt10unique_ptrINS_24ScheduleHazardRecognizerESt14default_deleteIS2_EELj4EED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !21
   %3 = load ptr, ptr %2, align 8
   %4 = call noundef ptr @_ZN4llvm25SmallVectorTemplateCommonISt10unique_ptrINS_24ScheduleHazardRecognizerESt14default_deleteIS2_EEvE5beginEv(ptr noundef nonnull align 8 dereferenceable(16) %3)
   %5 = call noundef ptr @_ZN4llvm25SmallVectorTemplateCommonISt10unique_ptrINS_24ScheduleHazardRecognizerESt14default_deleteIS2_EEvE3endEv(ptr noundef nonnull align 8 dereferenceable(16) %3)
   call void @_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_24ScheduleHazardRecognizerESt14default_deleteIS2_EELb0EE13destroy_rangeEPS5_S7_(ptr noundef %4, ptr noundef %5)
-  call void @_ZN4llvm15SmallVectorImplISt10unique_ptrINS_24ScheduleHazardRecognizerESt14default_deleteIS2_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #5
+  call void @_ZN4llvm15SmallVectorImplISt10unique_ptrINS_24ScheduleHazardRecognizerESt14default_deleteIS2_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #8
   ret void
 }
 
 ; Function Attrs: nounwind
-declare void @_ZN4llvm24ScheduleHazardRecognizerD2Ev(ptr noundef nonnull align 8 dereferenceable(12)) unnamed_addr #2
+declare void @_ZN4llvm24ScheduleHazardRecognizerD2Ev(ptr noundef nonnull align 8 dereferenceable(12)) unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_24ScheduleHazardRecognizerESt14default_deleteIS2_EELb0EE13destroy_rangeEPS5_S7_(ptr noundef %0, ptr noundef %1) #0 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !8
+  store ptr %1, ptr %4, align 8, !tbaa !8
   br label %5
 
 5:                                                ; preds = %9, %2
-  %6 = load ptr, ptr %3, align 8
-  %7 = load ptr, ptr %4, align 8
+  %6 = load ptr, ptr %3, align 8, !tbaa !8
+  %7 = load ptr, ptr %4, align 8, !tbaa !8
   %8 = icmp ne ptr %6, %7
   br i1 %8, label %9, label %13
 
 9:                                                ; preds = %5
-  %10 = load ptr, ptr %4, align 8
+  %10 = load ptr, ptr %4, align 8, !tbaa !8
   %11 = getelementptr inbounds %"class.std::unique_ptr", ptr %10, i32 -1
-  store ptr %11, ptr %4, align 8
-  %12 = load ptr, ptr %4, align 8
-  call void @_ZNSt10unique_ptrIN4llvm24ScheduleHazardRecognizerESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %12) #5
-  br label %5, !llvm.loop !8
+  store ptr %11, ptr %4, align 8, !tbaa !8
+  %12 = load ptr, ptr %4, align 8, !tbaa !8
+  call void @_ZNSt10unique_ptrIN4llvm24ScheduleHazardRecognizerESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %12) #8
+  br label %5, !llvm.loop !47
 
 13:                                               ; preds = %5
   ret void
@@ -1023,14 +1156,14 @@ define linkonce_odr hidden void @_ZN4llvm23SmallVectorTemplateBaseISt10unique_pt
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvm15SmallVectorImplISt10unique_ptrINS_24ScheduleHazardRecognizerESt14default_deleteIS2_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !48
   %3 = load ptr, ptr %2, align 8
   %4 = call noundef zeroext i1 @_ZNK4llvm25SmallVectorTemplateCommonISt10unique_ptrINS_24ScheduleHazardRecognizerESt14default_deleteIS2_EEvE7isSmallEv(ptr noundef nonnull align 8 dereferenceable(16) %3)
   br i1 %4, label %7, label %5
 
 5:                                                ; preds = %1
   %6 = call noundef ptr @_ZN4llvm25SmallVectorTemplateCommonISt10unique_ptrINS_24ScheduleHazardRecognizerESt14default_deleteIS2_EEvE5beginEv(ptr noundef nonnull align 8 dereferenceable(16) %3)
-  call void @free(ptr noundef %6) #5
+  call void @free(ptr noundef %6) #8
   br label %7
 
 7:                                                ; preds = %5, %1
@@ -1041,46 +1174,48 @@ define linkonce_odr hidden void @_ZN4llvm15SmallVectorImplISt10unique_ptrINS_24S
 define linkonce_odr hidden void @_ZNSt10unique_ptrIN4llvm24ScheduleHazardRecognizerESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #0 comdat align 2 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !8
   %4 = load ptr, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #8
   %5 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %4, i32 0, i32 0
-  %6 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt15__uniq_ptr_implIN4llvm24ScheduleHazardRecognizerESt14default_deleteIS1_EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(8) %5) #5
-  store ptr %6, ptr %3, align 8
-  %7 = load ptr, ptr %3, align 8
-  %8 = load ptr, ptr %7, align 8
+  %6 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt15__uniq_ptr_implIN4llvm24ScheduleHazardRecognizerESt14default_deleteIS1_EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(8) %5) #8
+  store ptr %6, ptr %3, align 8, !tbaa !50
+  %7 = load ptr, ptr %3, align 8, !tbaa !50
+  %8 = load ptr, ptr %7, align 8, !tbaa !16
   %9 = icmp ne ptr %8, null
   br i1 %9, label %10, label %14
 
 10:                                               ; preds = %1
-  %11 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt10unique_ptrIN4llvm24ScheduleHazardRecognizerESt14default_deleteIS1_EE11get_deleterEv(ptr noundef nonnull align 8 dereferenceable(8) %4) #5
-  %12 = load ptr, ptr %3, align 8
-  %13 = load ptr, ptr %12, align 8
+  %11 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt10unique_ptrIN4llvm24ScheduleHazardRecognizerESt14default_deleteIS1_EE11get_deleterEv(ptr noundef nonnull align 8 dereferenceable(8) %4) #8
+  %12 = load ptr, ptr %3, align 8, !tbaa !50
+  %13 = load ptr, ptr %12, align 8, !tbaa !16
   call void @_ZNKSt14default_deleteIN4llvm24ScheduleHazardRecognizerEEclEPS1_(ptr noundef nonnull align 1 dereferenceable(1) %11, ptr noundef %13)
   br label %14
 
 14:                                               ; preds = %10, %1
-  %15 = load ptr, ptr %3, align 8
-  store ptr null, ptr %15, align 8
+  %15 = load ptr, ptr %3, align 8, !tbaa !50
+  store ptr null, ptr %15, align 8, !tbaa !16
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #8
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt15__uniq_ptr_implIN4llvm24ScheduleHazardRecognizerESt14default_deleteIS1_EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !52
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw %"class.std::__uniq_ptr_impl", ptr %3, i32 0, i32 0
-  %5 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt3getILm0EJPN4llvm24ScheduleHazardRecognizerESt14default_deleteIS1_EEERNSt13tuple_elementIXT_ESt5tupleIJDpT0_EEE4typeERS9_(ptr noundef nonnull align 8 dereferenceable(8) %4) #5
+  %5 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt3getILm0EJPN4llvm24ScheduleHazardRecognizerESt14default_deleteIS1_EEERNSt13tuple_elementIXT_ESt5tupleIJDpT0_EEE4typeERS9_(ptr noundef nonnull align 8 dereferenceable(8) %4) #8
   ret ptr %5
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt10unique_ptrIN4llvm24ScheduleHazardRecognizerESt14default_deleteIS1_EE11get_deleterEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %3, i32 0, i32 0
-  %5 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt15__uniq_ptr_implIN4llvm24ScheduleHazardRecognizerESt14default_deleteIS1_EE10_M_deleterEv(ptr noundef nonnull align 8 dereferenceable(8) %4) #5
+  %5 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt15__uniq_ptr_implIN4llvm24ScheduleHazardRecognizerESt14default_deleteIS1_EE10_M_deleterEv(ptr noundef nonnull align 8 dereferenceable(8) %4) #8
   ret ptr %5
 }
 
@@ -1088,17 +1223,17 @@ define linkonce_odr hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt
 define linkonce_odr hidden void @_ZNKSt14default_deleteIN4llvm24ScheduleHazardRecognizerEEclEPS1_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1) #0 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  %5 = load ptr, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !54
+  store ptr %1, ptr %4, align 8, !tbaa !16
+  %5 = load ptr, ptr %4, align 8, !tbaa !16
   %6 = icmp eq ptr %5, null
   br i1 %6, label %11, label %7
 
 7:                                                ; preds = %2
-  %8 = load ptr, ptr %5, align 8
+  %8 = load ptr, ptr %5, align 8, !tbaa !25
   %9 = getelementptr inbounds ptr, ptr %8, i64 1
   %10 = load ptr, ptr %9, align 8
-  call void %10(ptr noundef nonnull align 8 dereferenceable(12) %5) #5
+  call void %10(ptr noundef nonnull align 8 dereferenceable(12) %5) #8
   br label %11
 
 11:                                               ; preds = %7, %2
@@ -1108,35 +1243,35 @@ define linkonce_odr hidden void @_ZNKSt14default_deleteIN4llvm24ScheduleHazardRe
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZSt3getILm0EJPN4llvm24ScheduleHazardRecognizerESt14default_deleteIS1_EEERNSt13tuple_elementIXT_ESt5tupleIJDpT0_EEE4typeERS9_(ptr noundef nonnull align 8 dereferenceable(8) %0) #0 comdat {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  %4 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt12__get_helperILm0EPN4llvm24ScheduleHazardRecognizerEJSt14default_deleteIS1_EEERT0_RSt11_Tuple_implIXT_EJS5_DpT1_EE(ptr noundef nonnull align 8 dereferenceable(8) %3) #5
+  store ptr %0, ptr %2, align 8, !tbaa !56
+  %3 = load ptr, ptr %2, align 8, !tbaa !56
+  %4 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt12__get_helperILm0EPN4llvm24ScheduleHazardRecognizerEJSt14default_deleteIS1_EEERT0_RSt11_Tuple_implIXT_EJS5_DpT1_EE(ptr noundef nonnull align 8 dereferenceable(8) %3) #8
   ret ptr %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZSt12__get_helperILm0EPN4llvm24ScheduleHazardRecognizerEJSt14default_deleteIS1_EEERT0_RSt11_Tuple_implIXT_EJS5_DpT1_EE(ptr noundef nonnull align 8 dereferenceable(8) %0) #0 comdat {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  %4 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt11_Tuple_implILm0EJPN4llvm24ScheduleHazardRecognizerESt14default_deleteIS1_EEE7_M_headERS5_(ptr noundef nonnull align 8 dereferenceable(8) %3) #5
+  store ptr %0, ptr %2, align 8, !tbaa !58
+  %3 = load ptr, ptr %2, align 8, !tbaa !58
+  %4 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt11_Tuple_implILm0EJPN4llvm24ScheduleHazardRecognizerESt14default_deleteIS1_EEE7_M_headERS5_(ptr noundef nonnull align 8 dereferenceable(8) %3) #8
   ret ptr %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt11_Tuple_implILm0EJPN4llvm24ScheduleHazardRecognizerESt14default_deleteIS1_EEE7_M_headERS5_(ptr noundef nonnull align 8 dereferenceable(8) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  %4 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt10_Head_baseILm0EPN4llvm24ScheduleHazardRecognizerELb0EE7_M_headERS3_(ptr noundef nonnull align 8 dereferenceable(8) %3) #5
+  store ptr %0, ptr %2, align 8, !tbaa !58
+  %3 = load ptr, ptr %2, align 8, !tbaa !58
+  %4 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt10_Head_baseILm0EPN4llvm24ScheduleHazardRecognizerELb0EE7_M_headERS3_(ptr noundef nonnull align 8 dereferenceable(8) %3) #8
   ret ptr %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt10_Head_baseILm0EPN4llvm24ScheduleHazardRecognizerELb0EE7_M_headERS3_(ptr noundef nonnull align 8 dereferenceable(8) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !60
+  %3 = load ptr, ptr %2, align 8, !tbaa !60
   %4 = getelementptr inbounds nuw %"struct.std::_Head_base.1", ptr %3, i32 0, i32 0
   ret ptr %4
 }
@@ -1144,128 +1279,128 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt15__uniq_ptr_implIN4llvm24ScheduleHazardRecognizerESt14default_deleteIS1_EE10_M_deleterEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !52
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw %"class.std::__uniq_ptr_impl", ptr %3, i32 0, i32 0
-  %5 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZSt3getILm1EJPN4llvm24ScheduleHazardRecognizerESt14default_deleteIS1_EEERNSt13tuple_elementIXT_ESt5tupleIJDpT0_EEE4typeERS9_(ptr noundef nonnull align 8 dereferenceable(8) %4) #5
+  %5 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZSt3getILm1EJPN4llvm24ScheduleHazardRecognizerESt14default_deleteIS1_EEERNSt13tuple_elementIXT_ESt5tupleIJDpT0_EEE4typeERS9_(ptr noundef nonnull align 8 dereferenceable(8) %4) #8
   ret ptr %5
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef nonnull align 1 dereferenceable(1) ptr @_ZSt3getILm1EJPN4llvm24ScheduleHazardRecognizerESt14default_deleteIS1_EEERNSt13tuple_elementIXT_ESt5tupleIJDpT0_EEE4typeERS9_(ptr noundef nonnull align 8 dereferenceable(8) %0) #0 comdat {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  %4 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZSt12__get_helperILm1ESt14default_deleteIN4llvm24ScheduleHazardRecognizerEEJEERT0_RSt11_Tuple_implIXT_EJS4_DpT1_EE(ptr noundef nonnull align 1 dereferenceable(1) %3) #5
+  store ptr %0, ptr %2, align 8, !tbaa !56
+  %3 = load ptr, ptr %2, align 8, !tbaa !56
+  %4 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZSt12__get_helperILm1ESt14default_deleteIN4llvm24ScheduleHazardRecognizerEEJEERT0_RSt11_Tuple_implIXT_EJS4_DpT1_EE(ptr noundef nonnull align 1 dereferenceable(1) %3) #8
   ret ptr %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef nonnull align 1 dereferenceable(1) ptr @_ZSt12__get_helperILm1ESt14default_deleteIN4llvm24ScheduleHazardRecognizerEEJEERT0_RSt11_Tuple_implIXT_EJS4_DpT1_EE(ptr noundef nonnull align 1 dereferenceable(1) %0) #0 comdat {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  %4 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt11_Tuple_implILm1EJSt14default_deleteIN4llvm24ScheduleHazardRecognizerEEEE7_M_headERS4_(ptr noundef nonnull align 1 dereferenceable(1) %3) #5
+  store ptr %0, ptr %2, align 8, !tbaa !62
+  %3 = load ptr, ptr %2, align 8, !tbaa !62
+  %4 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt11_Tuple_implILm1EJSt14default_deleteIN4llvm24ScheduleHazardRecognizerEEEE7_M_headERS4_(ptr noundef nonnull align 1 dereferenceable(1) %3) #8
   ret ptr %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt11_Tuple_implILm1EJSt14default_deleteIN4llvm24ScheduleHazardRecognizerEEEE7_M_headERS4_(ptr noundef nonnull align 1 dereferenceable(1) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  %4 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt10_Head_baseILm1ESt14default_deleteIN4llvm24ScheduleHazardRecognizerEELb1EE7_M_headERS4_(ptr noundef nonnull align 1 dereferenceable(1) %3) #5
+  store ptr %0, ptr %2, align 8, !tbaa !62
+  %3 = load ptr, ptr %2, align 8, !tbaa !62
+  %4 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt10_Head_baseILm1ESt14default_deleteIN4llvm24ScheduleHazardRecognizerEELb1EE7_M_headERS4_(ptr noundef nonnull align 1 dereferenceable(1) %3) #8
   ret ptr %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt10_Head_baseILm1ESt14default_deleteIN4llvm24ScheduleHazardRecognizerEELb1EE7_M_headERS4_(ptr noundef nonnull align 1 dereferenceable(1) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !64
+  %3 = load ptr, ptr %2, align 8, !tbaa !64
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK4llvm25SmallVectorTemplateCommonISt10unique_ptrINS_24ScheduleHazardRecognizerESt14default_deleteIS2_EEvE7isSmallEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !29
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw %"class.llvm::SmallVectorBase", ptr %3, i32 0, i32 0
-  %5 = load ptr, ptr %4, align 8
+  %5 = load ptr, ptr %4, align 8, !tbaa !31
   %6 = call noundef ptr @_ZNK4llvm25SmallVectorTemplateCommonISt10unique_ptrINS_24ScheduleHazardRecognizerESt14default_deleteIS2_EEvE10getFirstElEv(ptr noundef nonnull align 8 dereferenceable(16) %3)
   %7 = icmp eq ptr %5, %6
   ret i1 %7
 }
 
 ; Function Attrs: nounwind
-declare void @free(ptr noundef) #2
+declare void @free(ptr noundef) #4
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZNK4llvm25SmallVectorTemplateCommonISt10unique_ptrINS_24ScheduleHazardRecognizerESt14default_deleteIS2_EEvE10getFirstElEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !29
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
   ret ptr %4
 }
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPvm(ptr noundef, i64 noundef) #3
+declare void @_ZdlPvm(ptr noundef, i64 noundef) #5
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZNKSt10unique_ptrIN4llvm24ScheduleHazardRecognizerESt14default_deleteIS1_EE3getEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %3, i32 0, i32 0
-  %5 = call noundef ptr @_ZNKSt15__uniq_ptr_implIN4llvm24ScheduleHazardRecognizerESt14default_deleteIS1_EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(8) %4) #5
+  %5 = call noundef ptr @_ZNKSt15__uniq_ptr_implIN4llvm24ScheduleHazardRecognizerESt14default_deleteIS1_EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(8) %4) #8
   ret ptr %5
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZNKSt15__uniq_ptr_implIN4llvm24ScheduleHazardRecognizerESt14default_deleteIS1_EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !52
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw %"class.std::__uniq_ptr_impl", ptr %3, i32 0, i32 0
-  %5 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt3getILm0EJPN4llvm24ScheduleHazardRecognizerESt14default_deleteIS1_EEERKNSt13tuple_elementIXT_ESt5tupleIJDpT0_EEE4typeERKS9_(ptr noundef nonnull align 8 dereferenceable(8) %4) #5
-  %6 = load ptr, ptr %5, align 8
+  %5 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt3getILm0EJPN4llvm24ScheduleHazardRecognizerESt14default_deleteIS1_EEERKNSt13tuple_elementIXT_ESt5tupleIJDpT0_EEE4typeERKS9_(ptr noundef nonnull align 8 dereferenceable(8) %4) #8
+  %6 = load ptr, ptr %5, align 8, !tbaa !16
   ret ptr %6
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZSt3getILm0EJPN4llvm24ScheduleHazardRecognizerESt14default_deleteIS1_EEERKNSt13tuple_elementIXT_ESt5tupleIJDpT0_EEE4typeERKS9_(ptr noundef nonnull align 8 dereferenceable(8) %0) #0 comdat {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  %4 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt12__get_helperILm0EPN4llvm24ScheduleHazardRecognizerEJSt14default_deleteIS1_EEERKT0_RKSt11_Tuple_implIXT_EJS5_DpT1_EE(ptr noundef nonnull align 8 dereferenceable(8) %3) #5
+  store ptr %0, ptr %2, align 8, !tbaa !56
+  %3 = load ptr, ptr %2, align 8, !tbaa !56
+  %4 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt12__get_helperILm0EPN4llvm24ScheduleHazardRecognizerEJSt14default_deleteIS1_EEERKT0_RKSt11_Tuple_implIXT_EJS5_DpT1_EE(ptr noundef nonnull align 8 dereferenceable(8) %3) #8
   ret ptr %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZSt12__get_helperILm0EPN4llvm24ScheduleHazardRecognizerEJSt14default_deleteIS1_EEERKT0_RKSt11_Tuple_implIXT_EJS5_DpT1_EE(ptr noundef nonnull align 8 dereferenceable(8) %0) #0 comdat {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  %4 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt11_Tuple_implILm0EJPN4llvm24ScheduleHazardRecognizerESt14default_deleteIS1_EEE7_M_headERKS5_(ptr noundef nonnull align 8 dereferenceable(8) %3) #5
+  store ptr %0, ptr %2, align 8, !tbaa !58
+  %3 = load ptr, ptr %2, align 8, !tbaa !58
+  %4 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt11_Tuple_implILm0EJPN4llvm24ScheduleHazardRecognizerESt14default_deleteIS1_EEE7_M_headERKS5_(ptr noundef nonnull align 8 dereferenceable(8) %3) #8
   ret ptr %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt11_Tuple_implILm0EJPN4llvm24ScheduleHazardRecognizerESt14default_deleteIS1_EEE7_M_headERKS5_(ptr noundef nonnull align 8 dereferenceable(8) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  %4 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt10_Head_baseILm0EPN4llvm24ScheduleHazardRecognizerELb0EE7_M_headERKS3_(ptr noundef nonnull align 8 dereferenceable(8) %3) #5
+  store ptr %0, ptr %2, align 8, !tbaa !58
+  %3 = load ptr, ptr %2, align 8, !tbaa !58
+  %4 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt10_Head_baseILm0EPN4llvm24ScheduleHazardRecognizerELb0EE7_M_headERKS3_(ptr noundef nonnull align 8 dereferenceable(8) %3) #8
   ret ptr %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt10_Head_baseILm0EPN4llvm24ScheduleHazardRecognizerELb0EE7_M_headERKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !60
+  %3 = load ptr, ptr %2, align 8, !tbaa !60
   %4 = getelementptr inbounds nuw %"struct.std::_Head_base.1", ptr %3, i32 0, i32 0
   ret ptr %4
 }
@@ -1275,12 +1410,12 @@ define linkonce_odr hidden noundef ptr @_ZN4llvm23SmallVectorTemplateBaseISt10un
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca i64, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store i64 %2, ptr %6, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !18
+  store ptr %1, ptr %5, align 8, !tbaa !8
+  store i64 %2, ptr %6, align 8, !tbaa !66
   %7 = load ptr, ptr %4, align 8
-  %8 = load ptr, ptr %5, align 8
-  %9 = load i64, ptr %6, align 8
+  %8 = load ptr, ptr %5, align 8, !tbaa !8
+  %9 = load i64, ptr %6, align 8, !tbaa !66
   %10 = call noundef ptr @_ZN4llvm25SmallVectorTemplateCommonISt10unique_ptrINS_24ScheduleHazardRecognizerESt14default_deleteIS2_EEvE32reserveForParamAndGetAddressImplINS_23SmallVectorTemplateBaseIS5_Lb0EEEEEPKS5_PT_RSA_m(ptr noundef %7, ptr noundef nonnull align 8 dereferenceable(8) %8, i64 noundef %9)
   ret ptr %10
 }
@@ -1289,19 +1424,40 @@ define linkonce_odr hidden noundef ptr @_ZN4llvm23SmallVectorTemplateBaseISt10un
 define linkonce_odr hidden void @_ZNSt10unique_ptrIN4llvm24ScheduleHazardRecognizerESt14default_deleteIS1_EEC2EOS4_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #0 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !8
+  store ptr %1, ptr %4, align 8, !tbaa !8
   %5 = load ptr, ptr %3, align 8
   %6 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %5, i32 0, i32 0
-  %7 = load ptr, ptr %4, align 8
+  %7 = load ptr, ptr %4, align 8, !tbaa !8
   %8 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %7, i32 0, i32 0
-  call void @_ZNSt15__uniq_ptr_dataIN4llvm24ScheduleHazardRecognizerESt14default_deleteIS1_ELb1ELb1EEC2EOS4_(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(8) %8) #5
+  call void @_ZNSt15__uniq_ptr_dataIN4llvm24ScheduleHazardRecognizerESt14default_deleteIS1_ELb1ELb1EEC2EOS4_(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(8) %8) #8
   ret void
 }
 
-declare void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16), i64 noundef) #4
+; Function Attrs: mustprogress nounwind uwtable
+define available_externally void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %1) #0 align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !68
+  store i64 %1, ptr %4, align 8, !tbaa !66
+  %5 = load ptr, ptr %3, align 8
+  %6 = load i64, ptr %4, align 8, !tbaa !66
+  %7 = trunc i64 %6 to i32
+  %8 = getelementptr inbounds nuw %"class.llvm::SmallVectorBase", ptr %5, i32 0, i32 1
+  store i32 %7, ptr %8, align 8, !tbaa !70
+  ret void
+}
 
-declare noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16)) #4
+; Function Attrs: mustprogress nounwind uwtable
+define available_externally noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #0 align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !68
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.llvm::SmallVectorBase", ptr %3, i32 0, i32 1
+  %5 = load i32, ptr %4, align 8, !tbaa !70
+  %6 = zext i32 %5 to i64
+  ret i64 %6
+}
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZN4llvm25SmallVectorTemplateCommonISt10unique_ptrINS_24ScheduleHazardRecognizerESt14default_deleteIS2_EEvE32reserveForParamAndGetAddressImplINS_23SmallVectorTemplateBaseIS5_Lb0EEEEEPKS5_PT_RSA_m(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(8) %1, i64 noundef %2) #0 comdat align 2 {
@@ -1310,86 +1466,113 @@ define linkonce_odr hidden noundef ptr @_ZN4llvm25SmallVectorTemplateCommonISt10
   %6 = alloca ptr, align 8
   %7 = alloca i64, align 8
   %8 = alloca i64, align 8
-  %9 = alloca i8, align 1
-  %10 = alloca i64, align 8
-  store ptr %0, ptr %5, align 8
-  store ptr %1, ptr %6, align 8
-  store i64 %2, ptr %7, align 8
-  %11 = load ptr, ptr %5, align 8
-  %12 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %11)
-  %13 = load i64, ptr %7, align 8
-  %14 = add i64 %12, %13
-  store i64 %14, ptr %8, align 8
-  %15 = load i64, ptr %8, align 8
-  %16 = load ptr, ptr %5, align 8
-  %17 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(16) %16)
-  %18 = icmp ule i64 %15, %17
-  br i1 %18, label %19, label %21
+  %9 = alloca i32, align 4
+  %10 = alloca i8, align 1
+  %11 = alloca i64, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !18
+  store ptr %1, ptr %6, align 8, !tbaa !8
+  store i64 %2, ptr %7, align 8, !tbaa !66
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #8
+  %12 = load ptr, ptr %5, align 8, !tbaa !18
+  %13 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %12)
+  %14 = load i64, ptr %7, align 8, !tbaa !66
+  %15 = add i64 %13, %14
+  store i64 %15, ptr %8, align 8, !tbaa !66
+  %16 = load i64, ptr %8, align 8, !tbaa !66
+  %17 = load ptr, ptr %5, align 8, !tbaa !18
+  %18 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(16) %17)
+  %19 = icmp ule i64 %16, %18
+  %20 = zext i1 %19 to i64
+  %21 = call i64 @llvm.expect.i64(i64 %20, i64 1)
+  %22 = icmp ne i64 %21, 0
+  br i1 %22, label %23, label %25
 
-19:                                               ; preds = %3
-  %20 = load ptr, ptr %6, align 8
-  store ptr %20, ptr %4, align 8
-  br label %47
+23:                                               ; preds = %3
+  %24 = load ptr, ptr %6, align 8, !tbaa !8
+  store ptr %24, ptr %4, align 8
+  store i32 1, ptr %9, align 4
+  br label %54
 
-21:                                               ; preds = %3
-  store i8 0, ptr %9, align 1
-  store i64 -1, ptr %10, align 8
-  %22 = load ptr, ptr %5, align 8
-  %23 = load ptr, ptr %6, align 8
-  %24 = call noundef zeroext i1 @_ZNK4llvm25SmallVectorTemplateCommonISt10unique_ptrINS_24ScheduleHazardRecognizerESt14default_deleteIS2_EEvE20isReferenceToStorageEPKv(ptr noundef nonnull align 8 dereferenceable(16) %22, ptr noundef %23)
-  br i1 %24, label %25, label %33
+25:                                               ; preds = %3
+  call void @llvm.lifetime.start.p0(i64 1, ptr %10) #8
+  store i8 0, ptr %10, align 1, !tbaa !71
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #8
+  store i64 -1, ptr %11, align 8, !tbaa !66
+  %26 = load ptr, ptr %5, align 8, !tbaa !18
+  %27 = load ptr, ptr %6, align 8, !tbaa !8
+  %28 = call noundef zeroext i1 @_ZNK4llvm25SmallVectorTemplateCommonISt10unique_ptrINS_24ScheduleHazardRecognizerESt14default_deleteIS2_EEvE20isReferenceToStorageEPKv(ptr noundef nonnull align 8 dereferenceable(16) %26, ptr noundef %27)
+  %29 = zext i1 %28 to i64
+  %30 = call i64 @llvm.expect.i64(i64 %29, i64 0)
+  %31 = icmp ne i64 %30, 0
+  br i1 %31, label %32, label %40
 
-25:                                               ; preds = %21
-  store i8 1, ptr %9, align 1
-  %26 = load ptr, ptr %6, align 8
-  %27 = load ptr, ptr %5, align 8
-  %28 = call noundef ptr @_ZN4llvm25SmallVectorTemplateCommonISt10unique_ptrINS_24ScheduleHazardRecognizerESt14default_deleteIS2_EEvE5beginEv(ptr noundef nonnull align 8 dereferenceable(16) %27)
-  %29 = ptrtoint ptr %26 to i64
-  %30 = ptrtoint ptr %28 to i64
-  %31 = sub i64 %29, %30
-  %32 = sdiv exact i64 %31, 8
-  store i64 %32, ptr %10, align 8
-  br label %33
+32:                                               ; preds = %25
+  store i8 1, ptr %10, align 1, !tbaa !71
+  %33 = load ptr, ptr %6, align 8, !tbaa !8
+  %34 = load ptr, ptr %5, align 8, !tbaa !18
+  %35 = call noundef ptr @_ZN4llvm25SmallVectorTemplateCommonISt10unique_ptrINS_24ScheduleHazardRecognizerESt14default_deleteIS2_EEvE5beginEv(ptr noundef nonnull align 8 dereferenceable(16) %34)
+  %36 = ptrtoint ptr %33 to i64
+  %37 = ptrtoint ptr %35 to i64
+  %38 = sub i64 %36, %37
+  %39 = sdiv exact i64 %38, 8
+  store i64 %39, ptr %11, align 8, !tbaa !66
+  br label %40
 
-33:                                               ; preds = %25, %21
-  %34 = load ptr, ptr %5, align 8
-  %35 = load i64, ptr %8, align 8
-  call void @_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_24ScheduleHazardRecognizerESt14default_deleteIS2_EELb0EE4growEm(ptr noundef nonnull align 8 dereferenceable(16) %34, i64 noundef %35)
-  %36 = load i8, ptr %9, align 1
-  %37 = trunc i8 %36 to i1
-  br i1 %37, label %38, label %43
+40:                                               ; preds = %32, %25
+  %41 = load ptr, ptr %5, align 8, !tbaa !18
+  %42 = load i64, ptr %8, align 8, !tbaa !66
+  call void @_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_24ScheduleHazardRecognizerESt14default_deleteIS2_EELb0EE4growEm(ptr noundef nonnull align 8 dereferenceable(16) %41, i64 noundef %42)
+  %43 = load i8, ptr %10, align 1, !tbaa !71, !range !73, !noundef !74
+  %44 = trunc i8 %43 to i1
+  br i1 %44, label %45, label %50
 
-38:                                               ; preds = %33
-  %39 = load ptr, ptr %5, align 8
-  %40 = call noundef ptr @_ZN4llvm25SmallVectorTemplateCommonISt10unique_ptrINS_24ScheduleHazardRecognizerESt14default_deleteIS2_EEvE5beginEv(ptr noundef nonnull align 8 dereferenceable(16) %39)
-  %41 = load i64, ptr %10, align 8
-  %42 = getelementptr inbounds %"class.std::unique_ptr", ptr %40, i64 %41
-  br label %45
+45:                                               ; preds = %40
+  %46 = load ptr, ptr %5, align 8, !tbaa !18
+  %47 = call noundef ptr @_ZN4llvm25SmallVectorTemplateCommonISt10unique_ptrINS_24ScheduleHazardRecognizerESt14default_deleteIS2_EEvE5beginEv(ptr noundef nonnull align 8 dereferenceable(16) %46)
+  %48 = load i64, ptr %11, align 8, !tbaa !66
+  %49 = getelementptr inbounds %"class.std::unique_ptr", ptr %47, i64 %48
+  br label %52
 
-43:                                               ; preds = %33
-  %44 = load ptr, ptr %6, align 8
-  br label %45
+50:                                               ; preds = %40
+  %51 = load ptr, ptr %6, align 8, !tbaa !8
+  br label %52
 
-45:                                               ; preds = %43, %38
-  %46 = phi ptr [ %42, %38 ], [ %44, %43 ]
-  store ptr %46, ptr %4, align 8
-  br label %47
+52:                                               ; preds = %50, %45
+  %53 = phi ptr [ %49, %45 ], [ %51, %50 ]
+  store ptr %53, ptr %4, align 8
+  store i32 1, ptr %9, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #8
+  call void @llvm.lifetime.end.p0(i64 1, ptr %10) #8
+  br label %54
 
-47:                                               ; preds = %45, %19
-  %48 = load ptr, ptr %4, align 8
-  ret ptr %48
+54:                                               ; preds = %52, %23
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #8
+  %55 = load ptr, ptr %4, align 8
+  ret ptr %55
 }
 
-declare noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(16)) #4
+; Function Attrs: mustprogress nounwind uwtable
+define available_externally noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #0 align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !68
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.llvm::SmallVectorBase", ptr %3, i32 0, i32 2
+  %5 = load i32, ptr %4, align 4, !tbaa !75
+  %6 = zext i32 %5 to i64
+  ret i64 %6
+}
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(none)
+declare i64 @llvm.expect.i64(i64, i64) #6
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK4llvm25SmallVectorTemplateCommonISt10unique_ptrINS_24ScheduleHazardRecognizerESt14default_deleteIS2_EEvE20isReferenceToStorageEPKv(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) #0 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !29
+  store ptr %1, ptr %4, align 8, !tbaa !76
   %5 = load ptr, ptr %3, align 8
-  %6 = load ptr, ptr %4, align 8
+  %6 = load ptr, ptr %4, align 8, !tbaa !76
   %7 = call noundef ptr @_ZNK4llvm25SmallVectorTemplateCommonISt10unique_ptrINS_24ScheduleHazardRecognizerESt14default_deleteIS2_EEvE5beginEv(ptr noundef nonnull align 8 dereferenceable(16) %5)
   %8 = call noundef ptr @_ZNK4llvm25SmallVectorTemplateCommonISt10unique_ptrINS_24ScheduleHazardRecognizerESt14default_deleteIS2_EEvE3endEv(ptr noundef nonnull align 8 dereferenceable(16) %5)
   %9 = call noundef zeroext i1 @_ZNK4llvm25SmallVectorTemplateCommonISt10unique_ptrINS_24ScheduleHazardRecognizerESt14default_deleteIS2_EEvE18isReferenceToRangeEPKvS8_S8_(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef %6, ptr noundef %7, ptr noundef %8)
@@ -1402,17 +1585,21 @@ define linkonce_odr void @_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_24
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8
   %6 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store i64 %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !18
+  store i64 %1, ptr %4, align 8, !tbaa !66
   %7 = load ptr, ptr %3, align 8
-  %8 = load i64, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #8
+  %8 = load i64, ptr %4, align 8, !tbaa !66
   %9 = call noundef ptr @_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_24ScheduleHazardRecognizerESt14default_deleteIS2_EELb0EE13mallocForGrowEmRm(ptr noundef nonnull align 8 dereferenceable(16) %7, i64 noundef %8, ptr noundef nonnull align 8 dereferenceable(8) %5)
-  store ptr %9, ptr %6, align 8
-  %10 = load ptr, ptr %6, align 8
+  store ptr %9, ptr %6, align 8, !tbaa !8
+  %10 = load ptr, ptr %6, align 8, !tbaa !8
   call void @_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_24ScheduleHazardRecognizerESt14default_deleteIS2_EELb0EE19moveElementsForGrowEPS5_(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef %10)
-  %11 = load ptr, ptr %6, align 8
-  %12 = load i64, ptr %5, align 8
+  %11 = load ptr, ptr %6, align 8, !tbaa !8
+  %12 = load i64, ptr %5, align 8, !tbaa !66
   call void @_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_24ScheduleHazardRecognizerESt14default_deleteIS2_EELb0EE21takeAllocationForGrowEPS5_m(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef %11, i64 noundef %12)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #8
   ret void
 }
 
@@ -1423,44 +1610,46 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK4llvm25SmallVectorTemplateCom
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
   %9 = alloca %"struct.std::less", align 1
-  store ptr %0, ptr %5, align 8
-  store ptr %1, ptr %6, align 8
-  store ptr %2, ptr %7, align 8
-  store ptr %3, ptr %8, align 8
-  %10 = load ptr, ptr %6, align 8
-  %11 = load ptr, ptr %7, align 8
-  %12 = call noundef zeroext i1 @_ZNKSt4lessIvEclIKvS2_EEbPT_PT0_(ptr noundef nonnull align 1 dereferenceable(1) %9, ptr noundef %10, ptr noundef %11) #5
+  store ptr %0, ptr %5, align 8, !tbaa !29
+  store ptr %1, ptr %6, align 8, !tbaa !76
+  store ptr %2, ptr %7, align 8, !tbaa !76
+  store ptr %3, ptr %8, align 8, !tbaa !76
+  call void @llvm.lifetime.start.p0(i64 1, ptr %9) #8
+  %10 = load ptr, ptr %6, align 8, !tbaa !76
+  %11 = load ptr, ptr %7, align 8, !tbaa !76
+  %12 = call noundef zeroext i1 @_ZNKSt4lessIvEclIKvS2_EEbPT_PT0_(ptr noundef nonnull align 1 dereferenceable(1) %9, ptr noundef %10, ptr noundef %11) #8
   br i1 %12, label %17, label %13
 
 13:                                               ; preds = %4
-  %14 = load ptr, ptr %6, align 8
-  %15 = load ptr, ptr %8, align 8
-  %16 = call noundef zeroext i1 @_ZNKSt4lessIvEclIKvS2_EEbPT_PT0_(ptr noundef nonnull align 1 dereferenceable(1) %9, ptr noundef %14, ptr noundef %15) #5
+  %14 = load ptr, ptr %6, align 8, !tbaa !76
+  %15 = load ptr, ptr %8, align 8, !tbaa !76
+  %16 = call noundef zeroext i1 @_ZNKSt4lessIvEclIKvS2_EEbPT_PT0_(ptr noundef nonnull align 1 dereferenceable(1) %9, ptr noundef %14, ptr noundef %15) #8
   br label %17
 
 17:                                               ; preds = %13, %4
   %18 = phi i1 [ false, %4 ], [ %16, %13 ]
+  call void @llvm.lifetime.end.p0(i64 1, ptr %9) #8
   ret i1 %18
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZNK4llvm25SmallVectorTemplateCommonISt10unique_ptrINS_24ScheduleHazardRecognizerESt14default_deleteIS2_EEvE5beginEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !29
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw %"class.llvm::SmallVectorBase", ptr %3, i32 0, i32 0
-  %5 = load ptr, ptr %4, align 8
+  %5 = load ptr, ptr %4, align 8, !tbaa !31
   ret ptr %5
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZNK4llvm25SmallVectorTemplateCommonISt10unique_ptrINS_24ScheduleHazardRecognizerESt14default_deleteIS2_EEvE3endEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !29
   %3 = load ptr, ptr %2, align 8
   %4 = call noundef ptr @_ZNK4llvm25SmallVectorTemplateCommonISt10unique_ptrINS_24ScheduleHazardRecognizerESt14default_deleteIS2_EEvE5beginEv(ptr noundef nonnull align 8 dereferenceable(16) %3)
   %5 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %3)
-  %6 = getelementptr inbounds %"class.std::unique_ptr", ptr %4, i64 %5
+  %6 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %4, i64 %5
   ret ptr %6
 }
 
@@ -1470,12 +1659,14 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNKSt4lessIvEclIKvS2_EEbPT_PT0_(
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca %"struct.std::less.4", align 1
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store ptr %2, ptr %6, align 8
-  %8 = load ptr, ptr %5, align 8
-  %9 = load ptr, ptr %6, align 8
-  %10 = call noundef zeroext i1 @_ZNKSt4lessIPKvEclES1_S1_(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef %8, ptr noundef %9) #5
+  store ptr %0, ptr %4, align 8, !tbaa !77
+  store ptr %1, ptr %5, align 8, !tbaa !76
+  store ptr %2, ptr %6, align 8, !tbaa !76
+  call void @llvm.lifetime.start.p0(i64 1, ptr %7) #8
+  %8 = load ptr, ptr %5, align 8, !tbaa !76
+  %9 = load ptr, ptr %6, align 8, !tbaa !76
+  %10 = call noundef zeroext i1 @_ZNKSt4lessIPKvEclES1_S1_(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef %8, ptr noundef %9) #8
+  call void @llvm.lifetime.end.p0(i64 1, ptr %7) #8
   ret i1 %10
 }
 
@@ -1484,12 +1675,12 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNKSt4lessIPKvEclES1_S1_(ptr nou
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store ptr %2, ptr %6, align 8
-  %7 = load ptr, ptr %5, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !79
+  store ptr %1, ptr %5, align 8, !tbaa !76
+  store ptr %2, ptr %6, align 8, !tbaa !76
+  %7 = load ptr, ptr %5, align 8, !tbaa !76
   %8 = ptrtoint ptr %7 to i64
-  %9 = load ptr, ptr %6, align 8
+  %9 = load ptr, ptr %6, align 8, !tbaa !76
   %10 = ptrtoint ptr %9 to i64
   %11 = icmp ult i64 %8, %10
   ret i1 %11
@@ -1500,13 +1691,13 @@ define linkonce_odr noundef ptr @_ZN4llvm23SmallVectorTemplateBaseISt10unique_pt
   %4 = alloca ptr, align 8
   %5 = alloca i64, align 8
   %6 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store i64 %1, ptr %5, align 8
-  store ptr %2, ptr %6, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !18
+  store i64 %1, ptr %5, align 8, !tbaa !66
+  store ptr %2, ptr %6, align 8, !tbaa !81
   %7 = load ptr, ptr %4, align 8
   %8 = call noundef ptr @_ZNK4llvm25SmallVectorTemplateCommonISt10unique_ptrINS_24ScheduleHazardRecognizerESt14default_deleteIS2_EEvE10getFirstElEv(ptr noundef nonnull align 8 dereferenceable(16) %7)
-  %9 = load i64, ptr %5, align 8
-  %10 = load ptr, ptr %6, align 8
+  %9 = load i64, ptr %5, align 8, !tbaa !66
+  %10 = load ptr, ptr %6, align 8, !tbaa !81
   %11 = call noundef ptr @_ZN4llvm15SmallVectorBaseIjE13mallocForGrowEPvmmRm(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef %8, i64 noundef %9, i64 noundef 8, ptr noundef nonnull align 8 dereferenceable(8) %10)
   ret ptr %11
 }
@@ -1515,12 +1706,12 @@ define linkonce_odr noundef ptr @_ZN4llvm23SmallVectorTemplateBaseISt10unique_pt
 define linkonce_odr void @_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_24ScheduleHazardRecognizerESt14default_deleteIS2_EELb0EE19moveElementsForGrowEPS5_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) #0 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !18
+  store ptr %1, ptr %4, align 8, !tbaa !8
   %5 = load ptr, ptr %3, align 8
   %6 = call noundef ptr @_ZN4llvm25SmallVectorTemplateCommonISt10unique_ptrINS_24ScheduleHazardRecognizerESt14default_deleteIS2_EEvE5beginEv(ptr noundef nonnull align 8 dereferenceable(16) %5)
   %7 = call noundef ptr @_ZN4llvm25SmallVectorTemplateCommonISt10unique_ptrINS_24ScheduleHazardRecognizerESt14default_deleteIS2_EEvE3endEv(ptr noundef nonnull align 8 dereferenceable(16) %5)
-  %8 = load ptr, ptr %4, align 8
+  %8 = load ptr, ptr %4, align 8, !tbaa !8
   call void @_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_24ScheduleHazardRecognizerESt14default_deleteIS2_EELb0EE18uninitialized_moveIPS5_S8_EEvT_S9_T0_(ptr noundef %6, ptr noundef %7, ptr noundef %8)
   %9 = call noundef ptr @_ZN4llvm25SmallVectorTemplateCommonISt10unique_ptrINS_24ScheduleHazardRecognizerESt14default_deleteIS2_EEvE5beginEv(ptr noundef nonnull align 8 dereferenceable(16) %5)
   %10 = call noundef ptr @_ZN4llvm25SmallVectorTemplateCommonISt10unique_ptrINS_24ScheduleHazardRecognizerESt14default_deleteIS2_EEvE3endEv(ptr noundef nonnull align 8 dereferenceable(16) %5)
@@ -1533,61 +1724,61 @@ define linkonce_odr void @_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_24
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca i64, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store i64 %2, ptr %6, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !18
+  store ptr %1, ptr %5, align 8, !tbaa !8
+  store i64 %2, ptr %6, align 8, !tbaa !66
   %7 = load ptr, ptr %4, align 8
   %8 = call noundef zeroext i1 @_ZNK4llvm25SmallVectorTemplateCommonISt10unique_ptrINS_24ScheduleHazardRecognizerESt14default_deleteIS2_EEvE7isSmallEv(ptr noundef nonnull align 8 dereferenceable(16) %7)
   br i1 %8, label %11, label %9
 
 9:                                                ; preds = %3
   %10 = call noundef ptr @_ZN4llvm25SmallVectorTemplateCommonISt10unique_ptrINS_24ScheduleHazardRecognizerESt14default_deleteIS2_EEvE5beginEv(ptr noundef nonnull align 8 dereferenceable(16) %7)
-  call void @free(ptr noundef %10) #5
+  call void @free(ptr noundef %10) #8
   br label %11
 
 11:                                               ; preds = %9, %3
-  %12 = load ptr, ptr %5, align 8
-  %13 = load i64, ptr %6, align 8
+  %12 = load ptr, ptr %5, align 8, !tbaa !8
+  %13 = load i64, ptr %6, align 8, !tbaa !66
   call void @_ZN4llvm15SmallVectorBaseIjE20set_allocation_rangeEPvm(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef %12, i64 noundef %13)
   ret void
 }
 
-declare noundef ptr @_ZN4llvm15SmallVectorBaseIjE13mallocForGrowEPvmmRm(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef, i64 noundef, i64 noundef, ptr noundef nonnull align 8 dereferenceable(8)) #4
+declare noundef ptr @_ZN4llvm15SmallVectorBaseIjE13mallocForGrowEPvmmRm(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef, i64 noundef, i64 noundef, ptr noundef nonnull align 8 dereferenceable(8)) #7
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_24ScheduleHazardRecognizerESt14default_deleteIS2_EELb0EE18uninitialized_moveIPS5_S8_EEvT_S9_T0_(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 comdat align 2 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store ptr %2, ptr %6, align 8
-  %7 = load ptr, ptr %4, align 8
-  %8 = load ptr, ptr %5, align 8
-  %9 = load ptr, ptr %6, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !8
+  store ptr %1, ptr %5, align 8, !tbaa !8
+  store ptr %2, ptr %6, align 8, !tbaa !8
+  %7 = load ptr, ptr %4, align 8, !tbaa !8
+  %8 = load ptr, ptr %5, align 8, !tbaa !8
+  %9 = load ptr, ptr %6, align 8, !tbaa !8
   %10 = call noundef ptr @_ZSt18uninitialized_moveIPSt10unique_ptrIN4llvm24ScheduleHazardRecognizerESt14default_deleteIS2_EES6_ET0_T_S8_S7_(ptr noundef %7, ptr noundef %8, ptr noundef %9)
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef ptr @_ZSt18uninitialized_moveIPSt10unique_ptrIN4llvm24ScheduleHazardRecognizerESt14default_deleteIS2_EES6_ET0_T_S8_S7_(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 comdat {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr noundef ptr @_ZSt18uninitialized_moveIPSt10unique_ptrIN4llvm24ScheduleHazardRecognizerESt14default_deleteIS2_EES6_ET0_T_S8_S7_(ptr noundef %0, ptr noundef %1, ptr noundef %2) #1 comdat {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca %"class.std::move_iterator", align 8
   %8 = alloca %"class.std::move_iterator", align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store ptr %2, ptr %6, align 8
-  %9 = load ptr, ptr %4, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !8
+  store ptr %1, ptr %5, align 8, !tbaa !8
+  store ptr %2, ptr %6, align 8, !tbaa !8
+  %9 = load ptr, ptr %4, align 8, !tbaa !8
   %10 = call ptr @_ZSt18make_move_iteratorIPSt10unique_ptrIN4llvm24ScheduleHazardRecognizerESt14default_deleteIS2_EEESt13move_iteratorIT_ES8_(ptr noundef %9)
   %11 = getelementptr inbounds nuw %"class.std::move_iterator", ptr %7, i32 0, i32 0
   store ptr %10, ptr %11, align 8
-  %12 = load ptr, ptr %5, align 8
+  %12 = load ptr, ptr %5, align 8, !tbaa !8
   %13 = call ptr @_ZSt18make_move_iteratorIPSt10unique_ptrIN4llvm24ScheduleHazardRecognizerESt14default_deleteIS2_EEESt13move_iteratorIT_ES8_(ptr noundef %12)
   %14 = getelementptr inbounds nuw %"class.std::move_iterator", ptr %8, i32 0, i32 0
   store ptr %13, ptr %14, align 8
-  %15 = load ptr, ptr %6, align 8
+  %15 = load ptr, ptr %6, align 8, !tbaa !8
   %16 = getelementptr inbounds nuw %"class.std::move_iterator", ptr %7, i32 0, i32 0
   %17 = load ptr, ptr %16, align 8
   %18 = getelementptr inbounds nuw %"class.std::move_iterator", ptr %8, i32 0, i32 0
@@ -1596,8 +1787,8 @@ define linkonce_odr noundef ptr @_ZSt18uninitialized_moveIPSt10unique_ptrIN4llvm
   ret ptr %20
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef ptr @_ZSt18uninitialized_copyISt13move_iteratorIPSt10unique_ptrIN4llvm24ScheduleHazardRecognizerESt14default_deleteIS3_EEES7_ET0_T_SA_S9_(ptr %0, ptr %1, ptr noundef %2) #0 comdat {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr noundef ptr @_ZSt18uninitialized_copyISt13move_iteratorIPSt10unique_ptrIN4llvm24ScheduleHazardRecognizerESt14default_deleteIS3_EEES7_ET0_T_SA_S9_(ptr %0, ptr %1, ptr noundef %2) #1 comdat {
   %4 = alloca %"class.std::move_iterator", align 8
   %5 = alloca %"class.std::move_iterator", align 8
   %6 = alloca ptr, align 8
@@ -1609,26 +1800,30 @@ define linkonce_odr noundef ptr @_ZSt18uninitialized_copyISt13move_iteratorIPSt1
   store ptr %0, ptr %11, align 8
   %12 = getelementptr inbounds nuw %"class.std::move_iterator", ptr %5, i32 0, i32 0
   store ptr %1, ptr %12, align 8
-  store ptr %2, ptr %6, align 8
-  store i8 0, ptr %7, align 1
-  store i8 0, ptr %8, align 1
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %9, ptr align 8 %4, i64 8, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %10, ptr align 8 %5, i64 8, i1 false)
-  %13 = load ptr, ptr %6, align 8
+  store ptr %2, ptr %6, align 8, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 1, ptr %7) #8
+  store i8 0, ptr %7, align 1, !tbaa !71
+  call void @llvm.lifetime.start.p0(i64 1, ptr %8) #8
+  store i8 0, ptr %8, align 1, !tbaa !71
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %9, ptr align 8 %4, i64 8, i1 false), !tbaa.struct !83
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %10, ptr align 8 %5, i64 8, i1 false), !tbaa.struct !83
+  %13 = load ptr, ptr %6, align 8, !tbaa !8
   %14 = getelementptr inbounds nuw %"class.std::move_iterator", ptr %9, i32 0, i32 0
   %15 = load ptr, ptr %14, align 8
   %16 = getelementptr inbounds nuw %"class.std::move_iterator", ptr %10, i32 0, i32 0
   %17 = load ptr, ptr %16, align 8
   %18 = call noundef ptr @_ZNSt20__uninitialized_copyILb0EE13__uninit_copyISt13move_iteratorIPSt10unique_ptrIN4llvm24ScheduleHazardRecognizerESt14default_deleteIS5_EEES9_EET0_T_SC_SB_(ptr %15, ptr %17, ptr noundef %13)
+  call void @llvm.lifetime.end.p0(i64 1, ptr %8) #8
+  call void @llvm.lifetime.end.p0(i64 1, ptr %7) #8
   ret ptr %18
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr ptr @_ZSt18make_move_iteratorIPSt10unique_ptrIN4llvm24ScheduleHazardRecognizerESt14default_deleteIS2_EEESt13move_iteratorIT_ES8_(ptr noundef %0) #0 comdat {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr ptr @_ZSt18make_move_iteratorIPSt10unique_ptrIN4llvm24ScheduleHazardRecognizerESt14default_deleteIS2_EEESt13move_iteratorIT_ES8_(ptr noundef %0) #1 comdat {
   %2 = alloca %"class.std::move_iterator", align 8
   %3 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  %4 = load ptr, ptr %3, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !8
+  %4 = load ptr, ptr %3, align 8, !tbaa !8
   call void @_ZNSt13move_iteratorIPSt10unique_ptrIN4llvm24ScheduleHazardRecognizerESt14default_deleteIS2_EEEC2ES6_(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef %4)
   %5 = getelementptr inbounds nuw %"class.std::move_iterator", ptr %2, i32 0, i32 0
   %6 = load ptr, ptr %5, align 8
@@ -1646,10 +1841,10 @@ define linkonce_odr hidden noundef ptr @_ZNSt20__uninitialized_copyILb0EE13__uni
   store ptr %0, ptr %9, align 8
   %10 = getelementptr inbounds nuw %"class.std::move_iterator", ptr %5, i32 0, i32 0
   store ptr %1, ptr %10, align 8
-  store ptr %2, ptr %6, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %7, ptr align 8 %4, i64 8, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %8, ptr align 8 %5, i64 8, i1 false)
-  %11 = load ptr, ptr %6, align 8
+  store ptr %2, ptr %6, align 8, !tbaa !8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %7, ptr align 8 %4, i64 8, i1 false), !tbaa.struct !83
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %8, ptr align 8 %5, i64 8, i1 false), !tbaa.struct !83
+  %11 = load ptr, ptr %6, align 8, !tbaa !8
   %12 = getelementptr inbounds nuw %"class.std::move_iterator", ptr %7, i32 0, i32 0
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds nuw %"class.std::move_iterator", ptr %8, i32 0, i32 0
@@ -1668,9 +1863,10 @@ define linkonce_odr noundef ptr @_ZSt16__do_uninit_copyISt13move_iteratorIPSt10u
   store ptr %0, ptr %8, align 8
   %9 = getelementptr inbounds nuw %"class.std::move_iterator", ptr %5, i32 0, i32 0
   store ptr %1, ptr %9, align 8
-  store ptr %2, ptr %6, align 8
-  %10 = load ptr, ptr %6, align 8
-  store ptr %10, ptr %7, align 8
+  store ptr %2, ptr %6, align 8, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #8
+  %10 = load ptr, ptr %6, align 8, !tbaa !8
+  store ptr %10, ptr %7, align 8, !tbaa !8
   br label %11
 
 11:                                               ; preds = %16, %3
@@ -1678,79 +1874,80 @@ define linkonce_odr noundef ptr @_ZSt16__do_uninit_copyISt13move_iteratorIPSt10u
   br i1 %12, label %13, label %20
 
 13:                                               ; preds = %11
-  %14 = load ptr, ptr %7, align 8
+  %14 = load ptr, ptr %7, align 8, !tbaa !8
   %15 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKSt13move_iteratorIPSt10unique_ptrIN4llvm24ScheduleHazardRecognizerESt14default_deleteIS2_EEEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %4)
   call void @_ZSt10_ConstructISt10unique_ptrIN4llvm24ScheduleHazardRecognizerESt14default_deleteIS2_EEJS5_EEvPT_DpOT0_(ptr noundef %14, ptr noundef nonnull align 8 dereferenceable(8) %15)
   br label %16
 
 16:                                               ; preds = %13
   %17 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt13move_iteratorIPSt10unique_ptrIN4llvm24ScheduleHazardRecognizerESt14default_deleteIS2_EEEppEv(ptr noundef nonnull align 8 dereferenceable(8) %4)
-  %18 = load ptr, ptr %7, align 8
-  %19 = getelementptr inbounds %"class.std::unique_ptr", ptr %18, i32 1
-  store ptr %19, ptr %7, align 8
-  br label %11, !llvm.loop !9
+  %18 = load ptr, ptr %7, align 8, !tbaa !8
+  %19 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %18, i32 1
+  store ptr %19, ptr %7, align 8, !tbaa !8
+  br label %11, !llvm.loop !84
 
 20:                                               ; preds = %11
-  %21 = load ptr, ptr %7, align 8
+  %21 = load ptr, ptr %7, align 8, !tbaa !8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #8
   ret ptr %21
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef zeroext i1 @_ZStneIPSt10unique_ptrIN4llvm24ScheduleHazardRecognizerESt14default_deleteIS2_EEEbRKSt13move_iteratorIT_ESB_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #0 comdat {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr noundef zeroext i1 @_ZStneIPSt10unique_ptrIN4llvm24ScheduleHazardRecognizerESt14default_deleteIS2_EEEbRKSt13move_iteratorIT_ESB_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #1 comdat {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  %5 = load ptr, ptr %3, align 8
-  %6 = load ptr, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !85
+  store ptr %1, ptr %4, align 8, !tbaa !85
+  %5 = load ptr, ptr %3, align 8, !tbaa !85
+  %6 = load ptr, ptr %4, align 8, !tbaa !85
   %7 = call noundef zeroext i1 @_ZSteqIPSt10unique_ptrIN4llvm24ScheduleHazardRecognizerESt14default_deleteIS2_EEEbRKSt13move_iteratorIT_ESB_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %6)
   %8 = xor i1 %7, true
   ret i1 %8
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZSt10_ConstructISt10unique_ptrIN4llvm24ScheduleHazardRecognizerESt14default_deleteIS2_EEJS5_EEvPT_DpOT0_(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #0 comdat {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr void @_ZSt10_ConstructISt10unique_ptrIN4llvm24ScheduleHazardRecognizerESt14default_deleteIS2_EEJS5_EEvPT_DpOT0_(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #1 comdat {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  %5 = load ptr, ptr %3, align 8
-  %6 = load ptr, ptr %4, align 8
-  call void @_ZNSt10unique_ptrIN4llvm24ScheduleHazardRecognizerESt14default_deleteIS1_EEC2EOS4_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %6) #5
+  store ptr %0, ptr %3, align 8, !tbaa !8
+  store ptr %1, ptr %4, align 8, !tbaa !8
+  %5 = load ptr, ptr %3, align 8, !tbaa !8
+  %6 = load ptr, ptr %4, align 8, !tbaa !8
+  call void @_ZNSt10unique_ptrIN4llvm24ScheduleHazardRecognizerESt14default_deleteIS1_EEC2EOS4_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %6) #8
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNKSt13move_iteratorIPSt10unique_ptrIN4llvm24ScheduleHazardRecognizerESt14default_deleteIS2_EEEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !85
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw %"class.std::move_iterator", ptr %3, i32 0, i32 0
-  %5 = load ptr, ptr %4, align 8
+  %5 = load ptr, ptr %4, align 8, !tbaa !87
   ret ptr %5
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt13move_iteratorIPSt10unique_ptrIN4llvm24ScheduleHazardRecognizerESt14default_deleteIS2_EEEppEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !85
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw %"class.std::move_iterator", ptr %3, i32 0, i32 0
-  %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds %"class.std::unique_ptr", ptr %5, i32 1
-  store ptr %6, ptr %4, align 8
+  %5 = load ptr, ptr %4, align 8, !tbaa !87
+  %6 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %5, i32 1
+  store ptr %6, ptr %4, align 8, !tbaa !87
   ret ptr %3
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef zeroext i1 @_ZSteqIPSt10unique_ptrIN4llvm24ScheduleHazardRecognizerESt14default_deleteIS2_EEEbRKSt13move_iteratorIT_ESB_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #0 comdat {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr noundef zeroext i1 @_ZSteqIPSt10unique_ptrIN4llvm24ScheduleHazardRecognizerESt14default_deleteIS2_EEEbRKSt13move_iteratorIT_ESB_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #1 comdat {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  %5 = load ptr, ptr %3, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !85
+  store ptr %1, ptr %4, align 8, !tbaa !85
+  %5 = load ptr, ptr %3, align 8, !tbaa !85
   %6 = call noundef ptr @_ZNKSt13move_iteratorIPSt10unique_ptrIN4llvm24ScheduleHazardRecognizerESt14default_deleteIS2_EEE4baseEv(ptr noundef nonnull align 8 dereferenceable(8) %5)
-  %7 = load ptr, ptr %4, align 8
+  %7 = load ptr, ptr %4, align 8, !tbaa !85
   %8 = call noundef ptr @_ZNKSt13move_iteratorIPSt10unique_ptrIN4llvm24ScheduleHazardRecognizerESt14default_deleteIS2_EEE4baseEv(ptr noundef nonnull align 8 dereferenceable(8) %7)
   %9 = icmp eq ptr %6, %8
   ret i1 %9
@@ -1759,10 +1956,10 @@ define linkonce_odr noundef zeroext i1 @_ZSteqIPSt10unique_ptrIN4llvm24ScheduleH
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZNKSt13move_iteratorIPSt10unique_ptrIN4llvm24ScheduleHazardRecognizerESt14default_deleteIS2_EEE4baseEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !85
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw %"class.std::move_iterator", ptr %3, i32 0, i32 0
-  %5 = load ptr, ptr %4, align 8
+  %5 = load ptr, ptr %4, align 8, !tbaa !87
   ret ptr %5
 }
 
@@ -1770,26 +1967,43 @@ define linkonce_odr hidden noundef ptr @_ZNKSt13move_iteratorIPSt10unique_ptrIN4
 define linkonce_odr hidden void @_ZNSt13move_iteratorIPSt10unique_ptrIN4llvm24ScheduleHazardRecognizerESt14default_deleteIS2_EEEC2ES6_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #0 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !85
+  store ptr %1, ptr %4, align 8, !tbaa !8
   %5 = load ptr, ptr %3, align 8
   %6 = getelementptr inbounds nuw %"class.std::move_iterator", ptr %5, i32 0, i32 0
-  %7 = load ptr, ptr %4, align 8
-  store ptr %7, ptr %6, align 8
+  %7 = load ptr, ptr %4, align 8, !tbaa !8
+  store ptr %7, ptr %6, align 8, !tbaa !87
   ret void
 }
 
-declare void @_ZN4llvm15SmallVectorBaseIjE20set_allocation_rangeEPvm(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef, i64 noundef) #4
+; Function Attrs: mustprogress nounwind uwtable
+define available_externally void @_ZN4llvm15SmallVectorBaseIjE20set_allocation_rangeEPvm(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1, i64 noundef %2) #0 align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i64, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !68
+  store ptr %1, ptr %5, align 8, !tbaa !76
+  store i64 %2, ptr %6, align 8, !tbaa !66
+  %7 = load ptr, ptr %4, align 8
+  %8 = load ptr, ptr %5, align 8, !tbaa !76
+  %9 = getelementptr inbounds nuw %"class.llvm::SmallVectorBase", ptr %7, i32 0, i32 0
+  store ptr %8, ptr %9, align 8, !tbaa !31
+  %10 = load i64, ptr %6, align 8, !tbaa !66
+  %11 = trunc i64 %10 to i32
+  %12 = getelementptr inbounds nuw %"class.llvm::SmallVectorBase", ptr %7, i32 0, i32 2
+  store i32 %11, ptr %12, align 4, !tbaa !75
+  ret void
+}
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt15__uniq_ptr_dataIN4llvm24ScheduleHazardRecognizerESt14default_deleteIS1_ELb1ELb1EEC2EOS4_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #0 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !89
+  store ptr %1, ptr %4, align 8, !tbaa !89
   %5 = load ptr, ptr %3, align 8
-  %6 = load ptr, ptr %4, align 8
-  call void @_ZNSt15__uniq_ptr_implIN4llvm24ScheduleHazardRecognizerESt14default_deleteIS1_EEC2EOS4_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %6) #5
+  %6 = load ptr, ptr %4, align 8, !tbaa !89
+  call void @_ZNSt15__uniq_ptr_implIN4llvm24ScheduleHazardRecognizerESt14default_deleteIS1_EEC2EOS4_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %6) #8
   ret void
 }
 
@@ -1797,16 +2011,16 @@ define linkonce_odr hidden void @_ZNSt15__uniq_ptr_dataIN4llvm24ScheduleHazardRe
 define linkonce_odr hidden void @_ZNSt15__uniq_ptr_implIN4llvm24ScheduleHazardRecognizerESt14default_deleteIS1_EEC2EOS4_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #0 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !52
+  store ptr %1, ptr %4, align 8, !tbaa !52
   %5 = load ptr, ptr %3, align 8
   %6 = getelementptr inbounds nuw %"class.std::__uniq_ptr_impl", ptr %5, i32 0, i32 0
-  %7 = load ptr, ptr %4, align 8
+  %7 = load ptr, ptr %4, align 8, !tbaa !52
   %8 = getelementptr inbounds nuw %"class.std::__uniq_ptr_impl", ptr %7, i32 0, i32 0
-  call void @_ZNSt5tupleIJPN4llvm24ScheduleHazardRecognizerESt14default_deleteIS1_EEEC2EOS5_(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(8) %8) #5
-  %9 = load ptr, ptr %4, align 8
-  %10 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt15__uniq_ptr_implIN4llvm24ScheduleHazardRecognizerESt14default_deleteIS1_EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(8) %9) #5
-  store ptr null, ptr %10, align 8
+  call void @_ZNSt5tupleIJPN4llvm24ScheduleHazardRecognizerESt14default_deleteIS1_EEEC2EOS5_(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(8) %8) #8
+  %9 = load ptr, ptr %4, align 8, !tbaa !52
+  %10 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt15__uniq_ptr_implIN4llvm24ScheduleHazardRecognizerESt14default_deleteIS1_EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(8) %9) #8
+  store ptr null, ptr %10, align 8, !tbaa !16
   ret void
 }
 
@@ -1814,11 +2028,11 @@ define linkonce_odr hidden void @_ZNSt15__uniq_ptr_implIN4llvm24ScheduleHazardRe
 define linkonce_odr hidden void @_ZNSt5tupleIJPN4llvm24ScheduleHazardRecognizerESt14default_deleteIS1_EEEC2EOS5_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #0 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !56
+  store ptr %1, ptr %4, align 8, !tbaa !56
   %5 = load ptr, ptr %3, align 8
-  %6 = load ptr, ptr %4, align 8
-  call void @_ZNSt11_Tuple_implILm0EJPN4llvm24ScheduleHazardRecognizerESt14default_deleteIS1_EEEC2EOS5_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %6) #5
+  %6 = load ptr, ptr %4, align 8, !tbaa !56
+  call void @_ZNSt11_Tuple_implILm0EJPN4llvm24ScheduleHazardRecognizerESt14default_deleteIS1_EEEC2EOS5_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %6) #8
   ret void
 }
 
@@ -1826,13 +2040,13 @@ define linkonce_odr hidden void @_ZNSt5tupleIJPN4llvm24ScheduleHazardRecognizerE
 define linkonce_odr hidden void @_ZNSt11_Tuple_implILm0EJPN4llvm24ScheduleHazardRecognizerESt14default_deleteIS1_EEEC2EOS5_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #0 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !58
+  store ptr %1, ptr %4, align 8, !tbaa !58
   %5 = load ptr, ptr %3, align 8
-  %6 = load ptr, ptr %4, align 8
-  call void @_ZNSt11_Tuple_implILm1EJSt14default_deleteIN4llvm24ScheduleHazardRecognizerEEEEC2EOS4_(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull align 1 dereferenceable(1) %6) #5
-  %7 = load ptr, ptr %4, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %5, ptr align 8 %7, i64 8, i1 false)
+  %6 = load ptr, ptr %4, align 8, !tbaa !58
+  call void @_ZNSt11_Tuple_implILm1EJSt14default_deleteIN4llvm24ScheduleHazardRecognizerEEEEC2EOS4_(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull align 1 dereferenceable(1) %6) #8
+  %7 = load ptr, ptr %4, align 8, !tbaa !58
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %5, ptr align 8 %7, i64 8, i1 false), !tbaa.struct !91
   ret void
 }
 
@@ -1840,13 +2054,13 @@ define linkonce_odr hidden void @_ZNSt11_Tuple_implILm0EJPN4llvm24ScheduleHazard
 define linkonce_odr hidden void @_ZNSt11_Tuple_implILm1EJSt14default_deleteIN4llvm24ScheduleHazardRecognizerEEEEC2EOS4_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %1) unnamed_addr #0 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !62
+  store ptr %1, ptr %4, align 8, !tbaa !62
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNSt7_Mem_fnIMN4llvm24ScheduleHazardRecognizerEKFbvEECI2St12_Mem_fn_baseIS3_Lb1EEES3_(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 %1, i64 %2) unnamed_addr #0 comdat align 2 {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZNSt7_Mem_fnIMN4llvm24ScheduleHazardRecognizerEKFbvEECI2St12_Mem_fn_baseIS3_Lb1EEES3_(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 %1, i64 %2) unnamed_addr #1 comdat align 2 {
   %4 = alloca { i64, i64 }, align 8
   %5 = alloca ptr, align 8
   %6 = alloca { i64, i64 }, align 8
@@ -1855,17 +2069,17 @@ define linkonce_odr hidden void @_ZNSt7_Mem_fnIMN4llvm24ScheduleHazardRecognizer
   store i64 %1, ptr %8, align 8
   %9 = getelementptr inbounds nuw { i64, i64 }, ptr %4, i32 0, i32 1
   store i64 %2, ptr %9, align 8
-  %10 = load { i64, i64 }, ptr %4, align 8
-  store ptr %0, ptr %5, align 8
-  store { i64, i64 } %10, ptr %6, align 8
+  %10 = load { i64, i64 }, ptr %4, align 8, !tbaa !20
+  store ptr %0, ptr %5, align 8, !tbaa !92
+  store { i64, i64 } %10, ptr %6, align 8, !tbaa !20
   %11 = load ptr, ptr %5, align 8
-  %12 = load { i64, i64 }, ptr %6, align 8
-  store { i64, i64 } %12, ptr %7, align 8
+  %12 = load { i64, i64 }, ptr %6, align 8, !tbaa !20
+  store { i64, i64 } %12, ptr %7, align 8, !tbaa !20
   %13 = getelementptr inbounds nuw { i64, i64 }, ptr %7, i32 0, i32 0
   %14 = load i64, ptr %13, align 8
   %15 = getelementptr inbounds nuw { i64, i64 }, ptr %7, i32 0, i32 1
   %16 = load i64, ptr %15, align 8
-  call void @_ZNSt12_Mem_fn_baseIMN4llvm24ScheduleHazardRecognizerEKFbvELb1EEC2ES3_(ptr noundef nonnull align 8 dereferenceable(16) %11, i64 %14, i64 %16) #5
+  call void @_ZNSt12_Mem_fn_baseIMN4llvm24ScheduleHazardRecognizerEKFbvELb1EEC2ES3_(ptr noundef nonnull align 8 dereferenceable(16) %11, i64 %14, i64 %16) #8
   ret void
 }
 
@@ -1878,18 +2092,18 @@ define linkonce_odr hidden void @_ZNSt12_Mem_fn_baseIMN4llvm24ScheduleHazardReco
   store i64 %1, ptr %7, align 8
   %8 = getelementptr inbounds nuw { i64, i64 }, ptr %4, i32 0, i32 1
   store i64 %2, ptr %8, align 8
-  %9 = load { i64, i64 }, ptr %4, align 8
-  store ptr %0, ptr %5, align 8
-  store { i64, i64 } %9, ptr %6, align 8
+  %9 = load { i64, i64 }, ptr %4, align 8, !tbaa !20
+  store ptr %0, ptr %5, align 8, !tbaa !94
+  store { i64, i64 } %9, ptr %6, align 8, !tbaa !20
   %10 = load ptr, ptr %5, align 8
   %11 = getelementptr inbounds nuw %"class.std::_Mem_fn_base", ptr %10, i32 0, i32 0
-  %12 = load { i64, i64 }, ptr %6, align 8
-  store { i64, i64 } %12, ptr %11, align 8
+  %12 = load { i64, i64 }, ptr %6, align 8, !tbaa !20
+  store { i64, i64 } %12, ptr %11, align 8, !tbaa !96
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef zeroext i1 @_ZSt6any_ofIPKSt10unique_ptrIN4llvm24ScheduleHazardRecognizerESt14default_deleteIS2_EESt7_Mem_fnIMS2_KFbvEEEbT_SC_T0_(ptr noundef %0, ptr noundef %1, i64 %2, i64 %3) #0 comdat {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr noundef zeroext i1 @_ZSt6any_ofIPKSt10unique_ptrIN4llvm24ScheduleHazardRecognizerESt14default_deleteIS2_EESt7_Mem_fnIMS2_KFbvEEEbT_SC_T0_(ptr noundef %0, ptr noundef %1, i64 %2, i64 %3) #1 comdat {
   %5 = alloca %"struct.std::_Mem_fn", align 8
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -1898,10 +2112,10 @@ define linkonce_odr noundef zeroext i1 @_ZSt6any_ofIPKSt10unique_ptrIN4llvm24Sch
   store i64 %2, ptr %9, align 8
   %10 = getelementptr inbounds nuw { i64, i64 }, ptr %5, i32 0, i32 1
   store i64 %3, ptr %10, align 8
-  store ptr %0, ptr %6, align 8
-  store ptr %1, ptr %7, align 8
-  %11 = load ptr, ptr %6, align 8
-  %12 = load ptr, ptr %7, align 8
+  store ptr %0, ptr %6, align 8, !tbaa !8
+  store ptr %1, ptr %7, align 8, !tbaa !8
+  %11 = load ptr, ptr %6, align 8, !tbaa !8
+  %12 = load ptr, ptr %7, align 8, !tbaa !8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %8, ptr align 8 %5, i64 16, i1 false)
   %13 = getelementptr inbounds nuw { i64, i64 }, ptr %8, i32 0, i32 0
   %14 = load i64, ptr %13, align 8
@@ -1915,8 +2129,8 @@ define linkonce_odr noundef zeroext i1 @_ZSt6any_ofIPKSt10unique_ptrIN4llvm24Sch
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZN4llvm9adl_beginIRKNS_11SmallVectorISt10unique_ptrINS_24ScheduleHazardRecognizerESt14default_deleteIS3_EELj4EEEEEDTclsr10adl_detailE10begin_implclsr3stdE7forwardIT_Efp_EEEOSA_(ptr noundef nonnull align 8 dereferenceable(48) %0) #0 comdat {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !21
+  %3 = load ptr, ptr %2, align 8, !tbaa !21
   %4 = call noundef ptr @_ZN4llvm10adl_detail10begin_implIRKNS_11SmallVectorISt10unique_ptrINS_24ScheduleHazardRecognizerESt14default_deleteIS4_EELj4EEEEEDTcl5beginclsr3stdE7forwardIT_Efp_EEEOSB_(ptr noundef nonnull align 8 dereferenceable(48) %3)
   ret ptr %4
 }
@@ -1924,14 +2138,14 @@ define linkonce_odr hidden noundef ptr @_ZN4llvm9adl_beginIRKNS_11SmallVectorISt
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZN4llvm7adl_endIRKNS_11SmallVectorISt10unique_ptrINS_24ScheduleHazardRecognizerESt14default_deleteIS3_EELj4EEEEEDTclsr10adl_detailE8end_implclsr3stdE7forwardIT_Efp_EEEOSA_(ptr noundef nonnull align 8 dereferenceable(48) %0) #0 comdat {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !21
+  %3 = load ptr, ptr %2, align 8, !tbaa !21
   %4 = call noundef ptr @_ZN4llvm10adl_detail8end_implIRKNS_11SmallVectorISt10unique_ptrINS_24ScheduleHazardRecognizerESt14default_deleteIS4_EELj4EEEEEDTcl3endclsr3stdE7forwardIT_Efp_EEEOSB_(ptr noundef nonnull align 8 dereferenceable(48) %3)
   ret ptr %4
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef zeroext i1 @_ZSt7none_ofIPKSt10unique_ptrIN4llvm24ScheduleHazardRecognizerESt14default_deleteIS2_EESt7_Mem_fnIMS2_KFbvEEEbT_SC_T0_(ptr noundef %0, ptr noundef %1, i64 %2, i64 %3) #0 comdat {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr noundef zeroext i1 @_ZSt7none_ofIPKSt10unique_ptrIN4llvm24ScheduleHazardRecognizerESt14default_deleteIS2_EESt7_Mem_fnIMS2_KFbvEEEbT_SC_T0_(ptr noundef %0, ptr noundef %1, i64 %2, i64 %3) #1 comdat {
   %5 = alloca %"struct.std::_Mem_fn", align 8
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -1940,11 +2154,11 @@ define linkonce_odr noundef zeroext i1 @_ZSt7none_ofIPKSt10unique_ptrIN4llvm24Sc
   store i64 %2, ptr %9, align 8
   %10 = getelementptr inbounds nuw { i64, i64 }, ptr %5, i32 0, i32 1
   store i64 %3, ptr %10, align 8
-  store ptr %0, ptr %6, align 8
-  store ptr %1, ptr %7, align 8
-  %11 = load ptr, ptr %7, align 8
-  %12 = load ptr, ptr %6, align 8
-  %13 = load ptr, ptr %7, align 8
+  store ptr %0, ptr %6, align 8, !tbaa !8
+  store ptr %1, ptr %7, align 8, !tbaa !8
+  %11 = load ptr, ptr %7, align 8, !tbaa !8
+  %12 = load ptr, ptr %6, align 8, !tbaa !8
+  %13 = load ptr, ptr %7, align 8, !tbaa !8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %8, ptr align 8 %5, i64 16, i1 false)
   %14 = getelementptr inbounds nuw { i64, i64 }, ptr %8, i32 0, i32 0
   %15 = load i64, ptr %14, align 8
@@ -1955,8 +2169,8 @@ define linkonce_odr noundef zeroext i1 @_ZSt7none_ofIPKSt10unique_ptrIN4llvm24Sc
   ret i1 %19
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef ptr @_ZSt7find_ifIPKSt10unique_ptrIN4llvm24ScheduleHazardRecognizerESt14default_deleteIS2_EESt7_Mem_fnIMS2_KFbvEEET_SC_SC_T0_(ptr noundef %0, ptr noundef %1, i64 %2, i64 %3) #0 comdat {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr noundef ptr @_ZSt7find_ifIPKSt10unique_ptrIN4llvm24ScheduleHazardRecognizerESt14default_deleteIS2_EESt7_Mem_fnIMS2_KFbvEEET_SC_SC_T0_(ptr noundef %0, ptr noundef %1, i64 %2, i64 %3) #1 comdat {
   %5 = alloca %"struct.std::_Mem_fn", align 8
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -1966,10 +2180,10 @@ define linkonce_odr noundef ptr @_ZSt7find_ifIPKSt10unique_ptrIN4llvm24ScheduleH
   store i64 %2, ptr %10, align 8
   %11 = getelementptr inbounds nuw { i64, i64 }, ptr %5, i32 0, i32 1
   store i64 %3, ptr %11, align 8
-  store ptr %0, ptr %6, align 8
-  store ptr %1, ptr %7, align 8
-  %12 = load ptr, ptr %6, align 8
-  %13 = load ptr, ptr %7, align 8
+  store ptr %0, ptr %6, align 8, !tbaa !8
+  store ptr %1, ptr %7, align 8, !tbaa !8
+  %12 = load ptr, ptr %6, align 8, !tbaa !8
+  %13 = load ptr, ptr %7, align 8, !tbaa !8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %9, ptr align 8 %5, i64 16, i1 false)
   %14 = getelementptr inbounds nuw { i64, i64 }, ptr %9, i32 0, i32 0
   %15 = load i64, ptr %14, align 8
@@ -1993,8 +2207,8 @@ define linkonce_odr noundef ptr @_ZSt7find_ifIPKSt10unique_ptrIN4llvm24ScheduleH
   ret ptr %30
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef ptr @_ZSt9__find_ifIPKSt10unique_ptrIN4llvm24ScheduleHazardRecognizerESt14default_deleteIS2_EEN9__gnu_cxx5__ops10_Iter_predISt7_Mem_fnIMS2_KFbvEEEEET_SG_SG_T0_(ptr noundef %0, ptr noundef %1, i64 %2, i64 %3) #0 comdat {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr noundef ptr @_ZSt9__find_ifIPKSt10unique_ptrIN4llvm24ScheduleHazardRecognizerESt14default_deleteIS2_EEN9__gnu_cxx5__ops10_Iter_predISt7_Mem_fnIMS2_KFbvEEEEET_SG_SG_T0_(ptr noundef %0, ptr noundef %1, i64 %2, i64 %3) #1 comdat {
   %5 = alloca %"struct.__gnu_cxx::__ops::_Iter_pred", align 8
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -2003,10 +2217,10 @@ define linkonce_odr noundef ptr @_ZSt9__find_ifIPKSt10unique_ptrIN4llvm24Schedul
   store i64 %2, ptr %9, align 8
   %10 = getelementptr inbounds nuw { i64, i64 }, ptr %5, i32 0, i32 1
   store i64 %3, ptr %10, align 8
-  store ptr %0, ptr %6, align 8
-  store ptr %1, ptr %7, align 8
-  %11 = load ptr, ptr %6, align 8
-  %12 = load ptr, ptr %7, align 8
+  store ptr %0, ptr %6, align 8, !tbaa !8
+  store ptr %1, ptr %7, align 8, !tbaa !8
+  %11 = load ptr, ptr %6, align 8, !tbaa !8
+  %12 = load ptr, ptr %7, align 8, !tbaa !8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %8, ptr align 8 %5, i64 16, i1 false)
   call void @_ZSt19__iterator_categoryIPKSt10unique_ptrIN4llvm24ScheduleHazardRecognizerESt14default_deleteIS2_EEENSt15iterator_traitsIT_E17iterator_categoryERKS9_(ptr noundef nonnull align 8 dereferenceable(8) %6)
   %13 = getelementptr inbounds nuw { i64, i64 }, ptr %8, i32 0, i32 0
@@ -2017,8 +2231,8 @@ define linkonce_odr noundef ptr @_ZSt9__find_ifIPKSt10unique_ptrIN4llvm24Schedul
   ret ptr %17
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden { i64, i64 } @_ZN9__gnu_cxx5__ops11__pred_iterISt7_Mem_fnIMN4llvm24ScheduleHazardRecognizerEKFbvEEEENS0_10_Iter_predIT_EES9_(i64 %0, i64 %1) #0 comdat {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr hidden { i64, i64 } @_ZN9__gnu_cxx5__ops11__pred_iterISt7_Mem_fnIMN4llvm24ScheduleHazardRecognizerEKFbvEEEENS0_10_Iter_predIT_EES9_(i64 %0, i64 %1) #1 comdat {
   %3 = alloca %"struct.__gnu_cxx::__ops::_Iter_pred", align 8
   %4 = alloca %"struct.std::_Mem_fn", align 8
   %5 = alloca %"struct.std::_Mem_fn", align 8
@@ -2046,167 +2260,178 @@ define linkonce_odr noundef ptr @_ZSt9__find_ifIPKSt10unique_ptrIN4llvm24Schedul
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
   %9 = alloca i64, align 8
-  %10 = getelementptr inbounds nuw { i64, i64 }, ptr %6, i32 0, i32 0
-  store i64 %2, ptr %10, align 8
-  %11 = getelementptr inbounds nuw { i64, i64 }, ptr %6, i32 0, i32 1
-  store i64 %3, ptr %11, align 8
-  store ptr %0, ptr %7, align 8
-  store ptr %1, ptr %8, align 8
-  %12 = load ptr, ptr %8, align 8
-  %13 = load ptr, ptr %7, align 8
-  %14 = ptrtoint ptr %12 to i64
+  %10 = alloca i32, align 4
+  %11 = getelementptr inbounds nuw { i64, i64 }, ptr %6, i32 0, i32 0
+  store i64 %2, ptr %11, align 8
+  %12 = getelementptr inbounds nuw { i64, i64 }, ptr %6, i32 0, i32 1
+  store i64 %3, ptr %12, align 8
+  store ptr %0, ptr %7, align 8, !tbaa !8
+  store ptr %1, ptr %8, align 8, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #8
+  %13 = load ptr, ptr %8, align 8, !tbaa !8
+  %14 = load ptr, ptr %7, align 8, !tbaa !8
   %15 = ptrtoint ptr %13 to i64
-  %16 = sub i64 %14, %15
-  %17 = sdiv exact i64 %16, 8
-  %18 = ashr i64 %17, 2
-  store i64 %18, ptr %9, align 8
-  br label %19
+  %16 = ptrtoint ptr %14 to i64
+  %17 = sub i64 %15, %16
+  %18 = sdiv exact i64 %17, 8
+  %19 = ashr i64 %18, 2
+  store i64 %19, ptr %9, align 8, !tbaa !66
+  br label %20
 
-19:                                               ; preds = %51, %4
-  %20 = load i64, ptr %9, align 8
-  %21 = icmp sgt i64 %20, 0
-  br i1 %21, label %22, label %54
+20:                                               ; preds = %52, %4
+  %21 = load i64, ptr %9, align 8, !tbaa !66
+  %22 = icmp sgt i64 %21, 0
+  br i1 %22, label %23, label %55
 
-22:                                               ; preds = %19
-  %23 = load ptr, ptr %7, align 8
-  %24 = call noundef zeroext i1 @_ZN9__gnu_cxx5__ops10_Iter_predISt7_Mem_fnIMN4llvm24ScheduleHazardRecognizerEKFbvEEEclIPKSt10unique_ptrIS4_St14default_deleteIS4_EEEEbT_(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef %23)
-  br i1 %24, label %25, label %27
+23:                                               ; preds = %20
+  %24 = load ptr, ptr %7, align 8, !tbaa !8
+  %25 = call noundef zeroext i1 @_ZN9__gnu_cxx5__ops10_Iter_predISt7_Mem_fnIMN4llvm24ScheduleHazardRecognizerEKFbvEEEclIPKSt10unique_ptrIS4_St14default_deleteIS4_EEEEbT_(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef %24)
+  br i1 %25, label %26, label %28
 
-25:                                               ; preds = %22
-  %26 = load ptr, ptr %7, align 8
-  store ptr %26, ptr %5, align 8
-  br label %88
+26:                                               ; preds = %23
+  %27 = load ptr, ptr %7, align 8, !tbaa !8
+  store ptr %27, ptr %5, align 8
+  store i32 1, ptr %10, align 4
+  br label %89
 
-27:                                               ; preds = %22
-  %28 = load ptr, ptr %7, align 8
-  %29 = getelementptr inbounds %"class.std::unique_ptr", ptr %28, i32 1
-  store ptr %29, ptr %7, align 8
-  %30 = load ptr, ptr %7, align 8
-  %31 = call noundef zeroext i1 @_ZN9__gnu_cxx5__ops10_Iter_predISt7_Mem_fnIMN4llvm24ScheduleHazardRecognizerEKFbvEEEclIPKSt10unique_ptrIS4_St14default_deleteIS4_EEEEbT_(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef %30)
-  br i1 %31, label %32, label %34
+28:                                               ; preds = %23
+  %29 = load ptr, ptr %7, align 8, !tbaa !8
+  %30 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %29, i32 1
+  store ptr %30, ptr %7, align 8, !tbaa !8
+  %31 = load ptr, ptr %7, align 8, !tbaa !8
+  %32 = call noundef zeroext i1 @_ZN9__gnu_cxx5__ops10_Iter_predISt7_Mem_fnIMN4llvm24ScheduleHazardRecognizerEKFbvEEEclIPKSt10unique_ptrIS4_St14default_deleteIS4_EEEEbT_(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef %31)
+  br i1 %32, label %33, label %35
 
-32:                                               ; preds = %27
-  %33 = load ptr, ptr %7, align 8
-  store ptr %33, ptr %5, align 8
-  br label %88
+33:                                               ; preds = %28
+  %34 = load ptr, ptr %7, align 8, !tbaa !8
+  store ptr %34, ptr %5, align 8
+  store i32 1, ptr %10, align 4
+  br label %89
 
-34:                                               ; preds = %27
-  %35 = load ptr, ptr %7, align 8
-  %36 = getelementptr inbounds %"class.std::unique_ptr", ptr %35, i32 1
-  store ptr %36, ptr %7, align 8
-  %37 = load ptr, ptr %7, align 8
-  %38 = call noundef zeroext i1 @_ZN9__gnu_cxx5__ops10_Iter_predISt7_Mem_fnIMN4llvm24ScheduleHazardRecognizerEKFbvEEEclIPKSt10unique_ptrIS4_St14default_deleteIS4_EEEEbT_(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef %37)
-  br i1 %38, label %39, label %41
+35:                                               ; preds = %28
+  %36 = load ptr, ptr %7, align 8, !tbaa !8
+  %37 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %36, i32 1
+  store ptr %37, ptr %7, align 8, !tbaa !8
+  %38 = load ptr, ptr %7, align 8, !tbaa !8
+  %39 = call noundef zeroext i1 @_ZN9__gnu_cxx5__ops10_Iter_predISt7_Mem_fnIMN4llvm24ScheduleHazardRecognizerEKFbvEEEclIPKSt10unique_ptrIS4_St14default_deleteIS4_EEEEbT_(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef %38)
+  br i1 %39, label %40, label %42
 
-39:                                               ; preds = %34
-  %40 = load ptr, ptr %7, align 8
-  store ptr %40, ptr %5, align 8
-  br label %88
+40:                                               ; preds = %35
+  %41 = load ptr, ptr %7, align 8, !tbaa !8
+  store ptr %41, ptr %5, align 8
+  store i32 1, ptr %10, align 4
+  br label %89
 
-41:                                               ; preds = %34
-  %42 = load ptr, ptr %7, align 8
-  %43 = getelementptr inbounds %"class.std::unique_ptr", ptr %42, i32 1
-  store ptr %43, ptr %7, align 8
-  %44 = load ptr, ptr %7, align 8
-  %45 = call noundef zeroext i1 @_ZN9__gnu_cxx5__ops10_Iter_predISt7_Mem_fnIMN4llvm24ScheduleHazardRecognizerEKFbvEEEclIPKSt10unique_ptrIS4_St14default_deleteIS4_EEEEbT_(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef %44)
-  br i1 %45, label %46, label %48
+42:                                               ; preds = %35
+  %43 = load ptr, ptr %7, align 8, !tbaa !8
+  %44 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %43, i32 1
+  store ptr %44, ptr %7, align 8, !tbaa !8
+  %45 = load ptr, ptr %7, align 8, !tbaa !8
+  %46 = call noundef zeroext i1 @_ZN9__gnu_cxx5__ops10_Iter_predISt7_Mem_fnIMN4llvm24ScheduleHazardRecognizerEKFbvEEEclIPKSt10unique_ptrIS4_St14default_deleteIS4_EEEEbT_(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef %45)
+  br i1 %46, label %47, label %49
 
-46:                                               ; preds = %41
-  %47 = load ptr, ptr %7, align 8
-  store ptr %47, ptr %5, align 8
-  br label %88
+47:                                               ; preds = %42
+  %48 = load ptr, ptr %7, align 8, !tbaa !8
+  store ptr %48, ptr %5, align 8
+  store i32 1, ptr %10, align 4
+  br label %89
 
-48:                                               ; preds = %41
-  %49 = load ptr, ptr %7, align 8
-  %50 = getelementptr inbounds %"class.std::unique_ptr", ptr %49, i32 1
-  store ptr %50, ptr %7, align 8
-  br label %51
+49:                                               ; preds = %42
+  %50 = load ptr, ptr %7, align 8, !tbaa !8
+  %51 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %50, i32 1
+  store ptr %51, ptr %7, align 8, !tbaa !8
+  br label %52
 
-51:                                               ; preds = %48
-  %52 = load i64, ptr %9, align 8
-  %53 = add nsw i64 %52, -1
-  store i64 %53, ptr %9, align 8
-  br label %19, !llvm.loop !10
+52:                                               ; preds = %49
+  %53 = load i64, ptr %9, align 8, !tbaa !66
+  %54 = add nsw i64 %53, -1
+  store i64 %54, ptr %9, align 8, !tbaa !66
+  br label %20, !llvm.loop !98
 
-54:                                               ; preds = %19
-  %55 = load ptr, ptr %8, align 8
-  %56 = load ptr, ptr %7, align 8
-  %57 = ptrtoint ptr %55 to i64
+55:                                               ; preds = %20
+  %56 = load ptr, ptr %8, align 8, !tbaa !8
+  %57 = load ptr, ptr %7, align 8, !tbaa !8
   %58 = ptrtoint ptr %56 to i64
-  %59 = sub i64 %57, %58
-  %60 = sdiv exact i64 %59, 8
-  switch i64 %60, label %86 [
-    i64 3, label %61
-    i64 2, label %69
-    i64 1, label %77
-    i64 0, label %85
+  %59 = ptrtoint ptr %57 to i64
+  %60 = sub i64 %58, %59
+  %61 = sdiv exact i64 %60, 8
+  switch i64 %61, label %87 [
+    i64 3, label %62
+    i64 2, label %70
+    i64 1, label %78
+    i64 0, label %86
   ]
 
-61:                                               ; preds = %54
-  %62 = load ptr, ptr %7, align 8
-  %63 = call noundef zeroext i1 @_ZN9__gnu_cxx5__ops10_Iter_predISt7_Mem_fnIMN4llvm24ScheduleHazardRecognizerEKFbvEEEclIPKSt10unique_ptrIS4_St14default_deleteIS4_EEEEbT_(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef %62)
-  br i1 %63, label %64, label %66
+62:                                               ; preds = %55
+  %63 = load ptr, ptr %7, align 8, !tbaa !8
+  %64 = call noundef zeroext i1 @_ZN9__gnu_cxx5__ops10_Iter_predISt7_Mem_fnIMN4llvm24ScheduleHazardRecognizerEKFbvEEEclIPKSt10unique_ptrIS4_St14default_deleteIS4_EEEEbT_(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef %63)
+  br i1 %64, label %65, label %67
 
-64:                                               ; preds = %61
-  %65 = load ptr, ptr %7, align 8
-  store ptr %65, ptr %5, align 8
-  br label %88
+65:                                               ; preds = %62
+  %66 = load ptr, ptr %7, align 8, !tbaa !8
+  store ptr %66, ptr %5, align 8
+  store i32 1, ptr %10, align 4
+  br label %89
 
-66:                                               ; preds = %61
-  %67 = load ptr, ptr %7, align 8
-  %68 = getelementptr inbounds %"class.std::unique_ptr", ptr %67, i32 1
-  store ptr %68, ptr %7, align 8
-  br label %69
+67:                                               ; preds = %62
+  %68 = load ptr, ptr %7, align 8, !tbaa !8
+  %69 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %68, i32 1
+  store ptr %69, ptr %7, align 8, !tbaa !8
+  br label %70
 
-69:                                               ; preds = %66, %54
-  %70 = load ptr, ptr %7, align 8
-  %71 = call noundef zeroext i1 @_ZN9__gnu_cxx5__ops10_Iter_predISt7_Mem_fnIMN4llvm24ScheduleHazardRecognizerEKFbvEEEclIPKSt10unique_ptrIS4_St14default_deleteIS4_EEEEbT_(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef %70)
-  br i1 %71, label %72, label %74
+70:                                               ; preds = %55, %67
+  %71 = load ptr, ptr %7, align 8, !tbaa !8
+  %72 = call noundef zeroext i1 @_ZN9__gnu_cxx5__ops10_Iter_predISt7_Mem_fnIMN4llvm24ScheduleHazardRecognizerEKFbvEEEclIPKSt10unique_ptrIS4_St14default_deleteIS4_EEEEbT_(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef %71)
+  br i1 %72, label %73, label %75
 
-72:                                               ; preds = %69
-  %73 = load ptr, ptr %7, align 8
-  store ptr %73, ptr %5, align 8
-  br label %88
+73:                                               ; preds = %70
+  %74 = load ptr, ptr %7, align 8, !tbaa !8
+  store ptr %74, ptr %5, align 8
+  store i32 1, ptr %10, align 4
+  br label %89
 
-74:                                               ; preds = %69
-  %75 = load ptr, ptr %7, align 8
-  %76 = getelementptr inbounds %"class.std::unique_ptr", ptr %75, i32 1
-  store ptr %76, ptr %7, align 8
-  br label %77
+75:                                               ; preds = %70
+  %76 = load ptr, ptr %7, align 8, !tbaa !8
+  %77 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %76, i32 1
+  store ptr %77, ptr %7, align 8, !tbaa !8
+  br label %78
 
-77:                                               ; preds = %74, %54
-  %78 = load ptr, ptr %7, align 8
-  %79 = call noundef zeroext i1 @_ZN9__gnu_cxx5__ops10_Iter_predISt7_Mem_fnIMN4llvm24ScheduleHazardRecognizerEKFbvEEEclIPKSt10unique_ptrIS4_St14default_deleteIS4_EEEEbT_(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef %78)
-  br i1 %79, label %80, label %82
+78:                                               ; preds = %55, %75
+  %79 = load ptr, ptr %7, align 8, !tbaa !8
+  %80 = call noundef zeroext i1 @_ZN9__gnu_cxx5__ops10_Iter_predISt7_Mem_fnIMN4llvm24ScheduleHazardRecognizerEKFbvEEEclIPKSt10unique_ptrIS4_St14default_deleteIS4_EEEEbT_(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef %79)
+  br i1 %80, label %81, label %83
 
-80:                                               ; preds = %77
-  %81 = load ptr, ptr %7, align 8
-  store ptr %81, ptr %5, align 8
-  br label %88
+81:                                               ; preds = %78
+  %82 = load ptr, ptr %7, align 8, !tbaa !8
+  store ptr %82, ptr %5, align 8
+  store i32 1, ptr %10, align 4
+  br label %89
 
-82:                                               ; preds = %77
-  %83 = load ptr, ptr %7, align 8
-  %84 = getelementptr inbounds %"class.std::unique_ptr", ptr %83, i32 1
-  store ptr %84, ptr %7, align 8
-  br label %85
-
-85:                                               ; preds = %82, %54
+83:                                               ; preds = %78
+  %84 = load ptr, ptr %7, align 8, !tbaa !8
+  %85 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %84, i32 1
+  store ptr %85, ptr %7, align 8, !tbaa !8
   br label %86
 
-86:                                               ; preds = %85, %54
-  %87 = load ptr, ptr %8, align 8
-  store ptr %87, ptr %5, align 8
-  br label %88
+86:                                               ; preds = %55, %83
+  br label %87
 
-88:                                               ; preds = %86, %80, %72, %64, %46, %39, %32, %25
-  %89 = load ptr, ptr %5, align 8
-  ret ptr %89
+87:                                               ; preds = %55, %86
+  %88 = load ptr, ptr %8, align 8, !tbaa !8
+  store ptr %88, ptr %5, align 8
+  store i32 1, ptr %10, align 4
+  br label %89
+
+89:                                               ; preds = %87, %81, %73, %65, %47, %40, %33, %26
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #8
+  %90 = load ptr, ptr %5, align 8
+  ret ptr %90
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZSt19__iterator_categoryIPKSt10unique_ptrIN4llvm24ScheduleHazardRecognizerESt14default_deleteIS2_EEENSt15iterator_traitsIT_E17iterator_categoryERKS9_(ptr noundef nonnull align 8 dereferenceable(8) %0) #0 comdat {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr void @_ZSt19__iterator_categoryIPKSt10unique_ptrIN4llvm24ScheduleHazardRecognizerESt14default_deleteIS2_EEENSt15iterator_traitsIT_E17iterator_categoryERKS9_(ptr noundef nonnull align 8 dereferenceable(8) %0) #1 comdat {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !99
   ret void
 }
 
@@ -2214,11 +2439,11 @@ define linkonce_odr void @_ZSt19__iterator_categoryIPKSt10unique_ptrIN4llvm24Sch
 define linkonce_odr hidden noundef zeroext i1 @_ZN9__gnu_cxx5__ops10_Iter_predISt7_Mem_fnIMN4llvm24ScheduleHazardRecognizerEKFbvEEEclIPKSt10unique_ptrIS4_St14default_deleteIS4_EEEEbT_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) #0 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !101
+  store ptr %1, ptr %4, align 8, !tbaa !8
   %5 = load ptr, ptr %3, align 8
   %6 = getelementptr inbounds nuw %"struct.__gnu_cxx::__ops::_Iter_pred", ptr %5, i32 0, i32 0
-  %7 = load ptr, ptr %4, align 8
+  %7 = load ptr, ptr %4, align 8, !tbaa !8
   %8 = call noundef zeroext i1 @_ZNKSt12_Mem_fn_baseIMN4llvm24ScheduleHazardRecognizerEKFbvELb1EEclIJRKSt10unique_ptrIS1_St14default_deleteIS1_EEEEEDTclsr3stdE8__invokedtdefpT6_M_pmfspclsr3stdE7forwardIT_Efp_EEEDpOSC_(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(8) %7)
   ret i1 %8
 }
@@ -2227,11 +2452,11 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN9__gnu_cxx5__ops10_Iter_predIS
 define linkonce_odr hidden noundef zeroext i1 @_ZNKSt12_Mem_fn_baseIMN4llvm24ScheduleHazardRecognizerEKFbvELb1EEclIJRKSt10unique_ptrIS1_St14default_deleteIS1_EEEEEDTclsr3stdE8__invokedtdefpT6_M_pmfspclsr3stdE7forwardIT_Efp_EEEDpOSC_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #0 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !94
+  store ptr %1, ptr %4, align 8, !tbaa !8
   %5 = load ptr, ptr %3, align 8
   %6 = getelementptr inbounds nuw %"class.std::_Mem_fn_base", ptr %5, i32 0, i32 0
-  %7 = load ptr, ptr %4, align 8
+  %7 = load ptr, ptr %4, align 8, !tbaa !8
   %8 = call noundef zeroext i1 @_ZSt8__invokeIRKMN4llvm24ScheduleHazardRecognizerEKFbvEJRKSt10unique_ptrIS1_St14default_deleteIS1_EEEENSt15__invoke_resultIT_JDpT0_EE4typeEOSD_DpOSE_(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(8) %7)
   ret i1 %8
 }
@@ -2240,10 +2465,10 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNKSt12_Mem_fn_baseIMN4llvm24Sch
 define linkonce_odr noundef zeroext i1 @_ZSt8__invokeIRKMN4llvm24ScheduleHazardRecognizerEKFbvEJRKSt10unique_ptrIS1_St14default_deleteIS1_EEEENSt15__invoke_resultIT_JDpT0_EE4typeEOSD_DpOSE_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #0 comdat {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  %5 = load ptr, ptr %3, align 8
-  %6 = load ptr, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !76
+  store ptr %1, ptr %4, align 8, !tbaa !8
+  %5 = load ptr, ptr %3, align 8, !tbaa !76
+  %6 = load ptr, ptr %4, align 8, !tbaa !8
   %7 = call noundef zeroext i1 @_ZSt13__invoke_implIbRKMN4llvm24ScheduleHazardRecognizerEKFbvERKSt10unique_ptrIS1_St14default_deleteIS1_EEJEET_St21__invoke_memfun_derefOT0_OT1_DpOT2_(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(8) %6)
   ret i1 %7
 }
@@ -2252,12 +2477,12 @@ define linkonce_odr noundef zeroext i1 @_ZSt8__invokeIRKMN4llvm24ScheduleHazardR
 define linkonce_odr noundef zeroext i1 @_ZSt13__invoke_implIbRKMN4llvm24ScheduleHazardRecognizerEKFbvERKSt10unique_ptrIS1_St14default_deleteIS1_EEJEET_St21__invoke_memfun_derefOT0_OT1_DpOT2_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #0 comdat {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  %5 = load ptr, ptr %4, align 8
-  %6 = call noundef nonnull align 8 dereferenceable(12) ptr @_ZNKSt10unique_ptrIN4llvm24ScheduleHazardRecognizerESt14default_deleteIS1_EEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %5) #5
-  %7 = load ptr, ptr %3, align 8
-  %8 = load { i64, i64 }, ptr %7, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !76
+  store ptr %1, ptr %4, align 8, !tbaa !8
+  %5 = load ptr, ptr %4, align 8, !tbaa !8
+  %6 = call noundef nonnull align 8 dereferenceable(12) ptr @_ZNKSt10unique_ptrIN4llvm24ScheduleHazardRecognizerESt14default_deleteIS1_EEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %5) #8
+  %7 = load ptr, ptr %3, align 8, !tbaa !76
+  %8 = load { i64, i64 }, ptr %7, align 8, !tbaa !20
   %9 = extractvalue { i64, i64 } %8, 1
   %10 = getelementptr inbounds i8, ptr %6, i64 %9
   %11 = extractvalue { i64, i64 } %8, 0
@@ -2266,10 +2491,10 @@ define linkonce_odr noundef zeroext i1 @_ZSt13__invoke_implIbRKMN4llvm24Schedule
   br i1 %13, label %14, label %19
 
 14:                                               ; preds = %2
-  %15 = load ptr, ptr %10, align 8
+  %15 = load ptr, ptr %10, align 8, !tbaa !25
   %16 = sub i64 %11, 1
-  %17 = getelementptr i8, ptr %15, i64 %16, !nosanitize !11
-  %18 = load ptr, ptr %17, align 8, !nosanitize !11
+  %17 = getelementptr i8, ptr %15, i64 %16, !nosanitize !74
+  %18 = load ptr, ptr %17, align 8, !nosanitize !74
   br label %21
 
 19:                                               ; preds = %2
@@ -2285,7 +2510,7 @@ define linkonce_odr noundef zeroext i1 @_ZSt13__invoke_implIbRKMN4llvm24Schedule
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef nonnull align 8 dereferenceable(12) ptr @_ZNKSt10unique_ptrIN4llvm24ScheduleHazardRecognizerESt14default_deleteIS1_EEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !8
   %3 = load ptr, ptr %2, align 8
   br label %4
 
@@ -2293,7 +2518,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(12) ptr @_ZNK
   br label %5
 
 5:                                                ; preds = %4
-  %6 = call noundef ptr @_ZNKSt10unique_ptrIN4llvm24ScheduleHazardRecognizerESt14default_deleteIS1_EE3getEv(ptr noundef nonnull align 8 dereferenceable(8) %3) #5
+  %6 = call noundef ptr @_ZNKSt10unique_ptrIN4llvm24ScheduleHazardRecognizerESt14default_deleteIS1_EE3getEv(ptr noundef nonnull align 8 dereferenceable(8) %3) #8
   ret ptr %6
 }
 
@@ -2305,7 +2530,7 @@ define linkonce_odr hidden void @_ZN9__gnu_cxx5__ops10_Iter_predISt7_Mem_fnIMN4l
   store i64 %1, ptr %6, align 8
   %7 = getelementptr inbounds nuw { i64, i64 }, ptr %4, i32 0, i32 1
   store i64 %2, ptr %7, align 8
-  store ptr %0, ptr %5, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !101
   %8 = load ptr, ptr %5, align 8
   %9 = getelementptr inbounds nuw %"struct.__gnu_cxx::__ops::_Iter_pred", ptr %8, i32 0, i32 0
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %9, ptr align 8 %4, i64 16, i1 false)
@@ -2315,17 +2540,17 @@ define linkonce_odr hidden void @_ZN9__gnu_cxx5__ops10_Iter_predISt7_Mem_fnIMN4l
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZN4llvm10adl_detail10begin_implIRKNS_11SmallVectorISt10unique_ptrINS_24ScheduleHazardRecognizerESt14default_deleteIS4_EELj4EEEEEDTcl5beginclsr3stdE7forwardIT_Efp_EEEOSB_(ptr noundef nonnull align 8 dereferenceable(48) %0) #0 comdat {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !21
+  %3 = load ptr, ptr %2, align 8, !tbaa !21
   %4 = call noundef ptr @_ZSt5beginIN4llvm11SmallVectorISt10unique_ptrINS0_24ScheduleHazardRecognizerESt14default_deleteIS3_EELj4EEEEDTcldtfp_5beginEERKT_(ptr noundef nonnull align 8 dereferenceable(48) %3)
   ret ptr %4
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef ptr @_ZSt5beginIN4llvm11SmallVectorISt10unique_ptrINS0_24ScheduleHazardRecognizerESt14default_deleteIS3_EELj4EEEEDTcldtfp_5beginEERKT_(ptr noundef nonnull align 8 dereferenceable(48) %0) #0 comdat {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr noundef ptr @_ZSt5beginIN4llvm11SmallVectorISt10unique_ptrINS0_24ScheduleHazardRecognizerESt14default_deleteIS3_EELj4EEEEDTcldtfp_5beginEERKT_(ptr noundef nonnull align 8 dereferenceable(48) %0) #1 comdat {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !21
+  %3 = load ptr, ptr %2, align 8, !tbaa !21
   %4 = call noundef ptr @_ZNK4llvm25SmallVectorTemplateCommonISt10unique_ptrINS_24ScheduleHazardRecognizerESt14default_deleteIS2_EEvE5beginEv(ptr noundef nonnull align 8 dereferenceable(16) %3)
   ret ptr %4
 }
@@ -2333,82 +2558,86 @@ define linkonce_odr noundef ptr @_ZSt5beginIN4llvm11SmallVectorISt10unique_ptrIN
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZN4llvm10adl_detail8end_implIRKNS_11SmallVectorISt10unique_ptrINS_24ScheduleHazardRecognizerESt14default_deleteIS4_EELj4EEEEEDTcl3endclsr3stdE7forwardIT_Efp_EEEOSB_(ptr noundef nonnull align 8 dereferenceable(48) %0) #0 comdat {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !21
+  %3 = load ptr, ptr %2, align 8, !tbaa !21
   %4 = call noundef ptr @_ZSt3endIN4llvm11SmallVectorISt10unique_ptrINS0_24ScheduleHazardRecognizerESt14default_deleteIS3_EELj4EEEEDTcldtfp_3endEERKT_(ptr noundef nonnull align 8 dereferenceable(48) %3)
   ret ptr %4
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef ptr @_ZSt3endIN4llvm11SmallVectorISt10unique_ptrINS0_24ScheduleHazardRecognizerESt14default_deleteIS3_EELj4EEEEDTcldtfp_3endEERKT_(ptr noundef nonnull align 8 dereferenceable(48) %0) #0 comdat {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr noundef ptr @_ZSt3endIN4llvm11SmallVectorISt10unique_ptrINS0_24ScheduleHazardRecognizerESt14default_deleteIS3_EELj4EEEEDTcldtfp_3endEERKT_(ptr noundef nonnull align 8 dereferenceable(48) %0) #1 comdat {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !21
+  %3 = load ptr, ptr %2, align 8, !tbaa !21
   %4 = call noundef ptr @_ZNK4llvm25SmallVectorTemplateCommonISt10unique_ptrINS_24ScheduleHazardRecognizerESt14default_deleteIS2_EEvE3endEv(ptr noundef nonnull align 8 dereferenceable(16) %3)
   ret ptr %4
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define internal noundef i32 @"_ZZN4llvm21MultiHazardRecognizer12PreEmitNoopsEPNS_5SUnitEENK3$_0clEjRSt10unique_ptrINS_24ScheduleHazardRecognizerESt14default_deleteIS5_EE"(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %2) #0 align 2 {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define internal noundef i32 @"_ZZN4llvm21MultiHazardRecognizer12PreEmitNoopsEPNS_5SUnitEENK3$_0clEjRSt10unique_ptrINS_24ScheduleHazardRecognizerESt14default_deleteIS5_EE"(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %2) #1 align 2 {
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
-  store ptr %0, ptr %4, align 8
-  store i32 %1, ptr %5, align 4
-  store ptr %2, ptr %6, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !76
+  store i32 %1, ptr %5, align 4, !tbaa !10
+  store ptr %2, ptr %6, align 8, !tbaa !8
   %8 = load ptr, ptr %4, align 8
-  %9 = load ptr, ptr %6, align 8
-  %10 = call noundef ptr @_ZNKSt10unique_ptrIN4llvm24ScheduleHazardRecognizerESt14default_deleteIS1_EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %9) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #8
+  %9 = load ptr, ptr %6, align 8, !tbaa !8
+  %10 = call noundef ptr @_ZNKSt10unique_ptrIN4llvm24ScheduleHazardRecognizerESt14default_deleteIS1_EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %9) #8
   %11 = getelementptr inbounds nuw %class.anon, ptr %8, i32 0, i32 0
-  %12 = load ptr, ptr %11, align 8
-  %13 = load ptr, ptr %10, align 8
+  %12 = load ptr, ptr %11, align 8, !tbaa !35
+  %13 = load ptr, ptr %10, align 8, !tbaa !25
   %14 = getelementptr inbounds ptr, ptr %13, i64 7
   %15 = load ptr, ptr %14, align 8
   %16 = call noundef i32 %15(ptr noundef nonnull align 8 dereferenceable(12) %10, ptr noundef %12)
-  store i32 %16, ptr %7, align 4
+  store i32 %16, ptr %7, align 4, !tbaa !10
   %17 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZSt3maxIjERKT_S2_S2_(ptr noundef nonnull align 4 dereferenceable(4) %5, ptr noundef nonnull align 4 dereferenceable(4) %7)
-  %18 = load i32, ptr %17, align 4
+  %18 = load i32, ptr %17, align 4, !tbaa !10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #8
   ret i32 %18
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define internal noundef i32 @"_ZZN4llvm21MultiHazardRecognizer12PreEmitNoopsEPNS_12MachineInstrEENK3$_0clEjRSt10unique_ptrINS_24ScheduleHazardRecognizerESt14default_deleteIS5_EE"(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %2) #0 align 2 {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define internal noundef i32 @"_ZZN4llvm21MultiHazardRecognizer12PreEmitNoopsEPNS_12MachineInstrEENK3$_0clEjRSt10unique_ptrINS_24ScheduleHazardRecognizerESt14default_deleteIS5_EE"(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %2) #1 align 2 {
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
-  store ptr %0, ptr %4, align 8
-  store i32 %1, ptr %5, align 4
-  store ptr %2, ptr %6, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !76
+  store i32 %1, ptr %5, align 4, !tbaa !10
+  store ptr %2, ptr %6, align 8, !tbaa !8
   %8 = load ptr, ptr %4, align 8
-  %9 = load ptr, ptr %6, align 8
-  %10 = call noundef ptr @_ZNKSt10unique_ptrIN4llvm24ScheduleHazardRecognizerESt14default_deleteIS1_EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %9) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #8
+  %9 = load ptr, ptr %6, align 8, !tbaa !8
+  %10 = call noundef ptr @_ZNKSt10unique_ptrIN4llvm24ScheduleHazardRecognizerESt14default_deleteIS1_EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %9) #8
   %11 = getelementptr inbounds nuw %class.anon.2, ptr %8, i32 0, i32 0
-  %12 = load ptr, ptr %11, align 8
-  %13 = load ptr, ptr %10, align 8
+  %12 = load ptr, ptr %11, align 8, !tbaa !40
+  %13 = load ptr, ptr %10, align 8, !tbaa !25
   %14 = getelementptr inbounds ptr, ptr %13, i64 8
   %15 = load ptr, ptr %14, align 8
   %16 = call noundef i32 %15(ptr noundef nonnull align 8 dereferenceable(12) %10, ptr noundef %12)
-  store i32 %16, ptr %7, align 4
+  store i32 %16, ptr %7, align 4, !tbaa !10
   %17 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZSt3maxIjERKT_S2_S2_(ptr noundef nonnull align 4 dereferenceable(4) %5, ptr noundef nonnull align 4 dereferenceable(4) %7)
-  %18 = load i32, ptr %17, align 4
+  %18 = load i32, ptr %17, align 4, !tbaa !10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #8
   ret i32 %18
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define internal noundef zeroext i1 @"_ZSt6any_ofIPSt10unique_ptrIN4llvm24ScheduleHazardRecognizerESt14default_deleteIS2_EEZNS1_21MultiHazardRecognizer19ShouldPreferAnotherEPNS1_5SUnitEE3$_0EbT_SB_T0_"(ptr noundef %0, ptr noundef %1, ptr %2) #0 {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define internal noundef zeroext i1 @"_ZSt6any_ofIPSt10unique_ptrIN4llvm24ScheduleHazardRecognizerESt14default_deleteIS2_EEZNS1_21MultiHazardRecognizer19ShouldPreferAnotherEPNS1_5SUnitEE3$_0EbT_SB_T0_"(ptr noundef %0, ptr noundef %1, ptr %2) #1 {
   %4 = alloca %class.anon.3, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca %class.anon.3, align 8
   %8 = getelementptr inbounds nuw %class.anon.3, ptr %4, i32 0, i32 0
   store ptr %2, ptr %8, align 8
-  store ptr %0, ptr %5, align 8
-  store ptr %1, ptr %6, align 8
-  %9 = load ptr, ptr %5, align 8
-  %10 = load ptr, ptr %6, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %7, ptr align 8 %4, i64 8, i1 false)
+  store ptr %0, ptr %5, align 8, !tbaa !8
+  store ptr %1, ptr %6, align 8, !tbaa !8
+  %9 = load ptr, ptr %5, align 8, !tbaa !8
+  %10 = load ptr, ptr %6, align 8, !tbaa !8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %7, ptr align 8 %4, i64 8, i1 false), !tbaa.struct !37
   %11 = getelementptr inbounds nuw %class.anon.3, ptr %7, i32 0, i32 0
   %12 = load ptr, ptr %11, align 8
   %13 = call noundef zeroext i1 @"_ZSt7none_ofIPSt10unique_ptrIN4llvm24ScheduleHazardRecognizerESt14default_deleteIS2_EEZNS1_21MultiHazardRecognizer19ShouldPreferAnotherEPNS1_5SUnitEE3$_0EbT_SB_T0_"(ptr noundef %9, ptr noundef %10, ptr %12)
@@ -2419,8 +2648,8 @@ define internal noundef zeroext i1 @"_ZSt6any_ofIPSt10unique_ptrIN4llvm24Schedul
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZN4llvm9adl_beginIRNS_11SmallVectorISt10unique_ptrINS_24ScheduleHazardRecognizerESt14default_deleteIS3_EELj4EEEEEDTclsr10adl_detailE10begin_implclsr3stdE7forwardIT_Efp_EEEOS9_(ptr noundef nonnull align 8 dereferenceable(48) %0) #0 comdat {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !21
+  %3 = load ptr, ptr %2, align 8, !tbaa !21
   %4 = call noundef ptr @_ZN4llvm10adl_detail10begin_implIRNS_11SmallVectorISt10unique_ptrINS_24ScheduleHazardRecognizerESt14default_deleteIS4_EELj4EEEEEDTcl5beginclsr3stdE7forwardIT_Efp_EEEOSA_(ptr noundef nonnull align 8 dereferenceable(48) %3)
   ret ptr %4
 }
@@ -2428,26 +2657,26 @@ define linkonce_odr hidden noundef ptr @_ZN4llvm9adl_beginIRNS_11SmallVectorISt1
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZN4llvm7adl_endIRNS_11SmallVectorISt10unique_ptrINS_24ScheduleHazardRecognizerESt14default_deleteIS3_EELj4EEEEEDTclsr10adl_detailE8end_implclsr3stdE7forwardIT_Efp_EEEOS9_(ptr noundef nonnull align 8 dereferenceable(48) %0) #0 comdat {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !21
+  %3 = load ptr, ptr %2, align 8, !tbaa !21
   %4 = call noundef ptr @_ZN4llvm10adl_detail8end_implIRNS_11SmallVectorISt10unique_ptrINS_24ScheduleHazardRecognizerESt14default_deleteIS4_EELj4EEEEEDTcl3endclsr3stdE7forwardIT_Efp_EEEOSA_(ptr noundef nonnull align 8 dereferenceable(48) %3)
   ret ptr %4
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define internal noundef zeroext i1 @"_ZSt7none_ofIPSt10unique_ptrIN4llvm24ScheduleHazardRecognizerESt14default_deleteIS2_EEZNS1_21MultiHazardRecognizer19ShouldPreferAnotherEPNS1_5SUnitEE3$_0EbT_SB_T0_"(ptr noundef %0, ptr noundef %1, ptr %2) #0 {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define internal noundef zeroext i1 @"_ZSt7none_ofIPSt10unique_ptrIN4llvm24ScheduleHazardRecognizerESt14default_deleteIS2_EEZNS1_21MultiHazardRecognizer19ShouldPreferAnotherEPNS1_5SUnitEE3$_0EbT_SB_T0_"(ptr noundef %0, ptr noundef %1, ptr %2) #1 {
   %4 = alloca %class.anon.3, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca %class.anon.3, align 8
   %8 = getelementptr inbounds nuw %class.anon.3, ptr %4, i32 0, i32 0
   store ptr %2, ptr %8, align 8
-  store ptr %0, ptr %5, align 8
-  store ptr %1, ptr %6, align 8
-  %9 = load ptr, ptr %6, align 8
-  %10 = load ptr, ptr %5, align 8
-  %11 = load ptr, ptr %6, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %7, ptr align 8 %4, i64 8, i1 false)
+  store ptr %0, ptr %5, align 8, !tbaa !8
+  store ptr %1, ptr %6, align 8, !tbaa !8
+  %9 = load ptr, ptr %6, align 8, !tbaa !8
+  %10 = load ptr, ptr %5, align 8, !tbaa !8
+  %11 = load ptr, ptr %6, align 8, !tbaa !8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %7, ptr align 8 %4, i64 8, i1 false), !tbaa.struct !37
   %12 = getelementptr inbounds nuw %class.anon.3, ptr %7, i32 0, i32 0
   %13 = load ptr, ptr %12, align 8
   %14 = call noundef ptr @"_ZSt7find_ifIPSt10unique_ptrIN4llvm24ScheduleHazardRecognizerESt14default_deleteIS2_EEZNS1_21MultiHazardRecognizer19ShouldPreferAnotherEPNS1_5SUnitEE3$_0ET_SB_SB_T0_"(ptr noundef %10, ptr noundef %11, ptr %13)
@@ -2455,8 +2684,8 @@ define internal noundef zeroext i1 @"_ZSt7none_ofIPSt10unique_ptrIN4llvm24Schedu
   ret i1 %15
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define internal noundef ptr @"_ZSt7find_ifIPSt10unique_ptrIN4llvm24ScheduleHazardRecognizerESt14default_deleteIS2_EEZNS1_21MultiHazardRecognizer19ShouldPreferAnotherEPNS1_5SUnitEE3$_0ET_SB_SB_T0_"(ptr noundef %0, ptr noundef %1, ptr %2) #0 {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define internal noundef ptr @"_ZSt7find_ifIPSt10unique_ptrIN4llvm24ScheduleHazardRecognizerESt14default_deleteIS2_EEZNS1_21MultiHazardRecognizer19ShouldPreferAnotherEPNS1_5SUnitEE3$_0ET_SB_SB_T0_"(ptr noundef %0, ptr noundef %1, ptr %2) #1 {
   %4 = alloca %class.anon.3, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -2464,11 +2693,11 @@ define internal noundef ptr @"_ZSt7find_ifIPSt10unique_ptrIN4llvm24ScheduleHazar
   %8 = alloca %class.anon.3, align 8
   %9 = getelementptr inbounds nuw %class.anon.3, ptr %4, i32 0, i32 0
   store ptr %2, ptr %9, align 8
-  store ptr %0, ptr %5, align 8
-  store ptr %1, ptr %6, align 8
-  %10 = load ptr, ptr %5, align 8
-  %11 = load ptr, ptr %6, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %8, ptr align 8 %4, i64 8, i1 false)
+  store ptr %0, ptr %5, align 8, !tbaa !8
+  store ptr %1, ptr %6, align 8, !tbaa !8
+  %10 = load ptr, ptr %5, align 8, !tbaa !8
+  %11 = load ptr, ptr %6, align 8, !tbaa !8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %8, ptr align 8 %4, i64 8, i1 false), !tbaa.struct !37
   %12 = getelementptr inbounds nuw %class.anon.3, ptr %8, i32 0, i32 0
   %13 = load ptr, ptr %12, align 8
   %14 = call ptr @"_ZN9__gnu_cxx5__ops11__pred_iterIZN4llvm21MultiHazardRecognizer19ShouldPreferAnotherEPNS2_5SUnitEE3$_0EENS0_10_Iter_predIT_EES8_"(ptr %13)
@@ -2482,8 +2711,8 @@ define internal noundef ptr @"_ZSt7find_ifIPSt10unique_ptrIN4llvm24ScheduleHazar
   ret ptr %20
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define internal noundef ptr @"_ZSt9__find_ifIPSt10unique_ptrIN4llvm24ScheduleHazardRecognizerESt14default_deleteIS2_EEN9__gnu_cxx5__ops10_Iter_predIZNS1_21MultiHazardRecognizer19ShouldPreferAnotherEPNS1_5SUnitEE3$_0EEET_SF_SF_T0_"(ptr noundef %0, ptr noundef %1, ptr %2) #0 {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define internal noundef ptr @"_ZSt9__find_ifIPSt10unique_ptrIN4llvm24ScheduleHazardRecognizerESt14default_deleteIS2_EEN9__gnu_cxx5__ops10_Iter_predIZNS1_21MultiHazardRecognizer19ShouldPreferAnotherEPNS1_5SUnitEE3$_0EEET_SF_SF_T0_"(ptr noundef %0, ptr noundef %1, ptr %2) #1 {
   %4 = alloca %"struct.__gnu_cxx::__ops::_Iter_pred.5", align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -2491,11 +2720,11 @@ define internal noundef ptr @"_ZSt9__find_ifIPSt10unique_ptrIN4llvm24ScheduleHaz
   %8 = getelementptr inbounds nuw %"struct.__gnu_cxx::__ops::_Iter_pred.5", ptr %4, i32 0, i32 0
   %9 = getelementptr inbounds nuw %class.anon.3, ptr %8, i32 0, i32 0
   store ptr %2, ptr %9, align 8
-  store ptr %0, ptr %5, align 8
-  store ptr %1, ptr %6, align 8
-  %10 = load ptr, ptr %5, align 8
-  %11 = load ptr, ptr %6, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %7, ptr align 8 %4, i64 8, i1 false)
+  store ptr %0, ptr %5, align 8, !tbaa !8
+  store ptr %1, ptr %6, align 8, !tbaa !8
+  %10 = load ptr, ptr %5, align 8, !tbaa !8
+  %11 = load ptr, ptr %6, align 8, !tbaa !8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %7, ptr align 8 %4, i64 8, i1 false), !tbaa.struct !37
   call void @_ZSt19__iterator_categoryIPSt10unique_ptrIN4llvm24ScheduleHazardRecognizerESt14default_deleteIS2_EEENSt15iterator_traitsIT_E17iterator_categoryERKS8_(ptr noundef nonnull align 8 dereferenceable(8) %5)
   %12 = getelementptr inbounds nuw %"struct.__gnu_cxx::__ops::_Iter_pred.5", ptr %7, i32 0, i32 0
   %13 = getelementptr inbounds nuw %class.anon.3, ptr %12, i32 0, i32 0
@@ -2504,14 +2733,14 @@ define internal noundef ptr @"_ZSt9__find_ifIPSt10unique_ptrIN4llvm24ScheduleHaz
   ret ptr %15
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define internal ptr @"_ZN9__gnu_cxx5__ops11__pred_iterIZN4llvm21MultiHazardRecognizer19ShouldPreferAnotherEPNS2_5SUnitEE3$_0EENS0_10_Iter_predIT_EES8_"(ptr %0) #0 {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define internal ptr @"_ZN9__gnu_cxx5__ops11__pred_iterIZN4llvm21MultiHazardRecognizer19ShouldPreferAnotherEPNS2_5SUnitEE3$_0EENS0_10_Iter_predIT_EES8_"(ptr %0) #1 {
   %2 = alloca %"struct.__gnu_cxx::__ops::_Iter_pred.5", align 8
   %3 = alloca %class.anon.3, align 8
   %4 = alloca %class.anon.3, align 8
   %5 = getelementptr inbounds nuw %class.anon.3, ptr %3, i32 0, i32 0
   store ptr %0, ptr %5, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %4, ptr align 8 %3, i64 8, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %4, ptr align 8 %3, i64 8, i1 false), !tbaa.struct !37
   %6 = getelementptr inbounds nuw %class.anon.3, ptr %4, i32 0, i32 0
   %7 = load ptr, ptr %6, align 8
   call void @"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm21MultiHazardRecognizer19ShouldPreferAnotherEPNS2_5SUnitEE3$_0EC2ES6_"(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr %7)
@@ -2528,166 +2757,177 @@ define internal noundef ptr @"_ZSt9__find_ifIPSt10unique_ptrIN4llvm24ScheduleHaz
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   %8 = alloca i64, align 8
-  %9 = getelementptr inbounds nuw %"struct.__gnu_cxx::__ops::_Iter_pred.5", ptr %5, i32 0, i32 0
-  %10 = getelementptr inbounds nuw %class.anon.3, ptr %9, i32 0, i32 0
-  store ptr %2, ptr %10, align 8
-  store ptr %0, ptr %6, align 8
-  store ptr %1, ptr %7, align 8
-  %11 = load ptr, ptr %7, align 8
-  %12 = load ptr, ptr %6, align 8
-  %13 = ptrtoint ptr %11 to i64
+  %9 = alloca i32, align 4
+  %10 = getelementptr inbounds nuw %"struct.__gnu_cxx::__ops::_Iter_pred.5", ptr %5, i32 0, i32 0
+  %11 = getelementptr inbounds nuw %class.anon.3, ptr %10, i32 0, i32 0
+  store ptr %2, ptr %11, align 8
+  store ptr %0, ptr %6, align 8, !tbaa !8
+  store ptr %1, ptr %7, align 8, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #8
+  %12 = load ptr, ptr %7, align 8, !tbaa !8
+  %13 = load ptr, ptr %6, align 8, !tbaa !8
   %14 = ptrtoint ptr %12 to i64
-  %15 = sub i64 %13, %14
-  %16 = sdiv exact i64 %15, 8
-  %17 = ashr i64 %16, 2
-  store i64 %17, ptr %8, align 8
-  br label %18
+  %15 = ptrtoint ptr %13 to i64
+  %16 = sub i64 %14, %15
+  %17 = sdiv exact i64 %16, 8
+  %18 = ashr i64 %17, 2
+  store i64 %18, ptr %8, align 8, !tbaa !66
+  br label %19
 
-18:                                               ; preds = %50, %3
-  %19 = load i64, ptr %8, align 8
-  %20 = icmp sgt i64 %19, 0
-  br i1 %20, label %21, label %53
+19:                                               ; preds = %51, %3
+  %20 = load i64, ptr %8, align 8, !tbaa !66
+  %21 = icmp sgt i64 %20, 0
+  br i1 %21, label %22, label %54
 
-21:                                               ; preds = %18
-  %22 = load ptr, ptr %6, align 8
-  %23 = call noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm21MultiHazardRecognizer19ShouldPreferAnotherEPNS2_5SUnitEE3$_0EclIPSt10unique_ptrINS2_24ScheduleHazardRecognizerESt14default_deleteISA_EEEEbT_"(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef %22)
-  br i1 %23, label %24, label %26
+22:                                               ; preds = %19
+  %23 = load ptr, ptr %6, align 8, !tbaa !8
+  %24 = call noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm21MultiHazardRecognizer19ShouldPreferAnotherEPNS2_5SUnitEE3$_0EclIPSt10unique_ptrINS2_24ScheduleHazardRecognizerESt14default_deleteISA_EEEEbT_"(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef %23)
+  br i1 %24, label %25, label %27
 
-24:                                               ; preds = %21
-  %25 = load ptr, ptr %6, align 8
-  store ptr %25, ptr %4, align 8
-  br label %87
+25:                                               ; preds = %22
+  %26 = load ptr, ptr %6, align 8, !tbaa !8
+  store ptr %26, ptr %4, align 8
+  store i32 1, ptr %9, align 4
+  br label %88
 
-26:                                               ; preds = %21
-  %27 = load ptr, ptr %6, align 8
-  %28 = getelementptr inbounds %"class.std::unique_ptr", ptr %27, i32 1
-  store ptr %28, ptr %6, align 8
-  %29 = load ptr, ptr %6, align 8
-  %30 = call noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm21MultiHazardRecognizer19ShouldPreferAnotherEPNS2_5SUnitEE3$_0EclIPSt10unique_ptrINS2_24ScheduleHazardRecognizerESt14default_deleteISA_EEEEbT_"(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef %29)
-  br i1 %30, label %31, label %33
+27:                                               ; preds = %22
+  %28 = load ptr, ptr %6, align 8, !tbaa !8
+  %29 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %28, i32 1
+  store ptr %29, ptr %6, align 8, !tbaa !8
+  %30 = load ptr, ptr %6, align 8, !tbaa !8
+  %31 = call noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm21MultiHazardRecognizer19ShouldPreferAnotherEPNS2_5SUnitEE3$_0EclIPSt10unique_ptrINS2_24ScheduleHazardRecognizerESt14default_deleteISA_EEEEbT_"(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef %30)
+  br i1 %31, label %32, label %34
 
-31:                                               ; preds = %26
-  %32 = load ptr, ptr %6, align 8
-  store ptr %32, ptr %4, align 8
-  br label %87
+32:                                               ; preds = %27
+  %33 = load ptr, ptr %6, align 8, !tbaa !8
+  store ptr %33, ptr %4, align 8
+  store i32 1, ptr %9, align 4
+  br label %88
 
-33:                                               ; preds = %26
-  %34 = load ptr, ptr %6, align 8
-  %35 = getelementptr inbounds %"class.std::unique_ptr", ptr %34, i32 1
-  store ptr %35, ptr %6, align 8
-  %36 = load ptr, ptr %6, align 8
-  %37 = call noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm21MultiHazardRecognizer19ShouldPreferAnotherEPNS2_5SUnitEE3$_0EclIPSt10unique_ptrINS2_24ScheduleHazardRecognizerESt14default_deleteISA_EEEEbT_"(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef %36)
-  br i1 %37, label %38, label %40
+34:                                               ; preds = %27
+  %35 = load ptr, ptr %6, align 8, !tbaa !8
+  %36 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %35, i32 1
+  store ptr %36, ptr %6, align 8, !tbaa !8
+  %37 = load ptr, ptr %6, align 8, !tbaa !8
+  %38 = call noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm21MultiHazardRecognizer19ShouldPreferAnotherEPNS2_5SUnitEE3$_0EclIPSt10unique_ptrINS2_24ScheduleHazardRecognizerESt14default_deleteISA_EEEEbT_"(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef %37)
+  br i1 %38, label %39, label %41
 
-38:                                               ; preds = %33
-  %39 = load ptr, ptr %6, align 8
-  store ptr %39, ptr %4, align 8
-  br label %87
+39:                                               ; preds = %34
+  %40 = load ptr, ptr %6, align 8, !tbaa !8
+  store ptr %40, ptr %4, align 8
+  store i32 1, ptr %9, align 4
+  br label %88
 
-40:                                               ; preds = %33
-  %41 = load ptr, ptr %6, align 8
-  %42 = getelementptr inbounds %"class.std::unique_ptr", ptr %41, i32 1
-  store ptr %42, ptr %6, align 8
-  %43 = load ptr, ptr %6, align 8
-  %44 = call noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm21MultiHazardRecognizer19ShouldPreferAnotherEPNS2_5SUnitEE3$_0EclIPSt10unique_ptrINS2_24ScheduleHazardRecognizerESt14default_deleteISA_EEEEbT_"(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef %43)
-  br i1 %44, label %45, label %47
+41:                                               ; preds = %34
+  %42 = load ptr, ptr %6, align 8, !tbaa !8
+  %43 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %42, i32 1
+  store ptr %43, ptr %6, align 8, !tbaa !8
+  %44 = load ptr, ptr %6, align 8, !tbaa !8
+  %45 = call noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm21MultiHazardRecognizer19ShouldPreferAnotherEPNS2_5SUnitEE3$_0EclIPSt10unique_ptrINS2_24ScheduleHazardRecognizerESt14default_deleteISA_EEEEbT_"(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef %44)
+  br i1 %45, label %46, label %48
 
-45:                                               ; preds = %40
-  %46 = load ptr, ptr %6, align 8
-  store ptr %46, ptr %4, align 8
-  br label %87
+46:                                               ; preds = %41
+  %47 = load ptr, ptr %6, align 8, !tbaa !8
+  store ptr %47, ptr %4, align 8
+  store i32 1, ptr %9, align 4
+  br label %88
 
-47:                                               ; preds = %40
-  %48 = load ptr, ptr %6, align 8
-  %49 = getelementptr inbounds %"class.std::unique_ptr", ptr %48, i32 1
-  store ptr %49, ptr %6, align 8
-  br label %50
+48:                                               ; preds = %41
+  %49 = load ptr, ptr %6, align 8, !tbaa !8
+  %50 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %49, i32 1
+  store ptr %50, ptr %6, align 8, !tbaa !8
+  br label %51
 
-50:                                               ; preds = %47
-  %51 = load i64, ptr %8, align 8
-  %52 = add nsw i64 %51, -1
-  store i64 %52, ptr %8, align 8
-  br label %18, !llvm.loop !12
+51:                                               ; preds = %48
+  %52 = load i64, ptr %8, align 8, !tbaa !66
+  %53 = add nsw i64 %52, -1
+  store i64 %53, ptr %8, align 8, !tbaa !66
+  br label %19, !llvm.loop !103
 
-53:                                               ; preds = %18
-  %54 = load ptr, ptr %7, align 8
-  %55 = load ptr, ptr %6, align 8
-  %56 = ptrtoint ptr %54 to i64
+54:                                               ; preds = %19
+  %55 = load ptr, ptr %7, align 8, !tbaa !8
+  %56 = load ptr, ptr %6, align 8, !tbaa !8
   %57 = ptrtoint ptr %55 to i64
-  %58 = sub i64 %56, %57
-  %59 = sdiv exact i64 %58, 8
-  switch i64 %59, label %85 [
-    i64 3, label %60
-    i64 2, label %68
-    i64 1, label %76
-    i64 0, label %84
+  %58 = ptrtoint ptr %56 to i64
+  %59 = sub i64 %57, %58
+  %60 = sdiv exact i64 %59, 8
+  switch i64 %60, label %86 [
+    i64 3, label %61
+    i64 2, label %69
+    i64 1, label %77
+    i64 0, label %85
   ]
 
-60:                                               ; preds = %53
-  %61 = load ptr, ptr %6, align 8
-  %62 = call noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm21MultiHazardRecognizer19ShouldPreferAnotherEPNS2_5SUnitEE3$_0EclIPSt10unique_ptrINS2_24ScheduleHazardRecognizerESt14default_deleteISA_EEEEbT_"(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef %61)
-  br i1 %62, label %63, label %65
+61:                                               ; preds = %54
+  %62 = load ptr, ptr %6, align 8, !tbaa !8
+  %63 = call noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm21MultiHazardRecognizer19ShouldPreferAnotherEPNS2_5SUnitEE3$_0EclIPSt10unique_ptrINS2_24ScheduleHazardRecognizerESt14default_deleteISA_EEEEbT_"(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef %62)
+  br i1 %63, label %64, label %66
 
-63:                                               ; preds = %60
-  %64 = load ptr, ptr %6, align 8
-  store ptr %64, ptr %4, align 8
-  br label %87
+64:                                               ; preds = %61
+  %65 = load ptr, ptr %6, align 8, !tbaa !8
+  store ptr %65, ptr %4, align 8
+  store i32 1, ptr %9, align 4
+  br label %88
 
-65:                                               ; preds = %60
-  %66 = load ptr, ptr %6, align 8
-  %67 = getelementptr inbounds %"class.std::unique_ptr", ptr %66, i32 1
-  store ptr %67, ptr %6, align 8
-  br label %68
+66:                                               ; preds = %61
+  %67 = load ptr, ptr %6, align 8, !tbaa !8
+  %68 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %67, i32 1
+  store ptr %68, ptr %6, align 8, !tbaa !8
+  br label %69
 
-68:                                               ; preds = %65, %53
-  %69 = load ptr, ptr %6, align 8
-  %70 = call noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm21MultiHazardRecognizer19ShouldPreferAnotherEPNS2_5SUnitEE3$_0EclIPSt10unique_ptrINS2_24ScheduleHazardRecognizerESt14default_deleteISA_EEEEbT_"(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef %69)
-  br i1 %70, label %71, label %73
+69:                                               ; preds = %54, %66
+  %70 = load ptr, ptr %6, align 8, !tbaa !8
+  %71 = call noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm21MultiHazardRecognizer19ShouldPreferAnotherEPNS2_5SUnitEE3$_0EclIPSt10unique_ptrINS2_24ScheduleHazardRecognizerESt14default_deleteISA_EEEEbT_"(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef %70)
+  br i1 %71, label %72, label %74
 
-71:                                               ; preds = %68
-  %72 = load ptr, ptr %6, align 8
-  store ptr %72, ptr %4, align 8
-  br label %87
+72:                                               ; preds = %69
+  %73 = load ptr, ptr %6, align 8, !tbaa !8
+  store ptr %73, ptr %4, align 8
+  store i32 1, ptr %9, align 4
+  br label %88
 
-73:                                               ; preds = %68
-  %74 = load ptr, ptr %6, align 8
-  %75 = getelementptr inbounds %"class.std::unique_ptr", ptr %74, i32 1
-  store ptr %75, ptr %6, align 8
-  br label %76
+74:                                               ; preds = %69
+  %75 = load ptr, ptr %6, align 8, !tbaa !8
+  %76 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %75, i32 1
+  store ptr %76, ptr %6, align 8, !tbaa !8
+  br label %77
 
-76:                                               ; preds = %73, %53
-  %77 = load ptr, ptr %6, align 8
-  %78 = call noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm21MultiHazardRecognizer19ShouldPreferAnotherEPNS2_5SUnitEE3$_0EclIPSt10unique_ptrINS2_24ScheduleHazardRecognizerESt14default_deleteISA_EEEEbT_"(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef %77)
-  br i1 %78, label %79, label %81
+77:                                               ; preds = %54, %74
+  %78 = load ptr, ptr %6, align 8, !tbaa !8
+  %79 = call noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm21MultiHazardRecognizer19ShouldPreferAnotherEPNS2_5SUnitEE3$_0EclIPSt10unique_ptrINS2_24ScheduleHazardRecognizerESt14default_deleteISA_EEEEbT_"(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef %78)
+  br i1 %79, label %80, label %82
 
-79:                                               ; preds = %76
-  %80 = load ptr, ptr %6, align 8
-  store ptr %80, ptr %4, align 8
-  br label %87
+80:                                               ; preds = %77
+  %81 = load ptr, ptr %6, align 8, !tbaa !8
+  store ptr %81, ptr %4, align 8
+  store i32 1, ptr %9, align 4
+  br label %88
 
-81:                                               ; preds = %76
-  %82 = load ptr, ptr %6, align 8
-  %83 = getelementptr inbounds %"class.std::unique_ptr", ptr %82, i32 1
-  store ptr %83, ptr %6, align 8
-  br label %84
-
-84:                                               ; preds = %81, %53
+82:                                               ; preds = %77
+  %83 = load ptr, ptr %6, align 8, !tbaa !8
+  %84 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %83, i32 1
+  store ptr %84, ptr %6, align 8, !tbaa !8
   br label %85
 
-85:                                               ; preds = %84, %53
-  %86 = load ptr, ptr %7, align 8
-  store ptr %86, ptr %4, align 8
-  br label %87
+85:                                               ; preds = %54, %82
+  br label %86
 
-87:                                               ; preds = %85, %79, %71, %63, %45, %38, %31, %24
-  %88 = load ptr, ptr %4, align 8
-  ret ptr %88
+86:                                               ; preds = %54, %85
+  %87 = load ptr, ptr %7, align 8, !tbaa !8
+  store ptr %87, ptr %4, align 8
+  store i32 1, ptr %9, align 4
+  br label %88
+
+88:                                               ; preds = %86, %80, %72, %64, %46, %39, %32, %25
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #8
+  %89 = load ptr, ptr %4, align 8
+  ret ptr %89
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZSt19__iterator_categoryIPSt10unique_ptrIN4llvm24ScheduleHazardRecognizerESt14default_deleteIS2_EEENSt15iterator_traitsIT_E17iterator_categoryERKS8_(ptr noundef nonnull align 8 dereferenceable(8) %0) #0 comdat {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr void @_ZSt19__iterator_categoryIPSt10unique_ptrIN4llvm24ScheduleHazardRecognizerESt14default_deleteIS2_EEENSt15iterator_traitsIT_E17iterator_categoryERKS8_(ptr noundef nonnull align 8 dereferenceable(8) %0) #1 comdat {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !99
   ret void
 }
 
@@ -2695,27 +2935,27 @@ define linkonce_odr void @_ZSt19__iterator_categoryIPSt10unique_ptrIN4llvm24Sche
 define internal noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm21MultiHazardRecognizer19ShouldPreferAnotherEPNS2_5SUnitEE3$_0EclIPSt10unique_ptrINS2_24ScheduleHazardRecognizerESt14default_deleteISA_EEEEbT_"(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) #0 align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !104
+  store ptr %1, ptr %4, align 8, !tbaa !8
   %5 = load ptr, ptr %3, align 8
   %6 = getelementptr inbounds nuw %"struct.__gnu_cxx::__ops::_Iter_pred.5", ptr %5, i32 0, i32 0
-  %7 = load ptr, ptr %4, align 8
+  %7 = load ptr, ptr %4, align 8, !tbaa !8
   %8 = call noundef zeroext i1 @"_ZZN4llvm21MultiHazardRecognizer19ShouldPreferAnotherEPNS_5SUnitEENK3$_0clERSt10unique_ptrINS_24ScheduleHazardRecognizerESt14default_deleteIS5_EE"(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(8) %7)
   ret i1 %8
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define internal noundef zeroext i1 @"_ZZN4llvm21MultiHazardRecognizer19ShouldPreferAnotherEPNS_5SUnitEENK3$_0clERSt10unique_ptrINS_24ScheduleHazardRecognizerESt14default_deleteIS5_EE"(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #0 align 2 {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define internal noundef zeroext i1 @"_ZZN4llvm21MultiHazardRecognizer19ShouldPreferAnotherEPNS_5SUnitEENK3$_0clERSt10unique_ptrINS_24ScheduleHazardRecognizerESt14default_deleteIS5_EE"(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #1 align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !76
+  store ptr %1, ptr %4, align 8, !tbaa !8
   %5 = load ptr, ptr %3, align 8
-  %6 = load ptr, ptr %4, align 8
-  %7 = call noundef ptr @_ZNKSt10unique_ptrIN4llvm24ScheduleHazardRecognizerESt14default_deleteIS1_EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %6) #5
+  %6 = load ptr, ptr %4, align 8, !tbaa !8
+  %7 = call noundef ptr @_ZNKSt10unique_ptrIN4llvm24ScheduleHazardRecognizerESt14default_deleteIS1_EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %6) #8
   %8 = getelementptr inbounds nuw %class.anon.3, ptr %5, i32 0, i32 0
-  %9 = load ptr, ptr %8, align 8
-  %10 = load ptr, ptr %7, align 8
+  %9 = load ptr, ptr %8, align 8, !tbaa !44
+  %10 = load ptr, ptr %7, align 8, !tbaa !25
   %11 = getelementptr inbounds ptr, ptr %10, i64 9
   %12 = load ptr, ptr %11, align 8
   %13 = call noundef zeroext i1 %12(ptr noundef nonnull align 8 dereferenceable(12) %7, ptr noundef %9)
@@ -2728,27 +2968,27 @@ define internal void @"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm21MultiHazardRecog
   %4 = alloca ptr, align 8
   %5 = getelementptr inbounds nuw %class.anon.3, ptr %3, i32 0, i32 0
   store ptr %1, ptr %5, align 8
-  store ptr %0, ptr %4, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !104
   %6 = load ptr, ptr %4, align 8
   %7 = getelementptr inbounds nuw %"struct.__gnu_cxx::__ops::_Iter_pred.5", ptr %6, i32 0, i32 0
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %7, ptr align 8 %3, i64 8, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %7, ptr align 8 %3, i64 8, i1 false), !tbaa.struct !37
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZN4llvm10adl_detail10begin_implIRNS_11SmallVectorISt10unique_ptrINS_24ScheduleHazardRecognizerESt14default_deleteIS4_EELj4EEEEEDTcl5beginclsr3stdE7forwardIT_Efp_EEEOSA_(ptr noundef nonnull align 8 dereferenceable(48) %0) #0 comdat {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !21
+  %3 = load ptr, ptr %2, align 8, !tbaa !21
   %4 = call noundef ptr @_ZSt5beginIN4llvm11SmallVectorISt10unique_ptrINS0_24ScheduleHazardRecognizerESt14default_deleteIS3_EELj4EEEEDTcldtfp_5beginEERT_(ptr noundef nonnull align 8 dereferenceable(48) %3)
   ret ptr %4
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef ptr @_ZSt5beginIN4llvm11SmallVectorISt10unique_ptrINS0_24ScheduleHazardRecognizerESt14default_deleteIS3_EELj4EEEEDTcldtfp_5beginEERT_(ptr noundef nonnull align 8 dereferenceable(48) %0) #0 comdat {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr noundef ptr @_ZSt5beginIN4llvm11SmallVectorISt10unique_ptrINS0_24ScheduleHazardRecognizerESt14default_deleteIS3_EELj4EEEEDTcldtfp_5beginEERT_(ptr noundef nonnull align 8 dereferenceable(48) %0) #1 comdat {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !21
+  %3 = load ptr, ptr %2, align 8, !tbaa !21
   %4 = call noundef ptr @_ZN4llvm25SmallVectorTemplateCommonISt10unique_ptrINS_24ScheduleHazardRecognizerESt14default_deleteIS2_EEvE5beginEv(ptr noundef nonnull align 8 dereferenceable(16) %3)
   ret ptr %4
 }
@@ -2756,41 +2996,137 @@ define linkonce_odr noundef ptr @_ZSt5beginIN4llvm11SmallVectorISt10unique_ptrIN
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZN4llvm10adl_detail8end_implIRNS_11SmallVectorISt10unique_ptrINS_24ScheduleHazardRecognizerESt14default_deleteIS4_EELj4EEEEEDTcl3endclsr3stdE7forwardIT_Efp_EEEOSA_(ptr noundef nonnull align 8 dereferenceable(48) %0) #0 comdat {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !21
+  %3 = load ptr, ptr %2, align 8, !tbaa !21
   %4 = call noundef ptr @_ZSt3endIN4llvm11SmallVectorISt10unique_ptrINS0_24ScheduleHazardRecognizerESt14default_deleteIS3_EELj4EEEEDTcldtfp_3endEERT_(ptr noundef nonnull align 8 dereferenceable(48) %3)
   ret ptr %4
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef ptr @_ZSt3endIN4llvm11SmallVectorISt10unique_ptrINS0_24ScheduleHazardRecognizerESt14default_deleteIS3_EELj4EEEEDTcldtfp_3endEERT_(ptr noundef nonnull align 8 dereferenceable(48) %0) #0 comdat {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr noundef ptr @_ZSt3endIN4llvm11SmallVectorISt10unique_ptrINS0_24ScheduleHazardRecognizerESt14default_deleteIS3_EELj4EEEEDTcldtfp_3endEERT_(ptr noundef nonnull align 8 dereferenceable(48) %0) #1 comdat {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !21
+  %3 = load ptr, ptr %2, align 8, !tbaa !21
   %4 = call noundef ptr @_ZN4llvm25SmallVectorTemplateCommonISt10unique_ptrINS_24ScheduleHazardRecognizerESt14default_deleteIS2_EEvE3endEv(ptr noundef nonnull align 8 dereferenceable(16) %3)
   ret ptr %4
 }
 
-attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nounwind }
-attributes #6 = { builtin nounwind }
+attributes #0 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #4 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nocallback nofree nosync nounwind willreturn memory(none) }
+attributes #7 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { nounwind }
+attributes #9 = { builtin nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
-!9 = distinct !{!9, !5}
-!10 = distinct !{!10, !5}
-!11 = !{}
-!12 = distinct !{!12, !5}
+!3 = !{!4, !4, i64 0}
+!4 = !{!"p1 _ZTSN4llvm21MultiHazardRecognizerE", !5, i64 0}
+!5 = !{!"any pointer", !6, i64 0}
+!6 = !{!"omnipotent char", !7, i64 0}
+!7 = !{!"Simple C++ TBAA"}
+!8 = !{!9, !9, i64 0}
+!9 = !{!"p1 _ZTSSt10unique_ptrIN4llvm24ScheduleHazardRecognizerESt14default_deleteIS1_EE", !5, i64 0}
+!10 = !{!11, !11, i64 0}
+!11 = !{!"int", !6, i64 0}
+!12 = !{!13, !11, i64 8}
+!13 = !{!"_ZTSN4llvm24ScheduleHazardRecognizerE", !11, i64 8}
+!14 = !{!15, !15, i64 0}
+!15 = !{!"p1 int", !5, i64 0}
+!16 = !{!17, !17, i64 0}
+!17 = !{!"p1 _ZTSN4llvm24ScheduleHazardRecognizerE", !5, i64 0}
+!18 = !{!19, !19, i64 0}
+!19 = !{!"p1 _ZTSN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_24ScheduleHazardRecognizerESt14default_deleteIS2_EELb0EEE", !5, i64 0}
+!20 = !{!6, !6, i64 0}
+!21 = !{!22, !22, i64 0}
+!22 = !{!"p1 _ZTSN4llvm11SmallVectorISt10unique_ptrINS_24ScheduleHazardRecognizerESt14default_deleteIS2_EELj4EEE", !5, i64 0}
+!23 = !{!24, !24, i64 0}
+!24 = !{!"p1 _ZTSN4llvm5SUnitE", !5, i64 0}
+!25 = !{!26, !26, i64 0}
+!26 = !{!"vtable pointer", !7, i64 0}
+!27 = !{!28, !28, i64 0}
+!28 = !{!"_ZTSN4llvm24ScheduleHazardRecognizer10HazardTypeE", !6, i64 0}
+!29 = !{!30, !30, i64 0}
+!30 = !{!"p1 _ZTSN4llvm25SmallVectorTemplateCommonISt10unique_ptrINS_24ScheduleHazardRecognizerESt14default_deleteIS2_EEvEE", !5, i64 0}
+!31 = !{!32, !5, i64 0}
+!32 = !{!"_ZTSN4llvm15SmallVectorBaseIjEE", !5, i64 0, !11, i64 8, !11, i64 12}
+!33 = !{!34, !34, i64 0}
+!34 = !{!"p1 _ZTSN4llvm12MachineInstrE", !5, i64 0}
+!35 = !{!36, !24, i64 0}
+!36 = !{!"_ZTSZN4llvm21MultiHazardRecognizer12PreEmitNoopsEPNS_5SUnitEE3$_0", !24, i64 0}
+!37 = !{i64 0, i64 8, !23}
+!38 = distinct !{!38, !39}
+!39 = !{!"llvm.loop.mustprogress"}
+!40 = !{!41, !34, i64 0}
+!41 = !{!"_ZTSZN4llvm21MultiHazardRecognizer12PreEmitNoopsEPNS_12MachineInstrEE3$_0", !34, i64 0}
+!42 = !{i64 0, i64 8, !33}
+!43 = distinct !{!43, !39}
+!44 = !{!45, !24, i64 0}
+!45 = !{!"_ZTSZN4llvm21MultiHazardRecognizer19ShouldPreferAnotherEPNS_5SUnitEE3$_0", !24, i64 0}
+!46 = distinct !{!46, !39}
+!47 = distinct !{!47, !39}
+!48 = !{!49, !49, i64 0}
+!49 = !{!"p1 _ZTSN4llvm15SmallVectorImplISt10unique_ptrINS_24ScheduleHazardRecognizerESt14default_deleteIS2_EEEE", !5, i64 0}
+!50 = !{!51, !51, i64 0}
+!51 = !{!"p2 _ZTSN4llvm24ScheduleHazardRecognizerE", !5, i64 0}
+!52 = !{!53, !53, i64 0}
+!53 = !{!"p1 _ZTSSt15__uniq_ptr_implIN4llvm24ScheduleHazardRecognizerESt14default_deleteIS1_EE", !5, i64 0}
+!54 = !{!55, !55, i64 0}
+!55 = !{!"p1 _ZTSSt14default_deleteIN4llvm24ScheduleHazardRecognizerEE", !5, i64 0}
+!56 = !{!57, !57, i64 0}
+!57 = !{!"p1 _ZTSSt5tupleIJPN4llvm24ScheduleHazardRecognizerESt14default_deleteIS1_EEE", !5, i64 0}
+!58 = !{!59, !59, i64 0}
+!59 = !{!"p1 _ZTSSt11_Tuple_implILm0EJPN4llvm24ScheduleHazardRecognizerESt14default_deleteIS1_EEE", !5, i64 0}
+!60 = !{!61, !61, i64 0}
+!61 = !{!"p1 _ZTSSt10_Head_baseILm0EPN4llvm24ScheduleHazardRecognizerELb0EE", !5, i64 0}
+!62 = !{!63, !63, i64 0}
+!63 = !{!"p1 _ZTSSt11_Tuple_implILm1EJSt14default_deleteIN4llvm24ScheduleHazardRecognizerEEEE", !5, i64 0}
+!64 = !{!65, !65, i64 0}
+!65 = !{!"p1 _ZTSSt10_Head_baseILm1ESt14default_deleteIN4llvm24ScheduleHazardRecognizerEELb1EE", !5, i64 0}
+!66 = !{!67, !67, i64 0}
+!67 = !{!"long", !6, i64 0}
+!68 = !{!69, !69, i64 0}
+!69 = !{!"p1 _ZTSN4llvm15SmallVectorBaseIjEE", !5, i64 0}
+!70 = !{!32, !11, i64 8}
+!71 = !{!72, !72, i64 0}
+!72 = !{!"bool", !6, i64 0}
+!73 = !{i8 0, i8 2}
+!74 = !{}
+!75 = !{!32, !11, i64 12}
+!76 = !{!5, !5, i64 0}
+!77 = !{!78, !78, i64 0}
+!78 = !{!"p1 _ZTSSt4lessIvE", !5, i64 0}
+!79 = !{!80, !80, i64 0}
+!80 = !{!"p1 _ZTSSt4lessIPKvE", !5, i64 0}
+!81 = !{!82, !82, i64 0}
+!82 = !{!"p1 long", !5, i64 0}
+!83 = !{i64 0, i64 8, !8}
+!84 = distinct !{!84, !39}
+!85 = !{!86, !86, i64 0}
+!86 = !{!"p1 _ZTSSt13move_iteratorIPSt10unique_ptrIN4llvm24ScheduleHazardRecognizerESt14default_deleteIS2_EEE", !5, i64 0}
+!87 = !{!88, !9, i64 0}
+!88 = !{!"_ZTSSt13move_iteratorIPSt10unique_ptrIN4llvm24ScheduleHazardRecognizerESt14default_deleteIS2_EEE", !9, i64 0}
+!89 = !{!90, !90, i64 0}
+!90 = !{!"p1 _ZTSSt15__uniq_ptr_dataIN4llvm24ScheduleHazardRecognizerESt14default_deleteIS1_ELb1ELb1EE", !5, i64 0}
+!91 = !{i64 0, i64 8, !16}
+!92 = !{!93, !93, i64 0}
+!93 = !{!"p1 _ZTSSt7_Mem_fnIMN4llvm24ScheduleHazardRecognizerEKFbvEE", !5, i64 0}
+!94 = !{!95, !95, i64 0}
+!95 = !{!"p1 _ZTSSt12_Mem_fn_baseIMN4llvm24ScheduleHazardRecognizerEKFbvELb1EE", !5, i64 0}
+!96 = !{!97, !6, i64 0}
+!97 = !{!"_ZTSSt12_Mem_fn_baseIMN4llvm24ScheduleHazardRecognizerEKFbvELb1EE", !6, i64 0}
+!98 = distinct !{!98, !39}
+!99 = !{!100, !100, i64 0}
+!100 = !{!"p2 _ZTSSt10unique_ptrIN4llvm24ScheduleHazardRecognizerESt14default_deleteIS1_EE", !5, i64 0}
+!101 = !{!102, !102, i64 0}
+!102 = !{!"p1 _ZTSN9__gnu_cxx5__ops10_Iter_predISt7_Mem_fnIMN4llvm24ScheduleHazardRecognizerEKFbvEEEE", !5, i64 0}
+!103 = distinct !{!103, !39}
+!104 = !{!105, !105, i64 0}
+!105 = !{!"p1 _ZTSN9__gnu_cxx5__ops10_Iter_predIZN4llvm21MultiHazardRecognizer19ShouldPreferAnotherEPNS2_5SUnitEE3$_0EE", !5, i64 0}

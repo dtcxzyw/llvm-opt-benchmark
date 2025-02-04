@@ -6,7 +6,8 @@ target triple = "x86_64-pc-linux-gnu"
 
 $_ZNSt13__atomic_baseIjEppEi = comdat any
 
-@_ZZN4llvm11BuryPointerEPKvE17kGraveYardMaxSize = internal constant i64 16, align 8
+$_ZNSt13__atomic_baseIjE9fetch_addEjSt12memory_order = comdat any
+
 @_ZZN4llvm11BuryPointerEPKvE9GraveYard = internal global [16 x ptr] zeroinitializer, align 16
 @_ZZN4llvm11BuryPointerEPKvE13GraveYardSize = internal global %"struct.std::atomic" zeroinitializer, align 4
 @llvm.compiler.used = appending global [1 x ptr] [ptr @_ZZN4llvm11BuryPointerEPKvE9GraveYard], section "llvm.metadata"
@@ -15,97 +16,136 @@ $_ZNSt13__atomic_baseIjEppEi = comdat any
 define dso_local void @_ZN4llvm11BuryPointerEPKv(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
   %3 = alloca i32, align 4
-  store ptr %0, ptr %2, align 8
-  %4 = call noundef i32 @_ZNSt13__atomic_baseIjEppEi(ptr noundef nonnull align 4 dereferenceable(4) @_ZZN4llvm11BuryPointerEPKvE13GraveYardSize, i32 noundef 0) #1
-  store i32 %4, ptr %3, align 4
-  %5 = load i32, ptr %3, align 4
-  %6 = zext i32 %5 to i64
-  %7 = icmp uge i64 %6, 16
-  br i1 %7, label %8, label %9
-
-8:                                                ; preds = %1
-  br label %14
+  %4 = alloca i32, align 4
+  store ptr %0, ptr %2, align 8, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %3) #3
+  %5 = call noundef i32 @_ZNSt13__atomic_baseIjEppEi(ptr noundef nonnull align 4 dereferenceable(4) @_ZZN4llvm11BuryPointerEPKvE13GraveYardSize, i32 noundef 0) #3
+  store i32 %5, ptr %3, align 4, !tbaa !7
+  %6 = load i32, ptr %3, align 4, !tbaa !7
+  %7 = zext i32 %6 to i64
+  %8 = icmp uge i64 %7, 16
+  br i1 %8, label %9, label %10
 
 9:                                                ; preds = %1
-  %10 = load ptr, ptr %2, align 8
-  %11 = load i32, ptr %3, align 4
-  %12 = zext i32 %11 to i64
-  %13 = getelementptr inbounds [16 x ptr], ptr @_ZZN4llvm11BuryPointerEPKvE9GraveYard, i64 0, i64 %12
-  store ptr %10, ptr %13, align 8
-  br label %14
+  store i32 1, ptr %4, align 4
+  br label %15
 
-14:                                               ; preds = %9, %8
+10:                                               ; preds = %1
+  %11 = load ptr, ptr %2, align 8, !tbaa !3
+  %12 = load i32, ptr %3, align 4, !tbaa !7
+  %13 = zext i32 %12 to i64
+  %14 = getelementptr inbounds nuw [16 x ptr], ptr @_ZZN4llvm11BuryPointerEPKvE9GraveYard, i64 0, i64 %13
+  store ptr %11, ptr %14, align 8, !tbaa !3
+  store i32 0, ptr %4, align 4
+  br label %15
+
+15:                                               ; preds = %10, %9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %3) #3
+  %16 = load i32, ptr %4, align 4
+  switch i32 %16, label %18 [
+    i32 0, label %17
+    i32 1, label %17
+  ]
+
+17:                                               ; preds = %15, %15
   ret void
+
+18:                                               ; preds = %15
+  unreachable
 }
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef i32 @_ZNSt13__atomic_baseIjEppEi(ptr noundef nonnull align 4 dereferenceable(4) %0, i32 noundef %1) #0 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !9
+  store i32 %1, ptr %4, align 4, !tbaa !7
+  %5 = load ptr, ptr %3, align 8
+  %6 = call noundef i32 @_ZNSt13__atomic_baseIjE9fetch_addEjSt12memory_order(ptr noundef nonnull align 4 dereferenceable(4) %5, i32 noundef 1, i32 noundef 5) #3
+  ret i32 %6
+}
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+
+; Function Attrs: alwaysinline mustprogress nounwind uwtable
+define linkonce_odr hidden noundef i32 @_ZNSt13__atomic_baseIjE9fetch_addEjSt12memory_order(ptr noundef nonnull align 4 dereferenceable(4) %0, i32 noundef %1, i32 noundef %2) #2 comdat align 2 {
+  %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
-  %8 = alloca ptr, align 8
-  %9 = alloca i32, align 4
-  store ptr %0, ptr %8, align 8
-  store i32 %1, ptr %9, align 4
-  %10 = load ptr, ptr %8, align 8
-  store ptr %10, ptr %3, align 8
-  store i32 1, ptr %4, align 4
-  store i32 5, ptr %5, align 4
-  %11 = load ptr, ptr %3, align 8
-  %12 = load i32, ptr %5, align 4
-  %13 = load i32, ptr %4, align 4
-  store i32 %13, ptr %6, align 4
-  switch i32 %12, label %14 [
-    i32 1, label %17
-    i32 2, label %17
-    i32 3, label %20
-    i32 4, label %23
-    i32 5, label %26
+  %8 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !9
+  store i32 %1, ptr %5, align 4, !tbaa !7
+  store i32 %2, ptr %6, align 4, !tbaa !11
+  %9 = load ptr, ptr %4, align 8
+  %10 = getelementptr inbounds nuw %"struct.std::__atomic_base", ptr %9, i32 0, i32 0
+  %11 = load i32, ptr %6, align 4, !tbaa !11
+  %12 = load i32, ptr %5, align 4, !tbaa !7
+  store i32 %12, ptr %7, align 4, !tbaa !7
+  switch i32 %11, label %13 [
+    i32 1, label %16
+    i32 2, label %16
+    i32 3, label %19
+    i32 4, label %22
+    i32 5, label %25
   ]
 
-14:                                               ; preds = %2
-  %15 = load i32, ptr %6, align 4
-  %16 = atomicrmw add ptr %11, i32 %15 monotonic, align 4
-  store i32 %16, ptr %7, align 4
-  br label %29
+13:                                               ; preds = %3
+  %14 = load i32, ptr %7, align 4
+  %15 = atomicrmw add ptr %10, i32 %14 monotonic, align 4
+  store i32 %15, ptr %8, align 4
+  br label %28
 
-17:                                               ; preds = %2, %2
-  %18 = load i32, ptr %6, align 4
-  %19 = atomicrmw add ptr %11, i32 %18 acquire, align 4
-  store i32 %19, ptr %7, align 4
-  br label %29
+16:                                               ; preds = %3, %3
+  %17 = load i32, ptr %7, align 4
+  %18 = atomicrmw add ptr %10, i32 %17 acquire, align 4
+  store i32 %18, ptr %8, align 4
+  br label %28
 
-20:                                               ; preds = %2
-  %21 = load i32, ptr %6, align 4
-  %22 = atomicrmw add ptr %11, i32 %21 release, align 4
-  store i32 %22, ptr %7, align 4
-  br label %29
+19:                                               ; preds = %3
+  %20 = load i32, ptr %7, align 4
+  %21 = atomicrmw add ptr %10, i32 %20 release, align 4
+  store i32 %21, ptr %8, align 4
+  br label %28
 
-23:                                               ; preds = %2
-  %24 = load i32, ptr %6, align 4
-  %25 = atomicrmw add ptr %11, i32 %24 acq_rel, align 4
-  store i32 %25, ptr %7, align 4
-  br label %29
+22:                                               ; preds = %3
+  %23 = load i32, ptr %7, align 4
+  %24 = atomicrmw add ptr %10, i32 %23 acq_rel, align 4
+  store i32 %24, ptr %8, align 4
+  br label %28
 
-26:                                               ; preds = %2
-  %27 = load i32, ptr %6, align 4
-  %28 = atomicrmw add ptr %11, i32 %27 seq_cst, align 4
-  store i32 %28, ptr %7, align 4
-  br label %29
+25:                                               ; preds = %3
+  %26 = load i32, ptr %7, align 4
+  %27 = atomicrmw add ptr %10, i32 %26 seq_cst, align 4
+  store i32 %27, ptr %8, align 4
+  br label %28
 
-29:                                               ; preds = %26, %23, %20, %17, %14
-  %30 = load i32, ptr %7, align 4
-  ret i32 %30
+28:                                               ; preds = %25, %22, %19, %16, %13
+  %29 = load i32, ptr %8, align 4, !tbaa !7
+  ret i32 %29
 }
 
-attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { nounwind }
+attributes #0 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { alwaysinline mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
+!3 = !{!4, !4, i64 0}
+!4 = !{!"any pointer", !5, i64 0}
+!5 = !{!"omnipotent char", !6, i64 0}
+!6 = !{!"Simple C++ TBAA"}
+!7 = !{!8, !8, i64 0}
+!8 = !{!"int", !5, i64 0}
+!9 = !{!10, !10, i64 0}
+!10 = !{!"p1 _ZTSSt13__atomic_baseIjE", !4, i64 0}
+!11 = !{!12, !12, i64 0}
+!12 = !{!"_ZTSSt12memory_order", !5, i64 0}

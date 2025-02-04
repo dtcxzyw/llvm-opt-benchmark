@@ -26,8 +26,6 @@ $_ZN4llvm8codeview18VFTableShapeRecordC2EOS1_ = comdat any
 
 $_ZN4llvm8codeview18VFTableShapeRecordD2Ev = comdat any
 
-$_ZN4llvm3pdb15NativeRawSymbolD2Ev = comdat any
-
 $_ZN4llvm9StringRefC2EPKc = comdat any
 
 $_ZN4llvm3pdb15dumpSymbolFieldIjEEvRNS_11raw_ostreamENS_9StringRefET_i = comdat any
@@ -64,15 +62,11 @@ $_ZNSt12_Destroy_auxILb1EE9__destroyIPN4llvm8codeview15VFTableSlotKindEEEvT_S6_ 
 
 $_ZNSt12_Vector_baseIN4llvm8codeview15VFTableSlotKindESaIS2_EE13_M_deallocateEPS2_m = comdat any
 
-$_ZNSt12_Vector_baseIN4llvm8codeview15VFTableSlotKindESaIS2_EE12_Vector_implD2Ev = comdat any
+$_ZNSt15__new_allocatorIN4llvm8codeview15VFTableSlotKindEED2Ev = comdat any
 
 $_ZNSt16allocator_traitsISaIN4llvm8codeview15VFTableSlotKindEEE10deallocateERS3_PS2_m = comdat any
 
 $_ZNSt15__new_allocatorIN4llvm8codeview15VFTableSlotKindEE10deallocateEPS2_m = comdat any
-
-$_ZNSaIN4llvm8codeview15VFTableSlotKindEED2Ev = comdat any
-
-$_ZNSt15__new_allocatorIN4llvm8codeview15VFTableSlotKindEED2Ev = comdat any
 
 $_ZNSt11char_traitsIcE6lengthEPKc = comdat any
 
@@ -113,90 +107,84 @@ define dso_local void @_ZN4llvm3pdb17NativeTypeVTShapeC2ERNS0_13NativeSessionEjN
   %12 = getelementptr inbounds nuw %"struct.llvm::support::detail::packed_endian_specific_integral", ptr %11, i32 0, i32 0
   %13 = getelementptr inbounds nuw %struct.anon, ptr %12, i32 0, i32 0
   store i32 %3, ptr %13, align 1
-  store ptr %0, ptr %7, align 8
-  store ptr %1, ptr %8, align 8
-  store i32 %2, ptr %9, align 4
-  store ptr %4, ptr %10, align 8
+  store ptr %0, ptr %7, align 8, !tbaa !3
+  store ptr %1, ptr %8, align 8, !tbaa !8
+  store i32 %2, ptr %9, align 4, !tbaa !10
+  store ptr %4, ptr %10, align 8, !tbaa !12
   %14 = load ptr, ptr %7, align 8
-  %15 = load ptr, ptr %8, align 8
-  %16 = load i32, ptr %9, align 4
+  %15 = load ptr, ptr %8, align 8, !tbaa !8
+  %16 = load i32, ptr %9, align 4, !tbaa !10
   call void @_ZN4llvm3pdb15NativeRawSymbolC2ERNS0_13NativeSessionENS0_11PDB_SymTypeEj(ptr noundef nonnull align 8 dereferenceable(24) %14, ptr noundef nonnull align 8 dereferenceable(584) %15, i32 noundef 24, i32 noundef %16)
-  store ptr getelementptr inbounds inrange(-16, 1448) ({ [183 x ptr] }, ptr @_ZTVN4llvm3pdb17NativeTypeVTShapeE, i32 0, i32 0, i32 2), ptr %14, align 8
+  store ptr getelementptr inbounds inrange(-16, 1448) ({ [183 x ptr] }, ptr @_ZTVN4llvm3pdb17NativeTypeVTShapeE, i32 0, i32 0, i32 2), ptr %14, align 8, !tbaa !14
   %17 = getelementptr inbounds nuw %"class.llvm::pdb::NativeTypeVTShape", ptr %14, i32 0, i32 1
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %17, ptr align 1 %6, i64 4, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %17, ptr align 1 %6, i64 4, i1 false), !tbaa.struct !16
   %18 = getelementptr inbounds nuw %"class.llvm::pdb::NativeTypeVTShape", ptr %14, i32 0, i32 2
-  call void @_ZN4llvm8codeview18VFTableShapeRecordC2EOS1_(ptr noundef nonnull align 8 dereferenceable(48) %18, ptr noundef nonnull align 8 dereferenceable(48) %4) #5
+  call void @_ZN4llvm8codeview18VFTableShapeRecordC2EOS1_(ptr noundef nonnull align 8 dereferenceable(48) %18, ptr noundef nonnull align 8 dereferenceable(48) %4) #7
   ret void
 }
 
 declare void @_ZN4llvm3pdb15NativeRawSymbolC2ERNS0_13NativeSessionENS0_11PDB_SymTypeEj(ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(584), i32 noundef, i32 noundef) unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN4llvm8codeview18VFTableShapeRecordC2EOS1_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(48) %1) unnamed_addr #0 comdat align 2 {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN4llvm8codeview18VFTableShapeRecordC2EOS1_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(48) %1) unnamed_addr #3 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !12
+  store ptr %1, ptr %4, align 8, !tbaa !12
   %5 = load ptr, ptr %3, align 8
-  %6 = load ptr, ptr %4, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %5, ptr align 8 %6, i64 2, i1 false)
+  %6 = load ptr, ptr %4, align 8, !tbaa !12
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %5, ptr align 8 %6, i64 2, i1 false), !tbaa.struct !18
   %7 = getelementptr inbounds nuw %"class.llvm::codeview::VFTableShapeRecord", ptr %5, i32 0, i32 1
-  %8 = load ptr, ptr %4, align 8
+  %8 = load ptr, ptr %4, align 8, !tbaa !12
   %9 = getelementptr inbounds nuw %"class.llvm::codeview::VFTableShapeRecord", ptr %8, i32 0, i32 1
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %7, ptr align 8 %9, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %7, ptr align 8 %9, i64 16, i1 false), !tbaa.struct !21
   %10 = getelementptr inbounds nuw %"class.llvm::codeview::VFTableShapeRecord", ptr %5, i32 0, i32 2
-  %11 = load ptr, ptr %4, align 8
+  %11 = load ptr, ptr %4, align 8, !tbaa !12
   %12 = getelementptr inbounds nuw %"class.llvm::codeview::VFTableShapeRecord", ptr %11, i32 0, i32 2
-  call void @_ZNSt6vectorIN4llvm8codeview15VFTableSlotKindESaIS2_EEC2EOS4_(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(24) %12) #5
+  call void @_ZNSt6vectorIN4llvm8codeview15VFTableSlotKindESaIS2_EEC2EOS4_(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(24) %12) #7
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4llvm3pdb17NativeTypeVTShapeD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %0) unnamed_addr #0 align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !3
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 1448) ({ [183 x ptr] }, ptr @_ZTVN4llvm3pdb17NativeTypeVTShapeE, i32 0, i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds inrange(-16, 1448) ({ [183 x ptr] }, ptr @_ZTVN4llvm3pdb17NativeTypeVTShapeE, i32 0, i32 0, i32 2), ptr %3, align 8, !tbaa !14
   %4 = getelementptr inbounds nuw %"class.llvm::pdb::NativeTypeVTShape", ptr %3, i32 0, i32 2
-  call void @_ZN4llvm8codeview18VFTableShapeRecordD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %4) #5
-  call void @_ZN4llvm3pdb15NativeRawSymbolD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #5
+  call void @_ZN4llvm8codeview18VFTableShapeRecordD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %4) #7
+  call void @_ZN4llvm3pdb13IPDBRawSymbolD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #7
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN4llvm8codeview18VFTableShapeRecordD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #0 comdat align 2 {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN4llvm8codeview18VFTableShapeRecordD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #3 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !12
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw %"class.llvm::codeview::VFTableShapeRecord", ptr %3, i32 0, i32 2
-  call void @_ZNSt6vectorIN4llvm8codeview15VFTableSlotKindESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #5
+  call void @_ZNSt6vectorIN4llvm8codeview15VFTableSlotKindESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #7
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN4llvm3pdb15NativeRawSymbolD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #0 comdat align 2 {
-  %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  call void @_ZN4llvm3pdb13IPDBRawSymbolD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #5
-  ret void
-}
+; Function Attrs: nounwind
+declare void @_ZN4llvm3pdb13IPDBRawSymbolD2Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4llvm3pdb17NativeTypeVTShapeD0Ev(ptr noundef nonnull align 8 dereferenceable(80) %0) unnamed_addr #0 align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !3
   %3 = load ptr, ptr %2, align 8
-  call void @_ZN4llvm3pdb17NativeTypeVTShapeD1Ev(ptr noundef nonnull align 8 dereferenceable(80) %3) #5
-  call void @_ZdlPvm(ptr noundef %3, i64 noundef 80) #6
+  call void @_ZN4llvm3pdb17NativeTypeVTShapeD1Ev(ptr noundef nonnull align 8 dereferenceable(80) %3) #7
+  call void @_ZdlPvm(ptr noundef %3, i64 noundef 80) #8
   ret void
 }
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPvm(ptr noundef, i64 noundef) #3
+declare void @_ZdlPvm(ptr noundef, i64 noundef) #5
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZNK4llvm3pdb17NativeTypeVTShape4dumpERNS_11raw_ostreamEiNS0_16PdbSymbolIdFieldES4_(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull align 8 dereferenceable(48) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 align 2 {
@@ -210,72 +198,72 @@ define dso_local void @_ZNK4llvm3pdb17NativeTypeVTShape4dumpERNS_11raw_ostreamEi
   %13 = alloca %"class.llvm::StringRef", align 8
   %14 = alloca %"class.llvm::StringRef", align 8
   %15 = alloca %"class.llvm::StringRef", align 8
-  store ptr %0, ptr %6, align 8
-  store ptr %1, ptr %7, align 8
-  store i32 %2, ptr %8, align 4
-  store i32 %3, ptr %9, align 4
-  store i32 %4, ptr %10, align 4
+  store ptr %0, ptr %6, align 8, !tbaa !3
+  store ptr %1, ptr %7, align 8, !tbaa !25
+  store i32 %2, ptr %8, align 4, !tbaa !10
+  store i32 %3, ptr %9, align 4, !tbaa !27
+  store i32 %4, ptr %10, align 4, !tbaa !27
   %16 = load ptr, ptr %6, align 8
-  %17 = load ptr, ptr %7, align 8
-  %18 = load i32, ptr %8, align 4
-  %19 = load i32, ptr %9, align 4
-  %20 = load i32, ptr %10, align 4
+  %17 = load ptr, ptr %7, align 8, !tbaa !25
+  %18 = load i32, ptr %8, align 4, !tbaa !10
+  %19 = load i32, ptr %9, align 4, !tbaa !27
+  %20 = load i32, ptr %10, align 4, !tbaa !27
   call void @_ZNK4llvm3pdb15NativeRawSymbol4dumpERNS_11raw_ostreamEiNS0_16PdbSymbolIdFieldES4_(ptr noundef nonnull align 8 dereferenceable(24) %16, ptr noundef nonnull align 8 dereferenceable(48) %17, i32 noundef %18, i32 noundef %19, i32 noundef %20)
-  %21 = load ptr, ptr %7, align 8
+  %21 = load ptr, ptr %7, align 8, !tbaa !25
   call void @_ZN4llvm9StringRefC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef @.str)
-  %22 = load i32, ptr %8, align 4
+  %22 = load i32, ptr %8, align 4, !tbaa !10
   %23 = getelementptr inbounds nuw %"class.llvm::pdb::NativeRawSymbol", ptr %16, i32 0, i32 1
-  %24 = load ptr, ptr %23, align 8
-  %25 = load i32, ptr %9, align 4
-  %26 = load i32, ptr %10, align 4
+  %24 = load ptr, ptr %23, align 8, !tbaa !29
+  %25 = load i32, ptr %9, align 4, !tbaa !27
+  %26 = load i32, ptr %10, align 4, !tbaa !27
   %27 = getelementptr inbounds nuw { ptr, i64 }, ptr %11, i32 0, i32 0
   %28 = load ptr, ptr %27, align 8
   %29 = getelementptr inbounds nuw { ptr, i64 }, ptr %11, i32 0, i32 1
   %30 = load i64, ptr %29, align 8
   call void @_ZN4llvm3pdb17dumpSymbolIdFieldERNS_11raw_ostreamENS_9StringRefEjiRKNS0_11IPDBSessionENS0_16PdbSymbolIdFieldES7_S7_(ptr noundef nonnull align 8 dereferenceable(48) %21, ptr %28, i64 %30, i32 noundef 0, i32 noundef %22, ptr noundef nonnull align 8 dereferenceable(8) %24, i32 noundef 2, i32 noundef %25, i32 noundef %26)
-  %31 = load ptr, ptr %7, align 8
+  %31 = load ptr, ptr %7, align 8, !tbaa !25
   call void @_ZN4llvm9StringRefC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef @.str.1)
-  %32 = load ptr, ptr %16, align 8
+  %32 = load ptr, ptr %16, align 8, !tbaa !14
   %33 = getelementptr inbounds ptr, ptr %32, i64 30
   %34 = load ptr, ptr %33, align 8
   %35 = call noundef i32 %34(ptr noundef nonnull align 8 dereferenceable(80) %16)
-  %36 = load i32, ptr %8, align 4
+  %36 = load i32, ptr %8, align 4, !tbaa !10
   %37 = getelementptr inbounds nuw { ptr, i64 }, ptr %12, i32 0, i32 0
   %38 = load ptr, ptr %37, align 8
   %39 = getelementptr inbounds nuw { ptr, i64 }, ptr %12, i32 0, i32 1
   %40 = load i64, ptr %39, align 8
   call void @_ZN4llvm3pdb15dumpSymbolFieldIjEEvRNS_11raw_ostreamENS_9StringRefET_i(ptr noundef nonnull align 8 dereferenceable(48) %31, ptr %38, i64 %40, i32 noundef %35, i32 noundef %36)
-  %41 = load ptr, ptr %7, align 8
+  %41 = load ptr, ptr %7, align 8, !tbaa !25
   call void @_ZN4llvm9StringRefC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %13, ptr noundef @.str.2)
-  %42 = load ptr, ptr %16, align 8
+  %42 = load ptr, ptr %16, align 8, !tbaa !14
   %43 = getelementptr inbounds ptr, ptr %42, i64 103
   %44 = load ptr, ptr %43, align 8
   %45 = call noundef zeroext i1 %44(ptr noundef nonnull align 8 dereferenceable(80) %16)
-  %46 = load i32, ptr %8, align 4
+  %46 = load i32, ptr %8, align 4, !tbaa !10
   %47 = getelementptr inbounds nuw { ptr, i64 }, ptr %13, i32 0, i32 0
   %48 = load ptr, ptr %47, align 8
   %49 = getelementptr inbounds nuw { ptr, i64 }, ptr %13, i32 0, i32 1
   %50 = load i64, ptr %49, align 8
   call void @_ZN4llvm3pdb15dumpSymbolFieldIbEEvRNS_11raw_ostreamENS_9StringRefET_i(ptr noundef nonnull align 8 dereferenceable(48) %41, ptr %48, i64 %50, i1 noundef zeroext %45, i32 noundef %46)
-  %51 = load ptr, ptr %7, align 8
+  %51 = load ptr, ptr %7, align 8, !tbaa !25
   call void @_ZN4llvm9StringRefC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %14, ptr noundef @.str.3)
-  %52 = load ptr, ptr %16, align 8
+  %52 = load ptr, ptr %16, align 8, !tbaa !14
   %53 = getelementptr inbounds ptr, ptr %52, i64 171
   %54 = load ptr, ptr %53, align 8
   %55 = call noundef zeroext i1 %54(ptr noundef nonnull align 8 dereferenceable(80) %16)
-  %56 = load i32, ptr %8, align 4
+  %56 = load i32, ptr %8, align 4, !tbaa !10
   %57 = getelementptr inbounds nuw { ptr, i64 }, ptr %14, i32 0, i32 0
   %58 = load ptr, ptr %57, align 8
   %59 = getelementptr inbounds nuw { ptr, i64 }, ptr %14, i32 0, i32 1
   %60 = load i64, ptr %59, align 8
   call void @_ZN4llvm3pdb15dumpSymbolFieldIbEEvRNS_11raw_ostreamENS_9StringRefET_i(ptr noundef nonnull align 8 dereferenceable(48) %51, ptr %58, i64 %60, i1 noundef zeroext %55, i32 noundef %56)
-  %61 = load ptr, ptr %7, align 8
+  %61 = load ptr, ptr %7, align 8, !tbaa !25
   call void @_ZN4llvm9StringRefC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %15, ptr noundef @.str.4)
-  %62 = load ptr, ptr %16, align 8
+  %62 = load ptr, ptr %16, align 8, !tbaa !14
   %63 = getelementptr inbounds ptr, ptr %62, i64 177
   %64 = load ptr, ptr %63, align 8
   %65 = call noundef zeroext i1 %64(ptr noundef nonnull align 8 dereferenceable(80) %16)
-  %66 = load i32, ptr %8, align 4
+  %66 = load i32, ptr %8, align 4, !tbaa !10
   %67 = getelementptr inbounds nuw { ptr, i64 }, ptr %15, i32 0, i32 0
   %68 = load ptr, ptr %67, align 8
   %69 = getelementptr inbounds nuw { ptr, i64 }, ptr %15, i32 0, i32 1
@@ -292,19 +280,19 @@ declare void @_ZN4llvm3pdb17dumpSymbolIdFieldERNS_11raw_ostreamENS_9StringRefEji
 define linkonce_odr hidden void @_ZN4llvm9StringRefC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) unnamed_addr #0 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !33
+  store ptr %1, ptr %4, align 8, !tbaa !35
   %5 = load ptr, ptr %3, align 8
   %6 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %5, i32 0, i32 0
-  %7 = load ptr, ptr %4, align 8
-  store ptr %7, ptr %6, align 8
+  %7 = load ptr, ptr %4, align 8, !tbaa !35
+  store ptr %7, ptr %6, align 8, !tbaa !37
   %8 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %5, i32 0, i32 1
-  %9 = load ptr, ptr %4, align 8
+  %9 = load ptr, ptr %4, align 8, !tbaa !35
   %10 = icmp ne ptr %9, null
   br i1 %10, label %11, label %14
 
 11:                                               ; preds = %2
-  %12 = load ptr, ptr %4, align 8
+  %12 = load ptr, ptr %4, align 8, !tbaa !35
   %13 = call noundef i64 @_ZNSt11char_traitsIcE6lengthEPKc(ptr noundef %12)
   br label %15
 
@@ -313,7 +301,7 @@ define linkonce_odr hidden void @_ZN4llvm9StringRefC2EPKc(ptr noundef nonnull al
 
 15:                                               ; preds = %14, %11
   %16 = phi i64 [ %13, %11 ], [ 0, %14 ]
-  store i64 %16, ptr %8, align 8
+  store i64 %16, ptr %8, align 8, !tbaa !39
   ret void
 }
 
@@ -328,23 +316,23 @@ define linkonce_odr void @_ZN4llvm3pdb15dumpSymbolFieldIjEEvRNS_11raw_ostreamENS
   store ptr %1, ptr %11, align 8
   %12 = getelementptr inbounds nuw { ptr, i64 }, ptr %6, i32 0, i32 1
   store i64 %2, ptr %12, align 8
-  store ptr %0, ptr %7, align 8
-  store i32 %3, ptr %8, align 4
-  store i32 %4, ptr %9, align 4
-  %13 = load ptr, ptr %7, align 8
+  store ptr %0, ptr %7, align 8, !tbaa !25
+  store i32 %3, ptr %8, align 4, !tbaa !10
+  store i32 %4, ptr %9, align 4, !tbaa !10
+  %13 = load ptr, ptr %7, align 8, !tbaa !25
   %14 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %13, ptr noundef @.str.5)
-  %15 = load ptr, ptr %7, align 8
-  %16 = load i32, ptr %9, align 4
+  %15 = load ptr, ptr %7, align 8, !tbaa !25
+  %16 = load i32, ptr %9, align 4, !tbaa !10
   %17 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream6indentEj(ptr noundef nonnull align 8 dereferenceable(48) %15, i32 noundef %16)
-  %18 = load ptr, ptr %7, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %10, ptr align 8 %6, i64 16, i1 false)
+  %18 = load ptr, ptr %7, align 8, !tbaa !25
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %10, ptr align 8 %6, i64 16, i1 false), !tbaa.struct !40
   %19 = getelementptr inbounds nuw { ptr, i64 }, ptr %10, i32 0, i32 0
   %20 = load ptr, ptr %19, align 8
   %21 = getelementptr inbounds nuw { ptr, i64 }, ptr %10, i32 0, i32 1
   %22 = load i64, ptr %21, align 8
   %23 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(48) %18, ptr %20, i64 %22)
   %24 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %23, ptr noundef @.str.6)
-  %25 = load i32, ptr %8, align 4
+  %25 = load i32, ptr %8, align 4, !tbaa !10
   %26 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEj(ptr noundef nonnull align 8 dereferenceable(48) %24, i32 noundef %25)
   ret void
 }
@@ -360,24 +348,24 @@ define linkonce_odr void @_ZN4llvm3pdb15dumpSymbolFieldIbEEvRNS_11raw_ostreamENS
   store ptr %1, ptr %11, align 8
   %12 = getelementptr inbounds nuw { ptr, i64 }, ptr %6, i32 0, i32 1
   store i64 %2, ptr %12, align 8
-  store ptr %0, ptr %7, align 8
+  store ptr %0, ptr %7, align 8, !tbaa !25
   %13 = zext i1 %3 to i8
-  store i8 %13, ptr %8, align 1
-  store i32 %4, ptr %9, align 4
-  %14 = load ptr, ptr %7, align 8
+  store i8 %13, ptr %8, align 1, !tbaa !41
+  store i32 %4, ptr %9, align 4, !tbaa !10
+  %14 = load ptr, ptr %7, align 8, !tbaa !25
   %15 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %14, ptr noundef @.str.5)
-  %16 = load ptr, ptr %7, align 8
-  %17 = load i32, ptr %9, align 4
+  %16 = load ptr, ptr %7, align 8, !tbaa !25
+  %17 = load i32, ptr %9, align 4, !tbaa !10
   %18 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream6indentEj(ptr noundef nonnull align 8 dereferenceable(48) %16, i32 noundef %17)
-  %19 = load ptr, ptr %7, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %10, ptr align 8 %6, i64 16, i1 false)
+  %19 = load ptr, ptr %7, align 8, !tbaa !25
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %10, ptr align 8 %6, i64 16, i1 false), !tbaa.struct !40
   %20 = getelementptr inbounds nuw { ptr, i64 }, ptr %10, i32 0, i32 0
   %21 = load ptr, ptr %20, align 8
   %22 = getelementptr inbounds nuw { ptr, i64 }, ptr %10, i32 0, i32 1
   %23 = load i64, ptr %22, align 8
   %24 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(48) %19, ptr %21, i64 %23)
   %25 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %24, ptr noundef @.str.6)
-  %26 = load i8, ptr %8, align 1
+  %26 = load i8, ptr %8, align 1, !tbaa !41, !range !43, !noundef !44
   %27 = trunc i8 %26 to i1
   %28 = zext i1 %27 to i32
   %29 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEi(ptr noundef nonnull align 8 dereferenceable(48) %25, i32 noundef %28)
@@ -387,32 +375,32 @@ define linkonce_odr void @_ZN4llvm3pdb15dumpSymbolFieldIbEEvRNS_11raw_ostreamENS
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef zeroext i1 @_ZNK4llvm3pdb17NativeTypeVTShape11isConstTypeEv(ptr noundef nonnull align 8 dereferenceable(80) %0) unnamed_addr #0 align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !3
   ret i1 false
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef zeroext i1 @_ZNK4llvm3pdb17NativeTypeVTShape14isVolatileTypeEv(ptr noundef nonnull align 8 dereferenceable(80) %0) unnamed_addr #0 align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !3
   ret i1 false
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef zeroext i1 @_ZNK4llvm3pdb17NativeTypeVTShape15isUnalignedTypeEv(ptr noundef nonnull align 8 dereferenceable(80) %0) unnamed_addr #0 align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !3
   ret i1 false
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef i32 @_ZNK4llvm3pdb17NativeTypeVTShape8getCountEv(ptr noundef nonnull align 8 dereferenceable(80) %0) unnamed_addr #0 align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !3
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw %"class.llvm::pdb::NativeTypeVTShape", ptr %3, i32 0, i32 2
   %5 = getelementptr inbounds nuw %"class.llvm::codeview::VFTableShapeRecord", ptr %4, i32 0, i32 2
-  %6 = call noundef i64 @_ZNKSt6vectorIN4llvm8codeview15VFTableSlotKindESaIS2_EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %5) #5
+  %6 = call noundef i64 @_ZNKSt6vectorIN4llvm8codeview15VFTableSlotKindESaIS2_EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %5) #7
   %7 = trunc i64 %6 to i32
   ret i32 %7
 }
@@ -420,14 +408,14 @@ define dso_local noundef i32 @_ZNK4llvm3pdb17NativeTypeVTShape8getCountEv(ptr no
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef i64 @_ZNKSt6vectorIN4llvm8codeview15VFTableSlotKindESaIS2_EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !45
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw %"struct.std::_Vector_base", ptr %3, i32 0, i32 0
   %5 = getelementptr inbounds nuw %"struct.std::_Vector_base<llvm::codeview::VFTableSlotKind, std::allocator<llvm::codeview::VFTableSlotKind>>::_Vector_impl_data", ptr %4, i32 0, i32 1
-  %6 = load ptr, ptr %5, align 8
+  %6 = load ptr, ptr %5, align 8, !tbaa !47
   %7 = getelementptr inbounds nuw %"struct.std::_Vector_base", ptr %3, i32 0, i32 0
   %8 = getelementptr inbounds nuw %"struct.std::_Vector_base<llvm::codeview::VFTableSlotKind, std::allocator<llvm::codeview::VFTableSlotKind>>::_Vector_impl_data", ptr %7, i32 0, i32 0
-  %9 = load ptr, ptr %8, align 8
+  %9 = load ptr, ptr %8, align 8, !tbaa !49
   %10 = ptrtoint ptr %6 to i64
   %11 = ptrtoint ptr %9 to i64
   %12 = sub i64 %10, %11
@@ -783,7 +771,7 @@ declare void @_ZNK4llvm3pdb15NativeRawSymbol9getUnusedB5cxx11Ev(ptr dead_on_unwi
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvm3pdb15NativeRawSymbol10initializeEv(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !50
   ret void
 }
 
@@ -791,11 +779,11 @@ define linkonce_odr hidden void @_ZN4llvm3pdb15NativeRawSymbol10initializeEv(ptr
 define linkonce_odr hidden void @_ZNSt6vectorIN4llvm8codeview15VFTableSlotKindESaIS2_EEC2EOS4_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #0 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !45
+  store ptr %1, ptr %4, align 8, !tbaa !45
   %5 = load ptr, ptr %3, align 8
-  %6 = load ptr, ptr %4, align 8
-  call void @_ZNSt12_Vector_baseIN4llvm8codeview15VFTableSlotKindESaIS2_EEC2EOS4_(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %6) #5
+  %6 = load ptr, ptr %4, align 8, !tbaa !45
+  call void @_ZNSt12_Vector_baseIN4llvm8codeview15VFTableSlotKindESaIS2_EEC2EOS4_(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %6) #7
   ret void
 }
 
@@ -803,13 +791,13 @@ define linkonce_odr hidden void @_ZNSt6vectorIN4llvm8codeview15VFTableSlotKindES
 define linkonce_odr hidden void @_ZNSt12_Vector_baseIN4llvm8codeview15VFTableSlotKindESaIS2_EEC2EOS4_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #0 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !52
+  store ptr %1, ptr %4, align 8, !tbaa !52
   %5 = load ptr, ptr %3, align 8
   %6 = getelementptr inbounds nuw %"struct.std::_Vector_base", ptr %5, i32 0, i32 0
-  %7 = load ptr, ptr %4, align 8
+  %7 = load ptr, ptr %4, align 8, !tbaa !52
   %8 = getelementptr inbounds nuw %"struct.std::_Vector_base", ptr %7, i32 0, i32 0
-  call void @_ZNSt12_Vector_baseIN4llvm8codeview15VFTableSlotKindESaIS2_EE12_Vector_implC2EOS5_(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %8) #5
+  call void @_ZNSt12_Vector_baseIN4llvm8codeview15VFTableSlotKindESaIS2_EE12_Vector_implC2EOS5_(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %8) #7
   ret void
 }
 
@@ -817,13 +805,13 @@ define linkonce_odr hidden void @_ZNSt12_Vector_baseIN4llvm8codeview15VFTableSlo
 define linkonce_odr hidden void @_ZNSt12_Vector_baseIN4llvm8codeview15VFTableSlotKindESaIS2_EE12_Vector_implC2EOS5_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #0 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !54
+  store ptr %1, ptr %4, align 8, !tbaa !54
   %5 = load ptr, ptr %3, align 8
-  %6 = load ptr, ptr %4, align 8
-  call void @_ZNSaIN4llvm8codeview15VFTableSlotKindEEC2ERKS2_(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull align 1 dereferenceable(1) %6) #5
-  %7 = load ptr, ptr %4, align 8
-  call void @_ZNSt12_Vector_baseIN4llvm8codeview15VFTableSlotKindESaIS2_EE17_Vector_impl_dataC2EOS5_(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %7) #5
+  %6 = load ptr, ptr %4, align 8, !tbaa !54
+  call void @_ZNSaIN4llvm8codeview15VFTableSlotKindEEC2ERKS2_(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull align 1 dereferenceable(1) %6) #7
+  %7 = load ptr, ptr %4, align 8, !tbaa !54
+  call void @_ZNSt12_Vector_baseIN4llvm8codeview15VFTableSlotKindESaIS2_EE17_Vector_impl_dataC2EOS5_(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %7) #7
   ret void
 }
 
@@ -831,11 +819,11 @@ define linkonce_odr hidden void @_ZNSt12_Vector_baseIN4llvm8codeview15VFTableSlo
 define linkonce_odr hidden void @_ZNSaIN4llvm8codeview15VFTableSlotKindEEC2ERKS2_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %1) unnamed_addr #0 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !56
+  store ptr %1, ptr %4, align 8, !tbaa !56
   %5 = load ptr, ptr %3, align 8
-  %6 = load ptr, ptr %4, align 8
-  call void @_ZNSt15__new_allocatorIN4llvm8codeview15VFTableSlotKindEEC2ERKS3_(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull align 1 dereferenceable(1) %6) #5
+  %6 = load ptr, ptr %4, align 8, !tbaa !56
+  call void @_ZNSt15__new_allocatorIN4llvm8codeview15VFTableSlotKindEEC2ERKS3_(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull align 1 dereferenceable(1) %6) #7
   ret void
 }
 
@@ -843,33 +831,33 @@ define linkonce_odr hidden void @_ZNSaIN4llvm8codeview15VFTableSlotKindEEC2ERKS2
 define linkonce_odr hidden void @_ZNSt12_Vector_baseIN4llvm8codeview15VFTableSlotKindESaIS2_EE17_Vector_impl_dataC2EOS5_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #0 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !58
+  store ptr %1, ptr %4, align 8, !tbaa !58
   %5 = load ptr, ptr %3, align 8
   %6 = getelementptr inbounds nuw %"struct.std::_Vector_base<llvm::codeview::VFTableSlotKind, std::allocator<llvm::codeview::VFTableSlotKind>>::_Vector_impl_data", ptr %5, i32 0, i32 0
-  %7 = load ptr, ptr %4, align 8
+  %7 = load ptr, ptr %4, align 8, !tbaa !58
   %8 = getelementptr inbounds nuw %"struct.std::_Vector_base<llvm::codeview::VFTableSlotKind, std::allocator<llvm::codeview::VFTableSlotKind>>::_Vector_impl_data", ptr %7, i32 0, i32 0
-  %9 = load ptr, ptr %8, align 8
-  store ptr %9, ptr %6, align 8
+  %9 = load ptr, ptr %8, align 8, !tbaa !49
+  store ptr %9, ptr %6, align 8, !tbaa !49
   %10 = getelementptr inbounds nuw %"struct.std::_Vector_base<llvm::codeview::VFTableSlotKind, std::allocator<llvm::codeview::VFTableSlotKind>>::_Vector_impl_data", ptr %5, i32 0, i32 1
-  %11 = load ptr, ptr %4, align 8
+  %11 = load ptr, ptr %4, align 8, !tbaa !58
   %12 = getelementptr inbounds nuw %"struct.std::_Vector_base<llvm::codeview::VFTableSlotKind, std::allocator<llvm::codeview::VFTableSlotKind>>::_Vector_impl_data", ptr %11, i32 0, i32 1
-  %13 = load ptr, ptr %12, align 8
-  store ptr %13, ptr %10, align 8
+  %13 = load ptr, ptr %12, align 8, !tbaa !47
+  store ptr %13, ptr %10, align 8, !tbaa !47
   %14 = getelementptr inbounds nuw %"struct.std::_Vector_base<llvm::codeview::VFTableSlotKind, std::allocator<llvm::codeview::VFTableSlotKind>>::_Vector_impl_data", ptr %5, i32 0, i32 2
-  %15 = load ptr, ptr %4, align 8
+  %15 = load ptr, ptr %4, align 8, !tbaa !58
   %16 = getelementptr inbounds nuw %"struct.std::_Vector_base<llvm::codeview::VFTableSlotKind, std::allocator<llvm::codeview::VFTableSlotKind>>::_Vector_impl_data", ptr %15, i32 0, i32 2
-  %17 = load ptr, ptr %16, align 8
-  store ptr %17, ptr %14, align 8
-  %18 = load ptr, ptr %4, align 8
+  %17 = load ptr, ptr %16, align 8, !tbaa !60
+  store ptr %17, ptr %14, align 8, !tbaa !60
+  %18 = load ptr, ptr %4, align 8, !tbaa !58
   %19 = getelementptr inbounds nuw %"struct.std::_Vector_base<llvm::codeview::VFTableSlotKind, std::allocator<llvm::codeview::VFTableSlotKind>>::_Vector_impl_data", ptr %18, i32 0, i32 2
-  store ptr null, ptr %19, align 8
-  %20 = load ptr, ptr %4, align 8
+  store ptr null, ptr %19, align 8, !tbaa !60
+  %20 = load ptr, ptr %4, align 8, !tbaa !58
   %21 = getelementptr inbounds nuw %"struct.std::_Vector_base<llvm::codeview::VFTableSlotKind, std::allocator<llvm::codeview::VFTableSlotKind>>::_Vector_impl_data", ptr %20, i32 0, i32 1
-  store ptr null, ptr %21, align 8
-  %22 = load ptr, ptr %4, align 8
+  store ptr null, ptr %21, align 8, !tbaa !47
+  %22 = load ptr, ptr %4, align 8, !tbaa !58
   %23 = getelementptr inbounds nuw %"struct.std::_Vector_base<llvm::codeview::VFTableSlotKind, std::allocator<llvm::codeview::VFTableSlotKind>>::_Vector_impl_data", ptr %22, i32 0, i32 0
-  store ptr null, ptr %23, align 8
+  store ptr null, ptr %23, align 8, !tbaa !49
   ret void
 }
 
@@ -877,38 +865,38 @@ define linkonce_odr hidden void @_ZNSt12_Vector_baseIN4llvm8codeview15VFTableSlo
 define linkonce_odr hidden void @_ZNSt15__new_allocatorIN4llvm8codeview15VFTableSlotKindEEC2ERKS3_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %1) unnamed_addr #0 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !61
+  store ptr %1, ptr %4, align 8, !tbaa !61
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt6vectorIN4llvm8codeview15VFTableSlotKindESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !45
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw %"struct.std::_Vector_base", ptr %3, i32 0, i32 0
   %5 = getelementptr inbounds nuw %"struct.std::_Vector_base<llvm::codeview::VFTableSlotKind, std::allocator<llvm::codeview::VFTableSlotKind>>::_Vector_impl_data", ptr %4, i32 0, i32 0
-  %6 = load ptr, ptr %5, align 8
+  %6 = load ptr, ptr %5, align 8, !tbaa !49
   %7 = getelementptr inbounds nuw %"struct.std::_Vector_base", ptr %3, i32 0, i32 0
   %8 = getelementptr inbounds nuw %"struct.std::_Vector_base<llvm::codeview::VFTableSlotKind, std::allocator<llvm::codeview::VFTableSlotKind>>::_Vector_impl_data", ptr %7, i32 0, i32 1
-  %9 = load ptr, ptr %8, align 8
-  %10 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt12_Vector_baseIN4llvm8codeview15VFTableSlotKindESaIS2_EE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %3) #5
+  %9 = load ptr, ptr %8, align 8, !tbaa !47
+  %10 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt12_Vector_baseIN4llvm8codeview15VFTableSlotKindESaIS2_EE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %3) #7
   call void @_ZSt8_DestroyIPN4llvm8codeview15VFTableSlotKindES2_EvT_S4_RSaIT0_E(ptr noundef %6, ptr noundef %9, ptr noundef nonnull align 1 dereferenceable(1) %10)
-  call void @_ZNSt12_Vector_baseIN4llvm8codeview15VFTableSlotKindESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #5
+  call void @_ZNSt12_Vector_baseIN4llvm8codeview15VFTableSlotKindESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #7
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZSt8_DestroyIPN4llvm8codeview15VFTableSlotKindES2_EvT_S4_RSaIT0_E(ptr noundef %0, ptr noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %2) #0 comdat {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr void @_ZSt8_DestroyIPN4llvm8codeview15VFTableSlotKindES2_EvT_S4_RSaIT0_E(ptr noundef %0, ptr noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %2) #3 comdat {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store ptr %2, ptr %6, align 8
-  %7 = load ptr, ptr %4, align 8
-  %8 = load ptr, ptr %5, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !22
+  store ptr %1, ptr %5, align 8, !tbaa !22
+  store ptr %2, ptr %6, align 8, !tbaa !56
+  %7 = load ptr, ptr %4, align 8, !tbaa !22
+  %8 = load ptr, ptr %5, align 8, !tbaa !22
   call void @_ZSt8_DestroyIPN4llvm8codeview15VFTableSlotKindEEvT_S4_(ptr noundef %7, ptr noundef %8)
   ret void
 }
@@ -916,7 +904,7 @@ define linkonce_odr void @_ZSt8_DestroyIPN4llvm8codeview15VFTableSlotKindES2_EvT
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt12_Vector_baseIN4llvm8codeview15VFTableSlotKindESaIS2_EE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !52
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw %"struct.std::_Vector_base", ptr %3, i32 0, i32 0
   ret ptr %4
@@ -925,34 +913,34 @@ define linkonce_odr hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt12_Vector_baseIN4llvm8codeview15VFTableSlotKindESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !52
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw %"struct.std::_Vector_base", ptr %3, i32 0, i32 0
   %5 = getelementptr inbounds nuw %"struct.std::_Vector_base<llvm::codeview::VFTableSlotKind, std::allocator<llvm::codeview::VFTableSlotKind>>::_Vector_impl_data", ptr %4, i32 0, i32 0
-  %6 = load ptr, ptr %5, align 8
+  %6 = load ptr, ptr %5, align 8, !tbaa !49
   %7 = getelementptr inbounds nuw %"struct.std::_Vector_base", ptr %3, i32 0, i32 0
   %8 = getelementptr inbounds nuw %"struct.std::_Vector_base<llvm::codeview::VFTableSlotKind, std::allocator<llvm::codeview::VFTableSlotKind>>::_Vector_impl_data", ptr %7, i32 0, i32 2
-  %9 = load ptr, ptr %8, align 8
+  %9 = load ptr, ptr %8, align 8, !tbaa !60
   %10 = getelementptr inbounds nuw %"struct.std::_Vector_base", ptr %3, i32 0, i32 0
   %11 = getelementptr inbounds nuw %"struct.std::_Vector_base<llvm::codeview::VFTableSlotKind, std::allocator<llvm::codeview::VFTableSlotKind>>::_Vector_impl_data", ptr %10, i32 0, i32 0
-  %12 = load ptr, ptr %11, align 8
+  %12 = load ptr, ptr %11, align 8, !tbaa !49
   %13 = ptrtoint ptr %9 to i64
   %14 = ptrtoint ptr %12 to i64
   %15 = sub i64 %13, %14
   call void @_ZNSt12_Vector_baseIN4llvm8codeview15VFTableSlotKindESaIS2_EE13_M_deallocateEPS2_m(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef %6, i64 noundef %15)
   %16 = getelementptr inbounds nuw %"struct.std::_Vector_base", ptr %3, i32 0, i32 0
-  call void @_ZNSt12_Vector_baseIN4llvm8codeview15VFTableSlotKindESaIS2_EE12_Vector_implD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %16) #5
+  call void @_ZNSt15__new_allocatorIN4llvm8codeview15VFTableSlotKindEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %16) #7
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZSt8_DestroyIPN4llvm8codeview15VFTableSlotKindEEvT_S4_(ptr noundef %0, ptr noundef %1) #0 comdat {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr void @_ZSt8_DestroyIPN4llvm8codeview15VFTableSlotKindEEvT_S4_(ptr noundef %0, ptr noundef %1) #3 comdat {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  %5 = load ptr, ptr %3, align 8
-  %6 = load ptr, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !22
+  store ptr %1, ptr %4, align 8, !tbaa !22
+  %5 = load ptr, ptr %3, align 8, !tbaa !22
+  %6 = load ptr, ptr %4, align 8, !tbaa !22
   call void @_ZNSt12_Destroy_auxILb1EE9__destroyIPN4llvm8codeview15VFTableSlotKindEEEvT_S6_(ptr noundef %5, ptr noundef %6)
   ret void
 }
@@ -961,8 +949,8 @@ define linkonce_odr void @_ZSt8_DestroyIPN4llvm8codeview15VFTableSlotKindEEvT_S4
 define linkonce_odr hidden void @_ZNSt12_Destroy_auxILb1EE9__destroyIPN4llvm8codeview15VFTableSlotKindEEEvT_S6_(ptr noundef %0, ptr noundef %1) #0 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !22
+  store ptr %1, ptr %4, align 8, !tbaa !22
   ret void
 }
 
@@ -971,18 +959,18 @@ define linkonce_odr hidden void @_ZNSt12_Vector_baseIN4llvm8codeview15VFTableSlo
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca i64, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store i64 %2, ptr %6, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !52
+  store ptr %1, ptr %5, align 8, !tbaa !22
+  store i64 %2, ptr %6, align 8, !tbaa !23
   %7 = load ptr, ptr %4, align 8
-  %8 = load ptr, ptr %5, align 8
+  %8 = load ptr, ptr %5, align 8, !tbaa !22
   %9 = icmp ne ptr %8, null
   br i1 %9, label %10, label %14
 
 10:                                               ; preds = %3
   %11 = getelementptr inbounds nuw %"struct.std::_Vector_base", ptr %7, i32 0, i32 0
-  %12 = load ptr, ptr %5, align 8
-  %13 = load i64, ptr %6, align 8
+  %12 = load ptr, ptr %5, align 8, !tbaa !22
+  %13 = load i64, ptr %6, align 8, !tbaa !23
   call void @_ZNSt16allocator_traitsISaIN4llvm8codeview15VFTableSlotKindEEE10deallocateERS3_PS2_m(ptr noundef nonnull align 1 dereferenceable(1) %11, ptr noundef %12, i64 noundef %13)
   br label %14
 
@@ -991,11 +979,9 @@ define linkonce_odr hidden void @_ZNSt12_Vector_baseIN4llvm8codeview15VFTableSlo
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNSt12_Vector_baseIN4llvm8codeview15VFTableSlotKindESaIS2_EE12_Vector_implD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #0 comdat align 2 {
+define linkonce_odr hidden void @_ZNSt15__new_allocatorIN4llvm8codeview15VFTableSlotKindEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  call void @_ZNSaIN4llvm8codeview15VFTableSlotKindEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #5
+  store ptr %0, ptr %2, align 8, !tbaa !61
   ret void
 }
 
@@ -1004,12 +990,12 @@ define linkonce_odr hidden void @_ZNSt16allocator_traitsISaIN4llvm8codeview15VFT
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca i64, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store i64 %2, ptr %6, align 8
-  %7 = load ptr, ptr %4, align 8
-  %8 = load ptr, ptr %5, align 8
-  %9 = load i64, ptr %6, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !56
+  store ptr %1, ptr %5, align 8, !tbaa !22
+  store i64 %2, ptr %6, align 8, !tbaa !23
+  %7 = load ptr, ptr %4, align 8, !tbaa !56
+  %8 = load ptr, ptr %5, align 8, !tbaa !22
+  %9 = load i64, ptr %6, align 8, !tbaa !23
   call void @_ZNSt15__new_allocatorIN4llvm8codeview15VFTableSlotKindEE10deallocateEPS2_m(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef %8, i64 noundef %9)
   ret void
 }
@@ -1019,41 +1005,22 @@ define linkonce_odr hidden void @_ZNSt15__new_allocatorIN4llvm8codeview15VFTable
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca i64, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store i64 %2, ptr %6, align 8
-  %7 = load ptr, ptr %5, align 8
-  %8 = load i64, ptr %6, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !61
+  store ptr %1, ptr %5, align 8, !tbaa !22
+  store i64 %2, ptr %6, align 8, !tbaa !23
+  %7 = load ptr, ptr %5, align 8, !tbaa !22
+  %8 = load i64, ptr %6, align 8, !tbaa !23
   %9 = mul i64 %8, 1
-  call void @_ZdlPvm(ptr noundef %7, i64 noundef %9) #6
+  call void @_ZdlPvm(ptr noundef %7, i64 noundef %9) #8
   ret void
 }
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNSaIN4llvm8codeview15VFTableSlotKindEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #0 comdat align 2 {
-  %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  call void @_ZNSt15__new_allocatorIN4llvm8codeview15VFTableSlotKindEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #5
-  ret void
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNSt15__new_allocatorIN4llvm8codeview15VFTableSlotKindEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #0 comdat align 2 {
-  %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  ret void
-}
-
-; Function Attrs: nounwind
-declare void @_ZN4llvm3pdb13IPDBRawSymbolD2Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef i64 @_ZNSt11char_traitsIcE6lengthEPKc(ptr noundef %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  %4 = call i64 @strlen(ptr noundef %3) #5
+  store ptr %0, ptr %2, align 8, !tbaa !35
+  %3 = load ptr, ptr %2, align 8, !tbaa !35
+  %4 = call i64 @strlen(ptr noundef %3) #7
   ret i64 %4
 }
 
@@ -1065,10 +1032,10 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(48) ptr @_ZN4
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca %"class.llvm::StringRef", align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !25
+  store ptr %1, ptr %4, align 8, !tbaa !35
   %6 = load ptr, ptr %3, align 8
-  %7 = load ptr, ptr %4, align 8
+  %7 = load ptr, ptr %4, align 8, !tbaa !35
   call void @_ZN4llvm9StringRefC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef %7)
   %8 = getelementptr inbounds nuw { ptr, i64 }, ptr %5, i32 0, i32 0
   %9 = load ptr, ptr %8, align 8
@@ -1086,79 +1053,87 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(48) ptr @_ZN4
   %5 = alloca %"class.llvm::StringRef", align 8
   %6 = alloca ptr, align 8
   %7 = alloca i64, align 8
-  %8 = getelementptr inbounds nuw { ptr, i64 }, ptr %5, i32 0, i32 0
-  store ptr %1, ptr %8, align 8
-  %9 = getelementptr inbounds nuw { ptr, i64 }, ptr %5, i32 0, i32 1
-  store i64 %2, ptr %9, align 8
-  store ptr %0, ptr %6, align 8
-  %10 = load ptr, ptr %6, align 8
-  %11 = call noundef i64 @_ZNK4llvm9StringRef4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %5)
-  store i64 %11, ptr %7, align 8
-  %12 = load i64, ptr %7, align 8
-  %13 = getelementptr inbounds nuw %"class.llvm::raw_ostream", ptr %10, i32 0, i32 3
-  %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds nuw %"class.llvm::raw_ostream", ptr %10, i32 0, i32 4
-  %16 = load ptr, ptr %15, align 8
-  %17 = ptrtoint ptr %14 to i64
-  %18 = ptrtoint ptr %16 to i64
-  %19 = sub i64 %17, %18
-  %20 = icmp ugt i64 %12, %19
-  br i1 %20, label %21, label %25
+  %8 = alloca i32, align 4
+  %9 = getelementptr inbounds nuw { ptr, i64 }, ptr %5, i32 0, i32 0
+  store ptr %1, ptr %9, align 8
+  %10 = getelementptr inbounds nuw { ptr, i64 }, ptr %5, i32 0, i32 1
+  store i64 %2, ptr %10, align 8
+  store ptr %0, ptr %6, align 8, !tbaa !25
+  %11 = load ptr, ptr %6, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #7
+  %12 = call noundef i64 @_ZNK4llvm9StringRef4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %5)
+  store i64 %12, ptr %7, align 8, !tbaa !23
+  %13 = load i64, ptr %7, align 8, !tbaa !23
+  %14 = getelementptr inbounds nuw %"class.llvm::raw_ostream", ptr %11, i32 0, i32 3
+  %15 = load ptr, ptr %14, align 8, !tbaa !63
+  %16 = getelementptr inbounds nuw %"class.llvm::raw_ostream", ptr %11, i32 0, i32 4
+  %17 = load ptr, ptr %16, align 8, !tbaa !67
+  %18 = ptrtoint ptr %15 to i64
+  %19 = ptrtoint ptr %17 to i64
+  %20 = sub i64 %18, %19
+  %21 = icmp ugt i64 %13, %20
+  br i1 %21, label %22, label %26
 
-21:                                               ; preds = %3
-  %22 = call noundef ptr @_ZNK4llvm9StringRef4dataEv(ptr noundef nonnull align 8 dereferenceable(16) %5)
-  %23 = load i64, ptr %7, align 8
-  %24 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %10, ptr noundef %22, i64 noundef %23)
-  store ptr %24, ptr %4, align 8
+22:                                               ; preds = %3
+  %23 = call noundef ptr @_ZNK4llvm9StringRef4dataEv(ptr noundef nonnull align 8 dereferenceable(16) %5)
+  %24 = load i64, ptr %7, align 8, !tbaa !23
+  %25 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %11, ptr noundef %23, i64 noundef %24)
+  store ptr %25, ptr %4, align 8
+  store i32 1, ptr %8, align 4
+  br label %39
+
+26:                                               ; preds = %3
+  %27 = load i64, ptr %7, align 8, !tbaa !23
+  %28 = icmp ne i64 %27, 0
+  br i1 %28, label %29, label %38
+
+29:                                               ; preds = %26
+  %30 = getelementptr inbounds nuw %"class.llvm::raw_ostream", ptr %11, i32 0, i32 4
+  %31 = load ptr, ptr %30, align 8, !tbaa !67
+  %32 = call noundef ptr @_ZNK4llvm9StringRef4dataEv(ptr noundef nonnull align 8 dereferenceable(16) %5)
+  %33 = load i64, ptr %7, align 8, !tbaa !23
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %31, ptr align 1 %32, i64 %33, i1 false)
+  %34 = load i64, ptr %7, align 8, !tbaa !23
+  %35 = getelementptr inbounds nuw %"class.llvm::raw_ostream", ptr %11, i32 0, i32 4
+  %36 = load ptr, ptr %35, align 8, !tbaa !67
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 %34
+  store ptr %37, ptr %35, align 8, !tbaa !67
   br label %38
 
-25:                                               ; preds = %3
-  %26 = load i64, ptr %7, align 8
-  %27 = icmp ne i64 %26, 0
-  br i1 %27, label %28, label %37
+38:                                               ; preds = %29, %26
+  store ptr %11, ptr %4, align 8
+  store i32 1, ptr %8, align 4
+  br label %39
 
-28:                                               ; preds = %25
-  %29 = getelementptr inbounds nuw %"class.llvm::raw_ostream", ptr %10, i32 0, i32 4
-  %30 = load ptr, ptr %29, align 8
-  %31 = call noundef ptr @_ZNK4llvm9StringRef4dataEv(ptr noundef nonnull align 8 dereferenceable(16) %5)
-  %32 = load i64, ptr %7, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %30, ptr align 1 %31, i64 %32, i1 false)
-  %33 = load i64, ptr %7, align 8
-  %34 = getelementptr inbounds nuw %"class.llvm::raw_ostream", ptr %10, i32 0, i32 4
-  %35 = load ptr, ptr %34, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 %33
-  store ptr %36, ptr %34, align 8
-  br label %37
-
-37:                                               ; preds = %28, %25
-  store ptr %10, ptr %4, align 8
-  br label %38
-
-38:                                               ; preds = %37, %21
-  %39 = load ptr, ptr %4, align 8
-  ret ptr %39
+39:                                               ; preds = %38, %22
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #7
+  %40 = load ptr, ptr %4, align 8
+  ret ptr %40
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEj(ptr noundef nonnull align 8 dereferenceable(48) %0, i32 noundef %1) #0 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
-  store ptr %0, ptr %3, align 8
-  store i32 %1, ptr %4, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !25
+  store i32 %1, ptr %4, align 4, !tbaa !10
   %5 = load ptr, ptr %3, align 8
-  %6 = load i32, ptr %4, align 4
+  %6 = load i32, ptr %4, align 4, !tbaa !10
   %7 = zext i32 %6 to i64
   %8 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %5, i64 noundef %7)
   ret ptr %8
 }
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #6
+
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef i64 @_ZNK4llvm9StringRef4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !33
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %3, i32 0, i32 1
-  %5 = load i64, ptr %4, align 8
+  %5 = load i64, ptr %4, align 8, !tbaa !39
   ret i64 %5
 }
 
@@ -1167,12 +1142,15 @@ declare noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5w
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZNK4llvm9StringRef4dataEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !33
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %3, i32 0, i32 0
-  %5 = load ptr, ptr %4, align 8
+  %5 = load ptr, ptr %4, align 8, !tbaa !37
   ret ptr %5
 }
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #6
 
 declare noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48), i64 noundef) #1
 
@@ -1180,10 +1158,10 @@ declare noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamls
 define linkonce_odr hidden noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEi(ptr noundef nonnull align 8 dereferenceable(48) %0, i32 noundef %1) #0 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
-  store ptr %0, ptr %3, align 8
-  store i32 %1, ptr %4, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !25
+  store i32 %1, ptr %4, align 4, !tbaa !10
   %5 = load ptr, ptr %3, align 8
-  %6 = load i32, ptr %4, align 4
+  %6 = load i32, ptr %4, align 4, !tbaa !10
   %7 = sext i32 %6 to i64
   %8 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEl(ptr noundef nonnull align 8 dereferenceable(48) %5, i64 noundef %7)
   ret ptr %8
@@ -1191,17 +1169,83 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(48) ptr @_ZN4
 
 declare noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEl(ptr noundef nonnull align 8 dereferenceable(48), i64 noundef) #1
 
-attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nounwind }
-attributes #6 = { builtin nounwind }
+attributes #3 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #7 = { nounwind }
+attributes #8 = { builtin nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
+!3 = !{!4, !4, i64 0}
+!4 = !{!"p1 _ZTSN4llvm3pdb17NativeTypeVTShapeE", !5, i64 0}
+!5 = !{!"any pointer", !6, i64 0}
+!6 = !{!"omnipotent char", !7, i64 0}
+!7 = !{!"Simple C++ TBAA"}
+!8 = !{!9, !9, i64 0}
+!9 = !{!"p1 _ZTSN4llvm3pdb13NativeSessionE", !5, i64 0}
+!10 = !{!11, !11, i64 0}
+!11 = !{!"int", !6, i64 0}
+!12 = !{!13, !13, i64 0}
+!13 = !{!"p1 _ZTSN4llvm8codeview18VFTableShapeRecordE", !5, i64 0}
+!14 = !{!15, !15, i64 0}
+!15 = !{!"vtable pointer", !7, i64 0}
+!16 = !{i64 0, i64 4, !17}
+!17 = !{!6, !6, i64 0}
+!18 = !{i64 0, i64 2, !19}
+!19 = !{!20, !20, i64 0}
+!20 = !{!"_ZTSN4llvm8codeview14TypeRecordKindE", !6, i64 0}
+!21 = !{i64 0, i64 8, !22, i64 8, i64 8, !23}
+!22 = !{!5, !5, i64 0}
+!23 = !{!24, !24, i64 0}
+!24 = !{!"long", !6, i64 0}
+!25 = !{!26, !26, i64 0}
+!26 = !{!"p1 _ZTSN4llvm11raw_ostreamE", !5, i64 0}
+!27 = !{!28, !28, i64 0}
+!28 = !{!"_ZTSN4llvm3pdb16PdbSymbolIdFieldE", !6, i64 0}
+!29 = !{!30, !9, i64 8}
+!30 = !{!"_ZTSN4llvm3pdb15NativeRawSymbolE", !31, i64 0, !9, i64 8, !32, i64 16, !11, i64 20}
+!31 = !{!"_ZTSN4llvm3pdb13IPDBRawSymbolE"}
+!32 = !{!"_ZTSN4llvm3pdb11PDB_SymTypeE", !6, i64 0}
+!33 = !{!34, !34, i64 0}
+!34 = !{!"p1 _ZTSN4llvm9StringRefE", !5, i64 0}
+!35 = !{!36, !36, i64 0}
+!36 = !{!"p1 omnipotent char", !5, i64 0}
+!37 = !{!38, !36, i64 0}
+!38 = !{!"_ZTSN4llvm9StringRefE", !36, i64 0, !24, i64 8}
+!39 = !{!38, !24, i64 8}
+!40 = !{i64 0, i64 8, !35, i64 8, i64 8, !23}
+!41 = !{!42, !42, i64 0}
+!42 = !{!"bool", !6, i64 0}
+!43 = !{i8 0, i8 2}
+!44 = !{}
+!45 = !{!46, !46, i64 0}
+!46 = !{!"p1 _ZTSSt6vectorIN4llvm8codeview15VFTableSlotKindESaIS2_EE", !5, i64 0}
+!47 = !{!48, !5, i64 8}
+!48 = !{!"_ZTSNSt12_Vector_baseIN4llvm8codeview15VFTableSlotKindESaIS2_EE17_Vector_impl_dataE", !5, i64 0, !5, i64 8, !5, i64 16}
+!49 = !{!48, !5, i64 0}
+!50 = !{!51, !51, i64 0}
+!51 = !{!"p1 _ZTSN4llvm3pdb15NativeRawSymbolE", !5, i64 0}
+!52 = !{!53, !53, i64 0}
+!53 = !{!"p1 _ZTSSt12_Vector_baseIN4llvm8codeview15VFTableSlotKindESaIS2_EE", !5, i64 0}
+!54 = !{!55, !55, i64 0}
+!55 = !{!"p1 _ZTSNSt12_Vector_baseIN4llvm8codeview15VFTableSlotKindESaIS2_EE12_Vector_implE", !5, i64 0}
+!56 = !{!57, !57, i64 0}
+!57 = !{!"p1 _ZTSSaIN4llvm8codeview15VFTableSlotKindEE", !5, i64 0}
+!58 = !{!59, !59, i64 0}
+!59 = !{!"p1 _ZTSNSt12_Vector_baseIN4llvm8codeview15VFTableSlotKindESaIS2_EE17_Vector_impl_dataE", !5, i64 0}
+!60 = !{!48, !5, i64 16}
+!61 = !{!62, !62, i64 0}
+!62 = !{!"p1 _ZTSSt15__new_allocatorIN4llvm8codeview15VFTableSlotKindEE", !5, i64 0}
+!63 = !{!64, !36, i64 24}
+!64 = !{!"_ZTSN4llvm11raw_ostreamE", !65, i64 8, !36, i64 16, !36, i64 24, !36, i64 32, !42, i64 40, !66, i64 44}
+!65 = !{!"_ZTSN4llvm11raw_ostream11OStreamKindE", !6, i64 0}
+!66 = !{!"_ZTSN4llvm11raw_ostream10BufferKindE", !6, i64 0}
+!67 = !{!64, !36, i64 32}

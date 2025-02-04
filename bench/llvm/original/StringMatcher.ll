@@ -51,6 +51,7 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Rb_tree<char, std::pair<const char, std::vector<const std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>> *>>, std::_Select1st<std::pair<const char, std::vector<const std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>> *>>>, std::less<char>>::_Auto_node" = type { ptr, ptr }
 %"struct.std::pair.30" = type { ptr, ptr }
 %"struct.std::_Select1st" = type { i8 }
+%struct._Guard = type { ptr }
 %"struct.std::_Rb_tree<unsigned int, std::pair<const unsigned int, std::vector<const std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>> *>>, std::_Select1st<std::pair<const unsigned int, std::vector<const std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>> *>>>, std::less<unsigned int>>::_Auto_node" = type { ptr, ptr }
 %"struct.std::_Select1st.38" = type { i8 }
 
@@ -162,9 +163,9 @@ $_ZSt3minImERKT_S2_S2_ = comdat any
 
 $_ZSt5clampImERKT_S2_S2_S2_ = comdat any
 
-$_ZSt3maxImERKT_S2_S2_ = comdat any
-
 $_ZNK4llvm9StringRef4dataEv = comdat any
+
+$_ZSt3maxImERKT_S2_S2_ = comdat any
 
 $_ZN4llvm9StringRefC2EPKc = comdat any
 
@@ -190,7 +191,7 @@ $_ZNSt8_Rb_treeIcSt4pairIKcSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_t
 
 $_ZNSt8_Rb_treeIcSt4pairIKcSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEESt10_Select1stISE_ESt4lessIcESaISE_EE8_M_beginEv = comdat any
 
-$_ZNSt8_Rb_treeIcSt4pairIKcSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEESt10_Select1stISE_ESt4lessIcESaISE_EE13_Rb_tree_implISI_Lb1EED2Ev = comdat any
+$_ZNSt15__new_allocatorISt13_Rb_tree_nodeISt4pairIKcSt6vectorIPKS1_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ESaISC_EEEEED2Ev = comdat any
 
 $_ZNSt8_Rb_treeIcSt4pairIKcSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEESt10_Select1stISE_ESt4lessIcESaISE_EE8_S_rightEPSt18_Rb_tree_node_base = comdat any
 
@@ -226,15 +227,11 @@ $_ZNSt12_Destroy_auxILb1EE9__destroyIPPKSt4pairINSt7__cxx1112basic_stringIcSt11c
 
 $_ZNSt12_Vector_baseIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS9_EE13_M_deallocateEPS9_m = comdat any
 
-$_ZNSt12_Vector_baseIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS9_EE12_Vector_implD2Ev = comdat any
+$_ZNSt15__new_allocatorIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_EED2Ev = comdat any
 
 $_ZNSt16allocator_traitsISaIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_EEE10deallocateERSA_PS9_m = comdat any
 
 $_ZNSt15__new_allocatorIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_EE10deallocateEPS9_m = comdat any
-
-$_ZNSaIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EED2Ev = comdat any
-
-$_ZNSt15__new_allocatorIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_EED2Ev = comdat any
 
 $_ZN9__gnu_cxx16__aligned_membufISt4pairIKcSt6vectorIPKS1_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ESaISC_EEEE6_M_ptrEv = comdat any
 
@@ -245,10 +242,6 @@ $_ZNSt16allocator_traitsISaISt13_Rb_tree_nodeISt4pairIKcSt6vectorIPKS1_INSt7__cx
 $_ZNSt15__new_allocatorISt13_Rb_tree_nodeISt4pairIKcSt6vectorIPKS1_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ESaISC_EEEEE10deallocateEPSG_m = comdat any
 
 $_ZNKSt8_Rb_treeIcSt4pairIKcSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEESt10_Select1stISE_ESt4lessIcESaISE_EE9_M_mbeginEv = comdat any
-
-$_ZNSaISt13_Rb_tree_nodeISt4pairIKcSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEEEED2Ev = comdat any
-
-$_ZNSt15__new_allocatorISt13_Rb_tree_nodeISt4pairIKcSt6vectorIPKS1_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ESaISC_EEEEED2Ev = comdat any
 
 $_ZNSt8_Rb_treeIjSt4pairIKjSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEESt10_Select1stISE_ESt4lessIjESaISE_EEC2Ev = comdat any
 
@@ -266,7 +259,7 @@ $_ZNSt8_Rb_treeIjSt4pairIKjSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_t
 
 $_ZNSt8_Rb_treeIjSt4pairIKjSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEESt10_Select1stISE_ESt4lessIjESaISE_EE8_M_beginEv = comdat any
 
-$_ZNSt8_Rb_treeIjSt4pairIKjSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEESt10_Select1stISE_ESt4lessIjESaISE_EE13_Rb_tree_implISI_Lb1EED2Ev = comdat any
+$_ZNSt15__new_allocatorISt13_Rb_tree_nodeISt4pairIKjSt6vectorIPKS1_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ESaISC_EEEEED2Ev = comdat any
 
 $_ZNSt8_Rb_treeIjSt4pairIKjSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEESt10_Select1stISE_ESt4lessIjESaISE_EE8_S_rightEPSt18_Rb_tree_node_base = comdat any
 
@@ -298,9 +291,19 @@ $_ZNSt15__new_allocatorISt13_Rb_tree_nodeISt4pairIKjSt6vectorIPKS1_INSt7__cxx111
 
 $_ZNKSt8_Rb_treeIjSt4pairIKjSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEESt10_Select1stISE_ESt4lessIjESaISE_EE9_M_mbeginEv = comdat any
 
-$_ZNSaISt13_Rb_tree_nodeISt4pairIKjSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEEEED2Ev = comdat any
+$_ZNSt15__new_allocatorIcEC2Ev = comdat any
 
-$_ZNSt15__new_allocatorISt13_Rb_tree_nodeISt4pairIKjSt6vectorIPKS1_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ESaISC_EEEEED2Ev = comdat any
+$_ZNSt19__ptr_traits_ptr_toIPccLb0EE10pointer_toERc = comdat any
+
+$_ZNSt15__new_allocatorIcEC2ERKS0_ = comdat any
+
+$_ZNSt15__new_allocatorIcED2Ev = comdat any
+
+$_ZNSt19__ptr_traits_ptr_toIPKcS0_Lb0EE10pointer_toERS0_ = comdat any
+
+$_ZNSt16allocator_traitsISaIcEE10deallocateERS0_Pcm = comdat any
+
+$_ZNSt15__new_allocatorIcE10deallocateEPcm = comdat any
 
 $_ZN9__gnu_cxx17__normal_iteratorIPKPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_ESt6vectorISA_SaISA_EEEC2ERKSC_ = comdat any
 
@@ -466,6 +469,22 @@ $_ZSt14__relocate_a_1IPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaI
 
 $_ZSt12__niter_baseIPPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_EET_SB_ = comdat any
 
+$_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag = comdat any
+
+$_ZSt8distanceIPKcENSt15iterator_traitsIT_E15difference_typeES3_S3_ = comdat any
+
+$_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardC2EPS4_ = comdat any
+
+$_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev = comdat any
+
+$_ZSt10__distanceIPKcENSt15iterator_traitsIT_E15difference_typeES3_S3_St26random_access_iterator_tag = comdat any
+
+$_ZSt19__iterator_categoryIPKcENSt15iterator_traitsIT_E17iterator_categoryERKS3_ = comdat any
+
+$_ZNSt11char_traitsIcE6assignERcRKc = comdat any
+
+$_ZNSt11char_traitsIcE4copyEPcPKcm = comdat any
+
 $_ZNSt8_Rb_treeIcSt4pairIKcSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEESt10_Select1stISE_ESt4lessIcESaISE_EE3endEv = comdat any
 
 $_ZN9__gnu_cxxeqIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_ESt6vectorIS8_SaIS8_EEEEbRKNS_17__normal_iteratorIT_T0_EESJ_ = comdat any
@@ -624,6 +643,9 @@ $_ZSt19piecewise_construct = comdat any
 @.str.27 = private unnamed_addr constant [8 x i8] c"break;\0A\00", align 1
 @_ZSt19piecewise_construct = linkonce_odr constant %"struct.std::piecewise_construct_t" zeroinitializer, comdat, align 1
 @.str.28 = private unnamed_addr constant [26 x i8] c"vector::_M_realloc_insert\00", align 1
+@.str.29 = private unnamed_addr constant [21 x i8] c"basic_string::substr\00", align 1
+@.str.30 = private unnamed_addr constant [55 x i8] c"%s: __pos (which is %zu) > this->size() (which is %zu)\00", align 1
+@.str.31 = private unnamed_addr constant [27 x i8] c"basic_string::basic_string\00", align 1
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef zeroext i1 @_ZNK4llvm13StringMatcher24EmitStringMatcherForCharERKSt6vectorIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEjjb(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, i32 noundef %2, i32 noundef %3, i1 noundef zeroext %4) #0 align 2 {
@@ -656,71 +678,76 @@ define dso_local noundef zeroext i1 @_ZNK4llvm13StringMatcher24EmitStringMatcher
   %32 = alloca %"struct.std::_Rb_tree_iterator", align 8
   %33 = alloca %"struct.std::_Rb_tree_iterator", align 8
   %34 = alloca ptr, align 8
-  store ptr %0, ptr %7, align 8
-  store ptr %1, ptr %8, align 8
-  store i32 %2, ptr %9, align 4
-  store i32 %3, ptr %10, align 4
+  store ptr %0, ptr %7, align 8, !tbaa !3
+  store ptr %1, ptr %8, align 8, !tbaa !8
+  store i32 %2, ptr %9, align 4, !tbaa !10
+  store i32 %3, ptr %10, align 4, !tbaa !10
   %35 = zext i1 %4 to i8
-  store i8 %35, ptr %11, align 1
+  store i8 %35, ptr %11, align 1, !tbaa !12
   %36 = load ptr, ptr %7, align 8
-  %37 = load i32, ptr %10, align 4
+  call void @llvm.lifetime.start.p0(i64 32, ptr %12) #13
+  %37 = load i32, ptr %10, align 4, !tbaa !10
   %38 = mul i32 %37, 2
   %39 = add i32 %38, 4
   %40 = zext i32 %39 to i64
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %13) #9
+  call void @llvm.lifetime.start.p0(i64 1, ptr %13) #13
+  call void @_ZNSaIcEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %13) #13
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %12, i64 noundef %40, i8 noundef signext 32, ptr noundef nonnull align 1 dereferenceable(1) %13)
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %13) #9
-  %41 = load i32, ptr %9, align 4
+  call void @_ZNSt15__new_allocatorIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %13) #13
+  call void @llvm.lifetime.end.p0(i64 1, ptr %13) #13
+  %41 = load i32, ptr %9, align 4, !tbaa !10
   %42 = zext i32 %41 to i64
-  %43 = load ptr, ptr %8, align 8
-  %44 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKSt6vectorIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS9_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %43, i64 noundef 0) #9
-  %45 = load ptr, ptr %44, align 8
+  %43 = load ptr, ptr %8, align 8, !tbaa !8
+  %44 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKSt6vectorIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS9_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %43, i64 noundef 0) #13
+  %45 = load ptr, ptr %44, align 8, !tbaa !14
   %46 = getelementptr inbounds nuw %"struct.std::pair", ptr %45, i32 0, i32 0
-  %47 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %46) #9
+  %47 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %46) #13
   %48 = icmp eq i64 %42, %47
   br i1 %48, label %49, label %96
 
 49:                                               ; preds = %5
-  %50 = load ptr, ptr %8, align 8
-  %51 = call noundef i64 @_ZNKSt6vectorIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS9_EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %50) #9
+  %50 = load ptr, ptr %8, align 8, !tbaa !8
+  %51 = call noundef i64 @_ZNKSt6vectorIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS9_EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %50) #13
   %52 = icmp ugt i64 %51, 1
   br i1 %52, label %53, label %57
 
 53:                                               ; preds = %49
-  %54 = load i8, ptr %11, align 1
+  %54 = load i8, ptr %11, align 1, !tbaa !12, !range !16, !noundef !17
   %55 = trunc i8 %54 to i1
   br i1 %55, label %57, label %56
 
 56:                                               ; preds = %53
-  call void @_ZN4llvm18report_fatal_errorEPKcb(ptr noundef @.str, i1 noundef zeroext true) #10
+  call void @_ZN4llvm18report_fatal_errorEPKcb(ptr noundef @.str, i1 noundef zeroext true) #14
   unreachable
 
 57:                                               ; preds = %53, %49
-  %58 = load ptr, ptr %8, align 8
-  %59 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKSt6vectorIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS9_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %58, i64 noundef 0) #9
-  %60 = load ptr, ptr %59, align 8
+  call void @llvm.lifetime.start.p0(i64 16, ptr %14) #13
+  %58 = load ptr, ptr %8, align 8, !tbaa !8
+  %59 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKSt6vectorIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS9_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %58, i64 noundef 0) #13
+  %60 = load ptr, ptr %59, align 8, !tbaa !14
   %61 = getelementptr inbounds nuw %"struct.std::pair", ptr %60, i32 0, i32 1
   call void @_ZN4llvm9StringRefC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %14, ptr noundef nonnull align 8 dereferenceable(32) %61)
+  call void @llvm.lifetime.start.p0(i64 32, ptr %15) #13
   call void @_ZNK4llvm9StringRef5splitEc(ptr dead_on_unwind writable sret(%"struct.std::pair.3") align 8 %15, ptr noundef nonnull align 8 dereferenceable(16) %14, i8 noundef signext 10)
   %62 = getelementptr inbounds nuw %"class.llvm::StringMatcher", ptr %36, i32 0, i32 2
-  %63 = load ptr, ptr %62, align 8
+  %63 = load ptr, ptr %62, align 8, !tbaa !18
   %64 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(48) %63, ptr noundef nonnull align 8 dereferenceable(32) %12)
   %65 = getelementptr inbounds nuw %"struct.std::pair.3", ptr %15, i32 0, i32 0
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %16, ptr align 8 %65, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %16, ptr align 8 %65, i64 16, i1 false), !tbaa.struct !25
   %66 = getelementptr inbounds nuw { ptr, i64 }, ptr %16, i32 0, i32 0
   %67 = load ptr, ptr %66, align 8
   %68 = getelementptr inbounds nuw { ptr, i64 }, ptr %16, i32 0, i32 1
   %69 = load i64, ptr %68, align 8
   %70 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(48) %64, ptr %67, i64 %69)
   %71 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %70, ptr noundef @.str.1)
-  %72 = load ptr, ptr %8, align 8
-  %73 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKSt6vectorIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS9_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %72, i64 noundef 0) #9
-  %74 = load ptr, ptr %73, align 8
+  %72 = load ptr, ptr %8, align 8, !tbaa !8
+  %73 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKSt6vectorIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS9_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %72, i64 noundef 0) #13
+  %74 = load ptr, ptr %73, align 8, !tbaa !14
   %75 = getelementptr inbounds nuw %"struct.std::pair", ptr %74, i32 0, i32 0
   %76 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(48) %71, ptr noundef nonnull align 8 dereferenceable(32) %75)
   %77 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %76, ptr noundef @.str.2)
   %78 = getelementptr inbounds nuw %"struct.std::pair.3", ptr %15, i32 0, i32 1
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %14, ptr align 8 %78, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %14, ptr align 8 %78, i64 16, i1 false), !tbaa.struct !25
   br label %79
 
 79:                                               ; preds = %82, %57
@@ -729,13 +756,15 @@ define dso_local noundef zeroext i1 @_ZNK4llvm13StringMatcher24EmitStringMatcher
   br i1 %81, label %82, label %95
 
 82:                                               ; preds = %79
+  call void @llvm.lifetime.start.p0(i64 32, ptr %17) #13
   call void @_ZNK4llvm9StringRef5splitEc(ptr dead_on_unwind writable sret(%"struct.std::pair.3") align 8 %17, ptr noundef nonnull align 8 dereferenceable(16) %14, i8 noundef signext 10)
-  %83 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt4pairIN4llvm9StringRefES1_EaSEOS2_(ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef nonnull align 8 dereferenceable(32) %17) #9
+  %83 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt4pairIN4llvm9StringRefES1_EaSEOS2_(ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef nonnull align 8 dereferenceable(32) %17) #13
+  call void @llvm.lifetime.end.p0(i64 32, ptr %17) #13
   %84 = getelementptr inbounds nuw %"class.llvm::StringMatcher", ptr %36, i32 0, i32 2
-  %85 = load ptr, ptr %84, align 8
+  %85 = load ptr, ptr %84, align 8, !tbaa !18
   %86 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(48) %85, ptr noundef nonnull align 8 dereferenceable(32) %12)
   %87 = getelementptr inbounds nuw %"struct.std::pair.3", ptr %15, i32 0, i32 0
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %18, ptr align 8 %87, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %18, ptr align 8 %87, i64 16, i1 false), !tbaa.struct !25
   %88 = getelementptr inbounds nuw { ptr, i64 }, ptr %18, i32 0, i32 0
   %89 = load ptr, ptr %88, align 8
   %90 = getelementptr inbounds nuw { ptr, i64 }, ptr %18, i32 0, i32 1
@@ -743,260 +772,304 @@ define dso_local noundef zeroext i1 @_ZNK4llvm13StringMatcher24EmitStringMatcher
   %92 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(48) %86, ptr %89, i64 %91)
   %93 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %92, ptr noundef @.str.3)
   %94 = getelementptr inbounds nuw %"struct.std::pair.3", ptr %15, i32 0, i32 1
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %14, ptr align 8 %94, i64 16, i1 false)
-  br label %79, !llvm.loop !4
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %14, ptr align 8 %94, i64 16, i1 false), !tbaa.struct !25
+  br label %79, !llvm.loop !28
 
 95:                                               ; preds = %79
   store i1 false, ptr %6, align 1
   store i32 1, ptr %19, align 4
-  br label %274
+  call void @llvm.lifetime.end.p0(i64 32, ptr %15) #13
+  call void @llvm.lifetime.end.p0(i64 16, ptr %14) #13
+  br label %276
 
 96:                                               ; preds = %5
-  call void @_ZNSt3mapIcSt6vectorIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_ESaISA_EESt4lessIcESaIS1_IKcSC_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %20) #9
-  %97 = load ptr, ptr %8, align 8
-  store ptr %97, ptr %21, align 8
-  %98 = load ptr, ptr %21, align 8
-  %99 = call ptr @_ZNKSt6vectorIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS9_EE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %98) #9
+  call void @llvm.lifetime.start.p0(i64 48, ptr %20) #13
+  call void @_ZNSt3mapIcSt6vectorIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_ESaISA_EESt4lessIcESaIS1_IKcSC_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %20) #13
+  call void @llvm.lifetime.start.p0(i64 8, ptr %21) #13
+  %97 = load ptr, ptr %8, align 8, !tbaa !8
+  store ptr %97, ptr %21, align 8, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %22) #13
+  %98 = load ptr, ptr %21, align 8, !tbaa !8
+  %99 = call ptr @_ZNKSt6vectorIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS9_EE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %98) #13
   %100 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator", ptr %22, i32 0, i32 0
   store ptr %99, ptr %100, align 8
-  %101 = load ptr, ptr %21, align 8
-  %102 = call ptr @_ZNKSt6vectorIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS9_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %101) #9
+  call void @llvm.lifetime.start.p0(i64 8, ptr %23) #13
+  %101 = load ptr, ptr %21, align 8, !tbaa !8
+  %102 = call ptr @_ZNKSt6vectorIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS9_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %101) #13
   %103 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator", ptr %23, i32 0, i32 0
   store ptr %102, ptr %103, align 8
   br label %104
 
-104:                                              ; preds = %115, %96
-  %105 = call noundef zeroext i1 @_ZN9__gnu_cxxneIPKPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_ESt6vectorISA_SaISA_EEEEbRKNS_17__normal_iteratorIT_T0_EESL_(ptr noundef nonnull align 8 dereferenceable(8) %22, ptr noundef nonnull align 8 dereferenceable(8) %23) #9
-  br i1 %105, label %106, label %117
+104:                                              ; preds = %116, %96
+  %105 = call noundef zeroext i1 @_ZN9__gnu_cxxneIPKPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_ESt6vectorISA_SaISA_EEEEbRKNS_17__normal_iteratorIT_T0_EESL_(ptr noundef nonnull align 8 dereferenceable(8) %22, ptr noundef nonnull align 8 dereferenceable(8) %23) #13
+  br i1 %105, label %107, label %106
 
 106:                                              ; preds = %104
-  %107 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPKPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_ESt6vectorISA_SaISA_EEEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %22) #9
-  %108 = load ptr, ptr %107, align 8
-  store ptr %108, ptr %24, align 8
-  %109 = load ptr, ptr %24, align 8
-  %110 = getelementptr inbounds nuw %"struct.std::pair", ptr %109, i32 0, i32 0
-  %111 = load i32, ptr %9, align 4
-  %112 = zext i32 %111 to i64
-  %113 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %110, i64 noundef %112) #9
-  %114 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt3mapIcSt6vectorIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_ESaISA_EESt4lessIcESaIS1_IKcSC_EEEixERSF_(ptr noundef nonnull align 8 dereferenceable(48) %20, ptr noundef nonnull align 1 dereferenceable(1) %113)
-  call void @_ZNSt6vectorIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS9_EE9push_backERKS9_(ptr noundef nonnull align 8 dereferenceable(24) %114, ptr noundef nonnull align 8 dereferenceable(8) %24)
-  br label %115
+  store i32 4, ptr %19, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %23) #13
+  call void @llvm.lifetime.end.p0(i64 8, ptr %22) #13
+  call void @llvm.lifetime.end.p0(i64 8, ptr %21) #13
+  br label %118
 
-115:                                              ; preds = %106
-  %116 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN9__gnu_cxx17__normal_iteratorIPKPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_ESt6vectorISA_SaISA_EEEppEv(ptr noundef nonnull align 8 dereferenceable(8) %22) #9
+107:                                              ; preds = %104
+  call void @llvm.lifetime.start.p0(i64 8, ptr %24) #13
+  %108 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPKPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_ESt6vectorISA_SaISA_EEEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %22) #13
+  %109 = load ptr, ptr %108, align 8, !tbaa !14
+  store ptr %109, ptr %24, align 8, !tbaa !14
+  %110 = load ptr, ptr %24, align 8, !tbaa !14
+  %111 = getelementptr inbounds nuw %"struct.std::pair", ptr %110, i32 0, i32 0
+  %112 = load i32, ptr %9, align 4, !tbaa !10
+  %113 = zext i32 %112 to i64
+  %114 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %111, i64 noundef %113) #13
+  %115 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt3mapIcSt6vectorIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_ESaISA_EESt4lessIcESaIS1_IKcSC_EEEixERSF_(ptr noundef nonnull align 8 dereferenceable(48) %20, ptr noundef nonnull align 1 dereferenceable(1) %114)
+  call void @_ZNSt6vectorIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS9_EE9push_backERKS9_(ptr noundef nonnull align 8 dereferenceable(24) %115, ptr noundef nonnull align 8 dereferenceable(8) %24)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %24) #13
+  br label %116
+
+116:                                              ; preds = %107
+  %117 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN9__gnu_cxx17__normal_iteratorIPKPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_ESt6vectorISA_SaISA_EEEppEv(ptr noundef nonnull align 8 dereferenceable(8) %22) #13
   br label %104
 
-117:                                              ; preds = %104
-  %118 = call noundef i64 @_ZNKSt3mapIcSt6vectorIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_ESaISA_EESt4lessIcESaIS1_IKcSC_EEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(48) %20) #9
-  %119 = icmp eq i64 %118, 1
-  br i1 %119, label %120, label %196
+118:                                              ; preds = %106
+  %119 = call noundef i64 @_ZNKSt3mapIcSt6vectorIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_ESaISA_EESt4lessIcESaIS1_IKcSC_EEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(48) %20) #13
+  %120 = icmp eq i64 %119, 1
+  br i1 %120, label %121, label %197
 
-120:                                              ; preds = %117
-  %121 = load ptr, ptr %8, align 8
-  %122 = call noundef i32 @_ZL24FindFirstNonCommonLetterRKSt6vectorIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS9_EE(ptr noundef nonnull align 8 dereferenceable(24) %121)
-  store i32 %122, ptr %25, align 4
-  %123 = load i32, ptr %25, align 4
-  %124 = load i32, ptr %9, align 4
-  %125 = sub i32 %123, %124
-  store i32 %125, ptr %26, align 4
-  %126 = load i32, ptr %26, align 4
-  %127 = icmp eq i32 %126, 1
-  br i1 %127, label %128, label %157
+121:                                              ; preds = %118
+  call void @llvm.lifetime.start.p0(i64 4, ptr %25) #13
+  %122 = load ptr, ptr %8, align 8, !tbaa !8
+  %123 = call noundef i32 @_ZL24FindFirstNonCommonLetterRKSt6vectorIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS9_EE(ptr noundef nonnull align 8 dereferenceable(24) %122)
+  store i32 %123, ptr %25, align 4, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %26) #13
+  %124 = load i32, ptr %25, align 4, !tbaa !10
+  %125 = load i32, ptr %9, align 4, !tbaa !10
+  %126 = sub i32 %124, %125
+  store i32 %126, ptr %26, align 4, !tbaa !10
+  %127 = load i32, ptr %26, align 4, !tbaa !10
+  %128 = icmp eq i32 %127, 1
+  br i1 %128, label %129, label %158
 
-128:                                              ; preds = %120
-  %129 = getelementptr inbounds nuw %"class.llvm::StringMatcher", ptr %36, i32 0, i32 2
-  %130 = load ptr, ptr %129, align 8
-  %131 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(48) %130, ptr noundef nonnull align 8 dereferenceable(32) %12)
-  %132 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %131, ptr noundef @.str.4)
-  %133 = getelementptr inbounds nuw %"class.llvm::StringMatcher", ptr %36, i32 0, i32 0
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %27, ptr align 8 %133, i64 16, i1 false)
-  %134 = getelementptr inbounds nuw { ptr, i64 }, ptr %27, i32 0, i32 0
-  %135 = load ptr, ptr %134, align 8
-  %136 = getelementptr inbounds nuw { ptr, i64 }, ptr %27, i32 0, i32 1
-  %137 = load i64, ptr %136, align 8
-  %138 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(48) %132, ptr %135, i64 %137)
-  %139 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %138, ptr noundef @.str.5)
-  %140 = load i32, ptr %9, align 4
-  %141 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEj(ptr noundef nonnull align 8 dereferenceable(48) %139, i32 noundef %140)
-  %142 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %141, ptr noundef @.str.6)
-  %143 = load ptr, ptr %8, align 8
-  %144 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKSt6vectorIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS9_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %143, i64 noundef 0) #9
-  %145 = load ptr, ptr %144, align 8
-  %146 = getelementptr inbounds nuw %"struct.std::pair", ptr %145, i32 0, i32 0
-  %147 = load i32, ptr %9, align 4
-  %148 = zext i32 %147 to i64
-  %149 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %146, i64 noundef %148) #9
-  %150 = load i8, ptr %149, align 1
-  %151 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEc(ptr noundef nonnull align 8 dereferenceable(48) %142, i8 noundef signext %150)
-  %152 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %151, ptr noundef @.str.7)
-  %153 = getelementptr inbounds nuw %"class.llvm::StringMatcher", ptr %36, i32 0, i32 2
-  %154 = load ptr, ptr %153, align 8
-  %155 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(48) %154, ptr noundef nonnull align 8 dereferenceable(32) %12)
-  %156 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %155, ptr noundef @.str.8)
-  br label %189
+129:                                              ; preds = %121
+  %130 = getelementptr inbounds nuw %"class.llvm::StringMatcher", ptr %36, i32 0, i32 2
+  %131 = load ptr, ptr %130, align 8, !tbaa !18
+  %132 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(48) %131, ptr noundef nonnull align 8 dereferenceable(32) %12)
+  %133 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %132, ptr noundef @.str.4)
+  %134 = getelementptr inbounds nuw %"class.llvm::StringMatcher", ptr %36, i32 0, i32 0
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %27, ptr align 8 %134, i64 16, i1 false), !tbaa.struct !25
+  %135 = getelementptr inbounds nuw { ptr, i64 }, ptr %27, i32 0, i32 0
+  %136 = load ptr, ptr %135, align 8
+  %137 = getelementptr inbounds nuw { ptr, i64 }, ptr %27, i32 0, i32 1
+  %138 = load i64, ptr %137, align 8
+  %139 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(48) %133, ptr %136, i64 %138)
+  %140 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %139, ptr noundef @.str.5)
+  %141 = load i32, ptr %9, align 4, !tbaa !10
+  %142 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEj(ptr noundef nonnull align 8 dereferenceable(48) %140, i32 noundef %141)
+  %143 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %142, ptr noundef @.str.6)
+  %144 = load ptr, ptr %8, align 8, !tbaa !8
+  %145 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKSt6vectorIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS9_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %144, i64 noundef 0) #13
+  %146 = load ptr, ptr %145, align 8, !tbaa !14
+  %147 = getelementptr inbounds nuw %"struct.std::pair", ptr %146, i32 0, i32 0
+  %148 = load i32, ptr %9, align 4, !tbaa !10
+  %149 = zext i32 %148 to i64
+  %150 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %147, i64 noundef %149) #13
+  %151 = load i8, ptr %150, align 1, !tbaa !30
+  %152 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEc(ptr noundef nonnull align 8 dereferenceable(48) %143, i8 noundef signext %151)
+  %153 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %152, ptr noundef @.str.7)
+  %154 = getelementptr inbounds nuw %"class.llvm::StringMatcher", ptr %36, i32 0, i32 2
+  %155 = load ptr, ptr %154, align 8, !tbaa !18
+  %156 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(48) %155, ptr noundef nonnull align 8 dereferenceable(32) %12)
+  %157 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %156, ptr noundef @.str.8)
+  br label %190
 
-157:                                              ; preds = %120
-  %158 = getelementptr inbounds nuw %"class.llvm::StringMatcher", ptr %36, i32 0, i32 2
-  %159 = load ptr, ptr %158, align 8
-  %160 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(48) %159, ptr noundef nonnull align 8 dereferenceable(32) %12)
-  %161 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %160, ptr noundef @.str.9)
-  %162 = getelementptr inbounds nuw %"class.llvm::StringMatcher", ptr %36, i32 0, i32 0
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %28, ptr align 8 %162, i64 16, i1 false)
-  %163 = getelementptr inbounds nuw { ptr, i64 }, ptr %28, i32 0, i32 0
-  %164 = load ptr, ptr %163, align 8
-  %165 = getelementptr inbounds nuw { ptr, i64 }, ptr %28, i32 0, i32 1
-  %166 = load i64, ptr %165, align 8
-  %167 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(48) %161, ptr %164, i64 %166)
-  %168 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %167, ptr noundef @.str.10)
-  %169 = load i32, ptr %9, align 4
-  %170 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEj(ptr noundef nonnull align 8 dereferenceable(48) %168, i32 noundef %169)
-  %171 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %170, ptr noundef @.str.11)
-  %172 = load ptr, ptr %8, align 8
-  %173 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKSt6vectorIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS9_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %172, i64 noundef 0) #9
-  %174 = load ptr, ptr %173, align 8
-  %175 = getelementptr inbounds nuw %"struct.std::pair", ptr %174, i32 0, i32 0
-  %176 = load i32, ptr %9, align 4
-  %177 = zext i32 %176 to i64
-  %178 = load i32, ptr %26, align 4
-  %179 = zext i32 %178 to i64
-  call void @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6substrEmm(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %29, ptr noundef nonnull align 8 dereferenceable(32) %175, i64 noundef %177, i64 noundef %179)
-  %180 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(48) %171, ptr noundef nonnull align 8 dereferenceable(32) %29)
-  %181 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %180, ptr noundef @.str.12)
-  %182 = load i32, ptr %26, align 4
-  %183 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEj(ptr noundef nonnull align 8 dereferenceable(48) %181, i32 noundef %182)
-  %184 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %183, ptr noundef @.str.13)
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %29) #9
-  %185 = getelementptr inbounds nuw %"class.llvm::StringMatcher", ptr %36, i32 0, i32 2
-  %186 = load ptr, ptr %185, align 8
-  %187 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(48) %186, ptr noundef nonnull align 8 dereferenceable(32) %12)
-  %188 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %187, ptr noundef @.str.8)
-  br label %189
+158:                                              ; preds = %121
+  %159 = getelementptr inbounds nuw %"class.llvm::StringMatcher", ptr %36, i32 0, i32 2
+  %160 = load ptr, ptr %159, align 8, !tbaa !18
+  %161 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(48) %160, ptr noundef nonnull align 8 dereferenceable(32) %12)
+  %162 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %161, ptr noundef @.str.9)
+  %163 = getelementptr inbounds nuw %"class.llvm::StringMatcher", ptr %36, i32 0, i32 0
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %28, ptr align 8 %163, i64 16, i1 false), !tbaa.struct !25
+  %164 = getelementptr inbounds nuw { ptr, i64 }, ptr %28, i32 0, i32 0
+  %165 = load ptr, ptr %164, align 8
+  %166 = getelementptr inbounds nuw { ptr, i64 }, ptr %28, i32 0, i32 1
+  %167 = load i64, ptr %166, align 8
+  %168 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(48) %162, ptr %165, i64 %167)
+  %169 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %168, ptr noundef @.str.10)
+  %170 = load i32, ptr %9, align 4, !tbaa !10
+  %171 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEj(ptr noundef nonnull align 8 dereferenceable(48) %169, i32 noundef %170)
+  %172 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %171, ptr noundef @.str.11)
+  call void @llvm.lifetime.start.p0(i64 32, ptr %29) #13
+  %173 = load ptr, ptr %8, align 8, !tbaa !8
+  %174 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKSt6vectorIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS9_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %173, i64 noundef 0) #13
+  %175 = load ptr, ptr %174, align 8, !tbaa !14
+  %176 = getelementptr inbounds nuw %"struct.std::pair", ptr %175, i32 0, i32 0
+  %177 = load i32, ptr %9, align 4, !tbaa !10
+  %178 = zext i32 %177 to i64
+  %179 = load i32, ptr %26, align 4, !tbaa !10
+  %180 = zext i32 %179 to i64
+  call void @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6substrEmm(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %29, ptr noundef nonnull align 8 dereferenceable(32) %176, i64 noundef %178, i64 noundef %180)
+  %181 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(48) %172, ptr noundef nonnull align 8 dereferenceable(32) %29)
+  %182 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %181, ptr noundef @.str.12)
+  %183 = load i32, ptr %26, align 4, !tbaa !10
+  %184 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEj(ptr noundef nonnull align 8 dereferenceable(48) %182, i32 noundef %183)
+  %185 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %184, ptr noundef @.str.13)
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %29) #13
+  call void @llvm.lifetime.end.p0(i64 32, ptr %29) #13
+  %186 = getelementptr inbounds nuw %"class.llvm::StringMatcher", ptr %36, i32 0, i32 2
+  %187 = load ptr, ptr %186, align 8, !tbaa !18
+  %188 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(48) %187, ptr noundef nonnull align 8 dereferenceable(32) %12)
+  %189 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %188, ptr noundef @.str.8)
+  br label %190
 
-189:                                              ; preds = %157, %128
-  %190 = load ptr, ptr %8, align 8
-  %191 = load i32, ptr %25, align 4
-  %192 = load i32, ptr %10, align 4
-  %193 = load i8, ptr %11, align 1
-  %194 = trunc i8 %193 to i1
-  %195 = call noundef zeroext i1 @_ZNK4llvm13StringMatcher24EmitStringMatcherForCharERKSt6vectorIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEjjb(ptr noundef nonnull align 8 dereferenceable(32) %36, ptr noundef nonnull align 8 dereferenceable(24) %190, i32 noundef %191, i32 noundef %192, i1 noundef zeroext %194)
-  store i1 %195, ptr %6, align 1
+190:                                              ; preds = %158, %129
+  %191 = load ptr, ptr %8, align 8, !tbaa !8
+  %192 = load i32, ptr %25, align 4, !tbaa !10
+  %193 = load i32, ptr %10, align 4, !tbaa !10
+  %194 = load i8, ptr %11, align 1, !tbaa !12, !range !16, !noundef !17
+  %195 = trunc i8 %194 to i1
+  %196 = call noundef zeroext i1 @_ZNK4llvm13StringMatcher24EmitStringMatcherForCharERKSt6vectorIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEjjb(ptr noundef nonnull align 8 dereferenceable(32) %36, ptr noundef nonnull align 8 dereferenceable(24) %191, i32 noundef %192, i32 noundef %193, i1 noundef zeroext %195)
+  store i1 %196, ptr %6, align 1
   store i32 1, ptr %19, align 4
-  br label %273
+  call void @llvm.lifetime.end.p0(i64 4, ptr %26) #13
+  call void @llvm.lifetime.end.p0(i64 4, ptr %25) #13
+  br label %275
 
-196:                                              ; preds = %117
-  %197 = getelementptr inbounds nuw %"class.llvm::StringMatcher", ptr %36, i32 0, i32 2
-  %198 = load ptr, ptr %197, align 8
-  %199 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(48) %198, ptr noundef nonnull align 8 dereferenceable(32) %12)
-  %200 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %199, ptr noundef @.str.14)
-  %201 = getelementptr inbounds nuw %"class.llvm::StringMatcher", ptr %36, i32 0, i32 0
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %30, ptr align 8 %201, i64 16, i1 false)
-  %202 = getelementptr inbounds nuw { ptr, i64 }, ptr %30, i32 0, i32 0
-  %203 = load ptr, ptr %202, align 8
-  %204 = getelementptr inbounds nuw { ptr, i64 }, ptr %30, i32 0, i32 1
-  %205 = load i64, ptr %204, align 8
-  %206 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(48) %200, ptr %203, i64 %205)
-  %207 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %206, ptr noundef @.str.5)
-  %208 = load i32, ptr %9, align 4
-  %209 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEj(ptr noundef nonnull align 8 dereferenceable(48) %207, i32 noundef %208)
-  %210 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %209, ptr noundef @.str.15)
-  %211 = getelementptr inbounds nuw %"class.llvm::StringMatcher", ptr %36, i32 0, i32 2
-  %212 = load ptr, ptr %211, align 8
-  %213 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(48) %212, ptr noundef nonnull align 8 dereferenceable(32) %12)
-  %214 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %213, ptr noundef @.str.16)
-  store ptr %20, ptr %31, align 8
-  %215 = load ptr, ptr %31, align 8
-  %216 = call ptr @_ZNSt3mapIcSt6vectorIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_ESaISA_EESt4lessIcESaIS1_IKcSC_EEE5beginEv(ptr noundef nonnull align 8 dereferenceable(48) %215) #9
-  %217 = getelementptr inbounds nuw %"struct.std::_Rb_tree_iterator", ptr %32, i32 0, i32 0
-  store ptr %216, ptr %217, align 8
-  %218 = load ptr, ptr %31, align 8
-  %219 = call ptr @_ZNSt3mapIcSt6vectorIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_ESaISA_EESt4lessIcESaIS1_IKcSC_EEE3endEv(ptr noundef nonnull align 8 dereferenceable(48) %218) #9
-  %220 = getelementptr inbounds nuw %"struct.std::_Rb_tree_iterator", ptr %33, i32 0, i32 0
-  store ptr %219, ptr %220, align 8
-  br label %221
+197:                                              ; preds = %118
+  %198 = getelementptr inbounds nuw %"class.llvm::StringMatcher", ptr %36, i32 0, i32 2
+  %199 = load ptr, ptr %198, align 8, !tbaa !18
+  %200 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(48) %199, ptr noundef nonnull align 8 dereferenceable(32) %12)
+  %201 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %200, ptr noundef @.str.14)
+  %202 = getelementptr inbounds nuw %"class.llvm::StringMatcher", ptr %36, i32 0, i32 0
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %30, ptr align 8 %202, i64 16, i1 false), !tbaa.struct !25
+  %203 = getelementptr inbounds nuw { ptr, i64 }, ptr %30, i32 0, i32 0
+  %204 = load ptr, ptr %203, align 8
+  %205 = getelementptr inbounds nuw { ptr, i64 }, ptr %30, i32 0, i32 1
+  %206 = load i64, ptr %205, align 8
+  %207 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(48) %201, ptr %204, i64 %206)
+  %208 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %207, ptr noundef @.str.5)
+  %209 = load i32, ptr %9, align 4, !tbaa !10
+  %210 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEj(ptr noundef nonnull align 8 dereferenceable(48) %208, i32 noundef %209)
+  %211 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %210, ptr noundef @.str.15)
+  %212 = getelementptr inbounds nuw %"class.llvm::StringMatcher", ptr %36, i32 0, i32 2
+  %213 = load ptr, ptr %212, align 8, !tbaa !18
+  %214 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(48) %213, ptr noundef nonnull align 8 dereferenceable(32) %12)
+  %215 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %214, ptr noundef @.str.16)
+  call void @llvm.lifetime.start.p0(i64 8, ptr %31) #13
+  store ptr %20, ptr %31, align 8, !tbaa !31
+  call void @llvm.lifetime.start.p0(i64 8, ptr %32) #13
+  %216 = load ptr, ptr %31, align 8, !tbaa !31
+  %217 = call ptr @_ZNSt3mapIcSt6vectorIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_ESaISA_EESt4lessIcESaIS1_IKcSC_EEE5beginEv(ptr noundef nonnull align 8 dereferenceable(48) %216) #13
+  %218 = getelementptr inbounds nuw %"struct.std::_Rb_tree_iterator", ptr %32, i32 0, i32 0
+  store ptr %217, ptr %218, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %33) #13
+  %219 = load ptr, ptr %31, align 8, !tbaa !31
+  %220 = call ptr @_ZNSt3mapIcSt6vectorIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_ESaISA_EESt4lessIcESaIS1_IKcSC_EEE3endEv(ptr noundef nonnull align 8 dereferenceable(48) %219) #13
+  %221 = getelementptr inbounds nuw %"struct.std::_Rb_tree_iterator", ptr %33, i32 0, i32 0
+  store ptr %220, ptr %221, align 8
+  br label %222
 
-221:                                              ; preds = %266, %196
-  %222 = call noundef zeroext i1 @_ZStneRKSt17_Rb_tree_iteratorISt4pairIKcSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEEESH_(ptr noundef nonnull align 8 dereferenceable(8) %32, ptr noundef nonnull align 8 dereferenceable(8) %33) #9
-  br i1 %222, label %223, label %268
+222:                                              ; preds = %268, %197
+  %223 = call noundef zeroext i1 @_ZStneRKSt17_Rb_tree_iteratorISt4pairIKcSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEEESH_(ptr noundef nonnull align 8 dereferenceable(8) %32, ptr noundef nonnull align 8 dereferenceable(8) %33) #13
+  br i1 %223, label %225, label %224
 
-223:                                              ; preds = %221
-  %224 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNKSt17_Rb_tree_iteratorISt4pairIKcSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEEEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %32) #9
-  store ptr %224, ptr %34, align 8
-  %225 = getelementptr inbounds nuw %"class.llvm::StringMatcher", ptr %36, i32 0, i32 2
-  %226 = load ptr, ptr %225, align 8
-  %227 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(48) %226, ptr noundef nonnull align 8 dereferenceable(32) %12)
-  %228 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %227, ptr noundef @.str.17)
-  %229 = load ptr, ptr %34, align 8
-  %230 = getelementptr inbounds nuw %"struct.std::pair.8", ptr %229, i32 0, i32 0
-  %231 = load i8, ptr %230, align 8
-  %232 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEc(ptr noundef nonnull align 8 dereferenceable(48) %228, i8 noundef signext %231)
-  %233 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %232, ptr noundef @.str.18)
-  %234 = load ptr, ptr %34, align 8
-  %235 = getelementptr inbounds nuw %"struct.std::pair.8", ptr %234, i32 0, i32 1
-  %236 = call noundef i64 @_ZNKSt6vectorIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS9_EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %235) #9
-  %237 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %233, i64 noundef %236)
-  %238 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %237, ptr noundef @.str.19)
-  %239 = load ptr, ptr %34, align 8
-  %240 = getelementptr inbounds nuw %"struct.std::pair.8", ptr %239, i32 0, i32 1
-  %241 = call noundef i64 @_ZNKSt6vectorIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS9_EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %240) #9
-  %242 = icmp ne i64 %241, 1
-  br i1 %242, label %243, label %247
+224:                                              ; preds = %222
+  store i32 6, ptr %19, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %33) #13
+  call void @llvm.lifetime.end.p0(i64 8, ptr %32) #13
+  call void @llvm.lifetime.end.p0(i64 8, ptr %31) #13
+  br label %270
 
-243:                                              ; preds = %223
-  %244 = getelementptr inbounds nuw %"class.llvm::StringMatcher", ptr %36, i32 0, i32 2
-  %245 = load ptr, ptr %244, align 8
-  %246 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEc(ptr noundef nonnull align 8 dereferenceable(48) %245, i8 noundef signext 115)
-  br label %247
+225:                                              ; preds = %222
+  call void @llvm.lifetime.start.p0(i64 8, ptr %34) #13
+  %226 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNKSt17_Rb_tree_iteratorISt4pairIKcSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEEEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %32) #13
+  store ptr %226, ptr %34, align 8, !tbaa !33
+  %227 = getelementptr inbounds nuw %"class.llvm::StringMatcher", ptr %36, i32 0, i32 2
+  %228 = load ptr, ptr %227, align 8, !tbaa !18
+  %229 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(48) %228, ptr noundef nonnull align 8 dereferenceable(32) %12)
+  %230 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %229, ptr noundef @.str.17)
+  %231 = load ptr, ptr %34, align 8, !tbaa !33
+  %232 = getelementptr inbounds nuw %"struct.std::pair.8", ptr %231, i32 0, i32 0
+  %233 = load i8, ptr %232, align 8, !tbaa !35
+  %234 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEc(ptr noundef nonnull align 8 dereferenceable(48) %230, i8 noundef signext %233)
+  %235 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %234, ptr noundef @.str.18)
+  %236 = load ptr, ptr %34, align 8, !tbaa !33
+  %237 = getelementptr inbounds nuw %"struct.std::pair.8", ptr %236, i32 0, i32 1
+  %238 = call noundef i64 @_ZNKSt6vectorIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS9_EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %237) #13
+  %239 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %235, i64 noundef %238)
+  %240 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %239, ptr noundef @.str.19)
+  %241 = load ptr, ptr %34, align 8, !tbaa !33
+  %242 = getelementptr inbounds nuw %"struct.std::pair.8", ptr %241, i32 0, i32 1
+  %243 = call noundef i64 @_ZNKSt6vectorIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS9_EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %242) #13
+  %244 = icmp ne i64 %243, 1
+  br i1 %244, label %245, label %249
 
-247:                                              ; preds = %243, %223
-  %248 = getelementptr inbounds nuw %"class.llvm::StringMatcher", ptr %36, i32 0, i32 2
-  %249 = load ptr, ptr %248, align 8
-  %250 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %249, ptr noundef @.str.20)
-  %251 = load ptr, ptr %34, align 8
-  %252 = getelementptr inbounds nuw %"struct.std::pair.8", ptr %251, i32 0, i32 1
-  %253 = load i32, ptr %9, align 4
-  %254 = add i32 %253, 1
-  %255 = load i32, ptr %10, align 4
+245:                                              ; preds = %225
+  %246 = getelementptr inbounds nuw %"class.llvm::StringMatcher", ptr %36, i32 0, i32 2
+  %247 = load ptr, ptr %246, align 8, !tbaa !18
+  %248 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEc(ptr noundef nonnull align 8 dereferenceable(48) %247, i8 noundef signext 115)
+  br label %249
+
+249:                                              ; preds = %245, %225
+  %250 = getelementptr inbounds nuw %"class.llvm::StringMatcher", ptr %36, i32 0, i32 2
+  %251 = load ptr, ptr %250, align 8, !tbaa !18
+  %252 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %251, ptr noundef @.str.20)
+  %253 = load ptr, ptr %34, align 8, !tbaa !33
+  %254 = getelementptr inbounds nuw %"struct.std::pair.8", ptr %253, i32 0, i32 1
+  %255 = load i32, ptr %9, align 4, !tbaa !10
   %256 = add i32 %255, 1
-  %257 = load i8, ptr %11, align 1
-  %258 = trunc i8 %257 to i1
-  %259 = call noundef zeroext i1 @_ZNK4llvm13StringMatcher24EmitStringMatcherForCharERKSt6vectorIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEjjb(ptr noundef nonnull align 8 dereferenceable(32) %36, ptr noundef nonnull align 8 dereferenceable(24) %252, i32 noundef %254, i32 noundef %256, i1 noundef zeroext %258)
-  br i1 %259, label %260, label %265
+  %257 = load i32, ptr %10, align 4, !tbaa !10
+  %258 = add i32 %257, 1
+  %259 = load i8, ptr %11, align 1, !tbaa !12, !range !16, !noundef !17
+  %260 = trunc i8 %259 to i1
+  %261 = call noundef zeroext i1 @_ZNK4llvm13StringMatcher24EmitStringMatcherForCharERKSt6vectorIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEjjb(ptr noundef nonnull align 8 dereferenceable(32) %36, ptr noundef nonnull align 8 dereferenceable(24) %254, i32 noundef %256, i32 noundef %258, i1 noundef zeroext %260)
+  br i1 %261, label %262, label %267
 
-260:                                              ; preds = %247
-  %261 = getelementptr inbounds nuw %"class.llvm::StringMatcher", ptr %36, i32 0, i32 2
-  %262 = load ptr, ptr %261, align 8
-  %263 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(48) %262, ptr noundef nonnull align 8 dereferenceable(32) %12)
-  %264 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %263, ptr noundef @.str.8)
-  br label %265
+262:                                              ; preds = %249
+  %263 = getelementptr inbounds nuw %"class.llvm::StringMatcher", ptr %36, i32 0, i32 2
+  %264 = load ptr, ptr %263, align 8, !tbaa !18
+  %265 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(48) %264, ptr noundef nonnull align 8 dereferenceable(32) %12)
+  %266 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %265, ptr noundef @.str.8)
+  br label %267
 
-265:                                              ; preds = %260, %247
-  br label %266
+267:                                              ; preds = %262, %249
+  call void @llvm.lifetime.end.p0(i64 8, ptr %34) #13
+  br label %268
 
-266:                                              ; preds = %265
-  %267 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt17_Rb_tree_iteratorISt4pairIKcSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEEEppEv(ptr noundef nonnull align 8 dereferenceable(8) %32) #9
-  br label %221
+268:                                              ; preds = %267
+  %269 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt17_Rb_tree_iteratorISt4pairIKcSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEEEppEv(ptr noundef nonnull align 8 dereferenceable(8) %32) #13
+  br label %222
 
-268:                                              ; preds = %221
-  %269 = getelementptr inbounds nuw %"class.llvm::StringMatcher", ptr %36, i32 0, i32 2
-  %270 = load ptr, ptr %269, align 8
-  %271 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(48) %270, ptr noundef nonnull align 8 dereferenceable(32) %12)
-  %272 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %271, ptr noundef @.str.21)
+270:                                              ; preds = %224
+  %271 = getelementptr inbounds nuw %"class.llvm::StringMatcher", ptr %36, i32 0, i32 2
+  %272 = load ptr, ptr %271, align 8, !tbaa !18
+  %273 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(48) %272, ptr noundef nonnull align 8 dereferenceable(32) %12)
+  %274 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %273, ptr noundef @.str.21)
   store i1 true, ptr %6, align 1
   store i32 1, ptr %19, align 4
-  br label %273
+  br label %275
 
-273:                                              ; preds = %268, %189
-  call void @_ZNSt3mapIcSt6vectorIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_ESaISA_EESt4lessIcESaIS1_IKcSC_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %20) #9
-  br label %274
+275:                                              ; preds = %270, %190
+  call void @_ZNSt3mapIcSt6vectorIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_ESaISA_EESt4lessIcESaIS1_IKcSC_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %20) #13
+  call void @llvm.lifetime.end.p0(i64 48, ptr %20) #13
+  br label %276
 
-274:                                              ; preds = %273, %95
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %12) #9
-  %275 = load i1, ptr %6, align 1
-  ret i1 %275
+276:                                              ; preds = %275, %95
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %12) #13
+  call void @llvm.lifetime.end.p0(i64 32, ptr %12) #13
+  %277 = load i1, ptr %6, align 1
+  ret i1 %277
 }
 
-; Function Attrs: nounwind
-declare void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #1
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+
+; Function Attrs: mustprogress nounwind uwtable
+define available_externally void @_ZNSaIcEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #0 align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !42
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZNSt15__new_allocatorIcEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #13
+  ret void
+}
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %1, i8 noundef signext %2, ptr noundef nonnull align 1 dereferenceable(1) %3) unnamed_addr #0 comdat align 2 {
@@ -1004,53 +1077,60 @@ define linkonce_odr hidden void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcE
   %6 = alloca i64, align 8
   %7 = alloca i8, align 1
   %8 = alloca ptr, align 8
-  store ptr %0, ptr %5, align 8
-  store i64 %1, ptr %6, align 8
-  store i8 %2, ptr %7, align 1
-  store ptr %3, ptr %8, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !44
+  store i64 %1, ptr %6, align 8, !tbaa !27
+  store i8 %2, ptr %7, align 1, !tbaa !30
+  store ptr %3, ptr %8, align 8, !tbaa !42
   %9 = load ptr, ptr %5, align 8
   %10 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %9, i32 0, i32 0
   %11 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %9)
-  %12 = load ptr, ptr %8, align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef %11, ptr noundef nonnull align 1 dereferenceable(1) %12)
-  %13 = load i64, ptr %6, align 8
-  %14 = load i8, ptr %7, align 1
+  %12 = load ptr, ptr %8, align 8, !tbaa !42
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC2EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef %11, ptr noundef nonnull align 1 dereferenceable(1) %12)
+  %13 = load i64, ptr %6, align 8, !tbaa !27
+  %14 = load i8, ptr %7, align 1, !tbaa !30
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructEmc(ptr noundef nonnull align 8 dereferenceable(32) %9, i64 noundef %13, i8 noundef signext %14)
   ret void
 }
 
-; Function Attrs: nounwind
-declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #1
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNKSt6vectorIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS9_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %1) #0 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca i64, align 8
-  store ptr %0, ptr %3, align 8
-  store i64 %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !8
+  store i64 %1, ptr %4, align 8, !tbaa !27
   %5 = load ptr, ptr %3, align 8
   %6 = getelementptr inbounds nuw %"struct.std::_Vector_base", ptr %5, i32 0, i32 0
   %7 = getelementptr inbounds nuw %"struct.std::_Vector_base<const std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>> *, std::allocator<const std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>> *>>::_Vector_impl_data", ptr %6, i32 0, i32 0
-  %8 = load ptr, ptr %7, align 8
-  %9 = load i64, ptr %4, align 8
-  %10 = getelementptr inbounds ptr, ptr %8, i64 %9
+  %8 = load ptr, ptr %7, align 8, !tbaa !46
+  %9 = load i64, ptr %4, align 8, !tbaa !27
+  %10 = getelementptr inbounds nuw ptr, ptr %8, i64 %9
   ret ptr %10
 }
 
-; Function Attrs: nounwind
-declare noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32)) #1
+; Function Attrs: mustprogress nounwind uwtable
+define available_externally noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #0 align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !44
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %3, i32 0, i32 1
+  %5 = load i64, ptr %4, align 8, !tbaa !47
+  ret i64 %5
+}
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef i64 @_ZNKSt6vectorIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS9_EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw %"struct.std::_Vector_base", ptr %3, i32 0, i32 0
   %5 = getelementptr inbounds nuw %"struct.std::_Vector_base<const std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>> *, std::allocator<const std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>> *>>::_Vector_impl_data", ptr %4, i32 0, i32 1
-  %6 = load ptr, ptr %5, align 8
+  %6 = load ptr, ptr %5, align 8, !tbaa !50
   %7 = getelementptr inbounds nuw %"struct.std::_Vector_base", ptr %3, i32 0, i32 0
   %8 = getelementptr inbounds nuw %"struct.std::_Vector_base<const std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>> *, std::allocator<const std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>> *>>::_Vector_impl_data", ptr %7, i32 0, i32 0
-  %9 = load ptr, ptr %8, align 8
+  %9 = load ptr, ptr %8, align 8, !tbaa !46
   %10 = ptrtoint ptr %6 to i64
   %11 = ptrtoint ptr %9 to i64
   %12 = sub i64 %10, %11
@@ -1065,17 +1145,17 @@ declare void @_ZN4llvm18report_fatal_errorEPKcb(ptr noundef, i1 noundef zeroext)
 define linkonce_odr hidden void @_ZN4llvm9StringRefC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #0 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !51
+  store ptr %1, ptr %4, align 8, !tbaa !44
   %5 = load ptr, ptr %3, align 8
   %6 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %5, i32 0, i32 0
-  %7 = load ptr, ptr %4, align 8
-  %8 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %7) #9
-  store ptr %8, ptr %6, align 8
+  %7 = load ptr, ptr %4, align 8, !tbaa !44
+  %8 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %7) #13
+  store ptr %8, ptr %6, align 8, !tbaa !53
   %9 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %5, i32 0, i32 1
-  %10 = load ptr, ptr %4, align 8
-  %11 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %10) #9
-  store i64 %11, ptr %9, align 8
+  %10 = load ptr, ptr %4, align 8, !tbaa !44
+  %11 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %10) #13
+  store i64 %11, ptr %9, align 8, !tbaa !54
   ret void
 }
 
@@ -1084,8 +1164,8 @@ define linkonce_odr hidden void @_ZNK4llvm9StringRef5splitEc(ptr dead_on_unwind 
   %4 = alloca ptr, align 8
   %5 = alloca i8, align 1
   %6 = alloca %"class.llvm::StringRef", align 8
-  store ptr %1, ptr %4, align 8
-  store i8 %2, ptr %5, align 1
+  store ptr %1, ptr %4, align 8, !tbaa !51
+  store i8 %2, ptr %5, align 1, !tbaa !30
   %7 = load ptr, ptr %4, align 8
   call void @_ZN4llvm9StringRefC2EPKcm(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef %5, i64 noundef 1)
   %8 = getelementptr inbounds nuw { ptr, i64 }, ptr %6, i32 0, i32 0
@@ -1100,13 +1180,13 @@ define linkonce_odr hidden void @_ZNK4llvm9StringRef5splitEc(ptr dead_on_unwind 
 define linkonce_odr hidden noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) #0 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !55
+  store ptr %1, ptr %4, align 8, !tbaa !44
   %5 = load ptr, ptr %3, align 8
-  %6 = load ptr, ptr %4, align 8
-  %7 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %6) #9
-  %8 = load ptr, ptr %4, align 8
-  %9 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %8) #9
+  %6 = load ptr, ptr %4, align 8, !tbaa !44
+  %7 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %6) #13
+  %8 = load ptr, ptr %4, align 8, !tbaa !44
+  %9 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %8) #13
   %10 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %5, ptr noundef %7, i64 noundef %9)
   ret ptr %10
 }
@@ -1117,71 +1197,76 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(48) ptr @_ZN4
   %5 = alloca %"class.llvm::StringRef", align 8
   %6 = alloca ptr, align 8
   %7 = alloca i64, align 8
-  %8 = getelementptr inbounds nuw { ptr, i64 }, ptr %5, i32 0, i32 0
-  store ptr %1, ptr %8, align 8
-  %9 = getelementptr inbounds nuw { ptr, i64 }, ptr %5, i32 0, i32 1
-  store i64 %2, ptr %9, align 8
-  store ptr %0, ptr %6, align 8
-  %10 = load ptr, ptr %6, align 8
-  %11 = call noundef i64 @_ZNK4llvm9StringRef4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %5)
-  store i64 %11, ptr %7, align 8
-  %12 = load i64, ptr %7, align 8
-  %13 = getelementptr inbounds nuw %"class.llvm::raw_ostream", ptr %10, i32 0, i32 3
-  %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds nuw %"class.llvm::raw_ostream", ptr %10, i32 0, i32 4
-  %16 = load ptr, ptr %15, align 8
-  %17 = ptrtoint ptr %14 to i64
-  %18 = ptrtoint ptr %16 to i64
-  %19 = sub i64 %17, %18
-  %20 = icmp ugt i64 %12, %19
-  br i1 %20, label %21, label %25
+  %8 = alloca i32, align 4
+  %9 = getelementptr inbounds nuw { ptr, i64 }, ptr %5, i32 0, i32 0
+  store ptr %1, ptr %9, align 8
+  %10 = getelementptr inbounds nuw { ptr, i64 }, ptr %5, i32 0, i32 1
+  store i64 %2, ptr %10, align 8
+  store ptr %0, ptr %6, align 8, !tbaa !55
+  %11 = load ptr, ptr %6, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #13
+  %12 = call noundef i64 @_ZNK4llvm9StringRef4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %5)
+  store i64 %12, ptr %7, align 8, !tbaa !27
+  %13 = load i64, ptr %7, align 8, !tbaa !27
+  %14 = getelementptr inbounds nuw %"class.llvm::raw_ostream", ptr %11, i32 0, i32 3
+  %15 = load ptr, ptr %14, align 8, !tbaa !56
+  %16 = getelementptr inbounds nuw %"class.llvm::raw_ostream", ptr %11, i32 0, i32 4
+  %17 = load ptr, ptr %16, align 8, !tbaa !60
+  %18 = ptrtoint ptr %15 to i64
+  %19 = ptrtoint ptr %17 to i64
+  %20 = sub i64 %18, %19
+  %21 = icmp ugt i64 %13, %20
+  br i1 %21, label %22, label %26
 
-21:                                               ; preds = %3
-  %22 = call noundef ptr @_ZNK4llvm9StringRef4dataEv(ptr noundef nonnull align 8 dereferenceable(16) %5)
-  %23 = load i64, ptr %7, align 8
-  %24 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %10, ptr noundef %22, i64 noundef %23)
-  store ptr %24, ptr %4, align 8
+22:                                               ; preds = %3
+  %23 = call noundef ptr @_ZNK4llvm9StringRef4dataEv(ptr noundef nonnull align 8 dereferenceable(16) %5)
+  %24 = load i64, ptr %7, align 8, !tbaa !27
+  %25 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %11, ptr noundef %23, i64 noundef %24)
+  store ptr %25, ptr %4, align 8
+  store i32 1, ptr %8, align 4
+  br label %39
+
+26:                                               ; preds = %3
+  %27 = load i64, ptr %7, align 8, !tbaa !27
+  %28 = icmp ne i64 %27, 0
+  br i1 %28, label %29, label %38
+
+29:                                               ; preds = %26
+  %30 = getelementptr inbounds nuw %"class.llvm::raw_ostream", ptr %11, i32 0, i32 4
+  %31 = load ptr, ptr %30, align 8, !tbaa !60
+  %32 = call noundef ptr @_ZNK4llvm9StringRef4dataEv(ptr noundef nonnull align 8 dereferenceable(16) %5)
+  %33 = load i64, ptr %7, align 8, !tbaa !27
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %31, ptr align 1 %32, i64 %33, i1 false)
+  %34 = load i64, ptr %7, align 8, !tbaa !27
+  %35 = getelementptr inbounds nuw %"class.llvm::raw_ostream", ptr %11, i32 0, i32 4
+  %36 = load ptr, ptr %35, align 8, !tbaa !60
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 %34
+  store ptr %37, ptr %35, align 8, !tbaa !60
   br label %38
 
-25:                                               ; preds = %3
-  %26 = load i64, ptr %7, align 8
-  %27 = icmp ne i64 %26, 0
-  br i1 %27, label %28, label %37
+38:                                               ; preds = %29, %26
+  store ptr %11, ptr %4, align 8
+  store i32 1, ptr %8, align 4
+  br label %39
 
-28:                                               ; preds = %25
-  %29 = getelementptr inbounds nuw %"class.llvm::raw_ostream", ptr %10, i32 0, i32 4
-  %30 = load ptr, ptr %29, align 8
-  %31 = call noundef ptr @_ZNK4llvm9StringRef4dataEv(ptr noundef nonnull align 8 dereferenceable(16) %5)
-  %32 = load i64, ptr %7, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %30, ptr align 1 %31, i64 %32, i1 false)
-  %33 = load i64, ptr %7, align 8
-  %34 = getelementptr inbounds nuw %"class.llvm::raw_ostream", ptr %10, i32 0, i32 4
-  %35 = load ptr, ptr %34, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 %33
-  store ptr %36, ptr %34, align 8
-  br label %37
-
-37:                                               ; preds = %28, %25
-  store ptr %10, ptr %4, align 8
-  br label %38
-
-38:                                               ; preds = %37, %21
-  %39 = load ptr, ptr %4, align 8
-  ret ptr %39
+39:                                               ; preds = %38, %22
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #13
+  %40 = load ptr, ptr %4, align 8
+  ret ptr %40
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %1) #0 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca %"class.llvm::StringRef", align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !55
+  store ptr %1, ptr %4, align 8, !tbaa !26
   %6 = load ptr, ptr %3, align 8
-  %7 = load ptr, ptr %4, align 8
+  %7 = load ptr, ptr %4, align 8, !tbaa !26
   call void @_ZN4llvm9StringRefC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef %7)
   %8 = getelementptr inbounds nuw { ptr, i64 }, ptr %5, i32 0, i32 0
   %9 = load ptr, ptr %8, align 8
@@ -1194,39 +1279,38 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(48) ptr @_ZN4
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK4llvm9StringRef5emptyEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !51
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %3, i32 0, i32 1
-  %5 = load i64, ptr %4, align 8
-  %6 = icmp eq i64 %5, 0
-  ret i1 %6
+  %4 = call noundef i64 @_ZNK4llvm9StringRef4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %3)
+  %5 = icmp eq i64 %4, 0
+  ret i1 %5
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt4pairIN4llvm9StringRefES1_EaSEOS2_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) #0 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !61
+  store ptr %1, ptr %4, align 8, !tbaa !61
   %5 = load ptr, ptr %3, align 8
-  %6 = load ptr, ptr %4, align 8
+  %6 = load ptr, ptr %4, align 8, !tbaa !61
   %7 = getelementptr inbounds nuw %"struct.std::pair.3", ptr %6, i32 0, i32 0
   %8 = getelementptr inbounds nuw %"struct.std::pair.3", ptr %5, i32 0, i32 0
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %8, ptr align 8 %7, i64 16, i1 false)
-  %9 = load ptr, ptr %4, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %8, ptr align 8 %7, i64 16, i1 false), !tbaa.struct !25
+  %9 = load ptr, ptr %4, align 8, !tbaa !61
   %10 = getelementptr inbounds nuw %"struct.std::pair.3", ptr %9, i32 0, i32 1
   %11 = getelementptr inbounds nuw %"struct.std::pair.3", ptr %5, i32 0, i32 1
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %11, ptr align 8 %10, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %11, ptr align 8 %10, i64 16, i1 false), !tbaa.struct !25
   ret ptr %5
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt3mapIcSt6vectorIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_ESaISA_EESt4lessIcESaIS1_IKcSC_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !31
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw %"class.std::map", ptr %3, i32 0, i32 0
-  call void @_ZNSt8_Rb_treeIcSt4pairIKcSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEESt10_Select1stISE_ESt4lessIcESaISE_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %4) #9
+  call void @_ZNSt8_Rb_treeIcSt4pairIKcSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEESt10_Select1stISE_ESt4lessIcESaISE_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %4) #13
   ret void
 }
 
@@ -1234,11 +1318,11 @@ define linkonce_odr hidden void @_ZNSt3mapIcSt6vectorIPKSt4pairINSt7__cxx1112bas
 define linkonce_odr hidden ptr @_ZNKSt6vectorIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS9_EE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #0 comdat align 2 {
   %2 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
   %3 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw %"struct.std::_Vector_base", ptr %4, i32 0, i32 0
   %6 = getelementptr inbounds nuw %"struct.std::_Vector_base<const std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>> *, std::allocator<const std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>> *>>::_Vector_impl_data", ptr %5, i32 0, i32 0
-  call void @_ZN9__gnu_cxx17__normal_iteratorIPKPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_ESt6vectorISA_SaISA_EEEC2ERKSC_(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %6) #9
+  call void @_ZN9__gnu_cxx17__normal_iteratorIPKPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_ESt6vectorISA_SaISA_EEEC2ERKSC_(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %6) #13
   %7 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator", ptr %2, i32 0, i32 0
   %8 = load ptr, ptr %7, align 8
   ret ptr %8
@@ -1248,28 +1332,28 @@ define linkonce_odr hidden ptr @_ZNKSt6vectorIPKSt4pairINSt7__cxx1112basic_strin
 define linkonce_odr hidden ptr @_ZNKSt6vectorIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS9_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #0 comdat align 2 {
   %2 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
   %3 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw %"struct.std::_Vector_base", ptr %4, i32 0, i32 0
   %6 = getelementptr inbounds nuw %"struct.std::_Vector_base<const std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>> *, std::allocator<const std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>> *>>::_Vector_impl_data", ptr %5, i32 0, i32 1
-  call void @_ZN9__gnu_cxx17__normal_iteratorIPKPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_ESt6vectorISA_SaISA_EEEC2ERKSC_(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %6) #9
+  call void @_ZN9__gnu_cxx17__normal_iteratorIPKPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_ESt6vectorISA_SaISA_EEEC2ERKSC_(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %6) #13
   %7 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator", ptr %2, i32 0, i32 0
   %8 = load ptr, ptr %7, align 8
   ret ptr %8
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef zeroext i1 @_ZN9__gnu_cxxneIPKPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_ESt6vectorISA_SaISA_EEEEbRKNS_17__normal_iteratorIT_T0_EESL_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #0 comdat {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr noundef zeroext i1 @_ZN9__gnu_cxxneIPKPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_ESt6vectorISA_SaISA_EEEEbRKNS_17__normal_iteratorIT_T0_EESL_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #4 comdat {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  %5 = load ptr, ptr %3, align 8
-  %6 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPKPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_ESt6vectorISA_SaISA_EEE4baseEv(ptr noundef nonnull align 8 dereferenceable(8) %5) #9
-  %7 = load ptr, ptr %6, align 8
-  %8 = load ptr, ptr %4, align 8
-  %9 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPKPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_ESt6vectorISA_SaISA_EEE4baseEv(ptr noundef nonnull align 8 dereferenceable(8) %8) #9
-  %10 = load ptr, ptr %9, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !63
+  store ptr %1, ptr %4, align 8, !tbaa !63
+  %5 = load ptr, ptr %3, align 8, !tbaa !63
+  %6 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPKPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_ESt6vectorISA_SaISA_EEE4baseEv(ptr noundef nonnull align 8 dereferenceable(8) %5) #13
+  %7 = load ptr, ptr %6, align 8, !tbaa !65
+  %8 = load ptr, ptr %4, align 8, !tbaa !63
+  %9 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPKPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_ESt6vectorISA_SaISA_EEE4baseEv(ptr noundef nonnull align 8 dereferenceable(8) %8) #13
+  %10 = load ptr, ptr %9, align 8, !tbaa !65
   %11 = icmp ne ptr %7, %10
   ret i1 %11
 }
@@ -1277,10 +1361,10 @@ define linkonce_odr noundef zeroext i1 @_ZN9__gnu_cxxneIPKPKSt4pairINSt7__cxx111
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPKPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_ESt6vectorISA_SaISA_EEEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !63
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator", ptr %3, i32 0, i32 0
-  %5 = load ptr, ptr %4, align 8
+  %5 = load ptr, ptr %4, align 8, !tbaa !66
   ret ptr %5
 }
 
@@ -1295,67 +1379,95 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZNS
   %9 = alloca %"struct.std::_Rb_tree_const_iterator", align 8
   %10 = alloca %"class.std::tuple", align 8
   %11 = alloca %"class.std::tuple.29", align 1
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !31
+  store ptr %1, ptr %4, align 8, !tbaa !26
   %12 = load ptr, ptr %3, align 8
-  %13 = load ptr, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #13
+  %13 = load ptr, ptr %4, align 8, !tbaa !26
   %14 = call ptr @_ZNSt3mapIcSt6vectorIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_ESaISA_EESt4lessIcESaIS1_IKcSC_EEE11lower_boundERSF_(ptr noundef nonnull align 8 dereferenceable(48) %12, ptr noundef nonnull align 1 dereferenceable(1) %13)
   %15 = getelementptr inbounds nuw %"struct.std::_Rb_tree_iterator", ptr %5, i32 0, i32 0
   store ptr %14, ptr %15, align 8
-  %16 = call ptr @_ZNSt3mapIcSt6vectorIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_ESaISA_EESt4lessIcESaIS1_IKcSC_EEE3endEv(ptr noundef nonnull align 8 dereferenceable(48) %12) #9
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #13
+  %16 = call ptr @_ZNSt3mapIcSt6vectorIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_ESaISA_EESt4lessIcESaIS1_IKcSC_EEE3endEv(ptr noundef nonnull align 8 dereferenceable(48) %12) #13
   %17 = getelementptr inbounds nuw %"struct.std::_Rb_tree_iterator", ptr %6, i32 0, i32 0
   store ptr %16, ptr %17, align 8
-  %18 = call noundef zeroext i1 @_ZSteqRKSt17_Rb_tree_iteratorISt4pairIKcSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEEESH_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %6) #9
+  %18 = call noundef zeroext i1 @_ZSteqRKSt17_Rb_tree_iteratorISt4pairIKcSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEEESH_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %6) #13
+  call void @llvm.lifetime.start.p0(i64 1, ptr %7) #13
   br i1 %18, label %24, label %19
 
 19:                                               ; preds = %2
   call void @_ZNKSt3mapIcSt6vectorIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_ESaISA_EESt4lessIcESaIS1_IKcSC_EEE8key_compEv(ptr noundef nonnull align 8 dereferenceable(48) %12)
-  %20 = load ptr, ptr %4, align 8
-  %21 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNKSt17_Rb_tree_iteratorISt4pairIKcSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEEEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %5) #9
+  %20 = load ptr, ptr %4, align 8, !tbaa !26
+  %21 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNKSt17_Rb_tree_iteratorISt4pairIKcSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEEEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %5) #13
   %22 = getelementptr inbounds nuw %"struct.std::pair.8", ptr %21, i32 0, i32 0
   %23 = call noundef zeroext i1 @_ZNKSt4lessIcEclERKcS2_(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef nonnull align 1 dereferenceable(1) %20, ptr noundef nonnull align 1 dereferenceable(1) %22)
   br label %24
 
 24:                                               ; preds = %19, %2
   %25 = phi i1 [ true, %2 ], [ %23, %19 ]
+  call void @llvm.lifetime.end.p0(i64 1, ptr %7) #13
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #13
   br i1 %25, label %26, label %33
 
 26:                                               ; preds = %24
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #13
   %27 = getelementptr inbounds nuw %"class.std::map", ptr %12, i32 0, i32 0
-  call void @_ZNSt23_Rb_tree_const_iteratorISt4pairIKcSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEEEC2ERKSt17_Rb_tree_iteratorISE_E(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 8 dereferenceable(8) %5) #9
-  %28 = load ptr, ptr %4, align 8
-  call void @_ZNSt5tupleIJRKcEEC2ILb1ETnNSt9enable_ifIXclsr4_TCCIXT_EEE29__is_implicitly_constructibleIS1_EEEbE4typeELb1EEES1_(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 1 dereferenceable(1) %28) #9
+  call void @_ZNSt23_Rb_tree_const_iteratorISt4pairIKcSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEEEC2ERKSt17_Rb_tree_iteratorISE_E(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 8 dereferenceable(8) %5) #13
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #13
+  %28 = load ptr, ptr %4, align 8, !tbaa !26
+  call void @_ZNSt5tupleIJRKcEEC2ILb1ETnNSt9enable_ifIXclsr4_TCCIXT_EEE29__is_implicitly_constructibleIS1_EEEbE4typeELb1EEES1_(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 1 dereferenceable(1) %28) #13
+  call void @llvm.lifetime.start.p0(i64 1, ptr %11) #13
   %29 = getelementptr inbounds nuw %"struct.std::_Rb_tree_const_iterator", ptr %9, i32 0, i32 0
   %30 = load ptr, ptr %29, align 8
   %31 = call ptr @_ZNSt8_Rb_treeIcSt4pairIKcSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEESt10_Select1stISE_ESt4lessIcESaISE_EE22_M_emplace_hint_uniqueIJRKSt21piecewise_construct_tSt5tupleIJRS1_EESP_IJEEEEESt17_Rb_tree_iteratorISE_ESt23_Rb_tree_const_iteratorISE_EDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %27, ptr %30, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt19piecewise_construct, ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 1 dereferenceable(1) %11)
   %32 = getelementptr inbounds nuw %"struct.std::_Rb_tree_iterator", ptr %8, i32 0, i32 0
   store ptr %31, ptr %32, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %5, ptr align 8 %8, i64 8, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %5, ptr align 8 %8, i64 8, i1 false), !tbaa.struct !68
+  call void @llvm.lifetime.end.p0(i64 1, ptr %11) #13
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #13
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #13
   br label %33
 
 33:                                               ; preds = %26, %24
-  %34 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNKSt17_Rb_tree_iteratorISt4pairIKcSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEEEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %5) #9
+  %34 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNKSt17_Rb_tree_iteratorISt4pairIKcSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEEEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %5) #13
   %35 = getelementptr inbounds nuw %"struct.std::pair.8", ptr %34, i32 0, i32 1
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #13
   ret ptr %35
 }
 
-; Function Attrs: nounwind
-declare noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef) #1
+; Function Attrs: mustprogress nounwind uwtable
+define available_externally noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %1) #0 align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !44
+  store i64 %1, ptr %4, align 8, !tbaa !27
+  %5 = load ptr, ptr %3, align 8
+  br label %6
+
+6:                                                ; preds = %2
+  br label %7
+
+7:                                                ; preds = %6
+  %8 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %5)
+  %9 = load i64, ptr %4, align 8, !tbaa !27
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 %9
+  ret ptr %10
+}
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt6vectorIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS9_EE9push_backERKS9_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #0 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca %"class.__gnu_cxx::__normal_iterator.33", align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !8
+  store ptr %1, ptr %4, align 8, !tbaa !65
   %6 = load ptr, ptr %3, align 8
   %7 = getelementptr inbounds nuw %"struct.std::_Vector_base", ptr %6, i32 0, i32 0
   %8 = getelementptr inbounds nuw %"struct.std::_Vector_base<const std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>> *, std::allocator<const std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>> *>>::_Vector_impl_data", ptr %7, i32 0, i32 1
-  %9 = load ptr, ptr %8, align 8
+  %9 = load ptr, ptr %8, align 8, !tbaa !50
   %10 = getelementptr inbounds nuw %"struct.std::_Vector_base", ptr %6, i32 0, i32 0
   %11 = getelementptr inbounds nuw %"struct.std::_Vector_base<const std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>> *, std::allocator<const std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>> *>>::_Vector_impl_data", ptr %10, i32 0, i32 2
-  %12 = load ptr, ptr %11, align 8
+  %12 = load ptr, ptr %11, align 8, !tbaa !71
   %13 = icmp ne ptr %9, %12
   br i1 %13, label %14, label %24
 
@@ -1363,21 +1475,21 @@ define linkonce_odr hidden void @_ZNSt6vectorIPKSt4pairINSt7__cxx1112basic_strin
   %15 = getelementptr inbounds nuw %"struct.std::_Vector_base", ptr %6, i32 0, i32 0
   %16 = getelementptr inbounds nuw %"struct.std::_Vector_base", ptr %6, i32 0, i32 0
   %17 = getelementptr inbounds nuw %"struct.std::_Vector_base<const std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>> *, std::allocator<const std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>> *>>::_Vector_impl_data", ptr %16, i32 0, i32 1
-  %18 = load ptr, ptr %17, align 8
-  %19 = load ptr, ptr %4, align 8
-  call void @_ZNSt16allocator_traitsISaIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_EEE9constructIS9_JRKS9_EEEvRSA_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %15, ptr noundef %18, ptr noundef nonnull align 8 dereferenceable(8) %19) #9
+  %18 = load ptr, ptr %17, align 8, !tbaa !50
+  %19 = load ptr, ptr %4, align 8, !tbaa !65
+  call void @_ZNSt16allocator_traitsISaIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_EEE9constructIS9_JRKS9_EEEvRSA_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %15, ptr noundef %18, ptr noundef nonnull align 8 dereferenceable(8) %19) #13
   %20 = getelementptr inbounds nuw %"struct.std::_Vector_base", ptr %6, i32 0, i32 0
   %21 = getelementptr inbounds nuw %"struct.std::_Vector_base<const std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>> *, std::allocator<const std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>> *>>::_Vector_impl_data", ptr %20, i32 0, i32 1
-  %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds ptr, ptr %22, i32 1
-  store ptr %23, ptr %21, align 8
+  %22 = load ptr, ptr %21, align 8, !tbaa !50
+  %23 = getelementptr inbounds nuw ptr, ptr %22, i32 1
+  store ptr %23, ptr %21, align 8, !tbaa !50
   br label %30
 
 24:                                               ; preds = %2
-  %25 = call ptr @_ZNSt6vectorIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS9_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %6) #9
+  %25 = call ptr @_ZNSt6vectorIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS9_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %6) #13
   %26 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator.33", ptr %5, i32 0, i32 0
   store ptr %25, ptr %26, align 8
-  %27 = load ptr, ptr %4, align 8
+  %27 = load ptr, ptr %4, align 8, !tbaa !65
   %28 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator.33", ptr %5, i32 0, i32 0
   %29 = load ptr, ptr %28, align 8
   call void @_ZNSt6vectorIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS9_EE17_M_realloc_insertIJRKS9_EEEvN9__gnu_cxx17__normal_iteratorIPS9_SB_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr %29, ptr noundef nonnull align 8 dereferenceable(8) %27)
@@ -1390,22 +1502,22 @@ define linkonce_odr hidden void @_ZNSt6vectorIPKSt4pairINSt7__cxx1112basic_strin
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN9__gnu_cxx17__normal_iteratorIPKPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_ESt6vectorISA_SaISA_EEEppEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !63
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator", ptr %3, i32 0, i32 0
-  %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds ptr, ptr %5, i32 1
-  store ptr %6, ptr %4, align 8
+  %5 = load ptr, ptr %4, align 8, !tbaa !66
+  %6 = getelementptr inbounds nuw ptr, ptr %5, i32 1
+  store ptr %6, ptr %4, align 8, !tbaa !66
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef i64 @_ZNKSt3mapIcSt6vectorIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_ESaISA_EESt4lessIcESaIS1_IKcSC_EEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(48) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !31
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw %"class.std::map", ptr %3, i32 0, i32 0
-  %5 = call noundef i64 @_ZNKSt8_Rb_treeIcSt4pairIKcSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEESt10_Select1stISE_ESt4lessIcESaISE_EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(48) %4) #9
+  %5 = call noundef i64 @_ZNKSt8_Rb_treeIcSt4pairIKcSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEESt10_Select1stISE_ESt4lessIcESaISE_EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(48) %4) #13
   ret i64 %5
 }
 
@@ -1415,114 +1527,174 @@ define internal noundef i32 @_ZL24FindFirstNonCommonLetterRKSt6vectorIPKSt4pairI
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
-  %6 = alloca i8, align 1
-  %7 = alloca ptr, align 8
-  %8 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
+  %6 = alloca i32, align 4
+  %7 = alloca i8, align 1
+  %8 = alloca ptr, align 8
   %9 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
-  %10 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store i32 0, ptr %4, align 4
-  %11 = load ptr, ptr %3, align 8
-  %12 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKSt6vectorIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS9_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %11, i64 noundef 0) #9
-  %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds nuw %"struct.std::pair", ptr %13, i32 0, i32 0
-  %15 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %14) #9
-  %16 = trunc i64 %15 to i32
-  store i32 %16, ptr %5, align 4
-  br label %17
+  %10 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
+  %11 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %4) #13
+  store i32 0, ptr %4, align 4, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #13
+  %12 = load ptr, ptr %3, align 8, !tbaa !8
+  %13 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKSt6vectorIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS9_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %12, i64 noundef 0) #13
+  %14 = load ptr, ptr %13, align 8, !tbaa !14
+  %15 = getelementptr inbounds nuw %"struct.std::pair", ptr %14, i32 0, i32 0
+  %16 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %15) #13
+  %17 = trunc i64 %16 to i32
+  store i32 %17, ptr %5, align 4, !tbaa !10
+  br label %18
 
-17:                                               ; preds = %58, %1
-  %18 = load i32, ptr %4, align 4
-  %19 = load i32, ptr %5, align 4
-  %20 = icmp ne i32 %18, %19
-  br i1 %20, label %21, label %61
+18:                                               ; preds = %69, %1
+  %19 = load i32, ptr %4, align 4, !tbaa !10
+  %20 = load i32, ptr %5, align 4, !tbaa !10
+  %21 = icmp ne i32 %19, %20
+  br i1 %21, label %23, label %22
 
-21:                                               ; preds = %17
-  %22 = load ptr, ptr %3, align 8
-  %23 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKSt6vectorIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS9_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %22, i64 noundef 0) #9
-  %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds nuw %"struct.std::pair", ptr %24, i32 0, i32 0
-  %26 = load i32, ptr %4, align 4
-  %27 = zext i32 %26 to i64
-  %28 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %25, i64 noundef %27) #9
-  %29 = load i8, ptr %28, align 1
-  store i8 %29, ptr %6, align 1
-  %30 = load ptr, ptr %3, align 8
-  store ptr %30, ptr %7, align 8
-  %31 = load ptr, ptr %7, align 8
-  %32 = call ptr @_ZNKSt6vectorIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS9_EE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %31) #9
-  %33 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator", ptr %8, i32 0, i32 0
-  store ptr %32, ptr %33, align 8
-  %34 = load ptr, ptr %7, align 8
-  %35 = call ptr @_ZNKSt6vectorIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS9_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %34) #9
-  %36 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator", ptr %9, i32 0, i32 0
-  store ptr %35, ptr %36, align 8
-  br label %37
+22:                                               ; preds = %18
+  store i32 2, ptr %6, align 4
+  br label %72
 
-37:                                               ; preds = %55, %21
-  %38 = call noundef zeroext i1 @_ZN9__gnu_cxxneIPKPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_ESt6vectorISA_SaISA_EEEEbRKNS_17__normal_iteratorIT_T0_EESL_(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(8) %9) #9
-  br i1 %38, label %39, label %57
+23:                                               ; preds = %18
+  call void @llvm.lifetime.start.p0(i64 1, ptr %7) #13
+  %24 = load ptr, ptr %3, align 8, !tbaa !8
+  %25 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKSt6vectorIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS9_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %24, i64 noundef 0) #13
+  %26 = load ptr, ptr %25, align 8, !tbaa !14
+  %27 = getelementptr inbounds nuw %"struct.std::pair", ptr %26, i32 0, i32 0
+  %28 = load i32, ptr %4, align 4, !tbaa !10
+  %29 = zext i32 %28 to i64
+  %30 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %27, i64 noundef %29) #13
+  %31 = load i8, ptr %30, align 1, !tbaa !30
+  store i8 %31, ptr %7, align 1, !tbaa !30
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #13
+  %32 = load ptr, ptr %3, align 8, !tbaa !8
+  store ptr %32, ptr %8, align 8, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #13
+  %33 = load ptr, ptr %8, align 8, !tbaa !8
+  %34 = call ptr @_ZNKSt6vectorIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS9_EE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %33) #13
+  %35 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator", ptr %9, i32 0, i32 0
+  store ptr %34, ptr %35, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #13
+  %36 = load ptr, ptr %8, align 8, !tbaa !8
+  %37 = call ptr @_ZNKSt6vectorIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS9_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %36) #13
+  %38 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator", ptr %10, i32 0, i32 0
+  store ptr %37, ptr %38, align 8
+  br label %39
 
-39:                                               ; preds = %37
-  %40 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPKPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_ESt6vectorISA_SaISA_EEEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %8) #9
-  %41 = load ptr, ptr %40, align 8
-  store ptr %41, ptr %10, align 8
-  %42 = load ptr, ptr %10, align 8
-  %43 = getelementptr inbounds nuw %"struct.std::pair", ptr %42, i32 0, i32 0
-  %44 = load i32, ptr %4, align 4
-  %45 = zext i32 %44 to i64
-  %46 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %43, i64 noundef %45) #9
-  %47 = load i8, ptr %46, align 1
-  %48 = sext i8 %47 to i32
-  %49 = load i8, ptr %6, align 1
-  %50 = sext i8 %49 to i32
-  %51 = icmp ne i32 %48, %50
-  br i1 %51, label %52, label %54
+39:                                               ; preds = %61, %23
+  %40 = call noundef zeroext i1 @_ZN9__gnu_cxxneIPKPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_ESt6vectorISA_SaISA_EEEEbRKNS_17__normal_iteratorIT_T0_EESL_(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 8 dereferenceable(8) %10) #13
+  br i1 %40, label %42, label %41
 
-52:                                               ; preds = %39
-  %53 = load i32, ptr %4, align 4
-  store i32 %53, ptr %2, align 4
-  br label %68
+41:                                               ; preds = %39
+  store i32 5, ptr %6, align 4
+  br label %63
 
-54:                                               ; preds = %39
-  br label %55
+42:                                               ; preds = %39
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #13
+  %43 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPKPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_ESt6vectorISA_SaISA_EEEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %9) #13
+  %44 = load ptr, ptr %43, align 8, !tbaa !14
+  store ptr %44, ptr %11, align 8, !tbaa !14
+  %45 = load ptr, ptr %11, align 8, !tbaa !14
+  %46 = getelementptr inbounds nuw %"struct.std::pair", ptr %45, i32 0, i32 0
+  %47 = load i32, ptr %4, align 4, !tbaa !10
+  %48 = zext i32 %47 to i64
+  %49 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %46, i64 noundef %48) #13
+  %50 = load i8, ptr %49, align 1, !tbaa !30
+  %51 = sext i8 %50 to i32
+  %52 = load i8, ptr %7, align 1, !tbaa !30
+  %53 = sext i8 %52 to i32
+  %54 = icmp ne i32 %51, %53
+  br i1 %54, label %55, label %57
 
-55:                                               ; preds = %54
-  %56 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN9__gnu_cxx17__normal_iteratorIPKPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_ESt6vectorISA_SaISA_EEEppEv(ptr noundef nonnull align 8 dereferenceable(8) %8) #9
-  br label %37
-
-57:                                               ; preds = %37
+55:                                               ; preds = %42
+  %56 = load i32, ptr %4, align 4, !tbaa !10
+  store i32 %56, ptr %2, align 4
+  store i32 1, ptr %6, align 4
   br label %58
 
-58:                                               ; preds = %57
-  %59 = load i32, ptr %4, align 4
-  %60 = add i32 %59, 1
-  store i32 %60, ptr %4, align 4
-  br label %17, !llvm.loop !6
+57:                                               ; preds = %42
+  store i32 0, ptr %6, align 4
+  br label %58
 
-61:                                               ; preds = %17
-  %62 = load ptr, ptr %3, align 8
-  %63 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKSt6vectorIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS9_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %62, i64 noundef 0) #9
-  %64 = load ptr, ptr %63, align 8
-  %65 = getelementptr inbounds nuw %"struct.std::pair", ptr %64, i32 0, i32 0
-  %66 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %65) #9
-  %67 = trunc i64 %66 to i32
-  store i32 %67, ptr %2, align 4
-  br label %68
+58:                                               ; preds = %57, %55
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #13
+  %59 = load i32, ptr %6, align 4
+  switch i32 %59, label %63 [
+    i32 0, label %60
+  ]
 
-68:                                               ; preds = %61, %52
-  %69 = load i32, ptr %2, align 4
-  ret i32 %69
+60:                                               ; preds = %58
+  br label %61
+
+61:                                               ; preds = %60
+  %62 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN9__gnu_cxx17__normal_iteratorIPKPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_ESt6vectorISA_SaISA_EEEppEv(ptr noundef nonnull align 8 dereferenceable(8) %9) #13
+  br label %39
+
+63:                                               ; preds = %58, %41
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #13
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #13
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #13
+  %64 = load i32, ptr %6, align 4
+  switch i32 %64, label %66 [
+    i32 5, label %65
+  ]
+
+65:                                               ; preds = %63
+  store i32 0, ptr %6, align 4
+  br label %66
+
+66:                                               ; preds = %65, %63
+  call void @llvm.lifetime.end.p0(i64 1, ptr %7) #13
+  %67 = load i32, ptr %6, align 4
+  switch i32 %67, label %72 [
+    i32 0, label %68
+  ]
+
+68:                                               ; preds = %66
+  br label %69
+
+69:                                               ; preds = %68
+  %70 = load i32, ptr %4, align 4, !tbaa !10
+  %71 = add i32 %70, 1
+  store i32 %71, ptr %4, align 4, !tbaa !10
+  br label %18, !llvm.loop !72
+
+72:                                               ; preds = %66, %22
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #13
+  call void @llvm.lifetime.end.p0(i64 4, ptr %4) #13
+  %73 = load i32, ptr %6, align 4
+  switch i32 %73, label %83 [
+    i32 2, label %74
+    i32 1, label %81
+  ]
+
+74:                                               ; preds = %72
+  %75 = load ptr, ptr %3, align 8, !tbaa !8
+  %76 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKSt6vectorIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS9_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %75, i64 noundef 0) #13
+  %77 = load ptr, ptr %76, align 8, !tbaa !14
+  %78 = getelementptr inbounds nuw %"struct.std::pair", ptr %77, i32 0, i32 0
+  %79 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %78) #13
+  %80 = trunc i64 %79 to i32
+  store i32 %80, ptr %2, align 4
+  br label %81
+
+81:                                               ; preds = %74, %72
+  %82 = load i32, ptr %2, align 4
+  ret i32 %82
+
+83:                                               ; preds = %72
+  unreachable
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEj(ptr noundef nonnull align 8 dereferenceable(48) %0, i32 noundef %1) #0 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
-  store ptr %0, ptr %3, align 8
-  store i32 %1, ptr %4, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !55
+  store i32 %1, ptr %4, align 4, !tbaa !10
   %5 = load ptr, ptr %3, align 8
-  %6 = load i32, ptr %4, align 4
+  %6 = load i32, ptr %4, align 4, !tbaa !10
   %7 = zext i32 %6 to i64
   %8 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %5, i64 noundef %7)
   ret ptr %8
@@ -1533,29 +1705,29 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(48) ptr @_ZN4
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca i8, align 1
-  store ptr %0, ptr %4, align 8
-  store i8 %1, ptr %5, align 1
+  store ptr %0, ptr %4, align 8, !tbaa !55
+  store i8 %1, ptr %5, align 1, !tbaa !30
   %6 = load ptr, ptr %4, align 8
   %7 = getelementptr inbounds nuw %"class.llvm::raw_ostream", ptr %6, i32 0, i32 4
-  %8 = load ptr, ptr %7, align 8
+  %8 = load ptr, ptr %7, align 8, !tbaa !60
   %9 = getelementptr inbounds nuw %"class.llvm::raw_ostream", ptr %6, i32 0, i32 3
-  %10 = load ptr, ptr %9, align 8
+  %10 = load ptr, ptr %9, align 8, !tbaa !56
   %11 = icmp uge ptr %8, %10
   br i1 %11, label %12, label %15
 
 12:                                               ; preds = %2
-  %13 = load i8, ptr %5, align 1
+  %13 = load i8, ptr %5, align 1, !tbaa !30
   %14 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(48) %6, i8 noundef zeroext %13)
   store ptr %14, ptr %3, align 8
   br label %20
 
 15:                                               ; preds = %2
-  %16 = load i8, ptr %5, align 1
+  %16 = load i8, ptr %5, align 1, !tbaa !30
   %17 = getelementptr inbounds nuw %"class.llvm::raw_ostream", ptr %6, i32 0, i32 4
-  %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i32 1
-  store ptr %19, ptr %17, align 8
-  store i8 %16, ptr %18, align 1
+  %18 = load ptr, ptr %17, align 8, !tbaa !60
+  %19 = getelementptr inbounds nuw i8, ptr %18, i32 1
+  store ptr %19, ptr %17, align 8, !tbaa !60
+  store i8 %16, ptr %18, align 1, !tbaa !30
   store ptr %6, ptr %3, align 8
   br label %20
 
@@ -1564,19 +1736,43 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(48) ptr @_ZN4
   ret ptr %21
 }
 
-declare void @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6substrEmm(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8, ptr noundef nonnull align 8 dereferenceable(32), i64 noundef, i64 noundef) #4
+; Function Attrs: mustprogress nounwind uwtable
+define available_externally void @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6substrEmm(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 noundef %2, i64 noundef %3) #0 align 2 {
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i64, align 8
+  %8 = alloca i64, align 8
+  store ptr %0, ptr %5, align 8
+  store ptr %1, ptr %6, align 8, !tbaa !44
+  store i64 %2, ptr %7, align 8, !tbaa !27
+  store i64 %3, ptr %8, align 8, !tbaa !27
+  %9 = load ptr, ptr %6, align 8
+  %10 = load i64, ptr %7, align 8, !tbaa !27
+  %11 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8_M_checkEmPKc(ptr noundef nonnull align 8 dereferenceable(32) %9, i64 noundef %10, ptr noundef @.str.29)
+  %12 = load i64, ptr %8, align 8, !tbaa !27
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_mm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %9, i64 noundef %11, i64 noundef %12)
+  ret void
+}
 
-; Function Attrs: nounwind
-declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #1
+; Function Attrs: mustprogress nounwind uwtable
+define available_externally void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #0 align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !44
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_disposeEv(ptr noundef nonnull align 8 dereferenceable(32) %3)
+  %4 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %3, i32 0, i32 0
+  call void @_ZNSt15__new_allocatorIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #13
+  ret void
+}
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden ptr @_ZNSt3mapIcSt6vectorIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_ESaISA_EESt4lessIcESaIS1_IKcSC_EEE5beginEv(ptr noundef nonnull align 8 dereferenceable(48) %0) #0 comdat align 2 {
   %2 = alloca %"struct.std::_Rb_tree_iterator", align 8
   %3 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !31
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw %"class.std::map", ptr %4, i32 0, i32 0
-  %6 = call ptr @_ZNSt8_Rb_treeIcSt4pairIKcSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEESt10_Select1stISE_ESt4lessIcESaISE_EE5beginEv(ptr noundef nonnull align 8 dereferenceable(48) %5) #9
+  %6 = call ptr @_ZNSt8_Rb_treeIcSt4pairIKcSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEESt10_Select1stISE_ESt4lessIcESaISE_EE5beginEv(ptr noundef nonnull align 8 dereferenceable(48) %5) #13
   %7 = getelementptr inbounds nuw %"struct.std::_Rb_tree_iterator", ptr %2, i32 0, i32 0
   store ptr %6, ptr %7, align 8
   %8 = getelementptr inbounds nuw %"struct.std::_Rb_tree_iterator", ptr %2, i32 0, i32 0
@@ -1588,10 +1784,10 @@ define linkonce_odr hidden ptr @_ZNSt3mapIcSt6vectorIPKSt4pairINSt7__cxx1112basi
 define linkonce_odr hidden ptr @_ZNSt3mapIcSt6vectorIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_ESaISA_EESt4lessIcESaIS1_IKcSC_EEE3endEv(ptr noundef nonnull align 8 dereferenceable(48) %0) #0 comdat align 2 {
   %2 = alloca %"struct.std::_Rb_tree_iterator", align 8
   %3 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !31
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw %"class.std::map", ptr %4, i32 0, i32 0
-  %6 = call ptr @_ZNSt8_Rb_treeIcSt4pairIKcSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEESt10_Select1stISE_ESt4lessIcESaISE_EE3endEv(ptr noundef nonnull align 8 dereferenceable(48) %5) #9
+  %6 = call ptr @_ZNSt8_Rb_treeIcSt4pairIKcSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEESt10_Select1stISE_ESt4lessIcESaISE_EE3endEv(ptr noundef nonnull align 8 dereferenceable(48) %5) #13
   %7 = getelementptr inbounds nuw %"struct.std::_Rb_tree_iterator", ptr %2, i32 0, i32 0
   store ptr %6, ptr %7, align 8
   %8 = getelementptr inbounds nuw %"struct.std::_Rb_tree_iterator", ptr %2, i32 0, i32 0
@@ -1603,14 +1799,14 @@ define linkonce_odr hidden ptr @_ZNSt3mapIcSt6vectorIPKSt4pairINSt7__cxx1112basi
 define linkonce_odr noundef zeroext i1 @_ZStneRKSt17_Rb_tree_iteratorISt4pairIKcSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEEESH_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #0 comdat {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  %5 = load ptr, ptr %3, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !73
+  store ptr %1, ptr %4, align 8, !tbaa !73
+  %5 = load ptr, ptr %3, align 8, !tbaa !73
   %6 = getelementptr inbounds nuw %"struct.std::_Rb_tree_iterator", ptr %5, i32 0, i32 0
-  %7 = load ptr, ptr %6, align 8
-  %8 = load ptr, ptr %4, align 8
+  %7 = load ptr, ptr %6, align 8, !tbaa !75
+  %8 = load ptr, ptr %4, align 8, !tbaa !73
   %9 = getelementptr inbounds nuw %"struct.std::_Rb_tree_iterator", ptr %8, i32 0, i32 0
-  %10 = load ptr, ptr %9, align 8
+  %10 = load ptr, ptr %9, align 8, !tbaa !75
   %11 = icmp ne ptr %7, %10
   ret i1 %11
 }
@@ -1618,36 +1814,36 @@ define linkonce_odr noundef zeroext i1 @_ZStneRKSt17_Rb_tree_iteratorISt4pairIKc
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZNKSt17_Rb_tree_iteratorISt4pairIKcSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEEEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !73
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw %"struct.std::_Rb_tree_iterator", ptr %3, i32 0, i32 0
-  %5 = load ptr, ptr %4, align 8
+  %5 = load ptr, ptr %4, align 8, !tbaa !75
   %6 = call noundef ptr @_ZNSt13_Rb_tree_nodeISt4pairIKcSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEEE9_M_valptrEv(ptr noundef nonnull align 8 dereferenceable(64) %5)
   ret ptr %6
 }
 
-declare noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48), i64 noundef) #4
+declare noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48), i64 noundef) #5
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt17_Rb_tree_iteratorISt4pairIKcSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEEEppEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !73
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw %"struct.std::_Rb_tree_iterator", ptr %3, i32 0, i32 0
-  %5 = load ptr, ptr %4, align 8
-  %6 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %5) #11
+  %5 = load ptr, ptr %4, align 8, !tbaa !75
+  %6 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %5) #15
   %7 = getelementptr inbounds nuw %"struct.std::_Rb_tree_iterator", ptr %3, i32 0, i32 0
-  store ptr %6, ptr %7, align 8
+  store ptr %6, ptr %7, align 8, !tbaa !75
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt3mapIcSt6vectorIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_ESaISA_EESt4lessIcESaIS1_IKcSC_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !31
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw %"class.std::map", ptr %3, i32 0, i32 0
-  call void @_ZNSt8_Rb_treeIcSt4pairIKcSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEESt10_Select1stISE_ESt4lessIcESaISE_EED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %4) #9
+  call void @_ZNSt8_Rb_treeIcSt4pairIKcSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEESt10_Select1stISE_ESt4lessIcESaISE_EED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %4) #13
   ret void
 }
 
@@ -1668,158 +1864,186 @@ define dso_local void @_ZNK4llvm13StringMatcher4EmitEjb(ptr noundef nonnull alig
   %16 = alloca %"struct.std::_Rb_tree_iterator.22", align 8
   %17 = alloca %"struct.std::_Rb_tree_iterator.22", align 8
   %18 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store i32 %1, ptr %5, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !3
+  store i32 %1, ptr %5, align 4, !tbaa !10
   %19 = zext i1 %2 to i8
-  store i8 %19, ptr %6, align 1
+  store i8 %19, ptr %6, align 1, !tbaa !12
   %20 = load ptr, ptr %4, align 8
   %21 = getelementptr inbounds nuw %"class.llvm::StringMatcher", ptr %20, i32 0, i32 1
-  %22 = load ptr, ptr %21, align 8
-  %23 = call noundef zeroext i1 @_ZNKSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS7_EE5emptyEv(ptr noundef nonnull align 8 dereferenceable(24) %22) #9
+  %22 = load ptr, ptr %21, align 8, !tbaa !77
+  %23 = call noundef zeroext i1 @_ZNKSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS7_EE5emptyEv(ptr noundef nonnull align 8 dereferenceable(24) %22) #13
   br i1 %23, label %24, label %25
 
 24:                                               ; preds = %3
-  br label %127
+  br label %129
 
 25:                                               ; preds = %3
-  call void @_ZNSt3mapIjSt6vectorIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_ESaISA_EESt4lessIjESaIS1_IKjSC_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %7) #9
+  call void @llvm.lifetime.start.p0(i64 48, ptr %7) #13
+  call void @_ZNSt3mapIjSt6vectorIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_ESaISA_EESt4lessIjESaIS1_IKjSC_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %7) #13
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #13
   %26 = getelementptr inbounds nuw %"class.llvm::StringMatcher", ptr %20, i32 0, i32 1
-  %27 = load ptr, ptr %26, align 8
-  store ptr %27, ptr %8, align 8
-  %28 = load ptr, ptr %8, align 8
-  %29 = call ptr @_ZNKSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS7_EE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %28) #9
+  %27 = load ptr, ptr %26, align 8, !tbaa !77
+  store ptr %27, ptr %8, align 8, !tbaa !78
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #13
+  %28 = load ptr, ptr %8, align 8, !tbaa !78
+  %29 = call ptr @_ZNKSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS7_EE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %28) #13
   %30 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator.21", ptr %9, i32 0, i32 0
   store ptr %29, ptr %30, align 8
-  %31 = load ptr, ptr %8, align 8
-  %32 = call ptr @_ZNKSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS7_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %31) #9
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #13
+  %31 = load ptr, ptr %8, align 8, !tbaa !78
+  %32 = call ptr @_ZNKSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS7_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %31) #13
   %33 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator.21", ptr %10, i32 0, i32 0
   store ptr %32, ptr %33, align 8
   br label %34
 
-34:                                               ; preds = %44, %25
-  %35 = call noundef zeroext i1 @_ZN9__gnu_cxxneIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_ESt6vectorIS8_SaIS8_EEEEbRKNS_17__normal_iteratorIT_T0_EESJ_(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 8 dereferenceable(8) %10) #9
-  br i1 %35, label %36, label %46
+34:                                               ; preds = %45, %25
+  %35 = call noundef zeroext i1 @_ZN9__gnu_cxxneIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_ESt6vectorIS8_SaIS8_EEEEbRKNS_17__normal_iteratorIT_T0_EESJ_(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 8 dereferenceable(8) %10) #13
+  br i1 %35, label %37, label %36
 
 36:                                               ; preds = %34
-  %37 = call noundef nonnull align 8 dereferenceable(64) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_ESt6vectorIS8_SaIS8_EEEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %9) #9
-  store ptr %37, ptr %11, align 8
-  %38 = load ptr, ptr %11, align 8
-  %39 = getelementptr inbounds nuw %"struct.std::pair", ptr %38, i32 0, i32 0
-  %40 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %39) #9
-  %41 = trunc i64 %40 to i32
-  store i32 %41, ptr %12, align 4
-  %42 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt3mapIjSt6vectorIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_ESaISA_EESt4lessIjESaIS1_IKjSC_EEEixEOj(ptr noundef nonnull align 8 dereferenceable(48) %7, ptr noundef nonnull align 4 dereferenceable(4) %12)
-  %43 = load ptr, ptr %11, align 8
-  store ptr %43, ptr %13, align 8
-  call void @_ZNSt6vectorIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS9_EE9push_backEOS9_(ptr noundef nonnull align 8 dereferenceable(24) %42, ptr noundef nonnull align 8 dereferenceable(8) %13)
-  br label %44
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #13
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #13
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #13
+  br label %47
 
-44:                                               ; preds = %36
-  %45 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN9__gnu_cxx17__normal_iteratorIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_ESt6vectorIS8_SaIS8_EEEppEv(ptr noundef nonnull align 8 dereferenceable(8) %9) #9
+37:                                               ; preds = %34
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #13
+  %38 = call noundef nonnull align 8 dereferenceable(64) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_ESt6vectorIS8_SaIS8_EEEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %9) #13
+  store ptr %38, ptr %11, align 8, !tbaa !14
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #13
+  %39 = load ptr, ptr %11, align 8, !tbaa !14
+  %40 = getelementptr inbounds nuw %"struct.std::pair", ptr %39, i32 0, i32 0
+  %41 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %40) #13
+  %42 = trunc i64 %41 to i32
+  store i32 %42, ptr %12, align 4, !tbaa !10
+  %43 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt3mapIjSt6vectorIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_ESaISA_EESt4lessIjESaIS1_IKjSC_EEEixEOj(ptr noundef nonnull align 8 dereferenceable(48) %7, ptr noundef nonnull align 4 dereferenceable(4) %12)
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #13
+  %44 = load ptr, ptr %11, align 8, !tbaa !14
+  store ptr %44, ptr %13, align 8, !tbaa !14
+  call void @_ZNSt6vectorIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS9_EE9push_backEOS9_(ptr noundef nonnull align 8 dereferenceable(24) %43, ptr noundef nonnull align 8 dereferenceable(8) %13)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #13
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #13
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #13
+  br label %45
+
+45:                                               ; preds = %37
+  %46 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN9__gnu_cxx17__normal_iteratorIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_ESt6vectorIS8_SaIS8_EEEppEv(ptr noundef nonnull align 8 dereferenceable(8) %9) #13
   br label %34
 
-46:                                               ; preds = %34
-  %47 = getelementptr inbounds nuw %"class.llvm::StringMatcher", ptr %20, i32 0, i32 2
-  %48 = load ptr, ptr %47, align 8
-  %49 = load i32, ptr %5, align 4
-  %50 = mul i32 %49, 2
-  %51 = add i32 %50, 2
-  %52 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream6indentEj(ptr noundef nonnull align 8 dereferenceable(48) %48, i32 noundef %51)
-  %53 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %52, ptr noundef @.str.14)
-  %54 = getelementptr inbounds nuw %"class.llvm::StringMatcher", ptr %20, i32 0, i32 0
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %14, ptr align 8 %54, i64 16, i1 false)
-  %55 = getelementptr inbounds nuw { ptr, i64 }, ptr %14, i32 0, i32 0
-  %56 = load ptr, ptr %55, align 8
-  %57 = getelementptr inbounds nuw { ptr, i64 }, ptr %14, i32 0, i32 1
-  %58 = load i64, ptr %57, align 8
-  %59 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(48) %53, ptr %56, i64 %58)
-  %60 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %59, ptr noundef @.str.22)
-  %61 = getelementptr inbounds nuw %"class.llvm::StringMatcher", ptr %20, i32 0, i32 2
-  %62 = load ptr, ptr %61, align 8
-  %63 = load i32, ptr %5, align 4
-  %64 = mul i32 %63, 2
-  %65 = add i32 %64, 2
-  %66 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream6indentEj(ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %65)
-  %67 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %66, ptr noundef @.str.16)
-  store ptr %7, ptr %15, align 8
-  %68 = load ptr, ptr %15, align 8
-  %69 = call ptr @_ZNSt3mapIjSt6vectorIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_ESaISA_EESt4lessIjESaIS1_IKjSC_EEE5beginEv(ptr noundef nonnull align 8 dereferenceable(48) %68) #9
-  %70 = getelementptr inbounds nuw %"struct.std::_Rb_tree_iterator.22", ptr %16, i32 0, i32 0
-  store ptr %69, ptr %70, align 8
-  %71 = load ptr, ptr %15, align 8
-  %72 = call ptr @_ZNSt3mapIjSt6vectorIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_ESaISA_EESt4lessIjESaIS1_IKjSC_EEE3endEv(ptr noundef nonnull align 8 dereferenceable(48) %71) #9
-  %73 = getelementptr inbounds nuw %"struct.std::_Rb_tree_iterator.22", ptr %17, i32 0, i32 0
-  store ptr %72, ptr %73, align 8
-  br label %74
+47:                                               ; preds = %36
+  %48 = getelementptr inbounds nuw %"class.llvm::StringMatcher", ptr %20, i32 0, i32 2
+  %49 = load ptr, ptr %48, align 8, !tbaa !18
+  %50 = load i32, ptr %5, align 4, !tbaa !10
+  %51 = mul i32 %50, 2
+  %52 = add i32 %51, 2
+  %53 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream6indentEj(ptr noundef nonnull align 8 dereferenceable(48) %49, i32 noundef %52)
+  %54 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %53, ptr noundef @.str.14)
+  %55 = getelementptr inbounds nuw %"class.llvm::StringMatcher", ptr %20, i32 0, i32 0
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %14, ptr align 8 %55, i64 16, i1 false), !tbaa.struct !25
+  %56 = getelementptr inbounds nuw { ptr, i64 }, ptr %14, i32 0, i32 0
+  %57 = load ptr, ptr %56, align 8
+  %58 = getelementptr inbounds nuw { ptr, i64 }, ptr %14, i32 0, i32 1
+  %59 = load i64, ptr %58, align 8
+  %60 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(48) %54, ptr %57, i64 %59)
+  %61 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %60, ptr noundef @.str.22)
+  %62 = getelementptr inbounds nuw %"class.llvm::StringMatcher", ptr %20, i32 0, i32 2
+  %63 = load ptr, ptr %62, align 8, !tbaa !18
+  %64 = load i32, ptr %5, align 4, !tbaa !10
+  %65 = mul i32 %64, 2
+  %66 = add i32 %65, 2
+  %67 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream6indentEj(ptr noundef nonnull align 8 dereferenceable(48) %63, i32 noundef %66)
+  %68 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %67, ptr noundef @.str.16)
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #13
+  store ptr %7, ptr %15, align 8, !tbaa !79
+  call void @llvm.lifetime.start.p0(i64 8, ptr %16) #13
+  %69 = load ptr, ptr %15, align 8, !tbaa !79
+  %70 = call ptr @_ZNSt3mapIjSt6vectorIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_ESaISA_EESt4lessIjESaIS1_IKjSC_EEE5beginEv(ptr noundef nonnull align 8 dereferenceable(48) %69) #13
+  %71 = getelementptr inbounds nuw %"struct.std::_Rb_tree_iterator.22", ptr %16, i32 0, i32 0
+  store ptr %70, ptr %71, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #13
+  %72 = load ptr, ptr %15, align 8, !tbaa !79
+  %73 = call ptr @_ZNSt3mapIjSt6vectorIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_ESaISA_EESt4lessIjESaIS1_IKjSC_EEE3endEv(ptr noundef nonnull align 8 dereferenceable(48) %72) #13
+  %74 = getelementptr inbounds nuw %"struct.std::_Rb_tree_iterator.22", ptr %17, i32 0, i32 0
+  store ptr %73, ptr %74, align 8
+  br label %75
 
-74:                                               ; preds = %117, %46
-  %75 = call noundef zeroext i1 @_ZStneRKSt17_Rb_tree_iteratorISt4pairIKjSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEEESH_(ptr noundef nonnull align 8 dereferenceable(8) %16, ptr noundef nonnull align 8 dereferenceable(8) %17) #9
-  br i1 %75, label %76, label %119
+75:                                               ; preds = %119, %47
+  %76 = call noundef zeroext i1 @_ZStneRKSt17_Rb_tree_iteratorISt4pairIKjSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEEESH_(ptr noundef nonnull align 8 dereferenceable(8) %16, ptr noundef nonnull align 8 dereferenceable(8) %17) #13
+  br i1 %76, label %78, label %77
 
-76:                                               ; preds = %74
-  %77 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNKSt17_Rb_tree_iteratorISt4pairIKjSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEEEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %16) #9
-  store ptr %77, ptr %18, align 8
-  %78 = getelementptr inbounds nuw %"class.llvm::StringMatcher", ptr %20, i32 0, i32 2
-  %79 = load ptr, ptr %78, align 8
-  %80 = load i32, ptr %5, align 4
-  %81 = mul i32 %80, 2
-  %82 = add i32 %81, 2
-  %83 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream6indentEj(ptr noundef nonnull align 8 dereferenceable(48) %79, i32 noundef %82)
-  %84 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %83, ptr noundef @.str.23)
-  %85 = load ptr, ptr %18, align 8
-  %86 = getelementptr inbounds nuw %"struct.std::pair.23", ptr %85, i32 0, i32 0
-  %87 = load i32, ptr %86, align 8
-  %88 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEj(ptr noundef nonnull align 8 dereferenceable(48) %84, i32 noundef %87)
-  %89 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %88, ptr noundef @.str.24)
-  %90 = load ptr, ptr %18, align 8
-  %91 = getelementptr inbounds nuw %"struct.std::pair.23", ptr %90, i32 0, i32 1
-  %92 = call noundef i64 @_ZNKSt6vectorIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS9_EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %91) #9
-  %93 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %89, i64 noundef %92)
-  %94 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %93, ptr noundef @.str.19)
-  %95 = load ptr, ptr %18, align 8
-  %96 = getelementptr inbounds nuw %"struct.std::pair.23", ptr %95, i32 0, i32 1
-  %97 = call noundef i64 @_ZNKSt6vectorIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS9_EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %96) #9
-  %98 = icmp eq i64 %97, 1
-  %99 = select i1 %98, ptr @.str.25, ptr @.str.26
-  %100 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %94, ptr noundef %99)
-  %101 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %100, ptr noundef @.str.20)
-  %102 = load ptr, ptr %18, align 8
-  %103 = getelementptr inbounds nuw %"struct.std::pair.23", ptr %102, i32 0, i32 1
-  %104 = load i32, ptr %5, align 4
-  %105 = load i8, ptr %6, align 1
-  %106 = trunc i8 %105 to i1
-  %107 = call noundef zeroext i1 @_ZNK4llvm13StringMatcher24EmitStringMatcherForCharERKSt6vectorIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEjjb(ptr noundef nonnull align 8 dereferenceable(32) %20, ptr noundef nonnull align 8 dereferenceable(24) %103, i32 noundef 0, i32 noundef %104, i1 noundef zeroext %106)
-  br i1 %107, label %108, label %116
+77:                                               ; preds = %75
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #13
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #13
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #13
+  br label %121
 
-108:                                              ; preds = %76
-  %109 = getelementptr inbounds nuw %"class.llvm::StringMatcher", ptr %20, i32 0, i32 2
-  %110 = load ptr, ptr %109, align 8
-  %111 = load i32, ptr %5, align 4
-  %112 = mul i32 %111, 2
-  %113 = add i32 %112, 4
-  %114 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream6indentEj(ptr noundef nonnull align 8 dereferenceable(48) %110, i32 noundef %113)
-  %115 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %114, ptr noundef @.str.27)
-  br label %116
+78:                                               ; preds = %75
+  call void @llvm.lifetime.start.p0(i64 8, ptr %18) #13
+  %79 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNKSt17_Rb_tree_iteratorISt4pairIKjSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEEEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %16) #13
+  store ptr %79, ptr %18, align 8, !tbaa !81
+  %80 = getelementptr inbounds nuw %"class.llvm::StringMatcher", ptr %20, i32 0, i32 2
+  %81 = load ptr, ptr %80, align 8, !tbaa !18
+  %82 = load i32, ptr %5, align 4, !tbaa !10
+  %83 = mul i32 %82, 2
+  %84 = add i32 %83, 2
+  %85 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream6indentEj(ptr noundef nonnull align 8 dereferenceable(48) %81, i32 noundef %84)
+  %86 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %85, ptr noundef @.str.23)
+  %87 = load ptr, ptr %18, align 8, !tbaa !81
+  %88 = getelementptr inbounds nuw %"struct.std::pair.23", ptr %87, i32 0, i32 0
+  %89 = load i32, ptr %88, align 8, !tbaa !83
+  %90 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEj(ptr noundef nonnull align 8 dereferenceable(48) %86, i32 noundef %89)
+  %91 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %90, ptr noundef @.str.24)
+  %92 = load ptr, ptr %18, align 8, !tbaa !81
+  %93 = getelementptr inbounds nuw %"struct.std::pair.23", ptr %92, i32 0, i32 1
+  %94 = call noundef i64 @_ZNKSt6vectorIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS9_EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %93) #13
+  %95 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %91, i64 noundef %94)
+  %96 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %95, ptr noundef @.str.19)
+  %97 = load ptr, ptr %18, align 8, !tbaa !81
+  %98 = getelementptr inbounds nuw %"struct.std::pair.23", ptr %97, i32 0, i32 1
+  %99 = call noundef i64 @_ZNKSt6vectorIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS9_EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %98) #13
+  %100 = icmp eq i64 %99, 1
+  %101 = select i1 %100, ptr @.str.25, ptr @.str.26
+  %102 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %96, ptr noundef %101)
+  %103 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %102, ptr noundef @.str.20)
+  %104 = load ptr, ptr %18, align 8, !tbaa !81
+  %105 = getelementptr inbounds nuw %"struct.std::pair.23", ptr %104, i32 0, i32 1
+  %106 = load i32, ptr %5, align 4, !tbaa !10
+  %107 = load i8, ptr %6, align 1, !tbaa !12, !range !16, !noundef !17
+  %108 = trunc i8 %107 to i1
+  %109 = call noundef zeroext i1 @_ZNK4llvm13StringMatcher24EmitStringMatcherForCharERKSt6vectorIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEjjb(ptr noundef nonnull align 8 dereferenceable(32) %20, ptr noundef nonnull align 8 dereferenceable(24) %105, i32 noundef 0, i32 noundef %106, i1 noundef zeroext %108)
+  br i1 %109, label %110, label %118
 
-116:                                              ; preds = %108, %76
-  br label %117
+110:                                              ; preds = %78
+  %111 = getelementptr inbounds nuw %"class.llvm::StringMatcher", ptr %20, i32 0, i32 2
+  %112 = load ptr, ptr %111, align 8, !tbaa !18
+  %113 = load i32, ptr %5, align 4, !tbaa !10
+  %114 = mul i32 %113, 2
+  %115 = add i32 %114, 4
+  %116 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream6indentEj(ptr noundef nonnull align 8 dereferenceable(48) %112, i32 noundef %115)
+  %117 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %116, ptr noundef @.str.27)
+  br label %118
 
-117:                                              ; preds = %116
-  %118 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt17_Rb_tree_iteratorISt4pairIKjSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEEEppEv(ptr noundef nonnull align 8 dereferenceable(8) %16) #9
-  br label %74
+118:                                              ; preds = %110, %78
+  call void @llvm.lifetime.end.p0(i64 8, ptr %18) #13
+  br label %119
 
-119:                                              ; preds = %74
-  %120 = getelementptr inbounds nuw %"class.llvm::StringMatcher", ptr %20, i32 0, i32 2
-  %121 = load ptr, ptr %120, align 8
-  %122 = load i32, ptr %5, align 4
-  %123 = mul i32 %122, 2
-  %124 = add i32 %123, 2
-  %125 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream6indentEj(ptr noundef nonnull align 8 dereferenceable(48) %121, i32 noundef %124)
-  %126 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %125, ptr noundef @.str.21)
-  call void @_ZNSt3mapIjSt6vectorIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_ESaISA_EESt4lessIjESaIS1_IKjSC_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %7) #9
-  br label %127
+119:                                              ; preds = %118
+  %120 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt17_Rb_tree_iteratorISt4pairIKjSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEEEppEv(ptr noundef nonnull align 8 dereferenceable(8) %16) #13
+  br label %75
 
-127:                                              ; preds = %119, %24
+121:                                              ; preds = %77
+  %122 = getelementptr inbounds nuw %"class.llvm::StringMatcher", ptr %20, i32 0, i32 2
+  %123 = load ptr, ptr %122, align 8, !tbaa !18
+  %124 = load i32, ptr %5, align 4, !tbaa !10
+  %125 = mul i32 %124, 2
+  %126 = add i32 %125, 2
+  %127 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream6indentEj(ptr noundef nonnull align 8 dereferenceable(48) %123, i32 noundef %126)
+  %128 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %127, ptr noundef @.str.21)
+  call void @_ZNSt3mapIjSt6vectorIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_ESaISA_EESt4lessIjESaIS1_IKjSC_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %7) #13
+  call void @llvm.lifetime.end.p0(i64 48, ptr %7) #13
+  br label %129
+
+129:                                              ; preds = %121, %24
   ret void
 }
 
@@ -1828,25 +2052,29 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNKSt6vectorISt4pairINSt7__cxx11
   %2 = alloca ptr, align 8
   %3 = alloca %"class.__gnu_cxx::__normal_iterator.21", align 8
   %4 = alloca %"class.__gnu_cxx::__normal_iterator.21", align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !78
   %5 = load ptr, ptr %2, align 8
-  %6 = call ptr @_ZNKSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS7_EE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %5) #9
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #13
+  %6 = call ptr @_ZNKSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS7_EE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %5) #13
   %7 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator.21", ptr %3, i32 0, i32 0
   store ptr %6, ptr %7, align 8
-  %8 = call ptr @_ZNKSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS7_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %5) #9
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #13
+  %8 = call ptr @_ZNKSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS7_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %5) #13
   %9 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator.21", ptr %4, i32 0, i32 0
   store ptr %8, ptr %9, align 8
-  %10 = call noundef zeroext i1 @_ZN9__gnu_cxxeqIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_ESt6vectorIS8_SaIS8_EEEEbRKNS_17__normal_iteratorIT_T0_EESJ_(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %4) #9
+  %10 = call noundef zeroext i1 @_ZN9__gnu_cxxeqIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_ESt6vectorIS8_SaIS8_EEEEbRKNS_17__normal_iteratorIT_T0_EESJ_(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %4) #13
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #13
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #13
   ret i1 %10
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt3mapIjSt6vectorIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_ESaISA_EESt4lessIjESaIS1_IKjSC_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !79
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw %"class.std::map.15", ptr %3, i32 0, i32 0
-  call void @_ZNSt8_Rb_treeIjSt4pairIKjSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEESt10_Select1stISE_ESt4lessIjESaISE_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %4) #9
+  call void @_ZNSt8_Rb_treeIjSt4pairIKjSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEESt10_Select1stISE_ESt4lessIjESaISE_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %4) #13
   ret void
 }
 
@@ -1854,11 +2082,11 @@ define linkonce_odr hidden void @_ZNSt3mapIjSt6vectorIPKSt4pairINSt7__cxx1112bas
 define linkonce_odr hidden ptr @_ZNKSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS7_EE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #0 comdat align 2 {
   %2 = alloca %"class.__gnu_cxx::__normal_iterator.21", align 8
   %3 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !78
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw %"struct.std::_Vector_base.11", ptr %4, i32 0, i32 0
   %6 = getelementptr inbounds nuw %"struct.std::_Vector_base<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>, std::allocator<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>>>::_Vector_impl_data", ptr %5, i32 0, i32 0
-  call void @_ZN9__gnu_cxx17__normal_iteratorIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_ESt6vectorIS8_SaIS8_EEEC2ERKSA_(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %6) #9
+  call void @_ZN9__gnu_cxx17__normal_iteratorIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_ESt6vectorIS8_SaIS8_EEEC2ERKSA_(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %6) #13
   %7 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator.21", ptr %2, i32 0, i32 0
   %8 = load ptr, ptr %7, align 8
   ret ptr %8
@@ -1868,28 +2096,28 @@ define linkonce_odr hidden ptr @_ZNKSt6vectorISt4pairINSt7__cxx1112basic_stringI
 define linkonce_odr hidden ptr @_ZNKSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS7_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #0 comdat align 2 {
   %2 = alloca %"class.__gnu_cxx::__normal_iterator.21", align 8
   %3 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !78
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw %"struct.std::_Vector_base.11", ptr %4, i32 0, i32 0
   %6 = getelementptr inbounds nuw %"struct.std::_Vector_base<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>, std::allocator<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>>>::_Vector_impl_data", ptr %5, i32 0, i32 1
-  call void @_ZN9__gnu_cxx17__normal_iteratorIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_ESt6vectorIS8_SaIS8_EEEC2ERKSA_(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %6) #9
+  call void @_ZN9__gnu_cxx17__normal_iteratorIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_ESt6vectorIS8_SaIS8_EEEC2ERKSA_(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %6) #13
   %7 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator.21", ptr %2, i32 0, i32 0
   %8 = load ptr, ptr %7, align 8
   ret ptr %8
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef zeroext i1 @_ZN9__gnu_cxxneIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_ESt6vectorIS8_SaIS8_EEEEbRKNS_17__normal_iteratorIT_T0_EESJ_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #0 comdat {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr noundef zeroext i1 @_ZN9__gnu_cxxneIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_ESt6vectorIS8_SaIS8_EEEEbRKNS_17__normal_iteratorIT_T0_EESJ_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #4 comdat {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  %5 = load ptr, ptr %3, align 8
-  %6 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_ESt6vectorIS8_SaIS8_EEE4baseEv(ptr noundef nonnull align 8 dereferenceable(8) %5) #9
-  %7 = load ptr, ptr %6, align 8
-  %8 = load ptr, ptr %4, align 8
-  %9 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_ESt6vectorIS8_SaIS8_EEE4baseEv(ptr noundef nonnull align 8 dereferenceable(8) %8) #9
-  %10 = load ptr, ptr %9, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !85
+  store ptr %1, ptr %4, align 8, !tbaa !85
+  %5 = load ptr, ptr %3, align 8, !tbaa !85
+  %6 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_ESt6vectorIS8_SaIS8_EEE4baseEv(ptr noundef nonnull align 8 dereferenceable(8) %5) #13
+  %7 = load ptr, ptr %6, align 8, !tbaa !14
+  %8 = load ptr, ptr %4, align 8, !tbaa !85
+  %9 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_ESt6vectorIS8_SaIS8_EEE4baseEv(ptr noundef nonnull align 8 dereferenceable(8) %8) #13
+  %10 = load ptr, ptr %9, align 8, !tbaa !14
   %11 = icmp ne ptr %7, %10
   ret i1 %11
 }
@@ -1897,10 +2125,10 @@ define linkonce_odr noundef zeroext i1 @_ZN9__gnu_cxxneIPKSt4pairINSt7__cxx1112b
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef nonnull align 8 dereferenceable(64) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_ESt6vectorIS8_SaIS8_EEEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !85
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator.21", ptr %3, i32 0, i32 0
-  %5 = load ptr, ptr %4, align 8
+  %5 = load ptr, ptr %4, align 8, !tbaa !87
   ret ptr %5
 }
 
@@ -1915,47 +2143,59 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZNS
   %9 = alloca %"struct.std::_Rb_tree_const_iterator.34", align 8
   %10 = alloca %"class.std::tuple.35", align 8
   %11 = alloca %"class.std::tuple.29", align 1
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !79
+  store ptr %1, ptr %4, align 8, !tbaa !89
   %12 = load ptr, ptr %3, align 8
-  %13 = load ptr, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #13
+  %13 = load ptr, ptr %4, align 8, !tbaa !89
   %14 = call ptr @_ZNSt3mapIjSt6vectorIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_ESaISA_EESt4lessIjESaIS1_IKjSC_EEE11lower_boundERSF_(ptr noundef nonnull align 8 dereferenceable(48) %12, ptr noundef nonnull align 4 dereferenceable(4) %13)
   %15 = getelementptr inbounds nuw %"struct.std::_Rb_tree_iterator.22", ptr %5, i32 0, i32 0
   store ptr %14, ptr %15, align 8
-  %16 = call ptr @_ZNSt3mapIjSt6vectorIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_ESaISA_EESt4lessIjESaIS1_IKjSC_EEE3endEv(ptr noundef nonnull align 8 dereferenceable(48) %12) #9
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #13
+  %16 = call ptr @_ZNSt3mapIjSt6vectorIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_ESaISA_EESt4lessIjESaIS1_IKjSC_EEE3endEv(ptr noundef nonnull align 8 dereferenceable(48) %12) #13
   %17 = getelementptr inbounds nuw %"struct.std::_Rb_tree_iterator.22", ptr %6, i32 0, i32 0
   store ptr %16, ptr %17, align 8
-  %18 = call noundef zeroext i1 @_ZSteqRKSt17_Rb_tree_iteratorISt4pairIKjSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEEESH_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %6) #9
+  %18 = call noundef zeroext i1 @_ZSteqRKSt17_Rb_tree_iteratorISt4pairIKjSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEEESH_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %6) #13
+  call void @llvm.lifetime.start.p0(i64 1, ptr %7) #13
   br i1 %18, label %24, label %19
 
 19:                                               ; preds = %2
   call void @_ZNKSt3mapIjSt6vectorIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_ESaISA_EESt4lessIjESaIS1_IKjSC_EEE8key_compEv(ptr noundef nonnull align 8 dereferenceable(48) %12)
-  %20 = load ptr, ptr %4, align 8
-  %21 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNKSt17_Rb_tree_iteratorISt4pairIKjSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEEEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %5) #9
+  %20 = load ptr, ptr %4, align 8, !tbaa !89
+  %21 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNKSt17_Rb_tree_iteratorISt4pairIKjSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEEEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %5) #13
   %22 = getelementptr inbounds nuw %"struct.std::pair.23", ptr %21, i32 0, i32 0
   %23 = call noundef zeroext i1 @_ZNKSt4lessIjEclERKjS2_(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef nonnull align 4 dereferenceable(4) %20, ptr noundef nonnull align 4 dereferenceable(4) %22)
   br label %24
 
 24:                                               ; preds = %19, %2
   %25 = phi i1 [ true, %2 ], [ %23, %19 ]
+  call void @llvm.lifetime.end.p0(i64 1, ptr %7) #13
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #13
   br i1 %25, label %26, label %33
 
 26:                                               ; preds = %24
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #13
   %27 = getelementptr inbounds nuw %"class.std::map.15", ptr %12, i32 0, i32 0
-  call void @_ZNSt23_Rb_tree_const_iteratorISt4pairIKjSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEEEC2ERKSt17_Rb_tree_iteratorISE_E(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 8 dereferenceable(8) %5) #9
-  %28 = load ptr, ptr %4, align 8
-  call void @_ZSt16forward_as_tupleIJjEESt5tupleIJDpOT_EES3_(ptr dead_on_unwind writable sret(%"class.std::tuple.35") align 8 %10, ptr noundef nonnull align 4 dereferenceable(4) %28) #9
+  call void @_ZNSt23_Rb_tree_const_iteratorISt4pairIKjSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEEEC2ERKSt17_Rb_tree_iteratorISE_E(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 8 dereferenceable(8) %5) #13
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #13
+  %28 = load ptr, ptr %4, align 8, !tbaa !89
+  call void @_ZSt16forward_as_tupleIJjEESt5tupleIJDpOT_EES3_(ptr dead_on_unwind writable sret(%"class.std::tuple.35") align 8 %10, ptr noundef nonnull align 4 dereferenceable(4) %28) #13
+  call void @llvm.lifetime.start.p0(i64 1, ptr %11) #13
   %29 = getelementptr inbounds nuw %"struct.std::_Rb_tree_const_iterator.34", ptr %9, i32 0, i32 0
   %30 = load ptr, ptr %29, align 8
   %31 = call ptr @_ZNSt8_Rb_treeIjSt4pairIKjSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEESt10_Select1stISE_ESt4lessIjESaISE_EE22_M_emplace_hint_uniqueIJRKSt21piecewise_construct_tSt5tupleIJOjEESP_IJEEEEESt17_Rb_tree_iteratorISE_ESt23_Rb_tree_const_iteratorISE_EDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %27, ptr %30, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt19piecewise_construct, ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 1 dereferenceable(1) %11)
   %32 = getelementptr inbounds nuw %"struct.std::_Rb_tree_iterator.22", ptr %8, i32 0, i32 0
   store ptr %31, ptr %32, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %5, ptr align 8 %8, i64 8, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %5, ptr align 8 %8, i64 8, i1 false), !tbaa.struct !68
+  call void @llvm.lifetime.end.p0(i64 1, ptr %11) #13
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #13
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #13
   br label %33
 
 33:                                               ; preds = %26, %24
-  %34 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNKSt17_Rb_tree_iteratorISt4pairIKjSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEEEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %5) #9
+  %34 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNKSt17_Rb_tree_iteratorISt4pairIKjSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEEEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %5) #13
   %35 = getelementptr inbounds nuw %"struct.std::pair.23", ptr %34, i32 0, i32 1
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #13
   ret ptr %35
 }
 
@@ -1963,10 +2203,10 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZNS
 define linkonce_odr hidden void @_ZNSt6vectorIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS9_EE9push_backEOS9_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #0 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !8
+  store ptr %1, ptr %4, align 8, !tbaa !65
   %5 = load ptr, ptr %3, align 8
-  %6 = load ptr, ptr %4, align 8
+  %6 = load ptr, ptr %4, align 8, !tbaa !65
   %7 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt6vectorIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS9_EE12emplace_backIJS9_EEERS9_DpOT_(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(8) %6)
   ret void
 }
@@ -1974,25 +2214,25 @@ define linkonce_odr hidden void @_ZNSt6vectorIPKSt4pairINSt7__cxx1112basic_strin
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN9__gnu_cxx17__normal_iteratorIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_ESt6vectorIS8_SaIS8_EEEppEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !85
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator.21", ptr %3, i32 0, i32 0
-  %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds %"struct.std::pair", ptr %5, i32 1
-  store ptr %6, ptr %4, align 8
+  %5 = load ptr, ptr %4, align 8, !tbaa !87
+  %6 = getelementptr inbounds nuw %"struct.std::pair", ptr %5, i32 1
+  store ptr %6, ptr %4, align 8, !tbaa !87
   ret ptr %3
 }
 
-declare noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream6indentEj(ptr noundef nonnull align 8 dereferenceable(48), i32 noundef) #4
+declare noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream6indentEj(ptr noundef nonnull align 8 dereferenceable(48), i32 noundef) #5
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden ptr @_ZNSt3mapIjSt6vectorIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_ESaISA_EESt4lessIjESaIS1_IKjSC_EEE5beginEv(ptr noundef nonnull align 8 dereferenceable(48) %0) #0 comdat align 2 {
   %2 = alloca %"struct.std::_Rb_tree_iterator.22", align 8
   %3 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !79
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw %"class.std::map.15", ptr %4, i32 0, i32 0
-  %6 = call ptr @_ZNSt8_Rb_treeIjSt4pairIKjSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEESt10_Select1stISE_ESt4lessIjESaISE_EE5beginEv(ptr noundef nonnull align 8 dereferenceable(48) %5) #9
+  %6 = call ptr @_ZNSt8_Rb_treeIjSt4pairIKjSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEESt10_Select1stISE_ESt4lessIjESaISE_EE5beginEv(ptr noundef nonnull align 8 dereferenceable(48) %5) #13
   %7 = getelementptr inbounds nuw %"struct.std::_Rb_tree_iterator.22", ptr %2, i32 0, i32 0
   store ptr %6, ptr %7, align 8
   %8 = getelementptr inbounds nuw %"struct.std::_Rb_tree_iterator.22", ptr %2, i32 0, i32 0
@@ -2004,10 +2244,10 @@ define linkonce_odr hidden ptr @_ZNSt3mapIjSt6vectorIPKSt4pairINSt7__cxx1112basi
 define linkonce_odr hidden ptr @_ZNSt3mapIjSt6vectorIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_ESaISA_EESt4lessIjESaIS1_IKjSC_EEE3endEv(ptr noundef nonnull align 8 dereferenceable(48) %0) #0 comdat align 2 {
   %2 = alloca %"struct.std::_Rb_tree_iterator.22", align 8
   %3 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !79
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw %"class.std::map.15", ptr %4, i32 0, i32 0
-  %6 = call ptr @_ZNSt8_Rb_treeIjSt4pairIKjSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEESt10_Select1stISE_ESt4lessIjESaISE_EE3endEv(ptr noundef nonnull align 8 dereferenceable(48) %5) #9
+  %6 = call ptr @_ZNSt8_Rb_treeIjSt4pairIKjSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEESt10_Select1stISE_ESt4lessIjESaISE_EE3endEv(ptr noundef nonnull align 8 dereferenceable(48) %5) #13
   %7 = getelementptr inbounds nuw %"struct.std::_Rb_tree_iterator.22", ptr %2, i32 0, i32 0
   store ptr %6, ptr %7, align 8
   %8 = getelementptr inbounds nuw %"struct.std::_Rb_tree_iterator.22", ptr %2, i32 0, i32 0
@@ -2019,14 +2259,14 @@ define linkonce_odr hidden ptr @_ZNSt3mapIjSt6vectorIPKSt4pairINSt7__cxx1112basi
 define linkonce_odr noundef zeroext i1 @_ZStneRKSt17_Rb_tree_iteratorISt4pairIKjSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEEESH_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #0 comdat {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  %5 = load ptr, ptr %3, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !91
+  store ptr %1, ptr %4, align 8, !tbaa !91
+  %5 = load ptr, ptr %3, align 8, !tbaa !91
   %6 = getelementptr inbounds nuw %"struct.std::_Rb_tree_iterator.22", ptr %5, i32 0, i32 0
-  %7 = load ptr, ptr %6, align 8
-  %8 = load ptr, ptr %4, align 8
+  %7 = load ptr, ptr %6, align 8, !tbaa !93
+  %8 = load ptr, ptr %4, align 8, !tbaa !91
   %9 = getelementptr inbounds nuw %"struct.std::_Rb_tree_iterator.22", ptr %8, i32 0, i32 0
-  %10 = load ptr, ptr %9, align 8
+  %10 = load ptr, ptr %9, align 8, !tbaa !93
   %11 = icmp ne ptr %7, %10
   ret i1 %11
 }
@@ -2034,10 +2274,10 @@ define linkonce_odr noundef zeroext i1 @_ZStneRKSt17_Rb_tree_iteratorISt4pairIKj
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZNKSt17_Rb_tree_iteratorISt4pairIKjSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEEEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !91
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw %"struct.std::_Rb_tree_iterator.22", ptr %3, i32 0, i32 0
-  %5 = load ptr, ptr %4, align 8
+  %5 = load ptr, ptr %4, align 8, !tbaa !93
   %6 = call noundef ptr @_ZNSt13_Rb_tree_nodeISt4pairIKjSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEEE9_M_valptrEv(ptr noundef nonnull align 8 dereferenceable(64) %5)
   ret ptr %6
 }
@@ -2045,31 +2285,55 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZNK
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt17_Rb_tree_iteratorISt4pairIKjSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEEEppEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !91
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw %"struct.std::_Rb_tree_iterator.22", ptr %3, i32 0, i32 0
-  %5 = load ptr, ptr %4, align 8
-  %6 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %5) #11
+  %5 = load ptr, ptr %4, align 8, !tbaa !93
+  %6 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %5) #15
   %7 = getelementptr inbounds nuw %"struct.std::_Rb_tree_iterator.22", ptr %3, i32 0, i32 0
-  store ptr %6, ptr %7, align 8
+  store ptr %6, ptr %7, align 8, !tbaa !93
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt3mapIjSt6vectorIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_ESaISA_EESt4lessIjESaIS1_IKjSC_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !79
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw %"class.std::map.15", ptr %3, i32 0, i32 0
-  call void @_ZNSt8_Rb_treeIjSt4pairIKjSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEESt10_Select1stISE_ESt4lessIjESaISE_EED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %4) #9
+  call void @_ZNSt8_Rb_treeIjSt4pairIKjSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEESt10_Select1stISE_ESt4lessIjESaISE_EED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %4) #13
   ret void
 }
 
-; Function Attrs: nounwind
-declare noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32)) #1
+; Function Attrs: mustprogress nounwind uwtable
+define available_externally noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #0 align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !44
+  %3 = load ptr, ptr %2, align 8
+  %4 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %3)
+  ret ptr %4
+}
 
-; Function Attrs: nounwind
-declare noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32)) #1
+; Function Attrs: mustprogress nounwind uwtable
+define available_externally noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #0 align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !44
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %3, i32 0, i32 1
+  %5 = load i64, ptr %4, align 8, !tbaa !47
+  ret i64 %5
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define available_externally noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #0 align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !44
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %3, i32 0, i32 0
+  %5 = getelementptr inbounds nuw %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", ptr %4, i32 0, i32 0
+  %6 = load ptr, ptr %5, align 8, !tbaa !95
+  ret ptr %6
+}
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNK4llvm9StringRef5splitES0_(ptr dead_on_unwind noalias writable sret(%"struct.std::pair.3") align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr %2, i64 %3) #0 comdat align 2 {
@@ -2078,54 +2342,65 @@ define linkonce_odr hidden void @_ZNK4llvm9StringRef5splitES0_(ptr dead_on_unwin
   %7 = alloca i64, align 8
   %8 = alloca %"class.llvm::StringRef", align 8
   %9 = alloca %"class.llvm::StringRef", align 8
-  %10 = alloca %"class.llvm::StringRef", align 8
+  %10 = alloca i32, align 4
   %11 = alloca %"class.llvm::StringRef", align 8
-  %12 = getelementptr inbounds nuw { ptr, i64 }, ptr %5, i32 0, i32 0
-  store ptr %2, ptr %12, align 8
-  %13 = getelementptr inbounds nuw { ptr, i64 }, ptr %5, i32 0, i32 1
-  store i64 %3, ptr %13, align 8
-  store ptr %1, ptr %6, align 8
-  %14 = load ptr, ptr %6, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %8, ptr align 8 %5, i64 16, i1 false)
-  %15 = getelementptr inbounds nuw { ptr, i64 }, ptr %8, i32 0, i32 0
-  %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds nuw { ptr, i64 }, ptr %8, i32 0, i32 1
-  %18 = load i64, ptr %17, align 8
-  %19 = call noundef i64 @_ZNK4llvm9StringRef4findES0_m(ptr noundef nonnull align 8 dereferenceable(16) %14, ptr %16, i64 %18, i64 noundef 0)
-  store i64 %19, ptr %7, align 8
-  %20 = load i64, ptr %7, align 8
-  %21 = icmp eq i64 %20, -1
-  br i1 %21, label %22, label %23
-
-22:                                               ; preds = %4
-  call void @llvm.memset.p0.i64(ptr align 8 %9, i8 0, i64 16, i1 false)
-  call void @_ZN4llvm9StringRefC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %9) #9
-  call void @_ZSt9make_pairIRKN4llvm9StringRefES1_ESt4pairINSt25__strip_reference_wrapperINSt5decayIT_E4typeEE6__typeENS5_INS6_IT0_E4typeEE6__typeEEOS7_OSC_(ptr dead_on_unwind writable sret(%"struct.std::pair.3") align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %14, ptr noundef nonnull align 8 dereferenceable(16) %9)
-  br label %38
+  %12 = alloca %"class.llvm::StringRef", align 8
+  %13 = getelementptr inbounds nuw { ptr, i64 }, ptr %5, i32 0, i32 0
+  store ptr %2, ptr %13, align 8
+  %14 = getelementptr inbounds nuw { ptr, i64 }, ptr %5, i32 0, i32 1
+  store i64 %3, ptr %14, align 8
+  store ptr %1, ptr %6, align 8, !tbaa !51
+  %15 = load ptr, ptr %6, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #13
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %8, ptr align 8 %5, i64 16, i1 false), !tbaa.struct !25
+  %16 = getelementptr inbounds nuw { ptr, i64 }, ptr %8, i32 0, i32 0
+  %17 = load ptr, ptr %16, align 8
+  %18 = getelementptr inbounds nuw { ptr, i64 }, ptr %8, i32 0, i32 1
+  %19 = load i64, ptr %18, align 8
+  %20 = call noundef i64 @_ZNK4llvm9StringRef4findES0_m(ptr noundef nonnull align 8 dereferenceable(16) %15, ptr %17, i64 %19, i64 noundef 0)
+  store i64 %20, ptr %7, align 8, !tbaa !27
+  %21 = load i64, ptr %7, align 8, !tbaa !27
+  %22 = icmp eq i64 %21, -1
+  br i1 %22, label %23, label %24
 
 23:                                               ; preds = %4
-  %24 = load i64, ptr %7, align 8
-  %25 = call { ptr, i64 } @_ZNK4llvm9StringRef5sliceEmm(ptr noundef nonnull align 8 dereferenceable(16) %14, i64 noundef 0, i64 noundef %24)
-  %26 = getelementptr inbounds nuw { ptr, i64 }, ptr %10, i32 0, i32 0
-  %27 = extractvalue { ptr, i64 } %25, 0
-  store ptr %27, ptr %26, align 8
-  %28 = getelementptr inbounds nuw { ptr, i64 }, ptr %10, i32 0, i32 1
-  %29 = extractvalue { ptr, i64 } %25, 1
-  store i64 %29, ptr %28, align 8
-  %30 = load i64, ptr %7, align 8
-  %31 = call noundef i64 @_ZNK4llvm9StringRef4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %5)
-  %32 = add i64 %30, %31
-  %33 = call { ptr, i64 } @_ZNK4llvm9StringRef6substrEmm(ptr noundef nonnull align 8 dereferenceable(16) %14, i64 noundef %32, i64 noundef -1)
-  %34 = getelementptr inbounds nuw { ptr, i64 }, ptr %11, i32 0, i32 0
-  %35 = extractvalue { ptr, i64 } %33, 0
-  store ptr %35, ptr %34, align 8
-  %36 = getelementptr inbounds nuw { ptr, i64 }, ptr %11, i32 0, i32 1
-  %37 = extractvalue { ptr, i64 } %33, 1
-  store i64 %37, ptr %36, align 8
-  call void @_ZSt9make_pairIN4llvm9StringRefES1_ESt4pairINSt25__strip_reference_wrapperINSt5decayIT_E4typeEE6__typeENS3_INS4_IT0_E4typeEE6__typeEEOS5_OSA_(ptr dead_on_unwind writable sret(%"struct.std::pair.3") align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 8 dereferenceable(16) %11)
-  br label %38
+  call void @llvm.lifetime.start.p0(i64 16, ptr %9) #13
+  call void @llvm.memset.p0.i64(ptr align 8 %9, i8 0, i64 16, i1 false)
+  call void @_ZN4llvm9StringRefC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %9) #13
+  call void @_ZSt9make_pairIRKN4llvm9StringRefES1_ESt4pairINSt25__strip_reference_wrapperINSt5decayIT_E4typeEE6__typeENS5_INS6_IT0_E4typeEE6__typeEEOS7_OSC_(ptr dead_on_unwind writable sret(%"struct.std::pair.3") align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %15, ptr noundef nonnull align 8 dereferenceable(16) %9)
+  call void @llvm.lifetime.end.p0(i64 16, ptr %9) #13
+  store i32 1, ptr %10, align 4
+  br label %39
 
-38:                                               ; preds = %23, %22
+24:                                               ; preds = %4
+  call void @llvm.lifetime.start.p0(i64 16, ptr %11) #13
+  %25 = load i64, ptr %7, align 8, !tbaa !27
+  %26 = call { ptr, i64 } @_ZNK4llvm9StringRef5sliceEmm(ptr noundef nonnull align 8 dereferenceable(16) %15, i64 noundef 0, i64 noundef %25)
+  %27 = getelementptr inbounds nuw { ptr, i64 }, ptr %11, i32 0, i32 0
+  %28 = extractvalue { ptr, i64 } %26, 0
+  store ptr %28, ptr %27, align 8
+  %29 = getelementptr inbounds nuw { ptr, i64 }, ptr %11, i32 0, i32 1
+  %30 = extractvalue { ptr, i64 } %26, 1
+  store i64 %30, ptr %29, align 8
+  call void @llvm.lifetime.start.p0(i64 16, ptr %12) #13
+  %31 = load i64, ptr %7, align 8, !tbaa !27
+  %32 = call noundef i64 @_ZNK4llvm9StringRef4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %5)
+  %33 = add i64 %31, %32
+  %34 = call { ptr, i64 } @_ZNK4llvm9StringRef6substrEmm(ptr noundef nonnull align 8 dereferenceable(16) %15, i64 noundef %33, i64 noundef -1)
+  %35 = getelementptr inbounds nuw { ptr, i64 }, ptr %12, i32 0, i32 0
+  %36 = extractvalue { ptr, i64 } %34, 0
+  store ptr %36, ptr %35, align 8
+  %37 = getelementptr inbounds nuw { ptr, i64 }, ptr %12, i32 0, i32 1
+  %38 = extractvalue { ptr, i64 } %34, 1
+  store i64 %38, ptr %37, align 8
+  call void @_ZSt9make_pairIN4llvm9StringRefES1_ESt4pairINSt25__strip_reference_wrapperINSt5decayIT_E4typeEE6__typeENS3_INS4_IT0_E4typeEE6__typeEEOS5_OSA_(ptr dead_on_unwind writable sret(%"struct.std::pair.3") align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull align 8 dereferenceable(16) %12)
+  call void @llvm.lifetime.end.p0(i64 16, ptr %12) #13
+  call void @llvm.lifetime.end.p0(i64 16, ptr %11) #13
+  store i32 1, ptr %10, align 4
+  br label %39
+
+39:                                               ; preds = %24, %23
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #13
   ret void
 }
 
@@ -2134,45 +2409,45 @@ define linkonce_odr hidden void @_ZN4llvm9StringRefC2EPKcm(ptr noundef nonnull a
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca i64, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store i64 %2, ptr %6, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !51
+  store ptr %1, ptr %5, align 8, !tbaa !26
+  store i64 %2, ptr %6, align 8, !tbaa !27
   %7 = load ptr, ptr %4, align 8
   %8 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %7, i32 0, i32 0
-  %9 = load ptr, ptr %5, align 8
-  store ptr %9, ptr %8, align 8
+  %9 = load ptr, ptr %5, align 8, !tbaa !26
+  store ptr %9, ptr %8, align 8, !tbaa !53
   %10 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %7, i32 0, i32 1
-  %11 = load i64, ptr %6, align 8
-  store i64 %11, ptr %10, align 8
+  %11 = load i64, ptr %6, align 8, !tbaa !27
+  store i64 %11, ptr %10, align 8, !tbaa !54
   ret void
 }
 
-declare noundef i64 @_ZNK4llvm9StringRef4findES0_m(ptr noundef nonnull align 8 dereferenceable(16), ptr, i64, i64 noundef) #4
+declare noundef i64 @_ZNK4llvm9StringRef4findES0_m(ptr noundef nonnull align 8 dereferenceable(16), ptr, i64, i64 noundef) #5
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZSt9make_pairIRKN4llvm9StringRefES1_ESt4pairINSt25__strip_reference_wrapperINSt5decayIT_E4typeEE6__typeENS5_INS6_IT0_E4typeEE6__typeEEOS7_OSC_(ptr dead_on_unwind noalias writable sret(%"struct.std::pair.3") align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %2) #0 comdat {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
-  store ptr %1, ptr %4, align 8
-  store ptr %2, ptr %5, align 8
-  %6 = load ptr, ptr %4, align 8
-  %7 = load ptr, ptr %5, align 8
+  store ptr %1, ptr %4, align 8, !tbaa !51
+  store ptr %2, ptr %5, align 8, !tbaa !51
+  %6 = load ptr, ptr %4, align 8, !tbaa !51
+  %7 = load ptr, ptr %5, align 8, !tbaa !51
   call void @_ZNSt4pairIN4llvm9StringRefES1_EC2IRKS1_S1_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairIS7_S8_EEEbE4typeELb1EEEOS7_OS8_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %7)
   ret void
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvm9StringRefC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !51
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %3, i32 0, i32 0
-  store ptr null, ptr %4, align 8
+  store ptr null, ptr %4, align 8, !tbaa !53
   %5 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %3, i32 0, i32 1
-  store i64 0, ptr %5, align 8
+  store i64 0, ptr %5, align 8, !tbaa !54
   ret void
 }
 
@@ -2180,10 +2455,10 @@ define linkonce_odr hidden void @_ZN4llvm9StringRefC2Ev(ptr noundef nonnull alig
 define linkonce_odr void @_ZSt9make_pairIN4llvm9StringRefES1_ESt4pairINSt25__strip_reference_wrapperINSt5decayIT_E4typeEE6__typeENS3_INS4_IT0_E4typeEE6__typeEEOS5_OSA_(ptr dead_on_unwind noalias writable sret(%"struct.std::pair.3") align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %2) #0 comdat {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
-  store ptr %1, ptr %4, align 8
-  store ptr %2, ptr %5, align 8
-  %6 = load ptr, ptr %4, align 8
-  %7 = load ptr, ptr %5, align 8
+  store ptr %1, ptr %4, align 8, !tbaa !51
+  store ptr %2, ptr %5, align 8, !tbaa !51
+  %6 = load ptr, ptr %4, align 8, !tbaa !51
+  %7 = load ptr, ptr %5, align 8, !tbaa !51
   call void @_ZNSt4pairIN4llvm9StringRefES1_EC2IS1_S1_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairIS5_S6_EEEbE4typeELb1EEEOS5_OS6_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %7)
   ret void
 }
@@ -2194,28 +2469,35 @@ define linkonce_odr hidden { ptr, i64 } @_ZNK4llvm9StringRef5sliceEmm(ptr nounde
   %5 = alloca ptr, align 8
   %6 = alloca i64, align 8
   %7 = alloca i64, align 8
-  store ptr %0, ptr %5, align 8
-  store i64 %1, ptr %6, align 8
-  store i64 %2, ptr %7, align 8
-  %8 = load ptr, ptr %5, align 8
-  %9 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %8, i32 0, i32 1
-  %10 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt3minImERKT_S2_S2_(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(8) %9)
-  %11 = load i64, ptr %10, align 8
-  store i64 %11, ptr %6, align 8
-  %12 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %8, i32 0, i32 1
-  %13 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt5clampImERKT_S2_S2_S2_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(8) %12)
-  %14 = load i64, ptr %13, align 8
-  store i64 %14, ptr %7, align 8
-  %15 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %8, i32 0, i32 0
-  %16 = load ptr, ptr %15, align 8
-  %17 = load i64, ptr %6, align 8
-  %18 = getelementptr inbounds i8, ptr %16, i64 %17
-  %19 = load i64, ptr %7, align 8
-  %20 = load i64, ptr %6, align 8
-  %21 = sub i64 %19, %20
-  call void @_ZN4llvm9StringRefC2EPKcm(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef %18, i64 noundef %21)
-  %22 = load { ptr, i64 }, ptr %4, align 8
-  ret { ptr, i64 } %22
+  %8 = alloca i64, align 8
+  %9 = alloca i64, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !51
+  store i64 %1, ptr %6, align 8, !tbaa !27
+  store i64 %2, ptr %7, align 8, !tbaa !27
+  %10 = load ptr, ptr %5, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #13
+  %11 = call noundef i64 @_ZNK4llvm9StringRef4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %10)
+  store i64 %11, ptr %8, align 8, !tbaa !27
+  %12 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt3minImERKT_S2_S2_(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(8) %8)
+  %13 = load i64, ptr %12, align 8, !tbaa !27
+  store i64 %13, ptr %6, align 8, !tbaa !27
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #13
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #13
+  %14 = call noundef i64 @_ZNK4llvm9StringRef4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %10)
+  store i64 %14, ptr %9, align 8, !tbaa !27
+  %15 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt5clampImERKT_S2_S2_S2_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(8) %9)
+  %16 = load i64, ptr %15, align 8, !tbaa !27
+  store i64 %16, ptr %7, align 8, !tbaa !27
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #13
+  %17 = call noundef ptr @_ZNK4llvm9StringRef4dataEv(ptr noundef nonnull align 8 dereferenceable(16) %10)
+  %18 = load i64, ptr %6, align 8, !tbaa !27
+  %19 = getelementptr inbounds nuw i8, ptr %17, i64 %18
+  %20 = load i64, ptr %7, align 8, !tbaa !27
+  %21 = load i64, ptr %6, align 8, !tbaa !27
+  %22 = sub i64 %20, %21
+  call void @_ZN4llvm9StringRefC2EPKcm(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef %19, i64 noundef %22)
+  %23 = load { ptr, i64 }, ptr %4, align 8
+  ret { ptr, i64 } %23
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -2225,37 +2507,41 @@ define linkonce_odr hidden { ptr, i64 } @_ZNK4llvm9StringRef6substrEmm(ptr nound
   %6 = alloca i64, align 8
   %7 = alloca i64, align 8
   %8 = alloca i64, align 8
-  store ptr %0, ptr %5, align 8
-  store i64 %1, ptr %6, align 8
-  store i64 %2, ptr %7, align 8
-  %9 = load ptr, ptr %5, align 8
-  %10 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %9, i32 0, i32 1
-  %11 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt3minImERKT_S2_S2_(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(8) %10)
-  %12 = load i64, ptr %11, align 8
-  store i64 %12, ptr %6, align 8
-  %13 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %9, i32 0, i32 0
-  %14 = load ptr, ptr %13, align 8
-  %15 = load i64, ptr %6, align 8
-  %16 = getelementptr inbounds i8, ptr %14, i64 %15
-  %17 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %9, i32 0, i32 1
-  %18 = load i64, ptr %17, align 8
-  %19 = load i64, ptr %6, align 8
-  %20 = sub i64 %18, %19
-  store i64 %20, ptr %8, align 8
-  %21 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt3minImERKT_S2_S2_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(8) %8)
-  %22 = load i64, ptr %21, align 8
-  call void @_ZN4llvm9StringRefC2EPKcm(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef %16, i64 noundef %22)
-  %23 = load { ptr, i64 }, ptr %4, align 8
-  ret { ptr, i64 } %23
+  %9 = alloca i64, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !51
+  store i64 %1, ptr %6, align 8, !tbaa !27
+  store i64 %2, ptr %7, align 8, !tbaa !27
+  %10 = load ptr, ptr %5, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #13
+  %11 = call noundef i64 @_ZNK4llvm9StringRef4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %10)
+  store i64 %11, ptr %8, align 8, !tbaa !27
+  %12 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt3minImERKT_S2_S2_(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(8) %8)
+  %13 = load i64, ptr %12, align 8, !tbaa !27
+  store i64 %13, ptr %6, align 8, !tbaa !27
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #13
+  %14 = call noundef ptr @_ZNK4llvm9StringRef4dataEv(ptr noundef nonnull align 8 dereferenceable(16) %10)
+  %15 = load i64, ptr %6, align 8, !tbaa !27
+  %16 = getelementptr inbounds nuw i8, ptr %14, i64 %15
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #13
+  %17 = call noundef i64 @_ZNK4llvm9StringRef4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %10)
+  %18 = load i64, ptr %6, align 8, !tbaa !27
+  %19 = sub i64 %17, %18
+  store i64 %19, ptr %9, align 8, !tbaa !27
+  %20 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt3minImERKT_S2_S2_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(8) %9)
+  %21 = load i64, ptr %20, align 8, !tbaa !27
+  call void @_ZN4llvm9StringRefC2EPKcm(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef %16, i64 noundef %21)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #13
+  %22 = load { ptr, i64 }, ptr %4, align 8
+  ret { ptr, i64 } %22
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef i64 @_ZNK4llvm9StringRef4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !51
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %3, i32 0, i32 1
-  %5 = load i64, ptr %4, align 8
+  %5 = load i64, ptr %4, align 8, !tbaa !54
   ret i64 %5
 }
 
@@ -2264,16 +2550,16 @@ define linkonce_odr hidden void @_ZNSt4pairIN4llvm9StringRefES1_EC2IRKS1_S1_TnNS
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store ptr %2, ptr %6, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !61
+  store ptr %1, ptr %5, align 8, !tbaa !51
+  store ptr %2, ptr %6, align 8, !tbaa !51
   %7 = load ptr, ptr %4, align 8
   %8 = getelementptr inbounds nuw %"struct.std::pair.3", ptr %7, i32 0, i32 0
-  %9 = load ptr, ptr %5, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %8, ptr align 8 %9, i64 16, i1 false)
+  %9 = load ptr, ptr %5, align 8, !tbaa !51
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %8, ptr align 8 %9, i64 16, i1 false), !tbaa.struct !25
   %10 = getelementptr inbounds nuw %"struct.std::pair.3", ptr %7, i32 0, i32 1
-  %11 = load ptr, ptr %6, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %10, ptr align 8 %11, i64 16, i1 false)
+  %11 = load ptr, ptr %6, align 8, !tbaa !51
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %10, ptr align 8 %11, i64 16, i1 false), !tbaa.struct !25
   ret void
 }
 
@@ -2282,40 +2568,40 @@ define linkonce_odr hidden void @_ZNSt4pairIN4llvm9StringRefES1_EC2IS1_S1_TnNSt9
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store ptr %2, ptr %6, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !61
+  store ptr %1, ptr %5, align 8, !tbaa !51
+  store ptr %2, ptr %6, align 8, !tbaa !51
   %7 = load ptr, ptr %4, align 8
   %8 = getelementptr inbounds nuw %"struct.std::pair.3", ptr %7, i32 0, i32 0
-  %9 = load ptr, ptr %5, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %8, ptr align 8 %9, i64 16, i1 false)
+  %9 = load ptr, ptr %5, align 8, !tbaa !51
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %8, ptr align 8 %9, i64 16, i1 false), !tbaa.struct !25
   %10 = getelementptr inbounds nuw %"struct.std::pair.3", ptr %7, i32 0, i32 1
-  %11 = load ptr, ptr %6, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %10, ptr align 8 %11, i64 16, i1 false)
+  %11 = load ptr, ptr %6, align 8, !tbaa !51
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %10, ptr align 8 %11, i64 16, i1 false), !tbaa.struct !25
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZSt3minImERKT_S2_S2_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #0 comdat {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZSt3minImERKT_S2_S2_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #4 comdat {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  %6 = load ptr, ptr %5, align 8
-  %7 = load i64, ptr %6, align 8
-  %8 = load ptr, ptr %4, align 8
-  %9 = load i64, ptr %8, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !96
+  store ptr %1, ptr %5, align 8, !tbaa !96
+  %6 = load ptr, ptr %5, align 8, !tbaa !96
+  %7 = load i64, ptr %6, align 8, !tbaa !27
+  %8 = load ptr, ptr %4, align 8, !tbaa !96
+  %9 = load i64, ptr %8, align 8, !tbaa !27
   %10 = icmp ult i64 %7, %9
   br i1 %10, label %11, label %13
 
 11:                                               ; preds = %2
-  %12 = load ptr, ptr %5, align 8
+  %12 = load ptr, ptr %5, align 8, !tbaa !96
   store ptr %12, ptr %3, align 8
   br label %15
 
 13:                                               ; preds = %2
-  %14 = load ptr, ptr %4, align 8
+  %14 = load ptr, ptr %4, align 8, !tbaa !96
   store ptr %14, ptr %3, align 8
   br label %15
 
@@ -2329,44 +2615,54 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZSt5clampIm
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store ptr %2, ptr %6, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !96
+  store ptr %1, ptr %5, align 8, !tbaa !96
+  store ptr %2, ptr %6, align 8, !tbaa !96
   br label %7
 
 7:                                                ; preds = %3
   br label %8
 
 8:                                                ; preds = %7
-  %9 = load ptr, ptr %4, align 8
-  %10 = load ptr, ptr %5, align 8
+  %9 = load ptr, ptr %4, align 8, !tbaa !96
+  %10 = load ptr, ptr %5, align 8, !tbaa !96
   %11 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt3maxImERKT_S2_S2_(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 8 dereferenceable(8) %10)
-  %12 = load ptr, ptr %6, align 8
+  %12 = load ptr, ptr %6, align 8, !tbaa !96
   %13 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt3minImERKT_S2_S2_(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(8) %12)
   ret ptr %13
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZSt3maxImERKT_S2_S2_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #0 comdat {
+define linkonce_odr hidden noundef ptr @_ZNK4llvm9StringRef4dataEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !51
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %3, i32 0, i32 0
+  %5 = load ptr, ptr %4, align 8, !tbaa !53
+  ret ptr %5
+}
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZSt3maxImERKT_S2_S2_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #4 comdat {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  %6 = load ptr, ptr %4, align 8
-  %7 = load i64, ptr %6, align 8
-  %8 = load ptr, ptr %5, align 8
-  %9 = load i64, ptr %8, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !96
+  store ptr %1, ptr %5, align 8, !tbaa !96
+  %6 = load ptr, ptr %4, align 8, !tbaa !96
+  %7 = load i64, ptr %6, align 8, !tbaa !27
+  %8 = load ptr, ptr %5, align 8, !tbaa !96
+  %9 = load i64, ptr %8, align 8, !tbaa !27
   %10 = icmp ult i64 %7, %9
   br i1 %10, label %11, label %13
 
 11:                                               ; preds = %2
-  %12 = load ptr, ptr %5, align 8
+  %12 = load ptr, ptr %5, align 8, !tbaa !96
   store ptr %12, ptr %3, align 8
   br label %15
 
 13:                                               ; preds = %2
-  %14 = load ptr, ptr %4, align 8
+  %14 = load ptr, ptr %4, align 8, !tbaa !96
   store ptr %14, ptr %3, align 8
   br label %15
 
@@ -2375,35 +2671,25 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZSt3maxImER
   ret ptr %16
 }
 
-declare noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48), ptr noundef, i64 noundef) #4
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef ptr @_ZNK4llvm9StringRef4dataEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #0 comdat align 2 {
-  %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %3, i32 0, i32 0
-  %5 = load ptr, ptr %4, align 8
-  ret ptr %5
-}
+declare noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48), ptr noundef, i64 noundef) #5
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvm9StringRefC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) unnamed_addr #0 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !51
+  store ptr %1, ptr %4, align 8, !tbaa !26
   %5 = load ptr, ptr %3, align 8
   %6 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %5, i32 0, i32 0
-  %7 = load ptr, ptr %4, align 8
-  store ptr %7, ptr %6, align 8
+  %7 = load ptr, ptr %4, align 8, !tbaa !26
+  store ptr %7, ptr %6, align 8, !tbaa !53
   %8 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %5, i32 0, i32 1
-  %9 = load ptr, ptr %4, align 8
+  %9 = load ptr, ptr %4, align 8, !tbaa !26
   %10 = icmp ne ptr %9, null
   br i1 %10, label %11, label %14
 
 11:                                               ; preds = %2
-  %12 = load ptr, ptr %4, align 8
+  %12 = load ptr, ptr %4, align 8, !tbaa !26
   %13 = call noundef i64 @_ZNSt11char_traitsIcE6lengthEPKc(ptr noundef %12)
   br label %15
 
@@ -2412,68 +2698,68 @@ define linkonce_odr hidden void @_ZN4llvm9StringRefC2EPKc(ptr noundef nonnull al
 
 15:                                               ; preds = %14, %11
   %16 = phi i64 [ %13, %11 ], [ 0, %14 ]
-  store i64 %16, ptr %8, align 8
+  store i64 %16, ptr %8, align 8, !tbaa !54
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef i64 @_ZNSt11char_traitsIcE6lengthEPKc(ptr noundef %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  %4 = call i64 @strlen(ptr noundef %3) #9
+  store ptr %0, ptr %2, align 8, !tbaa !26
+  %3 = load ptr, ptr %2, align 8, !tbaa !26
+  %4 = call i64 @strlen(ptr noundef %3) #13
   ret i64 %4
 }
 
 ; Function Attrs: nounwind
-declare i64 @strlen(ptr noundef) #1
+declare i64 @strlen(ptr noundef) #7
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt8_Rb_treeIcSt4pairIKcSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEESt10_Select1stISE_ESt4lessIcESaISE_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !98
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw %"class.std::_Rb_tree", ptr %3, i32 0, i32 0
-  call void @_ZNSt8_Rb_treeIcSt4pairIKcSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEESt10_Select1stISE_ESt4lessIcESaISE_EE13_Rb_tree_implISI_Lb1EEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %4) #9
+  call void @_ZNSt8_Rb_treeIcSt4pairIKcSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEESt10_Select1stISE_ESt4lessIcESaISE_EE13_Rb_tree_implISI_Lb1EEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %4) #13
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt8_Rb_treeIcSt4pairIKcSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEESt10_Select1stISE_ESt4lessIcESaISE_EE13_Rb_tree_implISI_Lb1EEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !100
   %3 = load ptr, ptr %2, align 8
-  call void @_ZNSaISt13_Rb_tree_nodeISt4pairIKcSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEEEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #9
-  call void @_ZNSt20_Rb_tree_key_compareISt4lessIcEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #9
+  call void @_ZNSaISt13_Rb_tree_nodeISt4pairIKcSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEEEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #13
+  call void @_ZNSt20_Rb_tree_key_compareISt4lessIcEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #13
   %4 = getelementptr inbounds i8, ptr %3, i64 8
-  call void @_ZNSt15_Rb_tree_headerC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %4) #9
+  call void @_ZNSt15_Rb_tree_headerC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %4) #13
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSaISt13_Rb_tree_nodeISt4pairIKcSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEEEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !102
   %3 = load ptr, ptr %2, align 8
-  call void @_ZNSt15__new_allocatorISt13_Rb_tree_nodeISt4pairIKcSt6vectorIPKS1_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ESaISC_EEEEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #9
+  call void @_ZNSt15__new_allocatorISt13_Rb_tree_nodeISt4pairIKcSt6vectorIPKS1_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ESaISC_EEEEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #13
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt20_Rb_tree_key_compareISt4lessIcEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !104
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt15_Rb_tree_headerC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !106
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw %"struct.std::_Rb_tree_header", ptr %3, i32 0, i32 0
   %5 = getelementptr inbounds nuw %"struct.std::_Rb_tree_node_base", ptr %4, i32 0, i32 0
-  store i32 0, ptr %5, align 8
+  store i32 0, ptr %5, align 8, !tbaa !108
   call void @_ZNSt15_Rb_tree_header8_M_resetEv(ptr noundef nonnull align 8 dereferenceable(40) %3)
   ret void
 }
@@ -2481,42 +2767,42 @@ define linkonce_odr hidden void @_ZNSt15_Rb_tree_headerC2Ev(ptr noundef nonnull 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt15__new_allocatorISt13_Rb_tree_nodeISt4pairIKcSt6vectorIPKS1_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ESaISC_EEEEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !112
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt15_Rb_tree_header8_M_resetEv(ptr noundef nonnull align 8 dereferenceable(40) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !106
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw %"struct.std::_Rb_tree_header", ptr %3, i32 0, i32 0
   %5 = getelementptr inbounds nuw %"struct.std::_Rb_tree_node_base", ptr %4, i32 0, i32 1
-  store ptr null, ptr %5, align 8
+  store ptr null, ptr %5, align 8, !tbaa !114
   %6 = getelementptr inbounds nuw %"struct.std::_Rb_tree_header", ptr %3, i32 0, i32 0
   %7 = getelementptr inbounds nuw %"struct.std::_Rb_tree_header", ptr %3, i32 0, i32 0
   %8 = getelementptr inbounds nuw %"struct.std::_Rb_tree_node_base", ptr %7, i32 0, i32 2
-  store ptr %6, ptr %8, align 8
+  store ptr %6, ptr %8, align 8, !tbaa !115
   %9 = getelementptr inbounds nuw %"struct.std::_Rb_tree_header", ptr %3, i32 0, i32 0
   %10 = getelementptr inbounds nuw %"struct.std::_Rb_tree_header", ptr %3, i32 0, i32 0
   %11 = getelementptr inbounds nuw %"struct.std::_Rb_tree_node_base", ptr %10, i32 0, i32 3
-  store ptr %9, ptr %11, align 8
+  store ptr %9, ptr %11, align 8, !tbaa !116
   %12 = getelementptr inbounds nuw %"struct.std::_Rb_tree_header", ptr %3, i32 0, i32 1
-  store i64 0, ptr %12, align 8
+  store i64 0, ptr %12, align 8, !tbaa !117
   ret void
 }
 
-declare noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(48), i8 noundef zeroext) #4
+declare noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(48), i8 noundef zeroext) #5
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt8_Rb_treeIcSt4pairIKcSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEESt10_Select1stISE_ESt4lessIcESaISE_EED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !98
   %3 = load ptr, ptr %2, align 8
-  %4 = call noundef ptr @_ZNSt8_Rb_treeIcSt4pairIKcSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEESt10_Select1stISE_ESt4lessIcESaISE_EE8_M_beginEv(ptr noundef nonnull align 8 dereferenceable(48) %3) #9
+  %4 = call noundef ptr @_ZNSt8_Rb_treeIcSt4pairIKcSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEESt10_Select1stISE_ESt4lessIcESaISE_EE8_M_beginEv(ptr noundef nonnull align 8 dereferenceable(48) %3) #13
   call void @_ZNSt8_Rb_treeIcSt4pairIKcSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEESt10_Select1stISE_ESt4lessIcESaISE_EE8_M_eraseEPSt13_Rb_tree_nodeISE_E(ptr noundef nonnull align 8 dereferenceable(48) %3, ptr noundef %4)
   %5 = getelementptr inbounds nuw %"class.std::_Rb_tree", ptr %3, i32 0, i32 0
-  call void @_ZNSt8_Rb_treeIcSt4pairIKcSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEESt10_Select1stISE_ESt4lessIcESaISE_EE13_Rb_tree_implISI_Lb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %5) #9
+  call void @_ZNSt15__new_allocatorISt13_Rb_tree_nodeISt4pairIKcSt6vectorIPKS1_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ESaISC_EEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %5) #13
   ret void
 }
 
@@ -2525,28 +2811,30 @@ define linkonce_odr void @_ZNSt8_Rb_treeIcSt4pairIKcSt6vectorIPKS0_INSt7__cxx111
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !98
+  store ptr %1, ptr %4, align 8, !tbaa !118
   %6 = load ptr, ptr %3, align 8
   br label %7
 
 7:                                                ; preds = %10, %2
-  %8 = load ptr, ptr %4, align 8
+  %8 = load ptr, ptr %4, align 8, !tbaa !118
   %9 = icmp ne ptr %8, null
   br i1 %9, label %10, label %17
 
 10:                                               ; preds = %7
-  %11 = load ptr, ptr %4, align 8
-  %12 = call noundef ptr @_ZNSt8_Rb_treeIcSt4pairIKcSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEESt10_Select1stISE_ESt4lessIcESaISE_EE8_S_rightEPSt18_Rb_tree_node_base(ptr noundef %11) #9
+  %11 = load ptr, ptr %4, align 8, !tbaa !118
+  %12 = call noundef ptr @_ZNSt8_Rb_treeIcSt4pairIKcSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEESt10_Select1stISE_ESt4lessIcESaISE_EE8_S_rightEPSt18_Rb_tree_node_base(ptr noundef %11) #13
   call void @_ZNSt8_Rb_treeIcSt4pairIKcSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEESt10_Select1stISE_ESt4lessIcESaISE_EE8_M_eraseEPSt13_Rb_tree_nodeISE_E(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr noundef %12)
-  %13 = load ptr, ptr %4, align 8
-  %14 = call noundef ptr @_ZNSt8_Rb_treeIcSt4pairIKcSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEESt10_Select1stISE_ESt4lessIcESaISE_EE7_S_leftEPSt18_Rb_tree_node_base(ptr noundef %13) #9
-  store ptr %14, ptr %5, align 8
-  %15 = load ptr, ptr %4, align 8
-  call void @_ZNSt8_Rb_treeIcSt4pairIKcSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEESt10_Select1stISE_ESt4lessIcESaISE_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISE_E(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr noundef %15) #9
-  %16 = load ptr, ptr %5, align 8
-  store ptr %16, ptr %4, align 8
-  br label %7, !llvm.loop !7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #13
+  %13 = load ptr, ptr %4, align 8, !tbaa !118
+  %14 = call noundef ptr @_ZNSt8_Rb_treeIcSt4pairIKcSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEESt10_Select1stISE_ESt4lessIcESaISE_EE7_S_leftEPSt18_Rb_tree_node_base(ptr noundef %13) #13
+  store ptr %14, ptr %5, align 8, !tbaa !118
+  %15 = load ptr, ptr %4, align 8, !tbaa !118
+  call void @_ZNSt8_Rb_treeIcSt4pairIKcSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEESt10_Select1stISE_ESt4lessIcESaISE_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISE_E(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr noundef %15) #13
+  %16 = load ptr, ptr %5, align 8, !tbaa !118
+  store ptr %16, ptr %4, align 8, !tbaa !118
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #13
+  br label %7, !llvm.loop !120
 
 17:                                               ; preds = %7
   ret void
@@ -2555,38 +2843,36 @@ define linkonce_odr void @_ZNSt8_Rb_treeIcSt4pairIKcSt6vectorIPKS0_INSt7__cxx111
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZNSt8_Rb_treeIcSt4pairIKcSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEESt10_Select1stISE_ESt4lessIcESaISE_EE8_M_beginEv(ptr noundef nonnull align 8 dereferenceable(48) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !98
   %3 = load ptr, ptr %2, align 8
-  %4 = call noundef ptr @_ZNKSt8_Rb_treeIcSt4pairIKcSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEESt10_Select1stISE_ESt4lessIcESaISE_EE9_M_mbeginEv(ptr noundef nonnull align 8 dereferenceable(48) %3) #9
+  %4 = call noundef ptr @_ZNKSt8_Rb_treeIcSt4pairIKcSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEESt10_Select1stISE_ESt4lessIcESaISE_EE9_M_mbeginEv(ptr noundef nonnull align 8 dereferenceable(48) %3) #13
   ret ptr %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNSt8_Rb_treeIcSt4pairIKcSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEESt10_Select1stISE_ESt4lessIcESaISE_EE13_Rb_tree_implISI_Lb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #0 comdat align 2 {
+define linkonce_odr hidden void @_ZNSt15__new_allocatorISt13_Rb_tree_nodeISt4pairIKcSt6vectorIPKS1_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ESaISC_EEEEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  call void @_ZNSaISt13_Rb_tree_nodeISt4pairIKcSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEEEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #9
+  store ptr %0, ptr %2, align 8, !tbaa !112
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZNSt8_Rb_treeIcSt4pairIKcSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEESt10_Select1stISE_ESt4lessIcESaISE_EE8_S_rightEPSt18_Rb_tree_node_base(ptr noundef %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !69
+  %3 = load ptr, ptr %2, align 8, !tbaa !69
   %4 = getelementptr inbounds nuw %"struct.std::_Rb_tree_node_base", ptr %3, i32 0, i32 3
-  %5 = load ptr, ptr %4, align 8
+  %5 = load ptr, ptr %4, align 8, !tbaa !121
   ret ptr %5
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZNSt8_Rb_treeIcSt4pairIKcSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEESt10_Select1stISE_ESt4lessIcESaISE_EE7_S_leftEPSt18_Rb_tree_node_base(ptr noundef %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !69
+  %3 = load ptr, ptr %2, align 8, !tbaa !69
   %4 = getelementptr inbounds nuw %"struct.std::_Rb_tree_node_base", ptr %3, i32 0, i32 2
-  %5 = load ptr, ptr %4, align 8
+  %5 = load ptr, ptr %4, align 8, !tbaa !122
   ret ptr %5
 }
 
@@ -2594,13 +2880,13 @@ define linkonce_odr hidden noundef ptr @_ZNSt8_Rb_treeIcSt4pairIKcSt6vectorIPKS0
 define linkonce_odr hidden void @_ZNSt8_Rb_treeIcSt4pairIKcSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEESt10_Select1stISE_ESt4lessIcESaISE_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISE_E(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %1) #0 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !98
+  store ptr %1, ptr %4, align 8, !tbaa !118
   %5 = load ptr, ptr %3, align 8
-  %6 = load ptr, ptr %4, align 8
-  call void @_ZNSt8_Rb_treeIcSt4pairIKcSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEESt10_Select1stISE_ESt4lessIcESaISE_EE15_M_destroy_nodeEPSt13_Rb_tree_nodeISE_E(ptr noundef nonnull align 8 dereferenceable(48) %5, ptr noundef %6) #9
-  %7 = load ptr, ptr %4, align 8
-  call void @_ZNSt8_Rb_treeIcSt4pairIKcSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEESt10_Select1stISE_ESt4lessIcESaISE_EE11_M_put_nodeEPSt13_Rb_tree_nodeISE_E(ptr noundef nonnull align 8 dereferenceable(48) %5, ptr noundef %7) #9
+  %6 = load ptr, ptr %4, align 8, !tbaa !118
+  call void @_ZNSt8_Rb_treeIcSt4pairIKcSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEESt10_Select1stISE_ESt4lessIcESaISE_EE15_M_destroy_nodeEPSt13_Rb_tree_nodeISE_E(ptr noundef nonnull align 8 dereferenceable(48) %5, ptr noundef %6) #13
+  %7 = load ptr, ptr %4, align 8, !tbaa !118
+  call void @_ZNSt8_Rb_treeIcSt4pairIKcSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEESt10_Select1stISE_ESt4lessIcESaISE_EE11_M_put_nodeEPSt13_Rb_tree_nodeISE_E(ptr noundef nonnull align 8 dereferenceable(48) %5, ptr noundef %7) #13
   ret void
 }
 
@@ -2608,13 +2894,13 @@ define linkonce_odr hidden void @_ZNSt8_Rb_treeIcSt4pairIKcSt6vectorIPKS0_INSt7_
 define linkonce_odr hidden void @_ZNSt8_Rb_treeIcSt4pairIKcSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEESt10_Select1stISE_ESt4lessIcESaISE_EE15_M_destroy_nodeEPSt13_Rb_tree_nodeISE_E(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %1) #0 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !98
+  store ptr %1, ptr %4, align 8, !tbaa !118
   %5 = load ptr, ptr %3, align 8
-  %6 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt8_Rb_treeIcSt4pairIKcSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEESt10_Select1stISE_ESt4lessIcESaISE_EE21_M_get_Node_allocatorEv(ptr noundef nonnull align 8 dereferenceable(48) %5) #9
-  %7 = load ptr, ptr %4, align 8
+  %6 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt8_Rb_treeIcSt4pairIKcSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEESt10_Select1stISE_ESt4lessIcESaISE_EE21_M_get_Node_allocatorEv(ptr noundef nonnull align 8 dereferenceable(48) %5) #13
+  %7 = load ptr, ptr %4, align 8, !tbaa !118
   %8 = call noundef ptr @_ZNSt13_Rb_tree_nodeISt4pairIKcSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEEE9_M_valptrEv(ptr noundef nonnull align 8 dereferenceable(64) %7)
-  call void @_ZNSt16allocator_traitsISaISt13_Rb_tree_nodeISt4pairIKcSt6vectorIPKS1_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ESaISC_EEEEEE7destroyISF_EEvRSH_PT_(ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef %8) #9
+  call void @_ZNSt16allocator_traitsISaISt13_Rb_tree_nodeISt4pairIKcSt6vectorIPKS1_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ESaISC_EEEEEE7destroyISF_EEvRSH_PT_(ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef %8) #13
   ret void
 }
 
@@ -2622,11 +2908,11 @@ define linkonce_odr hidden void @_ZNSt8_Rb_treeIcSt4pairIKcSt6vectorIPKS0_INSt7_
 define linkonce_odr hidden void @_ZNSt8_Rb_treeIcSt4pairIKcSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEESt10_Select1stISE_ESt4lessIcESaISE_EE11_M_put_nodeEPSt13_Rb_tree_nodeISE_E(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %1) #0 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !98
+  store ptr %1, ptr %4, align 8, !tbaa !118
   %5 = load ptr, ptr %3, align 8
-  %6 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt8_Rb_treeIcSt4pairIKcSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEESt10_Select1stISE_ESt4lessIcESaISE_EE21_M_get_Node_allocatorEv(ptr noundef nonnull align 8 dereferenceable(48) %5) #9
-  %7 = load ptr, ptr %4, align 8
+  %6 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt8_Rb_treeIcSt4pairIKcSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEESt10_Select1stISE_ESt4lessIcESaISE_EE21_M_get_Node_allocatorEv(ptr noundef nonnull align 8 dereferenceable(48) %5) #13
+  %7 = load ptr, ptr %4, align 8, !tbaa !118
   call void @_ZNSt16allocator_traitsISaISt13_Rb_tree_nodeISt4pairIKcSt6vectorIPKS1_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ESaISC_EEEEEE10deallocateERSH_PSG_m(ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef %7, i64 noundef 1)
   ret void
 }
@@ -2635,18 +2921,18 @@ define linkonce_odr hidden void @_ZNSt8_Rb_treeIcSt4pairIKcSt6vectorIPKS0_INSt7_
 define linkonce_odr hidden void @_ZNSt16allocator_traitsISaISt13_Rb_tree_nodeISt4pairIKcSt6vectorIPKS1_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ESaISC_EEEEEE7destroyISF_EEvRSH_PT_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1) #0 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  %5 = load ptr, ptr %3, align 8
-  %6 = load ptr, ptr %4, align 8
-  call void @_ZNSt15__new_allocatorISt13_Rb_tree_nodeISt4pairIKcSt6vectorIPKS1_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ESaISC_EEEEE7destroyISF_EEvPT_(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef %6) #9
+  store ptr %0, ptr %3, align 8, !tbaa !102
+  store ptr %1, ptr %4, align 8, !tbaa !33
+  %5 = load ptr, ptr %3, align 8, !tbaa !102
+  %6 = load ptr, ptr %4, align 8, !tbaa !33
+  call void @_ZNSt15__new_allocatorISt13_Rb_tree_nodeISt4pairIKcSt6vectorIPKS1_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ESaISC_EEEEE7destroyISF_EEvPT_(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef %6) #13
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt8_Rb_treeIcSt4pairIKcSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEESt10_Select1stISE_ESt4lessIcESaISE_EE21_M_get_Node_allocatorEv(ptr noundef nonnull align 8 dereferenceable(48) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !98
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw %"class.std::_Rb_tree", ptr %3, i32 0, i32 0
   ret ptr %4
@@ -2655,10 +2941,10 @@ define linkonce_odr hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZNSt13_Rb_tree_nodeISt4pairIKcSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEEE9_M_valptrEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !118
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw %"struct.std::_Rb_tree_node", ptr %3, i32 0, i32 1
-  %5 = call noundef ptr @_ZN9__gnu_cxx16__aligned_membufISt4pairIKcSt6vectorIPKS1_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ESaISC_EEEE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(32) %4) #9
+  %5 = call noundef ptr @_ZN9__gnu_cxx16__aligned_membufISt4pairIKcSt6vectorIPKS1_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ESaISC_EEEE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(32) %4) #13
   ret ptr %5
 }
 
@@ -2666,50 +2952,50 @@ define linkonce_odr hidden noundef ptr @_ZNSt13_Rb_tree_nodeISt4pairIKcSt6vector
 define linkonce_odr hidden void @_ZNSt15__new_allocatorISt13_Rb_tree_nodeISt4pairIKcSt6vectorIPKS1_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ESaISC_EEEEE7destroyISF_EEvPT_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1) #0 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  %5 = load ptr, ptr %4, align 8
-  call void @_ZNSt4pairIKcSt6vectorIPKS_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_ESaISA_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #9
+  store ptr %0, ptr %3, align 8, !tbaa !112
+  store ptr %1, ptr %4, align 8, !tbaa !33
+  %5 = load ptr, ptr %4, align 8, !tbaa !33
+  call void @_ZNSt4pairIKcSt6vectorIPKS_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_ESaISA_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #13
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNSt4pairIKcSt6vectorIPKS_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_ESaISA_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #0 comdat align 2 {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZNSt4pairIKcSt6vectorIPKS_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_ESaISA_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #4 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !33
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw %"struct.std::pair.8", ptr %3, i32 0, i32 1
-  call void @_ZNSt6vectorIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS9_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #9
+  call void @_ZNSt6vectorIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS9_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #13
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt6vectorIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS9_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw %"struct.std::_Vector_base", ptr %3, i32 0, i32 0
   %5 = getelementptr inbounds nuw %"struct.std::_Vector_base<const std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>> *, std::allocator<const std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>> *>>::_Vector_impl_data", ptr %4, i32 0, i32 0
-  %6 = load ptr, ptr %5, align 8
+  %6 = load ptr, ptr %5, align 8, !tbaa !46
   %7 = getelementptr inbounds nuw %"struct.std::_Vector_base", ptr %3, i32 0, i32 0
   %8 = getelementptr inbounds nuw %"struct.std::_Vector_base<const std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>> *, std::allocator<const std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>> *>>::_Vector_impl_data", ptr %7, i32 0, i32 1
-  %9 = load ptr, ptr %8, align 8
-  %10 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt12_Vector_baseIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS9_EE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %3) #9
+  %9 = load ptr, ptr %8, align 8, !tbaa !50
+  %10 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt12_Vector_baseIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS9_EE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %3) #13
   call void @_ZSt8_DestroyIPPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ES9_EvT_SB_RSaIT0_E(ptr noundef %6, ptr noundef %9, ptr noundef nonnull align 1 dereferenceable(1) %10)
-  call void @_ZNSt12_Vector_baseIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS9_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #9
+  call void @_ZNSt12_Vector_baseIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS9_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #13
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZSt8_DestroyIPPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ES9_EvT_SB_RSaIT0_E(ptr noundef %0, ptr noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %2) #0 comdat {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr void @_ZSt8_DestroyIPPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ES9_EvT_SB_RSaIT0_E(ptr noundef %0, ptr noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %2) #4 comdat {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store ptr %2, ptr %6, align 8
-  %7 = load ptr, ptr %4, align 8
-  %8 = load ptr, ptr %5, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !65
+  store ptr %1, ptr %5, align 8, !tbaa !65
+  store ptr %2, ptr %6, align 8, !tbaa !123
+  %7 = load ptr, ptr %4, align 8, !tbaa !65
+  %8 = load ptr, ptr %5, align 8, !tbaa !65
   call void @_ZSt8_DestroyIPPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_EEvT_SB_(ptr noundef %7, ptr noundef %8)
   ret void
 }
@@ -2717,7 +3003,7 @@ define linkonce_odr void @_ZSt8_DestroyIPPKSt4pairINSt7__cxx1112basic_stringIcSt
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt12_Vector_baseIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS9_EE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !125
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw %"struct.std::_Vector_base", ptr %3, i32 0, i32 0
   ret ptr %4
@@ -2726,35 +3012,35 @@ define linkonce_odr hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt12_Vector_baseIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS9_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !125
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw %"struct.std::_Vector_base", ptr %3, i32 0, i32 0
   %5 = getelementptr inbounds nuw %"struct.std::_Vector_base<const std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>> *, std::allocator<const std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>> *>>::_Vector_impl_data", ptr %4, i32 0, i32 0
-  %6 = load ptr, ptr %5, align 8
+  %6 = load ptr, ptr %5, align 8, !tbaa !46
   %7 = getelementptr inbounds nuw %"struct.std::_Vector_base", ptr %3, i32 0, i32 0
   %8 = getelementptr inbounds nuw %"struct.std::_Vector_base<const std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>> *, std::allocator<const std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>> *>>::_Vector_impl_data", ptr %7, i32 0, i32 2
-  %9 = load ptr, ptr %8, align 8
+  %9 = load ptr, ptr %8, align 8, !tbaa !71
   %10 = getelementptr inbounds nuw %"struct.std::_Vector_base", ptr %3, i32 0, i32 0
   %11 = getelementptr inbounds nuw %"struct.std::_Vector_base<const std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>> *, std::allocator<const std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>> *>>::_Vector_impl_data", ptr %10, i32 0, i32 0
-  %12 = load ptr, ptr %11, align 8
+  %12 = load ptr, ptr %11, align 8, !tbaa !46
   %13 = ptrtoint ptr %9 to i64
   %14 = ptrtoint ptr %12 to i64
   %15 = sub i64 %13, %14
   %16 = sdiv exact i64 %15, 8
   call void @_ZNSt12_Vector_baseIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS9_EE13_M_deallocateEPS9_m(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef %6, i64 noundef %16)
   %17 = getelementptr inbounds nuw %"struct.std::_Vector_base", ptr %3, i32 0, i32 0
-  call void @_ZNSt12_Vector_baseIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS9_EE12_Vector_implD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %17) #9
+  call void @_ZNSt15__new_allocatorIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %17) #13
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZSt8_DestroyIPPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_EEvT_SB_(ptr noundef %0, ptr noundef %1) #0 comdat {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr void @_ZSt8_DestroyIPPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_EEvT_SB_(ptr noundef %0, ptr noundef %1) #4 comdat {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  %5 = load ptr, ptr %3, align 8
-  %6 = load ptr, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !65
+  store ptr %1, ptr %4, align 8, !tbaa !65
+  %5 = load ptr, ptr %3, align 8, !tbaa !65
+  %6 = load ptr, ptr %4, align 8, !tbaa !65
   call void @_ZNSt12_Destroy_auxILb1EE9__destroyIPPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_EEEvT_SD_(ptr noundef %5, ptr noundef %6)
   ret void
 }
@@ -2763,8 +3049,8 @@ define linkonce_odr void @_ZSt8_DestroyIPPKSt4pairINSt7__cxx1112basic_stringIcSt
 define linkonce_odr hidden void @_ZNSt12_Destroy_auxILb1EE9__destroyIPPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_EEEvT_SD_(ptr noundef %0, ptr noundef %1) #0 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !65
+  store ptr %1, ptr %4, align 8, !tbaa !65
   ret void
 }
 
@@ -2773,18 +3059,18 @@ define linkonce_odr hidden void @_ZNSt12_Vector_baseIPKSt4pairINSt7__cxx1112basi
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca i64, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store i64 %2, ptr %6, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !125
+  store ptr %1, ptr %5, align 8, !tbaa !65
+  store i64 %2, ptr %6, align 8, !tbaa !27
   %7 = load ptr, ptr %4, align 8
-  %8 = load ptr, ptr %5, align 8
+  %8 = load ptr, ptr %5, align 8, !tbaa !65
   %9 = icmp ne ptr %8, null
   br i1 %9, label %10, label %14
 
 10:                                               ; preds = %3
   %11 = getelementptr inbounds nuw %"struct.std::_Vector_base", ptr %7, i32 0, i32 0
-  %12 = load ptr, ptr %5, align 8
-  %13 = load i64, ptr %6, align 8
+  %12 = load ptr, ptr %5, align 8, !tbaa !65
+  %13 = load i64, ptr %6, align 8, !tbaa !27
   call void @_ZNSt16allocator_traitsISaIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_EEE10deallocateERSA_PS9_m(ptr noundef nonnull align 1 dereferenceable(1) %11, ptr noundef %12, i64 noundef %13)
   br label %14
 
@@ -2793,11 +3079,9 @@ define linkonce_odr hidden void @_ZNSt12_Vector_baseIPKSt4pairINSt7__cxx1112basi
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNSt12_Vector_baseIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS9_EE12_Vector_implD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #0 comdat align 2 {
+define linkonce_odr hidden void @_ZNSt15__new_allocatorIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_EED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  call void @_ZNSaIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #9
+  store ptr %0, ptr %2, align 8, !tbaa !127
   ret void
 }
 
@@ -2806,12 +3090,12 @@ define linkonce_odr hidden void @_ZNSt16allocator_traitsISaIPKSt4pairINSt7__cxx1
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca i64, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store i64 %2, ptr %6, align 8
-  %7 = load ptr, ptr %4, align 8
-  %8 = load ptr, ptr %5, align 8
-  %9 = load i64, ptr %6, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !123
+  store ptr %1, ptr %5, align 8, !tbaa !65
+  store i64 %2, ptr %6, align 8, !tbaa !27
+  %7 = load ptr, ptr %4, align 8, !tbaa !123
+  %8 = load ptr, ptr %5, align 8, !tbaa !65
+  %9 = load i64, ptr %6, align 8, !tbaa !27
   call void @_ZNSt15__new_allocatorIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_EE10deallocateEPS9_m(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef %8, i64 noundef %9)
   ret void
 }
@@ -2821,48 +3105,32 @@ define linkonce_odr hidden void @_ZNSt15__new_allocatorIPKSt4pairINSt7__cxx1112b
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca i64, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store i64 %2, ptr %6, align 8
-  %7 = load ptr, ptr %5, align 8
-  %8 = load i64, ptr %6, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !127
+  store ptr %1, ptr %5, align 8, !tbaa !65
+  store i64 %2, ptr %6, align 8, !tbaa !27
+  %7 = load ptr, ptr %5, align 8, !tbaa !65
+  %8 = load i64, ptr %6, align 8, !tbaa !27
   %9 = mul i64 %8, 8
-  call void @_ZdlPvm(ptr noundef %7, i64 noundef %9) #12
+  call void @_ZdlPvm(ptr noundef %7, i64 noundef %9) #16
   ret void
 }
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPvm(ptr noundef, i64 noundef) #6
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNSaIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #0 comdat align 2 {
-  %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  call void @_ZNSt15__new_allocatorIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_EED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #9
-  ret void
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNSt15__new_allocatorIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_EED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #0 comdat align 2 {
-  %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  ret void
-}
+declare void @_ZdlPvm(ptr noundef, i64 noundef) #8
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZN9__gnu_cxx16__aligned_membufISt4pairIKcSt6vectorIPKS1_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ESaISC_EEEE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !129
   %3 = load ptr, ptr %2, align 8
-  %4 = call noundef ptr @_ZN9__gnu_cxx16__aligned_membufISt4pairIKcSt6vectorIPKS1_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ESaISC_EEEE7_M_addrEv(ptr noundef nonnull align 8 dereferenceable(32) %3) #9
+  %4 = call noundef ptr @_ZN9__gnu_cxx16__aligned_membufISt4pairIKcSt6vectorIPKS1_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ESaISC_EEEE7_M_addrEv(ptr noundef nonnull align 8 dereferenceable(32) %3) #13
   ret ptr %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZN9__gnu_cxx16__aligned_membufISt4pairIKcSt6vectorIPKS1_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ESaISC_EEEE7_M_addrEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !129
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw %"struct.__gnu_cxx::__aligned_membuf", ptr %3, i32 0, i32 0
   ret ptr %4
@@ -2873,12 +3141,12 @@ define linkonce_odr hidden void @_ZNSt16allocator_traitsISaISt13_Rb_tree_nodeISt
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca i64, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store i64 %2, ptr %6, align 8
-  %7 = load ptr, ptr %4, align 8
-  %8 = load ptr, ptr %5, align 8
-  %9 = load i64, ptr %6, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !102
+  store ptr %1, ptr %5, align 8, !tbaa !118
+  store i64 %2, ptr %6, align 8, !tbaa !27
+  %7 = load ptr, ptr %4, align 8, !tbaa !102
+  %8 = load ptr, ptr %5, align 8, !tbaa !118
+  %9 = load i64, ptr %6, align 8, !tbaa !27
   call void @_ZNSt15__new_allocatorISt13_Rb_tree_nodeISt4pairIKcSt6vectorIPKS1_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ESaISC_EEEEE10deallocateEPSG_m(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef %8, i64 noundef %9)
   ret void
 }
@@ -2888,99 +3156,83 @@ define linkonce_odr hidden void @_ZNSt15__new_allocatorISt13_Rb_tree_nodeISt4pai
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca i64, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store i64 %2, ptr %6, align 8
-  %7 = load ptr, ptr %5, align 8
-  %8 = load i64, ptr %6, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !112
+  store ptr %1, ptr %5, align 8, !tbaa !118
+  store i64 %2, ptr %6, align 8, !tbaa !27
+  %7 = load ptr, ptr %5, align 8, !tbaa !118
+  %8 = load i64, ptr %6, align 8, !tbaa !27
   %9 = mul i64 %8, 64
-  call void @_ZdlPvm(ptr noundef %7, i64 noundef %9) #12
+  call void @_ZdlPvm(ptr noundef %7, i64 noundef %9) #16
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZNKSt8_Rb_treeIcSt4pairIKcSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEESt10_Select1stISE_ESt4lessIcESaISE_EE9_M_mbeginEv(ptr noundef nonnull align 8 dereferenceable(48) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !98
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw %"class.std::_Rb_tree", ptr %3, i32 0, i32 0
   %5 = getelementptr inbounds i8, ptr %4, i64 8
   %6 = getelementptr inbounds nuw %"struct.std::_Rb_tree_header", ptr %5, i32 0, i32 0
   %7 = getelementptr inbounds nuw %"struct.std::_Rb_tree_node_base", ptr %6, i32 0, i32 1
-  %8 = load ptr, ptr %7, align 8
+  %8 = load ptr, ptr %7, align 8, !tbaa !114
   ret ptr %8
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNSaISt13_Rb_tree_nodeISt4pairIKcSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEEEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #0 comdat align 2 {
-  %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  call void @_ZNSt15__new_allocatorISt13_Rb_tree_nodeISt4pairIKcSt6vectorIPKS1_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ESaISC_EEEEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #9
-  ret void
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNSt15__new_allocatorISt13_Rb_tree_nodeISt4pairIKcSt6vectorIPKS1_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ESaISC_EEEEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #0 comdat align 2 {
-  %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt8_Rb_treeIjSt4pairIKjSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEESt10_Select1stISE_ESt4lessIjESaISE_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !131
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw %"class.std::_Rb_tree.16", ptr %3, i32 0, i32 0
-  call void @_ZNSt8_Rb_treeIjSt4pairIKjSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEESt10_Select1stISE_ESt4lessIjESaISE_EE13_Rb_tree_implISI_Lb1EEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %4) #9
+  call void @_ZNSt8_Rb_treeIjSt4pairIKjSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEESt10_Select1stISE_ESt4lessIjESaISE_EE13_Rb_tree_implISI_Lb1EEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %4) #13
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt8_Rb_treeIjSt4pairIKjSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEESt10_Select1stISE_ESt4lessIjESaISE_EE13_Rb_tree_implISI_Lb1EEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !133
   %3 = load ptr, ptr %2, align 8
-  call void @_ZNSaISt13_Rb_tree_nodeISt4pairIKjSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEEEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #9
-  call void @_ZNSt20_Rb_tree_key_compareISt4lessIjEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #9
+  call void @_ZNSaISt13_Rb_tree_nodeISt4pairIKjSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEEEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #13
+  call void @_ZNSt20_Rb_tree_key_compareISt4lessIjEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #13
   %4 = getelementptr inbounds i8, ptr %3, i64 8
-  call void @_ZNSt15_Rb_tree_headerC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %4) #9
+  call void @_ZNSt15_Rb_tree_headerC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %4) #13
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSaISt13_Rb_tree_nodeISt4pairIKjSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEEEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !135
   %3 = load ptr, ptr %2, align 8
-  call void @_ZNSt15__new_allocatorISt13_Rb_tree_nodeISt4pairIKjSt6vectorIPKS1_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ESaISC_EEEEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #9
+  call void @_ZNSt15__new_allocatorISt13_Rb_tree_nodeISt4pairIKjSt6vectorIPKS1_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ESaISC_EEEEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #13
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt20_Rb_tree_key_compareISt4lessIjEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !137
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt15__new_allocatorISt13_Rb_tree_nodeISt4pairIKjSt6vectorIPKS1_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ESaISC_EEEEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !139
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt8_Rb_treeIjSt4pairIKjSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEESt10_Select1stISE_ESt4lessIjESaISE_EED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !131
   %3 = load ptr, ptr %2, align 8
-  %4 = call noundef ptr @_ZNSt8_Rb_treeIjSt4pairIKjSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEESt10_Select1stISE_ESt4lessIjESaISE_EE8_M_beginEv(ptr noundef nonnull align 8 dereferenceable(48) %3) #9
+  %4 = call noundef ptr @_ZNSt8_Rb_treeIjSt4pairIKjSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEESt10_Select1stISE_ESt4lessIjESaISE_EE8_M_beginEv(ptr noundef nonnull align 8 dereferenceable(48) %3) #13
   call void @_ZNSt8_Rb_treeIjSt4pairIKjSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEESt10_Select1stISE_ESt4lessIjESaISE_EE8_M_eraseEPSt13_Rb_tree_nodeISE_E(ptr noundef nonnull align 8 dereferenceable(48) %3, ptr noundef %4)
   %5 = getelementptr inbounds nuw %"class.std::_Rb_tree.16", ptr %3, i32 0, i32 0
-  call void @_ZNSt8_Rb_treeIjSt4pairIKjSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEESt10_Select1stISE_ESt4lessIjESaISE_EE13_Rb_tree_implISI_Lb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %5) #9
+  call void @_ZNSt15__new_allocatorISt13_Rb_tree_nodeISt4pairIKjSt6vectorIPKS1_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ESaISC_EEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %5) #13
   ret void
 }
 
@@ -2989,28 +3241,30 @@ define linkonce_odr void @_ZNSt8_Rb_treeIjSt4pairIKjSt6vectorIPKS0_INSt7__cxx111
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !131
+  store ptr %1, ptr %4, align 8, !tbaa !141
   %6 = load ptr, ptr %3, align 8
   br label %7
 
 7:                                                ; preds = %10, %2
-  %8 = load ptr, ptr %4, align 8
+  %8 = load ptr, ptr %4, align 8, !tbaa !141
   %9 = icmp ne ptr %8, null
   br i1 %9, label %10, label %17
 
 10:                                               ; preds = %7
-  %11 = load ptr, ptr %4, align 8
-  %12 = call noundef ptr @_ZNSt8_Rb_treeIjSt4pairIKjSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEESt10_Select1stISE_ESt4lessIjESaISE_EE8_S_rightEPSt18_Rb_tree_node_base(ptr noundef %11) #9
+  %11 = load ptr, ptr %4, align 8, !tbaa !141
+  %12 = call noundef ptr @_ZNSt8_Rb_treeIjSt4pairIKjSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEESt10_Select1stISE_ESt4lessIjESaISE_EE8_S_rightEPSt18_Rb_tree_node_base(ptr noundef %11) #13
   call void @_ZNSt8_Rb_treeIjSt4pairIKjSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEESt10_Select1stISE_ESt4lessIjESaISE_EE8_M_eraseEPSt13_Rb_tree_nodeISE_E(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr noundef %12)
-  %13 = load ptr, ptr %4, align 8
-  %14 = call noundef ptr @_ZNSt8_Rb_treeIjSt4pairIKjSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEESt10_Select1stISE_ESt4lessIjESaISE_EE7_S_leftEPSt18_Rb_tree_node_base(ptr noundef %13) #9
-  store ptr %14, ptr %5, align 8
-  %15 = load ptr, ptr %4, align 8
-  call void @_ZNSt8_Rb_treeIjSt4pairIKjSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEESt10_Select1stISE_ESt4lessIjESaISE_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISE_E(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr noundef %15) #9
-  %16 = load ptr, ptr %5, align 8
-  store ptr %16, ptr %4, align 8
-  br label %7, !llvm.loop !8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #13
+  %13 = load ptr, ptr %4, align 8, !tbaa !141
+  %14 = call noundef ptr @_ZNSt8_Rb_treeIjSt4pairIKjSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEESt10_Select1stISE_ESt4lessIjESaISE_EE7_S_leftEPSt18_Rb_tree_node_base(ptr noundef %13) #13
+  store ptr %14, ptr %5, align 8, !tbaa !141
+  %15 = load ptr, ptr %4, align 8, !tbaa !141
+  call void @_ZNSt8_Rb_treeIjSt4pairIKjSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEESt10_Select1stISE_ESt4lessIjESaISE_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISE_E(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr noundef %15) #13
+  %16 = load ptr, ptr %5, align 8, !tbaa !141
+  store ptr %16, ptr %4, align 8, !tbaa !141
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #13
+  br label %7, !llvm.loop !143
 
 17:                                               ; preds = %7
   ret void
@@ -3019,38 +3273,36 @@ define linkonce_odr void @_ZNSt8_Rb_treeIjSt4pairIKjSt6vectorIPKS0_INSt7__cxx111
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZNSt8_Rb_treeIjSt4pairIKjSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEESt10_Select1stISE_ESt4lessIjESaISE_EE8_M_beginEv(ptr noundef nonnull align 8 dereferenceable(48) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !131
   %3 = load ptr, ptr %2, align 8
-  %4 = call noundef ptr @_ZNKSt8_Rb_treeIjSt4pairIKjSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEESt10_Select1stISE_ESt4lessIjESaISE_EE9_M_mbeginEv(ptr noundef nonnull align 8 dereferenceable(48) %3) #9
+  %4 = call noundef ptr @_ZNKSt8_Rb_treeIjSt4pairIKjSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEESt10_Select1stISE_ESt4lessIjESaISE_EE9_M_mbeginEv(ptr noundef nonnull align 8 dereferenceable(48) %3) #13
   ret ptr %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNSt8_Rb_treeIjSt4pairIKjSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEESt10_Select1stISE_ESt4lessIjESaISE_EE13_Rb_tree_implISI_Lb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #0 comdat align 2 {
+define linkonce_odr hidden void @_ZNSt15__new_allocatorISt13_Rb_tree_nodeISt4pairIKjSt6vectorIPKS1_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ESaISC_EEEEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  call void @_ZNSaISt13_Rb_tree_nodeISt4pairIKjSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEEEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #9
+  store ptr %0, ptr %2, align 8, !tbaa !139
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZNSt8_Rb_treeIjSt4pairIKjSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEESt10_Select1stISE_ESt4lessIjESaISE_EE8_S_rightEPSt18_Rb_tree_node_base(ptr noundef %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !69
+  %3 = load ptr, ptr %2, align 8, !tbaa !69
   %4 = getelementptr inbounds nuw %"struct.std::_Rb_tree_node_base", ptr %3, i32 0, i32 3
-  %5 = load ptr, ptr %4, align 8
+  %5 = load ptr, ptr %4, align 8, !tbaa !121
   ret ptr %5
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZNSt8_Rb_treeIjSt4pairIKjSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEESt10_Select1stISE_ESt4lessIjESaISE_EE7_S_leftEPSt18_Rb_tree_node_base(ptr noundef %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !69
+  %3 = load ptr, ptr %2, align 8, !tbaa !69
   %4 = getelementptr inbounds nuw %"struct.std::_Rb_tree_node_base", ptr %3, i32 0, i32 2
-  %5 = load ptr, ptr %4, align 8
+  %5 = load ptr, ptr %4, align 8, !tbaa !122
   ret ptr %5
 }
 
@@ -3058,13 +3310,13 @@ define linkonce_odr hidden noundef ptr @_ZNSt8_Rb_treeIjSt4pairIKjSt6vectorIPKS0
 define linkonce_odr hidden void @_ZNSt8_Rb_treeIjSt4pairIKjSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEESt10_Select1stISE_ESt4lessIjESaISE_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISE_E(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %1) #0 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !131
+  store ptr %1, ptr %4, align 8, !tbaa !141
   %5 = load ptr, ptr %3, align 8
-  %6 = load ptr, ptr %4, align 8
-  call void @_ZNSt8_Rb_treeIjSt4pairIKjSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEESt10_Select1stISE_ESt4lessIjESaISE_EE15_M_destroy_nodeEPSt13_Rb_tree_nodeISE_E(ptr noundef nonnull align 8 dereferenceable(48) %5, ptr noundef %6) #9
-  %7 = load ptr, ptr %4, align 8
-  call void @_ZNSt8_Rb_treeIjSt4pairIKjSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEESt10_Select1stISE_ESt4lessIjESaISE_EE11_M_put_nodeEPSt13_Rb_tree_nodeISE_E(ptr noundef nonnull align 8 dereferenceable(48) %5, ptr noundef %7) #9
+  %6 = load ptr, ptr %4, align 8, !tbaa !141
+  call void @_ZNSt8_Rb_treeIjSt4pairIKjSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEESt10_Select1stISE_ESt4lessIjESaISE_EE15_M_destroy_nodeEPSt13_Rb_tree_nodeISE_E(ptr noundef nonnull align 8 dereferenceable(48) %5, ptr noundef %6) #13
+  %7 = load ptr, ptr %4, align 8, !tbaa !141
+  call void @_ZNSt8_Rb_treeIjSt4pairIKjSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEESt10_Select1stISE_ESt4lessIjESaISE_EE11_M_put_nodeEPSt13_Rb_tree_nodeISE_E(ptr noundef nonnull align 8 dereferenceable(48) %5, ptr noundef %7) #13
   ret void
 }
 
@@ -3072,13 +3324,13 @@ define linkonce_odr hidden void @_ZNSt8_Rb_treeIjSt4pairIKjSt6vectorIPKS0_INSt7_
 define linkonce_odr hidden void @_ZNSt8_Rb_treeIjSt4pairIKjSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEESt10_Select1stISE_ESt4lessIjESaISE_EE15_M_destroy_nodeEPSt13_Rb_tree_nodeISE_E(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %1) #0 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !131
+  store ptr %1, ptr %4, align 8, !tbaa !141
   %5 = load ptr, ptr %3, align 8
-  %6 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt8_Rb_treeIjSt4pairIKjSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEESt10_Select1stISE_ESt4lessIjESaISE_EE21_M_get_Node_allocatorEv(ptr noundef nonnull align 8 dereferenceable(48) %5) #9
-  %7 = load ptr, ptr %4, align 8
+  %6 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt8_Rb_treeIjSt4pairIKjSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEESt10_Select1stISE_ESt4lessIjESaISE_EE21_M_get_Node_allocatorEv(ptr noundef nonnull align 8 dereferenceable(48) %5) #13
+  %7 = load ptr, ptr %4, align 8, !tbaa !141
   %8 = call noundef ptr @_ZNSt13_Rb_tree_nodeISt4pairIKjSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEEE9_M_valptrEv(ptr noundef nonnull align 8 dereferenceable(64) %7)
-  call void @_ZNSt16allocator_traitsISaISt13_Rb_tree_nodeISt4pairIKjSt6vectorIPKS1_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ESaISC_EEEEEE7destroyISF_EEvRSH_PT_(ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef %8) #9
+  call void @_ZNSt16allocator_traitsISaISt13_Rb_tree_nodeISt4pairIKjSt6vectorIPKS1_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ESaISC_EEEEEE7destroyISF_EEvRSH_PT_(ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef %8) #13
   ret void
 }
 
@@ -3086,11 +3338,11 @@ define linkonce_odr hidden void @_ZNSt8_Rb_treeIjSt4pairIKjSt6vectorIPKS0_INSt7_
 define linkonce_odr hidden void @_ZNSt8_Rb_treeIjSt4pairIKjSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEESt10_Select1stISE_ESt4lessIjESaISE_EE11_M_put_nodeEPSt13_Rb_tree_nodeISE_E(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %1) #0 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !131
+  store ptr %1, ptr %4, align 8, !tbaa !141
   %5 = load ptr, ptr %3, align 8
-  %6 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt8_Rb_treeIjSt4pairIKjSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEESt10_Select1stISE_ESt4lessIjESaISE_EE21_M_get_Node_allocatorEv(ptr noundef nonnull align 8 dereferenceable(48) %5) #9
-  %7 = load ptr, ptr %4, align 8
+  %6 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt8_Rb_treeIjSt4pairIKjSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEESt10_Select1stISE_ESt4lessIjESaISE_EE21_M_get_Node_allocatorEv(ptr noundef nonnull align 8 dereferenceable(48) %5) #13
+  %7 = load ptr, ptr %4, align 8, !tbaa !141
   call void @_ZNSt16allocator_traitsISaISt13_Rb_tree_nodeISt4pairIKjSt6vectorIPKS1_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ESaISC_EEEEEE10deallocateERSH_PSG_m(ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef %7, i64 noundef 1)
   ret void
 }
@@ -3099,18 +3351,18 @@ define linkonce_odr hidden void @_ZNSt8_Rb_treeIjSt4pairIKjSt6vectorIPKS0_INSt7_
 define linkonce_odr hidden void @_ZNSt16allocator_traitsISaISt13_Rb_tree_nodeISt4pairIKjSt6vectorIPKS1_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ESaISC_EEEEEE7destroyISF_EEvRSH_PT_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1) #0 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  %5 = load ptr, ptr %3, align 8
-  %6 = load ptr, ptr %4, align 8
-  call void @_ZNSt15__new_allocatorISt13_Rb_tree_nodeISt4pairIKjSt6vectorIPKS1_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ESaISC_EEEEE7destroyISF_EEvPT_(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef %6) #9
+  store ptr %0, ptr %3, align 8, !tbaa !135
+  store ptr %1, ptr %4, align 8, !tbaa !81
+  %5 = load ptr, ptr %3, align 8, !tbaa !135
+  %6 = load ptr, ptr %4, align 8, !tbaa !81
+  call void @_ZNSt15__new_allocatorISt13_Rb_tree_nodeISt4pairIKjSt6vectorIPKS1_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ESaISC_EEEEE7destroyISF_EEvPT_(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef %6) #13
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt8_Rb_treeIjSt4pairIKjSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEESt10_Select1stISE_ESt4lessIjESaISE_EE21_M_get_Node_allocatorEv(ptr noundef nonnull align 8 dereferenceable(48) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !131
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw %"class.std::_Rb_tree.16", ptr %3, i32 0, i32 0
   ret ptr %4
@@ -3119,10 +3371,10 @@ define linkonce_odr hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZNSt13_Rb_tree_nodeISt4pairIKjSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEEE9_M_valptrEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !141
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw %"struct.std::_Rb_tree_node.27", ptr %3, i32 0, i32 1
-  %5 = call noundef ptr @_ZN9__gnu_cxx16__aligned_membufISt4pairIKjSt6vectorIPKS1_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ESaISC_EEEE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(32) %4) #9
+  %5 = call noundef ptr @_ZN9__gnu_cxx16__aligned_membufISt4pairIKjSt6vectorIPKS1_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ESaISC_EEEE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(32) %4) #13
   ret ptr %5
 }
 
@@ -3130,36 +3382,36 @@ define linkonce_odr hidden noundef ptr @_ZNSt13_Rb_tree_nodeISt4pairIKjSt6vector
 define linkonce_odr hidden void @_ZNSt15__new_allocatorISt13_Rb_tree_nodeISt4pairIKjSt6vectorIPKS1_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ESaISC_EEEEE7destroyISF_EEvPT_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1) #0 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  %5 = load ptr, ptr %4, align 8
-  call void @_ZNSt4pairIKjSt6vectorIPKS_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_ESaISA_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #9
+  store ptr %0, ptr %3, align 8, !tbaa !139
+  store ptr %1, ptr %4, align 8, !tbaa !81
+  %5 = load ptr, ptr %4, align 8, !tbaa !81
+  call void @_ZNSt4pairIKjSt6vectorIPKS_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_ESaISA_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #13
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNSt4pairIKjSt6vectorIPKS_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_ESaISA_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #0 comdat align 2 {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZNSt4pairIKjSt6vectorIPKS_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_ESaISA_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #4 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !81
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw %"struct.std::pair.23", ptr %3, i32 0, i32 1
-  call void @_ZNSt6vectorIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS9_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #9
+  call void @_ZNSt6vectorIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS9_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #13
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZN9__gnu_cxx16__aligned_membufISt4pairIKjSt6vectorIPKS1_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ESaISC_EEEE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !144
   %3 = load ptr, ptr %2, align 8
-  %4 = call noundef ptr @_ZN9__gnu_cxx16__aligned_membufISt4pairIKjSt6vectorIPKS1_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ESaISC_EEEE7_M_addrEv(ptr noundef nonnull align 8 dereferenceable(32) %3) #9
+  %4 = call noundef ptr @_ZN9__gnu_cxx16__aligned_membufISt4pairIKjSt6vectorIPKS1_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ESaISC_EEEE7_M_addrEv(ptr noundef nonnull align 8 dereferenceable(32) %3) #13
   ret ptr %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZN9__gnu_cxx16__aligned_membufISt4pairIKjSt6vectorIPKS1_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ESaISC_EEEE7_M_addrEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !144
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw %"struct.__gnu_cxx::__aligned_membuf.28", ptr %3, i32 0, i32 0
   ret ptr %4
@@ -3170,12 +3422,12 @@ define linkonce_odr hidden void @_ZNSt16allocator_traitsISaISt13_Rb_tree_nodeISt
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca i64, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store i64 %2, ptr %6, align 8
-  %7 = load ptr, ptr %4, align 8
-  %8 = load ptr, ptr %5, align 8
-  %9 = load i64, ptr %6, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !135
+  store ptr %1, ptr %5, align 8, !tbaa !141
+  store i64 %2, ptr %6, align 8, !tbaa !27
+  %7 = load ptr, ptr %4, align 8, !tbaa !135
+  %8 = load ptr, ptr %5, align 8, !tbaa !141
+  %9 = load i64, ptr %6, align 8, !tbaa !27
   call void @_ZNSt15__new_allocatorISt13_Rb_tree_nodeISt4pairIKjSt6vectorIPKS1_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ESaISC_EEEEE10deallocateEPSG_m(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef %8, i64 noundef %9)
   ret void
 }
@@ -3185,69 +3437,244 @@ define linkonce_odr hidden void @_ZNSt15__new_allocatorISt13_Rb_tree_nodeISt4pai
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca i64, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store i64 %2, ptr %6, align 8
-  %7 = load ptr, ptr %5, align 8
-  %8 = load i64, ptr %6, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !139
+  store ptr %1, ptr %5, align 8, !tbaa !141
+  store i64 %2, ptr %6, align 8, !tbaa !27
+  %7 = load ptr, ptr %5, align 8, !tbaa !141
+  %8 = load i64, ptr %6, align 8, !tbaa !27
   %9 = mul i64 %8, 64
-  call void @_ZdlPvm(ptr noundef %7, i64 noundef %9) #12
+  call void @_ZdlPvm(ptr noundef %7, i64 noundef %9) #16
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZNKSt8_Rb_treeIjSt4pairIKjSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEESt10_Select1stISE_ESt4lessIjESaISE_EE9_M_mbeginEv(ptr noundef nonnull align 8 dereferenceable(48) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !131
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw %"class.std::_Rb_tree.16", ptr %3, i32 0, i32 0
   %5 = getelementptr inbounds i8, ptr %4, i64 8
   %6 = getelementptr inbounds nuw %"struct.std::_Rb_tree_header", ptr %5, i32 0, i32 0
   %7 = getelementptr inbounds nuw %"struct.std::_Rb_tree_node_base", ptr %6, i32 0, i32 1
-  %8 = load ptr, ptr %7, align 8
+  %8 = load ptr, ptr %7, align 8, !tbaa !114
   ret ptr %8
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNSaISt13_Rb_tree_nodeISt4pairIKjSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEEEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #0 comdat align 2 {
+define linkonce_odr hidden void @_ZNSt15__new_allocatorIcEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  call void @_ZNSt15__new_allocatorISt13_Rb_tree_nodeISt4pairIKjSt6vectorIPKS1_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ESaISC_EEEEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #9
+  store ptr %0, ptr %2, align 8, !tbaa !146
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNSt15__new_allocatorISt13_Rb_tree_nodeISt4pairIKjSt6vectorIPKS1_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ESaISC_EEEEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #0 comdat align 2 {
+define available_externally noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #0 align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !44
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %3, i32 0, i32 2
+  %5 = getelementptr inbounds [16 x i8], ptr %4, i64 0, i64 0
+  %6 = call noundef ptr @_ZNSt19__ptr_traits_ptr_toIPccLb0EE10pointer_toERc(ptr noundef nonnull align 1 dereferenceable(1) %5) #13
+  ret ptr %6
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define available_externally void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC2EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %2) unnamed_addr #0 align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !148
+  store ptr %1, ptr %5, align 8, !tbaa !26
+  store ptr %2, ptr %6, align 8, !tbaa !42
+  %7 = load ptr, ptr %4, align 8
+  %8 = load ptr, ptr %6, align 8, !tbaa !42
+  call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef nonnull align 1 dereferenceable(1) %8) #13
+  %9 = getelementptr inbounds nuw %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", ptr %7, i32 0, i32 0
+  %10 = load ptr, ptr %5, align 8, !tbaa !26
+  store ptr %10, ptr %9, align 8, !tbaa !150
   ret void
 }
 
-declare noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32)) #4
+declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructEmc(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef, i8 noundef signext) #5
 
-declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef, ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #4
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef ptr @_ZNSt19__ptr_traits_ptr_toIPccLb0EE10pointer_toERc(ptr noundef nonnull align 1 dereferenceable(1) %0) #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !26
+  %3 = load ptr, ptr %2, align 8, !tbaa !26
+  ret ptr %3
+}
 
-declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructEmc(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef, i8 noundef signext) #4
+; Function Attrs: mustprogress nounwind uwtable
+define available_externally void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %1) unnamed_addr #0 align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !42
+  store ptr %1, ptr %4, align 8, !tbaa !42
+  %5 = load ptr, ptr %3, align 8
+  %6 = load ptr, ptr %4, align 8, !tbaa !42
+  call void @_ZNSt15__new_allocatorIcEC2ERKS0_(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull align 1 dereferenceable(1) %6) #13
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZNSt15__new_allocatorIcEC2ERKS0_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %1) unnamed_addr #0 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !146
+  store ptr %1, ptr %4, align 8, !tbaa !146
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define available_externally void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_disposeEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #0 align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !44
+  %3 = load ptr, ptr %2, align 8
+  %4 = call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv(ptr noundef nonnull align 8 dereferenceable(32) %3)
+  br i1 %4, label %8, label %5
+
+5:                                                ; preds = %1
+  %6 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %3, i32 0, i32 2
+  %7 = load i64, ptr %6, align 8, !tbaa !30
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_destroyEm(ptr noundef nonnull align 8 dereferenceable(32) %3, i64 noundef %7) #13
+  br label %8
+
+8:                                                ; preds = %5, %1
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZNSt15__new_allocatorIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !146
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define available_externally noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #0 align 2 {
+  %2 = alloca i1, align 1
+  %3 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !44
+  %4 = load ptr, ptr %3, align 8
+  %5 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %4)
+  %6 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %4)
+  %7 = icmp eq ptr %5, %6
+  br i1 %7, label %8, label %14
+
+8:                                                ; preds = %1
+  %9 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %4, i32 0, i32 1
+  %10 = load i64, ptr %9, align 8, !tbaa !47
+  %11 = icmp ugt i64 %10, 15
+  br i1 %11, label %12, label %13
+
+12:                                               ; preds = %8
+  unreachable
+
+13:                                               ; preds = %8
+  store i1 true, ptr %2, align 1
+  br label %15
+
+14:                                               ; preds = %1
+  store i1 false, ptr %2, align 1
+  br label %15
+
+15:                                               ; preds = %14, %13
+  %16 = load i1, ptr %2, align 1
+  ret i1 %16
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define available_externally void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_destroyEm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %1) #0 align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !44
+  store i64 %1, ptr %4, align 8, !tbaa !27
+  %5 = load ptr, ptr %3, align 8
+  %6 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE16_M_get_allocatorEv(ptr noundef nonnull align 8 dereferenceable(32) %5)
+  %7 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %5)
+  %8 = load i64, ptr %4, align 8, !tbaa !27
+  %9 = add i64 %8, 1
+  call void @_ZNSt16allocator_traitsISaIcEE10deallocateERS0_Pcm(ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef %7, i64 noundef %9)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define available_externally noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #0 align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !44
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %3, i32 0, i32 2
+  %5 = getelementptr inbounds [16 x i8], ptr %4, i64 0, i64 0
+  %6 = call noundef ptr @_ZNSt19__ptr_traits_ptr_toIPKcS0_Lb0EE10pointer_toERS0_(ptr noundef nonnull align 1 dereferenceable(1) %5) #13
+  ret ptr %6
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef ptr @_ZNSt19__ptr_traits_ptr_toIPKcS0_Lb0EE10pointer_toERS0_(ptr noundef nonnull align 1 dereferenceable(1) %0) #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !26
+  %3 = load ptr, ptr %2, align 8, !tbaa !26
+  ret ptr %3
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZNSt16allocator_traitsISaIcEE10deallocateERS0_Pcm(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1, i64 noundef %2) #0 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i64, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !42
+  store ptr %1, ptr %5, align 8, !tbaa !26
+  store i64 %2, ptr %6, align 8, !tbaa !27
+  %7 = load ptr, ptr %4, align 8, !tbaa !42
+  %8 = load ptr, ptr %5, align 8, !tbaa !26
+  %9 = load i64, ptr %6, align 8, !tbaa !27
+  call void @_ZNSt15__new_allocatorIcE10deallocateEPcm(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef %8, i64 noundef %9)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define available_externally noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE16_M_get_allocatorEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #0 align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !44
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %3, i32 0, i32 0
+  ret ptr %4
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZNSt15__new_allocatorIcE10deallocateEPcm(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1, i64 noundef %2) #0 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i64, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !146
+  store ptr %1, ptr %5, align 8, !tbaa !26
+  store i64 %2, ptr %6, align 8, !tbaa !27
+  %7 = load ptr, ptr %5, align 8, !tbaa !26
+  %8 = load i64, ptr %6, align 8, !tbaa !27
+  %9 = mul i64 %8, 1
+  call void @_ZdlPvm(ptr noundef %7, i64 noundef %9) #16
+  ret void
+}
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN9__gnu_cxx17__normal_iteratorIPKPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_ESt6vectorISA_SaISA_EEEC2ERKSC_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #0 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !63
+  store ptr %1, ptr %4, align 8, !tbaa !151
   %5 = load ptr, ptr %3, align 8
   %6 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator", ptr %5, i32 0, i32 0
-  %7 = load ptr, ptr %4, align 8
-  %8 = load ptr, ptr %7, align 8
-  store ptr %8, ptr %6, align 8
+  %7 = load ptr, ptr %4, align 8, !tbaa !151
+  %8 = load ptr, ptr %7, align 8, !tbaa !65
+  store ptr %8, ptr %6, align 8, !tbaa !66
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPKPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_ESt6vectorISA_SaISA_EEE4baseEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !63
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator", ptr %3, i32 0, i32 0
   ret ptr %4
@@ -3258,11 +3685,11 @@ define linkonce_odr hidden ptr @_ZNSt3mapIcSt6vectorIPKSt4pairINSt7__cxx1112basi
   %3 = alloca %"struct.std::_Rb_tree_iterator", align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !31
+  store ptr %1, ptr %5, align 8, !tbaa !26
   %6 = load ptr, ptr %4, align 8
   %7 = getelementptr inbounds nuw %"class.std::map", ptr %6, i32 0, i32 0
-  %8 = load ptr, ptr %5, align 8
+  %8 = load ptr, ptr %5, align 8, !tbaa !26
   %9 = call ptr @_ZNSt8_Rb_treeIcSt4pairIKcSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEESt10_Select1stISE_ESt4lessIcESaISE_EE11lower_boundERS1_(ptr noundef nonnull align 8 dereferenceable(48) %7, ptr noundef nonnull align 1 dereferenceable(1) %8)
   %10 = getelementptr inbounds nuw %"struct.std::_Rb_tree_iterator", ptr %3, i32 0, i32 0
   store ptr %9, ptr %10, align 8
@@ -3275,14 +3702,14 @@ define linkonce_odr hidden ptr @_ZNSt3mapIcSt6vectorIPKSt4pairINSt7__cxx1112basi
 define linkonce_odr noundef zeroext i1 @_ZSteqRKSt17_Rb_tree_iteratorISt4pairIKcSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEEESH_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #0 comdat {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  %5 = load ptr, ptr %3, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !73
+  store ptr %1, ptr %4, align 8, !tbaa !73
+  %5 = load ptr, ptr %3, align 8, !tbaa !73
   %6 = getelementptr inbounds nuw %"struct.std::_Rb_tree_iterator", ptr %5, i32 0, i32 0
-  %7 = load ptr, ptr %6, align 8
-  %8 = load ptr, ptr %4, align 8
+  %7 = load ptr, ptr %6, align 8, !tbaa !75
+  %8 = load ptr, ptr %4, align 8, !tbaa !73
   %9 = getelementptr inbounds nuw %"struct.std::_Rb_tree_iterator", ptr %8, i32 0, i32 0
-  %10 = load ptr, ptr %9, align 8
+  %10 = load ptr, ptr %9, align 8, !tbaa !75
   %11 = icmp eq ptr %7, %10
   ret i1 %11
 }
@@ -3290,7 +3717,7 @@ define linkonce_odr noundef zeroext i1 @_ZSteqRKSt17_Rb_tree_iteratorISt4pairIKc
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNKSt3mapIcSt6vectorIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_ESaISA_EESt4lessIcESaIS1_IKcSC_EEE8key_compEv(ptr noundef nonnull align 8 dereferenceable(48) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !31
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw %"class.std::map", ptr %3, i32 0, i32 0
   call void @_ZNKSt8_Rb_treeIcSt4pairIKcSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEESt10_Select1stISE_ESt4lessIcESaISE_EE8key_compEv(ptr noundef nonnull align 8 dereferenceable(48) %4)
@@ -3302,14 +3729,14 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNKSt4lessIcEclERKcS2_(ptr nound
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store ptr %2, ptr %6, align 8
-  %7 = load ptr, ptr %5, align 8
-  %8 = load i8, ptr %7, align 1
+  store ptr %0, ptr %4, align 8, !tbaa !153
+  store ptr %1, ptr %5, align 8, !tbaa !26
+  store ptr %2, ptr %6, align 8, !tbaa !26
+  %7 = load ptr, ptr %5, align 8, !tbaa !26
+  %8 = load i8, ptr %7, align 1, !tbaa !30
   %9 = sext i8 %8 to i32
-  %10 = load ptr, ptr %6, align 8
-  %11 = load i8, ptr %10, align 1
+  %10 = load ptr, ptr %6, align 8, !tbaa !26
+  %11 = load i8, ptr %10, align 1, !tbaa !30
   %12 = sext i8 %11 to i32
   %13 = icmp slt i32 %9, %12
   ret i1 %13
@@ -3330,16 +3757,18 @@ define linkonce_odr ptr @_ZNSt8_Rb_treeIcSt4pairIKcSt6vectorIPKS0_INSt7__cxx1112
   %16 = alloca i32, align 4
   %17 = getelementptr inbounds nuw %"struct.std::_Rb_tree_const_iterator", ptr %7, i32 0, i32 0
   store ptr %1, ptr %17, align 8
-  store ptr %0, ptr %8, align 8
-  store ptr %2, ptr %9, align 8
-  store ptr %3, ptr %10, align 8
-  store ptr %4, ptr %11, align 8
+  store ptr %0, ptr %8, align 8, !tbaa !98
+  store ptr %2, ptr %9, align 8, !tbaa !155
+  store ptr %3, ptr %10, align 8, !tbaa !157
+  store ptr %4, ptr %11, align 8, !tbaa !159
   %18 = load ptr, ptr %8, align 8
-  %19 = load ptr, ptr %9, align 8
-  %20 = load ptr, ptr %10, align 8
-  %21 = load ptr, ptr %11, align 8
+  call void @llvm.lifetime.start.p0(i64 16, ptr %12) #13
+  %19 = load ptr, ptr %9, align 8, !tbaa !155
+  %20 = load ptr, ptr %10, align 8, !tbaa !157
+  %21 = load ptr, ptr %11, align 8, !tbaa !159
   call void @_ZNSt8_Rb_treeIcSt4pairIKcSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEESt10_Select1stISE_ESt4lessIcESaISE_EE10_Auto_nodeC2IJRKSt21piecewise_construct_tSt5tupleIJRS1_EESQ_IJEEEEERSK_DpOT_(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull align 8 dereferenceable(48) %18, ptr noundef nonnull align 1 dereferenceable(1) %19, ptr noundef nonnull align 8 dereferenceable(8) %20, ptr noundef nonnull align 1 dereferenceable(1) %21)
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %14, ptr align 8 %7, i64 8, i1 false)
+  call void @llvm.lifetime.start.p0(i64 16, ptr %13) #13
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %14, ptr align 8 %7, i64 8, i1 false), !tbaa.struct !68
   %22 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt8_Rb_treeIcSt4pairIKcSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEESt10_Select1stISE_ESt4lessIcESaISE_EE10_Auto_node6_M_keyEv(ptr noundef nonnull align 8 dereferenceable(16) %12)
   %23 = getelementptr inbounds nuw %"struct.std::_Rb_tree_const_iterator", ptr %14, i32 0, i32 0
   %24 = load ptr, ptr %23, align 8
@@ -3351,7 +3780,7 @@ define linkonce_odr ptr @_ZNSt8_Rb_treeIcSt4pairIKcSt6vectorIPKS0_INSt7__cxx1112
   %29 = extractvalue { ptr, ptr } %25, 1
   store ptr %29, ptr %28, align 8
   %30 = getelementptr inbounds nuw %"struct.std::pair.30", ptr %13, i32 0, i32 1
-  %31 = load ptr, ptr %30, align 8
+  %31 = load ptr, ptr %30, align 8, !tbaa !161
   %32 = icmp ne ptr %31, null
   br i1 %32, label %33, label %40
 
@@ -3369,13 +3798,15 @@ define linkonce_odr ptr @_ZNSt8_Rb_treeIcSt4pairIKcSt6vectorIPKS0_INSt7__cxx1112
 
 40:                                               ; preds = %5
   %41 = getelementptr inbounds nuw %"struct.std::pair.30", ptr %13, i32 0, i32 0
-  %42 = load ptr, ptr %41, align 8
-  call void @_ZNSt17_Rb_tree_iteratorISt4pairIKcSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEEEC2EPSt18_Rb_tree_node_base(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef %42) #9
+  %42 = load ptr, ptr %41, align 8, !tbaa !163
+  call void @_ZNSt17_Rb_tree_iteratorISt4pairIKcSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEEEC2EPSt18_Rb_tree_node_base(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef %42) #13
   store i32 1, ptr %16, align 4
   br label %43
 
 43:                                               ; preds = %40, %33
-  call void @_ZNSt8_Rb_treeIcSt4pairIKcSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEESt10_Select1stISE_ESt4lessIcESaISE_EE10_Auto_nodeD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %12) #9
+  call void @llvm.lifetime.end.p0(i64 16, ptr %13) #13
+  call void @_ZNSt8_Rb_treeIcSt4pairIKcSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEESt10_Select1stISE_ESt4lessIcESaISE_EE10_Auto_nodeD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %12) #13
+  call void @llvm.lifetime.end.p0(i64 16, ptr %12) #13
   %44 = getelementptr inbounds nuw %"struct.std::_Rb_tree_iterator", ptr %6, i32 0, i32 0
   %45 = load ptr, ptr %44, align 8
   ret ptr %45
@@ -3385,14 +3816,14 @@ define linkonce_odr ptr @_ZNSt8_Rb_treeIcSt4pairIKcSt6vectorIPKS0_INSt7__cxx1112
 define linkonce_odr hidden void @_ZNSt23_Rb_tree_const_iteratorISt4pairIKcSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEEEC2ERKSt17_Rb_tree_iteratorISE_E(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #0 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !164
+  store ptr %1, ptr %4, align 8, !tbaa !73
   %5 = load ptr, ptr %3, align 8
   %6 = getelementptr inbounds nuw %"struct.std::_Rb_tree_const_iterator", ptr %5, i32 0, i32 0
-  %7 = load ptr, ptr %4, align 8
+  %7 = load ptr, ptr %4, align 8, !tbaa !73
   %8 = getelementptr inbounds nuw %"struct.std::_Rb_tree_iterator", ptr %7, i32 0, i32 0
-  %9 = load ptr, ptr %8, align 8
-  store ptr %9, ptr %6, align 8
+  %9 = load ptr, ptr %8, align 8, !tbaa !75
+  store ptr %9, ptr %6, align 8, !tbaa !166
   ret void
 }
 
@@ -3400,10 +3831,10 @@ define linkonce_odr hidden void @_ZNSt23_Rb_tree_const_iteratorISt4pairIKcSt6vec
 define linkonce_odr hidden void @_ZNSt5tupleIJRKcEEC2ILb1ETnNSt9enable_ifIXclsr4_TCCIXT_EEE29__is_implicitly_constructibleIS1_EEEbE4typeELb1EEES1_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 1 dereferenceable(1) %1) unnamed_addr #0 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !157
+  store ptr %1, ptr %4, align 8, !tbaa !26
   %5 = load ptr, ptr %3, align 8
-  %6 = load ptr, ptr %4, align 8
+  %6 = load ptr, ptr %4, align 8, !tbaa !26
   call void @_ZNSt11_Tuple_implILm0EJRKcEEC2ES1_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 1 dereferenceable(1) %6)
   ret void
 }
@@ -3413,12 +3844,12 @@ define linkonce_odr hidden ptr @_ZNSt8_Rb_treeIcSt4pairIKcSt6vectorIPKS0_INSt7__
   %3 = alloca %"struct.std::_Rb_tree_iterator", align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !98
+  store ptr %1, ptr %5, align 8, !tbaa !26
   %6 = load ptr, ptr %4, align 8
-  %7 = call noundef ptr @_ZNSt8_Rb_treeIcSt4pairIKcSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEESt10_Select1stISE_ESt4lessIcESaISE_EE8_M_beginEv(ptr noundef nonnull align 8 dereferenceable(48) %6) #9
-  %8 = call noundef ptr @_ZNSt8_Rb_treeIcSt4pairIKcSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEESt10_Select1stISE_ESt4lessIcESaISE_EE6_M_endEv(ptr noundef nonnull align 8 dereferenceable(48) %6) #9
-  %9 = load ptr, ptr %5, align 8
+  %7 = call noundef ptr @_ZNSt8_Rb_treeIcSt4pairIKcSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEESt10_Select1stISE_ESt4lessIcESaISE_EE8_M_beginEv(ptr noundef nonnull align 8 dereferenceable(48) %6) #13
+  %8 = call noundef ptr @_ZNSt8_Rb_treeIcSt4pairIKcSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEESt10_Select1stISE_ESt4lessIcESaISE_EE6_M_endEv(ptr noundef nonnull align 8 dereferenceable(48) %6) #13
+  %9 = load ptr, ptr %5, align 8, !tbaa !26
   %10 = call ptr @_ZNSt8_Rb_treeIcSt4pairIKcSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEESt10_Select1stISE_ESt4lessIcESaISE_EE14_M_lower_boundEPSt13_Rb_tree_nodeISE_EPSt18_Rb_tree_node_baseRS1_(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr noundef %7, ptr noundef %8, ptr noundef nonnull align 1 dereferenceable(1) %9)
   %11 = getelementptr inbounds nuw %"struct.std::_Rb_tree_iterator", ptr %3, i32 0, i32 0
   store ptr %10, ptr %11, align 8
@@ -3434,46 +3865,46 @@ define linkonce_odr ptr @_ZNSt8_Rb_treeIcSt4pairIKcSt6vectorIPKS0_INSt7__cxx1112
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
   %9 = alloca ptr, align 8
-  store ptr %0, ptr %6, align 8
-  store ptr %1, ptr %7, align 8
-  store ptr %2, ptr %8, align 8
-  store ptr %3, ptr %9, align 8
+  store ptr %0, ptr %6, align 8, !tbaa !98
+  store ptr %1, ptr %7, align 8, !tbaa !118
+  store ptr %2, ptr %8, align 8, !tbaa !69
+  store ptr %3, ptr %9, align 8, !tbaa !26
   %10 = load ptr, ptr %6, align 8
   br label %11
 
 11:                                               ; preds = %27, %4
-  %12 = load ptr, ptr %7, align 8
+  %12 = load ptr, ptr %7, align 8, !tbaa !118
   %13 = icmp ne ptr %12, null
   br i1 %13, label %14, label %28
 
 14:                                               ; preds = %11
   %15 = getelementptr inbounds nuw %"class.std::_Rb_tree", ptr %10, i32 0, i32 0
-  %16 = load ptr, ptr %7, align 8
+  %16 = load ptr, ptr %7, align 8, !tbaa !118
   %17 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt8_Rb_treeIcSt4pairIKcSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEESt10_Select1stISE_ESt4lessIcESaISE_EE6_S_keyEPKSt13_Rb_tree_nodeISE_E(ptr noundef %16)
-  %18 = load ptr, ptr %9, align 8
+  %18 = load ptr, ptr %9, align 8, !tbaa !26
   %19 = call noundef zeroext i1 @_ZNKSt4lessIcEclERKcS2_(ptr noundef nonnull align 1 dereferenceable(1) %15, ptr noundef nonnull align 1 dereferenceable(1) %17, ptr noundef nonnull align 1 dereferenceable(1) %18)
   br i1 %19, label %24, label %20
 
 20:                                               ; preds = %14
-  %21 = load ptr, ptr %7, align 8
-  store ptr %21, ptr %8, align 8
-  %22 = load ptr, ptr %7, align 8
-  %23 = call noundef ptr @_ZNSt8_Rb_treeIcSt4pairIKcSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEESt10_Select1stISE_ESt4lessIcESaISE_EE7_S_leftEPSt18_Rb_tree_node_base(ptr noundef %22) #9
-  store ptr %23, ptr %7, align 8
+  %21 = load ptr, ptr %7, align 8, !tbaa !118
+  store ptr %21, ptr %8, align 8, !tbaa !69
+  %22 = load ptr, ptr %7, align 8, !tbaa !118
+  %23 = call noundef ptr @_ZNSt8_Rb_treeIcSt4pairIKcSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEESt10_Select1stISE_ESt4lessIcESaISE_EE7_S_leftEPSt18_Rb_tree_node_base(ptr noundef %22) #13
+  store ptr %23, ptr %7, align 8, !tbaa !118
   br label %27
 
 24:                                               ; preds = %14
-  %25 = load ptr, ptr %7, align 8
-  %26 = call noundef ptr @_ZNSt8_Rb_treeIcSt4pairIKcSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEESt10_Select1stISE_ESt4lessIcESaISE_EE8_S_rightEPSt18_Rb_tree_node_base(ptr noundef %25) #9
-  store ptr %26, ptr %7, align 8
+  %25 = load ptr, ptr %7, align 8, !tbaa !118
+  %26 = call noundef ptr @_ZNSt8_Rb_treeIcSt4pairIKcSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEESt10_Select1stISE_ESt4lessIcESaISE_EE8_S_rightEPSt18_Rb_tree_node_base(ptr noundef %25) #13
+  store ptr %26, ptr %7, align 8, !tbaa !118
   br label %27
 
 27:                                               ; preds = %24, %20
-  br label %11, !llvm.loop !9
+  br label %11, !llvm.loop !168
 
 28:                                               ; preds = %11
-  %29 = load ptr, ptr %8, align 8
-  call void @_ZNSt17_Rb_tree_iteratorISt4pairIKcSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEEEC2EPSt18_Rb_tree_node_base(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef %29) #9
+  %29 = load ptr, ptr %8, align 8, !tbaa !69
+  call void @_ZNSt17_Rb_tree_iteratorISt4pairIKcSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEEEC2EPSt18_Rb_tree_node_base(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef %29) #13
   %30 = getelementptr inbounds nuw %"struct.std::_Rb_tree_iterator", ptr %5, i32 0, i32 0
   %31 = load ptr, ptr %30, align 8
   ret ptr %31
@@ -3482,7 +3913,7 @@ define linkonce_odr ptr @_ZNSt8_Rb_treeIcSt4pairIKcSt6vectorIPKS0_INSt7__cxx1112
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZNSt8_Rb_treeIcSt4pairIKcSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEESt10_Select1stISE_ESt4lessIcESaISE_EE6_M_endEv(ptr noundef nonnull align 8 dereferenceable(48) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !98
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw %"class.std::_Rb_tree", ptr %3, i32 0, i32 0
   %5 = getelementptr inbounds i8, ptr %4, i64 8
@@ -3494,10 +3925,12 @@ define linkonce_odr hidden noundef ptr @_ZNSt8_Rb_treeIcSt4pairIKcSt6vectorIPKS0
 define linkonce_odr hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt8_Rb_treeIcSt4pairIKcSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEESt10_Select1stISE_ESt4lessIcESaISE_EE6_S_keyEPKSt13_Rb_tree_nodeISE_E(ptr noundef %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
   %3 = alloca %"struct.std::_Select1st", align 1
-  store ptr %0, ptr %2, align 8
-  %4 = load ptr, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !118
+  call void @llvm.lifetime.start.p0(i64 1, ptr %3) #13
+  %4 = load ptr, ptr %2, align 8, !tbaa !118
   %5 = call noundef ptr @_ZNKSt13_Rb_tree_nodeISt4pairIKcSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEEE9_M_valptrEv(ptr noundef nonnull align 8 dereferenceable(64) %4)
   %6 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt10_Select1stISt4pairIKcSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEEEclERKSE_(ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef nonnull align 8 dereferenceable(32) %5)
+  call void @llvm.lifetime.end.p0(i64 1, ptr %3) #13
   ret ptr %6
 }
 
@@ -3505,12 +3938,12 @@ define linkonce_odr hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt
 define linkonce_odr hidden void @_ZNSt17_Rb_tree_iteratorISt4pairIKcSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEEEC2EPSt18_Rb_tree_node_base(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #0 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !73
+  store ptr %1, ptr %4, align 8, !tbaa !69
   %5 = load ptr, ptr %3, align 8
   %6 = getelementptr inbounds nuw %"struct.std::_Rb_tree_iterator", ptr %5, i32 0, i32 0
-  %7 = load ptr, ptr %4, align 8
-  store ptr %7, ptr %6, align 8
+  %7 = load ptr, ptr %4, align 8, !tbaa !69
+  store ptr %7, ptr %6, align 8, !tbaa !75
   ret void
 }
 
@@ -3518,9 +3951,9 @@ define linkonce_odr hidden void @_ZNSt17_Rb_tree_iteratorISt4pairIKcSt6vectorIPK
 define linkonce_odr hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt10_Select1stISt4pairIKcSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEEEclERKSE_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) #0 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  %5 = load ptr, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !169
+  store ptr %1, ptr %4, align 8, !tbaa !33
+  %5 = load ptr, ptr %4, align 8, !tbaa !33
   %6 = getelementptr inbounds nuw %"struct.std::pair.8", ptr %5, i32 0, i32 0
   ret ptr %6
 }
@@ -3528,26 +3961,26 @@ define linkonce_odr hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZNKS
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZNKSt13_Rb_tree_nodeISt4pairIKcSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEEE9_M_valptrEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !118
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw %"struct.std::_Rb_tree_node", ptr %3, i32 0, i32 1
-  %5 = call noundef ptr @_ZNK9__gnu_cxx16__aligned_membufISt4pairIKcSt6vectorIPKS1_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ESaISC_EEEE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(32) %4) #9
+  %5 = call noundef ptr @_ZNK9__gnu_cxx16__aligned_membufISt4pairIKcSt6vectorIPKS1_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ESaISC_EEEE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(32) %4) #13
   ret ptr %5
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZNK9__gnu_cxx16__aligned_membufISt4pairIKcSt6vectorIPKS1_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ESaISC_EEEE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !129
   %3 = load ptr, ptr %2, align 8
-  %4 = call noundef ptr @_ZNK9__gnu_cxx16__aligned_membufISt4pairIKcSt6vectorIPKS1_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ESaISC_EEEE7_M_addrEv(ptr noundef nonnull align 8 dereferenceable(32) %3) #9
+  %4 = call noundef ptr @_ZNK9__gnu_cxx16__aligned_membufISt4pairIKcSt6vectorIPKS1_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ESaISC_EEEE7_M_addrEv(ptr noundef nonnull align 8 dereferenceable(32) %3) #13
   ret ptr %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZNK9__gnu_cxx16__aligned_membufISt4pairIKcSt6vectorIPKS1_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ESaISC_EEEE7_M_addrEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !129
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw %"struct.__gnu_cxx::__aligned_membuf", ptr %3, i32 0, i32 0
   ret ptr %4
@@ -3556,7 +3989,7 @@ define linkonce_odr hidden noundef ptr @_ZNK9__gnu_cxx16__aligned_membufISt4pair
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNKSt8_Rb_treeIcSt4pairIKcSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEESt10_Select1stISE_ESt4lessIcESaISE_EE8key_compEv(ptr noundef nonnull align 8 dereferenceable(48) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !98
   ret void
 }
 
@@ -3567,22 +4000,22 @@ define linkonce_odr hidden void @_ZNSt8_Rb_treeIcSt4pairIKcSt6vectorIPKS0_INSt7_
   %8 = alloca ptr, align 8
   %9 = alloca ptr, align 8
   %10 = alloca ptr, align 8
-  store ptr %0, ptr %6, align 8
-  store ptr %1, ptr %7, align 8
-  store ptr %2, ptr %8, align 8
-  store ptr %3, ptr %9, align 8
-  store ptr %4, ptr %10, align 8
+  store ptr %0, ptr %6, align 8, !tbaa !171
+  store ptr %1, ptr %7, align 8, !tbaa !98
+  store ptr %2, ptr %8, align 8, !tbaa !155
+  store ptr %3, ptr %9, align 8, !tbaa !157
+  store ptr %4, ptr %10, align 8, !tbaa !159
   %11 = load ptr, ptr %6, align 8
   %12 = getelementptr inbounds nuw %"struct.std::_Rb_tree<char, std::pair<const char, std::vector<const std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>> *>>, std::_Select1st<std::pair<const char, std::vector<const std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>> *>>>, std::less<char>>::_Auto_node", ptr %11, i32 0, i32 0
-  %13 = load ptr, ptr %7, align 8
-  store ptr %13, ptr %12, align 8
+  %13 = load ptr, ptr %7, align 8, !tbaa !98
+  store ptr %13, ptr %12, align 8, !tbaa !98
   %14 = getelementptr inbounds nuw %"struct.std::_Rb_tree<char, std::pair<const char, std::vector<const std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>> *>>, std::_Select1st<std::pair<const char, std::vector<const std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>> *>>>, std::less<char>>::_Auto_node", ptr %11, i32 0, i32 1
-  %15 = load ptr, ptr %7, align 8
-  %16 = load ptr, ptr %8, align 8
-  %17 = load ptr, ptr %9, align 8
-  %18 = load ptr, ptr %10, align 8
+  %15 = load ptr, ptr %7, align 8, !tbaa !98
+  %16 = load ptr, ptr %8, align 8, !tbaa !155
+  %17 = load ptr, ptr %9, align 8, !tbaa !157
+  %18 = load ptr, ptr %10, align 8, !tbaa !159
   %19 = call noundef ptr @_ZNSt8_Rb_treeIcSt4pairIKcSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEESt10_Select1stISE_ESt4lessIcESaISE_EE14_M_create_nodeIJRKSt21piecewise_construct_tSt5tupleIJRS1_EESP_IJEEEEEPSt13_Rb_tree_nodeISE_EDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %15, ptr noundef nonnull align 1 dereferenceable(1) %16, ptr noundef nonnull align 8 dereferenceable(8) %17, ptr noundef nonnull align 1 dereferenceable(1) %18)
-  store ptr %19, ptr %14, align 8
+  store ptr %19, ptr %14, align 8, !tbaa !173
   ret void
 }
 
@@ -3594,203 +4027,237 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeIcSt4pairIKcSt6vectorIPKS0_INSt7
   %7 = alloca ptr, align 8
   %8 = alloca %"struct.std::_Rb_tree_iterator", align 8
   %9 = alloca ptr, align 8
-  %10 = alloca %"struct.std::_Rb_tree_iterator", align 8
-  %11 = alloca ptr, align 8
-  %12 = alloca %"struct.std::_Rb_tree_iterator", align 8
-  %13 = alloca ptr, align 8
+  %10 = alloca i32, align 4
+  %11 = alloca %"struct.std::_Rb_tree_iterator", align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca %"struct.std::_Rb_tree_iterator", align 8
   %14 = alloca ptr, align 8
   %15 = alloca ptr, align 8
-  %16 = getelementptr inbounds nuw %"struct.std::_Rb_tree_const_iterator", ptr %5, i32 0, i32 0
-  store ptr %1, ptr %16, align 8
-  store ptr %0, ptr %6, align 8
-  store ptr %2, ptr %7, align 8
-  %17 = load ptr, ptr %6, align 8
-  %18 = call ptr @_ZNKSt23_Rb_tree_const_iteratorISt4pairIKcSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEEE13_M_const_castEv(ptr noundef nonnull align 8 dereferenceable(8) %5) #9
-  %19 = getelementptr inbounds nuw %"struct.std::_Rb_tree_iterator", ptr %8, i32 0, i32 0
-  store ptr %18, ptr %19, align 8
+  %16 = alloca ptr, align 8
+  %17 = getelementptr inbounds nuw %"struct.std::_Rb_tree_const_iterator", ptr %5, i32 0, i32 0
+  store ptr %1, ptr %17, align 8
+  store ptr %0, ptr %6, align 8, !tbaa !98
+  store ptr %2, ptr %7, align 8, !tbaa !26
+  %18 = load ptr, ptr %6, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #13
+  %19 = call ptr @_ZNKSt23_Rb_tree_const_iteratorISt4pairIKcSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEEE13_M_const_castEv(ptr noundef nonnull align 8 dereferenceable(8) %5) #13
   %20 = getelementptr inbounds nuw %"struct.std::_Rb_tree_iterator", ptr %8, i32 0, i32 0
-  %21 = load ptr, ptr %20, align 8
-  %22 = call noundef ptr @_ZNSt8_Rb_treeIcSt4pairIKcSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEESt10_Select1stISE_ESt4lessIcESaISE_EE6_M_endEv(ptr noundef nonnull align 8 dereferenceable(48) %17) #9
-  %23 = icmp eq ptr %21, %22
-  br i1 %23, label %24, label %43
+  store ptr %19, ptr %20, align 8
+  %21 = getelementptr inbounds nuw %"struct.std::_Rb_tree_iterator", ptr %8, i32 0, i32 0
+  %22 = load ptr, ptr %21, align 8, !tbaa !75
+  %23 = call noundef ptr @_ZNSt8_Rb_treeIcSt4pairIKcSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEESt10_Select1stISE_ESt4lessIcESaISE_EE6_M_endEv(ptr noundef nonnull align 8 dereferenceable(48) %18) #13
+  %24 = icmp eq ptr %22, %23
+  br i1 %24, label %25, label %44
 
-24:                                               ; preds = %3
-  %25 = call noundef i64 @_ZNKSt8_Rb_treeIcSt4pairIKcSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEESt10_Select1stISE_ESt4lessIcESaISE_EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(48) %17) #9
-  %26 = icmp ugt i64 %25, 0
-  br i1 %26, label %27, label %36
+25:                                               ; preds = %3
+  %26 = call noundef i64 @_ZNKSt8_Rb_treeIcSt4pairIKcSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEESt10_Select1stISE_ESt4lessIcESaISE_EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(48) %18) #13
+  %27 = icmp ugt i64 %26, 0
+  br i1 %27, label %28, label %37
 
-27:                                               ; preds = %24
-  %28 = getelementptr inbounds nuw %"class.std::_Rb_tree", ptr %17, i32 0, i32 0
-  %29 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt8_Rb_treeIcSt4pairIKcSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEESt10_Select1stISE_ESt4lessIcESaISE_EE12_M_rightmostEv(ptr noundef nonnull align 8 dereferenceable(48) %17) #9
-  %30 = load ptr, ptr %29, align 8
-  %31 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt8_Rb_treeIcSt4pairIKcSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEESt10_Select1stISE_ESt4lessIcESaISE_EE6_S_keyEPKSt18_Rb_tree_node_base(ptr noundef %30)
-  %32 = load ptr, ptr %7, align 8
-  %33 = call noundef zeroext i1 @_ZNKSt4lessIcEclERKcS2_(ptr noundef nonnull align 1 dereferenceable(1) %28, ptr noundef nonnull align 1 dereferenceable(1) %31, ptr noundef nonnull align 1 dereferenceable(1) %32)
-  br i1 %33, label %34, label %36
+28:                                               ; preds = %25
+  %29 = getelementptr inbounds nuw %"class.std::_Rb_tree", ptr %18, i32 0, i32 0
+  %30 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt8_Rb_treeIcSt4pairIKcSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEESt10_Select1stISE_ESt4lessIcESaISE_EE12_M_rightmostEv(ptr noundef nonnull align 8 dereferenceable(48) %18) #13
+  %31 = load ptr, ptr %30, align 8, !tbaa !69
+  %32 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt8_Rb_treeIcSt4pairIKcSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEESt10_Select1stISE_ESt4lessIcESaISE_EE6_S_keyEPKSt18_Rb_tree_node_base(ptr noundef %31)
+  %33 = load ptr, ptr %7, align 8, !tbaa !26
+  %34 = call noundef zeroext i1 @_ZNKSt4lessIcEclERKcS2_(ptr noundef nonnull align 1 dereferenceable(1) %29, ptr noundef nonnull align 1 dereferenceable(1) %32, ptr noundef nonnull align 1 dereferenceable(1) %33)
+  br i1 %34, label %35, label %37
 
-34:                                               ; preds = %27
-  store ptr null, ptr %9, align 8
-  %35 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt8_Rb_treeIcSt4pairIKcSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEESt10_Select1stISE_ESt4lessIcESaISE_EE12_M_rightmostEv(ptr noundef nonnull align 8 dereferenceable(48) %17) #9
-  call void @_ZNSt4pairIPSt18_Rb_tree_node_baseS1_EC2IS1_S1_TnNSt9enable_ifIXaaclsr5_PCCPE18_ConstructiblePairIT_T0_EEclsr5_PCCPE26_ImplicitlyConvertiblePairIS5_S6_EEEbE4typeELb1EEERKS1_SA_(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 8 dereferenceable(8) %35)
-  br label %126
+35:                                               ; preds = %28
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #13
+  store ptr null, ptr %9, align 8, !tbaa !69
+  %36 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt8_Rb_treeIcSt4pairIKcSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEESt10_Select1stISE_ESt4lessIcESaISE_EE12_M_rightmostEv(ptr noundef nonnull align 8 dereferenceable(48) %18) #13
+  call void @_ZNSt4pairIPSt18_Rb_tree_node_baseS1_EC2IS1_S1_TnNSt9enable_ifIXaaclsr5_PCCPE18_ConstructiblePairIT_T0_EEclsr5_PCCPE26_ImplicitlyConvertiblePairIS5_S6_EEEbE4typeELb1EEERKS1_SA_(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 8 dereferenceable(8) %36)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #13
+  store i32 1, ptr %10, align 4
+  br label %129
 
-36:                                               ; preds = %27, %24
-  %37 = load ptr, ptr %7, align 8
-  %38 = call { ptr, ptr } @_ZNSt8_Rb_treeIcSt4pairIKcSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEESt10_Select1stISE_ESt4lessIcESaISE_EE24_M_get_insert_unique_posERS1_(ptr noundef nonnull align 8 dereferenceable(48) %17, ptr noundef nonnull align 1 dereferenceable(1) %37)
-  %39 = getelementptr inbounds nuw { ptr, ptr }, ptr %4, i32 0, i32 0
-  %40 = extractvalue { ptr, ptr } %38, 0
-  store ptr %40, ptr %39, align 8
-  %41 = getelementptr inbounds nuw { ptr, ptr }, ptr %4, i32 0, i32 1
-  %42 = extractvalue { ptr, ptr } %38, 1
-  store ptr %42, ptr %41, align 8
-  br label %126
+37:                                               ; preds = %28, %25
+  %38 = load ptr, ptr %7, align 8, !tbaa !26
+  %39 = call { ptr, ptr } @_ZNSt8_Rb_treeIcSt4pairIKcSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEESt10_Select1stISE_ESt4lessIcESaISE_EE24_M_get_insert_unique_posERS1_(ptr noundef nonnull align 8 dereferenceable(48) %18, ptr noundef nonnull align 1 dereferenceable(1) %38)
+  %40 = getelementptr inbounds nuw { ptr, ptr }, ptr %4, i32 0, i32 0
+  %41 = extractvalue { ptr, ptr } %39, 0
+  store ptr %41, ptr %40, align 8
+  %42 = getelementptr inbounds nuw { ptr, ptr }, ptr %4, i32 0, i32 1
+  %43 = extractvalue { ptr, ptr } %39, 1
+  store ptr %43, ptr %42, align 8
+  store i32 1, ptr %10, align 4
+  br label %129
 
-43:                                               ; preds = %3
-  %44 = getelementptr inbounds nuw %"class.std::_Rb_tree", ptr %17, i32 0, i32 0
-  %45 = load ptr, ptr %7, align 8
-  %46 = getelementptr inbounds nuw %"struct.std::_Rb_tree_iterator", ptr %8, i32 0, i32 0
-  %47 = load ptr, ptr %46, align 8
-  %48 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt8_Rb_treeIcSt4pairIKcSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEESt10_Select1stISE_ESt4lessIcESaISE_EE6_S_keyEPKSt18_Rb_tree_node_base(ptr noundef %47)
-  %49 = call noundef zeroext i1 @_ZNKSt4lessIcEclERKcS2_(ptr noundef nonnull align 1 dereferenceable(1) %44, ptr noundef nonnull align 1 dereferenceable(1) %45, ptr noundef nonnull align 1 dereferenceable(1) %48)
-  br i1 %49, label %50, label %84
+44:                                               ; preds = %3
+  %45 = getelementptr inbounds nuw %"class.std::_Rb_tree", ptr %18, i32 0, i32 0
+  %46 = load ptr, ptr %7, align 8, !tbaa !26
+  %47 = getelementptr inbounds nuw %"struct.std::_Rb_tree_iterator", ptr %8, i32 0, i32 0
+  %48 = load ptr, ptr %47, align 8, !tbaa !75
+  %49 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt8_Rb_treeIcSt4pairIKcSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEESt10_Select1stISE_ESt4lessIcESaISE_EE6_S_keyEPKSt18_Rb_tree_node_base(ptr noundef %48)
+  %50 = call noundef zeroext i1 @_ZNKSt4lessIcEclERKcS2_(ptr noundef nonnull align 1 dereferenceable(1) %45, ptr noundef nonnull align 1 dereferenceable(1) %46, ptr noundef nonnull align 1 dereferenceable(1) %49)
+  br i1 %50, label %51, label %86
 
-50:                                               ; preds = %43
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %10, ptr align 8 %8, i64 8, i1 false)
-  %51 = getelementptr inbounds nuw %"struct.std::_Rb_tree_iterator", ptr %8, i32 0, i32 0
-  %52 = load ptr, ptr %51, align 8
-  %53 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt8_Rb_treeIcSt4pairIKcSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEESt10_Select1stISE_ESt4lessIcESaISE_EE11_M_leftmostEv(ptr noundef nonnull align 8 dereferenceable(48) %17) #9
-  %54 = load ptr, ptr %53, align 8
-  %55 = icmp eq ptr %52, %54
-  br i1 %55, label %56, label %59
+51:                                               ; preds = %44
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #13
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %11, ptr align 8 %8, i64 8, i1 false), !tbaa.struct !68
+  %52 = getelementptr inbounds nuw %"struct.std::_Rb_tree_iterator", ptr %8, i32 0, i32 0
+  %53 = load ptr, ptr %52, align 8, !tbaa !75
+  %54 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt8_Rb_treeIcSt4pairIKcSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEESt10_Select1stISE_ESt4lessIcESaISE_EE11_M_leftmostEv(ptr noundef nonnull align 8 dereferenceable(48) %18) #13
+  %55 = load ptr, ptr %54, align 8, !tbaa !69
+  %56 = icmp eq ptr %53, %55
+  br i1 %56, label %57, label %60
 
-56:                                               ; preds = %50
-  %57 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt8_Rb_treeIcSt4pairIKcSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEESt10_Select1stISE_ESt4lessIcESaISE_EE11_M_leftmostEv(ptr noundef nonnull align 8 dereferenceable(48) %17) #9
-  %58 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt8_Rb_treeIcSt4pairIKcSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEESt10_Select1stISE_ESt4lessIcESaISE_EE11_M_leftmostEv(ptr noundef nonnull align 8 dereferenceable(48) %17) #9
-  call void @_ZNSt4pairIPSt18_Rb_tree_node_baseS1_EC2IRS1_S4_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairIS6_S7_EEEbE4typeELb1EEEOS6_OS7_(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(8) %57, ptr noundef nonnull align 8 dereferenceable(8) %58)
-  br label %126
+57:                                               ; preds = %51
+  %58 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt8_Rb_treeIcSt4pairIKcSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEESt10_Select1stISE_ESt4lessIcESaISE_EE11_M_leftmostEv(ptr noundef nonnull align 8 dereferenceable(48) %18) #13
+  %59 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt8_Rb_treeIcSt4pairIKcSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEESt10_Select1stISE_ESt4lessIcESaISE_EE11_M_leftmostEv(ptr noundef nonnull align 8 dereferenceable(48) %18) #13
+  call void @_ZNSt4pairIPSt18_Rb_tree_node_baseS1_EC2IRS1_S4_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairIS6_S7_EEEbE4typeELb1EEEOS6_OS7_(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(8) %58, ptr noundef nonnull align 8 dereferenceable(8) %59)
+  store i32 1, ptr %10, align 4
+  br label %85
 
-59:                                               ; preds = %50
-  %60 = getelementptr inbounds nuw %"class.std::_Rb_tree", ptr %17, i32 0, i32 0
-  %61 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt17_Rb_tree_iteratorISt4pairIKcSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEEEmmEv(ptr noundef nonnull align 8 dereferenceable(8) %10) #9
-  %62 = getelementptr inbounds nuw %"struct.std::_Rb_tree_iterator", ptr %61, i32 0, i32 0
-  %63 = load ptr, ptr %62, align 8
-  %64 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt8_Rb_treeIcSt4pairIKcSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEESt10_Select1stISE_ESt4lessIcESaISE_EE6_S_keyEPKSt18_Rb_tree_node_base(ptr noundef %63)
-  %65 = load ptr, ptr %7, align 8
-  %66 = call noundef zeroext i1 @_ZNKSt4lessIcEclERKcS2_(ptr noundef nonnull align 1 dereferenceable(1) %60, ptr noundef nonnull align 1 dereferenceable(1) %64, ptr noundef nonnull align 1 dereferenceable(1) %65)
-  br i1 %66, label %67, label %77
+60:                                               ; preds = %51
+  %61 = getelementptr inbounds nuw %"class.std::_Rb_tree", ptr %18, i32 0, i32 0
+  %62 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt17_Rb_tree_iteratorISt4pairIKcSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEEEmmEv(ptr noundef nonnull align 8 dereferenceable(8) %11) #13
+  %63 = getelementptr inbounds nuw %"struct.std::_Rb_tree_iterator", ptr %62, i32 0, i32 0
+  %64 = load ptr, ptr %63, align 8, !tbaa !75
+  %65 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt8_Rb_treeIcSt4pairIKcSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEESt10_Select1stISE_ESt4lessIcESaISE_EE6_S_keyEPKSt18_Rb_tree_node_base(ptr noundef %64)
+  %66 = load ptr, ptr %7, align 8, !tbaa !26
+  %67 = call noundef zeroext i1 @_ZNKSt4lessIcEclERKcS2_(ptr noundef nonnull align 1 dereferenceable(1) %61, ptr noundef nonnull align 1 dereferenceable(1) %65, ptr noundef nonnull align 1 dereferenceable(1) %66)
+  br i1 %67, label %68, label %78
 
-67:                                               ; preds = %59
-  %68 = getelementptr inbounds nuw %"struct.std::_Rb_tree_iterator", ptr %10, i32 0, i32 0
-  %69 = load ptr, ptr %68, align 8
-  %70 = call noundef ptr @_ZNSt8_Rb_treeIcSt4pairIKcSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEESt10_Select1stISE_ESt4lessIcESaISE_EE8_S_rightEPSt18_Rb_tree_node_base(ptr noundef %69) #9
-  %71 = icmp eq ptr %70, null
-  br i1 %71, label %72, label %74
+68:                                               ; preds = %60
+  %69 = getelementptr inbounds nuw %"struct.std::_Rb_tree_iterator", ptr %11, i32 0, i32 0
+  %70 = load ptr, ptr %69, align 8, !tbaa !75
+  %71 = call noundef ptr @_ZNSt8_Rb_treeIcSt4pairIKcSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEESt10_Select1stISE_ESt4lessIcESaISE_EE8_S_rightEPSt18_Rb_tree_node_base(ptr noundef %70) #13
+  %72 = icmp eq ptr %71, null
+  br i1 %72, label %73, label %75
 
-72:                                               ; preds = %67
-  store ptr null, ptr %11, align 8
-  %73 = getelementptr inbounds nuw %"struct.std::_Rb_tree_iterator", ptr %10, i32 0, i32 0
-  call void @_ZNSt4pairIPSt18_Rb_tree_node_baseS1_EC2IS1_S1_TnNSt9enable_ifIXaaclsr5_PCCPE18_ConstructiblePairIT_T0_EEclsr5_PCCPE26_ImplicitlyConvertiblePairIS5_S6_EEEbE4typeELb1EEERKS1_SA_(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(8) %73)
-  br label %126
+73:                                               ; preds = %68
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #13
+  store ptr null, ptr %12, align 8, !tbaa !69
+  %74 = getelementptr inbounds nuw %"struct.std::_Rb_tree_iterator", ptr %11, i32 0, i32 0
+  call void @_ZNSt4pairIPSt18_Rb_tree_node_baseS1_EC2IS1_S1_TnNSt9enable_ifIXaaclsr5_PCCPE18_ConstructiblePairIT_T0_EEclsr5_PCCPE26_ImplicitlyConvertiblePairIS5_S6_EEEbE4typeELb1EEERKS1_SA_(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull align 8 dereferenceable(8) %74)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #13
+  store i32 1, ptr %10, align 4
+  br label %85
 
-74:                                               ; preds = %67
-  %75 = getelementptr inbounds nuw %"struct.std::_Rb_tree_iterator", ptr %8, i32 0, i32 0
+75:                                               ; preds = %68
   %76 = getelementptr inbounds nuw %"struct.std::_Rb_tree_iterator", ptr %8, i32 0, i32 0
-  call void @_ZNSt4pairIPSt18_Rb_tree_node_baseS1_EC2IRS1_S4_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairIS6_S7_EEEbE4typeELb1EEEOS6_OS7_(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(8) %75, ptr noundef nonnull align 8 dereferenceable(8) %76)
+  %77 = getelementptr inbounds nuw %"struct.std::_Rb_tree_iterator", ptr %8, i32 0, i32 0
+  call void @_ZNSt4pairIPSt18_Rb_tree_node_baseS1_EC2IRS1_S4_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairIS6_S7_EEEbE4typeELb1EEEOS6_OS7_(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(8) %76, ptr noundef nonnull align 8 dereferenceable(8) %77)
+  store i32 1, ptr %10, align 4
+  br label %85
+
+78:                                               ; preds = %60
+  %79 = load ptr, ptr %7, align 8, !tbaa !26
+  %80 = call { ptr, ptr } @_ZNSt8_Rb_treeIcSt4pairIKcSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEESt10_Select1stISE_ESt4lessIcESaISE_EE24_M_get_insert_unique_posERS1_(ptr noundef nonnull align 8 dereferenceable(48) %18, ptr noundef nonnull align 1 dereferenceable(1) %79)
+  %81 = getelementptr inbounds nuw { ptr, ptr }, ptr %4, i32 0, i32 0
+  %82 = extractvalue { ptr, ptr } %80, 0
+  store ptr %82, ptr %81, align 8
+  %83 = getelementptr inbounds nuw { ptr, ptr }, ptr %4, i32 0, i32 1
+  %84 = extractvalue { ptr, ptr } %80, 1
+  store ptr %84, ptr %83, align 8
+  store i32 1, ptr %10, align 4
+  br label %85
+
+85:                                               ; preds = %78, %75, %73, %57
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #13
+  br label %129
+
+86:                                               ; preds = %44
+  %87 = getelementptr inbounds nuw %"class.std::_Rb_tree", ptr %18, i32 0, i32 0
+  %88 = getelementptr inbounds nuw %"struct.std::_Rb_tree_iterator", ptr %8, i32 0, i32 0
+  %89 = load ptr, ptr %88, align 8, !tbaa !75
+  %90 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt8_Rb_treeIcSt4pairIKcSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEESt10_Select1stISE_ESt4lessIcESaISE_EE6_S_keyEPKSt18_Rb_tree_node_base(ptr noundef %89)
+  %91 = load ptr, ptr %7, align 8, !tbaa !26
+  %92 = call noundef zeroext i1 @_ZNKSt4lessIcEclERKcS2_(ptr noundef nonnull align 1 dereferenceable(1) %87, ptr noundef nonnull align 1 dereferenceable(1) %90, ptr noundef nonnull align 1 dereferenceable(1) %91)
+  br i1 %92, label %93, label %127
+
+93:                                               ; preds = %86
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #13
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %13, ptr align 8 %8, i64 8, i1 false), !tbaa.struct !68
+  %94 = getelementptr inbounds nuw %"struct.std::_Rb_tree_iterator", ptr %8, i32 0, i32 0
+  %95 = load ptr, ptr %94, align 8, !tbaa !75
+  %96 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt8_Rb_treeIcSt4pairIKcSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEESt10_Select1stISE_ESt4lessIcESaISE_EE12_M_rightmostEv(ptr noundef nonnull align 8 dereferenceable(48) %18) #13
+  %97 = load ptr, ptr %96, align 8, !tbaa !69
+  %98 = icmp eq ptr %95, %97
+  br i1 %98, label %99, label %101
+
+99:                                               ; preds = %93
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #13
+  store ptr null, ptr %14, align 8, !tbaa !69
+  %100 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt8_Rb_treeIcSt4pairIKcSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEESt10_Select1stISE_ESt4lessIcESaISE_EE12_M_rightmostEv(ptr noundef nonnull align 8 dereferenceable(48) %18) #13
+  call void @_ZNSt4pairIPSt18_Rb_tree_node_baseS1_EC2IS1_S1_TnNSt9enable_ifIXaaclsr5_PCCPE18_ConstructiblePairIT_T0_EEclsr5_PCCPE26_ImplicitlyConvertiblePairIS5_S6_EEEbE4typeELb1EEERKS1_SA_(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef nonnull align 8 dereferenceable(8) %100)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #13
+  store i32 1, ptr %10, align 4
   br label %126
 
-77:                                               ; preds = %59
-  %78 = load ptr, ptr %7, align 8
-  %79 = call { ptr, ptr } @_ZNSt8_Rb_treeIcSt4pairIKcSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEESt10_Select1stISE_ESt4lessIcESaISE_EE24_M_get_insert_unique_posERS1_(ptr noundef nonnull align 8 dereferenceable(48) %17, ptr noundef nonnull align 1 dereferenceable(1) %78)
-  %80 = getelementptr inbounds nuw { ptr, ptr }, ptr %4, i32 0, i32 0
-  %81 = extractvalue { ptr, ptr } %79, 0
-  store ptr %81, ptr %80, align 8
-  %82 = getelementptr inbounds nuw { ptr, ptr }, ptr %4, i32 0, i32 1
-  %83 = extractvalue { ptr, ptr } %79, 1
-  store ptr %83, ptr %82, align 8
+101:                                              ; preds = %93
+  %102 = getelementptr inbounds nuw %"class.std::_Rb_tree", ptr %18, i32 0, i32 0
+  %103 = load ptr, ptr %7, align 8, !tbaa !26
+  %104 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt17_Rb_tree_iteratorISt4pairIKcSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEEEppEv(ptr noundef nonnull align 8 dereferenceable(8) %13) #13
+  %105 = getelementptr inbounds nuw %"struct.std::_Rb_tree_iterator", ptr %104, i32 0, i32 0
+  %106 = load ptr, ptr %105, align 8, !tbaa !75
+  %107 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt8_Rb_treeIcSt4pairIKcSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEESt10_Select1stISE_ESt4lessIcESaISE_EE6_S_keyEPKSt18_Rb_tree_node_base(ptr noundef %106)
+  %108 = call noundef zeroext i1 @_ZNKSt4lessIcEclERKcS2_(ptr noundef nonnull align 1 dereferenceable(1) %102, ptr noundef nonnull align 1 dereferenceable(1) %103, ptr noundef nonnull align 1 dereferenceable(1) %107)
+  br i1 %108, label %109, label %119
+
+109:                                              ; preds = %101
+  %110 = getelementptr inbounds nuw %"struct.std::_Rb_tree_iterator", ptr %8, i32 0, i32 0
+  %111 = load ptr, ptr %110, align 8, !tbaa !75
+  %112 = call noundef ptr @_ZNSt8_Rb_treeIcSt4pairIKcSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEESt10_Select1stISE_ESt4lessIcESaISE_EE8_S_rightEPSt18_Rb_tree_node_base(ptr noundef %111) #13
+  %113 = icmp eq ptr %112, null
+  br i1 %113, label %114, label %116
+
+114:                                              ; preds = %109
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #13
+  store ptr null, ptr %15, align 8, !tbaa !69
+  %115 = getelementptr inbounds nuw %"struct.std::_Rb_tree_iterator", ptr %8, i32 0, i32 0
+  call void @_ZNSt4pairIPSt18_Rb_tree_node_baseS1_EC2IS1_S1_TnNSt9enable_ifIXaaclsr5_PCCPE18_ConstructiblePairIT_T0_EEclsr5_PCCPE26_ImplicitlyConvertiblePairIS5_S6_EEEbE4typeELb1EEERKS1_SA_(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(8) %15, ptr noundef nonnull align 8 dereferenceable(8) %115)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #13
+  store i32 1, ptr %10, align 4
   br label %126
 
-84:                                               ; preds = %43
-  %85 = getelementptr inbounds nuw %"class.std::_Rb_tree", ptr %17, i32 0, i32 0
-  %86 = getelementptr inbounds nuw %"struct.std::_Rb_tree_iterator", ptr %8, i32 0, i32 0
-  %87 = load ptr, ptr %86, align 8
-  %88 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt8_Rb_treeIcSt4pairIKcSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEESt10_Select1stISE_ESt4lessIcESaISE_EE6_S_keyEPKSt18_Rb_tree_node_base(ptr noundef %87)
-  %89 = load ptr, ptr %7, align 8
-  %90 = call noundef zeroext i1 @_ZNKSt4lessIcEclERKcS2_(ptr noundef nonnull align 1 dereferenceable(1) %85, ptr noundef nonnull align 1 dereferenceable(1) %88, ptr noundef nonnull align 1 dereferenceable(1) %89)
-  br i1 %90, label %91, label %124
-
-91:                                               ; preds = %84
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %12, ptr align 8 %8, i64 8, i1 false)
-  %92 = getelementptr inbounds nuw %"struct.std::_Rb_tree_iterator", ptr %8, i32 0, i32 0
-  %93 = load ptr, ptr %92, align 8
-  %94 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt8_Rb_treeIcSt4pairIKcSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEESt10_Select1stISE_ESt4lessIcESaISE_EE12_M_rightmostEv(ptr noundef nonnull align 8 dereferenceable(48) %17) #9
-  %95 = load ptr, ptr %94, align 8
-  %96 = icmp eq ptr %93, %95
-  br i1 %96, label %97, label %99
-
-97:                                               ; preds = %91
-  store ptr null, ptr %13, align 8
-  %98 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt8_Rb_treeIcSt4pairIKcSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEESt10_Select1stISE_ESt4lessIcESaISE_EE12_M_rightmostEv(ptr noundef nonnull align 8 dereferenceable(48) %17) #9
-  call void @_ZNSt4pairIPSt18_Rb_tree_node_baseS1_EC2IS1_S1_TnNSt9enable_ifIXaaclsr5_PCCPE18_ConstructiblePairIT_T0_EEclsr5_PCCPE26_ImplicitlyConvertiblePairIS5_S6_EEEbE4typeELb1EEERKS1_SA_(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull align 8 dereferenceable(8) %98)
+116:                                              ; preds = %109
+  %117 = getelementptr inbounds nuw %"struct.std::_Rb_tree_iterator", ptr %13, i32 0, i32 0
+  %118 = getelementptr inbounds nuw %"struct.std::_Rb_tree_iterator", ptr %13, i32 0, i32 0
+  call void @_ZNSt4pairIPSt18_Rb_tree_node_baseS1_EC2IRS1_S4_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairIS6_S7_EEEbE4typeELb1EEEOS6_OS7_(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(8) %117, ptr noundef nonnull align 8 dereferenceable(8) %118)
+  store i32 1, ptr %10, align 4
   br label %126
 
-99:                                               ; preds = %91
-  %100 = getelementptr inbounds nuw %"class.std::_Rb_tree", ptr %17, i32 0, i32 0
-  %101 = load ptr, ptr %7, align 8
-  %102 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt17_Rb_tree_iteratorISt4pairIKcSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEEEppEv(ptr noundef nonnull align 8 dereferenceable(8) %12) #9
-  %103 = getelementptr inbounds nuw %"struct.std::_Rb_tree_iterator", ptr %102, i32 0, i32 0
-  %104 = load ptr, ptr %103, align 8
-  %105 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt8_Rb_treeIcSt4pairIKcSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEESt10_Select1stISE_ESt4lessIcESaISE_EE6_S_keyEPKSt18_Rb_tree_node_base(ptr noundef %104)
-  %106 = call noundef zeroext i1 @_ZNKSt4lessIcEclERKcS2_(ptr noundef nonnull align 1 dereferenceable(1) %100, ptr noundef nonnull align 1 dereferenceable(1) %101, ptr noundef nonnull align 1 dereferenceable(1) %105)
-  br i1 %106, label %107, label %117
-
-107:                                              ; preds = %99
-  %108 = getelementptr inbounds nuw %"struct.std::_Rb_tree_iterator", ptr %8, i32 0, i32 0
-  %109 = load ptr, ptr %108, align 8
-  %110 = call noundef ptr @_ZNSt8_Rb_treeIcSt4pairIKcSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEESt10_Select1stISE_ESt4lessIcESaISE_EE8_S_rightEPSt18_Rb_tree_node_base(ptr noundef %109) #9
-  %111 = icmp eq ptr %110, null
-  br i1 %111, label %112, label %114
-
-112:                                              ; preds = %107
-  store ptr null, ptr %14, align 8
-  %113 = getelementptr inbounds nuw %"struct.std::_Rb_tree_iterator", ptr %8, i32 0, i32 0
-  call void @_ZNSt4pairIPSt18_Rb_tree_node_baseS1_EC2IS1_S1_TnNSt9enable_ifIXaaclsr5_PCCPE18_ConstructiblePairIT_T0_EEclsr5_PCCPE26_ImplicitlyConvertiblePairIS5_S6_EEEbE4typeELb1EEERKS1_SA_(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef nonnull align 8 dereferenceable(8) %113)
-  br label %126
-
-114:                                              ; preds = %107
-  %115 = getelementptr inbounds nuw %"struct.std::_Rb_tree_iterator", ptr %12, i32 0, i32 0
-  %116 = getelementptr inbounds nuw %"struct.std::_Rb_tree_iterator", ptr %12, i32 0, i32 0
-  call void @_ZNSt4pairIPSt18_Rb_tree_node_baseS1_EC2IRS1_S4_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairIS6_S7_EEEbE4typeELb1EEEOS6_OS7_(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(8) %115, ptr noundef nonnull align 8 dereferenceable(8) %116)
-  br label %126
-
-117:                                              ; preds = %99
-  %118 = load ptr, ptr %7, align 8
-  %119 = call { ptr, ptr } @_ZNSt8_Rb_treeIcSt4pairIKcSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEESt10_Select1stISE_ESt4lessIcESaISE_EE24_M_get_insert_unique_posERS1_(ptr noundef nonnull align 8 dereferenceable(48) %17, ptr noundef nonnull align 1 dereferenceable(1) %118)
-  %120 = getelementptr inbounds nuw { ptr, ptr }, ptr %4, i32 0, i32 0
-  %121 = extractvalue { ptr, ptr } %119, 0
-  store ptr %121, ptr %120, align 8
-  %122 = getelementptr inbounds nuw { ptr, ptr }, ptr %4, i32 0, i32 1
-  %123 = extractvalue { ptr, ptr } %119, 1
+119:                                              ; preds = %101
+  %120 = load ptr, ptr %7, align 8, !tbaa !26
+  %121 = call { ptr, ptr } @_ZNSt8_Rb_treeIcSt4pairIKcSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEESt10_Select1stISE_ESt4lessIcESaISE_EE24_M_get_insert_unique_posERS1_(ptr noundef nonnull align 8 dereferenceable(48) %18, ptr noundef nonnull align 1 dereferenceable(1) %120)
+  %122 = getelementptr inbounds nuw { ptr, ptr }, ptr %4, i32 0, i32 0
+  %123 = extractvalue { ptr, ptr } %121, 0
   store ptr %123, ptr %122, align 8
+  %124 = getelementptr inbounds nuw { ptr, ptr }, ptr %4, i32 0, i32 1
+  %125 = extractvalue { ptr, ptr } %121, 1
+  store ptr %125, ptr %124, align 8
+  store i32 1, ptr %10, align 4
   br label %126
 
-124:                                              ; preds = %84
-  %125 = getelementptr inbounds nuw %"struct.std::_Rb_tree_iterator", ptr %8, i32 0, i32 0
-  store ptr null, ptr %15, align 8
-  call void @_ZNSt4pairIPSt18_Rb_tree_node_baseS1_EC2IS1_S1_TnNSt9enable_ifIXaaclsr5_PCCPE18_ConstructiblePairIT_T0_EEclsr5_PCCPE26_ImplicitlyConvertiblePairIS5_S6_EEEbE4typeELb1EEERKS1_SA_(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(8) %125, ptr noundef nonnull align 8 dereferenceable(8) %15)
-  br label %126
+126:                                              ; preds = %119, %116, %114, %99
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #13
+  br label %129
 
-126:                                              ; preds = %124, %117, %114, %112, %97, %77, %74, %72, %56, %36, %34
-  %127 = load { ptr, ptr }, ptr %4, align 8
-  ret { ptr, ptr } %127
+127:                                              ; preds = %86
+  %128 = getelementptr inbounds nuw %"struct.std::_Rb_tree_iterator", ptr %8, i32 0, i32 0
+  call void @llvm.lifetime.start.p0(i64 8, ptr %16) #13
+  store ptr null, ptr %16, align 8, !tbaa !69
+  call void @_ZNSt4pairIPSt18_Rb_tree_node_baseS1_EC2IS1_S1_TnNSt9enable_ifIXaaclsr5_PCCPE18_ConstructiblePairIT_T0_EEclsr5_PCCPE26_ImplicitlyConvertiblePairIS5_S6_EEEbE4typeELb1EEERKS1_SA_(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(8) %128, ptr noundef nonnull align 8 dereferenceable(8) %16)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #13
+  store i32 1, ptr %10, align 4
+  br label %129
+
+129:                                              ; preds = %127, %126, %85, %37, %35
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #13
+  %130 = load { ptr, ptr }, ptr %4, align 8
+  ret { ptr, ptr } %130
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt8_Rb_treeIcSt4pairIKcSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEESt10_Select1stISE_ESt4lessIcESaISE_EE10_Auto_node6_M_keyEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !171
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw %"struct.std::_Rb_tree<char, std::pair<const char, std::vector<const std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>> *>>, std::_Select1st<std::pair<const char, std::vector<const std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>> *>>>, std::less<char>>::_Auto_node", ptr %3, i32 0, i32 1
-  %5 = load ptr, ptr %4, align 8
+  %5 = load ptr, ptr %4, align 8, !tbaa !173
   %6 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt8_Rb_treeIcSt4pairIKcSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEESt10_Select1stISE_ESt4lessIcESaISE_EE6_S_keyEPKSt13_Rb_tree_nodeISE_E(ptr noundef %5)
   ret ptr %6
 }
@@ -3804,21 +4271,21 @@ define linkonce_odr hidden ptr @_ZNSt8_Rb_treeIcSt4pairIKcSt6vectorIPKS0_INSt7__
   store ptr %1, ptr %7, align 8
   %8 = getelementptr inbounds nuw { ptr, ptr }, ptr %5, i32 0, i32 1
   store ptr %2, ptr %8, align 8
-  store ptr %0, ptr %6, align 8
+  store ptr %0, ptr %6, align 8, !tbaa !171
   %9 = load ptr, ptr %6, align 8
   %10 = getelementptr inbounds nuw %"struct.std::_Rb_tree<char, std::pair<const char, std::vector<const std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>> *>>, std::_Select1st<std::pair<const char, std::vector<const std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>> *>>>, std::less<char>>::_Auto_node", ptr %9, i32 0, i32 0
-  %11 = load ptr, ptr %10, align 8
+  %11 = load ptr, ptr %10, align 8, !tbaa !175
   %12 = getelementptr inbounds nuw %"struct.std::pair.30", ptr %5, i32 0, i32 0
-  %13 = load ptr, ptr %12, align 8
+  %13 = load ptr, ptr %12, align 8, !tbaa !163
   %14 = getelementptr inbounds nuw %"struct.std::pair.30", ptr %5, i32 0, i32 1
-  %15 = load ptr, ptr %14, align 8
+  %15 = load ptr, ptr %14, align 8, !tbaa !161
   %16 = getelementptr inbounds nuw %"struct.std::_Rb_tree<char, std::pair<const char, std::vector<const std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>> *>>, std::_Select1st<std::pair<const char, std::vector<const std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>> *>>>, std::less<char>>::_Auto_node", ptr %9, i32 0, i32 1
-  %17 = load ptr, ptr %16, align 8
+  %17 = load ptr, ptr %16, align 8, !tbaa !173
   %18 = call ptr @_ZNSt8_Rb_treeIcSt4pairIKcSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEESt10_Select1stISE_ESt4lessIcESaISE_EE14_M_insert_nodeEPSt18_Rb_tree_node_baseSM_PSt13_Rb_tree_nodeISE_E(ptr noundef nonnull align 8 dereferenceable(48) %11, ptr noundef %13, ptr noundef %15, ptr noundef %17)
   %19 = getelementptr inbounds nuw %"struct.std::_Rb_tree_iterator", ptr %4, i32 0, i32 0
   store ptr %18, ptr %19, align 8
   %20 = getelementptr inbounds nuw %"struct.std::_Rb_tree<char, std::pair<const char, std::vector<const std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>> *>>, std::_Select1st<std::pair<const char, std::vector<const std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>> *>>>, std::less<char>>::_Auto_node", ptr %9, i32 0, i32 1
-  store ptr null, ptr %20, align 8
+  store ptr null, ptr %20, align 8, !tbaa !173
   %21 = getelementptr inbounds nuw %"struct.std::_Rb_tree_iterator", ptr %4, i32 0, i32 0
   %22 = load ptr, ptr %21, align 8
   ret ptr %22
@@ -3827,19 +4294,19 @@ define linkonce_odr hidden ptr @_ZNSt8_Rb_treeIcSt4pairIKcSt6vectorIPKS0_INSt7__
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt8_Rb_treeIcSt4pairIKcSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEESt10_Select1stISE_ESt4lessIcESaISE_EE10_Auto_nodeD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !171
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw %"struct.std::_Rb_tree<char, std::pair<const char, std::vector<const std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>> *>>, std::_Select1st<std::pair<const char, std::vector<const std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>> *>>>, std::less<char>>::_Auto_node", ptr %3, i32 0, i32 1
-  %5 = load ptr, ptr %4, align 8
+  %5 = load ptr, ptr %4, align 8, !tbaa !173
   %6 = icmp ne ptr %5, null
   br i1 %6, label %7, label %12
 
 7:                                                ; preds = %1
   %8 = getelementptr inbounds nuw %"struct.std::_Rb_tree<char, std::pair<const char, std::vector<const std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>> *>>, std::_Select1st<std::pair<const char, std::vector<const std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>> *>>>, std::less<char>>::_Auto_node", ptr %3, i32 0, i32 0
-  %9 = load ptr, ptr %8, align 8
+  %9 = load ptr, ptr %8, align 8, !tbaa !175
   %10 = getelementptr inbounds nuw %"struct.std::_Rb_tree<char, std::pair<const char, std::vector<const std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>> *>>, std::_Select1st<std::pair<const char, std::vector<const std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>> *>>>, std::less<char>>::_Auto_node", ptr %3, i32 0, i32 1
-  %11 = load ptr, ptr %10, align 8
-  call void @_ZNSt8_Rb_treeIcSt4pairIKcSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEESt10_Select1stISE_ESt4lessIcESaISE_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISE_E(ptr noundef nonnull align 8 dereferenceable(48) %9, ptr noundef %11) #9
+  %11 = load ptr, ptr %10, align 8, !tbaa !173
+  call void @_ZNSt8_Rb_treeIcSt4pairIKcSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEESt10_Select1stISE_ESt4lessIcESaISE_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISE_E(ptr noundef nonnull align 8 dereferenceable(48) %9, ptr noundef %11) #13
   br label %12
 
 12:                                               ; preds = %7, %1
@@ -3853,28 +4320,30 @@ define linkonce_odr hidden noundef ptr @_ZNSt8_Rb_treeIcSt4pairIKcSt6vectorIPKS0
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
   %9 = alloca ptr, align 8
-  store ptr %0, ptr %5, align 8
-  store ptr %1, ptr %6, align 8
-  store ptr %2, ptr %7, align 8
-  store ptr %3, ptr %8, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !98
+  store ptr %1, ptr %6, align 8, !tbaa !155
+  store ptr %2, ptr %7, align 8, !tbaa !157
+  store ptr %3, ptr %8, align 8, !tbaa !159
   %10 = load ptr, ptr %5, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #13
   %11 = call noundef ptr @_ZNSt8_Rb_treeIcSt4pairIKcSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEESt10_Select1stISE_ESt4lessIcESaISE_EE11_M_get_nodeEv(ptr noundef nonnull align 8 dereferenceable(48) %10)
-  store ptr %11, ptr %9, align 8
-  %12 = load ptr, ptr %9, align 8
-  %13 = load ptr, ptr %6, align 8
-  %14 = load ptr, ptr %7, align 8
-  %15 = load ptr, ptr %8, align 8
+  store ptr %11, ptr %9, align 8, !tbaa !118
+  %12 = load ptr, ptr %9, align 8, !tbaa !118
+  %13 = load ptr, ptr %6, align 8, !tbaa !155
+  %14 = load ptr, ptr %7, align 8, !tbaa !157
+  %15 = load ptr, ptr %8, align 8, !tbaa !159
   call void @_ZNSt8_Rb_treeIcSt4pairIKcSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEESt10_Select1stISE_ESt4lessIcESaISE_EE17_M_construct_nodeIJRKSt21piecewise_construct_tSt5tupleIJRS1_EESP_IJEEEEEvPSt13_Rb_tree_nodeISE_EDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %10, ptr noundef %12, ptr noundef nonnull align 1 dereferenceable(1) %13, ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef nonnull align 1 dereferenceable(1) %15)
-  %16 = load ptr, ptr %9, align 8
+  %16 = load ptr, ptr %9, align 8, !tbaa !118
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #13
   ret ptr %16
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZNSt8_Rb_treeIcSt4pairIKcSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEESt10_Select1stISE_ESt4lessIcESaISE_EE11_M_get_nodeEv(ptr noundef nonnull align 8 dereferenceable(48) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !98
   %3 = load ptr, ptr %2, align 8
-  %4 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt8_Rb_treeIcSt4pairIKcSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEESt10_Select1stISE_ESt4lessIcESaISE_EE21_M_get_Node_allocatorEv(ptr noundef nonnull align 8 dereferenceable(48) %3) #9
+  %4 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt8_Rb_treeIcSt4pairIKcSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEESt10_Select1stISE_ESt4lessIcESaISE_EE21_M_get_Node_allocatorEv(ptr noundef nonnull align 8 dereferenceable(48) %3) #13
   %5 = call noundef ptr @_ZNSt16allocator_traitsISaISt13_Rb_tree_nodeISt4pairIKcSt6vectorIPKS1_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ESaISC_EEEEEE8allocateERSH_m(ptr noundef nonnull align 1 dereferenceable(1) %4, i64 noundef 1)
   ret ptr %5
 }
@@ -3886,18 +4355,18 @@ define linkonce_odr hidden void @_ZNSt8_Rb_treeIcSt4pairIKcSt6vectorIPKS0_INSt7_
   %8 = alloca ptr, align 8
   %9 = alloca ptr, align 8
   %10 = alloca ptr, align 8
-  store ptr %0, ptr %6, align 8
-  store ptr %1, ptr %7, align 8
-  store ptr %2, ptr %8, align 8
-  store ptr %3, ptr %9, align 8
-  store ptr %4, ptr %10, align 8
+  store ptr %0, ptr %6, align 8, !tbaa !98
+  store ptr %1, ptr %7, align 8, !tbaa !118
+  store ptr %2, ptr %8, align 8, !tbaa !155
+  store ptr %3, ptr %9, align 8, !tbaa !157
+  store ptr %4, ptr %10, align 8, !tbaa !159
   %11 = load ptr, ptr %6, align 8
-  %12 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt8_Rb_treeIcSt4pairIKcSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEESt10_Select1stISE_ESt4lessIcESaISE_EE21_M_get_Node_allocatorEv(ptr noundef nonnull align 8 dereferenceable(48) %11) #9
-  %13 = load ptr, ptr %7, align 8
+  %12 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt8_Rb_treeIcSt4pairIKcSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEESt10_Select1stISE_ESt4lessIcESaISE_EE21_M_get_Node_allocatorEv(ptr noundef nonnull align 8 dereferenceable(48) %11) #13
+  %13 = load ptr, ptr %7, align 8, !tbaa !118
   %14 = call noundef ptr @_ZNSt13_Rb_tree_nodeISt4pairIKcSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEEE9_M_valptrEv(ptr noundef nonnull align 8 dereferenceable(64) %13)
-  %15 = load ptr, ptr %8, align 8
-  %16 = load ptr, ptr %9, align 8
-  %17 = load ptr, ptr %10, align 8
+  %15 = load ptr, ptr %8, align 8, !tbaa !155
+  %16 = load ptr, ptr %9, align 8, !tbaa !157
+  %17 = load ptr, ptr %10, align 8, !tbaa !159
   call void @_ZNSt16allocator_traitsISaISt13_Rb_tree_nodeISt4pairIKcSt6vectorIPKS1_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ESaISC_EEEEEE9constructISF_JRKSt21piecewise_construct_tSt5tupleIJRS2_EESN_IJEEEEEvRSH_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %12, ptr noundef %14, ptr noundef nonnull align 1 dereferenceable(1) %15, ptr noundef nonnull align 8 dereferenceable(8) %16, ptr noundef nonnull align 1 dereferenceable(1) %17)
   ret void
 }
@@ -3906,10 +4375,10 @@ define linkonce_odr hidden void @_ZNSt8_Rb_treeIcSt4pairIKcSt6vectorIPKS0_INSt7_
 define linkonce_odr hidden noundef ptr @_ZNSt16allocator_traitsISaISt13_Rb_tree_nodeISt4pairIKcSt6vectorIPKS1_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ESaISC_EEEEEE8allocateERSH_m(ptr noundef nonnull align 1 dereferenceable(1) %0, i64 noundef %1) #0 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca i64, align 8
-  store ptr %0, ptr %3, align 8
-  store i64 %1, ptr %4, align 8
-  %5 = load ptr, ptr %3, align 8
-  %6 = load i64, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !102
+  store i64 %1, ptr %4, align 8, !tbaa !27
+  %5 = load ptr, ptr %3, align 8, !tbaa !102
+  %6 = load i64, ptr %4, align 8, !tbaa !27
   %7 = call noundef ptr @_ZNSt15__new_allocatorISt13_Rb_tree_nodeISt4pairIKcSt6vectorIPKS1_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ESaISC_EEEEE8allocateEmPKv(ptr noundef nonnull align 1 dereferenceable(1) %5, i64 noundef %6, ptr noundef null)
   ret ptr %7
 }
@@ -3919,41 +4388,47 @@ define linkonce_odr hidden noundef ptr @_ZNSt15__new_allocatorISt13_Rb_tree_node
   %4 = alloca ptr, align 8
   %5 = alloca i64, align 8
   %6 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store i64 %1, ptr %5, align 8
-  store ptr %2, ptr %6, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !112
+  store i64 %1, ptr %5, align 8, !tbaa !27
+  store ptr %2, ptr %6, align 8, !tbaa !176
   %7 = load ptr, ptr %4, align 8
-  %8 = load i64, ptr %5, align 8
-  %9 = call noundef i64 @_ZNKSt15__new_allocatorISt13_Rb_tree_nodeISt4pairIKcSt6vectorIPKS1_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ESaISC_EEEEE11_M_max_sizeEv(ptr noundef nonnull align 1 dereferenceable(1) %7) #9
+  %8 = load i64, ptr %5, align 8, !tbaa !27
+  %9 = call noundef i64 @_ZNKSt15__new_allocatorISt13_Rb_tree_nodeISt4pairIKcSt6vectorIPKS1_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ESaISC_EEEEE11_M_max_sizeEv(ptr noundef nonnull align 1 dereferenceable(1) %7) #13
   %10 = icmp ugt i64 %8, %9
-  br i1 %10, label %11, label %16
+  %11 = zext i1 %10 to i64
+  %12 = call i64 @llvm.expect.i64(i64 %11, i64 0)
+  %13 = icmp ne i64 %12, 0
+  br i1 %13, label %14, label %19
 
-11:                                               ; preds = %3
-  %12 = load i64, ptr %5, align 8
-  %13 = icmp ugt i64 %12, 288230376151711743
-  br i1 %13, label %14, label %15
+14:                                               ; preds = %3
+  %15 = load i64, ptr %5, align 8, !tbaa !27
+  %16 = icmp ugt i64 %15, 288230376151711743
+  br i1 %16, label %17, label %18
 
-14:                                               ; preds = %11
-  call void @_ZSt28__throw_bad_array_new_lengthv() #10
+17:                                               ; preds = %14
+  call void @_ZSt28__throw_bad_array_new_lengthv() #14
   unreachable
 
-15:                                               ; preds = %11
-  call void @_ZSt17__throw_bad_allocv() #10
+18:                                               ; preds = %14
+  call void @_ZSt17__throw_bad_allocv() #14
   unreachable
 
-16:                                               ; preds = %3
-  %17 = load i64, ptr %5, align 8
-  %18 = mul i64 %17, 64
-  %19 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %18) #13
-  ret ptr %19
+19:                                               ; preds = %3
+  %20 = load i64, ptr %5, align 8, !tbaa !27
+  %21 = mul i64 %20, 64
+  %22 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %21) #17
+  ret ptr %22
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef i64 @_ZNKSt15__new_allocatorISt13_Rb_tree_nodeISt4pairIKcSt6vectorIPKS1_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ESaISC_EEEEE11_M_max_sizeEv(ptr noundef nonnull align 1 dereferenceable(1) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !112
   ret i64 144115188075855871
 }
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(none)
+declare i64 @llvm.expect.i64(i64, i64) #9
 
 ; Function Attrs: noreturn
 declare void @_ZSt28__throw_bad_array_new_lengthv() #2
@@ -3962,7 +4437,7 @@ declare void @_ZSt28__throw_bad_array_new_lengthv() #2
 declare void @_ZSt17__throw_bad_allocv() #2
 
 ; Function Attrs: nobuiltin allocsize(0)
-declare noundef nonnull ptr @_Znwm(i64 noundef) #7
+declare noundef nonnull ptr @_Znwm(i64 noundef) #10
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt16allocator_traitsISaISt13_Rb_tree_nodeISt4pairIKcSt6vectorIPKS1_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ESaISC_EEEEEE9constructISF_JRKSt21piecewise_construct_tSt5tupleIJRS2_EESN_IJEEEEEvRSH_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %2, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 1 dereferenceable(1) %4) #0 comdat align 2 {
@@ -3971,16 +4446,16 @@ define linkonce_odr hidden void @_ZNSt16allocator_traitsISaISt13_Rb_tree_nodeISt
   %8 = alloca ptr, align 8
   %9 = alloca ptr, align 8
   %10 = alloca ptr, align 8
-  store ptr %0, ptr %6, align 8
-  store ptr %1, ptr %7, align 8
-  store ptr %2, ptr %8, align 8
-  store ptr %3, ptr %9, align 8
-  store ptr %4, ptr %10, align 8
-  %11 = load ptr, ptr %6, align 8
-  %12 = load ptr, ptr %7, align 8
-  %13 = load ptr, ptr %8, align 8
-  %14 = load ptr, ptr %9, align 8
-  %15 = load ptr, ptr %10, align 8
+  store ptr %0, ptr %6, align 8, !tbaa !102
+  store ptr %1, ptr %7, align 8, !tbaa !33
+  store ptr %2, ptr %8, align 8, !tbaa !155
+  store ptr %3, ptr %9, align 8, !tbaa !157
+  store ptr %4, ptr %10, align 8, !tbaa !159
+  %11 = load ptr, ptr %6, align 8, !tbaa !102
+  %12 = load ptr, ptr %7, align 8, !tbaa !33
+  %13 = load ptr, ptr %8, align 8, !tbaa !155
+  %14 = load ptr, ptr %9, align 8, !tbaa !157
+  %15 = load ptr, ptr %10, align 8, !tbaa !159
   call void @_ZNSt15__new_allocatorISt13_Rb_tree_nodeISt4pairIKcSt6vectorIPKS1_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ESaISC_EEEEE9constructISF_JRKSt21piecewise_construct_tSt5tupleIJRS2_EESM_IJEEEEEvPT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %11, ptr noundef %12, ptr noundef nonnull align 1 dereferenceable(1) %13, ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef nonnull align 1 dereferenceable(1) %15)
   ret void
 }
@@ -3993,14 +4468,14 @@ define linkonce_odr hidden void @_ZNSt15__new_allocatorISt13_Rb_tree_nodeISt4pai
   %9 = alloca ptr, align 8
   %10 = alloca ptr, align 8
   %11 = alloca %"class.std::tuple", align 8
-  store ptr %0, ptr %6, align 8
-  store ptr %1, ptr %7, align 8
-  store ptr %2, ptr %8, align 8
-  store ptr %3, ptr %9, align 8
-  store ptr %4, ptr %10, align 8
-  %12 = load ptr, ptr %7, align 8
-  %13 = load ptr, ptr %9, align 8
-  call void @_ZNSt5tupleIJRKcEEC2EOS2_(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(8) %13) #9
+  store ptr %0, ptr %6, align 8, !tbaa !112
+  store ptr %1, ptr %7, align 8, !tbaa !33
+  store ptr %2, ptr %8, align 8, !tbaa !155
+  store ptr %3, ptr %9, align 8, !tbaa !157
+  store ptr %4, ptr %10, align 8, !tbaa !159
+  %12 = load ptr, ptr %7, align 8, !tbaa !33
+  %13 = load ptr, ptr %9, align 8, !tbaa !157
+  call void @_ZNSt5tupleIJRKcEEC2EOS2_(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(8) %13) #13
   call void @_ZNSt4pairIKcSt6vectorIPKS_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_ESaISA_EEEC2IJRS0_EJEEESt21piecewise_construct_tSt5tupleIJDpT_EESH_IJDpT0_EE(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef %11)
   ret void
 }
@@ -4009,21 +4484,21 @@ define linkonce_odr hidden void @_ZNSt15__new_allocatorISt13_Rb_tree_nodeISt4pai
 define linkonce_odr hidden void @_ZNSt5tupleIJRKcEEC2EOS2_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #0 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !157
+  store ptr %1, ptr %4, align 8, !tbaa !157
   %5 = load ptr, ptr %3, align 8
-  %6 = load ptr, ptr %4, align 8
-  call void @_ZNSt11_Tuple_implILm0EJRKcEEC2EOS2_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %6) #9
+  %6 = load ptr, ptr %4, align 8, !tbaa !157
+  call void @_ZNSt11_Tuple_implILm0EJRKcEEC2EOS2_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %6) #13
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNSt4pairIKcSt6vectorIPKS_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_ESaISA_EEEC2IJRS0_EJEEESt21piecewise_construct_tSt5tupleIJDpT_EESH_IJDpT0_EE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1) unnamed_addr #0 comdat align 2 {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZNSt4pairIKcSt6vectorIPKS_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_ESaISA_EEEC2IJRS0_EJEEESt21piecewise_construct_tSt5tupleIJDpT_EESH_IJDpT0_EE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1) unnamed_addr #4 comdat align 2 {
   %3 = alloca %"class.std::tuple.29", align 1
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !33
+  store ptr %1, ptr %5, align 8, !tbaa !157
   %6 = load ptr, ptr %4, align 8
   call void @_ZNSt4pairIKcSt6vectorIPKS_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_ESaISA_EEEC2IJRS0_EJLm0EEJETpTnmJEEERSt5tupleIJDpT_EERSG_IJDpT1_EESt12_Index_tupleIJXspT0_EEESP_IJXspT2_EEE(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 1 dereferenceable(1) %3)
   ret void
@@ -4033,127 +4508,127 @@ define linkonce_odr hidden void @_ZNSt4pairIKcSt6vectorIPKS_INSt7__cxx1112basic_
 define linkonce_odr hidden void @_ZNSt11_Tuple_implILm0EJRKcEEC2EOS2_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #0 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !177
+  store ptr %1, ptr %4, align 8, !tbaa !177
   %5 = load ptr, ptr %3, align 8
-  %6 = load ptr, ptr %4, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %5, ptr align 8 %6, i64 8, i1 false)
+  %6 = load ptr, ptr %4, align 8, !tbaa !177
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %5, ptr align 8 %6, i64 8, i1 false), !tbaa.struct !179
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNSt4pairIKcSt6vectorIPKS_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_ESaISA_EEEC2IJRS0_EJLm0EEJETpTnmJEEERSt5tupleIJDpT_EERSG_IJDpT1_EESt12_Index_tupleIJXspT0_EEESP_IJXspT2_EEE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 1 dereferenceable(1) %2) unnamed_addr #0 comdat align 2 {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZNSt4pairIKcSt6vectorIPKS_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_ESaISA_EEEC2IJRS0_EJLm0EEJETpTnmJEEERSt5tupleIJDpT_EERSG_IJDpT1_EESt12_Index_tupleIJXspT0_EEESP_IJXspT2_EEE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 1 dereferenceable(1) %2) unnamed_addr #4 comdat align 2 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store ptr %2, ptr %6, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !33
+  store ptr %1, ptr %5, align 8, !tbaa !157
+  store ptr %2, ptr %6, align 8, !tbaa !159
   %7 = load ptr, ptr %4, align 8
   %8 = getelementptr inbounds nuw %"struct.std::pair.8", ptr %7, i32 0, i32 0
-  %9 = load ptr, ptr %5, align 8
-  %10 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZSt3getILm0EJRKcEERNSt13tuple_elementIXT_ESt5tupleIJDpT0_EEE4typeERS6_(ptr noundef nonnull align 8 dereferenceable(8) %9) #9
-  %11 = load i8, ptr %10, align 1
-  store i8 %11, ptr %8, align 8
+  %9 = load ptr, ptr %5, align 8, !tbaa !157
+  %10 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZSt3getILm0EJRKcEERNSt13tuple_elementIXT_ESt5tupleIJDpT0_EEE4typeERS6_(ptr noundef nonnull align 8 dereferenceable(8) %9) #13
+  %11 = load i8, ptr %10, align 1, !tbaa !30
+  store i8 %11, ptr %8, align 8, !tbaa !35
   %12 = getelementptr inbounds nuw %"struct.std::pair.8", ptr %7, i32 0, i32 1
   call void @llvm.memset.p0.i64(ptr align 8 %12, i8 0, i64 24, i1 false)
-  call void @_ZNSt6vectorIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS9_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %12) #9
+  call void @_ZNSt6vectorIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS9_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %12) #13
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef nonnull align 1 dereferenceable(1) ptr @_ZSt3getILm0EJRKcEERNSt13tuple_elementIXT_ESt5tupleIJDpT0_EEE4typeERS6_(ptr noundef nonnull align 8 dereferenceable(8) %0) #0 comdat {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  %4 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZSt12__get_helperILm0ERKcJEERT0_RSt11_Tuple_implIXT_EJS2_DpT1_EE(ptr noundef nonnull align 8 dereferenceable(8) %3) #9
+  store ptr %0, ptr %2, align 8, !tbaa !157
+  %3 = load ptr, ptr %2, align 8, !tbaa !157
+  %4 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZSt12__get_helperILm0ERKcJEERT0_RSt11_Tuple_implIXT_EJS2_DpT1_EE(ptr noundef nonnull align 8 dereferenceable(8) %3) #13
   ret ptr %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt6vectorIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS9_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !8
   %3 = load ptr, ptr %2, align 8
-  call void @_ZNSt12_Vector_baseIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS9_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #9
+  call void @_ZNSt12_Vector_baseIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS9_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #13
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef nonnull align 1 dereferenceable(1) ptr @_ZSt12__get_helperILm0ERKcJEERT0_RSt11_Tuple_implIXT_EJS2_DpT1_EE(ptr noundef nonnull align 8 dereferenceable(8) %0) #0 comdat {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  %4 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt11_Tuple_implILm0EJRKcEE7_M_headERS2_(ptr noundef nonnull align 8 dereferenceable(8) %3) #9
+  store ptr %0, ptr %2, align 8, !tbaa !177
+  %3 = load ptr, ptr %2, align 8, !tbaa !177
+  %4 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt11_Tuple_implILm0EJRKcEE7_M_headERS2_(ptr noundef nonnull align 8 dereferenceable(8) %3) #13
   ret ptr %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt11_Tuple_implILm0EJRKcEE7_M_headERS2_(ptr noundef nonnull align 8 dereferenceable(8) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  %4 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt10_Head_baseILm0ERKcLb0EE7_M_headERS2_(ptr noundef nonnull align 8 dereferenceable(8) %3) #9
+  store ptr %0, ptr %2, align 8, !tbaa !177
+  %3 = load ptr, ptr %2, align 8, !tbaa !177
+  %4 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt10_Head_baseILm0ERKcLb0EE7_M_headERS2_(ptr noundef nonnull align 8 dereferenceable(8) %3) #13
   ret ptr %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt10_Head_baseILm0ERKcLb0EE7_M_headERS2_(ptr noundef nonnull align 8 dereferenceable(8) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !180
+  %3 = load ptr, ptr %2, align 8, !tbaa !180
   %4 = getelementptr inbounds nuw %"struct.std::_Head_base", ptr %3, i32 0, i32 0
-  %5 = load ptr, ptr %4, align 8
+  %5 = load ptr, ptr %4, align 8, !tbaa !182
   ret ptr %5
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt12_Vector_baseIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS9_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !125
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw %"struct.std::_Vector_base", ptr %3, i32 0, i32 0
-  call void @_ZNSt12_Vector_baseIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS9_EE12_Vector_implC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #9
+  call void @_ZNSt12_Vector_baseIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS9_EE12_Vector_implC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #13
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt12_Vector_baseIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS9_EE12_Vector_implC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !184
   %3 = load ptr, ptr %2, align 8
-  call void @_ZNSaIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #9
-  call void @_ZNSt12_Vector_baseIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS9_EE17_Vector_impl_dataC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #9
+  call void @_ZNSaIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #13
+  call void @_ZNSt12_Vector_baseIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS9_EE17_Vector_impl_dataC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #13
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSaIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !123
   %3 = load ptr, ptr %2, align 8
-  call void @_ZNSt15__new_allocatorIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_EEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #9
+  call void @_ZNSt15__new_allocatorIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_EEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #13
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt12_Vector_baseIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS9_EE17_Vector_impl_dataC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !186
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw %"struct.std::_Vector_base<const std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>> *, std::allocator<const std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>> *>>::_Vector_impl_data", ptr %3, i32 0, i32 0
-  store ptr null, ptr %4, align 8
+  store ptr null, ptr %4, align 8, !tbaa !46
   %5 = getelementptr inbounds nuw %"struct.std::_Vector_base<const std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>> *, std::allocator<const std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>> *>>::_Vector_impl_data", ptr %3, i32 0, i32 1
-  store ptr null, ptr %5, align 8
+  store ptr null, ptr %5, align 8, !tbaa !50
   %6 = getelementptr inbounds nuw %"struct.std::_Vector_base<const std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>> *, std::allocator<const std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>> *>>::_Vector_impl_data", ptr %3, i32 0, i32 2
-  store ptr null, ptr %6, align 8
+  store ptr null, ptr %6, align 8, !tbaa !71
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt15__new_allocatorIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_EEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !127
   ret void
 }
 
@@ -4161,11 +4636,11 @@ define linkonce_odr hidden void @_ZNSt15__new_allocatorIPKSt4pairINSt7__cxx1112b
 define linkonce_odr hidden ptr @_ZNKSt23_Rb_tree_const_iteratorISt4pairIKcSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEEE13_M_const_castEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #0 comdat align 2 {
   %2 = alloca %"struct.std::_Rb_tree_iterator", align 8
   %3 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !164
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw %"struct.std::_Rb_tree_const_iterator", ptr %4, i32 0, i32 0
-  %6 = load ptr, ptr %5, align 8
-  call void @_ZNSt17_Rb_tree_iteratorISt4pairIKcSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEEEC2EPSt18_Rb_tree_node_base(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef %6) #9
+  %6 = load ptr, ptr %5, align 8, !tbaa !166
+  call void @_ZNSt17_Rb_tree_iteratorISt4pairIKcSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEEEC2EPSt18_Rb_tree_node_base(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef %6) #13
   %7 = getelementptr inbounds nuw %"struct.std::_Rb_tree_iterator", ptr %2, i32 0, i32 0
   %8 = load ptr, ptr %7, align 8
   ret ptr %8
@@ -4174,20 +4649,20 @@ define linkonce_odr hidden ptr @_ZNKSt23_Rb_tree_const_iteratorISt4pairIKcSt6vec
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef i64 @_ZNKSt8_Rb_treeIcSt4pairIKcSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEESt10_Select1stISE_ESt4lessIcESaISE_EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(48) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !98
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw %"class.std::_Rb_tree", ptr %3, i32 0, i32 0
   %5 = getelementptr inbounds i8, ptr %4, i64 8
   %6 = getelementptr inbounds nuw %"struct.std::_Rb_tree_header", ptr %5, i32 0, i32 1
-  %7 = load i64, ptr %6, align 8
+  %7 = load i64, ptr %6, align 8, !tbaa !117
   ret i64 %7
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt8_Rb_treeIcSt4pairIKcSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEESt10_Select1stISE_ESt4lessIcESaISE_EE6_S_keyEPKSt18_Rb_tree_node_base(ptr noundef %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !69
+  %3 = load ptr, ptr %2, align 8, !tbaa !69
   %4 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt8_Rb_treeIcSt4pairIKcSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEESt10_Select1stISE_ESt4lessIcESaISE_EE6_S_keyEPKSt13_Rb_tree_nodeISE_E(ptr noundef %3)
   ret ptr %4
 }
@@ -4195,7 +4670,7 @@ define linkonce_odr hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt8_Rb_treeIcSt4pairIKcSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEESt10_Select1stISE_ESt4lessIcESaISE_EE12_M_rightmostEv(ptr noundef nonnull align 8 dereferenceable(48) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !98
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw %"class.std::_Rb_tree", ptr %3, i32 0, i32 0
   %5 = getelementptr inbounds i8, ptr %4, i64 8
@@ -4209,18 +4684,18 @@ define linkonce_odr hidden void @_ZNSt4pairIPSt18_Rb_tree_node_baseS1_EC2IS1_S1_
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store ptr %2, ptr %6, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !188
+  store ptr %1, ptr %5, align 8, !tbaa !190
+  store ptr %2, ptr %6, align 8, !tbaa !190
   %7 = load ptr, ptr %4, align 8
   %8 = getelementptr inbounds nuw %"struct.std::pair.30", ptr %7, i32 0, i32 0
-  %9 = load ptr, ptr %5, align 8
-  %10 = load ptr, ptr %9, align 8
-  store ptr %10, ptr %8, align 8
+  %9 = load ptr, ptr %5, align 8, !tbaa !190
+  %10 = load ptr, ptr %9, align 8, !tbaa !69
+  store ptr %10, ptr %8, align 8, !tbaa !163
   %11 = getelementptr inbounds nuw %"struct.std::pair.30", ptr %7, i32 0, i32 1
-  %12 = load ptr, ptr %6, align 8
-  %13 = load ptr, ptr %12, align 8
-  store ptr %13, ptr %11, align 8
+  %12 = load ptr, ptr %6, align 8, !tbaa !190
+  %13 = load ptr, ptr %12, align 8, !tbaa !69
+  store ptr %13, ptr %11, align 8, !tbaa !161
   ret void
 }
 
@@ -4234,104 +4709,120 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeIcSt4pairIKcSt6vectorIPKS0_INSt7
   %8 = alloca i8, align 1
   %9 = alloca %"struct.std::_Rb_tree_iterator", align 8
   %10 = alloca %"struct.std::_Rb_tree_iterator", align 8
-  %11 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  %12 = load ptr, ptr %4, align 8
-  %13 = call noundef ptr @_ZNSt8_Rb_treeIcSt4pairIKcSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEESt10_Select1stISE_ESt4lessIcESaISE_EE8_M_beginEv(ptr noundef nonnull align 8 dereferenceable(48) %12) #9
-  store ptr %13, ptr %6, align 8
-  %14 = call noundef ptr @_ZNSt8_Rb_treeIcSt4pairIKcSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEESt10_Select1stISE_ESt4lessIcESaISE_EE6_M_endEv(ptr noundef nonnull align 8 dereferenceable(48) %12) #9
-  store ptr %14, ptr %7, align 8
-  store i8 1, ptr %8, align 1
-  br label %15
+  %11 = alloca i32, align 4
+  %12 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !98
+  store ptr %1, ptr %5, align 8, !tbaa !26
+  %13 = load ptr, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #13
+  %14 = call noundef ptr @_ZNSt8_Rb_treeIcSt4pairIKcSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEESt10_Select1stISE_ESt4lessIcESaISE_EE8_M_beginEv(ptr noundef nonnull align 8 dereferenceable(48) %13) #13
+  store ptr %14, ptr %6, align 8, !tbaa !118
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #13
+  %15 = call noundef ptr @_ZNSt8_Rb_treeIcSt4pairIKcSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEESt10_Select1stISE_ESt4lessIcESaISE_EE6_M_endEv(ptr noundef nonnull align 8 dereferenceable(48) %13) #13
+  store ptr %15, ptr %7, align 8, !tbaa !69
+  call void @llvm.lifetime.start.p0(i64 1, ptr %8) #13
+  store i8 1, ptr %8, align 1, !tbaa !12
+  br label %16
 
-15:                                               ; preds = %34, %2
-  %16 = load ptr, ptr %6, align 8
-  %17 = icmp ne ptr %16, null
-  br i1 %17, label %18, label %36
+16:                                               ; preds = %35, %2
+  %17 = load ptr, ptr %6, align 8, !tbaa !118
+  %18 = icmp ne ptr %17, null
+  br i1 %18, label %19, label %37
 
-18:                                               ; preds = %15
-  %19 = load ptr, ptr %6, align 8
-  store ptr %19, ptr %7, align 8
-  %20 = getelementptr inbounds nuw %"class.std::_Rb_tree", ptr %12, i32 0, i32 0
-  %21 = load ptr, ptr %5, align 8
-  %22 = load ptr, ptr %6, align 8
-  %23 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt8_Rb_treeIcSt4pairIKcSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEESt10_Select1stISE_ESt4lessIcESaISE_EE6_S_keyEPKSt13_Rb_tree_nodeISE_E(ptr noundef %22)
-  %24 = call noundef zeroext i1 @_ZNKSt4lessIcEclERKcS2_(ptr noundef nonnull align 1 dereferenceable(1) %20, ptr noundef nonnull align 1 dereferenceable(1) %21, ptr noundef nonnull align 1 dereferenceable(1) %23)
-  %25 = zext i1 %24 to i8
-  store i8 %25, ptr %8, align 1
-  %26 = load i8, ptr %8, align 1
-  %27 = trunc i8 %26 to i1
-  br i1 %27, label %28, label %31
+19:                                               ; preds = %16
+  %20 = load ptr, ptr %6, align 8, !tbaa !118
+  store ptr %20, ptr %7, align 8, !tbaa !69
+  %21 = getelementptr inbounds nuw %"class.std::_Rb_tree", ptr %13, i32 0, i32 0
+  %22 = load ptr, ptr %5, align 8, !tbaa !26
+  %23 = load ptr, ptr %6, align 8, !tbaa !118
+  %24 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt8_Rb_treeIcSt4pairIKcSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEESt10_Select1stISE_ESt4lessIcESaISE_EE6_S_keyEPKSt13_Rb_tree_nodeISE_E(ptr noundef %23)
+  %25 = call noundef zeroext i1 @_ZNKSt4lessIcEclERKcS2_(ptr noundef nonnull align 1 dereferenceable(1) %21, ptr noundef nonnull align 1 dereferenceable(1) %22, ptr noundef nonnull align 1 dereferenceable(1) %24)
+  %26 = zext i1 %25 to i8
+  store i8 %26, ptr %8, align 1, !tbaa !12
+  %27 = load i8, ptr %8, align 1, !tbaa !12, !range !16, !noundef !17
+  %28 = trunc i8 %27 to i1
+  br i1 %28, label %29, label %32
 
-28:                                               ; preds = %18
-  %29 = load ptr, ptr %6, align 8
-  %30 = call noundef ptr @_ZNSt8_Rb_treeIcSt4pairIKcSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEESt10_Select1stISE_ESt4lessIcESaISE_EE7_S_leftEPSt18_Rb_tree_node_base(ptr noundef %29) #9
-  br label %34
+29:                                               ; preds = %19
+  %30 = load ptr, ptr %6, align 8, !tbaa !118
+  %31 = call noundef ptr @_ZNSt8_Rb_treeIcSt4pairIKcSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEESt10_Select1stISE_ESt4lessIcESaISE_EE7_S_leftEPSt18_Rb_tree_node_base(ptr noundef %30) #13
+  br label %35
 
-31:                                               ; preds = %18
-  %32 = load ptr, ptr %6, align 8
-  %33 = call noundef ptr @_ZNSt8_Rb_treeIcSt4pairIKcSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEESt10_Select1stISE_ESt4lessIcESaISE_EE8_S_rightEPSt18_Rb_tree_node_base(ptr noundef %32) #9
-  br label %34
+32:                                               ; preds = %19
+  %33 = load ptr, ptr %6, align 8, !tbaa !118
+  %34 = call noundef ptr @_ZNSt8_Rb_treeIcSt4pairIKcSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEESt10_Select1stISE_ESt4lessIcESaISE_EE8_S_rightEPSt18_Rb_tree_node_base(ptr noundef %33) #13
+  br label %35
 
-34:                                               ; preds = %31, %28
-  %35 = phi ptr [ %30, %28 ], [ %33, %31 ]
-  store ptr %35, ptr %6, align 8
-  br label %15, !llvm.loop !10
+35:                                               ; preds = %32, %29
+  %36 = phi ptr [ %31, %29 ], [ %34, %32 ]
+  store ptr %36, ptr %6, align 8, !tbaa !118
+  br label %16, !llvm.loop !192
 
-36:                                               ; preds = %15
-  %37 = load ptr, ptr %7, align 8
-  call void @_ZNSt17_Rb_tree_iteratorISt4pairIKcSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEEEC2EPSt18_Rb_tree_node_base(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef %37) #9
-  %38 = load i8, ptr %8, align 1
-  %39 = trunc i8 %38 to i1
-  br i1 %39, label %40, label %48
+37:                                               ; preds = %16
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #13
+  %38 = load ptr, ptr %7, align 8, !tbaa !69
+  call void @_ZNSt17_Rb_tree_iteratorISt4pairIKcSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEEEC2EPSt18_Rb_tree_node_base(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef %38) #13
+  %39 = load i8, ptr %8, align 1, !tbaa !12, !range !16, !noundef !17
+  %40 = trunc i8 %39 to i1
+  br i1 %40, label %41, label %49
 
-40:                                               ; preds = %36
-  %41 = call ptr @_ZNSt8_Rb_treeIcSt4pairIKcSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEESt10_Select1stISE_ESt4lessIcESaISE_EE5beginEv(ptr noundef nonnull align 8 dereferenceable(48) %12) #9
-  %42 = getelementptr inbounds nuw %"struct.std::_Rb_tree_iterator", ptr %10, i32 0, i32 0
-  store ptr %41, ptr %42, align 8
-  %43 = call noundef zeroext i1 @_ZSteqRKSt17_Rb_tree_iteratorISt4pairIKcSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEEESH_(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 8 dereferenceable(8) %10) #9
-  br i1 %43, label %44, label %45
+41:                                               ; preds = %37
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #13
+  %42 = call ptr @_ZNSt8_Rb_treeIcSt4pairIKcSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEESt10_Select1stISE_ESt4lessIcESaISE_EE5beginEv(ptr noundef nonnull align 8 dereferenceable(48) %13) #13
+  %43 = getelementptr inbounds nuw %"struct.std::_Rb_tree_iterator", ptr %10, i32 0, i32 0
+  store ptr %42, ptr %43, align 8
+  %44 = call noundef zeroext i1 @_ZSteqRKSt17_Rb_tree_iteratorISt4pairIKcSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEEESH_(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 8 dereferenceable(8) %10) #13
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #13
+  br i1 %44, label %45, label %46
 
-44:                                               ; preds = %40
+45:                                               ; preds = %41
   call void @_ZNSt4pairIPSt18_Rb_tree_node_baseS1_EC2IRPSt13_Rb_tree_nodeIS_IKcSt6vectorIPKS_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESC_ESaISF_EEEERS1_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairISO_SP_EEEbE4typeELb1EEEOSO_OSP_(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(8) %7)
-  br label %58
+  store i32 1, ptr %11, align 4
+  br label %59
 
-45:                                               ; preds = %40
-  %46 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt17_Rb_tree_iteratorISt4pairIKcSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEEEmmEv(ptr noundef nonnull align 8 dereferenceable(8) %9) #9
-  br label %47
-
-47:                                               ; preds = %45
+46:                                               ; preds = %41
+  %47 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt17_Rb_tree_iteratorISt4pairIKcSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEEEmmEv(ptr noundef nonnull align 8 dereferenceable(8) %9) #13
   br label %48
 
-48:                                               ; preds = %47, %36
-  %49 = getelementptr inbounds nuw %"class.std::_Rb_tree", ptr %12, i32 0, i32 0
-  %50 = getelementptr inbounds nuw %"struct.std::_Rb_tree_iterator", ptr %9, i32 0, i32 0
-  %51 = load ptr, ptr %50, align 8
-  %52 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt8_Rb_treeIcSt4pairIKcSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEESt10_Select1stISE_ESt4lessIcESaISE_EE6_S_keyEPKSt18_Rb_tree_node_base(ptr noundef %51)
-  %53 = load ptr, ptr %5, align 8
-  %54 = call noundef zeroext i1 @_ZNKSt4lessIcEclERKcS2_(ptr noundef nonnull align 1 dereferenceable(1) %49, ptr noundef nonnull align 1 dereferenceable(1) %52, ptr noundef nonnull align 1 dereferenceable(1) %53)
-  br i1 %54, label %55, label %56
+48:                                               ; preds = %46
+  br label %49
 
-55:                                               ; preds = %48
+49:                                               ; preds = %48, %37
+  %50 = getelementptr inbounds nuw %"class.std::_Rb_tree", ptr %13, i32 0, i32 0
+  %51 = getelementptr inbounds nuw %"struct.std::_Rb_tree_iterator", ptr %9, i32 0, i32 0
+  %52 = load ptr, ptr %51, align 8, !tbaa !75
+  %53 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt8_Rb_treeIcSt4pairIKcSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEESt10_Select1stISE_ESt4lessIcESaISE_EE6_S_keyEPKSt18_Rb_tree_node_base(ptr noundef %52)
+  %54 = load ptr, ptr %5, align 8, !tbaa !26
+  %55 = call noundef zeroext i1 @_ZNKSt4lessIcEclERKcS2_(ptr noundef nonnull align 1 dereferenceable(1) %50, ptr noundef nonnull align 1 dereferenceable(1) %53, ptr noundef nonnull align 1 dereferenceable(1) %54)
+  br i1 %55, label %56, label %57
+
+56:                                               ; preds = %49
   call void @_ZNSt4pairIPSt18_Rb_tree_node_baseS1_EC2IRPSt13_Rb_tree_nodeIS_IKcSt6vectorIPKS_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESC_ESaISF_EEEERS1_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairISO_SP_EEEbE4typeELb1EEEOSO_OSP_(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(8) %7)
-  br label %58
+  store i32 1, ptr %11, align 4
+  br label %59
 
-56:                                               ; preds = %48
-  %57 = getelementptr inbounds nuw %"struct.std::_Rb_tree_iterator", ptr %9, i32 0, i32 0
-  store ptr null, ptr %11, align 8
-  call void @_ZNSt4pairIPSt18_Rb_tree_node_baseS1_EC2IS1_S1_TnNSt9enable_ifIXaaclsr5_PCCPE18_ConstructiblePairIT_T0_EEclsr5_PCCPE26_ImplicitlyConvertiblePairIS5_S6_EEEbE4typeELb1EEERKS1_SA_(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(8) %57, ptr noundef nonnull align 8 dereferenceable(8) %11)
-  br label %58
+57:                                               ; preds = %49
+  %58 = getelementptr inbounds nuw %"struct.std::_Rb_tree_iterator", ptr %9, i32 0, i32 0
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #13
+  store ptr null, ptr %12, align 8, !tbaa !69
+  call void @_ZNSt4pairIPSt18_Rb_tree_node_baseS1_EC2IS1_S1_TnNSt9enable_ifIXaaclsr5_PCCPE18_ConstructiblePairIT_T0_EEclsr5_PCCPE26_ImplicitlyConvertiblePairIS5_S6_EEEbE4typeELb1EEERKS1_SA_(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(8) %58, ptr noundef nonnull align 8 dereferenceable(8) %12)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #13
+  store i32 1, ptr %11, align 4
+  br label %59
 
-58:                                               ; preds = %56, %55, %44
-  %59 = load { ptr, ptr }, ptr %3, align 8
-  ret { ptr, ptr } %59
+59:                                               ; preds = %57, %56, %45
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #13
+  call void @llvm.lifetime.end.p0(i64 1, ptr %8) #13
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #13
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #13
+  %60 = load { ptr, ptr }, ptr %3, align 8
+  ret { ptr, ptr } %60
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt8_Rb_treeIcSt4pairIKcSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEESt10_Select1stISE_ESt4lessIcESaISE_EE11_M_leftmostEv(ptr noundef nonnull align 8 dereferenceable(48) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !98
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw %"class.std::_Rb_tree", ptr %3, i32 0, i32 0
   %5 = getelementptr inbounds i8, ptr %4, i64 8
@@ -4345,31 +4836,31 @@ define linkonce_odr hidden void @_ZNSt4pairIPSt18_Rb_tree_node_baseS1_EC2IRS1_S4
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store ptr %2, ptr %6, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !188
+  store ptr %1, ptr %5, align 8, !tbaa !190
+  store ptr %2, ptr %6, align 8, !tbaa !190
   %7 = load ptr, ptr %4, align 8
   %8 = getelementptr inbounds nuw %"struct.std::pair.30", ptr %7, i32 0, i32 0
-  %9 = load ptr, ptr %5, align 8
-  %10 = load ptr, ptr %9, align 8
-  store ptr %10, ptr %8, align 8
+  %9 = load ptr, ptr %5, align 8, !tbaa !190
+  %10 = load ptr, ptr %9, align 8, !tbaa !69
+  store ptr %10, ptr %8, align 8, !tbaa !163
   %11 = getelementptr inbounds nuw %"struct.std::pair.30", ptr %7, i32 0, i32 1
-  %12 = load ptr, ptr %6, align 8
-  %13 = load ptr, ptr %12, align 8
-  store ptr %13, ptr %11, align 8
+  %12 = load ptr, ptr %6, align 8, !tbaa !190
+  %13 = load ptr, ptr %12, align 8, !tbaa !69
+  store ptr %13, ptr %11, align 8, !tbaa !161
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt17_Rb_tree_iteratorISt4pairIKcSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEEEmmEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !73
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw %"struct.std::_Rb_tree_iterator", ptr %3, i32 0, i32 0
-  %5 = load ptr, ptr %4, align 8
-  %6 = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef %5) #11
+  %5 = load ptr, ptr %4, align 8, !tbaa !75
+  %6 = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef %5) #15
   %7 = getelementptr inbounds nuw %"struct.std::_Rb_tree_iterator", ptr %3, i32 0, i32 0
-  store ptr %6, ptr %7, align 8
+  store ptr %6, ptr %7, align 8, !tbaa !75
   ret ptr %3
 }
 
@@ -4377,14 +4868,14 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt
 define linkonce_odr hidden ptr @_ZNSt8_Rb_treeIcSt4pairIKcSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEESt10_Select1stISE_ESt4lessIcESaISE_EE5beginEv(ptr noundef nonnull align 8 dereferenceable(48) %0) #0 comdat align 2 {
   %2 = alloca %"struct.std::_Rb_tree_iterator", align 8
   %3 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !98
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw %"class.std::_Rb_tree", ptr %4, i32 0, i32 0
   %6 = getelementptr inbounds i8, ptr %5, i64 8
   %7 = getelementptr inbounds nuw %"struct.std::_Rb_tree_header", ptr %6, i32 0, i32 0
   %8 = getelementptr inbounds nuw %"struct.std::_Rb_tree_node_base", ptr %7, i32 0, i32 2
-  %9 = load ptr, ptr %8, align 8
-  call void @_ZNSt17_Rb_tree_iteratorISt4pairIKcSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEEEC2EPSt18_Rb_tree_node_base(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef %9) #9
+  %9 = load ptr, ptr %8, align 8, !tbaa !115
+  call void @_ZNSt17_Rb_tree_iteratorISt4pairIKcSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEEEC2EPSt18_Rb_tree_node_base(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef %9) #13
   %10 = getelementptr inbounds nuw %"struct.std::_Rb_tree_iterator", ptr %2, i32 0, i32 0
   %11 = load ptr, ptr %10, align 8
   ret ptr %11
@@ -4395,23 +4886,23 @@ define linkonce_odr hidden void @_ZNSt4pairIPSt18_Rb_tree_node_baseS1_EC2IRPSt13
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store ptr %2, ptr %6, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !188
+  store ptr %1, ptr %5, align 8, !tbaa !193
+  store ptr %2, ptr %6, align 8, !tbaa !190
   %7 = load ptr, ptr %4, align 8
   %8 = getelementptr inbounds nuw %"struct.std::pair.30", ptr %7, i32 0, i32 0
-  %9 = load ptr, ptr %5, align 8
-  %10 = load ptr, ptr %9, align 8
-  store ptr %10, ptr %8, align 8
+  %9 = load ptr, ptr %5, align 8, !tbaa !193
+  %10 = load ptr, ptr %9, align 8, !tbaa !118
+  store ptr %10, ptr %8, align 8, !tbaa !163
   %11 = getelementptr inbounds nuw %"struct.std::pair.30", ptr %7, i32 0, i32 1
-  %12 = load ptr, ptr %6, align 8
-  %13 = load ptr, ptr %12, align 8
-  store ptr %13, ptr %11, align 8
+  %12 = load ptr, ptr %6, align 8, !tbaa !190
+  %13 = load ptr, ptr %12, align 8, !tbaa !69
+  store ptr %13, ptr %11, align 8, !tbaa !161
   ret void
 }
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef) #8
+declare noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef) #11
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr ptr @_ZNSt8_Rb_treeIcSt4pairIKcSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEESt10_Select1stISE_ESt4lessIcESaISE_EE14_M_insert_nodeEPSt18_Rb_tree_node_baseSM_PSt13_Rb_tree_nodeISE_E(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 comdat align 2 {
@@ -4421,26 +4912,27 @@ define linkonce_odr ptr @_ZNSt8_Rb_treeIcSt4pairIKcSt6vectorIPKS0_INSt7__cxx1112
   %8 = alloca ptr, align 8
   %9 = alloca ptr, align 8
   %10 = alloca i8, align 1
-  store ptr %0, ptr %6, align 8
-  store ptr %1, ptr %7, align 8
-  store ptr %2, ptr %8, align 8
-  store ptr %3, ptr %9, align 8
+  store ptr %0, ptr %6, align 8, !tbaa !98
+  store ptr %1, ptr %7, align 8, !tbaa !69
+  store ptr %2, ptr %8, align 8, !tbaa !69
+  store ptr %3, ptr %9, align 8, !tbaa !118
   %11 = load ptr, ptr %6, align 8
-  %12 = load ptr, ptr %7, align 8
+  call void @llvm.lifetime.start.p0(i64 1, ptr %10) #13
+  %12 = load ptr, ptr %7, align 8, !tbaa !69
   %13 = icmp ne ptr %12, null
   br i1 %13, label %25, label %14
 
 14:                                               ; preds = %4
-  %15 = load ptr, ptr %8, align 8
-  %16 = call noundef ptr @_ZNSt8_Rb_treeIcSt4pairIKcSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEESt10_Select1stISE_ESt4lessIcESaISE_EE6_M_endEv(ptr noundef nonnull align 8 dereferenceable(48) %11) #9
+  %15 = load ptr, ptr %8, align 8, !tbaa !69
+  %16 = call noundef ptr @_ZNSt8_Rb_treeIcSt4pairIKcSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEESt10_Select1stISE_ESt4lessIcESaISE_EE6_M_endEv(ptr noundef nonnull align 8 dereferenceable(48) %11) #13
   %17 = icmp eq ptr %15, %16
   br i1 %17, label %25, label %18
 
 18:                                               ; preds = %14
   %19 = getelementptr inbounds nuw %"class.std::_Rb_tree", ptr %11, i32 0, i32 0
-  %20 = load ptr, ptr %9, align 8
+  %20 = load ptr, ptr %9, align 8, !tbaa !118
   %21 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt8_Rb_treeIcSt4pairIKcSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEESt10_Select1stISE_ESt4lessIcESaISE_EE6_S_keyEPKSt13_Rb_tree_nodeISE_E(ptr noundef %20)
-  %22 = load ptr, ptr %8, align 8
+  %22 = load ptr, ptr %8, align 8, !tbaa !69
   %23 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt8_Rb_treeIcSt4pairIKcSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEESt10_Select1stISE_ESt4lessIcESaISE_EE6_S_keyEPKSt18_Rb_tree_node_base(ptr noundef %22)
   %24 = call noundef zeroext i1 @_ZNKSt4lessIcEclERKcS2_(ptr noundef nonnull align 1 dereferenceable(1) %19, ptr noundef nonnull align 1 dereferenceable(1) %21, ptr noundef nonnull align 1 dereferenceable(1) %23)
   br label %25
@@ -4448,39 +4940,40 @@ define linkonce_odr ptr @_ZNSt8_Rb_treeIcSt4pairIKcSt6vectorIPKS0_INSt7__cxx1112
 25:                                               ; preds = %18, %14, %4
   %26 = phi i1 [ true, %14 ], [ true, %4 ], [ %24, %18 ]
   %27 = zext i1 %26 to i8
-  store i8 %27, ptr %10, align 1
-  %28 = load i8, ptr %10, align 1
+  store i8 %27, ptr %10, align 1, !tbaa !12
+  %28 = load i8, ptr %10, align 1, !tbaa !12, !range !16, !noundef !17
   %29 = trunc i8 %28 to i1
-  %30 = load ptr, ptr %9, align 8
-  %31 = load ptr, ptr %8, align 8
+  %30 = load ptr, ptr %9, align 8, !tbaa !118
+  %31 = load ptr, ptr %8, align 8, !tbaa !69
   %32 = getelementptr inbounds nuw %"class.std::_Rb_tree", ptr %11, i32 0, i32 0
   %33 = getelementptr inbounds i8, ptr %32, i64 8
   %34 = getelementptr inbounds nuw %"struct.std::_Rb_tree_header", ptr %33, i32 0, i32 0
-  call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %29, ptr noundef %30, ptr noundef %31, ptr noundef nonnull align 8 dereferenceable(32) %34) #9
+  call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %29, ptr noundef %30, ptr noundef %31, ptr noundef nonnull align 8 dereferenceable(32) %34) #13
   %35 = getelementptr inbounds nuw %"class.std::_Rb_tree", ptr %11, i32 0, i32 0
   %36 = getelementptr inbounds i8, ptr %35, i64 8
   %37 = getelementptr inbounds nuw %"struct.std::_Rb_tree_header", ptr %36, i32 0, i32 1
-  %38 = load i64, ptr %37, align 8
+  %38 = load i64, ptr %37, align 8, !tbaa !117
   %39 = add i64 %38, 1
-  store i64 %39, ptr %37, align 8
-  %40 = load ptr, ptr %9, align 8
-  call void @_ZNSt17_Rb_tree_iteratorISt4pairIKcSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEEEC2EPSt18_Rb_tree_node_base(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef %40) #9
+  store i64 %39, ptr %37, align 8, !tbaa !117
+  %40 = load ptr, ptr %9, align 8, !tbaa !118
+  call void @_ZNSt17_Rb_tree_iteratorISt4pairIKcSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEEEC2EPSt18_Rb_tree_node_base(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef %40) #13
+  call void @llvm.lifetime.end.p0(i64 1, ptr %10) #13
   %41 = getelementptr inbounds nuw %"struct.std::_Rb_tree_iterator", ptr %5, i32 0, i32 0
   %42 = load ptr, ptr %41, align 8
   ret ptr %42
 }
 
 ; Function Attrs: nounwind
-declare void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext, ptr noundef, ptr noundef, ptr noundef nonnull align 8 dereferenceable(32)) #1
+declare void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext, ptr noundef, ptr noundef, ptr noundef nonnull align 8 dereferenceable(32)) #7
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt11_Tuple_implILm0EJRKcEEC2ES1_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 1 dereferenceable(1) %1) unnamed_addr #0 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !177
+  store ptr %1, ptr %4, align 8, !tbaa !26
   %5 = load ptr, ptr %3, align 8
-  %6 = load ptr, ptr %4, align 8
+  %6 = load ptr, ptr %4, align 8, !tbaa !26
   call void @_ZNSt10_Head_baseILm0ERKcLb0EEC2ES1_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 1 dereferenceable(1) %6)
   ret void
 }
@@ -4489,12 +4982,12 @@ define linkonce_odr hidden void @_ZNSt11_Tuple_implILm0EJRKcEEC2ES1_(ptr noundef
 define linkonce_odr hidden void @_ZNSt10_Head_baseILm0ERKcLb0EEC2ES1_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 1 dereferenceable(1) %1) unnamed_addr #0 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !180
+  store ptr %1, ptr %4, align 8, !tbaa !26
   %5 = load ptr, ptr %3, align 8
   %6 = getelementptr inbounds nuw %"struct.std::_Head_base", ptr %5, i32 0, i32 0
-  %7 = load ptr, ptr %4, align 8
-  store ptr %7, ptr %6, align 8
+  %7 = load ptr, ptr %4, align 8, !tbaa !26
+  store ptr %7, ptr %6, align 8, !tbaa !26
   ret void
 }
 
@@ -4503,13 +4996,13 @@ define linkonce_odr hidden void @_ZNSt16allocator_traitsISaIPKSt4pairINSt7__cxx1
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store ptr %2, ptr %6, align 8
-  %7 = load ptr, ptr %4, align 8
-  %8 = load ptr, ptr %5, align 8
-  %9 = load ptr, ptr %6, align 8
-  call void @_ZNSt15__new_allocatorIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_EE9constructIS9_JRKS9_EEEvPT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef %8, ptr noundef nonnull align 8 dereferenceable(8) %9) #9
+  store ptr %0, ptr %4, align 8, !tbaa !123
+  store ptr %1, ptr %5, align 8, !tbaa !65
+  store ptr %2, ptr %6, align 8, !tbaa !65
+  %7 = load ptr, ptr %4, align 8, !tbaa !123
+  %8 = load ptr, ptr %5, align 8, !tbaa !65
+  %9 = load ptr, ptr %6, align 8, !tbaa !65
+  call void @_ZNSt15__new_allocatorIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_EE9constructIS9_JRKS9_EEEvPT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef %8, ptr noundef nonnull align 8 dereferenceable(8) %9) #13
   ret void
 }
 
@@ -4527,77 +5020,91 @@ define linkonce_odr void @_ZNSt6vectorIPKSt4pairINSt7__cxx1112basic_stringIcSt11
   %13 = alloca ptr, align 8
   %14 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator.33", ptr %4, i32 0, i32 0
   store ptr %1, ptr %14, align 8
-  store ptr %0, ptr %5, align 8
-  store ptr %2, ptr %6, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !8
+  store ptr %2, ptr %6, align 8, !tbaa !65
   %15 = load ptr, ptr %5, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #13
   %16 = call noundef i64 @_ZNKSt6vectorIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS9_EE12_M_check_lenEmPKc(ptr noundef nonnull align 8 dereferenceable(24) %15, i64 noundef 1, ptr noundef @.str.28)
-  store i64 %16, ptr %7, align 8
+  store i64 %16, ptr %7, align 8, !tbaa !27
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #13
   %17 = getelementptr inbounds nuw %"struct.std::_Vector_base", ptr %15, i32 0, i32 0
   %18 = getelementptr inbounds nuw %"struct.std::_Vector_base<const std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>> *, std::allocator<const std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>> *>>::_Vector_impl_data", ptr %17, i32 0, i32 0
-  %19 = load ptr, ptr %18, align 8
-  store ptr %19, ptr %8, align 8
+  %19 = load ptr, ptr %18, align 8, !tbaa !46
+  store ptr %19, ptr %8, align 8, !tbaa !65
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #13
   %20 = getelementptr inbounds nuw %"struct.std::_Vector_base", ptr %15, i32 0, i32 0
   %21 = getelementptr inbounds nuw %"struct.std::_Vector_base<const std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>> *, std::allocator<const std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>> *>>::_Vector_impl_data", ptr %20, i32 0, i32 1
-  %22 = load ptr, ptr %21, align 8
-  store ptr %22, ptr %9, align 8
-  %23 = call ptr @_ZNSt6vectorIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS9_EE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %15) #9
+  %22 = load ptr, ptr %21, align 8, !tbaa !50
+  store ptr %22, ptr %9, align 8, !tbaa !65
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #13
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #13
+  %23 = call ptr @_ZNSt6vectorIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS9_EE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %15) #13
   %24 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator.33", ptr %11, i32 0, i32 0
   store ptr %23, ptr %24, align 8
-  %25 = call noundef i64 @_ZN9__gnu_cxxmiIPPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_ESt6vectorISA_SaISA_EEEENS_17__normal_iteratorIT_T0_E15difference_typeERKSI_SL_(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(8) %11) #9
-  store i64 %25, ptr %10, align 8
-  %26 = load i64, ptr %7, align 8
+  %25 = call noundef i64 @_ZN9__gnu_cxxmiIPPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_ESt6vectorISA_SaISA_EEEENS_17__normal_iteratorIT_T0_E15difference_typeERKSI_SL_(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(8) %11) #13
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #13
+  store i64 %25, ptr %10, align 8, !tbaa !27
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #13
+  %26 = load i64, ptr %7, align 8, !tbaa !27
   %27 = call noundef ptr @_ZNSt12_Vector_baseIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS9_EE11_M_allocateEm(ptr noundef nonnull align 8 dereferenceable(24) %15, i64 noundef %26)
-  store ptr %27, ptr %12, align 8
-  %28 = load ptr, ptr %12, align 8
-  store ptr %28, ptr %13, align 8
+  store ptr %27, ptr %12, align 8, !tbaa !65
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #13
+  %28 = load ptr, ptr %12, align 8, !tbaa !65
+  store ptr %28, ptr %13, align 8, !tbaa !65
   %29 = getelementptr inbounds nuw %"struct.std::_Vector_base", ptr %15, i32 0, i32 0
-  %30 = load ptr, ptr %12, align 8
-  %31 = load i64, ptr %10, align 8
-  %32 = getelementptr inbounds ptr, ptr %30, i64 %31
-  %33 = load ptr, ptr %6, align 8
-  call void @_ZNSt16allocator_traitsISaIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_EEE9constructIS9_JRKS9_EEEvRSA_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %29, ptr noundef %32, ptr noundef nonnull align 8 dereferenceable(8) %33) #9
-  store ptr null, ptr %13, align 8
-  %34 = load ptr, ptr %8, align 8
-  %35 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_ESt6vectorISA_SaISA_EEE4baseEv(ptr noundef nonnull align 8 dereferenceable(8) %4) #9
-  %36 = load ptr, ptr %35, align 8
-  %37 = load ptr, ptr %12, align 8
-  %38 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt12_Vector_baseIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS9_EE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %15) #9
-  %39 = call noundef ptr @_ZNSt6vectorIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS9_EE11_S_relocateEPS9_SC_SC_RSA_(ptr noundef %34, ptr noundef %36, ptr noundef %37, ptr noundef nonnull align 1 dereferenceable(1) %38) #9
-  store ptr %39, ptr %13, align 8
-  %40 = load ptr, ptr %13, align 8
-  %41 = getelementptr inbounds ptr, ptr %40, i32 1
-  store ptr %41, ptr %13, align 8
-  %42 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_ESt6vectorISA_SaISA_EEE4baseEv(ptr noundef nonnull align 8 dereferenceable(8) %4) #9
-  %43 = load ptr, ptr %42, align 8
-  %44 = load ptr, ptr %9, align 8
-  %45 = load ptr, ptr %13, align 8
-  %46 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt12_Vector_baseIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS9_EE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %15) #9
-  %47 = call noundef ptr @_ZNSt6vectorIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS9_EE11_S_relocateEPS9_SC_SC_RSA_(ptr noundef %43, ptr noundef %44, ptr noundef %45, ptr noundef nonnull align 1 dereferenceable(1) %46) #9
-  store ptr %47, ptr %13, align 8
-  %48 = load ptr, ptr %8, align 8
+  %30 = load ptr, ptr %12, align 8, !tbaa !65
+  %31 = load i64, ptr %10, align 8, !tbaa !27
+  %32 = getelementptr inbounds nuw ptr, ptr %30, i64 %31
+  %33 = load ptr, ptr %6, align 8, !tbaa !65
+  call void @_ZNSt16allocator_traitsISaIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_EEE9constructIS9_JRKS9_EEEvRSA_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %29, ptr noundef %32, ptr noundef nonnull align 8 dereferenceable(8) %33) #13
+  store ptr null, ptr %13, align 8, !tbaa !65
+  %34 = load ptr, ptr %8, align 8, !tbaa !65
+  %35 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_ESt6vectorISA_SaISA_EEE4baseEv(ptr noundef nonnull align 8 dereferenceable(8) %4) #13
+  %36 = load ptr, ptr %35, align 8, !tbaa !65
+  %37 = load ptr, ptr %12, align 8, !tbaa !65
+  %38 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt12_Vector_baseIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS9_EE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %15) #13
+  %39 = call noundef ptr @_ZNSt6vectorIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS9_EE11_S_relocateEPS9_SC_SC_RSA_(ptr noundef %34, ptr noundef %36, ptr noundef %37, ptr noundef nonnull align 1 dereferenceable(1) %38) #13
+  store ptr %39, ptr %13, align 8, !tbaa !65
+  %40 = load ptr, ptr %13, align 8, !tbaa !65
+  %41 = getelementptr inbounds nuw ptr, ptr %40, i32 1
+  store ptr %41, ptr %13, align 8, !tbaa !65
+  %42 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_ESt6vectorISA_SaISA_EEE4baseEv(ptr noundef nonnull align 8 dereferenceable(8) %4) #13
+  %43 = load ptr, ptr %42, align 8, !tbaa !65
+  %44 = load ptr, ptr %9, align 8, !tbaa !65
+  %45 = load ptr, ptr %13, align 8, !tbaa !65
+  %46 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt12_Vector_baseIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS9_EE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %15) #13
+  %47 = call noundef ptr @_ZNSt6vectorIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS9_EE11_S_relocateEPS9_SC_SC_RSA_(ptr noundef %43, ptr noundef %44, ptr noundef %45, ptr noundef nonnull align 1 dereferenceable(1) %46) #13
+  store ptr %47, ptr %13, align 8, !tbaa !65
+  %48 = load ptr, ptr %8, align 8, !tbaa !65
   %49 = getelementptr inbounds nuw %"struct.std::_Vector_base", ptr %15, i32 0, i32 0
   %50 = getelementptr inbounds nuw %"struct.std::_Vector_base<const std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>> *, std::allocator<const std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>> *>>::_Vector_impl_data", ptr %49, i32 0, i32 2
-  %51 = load ptr, ptr %50, align 8
-  %52 = load ptr, ptr %8, align 8
+  %51 = load ptr, ptr %50, align 8, !tbaa !71
+  %52 = load ptr, ptr %8, align 8, !tbaa !65
   %53 = ptrtoint ptr %51 to i64
   %54 = ptrtoint ptr %52 to i64
   %55 = sub i64 %53, %54
   %56 = sdiv exact i64 %55, 8
   call void @_ZNSt12_Vector_baseIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS9_EE13_M_deallocateEPS9_m(ptr noundef nonnull align 8 dereferenceable(24) %15, ptr noundef %48, i64 noundef %56)
-  %57 = load ptr, ptr %12, align 8
+  %57 = load ptr, ptr %12, align 8, !tbaa !65
   %58 = getelementptr inbounds nuw %"struct.std::_Vector_base", ptr %15, i32 0, i32 0
   %59 = getelementptr inbounds nuw %"struct.std::_Vector_base<const std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>> *, std::allocator<const std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>> *>>::_Vector_impl_data", ptr %58, i32 0, i32 0
-  store ptr %57, ptr %59, align 8
-  %60 = load ptr, ptr %13, align 8
+  store ptr %57, ptr %59, align 8, !tbaa !46
+  %60 = load ptr, ptr %13, align 8, !tbaa !65
   %61 = getelementptr inbounds nuw %"struct.std::_Vector_base", ptr %15, i32 0, i32 0
   %62 = getelementptr inbounds nuw %"struct.std::_Vector_base<const std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>> *, std::allocator<const std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>> *>>::_Vector_impl_data", ptr %61, i32 0, i32 1
-  store ptr %60, ptr %62, align 8
-  %63 = load ptr, ptr %12, align 8
-  %64 = load i64, ptr %7, align 8
-  %65 = getelementptr inbounds ptr, ptr %63, i64 %64
+  store ptr %60, ptr %62, align 8, !tbaa !50
+  %63 = load ptr, ptr %12, align 8, !tbaa !65
+  %64 = load i64, ptr %7, align 8, !tbaa !27
+  %65 = getelementptr inbounds nuw ptr, ptr %63, i64 %64
   %66 = getelementptr inbounds nuw %"struct.std::_Vector_base", ptr %15, i32 0, i32 0
   %67 = getelementptr inbounds nuw %"struct.std::_Vector_base<const std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>> *, std::allocator<const std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>> *>>::_Vector_impl_data", ptr %66, i32 0, i32 2
-  store ptr %65, ptr %67, align 8
+  store ptr %65, ptr %67, align 8, !tbaa !71
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #13
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #13
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #13
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #13
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #13
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #13
   ret void
 }
 
@@ -4605,11 +5112,11 @@ define linkonce_odr void @_ZNSt6vectorIPKSt4pairINSt7__cxx1112basic_stringIcSt11
 define linkonce_odr hidden ptr @_ZNSt6vectorIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS9_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #0 comdat align 2 {
   %2 = alloca %"class.__gnu_cxx::__normal_iterator.33", align 8
   %3 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw %"struct.std::_Vector_base", ptr %4, i32 0, i32 0
   %6 = getelementptr inbounds nuw %"struct.std::_Vector_base<const std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>> *, std::allocator<const std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>> *>>::_Vector_impl_data", ptr %5, i32 0, i32 1
-  call void @_ZN9__gnu_cxx17__normal_iteratorIPPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_ESt6vectorISA_SaISA_EEEC2ERKSB_(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %6) #9
+  call void @_ZN9__gnu_cxx17__normal_iteratorIPPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_ESt6vectorISA_SaISA_EEEC2ERKSB_(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %6) #13
   %7 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator.33", ptr %2, i32 0, i32 0
   %8 = load ptr, ptr %7, align 8
   ret ptr %8
@@ -4620,13 +5127,13 @@ define linkonce_odr hidden void @_ZNSt15__new_allocatorIPKSt4pairINSt7__cxx1112b
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store ptr %2, ptr %6, align 8
-  %7 = load ptr, ptr %5, align 8
-  %8 = load ptr, ptr %6, align 8
-  %9 = load ptr, ptr %8, align 8
-  store ptr %9, ptr %7, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !127
+  store ptr %1, ptr %5, align 8, !tbaa !65
+  store ptr %2, ptr %6, align 8, !tbaa !65
+  %7 = load ptr, ptr %5, align 8, !tbaa !65
+  %8 = load ptr, ptr %6, align 8, !tbaa !65
+  %9 = load ptr, ptr %8, align 8, !tbaa !14
+  store ptr %9, ptr %7, align 8, !tbaa !14
   ret void
 }
 
@@ -4637,66 +5144,70 @@ define linkonce_odr hidden noundef i64 @_ZNKSt6vectorIPKSt4pairINSt7__cxx1112bas
   %6 = alloca ptr, align 8
   %7 = alloca i64, align 8
   %8 = alloca i64, align 8
-  store ptr %0, ptr %4, align 8
-  store i64 %1, ptr %5, align 8
-  store ptr %2, ptr %6, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !8
+  store i64 %1, ptr %5, align 8, !tbaa !27
+  store ptr %2, ptr %6, align 8, !tbaa !26
   %9 = load ptr, ptr %4, align 8
-  %10 = call noundef i64 @_ZNKSt6vectorIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS9_EE8max_sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #9
-  %11 = call noundef i64 @_ZNKSt6vectorIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS9_EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #9
+  %10 = call noundef i64 @_ZNKSt6vectorIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS9_EE8max_sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #13
+  %11 = call noundef i64 @_ZNKSt6vectorIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS9_EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #13
   %12 = sub i64 %10, %11
-  %13 = load i64, ptr %5, align 8
+  %13 = load i64, ptr %5, align 8, !tbaa !27
   %14 = icmp ult i64 %12, %13
   br i1 %14, label %15, label %17
 
 15:                                               ; preds = %3
-  %16 = load ptr, ptr %6, align 8
-  call void @_ZSt20__throw_length_errorPKc(ptr noundef %16) #10
+  %16 = load ptr, ptr %6, align 8, !tbaa !26
+  call void @_ZSt20__throw_length_errorPKc(ptr noundef %16) #14
   unreachable
 
 17:                                               ; preds = %3
-  %18 = call noundef i64 @_ZNKSt6vectorIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS9_EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #9
-  %19 = call noundef i64 @_ZNKSt6vectorIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS9_EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #9
-  store i64 %19, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #13
+  %18 = call noundef i64 @_ZNKSt6vectorIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS9_EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #13
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #13
+  %19 = call noundef i64 @_ZNKSt6vectorIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS9_EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #13
+  store i64 %19, ptr %8, align 8, !tbaa !27
   %20 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt3maxImERKT_S2_S2_(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(8) %5)
-  %21 = load i64, ptr %20, align 8
+  %21 = load i64, ptr %20, align 8, !tbaa !27
   %22 = add i64 %18, %21
-  store i64 %22, ptr %7, align 8
-  %23 = load i64, ptr %7, align 8
-  %24 = call noundef i64 @_ZNKSt6vectorIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS9_EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #9
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #13
+  store i64 %22, ptr %7, align 8, !tbaa !27
+  %23 = load i64, ptr %7, align 8, !tbaa !27
+  %24 = call noundef i64 @_ZNKSt6vectorIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS9_EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #13
   %25 = icmp ult i64 %23, %24
   br i1 %25, label %30, label %26
 
 26:                                               ; preds = %17
-  %27 = load i64, ptr %7, align 8
-  %28 = call noundef i64 @_ZNKSt6vectorIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS9_EE8max_sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #9
+  %27 = load i64, ptr %7, align 8, !tbaa !27
+  %28 = call noundef i64 @_ZNKSt6vectorIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS9_EE8max_sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #13
   %29 = icmp ugt i64 %27, %28
   br i1 %29, label %30, label %32
 
 30:                                               ; preds = %26, %17
-  %31 = call noundef i64 @_ZNKSt6vectorIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS9_EE8max_sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #9
+  %31 = call noundef i64 @_ZNKSt6vectorIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS9_EE8max_sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #13
   br label %34
 
 32:                                               ; preds = %26
-  %33 = load i64, ptr %7, align 8
+  %33 = load i64, ptr %7, align 8, !tbaa !27
   br label %34
 
 34:                                               ; preds = %32, %30
   %35 = phi i64 [ %31, %30 ], [ %33, %32 ]
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #13
   ret i64 %35
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef i64 @_ZN9__gnu_cxxmiIPPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_ESt6vectorISA_SaISA_EEEENS_17__normal_iteratorIT_T0_E15difference_typeERKSI_SL_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #0 comdat {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr noundef i64 @_ZN9__gnu_cxxmiIPPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_ESt6vectorISA_SaISA_EEEENS_17__normal_iteratorIT_T0_E15difference_typeERKSI_SL_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #4 comdat {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  %5 = load ptr, ptr %3, align 8
-  %6 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_ESt6vectorISA_SaISA_EEE4baseEv(ptr noundef nonnull align 8 dereferenceable(8) %5) #9
-  %7 = load ptr, ptr %6, align 8
-  %8 = load ptr, ptr %4, align 8
-  %9 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_ESt6vectorISA_SaISA_EEE4baseEv(ptr noundef nonnull align 8 dereferenceable(8) %8) #9
-  %10 = load ptr, ptr %9, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !195
+  store ptr %1, ptr %4, align 8, !tbaa !195
+  %5 = load ptr, ptr %3, align 8, !tbaa !195
+  %6 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_ESt6vectorISA_SaISA_EEE4baseEv(ptr noundef nonnull align 8 dereferenceable(8) %5) #13
+  %7 = load ptr, ptr %6, align 8, !tbaa !65
+  %8 = load ptr, ptr %4, align 8, !tbaa !195
+  %9 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_ESt6vectorISA_SaISA_EEE4baseEv(ptr noundef nonnull align 8 dereferenceable(8) %8) #13
+  %10 = load ptr, ptr %9, align 8, !tbaa !65
   %11 = ptrtoint ptr %7 to i64
   %12 = ptrtoint ptr %10 to i64
   %13 = sub i64 %11, %12
@@ -4708,11 +5219,11 @@ define linkonce_odr noundef i64 @_ZN9__gnu_cxxmiIPPKSt4pairINSt7__cxx1112basic_s
 define linkonce_odr hidden ptr @_ZNSt6vectorIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS9_EE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #0 comdat align 2 {
   %2 = alloca %"class.__gnu_cxx::__normal_iterator.33", align 8
   %3 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw %"struct.std::_Vector_base", ptr %4, i32 0, i32 0
   %6 = getelementptr inbounds nuw %"struct.std::_Vector_base<const std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>> *, std::allocator<const std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>> *>>::_Vector_impl_data", ptr %5, i32 0, i32 0
-  call void @_ZN9__gnu_cxx17__normal_iteratorIPPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_ESt6vectorISA_SaISA_EEEC2ERKSB_(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %6) #9
+  call void @_ZN9__gnu_cxx17__normal_iteratorIPPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_ESt6vectorISA_SaISA_EEEC2ERKSB_(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %6) #13
   %7 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator.33", ptr %2, i32 0, i32 0
   %8 = load ptr, ptr %7, align 8
   ret ptr %8
@@ -4722,16 +5233,16 @@ define linkonce_odr hidden ptr @_ZNSt6vectorIPKSt4pairINSt7__cxx1112basic_string
 define linkonce_odr hidden noundef ptr @_ZNSt12_Vector_baseIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS9_EE11_M_allocateEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %1) #0 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca i64, align 8
-  store ptr %0, ptr %3, align 8
-  store i64 %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !125
+  store i64 %1, ptr %4, align 8, !tbaa !27
   %5 = load ptr, ptr %3, align 8
-  %6 = load i64, ptr %4, align 8
+  %6 = load i64, ptr %4, align 8, !tbaa !27
   %7 = icmp ne i64 %6, 0
   br i1 %7, label %8, label %12
 
 8:                                                ; preds = %2
   %9 = getelementptr inbounds nuw %"struct.std::_Vector_base", ptr %5, i32 0, i32 0
-  %10 = load i64, ptr %4, align 8
+  %10 = load i64, ptr %4, align 8, !tbaa !27
   %11 = call noundef ptr @_ZNSt16allocator_traitsISaIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_EEE8allocateERSA_m(ptr noundef nonnull align 1 dereferenceable(1) %9, i64 noundef %10)
   br label %13
 
@@ -4749,22 +5260,22 @@ define linkonce_odr hidden noundef ptr @_ZNSt6vectorIPKSt4pairINSt7__cxx1112basi
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
-  store ptr %0, ptr %5, align 8
-  store ptr %1, ptr %6, align 8
-  store ptr %2, ptr %7, align 8
-  store ptr %3, ptr %8, align 8
-  %9 = load ptr, ptr %5, align 8
-  %10 = load ptr, ptr %6, align 8
-  %11 = load ptr, ptr %7, align 8
-  %12 = load ptr, ptr %8, align 8
-  %13 = call noundef ptr @_ZSt12__relocate_aIPPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESA_SaIS9_EET0_T_SD_SC_RT1_(ptr noundef %9, ptr noundef %10, ptr noundef %11, ptr noundef nonnull align 1 dereferenceable(1) %12) #9
+  store ptr %0, ptr %5, align 8, !tbaa !65
+  store ptr %1, ptr %6, align 8, !tbaa !65
+  store ptr %2, ptr %7, align 8, !tbaa !65
+  store ptr %3, ptr %8, align 8, !tbaa !123
+  %9 = load ptr, ptr %5, align 8, !tbaa !65
+  %10 = load ptr, ptr %6, align 8, !tbaa !65
+  %11 = load ptr, ptr %7, align 8, !tbaa !65
+  %12 = load ptr, ptr %8, align 8, !tbaa !123
+  %13 = call noundef ptr @_ZSt12__relocate_aIPPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESA_SaIS9_EET0_T_SD_SC_RT1_(ptr noundef %9, ptr noundef %10, ptr noundef %11, ptr noundef nonnull align 1 dereferenceable(1) %12) #13
   ret ptr %13
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_ESt6vectorISA_SaISA_EEE4baseEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !195
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator.33", ptr %3, i32 0, i32 0
   ret ptr %4
@@ -4773,10 +5284,10 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef i64 @_ZNKSt6vectorIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS9_EE8max_sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !8
   %3 = load ptr, ptr %2, align 8
-  %4 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt12_Vector_baseIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS9_EE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %3) #9
-  %5 = call noundef i64 @_ZNSt6vectorIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS9_EE11_S_max_sizeERKSA_(ptr noundef nonnull align 1 dereferenceable(1) %4) #9
+  %4 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt12_Vector_baseIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS9_EE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %3) #13
+  %5 = call noundef i64 @_ZNSt6vectorIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS9_EE11_S_max_sizeERKSA_(ptr noundef nonnull align 1 dereferenceable(1) %4) #13
   ret i64 %5
 }
 
@@ -4788,20 +5299,24 @@ define linkonce_odr hidden noundef i64 @_ZNSt6vectorIPKSt4pairINSt7__cxx1112basi
   %2 = alloca ptr, align 8
   %3 = alloca i64, align 8
   %4 = alloca i64, align 8
-  store ptr %0, ptr %2, align 8
-  store i64 1152921504606846975, ptr %3, align 8
-  %5 = load ptr, ptr %2, align 8
-  %6 = call noundef i64 @_ZNSt16allocator_traitsISaIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_EEE8max_sizeERKSA_(ptr noundef nonnull align 1 dereferenceable(1) %5) #9
-  store i64 %6, ptr %4, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !123
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #13
+  store i64 1152921504606846975, ptr %3, align 8, !tbaa !27
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #13
+  %5 = load ptr, ptr %2, align 8, !tbaa !123
+  %6 = call noundef i64 @_ZNSt16allocator_traitsISaIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_EEE8max_sizeERKSA_(ptr noundef nonnull align 1 dereferenceable(1) %5) #13
+  store i64 %6, ptr %4, align 8, !tbaa !27
   %7 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt3minImERKT_S2_S2_(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %4)
-  %8 = load i64, ptr %7, align 8
+  %8 = load i64, ptr %7, align 8, !tbaa !27
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #13
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #13
   ret i64 %8
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt12_Vector_baseIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS9_EE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !125
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw %"struct.std::_Vector_base", ptr %3, i32 0, i32 0
   ret ptr %4
@@ -4810,25 +5325,25 @@ define linkonce_odr hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZNKS
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef i64 @_ZNSt16allocator_traitsISaIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_EEE8max_sizeERKSA_(ptr noundef nonnull align 1 dereferenceable(1) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  %4 = call noundef i64 @_ZNKSt15__new_allocatorIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_EE8max_sizeEv(ptr noundef nonnull align 1 dereferenceable(1) %3) #9
+  store ptr %0, ptr %2, align 8, !tbaa !123
+  %3 = load ptr, ptr %2, align 8, !tbaa !123
+  %4 = call noundef i64 @_ZNKSt15__new_allocatorIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_EE8max_sizeEv(ptr noundef nonnull align 1 dereferenceable(1) %3) #13
   ret i64 %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef i64 @_ZNKSt15__new_allocatorIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_EE8max_sizeEv(ptr noundef nonnull align 1 dereferenceable(1) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !127
   %3 = load ptr, ptr %2, align 8
-  %4 = call noundef i64 @_ZNKSt15__new_allocatorIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_EE11_M_max_sizeEv(ptr noundef nonnull align 1 dereferenceable(1) %3) #9
+  %4 = call noundef i64 @_ZNKSt15__new_allocatorIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_EE11_M_max_sizeEv(ptr noundef nonnull align 1 dereferenceable(1) %3) #13
   ret i64 %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef i64 @_ZNKSt15__new_allocatorIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_EE11_M_max_sizeEv(ptr noundef nonnull align 1 dereferenceable(1) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !127
   ret i64 1152921504606846975
 }
 
@@ -4836,13 +5351,13 @@ define linkonce_odr hidden noundef i64 @_ZNKSt15__new_allocatorIPKSt4pairINSt7__
 define linkonce_odr hidden void @_ZN9__gnu_cxx17__normal_iteratorIPPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_ESt6vectorISA_SaISA_EEEC2ERKSB_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #0 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !195
+  store ptr %1, ptr %4, align 8, !tbaa !151
   %5 = load ptr, ptr %3, align 8
   %6 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator.33", ptr %5, i32 0, i32 0
-  %7 = load ptr, ptr %4, align 8
-  %8 = load ptr, ptr %7, align 8
-  store ptr %8, ptr %6, align 8
+  %7 = load ptr, ptr %4, align 8, !tbaa !151
+  %8 = load ptr, ptr %7, align 8, !tbaa !65
+  store ptr %8, ptr %6, align 8, !tbaa !197
   ret void
 }
 
@@ -4850,10 +5365,10 @@ define linkonce_odr hidden void @_ZN9__gnu_cxx17__normal_iteratorIPPKSt4pairINSt
 define linkonce_odr hidden noundef ptr @_ZNSt16allocator_traitsISaIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_EEE8allocateERSA_m(ptr noundef nonnull align 1 dereferenceable(1) %0, i64 noundef %1) #0 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca i64, align 8
-  store ptr %0, ptr %3, align 8
-  store i64 %1, ptr %4, align 8
-  %5 = load ptr, ptr %3, align 8
-  %6 = load i64, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !123
+  store i64 %1, ptr %4, align 8, !tbaa !27
+  %5 = load ptr, ptr %3, align 8, !tbaa !123
+  %6 = load i64, ptr %4, align 8, !tbaa !27
   %7 = call noundef ptr @_ZNSt15__new_allocatorIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_EE8allocateEmPKv(ptr noundef nonnull align 1 dereferenceable(1) %5, i64 noundef %6, ptr noundef null)
   ret ptr %7
 }
@@ -4863,134 +5378,541 @@ define linkonce_odr hidden noundef ptr @_ZNSt15__new_allocatorIPKSt4pairINSt7__c
   %4 = alloca ptr, align 8
   %5 = alloca i64, align 8
   %6 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store i64 %1, ptr %5, align 8
-  store ptr %2, ptr %6, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !127
+  store i64 %1, ptr %5, align 8, !tbaa !27
+  store ptr %2, ptr %6, align 8, !tbaa !176
   %7 = load ptr, ptr %4, align 8
-  %8 = load i64, ptr %5, align 8
-  %9 = call noundef i64 @_ZNKSt15__new_allocatorIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_EE11_M_max_sizeEv(ptr noundef nonnull align 1 dereferenceable(1) %7) #9
+  %8 = load i64, ptr %5, align 8, !tbaa !27
+  %9 = call noundef i64 @_ZNKSt15__new_allocatorIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_EE11_M_max_sizeEv(ptr noundef nonnull align 1 dereferenceable(1) %7) #13
   %10 = icmp ugt i64 %8, %9
-  br i1 %10, label %11, label %16
+  %11 = zext i1 %10 to i64
+  %12 = call i64 @llvm.expect.i64(i64 %11, i64 0)
+  %13 = icmp ne i64 %12, 0
+  br i1 %13, label %14, label %19
 
-11:                                               ; preds = %3
-  %12 = load i64, ptr %5, align 8
-  %13 = icmp ugt i64 %12, 2305843009213693951
-  br i1 %13, label %14, label %15
+14:                                               ; preds = %3
+  %15 = load i64, ptr %5, align 8, !tbaa !27
+  %16 = icmp ugt i64 %15, 2305843009213693951
+  br i1 %16, label %17, label %18
 
-14:                                               ; preds = %11
-  call void @_ZSt28__throw_bad_array_new_lengthv() #10
+17:                                               ; preds = %14
+  call void @_ZSt28__throw_bad_array_new_lengthv() #14
   unreachable
 
-15:                                               ; preds = %11
-  call void @_ZSt17__throw_bad_allocv() #10
+18:                                               ; preds = %14
+  call void @_ZSt17__throw_bad_allocv() #14
   unreachable
 
-16:                                               ; preds = %3
-  %17 = load i64, ptr %5, align 8
-  %18 = mul i64 %17, 8
-  %19 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %18) #13
-  ret ptr %19
+19:                                               ; preds = %3
+  %20 = load i64, ptr %5, align 8, !tbaa !27
+  %21 = mul i64 %20, 8
+  %22 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %21) #17
+  ret ptr %22
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef ptr @_ZSt12__relocate_aIPPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESA_SaIS9_EET0_T_SD_SC_RT1_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull align 1 dereferenceable(1) %3) #0 comdat {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr noundef ptr @_ZSt12__relocate_aIPPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESA_SaIS9_EET0_T_SD_SC_RT1_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull align 1 dereferenceable(1) %3) #4 comdat {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
-  store ptr %0, ptr %5, align 8
-  store ptr %1, ptr %6, align 8
-  store ptr %2, ptr %7, align 8
-  store ptr %3, ptr %8, align 8
-  %9 = load ptr, ptr %5, align 8
-  %10 = call noundef ptr @_ZSt12__niter_baseIPPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_EET_SB_(ptr noundef %9) #9
-  %11 = load ptr, ptr %6, align 8
-  %12 = call noundef ptr @_ZSt12__niter_baseIPPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_EET_SB_(ptr noundef %11) #9
-  %13 = load ptr, ptr %7, align 8
-  %14 = call noundef ptr @_ZSt12__niter_baseIPPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_EET_SB_(ptr noundef %13) #9
-  %15 = load ptr, ptr %8, align 8
-  %16 = call noundef ptr @_ZSt14__relocate_a_1IPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ES9_ENSt9enable_ifIXsr3std24__is_bitwise_relocatableIT_EE5valueEPSB_E4typeESC_SC_SC_RSaIT0_E(ptr noundef %10, ptr noundef %12, ptr noundef %14, ptr noundef nonnull align 1 dereferenceable(1) %15) #9
+  store ptr %0, ptr %5, align 8, !tbaa !65
+  store ptr %1, ptr %6, align 8, !tbaa !65
+  store ptr %2, ptr %7, align 8, !tbaa !65
+  store ptr %3, ptr %8, align 8, !tbaa !123
+  %9 = load ptr, ptr %5, align 8, !tbaa !65
+  %10 = call noundef ptr @_ZSt12__niter_baseIPPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_EET_SB_(ptr noundef %9) #13
+  %11 = load ptr, ptr %6, align 8, !tbaa !65
+  %12 = call noundef ptr @_ZSt12__niter_baseIPPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_EET_SB_(ptr noundef %11) #13
+  %13 = load ptr, ptr %7, align 8, !tbaa !65
+  %14 = call noundef ptr @_ZSt12__niter_baseIPPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_EET_SB_(ptr noundef %13) #13
+  %15 = load ptr, ptr %8, align 8, !tbaa !123
+  %16 = call noundef ptr @_ZSt14__relocate_a_1IPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ES9_ENSt9enable_ifIXsr3std24__is_bitwise_relocatableIT_EE5valueEPSB_E4typeESC_SC_SC_RSaIT0_E(ptr noundef %10, ptr noundef %12, ptr noundef %14, ptr noundef nonnull align 1 dereferenceable(1) %15) #13
   ret ptr %16
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef ptr @_ZSt14__relocate_a_1IPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ES9_ENSt9enable_ifIXsr3std24__is_bitwise_relocatableIT_EE5valueEPSB_E4typeESC_SC_SC_RSaIT0_E(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull align 1 dereferenceable(1) %3) #0 comdat {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr noundef ptr @_ZSt14__relocate_a_1IPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ES9_ENSt9enable_ifIXsr3std24__is_bitwise_relocatableIT_EE5valueEPSB_E4typeESC_SC_SC_RSaIT0_E(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull align 1 dereferenceable(1) %3) #4 comdat {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
   %9 = alloca i64, align 8
-  store ptr %0, ptr %5, align 8
-  store ptr %1, ptr %6, align 8
-  store ptr %2, ptr %7, align 8
-  store ptr %3, ptr %8, align 8
-  %10 = load ptr, ptr %6, align 8
-  %11 = load ptr, ptr %5, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !65
+  store ptr %1, ptr %6, align 8, !tbaa !65
+  store ptr %2, ptr %7, align 8, !tbaa !65
+  store ptr %3, ptr %8, align 8, !tbaa !123
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #13
+  %10 = load ptr, ptr %6, align 8, !tbaa !65
+  %11 = load ptr, ptr %5, align 8, !tbaa !65
   %12 = ptrtoint ptr %10 to i64
   %13 = ptrtoint ptr %11 to i64
   %14 = sub i64 %12, %13
   %15 = sdiv exact i64 %14, 8
-  store i64 %15, ptr %9, align 8
-  %16 = load i64, ptr %9, align 8
+  store i64 %15, ptr %9, align 8, !tbaa !27
+  %16 = load i64, ptr %9, align 8, !tbaa !27
   %17 = icmp sgt i64 %16, 0
   br i1 %17, label %18, label %23
 
 18:                                               ; preds = %4
-  %19 = load ptr, ptr %7, align 8
-  %20 = load ptr, ptr %5, align 8
-  %21 = load i64, ptr %9, align 8
+  %19 = load ptr, ptr %7, align 8, !tbaa !65
+  %20 = load ptr, ptr %5, align 8, !tbaa !65
+  %21 = load i64, ptr %9, align 8, !tbaa !27
   %22 = mul i64 %21, 8
   call void @llvm.memmove.p0.p0.i64(ptr align 8 %19, ptr align 8 %20, i64 %22, i1 false)
   br label %23
 
 23:                                               ; preds = %18, %4
-  %24 = load ptr, ptr %7, align 8
-  %25 = load i64, ptr %9, align 8
+  %24 = load ptr, ptr %7, align 8, !tbaa !65
+  %25 = load i64, ptr %9, align 8, !tbaa !27
   %26 = getelementptr inbounds ptr, ptr %24, i64 %25
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #13
   ret ptr %26
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef ptr @_ZSt12__niter_baseIPPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_EET_SB_(ptr noundef %0) #0 comdat {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr noundef ptr @_ZSt12__niter_baseIPPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_EET_SB_(ptr noundef %0) #4 comdat {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !65
+  %3 = load ptr, ptr %2, align 8, !tbaa !65
   ret ptr %3
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #3
+
+; Function Attrs: mustprogress nounwind uwtable
+define available_externally noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8_M_checkEmPKc(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %1, ptr noundef %2) #0 align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca i64, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !44
+  store i64 %1, ptr %5, align 8, !tbaa !27
+  store ptr %2, ptr %6, align 8, !tbaa !26
+  %7 = load ptr, ptr %4, align 8
+  %8 = load i64, ptr %5, align 8, !tbaa !27
+  %9 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %7) #13
+  %10 = icmp ugt i64 %8, %9
+  br i1 %10, label %11, label %15
+
+11:                                               ; preds = %3
+  %12 = load ptr, ptr %6, align 8, !tbaa !26
+  %13 = load i64, ptr %5, align 8, !tbaa !27
+  %14 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %7) #13
+  call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef @.str.30, ptr noundef %12, i64 noundef %13, i64 noundef %14) #14
+  unreachable
+
+15:                                               ; preds = %3
+  %16 = load i64, ptr %5, align 8, !tbaa !27
+  ret i64 %16
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define available_externally void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_mm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 noundef %2, i64 noundef %3) unnamed_addr #0 align 2 {
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i64, align 8
+  %8 = alloca i64, align 8
+  %9 = alloca %"class.std::allocator", align 1
+  %10 = alloca ptr, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !44
+  store ptr %1, ptr %6, align 8, !tbaa !44
+  store i64 %2, ptr %7, align 8, !tbaa !27
+  store i64 %3, ptr %8, align 8, !tbaa !27
+  %11 = load ptr, ptr %5, align 8
+  %12 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %11, i32 0, i32 0
+  %13 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %11)
+  call void @llvm.lifetime.start.p0(i64 1, ptr %9) #13
+  call void @_ZNSaIcEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %9) #13
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC2EPcOS3_(ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef %13, ptr noundef nonnull align 1 dereferenceable(1) %9)
+  call void @_ZNSt15__new_allocatorIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %9) #13
+  call void @llvm.lifetime.end.p0(i64 1, ptr %9) #13
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #13
+  %14 = load ptr, ptr %6, align 8, !tbaa !44
+  %15 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %14)
+  %16 = load ptr, ptr %6, align 8, !tbaa !44
+  %17 = load i64, ptr %7, align 8, !tbaa !27
+  %18 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8_M_checkEmPKc(ptr noundef nonnull align 8 dereferenceable(32) %16, i64 noundef %17, ptr noundef @.str.31)
+  %19 = getelementptr inbounds nuw i8, ptr %15, i64 %18
+  store ptr %19, ptr %10, align 8, !tbaa !26
+  %20 = load ptr, ptr %10, align 8, !tbaa !26
+  %21 = load ptr, ptr %10, align 8, !tbaa !26
+  %22 = load ptr, ptr %6, align 8, !tbaa !44
+  %23 = load i64, ptr %7, align 8, !tbaa !27
+  %24 = load i64, ptr %8, align 8, !tbaa !27
+  %25 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8_M_limitEmm(ptr noundef nonnull align 8 dereferenceable(32) %22, i64 noundef %23, i64 noundef %24) #13
+  %26 = getelementptr inbounds nuw i8, ptr %21, i64 %25
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef %20, ptr noundef %26)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #13
+  ret void
+}
+
+; Function Attrs: noreturn
+declare void @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef, ...) #2
+
+; Function Attrs: mustprogress nounwind uwtable
+define available_externally void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC2EPcOS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %2) unnamed_addr #0 align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !148
+  store ptr %1, ptr %5, align 8, !tbaa !26
+  store ptr %2, ptr %6, align 8, !tbaa !42
+  %7 = load ptr, ptr %4, align 8
+  %8 = load ptr, ptr %6, align 8, !tbaa !42
+  call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef nonnull align 1 dereferenceable(1) %8) #13
+  %9 = getelementptr inbounds nuw %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", ptr %7, i32 0, i32 0
+  %10 = load ptr, ptr %5, align 8, !tbaa !26
+  store ptr %10, ptr %9, align 8, !tbaa !150
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1, ptr noundef %2) #0 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i64, align 8
+  %8 = alloca %struct._Guard, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !44
+  store ptr %1, ptr %5, align 8, !tbaa !26
+  store ptr %2, ptr %6, align 8, !tbaa !26
+  %9 = load ptr, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #13
+  %10 = load ptr, ptr %5, align 8, !tbaa !26
+  %11 = load ptr, ptr %6, align 8, !tbaa !26
+  %12 = call noundef i64 @_ZSt8distanceIPKcENSt15iterator_traitsIT_E15difference_typeES3_S3_(ptr noundef %10, ptr noundef %11)
+  store i64 %12, ptr %7, align 8, !tbaa !27
+  %13 = load i64, ptr %7, align 8, !tbaa !27
+  %14 = icmp ugt i64 %13, 15
+  br i1 %14, label %15, label %18
+
+15:                                               ; preds = %3
+  %16 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(8) %7, i64 noundef 0)
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEPc(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef %16)
+  %17 = load i64, ptr %7, align 8, !tbaa !27
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_capacityEm(ptr noundef nonnull align 8 dereferenceable(32) %9, i64 noundef %17)
+  br label %20
+
+18:                                               ; preds = %3
+  %19 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE17_M_use_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %9) #13
+  br label %20
+
+20:                                               ; preds = %18, %15
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #13
+  call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardC2EPS4_(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef %9)
+  %21 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %9)
+  %22 = load ptr, ptr %5, align 8, !tbaa !26
+  %23 = load ptr, ptr %6, align 8, !tbaa !26
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %21, ptr noundef %22, ptr noundef %23) #13
+  %24 = getelementptr inbounds nuw %struct._Guard, ptr %8, i32 0, i32 0
+  store ptr null, ptr %24, align 8, !tbaa !199
+  %25 = load i64, ptr %7, align 8, !tbaa !27
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) %9, i64 noundef %25)
+  call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #13
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #13
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #13
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define available_externally noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8_M_limitEmm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %1, i64 noundef %2) #0 align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca i64, align 8
+  %6 = alloca i64, align 8
+  %7 = alloca i8, align 1
+  store ptr %0, ptr %4, align 8, !tbaa !44
+  store i64 %1, ptr %5, align 8, !tbaa !27
+  store i64 %2, ptr %6, align 8, !tbaa !27
+  %8 = load ptr, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 1, ptr %7) #13
+  %9 = load i64, ptr %6, align 8, !tbaa !27
+  %10 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %8) #13
+  %11 = load i64, ptr %5, align 8, !tbaa !27
+  %12 = sub i64 %10, %11
+  %13 = icmp ult i64 %9, %12
+  %14 = zext i1 %13 to i8
+  store i8 %14, ptr %7, align 1, !tbaa !12
+  %15 = load i8, ptr %7, align 1, !tbaa !12, !range !16, !noundef !17
+  %16 = trunc i8 %15 to i1
+  br i1 %16, label %17, label %19
+
+17:                                               ; preds = %3
+  %18 = load i64, ptr %6, align 8, !tbaa !27
+  br label %23
+
+19:                                               ; preds = %3
+  %20 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %8) #13
+  %21 = load i64, ptr %5, align 8, !tbaa !27
+  %22 = sub i64 %20, %21
+  br label %23
+
+23:                                               ; preds = %19, %17
+  %24 = phi i64 [ %18, %17 ], [ %22, %19 ]
+  call void @llvm.lifetime.end.p0(i64 1, ptr %7) #13
+  ret i64 %24
+}
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr noundef i64 @_ZSt8distanceIPKcENSt15iterator_traitsIT_E15difference_typeES3_S3_(ptr noundef %0, ptr noundef %1) #4 comdat {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !26
+  store ptr %1, ptr %4, align 8, !tbaa !26
+  %5 = load ptr, ptr %3, align 8, !tbaa !26
+  %6 = load ptr, ptr %4, align 8, !tbaa !26
+  call void @_ZSt19__iterator_categoryIPKcENSt15iterator_traitsIT_E17iterator_categoryERKS3_(ptr noundef nonnull align 8 dereferenceable(8) %3)
+  %7 = call noundef i64 @_ZSt10__distanceIPKcENSt15iterator_traitsIT_E15difference_typeES3_S3_St26random_access_iterator_tag(ptr noundef %5, ptr noundef %6)
+  ret i64 %7
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define available_externally void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEPc(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1) #0 align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !44
+  store ptr %1, ptr %4, align 8, !tbaa !26
+  %5 = load ptr, ptr %3, align 8
+  %6 = load ptr, ptr %4, align 8, !tbaa !26
+  %7 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %5, i32 0, i32 0
+  %8 = getelementptr inbounds nuw %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", ptr %7, i32 0, i32 0
+  store ptr %6, ptr %8, align 8, !tbaa !95
+  ret void
+}
+
+declare noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(8), i64 noundef) #5
+
+; Function Attrs: mustprogress nounwind uwtable
+define available_externally void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_capacityEm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %1) #0 align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !44
+  store i64 %1, ptr %4, align 8, !tbaa !27
+  %5 = load ptr, ptr %3, align 8
+  %6 = load i64, ptr %4, align 8, !tbaa !27
+  %7 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %5, i32 0, i32 2
+  store i64 %6, ptr %7, align 8, !tbaa !30
+  ret void
+}
+
+; Function Attrs: alwaysinline mustprogress nounwind uwtable
+define available_externally noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE17_M_use_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #12 align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !44
+  %3 = load ptr, ptr %2, align 8
+  %4 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %3)
+  ret ptr %4
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardC2EPS4_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #0 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !201
+  store ptr %1, ptr %4, align 8, !tbaa !44
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds nuw %struct._Guard, ptr %5, i32 0, i32 0
+  %7 = load ptr, ptr %4, align 8, !tbaa !44
+  store ptr %7, ptr %6, align 8, !tbaa !199
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define available_externally void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !26
+  store ptr %1, ptr %5, align 8, !tbaa !26
+  store ptr %2, ptr %6, align 8, !tbaa !26
+  %7 = load ptr, ptr %4, align 8, !tbaa !26
+  %8 = load ptr, ptr %5, align 8, !tbaa !26
+  %9 = load ptr, ptr %6, align 8, !tbaa !26
+  %10 = load ptr, ptr %5, align 8, !tbaa !26
+  %11 = ptrtoint ptr %9 to i64
+  %12 = ptrtoint ptr %10 to i64
+  %13 = sub i64 %11, %12
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_S_copyEPcPKcm(ptr noundef %7, ptr noundef %8, i64 noundef %13)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define available_externally void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %1) #0 align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  %5 = alloca i8, align 1
+  store ptr %0, ptr %3, align 8, !tbaa !44
+  store i64 %1, ptr %4, align 8, !tbaa !27
+  %6 = load ptr, ptr %3, align 8
+  %7 = load i64, ptr %4, align 8, !tbaa !27
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) %6, i64 noundef %7)
+  %8 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %6)
+  %9 = load i64, ptr %4, align 8, !tbaa !27
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 %9
+  call void @llvm.lifetime.start.p0(i64 1, ptr %5) #13
+  store i8 0, ptr %5, align 1, !tbaa !30
+  call void @_ZNSt11char_traitsIcE6assignERcRKc(ptr noundef nonnull align 1 dereferenceable(1) %10, ptr noundef nonnull align 1 dereferenceable(1) %5) #13
+  call void @llvm.lifetime.end.p0(i64 1, ptr %5) #13
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !201
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %struct._Guard, ptr %3, i32 0, i32 0
+  %5 = load ptr, ptr %4, align 8, !tbaa !199
+  %6 = icmp ne ptr %5, null
+  br i1 %6, label %7, label %10
+
+7:                                                ; preds = %1
+  %8 = getelementptr inbounds nuw %struct._Guard, ptr %3, i32 0, i32 0
+  %9 = load ptr, ptr %8, align 8, !tbaa !199
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_disposeEv(ptr noundef nonnull align 8 dereferenceable(32) %9)
+  br label %10
+
+10:                                               ; preds = %7, %1
+  ret void
+}
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr noundef i64 @_ZSt10__distanceIPKcENSt15iterator_traitsIT_E15difference_typeES3_S3_St26random_access_iterator_tag(ptr noundef %0, ptr noundef %1) #4 comdat {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !26
+  store ptr %1, ptr %4, align 8, !tbaa !26
+  %5 = load ptr, ptr %4, align 8, !tbaa !26
+  %6 = load ptr, ptr %3, align 8, !tbaa !26
+  %7 = ptrtoint ptr %5 to i64
+  %8 = ptrtoint ptr %6 to i64
+  %9 = sub i64 %7, %8
+  ret i64 %9
+}
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr void @_ZSt19__iterator_categoryIPKcENSt15iterator_traitsIT_E17iterator_categoryERKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0) #4 comdat {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !203
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define available_externally void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_S_copyEPcPKcm(ptr noundef %0, ptr noundef %1, i64 noundef %2) #0 align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i64, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !26
+  store ptr %1, ptr %5, align 8, !tbaa !26
+  store i64 %2, ptr %6, align 8, !tbaa !27
+  %7 = load i64, ptr %6, align 8, !tbaa !27
+  %8 = icmp eq i64 %7, 1
+  br i1 %8, label %9, label %12
+
+9:                                                ; preds = %3
+  %10 = load ptr, ptr %4, align 8, !tbaa !26
+  %11 = load ptr, ptr %5, align 8, !tbaa !26
+  call void @_ZNSt11char_traitsIcE6assignERcRKc(ptr noundef nonnull align 1 dereferenceable(1) %10, ptr noundef nonnull align 1 dereferenceable(1) %11) #13
+  br label %17
+
+12:                                               ; preds = %3
+  %13 = load ptr, ptr %4, align 8, !tbaa !26
+  %14 = load ptr, ptr %5, align 8, !tbaa !26
+  %15 = load i64, ptr %6, align 8, !tbaa !27
+  %16 = call noundef ptr @_ZNSt11char_traitsIcE4copyEPcPKcm(ptr noundef %13, ptr noundef %14, i64 noundef %15)
+  br label %17
+
+17:                                               ; preds = %12, %9
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZNSt11char_traitsIcE6assignERcRKc(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %1) #0 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !26
+  store ptr %1, ptr %4, align 8, !tbaa !26
+  %5 = load ptr, ptr %4, align 8, !tbaa !26
+  %6 = load i8, ptr %5, align 1, !tbaa !30
+  %7 = load ptr, ptr %3, align 8, !tbaa !26
+  store i8 %6, ptr %7, align 1, !tbaa !30
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef ptr @_ZNSt11char_traitsIcE4copyEPcPKcm(ptr noundef %0, ptr noundef %1, i64 noundef %2) #0 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i64, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !26
+  store ptr %1, ptr %6, align 8, !tbaa !26
+  store i64 %2, ptr %7, align 8, !tbaa !27
+  %8 = load i64, ptr %7, align 8, !tbaa !27
+  %9 = icmp eq i64 %8, 0
+  br i1 %9, label %10, label %12
+
+10:                                               ; preds = %3
+  %11 = load ptr, ptr %5, align 8, !tbaa !26
+  store ptr %11, ptr %4, align 8
+  br label %16
+
+12:                                               ; preds = %3
+  %13 = load ptr, ptr %5, align 8, !tbaa !26
+  %14 = load ptr, ptr %6, align 8, !tbaa !26
+  %15 = load i64, ptr %7, align 8, !tbaa !27
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %13, ptr align 1 %14, i64 %15, i1 false)
+  store ptr %13, ptr %4, align 8
+  br label %16
+
+16:                                               ; preds = %12, %10
+  %17 = load ptr, ptr %4, align 8
+  ret ptr %17
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define available_externally void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %1) #0 align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !44
+  store i64 %1, ptr %4, align 8, !tbaa !27
+  %5 = load ptr, ptr %3, align 8
+  %6 = load i64, ptr %4, align 8, !tbaa !27
+  %7 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %5, i32 0, i32 1
+  store i64 %6, ptr %7, align 8, !tbaa !47
+  ret void
+}
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden ptr @_ZNSt8_Rb_treeIcSt4pairIKcSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEESt10_Select1stISE_ESt4lessIcESaISE_EE3endEv(ptr noundef nonnull align 8 dereferenceable(48) %0) #0 comdat align 2 {
   %2 = alloca %"struct.std::_Rb_tree_iterator", align 8
   %3 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !98
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw %"class.std::_Rb_tree", ptr %4, i32 0, i32 0
   %6 = getelementptr inbounds i8, ptr %5, i64 8
   %7 = getelementptr inbounds nuw %"struct.std::_Rb_tree_header", ptr %6, i32 0, i32 0
-  call void @_ZNSt17_Rb_tree_iteratorISt4pairIKcSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEEEC2EPSt18_Rb_tree_node_base(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef %7) #9
+  call void @_ZNSt17_Rb_tree_iteratorISt4pairIKcSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEEEC2EPSt18_Rb_tree_node_base(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef %7) #13
   %8 = getelementptr inbounds nuw %"struct.std::_Rb_tree_iterator", ptr %2, i32 0, i32 0
   %9 = load ptr, ptr %8, align 8
   ret ptr %9
 }
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef) #8
+declare noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef) #11
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef zeroext i1 @_ZN9__gnu_cxxeqIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_ESt6vectorIS8_SaIS8_EEEEbRKNS_17__normal_iteratorIT_T0_EESJ_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #0 comdat {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr noundef zeroext i1 @_ZN9__gnu_cxxeqIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_ESt6vectorIS8_SaIS8_EEEEbRKNS_17__normal_iteratorIT_T0_EESJ_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #4 comdat {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  %5 = load ptr, ptr %3, align 8
-  %6 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_ESt6vectorIS8_SaIS8_EEE4baseEv(ptr noundef nonnull align 8 dereferenceable(8) %5) #9
-  %7 = load ptr, ptr %6, align 8
-  %8 = load ptr, ptr %4, align 8
-  %9 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_ESt6vectorIS8_SaIS8_EEE4baseEv(ptr noundef nonnull align 8 dereferenceable(8) %8) #9
-  %10 = load ptr, ptr %9, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !85
+  store ptr %1, ptr %4, align 8, !tbaa !85
+  %5 = load ptr, ptr %3, align 8, !tbaa !85
+  %6 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_ESt6vectorIS8_SaIS8_EEE4baseEv(ptr noundef nonnull align 8 dereferenceable(8) %5) #13
+  %7 = load ptr, ptr %6, align 8, !tbaa !14
+  %8 = load ptr, ptr %4, align 8, !tbaa !85
+  %9 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_ESt6vectorIS8_SaIS8_EEE4baseEv(ptr noundef nonnull align 8 dereferenceable(8) %8) #13
+  %10 = load ptr, ptr %9, align 8, !tbaa !14
   %11 = icmp eq ptr %7, %10
   ret i1 %11
 }
@@ -4998,7 +5920,7 @@ define linkonce_odr noundef zeroext i1 @_ZN9__gnu_cxxeqIPKSt4pairINSt7__cxx1112b
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_ESt6vectorIS8_SaIS8_EEE4baseEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !85
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator.21", ptr %3, i32 0, i32 0
   ret ptr %4
@@ -5008,13 +5930,13 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9
 define linkonce_odr hidden void @_ZN9__gnu_cxx17__normal_iteratorIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_ESt6vectorIS8_SaIS8_EEEC2ERKSA_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #0 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !85
+  store ptr %1, ptr %4, align 8, !tbaa !65
   %5 = load ptr, ptr %3, align 8
   %6 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator.21", ptr %5, i32 0, i32 0
-  %7 = load ptr, ptr %4, align 8
-  %8 = load ptr, ptr %7, align 8
-  store ptr %8, ptr %6, align 8
+  %7 = load ptr, ptr %4, align 8, !tbaa !65
+  %8 = load ptr, ptr %7, align 8, !tbaa !14
+  store ptr %8, ptr %6, align 8, !tbaa !87
   ret void
 }
 
@@ -5023,11 +5945,11 @@ define linkonce_odr hidden ptr @_ZNSt3mapIjSt6vectorIPKSt4pairINSt7__cxx1112basi
   %3 = alloca %"struct.std::_Rb_tree_iterator.22", align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !79
+  store ptr %1, ptr %5, align 8, !tbaa !89
   %6 = load ptr, ptr %4, align 8
   %7 = getelementptr inbounds nuw %"class.std::map.15", ptr %6, i32 0, i32 0
-  %8 = load ptr, ptr %5, align 8
+  %8 = load ptr, ptr %5, align 8, !tbaa !89
   %9 = call ptr @_ZNSt8_Rb_treeIjSt4pairIKjSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEESt10_Select1stISE_ESt4lessIjESaISE_EE11lower_boundERS1_(ptr noundef nonnull align 8 dereferenceable(48) %7, ptr noundef nonnull align 4 dereferenceable(4) %8)
   %10 = getelementptr inbounds nuw %"struct.std::_Rb_tree_iterator.22", ptr %3, i32 0, i32 0
   store ptr %9, ptr %10, align 8
@@ -5040,14 +5962,14 @@ define linkonce_odr hidden ptr @_ZNSt3mapIjSt6vectorIPKSt4pairINSt7__cxx1112basi
 define linkonce_odr noundef zeroext i1 @_ZSteqRKSt17_Rb_tree_iteratorISt4pairIKjSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEEESH_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #0 comdat {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  %5 = load ptr, ptr %3, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !91
+  store ptr %1, ptr %4, align 8, !tbaa !91
+  %5 = load ptr, ptr %3, align 8, !tbaa !91
   %6 = getelementptr inbounds nuw %"struct.std::_Rb_tree_iterator.22", ptr %5, i32 0, i32 0
-  %7 = load ptr, ptr %6, align 8
-  %8 = load ptr, ptr %4, align 8
+  %7 = load ptr, ptr %6, align 8, !tbaa !93
+  %8 = load ptr, ptr %4, align 8, !tbaa !91
   %9 = getelementptr inbounds nuw %"struct.std::_Rb_tree_iterator.22", ptr %8, i32 0, i32 0
-  %10 = load ptr, ptr %9, align 8
+  %10 = load ptr, ptr %9, align 8, !tbaa !93
   %11 = icmp eq ptr %7, %10
   ret i1 %11
 }
@@ -5055,7 +5977,7 @@ define linkonce_odr noundef zeroext i1 @_ZSteqRKSt17_Rb_tree_iteratorISt4pairIKj
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNKSt3mapIjSt6vectorIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_ESaISA_EESt4lessIjESaIS1_IKjSC_EEE8key_compEv(ptr noundef nonnull align 8 dereferenceable(48) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !79
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw %"class.std::map.15", ptr %3, i32 0, i32 0
   call void @_ZNKSt8_Rb_treeIjSt4pairIKjSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEESt10_Select1stISE_ESt4lessIjESaISE_EE8key_compEv(ptr noundef nonnull align 8 dereferenceable(48) %4)
@@ -5067,13 +5989,13 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNKSt4lessIjEclERKjS2_(ptr nound
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store ptr %2, ptr %6, align 8
-  %7 = load ptr, ptr %5, align 8
-  %8 = load i32, ptr %7, align 4
-  %9 = load ptr, ptr %6, align 8
-  %10 = load i32, ptr %9, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !205
+  store ptr %1, ptr %5, align 8, !tbaa !89
+  store ptr %2, ptr %6, align 8, !tbaa !89
+  %7 = load ptr, ptr %5, align 8, !tbaa !89
+  %8 = load i32, ptr %7, align 4, !tbaa !10
+  %9 = load ptr, ptr %6, align 8, !tbaa !89
+  %10 = load i32, ptr %9, align 4, !tbaa !10
   %11 = icmp ult i32 %8, %10
   ret i1 %11
 }
@@ -5093,16 +6015,18 @@ define linkonce_odr ptr @_ZNSt8_Rb_treeIjSt4pairIKjSt6vectorIPKS0_INSt7__cxx1112
   %16 = alloca i32, align 4
   %17 = getelementptr inbounds nuw %"struct.std::_Rb_tree_const_iterator.34", ptr %7, i32 0, i32 0
   store ptr %1, ptr %17, align 8
-  store ptr %0, ptr %8, align 8
-  store ptr %2, ptr %9, align 8
-  store ptr %3, ptr %10, align 8
-  store ptr %4, ptr %11, align 8
+  store ptr %0, ptr %8, align 8, !tbaa !131
+  store ptr %2, ptr %9, align 8, !tbaa !155
+  store ptr %3, ptr %10, align 8, !tbaa !207
+  store ptr %4, ptr %11, align 8, !tbaa !159
   %18 = load ptr, ptr %8, align 8
-  %19 = load ptr, ptr %9, align 8
-  %20 = load ptr, ptr %10, align 8
-  %21 = load ptr, ptr %11, align 8
+  call void @llvm.lifetime.start.p0(i64 16, ptr %12) #13
+  %19 = load ptr, ptr %9, align 8, !tbaa !155
+  %20 = load ptr, ptr %10, align 8, !tbaa !207
+  %21 = load ptr, ptr %11, align 8, !tbaa !159
   call void @_ZNSt8_Rb_treeIjSt4pairIKjSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEESt10_Select1stISE_ESt4lessIjESaISE_EE10_Auto_nodeC2IJRKSt21piecewise_construct_tSt5tupleIJOjEESQ_IJEEEEERSK_DpOT_(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull align 8 dereferenceable(48) %18, ptr noundef nonnull align 1 dereferenceable(1) %19, ptr noundef nonnull align 8 dereferenceable(8) %20, ptr noundef nonnull align 1 dereferenceable(1) %21)
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %14, ptr align 8 %7, i64 8, i1 false)
+  call void @llvm.lifetime.start.p0(i64 16, ptr %13) #13
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %14, ptr align 8 %7, i64 8, i1 false), !tbaa.struct !68
   %22 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNKSt8_Rb_treeIjSt4pairIKjSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEESt10_Select1stISE_ESt4lessIjESaISE_EE10_Auto_node6_M_keyEv(ptr noundef nonnull align 8 dereferenceable(16) %12)
   %23 = getelementptr inbounds nuw %"struct.std::_Rb_tree_const_iterator.34", ptr %14, i32 0, i32 0
   %24 = load ptr, ptr %23, align 8
@@ -5114,7 +6038,7 @@ define linkonce_odr ptr @_ZNSt8_Rb_treeIjSt4pairIKjSt6vectorIPKS0_INSt7__cxx1112
   %29 = extractvalue { ptr, ptr } %25, 1
   store ptr %29, ptr %28, align 8
   %30 = getelementptr inbounds nuw %"struct.std::pair.30", ptr %13, i32 0, i32 1
-  %31 = load ptr, ptr %30, align 8
+  %31 = load ptr, ptr %30, align 8, !tbaa !161
   %32 = icmp ne ptr %31, null
   br i1 %32, label %33, label %40
 
@@ -5132,13 +6056,15 @@ define linkonce_odr ptr @_ZNSt8_Rb_treeIjSt4pairIKjSt6vectorIPKS0_INSt7__cxx1112
 
 40:                                               ; preds = %5
   %41 = getelementptr inbounds nuw %"struct.std::pair.30", ptr %13, i32 0, i32 0
-  %42 = load ptr, ptr %41, align 8
-  call void @_ZNSt17_Rb_tree_iteratorISt4pairIKjSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEEEC2EPSt18_Rb_tree_node_base(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef %42) #9
+  %42 = load ptr, ptr %41, align 8, !tbaa !163
+  call void @_ZNSt17_Rb_tree_iteratorISt4pairIKjSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEEEC2EPSt18_Rb_tree_node_base(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef %42) #13
   store i32 1, ptr %16, align 4
   br label %43
 
 43:                                               ; preds = %40, %33
-  call void @_ZNSt8_Rb_treeIjSt4pairIKjSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEESt10_Select1stISE_ESt4lessIjESaISE_EE10_Auto_nodeD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %12) #9
+  call void @llvm.lifetime.end.p0(i64 16, ptr %13) #13
+  call void @_ZNSt8_Rb_treeIjSt4pairIKjSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEESt10_Select1stISE_ESt4lessIjESaISE_EE10_Auto_nodeD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %12) #13
+  call void @llvm.lifetime.end.p0(i64 16, ptr %12) #13
   %44 = getelementptr inbounds nuw %"struct.std::_Rb_tree_iterator.22", ptr %6, i32 0, i32 0
   %45 = load ptr, ptr %44, align 8
   ret ptr %45
@@ -5148,14 +6074,14 @@ define linkonce_odr ptr @_ZNSt8_Rb_treeIjSt4pairIKjSt6vectorIPKS0_INSt7__cxx1112
 define linkonce_odr hidden void @_ZNSt23_Rb_tree_const_iteratorISt4pairIKjSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEEEC2ERKSt17_Rb_tree_iteratorISE_E(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #0 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !209
+  store ptr %1, ptr %4, align 8, !tbaa !91
   %5 = load ptr, ptr %3, align 8
   %6 = getelementptr inbounds nuw %"struct.std::_Rb_tree_const_iterator.34", ptr %5, i32 0, i32 0
-  %7 = load ptr, ptr %4, align 8
+  %7 = load ptr, ptr %4, align 8, !tbaa !91
   %8 = getelementptr inbounds nuw %"struct.std::_Rb_tree_iterator.22", ptr %7, i32 0, i32 0
-  %9 = load ptr, ptr %8, align 8
-  store ptr %9, ptr %6, align 8
+  %9 = load ptr, ptr %8, align 8, !tbaa !93
+  store ptr %9, ptr %6, align 8, !tbaa !211
   ret void
 }
 
@@ -5164,9 +6090,9 @@ define linkonce_odr void @_ZSt16forward_as_tupleIJjEESt5tupleIJDpOT_EES3_(ptr de
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  %5 = load ptr, ptr %4, align 8
-  call void @_ZNSt5tupleIJOjEEC2IJjELb1ETnNSt9enable_ifIXclsr4_TCCIXT0_EEE29__is_implicitly_constructibleIDpT_EEEbE4typeELb1EEEDpOS4_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 4 dereferenceable(4) %5) #9
+  store ptr %1, ptr %4, align 8, !tbaa !89
+  %5 = load ptr, ptr %4, align 8, !tbaa !89
+  call void @_ZNSt5tupleIJOjEEC2IJjELb1ETnNSt9enable_ifIXclsr4_TCCIXT0_EEE29__is_implicitly_constructibleIDpT_EEEbE4typeELb1EEEDpOS4_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 4 dereferenceable(4) %5) #13
   ret void
 }
 
@@ -5175,12 +6101,12 @@ define linkonce_odr hidden ptr @_ZNSt8_Rb_treeIjSt4pairIKjSt6vectorIPKS0_INSt7__
   %3 = alloca %"struct.std::_Rb_tree_iterator.22", align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !131
+  store ptr %1, ptr %5, align 8, !tbaa !89
   %6 = load ptr, ptr %4, align 8
-  %7 = call noundef ptr @_ZNSt8_Rb_treeIjSt4pairIKjSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEESt10_Select1stISE_ESt4lessIjESaISE_EE8_M_beginEv(ptr noundef nonnull align 8 dereferenceable(48) %6) #9
-  %8 = call noundef ptr @_ZNSt8_Rb_treeIjSt4pairIKjSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEESt10_Select1stISE_ESt4lessIjESaISE_EE6_M_endEv(ptr noundef nonnull align 8 dereferenceable(48) %6) #9
-  %9 = load ptr, ptr %5, align 8
+  %7 = call noundef ptr @_ZNSt8_Rb_treeIjSt4pairIKjSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEESt10_Select1stISE_ESt4lessIjESaISE_EE8_M_beginEv(ptr noundef nonnull align 8 dereferenceable(48) %6) #13
+  %8 = call noundef ptr @_ZNSt8_Rb_treeIjSt4pairIKjSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEESt10_Select1stISE_ESt4lessIjESaISE_EE6_M_endEv(ptr noundef nonnull align 8 dereferenceable(48) %6) #13
+  %9 = load ptr, ptr %5, align 8, !tbaa !89
   %10 = call ptr @_ZNSt8_Rb_treeIjSt4pairIKjSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEESt10_Select1stISE_ESt4lessIjESaISE_EE14_M_lower_boundEPSt13_Rb_tree_nodeISE_EPSt18_Rb_tree_node_baseRS1_(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr noundef %7, ptr noundef %8, ptr noundef nonnull align 4 dereferenceable(4) %9)
   %11 = getelementptr inbounds nuw %"struct.std::_Rb_tree_iterator.22", ptr %3, i32 0, i32 0
   store ptr %10, ptr %11, align 8
@@ -5196,46 +6122,46 @@ define linkonce_odr ptr @_ZNSt8_Rb_treeIjSt4pairIKjSt6vectorIPKS0_INSt7__cxx1112
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
   %9 = alloca ptr, align 8
-  store ptr %0, ptr %6, align 8
-  store ptr %1, ptr %7, align 8
-  store ptr %2, ptr %8, align 8
-  store ptr %3, ptr %9, align 8
+  store ptr %0, ptr %6, align 8, !tbaa !131
+  store ptr %1, ptr %7, align 8, !tbaa !141
+  store ptr %2, ptr %8, align 8, !tbaa !69
+  store ptr %3, ptr %9, align 8, !tbaa !89
   %10 = load ptr, ptr %6, align 8
   br label %11
 
 11:                                               ; preds = %27, %4
-  %12 = load ptr, ptr %7, align 8
+  %12 = load ptr, ptr %7, align 8, !tbaa !141
   %13 = icmp ne ptr %12, null
   br i1 %13, label %14, label %28
 
 14:                                               ; preds = %11
   %15 = getelementptr inbounds nuw %"class.std::_Rb_tree.16", ptr %10, i32 0, i32 0
-  %16 = load ptr, ptr %7, align 8
+  %16 = load ptr, ptr %7, align 8, !tbaa !141
   %17 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt8_Rb_treeIjSt4pairIKjSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEESt10_Select1stISE_ESt4lessIjESaISE_EE6_S_keyEPKSt13_Rb_tree_nodeISE_E(ptr noundef %16)
-  %18 = load ptr, ptr %9, align 8
+  %18 = load ptr, ptr %9, align 8, !tbaa !89
   %19 = call noundef zeroext i1 @_ZNKSt4lessIjEclERKjS2_(ptr noundef nonnull align 1 dereferenceable(1) %15, ptr noundef nonnull align 4 dereferenceable(4) %17, ptr noundef nonnull align 4 dereferenceable(4) %18)
   br i1 %19, label %24, label %20
 
 20:                                               ; preds = %14
-  %21 = load ptr, ptr %7, align 8
-  store ptr %21, ptr %8, align 8
-  %22 = load ptr, ptr %7, align 8
-  %23 = call noundef ptr @_ZNSt8_Rb_treeIjSt4pairIKjSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEESt10_Select1stISE_ESt4lessIjESaISE_EE7_S_leftEPSt18_Rb_tree_node_base(ptr noundef %22) #9
-  store ptr %23, ptr %7, align 8
+  %21 = load ptr, ptr %7, align 8, !tbaa !141
+  store ptr %21, ptr %8, align 8, !tbaa !69
+  %22 = load ptr, ptr %7, align 8, !tbaa !141
+  %23 = call noundef ptr @_ZNSt8_Rb_treeIjSt4pairIKjSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEESt10_Select1stISE_ESt4lessIjESaISE_EE7_S_leftEPSt18_Rb_tree_node_base(ptr noundef %22) #13
+  store ptr %23, ptr %7, align 8, !tbaa !141
   br label %27
 
 24:                                               ; preds = %14
-  %25 = load ptr, ptr %7, align 8
-  %26 = call noundef ptr @_ZNSt8_Rb_treeIjSt4pairIKjSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEESt10_Select1stISE_ESt4lessIjESaISE_EE8_S_rightEPSt18_Rb_tree_node_base(ptr noundef %25) #9
-  store ptr %26, ptr %7, align 8
+  %25 = load ptr, ptr %7, align 8, !tbaa !141
+  %26 = call noundef ptr @_ZNSt8_Rb_treeIjSt4pairIKjSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEESt10_Select1stISE_ESt4lessIjESaISE_EE8_S_rightEPSt18_Rb_tree_node_base(ptr noundef %25) #13
+  store ptr %26, ptr %7, align 8, !tbaa !141
   br label %27
 
 27:                                               ; preds = %24, %20
-  br label %11, !llvm.loop !11
+  br label %11, !llvm.loop !213
 
 28:                                               ; preds = %11
-  %29 = load ptr, ptr %8, align 8
-  call void @_ZNSt17_Rb_tree_iteratorISt4pairIKjSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEEEC2EPSt18_Rb_tree_node_base(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef %29) #9
+  %29 = load ptr, ptr %8, align 8, !tbaa !69
+  call void @_ZNSt17_Rb_tree_iteratorISt4pairIKjSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEEEC2EPSt18_Rb_tree_node_base(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef %29) #13
   %30 = getelementptr inbounds nuw %"struct.std::_Rb_tree_iterator.22", ptr %5, i32 0, i32 0
   %31 = load ptr, ptr %30, align 8
   ret ptr %31
@@ -5244,7 +6170,7 @@ define linkonce_odr ptr @_ZNSt8_Rb_treeIjSt4pairIKjSt6vectorIPKS0_INSt7__cxx1112
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZNSt8_Rb_treeIjSt4pairIKjSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEESt10_Select1stISE_ESt4lessIjESaISE_EE6_M_endEv(ptr noundef nonnull align 8 dereferenceable(48) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !131
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw %"class.std::_Rb_tree.16", ptr %3, i32 0, i32 0
   %5 = getelementptr inbounds i8, ptr %4, i64 8
@@ -5256,10 +6182,12 @@ define linkonce_odr hidden noundef ptr @_ZNSt8_Rb_treeIjSt4pairIKjSt6vectorIPKS0
 define linkonce_odr hidden noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt8_Rb_treeIjSt4pairIKjSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEESt10_Select1stISE_ESt4lessIjESaISE_EE6_S_keyEPKSt13_Rb_tree_nodeISE_E(ptr noundef %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
   %3 = alloca %"struct.std::_Select1st.38", align 1
-  store ptr %0, ptr %2, align 8
-  %4 = load ptr, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !141
+  call void @llvm.lifetime.start.p0(i64 1, ptr %3) #13
+  %4 = load ptr, ptr %2, align 8, !tbaa !141
   %5 = call noundef ptr @_ZNKSt13_Rb_tree_nodeISt4pairIKjSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEEE9_M_valptrEv(ptr noundef nonnull align 8 dereferenceable(64) %4)
   %6 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNKSt10_Select1stISt4pairIKjSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEEEclERKSE_(ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef nonnull align 8 dereferenceable(32) %5)
+  call void @llvm.lifetime.end.p0(i64 1, ptr %3) #13
   ret ptr %6
 }
 
@@ -5267,12 +6195,12 @@ define linkonce_odr hidden noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt
 define linkonce_odr hidden void @_ZNSt17_Rb_tree_iteratorISt4pairIKjSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEEEC2EPSt18_Rb_tree_node_base(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #0 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !91
+  store ptr %1, ptr %4, align 8, !tbaa !69
   %5 = load ptr, ptr %3, align 8
   %6 = getelementptr inbounds nuw %"struct.std::_Rb_tree_iterator.22", ptr %5, i32 0, i32 0
-  %7 = load ptr, ptr %4, align 8
-  store ptr %7, ptr %6, align 8
+  %7 = load ptr, ptr %4, align 8, !tbaa !69
+  store ptr %7, ptr %6, align 8, !tbaa !93
   ret void
 }
 
@@ -5280,9 +6208,9 @@ define linkonce_odr hidden void @_ZNSt17_Rb_tree_iteratorISt4pairIKjSt6vectorIPK
 define linkonce_odr hidden noundef nonnull align 4 dereferenceable(4) ptr @_ZNKSt10_Select1stISt4pairIKjSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEEEclERKSE_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) #0 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  %5 = load ptr, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !214
+  store ptr %1, ptr %4, align 8, !tbaa !81
+  %5 = load ptr, ptr %4, align 8, !tbaa !81
   %6 = getelementptr inbounds nuw %"struct.std::pair.23", ptr %5, i32 0, i32 0
   ret ptr %6
 }
@@ -5290,26 +6218,26 @@ define linkonce_odr hidden noundef nonnull align 4 dereferenceable(4) ptr @_ZNKS
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZNKSt13_Rb_tree_nodeISt4pairIKjSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEEE9_M_valptrEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !141
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw %"struct.std::_Rb_tree_node.27", ptr %3, i32 0, i32 1
-  %5 = call noundef ptr @_ZNK9__gnu_cxx16__aligned_membufISt4pairIKjSt6vectorIPKS1_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ESaISC_EEEE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(32) %4) #9
+  %5 = call noundef ptr @_ZNK9__gnu_cxx16__aligned_membufISt4pairIKjSt6vectorIPKS1_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ESaISC_EEEE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(32) %4) #13
   ret ptr %5
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZNK9__gnu_cxx16__aligned_membufISt4pairIKjSt6vectorIPKS1_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ESaISC_EEEE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !144
   %3 = load ptr, ptr %2, align 8
-  %4 = call noundef ptr @_ZNK9__gnu_cxx16__aligned_membufISt4pairIKjSt6vectorIPKS1_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ESaISC_EEEE7_M_addrEv(ptr noundef nonnull align 8 dereferenceable(32) %3) #9
+  %4 = call noundef ptr @_ZNK9__gnu_cxx16__aligned_membufISt4pairIKjSt6vectorIPKS1_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ESaISC_EEEE7_M_addrEv(ptr noundef nonnull align 8 dereferenceable(32) %3) #13
   ret ptr %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZNK9__gnu_cxx16__aligned_membufISt4pairIKjSt6vectorIPKS1_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ESaISC_EEEE7_M_addrEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !144
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw %"struct.__gnu_cxx::__aligned_membuf.28", ptr %3, i32 0, i32 0
   ret ptr %4
@@ -5318,7 +6246,7 @@ define linkonce_odr hidden noundef ptr @_ZNK9__gnu_cxx16__aligned_membufISt4pair
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNKSt8_Rb_treeIjSt4pairIKjSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEESt10_Select1stISE_ESt4lessIjESaISE_EE8key_compEv(ptr noundef nonnull align 8 dereferenceable(48) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !131
   ret void
 }
 
@@ -5329,22 +6257,22 @@ define linkonce_odr hidden void @_ZNSt8_Rb_treeIjSt4pairIKjSt6vectorIPKS0_INSt7_
   %8 = alloca ptr, align 8
   %9 = alloca ptr, align 8
   %10 = alloca ptr, align 8
-  store ptr %0, ptr %6, align 8
-  store ptr %1, ptr %7, align 8
-  store ptr %2, ptr %8, align 8
-  store ptr %3, ptr %9, align 8
-  store ptr %4, ptr %10, align 8
+  store ptr %0, ptr %6, align 8, !tbaa !216
+  store ptr %1, ptr %7, align 8, !tbaa !131
+  store ptr %2, ptr %8, align 8, !tbaa !155
+  store ptr %3, ptr %9, align 8, !tbaa !207
+  store ptr %4, ptr %10, align 8, !tbaa !159
   %11 = load ptr, ptr %6, align 8
   %12 = getelementptr inbounds nuw %"struct.std::_Rb_tree<unsigned int, std::pair<const unsigned int, std::vector<const std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>> *>>, std::_Select1st<std::pair<const unsigned int, std::vector<const std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>> *>>>, std::less<unsigned int>>::_Auto_node", ptr %11, i32 0, i32 0
-  %13 = load ptr, ptr %7, align 8
-  store ptr %13, ptr %12, align 8
+  %13 = load ptr, ptr %7, align 8, !tbaa !131
+  store ptr %13, ptr %12, align 8, !tbaa !131
   %14 = getelementptr inbounds nuw %"struct.std::_Rb_tree<unsigned int, std::pair<const unsigned int, std::vector<const std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>> *>>, std::_Select1st<std::pair<const unsigned int, std::vector<const std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>> *>>>, std::less<unsigned int>>::_Auto_node", ptr %11, i32 0, i32 1
-  %15 = load ptr, ptr %7, align 8
-  %16 = load ptr, ptr %8, align 8
-  %17 = load ptr, ptr %9, align 8
-  %18 = load ptr, ptr %10, align 8
+  %15 = load ptr, ptr %7, align 8, !tbaa !131
+  %16 = load ptr, ptr %8, align 8, !tbaa !155
+  %17 = load ptr, ptr %9, align 8, !tbaa !207
+  %18 = load ptr, ptr %10, align 8, !tbaa !159
   %19 = call noundef ptr @_ZNSt8_Rb_treeIjSt4pairIKjSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEESt10_Select1stISE_ESt4lessIjESaISE_EE14_M_create_nodeIJRKSt21piecewise_construct_tSt5tupleIJOjEESP_IJEEEEEPSt13_Rb_tree_nodeISE_EDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %15, ptr noundef nonnull align 1 dereferenceable(1) %16, ptr noundef nonnull align 8 dereferenceable(8) %17, ptr noundef nonnull align 1 dereferenceable(1) %18)
-  store ptr %19, ptr %14, align 8
+  store ptr %19, ptr %14, align 8, !tbaa !218
   ret void
 }
 
@@ -5356,203 +6284,237 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeIjSt4pairIKjSt6vectorIPKS0_INSt7
   %7 = alloca ptr, align 8
   %8 = alloca %"struct.std::_Rb_tree_iterator.22", align 8
   %9 = alloca ptr, align 8
-  %10 = alloca %"struct.std::_Rb_tree_iterator.22", align 8
-  %11 = alloca ptr, align 8
-  %12 = alloca %"struct.std::_Rb_tree_iterator.22", align 8
-  %13 = alloca ptr, align 8
+  %10 = alloca i32, align 4
+  %11 = alloca %"struct.std::_Rb_tree_iterator.22", align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca %"struct.std::_Rb_tree_iterator.22", align 8
   %14 = alloca ptr, align 8
   %15 = alloca ptr, align 8
-  %16 = getelementptr inbounds nuw %"struct.std::_Rb_tree_const_iterator.34", ptr %5, i32 0, i32 0
-  store ptr %1, ptr %16, align 8
-  store ptr %0, ptr %6, align 8
-  store ptr %2, ptr %7, align 8
-  %17 = load ptr, ptr %6, align 8
-  %18 = call ptr @_ZNKSt23_Rb_tree_const_iteratorISt4pairIKjSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEEE13_M_const_castEv(ptr noundef nonnull align 8 dereferenceable(8) %5) #9
-  %19 = getelementptr inbounds nuw %"struct.std::_Rb_tree_iterator.22", ptr %8, i32 0, i32 0
-  store ptr %18, ptr %19, align 8
+  %16 = alloca ptr, align 8
+  %17 = getelementptr inbounds nuw %"struct.std::_Rb_tree_const_iterator.34", ptr %5, i32 0, i32 0
+  store ptr %1, ptr %17, align 8
+  store ptr %0, ptr %6, align 8, !tbaa !131
+  store ptr %2, ptr %7, align 8, !tbaa !89
+  %18 = load ptr, ptr %6, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #13
+  %19 = call ptr @_ZNKSt23_Rb_tree_const_iteratorISt4pairIKjSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEEE13_M_const_castEv(ptr noundef nonnull align 8 dereferenceable(8) %5) #13
   %20 = getelementptr inbounds nuw %"struct.std::_Rb_tree_iterator.22", ptr %8, i32 0, i32 0
-  %21 = load ptr, ptr %20, align 8
-  %22 = call noundef ptr @_ZNSt8_Rb_treeIjSt4pairIKjSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEESt10_Select1stISE_ESt4lessIjESaISE_EE6_M_endEv(ptr noundef nonnull align 8 dereferenceable(48) %17) #9
-  %23 = icmp eq ptr %21, %22
-  br i1 %23, label %24, label %43
+  store ptr %19, ptr %20, align 8
+  %21 = getelementptr inbounds nuw %"struct.std::_Rb_tree_iterator.22", ptr %8, i32 0, i32 0
+  %22 = load ptr, ptr %21, align 8, !tbaa !93
+  %23 = call noundef ptr @_ZNSt8_Rb_treeIjSt4pairIKjSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEESt10_Select1stISE_ESt4lessIjESaISE_EE6_M_endEv(ptr noundef nonnull align 8 dereferenceable(48) %18) #13
+  %24 = icmp eq ptr %22, %23
+  br i1 %24, label %25, label %44
 
-24:                                               ; preds = %3
-  %25 = call noundef i64 @_ZNKSt8_Rb_treeIjSt4pairIKjSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEESt10_Select1stISE_ESt4lessIjESaISE_EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(48) %17) #9
-  %26 = icmp ugt i64 %25, 0
-  br i1 %26, label %27, label %36
+25:                                               ; preds = %3
+  %26 = call noundef i64 @_ZNKSt8_Rb_treeIjSt4pairIKjSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEESt10_Select1stISE_ESt4lessIjESaISE_EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(48) %18) #13
+  %27 = icmp ugt i64 %26, 0
+  br i1 %27, label %28, label %37
 
-27:                                               ; preds = %24
-  %28 = getelementptr inbounds nuw %"class.std::_Rb_tree.16", ptr %17, i32 0, i32 0
-  %29 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt8_Rb_treeIjSt4pairIKjSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEESt10_Select1stISE_ESt4lessIjESaISE_EE12_M_rightmostEv(ptr noundef nonnull align 8 dereferenceable(48) %17) #9
-  %30 = load ptr, ptr %29, align 8
-  %31 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt8_Rb_treeIjSt4pairIKjSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEESt10_Select1stISE_ESt4lessIjESaISE_EE6_S_keyEPKSt18_Rb_tree_node_base(ptr noundef %30)
-  %32 = load ptr, ptr %7, align 8
-  %33 = call noundef zeroext i1 @_ZNKSt4lessIjEclERKjS2_(ptr noundef nonnull align 1 dereferenceable(1) %28, ptr noundef nonnull align 4 dereferenceable(4) %31, ptr noundef nonnull align 4 dereferenceable(4) %32)
-  br i1 %33, label %34, label %36
+28:                                               ; preds = %25
+  %29 = getelementptr inbounds nuw %"class.std::_Rb_tree.16", ptr %18, i32 0, i32 0
+  %30 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt8_Rb_treeIjSt4pairIKjSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEESt10_Select1stISE_ESt4lessIjESaISE_EE12_M_rightmostEv(ptr noundef nonnull align 8 dereferenceable(48) %18) #13
+  %31 = load ptr, ptr %30, align 8, !tbaa !69
+  %32 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt8_Rb_treeIjSt4pairIKjSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEESt10_Select1stISE_ESt4lessIjESaISE_EE6_S_keyEPKSt18_Rb_tree_node_base(ptr noundef %31)
+  %33 = load ptr, ptr %7, align 8, !tbaa !89
+  %34 = call noundef zeroext i1 @_ZNKSt4lessIjEclERKjS2_(ptr noundef nonnull align 1 dereferenceable(1) %29, ptr noundef nonnull align 4 dereferenceable(4) %32, ptr noundef nonnull align 4 dereferenceable(4) %33)
+  br i1 %34, label %35, label %37
 
-34:                                               ; preds = %27
-  store ptr null, ptr %9, align 8
-  %35 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt8_Rb_treeIjSt4pairIKjSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEESt10_Select1stISE_ESt4lessIjESaISE_EE12_M_rightmostEv(ptr noundef nonnull align 8 dereferenceable(48) %17) #9
-  call void @_ZNSt4pairIPSt18_Rb_tree_node_baseS1_EC2IS1_S1_TnNSt9enable_ifIXaaclsr5_PCCPE18_ConstructiblePairIT_T0_EEclsr5_PCCPE26_ImplicitlyConvertiblePairIS5_S6_EEEbE4typeELb1EEERKS1_SA_(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 8 dereferenceable(8) %35)
-  br label %126
+35:                                               ; preds = %28
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #13
+  store ptr null, ptr %9, align 8, !tbaa !69
+  %36 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt8_Rb_treeIjSt4pairIKjSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEESt10_Select1stISE_ESt4lessIjESaISE_EE12_M_rightmostEv(ptr noundef nonnull align 8 dereferenceable(48) %18) #13
+  call void @_ZNSt4pairIPSt18_Rb_tree_node_baseS1_EC2IS1_S1_TnNSt9enable_ifIXaaclsr5_PCCPE18_ConstructiblePairIT_T0_EEclsr5_PCCPE26_ImplicitlyConvertiblePairIS5_S6_EEEbE4typeELb1EEERKS1_SA_(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 8 dereferenceable(8) %36)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #13
+  store i32 1, ptr %10, align 4
+  br label %129
 
-36:                                               ; preds = %27, %24
-  %37 = load ptr, ptr %7, align 8
-  %38 = call { ptr, ptr } @_ZNSt8_Rb_treeIjSt4pairIKjSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEESt10_Select1stISE_ESt4lessIjESaISE_EE24_M_get_insert_unique_posERS1_(ptr noundef nonnull align 8 dereferenceable(48) %17, ptr noundef nonnull align 4 dereferenceable(4) %37)
-  %39 = getelementptr inbounds nuw { ptr, ptr }, ptr %4, i32 0, i32 0
-  %40 = extractvalue { ptr, ptr } %38, 0
-  store ptr %40, ptr %39, align 8
-  %41 = getelementptr inbounds nuw { ptr, ptr }, ptr %4, i32 0, i32 1
-  %42 = extractvalue { ptr, ptr } %38, 1
-  store ptr %42, ptr %41, align 8
-  br label %126
+37:                                               ; preds = %28, %25
+  %38 = load ptr, ptr %7, align 8, !tbaa !89
+  %39 = call { ptr, ptr } @_ZNSt8_Rb_treeIjSt4pairIKjSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEESt10_Select1stISE_ESt4lessIjESaISE_EE24_M_get_insert_unique_posERS1_(ptr noundef nonnull align 8 dereferenceable(48) %18, ptr noundef nonnull align 4 dereferenceable(4) %38)
+  %40 = getelementptr inbounds nuw { ptr, ptr }, ptr %4, i32 0, i32 0
+  %41 = extractvalue { ptr, ptr } %39, 0
+  store ptr %41, ptr %40, align 8
+  %42 = getelementptr inbounds nuw { ptr, ptr }, ptr %4, i32 0, i32 1
+  %43 = extractvalue { ptr, ptr } %39, 1
+  store ptr %43, ptr %42, align 8
+  store i32 1, ptr %10, align 4
+  br label %129
 
-43:                                               ; preds = %3
-  %44 = getelementptr inbounds nuw %"class.std::_Rb_tree.16", ptr %17, i32 0, i32 0
-  %45 = load ptr, ptr %7, align 8
-  %46 = getelementptr inbounds nuw %"struct.std::_Rb_tree_iterator.22", ptr %8, i32 0, i32 0
-  %47 = load ptr, ptr %46, align 8
-  %48 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt8_Rb_treeIjSt4pairIKjSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEESt10_Select1stISE_ESt4lessIjESaISE_EE6_S_keyEPKSt18_Rb_tree_node_base(ptr noundef %47)
-  %49 = call noundef zeroext i1 @_ZNKSt4lessIjEclERKjS2_(ptr noundef nonnull align 1 dereferenceable(1) %44, ptr noundef nonnull align 4 dereferenceable(4) %45, ptr noundef nonnull align 4 dereferenceable(4) %48)
-  br i1 %49, label %50, label %84
+44:                                               ; preds = %3
+  %45 = getelementptr inbounds nuw %"class.std::_Rb_tree.16", ptr %18, i32 0, i32 0
+  %46 = load ptr, ptr %7, align 8, !tbaa !89
+  %47 = getelementptr inbounds nuw %"struct.std::_Rb_tree_iterator.22", ptr %8, i32 0, i32 0
+  %48 = load ptr, ptr %47, align 8, !tbaa !93
+  %49 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt8_Rb_treeIjSt4pairIKjSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEESt10_Select1stISE_ESt4lessIjESaISE_EE6_S_keyEPKSt18_Rb_tree_node_base(ptr noundef %48)
+  %50 = call noundef zeroext i1 @_ZNKSt4lessIjEclERKjS2_(ptr noundef nonnull align 1 dereferenceable(1) %45, ptr noundef nonnull align 4 dereferenceable(4) %46, ptr noundef nonnull align 4 dereferenceable(4) %49)
+  br i1 %50, label %51, label %86
 
-50:                                               ; preds = %43
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %10, ptr align 8 %8, i64 8, i1 false)
-  %51 = getelementptr inbounds nuw %"struct.std::_Rb_tree_iterator.22", ptr %8, i32 0, i32 0
-  %52 = load ptr, ptr %51, align 8
-  %53 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt8_Rb_treeIjSt4pairIKjSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEESt10_Select1stISE_ESt4lessIjESaISE_EE11_M_leftmostEv(ptr noundef nonnull align 8 dereferenceable(48) %17) #9
-  %54 = load ptr, ptr %53, align 8
-  %55 = icmp eq ptr %52, %54
-  br i1 %55, label %56, label %59
+51:                                               ; preds = %44
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #13
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %11, ptr align 8 %8, i64 8, i1 false), !tbaa.struct !68
+  %52 = getelementptr inbounds nuw %"struct.std::_Rb_tree_iterator.22", ptr %8, i32 0, i32 0
+  %53 = load ptr, ptr %52, align 8, !tbaa !93
+  %54 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt8_Rb_treeIjSt4pairIKjSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEESt10_Select1stISE_ESt4lessIjESaISE_EE11_M_leftmostEv(ptr noundef nonnull align 8 dereferenceable(48) %18) #13
+  %55 = load ptr, ptr %54, align 8, !tbaa !69
+  %56 = icmp eq ptr %53, %55
+  br i1 %56, label %57, label %60
 
-56:                                               ; preds = %50
-  %57 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt8_Rb_treeIjSt4pairIKjSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEESt10_Select1stISE_ESt4lessIjESaISE_EE11_M_leftmostEv(ptr noundef nonnull align 8 dereferenceable(48) %17) #9
-  %58 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt8_Rb_treeIjSt4pairIKjSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEESt10_Select1stISE_ESt4lessIjESaISE_EE11_M_leftmostEv(ptr noundef nonnull align 8 dereferenceable(48) %17) #9
-  call void @_ZNSt4pairIPSt18_Rb_tree_node_baseS1_EC2IRS1_S4_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairIS6_S7_EEEbE4typeELb1EEEOS6_OS7_(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(8) %57, ptr noundef nonnull align 8 dereferenceable(8) %58)
-  br label %126
+57:                                               ; preds = %51
+  %58 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt8_Rb_treeIjSt4pairIKjSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEESt10_Select1stISE_ESt4lessIjESaISE_EE11_M_leftmostEv(ptr noundef nonnull align 8 dereferenceable(48) %18) #13
+  %59 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt8_Rb_treeIjSt4pairIKjSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEESt10_Select1stISE_ESt4lessIjESaISE_EE11_M_leftmostEv(ptr noundef nonnull align 8 dereferenceable(48) %18) #13
+  call void @_ZNSt4pairIPSt18_Rb_tree_node_baseS1_EC2IRS1_S4_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairIS6_S7_EEEbE4typeELb1EEEOS6_OS7_(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(8) %58, ptr noundef nonnull align 8 dereferenceable(8) %59)
+  store i32 1, ptr %10, align 4
+  br label %85
 
-59:                                               ; preds = %50
-  %60 = getelementptr inbounds nuw %"class.std::_Rb_tree.16", ptr %17, i32 0, i32 0
-  %61 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt17_Rb_tree_iteratorISt4pairIKjSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEEEmmEv(ptr noundef nonnull align 8 dereferenceable(8) %10) #9
-  %62 = getelementptr inbounds nuw %"struct.std::_Rb_tree_iterator.22", ptr %61, i32 0, i32 0
-  %63 = load ptr, ptr %62, align 8
-  %64 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt8_Rb_treeIjSt4pairIKjSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEESt10_Select1stISE_ESt4lessIjESaISE_EE6_S_keyEPKSt18_Rb_tree_node_base(ptr noundef %63)
-  %65 = load ptr, ptr %7, align 8
-  %66 = call noundef zeroext i1 @_ZNKSt4lessIjEclERKjS2_(ptr noundef nonnull align 1 dereferenceable(1) %60, ptr noundef nonnull align 4 dereferenceable(4) %64, ptr noundef nonnull align 4 dereferenceable(4) %65)
-  br i1 %66, label %67, label %77
+60:                                               ; preds = %51
+  %61 = getelementptr inbounds nuw %"class.std::_Rb_tree.16", ptr %18, i32 0, i32 0
+  %62 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt17_Rb_tree_iteratorISt4pairIKjSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEEEmmEv(ptr noundef nonnull align 8 dereferenceable(8) %11) #13
+  %63 = getelementptr inbounds nuw %"struct.std::_Rb_tree_iterator.22", ptr %62, i32 0, i32 0
+  %64 = load ptr, ptr %63, align 8, !tbaa !93
+  %65 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt8_Rb_treeIjSt4pairIKjSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEESt10_Select1stISE_ESt4lessIjESaISE_EE6_S_keyEPKSt18_Rb_tree_node_base(ptr noundef %64)
+  %66 = load ptr, ptr %7, align 8, !tbaa !89
+  %67 = call noundef zeroext i1 @_ZNKSt4lessIjEclERKjS2_(ptr noundef nonnull align 1 dereferenceable(1) %61, ptr noundef nonnull align 4 dereferenceable(4) %65, ptr noundef nonnull align 4 dereferenceable(4) %66)
+  br i1 %67, label %68, label %78
 
-67:                                               ; preds = %59
-  %68 = getelementptr inbounds nuw %"struct.std::_Rb_tree_iterator.22", ptr %10, i32 0, i32 0
-  %69 = load ptr, ptr %68, align 8
-  %70 = call noundef ptr @_ZNSt8_Rb_treeIjSt4pairIKjSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEESt10_Select1stISE_ESt4lessIjESaISE_EE8_S_rightEPSt18_Rb_tree_node_base(ptr noundef %69) #9
-  %71 = icmp eq ptr %70, null
-  br i1 %71, label %72, label %74
+68:                                               ; preds = %60
+  %69 = getelementptr inbounds nuw %"struct.std::_Rb_tree_iterator.22", ptr %11, i32 0, i32 0
+  %70 = load ptr, ptr %69, align 8, !tbaa !93
+  %71 = call noundef ptr @_ZNSt8_Rb_treeIjSt4pairIKjSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEESt10_Select1stISE_ESt4lessIjESaISE_EE8_S_rightEPSt18_Rb_tree_node_base(ptr noundef %70) #13
+  %72 = icmp eq ptr %71, null
+  br i1 %72, label %73, label %75
 
-72:                                               ; preds = %67
-  store ptr null, ptr %11, align 8
-  %73 = getelementptr inbounds nuw %"struct.std::_Rb_tree_iterator.22", ptr %10, i32 0, i32 0
-  call void @_ZNSt4pairIPSt18_Rb_tree_node_baseS1_EC2IS1_S1_TnNSt9enable_ifIXaaclsr5_PCCPE18_ConstructiblePairIT_T0_EEclsr5_PCCPE26_ImplicitlyConvertiblePairIS5_S6_EEEbE4typeELb1EEERKS1_SA_(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(8) %73)
-  br label %126
+73:                                               ; preds = %68
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #13
+  store ptr null, ptr %12, align 8, !tbaa !69
+  %74 = getelementptr inbounds nuw %"struct.std::_Rb_tree_iterator.22", ptr %11, i32 0, i32 0
+  call void @_ZNSt4pairIPSt18_Rb_tree_node_baseS1_EC2IS1_S1_TnNSt9enable_ifIXaaclsr5_PCCPE18_ConstructiblePairIT_T0_EEclsr5_PCCPE26_ImplicitlyConvertiblePairIS5_S6_EEEbE4typeELb1EEERKS1_SA_(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull align 8 dereferenceable(8) %74)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #13
+  store i32 1, ptr %10, align 4
+  br label %85
 
-74:                                               ; preds = %67
-  %75 = getelementptr inbounds nuw %"struct.std::_Rb_tree_iterator.22", ptr %8, i32 0, i32 0
+75:                                               ; preds = %68
   %76 = getelementptr inbounds nuw %"struct.std::_Rb_tree_iterator.22", ptr %8, i32 0, i32 0
-  call void @_ZNSt4pairIPSt18_Rb_tree_node_baseS1_EC2IRS1_S4_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairIS6_S7_EEEbE4typeELb1EEEOS6_OS7_(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(8) %75, ptr noundef nonnull align 8 dereferenceable(8) %76)
+  %77 = getelementptr inbounds nuw %"struct.std::_Rb_tree_iterator.22", ptr %8, i32 0, i32 0
+  call void @_ZNSt4pairIPSt18_Rb_tree_node_baseS1_EC2IRS1_S4_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairIS6_S7_EEEbE4typeELb1EEEOS6_OS7_(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(8) %76, ptr noundef nonnull align 8 dereferenceable(8) %77)
+  store i32 1, ptr %10, align 4
+  br label %85
+
+78:                                               ; preds = %60
+  %79 = load ptr, ptr %7, align 8, !tbaa !89
+  %80 = call { ptr, ptr } @_ZNSt8_Rb_treeIjSt4pairIKjSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEESt10_Select1stISE_ESt4lessIjESaISE_EE24_M_get_insert_unique_posERS1_(ptr noundef nonnull align 8 dereferenceable(48) %18, ptr noundef nonnull align 4 dereferenceable(4) %79)
+  %81 = getelementptr inbounds nuw { ptr, ptr }, ptr %4, i32 0, i32 0
+  %82 = extractvalue { ptr, ptr } %80, 0
+  store ptr %82, ptr %81, align 8
+  %83 = getelementptr inbounds nuw { ptr, ptr }, ptr %4, i32 0, i32 1
+  %84 = extractvalue { ptr, ptr } %80, 1
+  store ptr %84, ptr %83, align 8
+  store i32 1, ptr %10, align 4
+  br label %85
+
+85:                                               ; preds = %78, %75, %73, %57
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #13
+  br label %129
+
+86:                                               ; preds = %44
+  %87 = getelementptr inbounds nuw %"class.std::_Rb_tree.16", ptr %18, i32 0, i32 0
+  %88 = getelementptr inbounds nuw %"struct.std::_Rb_tree_iterator.22", ptr %8, i32 0, i32 0
+  %89 = load ptr, ptr %88, align 8, !tbaa !93
+  %90 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt8_Rb_treeIjSt4pairIKjSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEESt10_Select1stISE_ESt4lessIjESaISE_EE6_S_keyEPKSt18_Rb_tree_node_base(ptr noundef %89)
+  %91 = load ptr, ptr %7, align 8, !tbaa !89
+  %92 = call noundef zeroext i1 @_ZNKSt4lessIjEclERKjS2_(ptr noundef nonnull align 1 dereferenceable(1) %87, ptr noundef nonnull align 4 dereferenceable(4) %90, ptr noundef nonnull align 4 dereferenceable(4) %91)
+  br i1 %92, label %93, label %127
+
+93:                                               ; preds = %86
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #13
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %13, ptr align 8 %8, i64 8, i1 false), !tbaa.struct !68
+  %94 = getelementptr inbounds nuw %"struct.std::_Rb_tree_iterator.22", ptr %8, i32 0, i32 0
+  %95 = load ptr, ptr %94, align 8, !tbaa !93
+  %96 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt8_Rb_treeIjSt4pairIKjSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEESt10_Select1stISE_ESt4lessIjESaISE_EE12_M_rightmostEv(ptr noundef nonnull align 8 dereferenceable(48) %18) #13
+  %97 = load ptr, ptr %96, align 8, !tbaa !69
+  %98 = icmp eq ptr %95, %97
+  br i1 %98, label %99, label %101
+
+99:                                               ; preds = %93
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #13
+  store ptr null, ptr %14, align 8, !tbaa !69
+  %100 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt8_Rb_treeIjSt4pairIKjSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEESt10_Select1stISE_ESt4lessIjESaISE_EE12_M_rightmostEv(ptr noundef nonnull align 8 dereferenceable(48) %18) #13
+  call void @_ZNSt4pairIPSt18_Rb_tree_node_baseS1_EC2IS1_S1_TnNSt9enable_ifIXaaclsr5_PCCPE18_ConstructiblePairIT_T0_EEclsr5_PCCPE26_ImplicitlyConvertiblePairIS5_S6_EEEbE4typeELb1EEERKS1_SA_(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef nonnull align 8 dereferenceable(8) %100)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #13
+  store i32 1, ptr %10, align 4
   br label %126
 
-77:                                               ; preds = %59
-  %78 = load ptr, ptr %7, align 8
-  %79 = call { ptr, ptr } @_ZNSt8_Rb_treeIjSt4pairIKjSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEESt10_Select1stISE_ESt4lessIjESaISE_EE24_M_get_insert_unique_posERS1_(ptr noundef nonnull align 8 dereferenceable(48) %17, ptr noundef nonnull align 4 dereferenceable(4) %78)
-  %80 = getelementptr inbounds nuw { ptr, ptr }, ptr %4, i32 0, i32 0
-  %81 = extractvalue { ptr, ptr } %79, 0
-  store ptr %81, ptr %80, align 8
-  %82 = getelementptr inbounds nuw { ptr, ptr }, ptr %4, i32 0, i32 1
-  %83 = extractvalue { ptr, ptr } %79, 1
-  store ptr %83, ptr %82, align 8
+101:                                              ; preds = %93
+  %102 = getelementptr inbounds nuw %"class.std::_Rb_tree.16", ptr %18, i32 0, i32 0
+  %103 = load ptr, ptr %7, align 8, !tbaa !89
+  %104 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt17_Rb_tree_iteratorISt4pairIKjSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEEEppEv(ptr noundef nonnull align 8 dereferenceable(8) %13) #13
+  %105 = getelementptr inbounds nuw %"struct.std::_Rb_tree_iterator.22", ptr %104, i32 0, i32 0
+  %106 = load ptr, ptr %105, align 8, !tbaa !93
+  %107 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt8_Rb_treeIjSt4pairIKjSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEESt10_Select1stISE_ESt4lessIjESaISE_EE6_S_keyEPKSt18_Rb_tree_node_base(ptr noundef %106)
+  %108 = call noundef zeroext i1 @_ZNKSt4lessIjEclERKjS2_(ptr noundef nonnull align 1 dereferenceable(1) %102, ptr noundef nonnull align 4 dereferenceable(4) %103, ptr noundef nonnull align 4 dereferenceable(4) %107)
+  br i1 %108, label %109, label %119
+
+109:                                              ; preds = %101
+  %110 = getelementptr inbounds nuw %"struct.std::_Rb_tree_iterator.22", ptr %8, i32 0, i32 0
+  %111 = load ptr, ptr %110, align 8, !tbaa !93
+  %112 = call noundef ptr @_ZNSt8_Rb_treeIjSt4pairIKjSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEESt10_Select1stISE_ESt4lessIjESaISE_EE8_S_rightEPSt18_Rb_tree_node_base(ptr noundef %111) #13
+  %113 = icmp eq ptr %112, null
+  br i1 %113, label %114, label %116
+
+114:                                              ; preds = %109
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #13
+  store ptr null, ptr %15, align 8, !tbaa !69
+  %115 = getelementptr inbounds nuw %"struct.std::_Rb_tree_iterator.22", ptr %8, i32 0, i32 0
+  call void @_ZNSt4pairIPSt18_Rb_tree_node_baseS1_EC2IS1_S1_TnNSt9enable_ifIXaaclsr5_PCCPE18_ConstructiblePairIT_T0_EEclsr5_PCCPE26_ImplicitlyConvertiblePairIS5_S6_EEEbE4typeELb1EEERKS1_SA_(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(8) %15, ptr noundef nonnull align 8 dereferenceable(8) %115)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #13
+  store i32 1, ptr %10, align 4
   br label %126
 
-84:                                               ; preds = %43
-  %85 = getelementptr inbounds nuw %"class.std::_Rb_tree.16", ptr %17, i32 0, i32 0
-  %86 = getelementptr inbounds nuw %"struct.std::_Rb_tree_iterator.22", ptr %8, i32 0, i32 0
-  %87 = load ptr, ptr %86, align 8
-  %88 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt8_Rb_treeIjSt4pairIKjSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEESt10_Select1stISE_ESt4lessIjESaISE_EE6_S_keyEPKSt18_Rb_tree_node_base(ptr noundef %87)
-  %89 = load ptr, ptr %7, align 8
-  %90 = call noundef zeroext i1 @_ZNKSt4lessIjEclERKjS2_(ptr noundef nonnull align 1 dereferenceable(1) %85, ptr noundef nonnull align 4 dereferenceable(4) %88, ptr noundef nonnull align 4 dereferenceable(4) %89)
-  br i1 %90, label %91, label %124
-
-91:                                               ; preds = %84
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %12, ptr align 8 %8, i64 8, i1 false)
-  %92 = getelementptr inbounds nuw %"struct.std::_Rb_tree_iterator.22", ptr %8, i32 0, i32 0
-  %93 = load ptr, ptr %92, align 8
-  %94 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt8_Rb_treeIjSt4pairIKjSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEESt10_Select1stISE_ESt4lessIjESaISE_EE12_M_rightmostEv(ptr noundef nonnull align 8 dereferenceable(48) %17) #9
-  %95 = load ptr, ptr %94, align 8
-  %96 = icmp eq ptr %93, %95
-  br i1 %96, label %97, label %99
-
-97:                                               ; preds = %91
-  store ptr null, ptr %13, align 8
-  %98 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt8_Rb_treeIjSt4pairIKjSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEESt10_Select1stISE_ESt4lessIjESaISE_EE12_M_rightmostEv(ptr noundef nonnull align 8 dereferenceable(48) %17) #9
-  call void @_ZNSt4pairIPSt18_Rb_tree_node_baseS1_EC2IS1_S1_TnNSt9enable_ifIXaaclsr5_PCCPE18_ConstructiblePairIT_T0_EEclsr5_PCCPE26_ImplicitlyConvertiblePairIS5_S6_EEEbE4typeELb1EEERKS1_SA_(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull align 8 dereferenceable(8) %98)
+116:                                              ; preds = %109
+  %117 = getelementptr inbounds nuw %"struct.std::_Rb_tree_iterator.22", ptr %13, i32 0, i32 0
+  %118 = getelementptr inbounds nuw %"struct.std::_Rb_tree_iterator.22", ptr %13, i32 0, i32 0
+  call void @_ZNSt4pairIPSt18_Rb_tree_node_baseS1_EC2IRS1_S4_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairIS6_S7_EEEbE4typeELb1EEEOS6_OS7_(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(8) %117, ptr noundef nonnull align 8 dereferenceable(8) %118)
+  store i32 1, ptr %10, align 4
   br label %126
 
-99:                                               ; preds = %91
-  %100 = getelementptr inbounds nuw %"class.std::_Rb_tree.16", ptr %17, i32 0, i32 0
-  %101 = load ptr, ptr %7, align 8
-  %102 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt17_Rb_tree_iteratorISt4pairIKjSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEEEppEv(ptr noundef nonnull align 8 dereferenceable(8) %12) #9
-  %103 = getelementptr inbounds nuw %"struct.std::_Rb_tree_iterator.22", ptr %102, i32 0, i32 0
-  %104 = load ptr, ptr %103, align 8
-  %105 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt8_Rb_treeIjSt4pairIKjSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEESt10_Select1stISE_ESt4lessIjESaISE_EE6_S_keyEPKSt18_Rb_tree_node_base(ptr noundef %104)
-  %106 = call noundef zeroext i1 @_ZNKSt4lessIjEclERKjS2_(ptr noundef nonnull align 1 dereferenceable(1) %100, ptr noundef nonnull align 4 dereferenceable(4) %101, ptr noundef nonnull align 4 dereferenceable(4) %105)
-  br i1 %106, label %107, label %117
-
-107:                                              ; preds = %99
-  %108 = getelementptr inbounds nuw %"struct.std::_Rb_tree_iterator.22", ptr %8, i32 0, i32 0
-  %109 = load ptr, ptr %108, align 8
-  %110 = call noundef ptr @_ZNSt8_Rb_treeIjSt4pairIKjSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEESt10_Select1stISE_ESt4lessIjESaISE_EE8_S_rightEPSt18_Rb_tree_node_base(ptr noundef %109) #9
-  %111 = icmp eq ptr %110, null
-  br i1 %111, label %112, label %114
-
-112:                                              ; preds = %107
-  store ptr null, ptr %14, align 8
-  %113 = getelementptr inbounds nuw %"struct.std::_Rb_tree_iterator.22", ptr %8, i32 0, i32 0
-  call void @_ZNSt4pairIPSt18_Rb_tree_node_baseS1_EC2IS1_S1_TnNSt9enable_ifIXaaclsr5_PCCPE18_ConstructiblePairIT_T0_EEclsr5_PCCPE26_ImplicitlyConvertiblePairIS5_S6_EEEbE4typeELb1EEERKS1_SA_(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef nonnull align 8 dereferenceable(8) %113)
-  br label %126
-
-114:                                              ; preds = %107
-  %115 = getelementptr inbounds nuw %"struct.std::_Rb_tree_iterator.22", ptr %12, i32 0, i32 0
-  %116 = getelementptr inbounds nuw %"struct.std::_Rb_tree_iterator.22", ptr %12, i32 0, i32 0
-  call void @_ZNSt4pairIPSt18_Rb_tree_node_baseS1_EC2IRS1_S4_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairIS6_S7_EEEbE4typeELb1EEEOS6_OS7_(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(8) %115, ptr noundef nonnull align 8 dereferenceable(8) %116)
-  br label %126
-
-117:                                              ; preds = %99
-  %118 = load ptr, ptr %7, align 8
-  %119 = call { ptr, ptr } @_ZNSt8_Rb_treeIjSt4pairIKjSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEESt10_Select1stISE_ESt4lessIjESaISE_EE24_M_get_insert_unique_posERS1_(ptr noundef nonnull align 8 dereferenceable(48) %17, ptr noundef nonnull align 4 dereferenceable(4) %118)
-  %120 = getelementptr inbounds nuw { ptr, ptr }, ptr %4, i32 0, i32 0
-  %121 = extractvalue { ptr, ptr } %119, 0
-  store ptr %121, ptr %120, align 8
-  %122 = getelementptr inbounds nuw { ptr, ptr }, ptr %4, i32 0, i32 1
-  %123 = extractvalue { ptr, ptr } %119, 1
+119:                                              ; preds = %101
+  %120 = load ptr, ptr %7, align 8, !tbaa !89
+  %121 = call { ptr, ptr } @_ZNSt8_Rb_treeIjSt4pairIKjSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEESt10_Select1stISE_ESt4lessIjESaISE_EE24_M_get_insert_unique_posERS1_(ptr noundef nonnull align 8 dereferenceable(48) %18, ptr noundef nonnull align 4 dereferenceable(4) %120)
+  %122 = getelementptr inbounds nuw { ptr, ptr }, ptr %4, i32 0, i32 0
+  %123 = extractvalue { ptr, ptr } %121, 0
   store ptr %123, ptr %122, align 8
+  %124 = getelementptr inbounds nuw { ptr, ptr }, ptr %4, i32 0, i32 1
+  %125 = extractvalue { ptr, ptr } %121, 1
+  store ptr %125, ptr %124, align 8
+  store i32 1, ptr %10, align 4
   br label %126
 
-124:                                              ; preds = %84
-  %125 = getelementptr inbounds nuw %"struct.std::_Rb_tree_iterator.22", ptr %8, i32 0, i32 0
-  store ptr null, ptr %15, align 8
-  call void @_ZNSt4pairIPSt18_Rb_tree_node_baseS1_EC2IS1_S1_TnNSt9enable_ifIXaaclsr5_PCCPE18_ConstructiblePairIT_T0_EEclsr5_PCCPE26_ImplicitlyConvertiblePairIS5_S6_EEEbE4typeELb1EEERKS1_SA_(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(8) %125, ptr noundef nonnull align 8 dereferenceable(8) %15)
-  br label %126
+126:                                              ; preds = %119, %116, %114, %99
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #13
+  br label %129
 
-126:                                              ; preds = %124, %117, %114, %112, %97, %77, %74, %72, %56, %36, %34
-  %127 = load { ptr, ptr }, ptr %4, align 8
-  ret { ptr, ptr } %127
+127:                                              ; preds = %86
+  %128 = getelementptr inbounds nuw %"struct.std::_Rb_tree_iterator.22", ptr %8, i32 0, i32 0
+  call void @llvm.lifetime.start.p0(i64 8, ptr %16) #13
+  store ptr null, ptr %16, align 8, !tbaa !69
+  call void @_ZNSt4pairIPSt18_Rb_tree_node_baseS1_EC2IS1_S1_TnNSt9enable_ifIXaaclsr5_PCCPE18_ConstructiblePairIT_T0_EEclsr5_PCCPE26_ImplicitlyConvertiblePairIS5_S6_EEEbE4typeELb1EEERKS1_SA_(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(8) %128, ptr noundef nonnull align 8 dereferenceable(8) %16)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #13
+  store i32 1, ptr %10, align 4
+  br label %129
+
+129:                                              ; preds = %127, %126, %85, %37, %35
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #13
+  %130 = load { ptr, ptr }, ptr %4, align 8
+  ret { ptr, ptr } %130
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef nonnull align 4 dereferenceable(4) ptr @_ZNKSt8_Rb_treeIjSt4pairIKjSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEESt10_Select1stISE_ESt4lessIjESaISE_EE10_Auto_node6_M_keyEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !216
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw %"struct.std::_Rb_tree<unsigned int, std::pair<const unsigned int, std::vector<const std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>> *>>, std::_Select1st<std::pair<const unsigned int, std::vector<const std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>> *>>>, std::less<unsigned int>>::_Auto_node", ptr %3, i32 0, i32 1
-  %5 = load ptr, ptr %4, align 8
+  %5 = load ptr, ptr %4, align 8, !tbaa !218
   %6 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt8_Rb_treeIjSt4pairIKjSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEESt10_Select1stISE_ESt4lessIjESaISE_EE6_S_keyEPKSt13_Rb_tree_nodeISE_E(ptr noundef %5)
   ret ptr %6
 }
@@ -5566,21 +6528,21 @@ define linkonce_odr hidden ptr @_ZNSt8_Rb_treeIjSt4pairIKjSt6vectorIPKS0_INSt7__
   store ptr %1, ptr %7, align 8
   %8 = getelementptr inbounds nuw { ptr, ptr }, ptr %5, i32 0, i32 1
   store ptr %2, ptr %8, align 8
-  store ptr %0, ptr %6, align 8
+  store ptr %0, ptr %6, align 8, !tbaa !216
   %9 = load ptr, ptr %6, align 8
   %10 = getelementptr inbounds nuw %"struct.std::_Rb_tree<unsigned int, std::pair<const unsigned int, std::vector<const std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>> *>>, std::_Select1st<std::pair<const unsigned int, std::vector<const std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>> *>>>, std::less<unsigned int>>::_Auto_node", ptr %9, i32 0, i32 0
-  %11 = load ptr, ptr %10, align 8
+  %11 = load ptr, ptr %10, align 8, !tbaa !220
   %12 = getelementptr inbounds nuw %"struct.std::pair.30", ptr %5, i32 0, i32 0
-  %13 = load ptr, ptr %12, align 8
+  %13 = load ptr, ptr %12, align 8, !tbaa !163
   %14 = getelementptr inbounds nuw %"struct.std::pair.30", ptr %5, i32 0, i32 1
-  %15 = load ptr, ptr %14, align 8
+  %15 = load ptr, ptr %14, align 8, !tbaa !161
   %16 = getelementptr inbounds nuw %"struct.std::_Rb_tree<unsigned int, std::pair<const unsigned int, std::vector<const std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>> *>>, std::_Select1st<std::pair<const unsigned int, std::vector<const std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>> *>>>, std::less<unsigned int>>::_Auto_node", ptr %9, i32 0, i32 1
-  %17 = load ptr, ptr %16, align 8
+  %17 = load ptr, ptr %16, align 8, !tbaa !218
   %18 = call ptr @_ZNSt8_Rb_treeIjSt4pairIKjSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEESt10_Select1stISE_ESt4lessIjESaISE_EE14_M_insert_nodeEPSt18_Rb_tree_node_baseSM_PSt13_Rb_tree_nodeISE_E(ptr noundef nonnull align 8 dereferenceable(48) %11, ptr noundef %13, ptr noundef %15, ptr noundef %17)
   %19 = getelementptr inbounds nuw %"struct.std::_Rb_tree_iterator.22", ptr %4, i32 0, i32 0
   store ptr %18, ptr %19, align 8
   %20 = getelementptr inbounds nuw %"struct.std::_Rb_tree<unsigned int, std::pair<const unsigned int, std::vector<const std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>> *>>, std::_Select1st<std::pair<const unsigned int, std::vector<const std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>> *>>>, std::less<unsigned int>>::_Auto_node", ptr %9, i32 0, i32 1
-  store ptr null, ptr %20, align 8
+  store ptr null, ptr %20, align 8, !tbaa !218
   %21 = getelementptr inbounds nuw %"struct.std::_Rb_tree_iterator.22", ptr %4, i32 0, i32 0
   %22 = load ptr, ptr %21, align 8
   ret ptr %22
@@ -5589,19 +6551,19 @@ define linkonce_odr hidden ptr @_ZNSt8_Rb_treeIjSt4pairIKjSt6vectorIPKS0_INSt7__
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt8_Rb_treeIjSt4pairIKjSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEESt10_Select1stISE_ESt4lessIjESaISE_EE10_Auto_nodeD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !216
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw %"struct.std::_Rb_tree<unsigned int, std::pair<const unsigned int, std::vector<const std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>> *>>, std::_Select1st<std::pair<const unsigned int, std::vector<const std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>> *>>>, std::less<unsigned int>>::_Auto_node", ptr %3, i32 0, i32 1
-  %5 = load ptr, ptr %4, align 8
+  %5 = load ptr, ptr %4, align 8, !tbaa !218
   %6 = icmp ne ptr %5, null
   br i1 %6, label %7, label %12
 
 7:                                                ; preds = %1
   %8 = getelementptr inbounds nuw %"struct.std::_Rb_tree<unsigned int, std::pair<const unsigned int, std::vector<const std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>> *>>, std::_Select1st<std::pair<const unsigned int, std::vector<const std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>> *>>>, std::less<unsigned int>>::_Auto_node", ptr %3, i32 0, i32 0
-  %9 = load ptr, ptr %8, align 8
+  %9 = load ptr, ptr %8, align 8, !tbaa !220
   %10 = getelementptr inbounds nuw %"struct.std::_Rb_tree<unsigned int, std::pair<const unsigned int, std::vector<const std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>> *>>, std::_Select1st<std::pair<const unsigned int, std::vector<const std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>> *>>>, std::less<unsigned int>>::_Auto_node", ptr %3, i32 0, i32 1
-  %11 = load ptr, ptr %10, align 8
-  call void @_ZNSt8_Rb_treeIjSt4pairIKjSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEESt10_Select1stISE_ESt4lessIjESaISE_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISE_E(ptr noundef nonnull align 8 dereferenceable(48) %9, ptr noundef %11) #9
+  %11 = load ptr, ptr %10, align 8, !tbaa !218
+  call void @_ZNSt8_Rb_treeIjSt4pairIKjSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEESt10_Select1stISE_ESt4lessIjESaISE_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISE_E(ptr noundef nonnull align 8 dereferenceable(48) %9, ptr noundef %11) #13
   br label %12
 
 12:                                               ; preds = %7, %1
@@ -5615,28 +6577,30 @@ define linkonce_odr hidden noundef ptr @_ZNSt8_Rb_treeIjSt4pairIKjSt6vectorIPKS0
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
   %9 = alloca ptr, align 8
-  store ptr %0, ptr %5, align 8
-  store ptr %1, ptr %6, align 8
-  store ptr %2, ptr %7, align 8
-  store ptr %3, ptr %8, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !131
+  store ptr %1, ptr %6, align 8, !tbaa !155
+  store ptr %2, ptr %7, align 8, !tbaa !207
+  store ptr %3, ptr %8, align 8, !tbaa !159
   %10 = load ptr, ptr %5, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #13
   %11 = call noundef ptr @_ZNSt8_Rb_treeIjSt4pairIKjSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEESt10_Select1stISE_ESt4lessIjESaISE_EE11_M_get_nodeEv(ptr noundef nonnull align 8 dereferenceable(48) %10)
-  store ptr %11, ptr %9, align 8
-  %12 = load ptr, ptr %9, align 8
-  %13 = load ptr, ptr %6, align 8
-  %14 = load ptr, ptr %7, align 8
-  %15 = load ptr, ptr %8, align 8
+  store ptr %11, ptr %9, align 8, !tbaa !141
+  %12 = load ptr, ptr %9, align 8, !tbaa !141
+  %13 = load ptr, ptr %6, align 8, !tbaa !155
+  %14 = load ptr, ptr %7, align 8, !tbaa !207
+  %15 = load ptr, ptr %8, align 8, !tbaa !159
   call void @_ZNSt8_Rb_treeIjSt4pairIKjSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEESt10_Select1stISE_ESt4lessIjESaISE_EE17_M_construct_nodeIJRKSt21piecewise_construct_tSt5tupleIJOjEESP_IJEEEEEvPSt13_Rb_tree_nodeISE_EDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %10, ptr noundef %12, ptr noundef nonnull align 1 dereferenceable(1) %13, ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef nonnull align 1 dereferenceable(1) %15)
-  %16 = load ptr, ptr %9, align 8
+  %16 = load ptr, ptr %9, align 8, !tbaa !141
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #13
   ret ptr %16
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZNSt8_Rb_treeIjSt4pairIKjSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEESt10_Select1stISE_ESt4lessIjESaISE_EE11_M_get_nodeEv(ptr noundef nonnull align 8 dereferenceable(48) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !131
   %3 = load ptr, ptr %2, align 8
-  %4 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt8_Rb_treeIjSt4pairIKjSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEESt10_Select1stISE_ESt4lessIjESaISE_EE21_M_get_Node_allocatorEv(ptr noundef nonnull align 8 dereferenceable(48) %3) #9
+  %4 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt8_Rb_treeIjSt4pairIKjSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEESt10_Select1stISE_ESt4lessIjESaISE_EE21_M_get_Node_allocatorEv(ptr noundef nonnull align 8 dereferenceable(48) %3) #13
   %5 = call noundef ptr @_ZNSt16allocator_traitsISaISt13_Rb_tree_nodeISt4pairIKjSt6vectorIPKS1_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ESaISC_EEEEEE8allocateERSH_m(ptr noundef nonnull align 1 dereferenceable(1) %4, i64 noundef 1)
   ret ptr %5
 }
@@ -5648,18 +6612,18 @@ define linkonce_odr hidden void @_ZNSt8_Rb_treeIjSt4pairIKjSt6vectorIPKS0_INSt7_
   %8 = alloca ptr, align 8
   %9 = alloca ptr, align 8
   %10 = alloca ptr, align 8
-  store ptr %0, ptr %6, align 8
-  store ptr %1, ptr %7, align 8
-  store ptr %2, ptr %8, align 8
-  store ptr %3, ptr %9, align 8
-  store ptr %4, ptr %10, align 8
+  store ptr %0, ptr %6, align 8, !tbaa !131
+  store ptr %1, ptr %7, align 8, !tbaa !141
+  store ptr %2, ptr %8, align 8, !tbaa !155
+  store ptr %3, ptr %9, align 8, !tbaa !207
+  store ptr %4, ptr %10, align 8, !tbaa !159
   %11 = load ptr, ptr %6, align 8
-  %12 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt8_Rb_treeIjSt4pairIKjSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEESt10_Select1stISE_ESt4lessIjESaISE_EE21_M_get_Node_allocatorEv(ptr noundef nonnull align 8 dereferenceable(48) %11) #9
-  %13 = load ptr, ptr %7, align 8
+  %12 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt8_Rb_treeIjSt4pairIKjSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEESt10_Select1stISE_ESt4lessIjESaISE_EE21_M_get_Node_allocatorEv(ptr noundef nonnull align 8 dereferenceable(48) %11) #13
+  %13 = load ptr, ptr %7, align 8, !tbaa !141
   %14 = call noundef ptr @_ZNSt13_Rb_tree_nodeISt4pairIKjSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEEE9_M_valptrEv(ptr noundef nonnull align 8 dereferenceable(64) %13)
-  %15 = load ptr, ptr %8, align 8
-  %16 = load ptr, ptr %9, align 8
-  %17 = load ptr, ptr %10, align 8
+  %15 = load ptr, ptr %8, align 8, !tbaa !155
+  %16 = load ptr, ptr %9, align 8, !tbaa !207
+  %17 = load ptr, ptr %10, align 8, !tbaa !159
   call void @_ZNSt16allocator_traitsISaISt13_Rb_tree_nodeISt4pairIKjSt6vectorIPKS1_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ESaISC_EEEEEE9constructISF_JRKSt21piecewise_construct_tSt5tupleIJOjEESN_IJEEEEEvRSH_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %12, ptr noundef %14, ptr noundef nonnull align 1 dereferenceable(1) %15, ptr noundef nonnull align 8 dereferenceable(8) %16, ptr noundef nonnull align 1 dereferenceable(1) %17)
   ret void
 }
@@ -5668,10 +6632,10 @@ define linkonce_odr hidden void @_ZNSt8_Rb_treeIjSt4pairIKjSt6vectorIPKS0_INSt7_
 define linkonce_odr hidden noundef ptr @_ZNSt16allocator_traitsISaISt13_Rb_tree_nodeISt4pairIKjSt6vectorIPKS1_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ESaISC_EEEEEE8allocateERSH_m(ptr noundef nonnull align 1 dereferenceable(1) %0, i64 noundef %1) #0 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca i64, align 8
-  store ptr %0, ptr %3, align 8
-  store i64 %1, ptr %4, align 8
-  %5 = load ptr, ptr %3, align 8
-  %6 = load i64, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !135
+  store i64 %1, ptr %4, align 8, !tbaa !27
+  %5 = load ptr, ptr %3, align 8, !tbaa !135
+  %6 = load i64, ptr %4, align 8, !tbaa !27
   %7 = call noundef ptr @_ZNSt15__new_allocatorISt13_Rb_tree_nodeISt4pairIKjSt6vectorIPKS1_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ESaISC_EEEEE8allocateEmPKv(ptr noundef nonnull align 1 dereferenceable(1) %5, i64 noundef %6, ptr noundef null)
   ret ptr %7
 }
@@ -5681,39 +6645,42 @@ define linkonce_odr hidden noundef ptr @_ZNSt15__new_allocatorISt13_Rb_tree_node
   %4 = alloca ptr, align 8
   %5 = alloca i64, align 8
   %6 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store i64 %1, ptr %5, align 8
-  store ptr %2, ptr %6, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !139
+  store i64 %1, ptr %5, align 8, !tbaa !27
+  store ptr %2, ptr %6, align 8, !tbaa !176
   %7 = load ptr, ptr %4, align 8
-  %8 = load i64, ptr %5, align 8
-  %9 = call noundef i64 @_ZNKSt15__new_allocatorISt13_Rb_tree_nodeISt4pairIKjSt6vectorIPKS1_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ESaISC_EEEEE11_M_max_sizeEv(ptr noundef nonnull align 1 dereferenceable(1) %7) #9
+  %8 = load i64, ptr %5, align 8, !tbaa !27
+  %9 = call noundef i64 @_ZNKSt15__new_allocatorISt13_Rb_tree_nodeISt4pairIKjSt6vectorIPKS1_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ESaISC_EEEEE11_M_max_sizeEv(ptr noundef nonnull align 1 dereferenceable(1) %7) #13
   %10 = icmp ugt i64 %8, %9
-  br i1 %10, label %11, label %16
+  %11 = zext i1 %10 to i64
+  %12 = call i64 @llvm.expect.i64(i64 %11, i64 0)
+  %13 = icmp ne i64 %12, 0
+  br i1 %13, label %14, label %19
 
-11:                                               ; preds = %3
-  %12 = load i64, ptr %5, align 8
-  %13 = icmp ugt i64 %12, 288230376151711743
-  br i1 %13, label %14, label %15
+14:                                               ; preds = %3
+  %15 = load i64, ptr %5, align 8, !tbaa !27
+  %16 = icmp ugt i64 %15, 288230376151711743
+  br i1 %16, label %17, label %18
 
-14:                                               ; preds = %11
-  call void @_ZSt28__throw_bad_array_new_lengthv() #10
+17:                                               ; preds = %14
+  call void @_ZSt28__throw_bad_array_new_lengthv() #14
   unreachable
 
-15:                                               ; preds = %11
-  call void @_ZSt17__throw_bad_allocv() #10
+18:                                               ; preds = %14
+  call void @_ZSt17__throw_bad_allocv() #14
   unreachable
 
-16:                                               ; preds = %3
-  %17 = load i64, ptr %5, align 8
-  %18 = mul i64 %17, 64
-  %19 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %18) #13
-  ret ptr %19
+19:                                               ; preds = %3
+  %20 = load i64, ptr %5, align 8, !tbaa !27
+  %21 = mul i64 %20, 64
+  %22 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %21) #17
+  ret ptr %22
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef i64 @_ZNKSt15__new_allocatorISt13_Rb_tree_nodeISt4pairIKjSt6vectorIPKS1_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ESaISC_EEEEE11_M_max_sizeEv(ptr noundef nonnull align 1 dereferenceable(1) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !139
   ret i64 144115188075855871
 }
 
@@ -5724,16 +6691,16 @@ define linkonce_odr hidden void @_ZNSt16allocator_traitsISaISt13_Rb_tree_nodeISt
   %8 = alloca ptr, align 8
   %9 = alloca ptr, align 8
   %10 = alloca ptr, align 8
-  store ptr %0, ptr %6, align 8
-  store ptr %1, ptr %7, align 8
-  store ptr %2, ptr %8, align 8
-  store ptr %3, ptr %9, align 8
-  store ptr %4, ptr %10, align 8
-  %11 = load ptr, ptr %6, align 8
-  %12 = load ptr, ptr %7, align 8
-  %13 = load ptr, ptr %8, align 8
-  %14 = load ptr, ptr %9, align 8
-  %15 = load ptr, ptr %10, align 8
+  store ptr %0, ptr %6, align 8, !tbaa !135
+  store ptr %1, ptr %7, align 8, !tbaa !81
+  store ptr %2, ptr %8, align 8, !tbaa !155
+  store ptr %3, ptr %9, align 8, !tbaa !207
+  store ptr %4, ptr %10, align 8, !tbaa !159
+  %11 = load ptr, ptr %6, align 8, !tbaa !135
+  %12 = load ptr, ptr %7, align 8, !tbaa !81
+  %13 = load ptr, ptr %8, align 8, !tbaa !155
+  %14 = load ptr, ptr %9, align 8, !tbaa !207
+  %15 = load ptr, ptr %10, align 8, !tbaa !159
   call void @_ZNSt15__new_allocatorISt13_Rb_tree_nodeISt4pairIKjSt6vectorIPKS1_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ESaISC_EEEEE9constructISF_JRKSt21piecewise_construct_tSt5tupleIJOjEESM_IJEEEEEvPT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %11, ptr noundef %12, ptr noundef nonnull align 1 dereferenceable(1) %13, ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef nonnull align 1 dereferenceable(1) %15)
   ret void
 }
@@ -5746,14 +6713,14 @@ define linkonce_odr hidden void @_ZNSt15__new_allocatorISt13_Rb_tree_nodeISt4pai
   %9 = alloca ptr, align 8
   %10 = alloca ptr, align 8
   %11 = alloca %"class.std::tuple.35", align 8
-  store ptr %0, ptr %6, align 8
-  store ptr %1, ptr %7, align 8
-  store ptr %2, ptr %8, align 8
-  store ptr %3, ptr %9, align 8
-  store ptr %4, ptr %10, align 8
-  %12 = load ptr, ptr %7, align 8
-  %13 = load ptr, ptr %9, align 8
-  call void @_ZNSt5tupleIJOjEEC2EOS1_(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(8) %13) #9
+  store ptr %0, ptr %6, align 8, !tbaa !139
+  store ptr %1, ptr %7, align 8, !tbaa !81
+  store ptr %2, ptr %8, align 8, !tbaa !155
+  store ptr %3, ptr %9, align 8, !tbaa !207
+  store ptr %4, ptr %10, align 8, !tbaa !159
+  %12 = load ptr, ptr %7, align 8, !tbaa !81
+  %13 = load ptr, ptr %9, align 8, !tbaa !207
+  call void @_ZNSt5tupleIJOjEEC2EOS1_(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(8) %13) #13
   call void @_ZNSt4pairIKjSt6vectorIPKS_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_ESaISA_EEEC2IJOjEJEEESt21piecewise_construct_tSt5tupleIJDpT_EESH_IJDpT0_EE(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef %11)
   ret void
 }
@@ -5762,21 +6729,21 @@ define linkonce_odr hidden void @_ZNSt15__new_allocatorISt13_Rb_tree_nodeISt4pai
 define linkonce_odr hidden void @_ZNSt5tupleIJOjEEC2EOS1_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #0 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !207
+  store ptr %1, ptr %4, align 8, !tbaa !207
   %5 = load ptr, ptr %3, align 8
-  %6 = load ptr, ptr %4, align 8
-  call void @_ZNSt11_Tuple_implILm0EJOjEEC2EOS1_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %6) #9
+  %6 = load ptr, ptr %4, align 8, !tbaa !207
+  call void @_ZNSt11_Tuple_implILm0EJOjEEC2EOS1_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %6) #13
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNSt4pairIKjSt6vectorIPKS_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_ESaISA_EEEC2IJOjEJEEESt21piecewise_construct_tSt5tupleIJDpT_EESH_IJDpT0_EE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1) unnamed_addr #0 comdat align 2 {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZNSt4pairIKjSt6vectorIPKS_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_ESaISA_EEEC2IJOjEJEEESt21piecewise_construct_tSt5tupleIJDpT_EESH_IJDpT0_EE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1) unnamed_addr #4 comdat align 2 {
   %3 = alloca %"class.std::tuple.29", align 1
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !81
+  store ptr %1, ptr %5, align 8, !tbaa !207
   %6 = load ptr, ptr %4, align 8
   call void @_ZNSt4pairIKjSt6vectorIPKS_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_ESaISA_EEEC2IJOjEJLm0EEJETpTnmJEEERSt5tupleIJDpT_EERSG_IJDpT1_EESt12_Index_tupleIJXspT0_EEESP_IJXspT2_EEE(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 1 dereferenceable(1) %3)
   ret void
@@ -5786,68 +6753,68 @@ define linkonce_odr hidden void @_ZNSt4pairIKjSt6vectorIPKS_INSt7__cxx1112basic_
 define linkonce_odr hidden void @_ZNSt11_Tuple_implILm0EJOjEEC2EOS1_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #0 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !221
+  store ptr %1, ptr %4, align 8, !tbaa !221
   %5 = load ptr, ptr %3, align 8
-  %6 = load ptr, ptr %4, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %5, ptr align 8 %6, i64 8, i1 false)
+  %6 = load ptr, ptr %4, align 8, !tbaa !221
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %5, ptr align 8 %6, i64 8, i1 false), !tbaa.struct !223
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNSt4pairIKjSt6vectorIPKS_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_ESaISA_EEEC2IJOjEJLm0EEJETpTnmJEEERSt5tupleIJDpT_EERSG_IJDpT1_EESt12_Index_tupleIJXspT0_EEESP_IJXspT2_EEE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 1 dereferenceable(1) %2) unnamed_addr #0 comdat align 2 {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZNSt4pairIKjSt6vectorIPKS_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_ESaISA_EEEC2IJOjEJLm0EEJETpTnmJEEERSt5tupleIJDpT_EERSG_IJDpT1_EESt12_Index_tupleIJXspT0_EEESP_IJXspT2_EEE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 1 dereferenceable(1) %2) unnamed_addr #4 comdat align 2 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store ptr %2, ptr %6, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !81
+  store ptr %1, ptr %5, align 8, !tbaa !207
+  store ptr %2, ptr %6, align 8, !tbaa !159
   %7 = load ptr, ptr %4, align 8
   %8 = getelementptr inbounds nuw %"struct.std::pair.23", ptr %7, i32 0, i32 0
-  %9 = load ptr, ptr %5, align 8
-  %10 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZSt3getILm0EJOjEERNSt13tuple_elementIXT_ESt5tupleIJDpT0_EEE4typeERS5_(ptr noundef nonnull align 8 dereferenceable(8) %9) #9
-  %11 = load i32, ptr %10, align 4
-  store i32 %11, ptr %8, align 8
+  %9 = load ptr, ptr %5, align 8, !tbaa !207
+  %10 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZSt3getILm0EJOjEERNSt13tuple_elementIXT_ESt5tupleIJDpT0_EEE4typeERS5_(ptr noundef nonnull align 8 dereferenceable(8) %9) #13
+  %11 = load i32, ptr %10, align 4, !tbaa !10
+  store i32 %11, ptr %8, align 8, !tbaa !83
   %12 = getelementptr inbounds nuw %"struct.std::pair.23", ptr %7, i32 0, i32 1
   call void @llvm.memset.p0.i64(ptr align 8 %12, i8 0, i64 24, i1 false)
-  call void @_ZNSt6vectorIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS9_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %12) #9
+  call void @_ZNSt6vectorIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS9_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %12) #13
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef nonnull align 4 dereferenceable(4) ptr @_ZSt3getILm0EJOjEERNSt13tuple_elementIXT_ESt5tupleIJDpT0_EEE4typeERS5_(ptr noundef nonnull align 8 dereferenceable(8) %0) #0 comdat {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  %4 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZSt12__get_helperILm0EOjJEERT0_RSt11_Tuple_implIXT_EJS1_DpT1_EE(ptr noundef nonnull align 8 dereferenceable(8) %3) #9
+  store ptr %0, ptr %2, align 8, !tbaa !207
+  %3 = load ptr, ptr %2, align 8, !tbaa !207
+  %4 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZSt12__get_helperILm0EOjJEERT0_RSt11_Tuple_implIXT_EJS1_DpT1_EE(ptr noundef nonnull align 8 dereferenceable(8) %3) #13
   ret ptr %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef nonnull align 4 dereferenceable(4) ptr @_ZSt12__get_helperILm0EOjJEERT0_RSt11_Tuple_implIXT_EJS1_DpT1_EE(ptr noundef nonnull align 8 dereferenceable(8) %0) #0 comdat {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  %4 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt11_Tuple_implILm0EJOjEE7_M_headERS1_(ptr noundef nonnull align 8 dereferenceable(8) %3) #9
+  store ptr %0, ptr %2, align 8, !tbaa !221
+  %3 = load ptr, ptr %2, align 8, !tbaa !221
+  %4 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt11_Tuple_implILm0EJOjEE7_M_headERS1_(ptr noundef nonnull align 8 dereferenceable(8) %3) #13
   ret ptr %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt11_Tuple_implILm0EJOjEE7_M_headERS1_(ptr noundef nonnull align 8 dereferenceable(8) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  %4 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt10_Head_baseILm0EOjLb0EE7_M_headERS1_(ptr noundef nonnull align 8 dereferenceable(8) %3) #9
+  store ptr %0, ptr %2, align 8, !tbaa !221
+  %3 = load ptr, ptr %2, align 8, !tbaa !221
+  %4 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt10_Head_baseILm0EOjLb0EE7_M_headERS1_(ptr noundef nonnull align 8 dereferenceable(8) %3) #13
   ret ptr %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt10_Head_baseILm0EOjLb0EE7_M_headERS1_(ptr noundef nonnull align 8 dereferenceable(8) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !224
+  %3 = load ptr, ptr %2, align 8, !tbaa !224
   %4 = getelementptr inbounds nuw %"struct.std::_Head_base.37", ptr %3, i32 0, i32 0
-  %5 = load ptr, ptr %4, align 8
+  %5 = load ptr, ptr %4, align 8, !tbaa !226
   ret ptr %5
 }
 
@@ -5855,11 +6822,11 @@ define linkonce_odr hidden noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt
 define linkonce_odr hidden ptr @_ZNKSt23_Rb_tree_const_iteratorISt4pairIKjSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEEE13_M_const_castEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #0 comdat align 2 {
   %2 = alloca %"struct.std::_Rb_tree_iterator.22", align 8
   %3 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !209
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw %"struct.std::_Rb_tree_const_iterator.34", ptr %4, i32 0, i32 0
-  %6 = load ptr, ptr %5, align 8
-  call void @_ZNSt17_Rb_tree_iteratorISt4pairIKjSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEEEC2EPSt18_Rb_tree_node_base(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef %6) #9
+  %6 = load ptr, ptr %5, align 8, !tbaa !211
+  call void @_ZNSt17_Rb_tree_iteratorISt4pairIKjSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEEEC2EPSt18_Rb_tree_node_base(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef %6) #13
   %7 = getelementptr inbounds nuw %"struct.std::_Rb_tree_iterator.22", ptr %2, i32 0, i32 0
   %8 = load ptr, ptr %7, align 8
   ret ptr %8
@@ -5868,20 +6835,20 @@ define linkonce_odr hidden ptr @_ZNKSt23_Rb_tree_const_iteratorISt4pairIKjSt6vec
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef i64 @_ZNKSt8_Rb_treeIjSt4pairIKjSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEESt10_Select1stISE_ESt4lessIjESaISE_EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(48) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !131
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw %"class.std::_Rb_tree.16", ptr %3, i32 0, i32 0
   %5 = getelementptr inbounds i8, ptr %4, i64 8
   %6 = getelementptr inbounds nuw %"struct.std::_Rb_tree_header", ptr %5, i32 0, i32 1
-  %7 = load i64, ptr %6, align 8
+  %7 = load i64, ptr %6, align 8, !tbaa !117
   ret i64 %7
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt8_Rb_treeIjSt4pairIKjSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEESt10_Select1stISE_ESt4lessIjESaISE_EE6_S_keyEPKSt18_Rb_tree_node_base(ptr noundef %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !69
+  %3 = load ptr, ptr %2, align 8, !tbaa !69
   %4 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt8_Rb_treeIjSt4pairIKjSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEESt10_Select1stISE_ESt4lessIjESaISE_EE6_S_keyEPKSt13_Rb_tree_nodeISE_E(ptr noundef %3)
   ret ptr %4
 }
@@ -5889,7 +6856,7 @@ define linkonce_odr hidden noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt8_Rb_treeIjSt4pairIKjSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEESt10_Select1stISE_ESt4lessIjESaISE_EE12_M_rightmostEv(ptr noundef nonnull align 8 dereferenceable(48) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !131
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw %"class.std::_Rb_tree.16", ptr %3, i32 0, i32 0
   %5 = getelementptr inbounds i8, ptr %4, i64 8
@@ -5908,104 +6875,120 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeIjSt4pairIKjSt6vectorIPKS0_INSt7
   %8 = alloca i8, align 1
   %9 = alloca %"struct.std::_Rb_tree_iterator.22", align 8
   %10 = alloca %"struct.std::_Rb_tree_iterator.22", align 8
-  %11 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  %12 = load ptr, ptr %4, align 8
-  %13 = call noundef ptr @_ZNSt8_Rb_treeIjSt4pairIKjSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEESt10_Select1stISE_ESt4lessIjESaISE_EE8_M_beginEv(ptr noundef nonnull align 8 dereferenceable(48) %12) #9
-  store ptr %13, ptr %6, align 8
-  %14 = call noundef ptr @_ZNSt8_Rb_treeIjSt4pairIKjSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEESt10_Select1stISE_ESt4lessIjESaISE_EE6_M_endEv(ptr noundef nonnull align 8 dereferenceable(48) %12) #9
-  store ptr %14, ptr %7, align 8
-  store i8 1, ptr %8, align 1
-  br label %15
+  %11 = alloca i32, align 4
+  %12 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !131
+  store ptr %1, ptr %5, align 8, !tbaa !89
+  %13 = load ptr, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #13
+  %14 = call noundef ptr @_ZNSt8_Rb_treeIjSt4pairIKjSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEESt10_Select1stISE_ESt4lessIjESaISE_EE8_M_beginEv(ptr noundef nonnull align 8 dereferenceable(48) %13) #13
+  store ptr %14, ptr %6, align 8, !tbaa !141
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #13
+  %15 = call noundef ptr @_ZNSt8_Rb_treeIjSt4pairIKjSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEESt10_Select1stISE_ESt4lessIjESaISE_EE6_M_endEv(ptr noundef nonnull align 8 dereferenceable(48) %13) #13
+  store ptr %15, ptr %7, align 8, !tbaa !69
+  call void @llvm.lifetime.start.p0(i64 1, ptr %8) #13
+  store i8 1, ptr %8, align 1, !tbaa !12
+  br label %16
 
-15:                                               ; preds = %34, %2
-  %16 = load ptr, ptr %6, align 8
-  %17 = icmp ne ptr %16, null
-  br i1 %17, label %18, label %36
+16:                                               ; preds = %35, %2
+  %17 = load ptr, ptr %6, align 8, !tbaa !141
+  %18 = icmp ne ptr %17, null
+  br i1 %18, label %19, label %37
 
-18:                                               ; preds = %15
-  %19 = load ptr, ptr %6, align 8
-  store ptr %19, ptr %7, align 8
-  %20 = getelementptr inbounds nuw %"class.std::_Rb_tree.16", ptr %12, i32 0, i32 0
-  %21 = load ptr, ptr %5, align 8
-  %22 = load ptr, ptr %6, align 8
-  %23 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt8_Rb_treeIjSt4pairIKjSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEESt10_Select1stISE_ESt4lessIjESaISE_EE6_S_keyEPKSt13_Rb_tree_nodeISE_E(ptr noundef %22)
-  %24 = call noundef zeroext i1 @_ZNKSt4lessIjEclERKjS2_(ptr noundef nonnull align 1 dereferenceable(1) %20, ptr noundef nonnull align 4 dereferenceable(4) %21, ptr noundef nonnull align 4 dereferenceable(4) %23)
-  %25 = zext i1 %24 to i8
-  store i8 %25, ptr %8, align 1
-  %26 = load i8, ptr %8, align 1
-  %27 = trunc i8 %26 to i1
-  br i1 %27, label %28, label %31
+19:                                               ; preds = %16
+  %20 = load ptr, ptr %6, align 8, !tbaa !141
+  store ptr %20, ptr %7, align 8, !tbaa !69
+  %21 = getelementptr inbounds nuw %"class.std::_Rb_tree.16", ptr %13, i32 0, i32 0
+  %22 = load ptr, ptr %5, align 8, !tbaa !89
+  %23 = load ptr, ptr %6, align 8, !tbaa !141
+  %24 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt8_Rb_treeIjSt4pairIKjSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEESt10_Select1stISE_ESt4lessIjESaISE_EE6_S_keyEPKSt13_Rb_tree_nodeISE_E(ptr noundef %23)
+  %25 = call noundef zeroext i1 @_ZNKSt4lessIjEclERKjS2_(ptr noundef nonnull align 1 dereferenceable(1) %21, ptr noundef nonnull align 4 dereferenceable(4) %22, ptr noundef nonnull align 4 dereferenceable(4) %24)
+  %26 = zext i1 %25 to i8
+  store i8 %26, ptr %8, align 1, !tbaa !12
+  %27 = load i8, ptr %8, align 1, !tbaa !12, !range !16, !noundef !17
+  %28 = trunc i8 %27 to i1
+  br i1 %28, label %29, label %32
 
-28:                                               ; preds = %18
-  %29 = load ptr, ptr %6, align 8
-  %30 = call noundef ptr @_ZNSt8_Rb_treeIjSt4pairIKjSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEESt10_Select1stISE_ESt4lessIjESaISE_EE7_S_leftEPSt18_Rb_tree_node_base(ptr noundef %29) #9
-  br label %34
+29:                                               ; preds = %19
+  %30 = load ptr, ptr %6, align 8, !tbaa !141
+  %31 = call noundef ptr @_ZNSt8_Rb_treeIjSt4pairIKjSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEESt10_Select1stISE_ESt4lessIjESaISE_EE7_S_leftEPSt18_Rb_tree_node_base(ptr noundef %30) #13
+  br label %35
 
-31:                                               ; preds = %18
-  %32 = load ptr, ptr %6, align 8
-  %33 = call noundef ptr @_ZNSt8_Rb_treeIjSt4pairIKjSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEESt10_Select1stISE_ESt4lessIjESaISE_EE8_S_rightEPSt18_Rb_tree_node_base(ptr noundef %32) #9
-  br label %34
+32:                                               ; preds = %19
+  %33 = load ptr, ptr %6, align 8, !tbaa !141
+  %34 = call noundef ptr @_ZNSt8_Rb_treeIjSt4pairIKjSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEESt10_Select1stISE_ESt4lessIjESaISE_EE8_S_rightEPSt18_Rb_tree_node_base(ptr noundef %33) #13
+  br label %35
 
-34:                                               ; preds = %31, %28
-  %35 = phi ptr [ %30, %28 ], [ %33, %31 ]
-  store ptr %35, ptr %6, align 8
-  br label %15, !llvm.loop !12
+35:                                               ; preds = %32, %29
+  %36 = phi ptr [ %31, %29 ], [ %34, %32 ]
+  store ptr %36, ptr %6, align 8, !tbaa !141
+  br label %16, !llvm.loop !228
 
-36:                                               ; preds = %15
-  %37 = load ptr, ptr %7, align 8
-  call void @_ZNSt17_Rb_tree_iteratorISt4pairIKjSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEEEC2EPSt18_Rb_tree_node_base(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef %37) #9
-  %38 = load i8, ptr %8, align 1
-  %39 = trunc i8 %38 to i1
-  br i1 %39, label %40, label %48
+37:                                               ; preds = %16
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #13
+  %38 = load ptr, ptr %7, align 8, !tbaa !69
+  call void @_ZNSt17_Rb_tree_iteratorISt4pairIKjSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEEEC2EPSt18_Rb_tree_node_base(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef %38) #13
+  %39 = load i8, ptr %8, align 1, !tbaa !12, !range !16, !noundef !17
+  %40 = trunc i8 %39 to i1
+  br i1 %40, label %41, label %49
 
-40:                                               ; preds = %36
-  %41 = call ptr @_ZNSt8_Rb_treeIjSt4pairIKjSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEESt10_Select1stISE_ESt4lessIjESaISE_EE5beginEv(ptr noundef nonnull align 8 dereferenceable(48) %12) #9
-  %42 = getelementptr inbounds nuw %"struct.std::_Rb_tree_iterator.22", ptr %10, i32 0, i32 0
-  store ptr %41, ptr %42, align 8
-  %43 = call noundef zeroext i1 @_ZSteqRKSt17_Rb_tree_iteratorISt4pairIKjSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEEESH_(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 8 dereferenceable(8) %10) #9
-  br i1 %43, label %44, label %45
+41:                                               ; preds = %37
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #13
+  %42 = call ptr @_ZNSt8_Rb_treeIjSt4pairIKjSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEESt10_Select1stISE_ESt4lessIjESaISE_EE5beginEv(ptr noundef nonnull align 8 dereferenceable(48) %13) #13
+  %43 = getelementptr inbounds nuw %"struct.std::_Rb_tree_iterator.22", ptr %10, i32 0, i32 0
+  store ptr %42, ptr %43, align 8
+  %44 = call noundef zeroext i1 @_ZSteqRKSt17_Rb_tree_iteratorISt4pairIKjSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEEESH_(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 8 dereferenceable(8) %10) #13
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #13
+  br i1 %44, label %45, label %46
 
-44:                                               ; preds = %40
+45:                                               ; preds = %41
   call void @_ZNSt4pairIPSt18_Rb_tree_node_baseS1_EC2IRPSt13_Rb_tree_nodeIS_IKjSt6vectorIPKS_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESC_ESaISF_EEEERS1_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairISO_SP_EEEbE4typeELb1EEEOSO_OSP_(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(8) %7)
-  br label %58
+  store i32 1, ptr %11, align 4
+  br label %59
 
-45:                                               ; preds = %40
-  %46 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt17_Rb_tree_iteratorISt4pairIKjSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEEEmmEv(ptr noundef nonnull align 8 dereferenceable(8) %9) #9
-  br label %47
-
-47:                                               ; preds = %45
+46:                                               ; preds = %41
+  %47 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt17_Rb_tree_iteratorISt4pairIKjSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEEEmmEv(ptr noundef nonnull align 8 dereferenceable(8) %9) #13
   br label %48
 
-48:                                               ; preds = %47, %36
-  %49 = getelementptr inbounds nuw %"class.std::_Rb_tree.16", ptr %12, i32 0, i32 0
-  %50 = getelementptr inbounds nuw %"struct.std::_Rb_tree_iterator.22", ptr %9, i32 0, i32 0
-  %51 = load ptr, ptr %50, align 8
-  %52 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt8_Rb_treeIjSt4pairIKjSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEESt10_Select1stISE_ESt4lessIjESaISE_EE6_S_keyEPKSt18_Rb_tree_node_base(ptr noundef %51)
-  %53 = load ptr, ptr %5, align 8
-  %54 = call noundef zeroext i1 @_ZNKSt4lessIjEclERKjS2_(ptr noundef nonnull align 1 dereferenceable(1) %49, ptr noundef nonnull align 4 dereferenceable(4) %52, ptr noundef nonnull align 4 dereferenceable(4) %53)
-  br i1 %54, label %55, label %56
+48:                                               ; preds = %46
+  br label %49
 
-55:                                               ; preds = %48
+49:                                               ; preds = %48, %37
+  %50 = getelementptr inbounds nuw %"class.std::_Rb_tree.16", ptr %13, i32 0, i32 0
+  %51 = getelementptr inbounds nuw %"struct.std::_Rb_tree_iterator.22", ptr %9, i32 0, i32 0
+  %52 = load ptr, ptr %51, align 8, !tbaa !93
+  %53 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt8_Rb_treeIjSt4pairIKjSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEESt10_Select1stISE_ESt4lessIjESaISE_EE6_S_keyEPKSt18_Rb_tree_node_base(ptr noundef %52)
+  %54 = load ptr, ptr %5, align 8, !tbaa !89
+  %55 = call noundef zeroext i1 @_ZNKSt4lessIjEclERKjS2_(ptr noundef nonnull align 1 dereferenceable(1) %50, ptr noundef nonnull align 4 dereferenceable(4) %53, ptr noundef nonnull align 4 dereferenceable(4) %54)
+  br i1 %55, label %56, label %57
+
+56:                                               ; preds = %49
   call void @_ZNSt4pairIPSt18_Rb_tree_node_baseS1_EC2IRPSt13_Rb_tree_nodeIS_IKjSt6vectorIPKS_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESC_ESaISF_EEEERS1_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairISO_SP_EEEbE4typeELb1EEEOSO_OSP_(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(8) %7)
-  br label %58
+  store i32 1, ptr %11, align 4
+  br label %59
 
-56:                                               ; preds = %48
-  %57 = getelementptr inbounds nuw %"struct.std::_Rb_tree_iterator.22", ptr %9, i32 0, i32 0
-  store ptr null, ptr %11, align 8
-  call void @_ZNSt4pairIPSt18_Rb_tree_node_baseS1_EC2IS1_S1_TnNSt9enable_ifIXaaclsr5_PCCPE18_ConstructiblePairIT_T0_EEclsr5_PCCPE26_ImplicitlyConvertiblePairIS5_S6_EEEbE4typeELb1EEERKS1_SA_(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(8) %57, ptr noundef nonnull align 8 dereferenceable(8) %11)
-  br label %58
+57:                                               ; preds = %49
+  %58 = getelementptr inbounds nuw %"struct.std::_Rb_tree_iterator.22", ptr %9, i32 0, i32 0
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #13
+  store ptr null, ptr %12, align 8, !tbaa !69
+  call void @_ZNSt4pairIPSt18_Rb_tree_node_baseS1_EC2IS1_S1_TnNSt9enable_ifIXaaclsr5_PCCPE18_ConstructiblePairIT_T0_EEclsr5_PCCPE26_ImplicitlyConvertiblePairIS5_S6_EEEbE4typeELb1EEERKS1_SA_(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(8) %58, ptr noundef nonnull align 8 dereferenceable(8) %12)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #13
+  store i32 1, ptr %11, align 4
+  br label %59
 
-58:                                               ; preds = %56, %55, %44
-  %59 = load { ptr, ptr }, ptr %3, align 8
-  ret { ptr, ptr } %59
+59:                                               ; preds = %57, %56, %45
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #13
+  call void @llvm.lifetime.end.p0(i64 1, ptr %8) #13
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #13
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #13
+  %60 = load { ptr, ptr }, ptr %3, align 8
+  ret { ptr, ptr } %60
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt8_Rb_treeIjSt4pairIKjSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEESt10_Select1stISE_ESt4lessIjESaISE_EE11_M_leftmostEv(ptr noundef nonnull align 8 dereferenceable(48) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !131
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw %"class.std::_Rb_tree.16", ptr %3, i32 0, i32 0
   %5 = getelementptr inbounds i8, ptr %4, i64 8
@@ -6017,13 +7000,13 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt17_Rb_tree_iteratorISt4pairIKjSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEEEmmEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !91
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw %"struct.std::_Rb_tree_iterator.22", ptr %3, i32 0, i32 0
-  %5 = load ptr, ptr %4, align 8
-  %6 = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef %5) #11
+  %5 = load ptr, ptr %4, align 8, !tbaa !93
+  %6 = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef %5) #15
   %7 = getelementptr inbounds nuw %"struct.std::_Rb_tree_iterator.22", ptr %3, i32 0, i32 0
-  store ptr %6, ptr %7, align 8
+  store ptr %6, ptr %7, align 8, !tbaa !93
   ret ptr %3
 }
 
@@ -6031,14 +7014,14 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt
 define linkonce_odr hidden ptr @_ZNSt8_Rb_treeIjSt4pairIKjSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEESt10_Select1stISE_ESt4lessIjESaISE_EE5beginEv(ptr noundef nonnull align 8 dereferenceable(48) %0) #0 comdat align 2 {
   %2 = alloca %"struct.std::_Rb_tree_iterator.22", align 8
   %3 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !131
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw %"class.std::_Rb_tree.16", ptr %4, i32 0, i32 0
   %6 = getelementptr inbounds i8, ptr %5, i64 8
   %7 = getelementptr inbounds nuw %"struct.std::_Rb_tree_header", ptr %6, i32 0, i32 0
   %8 = getelementptr inbounds nuw %"struct.std::_Rb_tree_node_base", ptr %7, i32 0, i32 2
-  %9 = load ptr, ptr %8, align 8
-  call void @_ZNSt17_Rb_tree_iteratorISt4pairIKjSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEEEC2EPSt18_Rb_tree_node_base(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef %9) #9
+  %9 = load ptr, ptr %8, align 8, !tbaa !115
+  call void @_ZNSt17_Rb_tree_iteratorISt4pairIKjSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEEEC2EPSt18_Rb_tree_node_base(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef %9) #13
   %10 = getelementptr inbounds nuw %"struct.std::_Rb_tree_iterator.22", ptr %2, i32 0, i32 0
   %11 = load ptr, ptr %10, align 8
   ret ptr %11
@@ -6049,18 +7032,18 @@ define linkonce_odr hidden void @_ZNSt4pairIPSt18_Rb_tree_node_baseS1_EC2IRPSt13
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store ptr %2, ptr %6, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !188
+  store ptr %1, ptr %5, align 8, !tbaa !229
+  store ptr %2, ptr %6, align 8, !tbaa !190
   %7 = load ptr, ptr %4, align 8
   %8 = getelementptr inbounds nuw %"struct.std::pair.30", ptr %7, i32 0, i32 0
-  %9 = load ptr, ptr %5, align 8
-  %10 = load ptr, ptr %9, align 8
-  store ptr %10, ptr %8, align 8
+  %9 = load ptr, ptr %5, align 8, !tbaa !229
+  %10 = load ptr, ptr %9, align 8, !tbaa !141
+  store ptr %10, ptr %8, align 8, !tbaa !163
   %11 = getelementptr inbounds nuw %"struct.std::pair.30", ptr %7, i32 0, i32 1
-  %12 = load ptr, ptr %6, align 8
-  %13 = load ptr, ptr %12, align 8
-  store ptr %13, ptr %11, align 8
+  %12 = load ptr, ptr %6, align 8, !tbaa !190
+  %13 = load ptr, ptr %12, align 8, !tbaa !69
+  store ptr %13, ptr %11, align 8, !tbaa !161
   ret void
 }
 
@@ -6072,26 +7055,27 @@ define linkonce_odr ptr @_ZNSt8_Rb_treeIjSt4pairIKjSt6vectorIPKS0_INSt7__cxx1112
   %8 = alloca ptr, align 8
   %9 = alloca ptr, align 8
   %10 = alloca i8, align 1
-  store ptr %0, ptr %6, align 8
-  store ptr %1, ptr %7, align 8
-  store ptr %2, ptr %8, align 8
-  store ptr %3, ptr %9, align 8
+  store ptr %0, ptr %6, align 8, !tbaa !131
+  store ptr %1, ptr %7, align 8, !tbaa !69
+  store ptr %2, ptr %8, align 8, !tbaa !69
+  store ptr %3, ptr %9, align 8, !tbaa !141
   %11 = load ptr, ptr %6, align 8
-  %12 = load ptr, ptr %7, align 8
+  call void @llvm.lifetime.start.p0(i64 1, ptr %10) #13
+  %12 = load ptr, ptr %7, align 8, !tbaa !69
   %13 = icmp ne ptr %12, null
   br i1 %13, label %25, label %14
 
 14:                                               ; preds = %4
-  %15 = load ptr, ptr %8, align 8
-  %16 = call noundef ptr @_ZNSt8_Rb_treeIjSt4pairIKjSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEESt10_Select1stISE_ESt4lessIjESaISE_EE6_M_endEv(ptr noundef nonnull align 8 dereferenceable(48) %11) #9
+  %15 = load ptr, ptr %8, align 8, !tbaa !69
+  %16 = call noundef ptr @_ZNSt8_Rb_treeIjSt4pairIKjSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEESt10_Select1stISE_ESt4lessIjESaISE_EE6_M_endEv(ptr noundef nonnull align 8 dereferenceable(48) %11) #13
   %17 = icmp eq ptr %15, %16
   br i1 %17, label %25, label %18
 
 18:                                               ; preds = %14
   %19 = getelementptr inbounds nuw %"class.std::_Rb_tree.16", ptr %11, i32 0, i32 0
-  %20 = load ptr, ptr %9, align 8
+  %20 = load ptr, ptr %9, align 8, !tbaa !141
   %21 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt8_Rb_treeIjSt4pairIKjSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEESt10_Select1stISE_ESt4lessIjESaISE_EE6_S_keyEPKSt13_Rb_tree_nodeISE_E(ptr noundef %20)
-  %22 = load ptr, ptr %8, align 8
+  %22 = load ptr, ptr %8, align 8, !tbaa !69
   %23 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt8_Rb_treeIjSt4pairIKjSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEESt10_Select1stISE_ESt4lessIjESaISE_EE6_S_keyEPKSt18_Rb_tree_node_base(ptr noundef %22)
   %24 = call noundef zeroext i1 @_ZNKSt4lessIjEclERKjS2_(ptr noundef nonnull align 1 dereferenceable(1) %19, ptr noundef nonnull align 4 dereferenceable(4) %21, ptr noundef nonnull align 4 dereferenceable(4) %23)
   br label %25
@@ -6099,23 +7083,24 @@ define linkonce_odr ptr @_ZNSt8_Rb_treeIjSt4pairIKjSt6vectorIPKS0_INSt7__cxx1112
 25:                                               ; preds = %18, %14, %4
   %26 = phi i1 [ true, %14 ], [ true, %4 ], [ %24, %18 ]
   %27 = zext i1 %26 to i8
-  store i8 %27, ptr %10, align 1
-  %28 = load i8, ptr %10, align 1
+  store i8 %27, ptr %10, align 1, !tbaa !12
+  %28 = load i8, ptr %10, align 1, !tbaa !12, !range !16, !noundef !17
   %29 = trunc i8 %28 to i1
-  %30 = load ptr, ptr %9, align 8
-  %31 = load ptr, ptr %8, align 8
+  %30 = load ptr, ptr %9, align 8, !tbaa !141
+  %31 = load ptr, ptr %8, align 8, !tbaa !69
   %32 = getelementptr inbounds nuw %"class.std::_Rb_tree.16", ptr %11, i32 0, i32 0
   %33 = getelementptr inbounds i8, ptr %32, i64 8
   %34 = getelementptr inbounds nuw %"struct.std::_Rb_tree_header", ptr %33, i32 0, i32 0
-  call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %29, ptr noundef %30, ptr noundef %31, ptr noundef nonnull align 8 dereferenceable(32) %34) #9
+  call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %29, ptr noundef %30, ptr noundef %31, ptr noundef nonnull align 8 dereferenceable(32) %34) #13
   %35 = getelementptr inbounds nuw %"class.std::_Rb_tree.16", ptr %11, i32 0, i32 0
   %36 = getelementptr inbounds i8, ptr %35, i64 8
   %37 = getelementptr inbounds nuw %"struct.std::_Rb_tree_header", ptr %36, i32 0, i32 1
-  %38 = load i64, ptr %37, align 8
+  %38 = load i64, ptr %37, align 8, !tbaa !117
   %39 = add i64 %38, 1
-  store i64 %39, ptr %37, align 8
-  %40 = load ptr, ptr %9, align 8
-  call void @_ZNSt17_Rb_tree_iteratorISt4pairIKjSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEEEC2EPSt18_Rb_tree_node_base(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef %40) #9
+  store i64 %39, ptr %37, align 8, !tbaa !117
+  %40 = load ptr, ptr %9, align 8, !tbaa !141
+  call void @_ZNSt17_Rb_tree_iteratorISt4pairIKjSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEEEC2EPSt18_Rb_tree_node_base(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef %40) #13
+  call void @llvm.lifetime.end.p0(i64 1, ptr %10) #13
   %41 = getelementptr inbounds nuw %"struct.std::_Rb_tree_iterator.22", ptr %5, i32 0, i32 0
   %42 = load ptr, ptr %41, align 8
   ret ptr %42
@@ -6125,10 +7110,10 @@ define linkonce_odr ptr @_ZNSt8_Rb_treeIjSt4pairIKjSt6vectorIPKS0_INSt7__cxx1112
 define linkonce_odr hidden void @_ZNSt5tupleIJOjEEC2IJjELb1ETnNSt9enable_ifIXclsr4_TCCIXT0_EEE29__is_implicitly_constructibleIDpT_EEEbE4typeELb1EEEDpOS4_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 4 dereferenceable(4) %1) unnamed_addr #0 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !207
+  store ptr %1, ptr %4, align 8, !tbaa !89
   %5 = load ptr, ptr %3, align 8
-  %6 = load ptr, ptr %4, align 8
+  %6 = load ptr, ptr %4, align 8, !tbaa !89
   call void @_ZNSt11_Tuple_implILm0EJOjEEC2IjEEOT_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 4 dereferenceable(4) %6)
   ret void
 }
@@ -6137,10 +7122,10 @@ define linkonce_odr hidden void @_ZNSt5tupleIJOjEEC2IJjELb1ETnNSt9enable_ifIXcls
 define linkonce_odr hidden void @_ZNSt11_Tuple_implILm0EJOjEEC2IjEEOT_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 4 dereferenceable(4) %1) unnamed_addr #0 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !221
+  store ptr %1, ptr %4, align 8, !tbaa !89
   %5 = load ptr, ptr %3, align 8
-  %6 = load ptr, ptr %4, align 8
+  %6 = load ptr, ptr %4, align 8, !tbaa !89
   call void @_ZNSt10_Head_baseILm0EOjLb0EEC2IjEEOT_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 4 dereferenceable(4) %6)
   ret void
 }
@@ -6149,12 +7134,12 @@ define linkonce_odr hidden void @_ZNSt11_Tuple_implILm0EJOjEEC2IjEEOT_(ptr nound
 define linkonce_odr hidden void @_ZNSt10_Head_baseILm0EOjLb0EEC2IjEEOT_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 4 dereferenceable(4) %1) unnamed_addr #0 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !224
+  store ptr %1, ptr %4, align 8, !tbaa !89
   %5 = load ptr, ptr %3, align 8
   %6 = getelementptr inbounds nuw %"struct.std::_Head_base.37", ptr %5, i32 0, i32 0
-  %7 = load ptr, ptr %4, align 8
-  store ptr %7, ptr %6, align 8
+  %7 = load ptr, ptr %4, align 8, !tbaa !89
+  store ptr %7, ptr %6, align 8, !tbaa !89
   ret void
 }
 
@@ -6163,15 +7148,15 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt6vector
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca %"class.__gnu_cxx::__normal_iterator.33", align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !8
+  store ptr %1, ptr %4, align 8, !tbaa !65
   %6 = load ptr, ptr %3, align 8
   %7 = getelementptr inbounds nuw %"struct.std::_Vector_base", ptr %6, i32 0, i32 0
   %8 = getelementptr inbounds nuw %"struct.std::_Vector_base<const std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>> *, std::allocator<const std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>> *>>::_Vector_impl_data", ptr %7, i32 0, i32 1
-  %9 = load ptr, ptr %8, align 8
+  %9 = load ptr, ptr %8, align 8, !tbaa !50
   %10 = getelementptr inbounds nuw %"struct.std::_Vector_base", ptr %6, i32 0, i32 0
   %11 = getelementptr inbounds nuw %"struct.std::_Vector_base<const std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>> *, std::allocator<const std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>> *>>::_Vector_impl_data", ptr %10, i32 0, i32 2
-  %12 = load ptr, ptr %11, align 8
+  %12 = load ptr, ptr %11, align 8, !tbaa !71
   %13 = icmp ne ptr %9, %12
   br i1 %13, label %14, label %24
 
@@ -6179,28 +7164,28 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt6vector
   %15 = getelementptr inbounds nuw %"struct.std::_Vector_base", ptr %6, i32 0, i32 0
   %16 = getelementptr inbounds nuw %"struct.std::_Vector_base", ptr %6, i32 0, i32 0
   %17 = getelementptr inbounds nuw %"struct.std::_Vector_base<const std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>> *, std::allocator<const std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>> *>>::_Vector_impl_data", ptr %16, i32 0, i32 1
-  %18 = load ptr, ptr %17, align 8
-  %19 = load ptr, ptr %4, align 8
-  call void @_ZNSt16allocator_traitsISaIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_EEE9constructIS9_JS9_EEEvRSA_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %15, ptr noundef %18, ptr noundef nonnull align 8 dereferenceable(8) %19) #9
+  %18 = load ptr, ptr %17, align 8, !tbaa !50
+  %19 = load ptr, ptr %4, align 8, !tbaa !65
+  call void @_ZNSt16allocator_traitsISaIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_EEE9constructIS9_JS9_EEEvRSA_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %15, ptr noundef %18, ptr noundef nonnull align 8 dereferenceable(8) %19) #13
   %20 = getelementptr inbounds nuw %"struct.std::_Vector_base", ptr %6, i32 0, i32 0
   %21 = getelementptr inbounds nuw %"struct.std::_Vector_base<const std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>> *, std::allocator<const std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>> *>>::_Vector_impl_data", ptr %20, i32 0, i32 1
-  %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds ptr, ptr %22, i32 1
-  store ptr %23, ptr %21, align 8
+  %22 = load ptr, ptr %21, align 8, !tbaa !50
+  %23 = getelementptr inbounds nuw ptr, ptr %22, i32 1
+  store ptr %23, ptr %21, align 8, !tbaa !50
   br label %30
 
 24:                                               ; preds = %2
-  %25 = call ptr @_ZNSt6vectorIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS9_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %6) #9
+  %25 = call ptr @_ZNSt6vectorIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS9_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %6) #13
   %26 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator.33", ptr %5, i32 0, i32 0
   store ptr %25, ptr %26, align 8
-  %27 = load ptr, ptr %4, align 8
+  %27 = load ptr, ptr %4, align 8, !tbaa !65
   %28 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator.33", ptr %5, i32 0, i32 0
   %29 = load ptr, ptr %28, align 8
   call void @_ZNSt6vectorIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS9_EE17_M_realloc_insertIJS9_EEEvN9__gnu_cxx17__normal_iteratorIPS9_SB_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr %29, ptr noundef nonnull align 8 dereferenceable(8) %27)
   br label %30
 
 30:                                               ; preds = %24, %14
-  %31 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt6vectorIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS9_EE4backEv(ptr noundef nonnull align 8 dereferenceable(24) %6) #9
+  %31 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt6vectorIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS9_EE4backEv(ptr noundef nonnull align 8 dereferenceable(24) %6) #13
   ret ptr %31
 }
 
@@ -6209,13 +7194,13 @@ define linkonce_odr hidden void @_ZNSt16allocator_traitsISaIPKSt4pairINSt7__cxx1
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store ptr %2, ptr %6, align 8
-  %7 = load ptr, ptr %4, align 8
-  %8 = load ptr, ptr %5, align 8
-  %9 = load ptr, ptr %6, align 8
-  call void @_ZNSt15__new_allocatorIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_EE9constructIS9_JS9_EEEvPT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef %8, ptr noundef nonnull align 8 dereferenceable(8) %9) #9
+  store ptr %0, ptr %4, align 8, !tbaa !123
+  store ptr %1, ptr %5, align 8, !tbaa !65
+  store ptr %2, ptr %6, align 8, !tbaa !65
+  %7 = load ptr, ptr %4, align 8, !tbaa !123
+  %8 = load ptr, ptr %5, align 8, !tbaa !65
+  %9 = load ptr, ptr %6, align 8, !tbaa !65
+  call void @_ZNSt15__new_allocatorIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_EE9constructIS9_JS9_EEEvPT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef %8, ptr noundef nonnull align 8 dereferenceable(8) %9) #13
   ret void
 }
 
@@ -6233,77 +7218,91 @@ define linkonce_odr void @_ZNSt6vectorIPKSt4pairINSt7__cxx1112basic_stringIcSt11
   %13 = alloca ptr, align 8
   %14 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator.33", ptr %4, i32 0, i32 0
   store ptr %1, ptr %14, align 8
-  store ptr %0, ptr %5, align 8
-  store ptr %2, ptr %6, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !8
+  store ptr %2, ptr %6, align 8, !tbaa !65
   %15 = load ptr, ptr %5, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #13
   %16 = call noundef i64 @_ZNKSt6vectorIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS9_EE12_M_check_lenEmPKc(ptr noundef nonnull align 8 dereferenceable(24) %15, i64 noundef 1, ptr noundef @.str.28)
-  store i64 %16, ptr %7, align 8
+  store i64 %16, ptr %7, align 8, !tbaa !27
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #13
   %17 = getelementptr inbounds nuw %"struct.std::_Vector_base", ptr %15, i32 0, i32 0
   %18 = getelementptr inbounds nuw %"struct.std::_Vector_base<const std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>> *, std::allocator<const std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>> *>>::_Vector_impl_data", ptr %17, i32 0, i32 0
-  %19 = load ptr, ptr %18, align 8
-  store ptr %19, ptr %8, align 8
+  %19 = load ptr, ptr %18, align 8, !tbaa !46
+  store ptr %19, ptr %8, align 8, !tbaa !65
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #13
   %20 = getelementptr inbounds nuw %"struct.std::_Vector_base", ptr %15, i32 0, i32 0
   %21 = getelementptr inbounds nuw %"struct.std::_Vector_base<const std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>> *, std::allocator<const std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>> *>>::_Vector_impl_data", ptr %20, i32 0, i32 1
-  %22 = load ptr, ptr %21, align 8
-  store ptr %22, ptr %9, align 8
-  %23 = call ptr @_ZNSt6vectorIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS9_EE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %15) #9
+  %22 = load ptr, ptr %21, align 8, !tbaa !50
+  store ptr %22, ptr %9, align 8, !tbaa !65
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #13
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #13
+  %23 = call ptr @_ZNSt6vectorIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS9_EE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %15) #13
   %24 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator.33", ptr %11, i32 0, i32 0
   store ptr %23, ptr %24, align 8
-  %25 = call noundef i64 @_ZN9__gnu_cxxmiIPPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_ESt6vectorISA_SaISA_EEEENS_17__normal_iteratorIT_T0_E15difference_typeERKSI_SL_(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(8) %11) #9
-  store i64 %25, ptr %10, align 8
-  %26 = load i64, ptr %7, align 8
+  %25 = call noundef i64 @_ZN9__gnu_cxxmiIPPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_ESt6vectorISA_SaISA_EEEENS_17__normal_iteratorIT_T0_E15difference_typeERKSI_SL_(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(8) %11) #13
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #13
+  store i64 %25, ptr %10, align 8, !tbaa !27
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #13
+  %26 = load i64, ptr %7, align 8, !tbaa !27
   %27 = call noundef ptr @_ZNSt12_Vector_baseIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS9_EE11_M_allocateEm(ptr noundef nonnull align 8 dereferenceable(24) %15, i64 noundef %26)
-  store ptr %27, ptr %12, align 8
-  %28 = load ptr, ptr %12, align 8
-  store ptr %28, ptr %13, align 8
+  store ptr %27, ptr %12, align 8, !tbaa !65
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #13
+  %28 = load ptr, ptr %12, align 8, !tbaa !65
+  store ptr %28, ptr %13, align 8, !tbaa !65
   %29 = getelementptr inbounds nuw %"struct.std::_Vector_base", ptr %15, i32 0, i32 0
-  %30 = load ptr, ptr %12, align 8
-  %31 = load i64, ptr %10, align 8
-  %32 = getelementptr inbounds ptr, ptr %30, i64 %31
-  %33 = load ptr, ptr %6, align 8
-  call void @_ZNSt16allocator_traitsISaIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_EEE9constructIS9_JS9_EEEvRSA_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %29, ptr noundef %32, ptr noundef nonnull align 8 dereferenceable(8) %33) #9
-  store ptr null, ptr %13, align 8
-  %34 = load ptr, ptr %8, align 8
-  %35 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_ESt6vectorISA_SaISA_EEE4baseEv(ptr noundef nonnull align 8 dereferenceable(8) %4) #9
-  %36 = load ptr, ptr %35, align 8
-  %37 = load ptr, ptr %12, align 8
-  %38 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt12_Vector_baseIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS9_EE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %15) #9
-  %39 = call noundef ptr @_ZNSt6vectorIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS9_EE11_S_relocateEPS9_SC_SC_RSA_(ptr noundef %34, ptr noundef %36, ptr noundef %37, ptr noundef nonnull align 1 dereferenceable(1) %38) #9
-  store ptr %39, ptr %13, align 8
-  %40 = load ptr, ptr %13, align 8
-  %41 = getelementptr inbounds ptr, ptr %40, i32 1
-  store ptr %41, ptr %13, align 8
-  %42 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_ESt6vectorISA_SaISA_EEE4baseEv(ptr noundef nonnull align 8 dereferenceable(8) %4) #9
-  %43 = load ptr, ptr %42, align 8
-  %44 = load ptr, ptr %9, align 8
-  %45 = load ptr, ptr %13, align 8
-  %46 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt12_Vector_baseIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS9_EE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %15) #9
-  %47 = call noundef ptr @_ZNSt6vectorIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS9_EE11_S_relocateEPS9_SC_SC_RSA_(ptr noundef %43, ptr noundef %44, ptr noundef %45, ptr noundef nonnull align 1 dereferenceable(1) %46) #9
-  store ptr %47, ptr %13, align 8
-  %48 = load ptr, ptr %8, align 8
+  %30 = load ptr, ptr %12, align 8, !tbaa !65
+  %31 = load i64, ptr %10, align 8, !tbaa !27
+  %32 = getelementptr inbounds nuw ptr, ptr %30, i64 %31
+  %33 = load ptr, ptr %6, align 8, !tbaa !65
+  call void @_ZNSt16allocator_traitsISaIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_EEE9constructIS9_JS9_EEEvRSA_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %29, ptr noundef %32, ptr noundef nonnull align 8 dereferenceable(8) %33) #13
+  store ptr null, ptr %13, align 8, !tbaa !65
+  %34 = load ptr, ptr %8, align 8, !tbaa !65
+  %35 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_ESt6vectorISA_SaISA_EEE4baseEv(ptr noundef nonnull align 8 dereferenceable(8) %4) #13
+  %36 = load ptr, ptr %35, align 8, !tbaa !65
+  %37 = load ptr, ptr %12, align 8, !tbaa !65
+  %38 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt12_Vector_baseIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS9_EE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %15) #13
+  %39 = call noundef ptr @_ZNSt6vectorIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS9_EE11_S_relocateEPS9_SC_SC_RSA_(ptr noundef %34, ptr noundef %36, ptr noundef %37, ptr noundef nonnull align 1 dereferenceable(1) %38) #13
+  store ptr %39, ptr %13, align 8, !tbaa !65
+  %40 = load ptr, ptr %13, align 8, !tbaa !65
+  %41 = getelementptr inbounds nuw ptr, ptr %40, i32 1
+  store ptr %41, ptr %13, align 8, !tbaa !65
+  %42 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_ESt6vectorISA_SaISA_EEE4baseEv(ptr noundef nonnull align 8 dereferenceable(8) %4) #13
+  %43 = load ptr, ptr %42, align 8, !tbaa !65
+  %44 = load ptr, ptr %9, align 8, !tbaa !65
+  %45 = load ptr, ptr %13, align 8, !tbaa !65
+  %46 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt12_Vector_baseIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS9_EE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %15) #13
+  %47 = call noundef ptr @_ZNSt6vectorIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS9_EE11_S_relocateEPS9_SC_SC_RSA_(ptr noundef %43, ptr noundef %44, ptr noundef %45, ptr noundef nonnull align 1 dereferenceable(1) %46) #13
+  store ptr %47, ptr %13, align 8, !tbaa !65
+  %48 = load ptr, ptr %8, align 8, !tbaa !65
   %49 = getelementptr inbounds nuw %"struct.std::_Vector_base", ptr %15, i32 0, i32 0
   %50 = getelementptr inbounds nuw %"struct.std::_Vector_base<const std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>> *, std::allocator<const std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>> *>>::_Vector_impl_data", ptr %49, i32 0, i32 2
-  %51 = load ptr, ptr %50, align 8
-  %52 = load ptr, ptr %8, align 8
+  %51 = load ptr, ptr %50, align 8, !tbaa !71
+  %52 = load ptr, ptr %8, align 8, !tbaa !65
   %53 = ptrtoint ptr %51 to i64
   %54 = ptrtoint ptr %52 to i64
   %55 = sub i64 %53, %54
   %56 = sdiv exact i64 %55, 8
   call void @_ZNSt12_Vector_baseIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS9_EE13_M_deallocateEPS9_m(ptr noundef nonnull align 8 dereferenceable(24) %15, ptr noundef %48, i64 noundef %56)
-  %57 = load ptr, ptr %12, align 8
+  %57 = load ptr, ptr %12, align 8, !tbaa !65
   %58 = getelementptr inbounds nuw %"struct.std::_Vector_base", ptr %15, i32 0, i32 0
   %59 = getelementptr inbounds nuw %"struct.std::_Vector_base<const std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>> *, std::allocator<const std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>> *>>::_Vector_impl_data", ptr %58, i32 0, i32 0
-  store ptr %57, ptr %59, align 8
-  %60 = load ptr, ptr %13, align 8
+  store ptr %57, ptr %59, align 8, !tbaa !46
+  %60 = load ptr, ptr %13, align 8, !tbaa !65
   %61 = getelementptr inbounds nuw %"struct.std::_Vector_base", ptr %15, i32 0, i32 0
   %62 = getelementptr inbounds nuw %"struct.std::_Vector_base<const std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>> *, std::allocator<const std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>> *>>::_Vector_impl_data", ptr %61, i32 0, i32 1
-  store ptr %60, ptr %62, align 8
-  %63 = load ptr, ptr %12, align 8
-  %64 = load i64, ptr %7, align 8
-  %65 = getelementptr inbounds ptr, ptr %63, i64 %64
+  store ptr %60, ptr %62, align 8, !tbaa !50
+  %63 = load ptr, ptr %12, align 8, !tbaa !65
+  %64 = load i64, ptr %7, align 8, !tbaa !27
+  %65 = getelementptr inbounds nuw ptr, ptr %63, i64 %64
   %66 = getelementptr inbounds nuw %"struct.std::_Vector_base", ptr %15, i32 0, i32 0
   %67 = getelementptr inbounds nuw %"struct.std::_Vector_base<const std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>> *, std::allocator<const std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>> *>>::_Vector_impl_data", ptr %66, i32 0, i32 2
-  store ptr %65, ptr %67, align 8
+  store ptr %65, ptr %67, align 8, !tbaa !71
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #13
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #13
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #13
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #13
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #13
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #13
   ret void
 }
 
@@ -6312,15 +7311,19 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt
   %2 = alloca ptr, align 8
   %3 = alloca %"class.__gnu_cxx::__normal_iterator.33", align 8
   %4 = alloca %"class.__gnu_cxx::__normal_iterator.33", align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !8
   %5 = load ptr, ptr %2, align 8
-  %6 = call ptr @_ZNSt6vectorIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS9_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %5) #9
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #13
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #13
+  %6 = call ptr @_ZNSt6vectorIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS9_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %5) #13
   %7 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator.33", ptr %4, i32 0, i32 0
   store ptr %6, ptr %7, align 8
-  %8 = call ptr @_ZNK9__gnu_cxx17__normal_iteratorIPPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_ESt6vectorISA_SaISA_EEEmiEl(ptr noundef nonnull align 8 dereferenceable(8) %4, i64 noundef 1) #9
+  %8 = call ptr @_ZNK9__gnu_cxx17__normal_iteratorIPPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_ESt6vectorISA_SaISA_EEEmiEl(ptr noundef nonnull align 8 dereferenceable(8) %4, i64 noundef 1) #13
   %9 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator.33", ptr %3, i32 0, i32 0
   store ptr %8, ptr %9, align 8
-  %10 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_ESt6vectorISA_SaISA_EEEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %3) #9
+  %10 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_ESt6vectorISA_SaISA_EEEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %3) #13
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #13
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #13
   ret ptr %10
 }
 
@@ -6329,13 +7332,13 @@ define linkonce_odr hidden void @_ZNSt15__new_allocatorIPKSt4pairINSt7__cxx1112b
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store ptr %2, ptr %6, align 8
-  %7 = load ptr, ptr %5, align 8
-  %8 = load ptr, ptr %6, align 8
-  %9 = load ptr, ptr %8, align 8
-  store ptr %9, ptr %7, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !127
+  store ptr %1, ptr %5, align 8, !tbaa !65
+  store ptr %2, ptr %6, align 8, !tbaa !65
+  %7 = load ptr, ptr %5, align 8, !tbaa !65
+  %8 = load ptr, ptr %6, align 8, !tbaa !65
+  %9 = load ptr, ptr %8, align 8, !tbaa !14
+  store ptr %9, ptr %7, align 8, !tbaa !14
   ret void
 }
 
@@ -6345,16 +7348,18 @@ define linkonce_odr hidden ptr @_ZNK9__gnu_cxx17__normal_iteratorIPPKSt4pairINSt
   %4 = alloca ptr, align 8
   %5 = alloca i64, align 8
   %6 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store i64 %1, ptr %5, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !195
+  store i64 %1, ptr %5, align 8, !tbaa !27
   %7 = load ptr, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #13
   %8 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator.33", ptr %7, i32 0, i32 0
-  %9 = load ptr, ptr %8, align 8
-  %10 = load i64, ptr %5, align 8
+  %9 = load ptr, ptr %8, align 8, !tbaa !197
+  %10 = load i64, ptr %5, align 8, !tbaa !27
   %11 = sub i64 0, %10
   %12 = getelementptr inbounds ptr, ptr %9, i64 %11
-  store ptr %12, ptr %6, align 8
-  call void @_ZN9__gnu_cxx17__normal_iteratorIPPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_ESt6vectorISA_SaISA_EEEC2ERKSB_(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %6) #9
+  store ptr %12, ptr %6, align 8, !tbaa !65
+  call void @_ZN9__gnu_cxx17__normal_iteratorIPPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_ESt6vectorISA_SaISA_EEEC2ERKSB_(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %6) #13
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #13
   %13 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator.33", ptr %3, i32 0, i32 0
   %14 = load ptr, ptr %13, align 8
   ret ptr %14
@@ -6363,10 +7368,10 @@ define linkonce_odr hidden ptr @_ZNK9__gnu_cxx17__normal_iteratorIPPKSt4pairINSt
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_ESt6vectorISA_SaISA_EEEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !195
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator.33", ptr %3, i32 0, i32 0
-  %5 = load ptr, ptr %4, align 8
+  %5 = load ptr, ptr %4, align 8, !tbaa !197
   ret ptr %5
 }
 
@@ -6374,44 +7379,266 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9
 define linkonce_odr hidden ptr @_ZNSt8_Rb_treeIjSt4pairIKjSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEESt10_Select1stISE_ESt4lessIjESaISE_EE3endEv(ptr noundef nonnull align 8 dereferenceable(48) %0) #0 comdat align 2 {
   %2 = alloca %"struct.std::_Rb_tree_iterator.22", align 8
   %3 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !131
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw %"class.std::_Rb_tree.16", ptr %4, i32 0, i32 0
   %6 = getelementptr inbounds i8, ptr %5, i64 8
   %7 = getelementptr inbounds nuw %"struct.std::_Rb_tree_header", ptr %6, i32 0, i32 0
-  call void @_ZNSt17_Rb_tree_iteratorISt4pairIKjSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEEEC2EPSt18_Rb_tree_node_base(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef %7) #9
+  call void @_ZNSt17_Rb_tree_iteratorISt4pairIKjSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEEEC2EPSt18_Rb_tree_node_base(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef %7) #13
   %8 = getelementptr inbounds nuw %"struct.std::_Rb_tree_iterator.22", ptr %2, i32 0, i32 0
   %9 = load ptr, ptr %8, align 8
   ret ptr %9
 }
 
-attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #6 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { nounwind }
-attributes #10 = { noreturn }
-attributes #11 = { nounwind willreturn memory(read) }
-attributes #12 = { builtin nounwind }
-attributes #13 = { builtin allocsize(0) }
+attributes #4 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #7 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { nocallback nofree nosync nounwind willreturn memory(none) }
+attributes #10 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { nounwind willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { alwaysinline mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { nounwind }
+attributes #14 = { noreturn }
+attributes #15 = { nounwind willreturn memory(read) }
+attributes #16 = { builtin nounwind }
+attributes #17 = { builtin allocsize(0) }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
-!9 = distinct !{!9, !5}
-!10 = distinct !{!10, !5}
-!11 = distinct !{!11, !5}
-!12 = distinct !{!12, !5}
+!3 = !{!4, !4, i64 0}
+!4 = !{!"p1 _ZTSN4llvm13StringMatcherE", !5, i64 0}
+!5 = !{!"any pointer", !6, i64 0}
+!6 = !{!"omnipotent char", !7, i64 0}
+!7 = !{!"Simple C++ TBAA"}
+!8 = !{!9, !9, i64 0}
+!9 = !{!"p1 _ZTSSt6vectorIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS9_EE", !5, i64 0}
+!10 = !{!11, !11, i64 0}
+!11 = !{!"int", !6, i64 0}
+!12 = !{!13, !13, i64 0}
+!13 = !{!"bool", !6, i64 0}
+!14 = !{!15, !15, i64 0}
+!15 = !{!"p1 _ZTSSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_E", !5, i64 0}
+!16 = !{i8 0, i8 2}
+!17 = !{}
+!18 = !{!19, !24, i64 24}
+!19 = !{!"_ZTSN4llvm13StringMatcherE", !20, i64 0, !23, i64 16, !24, i64 24}
+!20 = !{!"_ZTSN4llvm9StringRefE", !21, i64 0, !22, i64 8}
+!21 = !{!"p1 omnipotent char", !5, i64 0}
+!22 = !{!"long", !6, i64 0}
+!23 = !{!"p1 _ZTSSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS7_EE", !5, i64 0}
+!24 = !{!"p1 _ZTSN4llvm11raw_ostreamE", !5, i64 0}
+!25 = !{i64 0, i64 8, !26, i64 8, i64 8, !27}
+!26 = !{!21, !21, i64 0}
+!27 = !{!22, !22, i64 0}
+!28 = distinct !{!28, !29}
+!29 = !{!"llvm.loop.mustprogress"}
+!30 = !{!6, !6, i64 0}
+!31 = !{!32, !32, i64 0}
+!32 = !{!"p1 _ZTSSt3mapIcSt6vectorIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_ESaISA_EESt4lessIcESaIS1_IKcSC_EEE", !5, i64 0}
+!33 = !{!34, !34, i64 0}
+!34 = !{!"p1 _ZTSSt4pairIKcSt6vectorIPKS_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_ESaISA_EEE", !5, i64 0}
+!35 = !{!36, !6, i64 0}
+!36 = !{!"_ZTSSt4pairIKcSt6vectorIPKS_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_ESaISA_EEE", !6, i64 0, !37, i64 8}
+!37 = !{!"_ZTSSt6vectorIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS9_EE", !38, i64 0}
+!38 = !{!"_ZTSSt12_Vector_baseIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS9_EE", !39, i64 0}
+!39 = !{!"_ZTSNSt12_Vector_baseIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS9_EE12_Vector_implE", !40, i64 0}
+!40 = !{!"_ZTSNSt12_Vector_baseIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS9_EE17_Vector_impl_dataE", !41, i64 0, !41, i64 8, !41, i64 16}
+!41 = !{!"p2 _ZTSSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_E", !5, i64 0}
+!42 = !{!43, !43, i64 0}
+!43 = !{!"p1 _ZTSSaIcE", !5, i64 0}
+!44 = !{!45, !45, i64 0}
+!45 = !{!"p1 _ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE", !5, i64 0}
+!46 = !{!40, !41, i64 0}
+!47 = !{!48, !22, i64 8}
+!48 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE", !49, i64 0, !22, i64 8, !6, i64 16}
+!49 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderE", !21, i64 0}
+!50 = !{!40, !41, i64 8}
+!51 = !{!52, !52, i64 0}
+!52 = !{!"p1 _ZTSN4llvm9StringRefE", !5, i64 0}
+!53 = !{!20, !21, i64 0}
+!54 = !{!20, !22, i64 8}
+!55 = !{!24, !24, i64 0}
+!56 = !{!57, !21, i64 24}
+!57 = !{!"_ZTSN4llvm11raw_ostreamE", !58, i64 8, !21, i64 16, !21, i64 24, !21, i64 32, !13, i64 40, !59, i64 44}
+!58 = !{!"_ZTSN4llvm11raw_ostream11OStreamKindE", !6, i64 0}
+!59 = !{!"_ZTSN4llvm11raw_ostream10BufferKindE", !6, i64 0}
+!60 = !{!57, !21, i64 32}
+!61 = !{!62, !62, i64 0}
+!62 = !{!"p1 _ZTSSt4pairIN4llvm9StringRefES1_E", !5, i64 0}
+!63 = !{!64, !64, i64 0}
+!64 = !{!"p1 _ZTSN9__gnu_cxx17__normal_iteratorIPKPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_ESt6vectorISA_SaISA_EEEE", !5, i64 0}
+!65 = !{!41, !41, i64 0}
+!66 = !{!67, !41, i64 0}
+!67 = !{!"_ZTSN9__gnu_cxx17__normal_iteratorIPKPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_ESt6vectorISA_SaISA_EEEE", !41, i64 0}
+!68 = !{i64 0, i64 8, !69}
+!69 = !{!70, !70, i64 0}
+!70 = !{!"p1 _ZTSSt18_Rb_tree_node_base", !5, i64 0}
+!71 = !{!40, !41, i64 16}
+!72 = distinct !{!72, !29}
+!73 = !{!74, !74, i64 0}
+!74 = !{!"p1 _ZTSSt17_Rb_tree_iteratorISt4pairIKcSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEEE", !5, i64 0}
+!75 = !{!76, !70, i64 0}
+!76 = !{!"_ZTSSt17_Rb_tree_iteratorISt4pairIKcSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEEE", !70, i64 0}
+!77 = !{!19, !23, i64 16}
+!78 = !{!23, !23, i64 0}
+!79 = !{!80, !80, i64 0}
+!80 = !{!"p1 _ZTSSt3mapIjSt6vectorIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_ESaISA_EESt4lessIjESaIS1_IKjSC_EEE", !5, i64 0}
+!81 = !{!82, !82, i64 0}
+!82 = !{!"p1 _ZTSSt4pairIKjSt6vectorIPKS_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_ESaISA_EEE", !5, i64 0}
+!83 = !{!84, !11, i64 0}
+!84 = !{!"_ZTSSt4pairIKjSt6vectorIPKS_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_ESaISA_EEE", !11, i64 0, !37, i64 8}
+!85 = !{!86, !86, i64 0}
+!86 = !{!"p1 _ZTSN9__gnu_cxx17__normal_iteratorIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_ESt6vectorIS8_SaIS8_EEEE", !5, i64 0}
+!87 = !{!88, !15, i64 0}
+!88 = !{!"_ZTSN9__gnu_cxx17__normal_iteratorIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_ESt6vectorIS8_SaIS8_EEEE", !15, i64 0}
+!89 = !{!90, !90, i64 0}
+!90 = !{!"p1 int", !5, i64 0}
+!91 = !{!92, !92, i64 0}
+!92 = !{!"p1 _ZTSSt17_Rb_tree_iteratorISt4pairIKjSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEEE", !5, i64 0}
+!93 = !{!94, !70, i64 0}
+!94 = !{!"_ZTSSt17_Rb_tree_iteratorISt4pairIKjSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEEE", !70, i64 0}
+!95 = !{!48, !21, i64 0}
+!96 = !{!97, !97, i64 0}
+!97 = !{!"p1 long", !5, i64 0}
+!98 = !{!99, !99, i64 0}
+!99 = !{!"p1 _ZTSSt8_Rb_treeIcSt4pairIKcSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEESt10_Select1stISE_ESt4lessIcESaISE_EE", !5, i64 0}
+!100 = !{!101, !101, i64 0}
+!101 = !{!"p1 _ZTSNSt8_Rb_treeIcSt4pairIKcSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEESt10_Select1stISE_ESt4lessIcESaISE_EE13_Rb_tree_implISI_Lb1EEE", !5, i64 0}
+!102 = !{!103, !103, i64 0}
+!103 = !{!"p1 _ZTSSaISt13_Rb_tree_nodeISt4pairIKcSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEEEE", !5, i64 0}
+!104 = !{!105, !105, i64 0}
+!105 = !{!"p1 _ZTSSt20_Rb_tree_key_compareISt4lessIcEE", !5, i64 0}
+!106 = !{!107, !107, i64 0}
+!107 = !{!"p1 _ZTSSt15_Rb_tree_header", !5, i64 0}
+!108 = !{!109, !111, i64 0}
+!109 = !{!"_ZTSSt15_Rb_tree_header", !110, i64 0, !22, i64 32}
+!110 = !{!"_ZTSSt18_Rb_tree_node_base", !111, i64 0, !70, i64 8, !70, i64 16, !70, i64 24}
+!111 = !{!"_ZTSSt14_Rb_tree_color", !6, i64 0}
+!112 = !{!113, !113, i64 0}
+!113 = !{!"p1 _ZTSSt15__new_allocatorISt13_Rb_tree_nodeISt4pairIKcSt6vectorIPKS1_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ESaISC_EEEEE", !5, i64 0}
+!114 = !{!109, !70, i64 8}
+!115 = !{!109, !70, i64 16}
+!116 = !{!109, !70, i64 24}
+!117 = !{!109, !22, i64 32}
+!118 = !{!119, !119, i64 0}
+!119 = !{!"p1 _ZTSSt13_Rb_tree_nodeISt4pairIKcSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEEE", !5, i64 0}
+!120 = distinct !{!120, !29}
+!121 = !{!110, !70, i64 24}
+!122 = !{!110, !70, i64 16}
+!123 = !{!124, !124, i64 0}
+!124 = !{!"p1 _ZTSSaIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EE", !5, i64 0}
+!125 = !{!126, !126, i64 0}
+!126 = !{!"p1 _ZTSSt12_Vector_baseIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS9_EE", !5, i64 0}
+!127 = !{!128, !128, i64 0}
+!128 = !{!"p1 _ZTSSt15__new_allocatorIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_EE", !5, i64 0}
+!129 = !{!130, !130, i64 0}
+!130 = !{!"p1 _ZTSN9__gnu_cxx16__aligned_membufISt4pairIKcSt6vectorIPKS1_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ESaISC_EEEEE", !5, i64 0}
+!131 = !{!132, !132, i64 0}
+!132 = !{!"p1 _ZTSSt8_Rb_treeIjSt4pairIKjSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEESt10_Select1stISE_ESt4lessIjESaISE_EE", !5, i64 0}
+!133 = !{!134, !134, i64 0}
+!134 = !{!"p1 _ZTSNSt8_Rb_treeIjSt4pairIKjSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEESt10_Select1stISE_ESt4lessIjESaISE_EE13_Rb_tree_implISI_Lb1EEE", !5, i64 0}
+!135 = !{!136, !136, i64 0}
+!136 = !{!"p1 _ZTSSaISt13_Rb_tree_nodeISt4pairIKjSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEEEE", !5, i64 0}
+!137 = !{!138, !138, i64 0}
+!138 = !{!"p1 _ZTSSt20_Rb_tree_key_compareISt4lessIjEE", !5, i64 0}
+!139 = !{!140, !140, i64 0}
+!140 = !{!"p1 _ZTSSt15__new_allocatorISt13_Rb_tree_nodeISt4pairIKjSt6vectorIPKS1_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ESaISC_EEEEE", !5, i64 0}
+!141 = !{!142, !142, i64 0}
+!142 = !{!"p1 _ZTSSt13_Rb_tree_nodeISt4pairIKjSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEEE", !5, i64 0}
+!143 = distinct !{!143, !29}
+!144 = !{!145, !145, i64 0}
+!145 = !{!"p1 _ZTSN9__gnu_cxx16__aligned_membufISt4pairIKjSt6vectorIPKS1_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ESaISC_EEEEE", !5, i64 0}
+!146 = !{!147, !147, i64 0}
+!147 = !{!"p1 _ZTSSt15__new_allocatorIcE", !5, i64 0}
+!148 = !{!149, !149, i64 0}
+!149 = !{!"p1 _ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderE", !5, i64 0}
+!150 = !{!49, !21, i64 0}
+!151 = !{!152, !152, i64 0}
+!152 = !{!"p3 _ZTSSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_E", !5, i64 0}
+!153 = !{!154, !154, i64 0}
+!154 = !{!"p1 _ZTSSt4lessIcE", !5, i64 0}
+!155 = !{!156, !156, i64 0}
+!156 = !{!"p1 _ZTSSt21piecewise_construct_t", !5, i64 0}
+!157 = !{!158, !158, i64 0}
+!158 = !{!"p1 _ZTSSt5tupleIJRKcEE", !5, i64 0}
+!159 = !{!160, !160, i64 0}
+!160 = !{!"p1 _ZTSSt5tupleIJEE", !5, i64 0}
+!161 = !{!162, !70, i64 8}
+!162 = !{!"_ZTSSt4pairIPSt18_Rb_tree_node_baseS1_E", !70, i64 0, !70, i64 8}
+!163 = !{!162, !70, i64 0}
+!164 = !{!165, !165, i64 0}
+!165 = !{!"p1 _ZTSSt23_Rb_tree_const_iteratorISt4pairIKcSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEEE", !5, i64 0}
+!166 = !{!167, !70, i64 0}
+!167 = !{!"_ZTSSt23_Rb_tree_const_iteratorISt4pairIKcSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEEE", !70, i64 0}
+!168 = distinct !{!168, !29}
+!169 = !{!170, !170, i64 0}
+!170 = !{!"p1 _ZTSSt10_Select1stISt4pairIKcSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEEE", !5, i64 0}
+!171 = !{!172, !172, i64 0}
+!172 = !{!"p1 _ZTSNSt8_Rb_treeIcSt4pairIKcSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEESt10_Select1stISE_ESt4lessIcESaISE_EE10_Auto_nodeE", !5, i64 0}
+!173 = !{!174, !119, i64 8}
+!174 = !{!"_ZTSNSt8_Rb_treeIcSt4pairIKcSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEESt10_Select1stISE_ESt4lessIcESaISE_EE10_Auto_nodeE", !99, i64 0, !119, i64 8}
+!175 = !{!174, !99, i64 0}
+!176 = !{!5, !5, i64 0}
+!177 = !{!178, !178, i64 0}
+!178 = !{!"p1 _ZTSSt11_Tuple_implILm0EJRKcEE", !5, i64 0}
+!179 = !{i64 0, i64 8, !26}
+!180 = !{!181, !181, i64 0}
+!181 = !{!"p1 _ZTSSt10_Head_baseILm0ERKcLb0EE", !5, i64 0}
+!182 = !{!183, !21, i64 0}
+!183 = !{!"_ZTSSt10_Head_baseILm0ERKcLb0EE", !21, i64 0}
+!184 = !{!185, !185, i64 0}
+!185 = !{!"p1 _ZTSNSt12_Vector_baseIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS9_EE12_Vector_implE", !5, i64 0}
+!186 = !{!187, !187, i64 0}
+!187 = !{!"p1 _ZTSNSt12_Vector_baseIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS9_EE17_Vector_impl_dataE", !5, i64 0}
+!188 = !{!189, !189, i64 0}
+!189 = !{!"p1 _ZTSSt4pairIPSt18_Rb_tree_node_baseS1_E", !5, i64 0}
+!190 = !{!191, !191, i64 0}
+!191 = !{!"p2 _ZTSSt18_Rb_tree_node_base", !5, i64 0}
+!192 = distinct !{!192, !29}
+!193 = !{!194, !194, i64 0}
+!194 = !{!"p2 _ZTSSt13_Rb_tree_nodeISt4pairIKcSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEEE", !5, i64 0}
+!195 = !{!196, !196, i64 0}
+!196 = !{!"p1 _ZTSN9__gnu_cxx17__normal_iteratorIPPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_ESt6vectorISA_SaISA_EEEE", !5, i64 0}
+!197 = !{!198, !41, i64 0}
+!198 = !{!"_ZTSN9__gnu_cxx17__normal_iteratorIPPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_ESt6vectorISA_SaISA_EEEE", !41, i64 0}
+!199 = !{!200, !45, i64 0}
+!200 = !{!"_ZTSZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagE6_Guard", !45, i64 0}
+!201 = !{!202, !202, i64 0}
+!202 = !{!"p1 _ZTSZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagE6_Guard", !5, i64 0}
+!203 = !{!204, !204, i64 0}
+!204 = !{!"p2 omnipotent char", !5, i64 0}
+!205 = !{!206, !206, i64 0}
+!206 = !{!"p1 _ZTSSt4lessIjE", !5, i64 0}
+!207 = !{!208, !208, i64 0}
+!208 = !{!"p1 _ZTSSt5tupleIJOjEE", !5, i64 0}
+!209 = !{!210, !210, i64 0}
+!210 = !{!"p1 _ZTSSt23_Rb_tree_const_iteratorISt4pairIKjSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEEE", !5, i64 0}
+!211 = !{!212, !70, i64 0}
+!212 = !{!"_ZTSSt23_Rb_tree_const_iteratorISt4pairIKjSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEEE", !70, i64 0}
+!213 = distinct !{!213, !29}
+!214 = !{!215, !215, i64 0}
+!215 = !{!"p1 _ZTSSt10_Select1stISt4pairIKjSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEEE", !5, i64 0}
+!216 = !{!217, !217, i64 0}
+!217 = !{!"p1 _ZTSNSt8_Rb_treeIjSt4pairIKjSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEESt10_Select1stISE_ESt4lessIjESaISE_EE10_Auto_nodeE", !5, i64 0}
+!218 = !{!219, !142, i64 8}
+!219 = !{!"_ZTSNSt8_Rb_treeIjSt4pairIKjSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEESt10_Select1stISE_ESt4lessIjESaISE_EE10_Auto_nodeE", !132, i64 0, !142, i64 8}
+!220 = !{!219, !132, i64 0}
+!221 = !{!222, !222, i64 0}
+!222 = !{!"p1 _ZTSSt11_Tuple_implILm0EJOjEE", !5, i64 0}
+!223 = !{i64 0, i64 8, !89}
+!224 = !{!225, !225, i64 0}
+!225 = !{!"p1 _ZTSSt10_Head_baseILm0EOjLb0EE", !5, i64 0}
+!226 = !{!227, !90, i64 0}
+!227 = !{!"_ZTSSt10_Head_baseILm0EOjLb0EE", !90, i64 0}
+!228 = distinct !{!228, !29}
+!229 = !{!230, !230, i64 0}
+!230 = !{!"p2 _ZTSSt13_Rb_tree_nodeISt4pairIKjSt6vectorIPKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISB_EEEE", !5, i64 0}

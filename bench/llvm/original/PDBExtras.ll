@@ -918,10 +918,10 @@ $_ZN9__gnu_cxx16__aligned_bufferISt4pairIKN4llvm3pdb11PDB_SymTypeEiEE7_M_addrEv 
 define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm3pdblsERNS_11raw_ostreamERKNS0_15PDB_VariantTypeE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(4) %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  %5 = load ptr, ptr %4, align 8
-  %6 = load i32, ptr %5, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  store ptr %1, ptr %4, align 8, !tbaa !8
+  %5 = load ptr, ptr %4, align 8, !tbaa !8
+  %6 = load i32, ptr %5, align 4, !tbaa !9
   switch i32 %6, label %40 [
     i32 12, label %7
     i32 6, label %10
@@ -937,67 +937,67 @@ define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm3pdbls
   ]
 
 7:                                                ; preds = %2
-  %8 = load ptr, ptr %3, align 8
+  %8 = load ptr, ptr %3, align 8, !tbaa !3
   %9 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %8, ptr noundef @.str)
   br label %43
 
 10:                                               ; preds = %2
-  %11 = load ptr, ptr %3, align 8
+  %11 = load ptr, ptr %3, align 8, !tbaa !3
   %12 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %11, ptr noundef @.str.1)
   br label %43
 
 13:                                               ; preds = %2
-  %14 = load ptr, ptr %3, align 8
+  %14 = load ptr, ptr %3, align 8, !tbaa !3
   %15 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %14, ptr noundef @.str.2)
   br label %43
 
 16:                                               ; preds = %2
-  %17 = load ptr, ptr %3, align 8
+  %17 = load ptr, ptr %3, align 8, !tbaa !3
   %18 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %17, ptr noundef @.str.3)
   br label %43
 
 19:                                               ; preds = %2
-  %20 = load ptr, ptr %3, align 8
+  %20 = load ptr, ptr %3, align 8, !tbaa !3
   %21 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %20, ptr noundef @.str.4)
   br label %43
 
 22:                                               ; preds = %2
-  %23 = load ptr, ptr %3, align 8
+  %23 = load ptr, ptr %3, align 8, !tbaa !3
   %24 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %23, ptr noundef @.str.5)
   br label %43
 
 25:                                               ; preds = %2
-  %26 = load ptr, ptr %3, align 8
+  %26 = load ptr, ptr %3, align 8, !tbaa !3
   %27 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %26, ptr noundef @.str.6)
   br label %43
 
 28:                                               ; preds = %2
-  %29 = load ptr, ptr %3, align 8
+  %29 = load ptr, ptr %3, align 8, !tbaa !3
   %30 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %29, ptr noundef @.str.7)
   br label %43
 
 31:                                               ; preds = %2
-  %32 = load ptr, ptr %3, align 8
+  %32 = load ptr, ptr %3, align 8, !tbaa !3
   %33 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %32, ptr noundef @.str.8)
   br label %43
 
 34:                                               ; preds = %2
-  %35 = load ptr, ptr %3, align 8
+  %35 = load ptr, ptr %3, align 8, !tbaa !3
   %36 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %35, ptr noundef @.str.9)
   br label %43
 
 37:                                               ; preds = %2
-  %38 = load ptr, ptr %3, align 8
+  %38 = load ptr, ptr %3, align 8, !tbaa !3
   %39 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %38, ptr noundef @.str.10)
   br label %43
 
 40:                                               ; preds = %2
-  %41 = load ptr, ptr %3, align 8
+  %41 = load ptr, ptr %3, align 8, !tbaa !3
   %42 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %41, ptr noundef @.str.11)
   br label %43
 
 43:                                               ; preds = %40, %37, %34, %31, %28, %25, %22, %19, %16, %13, %10, %7
-  %44 = load ptr, ptr %3, align 8
+  %44 = load ptr, ptr %3, align 8, !tbaa !3
   ret ptr %44
 }
 
@@ -1006,10 +1006,10 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(48) ptr @_ZN4
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca %"class.llvm::StringRef", align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  store ptr %1, ptr %4, align 8, !tbaa !11
   %6 = load ptr, ptr %3, align 8
-  %7 = load ptr, ptr %4, align 8
+  %7 = load ptr, ptr %4, align 8, !tbaa !11
   call void @_ZN4llvm9StringRefC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef %7)
   %8 = getelementptr inbounds nuw { ptr, i64 }, ptr %5, i32 0, i32 0
   %9 = load ptr, ptr %8, align 8
@@ -1023,10 +1023,10 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(48) ptr @_ZN4
 define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm3pdblsERNS_11raw_ostreamERKNS0_15PDB_BuiltinTypeE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(4) %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  %5 = load ptr, ptr %4, align 8
-  %6 = load i32, ptr %5, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  store ptr %1, ptr %4, align 8, !tbaa !8
+  %5 = load ptr, ptr %4, align 8, !tbaa !8
+  %6 = load i32, ptr %5, align 4, !tbaa !13
   switch i32 %6, label %70 [
     i32 0, label %7
     i32 1, label %10
@@ -1052,112 +1052,112 @@ define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm3pdbls
   ]
 
 7:                                                ; preds = %2
-  %8 = load ptr, ptr %3, align 8
+  %8 = load ptr, ptr %3, align 8, !tbaa !3
   %9 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %8, ptr noundef @.str.12)
   br label %70
 
 10:                                               ; preds = %2
-  %11 = load ptr, ptr %3, align 8
+  %11 = load ptr, ptr %3, align 8, !tbaa !3
   %12 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %11, ptr noundef @.str.13)
   br label %70
 
 13:                                               ; preds = %2
-  %14 = load ptr, ptr %3, align 8
+  %14 = load ptr, ptr %3, align 8, !tbaa !3
   %15 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %14, ptr noundef @.str.14)
   br label %70
 
 16:                                               ; preds = %2
-  %17 = load ptr, ptr %3, align 8
+  %17 = load ptr, ptr %3, align 8, !tbaa !3
   %18 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %17, ptr noundef @.str.15)
   br label %70
 
 19:                                               ; preds = %2
-  %20 = load ptr, ptr %3, align 8
+  %20 = load ptr, ptr %3, align 8, !tbaa !3
   %21 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %20, ptr noundef @.str.16)
   br label %70
 
 22:                                               ; preds = %2
-  %23 = load ptr, ptr %3, align 8
+  %23 = load ptr, ptr %3, align 8, !tbaa !3
   %24 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %23, ptr noundef @.str.17)
   br label %70
 
 25:                                               ; preds = %2
-  %26 = load ptr, ptr %3, align 8
+  %26 = load ptr, ptr %3, align 8, !tbaa !3
   %27 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %26, ptr noundef @.str.18)
   br label %70
 
 28:                                               ; preds = %2
-  %29 = load ptr, ptr %3, align 8
+  %29 = load ptr, ptr %3, align 8, !tbaa !3
   %30 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %29, ptr noundef @.str.19)
   br label %70
 
 31:                                               ; preds = %2
-  %32 = load ptr, ptr %3, align 8
+  %32 = load ptr, ptr %3, align 8, !tbaa !3
   %33 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %32, ptr noundef @.str)
   br label %70
 
 34:                                               ; preds = %2
-  %35 = load ptr, ptr %3, align 8
+  %35 = load ptr, ptr %3, align 8, !tbaa !3
   %36 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %35, ptr noundef @.str.20)
   br label %70
 
 37:                                               ; preds = %2
-  %38 = load ptr, ptr %3, align 8
+  %38 = load ptr, ptr %3, align 8, !tbaa !3
   %39 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %38, ptr noundef @.str.21)
   br label %70
 
 40:                                               ; preds = %2
-  %41 = load ptr, ptr %3, align 8
+  %41 = load ptr, ptr %3, align 8, !tbaa !3
   %42 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %41, ptr noundef @.str.22)
   br label %70
 
 43:                                               ; preds = %2
-  %44 = load ptr, ptr %3, align 8
+  %44 = load ptr, ptr %3, align 8, !tbaa !3
   %45 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %44, ptr noundef @.str.23)
   br label %70
 
 46:                                               ; preds = %2
-  %47 = load ptr, ptr %3, align 8
+  %47 = load ptr, ptr %3, align 8, !tbaa !3
   %48 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %47, ptr noundef @.str.24)
   br label %70
 
 49:                                               ; preds = %2
-  %50 = load ptr, ptr %3, align 8
+  %50 = load ptr, ptr %3, align 8, !tbaa !3
   %51 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %50, ptr noundef @.str.25)
   br label %70
 
 52:                                               ; preds = %2
-  %53 = load ptr, ptr %3, align 8
+  %53 = load ptr, ptr %3, align 8, !tbaa !3
   %54 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %53, ptr noundef @.str.26)
   br label %70
 
 55:                                               ; preds = %2
-  %56 = load ptr, ptr %3, align 8
+  %56 = load ptr, ptr %3, align 8, !tbaa !3
   %57 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %56, ptr noundef @.str.27)
   br label %70
 
 58:                                               ; preds = %2
-  %59 = load ptr, ptr %3, align 8
+  %59 = load ptr, ptr %3, align 8, !tbaa !3
   %60 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %59, ptr noundef @.str.28)
   br label %70
 
 61:                                               ; preds = %2
-  %62 = load ptr, ptr %3, align 8
+  %62 = load ptr, ptr %3, align 8, !tbaa !3
   %63 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef @.str.29)
   br label %70
 
 64:                                               ; preds = %2
-  %65 = load ptr, ptr %3, align 8
+  %65 = load ptr, ptr %3, align 8, !tbaa !3
   %66 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %65, ptr noundef @.str.30)
   br label %70
 
 67:                                               ; preds = %2
-  %68 = load ptr, ptr %3, align 8
+  %68 = load ptr, ptr %3, align 8, !tbaa !3
   %69 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %68, ptr noundef @.str.31)
   br label %70
 
-70:                                               ; preds = %67, %64, %61, %58, %55, %52, %49, %46, %43, %40, %37, %34, %31, %28, %25, %22, %19, %16, %13, %10, %7, %2
-  %71 = load ptr, ptr %3, align 8
+70:                                               ; preds = %2, %67, %64, %61, %58, %55, %52, %49, %46, %43, %40, %37, %34, %31, %28, %25, %22, %19, %16, %13, %10, %7
+  %71 = load ptr, ptr %3, align 8, !tbaa !3
   ret ptr %71
 }
 
@@ -1165,12 +1165,12 @@ define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm3pdbls
 define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm3pdblsERNS_11raw_ostreamERKNS_8codeview17CallingConventionE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 1 dereferenceable(1) %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  %5 = load ptr, ptr %3, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  store ptr %1, ptr %4, align 8, !tbaa !8
+  %5 = load ptr, ptr %3, align 8, !tbaa !3
   %6 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %5, ptr noundef @.str.32)
-  %7 = load ptr, ptr %4, align 8
-  %8 = load i8, ptr %7, align 1
+  %7 = load ptr, ptr %4, align 8, !tbaa !8
+  %8 = load i8, ptr %7, align 1, !tbaa !15
   switch i8 %8, label %84 [
     i8 0, label %9
     i8 1, label %12
@@ -1200,132 +1200,132 @@ define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm3pdbls
   ]
 
 9:                                                ; preds = %2
-  %10 = load ptr, ptr %3, align 8
+  %10 = load ptr, ptr %3, align 8, !tbaa !3
   %11 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %10, ptr noundef @.str.33)
   br label %84
 
 12:                                               ; preds = %2
-  %13 = load ptr, ptr %3, align 8
+  %13 = load ptr, ptr %3, align 8, !tbaa !3
   %14 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %13, ptr noundef @.str.33)
   br label %84
 
 15:                                               ; preds = %2
-  %16 = load ptr, ptr %3, align 8
+  %16 = load ptr, ptr %3, align 8, !tbaa !3
   %17 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %16, ptr noundef @.str.34)
   br label %84
 
 18:                                               ; preds = %2
-  %19 = load ptr, ptr %3, align 8
+  %19 = load ptr, ptr %3, align 8, !tbaa !3
   %20 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %19, ptr noundef @.str.34)
   br label %84
 
 21:                                               ; preds = %2
-  %22 = load ptr, ptr %3, align 8
+  %22 = load ptr, ptr %3, align 8, !tbaa !3
   %23 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %22, ptr noundef @.str.35)
   br label %84
 
 24:                                               ; preds = %2
-  %25 = load ptr, ptr %3, align 8
+  %25 = load ptr, ptr %3, align 8, !tbaa !3
   %26 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %25, ptr noundef @.str.35)
   br label %84
 
 27:                                               ; preds = %2
-  %28 = load ptr, ptr %3, align 8
+  %28 = load ptr, ptr %3, align 8, !tbaa !3
   %29 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %28, ptr noundef @.str.36)
   br label %84
 
 30:                                               ; preds = %2
-  %31 = load ptr, ptr %3, align 8
+  %31 = load ptr, ptr %3, align 8, !tbaa !3
   %32 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %31, ptr noundef @.str.36)
   br label %84
 
 33:                                               ; preds = %2
-  %34 = load ptr, ptr %3, align 8
+  %34 = load ptr, ptr %3, align 8, !tbaa !3
   %35 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %34, ptr noundef @.str.37)
   br label %84
 
 36:                                               ; preds = %2
-  %37 = load ptr, ptr %3, align 8
+  %37 = load ptr, ptr %3, align 8, !tbaa !3
   %38 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %37, ptr noundef @.str.37)
   br label %84
 
 39:                                               ; preds = %2
-  %40 = load ptr, ptr %3, align 8
+  %40 = load ptr, ptr %3, align 8, !tbaa !3
   %41 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %40, ptr noundef @.str.38)
   br label %84
 
 42:                                               ; preds = %2
-  %43 = load ptr, ptr %3, align 8
+  %43 = load ptr, ptr %3, align 8, !tbaa !3
   %44 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %43, ptr noundef @.str.39)
   br label %84
 
 45:                                               ; preds = %2
-  %46 = load ptr, ptr %3, align 8
+  %46 = load ptr, ptr %3, align 8, !tbaa !3
   %47 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %46, ptr noundef @.str.40)
   br label %84
 
 48:                                               ; preds = %2
-  %49 = load ptr, ptr %3, align 8
+  %49 = load ptr, ptr %3, align 8, !tbaa !3
   %50 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %49, ptr noundef @.str.41)
   br label %84
 
 51:                                               ; preds = %2
-  %52 = load ptr, ptr %3, align 8
+  %52 = load ptr, ptr %3, align 8, !tbaa !3
   %53 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %52, ptr noundef @.str.42)
   br label %84
 
 54:                                               ; preds = %2
-  %55 = load ptr, ptr %3, align 8
+  %55 = load ptr, ptr %3, align 8, !tbaa !3
   %56 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %55, ptr noundef @.str.43)
   br label %84
 
 57:                                               ; preds = %2
-  %58 = load ptr, ptr %3, align 8
+  %58 = load ptr, ptr %3, align 8, !tbaa !3
   %59 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %58, ptr noundef @.str.44)
   br label %84
 
 60:                                               ; preds = %2
-  %61 = load ptr, ptr %3, align 8
+  %61 = load ptr, ptr %3, align 8, !tbaa !3
   %62 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %61, ptr noundef @.str.45)
   br label %84
 
 63:                                               ; preds = %2
-  %64 = load ptr, ptr %3, align 8
+  %64 = load ptr, ptr %3, align 8, !tbaa !3
   %65 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %64, ptr noundef @.str.46)
   br label %84
 
 66:                                               ; preds = %2
-  %67 = load ptr, ptr %3, align 8
+  %67 = load ptr, ptr %3, align 8, !tbaa !3
   %68 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %67, ptr noundef @.str.47)
   br label %84
 
 69:                                               ; preds = %2
-  %70 = load ptr, ptr %3, align 8
+  %70 = load ptr, ptr %3, align 8, !tbaa !3
   %71 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %70, ptr noundef @.str.48)
   br label %84
 
 72:                                               ; preds = %2
-  %73 = load ptr, ptr %3, align 8
+  %73 = load ptr, ptr %3, align 8, !tbaa !3
   %74 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %73, ptr noundef @.str.49)
   br label %84
 
 75:                                               ; preds = %2
-  %76 = load ptr, ptr %3, align 8
+  %76 = load ptr, ptr %3, align 8, !tbaa !3
   %77 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %76, ptr noundef @.str.50)
   br label %84
 
 78:                                               ; preds = %2
-  %79 = load ptr, ptr %3, align 8
+  %79 = load ptr, ptr %3, align 8, !tbaa !3
   %80 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %79, ptr noundef @.str.51)
   br label %84
 
 81:                                               ; preds = %2
-  %82 = load ptr, ptr %3, align 8
+  %82 = load ptr, ptr %3, align 8, !tbaa !3
   %83 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %82, ptr noundef @.str.52)
   br label %84
 
-84:                                               ; preds = %81, %78, %75, %72, %69, %66, %63, %60, %57, %54, %51, %48, %45, %42, %39, %36, %33, %30, %27, %24, %21, %18, %15, %12, %9, %2
-  %85 = load ptr, ptr %3, align 8
+84:                                               ; preds = %2, %81, %78, %75, %72, %69, %66, %63, %60, %57, %54, %51, %48, %45, %42, %39, %36, %33, %30, %27, %24, %21, %18, %15, %12, %9
+  %85 = load ptr, ptr %3, align 8, !tbaa !3
   ret ptr %85
 }
 
@@ -1333,10 +1333,10 @@ define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm3pdbls
 define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm3pdblsERNS_11raw_ostreamERKNS0_12PDB_DataKindE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(4) %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  %5 = load ptr, ptr %4, align 8
-  %6 = load i32, ptr %5, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  store ptr %1, ptr %4, align 8, !tbaa !8
+  %5 = load ptr, ptr %4, align 8, !tbaa !8
+  %6 = load i32, ptr %5, align 4, !tbaa !17
   switch i32 %6, label %37 [
     i32 0, label %7
     i32 1, label %10
@@ -1351,57 +1351,57 @@ define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm3pdbls
   ]
 
 7:                                                ; preds = %2
-  %8 = load ptr, ptr %3, align 8
+  %8 = load ptr, ptr %3, align 8, !tbaa !3
   %9 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %8, ptr noundef @.str.53)
   br label %37
 
 10:                                               ; preds = %2
-  %11 = load ptr, ptr %3, align 8
+  %11 = load ptr, ptr %3, align 8, !tbaa !3
   %12 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %11, ptr noundef @.str.54)
   br label %37
 
 13:                                               ; preds = %2
-  %14 = load ptr, ptr %3, align 8
+  %14 = load ptr, ptr %3, align 8, !tbaa !3
   %15 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %14, ptr noundef @.str.55)
   br label %37
 
 16:                                               ; preds = %2
-  %17 = load ptr, ptr %3, align 8
+  %17 = load ptr, ptr %3, align 8, !tbaa !3
   %18 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %17, ptr noundef @.str.56)
   br label %37
 
 19:                                               ; preds = %2
-  %20 = load ptr, ptr %3, align 8
+  %20 = load ptr, ptr %3, align 8, !tbaa !3
   %21 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %20, ptr noundef @.str.57)
   br label %37
 
 22:                                               ; preds = %2
-  %23 = load ptr, ptr %3, align 8
+  %23 = load ptr, ptr %3, align 8, !tbaa !3
   %24 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %23, ptr noundef @.str.58)
   br label %37
 
 25:                                               ; preds = %2
-  %26 = load ptr, ptr %3, align 8
+  %26 = load ptr, ptr %3, align 8, !tbaa !3
   %27 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %26, ptr noundef @.str.59)
   br label %37
 
 28:                                               ; preds = %2
-  %29 = load ptr, ptr %3, align 8
+  %29 = load ptr, ptr %3, align 8, !tbaa !3
   %30 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %29, ptr noundef @.str.60)
   br label %37
 
 31:                                               ; preds = %2
-  %32 = load ptr, ptr %3, align 8
+  %32 = load ptr, ptr %3, align 8, !tbaa !3
   %33 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %32, ptr noundef @.str.61)
   br label %37
 
 34:                                               ; preds = %2
-  %35 = load ptr, ptr %3, align 8
+  %35 = load ptr, ptr %3, align 8, !tbaa !3
   %36 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %35, ptr noundef @.str.62)
   br label %37
 
-37:                                               ; preds = %34, %31, %28, %25, %22, %19, %16, %13, %10, %7, %2
-  %38 = load ptr, ptr %3, align 8
+37:                                               ; preds = %2, %34, %31, %28, %25, %22, %19, %16, %13, %10, %7
+  %38 = load ptr, ptr %3, align 8, !tbaa !3
   ret ptr %38
 }
 
@@ -1410,18 +1410,18 @@ define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm3pdbls
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  %6 = load ptr, ptr %5, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !3
+  store ptr %1, ptr %5, align 8, !tbaa !19
+  %6 = load ptr, ptr %5, align 8, !tbaa !19
   %7 = getelementptr inbounds nuw %"struct.llvm::codeview::CPURegister", ptr %6, i32 0, i32 0
-  %8 = load i16, ptr %7, align 2
+  %8 = load i16, ptr %7, align 2, !tbaa !21
   %9 = icmp eq i16 %8, 244
   br i1 %9, label %10, label %544
 
 10:                                               ; preds = %2
-  %11 = load ptr, ptr %5, align 8
+  %11 = load ptr, ptr %5, align 8, !tbaa !19
   %12 = getelementptr inbounds nuw %"struct.llvm::codeview::CPURegister", ptr %11, i32 0, i32 1
-  %13 = load i16, ptr %12, align 2
+  %13 = load i16, ptr %12, align 2, !tbaa !25
   switch i16 %13, label %542 [
     i16 0, label %14
     i16 10, label %18
@@ -1558,926 +1558,926 @@ define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm3pdbls
   ]
 
 14:                                               ; preds = %10
-  %15 = load ptr, ptr %4, align 8
+  %15 = load ptr, ptr %4, align 8, !tbaa !3
   %16 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %15, ptr noundef @.str.63)
-  %17 = load ptr, ptr %4, align 8
+  %17 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %17, ptr %3, align 8
   br label %2666
 
 18:                                               ; preds = %10
-  %19 = load ptr, ptr %4, align 8
+  %19 = load ptr, ptr %4, align 8, !tbaa !3
   %20 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %19, ptr noundef @.str.64)
-  %21 = load ptr, ptr %4, align 8
+  %21 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %21, ptr %3, align 8
   br label %2666
 
 22:                                               ; preds = %10
-  %23 = load ptr, ptr %4, align 8
+  %23 = load ptr, ptr %4, align 8, !tbaa !3
   %24 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %23, ptr noundef @.str.65)
-  %25 = load ptr, ptr %4, align 8
+  %25 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %25, ptr %3, align 8
   br label %2666
 
 26:                                               ; preds = %10
-  %27 = load ptr, ptr %4, align 8
+  %27 = load ptr, ptr %4, align 8, !tbaa !3
   %28 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %27, ptr noundef @.str.66)
-  %29 = load ptr, ptr %4, align 8
+  %29 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %29, ptr %3, align 8
   br label %2666
 
 30:                                               ; preds = %10
-  %31 = load ptr, ptr %4, align 8
+  %31 = load ptr, ptr %4, align 8, !tbaa !3
   %32 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %31, ptr noundef @.str.67)
-  %33 = load ptr, ptr %4, align 8
+  %33 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %33, ptr %3, align 8
   br label %2666
 
 34:                                               ; preds = %10
-  %35 = load ptr, ptr %4, align 8
+  %35 = load ptr, ptr %4, align 8, !tbaa !3
   %36 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %35, ptr noundef @.str.68)
-  %37 = load ptr, ptr %4, align 8
+  %37 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %37, ptr %3, align 8
   br label %2666
 
 38:                                               ; preds = %10
-  %39 = load ptr, ptr %4, align 8
+  %39 = load ptr, ptr %4, align 8, !tbaa !3
   %40 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %39, ptr noundef @.str.69)
-  %41 = load ptr, ptr %4, align 8
+  %41 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %41, ptr %3, align 8
   br label %2666
 
 42:                                               ; preds = %10
-  %43 = load ptr, ptr %4, align 8
+  %43 = load ptr, ptr %4, align 8, !tbaa !3
   %44 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %43, ptr noundef @.str.70)
-  %45 = load ptr, ptr %4, align 8
+  %45 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %45, ptr %3, align 8
   br label %2666
 
 46:                                               ; preds = %10
-  %47 = load ptr, ptr %4, align 8
+  %47 = load ptr, ptr %4, align 8, !tbaa !3
   %48 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %47, ptr noundef @.str.71)
-  %49 = load ptr, ptr %4, align 8
+  %49 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %49, ptr %3, align 8
   br label %2666
 
 50:                                               ; preds = %10
-  %51 = load ptr, ptr %4, align 8
+  %51 = load ptr, ptr %4, align 8, !tbaa !3
   %52 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %51, ptr noundef @.str.72)
-  %53 = load ptr, ptr %4, align 8
+  %53 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %53, ptr %3, align 8
   br label %2666
 
 54:                                               ; preds = %10
-  %55 = load ptr, ptr %4, align 8
+  %55 = load ptr, ptr %4, align 8, !tbaa !3
   %56 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %55, ptr noundef @.str.73)
-  %57 = load ptr, ptr %4, align 8
+  %57 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %57, ptr %3, align 8
   br label %2666
 
 58:                                               ; preds = %10
-  %59 = load ptr, ptr %4, align 8
+  %59 = load ptr, ptr %4, align 8, !tbaa !3
   %60 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %59, ptr noundef @.str.74)
-  %61 = load ptr, ptr %4, align 8
+  %61 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %61, ptr %3, align 8
   br label %2666
 
 62:                                               ; preds = %10
-  %63 = load ptr, ptr %4, align 8
+  %63 = load ptr, ptr %4, align 8, !tbaa !3
   %64 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %63, ptr noundef @.str.75)
-  %65 = load ptr, ptr %4, align 8
+  %65 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %65, ptr %3, align 8
   br label %2666
 
 66:                                               ; preds = %10
-  %67 = load ptr, ptr %4, align 8
+  %67 = load ptr, ptr %4, align 8, !tbaa !3
   %68 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %67, ptr noundef @.str.76)
-  %69 = load ptr, ptr %4, align 8
+  %69 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %69, ptr %3, align 8
   br label %2666
 
 70:                                               ; preds = %10
-  %71 = load ptr, ptr %4, align 8
+  %71 = load ptr, ptr %4, align 8, !tbaa !3
   %72 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %71, ptr noundef @.str.77)
-  %73 = load ptr, ptr %4, align 8
+  %73 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %73, ptr %3, align 8
   br label %2666
 
 74:                                               ; preds = %10
-  %75 = load ptr, ptr %4, align 8
+  %75 = load ptr, ptr %4, align 8, !tbaa !3
   %76 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %75, ptr noundef @.str.78)
-  %77 = load ptr, ptr %4, align 8
+  %77 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %77, ptr %3, align 8
   br label %2666
 
 78:                                               ; preds = %10
-  %79 = load ptr, ptr %4, align 8
+  %79 = load ptr, ptr %4, align 8, !tbaa !3
   %80 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %79, ptr noundef @.str.79)
-  %81 = load ptr, ptr %4, align 8
+  %81 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %81, ptr %3, align 8
   br label %2666
 
 82:                                               ; preds = %10
-  %83 = load ptr, ptr %4, align 8
+  %83 = load ptr, ptr %4, align 8, !tbaa !3
   %84 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %83, ptr noundef @.str.80)
-  %85 = load ptr, ptr %4, align 8
+  %85 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %85, ptr %3, align 8
   br label %2666
 
 86:                                               ; preds = %10
-  %87 = load ptr, ptr %4, align 8
+  %87 = load ptr, ptr %4, align 8, !tbaa !3
   %88 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %87, ptr noundef @.str.81)
-  %89 = load ptr, ptr %4, align 8
+  %89 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %89, ptr %3, align 8
   br label %2666
 
 90:                                               ; preds = %10
-  %91 = load ptr, ptr %4, align 8
+  %91 = load ptr, ptr %4, align 8, !tbaa !3
   %92 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %91, ptr noundef @.str.82)
-  %93 = load ptr, ptr %4, align 8
+  %93 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %93, ptr %3, align 8
   br label %2666
 
 94:                                               ; preds = %10
-  %95 = load ptr, ptr %4, align 8
+  %95 = load ptr, ptr %4, align 8, !tbaa !3
   %96 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %95, ptr noundef @.str.83)
-  %97 = load ptr, ptr %4, align 8
+  %97 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %97, ptr %3, align 8
   br label %2666
 
 98:                                               ; preds = %10
-  %99 = load ptr, ptr %4, align 8
+  %99 = load ptr, ptr %4, align 8, !tbaa !3
   %100 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %99, ptr noundef @.str.84)
-  %101 = load ptr, ptr %4, align 8
+  %101 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %101, ptr %3, align 8
   br label %2666
 
 102:                                              ; preds = %10
-  %103 = load ptr, ptr %4, align 8
+  %103 = load ptr, ptr %4, align 8, !tbaa !3
   %104 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %103, ptr noundef @.str.85)
-  %105 = load ptr, ptr %4, align 8
+  %105 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %105, ptr %3, align 8
   br label %2666
 
 106:                                              ; preds = %10
-  %107 = load ptr, ptr %4, align 8
+  %107 = load ptr, ptr %4, align 8, !tbaa !3
   %108 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %107, ptr noundef @.str.86)
-  %109 = load ptr, ptr %4, align 8
+  %109 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %109, ptr %3, align 8
   br label %2666
 
 110:                                              ; preds = %10
-  %111 = load ptr, ptr %4, align 8
+  %111 = load ptr, ptr %4, align 8, !tbaa !3
   %112 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %111, ptr noundef @.str.87)
-  %113 = load ptr, ptr %4, align 8
+  %113 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %113, ptr %3, align 8
   br label %2666
 
 114:                                              ; preds = %10
-  %115 = load ptr, ptr %4, align 8
+  %115 = load ptr, ptr %4, align 8, !tbaa !3
   %116 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %115, ptr noundef @.str.88)
-  %117 = load ptr, ptr %4, align 8
+  %117 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %117, ptr %3, align 8
   br label %2666
 
 118:                                              ; preds = %10
-  %119 = load ptr, ptr %4, align 8
+  %119 = load ptr, ptr %4, align 8, !tbaa !3
   %120 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %119, ptr noundef @.str.89)
-  %121 = load ptr, ptr %4, align 8
+  %121 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %121, ptr %3, align 8
   br label %2666
 
 122:                                              ; preds = %10
-  %123 = load ptr, ptr %4, align 8
+  %123 = load ptr, ptr %4, align 8, !tbaa !3
   %124 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %123, ptr noundef @.str.90)
-  %125 = load ptr, ptr %4, align 8
+  %125 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %125, ptr %3, align 8
   br label %2666
 
 126:                                              ; preds = %10
-  %127 = load ptr, ptr %4, align 8
+  %127 = load ptr, ptr %4, align 8, !tbaa !3
   %128 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %127, ptr noundef @.str.91)
-  %129 = load ptr, ptr %4, align 8
+  %129 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %129, ptr %3, align 8
   br label %2666
 
 130:                                              ; preds = %10
-  %131 = load ptr, ptr %4, align 8
+  %131 = load ptr, ptr %4, align 8, !tbaa !3
   %132 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %131, ptr noundef @.str.92)
-  %133 = load ptr, ptr %4, align 8
+  %133 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %133, ptr %3, align 8
   br label %2666
 
 134:                                              ; preds = %10
-  %135 = load ptr, ptr %4, align 8
+  %135 = load ptr, ptr %4, align 8, !tbaa !3
   %136 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %135, ptr noundef @.str.93)
-  %137 = load ptr, ptr %4, align 8
+  %137 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %137, ptr %3, align 8
   br label %2666
 
 138:                                              ; preds = %10
-  %139 = load ptr, ptr %4, align 8
+  %139 = load ptr, ptr %4, align 8, !tbaa !3
   %140 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %139, ptr noundef @.str.94)
-  %141 = load ptr, ptr %4, align 8
+  %141 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %141, ptr %3, align 8
   br label %2666
 
 142:                                              ; preds = %10
-  %143 = load ptr, ptr %4, align 8
+  %143 = load ptr, ptr %4, align 8, !tbaa !3
   %144 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %143, ptr noundef @.str.95)
-  %145 = load ptr, ptr %4, align 8
+  %145 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %145, ptr %3, align 8
   br label %2666
 
 146:                                              ; preds = %10
-  %147 = load ptr, ptr %4, align 8
+  %147 = load ptr, ptr %4, align 8, !tbaa !3
   %148 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %147, ptr noundef @.str.96)
-  %149 = load ptr, ptr %4, align 8
+  %149 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %149, ptr %3, align 8
   br label %2666
 
 150:                                              ; preds = %10
-  %151 = load ptr, ptr %4, align 8
+  %151 = load ptr, ptr %4, align 8, !tbaa !3
   %152 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %151, ptr noundef @.str.97)
-  %153 = load ptr, ptr %4, align 8
+  %153 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %153, ptr %3, align 8
   br label %2666
 
 154:                                              ; preds = %10
-  %155 = load ptr, ptr %4, align 8
+  %155 = load ptr, ptr %4, align 8, !tbaa !3
   %156 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %155, ptr noundef @.str.98)
-  %157 = load ptr, ptr %4, align 8
+  %157 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %157, ptr %3, align 8
   br label %2666
 
 158:                                              ; preds = %10
-  %159 = load ptr, ptr %4, align 8
+  %159 = load ptr, ptr %4, align 8, !tbaa !3
   %160 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %159, ptr noundef @.str.99)
-  %161 = load ptr, ptr %4, align 8
+  %161 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %161, ptr %3, align 8
   br label %2666
 
 162:                                              ; preds = %10
-  %163 = load ptr, ptr %4, align 8
+  %163 = load ptr, ptr %4, align 8, !tbaa !3
   %164 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %163, ptr noundef @.str.100)
-  %165 = load ptr, ptr %4, align 8
+  %165 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %165, ptr %3, align 8
   br label %2666
 
 166:                                              ; preds = %10
-  %167 = load ptr, ptr %4, align 8
+  %167 = load ptr, ptr %4, align 8, !tbaa !3
   %168 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %167, ptr noundef @.str.101)
-  %169 = load ptr, ptr %4, align 8
+  %169 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %169, ptr %3, align 8
   br label %2666
 
 170:                                              ; preds = %10
-  %171 = load ptr, ptr %4, align 8
+  %171 = load ptr, ptr %4, align 8, !tbaa !3
   %172 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %171, ptr noundef @.str.102)
-  %173 = load ptr, ptr %4, align 8
+  %173 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %173, ptr %3, align 8
   br label %2666
 
 174:                                              ; preds = %10
-  %175 = load ptr, ptr %4, align 8
+  %175 = load ptr, ptr %4, align 8, !tbaa !3
   %176 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %175, ptr noundef @.str.103)
-  %177 = load ptr, ptr %4, align 8
+  %177 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %177, ptr %3, align 8
   br label %2666
 
 178:                                              ; preds = %10
-  %179 = load ptr, ptr %4, align 8
+  %179 = load ptr, ptr %4, align 8, !tbaa !3
   %180 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %179, ptr noundef @.str.104)
-  %181 = load ptr, ptr %4, align 8
+  %181 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %181, ptr %3, align 8
   br label %2666
 
 182:                                              ; preds = %10
-  %183 = load ptr, ptr %4, align 8
+  %183 = load ptr, ptr %4, align 8, !tbaa !3
   %184 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %183, ptr noundef @.str.105)
-  %185 = load ptr, ptr %4, align 8
+  %185 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %185, ptr %3, align 8
   br label %2666
 
 186:                                              ; preds = %10
-  %187 = load ptr, ptr %4, align 8
+  %187 = load ptr, ptr %4, align 8, !tbaa !3
   %188 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %187, ptr noundef @.str.106)
-  %189 = load ptr, ptr %4, align 8
+  %189 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %189, ptr %3, align 8
   br label %2666
 
 190:                                              ; preds = %10
-  %191 = load ptr, ptr %4, align 8
+  %191 = load ptr, ptr %4, align 8, !tbaa !3
   %192 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %191, ptr noundef @.str.107)
-  %193 = load ptr, ptr %4, align 8
+  %193 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %193, ptr %3, align 8
   br label %2666
 
 194:                                              ; preds = %10
-  %195 = load ptr, ptr %4, align 8
+  %195 = load ptr, ptr %4, align 8, !tbaa !3
   %196 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %195, ptr noundef @.str.108)
-  %197 = load ptr, ptr %4, align 8
+  %197 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %197, ptr %3, align 8
   br label %2666
 
 198:                                              ; preds = %10
-  %199 = load ptr, ptr %4, align 8
+  %199 = load ptr, ptr %4, align 8, !tbaa !3
   %200 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %199, ptr noundef @.str.109)
-  %201 = load ptr, ptr %4, align 8
+  %201 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %201, ptr %3, align 8
   br label %2666
 
 202:                                              ; preds = %10
-  %203 = load ptr, ptr %4, align 8
+  %203 = load ptr, ptr %4, align 8, !tbaa !3
   %204 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %203, ptr noundef @.str.110)
-  %205 = load ptr, ptr %4, align 8
+  %205 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %205, ptr %3, align 8
   br label %2666
 
 206:                                              ; preds = %10
-  %207 = load ptr, ptr %4, align 8
+  %207 = load ptr, ptr %4, align 8, !tbaa !3
   %208 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %207, ptr noundef @.str.111)
-  %209 = load ptr, ptr %4, align 8
+  %209 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %209, ptr %3, align 8
   br label %2666
 
 210:                                              ; preds = %10
-  %211 = load ptr, ptr %4, align 8
+  %211 = load ptr, ptr %4, align 8, !tbaa !3
   %212 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %211, ptr noundef @.str.112)
-  %213 = load ptr, ptr %4, align 8
+  %213 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %213, ptr %3, align 8
   br label %2666
 
 214:                                              ; preds = %10
-  %215 = load ptr, ptr %4, align 8
+  %215 = load ptr, ptr %4, align 8, !tbaa !3
   %216 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %215, ptr noundef @.str.113)
-  %217 = load ptr, ptr %4, align 8
+  %217 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %217, ptr %3, align 8
   br label %2666
 
 218:                                              ; preds = %10
-  %219 = load ptr, ptr %4, align 8
+  %219 = load ptr, ptr %4, align 8, !tbaa !3
   %220 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %219, ptr noundef @.str.114)
-  %221 = load ptr, ptr %4, align 8
+  %221 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %221, ptr %3, align 8
   br label %2666
 
 222:                                              ; preds = %10
-  %223 = load ptr, ptr %4, align 8
+  %223 = load ptr, ptr %4, align 8, !tbaa !3
   %224 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %223, ptr noundef @.str.115)
-  %225 = load ptr, ptr %4, align 8
+  %225 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %225, ptr %3, align 8
   br label %2666
 
 226:                                              ; preds = %10
-  %227 = load ptr, ptr %4, align 8
+  %227 = load ptr, ptr %4, align 8, !tbaa !3
   %228 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %227, ptr noundef @.str.116)
-  %229 = load ptr, ptr %4, align 8
+  %229 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %229, ptr %3, align 8
   br label %2666
 
 230:                                              ; preds = %10
-  %231 = load ptr, ptr %4, align 8
+  %231 = load ptr, ptr %4, align 8, !tbaa !3
   %232 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %231, ptr noundef @.str.117)
-  %233 = load ptr, ptr %4, align 8
+  %233 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %233, ptr %3, align 8
   br label %2666
 
 234:                                              ; preds = %10
-  %235 = load ptr, ptr %4, align 8
+  %235 = load ptr, ptr %4, align 8, !tbaa !3
   %236 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %235, ptr noundef @.str.118)
-  %237 = load ptr, ptr %4, align 8
+  %237 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %237, ptr %3, align 8
   br label %2666
 
 238:                                              ; preds = %10
-  %239 = load ptr, ptr %4, align 8
+  %239 = load ptr, ptr %4, align 8, !tbaa !3
   %240 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %239, ptr noundef @.str.119)
-  %241 = load ptr, ptr %4, align 8
+  %241 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %241, ptr %3, align 8
   br label %2666
 
 242:                                              ; preds = %10
-  %243 = load ptr, ptr %4, align 8
+  %243 = load ptr, ptr %4, align 8, !tbaa !3
   %244 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %243, ptr noundef @.str.120)
-  %245 = load ptr, ptr %4, align 8
+  %245 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %245, ptr %3, align 8
   br label %2666
 
 246:                                              ; preds = %10
-  %247 = load ptr, ptr %4, align 8
+  %247 = load ptr, ptr %4, align 8, !tbaa !3
   %248 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %247, ptr noundef @.str.121)
-  %249 = load ptr, ptr %4, align 8
+  %249 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %249, ptr %3, align 8
   br label %2666
 
 250:                                              ; preds = %10
-  %251 = load ptr, ptr %4, align 8
+  %251 = load ptr, ptr %4, align 8, !tbaa !3
   %252 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %251, ptr noundef @.str.122)
-  %253 = load ptr, ptr %4, align 8
+  %253 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %253, ptr %3, align 8
   br label %2666
 
 254:                                              ; preds = %10
-  %255 = load ptr, ptr %4, align 8
+  %255 = load ptr, ptr %4, align 8, !tbaa !3
   %256 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %255, ptr noundef @.str.123)
-  %257 = load ptr, ptr %4, align 8
+  %257 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %257, ptr %3, align 8
   br label %2666
 
 258:                                              ; preds = %10
-  %259 = load ptr, ptr %4, align 8
+  %259 = load ptr, ptr %4, align 8, !tbaa !3
   %260 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %259, ptr noundef @.str.124)
-  %261 = load ptr, ptr %4, align 8
+  %261 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %261, ptr %3, align 8
   br label %2666
 
 262:                                              ; preds = %10
-  %263 = load ptr, ptr %4, align 8
+  %263 = load ptr, ptr %4, align 8, !tbaa !3
   %264 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %263, ptr noundef @.str.125)
-  %265 = load ptr, ptr %4, align 8
+  %265 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %265, ptr %3, align 8
   br label %2666
 
 266:                                              ; preds = %10
-  %267 = load ptr, ptr %4, align 8
+  %267 = load ptr, ptr %4, align 8, !tbaa !3
   %268 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %267, ptr noundef @.str.126)
-  %269 = load ptr, ptr %4, align 8
+  %269 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %269, ptr %3, align 8
   br label %2666
 
 270:                                              ; preds = %10
-  %271 = load ptr, ptr %4, align 8
+  %271 = load ptr, ptr %4, align 8, !tbaa !3
   %272 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %271, ptr noundef @.str.127)
-  %273 = load ptr, ptr %4, align 8
+  %273 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %273, ptr %3, align 8
   br label %2666
 
 274:                                              ; preds = %10
-  %275 = load ptr, ptr %4, align 8
+  %275 = load ptr, ptr %4, align 8, !tbaa !3
   %276 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %275, ptr noundef @.str.128)
-  %277 = load ptr, ptr %4, align 8
+  %277 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %277, ptr %3, align 8
   br label %2666
 
 278:                                              ; preds = %10
-  %279 = load ptr, ptr %4, align 8
+  %279 = load ptr, ptr %4, align 8, !tbaa !3
   %280 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %279, ptr noundef @.str.129)
-  %281 = load ptr, ptr %4, align 8
+  %281 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %281, ptr %3, align 8
   br label %2666
 
 282:                                              ; preds = %10
-  %283 = load ptr, ptr %4, align 8
+  %283 = load ptr, ptr %4, align 8, !tbaa !3
   %284 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %283, ptr noundef @.str.130)
-  %285 = load ptr, ptr %4, align 8
+  %285 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %285, ptr %3, align 8
   br label %2666
 
 286:                                              ; preds = %10
-  %287 = load ptr, ptr %4, align 8
+  %287 = load ptr, ptr %4, align 8, !tbaa !3
   %288 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %287, ptr noundef @.str.131)
-  %289 = load ptr, ptr %4, align 8
+  %289 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %289, ptr %3, align 8
   br label %2666
 
 290:                                              ; preds = %10
-  %291 = load ptr, ptr %4, align 8
+  %291 = load ptr, ptr %4, align 8, !tbaa !3
   %292 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %291, ptr noundef @.str.132)
-  %293 = load ptr, ptr %4, align 8
+  %293 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %293, ptr %3, align 8
   br label %2666
 
 294:                                              ; preds = %10
-  %295 = load ptr, ptr %4, align 8
+  %295 = load ptr, ptr %4, align 8, !tbaa !3
   %296 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %295, ptr noundef @.str.133)
-  %297 = load ptr, ptr %4, align 8
+  %297 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %297, ptr %3, align 8
   br label %2666
 
 298:                                              ; preds = %10
-  %299 = load ptr, ptr %4, align 8
+  %299 = load ptr, ptr %4, align 8, !tbaa !3
   %300 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %299, ptr noundef @.str.134)
-  %301 = load ptr, ptr %4, align 8
+  %301 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %301, ptr %3, align 8
   br label %2666
 
 302:                                              ; preds = %10
-  %303 = load ptr, ptr %4, align 8
+  %303 = load ptr, ptr %4, align 8, !tbaa !3
   %304 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %303, ptr noundef @.str.135)
-  %305 = load ptr, ptr %4, align 8
+  %305 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %305, ptr %3, align 8
   br label %2666
 
 306:                                              ; preds = %10
-  %307 = load ptr, ptr %4, align 8
+  %307 = load ptr, ptr %4, align 8, !tbaa !3
   %308 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %307, ptr noundef @.str.136)
-  %309 = load ptr, ptr %4, align 8
+  %309 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %309, ptr %3, align 8
   br label %2666
 
 310:                                              ; preds = %10
-  %311 = load ptr, ptr %4, align 8
+  %311 = load ptr, ptr %4, align 8, !tbaa !3
   %312 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %311, ptr noundef @.str.137)
-  %313 = load ptr, ptr %4, align 8
+  %313 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %313, ptr %3, align 8
   br label %2666
 
 314:                                              ; preds = %10
-  %315 = load ptr, ptr %4, align 8
+  %315 = load ptr, ptr %4, align 8, !tbaa !3
   %316 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %315, ptr noundef @.str.138)
-  %317 = load ptr, ptr %4, align 8
+  %317 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %317, ptr %3, align 8
   br label %2666
 
 318:                                              ; preds = %10
-  %319 = load ptr, ptr %4, align 8
+  %319 = load ptr, ptr %4, align 8, !tbaa !3
   %320 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %319, ptr noundef @.str.139)
-  %321 = load ptr, ptr %4, align 8
+  %321 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %321, ptr %3, align 8
   br label %2666
 
 322:                                              ; preds = %10
-  %323 = load ptr, ptr %4, align 8
+  %323 = load ptr, ptr %4, align 8, !tbaa !3
   %324 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %323, ptr noundef @.str.140)
-  %325 = load ptr, ptr %4, align 8
+  %325 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %325, ptr %3, align 8
   br label %2666
 
 326:                                              ; preds = %10
-  %327 = load ptr, ptr %4, align 8
+  %327 = load ptr, ptr %4, align 8, !tbaa !3
   %328 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %327, ptr noundef @.str.141)
-  %329 = load ptr, ptr %4, align 8
+  %329 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %329, ptr %3, align 8
   br label %2666
 
 330:                                              ; preds = %10
-  %331 = load ptr, ptr %4, align 8
+  %331 = load ptr, ptr %4, align 8, !tbaa !3
   %332 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %331, ptr noundef @.str.142)
-  %333 = load ptr, ptr %4, align 8
+  %333 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %333, ptr %3, align 8
   br label %2666
 
 334:                                              ; preds = %10
-  %335 = load ptr, ptr %4, align 8
+  %335 = load ptr, ptr %4, align 8, !tbaa !3
   %336 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %335, ptr noundef @.str.143)
-  %337 = load ptr, ptr %4, align 8
+  %337 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %337, ptr %3, align 8
   br label %2666
 
 338:                                              ; preds = %10
-  %339 = load ptr, ptr %4, align 8
+  %339 = load ptr, ptr %4, align 8, !tbaa !3
   %340 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %339, ptr noundef @.str.144)
-  %341 = load ptr, ptr %4, align 8
+  %341 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %341, ptr %3, align 8
   br label %2666
 
 342:                                              ; preds = %10
-  %343 = load ptr, ptr %4, align 8
+  %343 = load ptr, ptr %4, align 8, !tbaa !3
   %344 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %343, ptr noundef @.str.145)
-  %345 = load ptr, ptr %4, align 8
+  %345 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %345, ptr %3, align 8
   br label %2666
 
 346:                                              ; preds = %10
-  %347 = load ptr, ptr %4, align 8
+  %347 = load ptr, ptr %4, align 8, !tbaa !3
   %348 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %347, ptr noundef @.str.146)
-  %349 = load ptr, ptr %4, align 8
+  %349 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %349, ptr %3, align 8
   br label %2666
 
 350:                                              ; preds = %10
-  %351 = load ptr, ptr %4, align 8
+  %351 = load ptr, ptr %4, align 8, !tbaa !3
   %352 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %351, ptr noundef @.str.147)
-  %353 = load ptr, ptr %4, align 8
+  %353 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %353, ptr %3, align 8
   br label %2666
 
 354:                                              ; preds = %10
-  %355 = load ptr, ptr %4, align 8
+  %355 = load ptr, ptr %4, align 8, !tbaa !3
   %356 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %355, ptr noundef @.str.148)
-  %357 = load ptr, ptr %4, align 8
+  %357 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %357, ptr %3, align 8
   br label %2666
 
 358:                                              ; preds = %10
-  %359 = load ptr, ptr %4, align 8
+  %359 = load ptr, ptr %4, align 8, !tbaa !3
   %360 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %359, ptr noundef @.str.149)
-  %361 = load ptr, ptr %4, align 8
+  %361 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %361, ptr %3, align 8
   br label %2666
 
 362:                                              ; preds = %10
-  %363 = load ptr, ptr %4, align 8
+  %363 = load ptr, ptr %4, align 8, !tbaa !3
   %364 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %363, ptr noundef @.str.150)
-  %365 = load ptr, ptr %4, align 8
+  %365 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %365, ptr %3, align 8
   br label %2666
 
 366:                                              ; preds = %10
-  %367 = load ptr, ptr %4, align 8
+  %367 = load ptr, ptr %4, align 8, !tbaa !3
   %368 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %367, ptr noundef @.str.151)
-  %369 = load ptr, ptr %4, align 8
+  %369 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %369, ptr %3, align 8
   br label %2666
 
 370:                                              ; preds = %10
-  %371 = load ptr, ptr %4, align 8
+  %371 = load ptr, ptr %4, align 8, !tbaa !3
   %372 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %371, ptr noundef @.str.152)
-  %373 = load ptr, ptr %4, align 8
+  %373 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %373, ptr %3, align 8
   br label %2666
 
 374:                                              ; preds = %10
-  %375 = load ptr, ptr %4, align 8
+  %375 = load ptr, ptr %4, align 8, !tbaa !3
   %376 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %375, ptr noundef @.str.153)
-  %377 = load ptr, ptr %4, align 8
+  %377 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %377, ptr %3, align 8
   br label %2666
 
 378:                                              ; preds = %10
-  %379 = load ptr, ptr %4, align 8
+  %379 = load ptr, ptr %4, align 8, !tbaa !3
   %380 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %379, ptr noundef @.str.154)
-  %381 = load ptr, ptr %4, align 8
+  %381 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %381, ptr %3, align 8
   br label %2666
 
 382:                                              ; preds = %10
-  %383 = load ptr, ptr %4, align 8
+  %383 = load ptr, ptr %4, align 8, !tbaa !3
   %384 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %383, ptr noundef @.str.155)
-  %385 = load ptr, ptr %4, align 8
+  %385 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %385, ptr %3, align 8
   br label %2666
 
 386:                                              ; preds = %10
-  %387 = load ptr, ptr %4, align 8
+  %387 = load ptr, ptr %4, align 8, !tbaa !3
   %388 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %387, ptr noundef @.str.156)
-  %389 = load ptr, ptr %4, align 8
+  %389 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %389, ptr %3, align 8
   br label %2666
 
 390:                                              ; preds = %10
-  %391 = load ptr, ptr %4, align 8
+  %391 = load ptr, ptr %4, align 8, !tbaa !3
   %392 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %391, ptr noundef @.str.157)
-  %393 = load ptr, ptr %4, align 8
+  %393 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %393, ptr %3, align 8
   br label %2666
 
 394:                                              ; preds = %10
-  %395 = load ptr, ptr %4, align 8
+  %395 = load ptr, ptr %4, align 8, !tbaa !3
   %396 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %395, ptr noundef @.str.158)
-  %397 = load ptr, ptr %4, align 8
+  %397 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %397, ptr %3, align 8
   br label %2666
 
 398:                                              ; preds = %10
-  %399 = load ptr, ptr %4, align 8
+  %399 = load ptr, ptr %4, align 8, !tbaa !3
   %400 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %399, ptr noundef @.str.159)
-  %401 = load ptr, ptr %4, align 8
+  %401 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %401, ptr %3, align 8
   br label %2666
 
 402:                                              ; preds = %10
-  %403 = load ptr, ptr %4, align 8
+  %403 = load ptr, ptr %4, align 8, !tbaa !3
   %404 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %403, ptr noundef @.str.160)
-  %405 = load ptr, ptr %4, align 8
+  %405 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %405, ptr %3, align 8
   br label %2666
 
 406:                                              ; preds = %10
-  %407 = load ptr, ptr %4, align 8
+  %407 = load ptr, ptr %4, align 8, !tbaa !3
   %408 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %407, ptr noundef @.str.161)
-  %409 = load ptr, ptr %4, align 8
+  %409 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %409, ptr %3, align 8
   br label %2666
 
 410:                                              ; preds = %10
-  %411 = load ptr, ptr %4, align 8
+  %411 = load ptr, ptr %4, align 8, !tbaa !3
   %412 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %411, ptr noundef @.str.162)
-  %413 = load ptr, ptr %4, align 8
+  %413 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %413, ptr %3, align 8
   br label %2666
 
 414:                                              ; preds = %10
-  %415 = load ptr, ptr %4, align 8
+  %415 = load ptr, ptr %4, align 8, !tbaa !3
   %416 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %415, ptr noundef @.str.163)
-  %417 = load ptr, ptr %4, align 8
+  %417 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %417, ptr %3, align 8
   br label %2666
 
 418:                                              ; preds = %10
-  %419 = load ptr, ptr %4, align 8
+  %419 = load ptr, ptr %4, align 8, !tbaa !3
   %420 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %419, ptr noundef @.str.164)
-  %421 = load ptr, ptr %4, align 8
+  %421 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %421, ptr %3, align 8
   br label %2666
 
 422:                                              ; preds = %10
-  %423 = load ptr, ptr %4, align 8
+  %423 = load ptr, ptr %4, align 8, !tbaa !3
   %424 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %423, ptr noundef @.str.165)
-  %425 = load ptr, ptr %4, align 8
+  %425 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %425, ptr %3, align 8
   br label %2666
 
 426:                                              ; preds = %10
-  %427 = load ptr, ptr %4, align 8
+  %427 = load ptr, ptr %4, align 8, !tbaa !3
   %428 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %427, ptr noundef @.str.166)
-  %429 = load ptr, ptr %4, align 8
+  %429 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %429, ptr %3, align 8
   br label %2666
 
 430:                                              ; preds = %10
-  %431 = load ptr, ptr %4, align 8
+  %431 = load ptr, ptr %4, align 8, !tbaa !3
   %432 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %431, ptr noundef @.str.167)
-  %433 = load ptr, ptr %4, align 8
+  %433 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %433, ptr %3, align 8
   br label %2666
 
 434:                                              ; preds = %10
-  %435 = load ptr, ptr %4, align 8
+  %435 = load ptr, ptr %4, align 8, !tbaa !3
   %436 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %435, ptr noundef @.str.168)
-  %437 = load ptr, ptr %4, align 8
+  %437 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %437, ptr %3, align 8
   br label %2666
 
 438:                                              ; preds = %10
-  %439 = load ptr, ptr %4, align 8
+  %439 = load ptr, ptr %4, align 8, !tbaa !3
   %440 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %439, ptr noundef @.str.169)
-  %441 = load ptr, ptr %4, align 8
+  %441 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %441, ptr %3, align 8
   br label %2666
 
 442:                                              ; preds = %10
-  %443 = load ptr, ptr %4, align 8
+  %443 = load ptr, ptr %4, align 8, !tbaa !3
   %444 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %443, ptr noundef @.str.170)
-  %445 = load ptr, ptr %4, align 8
+  %445 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %445, ptr %3, align 8
   br label %2666
 
 446:                                              ; preds = %10
-  %447 = load ptr, ptr %4, align 8
+  %447 = load ptr, ptr %4, align 8, !tbaa !3
   %448 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %447, ptr noundef @.str.171)
-  %449 = load ptr, ptr %4, align 8
+  %449 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %449, ptr %3, align 8
   br label %2666
 
 450:                                              ; preds = %10
-  %451 = load ptr, ptr %4, align 8
+  %451 = load ptr, ptr %4, align 8, !tbaa !3
   %452 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %451, ptr noundef @.str.172)
-  %453 = load ptr, ptr %4, align 8
+  %453 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %453, ptr %3, align 8
   br label %2666
 
 454:                                              ; preds = %10
-  %455 = load ptr, ptr %4, align 8
+  %455 = load ptr, ptr %4, align 8, !tbaa !3
   %456 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %455, ptr noundef @.str.173)
-  %457 = load ptr, ptr %4, align 8
+  %457 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %457, ptr %3, align 8
   br label %2666
 
 458:                                              ; preds = %10
-  %459 = load ptr, ptr %4, align 8
+  %459 = load ptr, ptr %4, align 8, !tbaa !3
   %460 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %459, ptr noundef @.str.174)
-  %461 = load ptr, ptr %4, align 8
+  %461 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %461, ptr %3, align 8
   br label %2666
 
 462:                                              ; preds = %10
-  %463 = load ptr, ptr %4, align 8
+  %463 = load ptr, ptr %4, align 8, !tbaa !3
   %464 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %463, ptr noundef @.str.175)
-  %465 = load ptr, ptr %4, align 8
+  %465 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %465, ptr %3, align 8
   br label %2666
 
 466:                                              ; preds = %10
-  %467 = load ptr, ptr %4, align 8
+  %467 = load ptr, ptr %4, align 8, !tbaa !3
   %468 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %467, ptr noundef @.str.176)
-  %469 = load ptr, ptr %4, align 8
+  %469 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %469, ptr %3, align 8
   br label %2666
 
 470:                                              ; preds = %10
-  %471 = load ptr, ptr %4, align 8
+  %471 = load ptr, ptr %4, align 8, !tbaa !3
   %472 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %471, ptr noundef @.str.177)
-  %473 = load ptr, ptr %4, align 8
+  %473 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %473, ptr %3, align 8
   br label %2666
 
 474:                                              ; preds = %10
-  %475 = load ptr, ptr %4, align 8
+  %475 = load ptr, ptr %4, align 8, !tbaa !3
   %476 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %475, ptr noundef @.str.178)
-  %477 = load ptr, ptr %4, align 8
+  %477 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %477, ptr %3, align 8
   br label %2666
 
 478:                                              ; preds = %10
-  %479 = load ptr, ptr %4, align 8
+  %479 = load ptr, ptr %4, align 8, !tbaa !3
   %480 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %479, ptr noundef @.str.179)
-  %481 = load ptr, ptr %4, align 8
+  %481 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %481, ptr %3, align 8
   br label %2666
 
 482:                                              ; preds = %10
-  %483 = load ptr, ptr %4, align 8
+  %483 = load ptr, ptr %4, align 8, !tbaa !3
   %484 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %483, ptr noundef @.str.180)
-  %485 = load ptr, ptr %4, align 8
+  %485 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %485, ptr %3, align 8
   br label %2666
 
 486:                                              ; preds = %10
-  %487 = load ptr, ptr %4, align 8
+  %487 = load ptr, ptr %4, align 8, !tbaa !3
   %488 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %487, ptr noundef @.str.181)
-  %489 = load ptr, ptr %4, align 8
+  %489 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %489, ptr %3, align 8
   br label %2666
 
 490:                                              ; preds = %10
-  %491 = load ptr, ptr %4, align 8
+  %491 = load ptr, ptr %4, align 8, !tbaa !3
   %492 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %491, ptr noundef @.str.182)
-  %493 = load ptr, ptr %4, align 8
+  %493 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %493, ptr %3, align 8
   br label %2666
 
 494:                                              ; preds = %10
-  %495 = load ptr, ptr %4, align 8
+  %495 = load ptr, ptr %4, align 8, !tbaa !3
   %496 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %495, ptr noundef @.str.183)
-  %497 = load ptr, ptr %4, align 8
+  %497 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %497, ptr %3, align 8
   br label %2666
 
 498:                                              ; preds = %10
-  %499 = load ptr, ptr %4, align 8
+  %499 = load ptr, ptr %4, align 8, !tbaa !3
   %500 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %499, ptr noundef @.str.184)
-  %501 = load ptr, ptr %4, align 8
+  %501 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %501, ptr %3, align 8
   br label %2666
 
 502:                                              ; preds = %10
-  %503 = load ptr, ptr %4, align 8
+  %503 = load ptr, ptr %4, align 8, !tbaa !3
   %504 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %503, ptr noundef @.str.185)
-  %505 = load ptr, ptr %4, align 8
+  %505 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %505, ptr %3, align 8
   br label %2666
 
 506:                                              ; preds = %10
-  %507 = load ptr, ptr %4, align 8
+  %507 = load ptr, ptr %4, align 8, !tbaa !3
   %508 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %507, ptr noundef @.str.186)
-  %509 = load ptr, ptr %4, align 8
+  %509 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %509, ptr %3, align 8
   br label %2666
 
 510:                                              ; preds = %10
-  %511 = load ptr, ptr %4, align 8
+  %511 = load ptr, ptr %4, align 8, !tbaa !3
   %512 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %511, ptr noundef @.str.187)
-  %513 = load ptr, ptr %4, align 8
+  %513 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %513, ptr %3, align 8
   br label %2666
 
 514:                                              ; preds = %10
-  %515 = load ptr, ptr %4, align 8
+  %515 = load ptr, ptr %4, align 8, !tbaa !3
   %516 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %515, ptr noundef @.str.188)
-  %517 = load ptr, ptr %4, align 8
+  %517 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %517, ptr %3, align 8
   br label %2666
 
 518:                                              ; preds = %10
-  %519 = load ptr, ptr %4, align 8
+  %519 = load ptr, ptr %4, align 8, !tbaa !3
   %520 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %519, ptr noundef @.str.189)
-  %521 = load ptr, ptr %4, align 8
+  %521 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %521, ptr %3, align 8
   br label %2666
 
 522:                                              ; preds = %10
-  %523 = load ptr, ptr %4, align 8
+  %523 = load ptr, ptr %4, align 8, !tbaa !3
   %524 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %523, ptr noundef @.str.190)
-  %525 = load ptr, ptr %4, align 8
+  %525 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %525, ptr %3, align 8
   br label %2666
 
 526:                                              ; preds = %10
-  %527 = load ptr, ptr %4, align 8
+  %527 = load ptr, ptr %4, align 8, !tbaa !3
   %528 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %527, ptr noundef @.str.191)
-  %529 = load ptr, ptr %4, align 8
+  %529 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %529, ptr %3, align 8
   br label %2666
 
 530:                                              ; preds = %10
-  %531 = load ptr, ptr %4, align 8
+  %531 = load ptr, ptr %4, align 8, !tbaa !3
   %532 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %531, ptr noundef @.str.192)
-  %533 = load ptr, ptr %4, align 8
+  %533 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %533, ptr %3, align 8
   br label %2666
 
 534:                                              ; preds = %10
-  %535 = load ptr, ptr %4, align 8
+  %535 = load ptr, ptr %4, align 8, !tbaa !3
   %536 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %535, ptr noundef @.str.193)
-  %537 = load ptr, ptr %4, align 8
+  %537 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %537, ptr %3, align 8
   br label %2666
 
 538:                                              ; preds = %10
-  %539 = load ptr, ptr %4, align 8
+  %539 = load ptr, ptr %4, align 8, !tbaa !3
   %540 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %539, ptr noundef @.str.194)
-  %541 = load ptr, ptr %4, align 8
+  %541 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %541, ptr %3, align 8
   br label %2666
 
@@ -2488,16 +2488,16 @@ define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm3pdbls
   br label %2658
 
 544:                                              ; preds = %2
-  %545 = load ptr, ptr %5, align 8
+  %545 = load ptr, ptr %5, align 8, !tbaa !19
   %546 = getelementptr inbounds nuw %"struct.llvm::codeview::CPURegister", ptr %545, i32 0, i32 0
-  %547 = load i16, ptr %546, align 2
+  %547 = load i16, ptr %546, align 2, !tbaa !21
   %548 = icmp eq i16 %547, 246
   br i1 %548, label %549, label %1471
 
 549:                                              ; preds = %544
-  %550 = load ptr, ptr %5, align 8
+  %550 = load ptr, ptr %5, align 8, !tbaa !19
   %551 = getelementptr inbounds nuw %"struct.llvm::codeview::CPURegister", ptr %550, i32 0, i32 1
-  %552 = load i16, ptr %551, align 2
+  %552 = load i16, ptr %551, align 2, !tbaa !25
   switch i16 %552, label %1469 [
     i16 0, label %553
     i16 10, label %557
@@ -2731,1605 +2731,1605 @@ define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm3pdbls
   ]
 
 553:                                              ; preds = %549
-  %554 = load ptr, ptr %4, align 8
+  %554 = load ptr, ptr %4, align 8, !tbaa !3
   %555 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %554, ptr noundef @.str.195)
-  %556 = load ptr, ptr %4, align 8
+  %556 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %556, ptr %3, align 8
   br label %2666
 
 557:                                              ; preds = %549
-  %558 = load ptr, ptr %4, align 8
+  %558 = load ptr, ptr %4, align 8, !tbaa !3
   %559 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %558, ptr noundef @.str.196)
-  %560 = load ptr, ptr %4, align 8
+  %560 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %560, ptr %3, align 8
   br label %2666
 
 561:                                              ; preds = %549
-  %562 = load ptr, ptr %4, align 8
+  %562 = load ptr, ptr %4, align 8, !tbaa !3
   %563 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %562, ptr noundef @.str.197)
-  %564 = load ptr, ptr %4, align 8
+  %564 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %564, ptr %3, align 8
   br label %2666
 
 565:                                              ; preds = %549
-  %566 = load ptr, ptr %4, align 8
+  %566 = load ptr, ptr %4, align 8, !tbaa !3
   %567 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %566, ptr noundef @.str.198)
-  %568 = load ptr, ptr %4, align 8
+  %568 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %568, ptr %3, align 8
   br label %2666
 
 569:                                              ; preds = %549
-  %570 = load ptr, ptr %4, align 8
+  %570 = load ptr, ptr %4, align 8, !tbaa !3
   %571 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %570, ptr noundef @.str.199)
-  %572 = load ptr, ptr %4, align 8
+  %572 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %572, ptr %3, align 8
   br label %2666
 
 573:                                              ; preds = %549
-  %574 = load ptr, ptr %4, align 8
+  %574 = load ptr, ptr %4, align 8, !tbaa !3
   %575 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %574, ptr noundef @.str.200)
-  %576 = load ptr, ptr %4, align 8
+  %576 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %576, ptr %3, align 8
   br label %2666
 
 577:                                              ; preds = %549
-  %578 = load ptr, ptr %4, align 8
+  %578 = load ptr, ptr %4, align 8, !tbaa !3
   %579 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %578, ptr noundef @.str.201)
-  %580 = load ptr, ptr %4, align 8
+  %580 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %580, ptr %3, align 8
   br label %2666
 
 581:                                              ; preds = %549
-  %582 = load ptr, ptr %4, align 8
+  %582 = load ptr, ptr %4, align 8, !tbaa !3
   %583 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %582, ptr noundef @.str.202)
-  %584 = load ptr, ptr %4, align 8
+  %584 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %584, ptr %3, align 8
   br label %2666
 
 585:                                              ; preds = %549
-  %586 = load ptr, ptr %4, align 8
+  %586 = load ptr, ptr %4, align 8, !tbaa !3
   %587 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %586, ptr noundef @.str.203)
-  %588 = load ptr, ptr %4, align 8
+  %588 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %588, ptr %3, align 8
   br label %2666
 
 589:                                              ; preds = %549
-  %590 = load ptr, ptr %4, align 8
+  %590 = load ptr, ptr %4, align 8, !tbaa !3
   %591 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %590, ptr noundef @.str.204)
-  %592 = load ptr, ptr %4, align 8
+  %592 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %592, ptr %3, align 8
   br label %2666
 
 593:                                              ; preds = %549
-  %594 = load ptr, ptr %4, align 8
+  %594 = load ptr, ptr %4, align 8, !tbaa !3
   %595 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %594, ptr noundef @.str.205)
-  %596 = load ptr, ptr %4, align 8
+  %596 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %596, ptr %3, align 8
   br label %2666
 
 597:                                              ; preds = %549
-  %598 = load ptr, ptr %4, align 8
+  %598 = load ptr, ptr %4, align 8, !tbaa !3
   %599 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %598, ptr noundef @.str.206)
-  %600 = load ptr, ptr %4, align 8
+  %600 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %600, ptr %3, align 8
   br label %2666
 
 601:                                              ; preds = %549
-  %602 = load ptr, ptr %4, align 8
+  %602 = load ptr, ptr %4, align 8, !tbaa !3
   %603 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %602, ptr noundef @.str.207)
-  %604 = load ptr, ptr %4, align 8
+  %604 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %604, ptr %3, align 8
   br label %2666
 
 605:                                              ; preds = %549
-  %606 = load ptr, ptr %4, align 8
+  %606 = load ptr, ptr %4, align 8, !tbaa !3
   %607 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %606, ptr noundef @.str.208)
-  %608 = load ptr, ptr %4, align 8
+  %608 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %608, ptr %3, align 8
   br label %2666
 
 609:                                              ; preds = %549
-  %610 = load ptr, ptr %4, align 8
+  %610 = load ptr, ptr %4, align 8, !tbaa !3
   %611 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %610, ptr noundef @.str.209)
-  %612 = load ptr, ptr %4, align 8
+  %612 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %612, ptr %3, align 8
   br label %2666
 
 613:                                              ; preds = %549
-  %614 = load ptr, ptr %4, align 8
+  %614 = load ptr, ptr %4, align 8, !tbaa !3
   %615 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %614, ptr noundef @.str.210)
-  %616 = load ptr, ptr %4, align 8
+  %616 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %616, ptr %3, align 8
   br label %2666
 
 617:                                              ; preds = %549
-  %618 = load ptr, ptr %4, align 8
+  %618 = load ptr, ptr %4, align 8, !tbaa !3
   %619 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %618, ptr noundef @.str.211)
-  %620 = load ptr, ptr %4, align 8
+  %620 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %620, ptr %3, align 8
   br label %2666
 
 621:                                              ; preds = %549
-  %622 = load ptr, ptr %4, align 8
+  %622 = load ptr, ptr %4, align 8, !tbaa !3
   %623 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %622, ptr noundef @.str.212)
-  %624 = load ptr, ptr %4, align 8
+  %624 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %624, ptr %3, align 8
   br label %2666
 
 625:                                              ; preds = %549
-  %626 = load ptr, ptr %4, align 8
+  %626 = load ptr, ptr %4, align 8, !tbaa !3
   %627 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %626, ptr noundef @.str.213)
-  %628 = load ptr, ptr %4, align 8
+  %628 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %628, ptr %3, align 8
   br label %2666
 
 629:                                              ; preds = %549
-  %630 = load ptr, ptr %4, align 8
+  %630 = load ptr, ptr %4, align 8, !tbaa !3
   %631 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %630, ptr noundef @.str.214)
-  %632 = load ptr, ptr %4, align 8
+  %632 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %632, ptr %3, align 8
   br label %2666
 
 633:                                              ; preds = %549
-  %634 = load ptr, ptr %4, align 8
+  %634 = load ptr, ptr %4, align 8, !tbaa !3
   %635 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %634, ptr noundef @.str.215)
-  %636 = load ptr, ptr %4, align 8
+  %636 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %636, ptr %3, align 8
   br label %2666
 
 637:                                              ; preds = %549
-  %638 = load ptr, ptr %4, align 8
+  %638 = load ptr, ptr %4, align 8, !tbaa !3
   %639 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %638, ptr noundef @.str.216)
-  %640 = load ptr, ptr %4, align 8
+  %640 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %640, ptr %3, align 8
   br label %2666
 
 641:                                              ; preds = %549
-  %642 = load ptr, ptr %4, align 8
+  %642 = load ptr, ptr %4, align 8, !tbaa !3
   %643 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %642, ptr noundef @.str.217)
-  %644 = load ptr, ptr %4, align 8
+  %644 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %644, ptr %3, align 8
   br label %2666
 
 645:                                              ; preds = %549
-  %646 = load ptr, ptr %4, align 8
+  %646 = load ptr, ptr %4, align 8, !tbaa !3
   %647 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %646, ptr noundef @.str.218)
-  %648 = load ptr, ptr %4, align 8
+  %648 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %648, ptr %3, align 8
   br label %2666
 
 649:                                              ; preds = %549
-  %650 = load ptr, ptr %4, align 8
+  %650 = load ptr, ptr %4, align 8, !tbaa !3
   %651 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %650, ptr noundef @.str.219)
-  %652 = load ptr, ptr %4, align 8
+  %652 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %652, ptr %3, align 8
   br label %2666
 
 653:                                              ; preds = %549
-  %654 = load ptr, ptr %4, align 8
+  %654 = load ptr, ptr %4, align 8, !tbaa !3
   %655 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %654, ptr noundef @.str.220)
-  %656 = load ptr, ptr %4, align 8
+  %656 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %656, ptr %3, align 8
   br label %2666
 
 657:                                              ; preds = %549
-  %658 = load ptr, ptr %4, align 8
+  %658 = load ptr, ptr %4, align 8, !tbaa !3
   %659 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %658, ptr noundef @.str.221)
-  %660 = load ptr, ptr %4, align 8
+  %660 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %660, ptr %3, align 8
   br label %2666
 
 661:                                              ; preds = %549
-  %662 = load ptr, ptr %4, align 8
+  %662 = load ptr, ptr %4, align 8, !tbaa !3
   %663 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %662, ptr noundef @.str.222)
-  %664 = load ptr, ptr %4, align 8
+  %664 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %664, ptr %3, align 8
   br label %2666
 
 665:                                              ; preds = %549
-  %666 = load ptr, ptr %4, align 8
+  %666 = load ptr, ptr %4, align 8, !tbaa !3
   %667 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %666, ptr noundef @.str.223)
-  %668 = load ptr, ptr %4, align 8
+  %668 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %668, ptr %3, align 8
   br label %2666
 
 669:                                              ; preds = %549
-  %670 = load ptr, ptr %4, align 8
+  %670 = load ptr, ptr %4, align 8, !tbaa !3
   %671 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %670, ptr noundef @.str.224)
-  %672 = load ptr, ptr %4, align 8
+  %672 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %672, ptr %3, align 8
   br label %2666
 
 673:                                              ; preds = %549
-  %674 = load ptr, ptr %4, align 8
+  %674 = load ptr, ptr %4, align 8, !tbaa !3
   %675 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %674, ptr noundef @.str.225)
-  %676 = load ptr, ptr %4, align 8
+  %676 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %676, ptr %3, align 8
   br label %2666
 
 677:                                              ; preds = %549
-  %678 = load ptr, ptr %4, align 8
+  %678 = load ptr, ptr %4, align 8, !tbaa !3
   %679 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %678, ptr noundef @.str.226)
-  %680 = load ptr, ptr %4, align 8
+  %680 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %680, ptr %3, align 8
   br label %2666
 
 681:                                              ; preds = %549
-  %682 = load ptr, ptr %4, align 8
+  %682 = load ptr, ptr %4, align 8, !tbaa !3
   %683 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %682, ptr noundef @.str.227)
-  %684 = load ptr, ptr %4, align 8
+  %684 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %684, ptr %3, align 8
   br label %2666
 
 685:                                              ; preds = %549
-  %686 = load ptr, ptr %4, align 8
+  %686 = load ptr, ptr %4, align 8, !tbaa !3
   %687 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %686, ptr noundef @.str.228)
-  %688 = load ptr, ptr %4, align 8
+  %688 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %688, ptr %3, align 8
   br label %2666
 
 689:                                              ; preds = %549
-  %690 = load ptr, ptr %4, align 8
+  %690 = load ptr, ptr %4, align 8, !tbaa !3
   %691 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %690, ptr noundef @.str.229)
-  %692 = load ptr, ptr %4, align 8
+  %692 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %692, ptr %3, align 8
   br label %2666
 
 693:                                              ; preds = %549
-  %694 = load ptr, ptr %4, align 8
+  %694 = load ptr, ptr %4, align 8, !tbaa !3
   %695 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %694, ptr noundef @.str.230)
-  %696 = load ptr, ptr %4, align 8
+  %696 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %696, ptr %3, align 8
   br label %2666
 
 697:                                              ; preds = %549
-  %698 = load ptr, ptr %4, align 8
+  %698 = load ptr, ptr %4, align 8, !tbaa !3
   %699 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %698, ptr noundef @.str.231)
-  %700 = load ptr, ptr %4, align 8
+  %700 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %700, ptr %3, align 8
   br label %2666
 
 701:                                              ; preds = %549
-  %702 = load ptr, ptr %4, align 8
+  %702 = load ptr, ptr %4, align 8, !tbaa !3
   %703 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %702, ptr noundef @.str.232)
-  %704 = load ptr, ptr %4, align 8
+  %704 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %704, ptr %3, align 8
   br label %2666
 
 705:                                              ; preds = %549
-  %706 = load ptr, ptr %4, align 8
+  %706 = load ptr, ptr %4, align 8, !tbaa !3
   %707 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %706, ptr noundef @.str.233)
-  %708 = load ptr, ptr %4, align 8
+  %708 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %708, ptr %3, align 8
   br label %2666
 
 709:                                              ; preds = %549
-  %710 = load ptr, ptr %4, align 8
+  %710 = load ptr, ptr %4, align 8, !tbaa !3
   %711 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %710, ptr noundef @.str.234)
-  %712 = load ptr, ptr %4, align 8
+  %712 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %712, ptr %3, align 8
   br label %2666
 
 713:                                              ; preds = %549
-  %714 = load ptr, ptr %4, align 8
+  %714 = load ptr, ptr %4, align 8, !tbaa !3
   %715 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %714, ptr noundef @.str.235)
-  %716 = load ptr, ptr %4, align 8
+  %716 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %716, ptr %3, align 8
   br label %2666
 
 717:                                              ; preds = %549
-  %718 = load ptr, ptr %4, align 8
+  %718 = load ptr, ptr %4, align 8, !tbaa !3
   %719 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %718, ptr noundef @.str.236)
-  %720 = load ptr, ptr %4, align 8
+  %720 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %720, ptr %3, align 8
   br label %2666
 
 721:                                              ; preds = %549
-  %722 = load ptr, ptr %4, align 8
+  %722 = load ptr, ptr %4, align 8, !tbaa !3
   %723 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %722, ptr noundef @.str.237)
-  %724 = load ptr, ptr %4, align 8
+  %724 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %724, ptr %3, align 8
   br label %2666
 
 725:                                              ; preds = %549
-  %726 = load ptr, ptr %4, align 8
+  %726 = load ptr, ptr %4, align 8, !tbaa !3
   %727 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %726, ptr noundef @.str.238)
-  %728 = load ptr, ptr %4, align 8
+  %728 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %728, ptr %3, align 8
   br label %2666
 
 729:                                              ; preds = %549
-  %730 = load ptr, ptr %4, align 8
+  %730 = load ptr, ptr %4, align 8, !tbaa !3
   %731 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %730, ptr noundef @.str.239)
-  %732 = load ptr, ptr %4, align 8
+  %732 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %732, ptr %3, align 8
   br label %2666
 
 733:                                              ; preds = %549
-  %734 = load ptr, ptr %4, align 8
+  %734 = load ptr, ptr %4, align 8, !tbaa !3
   %735 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %734, ptr noundef @.str.240)
-  %736 = load ptr, ptr %4, align 8
+  %736 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %736, ptr %3, align 8
   br label %2666
 
 737:                                              ; preds = %549
-  %738 = load ptr, ptr %4, align 8
+  %738 = load ptr, ptr %4, align 8, !tbaa !3
   %739 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %738, ptr noundef @.str.241)
-  %740 = load ptr, ptr %4, align 8
+  %740 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %740, ptr %3, align 8
   br label %2666
 
 741:                                              ; preds = %549
-  %742 = load ptr, ptr %4, align 8
+  %742 = load ptr, ptr %4, align 8, !tbaa !3
   %743 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %742, ptr noundef @.str.242)
-  %744 = load ptr, ptr %4, align 8
+  %744 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %744, ptr %3, align 8
   br label %2666
 
 745:                                              ; preds = %549
-  %746 = load ptr, ptr %4, align 8
+  %746 = load ptr, ptr %4, align 8, !tbaa !3
   %747 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %746, ptr noundef @.str.243)
-  %748 = load ptr, ptr %4, align 8
+  %748 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %748, ptr %3, align 8
   br label %2666
 
 749:                                              ; preds = %549
-  %750 = load ptr, ptr %4, align 8
+  %750 = load ptr, ptr %4, align 8, !tbaa !3
   %751 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %750, ptr noundef @.str.244)
-  %752 = load ptr, ptr %4, align 8
+  %752 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %752, ptr %3, align 8
   br label %2666
 
 753:                                              ; preds = %549
-  %754 = load ptr, ptr %4, align 8
+  %754 = load ptr, ptr %4, align 8, !tbaa !3
   %755 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %754, ptr noundef @.str.245)
-  %756 = load ptr, ptr %4, align 8
+  %756 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %756, ptr %3, align 8
   br label %2666
 
 757:                                              ; preds = %549
-  %758 = load ptr, ptr %4, align 8
+  %758 = load ptr, ptr %4, align 8, !tbaa !3
   %759 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %758, ptr noundef @.str.246)
-  %760 = load ptr, ptr %4, align 8
+  %760 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %760, ptr %3, align 8
   br label %2666
 
 761:                                              ; preds = %549
-  %762 = load ptr, ptr %4, align 8
+  %762 = load ptr, ptr %4, align 8, !tbaa !3
   %763 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %762, ptr noundef @.str.247)
-  %764 = load ptr, ptr %4, align 8
+  %764 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %764, ptr %3, align 8
   br label %2666
 
 765:                                              ; preds = %549
-  %766 = load ptr, ptr %4, align 8
+  %766 = load ptr, ptr %4, align 8, !tbaa !3
   %767 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %766, ptr noundef @.str.248)
-  %768 = load ptr, ptr %4, align 8
+  %768 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %768, ptr %3, align 8
   br label %2666
 
 769:                                              ; preds = %549
-  %770 = load ptr, ptr %4, align 8
+  %770 = load ptr, ptr %4, align 8, !tbaa !3
   %771 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %770, ptr noundef @.str.249)
-  %772 = load ptr, ptr %4, align 8
+  %772 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %772, ptr %3, align 8
   br label %2666
 
 773:                                              ; preds = %549
-  %774 = load ptr, ptr %4, align 8
+  %774 = load ptr, ptr %4, align 8, !tbaa !3
   %775 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %774, ptr noundef @.str.250)
-  %776 = load ptr, ptr %4, align 8
+  %776 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %776, ptr %3, align 8
   br label %2666
 
 777:                                              ; preds = %549
-  %778 = load ptr, ptr %4, align 8
+  %778 = load ptr, ptr %4, align 8, !tbaa !3
   %779 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %778, ptr noundef @.str.251)
-  %780 = load ptr, ptr %4, align 8
+  %780 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %780, ptr %3, align 8
   br label %2666
 
 781:                                              ; preds = %549
-  %782 = load ptr, ptr %4, align 8
+  %782 = load ptr, ptr %4, align 8, !tbaa !3
   %783 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %782, ptr noundef @.str.252)
-  %784 = load ptr, ptr %4, align 8
+  %784 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %784, ptr %3, align 8
   br label %2666
 
 785:                                              ; preds = %549
-  %786 = load ptr, ptr %4, align 8
+  %786 = load ptr, ptr %4, align 8, !tbaa !3
   %787 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %786, ptr noundef @.str.253)
-  %788 = load ptr, ptr %4, align 8
+  %788 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %788, ptr %3, align 8
   br label %2666
 
 789:                                              ; preds = %549
-  %790 = load ptr, ptr %4, align 8
+  %790 = load ptr, ptr %4, align 8, !tbaa !3
   %791 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %790, ptr noundef @.str.254)
-  %792 = load ptr, ptr %4, align 8
+  %792 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %792, ptr %3, align 8
   br label %2666
 
 793:                                              ; preds = %549
-  %794 = load ptr, ptr %4, align 8
+  %794 = load ptr, ptr %4, align 8, !tbaa !3
   %795 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %794, ptr noundef @.str.255)
-  %796 = load ptr, ptr %4, align 8
+  %796 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %796, ptr %3, align 8
   br label %2666
 
 797:                                              ; preds = %549
-  %798 = load ptr, ptr %4, align 8
+  %798 = load ptr, ptr %4, align 8, !tbaa !3
   %799 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %798, ptr noundef @.str.256)
-  %800 = load ptr, ptr %4, align 8
+  %800 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %800, ptr %3, align 8
   br label %2666
 
 801:                                              ; preds = %549
-  %802 = load ptr, ptr %4, align 8
+  %802 = load ptr, ptr %4, align 8, !tbaa !3
   %803 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %802, ptr noundef @.str.257)
-  %804 = load ptr, ptr %4, align 8
+  %804 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %804, ptr %3, align 8
   br label %2666
 
 805:                                              ; preds = %549
-  %806 = load ptr, ptr %4, align 8
+  %806 = load ptr, ptr %4, align 8, !tbaa !3
   %807 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %806, ptr noundef @.str.258)
-  %808 = load ptr, ptr %4, align 8
+  %808 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %808, ptr %3, align 8
   br label %2666
 
 809:                                              ; preds = %549
-  %810 = load ptr, ptr %4, align 8
+  %810 = load ptr, ptr %4, align 8, !tbaa !3
   %811 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %810, ptr noundef @.str.259)
-  %812 = load ptr, ptr %4, align 8
+  %812 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %812, ptr %3, align 8
   br label %2666
 
 813:                                              ; preds = %549
-  %814 = load ptr, ptr %4, align 8
+  %814 = load ptr, ptr %4, align 8, !tbaa !3
   %815 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %814, ptr noundef @.str.260)
-  %816 = load ptr, ptr %4, align 8
+  %816 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %816, ptr %3, align 8
   br label %2666
 
 817:                                              ; preds = %549
-  %818 = load ptr, ptr %4, align 8
+  %818 = load ptr, ptr %4, align 8, !tbaa !3
   %819 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %818, ptr noundef @.str.261)
-  %820 = load ptr, ptr %4, align 8
+  %820 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %820, ptr %3, align 8
   br label %2666
 
 821:                                              ; preds = %549
-  %822 = load ptr, ptr %4, align 8
+  %822 = load ptr, ptr %4, align 8, !tbaa !3
   %823 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %822, ptr noundef @.str.262)
-  %824 = load ptr, ptr %4, align 8
+  %824 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %824, ptr %3, align 8
   br label %2666
 
 825:                                              ; preds = %549
-  %826 = load ptr, ptr %4, align 8
+  %826 = load ptr, ptr %4, align 8, !tbaa !3
   %827 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %826, ptr noundef @.str.263)
-  %828 = load ptr, ptr %4, align 8
+  %828 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %828, ptr %3, align 8
   br label %2666
 
 829:                                              ; preds = %549
-  %830 = load ptr, ptr %4, align 8
+  %830 = load ptr, ptr %4, align 8, !tbaa !3
   %831 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %830, ptr noundef @.str.264)
-  %832 = load ptr, ptr %4, align 8
+  %832 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %832, ptr %3, align 8
   br label %2666
 
 833:                                              ; preds = %549
-  %834 = load ptr, ptr %4, align 8
+  %834 = load ptr, ptr %4, align 8, !tbaa !3
   %835 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %834, ptr noundef @.str.265)
-  %836 = load ptr, ptr %4, align 8
+  %836 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %836, ptr %3, align 8
   br label %2666
 
 837:                                              ; preds = %549
-  %838 = load ptr, ptr %4, align 8
+  %838 = load ptr, ptr %4, align 8, !tbaa !3
   %839 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %838, ptr noundef @.str.266)
-  %840 = load ptr, ptr %4, align 8
+  %840 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %840, ptr %3, align 8
   br label %2666
 
 841:                                              ; preds = %549
-  %842 = load ptr, ptr %4, align 8
+  %842 = load ptr, ptr %4, align 8, !tbaa !3
   %843 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %842, ptr noundef @.str.267)
-  %844 = load ptr, ptr %4, align 8
+  %844 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %844, ptr %3, align 8
   br label %2666
 
 845:                                              ; preds = %549
-  %846 = load ptr, ptr %4, align 8
+  %846 = load ptr, ptr %4, align 8, !tbaa !3
   %847 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %846, ptr noundef @.str.268)
-  %848 = load ptr, ptr %4, align 8
+  %848 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %848, ptr %3, align 8
   br label %2666
 
 849:                                              ; preds = %549
-  %850 = load ptr, ptr %4, align 8
+  %850 = load ptr, ptr %4, align 8, !tbaa !3
   %851 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %850, ptr noundef @.str.269)
-  %852 = load ptr, ptr %4, align 8
+  %852 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %852, ptr %3, align 8
   br label %2666
 
 853:                                              ; preds = %549
-  %854 = load ptr, ptr %4, align 8
+  %854 = load ptr, ptr %4, align 8, !tbaa !3
   %855 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %854, ptr noundef @.str.270)
-  %856 = load ptr, ptr %4, align 8
+  %856 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %856, ptr %3, align 8
   br label %2666
 
 857:                                              ; preds = %549
-  %858 = load ptr, ptr %4, align 8
+  %858 = load ptr, ptr %4, align 8, !tbaa !3
   %859 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %858, ptr noundef @.str.271)
-  %860 = load ptr, ptr %4, align 8
+  %860 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %860, ptr %3, align 8
   br label %2666
 
 861:                                              ; preds = %549
-  %862 = load ptr, ptr %4, align 8
+  %862 = load ptr, ptr %4, align 8, !tbaa !3
   %863 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %862, ptr noundef @.str.272)
-  %864 = load ptr, ptr %4, align 8
+  %864 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %864, ptr %3, align 8
   br label %2666
 
 865:                                              ; preds = %549
-  %866 = load ptr, ptr %4, align 8
+  %866 = load ptr, ptr %4, align 8, !tbaa !3
   %867 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %866, ptr noundef @.str.273)
-  %868 = load ptr, ptr %4, align 8
+  %868 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %868, ptr %3, align 8
   br label %2666
 
 869:                                              ; preds = %549
-  %870 = load ptr, ptr %4, align 8
+  %870 = load ptr, ptr %4, align 8, !tbaa !3
   %871 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %870, ptr noundef @.str.274)
-  %872 = load ptr, ptr %4, align 8
+  %872 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %872, ptr %3, align 8
   br label %2666
 
 873:                                              ; preds = %549
-  %874 = load ptr, ptr %4, align 8
+  %874 = load ptr, ptr %4, align 8, !tbaa !3
   %875 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %874, ptr noundef @.str.275)
-  %876 = load ptr, ptr %4, align 8
+  %876 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %876, ptr %3, align 8
   br label %2666
 
 877:                                              ; preds = %549
-  %878 = load ptr, ptr %4, align 8
+  %878 = load ptr, ptr %4, align 8, !tbaa !3
   %879 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %878, ptr noundef @.str.276)
-  %880 = load ptr, ptr %4, align 8
+  %880 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %880, ptr %3, align 8
   br label %2666
 
 881:                                              ; preds = %549
-  %882 = load ptr, ptr %4, align 8
+  %882 = load ptr, ptr %4, align 8, !tbaa !3
   %883 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %882, ptr noundef @.str.277)
-  %884 = load ptr, ptr %4, align 8
+  %884 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %884, ptr %3, align 8
   br label %2666
 
 885:                                              ; preds = %549
-  %886 = load ptr, ptr %4, align 8
+  %886 = load ptr, ptr %4, align 8, !tbaa !3
   %887 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %886, ptr noundef @.str.278)
-  %888 = load ptr, ptr %4, align 8
+  %888 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %888, ptr %3, align 8
   br label %2666
 
 889:                                              ; preds = %549
-  %890 = load ptr, ptr %4, align 8
+  %890 = load ptr, ptr %4, align 8, !tbaa !3
   %891 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %890, ptr noundef @.str.279)
-  %892 = load ptr, ptr %4, align 8
+  %892 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %892, ptr %3, align 8
   br label %2666
 
 893:                                              ; preds = %549
-  %894 = load ptr, ptr %4, align 8
+  %894 = load ptr, ptr %4, align 8, !tbaa !3
   %895 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %894, ptr noundef @.str.280)
-  %896 = load ptr, ptr %4, align 8
+  %896 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %896, ptr %3, align 8
   br label %2666
 
 897:                                              ; preds = %549
-  %898 = load ptr, ptr %4, align 8
+  %898 = load ptr, ptr %4, align 8, !tbaa !3
   %899 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %898, ptr noundef @.str.281)
-  %900 = load ptr, ptr %4, align 8
+  %900 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %900, ptr %3, align 8
   br label %2666
 
 901:                                              ; preds = %549
-  %902 = load ptr, ptr %4, align 8
+  %902 = load ptr, ptr %4, align 8, !tbaa !3
   %903 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %902, ptr noundef @.str.282)
-  %904 = load ptr, ptr %4, align 8
+  %904 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %904, ptr %3, align 8
   br label %2666
 
 905:                                              ; preds = %549
-  %906 = load ptr, ptr %4, align 8
+  %906 = load ptr, ptr %4, align 8, !tbaa !3
   %907 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %906, ptr noundef @.str.283)
-  %908 = load ptr, ptr %4, align 8
+  %908 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %908, ptr %3, align 8
   br label %2666
 
 909:                                              ; preds = %549
-  %910 = load ptr, ptr %4, align 8
+  %910 = load ptr, ptr %4, align 8, !tbaa !3
   %911 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %910, ptr noundef @.str.284)
-  %912 = load ptr, ptr %4, align 8
+  %912 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %912, ptr %3, align 8
   br label %2666
 
 913:                                              ; preds = %549
-  %914 = load ptr, ptr %4, align 8
+  %914 = load ptr, ptr %4, align 8, !tbaa !3
   %915 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %914, ptr noundef @.str.285)
-  %916 = load ptr, ptr %4, align 8
+  %916 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %916, ptr %3, align 8
   br label %2666
 
 917:                                              ; preds = %549
-  %918 = load ptr, ptr %4, align 8
+  %918 = load ptr, ptr %4, align 8, !tbaa !3
   %919 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %918, ptr noundef @.str.286)
-  %920 = load ptr, ptr %4, align 8
+  %920 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %920, ptr %3, align 8
   br label %2666
 
 921:                                              ; preds = %549
-  %922 = load ptr, ptr %4, align 8
+  %922 = load ptr, ptr %4, align 8, !tbaa !3
   %923 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %922, ptr noundef @.str.287)
-  %924 = load ptr, ptr %4, align 8
+  %924 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %924, ptr %3, align 8
   br label %2666
 
 925:                                              ; preds = %549
-  %926 = load ptr, ptr %4, align 8
+  %926 = load ptr, ptr %4, align 8, !tbaa !3
   %927 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %926, ptr noundef @.str.288)
-  %928 = load ptr, ptr %4, align 8
+  %928 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %928, ptr %3, align 8
   br label %2666
 
 929:                                              ; preds = %549
-  %930 = load ptr, ptr %4, align 8
+  %930 = load ptr, ptr %4, align 8, !tbaa !3
   %931 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %930, ptr noundef @.str.289)
-  %932 = load ptr, ptr %4, align 8
+  %932 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %932, ptr %3, align 8
   br label %2666
 
 933:                                              ; preds = %549
-  %934 = load ptr, ptr %4, align 8
+  %934 = load ptr, ptr %4, align 8, !tbaa !3
   %935 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %934, ptr noundef @.str.290)
-  %936 = load ptr, ptr %4, align 8
+  %936 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %936, ptr %3, align 8
   br label %2666
 
 937:                                              ; preds = %549
-  %938 = load ptr, ptr %4, align 8
+  %938 = load ptr, ptr %4, align 8, !tbaa !3
   %939 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %938, ptr noundef @.str.291)
-  %940 = load ptr, ptr %4, align 8
+  %940 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %940, ptr %3, align 8
   br label %2666
 
 941:                                              ; preds = %549
-  %942 = load ptr, ptr %4, align 8
+  %942 = load ptr, ptr %4, align 8, !tbaa !3
   %943 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %942, ptr noundef @.str.292)
-  %944 = load ptr, ptr %4, align 8
+  %944 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %944, ptr %3, align 8
   br label %2666
 
 945:                                              ; preds = %549
-  %946 = load ptr, ptr %4, align 8
+  %946 = load ptr, ptr %4, align 8, !tbaa !3
   %947 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %946, ptr noundef @.str.293)
-  %948 = load ptr, ptr %4, align 8
+  %948 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %948, ptr %3, align 8
   br label %2666
 
 949:                                              ; preds = %549
-  %950 = load ptr, ptr %4, align 8
+  %950 = load ptr, ptr %4, align 8, !tbaa !3
   %951 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %950, ptr noundef @.str.294)
-  %952 = load ptr, ptr %4, align 8
+  %952 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %952, ptr %3, align 8
   br label %2666
 
 953:                                              ; preds = %549
-  %954 = load ptr, ptr %4, align 8
+  %954 = load ptr, ptr %4, align 8, !tbaa !3
   %955 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %954, ptr noundef @.str.295)
-  %956 = load ptr, ptr %4, align 8
+  %956 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %956, ptr %3, align 8
   br label %2666
 
 957:                                              ; preds = %549
-  %958 = load ptr, ptr %4, align 8
+  %958 = load ptr, ptr %4, align 8, !tbaa !3
   %959 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %958, ptr noundef @.str.296)
-  %960 = load ptr, ptr %4, align 8
+  %960 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %960, ptr %3, align 8
   br label %2666
 
 961:                                              ; preds = %549
-  %962 = load ptr, ptr %4, align 8
+  %962 = load ptr, ptr %4, align 8, !tbaa !3
   %963 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %962, ptr noundef @.str.297)
-  %964 = load ptr, ptr %4, align 8
+  %964 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %964, ptr %3, align 8
   br label %2666
 
 965:                                              ; preds = %549
-  %966 = load ptr, ptr %4, align 8
+  %966 = load ptr, ptr %4, align 8, !tbaa !3
   %967 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %966, ptr noundef @.str.298)
-  %968 = load ptr, ptr %4, align 8
+  %968 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %968, ptr %3, align 8
   br label %2666
 
 969:                                              ; preds = %549
-  %970 = load ptr, ptr %4, align 8
+  %970 = load ptr, ptr %4, align 8, !tbaa !3
   %971 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %970, ptr noundef @.str.299)
-  %972 = load ptr, ptr %4, align 8
+  %972 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %972, ptr %3, align 8
   br label %2666
 
 973:                                              ; preds = %549
-  %974 = load ptr, ptr %4, align 8
+  %974 = load ptr, ptr %4, align 8, !tbaa !3
   %975 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %974, ptr noundef @.str.300)
-  %976 = load ptr, ptr %4, align 8
+  %976 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %976, ptr %3, align 8
   br label %2666
 
 977:                                              ; preds = %549
-  %978 = load ptr, ptr %4, align 8
+  %978 = load ptr, ptr %4, align 8, !tbaa !3
   %979 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %978, ptr noundef @.str.301)
-  %980 = load ptr, ptr %4, align 8
+  %980 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %980, ptr %3, align 8
   br label %2666
 
 981:                                              ; preds = %549
-  %982 = load ptr, ptr %4, align 8
+  %982 = load ptr, ptr %4, align 8, !tbaa !3
   %983 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %982, ptr noundef @.str.302)
-  %984 = load ptr, ptr %4, align 8
+  %984 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %984, ptr %3, align 8
   br label %2666
 
 985:                                              ; preds = %549
-  %986 = load ptr, ptr %4, align 8
+  %986 = load ptr, ptr %4, align 8, !tbaa !3
   %987 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %986, ptr noundef @.str.303)
-  %988 = load ptr, ptr %4, align 8
+  %988 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %988, ptr %3, align 8
   br label %2666
 
 989:                                              ; preds = %549
-  %990 = load ptr, ptr %4, align 8
+  %990 = load ptr, ptr %4, align 8, !tbaa !3
   %991 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %990, ptr noundef @.str.304)
-  %992 = load ptr, ptr %4, align 8
+  %992 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %992, ptr %3, align 8
   br label %2666
 
 993:                                              ; preds = %549
-  %994 = load ptr, ptr %4, align 8
+  %994 = load ptr, ptr %4, align 8, !tbaa !3
   %995 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %994, ptr noundef @.str.305)
-  %996 = load ptr, ptr %4, align 8
+  %996 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %996, ptr %3, align 8
   br label %2666
 
 997:                                              ; preds = %549
-  %998 = load ptr, ptr %4, align 8
+  %998 = load ptr, ptr %4, align 8, !tbaa !3
   %999 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %998, ptr noundef @.str.306)
-  %1000 = load ptr, ptr %4, align 8
+  %1000 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %1000, ptr %3, align 8
   br label %2666
 
 1001:                                             ; preds = %549
-  %1002 = load ptr, ptr %4, align 8
+  %1002 = load ptr, ptr %4, align 8, !tbaa !3
   %1003 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1002, ptr noundef @.str.307)
-  %1004 = load ptr, ptr %4, align 8
+  %1004 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %1004, ptr %3, align 8
   br label %2666
 
 1005:                                             ; preds = %549
-  %1006 = load ptr, ptr %4, align 8
+  %1006 = load ptr, ptr %4, align 8, !tbaa !3
   %1007 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1006, ptr noundef @.str.308)
-  %1008 = load ptr, ptr %4, align 8
+  %1008 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %1008, ptr %3, align 8
   br label %2666
 
 1009:                                             ; preds = %549
-  %1010 = load ptr, ptr %4, align 8
+  %1010 = load ptr, ptr %4, align 8, !tbaa !3
   %1011 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1010, ptr noundef @.str.309)
-  %1012 = load ptr, ptr %4, align 8
+  %1012 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %1012, ptr %3, align 8
   br label %2666
 
 1013:                                             ; preds = %549
-  %1014 = load ptr, ptr %4, align 8
+  %1014 = load ptr, ptr %4, align 8, !tbaa !3
   %1015 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1014, ptr noundef @.str.310)
-  %1016 = load ptr, ptr %4, align 8
+  %1016 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %1016, ptr %3, align 8
   br label %2666
 
 1017:                                             ; preds = %549
-  %1018 = load ptr, ptr %4, align 8
+  %1018 = load ptr, ptr %4, align 8, !tbaa !3
   %1019 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1018, ptr noundef @.str.311)
-  %1020 = load ptr, ptr %4, align 8
+  %1020 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %1020, ptr %3, align 8
   br label %2666
 
 1021:                                             ; preds = %549
-  %1022 = load ptr, ptr %4, align 8
+  %1022 = load ptr, ptr %4, align 8, !tbaa !3
   %1023 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1022, ptr noundef @.str.312)
-  %1024 = load ptr, ptr %4, align 8
+  %1024 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %1024, ptr %3, align 8
   br label %2666
 
 1025:                                             ; preds = %549
-  %1026 = load ptr, ptr %4, align 8
+  %1026 = load ptr, ptr %4, align 8, !tbaa !3
   %1027 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1026, ptr noundef @.str.313)
-  %1028 = load ptr, ptr %4, align 8
+  %1028 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %1028, ptr %3, align 8
   br label %2666
 
 1029:                                             ; preds = %549
-  %1030 = load ptr, ptr %4, align 8
+  %1030 = load ptr, ptr %4, align 8, !tbaa !3
   %1031 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1030, ptr noundef @.str.314)
-  %1032 = load ptr, ptr %4, align 8
+  %1032 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %1032, ptr %3, align 8
   br label %2666
 
 1033:                                             ; preds = %549
-  %1034 = load ptr, ptr %4, align 8
+  %1034 = load ptr, ptr %4, align 8, !tbaa !3
   %1035 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1034, ptr noundef @.str.315)
-  %1036 = load ptr, ptr %4, align 8
+  %1036 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %1036, ptr %3, align 8
   br label %2666
 
 1037:                                             ; preds = %549
-  %1038 = load ptr, ptr %4, align 8
+  %1038 = load ptr, ptr %4, align 8, !tbaa !3
   %1039 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1038, ptr noundef @.str.316)
-  %1040 = load ptr, ptr %4, align 8
+  %1040 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %1040, ptr %3, align 8
   br label %2666
 
 1041:                                             ; preds = %549
-  %1042 = load ptr, ptr %4, align 8
+  %1042 = load ptr, ptr %4, align 8, !tbaa !3
   %1043 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1042, ptr noundef @.str.317)
-  %1044 = load ptr, ptr %4, align 8
+  %1044 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %1044, ptr %3, align 8
   br label %2666
 
 1045:                                             ; preds = %549
-  %1046 = load ptr, ptr %4, align 8
+  %1046 = load ptr, ptr %4, align 8, !tbaa !3
   %1047 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1046, ptr noundef @.str.318)
-  %1048 = load ptr, ptr %4, align 8
+  %1048 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %1048, ptr %3, align 8
   br label %2666
 
 1049:                                             ; preds = %549
-  %1050 = load ptr, ptr %4, align 8
+  %1050 = load ptr, ptr %4, align 8, !tbaa !3
   %1051 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1050, ptr noundef @.str.319)
-  %1052 = load ptr, ptr %4, align 8
+  %1052 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %1052, ptr %3, align 8
   br label %2666
 
 1053:                                             ; preds = %549
-  %1054 = load ptr, ptr %4, align 8
+  %1054 = load ptr, ptr %4, align 8, !tbaa !3
   %1055 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1054, ptr noundef @.str.320)
-  %1056 = load ptr, ptr %4, align 8
+  %1056 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %1056, ptr %3, align 8
   br label %2666
 
 1057:                                             ; preds = %549
-  %1058 = load ptr, ptr %4, align 8
+  %1058 = load ptr, ptr %4, align 8, !tbaa !3
   %1059 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1058, ptr noundef @.str.321)
-  %1060 = load ptr, ptr %4, align 8
+  %1060 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %1060, ptr %3, align 8
   br label %2666
 
 1061:                                             ; preds = %549
-  %1062 = load ptr, ptr %4, align 8
+  %1062 = load ptr, ptr %4, align 8, !tbaa !3
   %1063 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1062, ptr noundef @.str.322)
-  %1064 = load ptr, ptr %4, align 8
+  %1064 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %1064, ptr %3, align 8
   br label %2666
 
 1065:                                             ; preds = %549
-  %1066 = load ptr, ptr %4, align 8
+  %1066 = load ptr, ptr %4, align 8, !tbaa !3
   %1067 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1066, ptr noundef @.str.323)
-  %1068 = load ptr, ptr %4, align 8
+  %1068 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %1068, ptr %3, align 8
   br label %2666
 
 1069:                                             ; preds = %549
-  %1070 = load ptr, ptr %4, align 8
+  %1070 = load ptr, ptr %4, align 8, !tbaa !3
   %1071 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1070, ptr noundef @.str.324)
-  %1072 = load ptr, ptr %4, align 8
+  %1072 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %1072, ptr %3, align 8
   br label %2666
 
 1073:                                             ; preds = %549
-  %1074 = load ptr, ptr %4, align 8
+  %1074 = load ptr, ptr %4, align 8, !tbaa !3
   %1075 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1074, ptr noundef @.str.325)
-  %1076 = load ptr, ptr %4, align 8
+  %1076 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %1076, ptr %3, align 8
   br label %2666
 
 1077:                                             ; preds = %549
-  %1078 = load ptr, ptr %4, align 8
+  %1078 = load ptr, ptr %4, align 8, !tbaa !3
   %1079 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1078, ptr noundef @.str.326)
-  %1080 = load ptr, ptr %4, align 8
+  %1080 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %1080, ptr %3, align 8
   br label %2666
 
 1081:                                             ; preds = %549
-  %1082 = load ptr, ptr %4, align 8
+  %1082 = load ptr, ptr %4, align 8, !tbaa !3
   %1083 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1082, ptr noundef @.str.327)
-  %1084 = load ptr, ptr %4, align 8
+  %1084 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %1084, ptr %3, align 8
   br label %2666
 
 1085:                                             ; preds = %549
-  %1086 = load ptr, ptr %4, align 8
+  %1086 = load ptr, ptr %4, align 8, !tbaa !3
   %1087 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1086, ptr noundef @.str.328)
-  %1088 = load ptr, ptr %4, align 8
+  %1088 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %1088, ptr %3, align 8
   br label %2666
 
 1089:                                             ; preds = %549
-  %1090 = load ptr, ptr %4, align 8
+  %1090 = load ptr, ptr %4, align 8, !tbaa !3
   %1091 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1090, ptr noundef @.str.329)
-  %1092 = load ptr, ptr %4, align 8
+  %1092 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %1092, ptr %3, align 8
   br label %2666
 
 1093:                                             ; preds = %549
-  %1094 = load ptr, ptr %4, align 8
+  %1094 = load ptr, ptr %4, align 8, !tbaa !3
   %1095 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1094, ptr noundef @.str.330)
-  %1096 = load ptr, ptr %4, align 8
+  %1096 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %1096, ptr %3, align 8
   br label %2666
 
 1097:                                             ; preds = %549
-  %1098 = load ptr, ptr %4, align 8
+  %1098 = load ptr, ptr %4, align 8, !tbaa !3
   %1099 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1098, ptr noundef @.str.331)
-  %1100 = load ptr, ptr %4, align 8
+  %1100 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %1100, ptr %3, align 8
   br label %2666
 
 1101:                                             ; preds = %549
-  %1102 = load ptr, ptr %4, align 8
+  %1102 = load ptr, ptr %4, align 8, !tbaa !3
   %1103 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1102, ptr noundef @.str.332)
-  %1104 = load ptr, ptr %4, align 8
+  %1104 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %1104, ptr %3, align 8
   br label %2666
 
 1105:                                             ; preds = %549
-  %1106 = load ptr, ptr %4, align 8
+  %1106 = load ptr, ptr %4, align 8, !tbaa !3
   %1107 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1106, ptr noundef @.str.333)
-  %1108 = load ptr, ptr %4, align 8
+  %1108 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %1108, ptr %3, align 8
   br label %2666
 
 1109:                                             ; preds = %549
-  %1110 = load ptr, ptr %4, align 8
+  %1110 = load ptr, ptr %4, align 8, !tbaa !3
   %1111 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1110, ptr noundef @.str.334)
-  %1112 = load ptr, ptr %4, align 8
+  %1112 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %1112, ptr %3, align 8
   br label %2666
 
 1113:                                             ; preds = %549
-  %1114 = load ptr, ptr %4, align 8
+  %1114 = load ptr, ptr %4, align 8, !tbaa !3
   %1115 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1114, ptr noundef @.str.335)
-  %1116 = load ptr, ptr %4, align 8
+  %1116 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %1116, ptr %3, align 8
   br label %2666
 
 1117:                                             ; preds = %549
-  %1118 = load ptr, ptr %4, align 8
+  %1118 = load ptr, ptr %4, align 8, !tbaa !3
   %1119 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1118, ptr noundef @.str.336)
-  %1120 = load ptr, ptr %4, align 8
+  %1120 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %1120, ptr %3, align 8
   br label %2666
 
 1121:                                             ; preds = %549
-  %1122 = load ptr, ptr %4, align 8
+  %1122 = load ptr, ptr %4, align 8, !tbaa !3
   %1123 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1122, ptr noundef @.str.337)
-  %1124 = load ptr, ptr %4, align 8
+  %1124 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %1124, ptr %3, align 8
   br label %2666
 
 1125:                                             ; preds = %549
-  %1126 = load ptr, ptr %4, align 8
+  %1126 = load ptr, ptr %4, align 8, !tbaa !3
   %1127 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1126, ptr noundef @.str.338)
-  %1128 = load ptr, ptr %4, align 8
+  %1128 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %1128, ptr %3, align 8
   br label %2666
 
 1129:                                             ; preds = %549
-  %1130 = load ptr, ptr %4, align 8
+  %1130 = load ptr, ptr %4, align 8, !tbaa !3
   %1131 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1130, ptr noundef @.str.339)
-  %1132 = load ptr, ptr %4, align 8
+  %1132 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %1132, ptr %3, align 8
   br label %2666
 
 1133:                                             ; preds = %549
-  %1134 = load ptr, ptr %4, align 8
+  %1134 = load ptr, ptr %4, align 8, !tbaa !3
   %1135 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1134, ptr noundef @.str.340)
-  %1136 = load ptr, ptr %4, align 8
+  %1136 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %1136, ptr %3, align 8
   br label %2666
 
 1137:                                             ; preds = %549
-  %1138 = load ptr, ptr %4, align 8
+  %1138 = load ptr, ptr %4, align 8, !tbaa !3
   %1139 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1138, ptr noundef @.str.341)
-  %1140 = load ptr, ptr %4, align 8
+  %1140 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %1140, ptr %3, align 8
   br label %2666
 
 1141:                                             ; preds = %549
-  %1142 = load ptr, ptr %4, align 8
+  %1142 = load ptr, ptr %4, align 8, !tbaa !3
   %1143 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1142, ptr noundef @.str.342)
-  %1144 = load ptr, ptr %4, align 8
+  %1144 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %1144, ptr %3, align 8
   br label %2666
 
 1145:                                             ; preds = %549
-  %1146 = load ptr, ptr %4, align 8
+  %1146 = load ptr, ptr %4, align 8, !tbaa !3
   %1147 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1146, ptr noundef @.str.343)
-  %1148 = load ptr, ptr %4, align 8
+  %1148 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %1148, ptr %3, align 8
   br label %2666
 
 1149:                                             ; preds = %549
-  %1150 = load ptr, ptr %4, align 8
+  %1150 = load ptr, ptr %4, align 8, !tbaa !3
   %1151 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1150, ptr noundef @.str.344)
-  %1152 = load ptr, ptr %4, align 8
+  %1152 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %1152, ptr %3, align 8
   br label %2666
 
 1153:                                             ; preds = %549
-  %1154 = load ptr, ptr %4, align 8
+  %1154 = load ptr, ptr %4, align 8, !tbaa !3
   %1155 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1154, ptr noundef @.str.345)
-  %1156 = load ptr, ptr %4, align 8
+  %1156 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %1156, ptr %3, align 8
   br label %2666
 
 1157:                                             ; preds = %549
-  %1158 = load ptr, ptr %4, align 8
+  %1158 = load ptr, ptr %4, align 8, !tbaa !3
   %1159 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1158, ptr noundef @.str.346)
-  %1160 = load ptr, ptr %4, align 8
+  %1160 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %1160, ptr %3, align 8
   br label %2666
 
 1161:                                             ; preds = %549
-  %1162 = load ptr, ptr %4, align 8
+  %1162 = load ptr, ptr %4, align 8, !tbaa !3
   %1163 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1162, ptr noundef @.str.347)
-  %1164 = load ptr, ptr %4, align 8
+  %1164 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %1164, ptr %3, align 8
   br label %2666
 
 1165:                                             ; preds = %549
-  %1166 = load ptr, ptr %4, align 8
+  %1166 = load ptr, ptr %4, align 8, !tbaa !3
   %1167 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1166, ptr noundef @.str.348)
-  %1168 = load ptr, ptr %4, align 8
+  %1168 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %1168, ptr %3, align 8
   br label %2666
 
 1169:                                             ; preds = %549
-  %1170 = load ptr, ptr %4, align 8
+  %1170 = load ptr, ptr %4, align 8, !tbaa !3
   %1171 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1170, ptr noundef @.str.349)
-  %1172 = load ptr, ptr %4, align 8
+  %1172 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %1172, ptr %3, align 8
   br label %2666
 
 1173:                                             ; preds = %549
-  %1174 = load ptr, ptr %4, align 8
+  %1174 = load ptr, ptr %4, align 8, !tbaa !3
   %1175 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1174, ptr noundef @.str.350)
-  %1176 = load ptr, ptr %4, align 8
+  %1176 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %1176, ptr %3, align 8
   br label %2666
 
 1177:                                             ; preds = %549
-  %1178 = load ptr, ptr %4, align 8
+  %1178 = load ptr, ptr %4, align 8, !tbaa !3
   %1179 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1178, ptr noundef @.str.351)
-  %1180 = load ptr, ptr %4, align 8
+  %1180 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %1180, ptr %3, align 8
   br label %2666
 
 1181:                                             ; preds = %549
-  %1182 = load ptr, ptr %4, align 8
+  %1182 = load ptr, ptr %4, align 8, !tbaa !3
   %1183 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1182, ptr noundef @.str.352)
-  %1184 = load ptr, ptr %4, align 8
+  %1184 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %1184, ptr %3, align 8
   br label %2666
 
 1185:                                             ; preds = %549
-  %1186 = load ptr, ptr %4, align 8
+  %1186 = load ptr, ptr %4, align 8, !tbaa !3
   %1187 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1186, ptr noundef @.str.353)
-  %1188 = load ptr, ptr %4, align 8
+  %1188 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %1188, ptr %3, align 8
   br label %2666
 
 1189:                                             ; preds = %549
-  %1190 = load ptr, ptr %4, align 8
+  %1190 = load ptr, ptr %4, align 8, !tbaa !3
   %1191 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1190, ptr noundef @.str.354)
-  %1192 = load ptr, ptr %4, align 8
+  %1192 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %1192, ptr %3, align 8
   br label %2666
 
 1193:                                             ; preds = %549
-  %1194 = load ptr, ptr %4, align 8
+  %1194 = load ptr, ptr %4, align 8, !tbaa !3
   %1195 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1194, ptr noundef @.str.355)
-  %1196 = load ptr, ptr %4, align 8
+  %1196 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %1196, ptr %3, align 8
   br label %2666
 
 1197:                                             ; preds = %549
-  %1198 = load ptr, ptr %4, align 8
+  %1198 = load ptr, ptr %4, align 8, !tbaa !3
   %1199 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1198, ptr noundef @.str.356)
-  %1200 = load ptr, ptr %4, align 8
+  %1200 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %1200, ptr %3, align 8
   br label %2666
 
 1201:                                             ; preds = %549
-  %1202 = load ptr, ptr %4, align 8
+  %1202 = load ptr, ptr %4, align 8, !tbaa !3
   %1203 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1202, ptr noundef @.str.357)
-  %1204 = load ptr, ptr %4, align 8
+  %1204 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %1204, ptr %3, align 8
   br label %2666
 
 1205:                                             ; preds = %549
-  %1206 = load ptr, ptr %4, align 8
+  %1206 = load ptr, ptr %4, align 8, !tbaa !3
   %1207 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1206, ptr noundef @.str.358)
-  %1208 = load ptr, ptr %4, align 8
+  %1208 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %1208, ptr %3, align 8
   br label %2666
 
 1209:                                             ; preds = %549
-  %1210 = load ptr, ptr %4, align 8
+  %1210 = load ptr, ptr %4, align 8, !tbaa !3
   %1211 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1210, ptr noundef @.str.359)
-  %1212 = load ptr, ptr %4, align 8
+  %1212 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %1212, ptr %3, align 8
   br label %2666
 
 1213:                                             ; preds = %549
-  %1214 = load ptr, ptr %4, align 8
+  %1214 = load ptr, ptr %4, align 8, !tbaa !3
   %1215 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1214, ptr noundef @.str.360)
-  %1216 = load ptr, ptr %4, align 8
+  %1216 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %1216, ptr %3, align 8
   br label %2666
 
 1217:                                             ; preds = %549
-  %1218 = load ptr, ptr %4, align 8
+  %1218 = load ptr, ptr %4, align 8, !tbaa !3
   %1219 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1218, ptr noundef @.str.361)
-  %1220 = load ptr, ptr %4, align 8
+  %1220 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %1220, ptr %3, align 8
   br label %2666
 
 1221:                                             ; preds = %549
-  %1222 = load ptr, ptr %4, align 8
+  %1222 = load ptr, ptr %4, align 8, !tbaa !3
   %1223 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1222, ptr noundef @.str.362)
-  %1224 = load ptr, ptr %4, align 8
+  %1224 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %1224, ptr %3, align 8
   br label %2666
 
 1225:                                             ; preds = %549
-  %1226 = load ptr, ptr %4, align 8
+  %1226 = load ptr, ptr %4, align 8, !tbaa !3
   %1227 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1226, ptr noundef @.str.363)
-  %1228 = load ptr, ptr %4, align 8
+  %1228 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %1228, ptr %3, align 8
   br label %2666
 
 1229:                                             ; preds = %549
-  %1230 = load ptr, ptr %4, align 8
+  %1230 = load ptr, ptr %4, align 8, !tbaa !3
   %1231 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1230, ptr noundef @.str.364)
-  %1232 = load ptr, ptr %4, align 8
+  %1232 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %1232, ptr %3, align 8
   br label %2666
 
 1233:                                             ; preds = %549
-  %1234 = load ptr, ptr %4, align 8
+  %1234 = load ptr, ptr %4, align 8, !tbaa !3
   %1235 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1234, ptr noundef @.str.365)
-  %1236 = load ptr, ptr %4, align 8
+  %1236 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %1236, ptr %3, align 8
   br label %2666
 
 1237:                                             ; preds = %549
-  %1238 = load ptr, ptr %4, align 8
+  %1238 = load ptr, ptr %4, align 8, !tbaa !3
   %1239 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1238, ptr noundef @.str.366)
-  %1240 = load ptr, ptr %4, align 8
+  %1240 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %1240, ptr %3, align 8
   br label %2666
 
 1241:                                             ; preds = %549
-  %1242 = load ptr, ptr %4, align 8
+  %1242 = load ptr, ptr %4, align 8, !tbaa !3
   %1243 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1242, ptr noundef @.str.367)
-  %1244 = load ptr, ptr %4, align 8
+  %1244 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %1244, ptr %3, align 8
   br label %2666
 
 1245:                                             ; preds = %549
-  %1246 = load ptr, ptr %4, align 8
+  %1246 = load ptr, ptr %4, align 8, !tbaa !3
   %1247 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1246, ptr noundef @.str.368)
-  %1248 = load ptr, ptr %4, align 8
+  %1248 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %1248, ptr %3, align 8
   br label %2666
 
 1249:                                             ; preds = %549
-  %1250 = load ptr, ptr %4, align 8
+  %1250 = load ptr, ptr %4, align 8, !tbaa !3
   %1251 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1250, ptr noundef @.str.369)
-  %1252 = load ptr, ptr %4, align 8
+  %1252 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %1252, ptr %3, align 8
   br label %2666
 
 1253:                                             ; preds = %549
-  %1254 = load ptr, ptr %4, align 8
+  %1254 = load ptr, ptr %4, align 8, !tbaa !3
   %1255 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1254, ptr noundef @.str.370)
-  %1256 = load ptr, ptr %4, align 8
+  %1256 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %1256, ptr %3, align 8
   br label %2666
 
 1257:                                             ; preds = %549
-  %1258 = load ptr, ptr %4, align 8
+  %1258 = load ptr, ptr %4, align 8, !tbaa !3
   %1259 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1258, ptr noundef @.str.371)
-  %1260 = load ptr, ptr %4, align 8
+  %1260 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %1260, ptr %3, align 8
   br label %2666
 
 1261:                                             ; preds = %549
-  %1262 = load ptr, ptr %4, align 8
+  %1262 = load ptr, ptr %4, align 8, !tbaa !3
   %1263 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1262, ptr noundef @.str.372)
-  %1264 = load ptr, ptr %4, align 8
+  %1264 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %1264, ptr %3, align 8
   br label %2666
 
 1265:                                             ; preds = %549
-  %1266 = load ptr, ptr %4, align 8
+  %1266 = load ptr, ptr %4, align 8, !tbaa !3
   %1267 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1266, ptr noundef @.str.373)
-  %1268 = load ptr, ptr %4, align 8
+  %1268 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %1268, ptr %3, align 8
   br label %2666
 
 1269:                                             ; preds = %549
-  %1270 = load ptr, ptr %4, align 8
+  %1270 = load ptr, ptr %4, align 8, !tbaa !3
   %1271 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1270, ptr noundef @.str.374)
-  %1272 = load ptr, ptr %4, align 8
+  %1272 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %1272, ptr %3, align 8
   br label %2666
 
 1273:                                             ; preds = %549
-  %1274 = load ptr, ptr %4, align 8
+  %1274 = load ptr, ptr %4, align 8, !tbaa !3
   %1275 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1274, ptr noundef @.str.375)
-  %1276 = load ptr, ptr %4, align 8
+  %1276 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %1276, ptr %3, align 8
   br label %2666
 
 1277:                                             ; preds = %549
-  %1278 = load ptr, ptr %4, align 8
+  %1278 = load ptr, ptr %4, align 8, !tbaa !3
   %1279 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1278, ptr noundef @.str.376)
-  %1280 = load ptr, ptr %4, align 8
+  %1280 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %1280, ptr %3, align 8
   br label %2666
 
 1281:                                             ; preds = %549
-  %1282 = load ptr, ptr %4, align 8
+  %1282 = load ptr, ptr %4, align 8, !tbaa !3
   %1283 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1282, ptr noundef @.str.377)
-  %1284 = load ptr, ptr %4, align 8
+  %1284 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %1284, ptr %3, align 8
   br label %2666
 
 1285:                                             ; preds = %549
-  %1286 = load ptr, ptr %4, align 8
+  %1286 = load ptr, ptr %4, align 8, !tbaa !3
   %1287 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1286, ptr noundef @.str.378)
-  %1288 = load ptr, ptr %4, align 8
+  %1288 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %1288, ptr %3, align 8
   br label %2666
 
 1289:                                             ; preds = %549
-  %1290 = load ptr, ptr %4, align 8
+  %1290 = load ptr, ptr %4, align 8, !tbaa !3
   %1291 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1290, ptr noundef @.str.379)
-  %1292 = load ptr, ptr %4, align 8
+  %1292 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %1292, ptr %3, align 8
   br label %2666
 
 1293:                                             ; preds = %549
-  %1294 = load ptr, ptr %4, align 8
+  %1294 = load ptr, ptr %4, align 8, !tbaa !3
   %1295 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1294, ptr noundef @.str.380)
-  %1296 = load ptr, ptr %4, align 8
+  %1296 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %1296, ptr %3, align 8
   br label %2666
 
 1297:                                             ; preds = %549
-  %1298 = load ptr, ptr %4, align 8
+  %1298 = load ptr, ptr %4, align 8, !tbaa !3
   %1299 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1298, ptr noundef @.str.381)
-  %1300 = load ptr, ptr %4, align 8
+  %1300 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %1300, ptr %3, align 8
   br label %2666
 
 1301:                                             ; preds = %549
-  %1302 = load ptr, ptr %4, align 8
+  %1302 = load ptr, ptr %4, align 8, !tbaa !3
   %1303 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1302, ptr noundef @.str.382)
-  %1304 = load ptr, ptr %4, align 8
+  %1304 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %1304, ptr %3, align 8
   br label %2666
 
 1305:                                             ; preds = %549
-  %1306 = load ptr, ptr %4, align 8
+  %1306 = load ptr, ptr %4, align 8, !tbaa !3
   %1307 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1306, ptr noundef @.str.383)
-  %1308 = load ptr, ptr %4, align 8
+  %1308 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %1308, ptr %3, align 8
   br label %2666
 
 1309:                                             ; preds = %549
-  %1310 = load ptr, ptr %4, align 8
+  %1310 = load ptr, ptr %4, align 8, !tbaa !3
   %1311 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1310, ptr noundef @.str.384)
-  %1312 = load ptr, ptr %4, align 8
+  %1312 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %1312, ptr %3, align 8
   br label %2666
 
 1313:                                             ; preds = %549
-  %1314 = load ptr, ptr %4, align 8
+  %1314 = load ptr, ptr %4, align 8, !tbaa !3
   %1315 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1314, ptr noundef @.str.385)
-  %1316 = load ptr, ptr %4, align 8
+  %1316 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %1316, ptr %3, align 8
   br label %2666
 
 1317:                                             ; preds = %549
-  %1318 = load ptr, ptr %4, align 8
+  %1318 = load ptr, ptr %4, align 8, !tbaa !3
   %1319 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1318, ptr noundef @.str.386)
-  %1320 = load ptr, ptr %4, align 8
+  %1320 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %1320, ptr %3, align 8
   br label %2666
 
 1321:                                             ; preds = %549
-  %1322 = load ptr, ptr %4, align 8
+  %1322 = load ptr, ptr %4, align 8, !tbaa !3
   %1323 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1322, ptr noundef @.str.387)
-  %1324 = load ptr, ptr %4, align 8
+  %1324 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %1324, ptr %3, align 8
   br label %2666
 
 1325:                                             ; preds = %549
-  %1326 = load ptr, ptr %4, align 8
+  %1326 = load ptr, ptr %4, align 8, !tbaa !3
   %1327 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1326, ptr noundef @.str.388)
-  %1328 = load ptr, ptr %4, align 8
+  %1328 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %1328, ptr %3, align 8
   br label %2666
 
 1329:                                             ; preds = %549
-  %1330 = load ptr, ptr %4, align 8
+  %1330 = load ptr, ptr %4, align 8, !tbaa !3
   %1331 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1330, ptr noundef @.str.389)
-  %1332 = load ptr, ptr %4, align 8
+  %1332 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %1332, ptr %3, align 8
   br label %2666
 
 1333:                                             ; preds = %549
-  %1334 = load ptr, ptr %4, align 8
+  %1334 = load ptr, ptr %4, align 8, !tbaa !3
   %1335 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1334, ptr noundef @.str.390)
-  %1336 = load ptr, ptr %4, align 8
+  %1336 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %1336, ptr %3, align 8
   br label %2666
 
 1337:                                             ; preds = %549
-  %1338 = load ptr, ptr %4, align 8
+  %1338 = load ptr, ptr %4, align 8, !tbaa !3
   %1339 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1338, ptr noundef @.str.391)
-  %1340 = load ptr, ptr %4, align 8
+  %1340 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %1340, ptr %3, align 8
   br label %2666
 
 1341:                                             ; preds = %549
-  %1342 = load ptr, ptr %4, align 8
+  %1342 = load ptr, ptr %4, align 8, !tbaa !3
   %1343 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1342, ptr noundef @.str.392)
-  %1344 = load ptr, ptr %4, align 8
+  %1344 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %1344, ptr %3, align 8
   br label %2666
 
 1345:                                             ; preds = %549
-  %1346 = load ptr, ptr %4, align 8
+  %1346 = load ptr, ptr %4, align 8, !tbaa !3
   %1347 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1346, ptr noundef @.str.393)
-  %1348 = load ptr, ptr %4, align 8
+  %1348 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %1348, ptr %3, align 8
   br label %2666
 
 1349:                                             ; preds = %549
-  %1350 = load ptr, ptr %4, align 8
+  %1350 = load ptr, ptr %4, align 8, !tbaa !3
   %1351 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1350, ptr noundef @.str.394)
-  %1352 = load ptr, ptr %4, align 8
+  %1352 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %1352, ptr %3, align 8
   br label %2666
 
 1353:                                             ; preds = %549
-  %1354 = load ptr, ptr %4, align 8
+  %1354 = load ptr, ptr %4, align 8, !tbaa !3
   %1355 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1354, ptr noundef @.str.395)
-  %1356 = load ptr, ptr %4, align 8
+  %1356 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %1356, ptr %3, align 8
   br label %2666
 
 1357:                                             ; preds = %549
-  %1358 = load ptr, ptr %4, align 8
+  %1358 = load ptr, ptr %4, align 8, !tbaa !3
   %1359 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1358, ptr noundef @.str.396)
-  %1360 = load ptr, ptr %4, align 8
+  %1360 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %1360, ptr %3, align 8
   br label %2666
 
 1361:                                             ; preds = %549
-  %1362 = load ptr, ptr %4, align 8
+  %1362 = load ptr, ptr %4, align 8, !tbaa !3
   %1363 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1362, ptr noundef @.str.397)
-  %1364 = load ptr, ptr %4, align 8
+  %1364 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %1364, ptr %3, align 8
   br label %2666
 
 1365:                                             ; preds = %549
-  %1366 = load ptr, ptr %4, align 8
+  %1366 = load ptr, ptr %4, align 8, !tbaa !3
   %1367 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1366, ptr noundef @.str.398)
-  %1368 = load ptr, ptr %4, align 8
+  %1368 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %1368, ptr %3, align 8
   br label %2666
 
 1369:                                             ; preds = %549
-  %1370 = load ptr, ptr %4, align 8
+  %1370 = load ptr, ptr %4, align 8, !tbaa !3
   %1371 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1370, ptr noundef @.str.399)
-  %1372 = load ptr, ptr %4, align 8
+  %1372 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %1372, ptr %3, align 8
   br label %2666
 
 1373:                                             ; preds = %549
-  %1374 = load ptr, ptr %4, align 8
+  %1374 = load ptr, ptr %4, align 8, !tbaa !3
   %1375 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1374, ptr noundef @.str.400)
-  %1376 = load ptr, ptr %4, align 8
+  %1376 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %1376, ptr %3, align 8
   br label %2666
 
 1377:                                             ; preds = %549
-  %1378 = load ptr, ptr %4, align 8
+  %1378 = load ptr, ptr %4, align 8, !tbaa !3
   %1379 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1378, ptr noundef @.str.401)
-  %1380 = load ptr, ptr %4, align 8
+  %1380 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %1380, ptr %3, align 8
   br label %2666
 
 1381:                                             ; preds = %549
-  %1382 = load ptr, ptr %4, align 8
+  %1382 = load ptr, ptr %4, align 8, !tbaa !3
   %1383 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1382, ptr noundef @.str.402)
-  %1384 = load ptr, ptr %4, align 8
+  %1384 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %1384, ptr %3, align 8
   br label %2666
 
 1385:                                             ; preds = %549
-  %1386 = load ptr, ptr %4, align 8
+  %1386 = load ptr, ptr %4, align 8, !tbaa !3
   %1387 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1386, ptr noundef @.str.403)
-  %1388 = load ptr, ptr %4, align 8
+  %1388 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %1388, ptr %3, align 8
   br label %2666
 
 1389:                                             ; preds = %549
-  %1390 = load ptr, ptr %4, align 8
+  %1390 = load ptr, ptr %4, align 8, !tbaa !3
   %1391 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1390, ptr noundef @.str.404)
-  %1392 = load ptr, ptr %4, align 8
+  %1392 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %1392, ptr %3, align 8
   br label %2666
 
 1393:                                             ; preds = %549
-  %1394 = load ptr, ptr %4, align 8
+  %1394 = load ptr, ptr %4, align 8, !tbaa !3
   %1395 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1394, ptr noundef @.str.405)
-  %1396 = load ptr, ptr %4, align 8
+  %1396 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %1396, ptr %3, align 8
   br label %2666
 
 1397:                                             ; preds = %549
-  %1398 = load ptr, ptr %4, align 8
+  %1398 = load ptr, ptr %4, align 8, !tbaa !3
   %1399 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1398, ptr noundef @.str.406)
-  %1400 = load ptr, ptr %4, align 8
+  %1400 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %1400, ptr %3, align 8
   br label %2666
 
 1401:                                             ; preds = %549
-  %1402 = load ptr, ptr %4, align 8
+  %1402 = load ptr, ptr %4, align 8, !tbaa !3
   %1403 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1402, ptr noundef @.str.407)
-  %1404 = load ptr, ptr %4, align 8
+  %1404 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %1404, ptr %3, align 8
   br label %2666
 
 1405:                                             ; preds = %549
-  %1406 = load ptr, ptr %4, align 8
+  %1406 = load ptr, ptr %4, align 8, !tbaa !3
   %1407 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1406, ptr noundef @.str.408)
-  %1408 = load ptr, ptr %4, align 8
+  %1408 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %1408, ptr %3, align 8
   br label %2666
 
 1409:                                             ; preds = %549
-  %1410 = load ptr, ptr %4, align 8
+  %1410 = load ptr, ptr %4, align 8, !tbaa !3
   %1411 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1410, ptr noundef @.str.409)
-  %1412 = load ptr, ptr %4, align 8
+  %1412 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %1412, ptr %3, align 8
   br label %2666
 
 1413:                                             ; preds = %549
-  %1414 = load ptr, ptr %4, align 8
+  %1414 = load ptr, ptr %4, align 8, !tbaa !3
   %1415 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1414, ptr noundef @.str.410)
-  %1416 = load ptr, ptr %4, align 8
+  %1416 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %1416, ptr %3, align 8
   br label %2666
 
 1417:                                             ; preds = %549
-  %1418 = load ptr, ptr %4, align 8
+  %1418 = load ptr, ptr %4, align 8, !tbaa !3
   %1419 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1418, ptr noundef @.str.411)
-  %1420 = load ptr, ptr %4, align 8
+  %1420 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %1420, ptr %3, align 8
   br label %2666
 
 1421:                                             ; preds = %549
-  %1422 = load ptr, ptr %4, align 8
+  %1422 = load ptr, ptr %4, align 8, !tbaa !3
   %1423 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1422, ptr noundef @.str.412)
-  %1424 = load ptr, ptr %4, align 8
+  %1424 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %1424, ptr %3, align 8
   br label %2666
 
 1425:                                             ; preds = %549
-  %1426 = load ptr, ptr %4, align 8
+  %1426 = load ptr, ptr %4, align 8, !tbaa !3
   %1427 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1426, ptr noundef @.str.413)
-  %1428 = load ptr, ptr %4, align 8
+  %1428 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %1428, ptr %3, align 8
   br label %2666
 
 1429:                                             ; preds = %549
-  %1430 = load ptr, ptr %4, align 8
+  %1430 = load ptr, ptr %4, align 8, !tbaa !3
   %1431 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1430, ptr noundef @.str.414)
-  %1432 = load ptr, ptr %4, align 8
+  %1432 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %1432, ptr %3, align 8
   br label %2666
 
 1433:                                             ; preds = %549
-  %1434 = load ptr, ptr %4, align 8
+  %1434 = load ptr, ptr %4, align 8, !tbaa !3
   %1435 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1434, ptr noundef @.str.415)
-  %1436 = load ptr, ptr %4, align 8
+  %1436 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %1436, ptr %3, align 8
   br label %2666
 
 1437:                                             ; preds = %549
-  %1438 = load ptr, ptr %4, align 8
+  %1438 = load ptr, ptr %4, align 8, !tbaa !3
   %1439 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1438, ptr noundef @.str.416)
-  %1440 = load ptr, ptr %4, align 8
+  %1440 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %1440, ptr %3, align 8
   br label %2666
 
 1441:                                             ; preds = %549
-  %1442 = load ptr, ptr %4, align 8
+  %1442 = load ptr, ptr %4, align 8, !tbaa !3
   %1443 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1442, ptr noundef @.str.417)
-  %1444 = load ptr, ptr %4, align 8
+  %1444 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %1444, ptr %3, align 8
   br label %2666
 
 1445:                                             ; preds = %549
-  %1446 = load ptr, ptr %4, align 8
+  %1446 = load ptr, ptr %4, align 8, !tbaa !3
   %1447 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1446, ptr noundef @.str.418)
-  %1448 = load ptr, ptr %4, align 8
+  %1448 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %1448, ptr %3, align 8
   br label %2666
 
 1449:                                             ; preds = %549
-  %1450 = load ptr, ptr %4, align 8
+  %1450 = load ptr, ptr %4, align 8, !tbaa !3
   %1451 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1450, ptr noundef @.str.419)
-  %1452 = load ptr, ptr %4, align 8
+  %1452 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %1452, ptr %3, align 8
   br label %2666
 
 1453:                                             ; preds = %549
-  %1454 = load ptr, ptr %4, align 8
+  %1454 = load ptr, ptr %4, align 8, !tbaa !3
   %1455 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1454, ptr noundef @.str.420)
-  %1456 = load ptr, ptr %4, align 8
+  %1456 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %1456, ptr %3, align 8
   br label %2666
 
 1457:                                             ; preds = %549
-  %1458 = load ptr, ptr %4, align 8
+  %1458 = load ptr, ptr %4, align 8, !tbaa !3
   %1459 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1458, ptr noundef @.str.421)
-  %1460 = load ptr, ptr %4, align 8
+  %1460 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %1460, ptr %3, align 8
   br label %2666
 
 1461:                                             ; preds = %549
-  %1462 = load ptr, ptr %4, align 8
+  %1462 = load ptr, ptr %4, align 8, !tbaa !3
   %1463 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1462, ptr noundef @.str.422)
-  %1464 = load ptr, ptr %4, align 8
+  %1464 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %1464, ptr %3, align 8
   br label %2666
 
 1465:                                             ; preds = %549
-  %1466 = load ptr, ptr %4, align 8
+  %1466 = load ptr, ptr %4, align 8, !tbaa !3
   %1467 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1466, ptr noundef @.str.423)
-  %1468 = load ptr, ptr %4, align 8
+  %1468 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %1468, ptr %3, align 8
   br label %2666
 
@@ -4340,9 +4340,9 @@ define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm3pdbls
   br label %2657
 
 1471:                                             ; preds = %544
-  %1472 = load ptr, ptr %5, align 8
+  %1472 = load ptr, ptr %5, align 8, !tbaa !19
   %1473 = getelementptr inbounds nuw %"struct.llvm::codeview::CPURegister", ptr %1472, i32 0, i32 1
-  %1474 = load i16, ptr %1473, align 2
+  %1474 = load i16, ptr %1473, align 2, !tbaa !25
   switch i16 %1474, label %2655 [
     i16 30000, label %1475
     i16 30001, label %1479
@@ -4642,2067 +4642,2067 @@ define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm3pdbls
   ]
 
 1475:                                             ; preds = %1471
-  %1476 = load ptr, ptr %4, align 8
+  %1476 = load ptr, ptr %4, align 8, !tbaa !3
   %1477 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1476, ptr noundef @.str.424)
-  %1478 = load ptr, ptr %4, align 8
+  %1478 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %1478, ptr %3, align 8
   br label %2666
 
 1479:                                             ; preds = %1471
-  %1480 = load ptr, ptr %4, align 8
+  %1480 = load ptr, ptr %4, align 8, !tbaa !3
   %1481 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1480, ptr noundef @.str.425)
-  %1482 = load ptr, ptr %4, align 8
+  %1482 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %1482, ptr %3, align 8
   br label %2666
 
 1483:                                             ; preds = %1471
-  %1484 = load ptr, ptr %4, align 8
+  %1484 = load ptr, ptr %4, align 8, !tbaa !3
   %1485 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1484, ptr noundef @.str.426)
-  %1486 = load ptr, ptr %4, align 8
+  %1486 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %1486, ptr %3, align 8
   br label %2666
 
 1487:                                             ; preds = %1471
-  %1488 = load ptr, ptr %4, align 8
+  %1488 = load ptr, ptr %4, align 8, !tbaa !3
   %1489 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1488, ptr noundef @.str.427)
-  %1490 = load ptr, ptr %4, align 8
+  %1490 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %1490, ptr %3, align 8
   br label %2666
 
 1491:                                             ; preds = %1471
-  %1492 = load ptr, ptr %4, align 8
+  %1492 = load ptr, ptr %4, align 8, !tbaa !3
   %1493 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1492, ptr noundef @.str.428)
-  %1494 = load ptr, ptr %4, align 8
+  %1494 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %1494, ptr %3, align 8
   br label %2666
 
 1495:                                             ; preds = %1471
-  %1496 = load ptr, ptr %4, align 8
+  %1496 = load ptr, ptr %4, align 8, !tbaa !3
   %1497 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1496, ptr noundef @.str.429)
-  %1498 = load ptr, ptr %4, align 8
+  %1498 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %1498, ptr %3, align 8
   br label %2666
 
 1499:                                             ; preds = %1471
-  %1500 = load ptr, ptr %4, align 8
+  %1500 = load ptr, ptr %4, align 8, !tbaa !3
   %1501 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1500, ptr noundef @.str.430)
-  %1502 = load ptr, ptr %4, align 8
+  %1502 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %1502, ptr %3, align 8
   br label %2666
 
 1503:                                             ; preds = %1471
-  %1504 = load ptr, ptr %4, align 8
+  %1504 = load ptr, ptr %4, align 8, !tbaa !3
   %1505 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1504, ptr noundef @.str.431)
-  %1506 = load ptr, ptr %4, align 8
+  %1506 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %1506, ptr %3, align 8
   br label %2666
 
 1507:                                             ; preds = %1471
-  %1508 = load ptr, ptr %4, align 8
+  %1508 = load ptr, ptr %4, align 8, !tbaa !3
   %1509 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1508, ptr noundef @.str.432)
-  %1510 = load ptr, ptr %4, align 8
+  %1510 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %1510, ptr %3, align 8
   br label %2666
 
 1511:                                             ; preds = %1471
-  %1512 = load ptr, ptr %4, align 8
+  %1512 = load ptr, ptr %4, align 8, !tbaa !3
   %1513 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1512, ptr noundef @.str.433)
-  %1514 = load ptr, ptr %4, align 8
+  %1514 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %1514, ptr %3, align 8
   br label %2666
 
 1515:                                             ; preds = %1471
-  %1516 = load ptr, ptr %4, align 8
+  %1516 = load ptr, ptr %4, align 8, !tbaa !3
   %1517 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1516, ptr noundef @.str.434)
-  %1518 = load ptr, ptr %4, align 8
+  %1518 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %1518, ptr %3, align 8
   br label %2666
 
 1519:                                             ; preds = %1471
-  %1520 = load ptr, ptr %4, align 8
+  %1520 = load ptr, ptr %4, align 8, !tbaa !3
   %1521 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1520, ptr noundef @.str.435)
-  %1522 = load ptr, ptr %4, align 8
+  %1522 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %1522, ptr %3, align 8
   br label %2666
 
 1523:                                             ; preds = %1471
-  %1524 = load ptr, ptr %4, align 8
+  %1524 = load ptr, ptr %4, align 8, !tbaa !3
   %1525 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1524, ptr noundef @.str.436)
-  %1526 = load ptr, ptr %4, align 8
+  %1526 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %1526, ptr %3, align 8
   br label %2666
 
 1527:                                             ; preds = %1471
-  %1528 = load ptr, ptr %4, align 8
+  %1528 = load ptr, ptr %4, align 8, !tbaa !3
   %1529 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1528, ptr noundef @.str.437)
-  %1530 = load ptr, ptr %4, align 8
+  %1530 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %1530, ptr %3, align 8
   br label %2666
 
 1531:                                             ; preds = %1471
-  %1532 = load ptr, ptr %4, align 8
+  %1532 = load ptr, ptr %4, align 8, !tbaa !3
   %1533 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1532, ptr noundef @.str.438)
-  %1534 = load ptr, ptr %4, align 8
+  %1534 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %1534, ptr %3, align 8
   br label %2666
 
 1535:                                             ; preds = %1471
-  %1536 = load ptr, ptr %4, align 8
+  %1536 = load ptr, ptr %4, align 8, !tbaa !3
   %1537 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1536, ptr noundef @.str.439)
-  %1538 = load ptr, ptr %4, align 8
+  %1538 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %1538, ptr %3, align 8
   br label %2666
 
 1539:                                             ; preds = %1471
-  %1540 = load ptr, ptr %4, align 8
+  %1540 = load ptr, ptr %4, align 8, !tbaa !3
   %1541 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1540, ptr noundef @.str.440)
-  %1542 = load ptr, ptr %4, align 8
+  %1542 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %1542, ptr %3, align 8
   br label %2666
 
 1543:                                             ; preds = %1471
-  %1544 = load ptr, ptr %4, align 8
+  %1544 = load ptr, ptr %4, align 8, !tbaa !3
   %1545 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1544, ptr noundef @.str.441)
-  %1546 = load ptr, ptr %4, align 8
+  %1546 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %1546, ptr %3, align 8
   br label %2666
 
 1547:                                             ; preds = %1471
-  %1548 = load ptr, ptr %4, align 8
+  %1548 = load ptr, ptr %4, align 8, !tbaa !3
   %1549 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1548, ptr noundef @.str.442)
-  %1550 = load ptr, ptr %4, align 8
+  %1550 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %1550, ptr %3, align 8
   br label %2666
 
 1551:                                             ; preds = %1471
-  %1552 = load ptr, ptr %4, align 8
+  %1552 = load ptr, ptr %4, align 8, !tbaa !3
   %1553 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1552, ptr noundef @.str.443)
-  %1554 = load ptr, ptr %4, align 8
+  %1554 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %1554, ptr %3, align 8
   br label %2666
 
 1555:                                             ; preds = %1471
-  %1556 = load ptr, ptr %4, align 8
+  %1556 = load ptr, ptr %4, align 8, !tbaa !3
   %1557 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1556, ptr noundef @.str.444)
-  %1558 = load ptr, ptr %4, align 8
+  %1558 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %1558, ptr %3, align 8
   br label %2666
 
 1559:                                             ; preds = %1471
-  %1560 = load ptr, ptr %4, align 8
+  %1560 = load ptr, ptr %4, align 8, !tbaa !3
   %1561 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1560, ptr noundef @.str.445)
-  %1562 = load ptr, ptr %4, align 8
+  %1562 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %1562, ptr %3, align 8
   br label %2666
 
 1563:                                             ; preds = %1471
-  %1564 = load ptr, ptr %4, align 8
+  %1564 = load ptr, ptr %4, align 8, !tbaa !3
   %1565 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1564, ptr noundef @.str.446)
-  %1566 = load ptr, ptr %4, align 8
+  %1566 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %1566, ptr %3, align 8
   br label %2666
 
 1567:                                             ; preds = %1471
-  %1568 = load ptr, ptr %4, align 8
+  %1568 = load ptr, ptr %4, align 8, !tbaa !3
   %1569 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1568, ptr noundef @.str.447)
-  %1570 = load ptr, ptr %4, align 8
+  %1570 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %1570, ptr %3, align 8
   br label %2666
 
 1571:                                             ; preds = %1471
-  %1572 = load ptr, ptr %4, align 8
+  %1572 = load ptr, ptr %4, align 8, !tbaa !3
   %1573 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1572, ptr noundef @.str.448)
-  %1574 = load ptr, ptr %4, align 8
+  %1574 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %1574, ptr %3, align 8
   br label %2666
 
 1575:                                             ; preds = %1471
-  %1576 = load ptr, ptr %4, align 8
+  %1576 = load ptr, ptr %4, align 8, !tbaa !3
   %1577 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1576, ptr noundef @.str.449)
-  %1578 = load ptr, ptr %4, align 8
+  %1578 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %1578, ptr %3, align 8
   br label %2666
 
 1579:                                             ; preds = %1471
-  %1580 = load ptr, ptr %4, align 8
+  %1580 = load ptr, ptr %4, align 8, !tbaa !3
   %1581 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1580, ptr noundef @.str.450)
-  %1582 = load ptr, ptr %4, align 8
+  %1582 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %1582, ptr %3, align 8
   br label %2666
 
 1583:                                             ; preds = %1471
-  %1584 = load ptr, ptr %4, align 8
+  %1584 = load ptr, ptr %4, align 8, !tbaa !3
   %1585 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1584, ptr noundef @.str.451)
-  %1586 = load ptr, ptr %4, align 8
+  %1586 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %1586, ptr %3, align 8
   br label %2666
 
 1587:                                             ; preds = %1471
-  %1588 = load ptr, ptr %4, align 8
+  %1588 = load ptr, ptr %4, align 8, !tbaa !3
   %1589 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1588, ptr noundef @.str.452)
-  %1590 = load ptr, ptr %4, align 8
+  %1590 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %1590, ptr %3, align 8
   br label %2666
 
 1591:                                             ; preds = %1471
-  %1592 = load ptr, ptr %4, align 8
+  %1592 = load ptr, ptr %4, align 8, !tbaa !3
   %1593 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1592, ptr noundef @.str.453)
-  %1594 = load ptr, ptr %4, align 8
+  %1594 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %1594, ptr %3, align 8
   br label %2666
 
 1595:                                             ; preds = %1471
-  %1596 = load ptr, ptr %4, align 8
+  %1596 = load ptr, ptr %4, align 8, !tbaa !3
   %1597 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1596, ptr noundef @.str.454)
-  %1598 = load ptr, ptr %4, align 8
+  %1598 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %1598, ptr %3, align 8
   br label %2666
 
 1599:                                             ; preds = %1471
-  %1600 = load ptr, ptr %4, align 8
+  %1600 = load ptr, ptr %4, align 8, !tbaa !3
   %1601 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1600, ptr noundef @.str.455)
-  %1602 = load ptr, ptr %4, align 8
+  %1602 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %1602, ptr %3, align 8
   br label %2666
 
 1603:                                             ; preds = %1471
-  %1604 = load ptr, ptr %4, align 8
+  %1604 = load ptr, ptr %4, align 8, !tbaa !3
   %1605 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1604, ptr noundef @.str.456)
-  %1606 = load ptr, ptr %4, align 8
+  %1606 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %1606, ptr %3, align 8
   br label %2666
 
 1607:                                             ; preds = %1471
-  %1608 = load ptr, ptr %4, align 8
+  %1608 = load ptr, ptr %4, align 8, !tbaa !3
   %1609 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1608, ptr noundef @.str.457)
-  %1610 = load ptr, ptr %4, align 8
+  %1610 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %1610, ptr %3, align 8
   br label %2666
 
 1611:                                             ; preds = %1471
-  %1612 = load ptr, ptr %4, align 8
+  %1612 = load ptr, ptr %4, align 8, !tbaa !3
   %1613 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1612, ptr noundef @.str.458)
-  %1614 = load ptr, ptr %4, align 8
+  %1614 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %1614, ptr %3, align 8
   br label %2666
 
 1615:                                             ; preds = %1471
-  %1616 = load ptr, ptr %4, align 8
+  %1616 = load ptr, ptr %4, align 8, !tbaa !3
   %1617 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1616, ptr noundef @.str.459)
-  %1618 = load ptr, ptr %4, align 8
+  %1618 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %1618, ptr %3, align 8
   br label %2666
 
 1619:                                             ; preds = %1471
-  %1620 = load ptr, ptr %4, align 8
+  %1620 = load ptr, ptr %4, align 8, !tbaa !3
   %1621 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1620, ptr noundef @.str.460)
-  %1622 = load ptr, ptr %4, align 8
+  %1622 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %1622, ptr %3, align 8
   br label %2666
 
 1623:                                             ; preds = %1471
-  %1624 = load ptr, ptr %4, align 8
+  %1624 = load ptr, ptr %4, align 8, !tbaa !3
   %1625 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1624, ptr noundef @.str.461)
-  %1626 = load ptr, ptr %4, align 8
+  %1626 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %1626, ptr %3, align 8
   br label %2666
 
 1627:                                             ; preds = %1471
-  %1628 = load ptr, ptr %4, align 8
+  %1628 = load ptr, ptr %4, align 8, !tbaa !3
   %1629 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1628, ptr noundef @.str.462)
-  %1630 = load ptr, ptr %4, align 8
+  %1630 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %1630, ptr %3, align 8
   br label %2666
 
 1631:                                             ; preds = %1471
-  %1632 = load ptr, ptr %4, align 8
+  %1632 = load ptr, ptr %4, align 8, !tbaa !3
   %1633 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1632, ptr noundef @.str.463)
-  %1634 = load ptr, ptr %4, align 8
+  %1634 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %1634, ptr %3, align 8
   br label %2666
 
 1635:                                             ; preds = %1471
-  %1636 = load ptr, ptr %4, align 8
+  %1636 = load ptr, ptr %4, align 8, !tbaa !3
   %1637 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1636, ptr noundef @.str.464)
-  %1638 = load ptr, ptr %4, align 8
+  %1638 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %1638, ptr %3, align 8
   br label %2666
 
 1639:                                             ; preds = %1471
-  %1640 = load ptr, ptr %4, align 8
+  %1640 = load ptr, ptr %4, align 8, !tbaa !3
   %1641 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1640, ptr noundef @.str.465)
-  %1642 = load ptr, ptr %4, align 8
+  %1642 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %1642, ptr %3, align 8
   br label %2666
 
 1643:                                             ; preds = %1471
-  %1644 = load ptr, ptr %4, align 8
+  %1644 = load ptr, ptr %4, align 8, !tbaa !3
   %1645 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1644, ptr noundef @.str.466)
-  %1646 = load ptr, ptr %4, align 8
+  %1646 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %1646, ptr %3, align 8
   br label %2666
 
 1647:                                             ; preds = %1471
-  %1648 = load ptr, ptr %4, align 8
+  %1648 = load ptr, ptr %4, align 8, !tbaa !3
   %1649 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1648, ptr noundef @.str.467)
-  %1650 = load ptr, ptr %4, align 8
+  %1650 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %1650, ptr %3, align 8
   br label %2666
 
 1651:                                             ; preds = %1471
-  %1652 = load ptr, ptr %4, align 8
+  %1652 = load ptr, ptr %4, align 8, !tbaa !3
   %1653 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1652, ptr noundef @.str.468)
-  %1654 = load ptr, ptr %4, align 8
+  %1654 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %1654, ptr %3, align 8
   br label %2666
 
 1655:                                             ; preds = %1471
-  %1656 = load ptr, ptr %4, align 8
+  %1656 = load ptr, ptr %4, align 8, !tbaa !3
   %1657 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1656, ptr noundef @.str.469)
-  %1658 = load ptr, ptr %4, align 8
+  %1658 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %1658, ptr %3, align 8
   br label %2666
 
 1659:                                             ; preds = %1471
-  %1660 = load ptr, ptr %4, align 8
+  %1660 = load ptr, ptr %4, align 8, !tbaa !3
   %1661 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1660, ptr noundef @.str.470)
-  %1662 = load ptr, ptr %4, align 8
+  %1662 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %1662, ptr %3, align 8
   br label %2666
 
 1663:                                             ; preds = %1471
-  %1664 = load ptr, ptr %4, align 8
+  %1664 = load ptr, ptr %4, align 8, !tbaa !3
   %1665 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1664, ptr noundef @.str.471)
-  %1666 = load ptr, ptr %4, align 8
+  %1666 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %1666, ptr %3, align 8
   br label %2666
 
 1667:                                             ; preds = %1471
-  %1668 = load ptr, ptr %4, align 8
+  %1668 = load ptr, ptr %4, align 8, !tbaa !3
   %1669 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1668, ptr noundef @.str.472)
-  %1670 = load ptr, ptr %4, align 8
+  %1670 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %1670, ptr %3, align 8
   br label %2666
 
 1671:                                             ; preds = %1471
-  %1672 = load ptr, ptr %4, align 8
+  %1672 = load ptr, ptr %4, align 8, !tbaa !3
   %1673 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1672, ptr noundef @.str.473)
-  %1674 = load ptr, ptr %4, align 8
+  %1674 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %1674, ptr %3, align 8
   br label %2666
 
 1675:                                             ; preds = %1471
-  %1676 = load ptr, ptr %4, align 8
+  %1676 = load ptr, ptr %4, align 8, !tbaa !3
   %1677 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1676, ptr noundef @.str.474)
-  %1678 = load ptr, ptr %4, align 8
+  %1678 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %1678, ptr %3, align 8
   br label %2666
 
 1679:                                             ; preds = %1471
-  %1680 = load ptr, ptr %4, align 8
+  %1680 = load ptr, ptr %4, align 8, !tbaa !3
   %1681 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1680, ptr noundef @.str.475)
-  %1682 = load ptr, ptr %4, align 8
+  %1682 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %1682, ptr %3, align 8
   br label %2666
 
 1683:                                             ; preds = %1471
-  %1684 = load ptr, ptr %4, align 8
+  %1684 = load ptr, ptr %4, align 8, !tbaa !3
   %1685 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1684, ptr noundef @.str.476)
-  %1686 = load ptr, ptr %4, align 8
+  %1686 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %1686, ptr %3, align 8
   br label %2666
 
 1687:                                             ; preds = %1471
-  %1688 = load ptr, ptr %4, align 8
+  %1688 = load ptr, ptr %4, align 8, !tbaa !3
   %1689 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1688, ptr noundef @.str.477)
-  %1690 = load ptr, ptr %4, align 8
+  %1690 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %1690, ptr %3, align 8
   br label %2666
 
 1691:                                             ; preds = %1471
-  %1692 = load ptr, ptr %4, align 8
+  %1692 = load ptr, ptr %4, align 8, !tbaa !3
   %1693 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1692, ptr noundef @.str.478)
-  %1694 = load ptr, ptr %4, align 8
+  %1694 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %1694, ptr %3, align 8
   br label %2666
 
 1695:                                             ; preds = %1471
-  %1696 = load ptr, ptr %4, align 8
+  %1696 = load ptr, ptr %4, align 8, !tbaa !3
   %1697 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1696, ptr noundef @.str.479)
-  %1698 = load ptr, ptr %4, align 8
+  %1698 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %1698, ptr %3, align 8
   br label %2666
 
 1699:                                             ; preds = %1471
-  %1700 = load ptr, ptr %4, align 8
+  %1700 = load ptr, ptr %4, align 8, !tbaa !3
   %1701 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1700, ptr noundef @.str.480)
-  %1702 = load ptr, ptr %4, align 8
+  %1702 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %1702, ptr %3, align 8
   br label %2666
 
 1703:                                             ; preds = %1471
-  %1704 = load ptr, ptr %4, align 8
+  %1704 = load ptr, ptr %4, align 8, !tbaa !3
   %1705 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1704, ptr noundef @.str.481)
-  %1706 = load ptr, ptr %4, align 8
+  %1706 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %1706, ptr %3, align 8
   br label %2666
 
 1707:                                             ; preds = %1471
-  %1708 = load ptr, ptr %4, align 8
+  %1708 = load ptr, ptr %4, align 8, !tbaa !3
   %1709 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1708, ptr noundef @.str.482)
-  %1710 = load ptr, ptr %4, align 8
+  %1710 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %1710, ptr %3, align 8
   br label %2666
 
 1711:                                             ; preds = %1471
-  %1712 = load ptr, ptr %4, align 8
+  %1712 = load ptr, ptr %4, align 8, !tbaa !3
   %1713 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1712, ptr noundef @.str.483)
-  %1714 = load ptr, ptr %4, align 8
+  %1714 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %1714, ptr %3, align 8
   br label %2666
 
 1715:                                             ; preds = %1471
-  %1716 = load ptr, ptr %4, align 8
+  %1716 = load ptr, ptr %4, align 8, !tbaa !3
   %1717 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1716, ptr noundef @.str.484)
-  %1718 = load ptr, ptr %4, align 8
+  %1718 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %1718, ptr %3, align 8
   br label %2666
 
 1719:                                             ; preds = %1471
-  %1720 = load ptr, ptr %4, align 8
+  %1720 = load ptr, ptr %4, align 8, !tbaa !3
   %1721 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1720, ptr noundef @.str.485)
-  %1722 = load ptr, ptr %4, align 8
+  %1722 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %1722, ptr %3, align 8
   br label %2666
 
 1723:                                             ; preds = %1471
-  %1724 = load ptr, ptr %4, align 8
+  %1724 = load ptr, ptr %4, align 8, !tbaa !3
   %1725 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1724, ptr noundef @.str.486)
-  %1726 = load ptr, ptr %4, align 8
+  %1726 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %1726, ptr %3, align 8
   br label %2666
 
 1727:                                             ; preds = %1471
-  %1728 = load ptr, ptr %4, align 8
+  %1728 = load ptr, ptr %4, align 8, !tbaa !3
   %1729 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1728, ptr noundef @.str.487)
-  %1730 = load ptr, ptr %4, align 8
+  %1730 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %1730, ptr %3, align 8
   br label %2666
 
 1731:                                             ; preds = %1471
-  %1732 = load ptr, ptr %4, align 8
+  %1732 = load ptr, ptr %4, align 8, !tbaa !3
   %1733 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1732, ptr noundef @.str.488)
-  %1734 = load ptr, ptr %4, align 8
+  %1734 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %1734, ptr %3, align 8
   br label %2666
 
 1735:                                             ; preds = %1471
-  %1736 = load ptr, ptr %4, align 8
+  %1736 = load ptr, ptr %4, align 8, !tbaa !3
   %1737 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1736, ptr noundef @.str.489)
-  %1738 = load ptr, ptr %4, align 8
+  %1738 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %1738, ptr %3, align 8
   br label %2666
 
 1739:                                             ; preds = %1471
-  %1740 = load ptr, ptr %4, align 8
+  %1740 = load ptr, ptr %4, align 8, !tbaa !3
   %1741 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1740, ptr noundef @.str.490)
-  %1742 = load ptr, ptr %4, align 8
+  %1742 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %1742, ptr %3, align 8
   br label %2666
 
 1743:                                             ; preds = %1471
-  %1744 = load ptr, ptr %4, align 8
+  %1744 = load ptr, ptr %4, align 8, !tbaa !3
   %1745 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1744, ptr noundef @.str.491)
-  %1746 = load ptr, ptr %4, align 8
+  %1746 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %1746, ptr %3, align 8
   br label %2666
 
 1747:                                             ; preds = %1471
-  %1748 = load ptr, ptr %4, align 8
+  %1748 = load ptr, ptr %4, align 8, !tbaa !3
   %1749 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1748, ptr noundef @.str.492)
-  %1750 = load ptr, ptr %4, align 8
+  %1750 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %1750, ptr %3, align 8
   br label %2666
 
 1751:                                             ; preds = %1471
-  %1752 = load ptr, ptr %4, align 8
+  %1752 = load ptr, ptr %4, align 8, !tbaa !3
   %1753 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1752, ptr noundef @.str.493)
-  %1754 = load ptr, ptr %4, align 8
+  %1754 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %1754, ptr %3, align 8
   br label %2666
 
 1755:                                             ; preds = %1471
-  %1756 = load ptr, ptr %4, align 8
+  %1756 = load ptr, ptr %4, align 8, !tbaa !3
   %1757 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1756, ptr noundef @.str.494)
-  %1758 = load ptr, ptr %4, align 8
+  %1758 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %1758, ptr %3, align 8
   br label %2666
 
 1759:                                             ; preds = %1471
-  %1760 = load ptr, ptr %4, align 8
+  %1760 = load ptr, ptr %4, align 8, !tbaa !3
   %1761 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1760, ptr noundef @.str.495)
-  %1762 = load ptr, ptr %4, align 8
+  %1762 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %1762, ptr %3, align 8
   br label %2666
 
 1763:                                             ; preds = %1471
-  %1764 = load ptr, ptr %4, align 8
+  %1764 = load ptr, ptr %4, align 8, !tbaa !3
   %1765 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1764, ptr noundef @.str.496)
-  %1766 = load ptr, ptr %4, align 8
+  %1766 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %1766, ptr %3, align 8
   br label %2666
 
 1767:                                             ; preds = %1471
-  %1768 = load ptr, ptr %4, align 8
+  %1768 = load ptr, ptr %4, align 8, !tbaa !3
   %1769 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1768, ptr noundef @.str.497)
-  %1770 = load ptr, ptr %4, align 8
+  %1770 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %1770, ptr %3, align 8
   br label %2666
 
 1771:                                             ; preds = %1471
-  %1772 = load ptr, ptr %4, align 8
+  %1772 = load ptr, ptr %4, align 8, !tbaa !3
   %1773 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1772, ptr noundef @.str.498)
-  %1774 = load ptr, ptr %4, align 8
+  %1774 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %1774, ptr %3, align 8
   br label %2666
 
 1775:                                             ; preds = %1471
-  %1776 = load ptr, ptr %4, align 8
+  %1776 = load ptr, ptr %4, align 8, !tbaa !3
   %1777 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1776, ptr noundef @.str.499)
-  %1778 = load ptr, ptr %4, align 8
+  %1778 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %1778, ptr %3, align 8
   br label %2666
 
 1779:                                             ; preds = %1471
-  %1780 = load ptr, ptr %4, align 8
+  %1780 = load ptr, ptr %4, align 8, !tbaa !3
   %1781 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1780, ptr noundef @.str.500)
-  %1782 = load ptr, ptr %4, align 8
+  %1782 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %1782, ptr %3, align 8
   br label %2666
 
 1783:                                             ; preds = %1471
-  %1784 = load ptr, ptr %4, align 8
+  %1784 = load ptr, ptr %4, align 8, !tbaa !3
   %1785 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1784, ptr noundef @.str.501)
-  %1786 = load ptr, ptr %4, align 8
+  %1786 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %1786, ptr %3, align 8
   br label %2666
 
 1787:                                             ; preds = %1471
-  %1788 = load ptr, ptr %4, align 8
+  %1788 = load ptr, ptr %4, align 8, !tbaa !3
   %1789 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1788, ptr noundef @.str.502)
-  %1790 = load ptr, ptr %4, align 8
+  %1790 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %1790, ptr %3, align 8
   br label %2666
 
 1791:                                             ; preds = %1471
-  %1792 = load ptr, ptr %4, align 8
+  %1792 = load ptr, ptr %4, align 8, !tbaa !3
   %1793 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1792, ptr noundef @.str.503)
-  %1794 = load ptr, ptr %4, align 8
+  %1794 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %1794, ptr %3, align 8
   br label %2666
 
 1795:                                             ; preds = %1471
-  %1796 = load ptr, ptr %4, align 8
+  %1796 = load ptr, ptr %4, align 8, !tbaa !3
   %1797 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1796, ptr noundef @.str.504)
-  %1798 = load ptr, ptr %4, align 8
+  %1798 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %1798, ptr %3, align 8
   br label %2666
 
 1799:                                             ; preds = %1471
-  %1800 = load ptr, ptr %4, align 8
+  %1800 = load ptr, ptr %4, align 8, !tbaa !3
   %1801 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1800, ptr noundef @.str.505)
-  %1802 = load ptr, ptr %4, align 8
+  %1802 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %1802, ptr %3, align 8
   br label %2666
 
 1803:                                             ; preds = %1471
-  %1804 = load ptr, ptr %4, align 8
+  %1804 = load ptr, ptr %4, align 8, !tbaa !3
   %1805 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1804, ptr noundef @.str.506)
-  %1806 = load ptr, ptr %4, align 8
+  %1806 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %1806, ptr %3, align 8
   br label %2666
 
 1807:                                             ; preds = %1471
-  %1808 = load ptr, ptr %4, align 8
+  %1808 = load ptr, ptr %4, align 8, !tbaa !3
   %1809 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1808, ptr noundef @.str.507)
-  %1810 = load ptr, ptr %4, align 8
+  %1810 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %1810, ptr %3, align 8
   br label %2666
 
 1811:                                             ; preds = %1471
-  %1812 = load ptr, ptr %4, align 8
+  %1812 = load ptr, ptr %4, align 8, !tbaa !3
   %1813 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1812, ptr noundef @.str.508)
-  %1814 = load ptr, ptr %4, align 8
+  %1814 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %1814, ptr %3, align 8
   br label %2666
 
 1815:                                             ; preds = %1471
-  %1816 = load ptr, ptr %4, align 8
+  %1816 = load ptr, ptr %4, align 8, !tbaa !3
   %1817 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1816, ptr noundef @.str.509)
-  %1818 = load ptr, ptr %4, align 8
+  %1818 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %1818, ptr %3, align 8
   br label %2666
 
 1819:                                             ; preds = %1471
-  %1820 = load ptr, ptr %4, align 8
+  %1820 = load ptr, ptr %4, align 8, !tbaa !3
   %1821 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1820, ptr noundef @.str.510)
-  %1822 = load ptr, ptr %4, align 8
+  %1822 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %1822, ptr %3, align 8
   br label %2666
 
 1823:                                             ; preds = %1471
-  %1824 = load ptr, ptr %4, align 8
+  %1824 = load ptr, ptr %4, align 8, !tbaa !3
   %1825 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1824, ptr noundef @.str.511)
-  %1826 = load ptr, ptr %4, align 8
+  %1826 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %1826, ptr %3, align 8
   br label %2666
 
 1827:                                             ; preds = %1471
-  %1828 = load ptr, ptr %4, align 8
+  %1828 = load ptr, ptr %4, align 8, !tbaa !3
   %1829 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1828, ptr noundef @.str.512)
-  %1830 = load ptr, ptr %4, align 8
+  %1830 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %1830, ptr %3, align 8
   br label %2666
 
 1831:                                             ; preds = %1471
-  %1832 = load ptr, ptr %4, align 8
+  %1832 = load ptr, ptr %4, align 8, !tbaa !3
   %1833 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1832, ptr noundef @.str.513)
-  %1834 = load ptr, ptr %4, align 8
+  %1834 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %1834, ptr %3, align 8
   br label %2666
 
 1835:                                             ; preds = %1471
-  %1836 = load ptr, ptr %4, align 8
+  %1836 = load ptr, ptr %4, align 8, !tbaa !3
   %1837 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1836, ptr noundef @.str.514)
-  %1838 = load ptr, ptr %4, align 8
+  %1838 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %1838, ptr %3, align 8
   br label %2666
 
 1839:                                             ; preds = %1471
-  %1840 = load ptr, ptr %4, align 8
+  %1840 = load ptr, ptr %4, align 8, !tbaa !3
   %1841 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1840, ptr noundef @.str.515)
-  %1842 = load ptr, ptr %4, align 8
+  %1842 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %1842, ptr %3, align 8
   br label %2666
 
 1843:                                             ; preds = %1471
-  %1844 = load ptr, ptr %4, align 8
+  %1844 = load ptr, ptr %4, align 8, !tbaa !3
   %1845 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1844, ptr noundef @.str.516)
-  %1846 = load ptr, ptr %4, align 8
+  %1846 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %1846, ptr %3, align 8
   br label %2666
 
 1847:                                             ; preds = %1471
-  %1848 = load ptr, ptr %4, align 8
+  %1848 = load ptr, ptr %4, align 8, !tbaa !3
   %1849 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1848, ptr noundef @.str.517)
-  %1850 = load ptr, ptr %4, align 8
+  %1850 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %1850, ptr %3, align 8
   br label %2666
 
 1851:                                             ; preds = %1471
-  %1852 = load ptr, ptr %4, align 8
+  %1852 = load ptr, ptr %4, align 8, !tbaa !3
   %1853 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1852, ptr noundef @.str.518)
-  %1854 = load ptr, ptr %4, align 8
+  %1854 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %1854, ptr %3, align 8
   br label %2666
 
 1855:                                             ; preds = %1471
-  %1856 = load ptr, ptr %4, align 8
+  %1856 = load ptr, ptr %4, align 8, !tbaa !3
   %1857 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1856, ptr noundef @.str.519)
-  %1858 = load ptr, ptr %4, align 8
+  %1858 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %1858, ptr %3, align 8
   br label %2666
 
 1859:                                             ; preds = %1471
-  %1860 = load ptr, ptr %4, align 8
+  %1860 = load ptr, ptr %4, align 8, !tbaa !3
   %1861 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1860, ptr noundef @.str.520)
-  %1862 = load ptr, ptr %4, align 8
+  %1862 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %1862, ptr %3, align 8
   br label %2666
 
 1863:                                             ; preds = %1471
-  %1864 = load ptr, ptr %4, align 8
+  %1864 = load ptr, ptr %4, align 8, !tbaa !3
   %1865 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1864, ptr noundef @.str.521)
-  %1866 = load ptr, ptr %4, align 8
+  %1866 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %1866, ptr %3, align 8
   br label %2666
 
 1867:                                             ; preds = %1471
-  %1868 = load ptr, ptr %4, align 8
+  %1868 = load ptr, ptr %4, align 8, !tbaa !3
   %1869 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1868, ptr noundef @.str.522)
-  %1870 = load ptr, ptr %4, align 8
+  %1870 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %1870, ptr %3, align 8
   br label %2666
 
 1871:                                             ; preds = %1471
-  %1872 = load ptr, ptr %4, align 8
+  %1872 = load ptr, ptr %4, align 8, !tbaa !3
   %1873 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1872, ptr noundef @.str.523)
-  %1874 = load ptr, ptr %4, align 8
+  %1874 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %1874, ptr %3, align 8
   br label %2666
 
 1875:                                             ; preds = %1471
-  %1876 = load ptr, ptr %4, align 8
+  %1876 = load ptr, ptr %4, align 8, !tbaa !3
   %1877 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1876, ptr noundef @.str.524)
-  %1878 = load ptr, ptr %4, align 8
+  %1878 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %1878, ptr %3, align 8
   br label %2666
 
 1879:                                             ; preds = %1471
-  %1880 = load ptr, ptr %4, align 8
+  %1880 = load ptr, ptr %4, align 8, !tbaa !3
   %1881 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1880, ptr noundef @.str.525)
-  %1882 = load ptr, ptr %4, align 8
+  %1882 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %1882, ptr %3, align 8
   br label %2666
 
 1883:                                             ; preds = %1471
-  %1884 = load ptr, ptr %4, align 8
+  %1884 = load ptr, ptr %4, align 8, !tbaa !3
   %1885 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1884, ptr noundef @.str.526)
-  %1886 = load ptr, ptr %4, align 8
+  %1886 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %1886, ptr %3, align 8
   br label %2666
 
 1887:                                             ; preds = %1471
-  %1888 = load ptr, ptr %4, align 8
+  %1888 = load ptr, ptr %4, align 8, !tbaa !3
   %1889 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1888, ptr noundef @.str.527)
-  %1890 = load ptr, ptr %4, align 8
+  %1890 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %1890, ptr %3, align 8
   br label %2666
 
 1891:                                             ; preds = %1471
-  %1892 = load ptr, ptr %4, align 8
+  %1892 = load ptr, ptr %4, align 8, !tbaa !3
   %1893 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1892, ptr noundef @.str.528)
-  %1894 = load ptr, ptr %4, align 8
+  %1894 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %1894, ptr %3, align 8
   br label %2666
 
 1895:                                             ; preds = %1471
-  %1896 = load ptr, ptr %4, align 8
+  %1896 = load ptr, ptr %4, align 8, !tbaa !3
   %1897 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1896, ptr noundef @.str.529)
-  %1898 = load ptr, ptr %4, align 8
+  %1898 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %1898, ptr %3, align 8
   br label %2666
 
 1899:                                             ; preds = %1471
-  %1900 = load ptr, ptr %4, align 8
+  %1900 = load ptr, ptr %4, align 8, !tbaa !3
   %1901 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1900, ptr noundef @.str.530)
-  %1902 = load ptr, ptr %4, align 8
+  %1902 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %1902, ptr %3, align 8
   br label %2666
 
 1903:                                             ; preds = %1471
-  %1904 = load ptr, ptr %4, align 8
+  %1904 = load ptr, ptr %4, align 8, !tbaa !3
   %1905 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1904, ptr noundef @.str.531)
-  %1906 = load ptr, ptr %4, align 8
+  %1906 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %1906, ptr %3, align 8
   br label %2666
 
 1907:                                             ; preds = %1471
-  %1908 = load ptr, ptr %4, align 8
+  %1908 = load ptr, ptr %4, align 8, !tbaa !3
   %1909 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1908, ptr noundef @.str.532)
-  %1910 = load ptr, ptr %4, align 8
+  %1910 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %1910, ptr %3, align 8
   br label %2666
 
 1911:                                             ; preds = %1471
-  %1912 = load ptr, ptr %4, align 8
+  %1912 = load ptr, ptr %4, align 8, !tbaa !3
   %1913 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1912, ptr noundef @.str.533)
-  %1914 = load ptr, ptr %4, align 8
+  %1914 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %1914, ptr %3, align 8
   br label %2666
 
 1915:                                             ; preds = %1471
-  %1916 = load ptr, ptr %4, align 8
+  %1916 = load ptr, ptr %4, align 8, !tbaa !3
   %1917 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1916, ptr noundef @.str.534)
-  %1918 = load ptr, ptr %4, align 8
+  %1918 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %1918, ptr %3, align 8
   br label %2666
 
 1919:                                             ; preds = %1471
-  %1920 = load ptr, ptr %4, align 8
+  %1920 = load ptr, ptr %4, align 8, !tbaa !3
   %1921 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1920, ptr noundef @.str.535)
-  %1922 = load ptr, ptr %4, align 8
+  %1922 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %1922, ptr %3, align 8
   br label %2666
 
 1923:                                             ; preds = %1471
-  %1924 = load ptr, ptr %4, align 8
+  %1924 = load ptr, ptr %4, align 8, !tbaa !3
   %1925 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1924, ptr noundef @.str.536)
-  %1926 = load ptr, ptr %4, align 8
+  %1926 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %1926, ptr %3, align 8
   br label %2666
 
 1927:                                             ; preds = %1471
-  %1928 = load ptr, ptr %4, align 8
+  %1928 = load ptr, ptr %4, align 8, !tbaa !3
   %1929 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1928, ptr noundef @.str.537)
-  %1930 = load ptr, ptr %4, align 8
+  %1930 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %1930, ptr %3, align 8
   br label %2666
 
 1931:                                             ; preds = %1471
-  %1932 = load ptr, ptr %4, align 8
+  %1932 = load ptr, ptr %4, align 8, !tbaa !3
   %1933 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1932, ptr noundef @.str.538)
-  %1934 = load ptr, ptr %4, align 8
+  %1934 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %1934, ptr %3, align 8
   br label %2666
 
 1935:                                             ; preds = %1471
-  %1936 = load ptr, ptr %4, align 8
+  %1936 = load ptr, ptr %4, align 8, !tbaa !3
   %1937 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1936, ptr noundef @.str.539)
-  %1938 = load ptr, ptr %4, align 8
+  %1938 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %1938, ptr %3, align 8
   br label %2666
 
 1939:                                             ; preds = %1471
-  %1940 = load ptr, ptr %4, align 8
+  %1940 = load ptr, ptr %4, align 8, !tbaa !3
   %1941 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1940, ptr noundef @.str.540)
-  %1942 = load ptr, ptr %4, align 8
+  %1942 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %1942, ptr %3, align 8
   br label %2666
 
 1943:                                             ; preds = %1471
-  %1944 = load ptr, ptr %4, align 8
+  %1944 = load ptr, ptr %4, align 8, !tbaa !3
   %1945 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1944, ptr noundef @.str.541)
-  %1946 = load ptr, ptr %4, align 8
+  %1946 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %1946, ptr %3, align 8
   br label %2666
 
 1947:                                             ; preds = %1471
-  %1948 = load ptr, ptr %4, align 8
+  %1948 = load ptr, ptr %4, align 8, !tbaa !3
   %1949 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1948, ptr noundef @.str.542)
-  %1950 = load ptr, ptr %4, align 8
+  %1950 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %1950, ptr %3, align 8
   br label %2666
 
 1951:                                             ; preds = %1471
-  %1952 = load ptr, ptr %4, align 8
+  %1952 = load ptr, ptr %4, align 8, !tbaa !3
   %1953 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1952, ptr noundef @.str.543)
-  %1954 = load ptr, ptr %4, align 8
+  %1954 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %1954, ptr %3, align 8
   br label %2666
 
 1955:                                             ; preds = %1471
-  %1956 = load ptr, ptr %4, align 8
+  %1956 = load ptr, ptr %4, align 8, !tbaa !3
   %1957 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1956, ptr noundef @.str.544)
-  %1958 = load ptr, ptr %4, align 8
+  %1958 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %1958, ptr %3, align 8
   br label %2666
 
 1959:                                             ; preds = %1471
-  %1960 = load ptr, ptr %4, align 8
+  %1960 = load ptr, ptr %4, align 8, !tbaa !3
   %1961 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1960, ptr noundef @.str.545)
-  %1962 = load ptr, ptr %4, align 8
+  %1962 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %1962, ptr %3, align 8
   br label %2666
 
 1963:                                             ; preds = %1471
-  %1964 = load ptr, ptr %4, align 8
+  %1964 = load ptr, ptr %4, align 8, !tbaa !3
   %1965 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1964, ptr noundef @.str.546)
-  %1966 = load ptr, ptr %4, align 8
+  %1966 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %1966, ptr %3, align 8
   br label %2666
 
 1967:                                             ; preds = %1471
-  %1968 = load ptr, ptr %4, align 8
+  %1968 = load ptr, ptr %4, align 8, !tbaa !3
   %1969 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1968, ptr noundef @.str.547)
-  %1970 = load ptr, ptr %4, align 8
+  %1970 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %1970, ptr %3, align 8
   br label %2666
 
 1971:                                             ; preds = %1471
-  %1972 = load ptr, ptr %4, align 8
+  %1972 = load ptr, ptr %4, align 8, !tbaa !3
   %1973 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1972, ptr noundef @.str.548)
-  %1974 = load ptr, ptr %4, align 8
+  %1974 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %1974, ptr %3, align 8
   br label %2666
 
 1975:                                             ; preds = %1471
-  %1976 = load ptr, ptr %4, align 8
+  %1976 = load ptr, ptr %4, align 8, !tbaa !3
   %1977 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1976, ptr noundef @.str.549)
-  %1978 = load ptr, ptr %4, align 8
+  %1978 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %1978, ptr %3, align 8
   br label %2666
 
 1979:                                             ; preds = %1471
-  %1980 = load ptr, ptr %4, align 8
+  %1980 = load ptr, ptr %4, align 8, !tbaa !3
   %1981 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1980, ptr noundef @.str.550)
-  %1982 = load ptr, ptr %4, align 8
+  %1982 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %1982, ptr %3, align 8
   br label %2666
 
 1983:                                             ; preds = %1471
-  %1984 = load ptr, ptr %4, align 8
+  %1984 = load ptr, ptr %4, align 8, !tbaa !3
   %1985 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1984, ptr noundef @.str.551)
-  %1986 = load ptr, ptr %4, align 8
+  %1986 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %1986, ptr %3, align 8
   br label %2666
 
 1987:                                             ; preds = %1471
-  %1988 = load ptr, ptr %4, align 8
+  %1988 = load ptr, ptr %4, align 8, !tbaa !3
   %1989 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1988, ptr noundef @.str.552)
-  %1990 = load ptr, ptr %4, align 8
+  %1990 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %1990, ptr %3, align 8
   br label %2666
 
 1991:                                             ; preds = %1471
-  %1992 = load ptr, ptr %4, align 8
+  %1992 = load ptr, ptr %4, align 8, !tbaa !3
   %1993 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1992, ptr noundef @.str.553)
-  %1994 = load ptr, ptr %4, align 8
+  %1994 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %1994, ptr %3, align 8
   br label %2666
 
 1995:                                             ; preds = %1471
-  %1996 = load ptr, ptr %4, align 8
+  %1996 = load ptr, ptr %4, align 8, !tbaa !3
   %1997 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1996, ptr noundef @.str.554)
-  %1998 = load ptr, ptr %4, align 8
+  %1998 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %1998, ptr %3, align 8
   br label %2666
 
 1999:                                             ; preds = %1471
-  %2000 = load ptr, ptr %4, align 8
+  %2000 = load ptr, ptr %4, align 8, !tbaa !3
   %2001 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %2000, ptr noundef @.str.555)
-  %2002 = load ptr, ptr %4, align 8
+  %2002 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %2002, ptr %3, align 8
   br label %2666
 
 2003:                                             ; preds = %1471
-  %2004 = load ptr, ptr %4, align 8
+  %2004 = load ptr, ptr %4, align 8, !tbaa !3
   %2005 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %2004, ptr noundef @.str.556)
-  %2006 = load ptr, ptr %4, align 8
+  %2006 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %2006, ptr %3, align 8
   br label %2666
 
 2007:                                             ; preds = %1471
-  %2008 = load ptr, ptr %4, align 8
+  %2008 = load ptr, ptr %4, align 8, !tbaa !3
   %2009 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %2008, ptr noundef @.str.557)
-  %2010 = load ptr, ptr %4, align 8
+  %2010 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %2010, ptr %3, align 8
   br label %2666
 
 2011:                                             ; preds = %1471
-  %2012 = load ptr, ptr %4, align 8
+  %2012 = load ptr, ptr %4, align 8, !tbaa !3
   %2013 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %2012, ptr noundef @.str.558)
-  %2014 = load ptr, ptr %4, align 8
+  %2014 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %2014, ptr %3, align 8
   br label %2666
 
 2015:                                             ; preds = %1471
-  %2016 = load ptr, ptr %4, align 8
+  %2016 = load ptr, ptr %4, align 8, !tbaa !3
   %2017 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %2016, ptr noundef @.str.559)
-  %2018 = load ptr, ptr %4, align 8
+  %2018 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %2018, ptr %3, align 8
   br label %2666
 
 2019:                                             ; preds = %1471
-  %2020 = load ptr, ptr %4, align 8
+  %2020 = load ptr, ptr %4, align 8, !tbaa !3
   %2021 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %2020, ptr noundef @.str.560)
-  %2022 = load ptr, ptr %4, align 8
+  %2022 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %2022, ptr %3, align 8
   br label %2666
 
 2023:                                             ; preds = %1471
-  %2024 = load ptr, ptr %4, align 8
+  %2024 = load ptr, ptr %4, align 8, !tbaa !3
   %2025 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %2024, ptr noundef @.str.561)
-  %2026 = load ptr, ptr %4, align 8
+  %2026 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %2026, ptr %3, align 8
   br label %2666
 
 2027:                                             ; preds = %1471
-  %2028 = load ptr, ptr %4, align 8
+  %2028 = load ptr, ptr %4, align 8, !tbaa !3
   %2029 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %2028, ptr noundef @.str.562)
-  %2030 = load ptr, ptr %4, align 8
+  %2030 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %2030, ptr %3, align 8
   br label %2666
 
 2031:                                             ; preds = %1471
-  %2032 = load ptr, ptr %4, align 8
+  %2032 = load ptr, ptr %4, align 8, !tbaa !3
   %2033 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %2032, ptr noundef @.str.563)
-  %2034 = load ptr, ptr %4, align 8
+  %2034 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %2034, ptr %3, align 8
   br label %2666
 
 2035:                                             ; preds = %1471
-  %2036 = load ptr, ptr %4, align 8
+  %2036 = load ptr, ptr %4, align 8, !tbaa !3
   %2037 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %2036, ptr noundef @.str.564)
-  %2038 = load ptr, ptr %4, align 8
+  %2038 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %2038, ptr %3, align 8
   br label %2666
 
 2039:                                             ; preds = %1471
-  %2040 = load ptr, ptr %4, align 8
+  %2040 = load ptr, ptr %4, align 8, !tbaa !3
   %2041 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %2040, ptr noundef @.str.565)
-  %2042 = load ptr, ptr %4, align 8
+  %2042 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %2042, ptr %3, align 8
   br label %2666
 
 2043:                                             ; preds = %1471
-  %2044 = load ptr, ptr %4, align 8
+  %2044 = load ptr, ptr %4, align 8, !tbaa !3
   %2045 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %2044, ptr noundef @.str.566)
-  %2046 = load ptr, ptr %4, align 8
+  %2046 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %2046, ptr %3, align 8
   br label %2666
 
 2047:                                             ; preds = %1471
-  %2048 = load ptr, ptr %4, align 8
+  %2048 = load ptr, ptr %4, align 8, !tbaa !3
   %2049 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %2048, ptr noundef @.str.567)
-  %2050 = load ptr, ptr %4, align 8
+  %2050 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %2050, ptr %3, align 8
   br label %2666
 
 2051:                                             ; preds = %1471
-  %2052 = load ptr, ptr %4, align 8
+  %2052 = load ptr, ptr %4, align 8, !tbaa !3
   %2053 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %2052, ptr noundef @.str.568)
-  %2054 = load ptr, ptr %4, align 8
+  %2054 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %2054, ptr %3, align 8
   br label %2666
 
 2055:                                             ; preds = %1471
-  %2056 = load ptr, ptr %4, align 8
+  %2056 = load ptr, ptr %4, align 8, !tbaa !3
   %2057 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %2056, ptr noundef @.str.569)
-  %2058 = load ptr, ptr %4, align 8
+  %2058 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %2058, ptr %3, align 8
   br label %2666
 
 2059:                                             ; preds = %1471
-  %2060 = load ptr, ptr %4, align 8
+  %2060 = load ptr, ptr %4, align 8, !tbaa !3
   %2061 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %2060, ptr noundef @.str.570)
-  %2062 = load ptr, ptr %4, align 8
+  %2062 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %2062, ptr %3, align 8
   br label %2666
 
 2063:                                             ; preds = %1471
-  %2064 = load ptr, ptr %4, align 8
+  %2064 = load ptr, ptr %4, align 8, !tbaa !3
   %2065 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %2064, ptr noundef @.str.571)
-  %2066 = load ptr, ptr %4, align 8
+  %2066 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %2066, ptr %3, align 8
   br label %2666
 
 2067:                                             ; preds = %1471
-  %2068 = load ptr, ptr %4, align 8
+  %2068 = load ptr, ptr %4, align 8, !tbaa !3
   %2069 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %2068, ptr noundef @.str.572)
-  %2070 = load ptr, ptr %4, align 8
+  %2070 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %2070, ptr %3, align 8
   br label %2666
 
 2071:                                             ; preds = %1471
-  %2072 = load ptr, ptr %4, align 8
+  %2072 = load ptr, ptr %4, align 8, !tbaa !3
   %2073 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %2072, ptr noundef @.str.573)
-  %2074 = load ptr, ptr %4, align 8
+  %2074 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %2074, ptr %3, align 8
   br label %2666
 
 2075:                                             ; preds = %1471
-  %2076 = load ptr, ptr %4, align 8
+  %2076 = load ptr, ptr %4, align 8, !tbaa !3
   %2077 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %2076, ptr noundef @.str.574)
-  %2078 = load ptr, ptr %4, align 8
+  %2078 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %2078, ptr %3, align 8
   br label %2666
 
 2079:                                             ; preds = %1471
-  %2080 = load ptr, ptr %4, align 8
+  %2080 = load ptr, ptr %4, align 8, !tbaa !3
   %2081 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %2080, ptr noundef @.str.575)
-  %2082 = load ptr, ptr %4, align 8
+  %2082 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %2082, ptr %3, align 8
   br label %2666
 
 2083:                                             ; preds = %1471
-  %2084 = load ptr, ptr %4, align 8
+  %2084 = load ptr, ptr %4, align 8, !tbaa !3
   %2085 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %2084, ptr noundef @.str.576)
-  %2086 = load ptr, ptr %4, align 8
+  %2086 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %2086, ptr %3, align 8
   br label %2666
 
 2087:                                             ; preds = %1471
-  %2088 = load ptr, ptr %4, align 8
+  %2088 = load ptr, ptr %4, align 8, !tbaa !3
   %2089 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %2088, ptr noundef @.str.577)
-  %2090 = load ptr, ptr %4, align 8
+  %2090 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %2090, ptr %3, align 8
   br label %2666
 
 2091:                                             ; preds = %1471
-  %2092 = load ptr, ptr %4, align 8
+  %2092 = load ptr, ptr %4, align 8, !tbaa !3
   %2093 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %2092, ptr noundef @.str.578)
-  %2094 = load ptr, ptr %4, align 8
+  %2094 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %2094, ptr %3, align 8
   br label %2666
 
 2095:                                             ; preds = %1471
-  %2096 = load ptr, ptr %4, align 8
+  %2096 = load ptr, ptr %4, align 8, !tbaa !3
   %2097 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %2096, ptr noundef @.str.579)
-  %2098 = load ptr, ptr %4, align 8
+  %2098 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %2098, ptr %3, align 8
   br label %2666
 
 2099:                                             ; preds = %1471
-  %2100 = load ptr, ptr %4, align 8
+  %2100 = load ptr, ptr %4, align 8, !tbaa !3
   %2101 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %2100, ptr noundef @.str.580)
-  %2102 = load ptr, ptr %4, align 8
+  %2102 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %2102, ptr %3, align 8
   br label %2666
 
 2103:                                             ; preds = %1471
-  %2104 = load ptr, ptr %4, align 8
+  %2104 = load ptr, ptr %4, align 8, !tbaa !3
   %2105 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %2104, ptr noundef @.str.581)
-  %2106 = load ptr, ptr %4, align 8
+  %2106 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %2106, ptr %3, align 8
   br label %2666
 
 2107:                                             ; preds = %1471
-  %2108 = load ptr, ptr %4, align 8
+  %2108 = load ptr, ptr %4, align 8, !tbaa !3
   %2109 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %2108, ptr noundef @.str.582)
-  %2110 = load ptr, ptr %4, align 8
+  %2110 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %2110, ptr %3, align 8
   br label %2666
 
 2111:                                             ; preds = %1471
-  %2112 = load ptr, ptr %4, align 8
+  %2112 = load ptr, ptr %4, align 8, !tbaa !3
   %2113 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %2112, ptr noundef @.str.583)
-  %2114 = load ptr, ptr %4, align 8
+  %2114 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %2114, ptr %3, align 8
   br label %2666
 
 2115:                                             ; preds = %1471
-  %2116 = load ptr, ptr %4, align 8
+  %2116 = load ptr, ptr %4, align 8, !tbaa !3
   %2117 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %2116, ptr noundef @.str.584)
-  %2118 = load ptr, ptr %4, align 8
+  %2118 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %2118, ptr %3, align 8
   br label %2666
 
 2119:                                             ; preds = %1471
-  %2120 = load ptr, ptr %4, align 8
+  %2120 = load ptr, ptr %4, align 8, !tbaa !3
   %2121 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %2120, ptr noundef @.str.585)
-  %2122 = load ptr, ptr %4, align 8
+  %2122 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %2122, ptr %3, align 8
   br label %2666
 
 2123:                                             ; preds = %1471
-  %2124 = load ptr, ptr %4, align 8
+  %2124 = load ptr, ptr %4, align 8, !tbaa !3
   %2125 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %2124, ptr noundef @.str.586)
-  %2126 = load ptr, ptr %4, align 8
+  %2126 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %2126, ptr %3, align 8
   br label %2666
 
 2127:                                             ; preds = %1471
-  %2128 = load ptr, ptr %4, align 8
+  %2128 = load ptr, ptr %4, align 8, !tbaa !3
   %2129 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %2128, ptr noundef @.str.587)
-  %2130 = load ptr, ptr %4, align 8
+  %2130 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %2130, ptr %3, align 8
   br label %2666
 
 2131:                                             ; preds = %1471
-  %2132 = load ptr, ptr %4, align 8
+  %2132 = load ptr, ptr %4, align 8, !tbaa !3
   %2133 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %2132, ptr noundef @.str.588)
-  %2134 = load ptr, ptr %4, align 8
+  %2134 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %2134, ptr %3, align 8
   br label %2666
 
 2135:                                             ; preds = %1471
-  %2136 = load ptr, ptr %4, align 8
+  %2136 = load ptr, ptr %4, align 8, !tbaa !3
   %2137 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %2136, ptr noundef @.str.589)
-  %2138 = load ptr, ptr %4, align 8
+  %2138 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %2138, ptr %3, align 8
   br label %2666
 
 2139:                                             ; preds = %1471
-  %2140 = load ptr, ptr %4, align 8
+  %2140 = load ptr, ptr %4, align 8, !tbaa !3
   %2141 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %2140, ptr noundef @.str.590)
-  %2142 = load ptr, ptr %4, align 8
+  %2142 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %2142, ptr %3, align 8
   br label %2666
 
 2143:                                             ; preds = %1471
-  %2144 = load ptr, ptr %4, align 8
+  %2144 = load ptr, ptr %4, align 8, !tbaa !3
   %2145 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %2144, ptr noundef @.str.591)
-  %2146 = load ptr, ptr %4, align 8
+  %2146 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %2146, ptr %3, align 8
   br label %2666
 
 2147:                                             ; preds = %1471
-  %2148 = load ptr, ptr %4, align 8
+  %2148 = load ptr, ptr %4, align 8, !tbaa !3
   %2149 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %2148, ptr noundef @.str.592)
-  %2150 = load ptr, ptr %4, align 8
+  %2150 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %2150, ptr %3, align 8
   br label %2666
 
 2151:                                             ; preds = %1471
-  %2152 = load ptr, ptr %4, align 8
+  %2152 = load ptr, ptr %4, align 8, !tbaa !3
   %2153 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %2152, ptr noundef @.str.593)
-  %2154 = load ptr, ptr %4, align 8
+  %2154 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %2154, ptr %3, align 8
   br label %2666
 
 2155:                                             ; preds = %1471
-  %2156 = load ptr, ptr %4, align 8
+  %2156 = load ptr, ptr %4, align 8, !tbaa !3
   %2157 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %2156, ptr noundef @.str.594)
-  %2158 = load ptr, ptr %4, align 8
+  %2158 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %2158, ptr %3, align 8
   br label %2666
 
 2159:                                             ; preds = %1471
-  %2160 = load ptr, ptr %4, align 8
+  %2160 = load ptr, ptr %4, align 8, !tbaa !3
   %2161 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %2160, ptr noundef @.str.595)
-  %2162 = load ptr, ptr %4, align 8
+  %2162 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %2162, ptr %3, align 8
   br label %2666
 
 2163:                                             ; preds = %1471
-  %2164 = load ptr, ptr %4, align 8
+  %2164 = load ptr, ptr %4, align 8, !tbaa !3
   %2165 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %2164, ptr noundef @.str.596)
-  %2166 = load ptr, ptr %4, align 8
+  %2166 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %2166, ptr %3, align 8
   br label %2666
 
 2167:                                             ; preds = %1471
-  %2168 = load ptr, ptr %4, align 8
+  %2168 = load ptr, ptr %4, align 8, !tbaa !3
   %2169 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %2168, ptr noundef @.str.597)
-  %2170 = load ptr, ptr %4, align 8
+  %2170 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %2170, ptr %3, align 8
   br label %2666
 
 2171:                                             ; preds = %1471
-  %2172 = load ptr, ptr %4, align 8
+  %2172 = load ptr, ptr %4, align 8, !tbaa !3
   %2173 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %2172, ptr noundef @.str.598)
-  %2174 = load ptr, ptr %4, align 8
+  %2174 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %2174, ptr %3, align 8
   br label %2666
 
 2175:                                             ; preds = %1471
-  %2176 = load ptr, ptr %4, align 8
+  %2176 = load ptr, ptr %4, align 8, !tbaa !3
   %2177 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %2176, ptr noundef @.str.599)
-  %2178 = load ptr, ptr %4, align 8
+  %2178 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %2178, ptr %3, align 8
   br label %2666
 
 2179:                                             ; preds = %1471
-  %2180 = load ptr, ptr %4, align 8
+  %2180 = load ptr, ptr %4, align 8, !tbaa !3
   %2181 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %2180, ptr noundef @.str.600)
-  %2182 = load ptr, ptr %4, align 8
+  %2182 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %2182, ptr %3, align 8
   br label %2666
 
 2183:                                             ; preds = %1471
-  %2184 = load ptr, ptr %4, align 8
+  %2184 = load ptr, ptr %4, align 8, !tbaa !3
   %2185 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %2184, ptr noundef @.str.601)
-  %2186 = load ptr, ptr %4, align 8
+  %2186 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %2186, ptr %3, align 8
   br label %2666
 
 2187:                                             ; preds = %1471
-  %2188 = load ptr, ptr %4, align 8
+  %2188 = load ptr, ptr %4, align 8, !tbaa !3
   %2189 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %2188, ptr noundef @.str.602)
-  %2190 = load ptr, ptr %4, align 8
+  %2190 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %2190, ptr %3, align 8
   br label %2666
 
 2191:                                             ; preds = %1471
-  %2192 = load ptr, ptr %4, align 8
+  %2192 = load ptr, ptr %4, align 8, !tbaa !3
   %2193 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %2192, ptr noundef @.str.603)
-  %2194 = load ptr, ptr %4, align 8
+  %2194 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %2194, ptr %3, align 8
   br label %2666
 
 2195:                                             ; preds = %1471
-  %2196 = load ptr, ptr %4, align 8
+  %2196 = load ptr, ptr %4, align 8, !tbaa !3
   %2197 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %2196, ptr noundef @.str.604)
-  %2198 = load ptr, ptr %4, align 8
+  %2198 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %2198, ptr %3, align 8
   br label %2666
 
 2199:                                             ; preds = %1471
-  %2200 = load ptr, ptr %4, align 8
+  %2200 = load ptr, ptr %4, align 8, !tbaa !3
   %2201 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %2200, ptr noundef @.str.605)
-  %2202 = load ptr, ptr %4, align 8
+  %2202 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %2202, ptr %3, align 8
   br label %2666
 
 2203:                                             ; preds = %1471
-  %2204 = load ptr, ptr %4, align 8
+  %2204 = load ptr, ptr %4, align 8, !tbaa !3
   %2205 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %2204, ptr noundef @.str.606)
-  %2206 = load ptr, ptr %4, align 8
+  %2206 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %2206, ptr %3, align 8
   br label %2666
 
 2207:                                             ; preds = %1471
-  %2208 = load ptr, ptr %4, align 8
+  %2208 = load ptr, ptr %4, align 8, !tbaa !3
   %2209 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %2208, ptr noundef @.str.607)
-  %2210 = load ptr, ptr %4, align 8
+  %2210 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %2210, ptr %3, align 8
   br label %2666
 
 2211:                                             ; preds = %1471
-  %2212 = load ptr, ptr %4, align 8
+  %2212 = load ptr, ptr %4, align 8, !tbaa !3
   %2213 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %2212, ptr noundef @.str.608)
-  %2214 = load ptr, ptr %4, align 8
+  %2214 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %2214, ptr %3, align 8
   br label %2666
 
 2215:                                             ; preds = %1471
-  %2216 = load ptr, ptr %4, align 8
+  %2216 = load ptr, ptr %4, align 8, !tbaa !3
   %2217 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %2216, ptr noundef @.str.609)
-  %2218 = load ptr, ptr %4, align 8
+  %2218 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %2218, ptr %3, align 8
   br label %2666
 
 2219:                                             ; preds = %1471
-  %2220 = load ptr, ptr %4, align 8
+  %2220 = load ptr, ptr %4, align 8, !tbaa !3
   %2221 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %2220, ptr noundef @.str.610)
-  %2222 = load ptr, ptr %4, align 8
+  %2222 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %2222, ptr %3, align 8
   br label %2666
 
 2223:                                             ; preds = %1471
-  %2224 = load ptr, ptr %4, align 8
+  %2224 = load ptr, ptr %4, align 8, !tbaa !3
   %2225 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %2224, ptr noundef @.str.611)
-  %2226 = load ptr, ptr %4, align 8
+  %2226 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %2226, ptr %3, align 8
   br label %2666
 
 2227:                                             ; preds = %1471
-  %2228 = load ptr, ptr %4, align 8
+  %2228 = load ptr, ptr %4, align 8, !tbaa !3
   %2229 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %2228, ptr noundef @.str.612)
-  %2230 = load ptr, ptr %4, align 8
+  %2230 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %2230, ptr %3, align 8
   br label %2666
 
 2231:                                             ; preds = %1471
-  %2232 = load ptr, ptr %4, align 8
+  %2232 = load ptr, ptr %4, align 8, !tbaa !3
   %2233 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %2232, ptr noundef @.str.613)
-  %2234 = load ptr, ptr %4, align 8
+  %2234 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %2234, ptr %3, align 8
   br label %2666
 
 2235:                                             ; preds = %1471
-  %2236 = load ptr, ptr %4, align 8
+  %2236 = load ptr, ptr %4, align 8, !tbaa !3
   %2237 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %2236, ptr noundef @.str.614)
-  %2238 = load ptr, ptr %4, align 8
+  %2238 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %2238, ptr %3, align 8
   br label %2666
 
 2239:                                             ; preds = %1471
-  %2240 = load ptr, ptr %4, align 8
+  %2240 = load ptr, ptr %4, align 8, !tbaa !3
   %2241 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %2240, ptr noundef @.str.615)
-  %2242 = load ptr, ptr %4, align 8
+  %2242 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %2242, ptr %3, align 8
   br label %2666
 
 2243:                                             ; preds = %1471
-  %2244 = load ptr, ptr %4, align 8
+  %2244 = load ptr, ptr %4, align 8, !tbaa !3
   %2245 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %2244, ptr noundef @.str.616)
-  %2246 = load ptr, ptr %4, align 8
+  %2246 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %2246, ptr %3, align 8
   br label %2666
 
 2247:                                             ; preds = %1471
-  %2248 = load ptr, ptr %4, align 8
+  %2248 = load ptr, ptr %4, align 8, !tbaa !3
   %2249 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %2248, ptr noundef @.str.617)
-  %2250 = load ptr, ptr %4, align 8
+  %2250 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %2250, ptr %3, align 8
   br label %2666
 
 2251:                                             ; preds = %1471
-  %2252 = load ptr, ptr %4, align 8
+  %2252 = load ptr, ptr %4, align 8, !tbaa !3
   %2253 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %2252, ptr noundef @.str.618)
-  %2254 = load ptr, ptr %4, align 8
+  %2254 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %2254, ptr %3, align 8
   br label %2666
 
 2255:                                             ; preds = %1471
-  %2256 = load ptr, ptr %4, align 8
+  %2256 = load ptr, ptr %4, align 8, !tbaa !3
   %2257 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %2256, ptr noundef @.str.619)
-  %2258 = load ptr, ptr %4, align 8
+  %2258 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %2258, ptr %3, align 8
   br label %2666
 
 2259:                                             ; preds = %1471
-  %2260 = load ptr, ptr %4, align 8
+  %2260 = load ptr, ptr %4, align 8, !tbaa !3
   %2261 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %2260, ptr noundef @.str.620)
-  %2262 = load ptr, ptr %4, align 8
+  %2262 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %2262, ptr %3, align 8
   br label %2666
 
 2263:                                             ; preds = %1471
-  %2264 = load ptr, ptr %4, align 8
+  %2264 = load ptr, ptr %4, align 8, !tbaa !3
   %2265 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %2264, ptr noundef @.str.621)
-  %2266 = load ptr, ptr %4, align 8
+  %2266 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %2266, ptr %3, align 8
   br label %2666
 
 2267:                                             ; preds = %1471
-  %2268 = load ptr, ptr %4, align 8
+  %2268 = load ptr, ptr %4, align 8, !tbaa !3
   %2269 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %2268, ptr noundef @.str.622)
-  %2270 = load ptr, ptr %4, align 8
+  %2270 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %2270, ptr %3, align 8
   br label %2666
 
 2271:                                             ; preds = %1471
-  %2272 = load ptr, ptr %4, align 8
+  %2272 = load ptr, ptr %4, align 8, !tbaa !3
   %2273 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %2272, ptr noundef @.str.623)
-  %2274 = load ptr, ptr %4, align 8
+  %2274 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %2274, ptr %3, align 8
   br label %2666
 
 2275:                                             ; preds = %1471
-  %2276 = load ptr, ptr %4, align 8
+  %2276 = load ptr, ptr %4, align 8, !tbaa !3
   %2277 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %2276, ptr noundef @.str.624)
-  %2278 = load ptr, ptr %4, align 8
+  %2278 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %2278, ptr %3, align 8
   br label %2666
 
 2279:                                             ; preds = %1471
-  %2280 = load ptr, ptr %4, align 8
+  %2280 = load ptr, ptr %4, align 8, !tbaa !3
   %2281 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %2280, ptr noundef @.str.625)
-  %2282 = load ptr, ptr %4, align 8
+  %2282 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %2282, ptr %3, align 8
   br label %2666
 
 2283:                                             ; preds = %1471
-  %2284 = load ptr, ptr %4, align 8
+  %2284 = load ptr, ptr %4, align 8, !tbaa !3
   %2285 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %2284, ptr noundef @.str.626)
-  %2286 = load ptr, ptr %4, align 8
+  %2286 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %2286, ptr %3, align 8
   br label %2666
 
 2287:                                             ; preds = %1471
-  %2288 = load ptr, ptr %4, align 8
+  %2288 = load ptr, ptr %4, align 8, !tbaa !3
   %2289 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %2288, ptr noundef @.str.627)
-  %2290 = load ptr, ptr %4, align 8
+  %2290 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %2290, ptr %3, align 8
   br label %2666
 
 2291:                                             ; preds = %1471
-  %2292 = load ptr, ptr %4, align 8
+  %2292 = load ptr, ptr %4, align 8, !tbaa !3
   %2293 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %2292, ptr noundef @.str.628)
-  %2294 = load ptr, ptr %4, align 8
+  %2294 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %2294, ptr %3, align 8
   br label %2666
 
 2295:                                             ; preds = %1471
-  %2296 = load ptr, ptr %4, align 8
+  %2296 = load ptr, ptr %4, align 8, !tbaa !3
   %2297 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %2296, ptr noundef @.str.629)
-  %2298 = load ptr, ptr %4, align 8
+  %2298 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %2298, ptr %3, align 8
   br label %2666
 
 2299:                                             ; preds = %1471
-  %2300 = load ptr, ptr %4, align 8
+  %2300 = load ptr, ptr %4, align 8, !tbaa !3
   %2301 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %2300, ptr noundef @.str.630)
-  %2302 = load ptr, ptr %4, align 8
+  %2302 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %2302, ptr %3, align 8
   br label %2666
 
 2303:                                             ; preds = %1471
-  %2304 = load ptr, ptr %4, align 8
+  %2304 = load ptr, ptr %4, align 8, !tbaa !3
   %2305 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %2304, ptr noundef @.str.631)
-  %2306 = load ptr, ptr %4, align 8
+  %2306 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %2306, ptr %3, align 8
   br label %2666
 
 2307:                                             ; preds = %1471
-  %2308 = load ptr, ptr %4, align 8
+  %2308 = load ptr, ptr %4, align 8, !tbaa !3
   %2309 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %2308, ptr noundef @.str.632)
-  %2310 = load ptr, ptr %4, align 8
+  %2310 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %2310, ptr %3, align 8
   br label %2666
 
 2311:                                             ; preds = %1471
-  %2312 = load ptr, ptr %4, align 8
+  %2312 = load ptr, ptr %4, align 8, !tbaa !3
   %2313 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %2312, ptr noundef @.str.633)
-  %2314 = load ptr, ptr %4, align 8
+  %2314 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %2314, ptr %3, align 8
   br label %2666
 
 2315:                                             ; preds = %1471
-  %2316 = load ptr, ptr %4, align 8
+  %2316 = load ptr, ptr %4, align 8, !tbaa !3
   %2317 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %2316, ptr noundef @.str.634)
-  %2318 = load ptr, ptr %4, align 8
+  %2318 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %2318, ptr %3, align 8
   br label %2666
 
 2319:                                             ; preds = %1471
-  %2320 = load ptr, ptr %4, align 8
+  %2320 = load ptr, ptr %4, align 8, !tbaa !3
   %2321 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %2320, ptr noundef @.str.635)
-  %2322 = load ptr, ptr %4, align 8
+  %2322 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %2322, ptr %3, align 8
   br label %2666
 
 2323:                                             ; preds = %1471
-  %2324 = load ptr, ptr %4, align 8
+  %2324 = load ptr, ptr %4, align 8, !tbaa !3
   %2325 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %2324, ptr noundef @.str.636)
-  %2326 = load ptr, ptr %4, align 8
+  %2326 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %2326, ptr %3, align 8
   br label %2666
 
 2327:                                             ; preds = %1471
-  %2328 = load ptr, ptr %4, align 8
+  %2328 = load ptr, ptr %4, align 8, !tbaa !3
   %2329 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %2328, ptr noundef @.str.637)
-  %2330 = load ptr, ptr %4, align 8
+  %2330 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %2330, ptr %3, align 8
   br label %2666
 
 2331:                                             ; preds = %1471
-  %2332 = load ptr, ptr %4, align 8
+  %2332 = load ptr, ptr %4, align 8, !tbaa !3
   %2333 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %2332, ptr noundef @.str.638)
-  %2334 = load ptr, ptr %4, align 8
+  %2334 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %2334, ptr %3, align 8
   br label %2666
 
 2335:                                             ; preds = %1471
-  %2336 = load ptr, ptr %4, align 8
+  %2336 = load ptr, ptr %4, align 8, !tbaa !3
   %2337 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %2336, ptr noundef @.str.639)
-  %2338 = load ptr, ptr %4, align 8
+  %2338 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %2338, ptr %3, align 8
   br label %2666
 
 2339:                                             ; preds = %1471
-  %2340 = load ptr, ptr %4, align 8
+  %2340 = load ptr, ptr %4, align 8, !tbaa !3
   %2341 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %2340, ptr noundef @.str.640)
-  %2342 = load ptr, ptr %4, align 8
+  %2342 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %2342, ptr %3, align 8
   br label %2666
 
 2343:                                             ; preds = %1471
-  %2344 = load ptr, ptr %4, align 8
+  %2344 = load ptr, ptr %4, align 8, !tbaa !3
   %2345 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %2344, ptr noundef @.str.641)
-  %2346 = load ptr, ptr %4, align 8
+  %2346 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %2346, ptr %3, align 8
   br label %2666
 
 2347:                                             ; preds = %1471
-  %2348 = load ptr, ptr %4, align 8
+  %2348 = load ptr, ptr %4, align 8, !tbaa !3
   %2349 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %2348, ptr noundef @.str.642)
-  %2350 = load ptr, ptr %4, align 8
+  %2350 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %2350, ptr %3, align 8
   br label %2666
 
 2351:                                             ; preds = %1471
-  %2352 = load ptr, ptr %4, align 8
+  %2352 = load ptr, ptr %4, align 8, !tbaa !3
   %2353 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %2352, ptr noundef @.str.643)
-  %2354 = load ptr, ptr %4, align 8
+  %2354 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %2354, ptr %3, align 8
   br label %2666
 
 2355:                                             ; preds = %1471
-  %2356 = load ptr, ptr %4, align 8
+  %2356 = load ptr, ptr %4, align 8, !tbaa !3
   %2357 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %2356, ptr noundef @.str.644)
-  %2358 = load ptr, ptr %4, align 8
+  %2358 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %2358, ptr %3, align 8
   br label %2666
 
 2359:                                             ; preds = %1471
-  %2360 = load ptr, ptr %4, align 8
+  %2360 = load ptr, ptr %4, align 8, !tbaa !3
   %2361 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %2360, ptr noundef @.str.645)
-  %2362 = load ptr, ptr %4, align 8
+  %2362 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %2362, ptr %3, align 8
   br label %2666
 
 2363:                                             ; preds = %1471
-  %2364 = load ptr, ptr %4, align 8
+  %2364 = load ptr, ptr %4, align 8, !tbaa !3
   %2365 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %2364, ptr noundef @.str.646)
-  %2366 = load ptr, ptr %4, align 8
+  %2366 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %2366, ptr %3, align 8
   br label %2666
 
 2367:                                             ; preds = %1471
-  %2368 = load ptr, ptr %4, align 8
+  %2368 = load ptr, ptr %4, align 8, !tbaa !3
   %2369 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %2368, ptr noundef @.str.647)
-  %2370 = load ptr, ptr %4, align 8
+  %2370 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %2370, ptr %3, align 8
   br label %2666
 
 2371:                                             ; preds = %1471
-  %2372 = load ptr, ptr %4, align 8
+  %2372 = load ptr, ptr %4, align 8, !tbaa !3
   %2373 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %2372, ptr noundef @.str.648)
-  %2374 = load ptr, ptr %4, align 8
+  %2374 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %2374, ptr %3, align 8
   br label %2666
 
 2375:                                             ; preds = %1471
-  %2376 = load ptr, ptr %4, align 8
+  %2376 = load ptr, ptr %4, align 8, !tbaa !3
   %2377 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %2376, ptr noundef @.str.649)
-  %2378 = load ptr, ptr %4, align 8
+  %2378 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %2378, ptr %3, align 8
   br label %2666
 
 2379:                                             ; preds = %1471
-  %2380 = load ptr, ptr %4, align 8
+  %2380 = load ptr, ptr %4, align 8, !tbaa !3
   %2381 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %2380, ptr noundef @.str.650)
-  %2382 = load ptr, ptr %4, align 8
+  %2382 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %2382, ptr %3, align 8
   br label %2666
 
 2383:                                             ; preds = %1471
-  %2384 = load ptr, ptr %4, align 8
+  %2384 = load ptr, ptr %4, align 8, !tbaa !3
   %2385 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %2384, ptr noundef @.str.651)
-  %2386 = load ptr, ptr %4, align 8
+  %2386 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %2386, ptr %3, align 8
   br label %2666
 
 2387:                                             ; preds = %1471
-  %2388 = load ptr, ptr %4, align 8
+  %2388 = load ptr, ptr %4, align 8, !tbaa !3
   %2389 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %2388, ptr noundef @.str.652)
-  %2390 = load ptr, ptr %4, align 8
+  %2390 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %2390, ptr %3, align 8
   br label %2666
 
 2391:                                             ; preds = %1471
-  %2392 = load ptr, ptr %4, align 8
+  %2392 = load ptr, ptr %4, align 8, !tbaa !3
   %2393 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %2392, ptr noundef @.str.653)
-  %2394 = load ptr, ptr %4, align 8
+  %2394 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %2394, ptr %3, align 8
   br label %2666
 
 2395:                                             ; preds = %1471
-  %2396 = load ptr, ptr %4, align 8
+  %2396 = load ptr, ptr %4, align 8, !tbaa !3
   %2397 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %2396, ptr noundef @.str.654)
-  %2398 = load ptr, ptr %4, align 8
+  %2398 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %2398, ptr %3, align 8
   br label %2666
 
 2399:                                             ; preds = %1471
-  %2400 = load ptr, ptr %4, align 8
+  %2400 = load ptr, ptr %4, align 8, !tbaa !3
   %2401 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %2400, ptr noundef @.str.655)
-  %2402 = load ptr, ptr %4, align 8
+  %2402 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %2402, ptr %3, align 8
   br label %2666
 
 2403:                                             ; preds = %1471
-  %2404 = load ptr, ptr %4, align 8
+  %2404 = load ptr, ptr %4, align 8, !tbaa !3
   %2405 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %2404, ptr noundef @.str.656)
-  %2406 = load ptr, ptr %4, align 8
+  %2406 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %2406, ptr %3, align 8
   br label %2666
 
 2407:                                             ; preds = %1471
-  %2408 = load ptr, ptr %4, align 8
+  %2408 = load ptr, ptr %4, align 8, !tbaa !3
   %2409 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %2408, ptr noundef @.str.657)
-  %2410 = load ptr, ptr %4, align 8
+  %2410 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %2410, ptr %3, align 8
   br label %2666
 
 2411:                                             ; preds = %1471
-  %2412 = load ptr, ptr %4, align 8
+  %2412 = load ptr, ptr %4, align 8, !tbaa !3
   %2413 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %2412, ptr noundef @.str.658)
-  %2414 = load ptr, ptr %4, align 8
+  %2414 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %2414, ptr %3, align 8
   br label %2666
 
 2415:                                             ; preds = %1471
-  %2416 = load ptr, ptr %4, align 8
+  %2416 = load ptr, ptr %4, align 8, !tbaa !3
   %2417 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %2416, ptr noundef @.str.659)
-  %2418 = load ptr, ptr %4, align 8
+  %2418 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %2418, ptr %3, align 8
   br label %2666
 
 2419:                                             ; preds = %1471
-  %2420 = load ptr, ptr %4, align 8
+  %2420 = load ptr, ptr %4, align 8, !tbaa !3
   %2421 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %2420, ptr noundef @.str.660)
-  %2422 = load ptr, ptr %4, align 8
+  %2422 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %2422, ptr %3, align 8
   br label %2666
 
 2423:                                             ; preds = %1471
-  %2424 = load ptr, ptr %4, align 8
+  %2424 = load ptr, ptr %4, align 8, !tbaa !3
   %2425 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %2424, ptr noundef @.str.661)
-  %2426 = load ptr, ptr %4, align 8
+  %2426 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %2426, ptr %3, align 8
   br label %2666
 
 2427:                                             ; preds = %1471
-  %2428 = load ptr, ptr %4, align 8
+  %2428 = load ptr, ptr %4, align 8, !tbaa !3
   %2429 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %2428, ptr noundef @.str.662)
-  %2430 = load ptr, ptr %4, align 8
+  %2430 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %2430, ptr %3, align 8
   br label %2666
 
 2431:                                             ; preds = %1471
-  %2432 = load ptr, ptr %4, align 8
+  %2432 = load ptr, ptr %4, align 8, !tbaa !3
   %2433 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %2432, ptr noundef @.str.663)
-  %2434 = load ptr, ptr %4, align 8
+  %2434 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %2434, ptr %3, align 8
   br label %2666
 
 2435:                                             ; preds = %1471
-  %2436 = load ptr, ptr %4, align 8
+  %2436 = load ptr, ptr %4, align 8, !tbaa !3
   %2437 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %2436, ptr noundef @.str.664)
-  %2438 = load ptr, ptr %4, align 8
+  %2438 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %2438, ptr %3, align 8
   br label %2666
 
 2439:                                             ; preds = %1471
-  %2440 = load ptr, ptr %4, align 8
+  %2440 = load ptr, ptr %4, align 8, !tbaa !3
   %2441 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %2440, ptr noundef @.str.665)
-  %2442 = load ptr, ptr %4, align 8
+  %2442 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %2442, ptr %3, align 8
   br label %2666
 
 2443:                                             ; preds = %1471
-  %2444 = load ptr, ptr %4, align 8
+  %2444 = load ptr, ptr %4, align 8, !tbaa !3
   %2445 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %2444, ptr noundef @.str.666)
-  %2446 = load ptr, ptr %4, align 8
+  %2446 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %2446, ptr %3, align 8
   br label %2666
 
 2447:                                             ; preds = %1471
-  %2448 = load ptr, ptr %4, align 8
+  %2448 = load ptr, ptr %4, align 8, !tbaa !3
   %2449 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %2448, ptr noundef @.str.667)
-  %2450 = load ptr, ptr %4, align 8
+  %2450 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %2450, ptr %3, align 8
   br label %2666
 
 2451:                                             ; preds = %1471
-  %2452 = load ptr, ptr %4, align 8
+  %2452 = load ptr, ptr %4, align 8, !tbaa !3
   %2453 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %2452, ptr noundef @.str.668)
-  %2454 = load ptr, ptr %4, align 8
+  %2454 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %2454, ptr %3, align 8
   br label %2666
 
 2455:                                             ; preds = %1471
-  %2456 = load ptr, ptr %4, align 8
+  %2456 = load ptr, ptr %4, align 8, !tbaa !3
   %2457 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %2456, ptr noundef @.str.669)
-  %2458 = load ptr, ptr %4, align 8
+  %2458 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %2458, ptr %3, align 8
   br label %2666
 
 2459:                                             ; preds = %1471
-  %2460 = load ptr, ptr %4, align 8
+  %2460 = load ptr, ptr %4, align 8, !tbaa !3
   %2461 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %2460, ptr noundef @.str.670)
-  %2462 = load ptr, ptr %4, align 8
+  %2462 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %2462, ptr %3, align 8
   br label %2666
 
 2463:                                             ; preds = %1471
-  %2464 = load ptr, ptr %4, align 8
+  %2464 = load ptr, ptr %4, align 8, !tbaa !3
   %2465 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %2464, ptr noundef @.str.671)
-  %2466 = load ptr, ptr %4, align 8
+  %2466 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %2466, ptr %3, align 8
   br label %2666
 
 2467:                                             ; preds = %1471
-  %2468 = load ptr, ptr %4, align 8
+  %2468 = load ptr, ptr %4, align 8, !tbaa !3
   %2469 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %2468, ptr noundef @.str.672)
-  %2470 = load ptr, ptr %4, align 8
+  %2470 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %2470, ptr %3, align 8
   br label %2666
 
 2471:                                             ; preds = %1471
-  %2472 = load ptr, ptr %4, align 8
+  %2472 = load ptr, ptr %4, align 8, !tbaa !3
   %2473 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %2472, ptr noundef @.str.673)
-  %2474 = load ptr, ptr %4, align 8
+  %2474 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %2474, ptr %3, align 8
   br label %2666
 
 2475:                                             ; preds = %1471
-  %2476 = load ptr, ptr %4, align 8
+  %2476 = load ptr, ptr %4, align 8, !tbaa !3
   %2477 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %2476, ptr noundef @.str.674)
-  %2478 = load ptr, ptr %4, align 8
+  %2478 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %2478, ptr %3, align 8
   br label %2666
 
 2479:                                             ; preds = %1471
-  %2480 = load ptr, ptr %4, align 8
+  %2480 = load ptr, ptr %4, align 8, !tbaa !3
   %2481 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %2480, ptr noundef @.str.675)
-  %2482 = load ptr, ptr %4, align 8
+  %2482 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %2482, ptr %3, align 8
   br label %2666
 
 2483:                                             ; preds = %1471
-  %2484 = load ptr, ptr %4, align 8
+  %2484 = load ptr, ptr %4, align 8, !tbaa !3
   %2485 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %2484, ptr noundef @.str.676)
-  %2486 = load ptr, ptr %4, align 8
+  %2486 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %2486, ptr %3, align 8
   br label %2666
 
 2487:                                             ; preds = %1471
-  %2488 = load ptr, ptr %4, align 8
+  %2488 = load ptr, ptr %4, align 8, !tbaa !3
   %2489 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %2488, ptr noundef @.str.677)
-  %2490 = load ptr, ptr %4, align 8
+  %2490 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %2490, ptr %3, align 8
   br label %2666
 
 2491:                                             ; preds = %1471
-  %2492 = load ptr, ptr %4, align 8
+  %2492 = load ptr, ptr %4, align 8, !tbaa !3
   %2493 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %2492, ptr noundef @.str.678)
-  %2494 = load ptr, ptr %4, align 8
+  %2494 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %2494, ptr %3, align 8
   br label %2666
 
 2495:                                             ; preds = %1471
-  %2496 = load ptr, ptr %4, align 8
+  %2496 = load ptr, ptr %4, align 8, !tbaa !3
   %2497 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %2496, ptr noundef @.str.679)
-  %2498 = load ptr, ptr %4, align 8
+  %2498 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %2498, ptr %3, align 8
   br label %2666
 
 2499:                                             ; preds = %1471
-  %2500 = load ptr, ptr %4, align 8
+  %2500 = load ptr, ptr %4, align 8, !tbaa !3
   %2501 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %2500, ptr noundef @.str.680)
-  %2502 = load ptr, ptr %4, align 8
+  %2502 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %2502, ptr %3, align 8
   br label %2666
 
 2503:                                             ; preds = %1471
-  %2504 = load ptr, ptr %4, align 8
+  %2504 = load ptr, ptr %4, align 8, !tbaa !3
   %2505 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %2504, ptr noundef @.str.681)
-  %2506 = load ptr, ptr %4, align 8
+  %2506 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %2506, ptr %3, align 8
   br label %2666
 
 2507:                                             ; preds = %1471
-  %2508 = load ptr, ptr %4, align 8
+  %2508 = load ptr, ptr %4, align 8, !tbaa !3
   %2509 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %2508, ptr noundef @.str.682)
-  %2510 = load ptr, ptr %4, align 8
+  %2510 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %2510, ptr %3, align 8
   br label %2666
 
 2511:                                             ; preds = %1471
-  %2512 = load ptr, ptr %4, align 8
+  %2512 = load ptr, ptr %4, align 8, !tbaa !3
   %2513 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %2512, ptr noundef @.str.683)
-  %2514 = load ptr, ptr %4, align 8
+  %2514 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %2514, ptr %3, align 8
   br label %2666
 
 2515:                                             ; preds = %1471
-  %2516 = load ptr, ptr %4, align 8
+  %2516 = load ptr, ptr %4, align 8, !tbaa !3
   %2517 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %2516, ptr noundef @.str.684)
-  %2518 = load ptr, ptr %4, align 8
+  %2518 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %2518, ptr %3, align 8
   br label %2666
 
 2519:                                             ; preds = %1471
-  %2520 = load ptr, ptr %4, align 8
+  %2520 = load ptr, ptr %4, align 8, !tbaa !3
   %2521 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %2520, ptr noundef @.str.685)
-  %2522 = load ptr, ptr %4, align 8
+  %2522 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %2522, ptr %3, align 8
   br label %2666
 
 2523:                                             ; preds = %1471
-  %2524 = load ptr, ptr %4, align 8
+  %2524 = load ptr, ptr %4, align 8, !tbaa !3
   %2525 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %2524, ptr noundef @.str.686)
-  %2526 = load ptr, ptr %4, align 8
+  %2526 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %2526, ptr %3, align 8
   br label %2666
 
 2527:                                             ; preds = %1471
-  %2528 = load ptr, ptr %4, align 8
+  %2528 = load ptr, ptr %4, align 8, !tbaa !3
   %2529 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %2528, ptr noundef @.str.687)
-  %2530 = load ptr, ptr %4, align 8
+  %2530 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %2530, ptr %3, align 8
   br label %2666
 
 2531:                                             ; preds = %1471
-  %2532 = load ptr, ptr %4, align 8
+  %2532 = load ptr, ptr %4, align 8, !tbaa !3
   %2533 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %2532, ptr noundef @.str.688)
-  %2534 = load ptr, ptr %4, align 8
+  %2534 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %2534, ptr %3, align 8
   br label %2666
 
 2535:                                             ; preds = %1471
-  %2536 = load ptr, ptr %4, align 8
+  %2536 = load ptr, ptr %4, align 8, !tbaa !3
   %2537 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %2536, ptr noundef @.str.689)
-  %2538 = load ptr, ptr %4, align 8
+  %2538 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %2538, ptr %3, align 8
   br label %2666
 
 2539:                                             ; preds = %1471
-  %2540 = load ptr, ptr %4, align 8
+  %2540 = load ptr, ptr %4, align 8, !tbaa !3
   %2541 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %2540, ptr noundef @.str.690)
-  %2542 = load ptr, ptr %4, align 8
+  %2542 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %2542, ptr %3, align 8
   br label %2666
 
 2543:                                             ; preds = %1471
-  %2544 = load ptr, ptr %4, align 8
+  %2544 = load ptr, ptr %4, align 8, !tbaa !3
   %2545 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %2544, ptr noundef @.str.691)
-  %2546 = load ptr, ptr %4, align 8
+  %2546 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %2546, ptr %3, align 8
   br label %2666
 
 2547:                                             ; preds = %1471
-  %2548 = load ptr, ptr %4, align 8
+  %2548 = load ptr, ptr %4, align 8, !tbaa !3
   %2549 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %2548, ptr noundef @.str.692)
-  %2550 = load ptr, ptr %4, align 8
+  %2550 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %2550, ptr %3, align 8
   br label %2666
 
 2551:                                             ; preds = %1471
-  %2552 = load ptr, ptr %4, align 8
+  %2552 = load ptr, ptr %4, align 8, !tbaa !3
   %2553 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %2552, ptr noundef @.str.693)
-  %2554 = load ptr, ptr %4, align 8
+  %2554 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %2554, ptr %3, align 8
   br label %2666
 
 2555:                                             ; preds = %1471
-  %2556 = load ptr, ptr %4, align 8
+  %2556 = load ptr, ptr %4, align 8, !tbaa !3
   %2557 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %2556, ptr noundef @.str.694)
-  %2558 = load ptr, ptr %4, align 8
+  %2558 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %2558, ptr %3, align 8
   br label %2666
 
 2559:                                             ; preds = %1471
-  %2560 = load ptr, ptr %4, align 8
+  %2560 = load ptr, ptr %4, align 8, !tbaa !3
   %2561 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %2560, ptr noundef @.str.695)
-  %2562 = load ptr, ptr %4, align 8
+  %2562 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %2562, ptr %3, align 8
   br label %2666
 
 2563:                                             ; preds = %1471
-  %2564 = load ptr, ptr %4, align 8
+  %2564 = load ptr, ptr %4, align 8, !tbaa !3
   %2565 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %2564, ptr noundef @.str.696)
-  %2566 = load ptr, ptr %4, align 8
+  %2566 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %2566, ptr %3, align 8
   br label %2666
 
 2567:                                             ; preds = %1471
-  %2568 = load ptr, ptr %4, align 8
+  %2568 = load ptr, ptr %4, align 8, !tbaa !3
   %2569 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %2568, ptr noundef @.str.697)
-  %2570 = load ptr, ptr %4, align 8
+  %2570 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %2570, ptr %3, align 8
   br label %2666
 
 2571:                                             ; preds = %1471
-  %2572 = load ptr, ptr %4, align 8
+  %2572 = load ptr, ptr %4, align 8, !tbaa !3
   %2573 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %2572, ptr noundef @.str.698)
-  %2574 = load ptr, ptr %4, align 8
+  %2574 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %2574, ptr %3, align 8
   br label %2666
 
 2575:                                             ; preds = %1471
-  %2576 = load ptr, ptr %4, align 8
+  %2576 = load ptr, ptr %4, align 8, !tbaa !3
   %2577 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %2576, ptr noundef @.str.699)
-  %2578 = load ptr, ptr %4, align 8
+  %2578 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %2578, ptr %3, align 8
   br label %2666
 
 2579:                                             ; preds = %1471
-  %2580 = load ptr, ptr %4, align 8
+  %2580 = load ptr, ptr %4, align 8, !tbaa !3
   %2581 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %2580, ptr noundef @.str.700)
-  %2582 = load ptr, ptr %4, align 8
+  %2582 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %2582, ptr %3, align 8
   br label %2666
 
 2583:                                             ; preds = %1471
-  %2584 = load ptr, ptr %4, align 8
+  %2584 = load ptr, ptr %4, align 8, !tbaa !3
   %2585 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %2584, ptr noundef @.str.701)
-  %2586 = load ptr, ptr %4, align 8
+  %2586 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %2586, ptr %3, align 8
   br label %2666
 
 2587:                                             ; preds = %1471
-  %2588 = load ptr, ptr %4, align 8
+  %2588 = load ptr, ptr %4, align 8, !tbaa !3
   %2589 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %2588, ptr noundef @.str.702)
-  %2590 = load ptr, ptr %4, align 8
+  %2590 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %2590, ptr %3, align 8
   br label %2666
 
 2591:                                             ; preds = %1471
-  %2592 = load ptr, ptr %4, align 8
+  %2592 = load ptr, ptr %4, align 8, !tbaa !3
   %2593 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %2592, ptr noundef @.str.703)
-  %2594 = load ptr, ptr %4, align 8
+  %2594 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %2594, ptr %3, align 8
   br label %2666
 
 2595:                                             ; preds = %1471
-  %2596 = load ptr, ptr %4, align 8
+  %2596 = load ptr, ptr %4, align 8, !tbaa !3
   %2597 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %2596, ptr noundef @.str.704)
-  %2598 = load ptr, ptr %4, align 8
+  %2598 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %2598, ptr %3, align 8
   br label %2666
 
 2599:                                             ; preds = %1471
-  %2600 = load ptr, ptr %4, align 8
+  %2600 = load ptr, ptr %4, align 8, !tbaa !3
   %2601 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %2600, ptr noundef @.str.705)
-  %2602 = load ptr, ptr %4, align 8
+  %2602 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %2602, ptr %3, align 8
   br label %2666
 
 2603:                                             ; preds = %1471
-  %2604 = load ptr, ptr %4, align 8
+  %2604 = load ptr, ptr %4, align 8, !tbaa !3
   %2605 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %2604, ptr noundef @.str.706)
-  %2606 = load ptr, ptr %4, align 8
+  %2606 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %2606, ptr %3, align 8
   br label %2666
 
 2607:                                             ; preds = %1471
-  %2608 = load ptr, ptr %4, align 8
+  %2608 = load ptr, ptr %4, align 8, !tbaa !3
   %2609 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %2608, ptr noundef @.str.707)
-  %2610 = load ptr, ptr %4, align 8
+  %2610 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %2610, ptr %3, align 8
   br label %2666
 
 2611:                                             ; preds = %1471
-  %2612 = load ptr, ptr %4, align 8
+  %2612 = load ptr, ptr %4, align 8, !tbaa !3
   %2613 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %2612, ptr noundef @.str.708)
-  %2614 = load ptr, ptr %4, align 8
+  %2614 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %2614, ptr %3, align 8
   br label %2666
 
 2615:                                             ; preds = %1471
-  %2616 = load ptr, ptr %4, align 8
+  %2616 = load ptr, ptr %4, align 8, !tbaa !3
   %2617 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %2616, ptr noundef @.str.709)
-  %2618 = load ptr, ptr %4, align 8
+  %2618 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %2618, ptr %3, align 8
   br label %2666
 
 2619:                                             ; preds = %1471
-  %2620 = load ptr, ptr %4, align 8
+  %2620 = load ptr, ptr %4, align 8, !tbaa !3
   %2621 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %2620, ptr noundef @.str.710)
-  %2622 = load ptr, ptr %4, align 8
+  %2622 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %2622, ptr %3, align 8
   br label %2666
 
 2623:                                             ; preds = %1471
-  %2624 = load ptr, ptr %4, align 8
+  %2624 = load ptr, ptr %4, align 8, !tbaa !3
   %2625 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %2624, ptr noundef @.str.711)
-  %2626 = load ptr, ptr %4, align 8
+  %2626 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %2626, ptr %3, align 8
   br label %2666
 
 2627:                                             ; preds = %1471
-  %2628 = load ptr, ptr %4, align 8
+  %2628 = load ptr, ptr %4, align 8, !tbaa !3
   %2629 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %2628, ptr noundef @.str.712)
-  %2630 = load ptr, ptr %4, align 8
+  %2630 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %2630, ptr %3, align 8
   br label %2666
 
 2631:                                             ; preds = %1471
-  %2632 = load ptr, ptr %4, align 8
+  %2632 = load ptr, ptr %4, align 8, !tbaa !3
   %2633 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %2632, ptr noundef @.str.713)
-  %2634 = load ptr, ptr %4, align 8
+  %2634 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %2634, ptr %3, align 8
   br label %2666
 
 2635:                                             ; preds = %1471
-  %2636 = load ptr, ptr %4, align 8
+  %2636 = load ptr, ptr %4, align 8, !tbaa !3
   %2637 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %2636, ptr noundef @.str.714)
-  %2638 = load ptr, ptr %4, align 8
+  %2638 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %2638, ptr %3, align 8
   br label %2666
 
 2639:                                             ; preds = %1471
-  %2640 = load ptr, ptr %4, align 8
+  %2640 = load ptr, ptr %4, align 8, !tbaa !3
   %2641 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %2640, ptr noundef @.str.715)
-  %2642 = load ptr, ptr %4, align 8
+  %2642 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %2642, ptr %3, align 8
   br label %2666
 
 2643:                                             ; preds = %1471
-  %2644 = load ptr, ptr %4, align 8
+  %2644 = load ptr, ptr %4, align 8, !tbaa !3
   %2645 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %2644, ptr noundef @.str.716)
-  %2646 = load ptr, ptr %4, align 8
+  %2646 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %2646, ptr %3, align 8
   br label %2666
 
 2647:                                             ; preds = %1471
-  %2648 = load ptr, ptr %4, align 8
+  %2648 = load ptr, ptr %4, align 8, !tbaa !3
   %2649 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %2648, ptr noundef @.str.717)
-  %2650 = load ptr, ptr %4, align 8
+  %2650 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %2650, ptr %3, align 8
   br label %2666
 
 2651:                                             ; preds = %1471
-  %2652 = load ptr, ptr %4, align 8
+  %2652 = load ptr, ptr %4, align 8, !tbaa !3
   %2653 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %2652, ptr noundef @.str.718)
-  %2654 = load ptr, ptr %4, align 8
+  %2654 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %2654, ptr %3, align 8
   br label %2666
 
@@ -6716,13 +6716,13 @@ define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm3pdbls
   br label %2658
 
 2658:                                             ; preds = %2657, %543
-  %2659 = load ptr, ptr %4, align 8
-  %2660 = load ptr, ptr %5, align 8
+  %2659 = load ptr, ptr %4, align 8, !tbaa !3
+  %2660 = load ptr, ptr %5, align 8, !tbaa !19
   %2661 = getelementptr inbounds nuw %"struct.llvm::codeview::CPURegister", ptr %2660, i32 0, i32 1
-  %2662 = load i16, ptr %2661, align 2
+  %2662 = load i16, ptr %2661, align 2, !tbaa !25
   %2663 = zext i16 %2662 to i32
   %2664 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEi(ptr noundef nonnull align 8 dereferenceable(48) %2659, i32 noundef %2663)
-  %2665 = load ptr, ptr %4, align 8
+  %2665 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %2665, ptr %3, align 8
   br label %2666
 
@@ -6735,10 +6735,10 @@ define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm3pdbls
 define linkonce_odr hidden noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEi(ptr noundef nonnull align 8 dereferenceable(48) %0, i32 noundef %1) #0 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
-  store ptr %0, ptr %3, align 8
-  store i32 %1, ptr %4, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  store i32 %1, ptr %4, align 4, !tbaa !26
   %5 = load ptr, ptr %3, align 8
-  %6 = load i32, ptr %4, align 4
+  %6 = load i32, ptr %4, align 4, !tbaa !26
   %7 = sext i32 %6 to i64
   %8 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEl(ptr noundef nonnull align 8 dereferenceable(48) %5, i64 noundef %7)
   ret ptr %8
@@ -6748,10 +6748,10 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(48) ptr @_ZN4
 define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm3pdblsERNS_11raw_ostreamERKNS0_11PDB_LocTypeE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(4) %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  %5 = load ptr, ptr %4, align 8
-  %6 = load i32, ptr %5, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  store ptr %1, ptr %4, align 8, !tbaa !8
+  %5 = load ptr, ptr %4, align 8, !tbaa !8
+  %6 = load i32, ptr %5, align 4, !tbaa !28
   switch i32 %6, label %40 [
     i32 1, label %7
     i32 2, label %10
@@ -6767,67 +6767,67 @@ define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm3pdbls
   ]
 
 7:                                                ; preds = %2
-  %8 = load ptr, ptr %3, align 8
+  %8 = load ptr, ptr %3, align 8, !tbaa !3
   %9 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %8, ptr noundef @.str.719)
   br label %43
 
 10:                                               ; preds = %2
-  %11 = load ptr, ptr %3, align 8
+  %11 = load ptr, ptr %3, align 8, !tbaa !3
   %12 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %11, ptr noundef @.str.720)
   br label %43
 
 13:                                               ; preds = %2
-  %14 = load ptr, ptr %3, align 8
+  %14 = load ptr, ptr %3, align 8, !tbaa !3
   %15 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %14, ptr noundef @.str.721)
   br label %43
 
 16:                                               ; preds = %2
-  %17 = load ptr, ptr %3, align 8
+  %17 = load ptr, ptr %3, align 8, !tbaa !3
   %18 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %17, ptr noundef @.str.722)
   br label %43
 
 19:                                               ; preds = %2
-  %20 = load ptr, ptr %3, align 8
+  %20 = load ptr, ptr %3, align 8, !tbaa !3
   %21 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %20, ptr noundef @.str.723)
   br label %43
 
 22:                                               ; preds = %2
-  %23 = load ptr, ptr %3, align 8
+  %23 = load ptr, ptr %3, align 8, !tbaa !3
   %24 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %23, ptr noundef @.str.724)
   br label %43
 
 25:                                               ; preds = %2
-  %26 = load ptr, ptr %3, align 8
+  %26 = load ptr, ptr %3, align 8, !tbaa !3
   %27 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %26, ptr noundef @.str.725)
   br label %43
 
 28:                                               ; preds = %2
-  %29 = load ptr, ptr %3, align 8
+  %29 = load ptr, ptr %3, align 8, !tbaa !3
   %30 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %29, ptr noundef @.str.726)
   br label %43
 
 31:                                               ; preds = %2
-  %32 = load ptr, ptr %3, align 8
+  %32 = load ptr, ptr %3, align 8, !tbaa !3
   %33 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %32, ptr noundef @.str.727)
   br label %43
 
 34:                                               ; preds = %2
-  %35 = load ptr, ptr %3, align 8
+  %35 = load ptr, ptr %3, align 8, !tbaa !3
   %36 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %35, ptr noundef @.str.728)
   br label %43
 
 37:                                               ; preds = %2
-  %38 = load ptr, ptr %3, align 8
+  %38 = load ptr, ptr %3, align 8, !tbaa !3
   %39 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %38, ptr noundef @.str.729)
   br label %43
 
 40:                                               ; preds = %2
-  %41 = load ptr, ptr %3, align 8
+  %41 = load ptr, ptr %3, align 8, !tbaa !3
   %42 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %41, ptr noundef @.str.11)
   br label %43
 
 43:                                               ; preds = %40, %37, %34, %31, %28, %25, %22, %19, %16, %13, %10, %7
-  %44 = load ptr, ptr %3, align 8
+  %44 = load ptr, ptr %3, align 8, !tbaa !3
   ret ptr %44
 }
 
@@ -6835,10 +6835,10 @@ define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm3pdbls
 define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm3pdblsERNS_11raw_ostreamERKNS_8codeview12ThunkOrdinalE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 1 dereferenceable(1) %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  %5 = load ptr, ptr %4, align 8
-  %6 = load i8, ptr %5, align 1
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  store ptr %1, ptr %4, align 8, !tbaa !8
+  %5 = load ptr, ptr %4, align 8, !tbaa !8
+  %6 = load i8, ptr %5, align 1, !tbaa !30
   switch i8 %6, label %28 [
     i8 6, label %7
     i8 3, label %10
@@ -6850,42 +6850,42 @@ define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm3pdbls
   ]
 
 7:                                                ; preds = %2
-  %8 = load ptr, ptr %3, align 8
+  %8 = load ptr, ptr %3, align 8, !tbaa !3
   %9 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %8, ptr noundef @.str.730)
   br label %28
 
 10:                                               ; preds = %2
-  %11 = load ptr, ptr %3, align 8
+  %11 = load ptr, ptr %3, align 8, !tbaa !3
   %12 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %11, ptr noundef @.str.731)
   br label %28
 
 13:                                               ; preds = %2
-  %14 = load ptr, ptr %3, align 8
+  %14 = load ptr, ptr %3, align 8, !tbaa !3
   %15 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %14, ptr noundef @.str.732)
   br label %28
 
 16:                                               ; preds = %2
-  %17 = load ptr, ptr %3, align 8
+  %17 = load ptr, ptr %3, align 8, !tbaa !3
   %18 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %17, ptr noundef @.str.733)
   br label %28
 
 19:                                               ; preds = %2
-  %20 = load ptr, ptr %3, align 8
+  %20 = load ptr, ptr %3, align 8, !tbaa !3
   %21 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %20, ptr noundef @.str.734)
   br label %28
 
 22:                                               ; preds = %2
-  %23 = load ptr, ptr %3, align 8
+  %23 = load ptr, ptr %3, align 8, !tbaa !3
   %24 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %23, ptr noundef @.str.735)
   br label %28
 
 25:                                               ; preds = %2
-  %26 = load ptr, ptr %3, align 8
+  %26 = load ptr, ptr %3, align 8, !tbaa !3
   %27 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %26, ptr noundef @.str.736)
   br label %28
 
-28:                                               ; preds = %25, %22, %19, %16, %13, %10, %7, %2
-  %29 = load ptr, ptr %3, align 8
+28:                                               ; preds = %2, %25, %22, %19, %16, %13, %10, %7
+  %29 = load ptr, ptr %3, align 8, !tbaa !3
   ret ptr %29
 }
 
@@ -6893,10 +6893,10 @@ define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm3pdbls
 define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm3pdblsERNS_11raw_ostreamERKNS0_12PDB_ChecksumE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(4) %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  %5 = load ptr, ptr %4, align 8
-  %6 = load i32, ptr %5, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  store ptr %1, ptr %4, align 8, !tbaa !8
+  %5 = load ptr, ptr %4, align 8, !tbaa !8
+  %6 = load i32, ptr %5, align 4, !tbaa !32
   switch i32 %6, label %19 [
     i32 0, label %7
     i32 1, label %10
@@ -6905,27 +6905,27 @@ define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm3pdbls
   ]
 
 7:                                                ; preds = %2
-  %8 = load ptr, ptr %3, align 8
+  %8 = load ptr, ptr %3, align 8, !tbaa !3
   %9 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %8, ptr noundef @.str.12)
   br label %19
 
 10:                                               ; preds = %2
-  %11 = load ptr, ptr %3, align 8
+  %11 = load ptr, ptr %3, align 8, !tbaa !3
   %12 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %11, ptr noundef @.str.737)
   br label %19
 
 13:                                               ; preds = %2
-  %14 = load ptr, ptr %3, align 8
+  %14 = load ptr, ptr %3, align 8, !tbaa !3
   %15 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %14, ptr noundef @.str.738)
   br label %19
 
 16:                                               ; preds = %2
-  %17 = load ptr, ptr %3, align 8
+  %17 = load ptr, ptr %3, align 8, !tbaa !3
   %18 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %17, ptr noundef @.str.739)
   br label %19
 
-19:                                               ; preds = %16, %13, %10, %7, %2
-  %20 = load ptr, ptr %3, align 8
+19:                                               ; preds = %2, %16, %13, %10, %7
+  %20 = load ptr, ptr %3, align 8, !tbaa !3
   ret ptr %20
 }
 
@@ -6933,10 +6933,10 @@ define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm3pdbls
 define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm3pdblsERNS_11raw_ostreamERKNS_8codeview14SourceLanguageE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 1 dereferenceable(1) %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  %5 = load ptr, ptr %4, align 8
-  %6 = load i8, ptr %5, align 1
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  store ptr %1, ptr %4, align 8, !tbaa !8
+  %5 = load ptr, ptr %4, align 8, !tbaa !8
+  %6 = load i8, ptr %5, align 1, !tbaa !34
   %7 = zext i8 %6 to i32
   switch i32 %7, label %83 [
     i32 0, label %8
@@ -6967,132 +6967,132 @@ define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm3pdbls
   ]
 
 8:                                                ; preds = %2
-  %9 = load ptr, ptr %3, align 8
+  %9 = load ptr, ptr %3, align 8, !tbaa !3
   %10 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %9, ptr noundef @.str.740)
   br label %83
 
 11:                                               ; preds = %2
-  %12 = load ptr, ptr %3, align 8
+  %12 = load ptr, ptr %3, align 8, !tbaa !3
   %13 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %12, ptr noundef @.str.741)
   br label %83
 
 14:                                               ; preds = %2
-  %15 = load ptr, ptr %3, align 8
+  %15 = load ptr, ptr %3, align 8, !tbaa !3
   %16 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %15, ptr noundef @.str.742)
   br label %83
 
 17:                                               ; preds = %2
-  %18 = load ptr, ptr %3, align 8
+  %18 = load ptr, ptr %3, align 8, !tbaa !3
   %19 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %18, ptr noundef @.str.743)
   br label %83
 
 20:                                               ; preds = %2
-  %21 = load ptr, ptr %3, align 8
+  %21 = load ptr, ptr %3, align 8, !tbaa !3
   %22 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %21, ptr noundef @.str.744)
   br label %83
 
 23:                                               ; preds = %2
-  %24 = load ptr, ptr %3, align 8
+  %24 = load ptr, ptr %3, align 8, !tbaa !3
   %25 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %24, ptr noundef @.str.745)
   br label %83
 
 26:                                               ; preds = %2
-  %27 = load ptr, ptr %3, align 8
+  %27 = load ptr, ptr %3, align 8, !tbaa !3
   %28 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %27, ptr noundef @.str.746)
   br label %83
 
 29:                                               ; preds = %2
-  %30 = load ptr, ptr %3, align 8
+  %30 = load ptr, ptr %3, align 8, !tbaa !3
   %31 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %30, ptr noundef @.str.747)
   br label %83
 
 32:                                               ; preds = %2
-  %33 = load ptr, ptr %3, align 8
+  %33 = load ptr, ptr %3, align 8, !tbaa !3
   %34 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %33, ptr noundef @.str.748)
   br label %83
 
 35:                                               ; preds = %2
-  %36 = load ptr, ptr %3, align 8
+  %36 = load ptr, ptr %3, align 8, !tbaa !3
   %37 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %36, ptr noundef @.str.749)
   br label %83
 
 38:                                               ; preds = %2
-  %39 = load ptr, ptr %3, align 8
+  %39 = load ptr, ptr %3, align 8, !tbaa !3
   %40 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %39, ptr noundef @.str.750)
   br label %83
 
 41:                                               ; preds = %2
-  %42 = load ptr, ptr %3, align 8
+  %42 = load ptr, ptr %3, align 8, !tbaa !3
   %43 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %42, ptr noundef @.str.751)
   br label %83
 
 44:                                               ; preds = %2
-  %45 = load ptr, ptr %3, align 8
+  %45 = load ptr, ptr %3, align 8, !tbaa !3
   %46 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %45, ptr noundef @.str.752)
   br label %83
 
 47:                                               ; preds = %2
-  %48 = load ptr, ptr %3, align 8
+  %48 = load ptr, ptr %3, align 8, !tbaa !3
   %49 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %48, ptr noundef @.str.753)
   br label %83
 
 50:                                               ; preds = %2
-  %51 = load ptr, ptr %3, align 8
+  %51 = load ptr, ptr %3, align 8, !tbaa !3
   %52 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %51, ptr noundef @.str.754)
   br label %83
 
 53:                                               ; preds = %2
-  %54 = load ptr, ptr %3, align 8
+  %54 = load ptr, ptr %3, align 8, !tbaa !3
   %55 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %54, ptr noundef @.str.755)
   br label %83
 
 56:                                               ; preds = %2
-  %57 = load ptr, ptr %3, align 8
+  %57 = load ptr, ptr %3, align 8, !tbaa !3
   %58 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %57, ptr noundef @.str.756)
   br label %83
 
 59:                                               ; preds = %2
-  %60 = load ptr, ptr %3, align 8
+  %60 = load ptr, ptr %3, align 8, !tbaa !3
   %61 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %60, ptr noundef @.str.757)
   br label %83
 
 62:                                               ; preds = %2
-  %63 = load ptr, ptr %3, align 8
+  %63 = load ptr, ptr %3, align 8, !tbaa !3
   %64 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %63, ptr noundef @.str.758)
   br label %83
 
 65:                                               ; preds = %2
-  %66 = load ptr, ptr %3, align 8
+  %66 = load ptr, ptr %3, align 8, !tbaa !3
   %67 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %66, ptr noundef @.str.759)
   br label %83
 
 68:                                               ; preds = %2
-  %69 = load ptr, ptr %3, align 8
+  %69 = load ptr, ptr %3, align 8, !tbaa !3
   %70 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %69, ptr noundef @.str.760)
   br label %83
 
 71:                                               ; preds = %2
-  %72 = load ptr, ptr %3, align 8
+  %72 = load ptr, ptr %3, align 8, !tbaa !3
   %73 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %72, ptr noundef @.str.761)
   br label %83
 
 74:                                               ; preds = %2
-  %75 = load ptr, ptr %3, align 8
+  %75 = load ptr, ptr %3, align 8, !tbaa !3
   %76 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %75, ptr noundef @.str.762)
   br label %83
 
 77:                                               ; preds = %2
-  %78 = load ptr, ptr %3, align 8
+  %78 = load ptr, ptr %3, align 8, !tbaa !3
   %79 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %78, ptr noundef @.str.763)
   br label %83
 
 80:                                               ; preds = %2
-  %81 = load ptr, ptr %3, align 8
+  %81 = load ptr, ptr %3, align 8, !tbaa !3
   %82 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %81, ptr noundef @.str.758)
   br label %83
 
-83:                                               ; preds = %80, %77, %74, %71, %68, %65, %62, %59, %56, %53, %50, %47, %44, %41, %38, %35, %32, %29, %26, %23, %20, %17, %14, %11, %8, %2
-  %84 = load ptr, ptr %3, align 8
+83:                                               ; preds = %2, %80, %77, %74, %71, %68, %65, %62, %59, %56, %53, %50, %47, %44, %41, %38, %35, %32, %29, %26, %23, %20, %17, %14, %11, %8
+  %84 = load ptr, ptr %3, align 8, !tbaa !3
   ret ptr %84
 }
 
@@ -7100,10 +7100,10 @@ define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm3pdbls
 define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm3pdblsERNS_11raw_ostreamERKNS0_11PDB_SymTypeE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(4) %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  %5 = load ptr, ptr %4, align 8
-  %6 = load i32, ptr %5, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  store ptr %1, ptr %4, align 8, !tbaa !8
+  %5 = load ptr, ptr %4, align 8, !tbaa !8
+  %6 = load i32, ptr %5, align 4, !tbaa !36
   switch i32 %6, label %133 [
     i32 1, label %7
     i32 2, label %10
@@ -7150,225 +7150,225 @@ define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm3pdbls
   ]
 
 7:                                                ; preds = %2
-  %8 = load ptr, ptr %3, align 8
+  %8 = load ptr, ptr %3, align 8, !tbaa !3
   %9 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %8, ptr noundef @.str.764)
   br label %139
 
 10:                                               ; preds = %2
-  %11 = load ptr, ptr %3, align 8
+  %11 = load ptr, ptr %3, align 8, !tbaa !3
   %12 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %11, ptr noundef @.str.765)
   br label %139
 
 13:                                               ; preds = %2
-  %14 = load ptr, ptr %3, align 8
+  %14 = load ptr, ptr %3, align 8, !tbaa !3
   %15 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %14, ptr noundef @.str.766)
   br label %139
 
 16:                                               ; preds = %2
-  %17 = load ptr, ptr %3, align 8
+  %17 = load ptr, ptr %3, align 8, !tbaa !3
   %18 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %17, ptr noundef @.str.767)
   br label %139
 
 19:                                               ; preds = %2
-  %20 = load ptr, ptr %3, align 8
+  %20 = load ptr, ptr %3, align 8, !tbaa !3
   %21 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %20, ptr noundef @.str.768)
   br label %139
 
 22:                                               ; preds = %2
-  %23 = load ptr, ptr %3, align 8
+  %23 = load ptr, ptr %3, align 8, !tbaa !3
   %24 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %23, ptr noundef @.str.769)
   br label %139
 
 25:                                               ; preds = %2
-  %26 = load ptr, ptr %3, align 8
+  %26 = load ptr, ptr %3, align 8, !tbaa !3
   %27 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %26, ptr noundef @.str.770)
   br label %139
 
 28:                                               ; preds = %2
-  %29 = load ptr, ptr %3, align 8
+  %29 = load ptr, ptr %3, align 8, !tbaa !3
   %30 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %29, ptr noundef @.str.771)
   br label %139
 
 31:                                               ; preds = %2
-  %32 = load ptr, ptr %3, align 8
+  %32 = load ptr, ptr %3, align 8, !tbaa !3
   %33 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %32, ptr noundef @.str.772)
   br label %139
 
 34:                                               ; preds = %2
-  %35 = load ptr, ptr %3, align 8
+  %35 = load ptr, ptr %3, align 8, !tbaa !3
   %36 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %35, ptr noundef @.str.773)
   br label %139
 
 37:                                               ; preds = %2
-  %38 = load ptr, ptr %3, align 8
+  %38 = load ptr, ptr %3, align 8, !tbaa !3
   %39 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %38, ptr noundef @.str.774)
   br label %139
 
 40:                                               ; preds = %2
-  %41 = load ptr, ptr %3, align 8
+  %41 = load ptr, ptr %3, align 8, !tbaa !3
   %42 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %41, ptr noundef @.str.775)
   br label %139
 
 43:                                               ; preds = %2
-  %44 = load ptr, ptr %3, align 8
+  %44 = load ptr, ptr %3, align 8, !tbaa !3
   %45 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %44, ptr noundef @.str.776)
   br label %139
 
 46:                                               ; preds = %2
-  %47 = load ptr, ptr %3, align 8
+  %47 = load ptr, ptr %3, align 8, !tbaa !3
   %48 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %47, ptr noundef @.str.777)
   br label %139
 
 49:                                               ; preds = %2
-  %50 = load ptr, ptr %3, align 8
+  %50 = load ptr, ptr %3, align 8, !tbaa !3
   %51 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %50, ptr noundef @.str.778)
   br label %139
 
 52:                                               ; preds = %2
-  %53 = load ptr, ptr %3, align 8
+  %53 = load ptr, ptr %3, align 8, !tbaa !3
   %54 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %53, ptr noundef @.str.779)
   br label %139
 
 55:                                               ; preds = %2
-  %56 = load ptr, ptr %3, align 8
+  %56 = load ptr, ptr %3, align 8, !tbaa !3
   %57 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %56, ptr noundef @.str.780)
   br label %139
 
 58:                                               ; preds = %2
-  %59 = load ptr, ptr %3, align 8
+  %59 = load ptr, ptr %3, align 8, !tbaa !3
   %60 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %59, ptr noundef @.str.781)
   br label %139
 
 61:                                               ; preds = %2
-  %62 = load ptr, ptr %3, align 8
+  %62 = load ptr, ptr %3, align 8, !tbaa !3
   %63 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef @.str.782)
   br label %139
 
 64:                                               ; preds = %2
-  %65 = load ptr, ptr %3, align 8
+  %65 = load ptr, ptr %3, align 8, !tbaa !3
   %66 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %65, ptr noundef @.str.783)
   br label %139
 
 67:                                               ; preds = %2
-  %68 = load ptr, ptr %3, align 8
+  %68 = load ptr, ptr %3, align 8, !tbaa !3
   %69 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %68, ptr noundef @.str.784)
   br label %139
 
 70:                                               ; preds = %2
-  %71 = load ptr, ptr %3, align 8
+  %71 = load ptr, ptr %3, align 8, !tbaa !3
   %72 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %71, ptr noundef @.str.785)
   br label %139
 
 73:                                               ; preds = %2
-  %74 = load ptr, ptr %3, align 8
+  %74 = load ptr, ptr %3, align 8, !tbaa !3
   %75 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %74, ptr noundef @.str.786)
   br label %139
 
 76:                                               ; preds = %2
-  %77 = load ptr, ptr %3, align 8
+  %77 = load ptr, ptr %3, align 8, !tbaa !3
   %78 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %77, ptr noundef @.str.787)
   br label %139
 
 79:                                               ; preds = %2
-  %80 = load ptr, ptr %3, align 8
+  %80 = load ptr, ptr %3, align 8, !tbaa !3
   %81 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %80, ptr noundef @.str.788)
   br label %139
 
 82:                                               ; preds = %2
-  %83 = load ptr, ptr %3, align 8
+  %83 = load ptr, ptr %3, align 8, !tbaa !3
   %84 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %83, ptr noundef @.str.789)
   br label %139
 
 85:                                               ; preds = %2
-  %86 = load ptr, ptr %3, align 8
+  %86 = load ptr, ptr %3, align 8, !tbaa !3
   %87 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %86, ptr noundef @.str.790)
   br label %139
 
 88:                                               ; preds = %2
-  %89 = load ptr, ptr %3, align 8
+  %89 = load ptr, ptr %3, align 8, !tbaa !3
   %90 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %89, ptr noundef @.str.791)
   br label %139
 
 91:                                               ; preds = %2
-  %92 = load ptr, ptr %3, align 8
+  %92 = load ptr, ptr %3, align 8, !tbaa !3
   %93 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %92, ptr noundef @.str.792)
   br label %139
 
 94:                                               ; preds = %2
-  %95 = load ptr, ptr %3, align 8
+  %95 = load ptr, ptr %3, align 8, !tbaa !3
   %96 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %95, ptr noundef @.str.793)
   br label %139
 
 97:                                               ; preds = %2
-  %98 = load ptr, ptr %3, align 8
+  %98 = load ptr, ptr %3, align 8, !tbaa !3
   %99 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %98, ptr noundef @.str.794)
   br label %139
 
 100:                                              ; preds = %2
-  %101 = load ptr, ptr %3, align 8
+  %101 = load ptr, ptr %3, align 8, !tbaa !3
   %102 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %101, ptr noundef @.str.795)
   br label %139
 
 103:                                              ; preds = %2
-  %104 = load ptr, ptr %3, align 8
+  %104 = load ptr, ptr %3, align 8, !tbaa !3
   %105 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %104, ptr noundef @.str.796)
   br label %139
 
 106:                                              ; preds = %2
-  %107 = load ptr, ptr %3, align 8
+  %107 = load ptr, ptr %3, align 8, !tbaa !3
   %108 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %107, ptr noundef @.str.797)
   br label %139
 
 109:                                              ; preds = %2
-  %110 = load ptr, ptr %3, align 8
+  %110 = load ptr, ptr %3, align 8, !tbaa !3
   %111 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %110, ptr noundef @.str.798)
   br label %139
 
 112:                                              ; preds = %2
-  %113 = load ptr, ptr %3, align 8
+  %113 = load ptr, ptr %3, align 8, !tbaa !3
   %114 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %113, ptr noundef @.str.799)
   br label %139
 
 115:                                              ; preds = %2
-  %116 = load ptr, ptr %3, align 8
+  %116 = load ptr, ptr %3, align 8, !tbaa !3
   %117 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %116, ptr noundef @.str.800)
   br label %139
 
 118:                                              ; preds = %2
-  %119 = load ptr, ptr %3, align 8
+  %119 = load ptr, ptr %3, align 8, !tbaa !3
   %120 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %119, ptr noundef @.str.801)
   br label %139
 
 121:                                              ; preds = %2
-  %122 = load ptr, ptr %3, align 8
+  %122 = load ptr, ptr %3, align 8, !tbaa !3
   %123 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %122, ptr noundef @.str.802)
   br label %139
 
 124:                                              ; preds = %2
-  %125 = load ptr, ptr %3, align 8
+  %125 = load ptr, ptr %3, align 8, !tbaa !3
   %126 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %125, ptr noundef @.str.803)
   br label %139
 
 127:                                              ; preds = %2
-  %128 = load ptr, ptr %3, align 8
+  %128 = load ptr, ptr %3, align 8, !tbaa !3
   %129 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %128, ptr noundef @.str.804)
   br label %139
 
 130:                                              ; preds = %2
-  %131 = load ptr, ptr %3, align 8
+  %131 = load ptr, ptr %3, align 8, !tbaa !3
   %132 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %131, ptr noundef @.str.805)
   br label %139
 
 133:                                              ; preds = %2
-  %134 = load ptr, ptr %3, align 8
+  %134 = load ptr, ptr %3, align 8, !tbaa !3
   %135 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %134, ptr noundef @.str.806)
-  %136 = load ptr, ptr %4, align 8
-  %137 = load i32, ptr %136, align 4
+  %136 = load ptr, ptr %4, align 8, !tbaa !8
+  %137 = load i32, ptr %136, align 4, !tbaa !36
   %138 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEj(ptr noundef nonnull align 8 dereferenceable(48) %135, i32 noundef %137)
   br label %139
 
 139:                                              ; preds = %133, %130, %127, %124, %121, %118, %115, %112, %109, %106, %103, %100, %97, %94, %91, %88, %85, %82, %79, %76, %73, %70, %67, %64, %61, %58, %55, %52, %49, %46, %43, %40, %37, %34, %31, %28, %25, %22, %19, %16, %13, %10, %7
-  %140 = load ptr, ptr %3, align 8
+  %140 = load ptr, ptr %3, align 8, !tbaa !3
   ret ptr %140
 }
 
@@ -7376,10 +7376,10 @@ define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm3pdbls
 define linkonce_odr hidden noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEj(ptr noundef nonnull align 8 dereferenceable(48) %0, i32 noundef %1) #0 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
-  store ptr %0, ptr %3, align 8
-  store i32 %1, ptr %4, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  store i32 %1, ptr %4, align 4, !tbaa !26
   %5 = load ptr, ptr %3, align 8
-  %6 = load i32, ptr %4, align 4
+  %6 = load i32, ptr %4, align 4, !tbaa !26
   %7 = zext i32 %6 to i64
   %8 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %5, i64 noundef %7)
   ret ptr %8
@@ -7389,10 +7389,10 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(48) ptr @_ZN4
 define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm3pdblsERNS_11raw_ostreamERKNS0_16PDB_MemberAccessE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(4) %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  %5 = load ptr, ptr %4, align 8
-  %6 = load i32, ptr %5, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  store ptr %1, ptr %4, align 8, !tbaa !8
+  %5 = load ptr, ptr %4, align 8, !tbaa !8
+  %6 = load i32, ptr %5, align 4, !tbaa !38
   switch i32 %6, label %16 [
     i32 3, label %7
     i32 2, label %10
@@ -7400,22 +7400,22 @@ define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm3pdbls
   ]
 
 7:                                                ; preds = %2
-  %8 = load ptr, ptr %3, align 8
+  %8 = load ptr, ptr %3, align 8, !tbaa !3
   %9 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %8, ptr noundef @.str.807)
   br label %16
 
 10:                                               ; preds = %2
-  %11 = load ptr, ptr %3, align 8
+  %11 = load ptr, ptr %3, align 8, !tbaa !3
   %12 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %11, ptr noundef @.str.808)
   br label %16
 
 13:                                               ; preds = %2
-  %14 = load ptr, ptr %3, align 8
+  %14 = load ptr, ptr %3, align 8, !tbaa !3
   %15 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %14, ptr noundef @.str.809)
   br label %16
 
-16:                                               ; preds = %13, %10, %7, %2
-  %17 = load ptr, ptr %3, align 8
+16:                                               ; preds = %2, %13, %10, %7
+  %17 = load ptr, ptr %3, align 8, !tbaa !3
   ret ptr %17
 }
 
@@ -7423,10 +7423,10 @@ define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm3pdbls
 define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm3pdblsERNS_11raw_ostreamERKNS0_11PDB_UdtTypeE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(4) %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  %5 = load ptr, ptr %4, align 8
-  %6 = load i32, ptr %5, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  store ptr %1, ptr %4, align 8, !tbaa !8
+  %5 = load ptr, ptr %4, align 8, !tbaa !8
+  %6 = load i32, ptr %5, align 4, !tbaa !40
   switch i32 %6, label %19 [
     i32 1, label %7
     i32 0, label %10
@@ -7435,27 +7435,27 @@ define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm3pdbls
   ]
 
 7:                                                ; preds = %2
-  %8 = load ptr, ptr %3, align 8
+  %8 = load ptr, ptr %3, align 8, !tbaa !3
   %9 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %8, ptr noundef @.str.810)
   br label %19
 
 10:                                               ; preds = %2
-  %11 = load ptr, ptr %3, align 8
+  %11 = load ptr, ptr %3, align 8, !tbaa !3
   %12 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %11, ptr noundef @.str.811)
   br label %19
 
 13:                                               ; preds = %2
-  %14 = load ptr, ptr %3, align 8
+  %14 = load ptr, ptr %3, align 8, !tbaa !3
   %15 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %14, ptr noundef @.str.812)
   br label %19
 
 16:                                               ; preds = %2
-  %17 = load ptr, ptr %3, align 8
+  %17 = load ptr, ptr %3, align 8, !tbaa !3
   %18 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %17, ptr noundef @.str.813)
   br label %19
 
-19:                                               ; preds = %16, %13, %10, %7, %2
-  %20 = load ptr, ptr %3, align 8
+19:                                               ; preds = %2, %16, %13, %10, %7
+  %20 = load ptr, ptr %3, align 8, !tbaa !3
   ret ptr %20
 }
 
@@ -7463,10 +7463,10 @@ define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm3pdbls
 define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm3pdblsERNS_11raw_ostreamERKNS0_11PDB_MachineE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(4) %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  %5 = load ptr, ptr %4, align 8
-  %6 = load i32, ptr %5, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  store ptr %1, ptr %4, align 8, !tbaa !8
+  %5 = load ptr, ptr %4, align 8, !tbaa !8
+  %6 = load i32, ptr %5, align 4, !tbaa !42
   switch i32 %6, label %67 [
     i32 19, label %7
     i32 34404, label %10
@@ -7491,112 +7491,112 @@ define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm3pdbls
   ]
 
 7:                                                ; preds = %2
-  %8 = load ptr, ptr %3, align 8
+  %8 = load ptr, ptr %3, align 8, !tbaa !3
   %9 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %8, ptr noundef @.str.814)
   br label %70
 
 10:                                               ; preds = %2
-  %11 = load ptr, ptr %3, align 8
+  %11 = load ptr, ptr %3, align 8, !tbaa !3
   %12 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %11, ptr noundef @.str.815)
   br label %70
 
 13:                                               ; preds = %2
-  %14 = load ptr, ptr %3, align 8
+  %14 = load ptr, ptr %3, align 8, !tbaa !3
   %15 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %14, ptr noundef @.str.816)
   br label %70
 
 16:                                               ; preds = %2
-  %17 = load ptr, ptr %3, align 8
+  %17 = load ptr, ptr %3, align 8, !tbaa !3
   %18 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %17, ptr noundef @.str.817)
   br label %70
 
 19:                                               ; preds = %2
-  %20 = load ptr, ptr %3, align 8
+  %20 = load ptr, ptr %3, align 8, !tbaa !3
   %21 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %20, ptr noundef @.str.818)
   br label %70
 
 22:                                               ; preds = %2
-  %23 = load ptr, ptr %3, align 8
+  %23 = load ptr, ptr %3, align 8, !tbaa !3
   %24 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %23, ptr noundef @.str.819)
   br label %70
 
 25:                                               ; preds = %2
-  %26 = load ptr, ptr %3, align 8
+  %26 = load ptr, ptr %3, align 8, !tbaa !3
   %27 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %26, ptr noundef @.str.820)
   br label %70
 
 28:                                               ; preds = %2
-  %29 = load ptr, ptr %3, align 8
+  %29 = load ptr, ptr %3, align 8, !tbaa !3
   %30 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %29, ptr noundef @.str.821)
   br label %70
 
 31:                                               ; preds = %2
-  %32 = load ptr, ptr %3, align 8
+  %32 = load ptr, ptr %3, align 8, !tbaa !3
   %33 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %32, ptr noundef @.str.822)
   br label %70
 
 34:                                               ; preds = %2
-  %35 = load ptr, ptr %3, align 8
+  %35 = load ptr, ptr %3, align 8, !tbaa !3
   %36 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %35, ptr noundef @.str.823)
   br label %70
 
 37:                                               ; preds = %2
-  %38 = load ptr, ptr %3, align 8
+  %38 = load ptr, ptr %3, align 8, !tbaa !3
   %39 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %38, ptr noundef @.str.824)
   br label %70
 
 40:                                               ; preds = %2
-  %41 = load ptr, ptr %3, align 8
+  %41 = load ptr, ptr %3, align 8, !tbaa !3
   %42 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %41, ptr noundef @.str.825)
   br label %70
 
 43:                                               ; preds = %2
-  %44 = load ptr, ptr %3, align 8
+  %44 = load ptr, ptr %3, align 8, !tbaa !3
   %45 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %44, ptr noundef @.str.826)
   br label %70
 
 46:                                               ; preds = %2
-  %47 = load ptr, ptr %3, align 8
+  %47 = load ptr, ptr %3, align 8, !tbaa !3
   %48 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %47, ptr noundef @.str.827)
   br label %70
 
 49:                                               ; preds = %2
-  %50 = load ptr, ptr %3, align 8
+  %50 = load ptr, ptr %3, align 8, !tbaa !3
   %51 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %50, ptr noundef @.str.828)
   br label %70
 
 52:                                               ; preds = %2
-  %53 = load ptr, ptr %3, align 8
+  %53 = load ptr, ptr %3, align 8, !tbaa !3
   %54 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %53, ptr noundef @.str.829)
   br label %70
 
 55:                                               ; preds = %2
-  %56 = load ptr, ptr %3, align 8
+  %56 = load ptr, ptr %3, align 8, !tbaa !3
   %57 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %56, ptr noundef @.str.830)
   br label %70
 
 58:                                               ; preds = %2
-  %59 = load ptr, ptr %3, align 8
+  %59 = load ptr, ptr %3, align 8, !tbaa !3
   %60 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %59, ptr noundef @.str.831)
   br label %70
 
 61:                                               ; preds = %2
-  %62 = load ptr, ptr %3, align 8
+  %62 = load ptr, ptr %3, align 8, !tbaa !3
   %63 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef @.str.832)
   br label %70
 
 64:                                               ; preds = %2
-  %65 = load ptr, ptr %3, align 8
+  %65 = load ptr, ptr %3, align 8, !tbaa !3
   %66 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %65, ptr noundef @.str.833)
   br label %70
 
 67:                                               ; preds = %2
-  %68 = load ptr, ptr %3, align 8
+  %68 = load ptr, ptr %3, align 8, !tbaa !3
   %69 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %68, ptr noundef @.str.11)
   br label %70
 
 70:                                               ; preds = %67, %64, %61, %58, %55, %52, %49, %46, %43, %40, %37, %34, %31, %28, %25, %22, %19, %16, %13, %10, %7
-  %71 = load ptr, ptr %3, align 8
+  %71 = load ptr, ptr %3, align 8, !tbaa !3
   ret ptr %71
 }
 
@@ -7604,9 +7604,9 @@ define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm3pdbls
 define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm3pdb24dumpPDBSourceCompressionERNS_11raw_ostreamEj(ptr noundef nonnull align 8 dereferenceable(48) %0, i32 noundef %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
-  store ptr %0, ptr %3, align 8
-  store i32 %1, ptr %4, align 4
-  %5 = load i32, ptr %4, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  store i32 %1, ptr %4, align 4, !tbaa !26
+  %5 = load i32, ptr %4, align 4, !tbaa !26
   switch i32 %5, label %21 [
     i32 0, label %6
     i32 2, label %9
@@ -7616,40 +7616,40 @@ define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm3pdb24
   ]
 
 6:                                                ; preds = %2
-  %7 = load ptr, ptr %3, align 8
+  %7 = load ptr, ptr %3, align 8, !tbaa !3
   %8 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %7, ptr noundef @.str.12)
   br label %27
 
 9:                                                ; preds = %2
-  %10 = load ptr, ptr %3, align 8
+  %10 = load ptr, ptr %3, align 8, !tbaa !3
   %11 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %10, ptr noundef @.str.834)
   br label %27
 
 12:                                               ; preds = %2
-  %13 = load ptr, ptr %3, align 8
+  %13 = load ptr, ptr %3, align 8, !tbaa !3
   %14 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %13, ptr noundef @.str.835)
   br label %27
 
 15:                                               ; preds = %2
-  %16 = load ptr, ptr %3, align 8
+  %16 = load ptr, ptr %3, align 8, !tbaa !3
   %17 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %16, ptr noundef @.str.836)
   br label %27
 
 18:                                               ; preds = %2
-  %19 = load ptr, ptr %3, align 8
+  %19 = load ptr, ptr %3, align 8, !tbaa !3
   %20 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %19, ptr noundef @.str.837)
   br label %27
 
 21:                                               ; preds = %2
-  %22 = load ptr, ptr %3, align 8
+  %22 = load ptr, ptr %3, align 8, !tbaa !3
   %23 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %22, ptr noundef @.str.838)
-  %24 = load i32, ptr %4, align 4
+  %24 = load i32, ptr %4, align 4, !tbaa !26
   %25 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEj(ptr noundef nonnull align 8 dereferenceable(48) %23, i32 noundef %24)
   %26 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %25, ptr noundef @.str.839)
   br label %27
 
 27:                                               ; preds = %21, %18, %15, %12, %9, %6
-  %28 = load ptr, ptr %3, align 8
+  %28 = load ptr, ptr %3, align 8, !tbaa !3
   ret ptr %28
 }
 
@@ -7657,11 +7657,11 @@ define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm3pdb24
 define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm3pdblsERNS_11raw_ostreamERKNS0_7VariantE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  %5 = load ptr, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  store ptr %1, ptr %4, align 8, !tbaa !44
+  %5 = load ptr, ptr %4, align 8, !tbaa !44
   %6 = getelementptr inbounds nuw %"struct.llvm::pdb::Variant", ptr %5, i32 0, i32 0
-  %7 = load i32, ptr %6, align 8
+  %7 = load i32, ptr %6, align 8, !tbaa !46
   switch i32 %7, label %87 [
     i32 12, label %8
     i32 7, label %16
@@ -7678,117 +7678,117 @@ define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm3pdbls
   ]
 
 8:                                                ; preds = %2
-  %9 = load ptr, ptr %3, align 8
-  %10 = load ptr, ptr %4, align 8
+  %9 = load ptr, ptr %3, align 8, !tbaa !3
+  %10 = load ptr, ptr %4, align 8, !tbaa !44
   %11 = getelementptr inbounds nuw %"struct.llvm::pdb::Variant", ptr %10, i32 0, i32 1
-  %12 = load i8, ptr %11, align 8
+  %12 = load i8, ptr %11, align 8, !tbaa !48, !range !49, !noundef !50
   %13 = trunc i8 %12 to i1
   %14 = select i1 %13, ptr @.str.840, ptr @.str.841
   %15 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %9, ptr noundef %14)
   br label %92
 
 16:                                               ; preds = %2
-  %17 = load ptr, ptr %3, align 8
-  %18 = load ptr, ptr %4, align 8
+  %17 = load ptr, ptr %3, align 8, !tbaa !3
+  %18 = load ptr, ptr %4, align 8, !tbaa !44
   %19 = getelementptr inbounds nuw %"struct.llvm::pdb::Variant", ptr %18, i32 0, i32 1
-  %20 = load double, ptr %19, align 8
+  %20 = load double, ptr %19, align 8, !tbaa !48
   %21 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEd(ptr noundef nonnull align 8 dereferenceable(48) %17, double noundef %20)
   br label %92
 
 22:                                               ; preds = %2
-  %23 = load ptr, ptr %3, align 8
-  %24 = load ptr, ptr %4, align 8
+  %23 = load ptr, ptr %3, align 8, !tbaa !3
+  %24 = load ptr, ptr %4, align 8, !tbaa !44
   %25 = getelementptr inbounds nuw %"struct.llvm::pdb::Variant", ptr %24, i32 0, i32 1
-  %26 = load i16, ptr %25, align 8
+  %26 = load i16, ptr %25, align 8, !tbaa !48
   %27 = sext i16 %26 to i32
   %28 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEi(ptr noundef nonnull align 8 dereferenceable(48) %23, i32 noundef %27)
   br label %92
 
 29:                                               ; preds = %2
-  %30 = load ptr, ptr %3, align 8
-  %31 = load ptr, ptr %4, align 8
+  %30 = load ptr, ptr %3, align 8, !tbaa !3
+  %31 = load ptr, ptr %4, align 8, !tbaa !44
   %32 = getelementptr inbounds nuw %"struct.llvm::pdb::Variant", ptr %31, i32 0, i32 1
-  %33 = load i32, ptr %32, align 8
+  %33 = load i32, ptr %32, align 8, !tbaa !48
   %34 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEi(ptr noundef nonnull align 8 dereferenceable(48) %30, i32 noundef %33)
   br label %92
 
 35:                                               ; preds = %2
-  %36 = load ptr, ptr %3, align 8
-  %37 = load ptr, ptr %4, align 8
+  %36 = load ptr, ptr %3, align 8, !tbaa !3
+  %37 = load ptr, ptr %4, align 8, !tbaa !44
   %38 = getelementptr inbounds nuw %"struct.llvm::pdb::Variant", ptr %37, i32 0, i32 1
-  %39 = load i64, ptr %38, align 8
+  %39 = load i64, ptr %38, align 8, !tbaa !48
   %40 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEl(ptr noundef nonnull align 8 dereferenceable(48) %36, i64 noundef %39)
   br label %92
 
 41:                                               ; preds = %2
-  %42 = load ptr, ptr %3, align 8
-  %43 = load ptr, ptr %4, align 8
+  %42 = load ptr, ptr %3, align 8, !tbaa !3
+  %43 = load ptr, ptr %4, align 8, !tbaa !44
   %44 = getelementptr inbounds nuw %"struct.llvm::pdb::Variant", ptr %43, i32 0, i32 1
-  %45 = load i8, ptr %44, align 8
+  %45 = load i8, ptr %44, align 8, !tbaa !48
   %46 = sext i8 %45 to i32
   %47 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEi(ptr noundef nonnull align 8 dereferenceable(48) %42, i32 noundef %46)
   br label %92
 
 48:                                               ; preds = %2
-  %49 = load ptr, ptr %3, align 8
-  %50 = load ptr, ptr %4, align 8
+  %49 = load ptr, ptr %3, align 8, !tbaa !3
+  %50 = load ptr, ptr %4, align 8, !tbaa !44
   %51 = getelementptr inbounds nuw %"struct.llvm::pdb::Variant", ptr %50, i32 0, i32 1
-  %52 = load float, ptr %51, align 8
+  %52 = load float, ptr %51, align 8, !tbaa !48
   %53 = fpext float %52 to double
   %54 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEd(ptr noundef nonnull align 8 dereferenceable(48) %49, double noundef %53)
   br label %92
 
 55:                                               ; preds = %2
-  %56 = load ptr, ptr %3, align 8
-  %57 = load ptr, ptr %4, align 8
+  %56 = load ptr, ptr %3, align 8, !tbaa !3
+  %57 = load ptr, ptr %4, align 8, !tbaa !44
   %58 = getelementptr inbounds nuw %"struct.llvm::pdb::Variant", ptr %57, i32 0, i32 1
-  %59 = load i16, ptr %58, align 8
+  %59 = load i16, ptr %58, align 8, !tbaa !48
   %60 = zext i16 %59 to i32
   %61 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEi(ptr noundef nonnull align 8 dereferenceable(48) %56, i32 noundef %60)
   br label %92
 
 62:                                               ; preds = %2
-  %63 = load ptr, ptr %3, align 8
-  %64 = load ptr, ptr %4, align 8
+  %63 = load ptr, ptr %3, align 8, !tbaa !3
+  %64 = load ptr, ptr %4, align 8, !tbaa !44
   %65 = getelementptr inbounds nuw %"struct.llvm::pdb::Variant", ptr %64, i32 0, i32 1
-  %66 = load i32, ptr %65, align 8
+  %66 = load i32, ptr %65, align 8, !tbaa !48
   %67 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEj(ptr noundef nonnull align 8 dereferenceable(48) %63, i32 noundef %66)
   br label %92
 
 68:                                               ; preds = %2
-  %69 = load ptr, ptr %3, align 8
-  %70 = load ptr, ptr %4, align 8
+  %69 = load ptr, ptr %3, align 8, !tbaa !3
+  %70 = load ptr, ptr %4, align 8, !tbaa !44
   %71 = getelementptr inbounds nuw %"struct.llvm::pdb::Variant", ptr %70, i32 0, i32 1
-  %72 = load i64, ptr %71, align 8
+  %72 = load i64, ptr %71, align 8, !tbaa !48
   %73 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %69, i64 noundef %72)
   br label %92
 
 74:                                               ; preds = %2
-  %75 = load ptr, ptr %3, align 8
-  %76 = load ptr, ptr %4, align 8
+  %75 = load ptr, ptr %3, align 8, !tbaa !3
+  %76 = load ptr, ptr %4, align 8, !tbaa !44
   %77 = getelementptr inbounds nuw %"struct.llvm::pdb::Variant", ptr %76, i32 0, i32 1
-  %78 = load i8, ptr %77, align 8
+  %78 = load i8, ptr %77, align 8, !tbaa !48
   %79 = zext i8 %78 to i32
   %80 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEj(ptr noundef nonnull align 8 dereferenceable(48) %75, i32 noundef %79)
   br label %92
 
 81:                                               ; preds = %2
-  %82 = load ptr, ptr %3, align 8
-  %83 = load ptr, ptr %4, align 8
+  %82 = load ptr, ptr %3, align 8, !tbaa !3
+  %83 = load ptr, ptr %4, align 8, !tbaa !44
   %84 = getelementptr inbounds nuw %"struct.llvm::pdb::Variant", ptr %83, i32 0, i32 1
-  %85 = load ptr, ptr %84, align 8
+  %85 = load ptr, ptr %84, align 8, !tbaa !48
   %86 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %82, ptr noundef %85)
   br label %92
 
 87:                                               ; preds = %2
-  %88 = load ptr, ptr %3, align 8
-  %89 = load ptr, ptr %4, align 8
+  %88 = load ptr, ptr %3, align 8, !tbaa !3
+  %89 = load ptr, ptr %4, align 8, !tbaa !44
   %90 = getelementptr inbounds nuw %"struct.llvm::pdb::Variant", ptr %89, i32 0, i32 0
   %91 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm3pdblsERNS_11raw_ostreamERKNS0_15PDB_VariantTypeE(ptr noundef nonnull align 8 dereferenceable(48) %88, ptr noundef nonnull align 4 dereferenceable(4) %90)
   br label %92
 
 92:                                               ; preds = %87, %81, %74, %68, %62, %55, %48, %41, %35, %29, %22, %16, %8
-  %93 = load ptr, ptr %3, align 8
+  %93 = load ptr, ptr %3, align 8, !tbaa !3
   ret ptr %93
 }
 
@@ -7802,24 +7802,24 @@ declare noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamls
 define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm3pdblsERNS_11raw_ostreamERKNS0_11VersionInfoE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(16) %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  %5 = load ptr, ptr %3, align 8
-  %6 = load ptr, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  store ptr %1, ptr %4, align 8, !tbaa !51
+  %5 = load ptr, ptr %3, align 8, !tbaa !3
+  %6 = load ptr, ptr %4, align 8, !tbaa !51
   %7 = getelementptr inbounds nuw %"struct.llvm::pdb::VersionInfo", ptr %6, i32 0, i32 0
-  %8 = load i32, ptr %7, align 4
+  %8 = load i32, ptr %7, align 4, !tbaa !53
   %9 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEj(ptr noundef nonnull align 8 dereferenceable(48) %5, i32 noundef %8)
   %10 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %9, ptr noundef @.str.842)
-  %11 = load ptr, ptr %4, align 8
+  %11 = load ptr, ptr %4, align 8, !tbaa !51
   %12 = getelementptr inbounds nuw %"struct.llvm::pdb::VersionInfo", ptr %11, i32 0, i32 1
-  %13 = load i32, ptr %12, align 4
+  %13 = load i32, ptr %12, align 4, !tbaa !55
   %14 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEj(ptr noundef nonnull align 8 dereferenceable(48) %10, i32 noundef %13)
   %15 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %14, ptr noundef @.str.842)
-  %16 = load ptr, ptr %4, align 8
+  %16 = load ptr, ptr %4, align 8, !tbaa !51
   %17 = getelementptr inbounds nuw %"struct.llvm::pdb::VersionInfo", ptr %16, i32 0, i32 2
-  %18 = load i32, ptr %17, align 4
+  %18 = load i32, ptr %17, align 4, !tbaa !56
   %19 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEj(ptr noundef nonnull align 8 dereferenceable(48) %15, i32 noundef %18)
-  %20 = load ptr, ptr %3, align 8
+  %20 = load ptr, ptr %3, align 8, !tbaa !3
   ret ptr %20
 }
 
@@ -7831,56 +7831,70 @@ define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm3pdbls
   %6 = alloca %"struct.std::__detail::_Node_const_iterator", align 8
   %7 = alloca %"struct.std::__detail::_Node_const_iterator", align 8
   %8 = alloca %"struct.std::pair", align 4
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  %9 = load ptr, ptr %4, align 8
-  store ptr %9, ptr %5, align 8
-  %10 = load ptr, ptr %5, align 8
-  %11 = call ptr @_ZNKSt13unordered_mapIN4llvm3pdb11PDB_SymTypeEiSt4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_iEEE5beginEv(ptr noundef nonnull align 8 dereferenceable(56) %10) #4
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  store ptr %1, ptr %4, align 8, !tbaa !57
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #5
+  %9 = load ptr, ptr %4, align 8, !tbaa !57
+  store ptr %9, ptr %5, align 8, !tbaa !57
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #5
+  %10 = load ptr, ptr %5, align 8, !tbaa !57
+  %11 = call ptr @_ZNKSt13unordered_mapIN4llvm3pdb11PDB_SymTypeEiSt4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_iEEE5beginEv(ptr noundef nonnull align 8 dereferenceable(56) %10) #5
   %12 = getelementptr inbounds nuw %"struct.std::__detail::_Node_const_iterator", ptr %6, i32 0, i32 0
   %13 = getelementptr inbounds nuw %"struct.std::__detail::_Node_iterator_base", ptr %12, i32 0, i32 0
   store ptr %11, ptr %13, align 8
-  %14 = load ptr, ptr %5, align 8
-  %15 = call ptr @_ZNKSt13unordered_mapIN4llvm3pdb11PDB_SymTypeEiSt4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_iEEE3endEv(ptr noundef nonnull align 8 dereferenceable(56) %14) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #5
+  %14 = load ptr, ptr %5, align 8, !tbaa !57
+  %15 = call ptr @_ZNKSt13unordered_mapIN4llvm3pdb11PDB_SymTypeEiSt4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_iEEE3endEv(ptr noundef nonnull align 8 dereferenceable(56) %14) #5
   %16 = getelementptr inbounds nuw %"struct.std::__detail::_Node_const_iterator", ptr %7, i32 0, i32 0
   %17 = getelementptr inbounds nuw %"struct.std::__detail::_Node_iterator_base", ptr %16, i32 0, i32 0
   store ptr %15, ptr %17, align 8
   br label %18
 
-18:                                               ; preds = %30, %2
-  %19 = call noundef zeroext i1 @_ZNSt8__detailneERKNS_19_Node_iterator_baseISt4pairIKN4llvm3pdb11PDB_SymTypeEiELb1EEES9_(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(8) %7) #4
-  br i1 %19, label %20, label %32
+18:                                               ; preds = %31, %2
+  %19 = call noundef zeroext i1 @_ZNSt8__detailneERKNS_19_Node_iterator_baseISt4pairIKN4llvm3pdb11PDB_SymTypeEiELb1EEES9_(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(8) %7) #5
+  br i1 %19, label %21, label %20
 
 20:                                               ; preds = %18
-  %21 = call noundef nonnull align 4 dereferenceable(8) ptr @_ZNKSt8__detail20_Node_const_iteratorISt4pairIKN4llvm3pdb11PDB_SymTypeEiELb0ELb1EEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %6) #4
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %8, ptr align 4 %21, i64 8, i1 false)
-  %22 = load ptr, ptr %3, align 8
-  %23 = getelementptr inbounds nuw %"struct.std::pair", ptr %8, i32 0, i32 0
-  %24 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm3pdblsERNS_11raw_ostreamERKNS0_11PDB_SymTypeE(ptr noundef nonnull align 8 dereferenceable(48) %22, ptr noundef nonnull align 4 dereferenceable(4) %23)
-  %25 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %24, ptr noundef @.str.843)
-  %26 = getelementptr inbounds nuw %"struct.std::pair", ptr %8, i32 0, i32 1
-  %27 = load i32, ptr %26, align 4
-  %28 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEi(ptr noundef nonnull align 8 dereferenceable(48) %25, i32 noundef %27)
-  %29 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %28, ptr noundef @.str.844)
-  br label %30
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #5
+  br label %33
 
-30:                                               ; preds = %20
-  %31 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt8__detail20_Node_const_iteratorISt4pairIKN4llvm3pdb11PDB_SymTypeEiELb0ELb1EEppEv(ptr noundef nonnull align 8 dereferenceable(8) %6) #4
+21:                                               ; preds = %18
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #5
+  %22 = call noundef nonnull align 4 dereferenceable(8) ptr @_ZNKSt8__detail20_Node_const_iteratorISt4pairIKN4llvm3pdb11PDB_SymTypeEiELb0ELb1EEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %6) #5
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %8, ptr align 4 %22, i64 8, i1 false)
+  %23 = load ptr, ptr %3, align 8, !tbaa !3
+  %24 = getelementptr inbounds nuw %"struct.std::pair", ptr %8, i32 0, i32 0
+  %25 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm3pdblsERNS_11raw_ostreamERKNS0_11PDB_SymTypeE(ptr noundef nonnull align 8 dereferenceable(48) %23, ptr noundef nonnull align 4 dereferenceable(4) %24)
+  %26 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %25, ptr noundef @.str.843)
+  %27 = getelementptr inbounds nuw %"struct.std::pair", ptr %8, i32 0, i32 1
+  %28 = load i32, ptr %27, align 4, !tbaa !59
+  %29 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEi(ptr noundef nonnull align 8 dereferenceable(48) %26, i32 noundef %28)
+  %30 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %29, ptr noundef @.str.844)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #5
+  br label %31
+
+31:                                               ; preds = %21
+  %32 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt8__detail20_Node_const_iteratorISt4pairIKN4llvm3pdb11PDB_SymTypeEiELb0ELb1EEppEv(ptr noundef nonnull align 8 dereferenceable(8) %6) #5
   br label %18
 
-32:                                               ; preds = %18
-  %33 = load ptr, ptr %3, align 8
-  ret ptr %33
+33:                                               ; preds = %20
+  %34 = load ptr, ptr %3, align 8, !tbaa !3
+  ret ptr %34
 }
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden ptr @_ZNKSt13unordered_mapIN4llvm3pdb11PDB_SymTypeEiSt4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_iEEE5beginEv(ptr noundef nonnull align 8 dereferenceable(56) %0) #0 comdat align 2 {
   %2 = alloca %"struct.std::__detail::_Node_const_iterator", align 8
   %3 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !57
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw %"class.std::unordered_map", ptr %4, i32 0, i32 0
-  %6 = call ptr @_ZNKSt10_HashtableIN4llvm3pdb11PDB_SymTypeESt4pairIKS2_iESaIS5_ENSt8__detail10_Select1stESt8equal_toIS2_ESt4hashIS2_ENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb0ELb1EEEE5beginEv(ptr noundef nonnull align 8 dereferenceable(56) %5) #4
+  %6 = call ptr @_ZNKSt10_HashtableIN4llvm3pdb11PDB_SymTypeESt4pairIKS2_iESaIS5_ENSt8__detail10_Select1stESt8equal_toIS2_ESt4hashIS2_ENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb0ELb1EEEE5beginEv(ptr noundef nonnull align 8 dereferenceable(56) %5) #5
   %7 = getelementptr inbounds nuw %"struct.std::__detail::_Node_const_iterator", ptr %2, i32 0, i32 0
   %8 = getelementptr inbounds nuw %"struct.std::__detail::_Node_iterator_base", ptr %7, i32 0, i32 0
   store ptr %6, ptr %8, align 8
@@ -7894,10 +7908,10 @@ define linkonce_odr hidden ptr @_ZNKSt13unordered_mapIN4llvm3pdb11PDB_SymTypeEiS
 define linkonce_odr hidden ptr @_ZNKSt13unordered_mapIN4llvm3pdb11PDB_SymTypeEiSt4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_iEEE3endEv(ptr noundef nonnull align 8 dereferenceable(56) %0) #0 comdat align 2 {
   %2 = alloca %"struct.std::__detail::_Node_const_iterator", align 8
   %3 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !57
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw %"class.std::unordered_map", ptr %4, i32 0, i32 0
-  %6 = call ptr @_ZNKSt10_HashtableIN4llvm3pdb11PDB_SymTypeESt4pairIKS2_iESaIS5_ENSt8__detail10_Select1stESt8equal_toIS2_ESt4hashIS2_ENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb0ELb1EEEE3endEv(ptr noundef nonnull align 8 dereferenceable(56) %5) #4
+  %6 = call ptr @_ZNKSt10_HashtableIN4llvm3pdb11PDB_SymTypeESt4pairIKS2_iESaIS5_ENSt8__detail10_Select1stESt8equal_toIS2_ESt4hashIS2_ENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb0ELb1EEEE3endEv(ptr noundef nonnull align 8 dereferenceable(56) %5) #5
   %7 = getelementptr inbounds nuw %"struct.std::__detail::_Node_const_iterator", ptr %2, i32 0, i32 0
   %8 = getelementptr inbounds nuw %"struct.std::__detail::_Node_iterator_base", ptr %7, i32 0, i32 0
   store ptr %6, ptr %8, align 8
@@ -7911,14 +7925,14 @@ define linkonce_odr hidden ptr @_ZNKSt13unordered_mapIN4llvm3pdb11PDB_SymTypeEiS
 define linkonce_odr noundef zeroext i1 @_ZNSt8__detailneERKNS_19_Node_iterator_baseISt4pairIKN4llvm3pdb11PDB_SymTypeEiELb1EEES9_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #0 comdat {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  %5 = load ptr, ptr %3, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !61
+  store ptr %1, ptr %4, align 8, !tbaa !61
+  %5 = load ptr, ptr %3, align 8, !tbaa !61
   %6 = getelementptr inbounds nuw %"struct.std::__detail::_Node_iterator_base", ptr %5, i32 0, i32 0
-  %7 = load ptr, ptr %6, align 8
-  %8 = load ptr, ptr %4, align 8
+  %7 = load ptr, ptr %6, align 8, !tbaa !63
+  %8 = load ptr, ptr %4, align 8, !tbaa !61
   %9 = getelementptr inbounds nuw %"struct.std::__detail::_Node_iterator_base", ptr %8, i32 0, i32 0
-  %10 = load ptr, ptr %9, align 8
+  %10 = load ptr, ptr %9, align 8, !tbaa !63
   %11 = icmp ne ptr %7, %10
   ret i1 %11
 }
@@ -7926,24 +7940,27 @@ define linkonce_odr noundef zeroext i1 @_ZNSt8__detailneERKNS_19_Node_iterator_b
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef nonnull align 4 dereferenceable(8) ptr @_ZNKSt8__detail20_Node_const_iteratorISt4pairIKN4llvm3pdb11PDB_SymTypeEiELb0ELb1EEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !66
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw %"struct.std::__detail::_Node_iterator_base", ptr %3, i32 0, i32 0
-  %5 = load ptr, ptr %4, align 8
+  %5 = load ptr, ptr %4, align 8, !tbaa !63
   %6 = getelementptr inbounds i8, ptr %5, i64 8
-  %7 = call noundef nonnull align 4 dereferenceable(8) ptr @_ZNSt8__detail21_Hash_node_value_baseISt4pairIKN4llvm3pdb11PDB_SymTypeEiEE4_M_vEv(ptr noundef nonnull align 4 dereferenceable(8) %6) #4
+  %7 = call noundef nonnull align 4 dereferenceable(8) ptr @_ZNSt8__detail21_Hash_node_value_baseISt4pairIKN4llvm3pdb11PDB_SymTypeEiEE4_M_vEv(ptr noundef nonnull align 4 dereferenceable(8) %6) #5
   ret ptr %7
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt8__detail20_Node_const_iteratorISt4pairIKN4llvm3pdb11PDB_SymTypeEiELb0ELb1EEppEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !66
   %3 = load ptr, ptr %2, align 8
-  call void @_ZNSt8__detail19_Node_iterator_baseISt4pairIKN4llvm3pdb11PDB_SymTypeEiELb1EE7_M_incrEv(ptr noundef nonnull align 8 dereferenceable(8) %3) #4
+  call void @_ZNSt8__detail19_Node_iterator_baseISt4pairIKN4llvm3pdb11PDB_SymTypeEiELb1EE7_M_incrEv(ptr noundef nonnull align 8 dereferenceable(8) %3) #5
   ret ptr %3
 }
 
@@ -7953,76 +7970,81 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(48) ptr @_ZN4
   %5 = alloca %"class.llvm::StringRef", align 8
   %6 = alloca ptr, align 8
   %7 = alloca i64, align 8
-  %8 = getelementptr inbounds nuw { ptr, i64 }, ptr %5, i32 0, i32 0
-  store ptr %1, ptr %8, align 8
-  %9 = getelementptr inbounds nuw { ptr, i64 }, ptr %5, i32 0, i32 1
-  store i64 %2, ptr %9, align 8
-  store ptr %0, ptr %6, align 8
-  %10 = load ptr, ptr %6, align 8
-  %11 = call noundef i64 @_ZNK4llvm9StringRef4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %5)
-  store i64 %11, ptr %7, align 8
-  %12 = load i64, ptr %7, align 8
-  %13 = getelementptr inbounds nuw %"class.llvm::raw_ostream", ptr %10, i32 0, i32 3
-  %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds nuw %"class.llvm::raw_ostream", ptr %10, i32 0, i32 4
-  %16 = load ptr, ptr %15, align 8
-  %17 = ptrtoint ptr %14 to i64
-  %18 = ptrtoint ptr %16 to i64
-  %19 = sub i64 %17, %18
-  %20 = icmp ugt i64 %12, %19
-  br i1 %20, label %21, label %25
+  %8 = alloca i32, align 4
+  %9 = getelementptr inbounds nuw { ptr, i64 }, ptr %5, i32 0, i32 0
+  store ptr %1, ptr %9, align 8
+  %10 = getelementptr inbounds nuw { ptr, i64 }, ptr %5, i32 0, i32 1
+  store i64 %2, ptr %10, align 8
+  store ptr %0, ptr %6, align 8, !tbaa !3
+  %11 = load ptr, ptr %6, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #5
+  %12 = call noundef i64 @_ZNK4llvm9StringRef4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %5)
+  store i64 %12, ptr %7, align 8, !tbaa !68
+  %13 = load i64, ptr %7, align 8, !tbaa !68
+  %14 = getelementptr inbounds nuw %"class.llvm::raw_ostream", ptr %11, i32 0, i32 3
+  %15 = load ptr, ptr %14, align 8, !tbaa !70
+  %16 = getelementptr inbounds nuw %"class.llvm::raw_ostream", ptr %11, i32 0, i32 4
+  %17 = load ptr, ptr %16, align 8, !tbaa !75
+  %18 = ptrtoint ptr %15 to i64
+  %19 = ptrtoint ptr %17 to i64
+  %20 = sub i64 %18, %19
+  %21 = icmp ugt i64 %13, %20
+  br i1 %21, label %22, label %26
 
-21:                                               ; preds = %3
-  %22 = call noundef ptr @_ZNK4llvm9StringRef4dataEv(ptr noundef nonnull align 8 dereferenceable(16) %5)
-  %23 = load i64, ptr %7, align 8
-  %24 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %10, ptr noundef %22, i64 noundef %23)
-  store ptr %24, ptr %4, align 8
+22:                                               ; preds = %3
+  %23 = call noundef ptr @_ZNK4llvm9StringRef4dataEv(ptr noundef nonnull align 8 dereferenceable(16) %5)
+  %24 = load i64, ptr %7, align 8, !tbaa !68
+  %25 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %11, ptr noundef %23, i64 noundef %24)
+  store ptr %25, ptr %4, align 8
+  store i32 1, ptr %8, align 4
+  br label %39
+
+26:                                               ; preds = %3
+  %27 = load i64, ptr %7, align 8, !tbaa !68
+  %28 = icmp ne i64 %27, 0
+  br i1 %28, label %29, label %38
+
+29:                                               ; preds = %26
+  %30 = getelementptr inbounds nuw %"class.llvm::raw_ostream", ptr %11, i32 0, i32 4
+  %31 = load ptr, ptr %30, align 8, !tbaa !75
+  %32 = call noundef ptr @_ZNK4llvm9StringRef4dataEv(ptr noundef nonnull align 8 dereferenceable(16) %5)
+  %33 = load i64, ptr %7, align 8, !tbaa !68
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %31, ptr align 1 %32, i64 %33, i1 false)
+  %34 = load i64, ptr %7, align 8, !tbaa !68
+  %35 = getelementptr inbounds nuw %"class.llvm::raw_ostream", ptr %11, i32 0, i32 4
+  %36 = load ptr, ptr %35, align 8, !tbaa !75
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 %34
+  store ptr %37, ptr %35, align 8, !tbaa !75
   br label %38
 
-25:                                               ; preds = %3
-  %26 = load i64, ptr %7, align 8
-  %27 = icmp ne i64 %26, 0
-  br i1 %27, label %28, label %37
+38:                                               ; preds = %29, %26
+  store ptr %11, ptr %4, align 8
+  store i32 1, ptr %8, align 4
+  br label %39
 
-28:                                               ; preds = %25
-  %29 = getelementptr inbounds nuw %"class.llvm::raw_ostream", ptr %10, i32 0, i32 4
-  %30 = load ptr, ptr %29, align 8
-  %31 = call noundef ptr @_ZNK4llvm9StringRef4dataEv(ptr noundef nonnull align 8 dereferenceable(16) %5)
-  %32 = load i64, ptr %7, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %30, ptr align 1 %31, i64 %32, i1 false)
-  %33 = load i64, ptr %7, align 8
-  %34 = getelementptr inbounds nuw %"class.llvm::raw_ostream", ptr %10, i32 0, i32 4
-  %35 = load ptr, ptr %34, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 %33
-  store ptr %36, ptr %34, align 8
-  br label %37
-
-37:                                               ; preds = %28, %25
-  store ptr %10, ptr %4, align 8
-  br label %38
-
-38:                                               ; preds = %37, %21
-  %39 = load ptr, ptr %4, align 8
-  ret ptr %39
+39:                                               ; preds = %38, %22
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #5
+  %40 = load ptr, ptr %4, align 8
+  ret ptr %40
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvm9StringRefC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) unnamed_addr #0 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !76
+  store ptr %1, ptr %4, align 8, !tbaa !11
   %5 = load ptr, ptr %3, align 8
   %6 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %5, i32 0, i32 0
-  %7 = load ptr, ptr %4, align 8
-  store ptr %7, ptr %6, align 8
+  %7 = load ptr, ptr %4, align 8, !tbaa !11
+  store ptr %7, ptr %6, align 8, !tbaa !78
   %8 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %5, i32 0, i32 1
-  %9 = load ptr, ptr %4, align 8
+  %9 = load ptr, ptr %4, align 8, !tbaa !11
   %10 = icmp ne ptr %9, null
   br i1 %10, label %11, label %14
 
 11:                                               ; preds = %2
-  %12 = load ptr, ptr %4, align 8
+  %12 = load ptr, ptr %4, align 8, !tbaa !11
   %13 = call noundef i64 @_ZNSt11char_traitsIcE6lengthEPKc(ptr noundef %12)
   br label %15
 
@@ -8031,17 +8053,17 @@ define linkonce_odr hidden void @_ZN4llvm9StringRefC2EPKc(ptr noundef nonnull al
 
 15:                                               ; preds = %14, %11
   %16 = phi i64 [ %13, %11 ], [ 0, %14 ]
-  store i64 %16, ptr %8, align 8
+  store i64 %16, ptr %8, align 8, !tbaa !80
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef i64 @_ZNK4llvm9StringRef4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !76
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %3, i32 0, i32 1
-  %5 = load i64, ptr %4, align 8
+  %5 = load i64, ptr %4, align 8, !tbaa !80
   ret i64 %5
 }
 
@@ -8050,33 +8072,33 @@ declare noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5w
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZNK4llvm9StringRef4dataEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !76
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %3, i32 0, i32 0
-  %5 = load ptr, ptr %4, align 8
+  %5 = load ptr, ptr %4, align 8, !tbaa !78
   ret ptr %5
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef i64 @_ZNSt11char_traitsIcE6lengthEPKc(ptr noundef %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  %4 = call i64 @strlen(ptr noundef %3) #4
+  store ptr %0, ptr %2, align 8, !tbaa !11
+  %3 = load ptr, ptr %2, align 8, !tbaa !11
+  %4 = call i64 @strlen(ptr noundef %3) #5
   ret i64 %4
 }
 
 ; Function Attrs: nounwind
-declare i64 @strlen(ptr noundef) #3
+declare i64 @strlen(ptr noundef) #4
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden ptr @_ZNKSt10_HashtableIN4llvm3pdb11PDB_SymTypeESt4pairIKS2_iESaIS5_ENSt8__detail10_Select1stESt8equal_toIS2_ESt4hashIS2_ENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb0ELb1EEEE5beginEv(ptr noundef nonnull align 8 dereferenceable(56) %0) #0 comdat align 2 {
   %2 = alloca %"struct.std::__detail::_Node_const_iterator", align 8
   %3 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !81
   %4 = load ptr, ptr %3, align 8
   %5 = call noundef ptr @_ZNKSt10_HashtableIN4llvm3pdb11PDB_SymTypeESt4pairIKS2_iESaIS5_ENSt8__detail10_Select1stESt8equal_toIS2_ESt4hashIS2_ENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb0ELb1EEEE8_M_beginEv(ptr noundef nonnull align 8 dereferenceable(56) %4)
-  call void @_ZNSt8__detail20_Node_const_iteratorISt4pairIKN4llvm3pdb11PDB_SymTypeEiELb0ELb1EEC2EPNS_10_Hash_nodeIS6_Lb1EEE(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef %5) #4
+  call void @_ZNSt8__detail20_Node_const_iteratorISt4pairIKN4llvm3pdb11PDB_SymTypeEiELb0ELb1EEC2EPNS_10_Hash_nodeIS6_Lb1EEE(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef %5) #5
   %6 = getelementptr inbounds nuw %"struct.std::__detail::_Node_const_iterator", ptr %2, i32 0, i32 0
   %7 = getelementptr inbounds nuw %"struct.std::__detail::_Node_iterator_base", ptr %6, i32 0, i32 0
   %8 = load ptr, ptr %7, align 8
@@ -8086,11 +8108,11 @@ define linkonce_odr hidden ptr @_ZNKSt10_HashtableIN4llvm3pdb11PDB_SymTypeESt4pa
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZNKSt10_HashtableIN4llvm3pdb11PDB_SymTypeESt4pairIKS2_iESaIS5_ENSt8__detail10_Select1stESt8equal_toIS2_ESt4hashIS2_ENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb0ELb1EEEE8_M_beginEv(ptr noundef nonnull align 8 dereferenceable(56) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !81
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw %"class.std::_Hashtable", ptr %3, i32 0, i32 2
   %5 = getelementptr inbounds nuw %"struct.std::__detail::_Hash_node_base", ptr %4, i32 0, i32 0
-  %6 = load ptr, ptr %5, align 8
+  %6 = load ptr, ptr %5, align 8, !tbaa !83
   ret ptr %6
 }
 
@@ -8098,11 +8120,11 @@ define linkonce_odr hidden noundef ptr @_ZNKSt10_HashtableIN4llvm3pdb11PDB_SymTy
 define linkonce_odr hidden void @_ZNSt8__detail20_Node_const_iteratorISt4pairIKN4llvm3pdb11PDB_SymTypeEiELb0ELb1EEC2EPNS_10_Hash_nodeIS6_Lb1EEE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #0 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !66
+  store ptr %1, ptr %4, align 8, !tbaa !90
   %5 = load ptr, ptr %3, align 8
-  %6 = load ptr, ptr %4, align 8
-  call void @_ZNSt8__detail19_Node_iterator_baseISt4pairIKN4llvm3pdb11PDB_SymTypeEiELb1EEC2EPNS_10_Hash_nodeIS6_Lb1EEE(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef %6) #4
+  %6 = load ptr, ptr %4, align 8, !tbaa !90
+  call void @_ZNSt8__detail19_Node_iterator_baseISt4pairIKN4llvm3pdb11PDB_SymTypeEiELb1EEC2EPNS_10_Hash_nodeIS6_Lb1EEE(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef %6) #5
   ret void
 }
 
@@ -8110,12 +8132,12 @@ define linkonce_odr hidden void @_ZNSt8__detail20_Node_const_iteratorISt4pairIKN
 define linkonce_odr hidden void @_ZNSt8__detail19_Node_iterator_baseISt4pairIKN4llvm3pdb11PDB_SymTypeEiELb1EEC2EPNS_10_Hash_nodeIS6_Lb1EEE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #0 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !61
+  store ptr %1, ptr %4, align 8, !tbaa !90
   %5 = load ptr, ptr %3, align 8
   %6 = getelementptr inbounds nuw %"struct.std::__detail::_Node_iterator_base", ptr %5, i32 0, i32 0
-  %7 = load ptr, ptr %4, align 8
-  store ptr %7, ptr %6, align 8
+  %7 = load ptr, ptr %4, align 8, !tbaa !90
+  store ptr %7, ptr %6, align 8, !tbaa !63
   ret void
 }
 
@@ -8123,8 +8145,8 @@ define linkonce_odr hidden void @_ZNSt8__detail19_Node_iterator_baseISt4pairIKN4
 define linkonce_odr hidden ptr @_ZNKSt10_HashtableIN4llvm3pdb11PDB_SymTypeESt4pairIKS2_iESaIS5_ENSt8__detail10_Select1stESt8equal_toIS2_ESt4hashIS2_ENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb0ELb1EEEE3endEv(ptr noundef nonnull align 8 dereferenceable(56) %0) #0 comdat align 2 {
   %2 = alloca %"struct.std::__detail::_Node_const_iterator", align 8
   %3 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  call void @_ZNSt8__detail20_Node_const_iteratorISt4pairIKN4llvm3pdb11PDB_SymTypeEiELb0ELb1EEC2EPNS_10_Hash_nodeIS6_Lb1EEE(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef null) #4
+  store ptr %0, ptr %3, align 8, !tbaa !81
+  call void @_ZNSt8__detail20_Node_const_iteratorISt4pairIKN4llvm3pdb11PDB_SymTypeEiELb0ELb1EEC2EPNS_10_Hash_nodeIS6_Lb1EEE(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef null) #5
   %4 = getelementptr inbounds nuw %"struct.std::__detail::_Node_const_iterator", ptr %2, i32 0, i32 0
   %5 = getelementptr inbounds nuw %"struct.std::__detail::_Node_iterator_base", ptr %4, i32 0, i32 0
   %6 = load ptr, ptr %5, align 8
@@ -8134,72 +8156,165 @@ define linkonce_odr hidden ptr @_ZNKSt10_HashtableIN4llvm3pdb11PDB_SymTypeESt4pa
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt8__detail19_Node_iterator_baseISt4pairIKN4llvm3pdb11PDB_SymTypeEiELb1EE7_M_incrEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !61
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw %"struct.std::__detail::_Node_iterator_base", ptr %3, i32 0, i32 0
-  %5 = load ptr, ptr %4, align 8
-  %6 = call noundef ptr @_ZNKSt8__detail10_Hash_nodeISt4pairIKN4llvm3pdb11PDB_SymTypeEiELb1EE7_M_nextEv(ptr noundef nonnull align 8 dereferenceable(24) %5) #4
+  %5 = load ptr, ptr %4, align 8, !tbaa !63
+  %6 = call noundef ptr @_ZNKSt8__detail10_Hash_nodeISt4pairIKN4llvm3pdb11PDB_SymTypeEiELb1EE7_M_nextEv(ptr noundef nonnull align 8 dereferenceable(24) %5) #5
   %7 = getelementptr inbounds nuw %"struct.std::__detail::_Node_iterator_base", ptr %3, i32 0, i32 0
-  store ptr %6, ptr %7, align 8
+  store ptr %6, ptr %7, align 8, !tbaa !63
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZNKSt8__detail10_Hash_nodeISt4pairIKN4llvm3pdb11PDB_SymTypeEiELb1EE7_M_nextEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !90
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw %"struct.std::__detail::_Hash_node_base", ptr %3, i32 0, i32 0
-  %5 = load ptr, ptr %4, align 8
+  %5 = load ptr, ptr %4, align 8, !tbaa !91
   ret ptr %5
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef nonnull align 4 dereferenceable(8) ptr @_ZNSt8__detail21_Hash_node_value_baseISt4pairIKN4llvm3pdb11PDB_SymTypeEiEE4_M_vEv(ptr noundef nonnull align 4 dereferenceable(8) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !92
   %3 = load ptr, ptr %2, align 8
-  %4 = call noundef ptr @_ZNSt8__detail21_Hash_node_value_baseISt4pairIKN4llvm3pdb11PDB_SymTypeEiEE9_M_valptrEv(ptr noundef nonnull align 4 dereferenceable(8) %3) #4
+  %4 = call noundef ptr @_ZNSt8__detail21_Hash_node_value_baseISt4pairIKN4llvm3pdb11PDB_SymTypeEiEE9_M_valptrEv(ptr noundef nonnull align 4 dereferenceable(8) %3) #5
   ret ptr %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZNSt8__detail21_Hash_node_value_baseISt4pairIKN4llvm3pdb11PDB_SymTypeEiEE9_M_valptrEv(ptr noundef nonnull align 4 dereferenceable(8) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !92
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw %"struct.std::__detail::_Hash_node_value_base", ptr %3, i32 0, i32 0
-  %5 = call noundef ptr @_ZN9__gnu_cxx16__aligned_bufferISt4pairIKN4llvm3pdb11PDB_SymTypeEiEE6_M_ptrEv(ptr noundef nonnull align 4 dereferenceable(8) %4) #4
+  %5 = call noundef ptr @_ZN9__gnu_cxx16__aligned_bufferISt4pairIKN4llvm3pdb11PDB_SymTypeEiEE6_M_ptrEv(ptr noundef nonnull align 4 dereferenceable(8) %4) #5
   ret ptr %5
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZN9__gnu_cxx16__aligned_bufferISt4pairIKN4llvm3pdb11PDB_SymTypeEiEE6_M_ptrEv(ptr noundef nonnull align 4 dereferenceable(8) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !94
   %3 = load ptr, ptr %2, align 8
-  %4 = call noundef ptr @_ZN9__gnu_cxx16__aligned_bufferISt4pairIKN4llvm3pdb11PDB_SymTypeEiEE7_M_addrEv(ptr noundef nonnull align 4 dereferenceable(8) %3) #4
+  %4 = call noundef ptr @_ZN9__gnu_cxx16__aligned_bufferISt4pairIKN4llvm3pdb11PDB_SymTypeEiEE7_M_addrEv(ptr noundef nonnull align 4 dereferenceable(8) %3) #5
   ret ptr %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZN9__gnu_cxx16__aligned_bufferISt4pairIKN4llvm3pdb11PDB_SymTypeEiEE7_M_addrEv(ptr noundef nonnull align 4 dereferenceable(8) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !94
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw %"struct.__gnu_cxx::__aligned_buffer", ptr %3, i32 0, i32 0
   ret ptr %4
 }
 
-attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nounwind }
+attributes #0 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #4 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
+!3 = !{!4, !4, i64 0}
+!4 = !{!"p1 _ZTSN4llvm11raw_ostreamE", !5, i64 0}
+!5 = !{!"any pointer", !6, i64 0}
+!6 = !{!"omnipotent char", !7, i64 0}
+!7 = !{!"Simple C++ TBAA"}
+!8 = !{!5, !5, i64 0}
+!9 = !{!10, !10, i64 0}
+!10 = !{!"_ZTSN4llvm3pdb15PDB_VariantTypeE", !6, i64 0}
+!11 = !{!12, !12, i64 0}
+!12 = !{!"p1 omnipotent char", !5, i64 0}
+!13 = !{!14, !14, i64 0}
+!14 = !{!"_ZTSN4llvm3pdb15PDB_BuiltinTypeE", !6, i64 0}
+!15 = !{!16, !16, i64 0}
+!16 = !{!"_ZTSN4llvm8codeview17CallingConventionE", !6, i64 0}
+!17 = !{!18, !18, i64 0}
+!18 = !{!"_ZTSN4llvm3pdb12PDB_DataKindE", !6, i64 0}
+!19 = !{!20, !20, i64 0}
+!20 = !{!"p1 _ZTSN4llvm8codeview11CPURegisterE", !5, i64 0}
+!21 = !{!22, !23, i64 0}
+!22 = !{!"_ZTSN4llvm8codeview11CPURegisterE", !23, i64 0, !24, i64 2}
+!23 = !{!"_ZTSN4llvm8codeview7CPUTypeE", !6, i64 0}
+!24 = !{!"_ZTSN4llvm8codeview10RegisterIdE", !6, i64 0}
+!25 = !{!22, !24, i64 2}
+!26 = !{!27, !27, i64 0}
+!27 = !{!"int", !6, i64 0}
+!28 = !{!29, !29, i64 0}
+!29 = !{!"_ZTSN4llvm3pdb11PDB_LocTypeE", !6, i64 0}
+!30 = !{!31, !31, i64 0}
+!31 = !{!"_ZTSN4llvm8codeview12ThunkOrdinalE", !6, i64 0}
+!32 = !{!33, !33, i64 0}
+!33 = !{!"_ZTSN4llvm3pdb12PDB_ChecksumE", !6, i64 0}
+!34 = !{!35, !35, i64 0}
+!35 = !{!"_ZTSN4llvm8codeview14SourceLanguageE", !6, i64 0}
+!36 = !{!37, !37, i64 0}
+!37 = !{!"_ZTSN4llvm3pdb11PDB_SymTypeE", !6, i64 0}
+!38 = !{!39, !39, i64 0}
+!39 = !{!"_ZTSN4llvm3pdb16PDB_MemberAccessE", !6, i64 0}
+!40 = !{!41, !41, i64 0}
+!41 = !{!"_ZTSN4llvm3pdb11PDB_UdtTypeE", !6, i64 0}
+!42 = !{!43, !43, i64 0}
+!43 = !{!"_ZTSN4llvm3pdb11PDB_MachineE", !6, i64 0}
+!44 = !{!45, !45, i64 0}
+!45 = !{!"p1 _ZTSN4llvm3pdb7VariantE", !5, i64 0}
+!46 = !{!47, !10, i64 0}
+!47 = !{!"_ZTSN4llvm3pdb7VariantE", !10, i64 0, !6, i64 8}
+!48 = !{!6, !6, i64 0}
+!49 = !{i8 0, i8 2}
+!50 = !{}
+!51 = !{!52, !52, i64 0}
+!52 = !{!"p1 _ZTSN4llvm3pdb11VersionInfoE", !5, i64 0}
+!53 = !{!54, !27, i64 0}
+!54 = !{!"_ZTSN4llvm3pdb11VersionInfoE", !27, i64 0, !27, i64 4, !27, i64 8, !27, i64 12}
+!55 = !{!54, !27, i64 4}
+!56 = !{!54, !27, i64 8}
+!57 = !{!58, !58, i64 0}
+!58 = !{!"p1 _ZTSSt13unordered_mapIN4llvm3pdb11PDB_SymTypeEiSt4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_iEEE", !5, i64 0}
+!59 = !{!60, !27, i64 4}
+!60 = !{!"_ZTSSt4pairIKN4llvm3pdb11PDB_SymTypeEiE", !37, i64 0, !27, i64 4}
+!61 = !{!62, !62, i64 0}
+!62 = !{!"p1 _ZTSNSt8__detail19_Node_iterator_baseISt4pairIKN4llvm3pdb11PDB_SymTypeEiELb1EEE", !5, i64 0}
+!63 = !{!64, !65, i64 0}
+!64 = !{!"_ZTSNSt8__detail19_Node_iterator_baseISt4pairIKN4llvm3pdb11PDB_SymTypeEiELb1EEE", !65, i64 0}
+!65 = !{!"p1 _ZTSNSt8__detail10_Hash_nodeISt4pairIKN4llvm3pdb11PDB_SymTypeEiELb1EEE", !5, i64 0}
+!66 = !{!67, !67, i64 0}
+!67 = !{!"p1 _ZTSNSt8__detail20_Node_const_iteratorISt4pairIKN4llvm3pdb11PDB_SymTypeEiELb0ELb1EEE", !5, i64 0}
+!68 = !{!69, !69, i64 0}
+!69 = !{!"long", !6, i64 0}
+!70 = !{!71, !12, i64 24}
+!71 = !{!"_ZTSN4llvm11raw_ostreamE", !72, i64 8, !12, i64 16, !12, i64 24, !12, i64 32, !73, i64 40, !74, i64 44}
+!72 = !{!"_ZTSN4llvm11raw_ostream11OStreamKindE", !6, i64 0}
+!73 = !{!"bool", !6, i64 0}
+!74 = !{!"_ZTSN4llvm11raw_ostream10BufferKindE", !6, i64 0}
+!75 = !{!71, !12, i64 32}
+!76 = !{!77, !77, i64 0}
+!77 = !{!"p1 _ZTSN4llvm9StringRefE", !5, i64 0}
+!78 = !{!79, !12, i64 0}
+!79 = !{!"_ZTSN4llvm9StringRefE", !12, i64 0, !69, i64 8}
+!80 = !{!79, !69, i64 8}
+!81 = !{!82, !82, i64 0}
+!82 = !{!"p1 _ZTSSt10_HashtableIN4llvm3pdb11PDB_SymTypeESt4pairIKS2_iESaIS5_ENSt8__detail10_Select1stESt8equal_toIS2_ESt4hashIS2_ENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb0ELb1EEEE", !5, i64 0}
+!83 = !{!84, !87, i64 16}
+!84 = !{!"_ZTSSt10_HashtableIN4llvm3pdb11PDB_SymTypeESt4pairIKS2_iESaIS5_ENSt8__detail10_Select1stESt8equal_toIS2_ESt4hashIS2_ENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb0ELb1EEEE", !85, i64 0, !69, i64 8, !86, i64 16, !69, i64 24, !88, i64 32, !87, i64 48}
+!85 = !{!"p2 _ZTSNSt8__detail15_Hash_node_baseE", !5, i64 0}
+!86 = !{!"_ZTSNSt8__detail15_Hash_node_baseE", !87, i64 0}
+!87 = !{!"p1 _ZTSNSt8__detail15_Hash_node_baseE", !5, i64 0}
+!88 = !{!"_ZTSNSt8__detail20_Prime_rehash_policyE", !89, i64 0, !69, i64 8}
+!89 = !{!"float", !6, i64 0}
+!90 = !{!65, !65, i64 0}
+!91 = !{!86, !87, i64 0}
+!92 = !{!93, !93, i64 0}
+!93 = !{!"p1 _ZTSNSt8__detail21_Hash_node_value_baseISt4pairIKN4llvm3pdb11PDB_SymTypeEiEEE", !5, i64 0}
+!94 = !{!95, !95, i64 0}
+!95 = !{!"p1 _ZTSN9__gnu_cxx16__aligned_bufferISt4pairIKN4llvm3pdb11PDB_SymTypeEiEEE", !5, i64 0}

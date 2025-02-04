@@ -10,8 +10,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.llvm::pdb::Variant" = type { i32, %union.anon.0 }
 %union.anon.0 = type { i64 }
 
-$_ZN4llvm3pdb15NativeRawSymbolD2Ev = comdat any
-
 $_ZN4llvm8codeviewanENS0_15ModifierOptionsES1_ = comdat any
 
 $_ZN4llvm3pdb15NativeRawSymbol10initializeEv = comdat any
@@ -33,64 +31,58 @@ define dso_local void @_ZN4llvm3pdb17NativeTypeBuiltinC2ERNS0_13NativeSessionEjN
   %10 = alloca i16, align 2
   %11 = alloca i32, align 4
   %12 = alloca i64, align 8
-  store ptr %0, ptr %7, align 8
-  store ptr %1, ptr %8, align 8
-  store i32 %2, ptr %9, align 4
-  store i16 %3, ptr %10, align 2
-  store i32 %4, ptr %11, align 4
-  store i64 %5, ptr %12, align 8
+  store ptr %0, ptr %7, align 8, !tbaa !3
+  store ptr %1, ptr %8, align 8, !tbaa !8
+  store i32 %2, ptr %9, align 4, !tbaa !10
+  store i16 %3, ptr %10, align 2, !tbaa !12
+  store i32 %4, ptr %11, align 4, !tbaa !14
+  store i64 %5, ptr %12, align 8, !tbaa !16
   %13 = load ptr, ptr %7, align 8
-  %14 = load ptr, ptr %8, align 8
-  %15 = load i32, ptr %9, align 4
+  %14 = load ptr, ptr %8, align 8, !tbaa !8
+  %15 = load i32, ptr %9, align 4, !tbaa !10
   call void @_ZN4llvm3pdb15NativeRawSymbolC2ERNS0_13NativeSessionENS0_11PDB_SymTypeEj(ptr noundef nonnull align 8 dereferenceable(24) %13, ptr noundef nonnull align 1 %14, i32 noundef 16, i32 noundef %15)
-  store ptr getelementptr inbounds inrange(-16, 1448) ({ [183 x ptr] }, ptr @_ZTVN4llvm3pdb17NativeTypeBuiltinE, i32 0, i32 0, i32 2), ptr %13, align 8
+  store ptr getelementptr inbounds inrange(-16, 1448) ({ [183 x ptr] }, ptr @_ZTVN4llvm3pdb17NativeTypeBuiltinE, i32 0, i32 0, i32 2), ptr %13, align 8, !tbaa !18
   %16 = getelementptr inbounds nuw %"class.llvm::pdb::NativeTypeBuiltin", ptr %13, i32 0, i32 1
-  %17 = load ptr, ptr %8, align 8
-  store ptr %17, ptr %16, align 8
+  %17 = load ptr, ptr %8, align 8, !tbaa !8
+  store ptr %17, ptr %16, align 8, !tbaa !8
   %18 = getelementptr inbounds nuw %"class.llvm::pdb::NativeTypeBuiltin", ptr %13, i32 0, i32 2
-  %19 = load i16, ptr %10, align 2
-  store i16 %19, ptr %18, align 8
+  %19 = load i16, ptr %10, align 2, !tbaa !12
+  store i16 %19, ptr %18, align 8, !tbaa !20
   %20 = getelementptr inbounds nuw %"class.llvm::pdb::NativeTypeBuiltin", ptr %13, i32 0, i32 3
-  %21 = load i32, ptr %11, align 4
-  store i32 %21, ptr %20, align 4
+  %21 = load i32, ptr %11, align 4, !tbaa !14
+  store i32 %21, ptr %20, align 4, !tbaa !25
   %22 = getelementptr inbounds nuw %"class.llvm::pdb::NativeTypeBuiltin", ptr %13, i32 0, i32 4
-  %23 = load i64, ptr %12, align 8
-  store i64 %23, ptr %22, align 8
+  %23 = load i64, ptr %12, align 8, !tbaa !16
+  store i64 %23, ptr %22, align 8, !tbaa !26
   ret void
 }
 
 declare void @_ZN4llvm3pdb15NativeRawSymbolC2ERNS0_13NativeSessionENS0_11PDB_SymTypeEj(ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 1, i32 noundef, i32 noundef) unnamed_addr #1
 
+; Function Attrs: nounwind
+declare void @_ZN4llvm3pdb13IPDBRawSymbolD2Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #2
+
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4llvm3pdb17NativeTypeBuiltinD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #0 align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !3
   %3 = load ptr, ptr %2, align 8
-  call void @_ZN4llvm3pdb15NativeRawSymbolD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #4
-  ret void
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN4llvm3pdb15NativeRawSymbolD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #0 comdat align 2 {
-  %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  call void @_ZN4llvm3pdb13IPDBRawSymbolD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #4
+  call void @_ZN4llvm3pdb13IPDBRawSymbolD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #5
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4llvm3pdb17NativeTypeBuiltinD0Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #0 align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !3
   %3 = load ptr, ptr %2, align 8
-  call void @_ZN4llvm3pdb17NativeTypeBuiltinD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %3) #4
-  call void @_ZdlPvm(ptr noundef %3, i64 noundef 48) #5
+  call void @_ZN4llvm3pdb17NativeTypeBuiltinD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %3) #5
+  call void @_ZdlPvm(ptr noundef %3, i64 noundef 48) #6
   ret void
 }
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPvm(ptr noundef, i64 noundef) #2
+declare void @_ZdlPvm(ptr noundef, i64 noundef) #3
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZNK4llvm3pdb17NativeTypeBuiltin4dumpERNS_11raw_ostreamEiNS0_16PdbSymbolIdFieldES4_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(48) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 align 2 {
@@ -99,53 +91,53 @@ define dso_local void @_ZNK4llvm3pdb17NativeTypeBuiltin4dumpERNS_11raw_ostreamEi
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
   %10 = alloca i32, align 4
-  store ptr %0, ptr %6, align 8
-  store ptr %1, ptr %7, align 8
-  store i32 %2, ptr %8, align 4
-  store i32 %3, ptr %9, align 4
-  store i32 %4, ptr %10, align 4
+  store ptr %0, ptr %6, align 8, !tbaa !3
+  store ptr %1, ptr %7, align 8, !tbaa !27
+  store i32 %2, ptr %8, align 4, !tbaa !10
+  store i32 %3, ptr %9, align 4, !tbaa !29
+  store i32 %4, ptr %10, align 4, !tbaa !29
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef i32 @_ZNK4llvm3pdb17NativeTypeBuiltin9getSymTagEv(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #0 align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !3
   ret i32 16
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef i32 @_ZNK4llvm3pdb17NativeTypeBuiltin14getBuiltinTypeEv(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #0 align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !3
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw %"class.llvm::pdb::NativeTypeBuiltin", ptr %3, i32 0, i32 3
-  %5 = load i32, ptr %4, align 4
+  %5 = load i32, ptr %4, align 4, !tbaa !25
   ret i32 %5
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef zeroext i1 @_ZNK4llvm3pdb17NativeTypeBuiltin11isConstTypeEv(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #0 align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !3
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw %"class.llvm::pdb::NativeTypeBuiltin", ptr %3, i32 0, i32 2
-  %5 = load i16, ptr %4, align 8
+  %5 = load i16, ptr %4, align 8, !tbaa !20
   %6 = call noundef zeroext i16 @_ZN4llvm8codeviewanENS0_15ModifierOptionsES1_(i16 noundef zeroext %5, i16 noundef zeroext 1)
   %7 = icmp ne i16 %6, 0
   ret i1 %7
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef zeroext i16 @_ZN4llvm8codeviewanENS0_15ModifierOptionsES1_(i16 noundef zeroext %0, i16 noundef zeroext %1) #0 comdat {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr hidden noundef zeroext i16 @_ZN4llvm8codeviewanENS0_15ModifierOptionsES1_(i16 noundef zeroext %0, i16 noundef zeroext %1) #4 comdat {
   %3 = alloca i16, align 2
   %4 = alloca i16, align 2
-  store i16 %0, ptr %3, align 2
-  store i16 %1, ptr %4, align 2
-  %5 = load i16, ptr %3, align 2
+  store i16 %0, ptr %3, align 2, !tbaa !12
+  store i16 %1, ptr %4, align 2, !tbaa !12
+  %5 = load i16, ptr %3, align 2, !tbaa !12
   %6 = call noundef zeroext i16 @_ZN4llvm13to_underlyingINS_8codeview15ModifierOptionsEEENSt15underlying_typeIT_E4typeES4_(i16 noundef zeroext %5)
   %7 = zext i16 %6 to i32
-  %8 = load i16, ptr %4, align 2
+  %8 = load i16, ptr %4, align 2, !tbaa !12
   %9 = call noundef zeroext i16 @_ZN4llvm13to_underlyingINS_8codeview15ModifierOptionsEEENSt15underlying_typeIT_E4typeES4_(i16 noundef zeroext %8)
   %10 = zext i16 %9 to i32
   %11 = and i32 %7, %10
@@ -156,20 +148,20 @@ define linkonce_odr hidden noundef zeroext i16 @_ZN4llvm8codeviewanENS0_15Modifi
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef i64 @_ZNK4llvm3pdb17NativeTypeBuiltin9getLengthEv(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #0 align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !3
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw %"class.llvm::pdb::NativeTypeBuiltin", ptr %3, i32 0, i32 4
-  %5 = load i64, ptr %4, align 8
+  %5 = load i64, ptr %4, align 8, !tbaa !26
   ret i64 %5
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef zeroext i1 @_ZNK4llvm3pdb17NativeTypeBuiltin15isUnalignedTypeEv(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #0 align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !3
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw %"class.llvm::pdb::NativeTypeBuiltin", ptr %3, i32 0, i32 2
-  %5 = load i16, ptr %4, align 8
+  %5 = load i16, ptr %4, align 8, !tbaa !20
   %6 = call noundef zeroext i16 @_ZN4llvm8codeviewanENS0_15ModifierOptionsES1_(i16 noundef zeroext %5, i16 noundef zeroext 4)
   %7 = icmp ne i16 %6, 0
   ret i1 %7
@@ -178,10 +170,10 @@ define dso_local noundef zeroext i1 @_ZNK4llvm3pdb17NativeTypeBuiltin15isUnalign
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef zeroext i1 @_ZNK4llvm3pdb17NativeTypeBuiltin14isVolatileTypeEv(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #0 align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !3
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw %"class.llvm::pdb::NativeTypeBuiltin", ptr %3, i32 0, i32 2
-  %5 = load i16, ptr %4, align 8
+  %5 = load i16, ptr %4, align 8, !tbaa !20
   %6 = call noundef zeroext i16 @_ZN4llvm8codeviewanENS0_15ModifierOptionsES1_(i16 noundef zeroext %5, i16 noundef zeroext 2)
   %7 = icmp ne i16 %6, 0
   ret i1 %7
@@ -532,31 +524,58 @@ declare void @_ZNK4llvm3pdb15NativeRawSymbol9getUnusedB5cxx11Ev(ptr dead_on_unwi
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvm3pdb15NativeRawSymbol10initializeEv(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !31
   ret void
 }
-
-; Function Attrs: nounwind
-declare void @_ZN4llvm3pdb13IPDBRawSymbolD2Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef zeroext i16 @_ZN4llvm13to_underlyingINS_8codeview15ModifierOptionsEEENSt15underlying_typeIT_E4typeES4_(i16 noundef zeroext %0) #0 comdat {
   %2 = alloca i16, align 2
-  store i16 %0, ptr %2, align 2
-  %3 = load i16, ptr %2, align 2
+  store i16 %0, ptr %2, align 2, !tbaa !12
+  %3 = load i16, ptr %2, align 2, !tbaa !12
   ret i16 %3
 }
 
-attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nounwind }
-attributes #5 = { builtin nounwind }
+attributes #0 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nounwind }
+attributes #6 = { builtin nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
+!3 = !{!4, !4, i64 0}
+!4 = !{!"p1 _ZTSN4llvm3pdb17NativeTypeBuiltinE", !5, i64 0}
+!5 = !{!"any pointer", !6, i64 0}
+!6 = !{!"omnipotent char", !7, i64 0}
+!7 = !{!"Simple C++ TBAA"}
+!8 = !{!9, !9, i64 0}
+!9 = !{!"p1 _ZTSN4llvm3pdb13NativeSessionE", !5, i64 0}
+!10 = !{!11, !11, i64 0}
+!11 = !{!"int", !6, i64 0}
+!12 = !{!13, !13, i64 0}
+!13 = !{!"_ZTSN4llvm8codeview15ModifierOptionsE", !6, i64 0}
+!14 = !{!15, !15, i64 0}
+!15 = !{!"_ZTSN4llvm3pdb15PDB_BuiltinTypeE", !6, i64 0}
+!16 = !{!17, !17, i64 0}
+!17 = !{!"long", !6, i64 0}
+!18 = !{!19, !19, i64 0}
+!19 = !{!"vtable pointer", !7, i64 0}
+!20 = !{!21, !13, i64 32}
+!21 = !{!"_ZTSN4llvm3pdb17NativeTypeBuiltinE", !22, i64 0, !9, i64 24, !13, i64 32, !15, i64 36, !17, i64 40}
+!22 = !{!"_ZTSN4llvm3pdb15NativeRawSymbolE", !23, i64 0, !9, i64 8, !24, i64 16, !11, i64 20}
+!23 = !{!"_ZTSN4llvm3pdb13IPDBRawSymbolE"}
+!24 = !{!"_ZTSN4llvm3pdb11PDB_SymTypeE", !6, i64 0}
+!25 = !{!21, !15, i64 36}
+!26 = !{!21, !17, i64 40}
+!27 = !{!28, !28, i64 0}
+!28 = !{!"p1 _ZTSN4llvm11raw_ostreamE", !5, i64 0}
+!29 = !{!30, !30, i64 0}
+!30 = !{!"_ZTSN4llvm3pdb16PdbSymbolIdFieldE", !6, i64 0}
+!31 = !{!32, !32, i64 0}
+!32 = !{!"p1 _ZTSN4llvm3pdb15NativeRawSymbolE", !5, i64 0}

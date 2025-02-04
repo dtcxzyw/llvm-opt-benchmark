@@ -11,30 +11,36 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: mustprogress nounwind willreturn memory(read) uwtable
 define dso_local noundef ptr @_ZN5clang12getTraitNameENS_15ExpressionTraitE(i32 noundef %0) #0 {
   %2 = alloca i32, align 4
-  store i32 %0, ptr %2, align 4
-  %3 = load i32, ptr %2, align 4
+  store i32 %0, ptr %2, align 4, !tbaa !3
+  %3 = load i32, ptr %2, align 4, !tbaa !3
   %4 = zext i32 %3 to i64
-  %5 = getelementptr inbounds [2 x ptr], ptr @_ZL20ExpressionTraitNames, i64 0, i64 %4
-  %6 = load ptr, ptr %5, align 8
+  %5 = getelementptr inbounds nuw [2 x ptr], ptr @_ZL20ExpressionTraitNames, i64 0, i64 %4
+  %6 = load ptr, ptr %5, align 8, !tbaa !7
   ret ptr %6
 }
 
 ; Function Attrs: mustprogress nounwind willreturn memory(read) uwtable
 define dso_local noundef ptr @_ZN5clang16getTraitSpellingENS_15ExpressionTraitE(i32 noundef %0) #0 {
   %2 = alloca i32, align 4
-  store i32 %0, ptr %2, align 4
-  %3 = load i32, ptr %2, align 4
+  store i32 %0, ptr %2, align 4, !tbaa !3
+  %3 = load i32, ptr %2, align 4, !tbaa !3
   %4 = zext i32 %3 to i64
-  %5 = getelementptr inbounds [2 x ptr], ptr @_ZL24ExpressionTraitSpellings, i64 0, i64 %4
-  %6 = load ptr, ptr %5, align 8
+  %5 = getelementptr inbounds nuw [2 x ptr], ptr @_ZL24ExpressionTraitSpellings, i64 0, i64 %4
+  %6 = load ptr, ptr %5, align 8, !tbaa !7
   ret ptr %6
 }
 
-attributes #0 = { mustprogress nounwind willreturn memory(read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { mustprogress nounwind willreturn memory(read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
+!3 = !{!4, !4, i64 0}
+!4 = !{!"_ZTSN5clang15ExpressionTraitE", !5, i64 0}
+!5 = !{!"omnipotent char", !6, i64 0}
+!6 = !{!"Simple C++ TBAA"}
+!7 = !{!8, !8, i64 0}
+!8 = !{!"p1 omnipotent char", !9, i64 0}
+!9 = !{!"any pointer", !5, i64 0}

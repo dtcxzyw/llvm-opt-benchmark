@@ -7,12 +7,12 @@ define dso_local noundef i32 @_ZN5clang18getBinOpPrecedenceENS_3tok9TokenKindEbb
   %5 = alloca i16, align 2
   %6 = alloca i8, align 1
   %7 = alloca i8, align 1
-  store i16 %0, ptr %5, align 2
+  store i16 %0, ptr %5, align 2, !tbaa !3
   %8 = zext i1 %1 to i8
-  store i8 %8, ptr %6, align 1
+  store i8 %8, ptr %6, align 1, !tbaa !7
   %9 = zext i1 %2 to i8
-  store i8 %9, ptr %7, align 1
-  %10 = load i16, ptr %5, align 2
+  store i8 %9, ptr %7, align 1, !tbaa !7
+  %10 = load i16, ptr %5, align 2, !tbaa !3
   %11 = zext i16 %10 to i32
   switch i32 %11, label %25 [
     i32 52, label %12
@@ -31,7 +31,6 @@ define dso_local noundef i32 @_ZN5clang18getBinOpPrecedenceENS_3tok9TokenKindEbb
     i32 60, label %27
     i32 61, label %28
     i32 59, label %29
-    i32 76, label %30
     i32 29, label %30
     i32 58, label %31
     i32 56, label %32
@@ -53,7 +52,7 @@ define dso_local noundef i32 @_ZN5clang18getBinOpPrecedenceENS_3tok9TokenKindEbb
   ]
 
 12:                                               ; preds = %3
-  %13 = load i8, ptr %6, align 1
+  %13 = load i8, ptr %6, align 1, !tbaa !7, !range !9, !noundef !10
   %14 = trunc i8 %13 to i1
   br i1 %14, label %15, label %16
 
@@ -66,12 +65,12 @@ define dso_local noundef i32 @_ZN5clang18getBinOpPrecedenceENS_3tok9TokenKindEbb
   br label %41
 
 17:                                               ; preds = %3
-  %18 = load i8, ptr %6, align 1
+  %18 = load i8, ptr %6, align 1, !tbaa !7, !range !9, !noundef !10
   %19 = trunc i8 %18 to i1
   br i1 %19, label %23, label %20
 
 20:                                               ; preds = %17
-  %21 = load i8, ptr %7, align 1
+  %21 = load i8, ptr %7, align 1, !tbaa !7, !range !9, !noundef !10
   %22 = trunc i8 %21 to i1
   br i1 %22, label %24, label %23
 
@@ -103,7 +102,7 @@ define dso_local noundef i32 @_ZN5clang18getBinOpPrecedenceENS_3tok9TokenKindEbb
   store i32 4, ptr %4, align 4
   br label %41
 
-30:                                               ; preds = %3, %3
+30:                                               ; preds = %3
   store i32 5, ptr %4, align 4
   br label %41
 
@@ -152,11 +151,18 @@ define dso_local noundef i32 @_ZN5clang18getBinOpPrecedenceENS_3tok9TokenKindEbb
   ret i32 %42
 }
 
-attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
+!3 = !{!4, !4, i64 0}
+!4 = !{!"_ZTSN5clang3tok9TokenKindE", !5, i64 0}
+!5 = !{!"omnipotent char", !6, i64 0}
+!6 = !{!"Simple C++ TBAA"}
+!7 = !{!8, !8, i64 0}
+!8 = !{!"bool", !5, i64 0}
+!9 = !{i8 0, i8 2}
+!10 = !{}
