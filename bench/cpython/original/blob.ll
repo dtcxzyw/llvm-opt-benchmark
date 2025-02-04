@@ -1,2418 +1,2590 @@
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
-%struct.PyType_Spec = type { ptr, i32, i32, i32, ptr }
 %struct._object = type { %union.anon, ptr }
 %union.anon = type { i64 }
-%struct.PyType_Slot = type { i32, ptr }
-%struct.PyMethodDef = type { ptr, ptr, i32, ptr }
-%struct.PyMemberDef = type { ptr, i32, i64, i32, ptr }
 %struct._longobject = type { %struct._object, %struct._PyLongValue }
 %struct._PyLongValue = type { i64, [1 x i32] }
-%struct._typeobject = type { %struct.PyVarObject, ptr, i64, i64, ptr, i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i64, ptr, ptr, ptr, ptr, i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, ptr, ptr, i8 }
+%struct._typeobject = type { %struct.PyVarObject, ptr, i64, i64, ptr, i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i64, ptr, ptr, ptr, ptr, i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, ptr, ptr, i8, i16 }
 %struct.PyVarObject = type { %struct._object, i64 }
 %struct.pysqlite_Connection = type { %struct._object, ptr, ptr, i32, ptr, i32, i32, i32, i64, ptr, ptr, ptr, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 %struct.PyListObject = type { %struct.PyVarObject, ptr, i64 }
-%struct._PyWeakReference = type { %struct._object, ptr, ptr, i64, ptr, ptr, ptr }
 %struct.pysqlite_Blob = type { %struct._object, ptr, ptr, i32, ptr }
+%struct.anon = type { i32, i32 }
 %struct.pysqlite_state = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 %struct.Py_buffer = type { ptr, ptr, i64, i64, i32, i32, ptr, ptr, ptr, ptr, ptr }
 %struct.PyBytesObject = type { %struct.PyVarObject, i64, [1 x i8] }
 
-@blob_spec = internal global %struct.PyType_Spec { ptr @.str, i32 48, i32 0, i32 16768, ptr @blob_slots }, align 8
-@_Py_NoneStruct = external global %struct._object, align 8
 @.str = private unnamed_addr constant [13 x i8] c"sqlite3.Blob\00", align 1
-@blob_slots = internal global [9 x %struct.PyType_Slot] [%struct.PyType_Slot { i32 52, ptr @blob_dealloc }, %struct.PyType_Slot { i32 71, ptr @blob_traverse }, %struct.PyType_Slot { i32 51, ptr @blob_clear }, %struct.PyType_Slot { i32 64, ptr @blob_methods }, %struct.PyType_Slot { i32 72, ptr @blob_members }, %struct.PyType_Slot { i32 4, ptr @blob_length }, %struct.PyType_Slot { i32 5, ptr @blob_subscript }, %struct.PyType_Slot { i32 3, ptr @blob_ass_subscript }, %struct.PyType_Slot zeroinitializer], align 16
-@blob_methods = internal global [8 x %struct.PyMethodDef] [%struct.PyMethodDef { ptr @.str.1, ptr @blob_close, i32 4, ptr @blob_close__doc__ }, %struct.PyMethodDef { ptr @.str.2, ptr @blob_enter, i32 4, ptr @blob_enter__doc__ }, %struct.PyMethodDef { ptr @.str.3, ptr @blob_exit, i32 128, ptr @blob_exit__doc__ }, %struct.PyMethodDef { ptr @.str.4, ptr @blob_read, i32 128, ptr @blob_read__doc__ }, %struct.PyMethodDef { ptr @.str.5, ptr @blob_seek, i32 128, ptr @blob_seek__doc__ }, %struct.PyMethodDef { ptr @.str.6, ptr @blob_tell, i32 4, ptr @blob_tell__doc__ }, %struct.PyMethodDef { ptr @.str.7, ptr @blob_write, i32 8, ptr @blob_write__doc__ }, %struct.PyMethodDef zeroinitializer], align 16
-@blob_members = internal global [2 x %struct.PyMemberDef] [%struct.PyMemberDef { ptr @.str.13, i32 19, i64 40, i32 1, ptr null }, %struct.PyMemberDef zeroinitializer], align 16
-@.str.1 = private unnamed_addr constant [6 x i8] c"close\00", align 1
+@blob_spec = internal global { ptr, i32, i32, i32, [4 x i8], ptr } { ptr @.str, i32 48, i32 0, i32 16768, [4 x i8] zeroinitializer, ptr @blob_slots }, align 8
+@blob_slots = internal global [9 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 52, [4 x i8] zeroinitializer, ptr @blob_dealloc }, { i32, [4 x i8], ptr } { i32 71, [4 x i8] zeroinitializer, ptr @blob_traverse }, { i32, [4 x i8], ptr } { i32 51, [4 x i8] zeroinitializer, ptr @blob_clear }, { i32, [4 x i8], ptr } { i32 64, [4 x i8] zeroinitializer, ptr @blob_methods }, { i32, [4 x i8], ptr } { i32 72, [4 x i8] zeroinitializer, ptr @blob_members }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @blob_length }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @blob_subscript }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @blob_ass_subscript }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.3 = private unnamed_addr constant [6 x i8] c"close\00", align 1
 @blob_close__doc__ = internal constant [36 x i8] c"close($self, /)\0A--\0A\0AClose the blob.\00", align 16
-@.str.2 = private unnamed_addr constant [10 x i8] c"__enter__\00", align 1
+@.str.4 = private unnamed_addr constant [10 x i8] c"__enter__\00", align 1
 @blob_enter__doc__ = internal constant [52 x i8] c"__enter__($self, /)\0A--\0A\0ABlob context manager enter.\00", align 16
-@.str.3 = private unnamed_addr constant [9 x i8] c"__exit__\00", align 1
+@.str.5 = private unnamed_addr constant [9 x i8] c"__exit__\00", align 1
 @blob_exit__doc__ = internal constant [65 x i8] c"__exit__($self, type, val, tb, /)\0A--\0A\0ABlob context manager exit.\00", align 16
-@.str.4 = private unnamed_addr constant [5 x i8] c"read\00", align 1
+@.str.6 = private unnamed_addr constant [5 x i8] c"read\00", align 1
 @blob_read__doc__ = internal constant [284 x i8] c"read($self, length=-1, /)\0A--\0A\0ARead data at the current offset position.\0A\0A  length\0A    Read length in bytes.\0A\0AIf the end of the blob is reached, the data up to end of file will be returned.\0AWhen length is not specified, or is negative, Blob.read() will read until the\0Aend of the blob.\00", align 16
-@.str.5 = private unnamed_addr constant [5 x i8] c"seek\00", align 1
+@.str.7 = private unnamed_addr constant [5 x i8] c"seek\00", align 1
 @blob_seek__doc__ = internal constant [285 x i8] c"seek($self, offset, origin=0, /)\0A--\0A\0ASet the current access position to offset.\0A\0AThe origin argument defaults to os.SEEK_SET (absolute blob positioning).\0AOther values for origin are os.SEEK_CUR (seek relative to the current position)\0Aand os.SEEK_END (seek relative to the blob's end).\00", align 16
-@.str.6 = private unnamed_addr constant [5 x i8] c"tell\00", align 1
+@.str.8 = private unnamed_addr constant [5 x i8] c"tell\00", align 1
 @blob_tell__doc__ = internal constant [68 x i8] c"tell($self, /)\0A--\0A\0AReturn the current access position for the blob.\00", align 16
-@.str.7 = private unnamed_addr constant [6 x i8] c"write\00", align 1
+@.str.9 = private unnamed_addr constant [6 x i8] c"write\00", align 1
 @blob_write__doc__ = internal constant [184 x i8] c"write($self, data, /)\0A--\0A\0AWrite data at the current offset.\0A\0AThis function cannot change the blob length.  Writing beyond the end of the\0Ablob will result in an exception being raised.\00", align 16
-@.str.8 = private unnamed_addr constant [33 x i8] c"Cannot operate on a closed blob.\00", align 1
+@blob_methods = internal global [8 x { ptr, ptr, i32, [4 x i8], ptr }] [{ ptr, ptr, i32, [4 x i8], ptr } { ptr @.str.3, ptr @blob_close, i32 4, [4 x i8] zeroinitializer, ptr @blob_close__doc__ }, { ptr, ptr, i32, [4 x i8], ptr } { ptr @.str.4, ptr @blob_enter, i32 4, [4 x i8] zeroinitializer, ptr @blob_enter__doc__ }, { ptr, ptr, i32, [4 x i8], ptr } { ptr @.str.5, ptr @blob_exit, i32 128, [4 x i8] zeroinitializer, ptr @blob_exit__doc__ }, { ptr, ptr, i32, [4 x i8], ptr } { ptr @.str.6, ptr @blob_read, i32 128, [4 x i8] zeroinitializer, ptr @blob_read__doc__ }, { ptr, ptr, i32, [4 x i8], ptr } { ptr @.str.7, ptr @blob_seek, i32 128, [4 x i8] zeroinitializer, ptr @blob_seek__doc__ }, { ptr, ptr, i32, [4 x i8], ptr } { ptr @.str.8, ptr @blob_tell, i32 4, [4 x i8] zeroinitializer, ptr @blob_tell__doc__ }, { ptr, ptr, i32, [4 x i8], ptr } { ptr @.str.9, ptr @blob_write, i32 8, [4 x i8] zeroinitializer, ptr @blob_write__doc__ }, { ptr, ptr, i32, [4 x i8], ptr } zeroinitializer], align 16
+@_Py_NoneStruct = external global %struct._object, align 8
+@.str.11 = private unnamed_addr constant [33 x i8] c"Cannot operate on a closed blob.\00", align 1
 @_Py_FalseStruct = external global %struct._longobject, align 8
 @PyExc_ValueError = external global ptr, align 8
-@.str.9 = private unnamed_addr constant [60 x i8] c"'origin' should be os.SEEK_SET, os.SEEK_CUR, or os.SEEK_END\00", align 1
-@.str.10 = private unnamed_addr constant [25 x i8] c"offset out of blob range\00", align 1
+@.str.12 = private unnamed_addr constant [60 x i8] c"'origin' should be os.SEEK_SET, os.SEEK_CUR, or os.SEEK_END\00", align 1
+@.str.13 = private unnamed_addr constant [25 x i8] c"offset out of blob range\00", align 1
 @PyExc_OverflowError = external global ptr, align 8
-@.str.11 = private unnamed_addr constant [32 x i8] c"seek offset results in overflow\00", align 1
-@.str.12 = private unnamed_addr constant [29 x i8] c"data longer than blob length\00", align 1
-@.str.13 = private unnamed_addr constant [19 x i8] c"__weaklistoffset__\00", align 1
+@.str.14 = private unnamed_addr constant [32 x i8] c"seek offset results in overflow\00", align 1
+@.str.15 = private unnamed_addr constant [29 x i8] c"data longer than blob length\00", align 1
+@.str.16 = private unnamed_addr constant [19 x i8] c"__weaklistoffset__\00", align 1
+@blob_members = internal global [2 x { ptr, i32, [4 x i8], i64, i32, [4 x i8], ptr }] [{ ptr, i32, [4 x i8], i64, i32, [4 x i8], ptr } { ptr @.str.16, i32 19, [4 x i8] zeroinitializer, i64 40, i32 1, [4 x i8] zeroinitializer, ptr null }, { ptr, i32, [4 x i8], i64, i32, [4 x i8], ptr } zeroinitializer], align 16
 @PySlice_Type = external global %struct._typeobject, align 8
 @PyExc_TypeError = external global ptr, align 8
-@.str.14 = private unnamed_addr constant [30 x i8] c"Blob indices must be integers\00", align 1
+@.str.18 = private unnamed_addr constant [30 x i8] c"Blob indices must be integers\00", align 1
 @PyExc_IndexError = external global ptr, align 8
-@.str.15 = private unnamed_addr constant [24 x i8] c"Blob index out of range\00", align 1
-@.str.16 = private unnamed_addr constant [35 x i8] c"Blob doesn't support item deletion\00", align 1
-@.str.17 = private unnamed_addr constant [48 x i8] c"'%s' object cannot be interpreted as an integer\00", align 1
-@.str.18 = private unnamed_addr constant [30 x i8] c"byte must be in range(0, 256)\00", align 1
-@.str.19 = private unnamed_addr constant [36 x i8] c"Blob doesn't support slice deletion\00", align 1
-@.str.20 = private unnamed_addr constant [36 x i8] c"Blob slice assignment is wrong size\00", align 1
+@.str.19 = private unnamed_addr constant [24 x i8] c"Blob index out of range\00", align 1
+@.str.20 = private unnamed_addr constant [35 x i8] c"Blob doesn't support item deletion\00", align 1
+@.str.21 = private unnamed_addr constant [48 x i8] c"'%s' object cannot be interpreted as an integer\00", align 1
+@.str.22 = private unnamed_addr constant [30 x i8] c"byte must be in range(0, 256)\00", align 1
+@.str.23 = private unnamed_addr constant [36 x i8] c"Blob doesn't support slice deletion\00", align 1
+@.str.24 = private unnamed_addr constant [36 x i8] c"Blob slice assignment is wrong size\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @pysqlite_close_all_blobs(ptr noundef %self) #0 {
-entry:
-  %op.addr.i6 = alloca ptr, align 8
-  %op.addr.i = alloca ptr, align 8
-  %self.addr = alloca ptr, align 8
-  %i = alloca i32, align 4
-  %weakref = alloca ptr, align 8
-  %blob = alloca ptr, align 8
-  store ptr %self, ptr %self.addr, align 8
-  store i32 0, ptr %i, align 4
-  br label %for.cond
+define hidden void @pysqlite_close_all_blobs(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca i64, align 8
+  %4 = alloca i32, align 4
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #6
+  store i64 0, ptr %3, align 8, !tbaa !7
+  br label %7
 
-for.cond:                                         ; preds = %for.inc, %entry
-  %0 = load i32, ptr %i, align 4
-  %conv = sext i32 %0 to i64
-  %1 = load ptr, ptr %self.addr, align 8
-  %blobs = getelementptr inbounds %struct.pysqlite_Connection, ptr %1, i32 0, i32 11
-  %2 = load ptr, ptr %blobs, align 8
-  %call = call i64 @PyList_GET_SIZE(ptr noundef %2)
-  %cmp = icmp slt i64 %conv, %call
-  br i1 %cmp, label %for.body, label %for.end
+7:                                                ; preds = %34, %1
+  %8 = load i64, ptr %3, align 8, !tbaa !7
+  %9 = load ptr, ptr %2, align 8, !tbaa !3
+  %10 = getelementptr inbounds nuw %struct.pysqlite_Connection, ptr %9, i32 0, i32 11
+  %11 = load ptr, ptr %10, align 8, !tbaa !9
+  %12 = call i64 @PyList_GET_SIZE(ptr noundef %11)
+  %13 = icmp slt i64 %8, %12
+  br i1 %13, label %15, label %14
 
-for.body:                                         ; preds = %for.cond
-  %3 = load ptr, ptr %self.addr, align 8
-  %blobs2 = getelementptr inbounds %struct.pysqlite_Connection, ptr %3, i32 0, i32 11
-  %4 = load ptr, ptr %blobs2, align 8
-  %ob_item = getelementptr inbounds %struct.PyListObject, ptr %4, i32 0, i32 1
-  %5 = load ptr, ptr %ob_item, align 8
-  %6 = load i32, ptr %i, align 4
-  %idxprom = sext i32 %6 to i64
-  %arrayidx = getelementptr ptr, ptr %5, i64 %idxprom
-  %7 = load ptr, ptr %arrayidx, align 8
-  store ptr %7, ptr %weakref, align 8
-  %8 = load ptr, ptr %weakref, align 8
-  %call3 = call ptr @_PyWeakref_GET_REF(ptr noundef %8)
-  store ptr %call3, ptr %blob, align 8
-  %9 = load ptr, ptr %blob, align 8
-  %cmp4 = icmp eq ptr %9, null
-  br i1 %cmp4, label %if.then, label %if.end
+14:                                               ; preds = %7
+  store i32 2, ptr %4, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #6
+  br label %37
 
-if.then:                                          ; preds = %for.body
-  br label %for.inc
+15:                                               ; preds = %7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #6
+  %16 = load ptr, ptr %2, align 8, !tbaa !3
+  %17 = getelementptr inbounds nuw %struct.pysqlite_Connection, ptr %16, i32 0, i32 11
+  %18 = load ptr, ptr %17, align 8, !tbaa !9
+  %19 = getelementptr inbounds nuw %struct.PyListObject, ptr %18, i32 0, i32 1
+  %20 = load ptr, ptr %19, align 8, !tbaa !18
+  %21 = load i64, ptr %3, align 8, !tbaa !7
+  %22 = getelementptr ptr, ptr %20, i64 %21
+  %23 = load ptr, ptr %22, align 8, !tbaa !22
+  store ptr %23, ptr %5, align 8, !tbaa !22
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #6
+  %24 = load ptr, ptr %5, align 8, !tbaa !22
+  %25 = call i32 @PyWeakref_GetRef(ptr noundef %24, ptr noundef %6)
+  %26 = icmp ne i32 %25, 0
+  br i1 %26, label %28, label %27
 
-if.end:                                           ; preds = %for.body
-  %10 = load ptr, ptr %blob, align 8
-  call void @close_blob(ptr noundef %10)
-  %11 = load ptr, ptr %blob, align 8
-  store ptr %11, ptr %op.addr.i, align 8
-  %12 = load ptr, ptr %op.addr.i, align 8
-  store ptr %12, ptr %op.addr.i6, align 8
-  %13 = load ptr, ptr %op.addr.i6, align 8
-  %14 = load i64, ptr %13, align 8
-  %conv.i = trunc i64 %14 to i32
-  %cmp.i7 = icmp slt i32 %conv.i, 0
-  %conv1.i = zext i1 %cmp.i7 to i32
-  %tobool.i = icmp ne i32 %conv1.i, 0
-  br i1 %tobool.i, label %if.then.i, label %if.end.i
+27:                                               ; preds = %15
+  store i32 4, ptr %4, align 4
+  br label %31
 
-if.then.i:                                        ; preds = %if.end
-  br label %Py_DECREF.exit
+28:                                               ; preds = %15
+  %29 = load ptr, ptr %6, align 8, !tbaa !22
+  call void @close_blob(ptr noundef %29)
+  %30 = load ptr, ptr %6, align 8, !tbaa !22
+  call void @Py_DECREF(ptr noundef %30)
+  store i32 0, ptr %4, align 4
+  br label %31
 
-if.end.i:                                         ; preds = %if.end
-  %15 = load ptr, ptr %op.addr.i, align 8
-  %16 = load i64, ptr %15, align 8
-  %dec.i = add i64 %16, -1
-  store i64 %dec.i, ptr %15, align 8
-  %cmp.i = icmp eq i64 %dec.i, 0
-  br i1 %cmp.i, label %if.then1.i, label %Py_DECREF.exit
+31:                                               ; preds = %28, %27
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #6
+  %32 = load i32, ptr %4, align 4
+  switch i32 %32, label %38 [
+    i32 0, label %33
+    i32 4, label %34
+  ]
 
-if.then1.i:                                       ; preds = %if.end.i
-  %17 = load ptr, ptr %op.addr.i, align 8
-  call void @_Py_Dealloc(ptr noundef %17) #3
-  br label %Py_DECREF.exit
+33:                                               ; preds = %31
+  br label %34
 
-Py_DECREF.exit:                                   ; preds = %if.then1.i, %if.end.i, %if.then.i
-  br label %for.inc
+34:                                               ; preds = %33, %31
+  %35 = load i64, ptr %3, align 8, !tbaa !7
+  %36 = add i64 %35, 1
+  store i64 %36, ptr %3, align 8, !tbaa !7
+  br label %7, !llvm.loop !23
 
-for.inc:                                          ; preds = %Py_DECREF.exit, %if.then
-  %18 = load i32, ptr %i, align 4
-  %inc = add i32 %18, 1
-  store i32 %inc, ptr %i, align 4
-  br label %for.cond, !llvm.loop !4
+37:                                               ; preds = %14
+  ret void
 
-for.end:                                          ; preds = %for.cond
+38:                                               ; preds = %31
+  unreachable
+}
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal i64 @PyList_GET_SIZE(ptr noundef %0) #2 {
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !22
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #6
+  %4 = load ptr, ptr %2, align 8, !tbaa !22
+  store ptr %4, ptr %3, align 8, !tbaa !3
+  %5 = load ptr, ptr %3, align 8, !tbaa !3
+  %6 = call i64 @Py_SIZE(ptr noundef %5)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #6
+  ret i64 %6
+}
+
+declare i32 @PyWeakref_GetRef(ptr noundef, ptr noundef) #3
+
+; Function Attrs: nounwind uwtable
+define internal void @close_blob(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !3
+  %5 = load ptr, ptr %2, align 8, !tbaa !3
+  %6 = getelementptr inbounds nuw %struct.pysqlite_Blob, ptr %5, i32 0, i32 2
+  %7 = load ptr, ptr %6, align 8, !tbaa !25
+  %8 = icmp ne ptr %7, null
+  br i1 %8, label %9, label %19
+
+9:                                                ; preds = %1
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #6
+  %10 = load ptr, ptr %2, align 8, !tbaa !3
+  %11 = getelementptr inbounds nuw %struct.pysqlite_Blob, ptr %10, i32 0, i32 2
+  %12 = load ptr, ptr %11, align 8, !tbaa !25
+  store ptr %12, ptr %3, align 8, !tbaa !28
+  %13 = load ptr, ptr %2, align 8, !tbaa !3
+  %14 = getelementptr inbounds nuw %struct.pysqlite_Blob, ptr %13, i32 0, i32 2
+  store ptr null, ptr %14, align 8, !tbaa !25
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #6
+  %15 = call ptr @PyEval_SaveThread()
+  store ptr %15, ptr %4, align 8, !tbaa !29
+  %16 = load ptr, ptr %3, align 8, !tbaa !28
+  %17 = call i32 @sqlite3_blob_close(ptr noundef %16)
+  %18 = load ptr, ptr %4, align 8, !tbaa !29
+  call void @PyEval_RestoreThread(ptr noundef %18)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #6
+  br label %19
+
+19:                                               ; preds = %9, %1
+  ret void
+}
+
+; Function Attrs: alwaysinline nounwind uwtable
+define internal void @Py_DECREF(ptr noundef %0) #4 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !22
+  %3 = load ptr, ptr %2, align 8, !tbaa !22
+  %4 = call i32 @_Py_IsImmortal(ptr noundef %3)
+  %5 = icmp ne i32 %4, 0
+  br i1 %5, label %6, label %7
+
+6:                                                ; preds = %1
+  br label %16
+
+7:                                                ; preds = %1
+  %8 = load ptr, ptr %2, align 8, !tbaa !22
+  %9 = getelementptr inbounds nuw %struct._object, ptr %8, i32 0, i32 0
+  %10 = getelementptr inbounds nuw %struct.anon, ptr %9, i32 0, i32 0
+  %11 = load i32, ptr %10, align 8, !tbaa !31
+  %12 = add i32 %11, -1
+  store i32 %12, ptr %10, align 8, !tbaa !31
+  %13 = icmp eq i32 %12, 0
+  br i1 %13, label %14, label %16
+
+14:                                               ; preds = %7
+  %15 = load ptr, ptr %2, align 8, !tbaa !22
+  call void @_Py_Dealloc(ptr noundef %15)
+  br label %16
+
+16:                                               ; preds = %6, %14, %7
+  ret void
+}
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+
+; Function Attrs: nounwind uwtable
+define hidden i32 @pysqlite_blob_setup_types(ptr noundef %0) #0 {
+  %2 = alloca i32, align 4
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !22
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #6
+  %7 = load ptr, ptr %3, align 8, !tbaa !22
+  %8 = call ptr @PyType_FromModuleAndSpec(ptr noundef %7, ptr noundef @blob_spec, ptr noundef null)
+  store ptr %8, ptr %4, align 8, !tbaa !22
+  %9 = load ptr, ptr %4, align 8, !tbaa !22
+  %10 = icmp eq ptr %9, null
+  br i1 %10, label %11, label %12
+
+11:                                               ; preds = %1
+  store i32 -1, ptr %2, align 4
+  store i32 1, ptr %5, align 4
+  br label %18
+
+12:                                               ; preds = %1
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #6
+  %13 = load ptr, ptr %3, align 8, !tbaa !22
+  %14 = call ptr @pysqlite_get_state(ptr noundef %13)
+  store ptr %14, ptr %6, align 8, !tbaa !3
+  %15 = load ptr, ptr %4, align 8, !tbaa !22
+  %16 = load ptr, ptr %6, align 8, !tbaa !3
+  %17 = getelementptr inbounds nuw %struct.pysqlite_state, ptr %16, i32 0, i32 15
+  store ptr %15, ptr %17, align 8, !tbaa !32
+  store i32 0, ptr %2, align 4
+  store i32 1, ptr %5, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #6
+  br label %18
+
+18:                                               ; preds = %12, %11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #6
+  %19 = load i32, ptr %2, align 4
+  ret i32 %19
+}
+
+declare ptr @PyType_FromModuleAndSpec(ptr noundef, ptr noundef, ptr noundef) #3
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal ptr @pysqlite_get_state(ptr noundef %0) #2 {
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !22
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #6
+  %4 = load ptr, ptr %2, align 8, !tbaa !22
+  %5 = call ptr @PyModule_GetState(ptr noundef %4)
+  store ptr %5, ptr %3, align 8, !tbaa !3
+  %6 = load ptr, ptr %3, align 8, !tbaa !3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #6
+  ret ptr %6
+}
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal i64 @Py_SIZE(ptr noundef %0) #2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !22
+  %3 = load ptr, ptr %2, align 8, !tbaa !22
+  %4 = getelementptr inbounds nuw %struct.PyVarObject, ptr %3, i32 0, i32 1
+  %5 = load i64, ptr %4, align 8, !tbaa !34
+  ret i64 %5
+}
+
+declare ptr @PyEval_SaveThread() #3
+
+declare i32 @sqlite3_blob_close(ptr noundef) #3
+
+declare void @PyEval_RestoreThread(ptr noundef) #3
+
+; Function Attrs: alwaysinline nounwind uwtable
+define internal i32 @_Py_IsImmortal(ptr noundef %0) #4 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !22
+  %3 = load ptr, ptr %2, align 8, !tbaa !22
+  %4 = getelementptr inbounds nuw %struct._object, ptr %3, i32 0, i32 0
+  %5 = getelementptr inbounds nuw %struct.anon, ptr %4, i32 0, i32 0
+  %6 = load i32, ptr %5, align 8, !tbaa !31
+  %7 = icmp slt i32 %6, 0
+  %8 = zext i1 %7 to i32
+  ret i32 %8
+}
+
+declare void @_Py_Dealloc(ptr noundef) #3
+
+; Function Attrs: nounwind uwtable
+define internal void @blob_dealloc(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !22
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #6
+  %5 = load ptr, ptr %2, align 8, !tbaa !22
+  store ptr %5, ptr %3, align 8, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #6
+  %6 = load ptr, ptr %3, align 8, !tbaa !3
+  %7 = call ptr @_Py_TYPE(ptr noundef %6)
+  store ptr %7, ptr %4, align 8, !tbaa !35
+  %8 = load ptr, ptr %3, align 8, !tbaa !3
+  call void @PyObject_GC_UnTrack(ptr noundef %8)
+  %9 = load ptr, ptr %3, align 8, !tbaa !3
+  call void @close_blob(ptr noundef %9)
+  %10 = load ptr, ptr %3, align 8, !tbaa !3
+  %11 = getelementptr inbounds nuw %struct.pysqlite_Blob, ptr %10, i32 0, i32 4
+  %12 = load ptr, ptr %11, align 8, !tbaa !36
+  %13 = icmp ne ptr %12, null
+  br i1 %13, label %14, label %16
+
+14:                                               ; preds = %1
+  %15 = load ptr, ptr %2, align 8, !tbaa !22
+  call void @PyObject_ClearWeakRefs(ptr noundef %15)
+  br label %16
+
+16:                                               ; preds = %14, %1
+  %17 = load ptr, ptr %4, align 8, !tbaa !35
+  %18 = getelementptr inbounds nuw %struct._typeobject, ptr %17, i32 0, i32 22
+  %19 = load ptr, ptr %18, align 8, !tbaa !37
+  %20 = load ptr, ptr %2, align 8, !tbaa !22
+  %21 = call i32 %19(ptr noundef %20)
+  %22 = load ptr, ptr %4, align 8, !tbaa !35
+  %23 = getelementptr inbounds nuw %struct._typeobject, ptr %22, i32 0, i32 38
+  %24 = load ptr, ptr %23, align 8, !tbaa !43
+  %25 = load ptr, ptr %3, align 8, !tbaa !3
+  call void %24(ptr noundef %25)
+  %26 = load ptr, ptr %4, align 8, !tbaa !35
+  call void @Py_DECREF(ptr noundef %26)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #6
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @PyList_GET_SIZE(ptr noundef %op) #0 {
-entry:
-  %op.addr = alloca ptr, align 8
-  %list = alloca ptr, align 8
-  store ptr %op, ptr %op.addr, align 8
-  %0 = load ptr, ptr %op.addr, align 8
-  store ptr %0, ptr %list, align 8
-  %1 = load ptr, ptr %list, align 8
-  %call = call i64 @Py_SIZE(ptr noundef %1)
-  ret i64 %call
+define internal i32 @blob_traverse(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
+  %4 = alloca i32, align 4
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca i32, align 4
+  %10 = alloca i32, align 4
+  %11 = alloca i32, align 4
+  store ptr %0, ptr %5, align 8, !tbaa !22
+  store ptr %1, ptr %6, align 8, !tbaa !3
+  store ptr %2, ptr %7, align 8, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #6
+  %12 = load ptr, ptr %5, align 8, !tbaa !22
+  store ptr %12, ptr %8, align 8, !tbaa !3
+  br label %13
+
+13:                                               ; preds = %3
+  %14 = load ptr, ptr %8, align 8, !tbaa !3
+  %15 = call ptr @_Py_TYPE(ptr noundef %14)
+  %16 = icmp ne ptr %15, null
+  br i1 %16, label %17, label %31
+
+17:                                               ; preds = %13
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #6
+  %18 = load ptr, ptr %6, align 8, !tbaa !3
+  %19 = load ptr, ptr %8, align 8, !tbaa !3
+  %20 = call ptr @_Py_TYPE(ptr noundef %19)
+  %21 = load ptr, ptr %7, align 8, !tbaa !3
+  %22 = call i32 %18(ptr noundef %20, ptr noundef %21)
+  store i32 %22, ptr %9, align 4, !tbaa !44
+  %23 = load i32, ptr %9, align 4, !tbaa !44
+  %24 = icmp ne i32 %23, 0
+  br i1 %24, label %25, label %27
+
+25:                                               ; preds = %17
+  %26 = load i32, ptr %9, align 4, !tbaa !44
+  store i32 %26, ptr %4, align 4
+  store i32 1, ptr %10, align 4
+  br label %28
+
+27:                                               ; preds = %17
+  store i32 0, ptr %10, align 4
+  br label %28
+
+28:                                               ; preds = %27, %25
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #6
+  %29 = load i32, ptr %10, align 4
+  switch i32 %29, label %57 [
+    i32 0, label %30
+  ]
+
+30:                                               ; preds = %28
+  br label %31
+
+31:                                               ; preds = %30, %13
+  br label %32
+
+32:                                               ; preds = %31
+  br label %33
+
+33:                                               ; preds = %32
+  br label %34
+
+34:                                               ; preds = %33
+  %35 = load ptr, ptr %8, align 8, !tbaa !3
+  %36 = getelementptr inbounds nuw %struct.pysqlite_Blob, ptr %35, i32 0, i32 1
+  %37 = load ptr, ptr %36, align 8, !tbaa !45
+  %38 = icmp ne ptr %37, null
+  br i1 %38, label %39, label %54
+
+39:                                               ; preds = %34
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #6
+  %40 = load ptr, ptr %6, align 8, !tbaa !3
+  %41 = load ptr, ptr %8, align 8, !tbaa !3
+  %42 = getelementptr inbounds nuw %struct.pysqlite_Blob, ptr %41, i32 0, i32 1
+  %43 = load ptr, ptr %42, align 8, !tbaa !45
+  %44 = load ptr, ptr %7, align 8, !tbaa !3
+  %45 = call i32 %40(ptr noundef %43, ptr noundef %44)
+  store i32 %45, ptr %11, align 4, !tbaa !44
+  %46 = load i32, ptr %11, align 4, !tbaa !44
+  %47 = icmp ne i32 %46, 0
+  br i1 %47, label %48, label %50
+
+48:                                               ; preds = %39
+  %49 = load i32, ptr %11, align 4, !tbaa !44
+  store i32 %49, ptr %4, align 4
+  store i32 1, ptr %10, align 4
+  br label %51
+
+50:                                               ; preds = %39
+  store i32 0, ptr %10, align 4
+  br label %51
+
+51:                                               ; preds = %50, %48
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #6
+  %52 = load i32, ptr %10, align 4
+  switch i32 %52, label %57 [
+    i32 0, label %53
+  ]
+
+53:                                               ; preds = %51
+  br label %54
+
+54:                                               ; preds = %53, %34
+  br label %55
+
+55:                                               ; preds = %54
+  br label %56
+
+56:                                               ; preds = %55
+  store i32 0, ptr %4, align 4
+  store i32 1, ptr %10, align 4
+  br label %57
+
+57:                                               ; preds = %56, %51, %28
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #6
+  %58 = load i32, ptr %4, align 4
+  ret i32 %58
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @_PyWeakref_GET_REF(ptr noundef %ref_obj) #0 {
-entry:
-  %retval = alloca ptr, align 8
-  %ref_obj.addr = alloca ptr, align 8
-  %ref = alloca ptr, align 8
-  %obj = alloca ptr, align 8
-  %refcnt = alloca i64, align 8
-  store ptr %ref_obj, ptr %ref_obj.addr, align 8
-  %0 = load ptr, ptr %ref_obj.addr, align 8
-  store ptr %0, ptr %ref, align 8
-  %1 = load ptr, ptr %ref, align 8
-  %wr_object = getelementptr inbounds %struct._PyWeakReference, ptr %1, i32 0, i32 1
-  %2 = load ptr, ptr %wr_object, align 8
-  store ptr %2, ptr %obj, align 8
-  %3 = load ptr, ptr %obj, align 8
-  %cmp = icmp eq ptr %3, @_Py_NoneStruct
-  br i1 %cmp, label %if.then, label %if.end
+define internal i32 @blob_clear(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !22
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #6
+  %6 = load ptr, ptr %2, align 8, !tbaa !22
+  store ptr %6, ptr %3, align 8, !tbaa !3
+  br label %7
 
-if.then:                                          ; preds = %entry
-  store ptr null, ptr %retval, align 8
-  br label %return
+7:                                                ; preds = %1
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #6
+  %8 = load ptr, ptr %3, align 8, !tbaa !3
+  %9 = getelementptr inbounds nuw %struct.pysqlite_Blob, ptr %8, i32 0, i32 1
+  store ptr %9, ptr %4, align 8, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #6
+  %10 = load ptr, ptr %4, align 8, !tbaa !3
+  %11 = load ptr, ptr %10, align 8, !tbaa !3
+  store ptr %11, ptr %5, align 8, !tbaa !3
+  %12 = load ptr, ptr %5, align 8, !tbaa !3
+  %13 = icmp ne ptr %12, null
+  br i1 %13, label %14, label %17
 
-if.end:                                           ; preds = %entry
-  %4 = load ptr, ptr %obj, align 8
-  %call = call i64 @Py_REFCNT(ptr noundef %4)
-  store i64 %call, ptr %refcnt, align 8
-  %5 = load i64, ptr %refcnt, align 8
-  %cmp1 = icmp eq i64 %5, 0
-  br i1 %cmp1, label %if.then2, label %if.end3
+14:                                               ; preds = %7
+  %15 = load ptr, ptr %4, align 8, !tbaa !3
+  store ptr null, ptr %15, align 8, !tbaa !3
+  %16 = load ptr, ptr %5, align 8, !tbaa !3
+  call void @Py_DECREF(ptr noundef %16)
+  br label %17
 
-if.then2:                                         ; preds = %if.end
-  store ptr null, ptr %retval, align 8
-  br label %return
+17:                                               ; preds = %14, %7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #6
+  br label %18
 
-if.end3:                                          ; preds = %if.end
-  %6 = load ptr, ptr %obj, align 8
-  %call4 = call ptr @_Py_NewRef(ptr noundef %6)
-  store ptr %call4, ptr %retval, align 8
-  br label %return
+18:                                               ; preds = %17
+  br label %19
 
-return:                                           ; preds = %if.end3, %if.then2, %if.then
-  %7 = load ptr, ptr %retval, align 8
-  ret ptr %7
-}
-
-; Function Attrs: nounwind uwtable
-define internal void @close_blob(ptr noundef %self) #0 {
-entry:
-  %self.addr = alloca ptr, align 8
-  %blob1 = alloca ptr, align 8
-  %_save = alloca ptr, align 8
-  store ptr %self, ptr %self.addr, align 8
-  %0 = load ptr, ptr %self.addr, align 8
-  %blob = getelementptr inbounds %struct.pysqlite_Blob, ptr %0, i32 0, i32 2
-  %1 = load ptr, ptr %blob, align 8
-  %tobool = icmp ne ptr %1, null
-  br i1 %tobool, label %if.then, label %if.end
-
-if.then:                                          ; preds = %entry
-  %2 = load ptr, ptr %self.addr, align 8
-  %blob2 = getelementptr inbounds %struct.pysqlite_Blob, ptr %2, i32 0, i32 2
-  %3 = load ptr, ptr %blob2, align 8
-  store ptr %3, ptr %blob1, align 8
-  %4 = load ptr, ptr %self.addr, align 8
-  %blob3 = getelementptr inbounds %struct.pysqlite_Blob, ptr %4, i32 0, i32 2
-  store ptr null, ptr %blob3, align 8
-  %call = call ptr @PyEval_SaveThread()
-  store ptr %call, ptr %_save, align 8
-  %5 = load ptr, ptr %blob1, align 8
-  %call4 = call i32 @sqlite3_blob_close(ptr noundef %5)
-  %6 = load ptr, ptr %_save, align 8
-  call void @PyEval_RestoreThread(ptr noundef %6)
-  br label %if.end
-
-if.end:                                           ; preds = %if.then, %entry
-  ret void
-}
-
-; Function Attrs: nounwind uwtable
-define hidden i32 @pysqlite_blob_setup_types(ptr noundef %mod) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %mod.addr = alloca ptr, align 8
-  %type = alloca ptr, align 8
-  %state = alloca ptr, align 8
-  store ptr %mod, ptr %mod.addr, align 8
-  %0 = load ptr, ptr %mod.addr, align 8
-  %call = call ptr @PyType_FromModuleAndSpec(ptr noundef %0, ptr noundef @blob_spec, ptr noundef null)
-  store ptr %call, ptr %type, align 8
-  %1 = load ptr, ptr %type, align 8
-  %cmp = icmp eq ptr %1, null
-  br i1 %cmp, label %if.then, label %if.end
-
-if.then:                                          ; preds = %entry
-  store i32 -1, ptr %retval, align 4
-  br label %return
-
-if.end:                                           ; preds = %entry
-  %2 = load ptr, ptr %mod.addr, align 8
-  %call1 = call ptr @pysqlite_get_state(ptr noundef %2)
-  store ptr %call1, ptr %state, align 8
-  %3 = load ptr, ptr %type, align 8
-  %4 = load ptr, ptr %state, align 8
-  %BlobType = getelementptr inbounds %struct.pysqlite_state, ptr %4, i32 0, i32 15
-  store ptr %3, ptr %BlobType, align 8
-  store i32 0, ptr %retval, align 4
-  br label %return
-
-return:                                           ; preds = %if.end, %if.then
-  %5 = load i32, ptr %retval, align 4
-  ret i32 %5
-}
-
-declare ptr @PyType_FromModuleAndSpec(ptr noundef, ptr noundef, ptr noundef) #1
-
-; Function Attrs: nounwind uwtable
-define internal ptr @pysqlite_get_state(ptr noundef %module) #0 {
-entry:
-  %module.addr = alloca ptr, align 8
-  %state = alloca ptr, align 8
-  store ptr %module, ptr %module.addr, align 8
-  %0 = load ptr, ptr %module.addr, align 8
-  %call = call ptr @PyModule_GetState(ptr noundef %0)
-  store ptr %call, ptr %state, align 8
-  %1 = load ptr, ptr %state, align 8
-  ret ptr %1
-}
-
-; Function Attrs: nounwind uwtable
-define internal i64 @Py_SIZE(ptr noundef %ob) #0 {
-entry:
-  %ob.addr = alloca ptr, align 8
-  %var_ob = alloca ptr, align 8
-  store ptr %ob, ptr %ob.addr, align 8
-  %0 = load ptr, ptr %ob.addr, align 8
-  store ptr %0, ptr %var_ob, align 8
-  %1 = load ptr, ptr %var_ob, align 8
-  %ob_size = getelementptr inbounds %struct.PyVarObject, ptr %1, i32 0, i32 1
-  %2 = load i64, ptr %ob_size, align 8
-  ret i64 %2
-}
-
-; Function Attrs: nounwind uwtable
-define internal i64 @Py_REFCNT(ptr noundef %ob) #0 {
-entry:
-  %ob.addr = alloca ptr, align 8
-  store ptr %ob, ptr %ob.addr, align 8
-  %0 = load ptr, ptr %ob.addr, align 8
-  %1 = getelementptr inbounds %struct._object, ptr %0, i32 0, i32 0
-  %2 = load i64, ptr %1, align 8
-  ret i64 %2
-}
-
-; Function Attrs: nounwind uwtable
-define internal ptr @_Py_NewRef(ptr noundef %obj) #0 {
-entry:
-  %op.addr.i = alloca ptr, align 8
-  %cur_refcnt.i = alloca i32, align 4
-  %new_refcnt.i = alloca i32, align 4
-  %obj.addr = alloca ptr, align 8
-  store ptr %obj, ptr %obj.addr, align 8
-  %0 = load ptr, ptr %obj.addr, align 8
-  store ptr %0, ptr %op.addr.i, align 8
-  %1 = load ptr, ptr %op.addr.i, align 8
-  %2 = load i32, ptr %1, align 8
-  store i32 %2, ptr %cur_refcnt.i, align 4
-  %3 = load i32, ptr %cur_refcnt.i, align 4
-  %add.i = add i32 %3, 1
-  store i32 %add.i, ptr %new_refcnt.i, align 4
-  %4 = load i32, ptr %new_refcnt.i, align 4
-  %cmp.i = icmp eq i32 %4, 0
-  br i1 %cmp.i, label %if.then.i, label %if.end.i
-
-if.then.i:                                        ; preds = %entry
-  br label %Py_INCREF.exit
-
-if.end.i:                                         ; preds = %entry
-  %5 = load i32, ptr %new_refcnt.i, align 4
-  %6 = load ptr, ptr %op.addr.i, align 8
-  store i32 %5, ptr %6, align 8
-  br label %Py_INCREF.exit
-
-Py_INCREF.exit:                                   ; preds = %if.end.i, %if.then.i
-  %7 = load ptr, ptr %obj.addr, align 8
-  ret ptr %7
-}
-
-declare ptr @PyEval_SaveThread() #1
-
-declare i32 @sqlite3_blob_close(ptr noundef) #1
-
-declare void @PyEval_RestoreThread(ptr noundef) #1
-
-declare void @_Py_Dealloc(ptr noundef) #1
-
-; Function Attrs: nounwind uwtable
-define internal void @blob_dealloc(ptr noundef %self) #0 {
-entry:
-  %op.addr.i2 = alloca ptr, align 8
-  %op.addr.i = alloca ptr, align 8
-  %self.addr = alloca ptr, align 8
-  %tp = alloca ptr, align 8
-  store ptr %self, ptr %self.addr, align 8
-  %0 = load ptr, ptr %self.addr, align 8
-  %call = call ptr @Py_TYPE(ptr noundef %0)
-  store ptr %call, ptr %tp, align 8
-  %1 = load ptr, ptr %self.addr, align 8
-  call void @PyObject_GC_UnTrack(ptr noundef %1)
-  %2 = load ptr, ptr %self.addr, align 8
-  call void @close_blob(ptr noundef %2)
-  %3 = load ptr, ptr %self.addr, align 8
-  %in_weakreflist = getelementptr inbounds %struct.pysqlite_Blob, ptr %3, i32 0, i32 4
-  %4 = load ptr, ptr %in_weakreflist, align 8
-  %cmp = icmp ne ptr %4, null
-  br i1 %cmp, label %if.then, label %if.end
-
-if.then:                                          ; preds = %entry
-  %5 = load ptr, ptr %self.addr, align 8
-  call void @PyObject_ClearWeakRefs(ptr noundef %5)
-  br label %if.end
-
-if.end:                                           ; preds = %if.then, %entry
-  %6 = load ptr, ptr %tp, align 8
-  %tp_clear = getelementptr inbounds %struct._typeobject, ptr %6, i32 0, i32 22
-  %7 = load ptr, ptr %tp_clear, align 8
-  %8 = load ptr, ptr %self.addr, align 8
-  %call1 = call i32 %7(ptr noundef %8)
-  %9 = load ptr, ptr %tp, align 8
-  %tp_free = getelementptr inbounds %struct._typeobject, ptr %9, i32 0, i32 38
-  %10 = load ptr, ptr %tp_free, align 8
-  %11 = load ptr, ptr %self.addr, align 8
-  call void %10(ptr noundef %11)
-  %12 = load ptr, ptr %tp, align 8
-  store ptr %12, ptr %op.addr.i, align 8
-  %13 = load ptr, ptr %op.addr.i, align 8
-  store ptr %13, ptr %op.addr.i2, align 8
-  %14 = load ptr, ptr %op.addr.i2, align 8
-  %15 = load i64, ptr %14, align 8
-  %conv.i = trunc i64 %15 to i32
-  %cmp.i3 = icmp slt i32 %conv.i, 0
-  %conv1.i = zext i1 %cmp.i3 to i32
-  %tobool.i = icmp ne i32 %conv1.i, 0
-  br i1 %tobool.i, label %if.then.i, label %if.end.i
-
-if.then.i:                                        ; preds = %if.end
-  br label %Py_DECREF.exit
-
-if.end.i:                                         ; preds = %if.end
-  %16 = load ptr, ptr %op.addr.i, align 8
-  %17 = load i64, ptr %16, align 8
-  %dec.i = add i64 %17, -1
-  store i64 %dec.i, ptr %16, align 8
-  %cmp.i = icmp eq i64 %dec.i, 0
-  br i1 %cmp.i, label %if.then1.i, label %Py_DECREF.exit
-
-if.then1.i:                                       ; preds = %if.end.i
-  %18 = load ptr, ptr %op.addr.i, align 8
-  call void @_Py_Dealloc(ptr noundef %18) #3
-  br label %Py_DECREF.exit
-
-Py_DECREF.exit:                                   ; preds = %if.then1.i, %if.end.i, %if.then.i
-  ret void
-}
-
-; Function Attrs: nounwind uwtable
-define internal i32 @blob_traverse(ptr noundef %self, ptr noundef %visit, ptr noundef %arg) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %self.addr = alloca ptr, align 8
-  %visit.addr = alloca ptr, align 8
-  %arg.addr = alloca ptr, align 8
-  %vret = alloca i32, align 4
-  %vret9 = alloca i32, align 4
-  store ptr %self, ptr %self.addr, align 8
-  store ptr %visit, ptr %visit.addr, align 8
-  store ptr %arg, ptr %arg.addr, align 8
-  br label %do.body
-
-do.body:                                          ; preds = %entry
-  %0 = load ptr, ptr %self.addr, align 8
-  %call = call ptr @Py_TYPE(ptr noundef %0)
-  %tobool = icmp ne ptr %call, null
-  br i1 %tobool, label %if.then, label %if.end5
-
-if.then:                                          ; preds = %do.body
-  %1 = load ptr, ptr %visit.addr, align 8
-  %2 = load ptr, ptr %self.addr, align 8
-  %call1 = call ptr @Py_TYPE(ptr noundef %2)
-  %3 = load ptr, ptr %arg.addr, align 8
-  %call2 = call i32 %1(ptr noundef %call1, ptr noundef %3)
-  store i32 %call2, ptr %vret, align 4
-  %4 = load i32, ptr %vret, align 4
-  %tobool3 = icmp ne i32 %4, 0
-  br i1 %tobool3, label %if.then4, label %if.end
-
-if.then4:                                         ; preds = %if.then
-  %5 = load i32, ptr %vret, align 4
-  store i32 %5, ptr %retval, align 4
-  br label %return
-
-if.end:                                           ; preds = %if.then
-  br label %if.end5
-
-if.end5:                                          ; preds = %if.end, %do.body
-  br label %do.end
-
-do.end:                                           ; preds = %if.end5
-  br label %do.body6
-
-do.body6:                                         ; preds = %do.end
-  %6 = load ptr, ptr %self.addr, align 8
-  %connection = getelementptr inbounds %struct.pysqlite_Blob, ptr %6, i32 0, i32 1
-  %7 = load ptr, ptr %connection, align 8
-  %tobool7 = icmp ne ptr %7, null
-  br i1 %tobool7, label %if.then8, label %if.end15
-
-if.then8:                                         ; preds = %do.body6
-  %8 = load ptr, ptr %visit.addr, align 8
-  %9 = load ptr, ptr %self.addr, align 8
-  %connection10 = getelementptr inbounds %struct.pysqlite_Blob, ptr %9, i32 0, i32 1
-  %10 = load ptr, ptr %connection10, align 8
-  %11 = load ptr, ptr %arg.addr, align 8
-  %call11 = call i32 %8(ptr noundef %10, ptr noundef %11)
-  store i32 %call11, ptr %vret9, align 4
-  %12 = load i32, ptr %vret9, align 4
-  %tobool12 = icmp ne i32 %12, 0
-  br i1 %tobool12, label %if.then13, label %if.end14
-
-if.then13:                                        ; preds = %if.then8
-  %13 = load i32, ptr %vret9, align 4
-  store i32 %13, ptr %retval, align 4
-  br label %return
-
-if.end14:                                         ; preds = %if.then8
-  br label %if.end15
-
-if.end15:                                         ; preds = %if.end14, %do.body6
-  br label %do.end16
-
-do.end16:                                         ; preds = %if.end15
-  store i32 0, ptr %retval, align 4
-  br label %return
-
-return:                                           ; preds = %do.end16, %if.then13, %if.then4
-  %14 = load i32, ptr %retval, align 4
-  ret i32 %14
-}
-
-; Function Attrs: nounwind uwtable
-define internal i32 @blob_clear(ptr noundef %self) #0 {
-entry:
-  %op.addr.i1 = alloca ptr, align 8
-  %op.addr.i = alloca ptr, align 8
-  %self.addr = alloca ptr, align 8
-  %_tmp_op_ptr = alloca ptr, align 8
-  %_tmp_old_op = alloca ptr, align 8
-  store ptr %self, ptr %self.addr, align 8
-  br label %do.body
-
-do.body:                                          ; preds = %entry
-  %0 = load ptr, ptr %self.addr, align 8
-  %connection = getelementptr inbounds %struct.pysqlite_Blob, ptr %0, i32 0, i32 1
-  store ptr %connection, ptr %_tmp_op_ptr, align 8
-  %1 = load ptr, ptr %_tmp_op_ptr, align 8
-  %2 = load ptr, ptr %1, align 8
-  store ptr %2, ptr %_tmp_old_op, align 8
-  %3 = load ptr, ptr %_tmp_old_op, align 8
-  %cmp = icmp ne ptr %3, null
-  br i1 %cmp, label %if.then, label %if.end
-
-if.then:                                          ; preds = %do.body
-  %4 = load ptr, ptr %_tmp_op_ptr, align 8
-  store ptr null, ptr %4, align 8
-  %5 = load ptr, ptr %_tmp_old_op, align 8
-  store ptr %5, ptr %op.addr.i, align 8
-  %6 = load ptr, ptr %op.addr.i, align 8
-  store ptr %6, ptr %op.addr.i1, align 8
-  %7 = load ptr, ptr %op.addr.i1, align 8
-  %8 = load i64, ptr %7, align 8
-  %conv.i = trunc i64 %8 to i32
-  %cmp.i2 = icmp slt i32 %conv.i, 0
-  %conv1.i = zext i1 %cmp.i2 to i32
-  %tobool.i = icmp ne i32 %conv1.i, 0
-  br i1 %tobool.i, label %if.then.i, label %if.end.i
-
-if.then.i:                                        ; preds = %if.then
-  br label %Py_DECREF.exit
-
-if.end.i:                                         ; preds = %if.then
-  %9 = load ptr, ptr %op.addr.i, align 8
-  %10 = load i64, ptr %9, align 8
-  %dec.i = add i64 %10, -1
-  store i64 %dec.i, ptr %9, align 8
-  %cmp.i = icmp eq i64 %dec.i, 0
-  br i1 %cmp.i, label %if.then1.i, label %Py_DECREF.exit
-
-if.then1.i:                                       ; preds = %if.end.i
-  %11 = load ptr, ptr %op.addr.i, align 8
-  call void @_Py_Dealloc(ptr noundef %11) #3
-  br label %Py_DECREF.exit
-
-Py_DECREF.exit:                                   ; preds = %if.then1.i, %if.end.i, %if.then.i
-  br label %if.end
-
-if.end:                                           ; preds = %Py_DECREF.exit, %do.body
-  br label %do.end
-
-do.end:                                           ; preds = %if.end
+19:                                               ; preds = %18
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #6
   ret i32 0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @blob_length(ptr noundef %self) #0 {
-entry:
-  %retval = alloca i64, align 8
-  %self.addr = alloca ptr, align 8
-  store ptr %self, ptr %self.addr, align 8
-  %0 = load ptr, ptr %self.addr, align 8
-  %call = call i32 @check_blob(ptr noundef %0)
-  %tobool = icmp ne i32 %call, 0
-  br i1 %tobool, label %if.end, label %if.then
+define internal i64 @blob_length(ptr noundef %0) #0 {
+  %2 = alloca i64, align 8
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !22
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #6
+  %6 = load ptr, ptr %3, align 8, !tbaa !22
+  store ptr %6, ptr %4, align 8, !tbaa !3
+  %7 = load ptr, ptr %4, align 8, !tbaa !3
+  %8 = call i32 @check_blob(ptr noundef %7)
+  %9 = icmp ne i32 %8, 0
+  br i1 %9, label %11, label %10
 
-if.then:                                          ; preds = %entry
-  store i64 -1, ptr %retval, align 8
-  br label %return
+10:                                               ; preds = %1
+  store i64 -1, ptr %2, align 8
+  store i32 1, ptr %5, align 4
+  br label %17
 
-if.end:                                           ; preds = %entry
-  %1 = load ptr, ptr %self.addr, align 8
-  %blob = getelementptr inbounds %struct.pysqlite_Blob, ptr %1, i32 0, i32 2
-  %2 = load ptr, ptr %blob, align 8
-  %call1 = call i32 @sqlite3_blob_bytes(ptr noundef %2)
-  %conv = sext i32 %call1 to i64
-  store i64 %conv, ptr %retval, align 8
-  br label %return
+11:                                               ; preds = %1
+  %12 = load ptr, ptr %4, align 8, !tbaa !3
+  %13 = getelementptr inbounds nuw %struct.pysqlite_Blob, ptr %12, i32 0, i32 2
+  %14 = load ptr, ptr %13, align 8, !tbaa !25
+  %15 = call i32 @sqlite3_blob_bytes(ptr noundef %14)
+  %16 = sext i32 %15 to i64
+  store i64 %16, ptr %2, align 8
+  store i32 1, ptr %5, align 4
+  br label %17
 
-return:                                           ; preds = %if.end, %if.then
-  %3 = load i64, ptr %retval, align 8
-  ret i64 %3
+17:                                               ; preds = %11, %10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #6
+  %18 = load i64, ptr %2, align 8
+  ret i64 %18
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @blob_subscript(ptr noundef %self, ptr noundef %item) #0 {
-entry:
-  %retval = alloca ptr, align 8
-  %self.addr = alloca ptr, align 8
-  %item.addr = alloca ptr, align 8
-  store ptr %self, ptr %self.addr, align 8
-  store ptr %item, ptr %item.addr, align 8
-  %0 = load ptr, ptr %self.addr, align 8
-  %call = call i32 @check_blob(ptr noundef %0)
-  %tobool = icmp ne i32 %call, 0
-  br i1 %tobool, label %if.end, label %if.then
+define internal ptr @blob_subscript(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !22
+  store ptr %1, ptr %5, align 8, !tbaa !22
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #6
+  %8 = load ptr, ptr %4, align 8, !tbaa !22
+  store ptr %8, ptr %6, align 8, !tbaa !3
+  %9 = load ptr, ptr %6, align 8, !tbaa !3
+  %10 = call i32 @check_blob(ptr noundef %9)
+  %11 = icmp ne i32 %10, 0
+  br i1 %11, label %13, label %12
 
-if.then:                                          ; preds = %entry
-  store ptr null, ptr %retval, align 8
-  br label %return
+12:                                               ; preds = %2
+  store ptr null, ptr %3, align 8
+  store i32 1, ptr %7, align 4
+  br label %31
 
-if.end:                                           ; preds = %entry
-  %1 = load ptr, ptr %item.addr, align 8
-  %call1 = call i32 @PyIndex_Check(ptr noundef %1)
-  %tobool2 = icmp ne i32 %call1, 0
-  br i1 %tobool2, label %if.then3, label %if.end5
+13:                                               ; preds = %2
+  %14 = load ptr, ptr %5, align 8, !tbaa !22
+  %15 = call i32 @PyIndex_Check(ptr noundef %14)
+  %16 = icmp ne i32 %15, 0
+  br i1 %16, label %17, label %21
 
-if.then3:                                         ; preds = %if.end
-  %2 = load ptr, ptr %self.addr, align 8
-  %3 = load ptr, ptr %item.addr, align 8
-  %call4 = call ptr @subscript_index(ptr noundef %2, ptr noundef %3)
-  store ptr %call4, ptr %retval, align 8
-  br label %return
+17:                                               ; preds = %13
+  %18 = load ptr, ptr %6, align 8, !tbaa !3
+  %19 = load ptr, ptr %5, align 8, !tbaa !22
+  %20 = call ptr @subscript_index(ptr noundef %18, ptr noundef %19)
+  store ptr %20, ptr %3, align 8
+  store i32 1, ptr %7, align 4
+  br label %31
 
-if.end5:                                          ; preds = %if.end
-  %4 = load ptr, ptr %item.addr, align 8
-  %call6 = call i32 @Py_IS_TYPE(ptr noundef %4, ptr noundef @PySlice_Type)
-  %tobool7 = icmp ne i32 %call6, 0
-  br i1 %tobool7, label %if.then8, label %if.end10
+21:                                               ; preds = %13
+  %22 = load ptr, ptr %5, align 8, !tbaa !22
+  %23 = call i32 @Py_IS_TYPE(ptr noundef %22, ptr noundef @PySlice_Type)
+  %24 = icmp ne i32 %23, 0
+  br i1 %24, label %25, label %29
 
-if.then8:                                         ; preds = %if.end5
-  %5 = load ptr, ptr %self.addr, align 8
-  %6 = load ptr, ptr %item.addr, align 8
-  %call9 = call ptr @subscript_slice(ptr noundef %5, ptr noundef %6)
-  store ptr %call9, ptr %retval, align 8
-  br label %return
+25:                                               ; preds = %21
+  %26 = load ptr, ptr %6, align 8, !tbaa !3
+  %27 = load ptr, ptr %5, align 8, !tbaa !22
+  %28 = call ptr @subscript_slice(ptr noundef %26, ptr noundef %27)
+  store ptr %28, ptr %3, align 8
+  store i32 1, ptr %7, align 4
+  br label %31
 
-if.end10:                                         ; preds = %if.end5
-  %7 = load ptr, ptr @PyExc_TypeError, align 8
-  call void @PyErr_SetString(ptr noundef %7, ptr noundef @.str.14)
-  store ptr null, ptr %retval, align 8
-  br label %return
+29:                                               ; preds = %21
+  %30 = load ptr, ptr @PyExc_TypeError, align 8, !tbaa !22
+  call void @PyErr_SetString(ptr noundef %30, ptr noundef @.str.18)
+  store ptr null, ptr %3, align 8
+  store i32 1, ptr %7, align 4
+  br label %31
 
-return:                                           ; preds = %if.end10, %if.then8, %if.then3, %if.then
-  %8 = load ptr, ptr %retval, align 8
-  ret ptr %8
+31:                                               ; preds = %29, %25, %17, %12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #6
+  %32 = load ptr, ptr %3, align 8
+  ret ptr %32
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @blob_ass_subscript(ptr noundef %self, ptr noundef %item, ptr noundef %value) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %self.addr = alloca ptr, align 8
-  %item.addr = alloca ptr, align 8
-  %value.addr = alloca ptr, align 8
-  store ptr %self, ptr %self.addr, align 8
-  store ptr %item, ptr %item.addr, align 8
-  store ptr %value, ptr %value.addr, align 8
-  %0 = load ptr, ptr %self.addr, align 8
-  %call = call i32 @check_blob(ptr noundef %0)
-  %tobool = icmp ne i32 %call, 0
-  br i1 %tobool, label %if.end, label %if.then
+define internal i32 @blob_ass_subscript(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
+  %4 = alloca i32, align 4
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca i32, align 4
+  store ptr %0, ptr %5, align 8, !tbaa !22
+  store ptr %1, ptr %6, align 8, !tbaa !22
+  store ptr %2, ptr %7, align 8, !tbaa !22
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #6
+  %10 = load ptr, ptr %5, align 8, !tbaa !22
+  store ptr %10, ptr %8, align 8, !tbaa !3
+  %11 = load ptr, ptr %8, align 8, !tbaa !3
+  %12 = call i32 @check_blob(ptr noundef %11)
+  %13 = icmp ne i32 %12, 0
+  br i1 %13, label %15, label %14
 
-if.then:                                          ; preds = %entry
-  store i32 -1, ptr %retval, align 4
-  br label %return
+14:                                               ; preds = %3
+  store i32 -1, ptr %4, align 4
+  store i32 1, ptr %9, align 4
+  br label %35
 
-if.end:                                           ; preds = %entry
-  %1 = load ptr, ptr %item.addr, align 8
-  %call1 = call i32 @PyIndex_Check(ptr noundef %1)
-  %tobool2 = icmp ne i32 %call1, 0
-  br i1 %tobool2, label %if.then3, label %if.end5
+15:                                               ; preds = %3
+  %16 = load ptr, ptr %6, align 8, !tbaa !22
+  %17 = call i32 @PyIndex_Check(ptr noundef %16)
+  %18 = icmp ne i32 %17, 0
+  br i1 %18, label %19, label %24
 
-if.then3:                                         ; preds = %if.end
-  %2 = load ptr, ptr %self.addr, align 8
-  %3 = load ptr, ptr %item.addr, align 8
-  %4 = load ptr, ptr %value.addr, align 8
-  %call4 = call i32 @ass_subscript_index(ptr noundef %2, ptr noundef %3, ptr noundef %4)
-  store i32 %call4, ptr %retval, align 4
-  br label %return
+19:                                               ; preds = %15
+  %20 = load ptr, ptr %8, align 8, !tbaa !3
+  %21 = load ptr, ptr %6, align 8, !tbaa !22
+  %22 = load ptr, ptr %7, align 8, !tbaa !22
+  %23 = call i32 @ass_subscript_index(ptr noundef %20, ptr noundef %21, ptr noundef %22)
+  store i32 %23, ptr %4, align 4
+  store i32 1, ptr %9, align 4
+  br label %35
 
-if.end5:                                          ; preds = %if.end
-  %5 = load ptr, ptr %item.addr, align 8
-  %call6 = call i32 @Py_IS_TYPE(ptr noundef %5, ptr noundef @PySlice_Type)
-  %tobool7 = icmp ne i32 %call6, 0
-  br i1 %tobool7, label %if.then8, label %if.end10
+24:                                               ; preds = %15
+  %25 = load ptr, ptr %6, align 8, !tbaa !22
+  %26 = call i32 @Py_IS_TYPE(ptr noundef %25, ptr noundef @PySlice_Type)
+  %27 = icmp ne i32 %26, 0
+  br i1 %27, label %28, label %33
 
-if.then8:                                         ; preds = %if.end5
-  %6 = load ptr, ptr %self.addr, align 8
-  %7 = load ptr, ptr %item.addr, align 8
-  %8 = load ptr, ptr %value.addr, align 8
-  %call9 = call i32 @ass_subscript_slice(ptr noundef %6, ptr noundef %7, ptr noundef %8)
-  store i32 %call9, ptr %retval, align 4
-  br label %return
+28:                                               ; preds = %24
+  %29 = load ptr, ptr %8, align 8, !tbaa !3
+  %30 = load ptr, ptr %6, align 8, !tbaa !22
+  %31 = load ptr, ptr %7, align 8, !tbaa !22
+  %32 = call i32 @ass_subscript_slice(ptr noundef %29, ptr noundef %30, ptr noundef %31)
+  store i32 %32, ptr %4, align 4
+  store i32 1, ptr %9, align 4
+  br label %35
 
-if.end10:                                         ; preds = %if.end5
-  %9 = load ptr, ptr @PyExc_TypeError, align 8
-  call void @PyErr_SetString(ptr noundef %9, ptr noundef @.str.14)
-  store i32 -1, ptr %retval, align 4
-  br label %return
+33:                                               ; preds = %24
+  %34 = load ptr, ptr @PyExc_TypeError, align 8, !tbaa !22
+  call void @PyErr_SetString(ptr noundef %34, ptr noundef @.str.18)
+  store i32 -1, ptr %4, align 4
+  store i32 1, ptr %9, align 4
+  br label %35
 
-return:                                           ; preds = %if.end10, %if.then8, %if.then3, %if.then
-  %10 = load i32, ptr %retval, align 4
-  ret i32 %10
+35:                                               ; preds = %33, %28, %19, %14
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #6
+  %36 = load i32, ptr %4, align 4
+  ret i32 %36
 }
 
-; Function Attrs: nounwind uwtable
-define internal ptr @Py_TYPE(ptr noundef %ob) #0 {
-entry:
-  %ob.addr = alloca ptr, align 8
-  store ptr %ob, ptr %ob.addr, align 8
-  %0 = load ptr, ptr %ob.addr, align 8
-  %ob_type = getelementptr inbounds %struct._object, ptr %0, i32 0, i32 1
-  %1 = load ptr, ptr %ob_type, align 8
-  ret ptr %1
-}
-
-declare void @PyObject_GC_UnTrack(ptr noundef) #1
-
-declare void @PyObject_ClearWeakRefs(ptr noundef) #1
-
-; Function Attrs: nounwind uwtable
-define internal ptr @blob_close(ptr noundef %self, ptr noundef %_unused_ignored) #0 {
-entry:
-  %self.addr = alloca ptr, align 8
-  %_unused_ignored.addr = alloca ptr, align 8
-  store ptr %self, ptr %self.addr, align 8
-  store ptr %_unused_ignored, ptr %_unused_ignored.addr, align 8
-  %0 = load ptr, ptr %self.addr, align 8
-  %call = call ptr @blob_close_impl(ptr noundef %0)
-  ret ptr %call
-}
-
-; Function Attrs: nounwind uwtable
-define internal ptr @blob_enter(ptr noundef %self, ptr noundef %_unused_ignored) #0 {
-entry:
-  %self.addr = alloca ptr, align 8
-  %_unused_ignored.addr = alloca ptr, align 8
-  store ptr %self, ptr %self.addr, align 8
-  store ptr %_unused_ignored, ptr %_unused_ignored.addr, align 8
-  %0 = load ptr, ptr %self.addr, align 8
-  %call = call ptr @blob_enter_impl(ptr noundef %0)
-  ret ptr %call
-}
-
-; Function Attrs: nounwind uwtable
-define internal ptr @blob_exit(ptr noundef %self, ptr noundef %args, i64 noundef %nargs) #0 {
-entry:
-  %self.addr = alloca ptr, align 8
-  %args.addr = alloca ptr, align 8
-  %nargs.addr = alloca i64, align 8
-  %return_value = alloca ptr, align 8
-  %type = alloca ptr, align 8
-  %val = alloca ptr, align 8
-  %tb = alloca ptr, align 8
-  store ptr %self, ptr %self.addr, align 8
-  store ptr %args, ptr %args.addr, align 8
-  store i64 %nargs, ptr %nargs.addr, align 8
-  store ptr null, ptr %return_value, align 8
-  %0 = load i64, ptr %nargs.addr, align 8
-  %cmp = icmp sle i64 3, %0
-  br i1 %cmp, label %land.lhs.true, label %lor.lhs.false
-
-land.lhs.true:                                    ; preds = %entry
-  %1 = load i64, ptr %nargs.addr, align 8
-  %cmp1 = icmp sle i64 %1, 3
-  br i1 %cmp1, label %if.end, label %lor.lhs.false
-
-lor.lhs.false:                                    ; preds = %land.lhs.true, %entry
-  %2 = load i64, ptr %nargs.addr, align 8
-  %call = call i32 @_PyArg_CheckPositional(ptr noundef @.str.3, i64 noundef %2, i64 noundef 3, i64 noundef 3)
-  %tobool = icmp ne i32 %call, 0
-  br i1 %tobool, label %if.end, label %if.then
-
-if.then:                                          ; preds = %lor.lhs.false
-  br label %exit
-
-if.end:                                           ; preds = %lor.lhs.false, %land.lhs.true
-  %3 = load ptr, ptr %args.addr, align 8
-  %arrayidx = getelementptr ptr, ptr %3, i64 0
-  %4 = load ptr, ptr %arrayidx, align 8
-  store ptr %4, ptr %type, align 8
-  %5 = load ptr, ptr %args.addr, align 8
-  %arrayidx2 = getelementptr ptr, ptr %5, i64 1
-  %6 = load ptr, ptr %arrayidx2, align 8
-  store ptr %6, ptr %val, align 8
-  %7 = load ptr, ptr %args.addr, align 8
-  %arrayidx3 = getelementptr ptr, ptr %7, i64 2
-  %8 = load ptr, ptr %arrayidx3, align 8
-  store ptr %8, ptr %tb, align 8
-  %9 = load ptr, ptr %self.addr, align 8
-  %10 = load ptr, ptr %type, align 8
-  %11 = load ptr, ptr %val, align 8
-  %12 = load ptr, ptr %tb, align 8
-  %call4 = call ptr @blob_exit_impl(ptr noundef %9, ptr noundef %10, ptr noundef %11, ptr noundef %12)
-  store ptr %call4, ptr %return_value, align 8
-  br label %exit
-
-exit:                                             ; preds = %if.end, %if.then
-  %13 = load ptr, ptr %return_value, align 8
-  ret ptr %13
-}
-
-; Function Attrs: nounwind uwtable
-define internal ptr @blob_read(ptr noundef %self, ptr noundef %args, i64 noundef %nargs) #0 {
-entry:
-  %self.addr = alloca ptr, align 8
-  %args.addr = alloca ptr, align 8
-  %nargs.addr = alloca i64, align 8
-  %return_value = alloca ptr, align 8
-  %length = alloca i32, align 4
-  store ptr %self, ptr %self.addr, align 8
-  store ptr %args, ptr %args.addr, align 8
-  store i64 %nargs, ptr %nargs.addr, align 8
-  store ptr null, ptr %return_value, align 8
-  store i32 -1, ptr %length, align 4
-  %0 = load i64, ptr %nargs.addr, align 8
-  %cmp = icmp sle i64 0, %0
-  br i1 %cmp, label %land.lhs.true, label %lor.lhs.false
-
-land.lhs.true:                                    ; preds = %entry
-  %1 = load i64, ptr %nargs.addr, align 8
-  %cmp1 = icmp sle i64 %1, 1
-  br i1 %cmp1, label %if.end, label %lor.lhs.false
-
-lor.lhs.false:                                    ; preds = %land.lhs.true, %entry
-  %2 = load i64, ptr %nargs.addr, align 8
-  %call = call i32 @_PyArg_CheckPositional(ptr noundef @.str.4, i64 noundef %2, i64 noundef 0, i64 noundef 1)
-  %tobool = icmp ne i32 %call, 0
-  br i1 %tobool, label %if.end, label %if.then
-
-if.then:                                          ; preds = %lor.lhs.false
-  br label %exit
-
-if.end:                                           ; preds = %lor.lhs.false, %land.lhs.true
-  %3 = load i64, ptr %nargs.addr, align 8
-  %cmp2 = icmp slt i64 %3, 1
-  br i1 %cmp2, label %if.then3, label %if.end4
-
-if.then3:                                         ; preds = %if.end
-  br label %skip_optional
-
-if.end4:                                          ; preds = %if.end
-  %4 = load ptr, ptr %args.addr, align 8
-  %arrayidx = getelementptr ptr, ptr %4, i64 0
-  %5 = load ptr, ptr %arrayidx, align 8
-  %call5 = call i32 @PyLong_AsInt(ptr noundef %5)
-  store i32 %call5, ptr %length, align 4
-  %6 = load i32, ptr %length, align 4
-  %cmp6 = icmp eq i32 %6, -1
-  br i1 %cmp6, label %land.lhs.true7, label %if.end11
-
-land.lhs.true7:                                   ; preds = %if.end4
-  %call8 = call ptr @PyErr_Occurred()
-  %tobool9 = icmp ne ptr %call8, null
-  br i1 %tobool9, label %if.then10, label %if.end11
-
-if.then10:                                        ; preds = %land.lhs.true7
-  br label %exit
-
-if.end11:                                         ; preds = %land.lhs.true7, %if.end4
-  br label %skip_optional
-
-skip_optional:                                    ; preds = %if.end11, %if.then3
-  %7 = load ptr, ptr %self.addr, align 8
-  %8 = load i32, ptr %length, align 4
-  %call12 = call ptr @blob_read_impl(ptr noundef %7, i32 noundef %8)
-  store ptr %call12, ptr %return_value, align 8
-  br label %exit
-
-exit:                                             ; preds = %skip_optional, %if.then10, %if.then
-  %9 = load ptr, ptr %return_value, align 8
-  ret ptr %9
-}
-
-; Function Attrs: nounwind uwtable
-define internal ptr @blob_seek(ptr noundef %self, ptr noundef %args, i64 noundef %nargs) #0 {
-entry:
-  %self.addr = alloca ptr, align 8
-  %args.addr = alloca ptr, align 8
-  %nargs.addr = alloca i64, align 8
-  %return_value = alloca ptr, align 8
-  %offset = alloca i32, align 4
-  %origin = alloca i32, align 4
-  store ptr %self, ptr %self.addr, align 8
-  store ptr %args, ptr %args.addr, align 8
-  store i64 %nargs, ptr %nargs.addr, align 8
-  store ptr null, ptr %return_value, align 8
-  store i32 0, ptr %origin, align 4
-  %0 = load i64, ptr %nargs.addr, align 8
-  %cmp = icmp sle i64 1, %0
-  br i1 %cmp, label %land.lhs.true, label %lor.lhs.false
-
-land.lhs.true:                                    ; preds = %entry
-  %1 = load i64, ptr %nargs.addr, align 8
-  %cmp1 = icmp sle i64 %1, 2
-  br i1 %cmp1, label %if.end, label %lor.lhs.false
-
-lor.lhs.false:                                    ; preds = %land.lhs.true, %entry
-  %2 = load i64, ptr %nargs.addr, align 8
-  %call = call i32 @_PyArg_CheckPositional(ptr noundef @.str.5, i64 noundef %2, i64 noundef 1, i64 noundef 2)
-  %tobool = icmp ne i32 %call, 0
-  br i1 %tobool, label %if.end, label %if.then
-
-if.then:                                          ; preds = %lor.lhs.false
-  br label %exit
-
-if.end:                                           ; preds = %lor.lhs.false, %land.lhs.true
-  %3 = load ptr, ptr %args.addr, align 8
-  %arrayidx = getelementptr ptr, ptr %3, i64 0
-  %4 = load ptr, ptr %arrayidx, align 8
-  %call2 = call i32 @PyLong_AsInt(ptr noundef %4)
-  store i32 %call2, ptr %offset, align 4
-  %5 = load i32, ptr %offset, align 4
-  %cmp3 = icmp eq i32 %5, -1
-  br i1 %cmp3, label %land.lhs.true4, label %if.end8
-
-land.lhs.true4:                                   ; preds = %if.end
-  %call5 = call ptr @PyErr_Occurred()
-  %tobool6 = icmp ne ptr %call5, null
-  br i1 %tobool6, label %if.then7, label %if.end8
-
-if.then7:                                         ; preds = %land.lhs.true4
-  br label %exit
-
-if.end8:                                          ; preds = %land.lhs.true4, %if.end
-  %6 = load i64, ptr %nargs.addr, align 8
-  %cmp9 = icmp slt i64 %6, 2
-  br i1 %cmp9, label %if.then10, label %if.end11
-
-if.then10:                                        ; preds = %if.end8
-  br label %skip_optional
-
-if.end11:                                         ; preds = %if.end8
-  %7 = load ptr, ptr %args.addr, align 8
-  %arrayidx12 = getelementptr ptr, ptr %7, i64 1
-  %8 = load ptr, ptr %arrayidx12, align 8
-  %call13 = call i32 @PyLong_AsInt(ptr noundef %8)
-  store i32 %call13, ptr %origin, align 4
-  %9 = load i32, ptr %origin, align 4
-  %cmp14 = icmp eq i32 %9, -1
-  br i1 %cmp14, label %land.lhs.true15, label %if.end19
-
-land.lhs.true15:                                  ; preds = %if.end11
-  %call16 = call ptr @PyErr_Occurred()
-  %tobool17 = icmp ne ptr %call16, null
-  br i1 %tobool17, label %if.then18, label %if.end19
-
-if.then18:                                        ; preds = %land.lhs.true15
-  br label %exit
-
-if.end19:                                         ; preds = %land.lhs.true15, %if.end11
-  br label %skip_optional
-
-skip_optional:                                    ; preds = %if.end19, %if.then10
-  %10 = load ptr, ptr %self.addr, align 8
-  %11 = load i32, ptr %offset, align 4
-  %12 = load i32, ptr %origin, align 4
-  %call20 = call ptr @blob_seek_impl(ptr noundef %10, i32 noundef %11, i32 noundef %12)
-  store ptr %call20, ptr %return_value, align 8
-  br label %exit
-
-exit:                                             ; preds = %skip_optional, %if.then18, %if.then7, %if.then
-  %13 = load ptr, ptr %return_value, align 8
-  ret ptr %13
-}
-
-; Function Attrs: nounwind uwtable
-define internal ptr @blob_tell(ptr noundef %self, ptr noundef %_unused_ignored) #0 {
-entry:
-  %self.addr = alloca ptr, align 8
-  %_unused_ignored.addr = alloca ptr, align 8
-  store ptr %self, ptr %self.addr, align 8
-  store ptr %_unused_ignored, ptr %_unused_ignored.addr, align 8
-  %0 = load ptr, ptr %self.addr, align 8
-  %call = call ptr @blob_tell_impl(ptr noundef %0)
-  ret ptr %call
-}
-
-; Function Attrs: nounwind uwtable
-define internal ptr @blob_write(ptr noundef %self, ptr noundef %arg) #0 {
-entry:
-  %self.addr = alloca ptr, align 8
-  %arg.addr = alloca ptr, align 8
-  %return_value = alloca ptr, align 8
-  %data = alloca %struct.Py_buffer, align 8
-  store ptr %self, ptr %self.addr, align 8
-  store ptr %arg, ptr %arg.addr, align 8
-  store ptr null, ptr %return_value, align 8
-  call void @llvm.memset.p0.i64(ptr align 8 %data, i8 0, i64 80, i1 false)
-  %0 = load ptr, ptr %arg.addr, align 8
-  %call = call i32 @PyObject_GetBuffer(ptr noundef %0, ptr noundef %data, i32 noundef 0)
-  %cmp = icmp ne i32 %call, 0
-  br i1 %cmp, label %if.then, label %if.end
-
-if.then:                                          ; preds = %entry
-  br label %exit
-
-if.end:                                           ; preds = %entry
-  %1 = load ptr, ptr %self.addr, align 8
-  %call1 = call ptr @blob_write_impl(ptr noundef %1, ptr noundef %data)
-  store ptr %call1, ptr %return_value, align 8
-  br label %exit
-
-exit:                                             ; preds = %if.end, %if.then
-  %obj = getelementptr inbounds %struct.Py_buffer, ptr %data, i32 0, i32 1
-  %2 = load ptr, ptr %obj, align 8
-  %tobool = icmp ne ptr %2, null
-  br i1 %tobool, label %if.then2, label %if.end3
-
-if.then2:                                         ; preds = %exit
-  call void @PyBuffer_Release(ptr noundef %data)
-  br label %if.end3
-
-if.end3:                                          ; preds = %if.then2, %exit
-  %3 = load ptr, ptr %return_value, align 8
-  ret ptr %3
-}
-
-; Function Attrs: nounwind uwtable
-define internal ptr @blob_close_impl(ptr noundef %self) #0 {
-entry:
-  %retval = alloca ptr, align 8
-  %self.addr = alloca ptr, align 8
-  store ptr %self, ptr %self.addr, align 8
-  %0 = load ptr, ptr %self.addr, align 8
-  %connection = getelementptr inbounds %struct.pysqlite_Blob, ptr %0, i32 0, i32 1
-  %1 = load ptr, ptr %connection, align 8
-  %call = call i32 @pysqlite_check_connection(ptr noundef %1)
-  %tobool = icmp ne i32 %call, 0
-  br i1 %tobool, label %lor.lhs.false, label %if.then
-
-lor.lhs.false:                                    ; preds = %entry
-  %2 = load ptr, ptr %self.addr, align 8
-  %connection1 = getelementptr inbounds %struct.pysqlite_Blob, ptr %2, i32 0, i32 1
-  %3 = load ptr, ptr %connection1, align 8
-  %call2 = call i32 @pysqlite_check_thread(ptr noundef %3)
-  %tobool3 = icmp ne i32 %call2, 0
-  br i1 %tobool3, label %if.end, label %if.then
-
-if.then:                                          ; preds = %lor.lhs.false, %entry
-  store ptr null, ptr %retval, align 8
-  br label %return
-
-if.end:                                           ; preds = %lor.lhs.false
-  %4 = load ptr, ptr %self.addr, align 8
-  call void @close_blob(ptr noundef %4)
-  store ptr @_Py_NoneStruct, ptr %retval, align 8
-  br label %return
-
-return:                                           ; preds = %if.end, %if.then
-  %5 = load ptr, ptr %retval, align 8
+; Function Attrs: inlinehint nounwind uwtable
+define internal ptr @_Py_TYPE(ptr noundef %0) #2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !22
+  %3 = load ptr, ptr %2, align 8, !tbaa !22
+  %4 = getelementptr inbounds nuw %struct._object, ptr %3, i32 0, i32 1
+  %5 = load ptr, ptr %4, align 8, !tbaa !46
   ret ptr %5
 }
 
-declare i32 @pysqlite_check_connection(ptr noundef) #1
+declare void @PyObject_GC_UnTrack(ptr noundef) #3
 
-declare i32 @pysqlite_check_thread(ptr noundef) #1
+declare void @PyObject_ClearWeakRefs(ptr noundef) #3
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @blob_enter_impl(ptr noundef %self) #0 {
-entry:
-  %retval = alloca ptr, align 8
-  %self.addr = alloca ptr, align 8
-  store ptr %self, ptr %self.addr, align 8
-  %0 = load ptr, ptr %self.addr, align 8
-  %call = call i32 @check_blob(ptr noundef %0)
-  %tobool = icmp ne i32 %call, 0
-  br i1 %tobool, label %if.end, label %if.then
-
-if.then:                                          ; preds = %entry
-  store ptr null, ptr %retval, align 8
-  br label %return
-
-if.end:                                           ; preds = %entry
-  %1 = load ptr, ptr %self.addr, align 8
-  %call1 = call ptr @_Py_NewRef(ptr noundef %1)
-  store ptr %call1, ptr %retval, align 8
-  br label %return
-
-return:                                           ; preds = %if.end, %if.then
-  %2 = load ptr, ptr %retval, align 8
-  ret ptr %2
+define internal ptr @blob_close(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !22
+  store ptr %1, ptr %4, align 8, !tbaa !22
+  %5 = load ptr, ptr %3, align 8, !tbaa !22
+  %6 = call ptr @blob_close_impl(ptr noundef %5)
+  ret ptr %6
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @check_blob(ptr noundef %self) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %self.addr = alloca ptr, align 8
-  %state = alloca ptr, align 8
-  store ptr %self, ptr %self.addr, align 8
-  %0 = load ptr, ptr %self.addr, align 8
-  %connection = getelementptr inbounds %struct.pysqlite_Blob, ptr %0, i32 0, i32 1
-  %1 = load ptr, ptr %connection, align 8
-  %call = call i32 @pysqlite_check_connection(ptr noundef %1)
-  %tobool = icmp ne i32 %call, 0
-  br i1 %tobool, label %lor.lhs.false, label %if.then
-
-lor.lhs.false:                                    ; preds = %entry
-  %2 = load ptr, ptr %self.addr, align 8
-  %connection1 = getelementptr inbounds %struct.pysqlite_Blob, ptr %2, i32 0, i32 1
-  %3 = load ptr, ptr %connection1, align 8
-  %call2 = call i32 @pysqlite_check_thread(ptr noundef %3)
-  %tobool3 = icmp ne i32 %call2, 0
-  br i1 %tobool3, label %if.end, label %if.then
-
-if.then:                                          ; preds = %lor.lhs.false, %entry
-  store i32 0, ptr %retval, align 4
-  br label %return
-
-if.end:                                           ; preds = %lor.lhs.false
-  %4 = load ptr, ptr %self.addr, align 8
-  %blob = getelementptr inbounds %struct.pysqlite_Blob, ptr %4, i32 0, i32 2
-  %5 = load ptr, ptr %blob, align 8
-  %cmp = icmp eq ptr %5, null
-  br i1 %cmp, label %if.then4, label %if.end7
-
-if.then4:                                         ; preds = %if.end
-  %6 = load ptr, ptr %self.addr, align 8
-  %connection5 = getelementptr inbounds %struct.pysqlite_Blob, ptr %6, i32 0, i32 1
-  %7 = load ptr, ptr %connection5, align 8
-  %state6 = getelementptr inbounds %struct.pysqlite_Connection, ptr %7, i32 0, i32 2
-  %8 = load ptr, ptr %state6, align 8
-  store ptr %8, ptr %state, align 8
-  %9 = load ptr, ptr %state, align 8
-  %ProgrammingError = getelementptr inbounds %struct.pysqlite_state, ptr %9, i32 0, i32 8
-  %10 = load ptr, ptr %ProgrammingError, align 8
-  call void @PyErr_SetString(ptr noundef %10, ptr noundef @.str.8)
-  store i32 0, ptr %retval, align 4
-  br label %return
-
-if.end7:                                          ; preds = %if.end
-  store i32 1, ptr %retval, align 4
-  br label %return
-
-return:                                           ; preds = %if.end7, %if.then4, %if.then
-  %11 = load i32, ptr %retval, align 4
-  ret i32 %11
+define internal ptr @blob_enter(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !22
+  store ptr %1, ptr %4, align 8, !tbaa !22
+  %5 = load ptr, ptr %3, align 8, !tbaa !22
+  %6 = call ptr @blob_enter_impl(ptr noundef %5)
+  ret ptr %6
 }
 
-declare void @PyErr_SetString(ptr noundef, ptr noundef) #1
-
-declare i32 @_PyArg_CheckPositional(ptr noundef, i64 noundef, i64 noundef, i64 noundef) #1
-
 ; Function Attrs: nounwind uwtable
-define internal ptr @blob_exit_impl(ptr noundef %self, ptr noundef %type, ptr noundef %val, ptr noundef %tb) #0 {
-entry:
-  %retval = alloca ptr, align 8
-  %self.addr = alloca ptr, align 8
-  %type.addr = alloca ptr, align 8
-  %val.addr = alloca ptr, align 8
-  %tb.addr = alloca ptr, align 8
-  store ptr %self, ptr %self.addr, align 8
-  store ptr %type, ptr %type.addr, align 8
-  store ptr %val, ptr %val.addr, align 8
-  store ptr %tb, ptr %tb.addr, align 8
-  %0 = load ptr, ptr %self.addr, align 8
-  %call = call i32 @check_blob(ptr noundef %0)
-  %tobool = icmp ne i32 %call, 0
-  br i1 %tobool, label %if.end, label %if.then
+define internal ptr @blob_exit(ptr noundef %0, ptr noundef %1, i64 noundef %2) #0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i64, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !22
+  store ptr %1, ptr %5, align 8, !tbaa !47
+  store i64 %2, ptr %6, align 8, !tbaa !7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #6
+  store ptr null, ptr %7, align 8, !tbaa !22
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #6
+  %11 = load i64, ptr %6, align 8, !tbaa !7
+  %12 = icmp sle i64 3, %11
+  br i1 %12, label %13, label %16
 
-if.then:                                          ; preds = %entry
-  store ptr null, ptr %retval, align 8
-  br label %return
+13:                                               ; preds = %3
+  %14 = load i64, ptr %6, align 8, !tbaa !7
+  %15 = icmp sle i64 %14, 3
+  br i1 %15, label %21, label %16
 
-if.end:                                           ; preds = %entry
-  %1 = load ptr, ptr %self.addr, align 8
-  call void @close_blob(ptr noundef %1)
-  store ptr @_Py_FalseStruct, ptr %retval, align 8
-  br label %return
+16:                                               ; preds = %13, %3
+  %17 = load i64, ptr %6, align 8, !tbaa !7
+  %18 = call i32 @_PyArg_CheckPositional(ptr noundef @.str.5, i64 noundef %17, i64 noundef 3, i64 noundef 3)
+  %19 = icmp ne i32 %18, 0
+  br i1 %19, label %21, label %20
 
-return:                                           ; preds = %if.end, %if.then
-  %2 = load ptr, ptr %retval, align 8
-  ret ptr %2
+20:                                               ; preds = %16
+  br label %36
+
+21:                                               ; preds = %16, %13
+  %22 = load ptr, ptr %5, align 8, !tbaa !47
+  %23 = getelementptr ptr, ptr %22, i64 0
+  %24 = load ptr, ptr %23, align 8, !tbaa !22
+  store ptr %24, ptr %8, align 8, !tbaa !22
+  %25 = load ptr, ptr %5, align 8, !tbaa !47
+  %26 = getelementptr ptr, ptr %25, i64 1
+  %27 = load ptr, ptr %26, align 8, !tbaa !22
+  store ptr %27, ptr %9, align 8, !tbaa !22
+  %28 = load ptr, ptr %5, align 8, !tbaa !47
+  %29 = getelementptr ptr, ptr %28, i64 2
+  %30 = load ptr, ptr %29, align 8, !tbaa !22
+  store ptr %30, ptr %10, align 8, !tbaa !22
+  %31 = load ptr, ptr %4, align 8, !tbaa !22
+  %32 = load ptr, ptr %8, align 8, !tbaa !22
+  %33 = load ptr, ptr %9, align 8, !tbaa !22
+  %34 = load ptr, ptr %10, align 8, !tbaa !22
+  %35 = call ptr @blob_exit_impl(ptr noundef %31, ptr noundef %32, ptr noundef %33, ptr noundef %34)
+  store ptr %35, ptr %7, align 8, !tbaa !22
+  br label %36
+
+36:                                               ; preds = %21, %20
+  %37 = load ptr, ptr %7, align 8, !tbaa !22
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #6
+  ret ptr %37
 }
 
-declare i32 @PyLong_AsInt(ptr noundef) #1
+; Function Attrs: nounwind uwtable
+define internal ptr @blob_read(ptr noundef %0, ptr noundef %1, i64 noundef %2) #0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i64, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !22
+  store ptr %1, ptr %5, align 8, !tbaa !47
+  store i64 %2, ptr %6, align 8, !tbaa !7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #6
+  store ptr null, ptr %7, align 8, !tbaa !22
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #6
+  store i32 -1, ptr %8, align 4, !tbaa !44
+  %9 = load i64, ptr %6, align 8, !tbaa !7
+  %10 = icmp sle i64 0, %9
+  br i1 %10, label %11, label %14
 
-declare ptr @PyErr_Occurred() #1
+11:                                               ; preds = %3
+  %12 = load i64, ptr %6, align 8, !tbaa !7
+  %13 = icmp sle i64 %12, 1
+  br i1 %13, label %19, label %14
+
+14:                                               ; preds = %11, %3
+  %15 = load i64, ptr %6, align 8, !tbaa !7
+  %16 = call i32 @_PyArg_CheckPositional(ptr noundef @.str.6, i64 noundef %15, i64 noundef 0, i64 noundef 1)
+  %17 = icmp ne i32 %16, 0
+  br i1 %17, label %19, label %18
+
+18:                                               ; preds = %14
+  br label %39
+
+19:                                               ; preds = %14, %11
+  %20 = load i64, ptr %6, align 8, !tbaa !7
+  %21 = icmp slt i64 %20, 1
+  br i1 %21, label %22, label %23
+
+22:                                               ; preds = %19
+  br label %35
+
+23:                                               ; preds = %19
+  %24 = load ptr, ptr %5, align 8, !tbaa !47
+  %25 = getelementptr ptr, ptr %24, i64 0
+  %26 = load ptr, ptr %25, align 8, !tbaa !22
+  %27 = call i32 @PyLong_AsInt(ptr noundef %26)
+  store i32 %27, ptr %8, align 4, !tbaa !44
+  %28 = load i32, ptr %8, align 4, !tbaa !44
+  %29 = icmp eq i32 %28, -1
+  br i1 %29, label %30, label %34
+
+30:                                               ; preds = %23
+  %31 = call ptr @PyErr_Occurred()
+  %32 = icmp ne ptr %31, null
+  br i1 %32, label %33, label %34
+
+33:                                               ; preds = %30
+  br label %39
+
+34:                                               ; preds = %30, %23
+  br label %35
+
+35:                                               ; preds = %34, %22
+  %36 = load ptr, ptr %4, align 8, !tbaa !22
+  %37 = load i32, ptr %8, align 4, !tbaa !44
+  %38 = call ptr @blob_read_impl(ptr noundef %36, i32 noundef %37)
+  store ptr %38, ptr %7, align 8, !tbaa !22
+  br label %39
+
+39:                                               ; preds = %35, %33, %18
+  %40 = load ptr, ptr %7, align 8, !tbaa !22
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #6
+  ret ptr %40
+}
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @blob_read_impl(ptr noundef %self, i32 noundef %length) #0 {
-entry:
-  %retval = alloca ptr, align 8
-  %self.addr = alloca ptr, align 8
-  %length.addr = alloca i32, align 4
-  %blob_len = alloca i32, align 4
-  %max_read_len = alloca i32, align 4
-  %buffer = alloca ptr, align 8
-  store ptr %self, ptr %self.addr, align 8
-  store i32 %length, ptr %length.addr, align 4
-  %0 = load ptr, ptr %self.addr, align 8
-  %call = call i32 @check_blob(ptr noundef %0)
-  %tobool = icmp ne i32 %call, 0
-  br i1 %tobool, label %if.end, label %if.then
+define internal ptr @blob_seek(ptr noundef %0, ptr noundef %1, i64 noundef %2) #0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i64, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !22
+  store ptr %1, ptr %5, align 8, !tbaa !47
+  store i64 %2, ptr %6, align 8, !tbaa !7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #6
+  store ptr null, ptr %7, align 8, !tbaa !22
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #6
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #6
+  store i32 0, ptr %9, align 4, !tbaa !44
+  %10 = load i64, ptr %6, align 8, !tbaa !7
+  %11 = icmp sle i64 1, %10
+  br i1 %11, label %12, label %15
 
-if.then:                                          ; preds = %entry
-  store ptr null, ptr %retval, align 8
-  br label %return
+12:                                               ; preds = %3
+  %13 = load i64, ptr %6, align 8, !tbaa !7
+  %14 = icmp sle i64 %13, 2
+  br i1 %14, label %20, label %15
 
-if.end:                                           ; preds = %entry
-  %1 = load ptr, ptr %self.addr, align 8
-  %blob = getelementptr inbounds %struct.pysqlite_Blob, ptr %1, i32 0, i32 2
-  %2 = load ptr, ptr %blob, align 8
-  %call1 = call i32 @sqlite3_blob_bytes(ptr noundef %2)
-  store i32 %call1, ptr %blob_len, align 4
-  %3 = load i32, ptr %blob_len, align 4
-  %4 = load ptr, ptr %self.addr, align 8
-  %offset = getelementptr inbounds %struct.pysqlite_Blob, ptr %4, i32 0, i32 3
-  %5 = load i32, ptr %offset, align 8
-  %sub = sub i32 %3, %5
-  store i32 %sub, ptr %max_read_len, align 4
-  %6 = load i32, ptr %length.addr, align 4
-  %cmp = icmp slt i32 %6, 0
-  br i1 %cmp, label %if.then3, label %lor.lhs.false
+15:                                               ; preds = %12, %3
+  %16 = load i64, ptr %6, align 8, !tbaa !7
+  %17 = call i32 @_PyArg_CheckPositional(ptr noundef @.str.7, i64 noundef %16, i64 noundef 1, i64 noundef 2)
+  %18 = icmp ne i32 %17, 0
+  br i1 %18, label %20, label %19
 
-lor.lhs.false:                                    ; preds = %if.end
-  %7 = load i32, ptr %length.addr, align 4
-  %8 = load i32, ptr %max_read_len, align 4
-  %cmp2 = icmp sgt i32 %7, %8
-  br i1 %cmp2, label %if.then3, label %if.end4
+19:                                               ; preds = %15
+  br label %52
 
-if.then3:                                         ; preds = %lor.lhs.false, %if.end
-  %9 = load i32, ptr %max_read_len, align 4
-  store i32 %9, ptr %length.addr, align 4
-  br label %if.end4
+20:                                               ; preds = %15, %12
+  %21 = load ptr, ptr %5, align 8, !tbaa !47
+  %22 = getelementptr ptr, ptr %21, i64 0
+  %23 = load ptr, ptr %22, align 8, !tbaa !22
+  %24 = call i32 @PyLong_AsInt(ptr noundef %23)
+  store i32 %24, ptr %8, align 4, !tbaa !44
+  %25 = load i32, ptr %8, align 4, !tbaa !44
+  %26 = icmp eq i32 %25, -1
+  br i1 %26, label %27, label %31
 
-if.end4:                                          ; preds = %if.then3, %lor.lhs.false
-  %10 = load i32, ptr %length.addr, align 4
-  %cmp5 = icmp eq i32 %10, 0
-  br i1 %cmp5, label %if.then6, label %if.end8
+27:                                               ; preds = %20
+  %28 = call ptr @PyErr_Occurred()
+  %29 = icmp ne ptr %28, null
+  br i1 %29, label %30, label %31
 
-if.then6:                                         ; preds = %if.end4
-  %call7 = call ptr @PyBytes_FromStringAndSize(ptr noundef null, i64 noundef 0)
-  store ptr %call7, ptr %retval, align 8
-  br label %return
+30:                                               ; preds = %27
+  br label %52
 
-if.end8:                                          ; preds = %if.end4
-  %11 = load ptr, ptr %self.addr, align 8
-  %12 = load i32, ptr %length.addr, align 4
-  %conv = sext i32 %12 to i64
-  %13 = load ptr, ptr %self.addr, align 8
-  %offset9 = getelementptr inbounds %struct.pysqlite_Blob, ptr %13, i32 0, i32 3
-  %14 = load i32, ptr %offset9, align 8
-  %conv10 = sext i32 %14 to i64
-  %call11 = call ptr @read_multiple(ptr noundef %11, i64 noundef %conv, i64 noundef %conv10)
-  store ptr %call11, ptr %buffer, align 8
-  %15 = load ptr, ptr %buffer, align 8
-  %cmp12 = icmp eq ptr %15, null
-  br i1 %cmp12, label %if.then14, label %if.end15
+31:                                               ; preds = %27, %20
+  %32 = load i64, ptr %6, align 8, !tbaa !7
+  %33 = icmp slt i64 %32, 2
+  br i1 %33, label %34, label %35
 
-if.then14:                                        ; preds = %if.end8
-  store ptr null, ptr %retval, align 8
-  br label %return
+34:                                               ; preds = %31
+  br label %47
 
-if.end15:                                         ; preds = %if.end8
-  %16 = load i32, ptr %length.addr, align 4
-  %17 = load ptr, ptr %self.addr, align 8
-  %offset16 = getelementptr inbounds %struct.pysqlite_Blob, ptr %17, i32 0, i32 3
-  %18 = load i32, ptr %offset16, align 8
-  %add = add i32 %18, %16
-  store i32 %add, ptr %offset16, align 8
-  %19 = load ptr, ptr %buffer, align 8
-  store ptr %19, ptr %retval, align 8
-  br label %return
+35:                                               ; preds = %31
+  %36 = load ptr, ptr %5, align 8, !tbaa !47
+  %37 = getelementptr ptr, ptr %36, i64 1
+  %38 = load ptr, ptr %37, align 8, !tbaa !22
+  %39 = call i32 @PyLong_AsInt(ptr noundef %38)
+  store i32 %39, ptr %9, align 4, !tbaa !44
+  %40 = load i32, ptr %9, align 4, !tbaa !44
+  %41 = icmp eq i32 %40, -1
+  br i1 %41, label %42, label %46
 
-return:                                           ; preds = %if.end15, %if.then14, %if.then6, %if.then
-  %20 = load ptr, ptr %retval, align 8
+42:                                               ; preds = %35
+  %43 = call ptr @PyErr_Occurred()
+  %44 = icmp ne ptr %43, null
+  br i1 %44, label %45, label %46
+
+45:                                               ; preds = %42
+  br label %52
+
+46:                                               ; preds = %42, %35
+  br label %47
+
+47:                                               ; preds = %46, %34
+  %48 = load ptr, ptr %4, align 8, !tbaa !22
+  %49 = load i32, ptr %8, align 4, !tbaa !44
+  %50 = load i32, ptr %9, align 4, !tbaa !44
+  %51 = call ptr @blob_seek_impl(ptr noundef %48, i32 noundef %49, i32 noundef %50)
+  store ptr %51, ptr %7, align 8, !tbaa !22
+  br label %52
+
+52:                                               ; preds = %47, %45, %30, %19
+  %53 = load ptr, ptr %7, align 8, !tbaa !22
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #6
+  ret ptr %53
+}
+
+; Function Attrs: nounwind uwtable
+define internal ptr @blob_tell(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !22
+  store ptr %1, ptr %4, align 8, !tbaa !22
+  %5 = load ptr, ptr %3, align 8, !tbaa !22
+  %6 = call ptr @blob_tell_impl(ptr noundef %5)
+  ret ptr %6
+}
+
+; Function Attrs: nounwind uwtable
+define internal ptr @blob_write(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca %struct.Py_buffer, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !22
+  store ptr %1, ptr %4, align 8, !tbaa !22
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #6
+  store ptr null, ptr %5, align 8, !tbaa !22
+  call void @llvm.lifetime.start.p0(i64 80, ptr %6) #6
+  call void @llvm.memset.p0.i64(ptr align 8 %6, i8 0, i64 80, i1 false)
+  %7 = load ptr, ptr %4, align 8, !tbaa !22
+  %8 = call i32 @PyObject_GetBuffer(ptr noundef %7, ptr noundef %6, i32 noundef 0)
+  %9 = icmp ne i32 %8, 0
+  br i1 %9, label %10, label %11
+
+10:                                               ; preds = %2
+  br label %14
+
+11:                                               ; preds = %2
+  %12 = load ptr, ptr %3, align 8, !tbaa !22
+  %13 = call ptr @blob_write_impl(ptr noundef %12, ptr noundef %6)
+  store ptr %13, ptr %5, align 8, !tbaa !22
+  br label %14
+
+14:                                               ; preds = %11, %10
+  %15 = getelementptr inbounds nuw %struct.Py_buffer, ptr %6, i32 0, i32 1
+  %16 = load ptr, ptr %15, align 8, !tbaa !48
+  %17 = icmp ne ptr %16, null
+  br i1 %17, label %18, label %19
+
+18:                                               ; preds = %14
+  call void @PyBuffer_Release(ptr noundef %6)
+  br label %19
+
+19:                                               ; preds = %18, %14
+  %20 = load ptr, ptr %5, align 8, !tbaa !22
+  call void @llvm.lifetime.end.p0(i64 80, ptr %6) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #6
   ret ptr %20
 }
 
-declare i32 @sqlite3_blob_bytes(ptr noundef) #1
+; Function Attrs: nounwind uwtable
+define internal ptr @blob_close_impl(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  %4 = load ptr, ptr %3, align 8, !tbaa !3
+  %5 = getelementptr inbounds nuw %struct.pysqlite_Blob, ptr %4, i32 0, i32 1
+  %6 = load ptr, ptr %5, align 8, !tbaa !45
+  %7 = call i32 @pysqlite_check_connection(ptr noundef %6)
+  %8 = icmp ne i32 %7, 0
+  br i1 %8, label %9, label %15
 
-declare ptr @PyBytes_FromStringAndSize(ptr noundef, i64 noundef) #1
+9:                                                ; preds = %1
+  %10 = load ptr, ptr %3, align 8, !tbaa !3
+  %11 = getelementptr inbounds nuw %struct.pysqlite_Blob, ptr %10, i32 0, i32 1
+  %12 = load ptr, ptr %11, align 8, !tbaa !45
+  %13 = call i32 @pysqlite_check_thread(ptr noundef %12)
+  %14 = icmp ne i32 %13, 0
+  br i1 %14, label %16, label %15
+
+15:                                               ; preds = %9, %1
+  store ptr null, ptr %2, align 8
+  br label %18
+
+16:                                               ; preds = %9
+  %17 = load ptr, ptr %3, align 8, !tbaa !3
+  call void @close_blob(ptr noundef %17)
+  store ptr @_Py_NoneStruct, ptr %2, align 8
+  br label %18
+
+18:                                               ; preds = %16, %15
+  %19 = load ptr, ptr %2, align 8
+  ret ptr %19
+}
+
+declare i32 @pysqlite_check_connection(ptr noundef) #3
+
+declare i32 @pysqlite_check_thread(ptr noundef) #3
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @read_multiple(ptr noundef %self, i64 noundef %length, i64 noundef %offset) #0 {
-entry:
-  %op.addr.i9 = alloca ptr, align 8
-  %op.addr.i = alloca ptr, align 8
-  %retval = alloca ptr, align 8
-  %self.addr = alloca ptr, align 8
-  %length.addr = alloca i64, align 8
-  %offset.addr = alloca i64, align 8
-  %buffer = alloca ptr, align 8
-  %raw_buffer = alloca ptr, align 8
-  %rc = alloca i32, align 4
-  %_save = alloca ptr, align 8
-  store ptr %self, ptr %self.addr, align 8
-  store i64 %length, ptr %length.addr, align 8
-  store i64 %offset, ptr %offset.addr, align 8
-  %0 = load i64, ptr %length.addr, align 8
-  %call = call ptr @PyBytes_FromStringAndSize(ptr noundef null, i64 noundef %0)
-  store ptr %call, ptr %buffer, align 8
-  %1 = load ptr, ptr %buffer, align 8
-  %cmp = icmp eq ptr %1, null
-  br i1 %cmp, label %if.then, label %if.end
+define internal ptr @blob_enter_impl(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  %4 = load ptr, ptr %3, align 8, !tbaa !3
+  %5 = call i32 @check_blob(ptr noundef %4)
+  %6 = icmp ne i32 %5, 0
+  br i1 %6, label %8, label %7
 
-if.then:                                          ; preds = %entry
-  store ptr null, ptr %retval, align 8
-  br label %return
+7:                                                ; preds = %1
+  store ptr null, ptr %2, align 8
+  br label %11
 
-if.end:                                           ; preds = %entry
-  %2 = load ptr, ptr %buffer, align 8
-  %call1 = call ptr @PyBytes_AS_STRING(ptr noundef %2)
-  store ptr %call1, ptr %raw_buffer, align 8
-  %call2 = call ptr @PyEval_SaveThread()
-  store ptr %call2, ptr %_save, align 8
-  %3 = load ptr, ptr %self.addr, align 8
-  %blob = getelementptr inbounds %struct.pysqlite_Blob, ptr %3, i32 0, i32 2
-  %4 = load ptr, ptr %blob, align 8
-  %5 = load ptr, ptr %raw_buffer, align 8
-  %6 = load i64, ptr %length.addr, align 8
-  %conv = trunc i64 %6 to i32
-  %7 = load i64, ptr %offset.addr, align 8
-  %conv3 = trunc i64 %7 to i32
-  %call4 = call i32 @sqlite3_blob_read(ptr noundef %4, ptr noundef %5, i32 noundef %conv, i32 noundef %conv3)
-  store i32 %call4, ptr %rc, align 4
-  %8 = load ptr, ptr %_save, align 8
-  call void @PyEval_RestoreThread(ptr noundef %8)
-  %9 = load i32, ptr %rc, align 4
-  %cmp5 = icmp ne i32 %9, 0
-  br i1 %cmp5, label %if.then7, label %if.end8
+8:                                                ; preds = %1
+  %9 = load ptr, ptr %3, align 8, !tbaa !3
+  %10 = call ptr @_Py_NewRef(ptr noundef %9)
+  store ptr %10, ptr %2, align 8
+  br label %11
 
-if.then7:                                         ; preds = %if.end
-  %10 = load ptr, ptr %buffer, align 8
-  store ptr %10, ptr %op.addr.i, align 8
-  %11 = load ptr, ptr %op.addr.i, align 8
-  store ptr %11, ptr %op.addr.i9, align 8
-  %12 = load ptr, ptr %op.addr.i9, align 8
-  %13 = load i64, ptr %12, align 8
-  %conv.i = trunc i64 %13 to i32
-  %cmp.i10 = icmp slt i32 %conv.i, 0
-  %conv1.i = zext i1 %cmp.i10 to i32
-  %tobool.i = icmp ne i32 %conv1.i, 0
-  br i1 %tobool.i, label %if.then.i, label %if.end.i
-
-if.then.i:                                        ; preds = %if.then7
-  br label %Py_DECREF.exit
-
-if.end.i:                                         ; preds = %if.then7
-  %14 = load ptr, ptr %op.addr.i, align 8
-  %15 = load i64, ptr %14, align 8
-  %dec.i = add i64 %15, -1
-  store i64 %dec.i, ptr %14, align 8
-  %cmp.i = icmp eq i64 %dec.i, 0
-  br i1 %cmp.i, label %if.then1.i, label %Py_DECREF.exit
-
-if.then1.i:                                       ; preds = %if.end.i
-  %16 = load ptr, ptr %op.addr.i, align 8
-  call void @_Py_Dealloc(ptr noundef %16) #3
-  br label %Py_DECREF.exit
-
-Py_DECREF.exit:                                   ; preds = %if.then1.i, %if.end.i, %if.then.i
-  %17 = load ptr, ptr %self.addr, align 8
-  %18 = load i32, ptr %rc, align 4
-  call void @blob_seterror(ptr noundef %17, i32 noundef %18)
-  store ptr null, ptr %retval, align 8
-  br label %return
-
-if.end8:                                          ; preds = %if.end
-  %19 = load ptr, ptr %buffer, align 8
-  store ptr %19, ptr %retval, align 8
-  br label %return
-
-return:                                           ; preds = %if.end8, %Py_DECREF.exit, %if.then
-  %20 = load ptr, ptr %retval, align 8
-  ret ptr %20
+11:                                               ; preds = %8, %7
+  %12 = load ptr, ptr %2, align 8
+  ret ptr %12
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @PyBytes_AS_STRING(ptr noundef %op) #0 {
-entry:
-  %op.addr = alloca ptr, align 8
-  store ptr %op, ptr %op.addr, align 8
-  %0 = load ptr, ptr %op.addr, align 8
-  %ob_sval = getelementptr inbounds %struct.PyBytesObject, ptr %0, i32 0, i32 2
-  %arraydecay = getelementptr inbounds [1 x i8], ptr %ob_sval, i64 0, i64 0
-  ret ptr %arraydecay
+define internal i32 @check_blob(ptr noundef %0) #0 {
+  %2 = alloca i32, align 4
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  %5 = load ptr, ptr %3, align 8, !tbaa !3
+  %6 = getelementptr inbounds nuw %struct.pysqlite_Blob, ptr %5, i32 0, i32 1
+  %7 = load ptr, ptr %6, align 8, !tbaa !45
+  %8 = call i32 @pysqlite_check_connection(ptr noundef %7)
+  %9 = icmp ne i32 %8, 0
+  br i1 %9, label %10, label %16
+
+10:                                               ; preds = %1
+  %11 = load ptr, ptr %3, align 8, !tbaa !3
+  %12 = getelementptr inbounds nuw %struct.pysqlite_Blob, ptr %11, i32 0, i32 1
+  %13 = load ptr, ptr %12, align 8, !tbaa !45
+  %14 = call i32 @pysqlite_check_thread(ptr noundef %13)
+  %15 = icmp ne i32 %14, 0
+  br i1 %15, label %17, label %16
+
+16:                                               ; preds = %10, %1
+  store i32 0, ptr %2, align 4
+  br label %32
+
+17:                                               ; preds = %10
+  %18 = load ptr, ptr %3, align 8, !tbaa !3
+  %19 = getelementptr inbounds nuw %struct.pysqlite_Blob, ptr %18, i32 0, i32 2
+  %20 = load ptr, ptr %19, align 8, !tbaa !25
+  %21 = icmp eq ptr %20, null
+  br i1 %21, label %22, label %31
+
+22:                                               ; preds = %17
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #6
+  %23 = load ptr, ptr %3, align 8, !tbaa !3
+  %24 = getelementptr inbounds nuw %struct.pysqlite_Blob, ptr %23, i32 0, i32 1
+  %25 = load ptr, ptr %24, align 8, !tbaa !45
+  %26 = getelementptr inbounds nuw %struct.pysqlite_Connection, ptr %25, i32 0, i32 2
+  %27 = load ptr, ptr %26, align 8, !tbaa !51
+  store ptr %27, ptr %4, align 8, !tbaa !3
+  %28 = load ptr, ptr %4, align 8, !tbaa !3
+  %29 = getelementptr inbounds nuw %struct.pysqlite_state, ptr %28, i32 0, i32 8
+  %30 = load ptr, ptr %29, align 8, !tbaa !52
+  call void @PyErr_SetString(ptr noundef %30, ptr noundef @.str.11)
+  store i32 0, ptr %2, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #6
+  br label %32
+
+31:                                               ; preds = %17
+  store i32 1, ptr %2, align 4
+  br label %32
+
+32:                                               ; preds = %31, %22, %16
+  %33 = load i32, ptr %2, align 4
+  ret i32 %33
 }
 
-declare i32 @sqlite3_blob_read(ptr noundef, ptr noundef, i32 noundef, i32 noundef) #1
+; Function Attrs: inlinehint nounwind uwtable
+define internal ptr @_Py_NewRef(ptr noundef %0) #2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !22
+  %3 = load ptr, ptr %2, align 8, !tbaa !22
+  call void @Py_INCREF(ptr noundef %3)
+  %4 = load ptr, ptr %2, align 8, !tbaa !22
+  ret ptr %4
+}
+
+declare void @PyErr_SetString(ptr noundef, ptr noundef) #3
+
+; Function Attrs: alwaysinline nounwind uwtable
+define internal void @Py_INCREF(ptr noundef %0) #4 {
+  %2 = alloca ptr, align 8
+  %3 = alloca i32, align 4
+  %4 = alloca i32, align 4
+  store ptr %0, ptr %2, align 8, !tbaa !22
+  call void @llvm.lifetime.start.p0(i64 4, ptr %3) #6
+  %5 = load ptr, ptr %2, align 8, !tbaa !22
+  %6 = getelementptr inbounds nuw %struct._object, ptr %5, i32 0, i32 0
+  %7 = getelementptr inbounds nuw %struct.anon, ptr %6, i32 0, i32 0
+  %8 = load i32, ptr %7, align 8, !tbaa !31
+  store i32 %8, ptr %3, align 4, !tbaa !44
+  %9 = load i32, ptr %3, align 4, !tbaa !44
+  %10 = icmp slt i32 %9, 0
+  br i1 %10, label %11, label %12
+
+11:                                               ; preds = %1
+  store i32 1, ptr %4, align 4
+  br label %18
+
+12:                                               ; preds = %1
+  %13 = load i32, ptr %3, align 4, !tbaa !44
+  %14 = add i32 %13, 1
+  %15 = load ptr, ptr %2, align 8, !tbaa !22
+  %16 = getelementptr inbounds nuw %struct._object, ptr %15, i32 0, i32 0
+  %17 = getelementptr inbounds nuw %struct.anon, ptr %16, i32 0, i32 0
+  store i32 %14, ptr %17, align 8, !tbaa !31
+  store i32 0, ptr %4, align 4
+  br label %18
+
+18:                                               ; preds = %12, %11
+  call void @llvm.lifetime.end.p0(i64 4, ptr %3) #6
+  %19 = load i32, ptr %4, align 4
+  switch i32 %19, label %21 [
+    i32 0, label %20
+    i32 1, label %20
+  ]
+
+20:                                               ; preds = %18, %18
+  ret void
+
+21:                                               ; preds = %18
+  unreachable
+}
+
+declare i32 @_PyArg_CheckPositional(ptr noundef, i64 noundef, i64 noundef, i64 noundef) #3
 
 ; Function Attrs: nounwind uwtable
-define internal void @blob_seterror(ptr noundef %self, i32 noundef %rc) #0 {
-entry:
-  %self.addr = alloca ptr, align 8
-  %rc.addr = alloca i32, align 4
-  store ptr %self, ptr %self.addr, align 8
-  store i32 %rc, ptr %rc.addr, align 4
-  %0 = load ptr, ptr %self.addr, align 8
-  %connection = getelementptr inbounds %struct.pysqlite_Blob, ptr %0, i32 0, i32 1
-  %1 = load ptr, ptr %connection, align 8
-  %state = getelementptr inbounds %struct.pysqlite_Connection, ptr %1, i32 0, i32 2
-  %2 = load ptr, ptr %state, align 8
-  %3 = load ptr, ptr %self.addr, align 8
-  %connection1 = getelementptr inbounds %struct.pysqlite_Blob, ptr %3, i32 0, i32 1
-  %4 = load ptr, ptr %connection1, align 8
-  %db = getelementptr inbounds %struct.pysqlite_Connection, ptr %4, i32 0, i32 1
-  %5 = load ptr, ptr %db, align 8
-  %call = call i32 @_pysqlite_seterror(ptr noundef %2, ptr noundef %5)
+define internal ptr @blob_exit_impl(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  store ptr %0, ptr %6, align 8, !tbaa !3
+  store ptr %1, ptr %7, align 8, !tbaa !22
+  store ptr %2, ptr %8, align 8, !tbaa !22
+  store ptr %3, ptr %9, align 8, !tbaa !22
+  %10 = load ptr, ptr %6, align 8, !tbaa !3
+  %11 = call i32 @check_blob(ptr noundef %10)
+  %12 = icmp ne i32 %11, 0
+  br i1 %12, label %14, label %13
+
+13:                                               ; preds = %4
+  store ptr null, ptr %5, align 8
+  br label %16
+
+14:                                               ; preds = %4
+  %15 = load ptr, ptr %6, align 8, !tbaa !3
+  call void @close_blob(ptr noundef %15)
+  store ptr @_Py_FalseStruct, ptr %5, align 8
+  br label %16
+
+16:                                               ; preds = %14, %13
+  %17 = load ptr, ptr %5, align 8
+  ret ptr %17
+}
+
+declare i32 @PyLong_AsInt(ptr noundef) #3
+
+declare ptr @PyErr_Occurred() #3
+
+; Function Attrs: nounwind uwtable
+define internal ptr @blob_read_impl(ptr noundef %0, i32 noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca i32, align 4
+  %7 = alloca i32, align 4
+  %8 = alloca i32, align 4
+  %9 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !3
+  store i32 %1, ptr %5, align 4, !tbaa !44
+  %10 = load ptr, ptr %4, align 8, !tbaa !3
+  %11 = call i32 @check_blob(ptr noundef %10)
+  %12 = icmp ne i32 %11, 0
+  br i1 %12, label %14, label %13
+
+13:                                               ; preds = %2
+  store ptr null, ptr %3, align 8
+  br label %58
+
+14:                                               ; preds = %2
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #6
+  %15 = load ptr, ptr %4, align 8, !tbaa !3
+  %16 = getelementptr inbounds nuw %struct.pysqlite_Blob, ptr %15, i32 0, i32 2
+  %17 = load ptr, ptr %16, align 8, !tbaa !25
+  %18 = call i32 @sqlite3_blob_bytes(ptr noundef %17)
+  store i32 %18, ptr %6, align 4, !tbaa !44
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #6
+  %19 = load i32, ptr %6, align 4, !tbaa !44
+  %20 = load ptr, ptr %4, align 8, !tbaa !3
+  %21 = getelementptr inbounds nuw %struct.pysqlite_Blob, ptr %20, i32 0, i32 3
+  %22 = load i32, ptr %21, align 8, !tbaa !53
+  %23 = sub i32 %19, %22
+  store i32 %23, ptr %7, align 4, !tbaa !44
+  %24 = load i32, ptr %5, align 4, !tbaa !44
+  %25 = icmp slt i32 %24, 0
+  br i1 %25, label %30, label %26
+
+26:                                               ; preds = %14
+  %27 = load i32, ptr %5, align 4, !tbaa !44
+  %28 = load i32, ptr %7, align 4, !tbaa !44
+  %29 = icmp sgt i32 %27, %28
+  br i1 %29, label %30, label %32
+
+30:                                               ; preds = %26, %14
+  %31 = load i32, ptr %7, align 4, !tbaa !44
+  store i32 %31, ptr %5, align 4, !tbaa !44
+  br label %32
+
+32:                                               ; preds = %30, %26
+  %33 = load i32, ptr %5, align 4, !tbaa !44
+  %34 = icmp eq i32 %33, 0
+  br i1 %34, label %35, label %37
+
+35:                                               ; preds = %32
+  %36 = call ptr @PyBytes_FromStringAndSize(ptr noundef null, i64 noundef 0)
+  store ptr %36, ptr %3, align 8
+  store i32 1, ptr %8, align 4
+  br label %57
+
+37:                                               ; preds = %32
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #6
+  %38 = load ptr, ptr %4, align 8, !tbaa !3
+  %39 = load i32, ptr %5, align 4, !tbaa !44
+  %40 = sext i32 %39 to i64
+  %41 = load ptr, ptr %4, align 8, !tbaa !3
+  %42 = getelementptr inbounds nuw %struct.pysqlite_Blob, ptr %41, i32 0, i32 3
+  %43 = load i32, ptr %42, align 8, !tbaa !53
+  %44 = sext i32 %43 to i64
+  %45 = call ptr @read_multiple(ptr noundef %38, i64 noundef %40, i64 noundef %44)
+  store ptr %45, ptr %9, align 8, !tbaa !22
+  %46 = load ptr, ptr %9, align 8, !tbaa !22
+  %47 = icmp eq ptr %46, null
+  br i1 %47, label %48, label %49
+
+48:                                               ; preds = %37
+  store ptr null, ptr %3, align 8
+  store i32 1, ptr %8, align 4
+  br label %56
+
+49:                                               ; preds = %37
+  %50 = load i32, ptr %5, align 4, !tbaa !44
+  %51 = load ptr, ptr %4, align 8, !tbaa !3
+  %52 = getelementptr inbounds nuw %struct.pysqlite_Blob, ptr %51, i32 0, i32 3
+  %53 = load i32, ptr %52, align 8, !tbaa !53
+  %54 = add i32 %53, %50
+  store i32 %54, ptr %52, align 8, !tbaa !53
+  %55 = load ptr, ptr %9, align 8, !tbaa !22
+  store ptr %55, ptr %3, align 8
+  store i32 1, ptr %8, align 4
+  br label %56
+
+56:                                               ; preds = %49, %48
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #6
+  br label %57
+
+57:                                               ; preds = %56, %35
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #6
+  br label %58
+
+58:                                               ; preds = %57, %13
+  %59 = load ptr, ptr %3, align 8
+  ret ptr %59
+}
+
+declare i32 @sqlite3_blob_bytes(ptr noundef) #3
+
+declare ptr @PyBytes_FromStringAndSize(ptr noundef, i64 noundef) #3
+
+; Function Attrs: nounwind uwtable
+define internal ptr @read_multiple(ptr noundef %0, i64 noundef %1, i64 noundef %2) #0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i64, align 8
+  %7 = alloca i64, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca i32, align 4
+  %10 = alloca ptr, align 8
+  %11 = alloca i32, align 4
+  %12 = alloca ptr, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !3
+  store i64 %1, ptr %6, align 8, !tbaa !7
+  store i64 %2, ptr %7, align 8, !tbaa !7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #6
+  %13 = load i64, ptr %6, align 8, !tbaa !7
+  %14 = call ptr @PyBytes_FromStringAndSize(ptr noundef null, i64 noundef %13)
+  store ptr %14, ptr %8, align 8, !tbaa !22
+  %15 = load ptr, ptr %8, align 8, !tbaa !22
+  %16 = icmp eq ptr %15, null
+  br i1 %16, label %17, label %18
+
+17:                                               ; preds = %3
+  store ptr null, ptr %4, align 8
+  store i32 1, ptr %9, align 4
+  br label %41
+
+18:                                               ; preds = %3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #6
+  %19 = load ptr, ptr %8, align 8, !tbaa !22
+  %20 = call ptr @PyBytes_AS_STRING(ptr noundef %19)
+  store ptr %20, ptr %10, align 8, !tbaa !54
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #6
+  %21 = call ptr @PyEval_SaveThread()
+  store ptr %21, ptr %12, align 8, !tbaa !29
+  %22 = load ptr, ptr %5, align 8, !tbaa !3
+  %23 = getelementptr inbounds nuw %struct.pysqlite_Blob, ptr %22, i32 0, i32 2
+  %24 = load ptr, ptr %23, align 8, !tbaa !25
+  %25 = load ptr, ptr %10, align 8, !tbaa !54
+  %26 = load i64, ptr %6, align 8, !tbaa !7
+  %27 = trunc i64 %26 to i32
+  %28 = load i64, ptr %7, align 8, !tbaa !7
+  %29 = trunc i64 %28 to i32
+  %30 = call i32 @sqlite3_blob_read(ptr noundef %24, ptr noundef %25, i32 noundef %27, i32 noundef %29)
+  store i32 %30, ptr %11, align 4, !tbaa !44
+  %31 = load ptr, ptr %12, align 8, !tbaa !29
+  call void @PyEval_RestoreThread(ptr noundef %31)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #6
+  %32 = load i32, ptr %11, align 4, !tbaa !44
+  %33 = icmp ne i32 %32, 0
+  br i1 %33, label %34, label %38
+
+34:                                               ; preds = %18
+  %35 = load ptr, ptr %8, align 8, !tbaa !22
+  call void @Py_DECREF(ptr noundef %35)
+  %36 = load ptr, ptr %5, align 8, !tbaa !3
+  %37 = load i32, ptr %11, align 4, !tbaa !44
+  call void @blob_seterror(ptr noundef %36, i32 noundef %37)
+  store ptr null, ptr %4, align 8
+  store i32 1, ptr %9, align 4
+  br label %40
+
+38:                                               ; preds = %18
+  %39 = load ptr, ptr %8, align 8, !tbaa !22
+  store ptr %39, ptr %4, align 8
+  store i32 1, ptr %9, align 4
+  br label %40
+
+40:                                               ; preds = %38, %34
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #6
+  br label %41
+
+41:                                               ; preds = %40, %17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #6
+  %42 = load ptr, ptr %4, align 8
+  ret ptr %42
+}
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal ptr @PyBytes_AS_STRING(ptr noundef %0) #2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !22
+  %3 = load ptr, ptr %2, align 8, !tbaa !22
+  %4 = getelementptr inbounds nuw %struct.PyBytesObject, ptr %3, i32 0, i32 2
+  %5 = getelementptr inbounds [1 x i8], ptr %4, i64 0, i64 0
+  ret ptr %5
+}
+
+declare i32 @sqlite3_blob_read(ptr noundef, ptr noundef, i32 noundef, i32 noundef) #3
+
+; Function Attrs: nounwind uwtable
+define internal void @blob_seterror(ptr noundef %0, i32 noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  store i32 %1, ptr %4, align 4, !tbaa !44
+  %5 = load ptr, ptr %3, align 8, !tbaa !3
+  %6 = getelementptr inbounds nuw %struct.pysqlite_Blob, ptr %5, i32 0, i32 1
+  %7 = load ptr, ptr %6, align 8, !tbaa !45
+  %8 = getelementptr inbounds nuw %struct.pysqlite_Connection, ptr %7, i32 0, i32 2
+  %9 = load ptr, ptr %8, align 8, !tbaa !51
+  %10 = load ptr, ptr %3, align 8, !tbaa !3
+  %11 = getelementptr inbounds nuw %struct.pysqlite_Blob, ptr %10, i32 0, i32 1
+  %12 = load ptr, ptr %11, align 8, !tbaa !45
+  %13 = getelementptr inbounds nuw %struct.pysqlite_Connection, ptr %12, i32 0, i32 1
+  %14 = load ptr, ptr %13, align 8, !tbaa !55
+  %15 = call i32 @_pysqlite_seterror(ptr noundef %9, ptr noundef %14)
   ret void
 }
 
-declare i32 @_pysqlite_seterror(ptr noundef, ptr noundef) #1
+declare i32 @_pysqlite_seterror(ptr noundef, ptr noundef) #3
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @blob_seek_impl(ptr noundef %self, i32 noundef %offset, i32 noundef %origin) #0 {
-entry:
-  %retval = alloca ptr, align 8
-  %self.addr = alloca ptr, align 8
-  %offset.addr = alloca i32, align 4
-  %origin.addr = alloca i32, align 4
-  %blob_len = alloca i32, align 4
-  store ptr %self, ptr %self.addr, align 8
-  store i32 %offset, ptr %offset.addr, align 4
-  store i32 %origin, ptr %origin.addr, align 4
-  %0 = load ptr, ptr %self.addr, align 8
-  %call = call i32 @check_blob(ptr noundef %0)
-  %tobool = icmp ne i32 %call, 0
-  br i1 %tobool, label %if.end, label %if.then
+define internal ptr @blob_seek_impl(ptr noundef %0, i32 noundef %1, i32 noundef %2) #0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  %7 = alloca i32, align 4
+  %8 = alloca i32, align 4
+  %9 = alloca i32, align 4
+  store ptr %0, ptr %5, align 8, !tbaa !3
+  store i32 %1, ptr %6, align 4, !tbaa !44
+  store i32 %2, ptr %7, align 4, !tbaa !44
+  %10 = load ptr, ptr %5, align 8, !tbaa !3
+  %11 = call i32 @check_blob(ptr noundef %10)
+  %12 = icmp ne i32 %11, 0
+  br i1 %12, label %14, label %13
 
-if.then:                                          ; preds = %entry
-  store ptr null, ptr %retval, align 8
-  br label %return
+13:                                               ; preds = %3
+  store ptr null, ptr %4, align 8
+  br label %62
 
-if.end:                                           ; preds = %entry
-  %1 = load ptr, ptr %self.addr, align 8
-  %blob = getelementptr inbounds %struct.pysqlite_Blob, ptr %1, i32 0, i32 2
-  %2 = load ptr, ptr %blob, align 8
-  %call1 = call i32 @sqlite3_blob_bytes(ptr noundef %2)
-  store i32 %call1, ptr %blob_len, align 4
-  %3 = load i32, ptr %origin.addr, align 4
-  switch i32 %3, label %sw.default [
-    i32 0, label %sw.bb
-    i32 1, label %sw.bb2
-    i32 2, label %sw.bb7
+14:                                               ; preds = %3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #6
+  %15 = load ptr, ptr %5, align 8, !tbaa !3
+  %16 = getelementptr inbounds nuw %struct.pysqlite_Blob, ptr %15, i32 0, i32 2
+  %17 = load ptr, ptr %16, align 8, !tbaa !25
+  %18 = call i32 @sqlite3_blob_bytes(ptr noundef %17)
+  store i32 %18, ptr %8, align 4, !tbaa !44
+  %19 = load i32, ptr %7, align 4, !tbaa !44
+  switch i32 %19, label %44 [
+    i32 0, label %46
+    i32 1, label %20
+    i32 2, label %34
   ]
 
-sw.bb:                                            ; preds = %if.end
-  br label %sw.epilog
+20:                                               ; preds = %14
+  %21 = load i32, ptr %6, align 4, !tbaa !44
+  %22 = load ptr, ptr %5, align 8, !tbaa !3
+  %23 = getelementptr inbounds nuw %struct.pysqlite_Blob, ptr %22, i32 0, i32 3
+  %24 = load i32, ptr %23, align 8, !tbaa !53
+  %25 = sub i32 2147483647, %24
+  %26 = icmp sgt i32 %21, %25
+  br i1 %26, label %27, label %28
 
-sw.bb2:                                           ; preds = %if.end
-  %4 = load i32, ptr %offset.addr, align 4
-  %5 = load ptr, ptr %self.addr, align 8
-  %offset3 = getelementptr inbounds %struct.pysqlite_Blob, ptr %5, i32 0, i32 3
-  %6 = load i32, ptr %offset3, align 8
-  %sub = sub i32 2147483647, %6
-  %cmp = icmp sgt i32 %4, %sub
-  br i1 %cmp, label %if.then4, label %if.end5
+27:                                               ; preds = %20
+  br label %59
 
-if.then4:                                         ; preds = %sw.bb2
-  br label %overflow
+28:                                               ; preds = %20
+  %29 = load ptr, ptr %5, align 8, !tbaa !3
+  %30 = getelementptr inbounds nuw %struct.pysqlite_Blob, ptr %29, i32 0, i32 3
+  %31 = load i32, ptr %30, align 8, !tbaa !53
+  %32 = load i32, ptr %6, align 4, !tbaa !44
+  %33 = add i32 %32, %31
+  store i32 %33, ptr %6, align 4, !tbaa !44
+  br label %46
 
-if.end5:                                          ; preds = %sw.bb2
-  %7 = load ptr, ptr %self.addr, align 8
-  %offset6 = getelementptr inbounds %struct.pysqlite_Blob, ptr %7, i32 0, i32 3
-  %8 = load i32, ptr %offset6, align 8
-  %9 = load i32, ptr %offset.addr, align 4
-  %add = add i32 %9, %8
-  store i32 %add, ptr %offset.addr, align 4
-  br label %sw.epilog
+34:                                               ; preds = %14
+  %35 = load i32, ptr %6, align 4, !tbaa !44
+  %36 = load i32, ptr %8, align 4, !tbaa !44
+  %37 = sub i32 2147483647, %36
+  %38 = icmp sgt i32 %35, %37
+  br i1 %38, label %39, label %40
 
-sw.bb7:                                           ; preds = %if.end
-  %10 = load i32, ptr %offset.addr, align 4
-  %11 = load i32, ptr %blob_len, align 4
-  %sub8 = sub i32 2147483647, %11
-  %cmp9 = icmp sgt i32 %10, %sub8
-  br i1 %cmp9, label %if.then10, label %if.end11
+39:                                               ; preds = %34
+  br label %59
 
-if.then10:                                        ; preds = %sw.bb7
-  br label %overflow
+40:                                               ; preds = %34
+  %41 = load i32, ptr %8, align 4, !tbaa !44
+  %42 = load i32, ptr %6, align 4, !tbaa !44
+  %43 = add i32 %42, %41
+  store i32 %43, ptr %6, align 4, !tbaa !44
+  br label %46
 
-if.end11:                                         ; preds = %sw.bb7
-  %12 = load i32, ptr %blob_len, align 4
-  %13 = load i32, ptr %offset.addr, align 4
-  %add12 = add i32 %13, %12
-  store i32 %add12, ptr %offset.addr, align 4
-  br label %sw.epilog
+44:                                               ; preds = %14
+  %45 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !22
+  call void @PyErr_SetString(ptr noundef %45, ptr noundef @.str.12)
+  store ptr null, ptr %4, align 8
+  store i32 1, ptr %9, align 4
+  br label %61
 
-sw.default:                                       ; preds = %if.end
-  %14 = load ptr, ptr @PyExc_ValueError, align 8
-  call void @PyErr_SetString(ptr noundef %14, ptr noundef @.str.9)
-  store ptr null, ptr %retval, align 8
-  br label %return
+46:                                               ; preds = %40, %28, %14
+  %47 = load i32, ptr %6, align 4, !tbaa !44
+  %48 = icmp slt i32 %47, 0
+  br i1 %48, label %53, label %49
 
-sw.epilog:                                        ; preds = %if.end11, %if.end5, %sw.bb
-  %15 = load i32, ptr %offset.addr, align 4
-  %cmp13 = icmp slt i32 %15, 0
-  br i1 %cmp13, label %if.then15, label %lor.lhs.false
+49:                                               ; preds = %46
+  %50 = load i32, ptr %6, align 4, !tbaa !44
+  %51 = load i32, ptr %8, align 4, !tbaa !44
+  %52 = icmp sgt i32 %50, %51
+  br i1 %52, label %53, label %55
 
-lor.lhs.false:                                    ; preds = %sw.epilog
-  %16 = load i32, ptr %offset.addr, align 4
-  %17 = load i32, ptr %blob_len, align 4
-  %cmp14 = icmp sgt i32 %16, %17
-  br i1 %cmp14, label %if.then15, label %if.end16
+53:                                               ; preds = %49, %46
+  %54 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !22
+  call void @PyErr_SetString(ptr noundef %54, ptr noundef @.str.13)
+  store ptr null, ptr %4, align 8
+  store i32 1, ptr %9, align 4
+  br label %61
 
-if.then15:                                        ; preds = %lor.lhs.false, %sw.epilog
-  %18 = load ptr, ptr @PyExc_ValueError, align 8
-  call void @PyErr_SetString(ptr noundef %18, ptr noundef @.str.10)
-  store ptr null, ptr %retval, align 8
-  br label %return
+55:                                               ; preds = %49
+  %56 = load i32, ptr %6, align 4, !tbaa !44
+  %57 = load ptr, ptr %5, align 8, !tbaa !3
+  %58 = getelementptr inbounds nuw %struct.pysqlite_Blob, ptr %57, i32 0, i32 3
+  store i32 %56, ptr %58, align 8, !tbaa !53
+  store ptr @_Py_NoneStruct, ptr %4, align 8
+  store i32 1, ptr %9, align 4
+  br label %61
 
-if.end16:                                         ; preds = %lor.lhs.false
-  %19 = load i32, ptr %offset.addr, align 4
-  %20 = load ptr, ptr %self.addr, align 8
-  %offset17 = getelementptr inbounds %struct.pysqlite_Blob, ptr %20, i32 0, i32 3
-  store i32 %19, ptr %offset17, align 8
-  store ptr @_Py_NoneStruct, ptr %retval, align 8
-  br label %return
+59:                                               ; preds = %39, %27
+  %60 = load ptr, ptr @PyExc_OverflowError, align 8, !tbaa !22
+  call void @PyErr_SetString(ptr noundef %60, ptr noundef @.str.14)
+  store ptr null, ptr %4, align 8
+  store i32 1, ptr %9, align 4
+  br label %61
 
-overflow:                                         ; preds = %if.then10, %if.then4
-  %21 = load ptr, ptr @PyExc_OverflowError, align 8
-  call void @PyErr_SetString(ptr noundef %21, ptr noundef @.str.11)
-  store ptr null, ptr %retval, align 8
-  br label %return
+61:                                               ; preds = %59, %55, %53, %44
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #6
+  br label %62
 
-return:                                           ; preds = %overflow, %if.end16, %if.then15, %sw.default, %if.then
-  %22 = load ptr, ptr %retval, align 8
-  ret ptr %22
+62:                                               ; preds = %61, %13
+  %63 = load ptr, ptr %4, align 8
+  ret ptr %63
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @blob_tell_impl(ptr noundef %self) #0 {
-entry:
-  %retval = alloca ptr, align 8
-  %self.addr = alloca ptr, align 8
-  store ptr %self, ptr %self.addr, align 8
-  %0 = load ptr, ptr %self.addr, align 8
-  %call = call i32 @check_blob(ptr noundef %0)
-  %tobool = icmp ne i32 %call, 0
-  br i1 %tobool, label %if.end, label %if.then
+define internal ptr @blob_tell_impl(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  %4 = load ptr, ptr %3, align 8, !tbaa !3
+  %5 = call i32 @check_blob(ptr noundef %4)
+  %6 = icmp ne i32 %5, 0
+  br i1 %6, label %8, label %7
 
-if.then:                                          ; preds = %entry
-  store ptr null, ptr %retval, align 8
-  br label %return
+7:                                                ; preds = %1
+  store ptr null, ptr %2, align 8
+  br label %14
 
-if.end:                                           ; preds = %entry
-  %1 = load ptr, ptr %self.addr, align 8
-  %offset = getelementptr inbounds %struct.pysqlite_Blob, ptr %1, i32 0, i32 3
-  %2 = load i32, ptr %offset, align 8
-  %conv = sext i32 %2 to i64
-  %call1 = call ptr @PyLong_FromLong(i64 noundef %conv)
-  store ptr %call1, ptr %retval, align 8
-  br label %return
+8:                                                ; preds = %1
+  %9 = load ptr, ptr %3, align 8, !tbaa !3
+  %10 = getelementptr inbounds nuw %struct.pysqlite_Blob, ptr %9, i32 0, i32 3
+  %11 = load i32, ptr %10, align 8, !tbaa !53
+  %12 = sext i32 %11 to i64
+  %13 = call ptr @PyLong_FromLong(i64 noundef %12)
+  store ptr %13, ptr %2, align 8
+  br label %14
 
-return:                                           ; preds = %if.end, %if.then
-  %3 = load ptr, ptr %retval, align 8
-  ret ptr %3
+14:                                               ; preds = %8, %7
+  %15 = load ptr, ptr %2, align 8
+  ret ptr %15
 }
 
-declare ptr @PyLong_FromLong(i64 noundef) #1
+declare ptr @PyLong_FromLong(i64 noundef) #3
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
-declare i32 @PyObject_GetBuffer(ptr noundef, ptr noundef, i32 noundef) #1
+declare i32 @PyObject_GetBuffer(ptr noundef, ptr noundef, i32 noundef) #3
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @blob_write_impl(ptr noundef %self, ptr noundef %data) #0 {
-entry:
-  %retval = alloca ptr, align 8
-  %self.addr = alloca ptr, align 8
-  %data.addr = alloca ptr, align 8
-  %rc = alloca i32, align 4
-  store ptr %self, ptr %self.addr, align 8
-  store ptr %data, ptr %data.addr, align 8
-  %0 = load ptr, ptr %self.addr, align 8
-  %call = call i32 @check_blob(ptr noundef %0)
-  %tobool = icmp ne i32 %call, 0
-  br i1 %tobool, label %if.end, label %if.then
+define internal ptr @blob_write_impl(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  %7 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !3
+  store ptr %1, ptr %5, align 8, !tbaa !3
+  %8 = load ptr, ptr %4, align 8, !tbaa !3
+  %9 = call i32 @check_blob(ptr noundef %8)
+  %10 = icmp ne i32 %9, 0
+  br i1 %10, label %12, label %11
 
-if.then:                                          ; preds = %entry
-  store ptr null, ptr %retval, align 8
-  br label %return
+11:                                               ; preds = %2
+  store ptr null, ptr %3, align 8
+  br label %38
 
-if.end:                                           ; preds = %entry
-  %1 = load ptr, ptr %self.addr, align 8
-  %2 = load ptr, ptr %data.addr, align 8
-  %buf = getelementptr inbounds %struct.Py_buffer, ptr %2, i32 0, i32 0
-  %3 = load ptr, ptr %buf, align 8
-  %4 = load ptr, ptr %data.addr, align 8
-  %len = getelementptr inbounds %struct.Py_buffer, ptr %4, i32 0, i32 2
-  %5 = load i64, ptr %len, align 8
-  %6 = load ptr, ptr %self.addr, align 8
-  %offset = getelementptr inbounds %struct.pysqlite_Blob, ptr %6, i32 0, i32 3
-  %7 = load i32, ptr %offset, align 8
-  %conv = sext i32 %7 to i64
-  %call1 = call i32 @inner_write(ptr noundef %1, ptr noundef %3, i64 noundef %5, i64 noundef %conv)
-  store i32 %call1, ptr %rc, align 4
-  %8 = load i32, ptr %rc, align 4
-  %cmp = icmp slt i32 %8, 0
-  br i1 %cmp, label %if.then3, label %if.end4
+12:                                               ; preds = %2
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #6
+  %13 = load ptr, ptr %4, align 8, !tbaa !3
+  %14 = load ptr, ptr %5, align 8, !tbaa !3
+  %15 = getelementptr inbounds nuw %struct.Py_buffer, ptr %14, i32 0, i32 0
+  %16 = load ptr, ptr %15, align 8, !tbaa !56
+  %17 = load ptr, ptr %5, align 8, !tbaa !3
+  %18 = getelementptr inbounds nuw %struct.Py_buffer, ptr %17, i32 0, i32 2
+  %19 = load i64, ptr %18, align 8, !tbaa !57
+  %20 = load ptr, ptr %4, align 8, !tbaa !3
+  %21 = getelementptr inbounds nuw %struct.pysqlite_Blob, ptr %20, i32 0, i32 3
+  %22 = load i32, ptr %21, align 8, !tbaa !53
+  %23 = sext i32 %22 to i64
+  %24 = call i32 @inner_write(ptr noundef %13, ptr noundef %16, i64 noundef %19, i64 noundef %23)
+  store i32 %24, ptr %6, align 4, !tbaa !44
+  %25 = load i32, ptr %6, align 4, !tbaa !44
+  %26 = icmp slt i32 %25, 0
+  br i1 %26, label %27, label %28
 
-if.then3:                                         ; preds = %if.end
-  store ptr null, ptr %retval, align 8
-  br label %return
+27:                                               ; preds = %12
+  store ptr null, ptr %3, align 8
+  store i32 1, ptr %7, align 4
+  br label %37
 
-if.end4:                                          ; preds = %if.end
-  %9 = load ptr, ptr %data.addr, align 8
-  %len5 = getelementptr inbounds %struct.Py_buffer, ptr %9, i32 0, i32 2
-  %10 = load i64, ptr %len5, align 8
-  %conv6 = trunc i64 %10 to i32
-  %11 = load ptr, ptr %self.addr, align 8
-  %offset7 = getelementptr inbounds %struct.pysqlite_Blob, ptr %11, i32 0, i32 3
-  %12 = load i32, ptr %offset7, align 8
-  %add = add i32 %12, %conv6
-  store i32 %add, ptr %offset7, align 8
-  store ptr @_Py_NoneStruct, ptr %retval, align 8
-  br label %return
+28:                                               ; preds = %12
+  %29 = load ptr, ptr %5, align 8, !tbaa !3
+  %30 = getelementptr inbounds nuw %struct.Py_buffer, ptr %29, i32 0, i32 2
+  %31 = load i64, ptr %30, align 8, !tbaa !57
+  %32 = trunc i64 %31 to i32
+  %33 = load ptr, ptr %4, align 8, !tbaa !3
+  %34 = getelementptr inbounds nuw %struct.pysqlite_Blob, ptr %33, i32 0, i32 3
+  %35 = load i32, ptr %34, align 8, !tbaa !53
+  %36 = add i32 %35, %32
+  store i32 %36, ptr %34, align 8, !tbaa !53
+  store ptr @_Py_NoneStruct, ptr %3, align 8
+  store i32 1, ptr %7, align 4
+  br label %37
 
-return:                                           ; preds = %if.end4, %if.then3, %if.then
-  %13 = load ptr, ptr %retval, align 8
-  ret ptr %13
+37:                                               ; preds = %28, %27
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #6
+  br label %38
+
+38:                                               ; preds = %37, %11
+  %39 = load ptr, ptr %3, align 8
+  ret ptr %39
 }
 
-declare void @PyBuffer_Release(ptr noundef) #1
+declare void @PyBuffer_Release(ptr noundef) #3
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @inner_write(ptr noundef %self, ptr noundef %buf, i64 noundef %len, i64 noundef %offset) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %self.addr = alloca ptr, align 8
-  %buf.addr = alloca ptr, align 8
-  %len.addr = alloca i64, align 8
-  %offset.addr = alloca i64, align 8
-  %blob_len = alloca i64, align 8
-  %remaining_len = alloca i64, align 8
-  %rc = alloca i32, align 4
-  %_save = alloca ptr, align 8
-  store ptr %self, ptr %self.addr, align 8
-  store ptr %buf, ptr %buf.addr, align 8
-  store i64 %len, ptr %len.addr, align 8
-  store i64 %offset, ptr %offset.addr, align 8
-  %0 = load ptr, ptr %self.addr, align 8
-  %blob = getelementptr inbounds %struct.pysqlite_Blob, ptr %0, i32 0, i32 2
-  %1 = load ptr, ptr %blob, align 8
-  %call = call i32 @sqlite3_blob_bytes(ptr noundef %1)
-  %conv = sext i32 %call to i64
-  store i64 %conv, ptr %blob_len, align 8
-  %2 = load i64, ptr %blob_len, align 8
-  %3 = load i64, ptr %offset.addr, align 8
-  %sub = sub i64 %2, %3
-  store i64 %sub, ptr %remaining_len, align 8
-  %4 = load i64, ptr %len.addr, align 8
-  %5 = load i64, ptr %remaining_len, align 8
-  %cmp = icmp sgt i64 %4, %5
-  br i1 %cmp, label %if.then, label %if.end
+define internal i32 @inner_write(ptr noundef %0, ptr noundef %1, i64 noundef %2, i64 noundef %3) #0 {
+  %5 = alloca i32, align 4
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca i64, align 8
+  %9 = alloca i64, align 8
+  %10 = alloca i64, align 8
+  %11 = alloca i64, align 8
+  %12 = alloca i32, align 4
+  %13 = alloca i32, align 4
+  %14 = alloca ptr, align 8
+  store ptr %0, ptr %6, align 8, !tbaa !3
+  store ptr %1, ptr %7, align 8, !tbaa !3
+  store i64 %2, ptr %8, align 8, !tbaa !7
+  store i64 %3, ptr %9, align 8, !tbaa !7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #6
+  %15 = load ptr, ptr %6, align 8, !tbaa !3
+  %16 = getelementptr inbounds nuw %struct.pysqlite_Blob, ptr %15, i32 0, i32 2
+  %17 = load ptr, ptr %16, align 8, !tbaa !25
+  %18 = call i32 @sqlite3_blob_bytes(ptr noundef %17)
+  %19 = sext i32 %18 to i64
+  store i64 %19, ptr %10, align 8, !tbaa !7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #6
+  %20 = load i64, ptr %10, align 8, !tbaa !7
+  %21 = load i64, ptr %9, align 8, !tbaa !7
+  %22 = sub i64 %20, %21
+  store i64 %22, ptr %11, align 8, !tbaa !7
+  %23 = load i64, ptr %8, align 8, !tbaa !7
+  %24 = load i64, ptr %11, align 8, !tbaa !7
+  %25 = icmp sgt i64 %23, %24
+  br i1 %25, label %26, label %28
 
-if.then:                                          ; preds = %entry
-  %6 = load ptr, ptr @PyExc_ValueError, align 8
-  call void @PyErr_SetString(ptr noundef %6, ptr noundef @.str.12)
-  store i32 -1, ptr %retval, align 4
-  br label %return
+26:                                               ; preds = %4
+  %27 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !22
+  call void @PyErr_SetString(ptr noundef %27, ptr noundef @.str.15)
+  store i32 -1, ptr %5, align 4
+  store i32 1, ptr %12, align 4
+  br label %47
 
-if.end:                                           ; preds = %entry
-  %call2 = call ptr @PyEval_SaveThread()
-  store ptr %call2, ptr %_save, align 8
-  %7 = load ptr, ptr %self.addr, align 8
-  %blob3 = getelementptr inbounds %struct.pysqlite_Blob, ptr %7, i32 0, i32 2
-  %8 = load ptr, ptr %blob3, align 8
-  %9 = load ptr, ptr %buf.addr, align 8
-  %10 = load i64, ptr %len.addr, align 8
-  %conv4 = trunc i64 %10 to i32
-  %11 = load i64, ptr %offset.addr, align 8
-  %conv5 = trunc i64 %11 to i32
-  %call6 = call i32 @sqlite3_blob_write(ptr noundef %8, ptr noundef %9, i32 noundef %conv4, i32 noundef %conv5)
-  store i32 %call6, ptr %rc, align 4
-  %12 = load ptr, ptr %_save, align 8
-  call void @PyEval_RestoreThread(ptr noundef %12)
-  %13 = load i32, ptr %rc, align 4
-  %cmp7 = icmp ne i32 %13, 0
-  br i1 %cmp7, label %if.then9, label %if.end10
+28:                                               ; preds = %4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #6
+  %29 = call ptr @PyEval_SaveThread()
+  store ptr %29, ptr %14, align 8, !tbaa !29
+  %30 = load ptr, ptr %6, align 8, !tbaa !3
+  %31 = getelementptr inbounds nuw %struct.pysqlite_Blob, ptr %30, i32 0, i32 2
+  %32 = load ptr, ptr %31, align 8, !tbaa !25
+  %33 = load ptr, ptr %7, align 8, !tbaa !3
+  %34 = load i64, ptr %8, align 8, !tbaa !7
+  %35 = trunc i64 %34 to i32
+  %36 = load i64, ptr %9, align 8, !tbaa !7
+  %37 = trunc i64 %36 to i32
+  %38 = call i32 @sqlite3_blob_write(ptr noundef %32, ptr noundef %33, i32 noundef %35, i32 noundef %37)
+  store i32 %38, ptr %13, align 4, !tbaa !44
+  %39 = load ptr, ptr %14, align 8, !tbaa !29
+  call void @PyEval_RestoreThread(ptr noundef %39)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #6
+  %40 = load i32, ptr %13, align 4, !tbaa !44
+  %41 = icmp ne i32 %40, 0
+  br i1 %41, label %42, label %45
 
-if.then9:                                         ; preds = %if.end
-  %14 = load ptr, ptr %self.addr, align 8
-  %15 = load i32, ptr %rc, align 4
-  call void @blob_seterror(ptr noundef %14, i32 noundef %15)
-  store i32 -1, ptr %retval, align 4
-  br label %return
+42:                                               ; preds = %28
+  %43 = load ptr, ptr %6, align 8, !tbaa !3
+  %44 = load i32, ptr %13, align 4, !tbaa !44
+  call void @blob_seterror(ptr noundef %43, i32 noundef %44)
+  store i32 -1, ptr %5, align 4
+  store i32 1, ptr %12, align 4
+  br label %46
 
-if.end10:                                         ; preds = %if.end
-  store i32 0, ptr %retval, align 4
-  br label %return
+45:                                               ; preds = %28
+  store i32 0, ptr %5, align 4
+  store i32 1, ptr %12, align 4
+  br label %46
 
-return:                                           ; preds = %if.end10, %if.then9, %if.then
-  %16 = load i32, ptr %retval, align 4
-  ret i32 %16
+46:                                               ; preds = %45, %42
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #6
+  br label %47
+
+47:                                               ; preds = %46, %26
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #6
+  %48 = load i32, ptr %5, align 4
+  ret i32 %48
 }
 
-declare i32 @sqlite3_blob_write(ptr noundef, ptr noundef, i32 noundef, i32 noundef) #1
+declare i32 @sqlite3_blob_write(ptr noundef, ptr noundef, i32 noundef, i32 noundef) #3
 
-declare i32 @PyIndex_Check(ptr noundef) #1
+declare i32 @PyIndex_Check(ptr noundef) #3
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @subscript_index(ptr noundef %self, ptr noundef %item) #0 {
-entry:
-  %retval = alloca ptr, align 8
-  %self.addr = alloca ptr, align 8
-  %item.addr = alloca ptr, align 8
-  %i = alloca i64, align 8
-  store ptr %self, ptr %self.addr, align 8
-  store ptr %item, ptr %item.addr, align 8
-  %0 = load ptr, ptr %self.addr, align 8
-  %1 = load ptr, ptr %item.addr, align 8
-  %call = call i64 @get_subscript_index(ptr noundef %0, ptr noundef %1)
-  store i64 %call, ptr %i, align 8
-  %2 = load i64, ptr %i, align 8
-  %cmp = icmp slt i64 %2, 0
-  br i1 %cmp, label %if.then, label %if.end
+define internal ptr @subscript_index(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i64, align 8
+  %7 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !3
+  store ptr %1, ptr %5, align 8, !tbaa !22
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #6
+  %8 = load ptr, ptr %4, align 8, !tbaa !3
+  %9 = load ptr, ptr %5, align 8, !tbaa !22
+  %10 = call i64 @get_subscript_index(ptr noundef %8, ptr noundef %9)
+  store i64 %10, ptr %6, align 8, !tbaa !7
+  %11 = load i64, ptr %6, align 8, !tbaa !7
+  %12 = icmp slt i64 %11, 0
+  br i1 %12, label %13, label %14
 
-if.then:                                          ; preds = %entry
-  store ptr null, ptr %retval, align 8
-  br label %return
+13:                                               ; preds = %2
+  store ptr null, ptr %3, align 8
+  store i32 1, ptr %7, align 4
+  br label %18
 
-if.end:                                           ; preds = %entry
-  %3 = load ptr, ptr %self.addr, align 8
-  %4 = load i64, ptr %i, align 8
-  %call1 = call ptr @read_single(ptr noundef %3, i64 noundef %4)
-  store ptr %call1, ptr %retval, align 8
-  br label %return
+14:                                               ; preds = %2
+  %15 = load ptr, ptr %4, align 8, !tbaa !3
+  %16 = load i64, ptr %6, align 8, !tbaa !7
+  %17 = call ptr @read_single(ptr noundef %15, i64 noundef %16)
+  store ptr %17, ptr %3, align 8
+  store i32 1, ptr %7, align 4
+  br label %18
 
-return:                                           ; preds = %if.end, %if.then
-  %5 = load ptr, ptr %retval, align 8
-  ret ptr %5
+18:                                               ; preds = %14, %13
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #6
+  %19 = load ptr, ptr %3, align 8
+  ret ptr %19
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @Py_IS_TYPE(ptr noundef %ob, ptr noundef %type) #0 {
-entry:
-  %ob.addr = alloca ptr, align 8
-  %type.addr = alloca ptr, align 8
-  store ptr %ob, ptr %ob.addr, align 8
-  store ptr %type, ptr %type.addr, align 8
-  %0 = load ptr, ptr %ob.addr, align 8
-  %call = call ptr @Py_TYPE(ptr noundef %0)
-  %1 = load ptr, ptr %type.addr, align 8
-  %cmp = icmp eq ptr %call, %1
-  %conv = zext i1 %cmp to i32
-  ret i32 %conv
-}
-
-; Function Attrs: nounwind uwtable
-define internal ptr @subscript_slice(ptr noundef %self, ptr noundef %item) #0 {
-entry:
-  %op.addr.i17 = alloca ptr, align 8
-  %op.addr.i = alloca ptr, align 8
-  %retval = alloca ptr, align 8
-  %self.addr = alloca ptr, align 8
-  %item.addr = alloca ptr, align 8
-  %start = alloca i64, align 8
-  %stop = alloca i64, align 8
-  %step = alloca i64, align 8
-  %len = alloca i64, align 8
-  %blob = alloca ptr, align 8
-  %result = alloca ptr, align 8
-  %blob_buf = alloca ptr, align 8
-  %res_buf = alloca ptr, align 8
-  %i = alloca i64, align 8
-  %j = alloca i64, align 8
-  store ptr %self, ptr %self.addr, align 8
-  store ptr %item, ptr %item.addr, align 8
-  %0 = load ptr, ptr %self.addr, align 8
-  %1 = load ptr, ptr %item.addr, align 8
-  %call = call i32 @get_slice_info(ptr noundef %0, ptr noundef %1, ptr noundef %start, ptr noundef %stop, ptr noundef %step, ptr noundef %len)
-  %cmp = icmp slt i32 %call, 0
-  br i1 %cmp, label %if.then, label %if.end
-
-if.then:                                          ; preds = %entry
-  store ptr null, ptr %retval, align 8
-  br label %return
-
-if.end:                                           ; preds = %entry
-  %2 = load i64, ptr %step, align 8
-  %cmp1 = icmp eq i64 %2, 1
-  br i1 %cmp1, label %if.then2, label %if.end4
-
-if.then2:                                         ; preds = %if.end
-  %3 = load ptr, ptr %self.addr, align 8
-  %4 = load i64, ptr %len, align 8
-  %5 = load i64, ptr %start, align 8
-  %call3 = call ptr @read_multiple(ptr noundef %3, i64 noundef %4, i64 noundef %5)
-  store ptr %call3, ptr %retval, align 8
-  br label %return
-
-if.end4:                                          ; preds = %if.end
-  %6 = load ptr, ptr %self.addr, align 8
-  %7 = load i64, ptr %stop, align 8
-  %8 = load i64, ptr %start, align 8
-  %sub = sub i64 %7, %8
-  %9 = load i64, ptr %start, align 8
-  %call5 = call ptr @read_multiple(ptr noundef %6, i64 noundef %sub, i64 noundef %9)
-  store ptr %call5, ptr %blob, align 8
-  %10 = load ptr, ptr %blob, align 8
-  %cmp6 = icmp eq ptr %10, null
-  br i1 %cmp6, label %if.then7, label %if.end8
-
-if.then7:                                         ; preds = %if.end4
-  store ptr null, ptr %retval, align 8
-  br label %return
-
-if.end8:                                          ; preds = %if.end4
-  %11 = load i64, ptr %len, align 8
-  %call9 = call ptr @PyBytes_FromStringAndSize(ptr noundef null, i64 noundef %11)
-  store ptr %call9, ptr %result, align 8
-  %12 = load ptr, ptr %result, align 8
-  %cmp10 = icmp ne ptr %12, null
-  br i1 %cmp10, label %if.then11, label %if.end16
-
-if.then11:                                        ; preds = %if.end8
-  %13 = load ptr, ptr %blob, align 8
-  %call12 = call ptr @PyBytes_AS_STRING(ptr noundef %13)
-  store ptr %call12, ptr %blob_buf, align 8
-  %14 = load ptr, ptr %result, align 8
-  %call13 = call ptr @PyBytes_AS_STRING(ptr noundef %14)
-  store ptr %call13, ptr %res_buf, align 8
-  store i64 0, ptr %i, align 8
-  store i64 0, ptr %j, align 8
-  br label %for.cond
-
-for.cond:                                         ; preds = %for.inc, %if.then11
-  %15 = load i64, ptr %i, align 8
-  %16 = load i64, ptr %len, align 8
-  %cmp14 = icmp slt i64 %15, %16
-  br i1 %cmp14, label %for.body, label %for.end
-
-for.body:                                         ; preds = %for.cond
-  %17 = load ptr, ptr %blob_buf, align 8
-  %18 = load i64, ptr %j, align 8
-  %arrayidx = getelementptr i8, ptr %17, i64 %18
-  %19 = load i8, ptr %arrayidx, align 1
-  %20 = load ptr, ptr %res_buf, align 8
-  %21 = load i64, ptr %i, align 8
-  %arrayidx15 = getelementptr i8, ptr %20, i64 %21
-  store i8 %19, ptr %arrayidx15, align 1
-  br label %for.inc
-
-for.inc:                                          ; preds = %for.body
-  %22 = load i64, ptr %i, align 8
-  %inc = add i64 %22, 1
-  store i64 %inc, ptr %i, align 8
-  %23 = load i64, ptr %step, align 8
-  %24 = load i64, ptr %j, align 8
-  %add = add i64 %24, %23
-  store i64 %add, ptr %j, align 8
-  br label %for.cond, !llvm.loop !6
-
-for.end:                                          ; preds = %for.cond
-  %25 = load ptr, ptr %blob, align 8
-  store ptr %25, ptr %op.addr.i, align 8
-  %26 = load ptr, ptr %op.addr.i, align 8
-  store ptr %26, ptr %op.addr.i17, align 8
-  %27 = load ptr, ptr %op.addr.i17, align 8
-  %28 = load i64, ptr %27, align 8
-  %conv.i = trunc i64 %28 to i32
-  %cmp.i18 = icmp slt i32 %conv.i, 0
-  %conv1.i = zext i1 %cmp.i18 to i32
-  %tobool.i = icmp ne i32 %conv1.i, 0
-  br i1 %tobool.i, label %if.then.i, label %if.end.i
-
-if.then.i:                                        ; preds = %for.end
-  br label %Py_DECREF.exit
-
-if.end.i:                                         ; preds = %for.end
-  %29 = load ptr, ptr %op.addr.i, align 8
-  %30 = load i64, ptr %29, align 8
-  %dec.i = add i64 %30, -1
-  store i64 %dec.i, ptr %29, align 8
-  %cmp.i = icmp eq i64 %dec.i, 0
-  br i1 %cmp.i, label %if.then1.i, label %Py_DECREF.exit
-
-if.then1.i:                                       ; preds = %if.end.i
-  %31 = load ptr, ptr %op.addr.i, align 8
-  call void @_Py_Dealloc(ptr noundef %31) #3
-  br label %Py_DECREF.exit
-
-Py_DECREF.exit:                                   ; preds = %if.then1.i, %if.end.i, %if.then.i
-  br label %if.end16
-
-if.end16:                                         ; preds = %Py_DECREF.exit, %if.end8
-  %32 = load ptr, ptr %result, align 8
-  store ptr %32, ptr %retval, align 8
-  br label %return
-
-return:                                           ; preds = %if.end16, %if.then7, %if.then2, %if.then
-  %33 = load ptr, ptr %retval, align 8
-  ret ptr %33
+; Function Attrs: inlinehint nounwind uwtable
+define internal i32 @Py_IS_TYPE(ptr noundef %0, ptr noundef %1) #2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !22
+  store ptr %1, ptr %4, align 8, !tbaa !35
+  %5 = load ptr, ptr %3, align 8, !tbaa !22
+  %6 = call ptr @_Py_TYPE(ptr noundef %5)
+  %7 = load ptr, ptr %4, align 8, !tbaa !35
+  %8 = icmp eq ptr %6, %7
+  %9 = zext i1 %8 to i32
+  ret i32 %9
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @get_subscript_index(ptr noundef %self, ptr noundef %item) #0 {
-entry:
-  %retval = alloca i64, align 8
-  %self.addr = alloca ptr, align 8
-  %item.addr = alloca ptr, align 8
-  %i = alloca i64, align 8
-  %blob_len = alloca i32, align 4
-  store ptr %self, ptr %self.addr, align 8
-  store ptr %item, ptr %item.addr, align 8
-  %0 = load ptr, ptr %item.addr, align 8
-  %1 = load ptr, ptr @PyExc_IndexError, align 8
-  %call = call i64 @PyNumber_AsSsize_t(ptr noundef %0, ptr noundef %1)
-  store i64 %call, ptr %i, align 8
-  %2 = load i64, ptr %i, align 8
-  %cmp = icmp eq i64 %2, -1
-  br i1 %cmp, label %land.lhs.true, label %if.end
+define internal ptr @subscript_slice(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i64, align 8
+  %7 = alloca i64, align 8
+  %8 = alloca i64, align 8
+  %9 = alloca i64, align 8
+  %10 = alloca i32, align 4
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca ptr, align 8
+  %14 = alloca ptr, align 8
+  %15 = alloca i64, align 8
+  %16 = alloca i64, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !3
+  store ptr %1, ptr %5, align 8, !tbaa !22
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #6
+  %17 = load ptr, ptr %4, align 8, !tbaa !3
+  %18 = load ptr, ptr %5, align 8, !tbaa !22
+  %19 = call i32 @get_slice_info(ptr noundef %17, ptr noundef %18, ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9)
+  %20 = icmp slt i32 %19, 0
+  br i1 %20, label %21, label %22
 
-land.lhs.true:                                    ; preds = %entry
-  %call1 = call ptr @PyErr_Occurred()
-  %tobool = icmp ne ptr %call1, null
-  br i1 %tobool, label %if.then, label %if.end
+21:                                               ; preds = %2
+  store ptr null, ptr %3, align 8
+  store i32 1, ptr %10, align 4
+  br label %74
 
-if.then:                                          ; preds = %land.lhs.true
-  store i64 -1, ptr %retval, align 8
-  br label %return
+22:                                               ; preds = %2
+  %23 = load i64, ptr %8, align 8, !tbaa !7
+  %24 = icmp eq i64 %23, 1
+  br i1 %24, label %25, label %30
 
-if.end:                                           ; preds = %land.lhs.true, %entry
-  %3 = load ptr, ptr %self.addr, align 8
-  %blob = getelementptr inbounds %struct.pysqlite_Blob, ptr %3, i32 0, i32 2
-  %4 = load ptr, ptr %blob, align 8
-  %call2 = call i32 @sqlite3_blob_bytes(ptr noundef %4)
-  store i32 %call2, ptr %blob_len, align 4
-  %5 = load i64, ptr %i, align 8
-  %cmp3 = icmp slt i64 %5, 0
-  br i1 %cmp3, label %if.then4, label %if.end5
+25:                                               ; preds = %22
+  %26 = load ptr, ptr %4, align 8, !tbaa !3
+  %27 = load i64, ptr %9, align 8, !tbaa !7
+  %28 = load i64, ptr %6, align 8, !tbaa !7
+  %29 = call ptr @read_multiple(ptr noundef %26, i64 noundef %27, i64 noundef %28)
+  store ptr %29, ptr %3, align 8
+  store i32 1, ptr %10, align 4
+  br label %74
 
-if.then4:                                         ; preds = %if.end
-  %6 = load i32, ptr %blob_len, align 4
-  %conv = sext i32 %6 to i64
-  %7 = load i64, ptr %i, align 8
-  %add = add i64 %7, %conv
-  store i64 %add, ptr %i, align 8
-  br label %if.end5
+30:                                               ; preds = %22
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #6
+  %31 = load ptr, ptr %4, align 8, !tbaa !3
+  %32 = load i64, ptr %7, align 8, !tbaa !7
+  %33 = load i64, ptr %6, align 8, !tbaa !7
+  %34 = sub i64 %32, %33
+  %35 = load i64, ptr %6, align 8, !tbaa !7
+  %36 = call ptr @read_multiple(ptr noundef %31, i64 noundef %34, i64 noundef %35)
+  store ptr %36, ptr %11, align 8, !tbaa !22
+  %37 = load ptr, ptr %11, align 8, !tbaa !22
+  %38 = icmp eq ptr %37, null
+  br i1 %38, label %39, label %40
 
-if.end5:                                          ; preds = %if.then4, %if.end
-  %8 = load i64, ptr %i, align 8
-  %cmp6 = icmp slt i64 %8, 0
-  br i1 %cmp6, label %if.then11, label %lor.lhs.false
+39:                                               ; preds = %30
+  store ptr null, ptr %3, align 8
+  store i32 1, ptr %10, align 4
+  br label %73
 
-lor.lhs.false:                                    ; preds = %if.end5
-  %9 = load i64, ptr %i, align 8
-  %10 = load i32, ptr %blob_len, align 4
-  %conv8 = sext i32 %10 to i64
-  %cmp9 = icmp sge i64 %9, %conv8
-  br i1 %cmp9, label %if.then11, label %if.end12
+40:                                               ; preds = %30
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #6
+  %41 = load i64, ptr %9, align 8, !tbaa !7
+  %42 = call ptr @PyBytes_FromStringAndSize(ptr noundef null, i64 noundef %41)
+  store ptr %42, ptr %12, align 8, !tbaa !22
+  %43 = load ptr, ptr %12, align 8, !tbaa !22
+  %44 = icmp ne ptr %43, null
+  br i1 %44, label %45, label %71
 
-if.then11:                                        ; preds = %lor.lhs.false, %if.end5
-  %11 = load ptr, ptr @PyExc_IndexError, align 8
-  call void @PyErr_SetString(ptr noundef %11, ptr noundef @.str.15)
-  store i64 -1, ptr %retval, align 8
-  br label %return
+45:                                               ; preds = %40
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #6
+  %46 = load ptr, ptr %11, align 8, !tbaa !22
+  %47 = call ptr @PyBytes_AS_STRING(ptr noundef %46)
+  store ptr %47, ptr %13, align 8, !tbaa !54
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #6
+  %48 = load ptr, ptr %12, align 8, !tbaa !22
+  %49 = call ptr @PyBytes_AS_STRING(ptr noundef %48)
+  store ptr %49, ptr %14, align 8, !tbaa !54
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #6
+  store i64 0, ptr %15, align 8, !tbaa !7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %16) #6
+  store i64 0, ptr %16, align 8, !tbaa !7
+  br label %50
 
-if.end12:                                         ; preds = %lor.lhs.false
-  %12 = load i64, ptr %i, align 8
-  store i64 %12, ptr %retval, align 8
-  br label %return
+50:                                               ; preds = %63, %45
+  %51 = load i64, ptr %15, align 8, !tbaa !7
+  %52 = load i64, ptr %9, align 8, !tbaa !7
+  %53 = icmp slt i64 %51, %52
+  br i1 %53, label %55, label %54
 
-return:                                           ; preds = %if.end12, %if.then11, %if.then
-  %13 = load i64, ptr %retval, align 8
-  ret i64 %13
+54:                                               ; preds = %50
+  store i32 2, ptr %10, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #6
+  br label %69
+
+55:                                               ; preds = %50
+  %56 = load ptr, ptr %13, align 8, !tbaa !54
+  %57 = load i64, ptr %16, align 8, !tbaa !7
+  %58 = getelementptr i8, ptr %56, i64 %57
+  %59 = load i8, ptr %58, align 1, !tbaa !31
+  %60 = load ptr, ptr %14, align 8, !tbaa !54
+  %61 = load i64, ptr %15, align 8, !tbaa !7
+  %62 = getelementptr i8, ptr %60, i64 %61
+  store i8 %59, ptr %62, align 1, !tbaa !31
+  br label %63
+
+63:                                               ; preds = %55
+  %64 = load i64, ptr %15, align 8, !tbaa !7
+  %65 = add i64 %64, 1
+  store i64 %65, ptr %15, align 8, !tbaa !7
+  %66 = load i64, ptr %8, align 8, !tbaa !7
+  %67 = load i64, ptr %16, align 8, !tbaa !7
+  %68 = add i64 %67, %66
+  store i64 %68, ptr %16, align 8, !tbaa !7
+  br label %50, !llvm.loop !58
+
+69:                                               ; preds = %54
+  %70 = load ptr, ptr %11, align 8, !tbaa !22
+  call void @Py_DECREF(ptr noundef %70)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #6
+  br label %71
+
+71:                                               ; preds = %69, %40
+  %72 = load ptr, ptr %12, align 8, !tbaa !22
+  store ptr %72, ptr %3, align 8
+  store i32 1, ptr %10, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #6
+  br label %73
+
+73:                                               ; preds = %71, %39
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #6
+  br label %74
+
+74:                                               ; preds = %73, %25, %21
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #6
+  %75 = load ptr, ptr %3, align 8
+  ret ptr %75
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @read_single(ptr noundef %self, i64 noundef %offset) #0 {
-entry:
-  %retval = alloca ptr, align 8
-  %self.addr = alloca ptr, align 8
-  %offset.addr = alloca i64, align 8
-  %buf = alloca i8, align 1
-  %rc = alloca i32, align 4
-  %_save = alloca ptr, align 8
-  store ptr %self, ptr %self.addr, align 8
-  store i64 %offset, ptr %offset.addr, align 8
-  store i8 0, ptr %buf, align 1
-  %call = call ptr @PyEval_SaveThread()
-  store ptr %call, ptr %_save, align 8
-  %0 = load ptr, ptr %self.addr, align 8
-  %blob = getelementptr inbounds %struct.pysqlite_Blob, ptr %0, i32 0, i32 2
-  %1 = load ptr, ptr %blob, align 8
-  %2 = load i64, ptr %offset.addr, align 8
-  %conv = trunc i64 %2 to i32
-  %call1 = call i32 @sqlite3_blob_read(ptr noundef %1, ptr noundef %buf, i32 noundef 1, i32 noundef %conv)
-  store i32 %call1, ptr %rc, align 4
-  %3 = load ptr, ptr %_save, align 8
-  call void @PyEval_RestoreThread(ptr noundef %3)
-  %4 = load i32, ptr %rc, align 4
-  %cmp = icmp ne i32 %4, 0
-  br i1 %cmp, label %if.then, label %if.end
+define internal i64 @get_subscript_index(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca i64, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i64, align 8
+  %7 = alloca i32, align 4
+  %8 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !3
+  store ptr %1, ptr %5, align 8, !tbaa !22
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #6
+  %9 = load ptr, ptr %5, align 8, !tbaa !22
+  %10 = load ptr, ptr @PyExc_IndexError, align 8, !tbaa !22
+  %11 = call i64 @PyNumber_AsSsize_t(ptr noundef %9, ptr noundef %10)
+  store i64 %11, ptr %6, align 8, !tbaa !7
+  %12 = load i64, ptr %6, align 8, !tbaa !7
+  %13 = icmp eq i64 %12, -1
+  br i1 %13, label %14, label %18
 
-if.then:                                          ; preds = %entry
-  %5 = load ptr, ptr %self.addr, align 8
-  %6 = load i32, ptr %rc, align 4
-  call void @blob_seterror(ptr noundef %5, i32 noundef %6)
-  store ptr null, ptr %retval, align 8
-  br label %return
+14:                                               ; preds = %2
+  %15 = call ptr @PyErr_Occurred()
+  %16 = icmp ne ptr %15, null
+  br i1 %16, label %17, label %18
 
-if.end:                                           ; preds = %entry
-  %7 = load i8, ptr %buf, align 1
-  %conv3 = zext i8 %7 to i64
-  %call4 = call ptr @PyLong_FromUnsignedLong(i64 noundef %conv3)
-  store ptr %call4, ptr %retval, align 8
-  br label %return
+17:                                               ; preds = %14
+  store i64 -1, ptr %3, align 8
+  store i32 1, ptr %7, align 4
+  br label %43
 
-return:                                           ; preds = %if.end, %if.then
-  %8 = load ptr, ptr %retval, align 8
-  ret ptr %8
+18:                                               ; preds = %14, %2
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #6
+  %19 = load ptr, ptr %4, align 8, !tbaa !3
+  %20 = getelementptr inbounds nuw %struct.pysqlite_Blob, ptr %19, i32 0, i32 2
+  %21 = load ptr, ptr %20, align 8, !tbaa !25
+  %22 = call i32 @sqlite3_blob_bytes(ptr noundef %21)
+  store i32 %22, ptr %8, align 4, !tbaa !44
+  %23 = load i64, ptr %6, align 8, !tbaa !7
+  %24 = icmp slt i64 %23, 0
+  br i1 %24, label %25, label %30
+
+25:                                               ; preds = %18
+  %26 = load i32, ptr %8, align 4, !tbaa !44
+  %27 = sext i32 %26 to i64
+  %28 = load i64, ptr %6, align 8, !tbaa !7
+  %29 = add i64 %28, %27
+  store i64 %29, ptr %6, align 8, !tbaa !7
+  br label %30
+
+30:                                               ; preds = %25, %18
+  %31 = load i64, ptr %6, align 8, !tbaa !7
+  %32 = icmp slt i64 %31, 0
+  br i1 %32, label %38, label %33
+
+33:                                               ; preds = %30
+  %34 = load i64, ptr %6, align 8, !tbaa !7
+  %35 = load i32, ptr %8, align 4, !tbaa !44
+  %36 = sext i32 %35 to i64
+  %37 = icmp sge i64 %34, %36
+  br i1 %37, label %38, label %40
+
+38:                                               ; preds = %33, %30
+  %39 = load ptr, ptr @PyExc_IndexError, align 8, !tbaa !22
+  call void @PyErr_SetString(ptr noundef %39, ptr noundef @.str.19)
+  store i64 -1, ptr %3, align 8
+  store i32 1, ptr %7, align 4
+  br label %42
+
+40:                                               ; preds = %33
+  %41 = load i64, ptr %6, align 8, !tbaa !7
+  store i64 %41, ptr %3, align 8
+  store i32 1, ptr %7, align 4
+  br label %42
+
+42:                                               ; preds = %40, %38
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #6
+  br label %43
+
+43:                                               ; preds = %42, %17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #6
+  %44 = load i64, ptr %3, align 8
+  ret i64 %44
 }
 
-declare i64 @PyNumber_AsSsize_t(ptr noundef, ptr noundef) #1
-
-declare ptr @PyLong_FromUnsignedLong(i64 noundef) #1
-
 ; Function Attrs: nounwind uwtable
-define internal i32 @get_slice_info(ptr noundef %self, ptr noundef %item, ptr noundef %start, ptr noundef %stop, ptr noundef %step, ptr noundef %slicelen) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %self.addr = alloca ptr, align 8
-  %item.addr = alloca ptr, align 8
-  %start.addr = alloca ptr, align 8
-  %stop.addr = alloca ptr, align 8
-  %step.addr = alloca ptr, align 8
-  %slicelen.addr = alloca ptr, align 8
-  %len = alloca i32, align 4
-  store ptr %self, ptr %self.addr, align 8
-  store ptr %item, ptr %item.addr, align 8
-  store ptr %start, ptr %start.addr, align 8
-  store ptr %stop, ptr %stop.addr, align 8
-  store ptr %step, ptr %step.addr, align 8
-  store ptr %slicelen, ptr %slicelen.addr, align 8
-  %0 = load ptr, ptr %item.addr, align 8
-  %1 = load ptr, ptr %start.addr, align 8
-  %2 = load ptr, ptr %stop.addr, align 8
-  %3 = load ptr, ptr %step.addr, align 8
-  %call = call i32 @PySlice_Unpack(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3)
-  %cmp = icmp slt i32 %call, 0
-  br i1 %cmp, label %if.then, label %if.end
+define internal ptr @read_single(ptr noundef %0, i64 noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca i64, align 8
+  %6 = alloca i8, align 1
+  %7 = alloca i32, align 4
+  %8 = alloca ptr, align 8
+  %9 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !3
+  store i64 %1, ptr %5, align 8, !tbaa !7
+  call void @llvm.lifetime.start.p0(i64 1, ptr %6) #6
+  store i8 0, ptr %6, align 1, !tbaa !31
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #6
+  %10 = call ptr @PyEval_SaveThread()
+  store ptr %10, ptr %8, align 8, !tbaa !29
+  %11 = load ptr, ptr %4, align 8, !tbaa !3
+  %12 = getelementptr inbounds nuw %struct.pysqlite_Blob, ptr %11, i32 0, i32 2
+  %13 = load ptr, ptr %12, align 8, !tbaa !25
+  %14 = load i64, ptr %5, align 8, !tbaa !7
+  %15 = trunc i64 %14 to i32
+  %16 = call i32 @sqlite3_blob_read(ptr noundef %13, ptr noundef %6, i32 noundef 1, i32 noundef %15)
+  store i32 %16, ptr %7, align 4, !tbaa !44
+  %17 = load ptr, ptr %8, align 8, !tbaa !29
+  call void @PyEval_RestoreThread(ptr noundef %17)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #6
+  %18 = load i32, ptr %7, align 4, !tbaa !44
+  %19 = icmp ne i32 %18, 0
+  br i1 %19, label %20, label %23
 
-if.then:                                          ; preds = %entry
-  store i32 -1, ptr %retval, align 4
-  br label %return
+20:                                               ; preds = %2
+  %21 = load ptr, ptr %4, align 8, !tbaa !3
+  %22 = load i32, ptr %7, align 4, !tbaa !44
+  call void @blob_seterror(ptr noundef %21, i32 noundef %22)
+  store ptr null, ptr %3, align 8
+  store i32 1, ptr %9, align 4
+  br label %27
 
-if.end:                                           ; preds = %entry
-  %4 = load ptr, ptr %self.addr, align 8
-  %blob = getelementptr inbounds %struct.pysqlite_Blob, ptr %4, i32 0, i32 2
-  %5 = load ptr, ptr %blob, align 8
-  %call1 = call i32 @sqlite3_blob_bytes(ptr noundef %5)
-  store i32 %call1, ptr %len, align 4
-  %6 = load i32, ptr %len, align 4
-  %conv = sext i32 %6 to i64
-  %7 = load ptr, ptr %start.addr, align 8
-  %8 = load ptr, ptr %stop.addr, align 8
-  %9 = load ptr, ptr %step.addr, align 8
-  %10 = load i64, ptr %9, align 8
-  %call2 = call i64 @PySlice_AdjustIndices(i64 noundef %conv, ptr noundef %7, ptr noundef %8, i64 noundef %10)
-  %11 = load ptr, ptr %slicelen.addr, align 8
-  store i64 %call2, ptr %11, align 8
-  store i32 0, ptr %retval, align 4
-  br label %return
+23:                                               ; preds = %2
+  %24 = load i8, ptr %6, align 1, !tbaa !31
+  %25 = zext i8 %24 to i64
+  %26 = call ptr @PyLong_FromUnsignedLong(i64 noundef %25)
+  store ptr %26, ptr %3, align 8
+  store i32 1, ptr %9, align 4
+  br label %27
 
-return:                                           ; preds = %if.end, %if.then
-  %12 = load i32, ptr %retval, align 4
-  ret i32 %12
+27:                                               ; preds = %23, %20
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #6
+  call void @llvm.lifetime.end.p0(i64 1, ptr %6) #6
+  %28 = load ptr, ptr %3, align 8
+  ret ptr %28
 }
 
-declare i32 @PySlice_Unpack(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #1
+declare i64 @PyNumber_AsSsize_t(ptr noundef, ptr noundef) #3
 
-declare i64 @PySlice_AdjustIndices(i64 noundef, ptr noundef, ptr noundef, i64 noundef) #1
+declare ptr @PyLong_FromUnsignedLong(i64 noundef) #3
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @ass_subscript_index(ptr noundef %self, ptr noundef %item, ptr noundef %value) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %self.addr = alloca ptr, align 8
-  %item.addr = alloca ptr, align 8
-  %value.addr = alloca ptr, align 8
-  %i = alloca i64, align 8
-  %val = alloca i64, align 8
-  %byte = alloca i8, align 1
-  store ptr %self, ptr %self.addr, align 8
-  store ptr %item, ptr %item.addr, align 8
-  store ptr %value, ptr %value.addr, align 8
-  %0 = load ptr, ptr %value.addr, align 8
-  %cmp = icmp eq ptr %0, null
-  br i1 %cmp, label %if.then, label %if.end
+define internal i32 @get_slice_info(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+  %7 = alloca i32, align 4
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca ptr, align 8
+  %14 = alloca i32, align 4
+  store ptr %0, ptr %8, align 8, !tbaa !3
+  store ptr %1, ptr %9, align 8, !tbaa !22
+  store ptr %2, ptr %10, align 8, !tbaa !59
+  store ptr %3, ptr %11, align 8, !tbaa !59
+  store ptr %4, ptr %12, align 8, !tbaa !59
+  store ptr %5, ptr %13, align 8, !tbaa !59
+  %15 = load ptr, ptr %9, align 8, !tbaa !22
+  %16 = load ptr, ptr %10, align 8, !tbaa !59
+  %17 = load ptr, ptr %11, align 8, !tbaa !59
+  %18 = load ptr, ptr %12, align 8, !tbaa !59
+  %19 = call i32 @PySlice_Unpack(ptr noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18)
+  %20 = icmp slt i32 %19, 0
+  br i1 %20, label %21, label %22
 
-if.then:                                          ; preds = %entry
-  %1 = load ptr, ptr @PyExc_TypeError, align 8
-  call void @PyErr_SetString(ptr noundef %1, ptr noundef @.str.16)
-  store i32 -1, ptr %retval, align 4
-  br label %return
+21:                                               ; preds = %6
+  store i32 -1, ptr %7, align 4
+  br label %35
 
-if.end:                                           ; preds = %entry
-  %2 = load ptr, ptr %value.addr, align 8
-  %call = call ptr @Py_TYPE(ptr noundef %2)
-  %call1 = call i32 @PyType_HasFeature(ptr noundef %call, i64 noundef 16777216)
-  %tobool = icmp ne i32 %call1, 0
-  br i1 %tobool, label %if.end5, label %if.then2
+22:                                               ; preds = %6
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #6
+  %23 = load ptr, ptr %8, align 8, !tbaa !3
+  %24 = getelementptr inbounds nuw %struct.pysqlite_Blob, ptr %23, i32 0, i32 2
+  %25 = load ptr, ptr %24, align 8, !tbaa !25
+  %26 = call i32 @sqlite3_blob_bytes(ptr noundef %25)
+  store i32 %26, ptr %14, align 4, !tbaa !44
+  %27 = load i32, ptr %14, align 4, !tbaa !44
+  %28 = sext i32 %27 to i64
+  %29 = load ptr, ptr %10, align 8, !tbaa !59
+  %30 = load ptr, ptr %11, align 8, !tbaa !59
+  %31 = load ptr, ptr %12, align 8, !tbaa !59
+  %32 = load i64, ptr %31, align 8, !tbaa !7
+  %33 = call i64 @PySlice_AdjustIndices(i64 noundef %28, ptr noundef %29, ptr noundef %30, i64 noundef %32)
+  %34 = load ptr, ptr %13, align 8, !tbaa !59
+  store i64 %33, ptr %34, align 8, !tbaa !7
+  store i32 0, ptr %7, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #6
+  br label %35
 
-if.then2:                                         ; preds = %if.end
-  %3 = load ptr, ptr @PyExc_TypeError, align 8
-  %4 = load ptr, ptr %value.addr, align 8
-  %call3 = call ptr @Py_TYPE(ptr noundef %4)
-  %tp_name = getelementptr inbounds %struct._typeobject, ptr %call3, i32 0, i32 1
-  %5 = load ptr, ptr %tp_name, align 8
-  %call4 = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %3, ptr noundef @.str.17, ptr noundef %5)
-  store i32 -1, ptr %retval, align 4
-  br label %return
+35:                                               ; preds = %22, %21
+  %36 = load i32, ptr %7, align 4
+  ret i32 %36
+}
 
-if.end5:                                          ; preds = %if.end
-  %6 = load ptr, ptr %self.addr, align 8
-  %7 = load ptr, ptr %item.addr, align 8
-  %call6 = call i64 @get_subscript_index(ptr noundef %6, ptr noundef %7)
-  store i64 %call6, ptr %i, align 8
-  %8 = load i64, ptr %i, align 8
-  %cmp7 = icmp slt i64 %8, 0
-  br i1 %cmp7, label %if.then8, label %if.end9
+declare i32 @PySlice_Unpack(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #3
 
-if.then8:                                         ; preds = %if.end5
-  store i32 -1, ptr %retval, align 4
-  br label %return
+declare i64 @PySlice_AdjustIndices(i64 noundef, ptr noundef, ptr noundef, i64 noundef) #3
 
-if.end9:                                          ; preds = %if.end5
-  %9 = load ptr, ptr %value.addr, align 8
-  %call10 = call i64 @PyLong_AsLong(ptr noundef %9)
-  store i64 %call10, ptr %val, align 8
-  %10 = load i64, ptr %val, align 8
-  %cmp11 = icmp eq i64 %10, -1
-  br i1 %cmp11, label %land.lhs.true, label %if.end15
+; Function Attrs: nounwind uwtable
+define internal i32 @ass_subscript_index(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
+  %4 = alloca i32, align 4
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca i64, align 8
+  %9 = alloca i32, align 4
+  %10 = alloca i64, align 8
+  %11 = alloca i8, align 1
+  store ptr %0, ptr %5, align 8, !tbaa !3
+  store ptr %1, ptr %6, align 8, !tbaa !22
+  store ptr %2, ptr %7, align 8, !tbaa !22
+  %12 = load ptr, ptr %7, align 8, !tbaa !22
+  %13 = icmp eq ptr %12, null
+  br i1 %13, label %14, label %16
 
-land.lhs.true:                                    ; preds = %if.end9
-  %call12 = call ptr @PyErr_Occurred()
-  %tobool13 = icmp ne ptr %call12, null
-  br i1 %tobool13, label %if.then14, label %if.end15
+14:                                               ; preds = %3
+  %15 = load ptr, ptr @PyExc_TypeError, align 8, !tbaa !22
+  call void @PyErr_SetString(ptr noundef %15, ptr noundef @.str.20)
+  store i32 -1, ptr %4, align 4
+  br label %60
 
-if.then14:                                        ; preds = %land.lhs.true
+16:                                               ; preds = %3
+  %17 = load ptr, ptr %7, align 8, !tbaa !22
+  %18 = call ptr @_Py_TYPE(ptr noundef %17)
+  %19 = call i32 @PyType_HasFeature(ptr noundef %18, i64 noundef 16777216)
+  %20 = icmp ne i32 %19, 0
+  br i1 %20, label %28, label %21
+
+21:                                               ; preds = %16
+  %22 = load ptr, ptr @PyExc_TypeError, align 8, !tbaa !22
+  %23 = load ptr, ptr %7, align 8, !tbaa !22
+  %24 = call ptr @_Py_TYPE(ptr noundef %23)
+  %25 = getelementptr inbounds nuw %struct._typeobject, ptr %24, i32 0, i32 1
+  %26 = load ptr, ptr %25, align 8, !tbaa !60
+  %27 = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %22, ptr noundef @.str.21, ptr noundef %26)
+  store i32 -1, ptr %4, align 4
+  br label %60
+
+28:                                               ; preds = %16
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #6
+  %29 = load ptr, ptr %5, align 8, !tbaa !3
+  %30 = load ptr, ptr %6, align 8, !tbaa !22
+  %31 = call i64 @get_subscript_index(ptr noundef %29, ptr noundef %30)
+  store i64 %31, ptr %8, align 8, !tbaa !7
+  %32 = load i64, ptr %8, align 8, !tbaa !7
+  %33 = icmp slt i64 %32, 0
+  br i1 %33, label %34, label %35
+
+34:                                               ; preds = %28
+  store i32 -1, ptr %4, align 4
+  store i32 1, ptr %9, align 4
+  br label %59
+
+35:                                               ; preds = %28
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #6
+  %36 = load ptr, ptr %7, align 8, !tbaa !22
+  %37 = call i64 @PyLong_AsLong(ptr noundef %36)
+  store i64 %37, ptr %10, align 8, !tbaa !7
+  %38 = load i64, ptr %10, align 8, !tbaa !7
+  %39 = icmp eq i64 %38, -1
+  br i1 %39, label %40, label %44
+
+40:                                               ; preds = %35
+  %41 = call ptr @PyErr_Occurred()
+  %42 = icmp ne ptr %41, null
+  br i1 %42, label %43, label %44
+
+43:                                               ; preds = %40
   call void @PyErr_Clear()
-  store i64 -1, ptr %val, align 8
-  br label %if.end15
+  store i64 -1, ptr %10, align 8, !tbaa !7
+  br label %44
 
-if.end15:                                         ; preds = %if.then14, %land.lhs.true, %if.end9
-  %11 = load i64, ptr %val, align 8
-  %cmp16 = icmp slt i64 %11, 0
-  br i1 %cmp16, label %if.then18, label %lor.lhs.false
+44:                                               ; preds = %43, %40, %35
+  %45 = load i64, ptr %10, align 8, !tbaa !7
+  %46 = icmp slt i64 %45, 0
+  br i1 %46, label %50, label %47
 
-lor.lhs.false:                                    ; preds = %if.end15
-  %12 = load i64, ptr %val, align 8
-  %cmp17 = icmp sgt i64 %12, 255
-  br i1 %cmp17, label %if.then18, label %if.end19
+47:                                               ; preds = %44
+  %48 = load i64, ptr %10, align 8, !tbaa !7
+  %49 = icmp sgt i64 %48, 255
+  br i1 %49, label %50, label %52
 
-if.then18:                                        ; preds = %lor.lhs.false, %if.end15
-  %13 = load ptr, ptr @PyExc_ValueError, align 8
-  call void @PyErr_SetString(ptr noundef %13, ptr noundef @.str.18)
-  store i32 -1, ptr %retval, align 4
-  br label %return
+50:                                               ; preds = %47, %44
+  %51 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !22
+  call void @PyErr_SetString(ptr noundef %51, ptr noundef @.str.22)
+  store i32 -1, ptr %4, align 4
+  store i32 1, ptr %9, align 4
+  br label %58
 
-if.end19:                                         ; preds = %lor.lhs.false
-  %14 = load i64, ptr %val, align 8
-  %conv = trunc i64 %14 to i8
-  store i8 %conv, ptr %byte, align 1
-  %15 = load ptr, ptr %self.addr, align 8
-  %16 = load i64, ptr %i, align 8
-  %call20 = call i32 @inner_write(ptr noundef %15, ptr noundef %byte, i64 noundef 1, i64 noundef %16)
-  store i32 %call20, ptr %retval, align 4
-  br label %return
+52:                                               ; preds = %47
+  call void @llvm.lifetime.start.p0(i64 1, ptr %11) #6
+  %53 = load i64, ptr %10, align 8, !tbaa !7
+  %54 = trunc i64 %53 to i8
+  store i8 %54, ptr %11, align 1, !tbaa !31
+  %55 = load ptr, ptr %5, align 8, !tbaa !3
+  %56 = load i64, ptr %8, align 8, !tbaa !7
+  %57 = call i32 @inner_write(ptr noundef %55, ptr noundef %11, i64 noundef 1, i64 noundef %56)
+  store i32 %57, ptr %4, align 4
+  store i32 1, ptr %9, align 4
+  call void @llvm.lifetime.end.p0(i64 1, ptr %11) #6
+  br label %58
 
-return:                                           ; preds = %if.end19, %if.then18, %if.then8, %if.then2, %if.then
-  %17 = load i32, ptr %retval, align 4
-  ret i32 %17
+58:                                               ; preds = %52, %50
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #6
+  br label %59
+
+59:                                               ; preds = %58, %34
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #6
+  br label %60
+
+60:                                               ; preds = %59, %21, %14
+  %61 = load i32, ptr %4, align 4
+  ret i32 %61
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @ass_subscript_slice(ptr noundef %self, ptr noundef %item, ptr noundef %value) #0 {
-entry:
-  %op.addr.i30 = alloca ptr, align 8
-  %op.addr.i = alloca ptr, align 8
-  %retval = alloca i32, align 4
-  %self.addr = alloca ptr, align 8
-  %item.addr = alloca ptr, align 8
-  %value.addr = alloca ptr, align 8
-  %start = alloca i64, align 8
-  %stop = alloca i64, align 8
-  %step = alloca i64, align 8
-  %len = alloca i64, align 8
-  %vbuf = alloca %struct.Py_buffer, align 8
-  %rc = alloca i32, align 4
-  %blob_bytes = alloca ptr, align 8
-  %blob_buf = alloca ptr, align 8
-  %i = alloca i64, align 8
-  %j = alloca i64, align 8
-  store ptr %self, ptr %self.addr, align 8
-  store ptr %item, ptr %item.addr, align 8
-  store ptr %value, ptr %value.addr, align 8
-  %0 = load ptr, ptr %value.addr, align 8
-  %cmp = icmp eq ptr %0, null
-  br i1 %cmp, label %if.then, label %if.end
+define internal i32 @ass_subscript_slice(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
+  %4 = alloca i32, align 4
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca i64, align 8
+  %9 = alloca i64, align 8
+  %10 = alloca i64, align 8
+  %11 = alloca i64, align 8
+  %12 = alloca i32, align 4
+  %13 = alloca %struct.Py_buffer, align 8
+  %14 = alloca i32, align 4
+  %15 = alloca ptr, align 8
+  %16 = alloca ptr, align 8
+  %17 = alloca i64, align 8
+  %18 = alloca i64, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !3
+  store ptr %1, ptr %6, align 8, !tbaa !22
+  store ptr %2, ptr %7, align 8, !tbaa !22
+  %19 = load ptr, ptr %7, align 8, !tbaa !22
+  %20 = icmp eq ptr %19, null
+  br i1 %20, label %21, label %23
 
-if.then:                                          ; preds = %entry
-  %1 = load ptr, ptr @PyExc_TypeError, align 8
-  call void @PyErr_SetString(ptr noundef %1, ptr noundef @.str.19)
-  store i32 -1, ptr %retval, align 4
-  br label %return
+21:                                               ; preds = %3
+  %22 = load ptr, ptr @PyExc_TypeError, align 8, !tbaa !22
+  call void @PyErr_SetString(ptr noundef %22, ptr noundef @.str.23)
+  store i32 -1, ptr %4, align 4
+  br label %102
 
-if.end:                                           ; preds = %entry
-  %2 = load ptr, ptr %self.addr, align 8
-  %3 = load ptr, ptr %item.addr, align 8
-  %call = call i32 @get_slice_info(ptr noundef %2, ptr noundef %3, ptr noundef %start, ptr noundef %stop, ptr noundef %step, ptr noundef %len)
-  %cmp1 = icmp slt i32 %call, 0
-  br i1 %cmp1, label %if.then2, label %if.end3
+23:                                               ; preds = %3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #6
+  %24 = load ptr, ptr %5, align 8, !tbaa !3
+  %25 = load ptr, ptr %6, align 8, !tbaa !22
+  %26 = call i32 @get_slice_info(ptr noundef %24, ptr noundef %25, ptr noundef %8, ptr noundef %9, ptr noundef %10, ptr noundef %11)
+  %27 = icmp slt i32 %26, 0
+  br i1 %27, label %28, label %29
 
-if.then2:                                         ; preds = %if.end
-  store i32 -1, ptr %retval, align 4
-  br label %return
+28:                                               ; preds = %23
+  store i32 -1, ptr %4, align 4
+  store i32 1, ptr %12, align 4
+  br label %101
 
-if.end3:                                          ; preds = %if.end
-  %4 = load i64, ptr %len, align 8
-  %cmp4 = icmp eq i64 %4, 0
-  br i1 %cmp4, label %if.then5, label %if.end6
+29:                                               ; preds = %23
+  %30 = load i64, ptr %11, align 8, !tbaa !7
+  %31 = icmp eq i64 %30, 0
+  br i1 %31, label %32, label %33
 
-if.then5:                                         ; preds = %if.end3
-  store i32 0, ptr %retval, align 4
-  br label %return
+32:                                               ; preds = %29
+  store i32 0, ptr %4, align 4
+  store i32 1, ptr %12, align 4
+  br label %101
 
-if.end6:                                          ; preds = %if.end3
-  %5 = load ptr, ptr %value.addr, align 8
-  %call7 = call i32 @PyObject_GetBuffer(ptr noundef %5, ptr noundef %vbuf, i32 noundef 0)
-  %cmp8 = icmp slt i32 %call7, 0
-  br i1 %cmp8, label %if.then9, label %if.end10
+33:                                               ; preds = %29
+  call void @llvm.lifetime.start.p0(i64 80, ptr %13) #6
+  %34 = load ptr, ptr %7, align 8, !tbaa !22
+  %35 = call i32 @PyObject_GetBuffer(ptr noundef %34, ptr noundef %13, i32 noundef 0)
+  %36 = icmp slt i32 %35, 0
+  br i1 %36, label %37, label %38
 
-if.then9:                                         ; preds = %if.end6
-  store i32 -1, ptr %retval, align 4
-  br label %return
+37:                                               ; preds = %33
+  store i32 -1, ptr %4, align 4
+  store i32 1, ptr %12, align 4
+  br label %100
 
-if.end10:                                         ; preds = %if.end6
-  store i32 -1, ptr %rc, align 4
-  %len11 = getelementptr inbounds %struct.Py_buffer, ptr %vbuf, i32 0, i32 2
-  %6 = load i64, ptr %len11, align 8
-  %7 = load i64, ptr %len, align 8
-  %cmp12 = icmp ne i64 %6, %7
-  br i1 %cmp12, label %if.then13, label %if.else
+38:                                               ; preds = %33
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #6
+  store i32 -1, ptr %14, align 4, !tbaa !44
+  %39 = getelementptr inbounds nuw %struct.Py_buffer, ptr %13, i32 0, i32 2
+  %40 = load i64, ptr %39, align 8, !tbaa !57
+  %41 = load i64, ptr %11, align 8, !tbaa !7
+  %42 = icmp ne i64 %40, %41
+  br i1 %42, label %43, label %45
 
-if.then13:                                        ; preds = %if.end10
-  %8 = load ptr, ptr @PyExc_IndexError, align 8
-  call void @PyErr_SetString(ptr noundef %8, ptr noundef @.str.20)
-  br label %if.end29
+43:                                               ; preds = %38
+  %44 = load ptr, ptr @PyExc_IndexError, align 8, !tbaa !22
+  call void @PyErr_SetString(ptr noundef %44, ptr noundef @.str.24)
+  br label %98
 
-if.else:                                          ; preds = %if.end10
-  %9 = load i64, ptr %step, align 8
-  %cmp14 = icmp eq i64 %9, 1
-  br i1 %cmp14, label %if.then15, label %if.else17
+45:                                               ; preds = %38
+  %46 = load i64, ptr %10, align 8, !tbaa !7
+  %47 = icmp eq i64 %46, 1
+  br i1 %47, label %48, label %55
 
-if.then15:                                        ; preds = %if.else
-  %10 = load ptr, ptr %self.addr, align 8
-  %buf = getelementptr inbounds %struct.Py_buffer, ptr %vbuf, i32 0, i32 0
-  %11 = load ptr, ptr %buf, align 8
-  %12 = load i64, ptr %len, align 8
-  %13 = load i64, ptr %start, align 8
-  %call16 = call i32 @inner_write(ptr noundef %10, ptr noundef %11, i64 noundef %12, i64 noundef %13)
-  store i32 %call16, ptr %rc, align 4
-  br label %if.end28
+48:                                               ; preds = %45
+  %49 = load ptr, ptr %5, align 8, !tbaa !3
+  %50 = getelementptr inbounds nuw %struct.Py_buffer, ptr %13, i32 0, i32 0
+  %51 = load ptr, ptr %50, align 8, !tbaa !56
+  %52 = load i64, ptr %11, align 8, !tbaa !7
+  %53 = load i64, ptr %8, align 8, !tbaa !7
+  %54 = call i32 @inner_write(ptr noundef %49, ptr noundef %51, i64 noundef %52, i64 noundef %53)
+  store i32 %54, ptr %14, align 4, !tbaa !44
+  br label %97
 
-if.else17:                                        ; preds = %if.else
-  %14 = load ptr, ptr %self.addr, align 8
-  %15 = load i64, ptr %stop, align 8
-  %16 = load i64, ptr %start, align 8
-  %sub = sub i64 %15, %16
-  %17 = load i64, ptr %start, align 8
-  %call18 = call ptr @read_multiple(ptr noundef %14, i64 noundef %sub, i64 noundef %17)
-  store ptr %call18, ptr %blob_bytes, align 8
-  %18 = load ptr, ptr %blob_bytes, align 8
-  %cmp19 = icmp ne ptr %18, null
-  br i1 %cmp19, label %if.then20, label %if.end27
+55:                                               ; preds = %45
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #6
+  %56 = load ptr, ptr %5, align 8, !tbaa !3
+  %57 = load i64, ptr %9, align 8, !tbaa !7
+  %58 = load i64, ptr %8, align 8, !tbaa !7
+  %59 = sub i64 %57, %58
+  %60 = load i64, ptr %8, align 8, !tbaa !7
+  %61 = call ptr @read_multiple(ptr noundef %56, i64 noundef %59, i64 noundef %60)
+  store ptr %61, ptr %15, align 8, !tbaa !22
+  %62 = load ptr, ptr %15, align 8, !tbaa !22
+  %63 = icmp ne ptr %62, null
+  br i1 %63, label %64, label %96
 
-if.then20:                                        ; preds = %if.else17
-  %19 = load ptr, ptr %blob_bytes, align 8
-  %call21 = call ptr @PyBytes_AS_STRING(ptr noundef %19)
-  store ptr %call21, ptr %blob_buf, align 8
-  store i64 0, ptr %i, align 8
-  store i64 0, ptr %j, align 8
-  br label %for.cond
+64:                                               ; preds = %55
+  call void @llvm.lifetime.start.p0(i64 8, ptr %16) #6
+  %65 = load ptr, ptr %15, align 8, !tbaa !22
+  %66 = call ptr @PyBytes_AS_STRING(ptr noundef %65)
+  store ptr %66, ptr %16, align 8, !tbaa !54
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #6
+  store i64 0, ptr %17, align 8, !tbaa !7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %18) #6
+  store i64 0, ptr %18, align 8, !tbaa !7
+  br label %67
 
-for.cond:                                         ; preds = %for.inc, %if.then20
-  %20 = load i64, ptr %i, align 8
-  %21 = load i64, ptr %len, align 8
-  %cmp22 = icmp slt i64 %20, %21
-  br i1 %cmp22, label %for.body, label %for.end
+67:                                               ; preds = %81, %64
+  %68 = load i64, ptr %17, align 8, !tbaa !7
+  %69 = load i64, ptr %11, align 8, !tbaa !7
+  %70 = icmp slt i64 %68, %69
+  br i1 %70, label %72, label %71
 
-for.body:                                         ; preds = %for.cond
-  %buf23 = getelementptr inbounds %struct.Py_buffer, ptr %vbuf, i32 0, i32 0
-  %22 = load ptr, ptr %buf23, align 8
-  %23 = load i64, ptr %i, align 8
-  %arrayidx = getelementptr i8, ptr %22, i64 %23
-  %24 = load i8, ptr %arrayidx, align 1
-  %25 = load ptr, ptr %blob_buf, align 8
-  %26 = load i64, ptr %j, align 8
-  %arrayidx24 = getelementptr i8, ptr %25, i64 %26
-  store i8 %24, ptr %arrayidx24, align 1
-  br label %for.inc
+71:                                               ; preds = %67
+  store i32 2, ptr %12, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %18) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #6
+  br label %87
 
-for.inc:                                          ; preds = %for.body
-  %27 = load i64, ptr %i, align 8
-  %inc = add i64 %27, 1
-  store i64 %inc, ptr %i, align 8
-  %28 = load i64, ptr %step, align 8
-  %29 = load i64, ptr %j, align 8
-  %add = add i64 %29, %28
-  store i64 %add, ptr %j, align 8
-  br label %for.cond, !llvm.loop !7
+72:                                               ; preds = %67
+  %73 = getelementptr inbounds nuw %struct.Py_buffer, ptr %13, i32 0, i32 0
+  %74 = load ptr, ptr %73, align 8, !tbaa !56
+  %75 = load i64, ptr %17, align 8, !tbaa !7
+  %76 = getelementptr i8, ptr %74, i64 %75
+  %77 = load i8, ptr %76, align 1, !tbaa !31
+  %78 = load ptr, ptr %16, align 8, !tbaa !54
+  %79 = load i64, ptr %18, align 8, !tbaa !7
+  %80 = getelementptr i8, ptr %78, i64 %79
+  store i8 %77, ptr %80, align 1, !tbaa !31
+  br label %81
 
-for.end:                                          ; preds = %for.cond
-  %30 = load ptr, ptr %self.addr, align 8
-  %31 = load ptr, ptr %blob_buf, align 8
-  %32 = load i64, ptr %stop, align 8
-  %33 = load i64, ptr %start, align 8
-  %sub25 = sub i64 %32, %33
-  %34 = load i64, ptr %start, align 8
-  %call26 = call i32 @inner_write(ptr noundef %30, ptr noundef %31, i64 noundef %sub25, i64 noundef %34)
-  store i32 %call26, ptr %rc, align 4
-  %35 = load ptr, ptr %blob_bytes, align 8
-  store ptr %35, ptr %op.addr.i, align 8
-  %36 = load ptr, ptr %op.addr.i, align 8
-  store ptr %36, ptr %op.addr.i30, align 8
-  %37 = load ptr, ptr %op.addr.i30, align 8
-  %38 = load i64, ptr %37, align 8
-  %conv.i = trunc i64 %38 to i32
-  %cmp.i31 = icmp slt i32 %conv.i, 0
-  %conv1.i = zext i1 %cmp.i31 to i32
-  %tobool.i = icmp ne i32 %conv1.i, 0
-  br i1 %tobool.i, label %if.then.i, label %if.end.i
+81:                                               ; preds = %72
+  %82 = load i64, ptr %17, align 8, !tbaa !7
+  %83 = add i64 %82, 1
+  store i64 %83, ptr %17, align 8, !tbaa !7
+  %84 = load i64, ptr %10, align 8, !tbaa !7
+  %85 = load i64, ptr %18, align 8, !tbaa !7
+  %86 = add i64 %85, %84
+  store i64 %86, ptr %18, align 8, !tbaa !7
+  br label %67, !llvm.loop !61
 
-if.then.i:                                        ; preds = %for.end
-  br label %Py_DECREF.exit
+87:                                               ; preds = %71
+  %88 = load ptr, ptr %5, align 8, !tbaa !3
+  %89 = load ptr, ptr %16, align 8, !tbaa !54
+  %90 = load i64, ptr %9, align 8, !tbaa !7
+  %91 = load i64, ptr %8, align 8, !tbaa !7
+  %92 = sub i64 %90, %91
+  %93 = load i64, ptr %8, align 8, !tbaa !7
+  %94 = call i32 @inner_write(ptr noundef %88, ptr noundef %89, i64 noundef %92, i64 noundef %93)
+  store i32 %94, ptr %14, align 4, !tbaa !44
+  %95 = load ptr, ptr %15, align 8, !tbaa !22
+  call void @Py_DECREF(ptr noundef %95)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #6
+  br label %96
 
-if.end.i:                                         ; preds = %for.end
-  %39 = load ptr, ptr %op.addr.i, align 8
-  %40 = load i64, ptr %39, align 8
-  %dec.i = add i64 %40, -1
-  store i64 %dec.i, ptr %39, align 8
-  %cmp.i = icmp eq i64 %dec.i, 0
-  br i1 %cmp.i, label %if.then1.i, label %Py_DECREF.exit
+96:                                               ; preds = %87, %55
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #6
+  br label %97
 
-if.then1.i:                                       ; preds = %if.end.i
-  %41 = load ptr, ptr %op.addr.i, align 8
-  call void @_Py_Dealloc(ptr noundef %41) #3
-  br label %Py_DECREF.exit
+97:                                               ; preds = %96, %48
+  br label %98
 
-Py_DECREF.exit:                                   ; preds = %if.then1.i, %if.end.i, %if.then.i
-  br label %if.end27
+98:                                               ; preds = %97, %43
+  call void @PyBuffer_Release(ptr noundef %13)
+  %99 = load i32, ptr %14, align 4, !tbaa !44
+  store i32 %99, ptr %4, align 4
+  store i32 1, ptr %12, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #6
+  br label %100
 
-if.end27:                                         ; preds = %Py_DECREF.exit, %if.else17
-  br label %if.end28
+100:                                              ; preds = %98, %37
+  call void @llvm.lifetime.end.p0(i64 80, ptr %13) #6
+  br label %101
 
-if.end28:                                         ; preds = %if.end27, %if.then15
-  br label %if.end29
+101:                                              ; preds = %100, %32, %28
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #6
+  br label %102
 
-if.end29:                                         ; preds = %if.end28, %if.then13
-  call void @PyBuffer_Release(ptr noundef %vbuf)
-  %42 = load i32, ptr %rc, align 4
-  store i32 %42, ptr %retval, align 4
-  br label %return
-
-return:                                           ; preds = %if.end29, %if.then9, %if.then5, %if.then2, %if.then
-  %43 = load i32, ptr %retval, align 4
-  ret i32 %43
+102:                                              ; preds = %101, %21
+  %103 = load i32, ptr %4, align 4
+  ret i32 %103
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @PyType_HasFeature(ptr noundef %type, i64 noundef %feature) #0 {
-entry:
-  %type.addr = alloca ptr, align 8
-  %feature.addr = alloca i64, align 8
-  %flags = alloca i64, align 8
-  store ptr %type, ptr %type.addr, align 8
-  store i64 %feature, ptr %feature.addr, align 8
-  %0 = load ptr, ptr %type.addr, align 8
-  %tp_flags = getelementptr inbounds %struct._typeobject, ptr %0, i32 0, i32 19
-  %1 = load i64, ptr %tp_flags, align 8
-  store i64 %1, ptr %flags, align 8
-  %2 = load i64, ptr %flags, align 8
-  %3 = load i64, ptr %feature.addr, align 8
-  %and = and i64 %2, %3
-  %cmp = icmp ne i64 %and, 0
-  %conv = zext i1 %cmp to i32
-  ret i32 %conv
+; Function Attrs: inlinehint nounwind uwtable
+define internal i32 @PyType_HasFeature(ptr noundef %0, i64 noundef %1) #2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  %5 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !35
+  store i64 %1, ptr %4, align 8, !tbaa !7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #6
+  %6 = load ptr, ptr %3, align 8, !tbaa !35
+  %7 = getelementptr inbounds nuw %struct._typeobject, ptr %6, i32 0, i32 19
+  %8 = load i64, ptr %7, align 8, !tbaa !62
+  store i64 %8, ptr %5, align 8, !tbaa !7
+  %9 = load i64, ptr %5, align 8, !tbaa !7
+  %10 = load i64, ptr %4, align 8, !tbaa !7
+  %11 = and i64 %9, %10
+  %12 = icmp ne i64 %11, 0
+  %13 = zext i1 %12 to i32
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #6
+  ret i32 %13
 }
 
-declare ptr @PyErr_Format(ptr noundef, ptr noundef, ...) #1
+declare ptr @PyErr_Format(ptr noundef, ptr noundef, ...) #3
 
-declare i64 @PyLong_AsLong(ptr noundef) #1
+declare i64 @PyLong_AsLong(ptr noundef) #3
 
-declare void @PyErr_Clear() #1
+declare void @PyErr_Clear() #3
 
-declare ptr @PyModule_GetState(ptr noundef) #1
+declare ptr @PyModule_GetState(ptr noundef) #3
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #3 = { nounwind }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { inlinehint nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { alwaysinline nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #6 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
+!3 = !{!4, !4, i64 0}
+!4 = !{!"any pointer", !5, i64 0}
+!5 = !{!"omnipotent char", !6, i64 0}
+!6 = !{!"Simple C/C++ TBAA"}
+!7 = !{!8, !8, i64 0}
+!8 = !{!"long", !5, i64 0}
+!9 = !{!10, !16, i64 88}
+!10 = !{!"", !11, i64 0, !13, i64 16, !4, i64 24, !14, i64 32, !15, i64 40, !14, i64 48, !14, i64 52, !14, i64 56, !8, i64 64, !16, i64 72, !16, i64 80, !16, i64 88, !14, i64 96, !16, i64 104, !16, i64 112, !17, i64 120, !17, i64 128, !17, i64 136, !16, i64 144, !16, i64 152, !16, i64 160, !16, i64 168, !16, i64 176, !16, i64 184, !16, i64 192, !16, i64 200, !16, i64 208, !16, i64 216}
+!11 = !{!"_object", !5, i64 0, !12, i64 8}
+!12 = !{!"p1 _ZTS11_typeobject", !4, i64 0}
+!13 = !{!"p1 _ZTS7sqlite3", !4, i64 0}
+!14 = !{!"int", !5, i64 0}
+!15 = !{!"p1 omnipotent char", !4, i64 0}
+!16 = !{!"p1 _ZTS7_object", !4, i64 0}
+!17 = !{!"p1 _ZTS17_callback_context", !4, i64 0}
+!18 = !{!19, !21, i64 24}
+!19 = !{!"", !20, i64 0, !21, i64 24, !8, i64 32}
+!20 = !{!"", !11, i64 0, !8, i64 16}
+!21 = !{!"p2 _ZTS7_object", !4, i64 0}
+!22 = !{!16, !16, i64 0}
+!23 = distinct !{!23, !24}
+!24 = !{!"llvm.loop.mustprogress"}
+!25 = !{!26, !27, i64 24}
+!26 = !{!"", !11, i64 0, !4, i64 16, !27, i64 24, !14, i64 32, !16, i64 40}
+!27 = !{!"p1 _ZTS12sqlite3_blob", !4, i64 0}
+!28 = !{!27, !27, i64 0}
+!29 = !{!30, !30, i64 0}
+!30 = !{!"p1 _ZTS3_ts", !4, i64 0}
+!31 = !{!5, !5, i64 0}
+!32 = !{!33, !12, i64 112}
+!33 = !{!"", !16, i64 0, !16, i64 8, !16, i64 16, !16, i64 24, !16, i64 32, !16, i64 40, !16, i64 48, !16, i64 56, !16, i64 64, !16, i64 72, !16, i64 80, !16, i64 88, !16, i64 96, !14, i64 104, !14, i64 108, !12, i64 112, !12, i64 120, !12, i64 128, !12, i64 136, !12, i64 144, !12, i64 152, !16, i64 160, !16, i64 168, !16, i64 176, !16, i64 184, !16, i64 192, !16, i64 200, !16, i64 208, !16, i64 216}
+!34 = !{!20, !8, i64 16}
+!35 = !{!12, !12, i64 0}
+!36 = !{!26, !16, i64 40}
+!37 = !{!38, !4, i64 192}
+!38 = !{!"_typeobject", !20, i64 0, !15, i64 24, !8, i64 32, !8, i64 40, !4, i64 48, !8, i64 56, !4, i64 64, !4, i64 72, !4, i64 80, !4, i64 88, !4, i64 96, !4, i64 104, !4, i64 112, !4, i64 120, !4, i64 128, !4, i64 136, !4, i64 144, !4, i64 152, !4, i64 160, !8, i64 168, !15, i64 176, !4, i64 184, !4, i64 192, !4, i64 200, !8, i64 208, !4, i64 216, !4, i64 224, !39, i64 232, !40, i64 240, !41, i64 248, !12, i64 256, !16, i64 264, !4, i64 272, !4, i64 280, !8, i64 288, !4, i64 296, !4, i64 304, !4, i64 312, !4, i64 320, !4, i64 328, !16, i64 336, !16, i64 344, !16, i64 352, !4, i64 360, !16, i64 368, !4, i64 376, !14, i64 384, !4, i64 392, !4, i64 400, !5, i64 408, !42, i64 410}
+!39 = !{!"p1 _ZTS11PyMethodDef", !4, i64 0}
+!40 = !{!"p1 _ZTS11PyMemberDef", !4, i64 0}
+!41 = !{!"p1 _ZTS11PyGetSetDef", !4, i64 0}
+!42 = !{!"short", !5, i64 0}
+!43 = !{!38, !4, i64 320}
+!44 = !{!14, !14, i64 0}
+!45 = !{!26, !4, i64 16}
+!46 = !{!11, !12, i64 8}
+!47 = !{!21, !21, i64 0}
+!48 = !{!49, !16, i64 8}
+!49 = !{!"", !4, i64 0, !16, i64 8, !8, i64 16, !8, i64 24, !14, i64 32, !14, i64 36, !15, i64 40, !50, i64 48, !50, i64 56, !50, i64 64, !4, i64 72}
+!50 = !{!"p1 long", !4, i64 0}
+!51 = !{!10, !4, i64 24}
+!52 = !{!33, !16, i64 64}
+!53 = !{!26, !14, i64 32}
+!54 = !{!15, !15, i64 0}
+!55 = !{!10, !13, i64 16}
+!56 = !{!49, !4, i64 0}
+!57 = !{!49, !8, i64 16}
+!58 = distinct !{!58, !24}
+!59 = !{!50, !50, i64 0}
+!60 = !{!38, !15, i64 24}
+!61 = distinct !{!61, !24}
+!62 = !{!38, !8, i64 168}

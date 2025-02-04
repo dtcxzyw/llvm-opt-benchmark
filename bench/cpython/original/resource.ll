@@ -1,13 +1,10 @@
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
 %struct.PyModuleDef = type { %struct.PyModuleDef_Base, ptr, ptr, i64, ptr, ptr, ptr, ptr, ptr }
 %struct.PyModuleDef_Base = type { %struct._object, ptr, i64, ptr }
 %struct._object = type { %union.anon, ptr }
 %union.anon = type { i64 }
-%struct.PyMethodDef = type { ptr, ptr, i32, ptr }
-%struct.PyModuleDef_Slot = type { i32, ptr }
-%struct.PyStructSequence_Desc = type { ptr, ptr, ptr, i32 }
 %struct.PyStructSequence_Field = type { ptr, ptr }
 %struct.resourcemodulestate = type { ptr }
 %struct.rusage = type { %struct.timeval, %struct.timeval, %union.anon.0, %union.anon.1, %union.anon.2, %union.anon.3, %union.anon.4, %union.anon.5, %union.anon.6, %union.anon.7, %union.anon.8, %union.anon.9, %union.anon.10, %union.anon.11, %union.anon.12, %union.anon.13 }
@@ -28,10 +25,8 @@ target triple = "x86_64-unknown-linux-gnu"
 %union.anon.13 = type { i64 }
 %struct.rlimit = type { i64, i64 }
 
-@resourcemodule = internal global %struct.PyModuleDef { %struct.PyModuleDef_Base { %struct._object { %union.anon { i64 1 }, ptr null }, ptr null, i64 0, ptr null }, ptr @.str, ptr null, i64 8, ptr @resource_methods, ptr @resource_slots, ptr @resourcemodule_traverse, ptr @resourcemodule_clear, ptr @resourcemodule_free }, align 8
+@resourcemodule = internal global %struct.PyModuleDef { %struct.PyModuleDef_Base { %struct._object { %union.anon { i64 552977039360 }, ptr null }, ptr null, i64 0, ptr null }, ptr @.str, ptr null, i64 8, ptr @resource_methods, ptr @resource_slots, ptr @resourcemodule_traverse, ptr @resourcemodule_clear, ptr @resourcemodule_free }, align 8
 @.str = private unnamed_addr constant [9 x i8] c"resource\00", align 1
-@resource_methods = internal global [6 x %struct.PyMethodDef] [%struct.PyMethodDef { ptr @.str.1, ptr @resource_getrusage, i32 8, ptr @resource_getrusage__doc__ }, %struct.PyMethodDef { ptr @.str.2, ptr @resource_getrlimit, i32 8, ptr @resource_getrlimit__doc__ }, %struct.PyMethodDef { ptr @.str.3, ptr @resource_prlimit, i32 128, ptr @resource_prlimit__doc__ }, %struct.PyMethodDef { ptr @.str.4, ptr @resource_setrlimit, i32 128, ptr @resource_setrlimit__doc__ }, %struct.PyMethodDef { ptr @.str.5, ptr @resource_getpagesize, i32 4, ptr @resource_getpagesize__doc__ }, %struct.PyMethodDef zeroinitializer], align 16
-@resource_slots = internal global [3 x %struct.PyModuleDef_Slot] [%struct.PyModuleDef_Slot { i32 2, ptr @resource_exec }, %struct.PyModuleDef_Slot { i32 3, ptr inttoptr (i64 2 to ptr) }, %struct.PyModuleDef_Slot zeroinitializer], align 16
 @.str.1 = private unnamed_addr constant [10 x i8] c"getrusage\00", align 1
 @resource_getrusage__doc__ = internal constant [32 x i8] c"getrusage($module, who, /)\0A--\0A\0A\00", align 16
 @.str.2 = private unnamed_addr constant [10 x i8] c"getrlimit\00", align 1
@@ -42,632 +37,687 @@ target triple = "x86_64-unknown-linux-gnu"
 @resource_setrlimit__doc__ = internal constant [45 x i8] c"setrlimit($module, resource, limits, /)\0A--\0A\0A\00", align 16
 @.str.5 = private unnamed_addr constant [12 x i8] c"getpagesize\00", align 1
 @resource_getpagesize__doc__ = internal constant [29 x i8] c"getpagesize($module, /)\0A--\0A\0A\00", align 16
+@resource_methods = internal global [6 x { ptr, ptr, i32, [4 x i8], ptr }] [{ ptr, ptr, i32, [4 x i8], ptr } { ptr @.str.1, ptr @resource_getrusage, i32 8, [4 x i8] zeroinitializer, ptr @resource_getrusage__doc__ }, { ptr, ptr, i32, [4 x i8], ptr } { ptr @.str.2, ptr @resource_getrlimit, i32 8, [4 x i8] zeroinitializer, ptr @resource_getrlimit__doc__ }, { ptr, ptr, i32, [4 x i8], ptr } { ptr @.str.3, ptr @resource_prlimit, i32 128, [4 x i8] zeroinitializer, ptr @resource_prlimit__doc__ }, { ptr, ptr, i32, [4 x i8], ptr } { ptr @.str.4, ptr @resource_setrlimit, i32 128, [4 x i8] zeroinitializer, ptr @resource_setrlimit__doc__ }, { ptr, ptr, i32, [4 x i8], ptr } { ptr @.str.5, ptr @resource_getpagesize, i32 4, [4 x i8] zeroinitializer, ptr @resource_getpagesize__doc__ }, { ptr, ptr, i32, [4 x i8], ptr } zeroinitializer], align 16
 @PyExc_ValueError = external global ptr, align 8
-@.str.6 = private unnamed_addr constant [22 x i8] c"invalid who parameter\00", align 1
+@.str.7 = private unnamed_addr constant [22 x i8] c"invalid who parameter\00", align 1
 @PyExc_OSError = external global ptr, align 8
-@.str.7 = private unnamed_addr constant [27 x i8] c"invalid resource specified\00", align 1
-@.str.8 = private unnamed_addr constant [3 x i8] c"ll\00", align 1
-@_Py_NoneStruct = external global %struct._object, align 8
+@.str.8 = private unnamed_addr constant [27 x i8] c"invalid resource specified\00", align 1
+@.str.9 = private unnamed_addr constant [3 x i8] c"ll\00", align 1
 @PyExc_TypeError = external global ptr, align 8
-@.str.9 = private unnamed_addr constant [47 x i8] c"prlimit expected at least 2 arguments, got %zd\00", align 1
-@.str.10 = private unnamed_addr constant [46 x i8] c"prlimit expected at most 3 arguments, got %zd\00", align 1
-@.str.11 = private unnamed_addr constant [17 x i8] c"resource.prlimit\00", align 1
-@.str.12 = private unnamed_addr constant [4 x i8] c"iiO\00", align 1
-@.str.13 = private unnamed_addr constant [36 x i8] c"current limit exceeds maximum limit\00", align 1
-@.str.14 = private unnamed_addr constant [31 x i8] c"expected a tuple of 2 integers\00", align 1
-@.str.15 = private unnamed_addr constant [40 x i8] c"setrlimit expected 2 arguments, got %zd\00", align 1
-@.str.16 = private unnamed_addr constant [19 x i8] c"resource.setrlimit\00", align 1
-@.str.17 = private unnamed_addr constant [3 x i8] c"iO\00", align 1
-@.str.18 = private unnamed_addr constant [35 x i8] c"not allowed to raise maximum limit\00", align 1
-@.str.19 = private unnamed_addr constant [6 x i8] c"error\00", align 1
-@struct_rusage_desc = internal global %struct.PyStructSequence_Desc { ptr @.str.40, ptr @struct_rusage__doc__, ptr @struct_rusage_fields, i32 16 }, align 8
-@.str.20 = private unnamed_addr constant [11 x i8] c"RLIMIT_CPU\00", align 1
-@.str.21 = private unnamed_addr constant [13 x i8] c"RLIMIT_FSIZE\00", align 1
-@.str.22 = private unnamed_addr constant [12 x i8] c"RLIMIT_DATA\00", align 1
-@.str.23 = private unnamed_addr constant [13 x i8] c"RLIMIT_STACK\00", align 1
-@.str.24 = private unnamed_addr constant [12 x i8] c"RLIMIT_CORE\00", align 1
-@.str.25 = private unnamed_addr constant [14 x i8] c"RLIMIT_NOFILE\00", align 1
-@.str.26 = private unnamed_addr constant [13 x i8] c"RLIMIT_OFILE\00", align 1
-@.str.27 = private unnamed_addr constant [10 x i8] c"RLIMIT_AS\00", align 1
-@.str.28 = private unnamed_addr constant [11 x i8] c"RLIMIT_RSS\00", align 1
-@.str.29 = private unnamed_addr constant [13 x i8] c"RLIMIT_NPROC\00", align 1
-@.str.30 = private unnamed_addr constant [15 x i8] c"RLIMIT_MEMLOCK\00", align 1
-@.str.31 = private unnamed_addr constant [16 x i8] c"RLIMIT_MSGQUEUE\00", align 1
-@.str.32 = private unnamed_addr constant [12 x i8] c"RLIMIT_NICE\00", align 1
-@.str.33 = private unnamed_addr constant [14 x i8] c"RLIMIT_RTPRIO\00", align 1
-@.str.34 = private unnamed_addr constant [14 x i8] c"RLIMIT_RTTIME\00", align 1
-@.str.35 = private unnamed_addr constant [18 x i8] c"RLIMIT_SIGPENDING\00", align 1
-@.str.36 = private unnamed_addr constant [12 x i8] c"RUSAGE_SELF\00", align 1
-@.str.37 = private unnamed_addr constant [16 x i8] c"RUSAGE_CHILDREN\00", align 1
-@.str.38 = private unnamed_addr constant [14 x i8] c"RUSAGE_THREAD\00", align 1
-@.str.39 = private unnamed_addr constant [14 x i8] c"RLIM_INFINITY\00", align 1
-@.str.40 = private unnamed_addr constant [23 x i8] c"resource.struct_rusage\00", align 1
+@.str.10 = private unnamed_addr constant [47 x i8] c"prlimit expected at least 2 arguments, got %zd\00", align 1
+@.str.11 = private unnamed_addr constant [46 x i8] c"prlimit expected at most 3 arguments, got %zd\00", align 1
+@.str.12 = private unnamed_addr constant [17 x i8] c"resource.prlimit\00", align 1
+@.str.13 = private unnamed_addr constant [4 x i8] c"iiO\00", align 1
+@.str.14 = private unnamed_addr constant [36 x i8] c"current limit exceeds maximum limit\00", align 1
+@.str.15 = private unnamed_addr constant [31 x i8] c"expected a tuple of 2 integers\00", align 1
+@.str.16 = private unnamed_addr constant [40 x i8] c"setrlimit expected 2 arguments, got %zd\00", align 1
+@.str.17 = private unnamed_addr constant [19 x i8] c"resource.setrlimit\00", align 1
+@.str.18 = private unnamed_addr constant [3 x i8] c"iO\00", align 1
+@.str.19 = private unnamed_addr constant [35 x i8] c"not allowed to raise maximum limit\00", align 1
+@resource_slots = internal global [4 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @resource_exec }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr inttoptr (i64 2 to ptr) }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr inttoptr (i64 1 to ptr) }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.21 = private unnamed_addr constant [6 x i8] c"error\00", align 1
+@.str.22 = private unnamed_addr constant [11 x i8] c"RLIMIT_CPU\00", align 1
+@.str.23 = private unnamed_addr constant [13 x i8] c"RLIMIT_FSIZE\00", align 1
+@.str.24 = private unnamed_addr constant [12 x i8] c"RLIMIT_DATA\00", align 1
+@.str.25 = private unnamed_addr constant [13 x i8] c"RLIMIT_STACK\00", align 1
+@.str.26 = private unnamed_addr constant [12 x i8] c"RLIMIT_CORE\00", align 1
+@.str.27 = private unnamed_addr constant [14 x i8] c"RLIMIT_NOFILE\00", align 1
+@.str.28 = private unnamed_addr constant [13 x i8] c"RLIMIT_OFILE\00", align 1
+@.str.29 = private unnamed_addr constant [10 x i8] c"RLIMIT_AS\00", align 1
+@.str.30 = private unnamed_addr constant [11 x i8] c"RLIMIT_RSS\00", align 1
+@.str.31 = private unnamed_addr constant [13 x i8] c"RLIMIT_NPROC\00", align 1
+@.str.32 = private unnamed_addr constant [15 x i8] c"RLIMIT_MEMLOCK\00", align 1
+@.str.33 = private unnamed_addr constant [16 x i8] c"RLIMIT_MSGQUEUE\00", align 1
+@.str.34 = private unnamed_addr constant [12 x i8] c"RLIMIT_NICE\00", align 1
+@.str.35 = private unnamed_addr constant [14 x i8] c"RLIMIT_RTPRIO\00", align 1
+@.str.36 = private unnamed_addr constant [14 x i8] c"RLIMIT_RTTIME\00", align 1
+@.str.37 = private unnamed_addr constant [18 x i8] c"RLIMIT_SIGPENDING\00", align 1
+@.str.38 = private unnamed_addr constant [12 x i8] c"RUSAGE_SELF\00", align 1
+@.str.39 = private unnamed_addr constant [16 x i8] c"RUSAGE_CHILDREN\00", align 1
+@.str.40 = private unnamed_addr constant [14 x i8] c"RUSAGE_THREAD\00", align 1
+@.str.41 = private unnamed_addr constant [14 x i8] c"RLIM_INFINITY\00", align 1
+@.str.42 = private unnamed_addr constant [23 x i8] c"resource.struct_rusage\00", align 1
 @struct_rusage__doc__ = internal constant [272 x i8] c"struct_rusage: Result from getrusage.\0A\0AThis object may be accessed either as a tuple of\0A    (utime,stime,maxrss,ixrss,idrss,isrss,minflt,majflt,\0A    nswap,inblock,oublock,msgsnd,msgrcv,nsignals,nvcsw,nivcsw)\0Aor via the attributes ru_utime, ru_stime, ru_maxrss, and so on.\00", align 16
-@struct_rusage_fields = internal global [17 x %struct.PyStructSequence_Field] [%struct.PyStructSequence_Field { ptr @.str.41, ptr @.str.42 }, %struct.PyStructSequence_Field { ptr @.str.43, ptr @.str.44 }, %struct.PyStructSequence_Field { ptr @.str.45, ptr @.str.46 }, %struct.PyStructSequence_Field { ptr @.str.47, ptr @.str.48 }, %struct.PyStructSequence_Field { ptr @.str.49, ptr @.str.50 }, %struct.PyStructSequence_Field { ptr @.str.51, ptr @.str.52 }, %struct.PyStructSequence_Field { ptr @.str.53, ptr @.str.54 }, %struct.PyStructSequence_Field { ptr @.str.55, ptr @.str.56 }, %struct.PyStructSequence_Field { ptr @.str.57, ptr @.str.58 }, %struct.PyStructSequence_Field { ptr @.str.59, ptr @.str.60 }, %struct.PyStructSequence_Field { ptr @.str.61, ptr @.str.62 }, %struct.PyStructSequence_Field { ptr @.str.63, ptr @.str.64 }, %struct.PyStructSequence_Field { ptr @.str.65, ptr @.str.66 }, %struct.PyStructSequence_Field { ptr @.str.67, ptr @.str.68 }, %struct.PyStructSequence_Field { ptr @.str.69, ptr @.str.70 }, %struct.PyStructSequence_Field { ptr @.str.71, ptr @.str.72 }, %struct.PyStructSequence_Field zeroinitializer], align 16
-@.str.41 = private unnamed_addr constant [9 x i8] c"ru_utime\00", align 1
-@.str.42 = private unnamed_addr constant [15 x i8] c"user time used\00", align 1
-@.str.43 = private unnamed_addr constant [9 x i8] c"ru_stime\00", align 1
-@.str.44 = private unnamed_addr constant [17 x i8] c"system time used\00", align 1
-@.str.45 = private unnamed_addr constant [10 x i8] c"ru_maxrss\00", align 1
-@.str.46 = private unnamed_addr constant [23 x i8] c"max. resident set size\00", align 1
-@.str.47 = private unnamed_addr constant [9 x i8] c"ru_ixrss\00", align 1
-@.str.48 = private unnamed_addr constant [19 x i8] c"shared memory size\00", align 1
-@.str.49 = private unnamed_addr constant [9 x i8] c"ru_idrss\00", align 1
-@.str.50 = private unnamed_addr constant [19 x i8] c"unshared data size\00", align 1
-@.str.51 = private unnamed_addr constant [9 x i8] c"ru_isrss\00", align 1
-@.str.52 = private unnamed_addr constant [20 x i8] c"unshared stack size\00", align 1
-@.str.53 = private unnamed_addr constant [10 x i8] c"ru_minflt\00", align 1
-@.str.54 = private unnamed_addr constant [30 x i8] c"page faults not requiring I/O\00", align 1
-@.str.55 = private unnamed_addr constant [10 x i8] c"ru_majflt\00", align 1
-@.str.56 = private unnamed_addr constant [26 x i8] c"page faults requiring I/O\00", align 1
-@.str.57 = private unnamed_addr constant [9 x i8] c"ru_nswap\00", align 1
-@.str.58 = private unnamed_addr constant [20 x i8] c"number of swap outs\00", align 1
-@.str.59 = private unnamed_addr constant [11 x i8] c"ru_inblock\00", align 1
-@.str.60 = private unnamed_addr constant [23 x i8] c"block input operations\00", align 1
-@.str.61 = private unnamed_addr constant [11 x i8] c"ru_oublock\00", align 1
-@.str.62 = private unnamed_addr constant [24 x i8] c"block output operations\00", align 1
-@.str.63 = private unnamed_addr constant [10 x i8] c"ru_msgsnd\00", align 1
-@.str.64 = private unnamed_addr constant [18 x i8] c"IPC messages sent\00", align 1
-@.str.65 = private unnamed_addr constant [10 x i8] c"ru_msgrcv\00", align 1
-@.str.66 = private unnamed_addr constant [22 x i8] c"IPC messages received\00", align 1
-@.str.67 = private unnamed_addr constant [12 x i8] c"ru_nsignals\00", align 1
-@.str.68 = private unnamed_addr constant [17 x i8] c"signals received\00", align 1
-@.str.69 = private unnamed_addr constant [9 x i8] c"ru_nvcsw\00", align 1
-@.str.70 = private unnamed_addr constant [27 x i8] c"voluntary context switches\00", align 1
-@.str.71 = private unnamed_addr constant [10 x i8] c"ru_nivcsw\00", align 1
-@.str.72 = private unnamed_addr constant [29 x i8] c"involuntary context switches\00", align 1
+@struct_rusage_fields = internal global [17 x %struct.PyStructSequence_Field] [%struct.PyStructSequence_Field { ptr @.str.44, ptr @.str.45 }, %struct.PyStructSequence_Field { ptr @.str.46, ptr @.str.47 }, %struct.PyStructSequence_Field { ptr @.str.48, ptr @.str.49 }, %struct.PyStructSequence_Field { ptr @.str.50, ptr @.str.51 }, %struct.PyStructSequence_Field { ptr @.str.52, ptr @.str.53 }, %struct.PyStructSequence_Field { ptr @.str.54, ptr @.str.55 }, %struct.PyStructSequence_Field { ptr @.str.56, ptr @.str.57 }, %struct.PyStructSequence_Field { ptr @.str.58, ptr @.str.59 }, %struct.PyStructSequence_Field { ptr @.str.60, ptr @.str.61 }, %struct.PyStructSequence_Field { ptr @.str.62, ptr @.str.63 }, %struct.PyStructSequence_Field { ptr @.str.64, ptr @.str.65 }, %struct.PyStructSequence_Field { ptr @.str.66, ptr @.str.67 }, %struct.PyStructSequence_Field { ptr @.str.68, ptr @.str.69 }, %struct.PyStructSequence_Field { ptr @.str.70, ptr @.str.71 }, %struct.PyStructSequence_Field { ptr @.str.72, ptr @.str.73 }, %struct.PyStructSequence_Field { ptr @.str.74, ptr @.str.75 }, %struct.PyStructSequence_Field zeroinitializer], align 16
+@struct_rusage_desc = internal global { ptr, ptr, ptr, i32, [4 x i8] } { ptr @.str.42, ptr @struct_rusage__doc__, ptr @struct_rusage_fields, i32 16, [4 x i8] zeroinitializer }, align 8
+@.str.44 = private unnamed_addr constant [9 x i8] c"ru_utime\00", align 1
+@.str.45 = private unnamed_addr constant [15 x i8] c"user time used\00", align 1
+@.str.46 = private unnamed_addr constant [9 x i8] c"ru_stime\00", align 1
+@.str.47 = private unnamed_addr constant [17 x i8] c"system time used\00", align 1
+@.str.48 = private unnamed_addr constant [10 x i8] c"ru_maxrss\00", align 1
+@.str.49 = private unnamed_addr constant [23 x i8] c"max. resident set size\00", align 1
+@.str.50 = private unnamed_addr constant [9 x i8] c"ru_ixrss\00", align 1
+@.str.51 = private unnamed_addr constant [19 x i8] c"shared memory size\00", align 1
+@.str.52 = private unnamed_addr constant [9 x i8] c"ru_idrss\00", align 1
+@.str.53 = private unnamed_addr constant [19 x i8] c"unshared data size\00", align 1
+@.str.54 = private unnamed_addr constant [9 x i8] c"ru_isrss\00", align 1
+@.str.55 = private unnamed_addr constant [20 x i8] c"unshared stack size\00", align 1
+@.str.56 = private unnamed_addr constant [10 x i8] c"ru_minflt\00", align 1
+@.str.57 = private unnamed_addr constant [30 x i8] c"page faults not requiring I/O\00", align 1
+@.str.58 = private unnamed_addr constant [10 x i8] c"ru_majflt\00", align 1
+@.str.59 = private unnamed_addr constant [26 x i8] c"page faults requiring I/O\00", align 1
+@.str.60 = private unnamed_addr constant [9 x i8] c"ru_nswap\00", align 1
+@.str.61 = private unnamed_addr constant [20 x i8] c"number of swap outs\00", align 1
+@.str.62 = private unnamed_addr constant [11 x i8] c"ru_inblock\00", align 1
+@.str.63 = private unnamed_addr constant [23 x i8] c"block input operations\00", align 1
+@.str.64 = private unnamed_addr constant [11 x i8] c"ru_oublock\00", align 1
+@.str.65 = private unnamed_addr constant [24 x i8] c"block output operations\00", align 1
+@.str.66 = private unnamed_addr constant [10 x i8] c"ru_msgsnd\00", align 1
+@.str.67 = private unnamed_addr constant [18 x i8] c"IPC messages sent\00", align 1
+@.str.68 = private unnamed_addr constant [10 x i8] c"ru_msgrcv\00", align 1
+@.str.69 = private unnamed_addr constant [22 x i8] c"IPC messages received\00", align 1
+@.str.70 = private unnamed_addr constant [12 x i8] c"ru_nsignals\00", align 1
+@.str.71 = private unnamed_addr constant [17 x i8] c"signals received\00", align 1
+@.str.72 = private unnamed_addr constant [9 x i8] c"ru_nvcsw\00", align 1
+@.str.73 = private unnamed_addr constant [27 x i8] c"voluntary context switches\00", align 1
+@.str.74 = private unnamed_addr constant [10 x i8] c"ru_nivcsw\00", align 1
+@.str.75 = private unnamed_addr constant [29 x i8] c"involuntary context switches\00", align 1
 
 ; Function Attrs: nounwind uwtable
 define ptr @PyInit_resource() #0 {
-entry:
-  %call = call ptr @PyModuleDef_Init(ptr noundef @resourcemodule)
-  ret ptr %call
+  %1 = call ptr @PyModuleDef_Init(ptr noundef @resourcemodule)
+  ret ptr %1
 }
 
 declare ptr @PyModuleDef_Init(ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @resourcemodule_traverse(ptr noundef %m, ptr noundef %visit, ptr noundef %arg) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %m.addr = alloca ptr, align 8
-  %visit.addr = alloca ptr, align 8
-  %arg.addr = alloca ptr, align 8
-  %vret = alloca i32, align 4
-  store ptr %m, ptr %m.addr, align 8
-  store ptr %visit, ptr %visit.addr, align 8
-  store ptr %arg, ptr %arg.addr, align 8
-  br label %do.body
+define internal i32 @resourcemodule_traverse(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
+  %4 = alloca i32, align 4
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca i32, align 4
+  store ptr %0, ptr %5, align 8, !tbaa !3
+  store ptr %1, ptr %6, align 8, !tbaa !8
+  store ptr %2, ptr %7, align 8, !tbaa !8
+  br label %10
 
-do.body:                                          ; preds = %entry
-  %0 = load ptr, ptr %m.addr, align 8
-  %call = call ptr @get_resource_state(ptr noundef %0)
-  %StructRUsageType = getelementptr inbounds %struct.resourcemodulestate, ptr %call, i32 0, i32 0
-  %1 = load ptr, ptr %StructRUsageType, align 8
-  %tobool = icmp ne ptr %1, null
-  br i1 %tobool, label %if.then, label %if.end6
+10:                                               ; preds = %3
+  %11 = load ptr, ptr %5, align 8, !tbaa !3
+  %12 = call ptr @get_resource_state(ptr noundef %11)
+  %13 = getelementptr inbounds nuw %struct.resourcemodulestate, ptr %12, i32 0, i32 0
+  %14 = load ptr, ptr %13, align 8, !tbaa !9
+  %15 = icmp ne ptr %14, null
+  br i1 %15, label %16, label %32
 
-if.then:                                          ; preds = %do.body
-  %2 = load ptr, ptr %visit.addr, align 8
-  %3 = load ptr, ptr %m.addr, align 8
-  %call1 = call ptr @get_resource_state(ptr noundef %3)
-  %StructRUsageType2 = getelementptr inbounds %struct.resourcemodulestate, ptr %call1, i32 0, i32 0
-  %4 = load ptr, ptr %StructRUsageType2, align 8
-  %5 = load ptr, ptr %arg.addr, align 8
-  %call3 = call i32 %2(ptr noundef %4, ptr noundef %5)
-  store i32 %call3, ptr %vret, align 4
-  %6 = load i32, ptr %vret, align 4
-  %tobool4 = icmp ne i32 %6, 0
-  br i1 %tobool4, label %if.then5, label %if.end
+16:                                               ; preds = %10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #7
+  %17 = load ptr, ptr %6, align 8, !tbaa !8
+  %18 = load ptr, ptr %5, align 8, !tbaa !3
+  %19 = call ptr @get_resource_state(ptr noundef %18)
+  %20 = getelementptr inbounds nuw %struct.resourcemodulestate, ptr %19, i32 0, i32 0
+  %21 = load ptr, ptr %20, align 8, !tbaa !9
+  %22 = load ptr, ptr %7, align 8, !tbaa !8
+  %23 = call i32 %17(ptr noundef %21, ptr noundef %22)
+  store i32 %23, ptr %8, align 4, !tbaa !12
+  %24 = load i32, ptr %8, align 4, !tbaa !12
+  %25 = icmp ne i32 %24, 0
+  br i1 %25, label %26, label %28
 
-if.then5:                                         ; preds = %if.then
-  %7 = load i32, ptr %vret, align 4
-  store i32 %7, ptr %retval, align 4
-  br label %return
+26:                                               ; preds = %16
+  %27 = load i32, ptr %8, align 4, !tbaa !12
+  store i32 %27, ptr %4, align 4
+  store i32 1, ptr %9, align 4
+  br label %29
 
-if.end:                                           ; preds = %if.then
-  br label %if.end6
+28:                                               ; preds = %16
+  store i32 0, ptr %9, align 4
+  br label %29
 
-if.end6:                                          ; preds = %if.end, %do.body
-  br label %do.end
+29:                                               ; preds = %28, %26
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #7
+  %30 = load i32, ptr %9, align 4
+  switch i32 %30, label %36 [
+    i32 0, label %31
+    i32 1, label %34
+  ]
 
-do.end:                                           ; preds = %if.end6
-  store i32 0, ptr %retval, align 4
-  br label %return
+31:                                               ; preds = %29
+  br label %32
 
-return:                                           ; preds = %do.end, %if.then5
-  %8 = load i32, ptr %retval, align 4
-  ret i32 %8
+32:                                               ; preds = %31, %10
+  br label %33
+
+33:                                               ; preds = %32
+  store i32 0, ptr %4, align 4
+  br label %34
+
+34:                                               ; preds = %33, %29
+  %35 = load i32, ptr %4, align 4
+  ret i32 %35
+
+36:                                               ; preds = %29
+  unreachable
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @resourcemodule_clear(ptr noundef %m) #0 {
-entry:
-  %m.addr = alloca ptr, align 8
-  %_tmp_op_ptr = alloca ptr, align 8
-  %_tmp_old_op = alloca ptr, align 8
-  store ptr %m, ptr %m.addr, align 8
-  br label %do.body
+define internal i32 @resourcemodule_clear(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !3
+  br label %5
 
-do.body:                                          ; preds = %entry
-  %0 = load ptr, ptr %m.addr, align 8
-  %call = call ptr @get_resource_state(ptr noundef %0)
-  %StructRUsageType = getelementptr inbounds %struct.resourcemodulestate, ptr %call, i32 0, i32 0
-  store ptr %StructRUsageType, ptr %_tmp_op_ptr, align 8
-  %1 = load ptr, ptr %_tmp_op_ptr, align 8
-  %2 = load ptr, ptr %1, align 8
-  store ptr %2, ptr %_tmp_old_op, align 8
-  %3 = load ptr, ptr %_tmp_old_op, align 8
-  %cmp = icmp ne ptr %3, null
-  br i1 %cmp, label %if.then, label %if.end
+5:                                                ; preds = %1
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #7
+  %6 = load ptr, ptr %2, align 8, !tbaa !3
+  %7 = call ptr @get_resource_state(ptr noundef %6)
+  %8 = getelementptr inbounds nuw %struct.resourcemodulestate, ptr %7, i32 0, i32 0
+  store ptr %8, ptr %3, align 8, !tbaa !14
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #7
+  %9 = load ptr, ptr %3, align 8, !tbaa !14
+  %10 = load ptr, ptr %9, align 8, !tbaa !16
+  store ptr %10, ptr %4, align 8, !tbaa !16
+  %11 = load ptr, ptr %4, align 8, !tbaa !16
+  %12 = icmp ne ptr %11, null
+  br i1 %12, label %13, label %16
 
-if.then:                                          ; preds = %do.body
-  %4 = load ptr, ptr %_tmp_op_ptr, align 8
-  store ptr null, ptr %4, align 8
-  %5 = load ptr, ptr %_tmp_old_op, align 8
-  call void @Py_DECREF(ptr noundef %5)
-  br label %if.end
+13:                                               ; preds = %5
+  %14 = load ptr, ptr %3, align 8, !tbaa !14
+  store ptr null, ptr %14, align 8, !tbaa !16
+  %15 = load ptr, ptr %4, align 8, !tbaa !16
+  call void @Py_DECREF(ptr noundef %15)
+  br label %16
 
-if.end:                                           ; preds = %if.then, %do.body
-  br label %do.end
+16:                                               ; preds = %13, %5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #7
+  br label %17
 
-do.end:                                           ; preds = %if.end
+17:                                               ; preds = %16
   ret i32 0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @resourcemodule_free(ptr noundef %m) #0 {
-entry:
-  %m.addr = alloca ptr, align 8
-  store ptr %m, ptr %m.addr, align 8
-  %0 = load ptr, ptr %m.addr, align 8
-  %call = call i32 @resourcemodule_clear(ptr noundef %0)
+define internal void @resourcemodule_free(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !8
+  %3 = load ptr, ptr %2, align 8, !tbaa !8
+  %4 = call i32 @resourcemodule_clear(ptr noundef %3)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @resource_getrusage(ptr noundef %module, ptr noundef %arg) #0 {
-entry:
-  %module.addr = alloca ptr, align 8
-  %arg.addr = alloca ptr, align 8
-  %return_value = alloca ptr, align 8
-  %who = alloca i32, align 4
-  store ptr %module, ptr %module.addr, align 8
-  store ptr %arg, ptr %arg.addr, align 8
-  store ptr null, ptr %return_value, align 8
-  %0 = load ptr, ptr %arg.addr, align 8
-  %call = call i32 @PyLong_AsInt(ptr noundef %0)
-  store i32 %call, ptr %who, align 4
-  %1 = load i32, ptr %who, align 4
-  %cmp = icmp eq i32 %1, -1
-  br i1 %cmp, label %land.lhs.true, label %if.end
+define internal ptr @resource_getrusage(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  store ptr %1, ptr %4, align 8, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #7
+  store ptr null, ptr %5, align 8, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #7
+  %7 = load ptr, ptr %4, align 8, !tbaa !3
+  %8 = call i32 @PyLong_AsInt(ptr noundef %7)
+  store i32 %8, ptr %6, align 4, !tbaa !12
+  %9 = load i32, ptr %6, align 4, !tbaa !12
+  %10 = icmp eq i32 %9, -1
+  br i1 %10, label %11, label %15
 
-land.lhs.true:                                    ; preds = %entry
-  %call1 = call ptr @PyErr_Occurred()
-  %tobool = icmp ne ptr %call1, null
-  br i1 %tobool, label %if.then, label %if.end
+11:                                               ; preds = %2
+  %12 = call ptr @PyErr_Occurred()
+  %13 = icmp ne ptr %12, null
+  br i1 %13, label %14, label %15
 
-if.then:                                          ; preds = %land.lhs.true
-  br label %exit
+14:                                               ; preds = %11
+  br label %19
 
-if.end:                                           ; preds = %land.lhs.true, %entry
-  %2 = load ptr, ptr %module.addr, align 8
-  %3 = load i32, ptr %who, align 4
-  %call2 = call ptr @resource_getrusage_impl(ptr noundef %2, i32 noundef %3)
-  store ptr %call2, ptr %return_value, align 8
-  br label %exit
+15:                                               ; preds = %11, %2
+  %16 = load ptr, ptr %3, align 8, !tbaa !3
+  %17 = load i32, ptr %6, align 4, !tbaa !12
+  %18 = call ptr @resource_getrusage_impl(ptr noundef %16, i32 noundef %17)
+  store ptr %18, ptr %5, align 8, !tbaa !3
+  br label %19
 
-exit:                                             ; preds = %if.end, %if.then
-  %4 = load ptr, ptr %return_value, align 8
-  ret ptr %4
+19:                                               ; preds = %15, %14
+  %20 = load ptr, ptr %5, align 8, !tbaa !3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #7
+  ret ptr %20
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @resource_getrlimit(ptr noundef %module, ptr noundef %arg) #0 {
-entry:
-  %module.addr = alloca ptr, align 8
-  %arg.addr = alloca ptr, align 8
-  %return_value = alloca ptr, align 8
-  %resource = alloca i32, align 4
-  store ptr %module, ptr %module.addr, align 8
-  store ptr %arg, ptr %arg.addr, align 8
-  store ptr null, ptr %return_value, align 8
-  %0 = load ptr, ptr %arg.addr, align 8
-  %call = call i32 @PyLong_AsInt(ptr noundef %0)
-  store i32 %call, ptr %resource, align 4
-  %1 = load i32, ptr %resource, align 4
-  %cmp = icmp eq i32 %1, -1
-  br i1 %cmp, label %land.lhs.true, label %if.end
+define internal ptr @resource_getrlimit(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  store ptr %1, ptr %4, align 8, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #7
+  store ptr null, ptr %5, align 8, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #7
+  %7 = load ptr, ptr %4, align 8, !tbaa !3
+  %8 = call i32 @PyLong_AsInt(ptr noundef %7)
+  store i32 %8, ptr %6, align 4, !tbaa !12
+  %9 = load i32, ptr %6, align 4, !tbaa !12
+  %10 = icmp eq i32 %9, -1
+  br i1 %10, label %11, label %15
 
-land.lhs.true:                                    ; preds = %entry
-  %call1 = call ptr @PyErr_Occurred()
-  %tobool = icmp ne ptr %call1, null
-  br i1 %tobool, label %if.then, label %if.end
+11:                                               ; preds = %2
+  %12 = call ptr @PyErr_Occurred()
+  %13 = icmp ne ptr %12, null
+  br i1 %13, label %14, label %15
 
-if.then:                                          ; preds = %land.lhs.true
-  br label %exit
+14:                                               ; preds = %11
+  br label %19
 
-if.end:                                           ; preds = %land.lhs.true, %entry
-  %2 = load ptr, ptr %module.addr, align 8
-  %3 = load i32, ptr %resource, align 4
-  %call2 = call ptr @resource_getrlimit_impl(ptr noundef %2, i32 noundef %3)
-  store ptr %call2, ptr %return_value, align 8
-  br label %exit
+15:                                               ; preds = %11, %2
+  %16 = load ptr, ptr %3, align 8, !tbaa !3
+  %17 = load i32, ptr %6, align 4, !tbaa !12
+  %18 = call ptr @resource_getrlimit_impl(ptr noundef %16, i32 noundef %17)
+  store ptr %18, ptr %5, align 8, !tbaa !3
+  br label %19
 
-exit:                                             ; preds = %if.end, %if.then
-  %4 = load ptr, ptr %return_value, align 8
-  ret ptr %4
+19:                                               ; preds = %15, %14
+  %20 = load ptr, ptr %5, align 8, !tbaa !3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #7
+  ret ptr %20
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @resource_prlimit(ptr noundef %module, ptr noundef %args, i64 noundef %nargs) #0 {
-entry:
-  %module.addr = alloca ptr, align 8
-  %args.addr = alloca ptr, align 8
-  %nargs.addr = alloca i64, align 8
-  %return_value = alloca ptr, align 8
-  %pid = alloca i32, align 4
-  %resource = alloca i32, align 4
-  %limits = alloca ptr, align 8
-  store ptr %module, ptr %module.addr, align 8
-  store ptr %args, ptr %args.addr, align 8
-  store i64 %nargs, ptr %nargs.addr, align 8
-  store ptr null, ptr %return_value, align 8
-  store ptr @_Py_NoneStruct, ptr %limits, align 8
-  %0 = load i64, ptr %nargs.addr, align 8
-  %cmp = icmp slt i64 %0, 2
-  br i1 %cmp, label %if.then, label %if.end
+define internal ptr @resource_prlimit(ptr noundef %0, ptr noundef %1, i64 noundef %2) #0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i64, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca i32, align 4
+  %10 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !3
+  store ptr %1, ptr %5, align 8, !tbaa !17
+  store i64 %2, ptr %6, align 8, !tbaa !19
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #7
+  store ptr null, ptr %7, align 8, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #7
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #7
+  %11 = call ptr @Py_GetConstantBorrowed(i32 noundef 0)
+  store ptr %11, ptr %10, align 8, !tbaa !3
+  %12 = load i64, ptr %6, align 8, !tbaa !19
+  %13 = icmp slt i64 %12, 2
+  br i1 %13, label %14, label %18
 
-if.then:                                          ; preds = %entry
-  %1 = load ptr, ptr @PyExc_TypeError, align 8
-  %2 = load i64, ptr %nargs.addr, align 8
-  %call = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %1, ptr noundef @.str.9, i64 noundef %2)
-  br label %exit
+14:                                               ; preds = %3
+  %15 = load ptr, ptr @PyExc_TypeError, align 8, !tbaa !3
+  %16 = load i64, ptr %6, align 8, !tbaa !19
+  %17 = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %15, ptr noundef @.str.10, i64 noundef %16)
+  br label %61
 
-if.end:                                           ; preds = %entry
-  %3 = load i64, ptr %nargs.addr, align 8
-  %cmp1 = icmp sgt i64 %3, 3
-  br i1 %cmp1, label %if.then2, label %if.end4
+18:                                               ; preds = %3
+  %19 = load i64, ptr %6, align 8, !tbaa !19
+  %20 = icmp sgt i64 %19, 3
+  br i1 %20, label %21, label %25
 
-if.then2:                                         ; preds = %if.end
-  %4 = load ptr, ptr @PyExc_TypeError, align 8
-  %5 = load i64, ptr %nargs.addr, align 8
-  %call3 = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %4, ptr noundef @.str.10, i64 noundef %5)
-  br label %exit
+21:                                               ; preds = %18
+  %22 = load ptr, ptr @PyExc_TypeError, align 8, !tbaa !3
+  %23 = load i64, ptr %6, align 8, !tbaa !19
+  %24 = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %22, ptr noundef @.str.11, i64 noundef %23)
+  br label %61
 
-if.end4:                                          ; preds = %if.end
-  %6 = load ptr, ptr %args.addr, align 8
-  %arrayidx = getelementptr ptr, ptr %6, i64 0
-  %7 = load ptr, ptr %arrayidx, align 8
-  %call5 = call i64 @PyLong_AsLong(ptr noundef %7)
-  %conv = trunc i64 %call5 to i32
-  store i32 %conv, ptr %pid, align 4
-  %8 = load i32, ptr %pid, align 4
-  %cmp6 = icmp eq i32 %8, -1
-  br i1 %cmp6, label %land.lhs.true, label %if.end10
+25:                                               ; preds = %18
+  %26 = load ptr, ptr %5, align 8, !tbaa !17
+  %27 = getelementptr ptr, ptr %26, i64 0
+  %28 = load ptr, ptr %27, align 8, !tbaa !3
+  %29 = call i32 @PyLong_AsInt(ptr noundef %28)
+  store i32 %29, ptr %8, align 4, !tbaa !12
+  %30 = load i32, ptr %8, align 4, !tbaa !12
+  %31 = icmp eq i32 %30, -1
+  br i1 %31, label %32, label %36
 
-land.lhs.true:                                    ; preds = %if.end4
-  %call8 = call ptr @PyErr_Occurred()
-  %tobool = icmp ne ptr %call8, null
-  br i1 %tobool, label %if.then9, label %if.end10
+32:                                               ; preds = %25
+  %33 = call ptr @PyErr_Occurred()
+  %34 = icmp ne ptr %33, null
+  br i1 %34, label %35, label %36
 
-if.then9:                                         ; preds = %land.lhs.true
-  br label %exit
+35:                                               ; preds = %32
+  br label %61
 
-if.end10:                                         ; preds = %land.lhs.true, %if.end4
-  %9 = load ptr, ptr %args.addr, align 8
-  %arrayidx11 = getelementptr ptr, ptr %9, i64 1
-  %10 = load ptr, ptr %arrayidx11, align 8
-  %call12 = call i32 @PyLong_AsInt(ptr noundef %10)
-  store i32 %call12, ptr %resource, align 4
-  %11 = load i32, ptr %resource, align 4
-  %cmp13 = icmp eq i32 %11, -1
-  br i1 %cmp13, label %land.lhs.true15, label %if.end19
+36:                                               ; preds = %32, %25
+  %37 = load ptr, ptr %5, align 8, !tbaa !17
+  %38 = getelementptr ptr, ptr %37, i64 1
+  %39 = load ptr, ptr %38, align 8, !tbaa !3
+  %40 = call i32 @PyLong_AsInt(ptr noundef %39)
+  store i32 %40, ptr %9, align 4, !tbaa !12
+  %41 = load i32, ptr %9, align 4, !tbaa !12
+  %42 = icmp eq i32 %41, -1
+  br i1 %42, label %43, label %47
 
-land.lhs.true15:                                  ; preds = %if.end10
-  %call16 = call ptr @PyErr_Occurred()
-  %tobool17 = icmp ne ptr %call16, null
-  br i1 %tobool17, label %if.then18, label %if.end19
+43:                                               ; preds = %36
+  %44 = call ptr @PyErr_Occurred()
+  %45 = icmp ne ptr %44, null
+  br i1 %45, label %46, label %47
 
-if.then18:                                        ; preds = %land.lhs.true15
-  br label %exit
+46:                                               ; preds = %43
+  br label %61
 
-if.end19:                                         ; preds = %land.lhs.true15, %if.end10
-  %12 = load i64, ptr %nargs.addr, align 8
-  %cmp20 = icmp slt i64 %12, 3
-  br i1 %cmp20, label %if.then22, label %if.end23
+47:                                               ; preds = %43, %36
+  %48 = load i64, ptr %6, align 8, !tbaa !19
+  %49 = icmp slt i64 %48, 3
+  br i1 %49, label %50, label %51
 
-if.then22:                                        ; preds = %if.end19
-  br label %skip_optional
+50:                                               ; preds = %47
+  br label %55
 
-if.end23:                                         ; preds = %if.end19
-  %13 = load ptr, ptr %args.addr, align 8
-  %arrayidx24 = getelementptr ptr, ptr %13, i64 2
-  %14 = load ptr, ptr %arrayidx24, align 8
-  store ptr %14, ptr %limits, align 8
-  br label %skip_optional
+51:                                               ; preds = %47
+  %52 = load ptr, ptr %5, align 8, !tbaa !17
+  %53 = getelementptr ptr, ptr %52, i64 2
+  %54 = load ptr, ptr %53, align 8, !tbaa !3
+  store ptr %54, ptr %10, align 8, !tbaa !3
+  br label %55
 
-skip_optional:                                    ; preds = %if.end23, %if.then22
-  %15 = load ptr, ptr %module.addr, align 8
-  %16 = load i32, ptr %pid, align 4
-  %17 = load i32, ptr %resource, align 4
-  %18 = load ptr, ptr %limits, align 8
-  %call25 = call ptr @resource_prlimit_impl(ptr noundef %15, i32 noundef %16, i32 noundef %17, ptr noundef %18)
-  store ptr %call25, ptr %return_value, align 8
-  br label %exit
+55:                                               ; preds = %51, %50
+  %56 = load ptr, ptr %4, align 8, !tbaa !3
+  %57 = load i32, ptr %8, align 4, !tbaa !12
+  %58 = load i32, ptr %9, align 4, !tbaa !12
+  %59 = load ptr, ptr %10, align 8, !tbaa !3
+  %60 = call ptr @resource_prlimit_impl(ptr noundef %56, i32 noundef %57, i32 noundef %58, ptr noundef %59)
+  store ptr %60, ptr %7, align 8, !tbaa !3
+  br label %61
 
-exit:                                             ; preds = %skip_optional, %if.then18, %if.then9, %if.then2, %if.then
-  %19 = load ptr, ptr %return_value, align 8
-  ret ptr %19
+61:                                               ; preds = %55, %46, %35, %21, %14
+  %62 = load ptr, ptr %7, align 8, !tbaa !3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #7
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #7
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #7
+  ret ptr %62
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @resource_setrlimit(ptr noundef %module, ptr noundef %args, i64 noundef %nargs) #0 {
-entry:
-  %module.addr = alloca ptr, align 8
-  %args.addr = alloca ptr, align 8
-  %nargs.addr = alloca i64, align 8
-  %return_value = alloca ptr, align 8
-  %resource = alloca i32, align 4
-  %limits = alloca ptr, align 8
-  store ptr %module, ptr %module.addr, align 8
-  store ptr %args, ptr %args.addr, align 8
-  store i64 %nargs, ptr %nargs.addr, align 8
-  store ptr null, ptr %return_value, align 8
-  %0 = load i64, ptr %nargs.addr, align 8
-  %cmp = icmp ne i64 %0, 2
-  br i1 %cmp, label %if.then, label %if.end
+define internal ptr @resource_setrlimit(ptr noundef %0, ptr noundef %1, i64 noundef %2) #0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i64, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !3
+  store ptr %1, ptr %5, align 8, !tbaa !17
+  store i64 %2, ptr %6, align 8, !tbaa !19
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #7
+  store ptr null, ptr %7, align 8, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #7
+  %10 = load i64, ptr %6, align 8, !tbaa !19
+  %11 = icmp ne i64 %10, 2
+  br i1 %11, label %12, label %16
 
-if.then:                                          ; preds = %entry
-  %1 = load ptr, ptr @PyExc_TypeError, align 8
-  %2 = load i64, ptr %nargs.addr, align 8
-  %call = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %1, ptr noundef @.str.15, i64 noundef %2)
-  br label %exit
+12:                                               ; preds = %3
+  %13 = load ptr, ptr @PyExc_TypeError, align 8, !tbaa !3
+  %14 = load i64, ptr %6, align 8, !tbaa !19
+  %15 = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %13, ptr noundef @.str.16, i64 noundef %14)
+  br label %35
 
-if.end:                                           ; preds = %entry
-  %3 = load ptr, ptr %args.addr, align 8
-  %arrayidx = getelementptr ptr, ptr %3, i64 0
-  %4 = load ptr, ptr %arrayidx, align 8
-  %call1 = call i32 @PyLong_AsInt(ptr noundef %4)
-  store i32 %call1, ptr %resource, align 4
-  %5 = load i32, ptr %resource, align 4
-  %cmp2 = icmp eq i32 %5, -1
-  br i1 %cmp2, label %land.lhs.true, label %if.end5
+16:                                               ; preds = %3
+  %17 = load ptr, ptr %5, align 8, !tbaa !17
+  %18 = getelementptr ptr, ptr %17, i64 0
+  %19 = load ptr, ptr %18, align 8, !tbaa !3
+  %20 = call i32 @PyLong_AsInt(ptr noundef %19)
+  store i32 %20, ptr %8, align 4, !tbaa !12
+  %21 = load i32, ptr %8, align 4, !tbaa !12
+  %22 = icmp eq i32 %21, -1
+  br i1 %22, label %23, label %27
 
-land.lhs.true:                                    ; preds = %if.end
-  %call3 = call ptr @PyErr_Occurred()
-  %tobool = icmp ne ptr %call3, null
-  br i1 %tobool, label %if.then4, label %if.end5
+23:                                               ; preds = %16
+  %24 = call ptr @PyErr_Occurred()
+  %25 = icmp ne ptr %24, null
+  br i1 %25, label %26, label %27
 
-if.then4:                                         ; preds = %land.lhs.true
-  br label %exit
+26:                                               ; preds = %23
+  br label %35
 
-if.end5:                                          ; preds = %land.lhs.true, %if.end
-  %6 = load ptr, ptr %args.addr, align 8
-  %arrayidx6 = getelementptr ptr, ptr %6, i64 1
-  %7 = load ptr, ptr %arrayidx6, align 8
-  store ptr %7, ptr %limits, align 8
-  %8 = load ptr, ptr %module.addr, align 8
-  %9 = load i32, ptr %resource, align 4
-  %10 = load ptr, ptr %limits, align 8
-  %call7 = call ptr @resource_setrlimit_impl(ptr noundef %8, i32 noundef %9, ptr noundef %10)
-  store ptr %call7, ptr %return_value, align 8
-  br label %exit
+27:                                               ; preds = %23, %16
+  %28 = load ptr, ptr %5, align 8, !tbaa !17
+  %29 = getelementptr ptr, ptr %28, i64 1
+  %30 = load ptr, ptr %29, align 8, !tbaa !3
+  store ptr %30, ptr %9, align 8, !tbaa !3
+  %31 = load ptr, ptr %4, align 8, !tbaa !3
+  %32 = load i32, ptr %8, align 4, !tbaa !12
+  %33 = load ptr, ptr %9, align 8, !tbaa !3
+  %34 = call ptr @resource_setrlimit_impl(ptr noundef %31, i32 noundef %32, ptr noundef %33)
+  store ptr %34, ptr %7, align 8, !tbaa !3
+  br label %35
 
-exit:                                             ; preds = %if.end5, %if.then4, %if.then
-  %11 = load ptr, ptr %return_value, align 8
-  ret ptr %11
+35:                                               ; preds = %27, %26, %12
+  %36 = load ptr, ptr %7, align 8, !tbaa !3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #7
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #7
+  ret ptr %36
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @resource_getpagesize(ptr noundef %module, ptr noundef %_unused_ignored) #0 {
-entry:
-  %module.addr = alloca ptr, align 8
-  %_unused_ignored.addr = alloca ptr, align 8
-  %return_value = alloca ptr, align 8
-  %_return_value = alloca i32, align 4
-  store ptr %module, ptr %module.addr, align 8
-  store ptr %_unused_ignored, ptr %_unused_ignored.addr, align 8
-  store ptr null, ptr %return_value, align 8
-  %0 = load ptr, ptr %module.addr, align 8
-  %call = call i32 @resource_getpagesize_impl(ptr noundef %0)
-  store i32 %call, ptr %_return_value, align 4
-  %1 = load i32, ptr %_return_value, align 4
-  %cmp = icmp eq i32 %1, -1
-  br i1 %cmp, label %land.lhs.true, label %if.end
+define internal ptr @resource_getpagesize(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  store ptr %1, ptr %4, align 8, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #7
+  store ptr null, ptr %5, align 8, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #7
+  %7 = load ptr, ptr %3, align 8, !tbaa !3
+  %8 = call i32 @resource_getpagesize_impl(ptr noundef %7)
+  store i32 %8, ptr %6, align 4, !tbaa !12
+  %9 = load i32, ptr %6, align 4, !tbaa !12
+  %10 = icmp eq i32 %9, -1
+  br i1 %10, label %11, label %15
 
-land.lhs.true:                                    ; preds = %entry
-  %call1 = call ptr @PyErr_Occurred()
-  %tobool = icmp ne ptr %call1, null
-  br i1 %tobool, label %if.then, label %if.end
+11:                                               ; preds = %2
+  %12 = call ptr @PyErr_Occurred()
+  %13 = icmp ne ptr %12, null
+  br i1 %13, label %14, label %15
 
-if.then:                                          ; preds = %land.lhs.true
-  br label %exit
+14:                                               ; preds = %11
+  br label %19
 
-if.end:                                           ; preds = %land.lhs.true, %entry
-  %2 = load i32, ptr %_return_value, align 4
-  %conv = sext i32 %2 to i64
-  %call2 = call ptr @PyLong_FromLong(i64 noundef %conv)
-  store ptr %call2, ptr %return_value, align 8
-  br label %exit
+15:                                               ; preds = %11, %2
+  %16 = load i32, ptr %6, align 4, !tbaa !12
+  %17 = sext i32 %16 to i64
+  %18 = call ptr @PyLong_FromLong(i64 noundef %17)
+  store ptr %18, ptr %5, align 8, !tbaa !3
+  br label %19
 
-exit:                                             ; preds = %if.end, %if.then
-  %3 = load ptr, ptr %return_value, align 8
-  ret ptr %3
+19:                                               ; preds = %15, %14
+  %20 = load ptr, ptr %5, align 8, !tbaa !3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #7
+  ret ptr %20
 }
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
 declare i32 @PyLong_AsInt(ptr noundef) #1
 
 declare ptr @PyErr_Occurred() #1
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @resource_getrusage_impl(ptr noundef %module, i32 noundef %who) #0 {
-entry:
-  %retval = alloca ptr, align 8
-  %module.addr = alloca ptr, align 8
-  %who.addr = alloca i32, align 4
-  %ru = alloca %struct.rusage, align 8
-  %result = alloca ptr, align 8
-  store ptr %module, ptr %module.addr, align 8
-  store i32 %who, ptr %who.addr, align 4
-  %0 = load i32, ptr %who.addr, align 4
-  %call = call i32 @getrusage(i32 noundef %0, ptr noundef %ru) #5
-  %cmp = icmp eq i32 %call, -1
-  br i1 %cmp, label %if.then, label %if.end5
+define internal ptr @resource_getrusage_impl(ptr noundef %0, i32 noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca %struct.rusage, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !3
+  store i32 %1, ptr %5, align 4, !tbaa !12
+  call void @llvm.lifetime.start.p0(i64 144, ptr %6) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #7
+  %9 = load i32, ptr %5, align 4, !tbaa !12
+  %10 = call i32 @getrusage(i32 noundef %9, ptr noundef %6) #7
+  %11 = icmp eq i32 %10, -1
+  br i1 %11, label %12, label %21
 
-if.then:                                          ; preds = %entry
-  %call1 = call ptr @__errno_location() #6
-  %1 = load i32, ptr %call1, align 4
-  %cmp2 = icmp eq i32 %1, 22
-  br i1 %cmp2, label %if.then3, label %if.end
+12:                                               ; preds = %2
+  %13 = call ptr @__errno_location() #8
+  %14 = load i32, ptr %13, align 4, !tbaa !12
+  %15 = icmp eq i32 %14, 22
+  br i1 %15, label %16, label %18
 
-if.then3:                                         ; preds = %if.then
-  %2 = load ptr, ptr @PyExc_ValueError, align 8
-  call void @PyErr_SetString(ptr noundef %2, ptr noundef @.str.6)
-  store ptr null, ptr %retval, align 8
-  br label %return
+16:                                               ; preds = %12
+  %17 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !3
+  call void @PyErr_SetString(ptr noundef %17, ptr noundef @.str.7)
+  store ptr null, ptr %3, align 8
+  store i32 1, ptr %8, align 4
+  br label %115
 
-if.end:                                           ; preds = %if.then
-  %3 = load ptr, ptr @PyExc_OSError, align 8
-  %call4 = call ptr @PyErr_SetFromErrno(ptr noundef %3)
-  store ptr null, ptr %retval, align 8
-  br label %return
+18:                                               ; preds = %12
+  %19 = load ptr, ptr @PyExc_OSError, align 8, !tbaa !3
+  %20 = call ptr @PyErr_SetFromErrno(ptr noundef %19)
+  store ptr null, ptr %3, align 8
+  store i32 1, ptr %8, align 4
+  br label %115
 
-if.end5:                                          ; preds = %entry
-  %4 = load ptr, ptr %module.addr, align 8
-  %call6 = call ptr @get_resource_state(ptr noundef %4)
-  %StructRUsageType = getelementptr inbounds %struct.resourcemodulestate, ptr %call6, i32 0, i32 0
-  %5 = load ptr, ptr %StructRUsageType, align 8
-  %call7 = call ptr @PyStructSequence_New(ptr noundef %5)
-  store ptr %call7, ptr %result, align 8
-  %6 = load ptr, ptr %result, align 8
-  %tobool = icmp ne ptr %6, null
-  br i1 %tobool, label %if.end9, label %if.then8
+21:                                               ; preds = %2
+  %22 = load ptr, ptr %4, align 8, !tbaa !3
+  %23 = call ptr @get_resource_state(ptr noundef %22)
+  %24 = getelementptr inbounds nuw %struct.resourcemodulestate, ptr %23, i32 0, i32 0
+  %25 = load ptr, ptr %24, align 8, !tbaa !9
+  %26 = call ptr @PyStructSequence_New(ptr noundef %25)
+  store ptr %26, ptr %7, align 8, !tbaa !3
+  %27 = load ptr, ptr %7, align 8, !tbaa !3
+  %28 = icmp ne ptr %27, null
+  br i1 %28, label %30, label %29
 
-if.then8:                                         ; preds = %if.end5
-  store ptr null, ptr %retval, align 8
-  br label %return
+29:                                               ; preds = %21
+  store ptr null, ptr %3, align 8
+  store i32 1, ptr %8, align 4
+  br label %115
 
-if.end9:                                          ; preds = %if.end5
-  %7 = load ptr, ptr %result, align 8
-  %ru_utime = getelementptr inbounds %struct.rusage, ptr %ru, i32 0, i32 0
-  %tv_sec = getelementptr inbounds %struct.timeval, ptr %ru_utime, i32 0, i32 0
-  %8 = load i64, ptr %tv_sec, align 8
-  %conv = sitofp i64 %8 to double
-  %ru_utime10 = getelementptr inbounds %struct.rusage, ptr %ru, i32 0, i32 0
-  %tv_usec = getelementptr inbounds %struct.timeval, ptr %ru_utime10, i32 0, i32 1
-  %9 = load i64, ptr %tv_usec, align 8
-  %conv11 = sitofp i64 %9 to double
-  %10 = call double @llvm.fmuladd.f64(double %conv11, double 0x3EB0C6F7A0B5ED8D, double %conv)
-  %call12 = call ptr @PyFloat_FromDouble(double noundef %10)
-  call void @PyStructSequence_SetItem(ptr noundef %7, i64 noundef 0, ptr noundef %call12)
-  %11 = load ptr, ptr %result, align 8
-  %ru_stime = getelementptr inbounds %struct.rusage, ptr %ru, i32 0, i32 1
-  %tv_sec13 = getelementptr inbounds %struct.timeval, ptr %ru_stime, i32 0, i32 0
-  %12 = load i64, ptr %tv_sec13, align 8
-  %conv14 = sitofp i64 %12 to double
-  %ru_stime15 = getelementptr inbounds %struct.rusage, ptr %ru, i32 0, i32 1
-  %tv_usec16 = getelementptr inbounds %struct.timeval, ptr %ru_stime15, i32 0, i32 1
-  %13 = load i64, ptr %tv_usec16, align 8
-  %conv17 = sitofp i64 %13 to double
-  %14 = call double @llvm.fmuladd.f64(double %conv17, double 0x3EB0C6F7A0B5ED8D, double %conv14)
-  %call18 = call ptr @PyFloat_FromDouble(double noundef %14)
-  call void @PyStructSequence_SetItem(ptr noundef %11, i64 noundef 1, ptr noundef %call18)
-  %15 = load ptr, ptr %result, align 8
-  %16 = getelementptr inbounds %struct.rusage, ptr %ru, i32 0, i32 2
-  %17 = load i64, ptr %16, align 8
-  %call19 = call ptr @PyLong_FromLong(i64 noundef %17)
-  call void @PyStructSequence_SetItem(ptr noundef %15, i64 noundef 2, ptr noundef %call19)
-  %18 = load ptr, ptr %result, align 8
-  %19 = getelementptr inbounds %struct.rusage, ptr %ru, i32 0, i32 3
-  %20 = load i64, ptr %19, align 8
-  %call20 = call ptr @PyLong_FromLong(i64 noundef %20)
-  call void @PyStructSequence_SetItem(ptr noundef %18, i64 noundef 3, ptr noundef %call20)
-  %21 = load ptr, ptr %result, align 8
-  %22 = getelementptr inbounds %struct.rusage, ptr %ru, i32 0, i32 4
-  %23 = load i64, ptr %22, align 8
-  %call21 = call ptr @PyLong_FromLong(i64 noundef %23)
-  call void @PyStructSequence_SetItem(ptr noundef %21, i64 noundef 4, ptr noundef %call21)
-  %24 = load ptr, ptr %result, align 8
-  %25 = getelementptr inbounds %struct.rusage, ptr %ru, i32 0, i32 5
-  %26 = load i64, ptr %25, align 8
-  %call22 = call ptr @PyLong_FromLong(i64 noundef %26)
-  call void @PyStructSequence_SetItem(ptr noundef %24, i64 noundef 5, ptr noundef %call22)
-  %27 = load ptr, ptr %result, align 8
-  %28 = getelementptr inbounds %struct.rusage, ptr %ru, i32 0, i32 6
-  %29 = load i64, ptr %28, align 8
-  %call23 = call ptr @PyLong_FromLong(i64 noundef %29)
-  call void @PyStructSequence_SetItem(ptr noundef %27, i64 noundef 6, ptr noundef %call23)
-  %30 = load ptr, ptr %result, align 8
-  %31 = getelementptr inbounds %struct.rusage, ptr %ru, i32 0, i32 7
-  %32 = load i64, ptr %31, align 8
-  %call24 = call ptr @PyLong_FromLong(i64 noundef %32)
-  call void @PyStructSequence_SetItem(ptr noundef %30, i64 noundef 7, ptr noundef %call24)
-  %33 = load ptr, ptr %result, align 8
-  %34 = getelementptr inbounds %struct.rusage, ptr %ru, i32 0, i32 8
-  %35 = load i64, ptr %34, align 8
-  %call25 = call ptr @PyLong_FromLong(i64 noundef %35)
-  call void @PyStructSequence_SetItem(ptr noundef %33, i64 noundef 8, ptr noundef %call25)
-  %36 = load ptr, ptr %result, align 8
-  %37 = getelementptr inbounds %struct.rusage, ptr %ru, i32 0, i32 9
-  %38 = load i64, ptr %37, align 8
-  %call26 = call ptr @PyLong_FromLong(i64 noundef %38)
-  call void @PyStructSequence_SetItem(ptr noundef %36, i64 noundef 9, ptr noundef %call26)
-  %39 = load ptr, ptr %result, align 8
-  %40 = getelementptr inbounds %struct.rusage, ptr %ru, i32 0, i32 10
-  %41 = load i64, ptr %40, align 8
-  %call27 = call ptr @PyLong_FromLong(i64 noundef %41)
-  call void @PyStructSequence_SetItem(ptr noundef %39, i64 noundef 10, ptr noundef %call27)
-  %42 = load ptr, ptr %result, align 8
-  %43 = getelementptr inbounds %struct.rusage, ptr %ru, i32 0, i32 11
-  %44 = load i64, ptr %43, align 8
-  %call28 = call ptr @PyLong_FromLong(i64 noundef %44)
-  call void @PyStructSequence_SetItem(ptr noundef %42, i64 noundef 11, ptr noundef %call28)
-  %45 = load ptr, ptr %result, align 8
-  %46 = getelementptr inbounds %struct.rusage, ptr %ru, i32 0, i32 12
-  %47 = load i64, ptr %46, align 8
-  %call29 = call ptr @PyLong_FromLong(i64 noundef %47)
-  call void @PyStructSequence_SetItem(ptr noundef %45, i64 noundef 12, ptr noundef %call29)
-  %48 = load ptr, ptr %result, align 8
-  %49 = getelementptr inbounds %struct.rusage, ptr %ru, i32 0, i32 13
-  %50 = load i64, ptr %49, align 8
-  %call30 = call ptr @PyLong_FromLong(i64 noundef %50)
-  call void @PyStructSequence_SetItem(ptr noundef %48, i64 noundef 13, ptr noundef %call30)
-  %51 = load ptr, ptr %result, align 8
-  %52 = getelementptr inbounds %struct.rusage, ptr %ru, i32 0, i32 14
-  %53 = load i64, ptr %52, align 8
-  %call31 = call ptr @PyLong_FromLong(i64 noundef %53)
-  call void @PyStructSequence_SetItem(ptr noundef %51, i64 noundef 14, ptr noundef %call31)
-  %54 = load ptr, ptr %result, align 8
-  %55 = getelementptr inbounds %struct.rusage, ptr %ru, i32 0, i32 15
-  %56 = load i64, ptr %55, align 8
-  %call32 = call ptr @PyLong_FromLong(i64 noundef %56)
-  call void @PyStructSequence_SetItem(ptr noundef %54, i64 noundef 15, ptr noundef %call32)
-  %call33 = call ptr @PyErr_Occurred()
-  %tobool34 = icmp ne ptr %call33, null
-  br i1 %tobool34, label %if.then35, label %if.end36
+30:                                               ; preds = %21
+  %31 = load ptr, ptr %7, align 8, !tbaa !3
+  %32 = getelementptr inbounds nuw %struct.rusage, ptr %6, i32 0, i32 0
+  %33 = getelementptr inbounds nuw %struct.timeval, ptr %32, i32 0, i32 0
+  %34 = load i64, ptr %33, align 8, !tbaa !21
+  %35 = sitofp i64 %34 to double
+  %36 = getelementptr inbounds nuw %struct.rusage, ptr %6, i32 0, i32 0
+  %37 = getelementptr inbounds nuw %struct.timeval, ptr %36, i32 0, i32 1
+  %38 = load i64, ptr %37, align 8, !tbaa !24
+  %39 = sitofp i64 %38 to double
+  %40 = call double @llvm.fmuladd.f64(double %39, double 0x3EB0C6F7A0B5ED8D, double %35)
+  %41 = call ptr @PyFloat_FromDouble(double noundef %40)
+  call void @PyStructSequence_SetItem(ptr noundef %31, i64 noundef 0, ptr noundef %41)
+  %42 = load ptr, ptr %7, align 8, !tbaa !3
+  %43 = getelementptr inbounds nuw %struct.rusage, ptr %6, i32 0, i32 1
+  %44 = getelementptr inbounds nuw %struct.timeval, ptr %43, i32 0, i32 0
+  %45 = load i64, ptr %44, align 8, !tbaa !25
+  %46 = sitofp i64 %45 to double
+  %47 = getelementptr inbounds nuw %struct.rusage, ptr %6, i32 0, i32 1
+  %48 = getelementptr inbounds nuw %struct.timeval, ptr %47, i32 0, i32 1
+  %49 = load i64, ptr %48, align 8, !tbaa !26
+  %50 = sitofp i64 %49 to double
+  %51 = call double @llvm.fmuladd.f64(double %50, double 0x3EB0C6F7A0B5ED8D, double %46)
+  %52 = call ptr @PyFloat_FromDouble(double noundef %51)
+  call void @PyStructSequence_SetItem(ptr noundef %42, i64 noundef 1, ptr noundef %52)
+  %53 = load ptr, ptr %7, align 8, !tbaa !3
+  %54 = getelementptr inbounds nuw %struct.rusage, ptr %6, i32 0, i32 2
+  %55 = load i64, ptr %54, align 8, !tbaa !27
+  %56 = call ptr @PyLong_FromLong(i64 noundef %55)
+  call void @PyStructSequence_SetItem(ptr noundef %53, i64 noundef 2, ptr noundef %56)
+  %57 = load ptr, ptr %7, align 8, !tbaa !3
+  %58 = getelementptr inbounds nuw %struct.rusage, ptr %6, i32 0, i32 3
+  %59 = load i64, ptr %58, align 8, !tbaa !27
+  %60 = call ptr @PyLong_FromLong(i64 noundef %59)
+  call void @PyStructSequence_SetItem(ptr noundef %57, i64 noundef 3, ptr noundef %60)
+  %61 = load ptr, ptr %7, align 8, !tbaa !3
+  %62 = getelementptr inbounds nuw %struct.rusage, ptr %6, i32 0, i32 4
+  %63 = load i64, ptr %62, align 8, !tbaa !27
+  %64 = call ptr @PyLong_FromLong(i64 noundef %63)
+  call void @PyStructSequence_SetItem(ptr noundef %61, i64 noundef 4, ptr noundef %64)
+  %65 = load ptr, ptr %7, align 8, !tbaa !3
+  %66 = getelementptr inbounds nuw %struct.rusage, ptr %6, i32 0, i32 5
+  %67 = load i64, ptr %66, align 8, !tbaa !27
+  %68 = call ptr @PyLong_FromLong(i64 noundef %67)
+  call void @PyStructSequence_SetItem(ptr noundef %65, i64 noundef 5, ptr noundef %68)
+  %69 = load ptr, ptr %7, align 8, !tbaa !3
+  %70 = getelementptr inbounds nuw %struct.rusage, ptr %6, i32 0, i32 6
+  %71 = load i64, ptr %70, align 8, !tbaa !27
+  %72 = call ptr @PyLong_FromLong(i64 noundef %71)
+  call void @PyStructSequence_SetItem(ptr noundef %69, i64 noundef 6, ptr noundef %72)
+  %73 = load ptr, ptr %7, align 8, !tbaa !3
+  %74 = getelementptr inbounds nuw %struct.rusage, ptr %6, i32 0, i32 7
+  %75 = load i64, ptr %74, align 8, !tbaa !27
+  %76 = call ptr @PyLong_FromLong(i64 noundef %75)
+  call void @PyStructSequence_SetItem(ptr noundef %73, i64 noundef 7, ptr noundef %76)
+  %77 = load ptr, ptr %7, align 8, !tbaa !3
+  %78 = getelementptr inbounds nuw %struct.rusage, ptr %6, i32 0, i32 8
+  %79 = load i64, ptr %78, align 8, !tbaa !27
+  %80 = call ptr @PyLong_FromLong(i64 noundef %79)
+  call void @PyStructSequence_SetItem(ptr noundef %77, i64 noundef 8, ptr noundef %80)
+  %81 = load ptr, ptr %7, align 8, !tbaa !3
+  %82 = getelementptr inbounds nuw %struct.rusage, ptr %6, i32 0, i32 9
+  %83 = load i64, ptr %82, align 8, !tbaa !27
+  %84 = call ptr @PyLong_FromLong(i64 noundef %83)
+  call void @PyStructSequence_SetItem(ptr noundef %81, i64 noundef 9, ptr noundef %84)
+  %85 = load ptr, ptr %7, align 8, !tbaa !3
+  %86 = getelementptr inbounds nuw %struct.rusage, ptr %6, i32 0, i32 10
+  %87 = load i64, ptr %86, align 8, !tbaa !27
+  %88 = call ptr @PyLong_FromLong(i64 noundef %87)
+  call void @PyStructSequence_SetItem(ptr noundef %85, i64 noundef 10, ptr noundef %88)
+  %89 = load ptr, ptr %7, align 8, !tbaa !3
+  %90 = getelementptr inbounds nuw %struct.rusage, ptr %6, i32 0, i32 11
+  %91 = load i64, ptr %90, align 8, !tbaa !27
+  %92 = call ptr @PyLong_FromLong(i64 noundef %91)
+  call void @PyStructSequence_SetItem(ptr noundef %89, i64 noundef 11, ptr noundef %92)
+  %93 = load ptr, ptr %7, align 8, !tbaa !3
+  %94 = getelementptr inbounds nuw %struct.rusage, ptr %6, i32 0, i32 12
+  %95 = load i64, ptr %94, align 8, !tbaa !27
+  %96 = call ptr @PyLong_FromLong(i64 noundef %95)
+  call void @PyStructSequence_SetItem(ptr noundef %93, i64 noundef 12, ptr noundef %96)
+  %97 = load ptr, ptr %7, align 8, !tbaa !3
+  %98 = getelementptr inbounds nuw %struct.rusage, ptr %6, i32 0, i32 13
+  %99 = load i64, ptr %98, align 8, !tbaa !27
+  %100 = call ptr @PyLong_FromLong(i64 noundef %99)
+  call void @PyStructSequence_SetItem(ptr noundef %97, i64 noundef 13, ptr noundef %100)
+  %101 = load ptr, ptr %7, align 8, !tbaa !3
+  %102 = getelementptr inbounds nuw %struct.rusage, ptr %6, i32 0, i32 14
+  %103 = load i64, ptr %102, align 8, !tbaa !27
+  %104 = call ptr @PyLong_FromLong(i64 noundef %103)
+  call void @PyStructSequence_SetItem(ptr noundef %101, i64 noundef 14, ptr noundef %104)
+  %105 = load ptr, ptr %7, align 8, !tbaa !3
+  %106 = getelementptr inbounds nuw %struct.rusage, ptr %6, i32 0, i32 15
+  %107 = load i64, ptr %106, align 8, !tbaa !27
+  %108 = call ptr @PyLong_FromLong(i64 noundef %107)
+  call void @PyStructSequence_SetItem(ptr noundef %105, i64 noundef 15, ptr noundef %108)
+  %109 = call ptr @PyErr_Occurred()
+  %110 = icmp ne ptr %109, null
+  br i1 %110, label %111, label %113
 
-if.then35:                                        ; preds = %if.end9
-  %57 = load ptr, ptr %result, align 8
-  call void @Py_DECREF(ptr noundef %57)
-  store ptr null, ptr %retval, align 8
-  br label %return
+111:                                              ; preds = %30
+  %112 = load ptr, ptr %7, align 8, !tbaa !3
+  call void @Py_DECREF(ptr noundef %112)
+  store ptr null, ptr %3, align 8
+  store i32 1, ptr %8, align 4
+  br label %115
 
-if.end36:                                         ; preds = %if.end9
-  %58 = load ptr, ptr %result, align 8
-  store ptr %58, ptr %retval, align 8
-  br label %return
+113:                                              ; preds = %30
+  %114 = load ptr, ptr %7, align 8, !tbaa !3
+  store ptr %114, ptr %3, align 8
+  store i32 1, ptr %8, align 4
+  br label %115
 
-return:                                           ; preds = %if.end36, %if.then35, %if.then8, %if.end, %if.then3
-  %59 = load ptr, ptr %retval, align 8
-  ret ptr %59
+115:                                              ; preds = %113, %111, %29, %18, %16
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #7
+  call void @llvm.lifetime.end.p0(i64 144, ptr %6) #7
+  %116 = load ptr, ptr %3, align 8
+  ret ptr %116
 }
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
+
 ; Function Attrs: nounwind
-declare i32 @getrusage(i32 noundef, ptr noundef) #2
+declare i32 @getrusage(i32 noundef, ptr noundef) #3
 
 ; Function Attrs: nounwind willreturn memory(none)
-declare ptr @__errno_location() #3
+declare ptr @__errno_location() #4
 
 declare void @PyErr_SetString(ptr noundef, ptr noundef) #1
 
@@ -675,17 +725,18 @@ declare ptr @PyErr_SetFromErrno(ptr noundef) #1
 
 declare ptr @PyStructSequence_New(ptr noundef) #1
 
-; Function Attrs: nounwind uwtable
-define internal ptr @get_resource_state(ptr noundef %module) #0 {
-entry:
-  %module.addr = alloca ptr, align 8
-  %state = alloca ptr, align 8
-  store ptr %module, ptr %module.addr, align 8
-  %0 = load ptr, ptr %module.addr, align 8
-  %call = call ptr @PyModule_GetState(ptr noundef %0)
-  store ptr %call, ptr %state, align 8
-  %1 = load ptr, ptr %state, align 8
-  ret ptr %1
+; Function Attrs: inlinehint nounwind uwtable
+define internal ptr @get_resource_state(ptr noundef %0) #5 {
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #7
+  %4 = load ptr, ptr %2, align 8, !tbaa !3
+  %5 = call ptr @PyModule_GetState(ptr noundef %4)
+  store ptr %5, ptr %3, align 8, !tbaa !8
+  %6 = load ptr, ptr %3, align 8, !tbaa !8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #7
+  ret ptr %6
 }
 
 declare void @PyStructSequence_SetItem(ptr noundef, i64 noundef, ptr noundef) #1
@@ -693,17 +744,16 @@ declare void @PyStructSequence_SetItem(ptr noundef, i64 noundef, ptr noundef) #1
 declare ptr @PyFloat_FromDouble(double noundef) #1
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fmuladd.f64(double, double, double) #4
+declare double @llvm.fmuladd.f64(double, double, double) #6
 
 declare ptr @PyLong_FromLong(i64 noundef) #1
 
-; Function Attrs: nounwind uwtable
-define internal void @Py_DECREF(ptr noundef %op) #0 {
-entry:
-  %op.addr = alloca ptr, align 8
-  store ptr %op, ptr %op.addr, align 8
-  %0 = load ptr, ptr %op.addr, align 8
-  call void @_Py_DecRef(ptr noundef %0)
+; Function Attrs: inlinehint nounwind uwtable
+define internal void @Py_DECREF(ptr noundef %0) #5 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !3
+  %3 = load ptr, ptr %2, align 8, !tbaa !3
+  call void @_Py_DecRef(ptr noundef %3)
   ret void
 }
 
@@ -712,315 +762,339 @@ declare ptr @PyModule_GetState(ptr noundef) #1
 declare void @_Py_DecRef(ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @resource_getrlimit_impl(ptr noundef %module, i32 noundef %resource) #0 {
-entry:
-  %retval = alloca ptr, align 8
-  %module.addr = alloca ptr, align 8
-  %resource.addr = alloca i32, align 4
-  %rl = alloca %struct.rlimit, align 8
-  store ptr %module, ptr %module.addr, align 8
-  store i32 %resource, ptr %resource.addr, align 4
-  %0 = load i32, ptr %resource.addr, align 4
-  %cmp = icmp slt i32 %0, 0
-  br i1 %cmp, label %if.then, label %lor.lhs.false
+define internal ptr @resource_getrlimit_impl(ptr noundef %0, i32 noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca %struct.rlimit, align 8
+  %7 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !3
+  store i32 %1, ptr %5, align 4, !tbaa !12
+  call void @llvm.lifetime.start.p0(i64 16, ptr %6) #7
+  %8 = load i32, ptr %5, align 4, !tbaa !12
+  %9 = icmp slt i32 %8, 0
+  br i1 %9, label %13, label %10
 
-lor.lhs.false:                                    ; preds = %entry
-  %1 = load i32, ptr %resource.addr, align 4
-  %cmp1 = icmp sge i32 %1, 16
-  br i1 %cmp1, label %if.then, label %if.end
+10:                                               ; preds = %2
+  %11 = load i32, ptr %5, align 4, !tbaa !12
+  %12 = icmp sge i32 %11, 16
+  br i1 %12, label %13, label %15
 
-if.then:                                          ; preds = %lor.lhs.false, %entry
-  %2 = load ptr, ptr @PyExc_ValueError, align 8
-  call void @PyErr_SetString(ptr noundef %2, ptr noundef @.str.7)
-  store ptr null, ptr %retval, align 8
-  br label %return
+13:                                               ; preds = %10, %2
+  %14 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !3
+  call void @PyErr_SetString(ptr noundef %14, ptr noundef @.str.8)
+  store ptr null, ptr %3, align 8
+  store i32 1, ptr %7, align 4
+  br label %28
 
-if.end:                                           ; preds = %lor.lhs.false
-  %3 = load i32, ptr %resource.addr, align 4
-  %call = call i32 @getrlimit64(i32 noundef %3, ptr noundef %rl) #5
-  %cmp2 = icmp eq i32 %call, -1
-  br i1 %cmp2, label %if.then3, label %if.end5
+15:                                               ; preds = %10
+  %16 = load i32, ptr %5, align 4, !tbaa !12
+  %17 = call i32 @getrlimit64(i32 noundef %16, ptr noundef %6) #7
+  %18 = icmp eq i32 %17, -1
+  br i1 %18, label %19, label %22
 
-if.then3:                                         ; preds = %if.end
-  %4 = load ptr, ptr @PyExc_OSError, align 8
-  %call4 = call ptr @PyErr_SetFromErrno(ptr noundef %4)
-  store ptr null, ptr %retval, align 8
-  br label %return
+19:                                               ; preds = %15
+  %20 = load ptr, ptr @PyExc_OSError, align 8, !tbaa !3
+  %21 = call ptr @PyErr_SetFromErrno(ptr noundef %20)
+  store ptr null, ptr %3, align 8
+  store i32 1, ptr %7, align 4
+  br label %28
 
-if.end5:                                          ; preds = %if.end
-  %5 = getelementptr inbounds { i64, i64 }, ptr %rl, i32 0, i32 0
-  %6 = load i64, ptr %5, align 8
-  %7 = getelementptr inbounds { i64, i64 }, ptr %rl, i32 0, i32 1
-  %8 = load i64, ptr %7, align 8
-  %call6 = call ptr @rlimit2py(i64 %6, i64 %8)
-  store ptr %call6, ptr %retval, align 8
-  br label %return
+22:                                               ; preds = %15
+  %23 = getelementptr inbounds nuw { i64, i64 }, ptr %6, i32 0, i32 0
+  %24 = load i64, ptr %23, align 8
+  %25 = getelementptr inbounds nuw { i64, i64 }, ptr %6, i32 0, i32 1
+  %26 = load i64, ptr %25, align 8
+  %27 = call ptr @rlimit2py(i64 %24, i64 %26)
+  store ptr %27, ptr %3, align 8
+  store i32 1, ptr %7, align 4
+  br label %28
 
-return:                                           ; preds = %if.end5, %if.then3, %if.then
-  %9 = load ptr, ptr %retval, align 8
-  ret ptr %9
+28:                                               ; preds = %22, %19, %13
+  call void @llvm.lifetime.end.p0(i64 16, ptr %6) #7
+  %29 = load ptr, ptr %3, align 8
+  ret ptr %29
 }
 
 ; Function Attrs: nounwind
-declare i32 @getrlimit64(i32 noundef, ptr noundef) #2
+declare i32 @getrlimit64(i32 noundef, ptr noundef) #3
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @rlimit2py(i64 %rl.coerce0, i64 %rl.coerce1) #0 {
-entry:
-  %rl = alloca %struct.rlimit, align 8
-  %0 = getelementptr inbounds { i64, i64 }, ptr %rl, i32 0, i32 0
-  store i64 %rl.coerce0, ptr %0, align 8
-  %1 = getelementptr inbounds { i64, i64 }, ptr %rl, i32 0, i32 1
-  store i64 %rl.coerce1, ptr %1, align 8
-  %rlim_cur = getelementptr inbounds %struct.rlimit, ptr %rl, i32 0, i32 0
-  %2 = load i64, ptr %rlim_cur, align 8
-  %rlim_max = getelementptr inbounds %struct.rlimit, ptr %rl, i32 0, i32 1
-  %3 = load i64, ptr %rlim_max, align 8
-  %call = call ptr (ptr, ...) @Py_BuildValue(ptr noundef @.str.8, i64 noundef %2, i64 noundef %3)
-  ret ptr %call
+define internal ptr @rlimit2py(i64 %0, i64 %1) #0 {
+  %3 = alloca %struct.rlimit, align 8
+  %4 = getelementptr inbounds nuw { i64, i64 }, ptr %3, i32 0, i32 0
+  store i64 %0, ptr %4, align 8
+  %5 = getelementptr inbounds nuw { i64, i64 }, ptr %3, i32 0, i32 1
+  store i64 %1, ptr %5, align 8
+  %6 = getelementptr inbounds nuw %struct.rlimit, ptr %3, i32 0, i32 0
+  %7 = load i64, ptr %6, align 8, !tbaa !28
+  %8 = getelementptr inbounds nuw %struct.rlimit, ptr %3, i32 0, i32 1
+  %9 = load i64, ptr %8, align 8, !tbaa !30
+  %10 = call ptr (ptr, ...) @Py_BuildValue(ptr noundef @.str.9, i64 noundef %7, i64 noundef %9)
+  ret ptr %10
 }
 
 declare ptr @Py_BuildValue(ptr noundef, ...) #1
 
+declare ptr @Py_GetConstantBorrowed(i32 noundef) #1
+
 declare ptr @PyErr_Format(ptr noundef, ptr noundef, ...) #1
 
-declare i64 @PyLong_AsLong(ptr noundef) #1
-
 ; Function Attrs: nounwind uwtable
-define internal ptr @resource_prlimit_impl(ptr noundef %module, i32 noundef %pid, i32 noundef %resource, ptr noundef %limits) #0 {
-entry:
-  %retval = alloca ptr, align 8
-  %module.addr = alloca ptr, align 8
-  %pid.addr = alloca i32, align 4
-  %resource.addr = alloca i32, align 4
-  %limits.addr = alloca ptr, align 8
-  %old_limit = alloca %struct.rlimit, align 8
-  %new_limit = alloca %struct.rlimit, align 8
-  %retval1 = alloca i32, align 4
-  store ptr %module, ptr %module.addr, align 8
-  store i32 %pid, ptr %pid.addr, align 4
-  store i32 %resource, ptr %resource.addr, align 4
-  store ptr %limits, ptr %limits.addr, align 8
-  %0 = load i32, ptr %resource.addr, align 4
-  %cmp = icmp slt i32 %0, 0
-  br i1 %cmp, label %if.then, label %lor.lhs.false
+define internal ptr @resource_prlimit_impl(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) #0 {
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i32, align 4
+  %8 = alloca i32, align 4
+  %9 = alloca ptr, align 8
+  %10 = alloca %struct.rlimit, align 8
+  %11 = alloca %struct.rlimit, align 8
+  %12 = alloca i32, align 4
+  %13 = alloca i32, align 4
+  store ptr %0, ptr %6, align 8, !tbaa !3
+  store i32 %1, ptr %7, align 4, !tbaa !12
+  store i32 %2, ptr %8, align 4, !tbaa !12
+  store ptr %3, ptr %9, align 8, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 16, ptr %10) #7
+  call void @llvm.lifetime.start.p0(i64 16, ptr %11) #7
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #7
+  %14 = load i32, ptr %8, align 4, !tbaa !12
+  %15 = icmp slt i32 %14, 0
+  br i1 %15, label %19, label %16
 
-lor.lhs.false:                                    ; preds = %entry
-  %1 = load i32, ptr %resource.addr, align 4
-  %cmp2 = icmp sge i32 %1, 16
-  br i1 %cmp2, label %if.then, label %if.end
+16:                                               ; preds = %4
+  %17 = load i32, ptr %8, align 4, !tbaa !12
+  %18 = icmp sge i32 %17, 16
+  br i1 %18, label %19, label %21
 
-if.then:                                          ; preds = %lor.lhs.false, %entry
-  %2 = load ptr, ptr @PyExc_ValueError, align 8
-  call void @PyErr_SetString(ptr noundef %2, ptr noundef @.str.7)
-  store ptr null, ptr %retval, align 8
-  br label %return
+19:                                               ; preds = %16, %4
+  %20 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !3
+  call void @PyErr_SetString(ptr noundef %20, ptr noundef @.str.8)
+  store ptr null, ptr %5, align 8
+  store i32 1, ptr %13, align 4
+  br label %71
 
-if.end:                                           ; preds = %lor.lhs.false
-  %3 = load i32, ptr %pid.addr, align 4
-  %4 = load i32, ptr %resource.addr, align 4
-  %5 = load ptr, ptr %limits.addr, align 8
-  %tobool = icmp ne ptr %5, null
-  br i1 %tobool, label %cond.true, label %cond.false
+21:                                               ; preds = %16
+  %22 = load i32, ptr %7, align 4, !tbaa !12
+  %23 = load i32, ptr %8, align 4, !tbaa !12
+  %24 = load ptr, ptr %9, align 8, !tbaa !3
+  %25 = icmp ne ptr %24, null
+  br i1 %25, label %26, label %28
 
-cond.true:                                        ; preds = %if.end
-  %6 = load ptr, ptr %limits.addr, align 8
-  br label %cond.end
+26:                                               ; preds = %21
+  %27 = load ptr, ptr %9, align 8, !tbaa !3
+  br label %30
 
-cond.false:                                       ; preds = %if.end
-  br label %cond.end
+28:                                               ; preds = %21
+  %29 = call ptr @Py_GetConstantBorrowed(i32 noundef 0)
+  br label %30
 
-cond.end:                                         ; preds = %cond.false, %cond.true
-  %cond = phi ptr [ %6, %cond.true ], [ @_Py_NoneStruct, %cond.false ]
-  %call = call i32 (ptr, ptr, ...) @PySys_Audit(ptr noundef @.str.11, ptr noundef @.str.12, i32 noundef %3, i32 noundef %4, ptr noundef %cond)
-  %cmp3 = icmp slt i32 %call, 0
-  br i1 %cmp3, label %if.then4, label %if.end5
+30:                                               ; preds = %28, %26
+  %31 = phi ptr [ %27, %26 ], [ %29, %28 ]
+  %32 = call i32 (ptr, ptr, ...) @PySys_Audit(ptr noundef @.str.12, ptr noundef @.str.13, i32 noundef %22, i32 noundef %23, ptr noundef %31)
+  %33 = icmp slt i32 %32, 0
+  br i1 %33, label %34, label %35
 
-if.then4:                                         ; preds = %cond.end
-  store ptr null, ptr %retval, align 8
-  br label %return
+34:                                               ; preds = %30
+  store ptr null, ptr %5, align 8
+  store i32 1, ptr %13, align 4
+  br label %71
 
-if.end5:                                          ; preds = %cond.end
-  %7 = load ptr, ptr %limits.addr, align 8
-  %cmp6 = icmp ne ptr %7, @_Py_NoneStruct
-  br i1 %cmp6, label %if.then7, label %if.else
+35:                                               ; preds = %30
+  %36 = load ptr, ptr %9, align 8, !tbaa !3
+  %37 = call ptr @Py_GetConstantBorrowed(i32 noundef 0)
+  %38 = icmp ne ptr %36, %37
+  br i1 %38, label %39, label %48
 
-if.then7:                                         ; preds = %if.end5
-  %8 = load ptr, ptr %limits.addr, align 8
-  %call8 = call i32 @py2rlimit(ptr noundef %8, ptr noundef %new_limit)
-  %cmp9 = icmp slt i32 %call8, 0
-  br i1 %cmp9, label %if.then10, label %if.end11
+39:                                               ; preds = %35
+  %40 = load ptr, ptr %9, align 8, !tbaa !3
+  %41 = call i32 @py2rlimit(ptr noundef %40, ptr noundef %11)
+  %42 = icmp slt i32 %41, 0
+  br i1 %42, label %43, label %44
 
-if.then10:                                        ; preds = %if.then7
-  store ptr null, ptr %retval, align 8
-  br label %return
+43:                                               ; preds = %39
+  store ptr null, ptr %5, align 8
+  store i32 1, ptr %13, align 4
+  br label %71
 
-if.end11:                                         ; preds = %if.then7
-  %9 = load i32, ptr %pid.addr, align 4
-  %10 = load i32, ptr %resource.addr, align 4
-  %call12 = call i32 @prlimit64(i32 noundef %9, i32 noundef %10, ptr noundef %new_limit, ptr noundef %old_limit) #5
-  store i32 %call12, ptr %retval1, align 4
-  br label %if.end14
+44:                                               ; preds = %39
+  %45 = load i32, ptr %7, align 4, !tbaa !12
+  %46 = load i32, ptr %8, align 4, !tbaa !12
+  %47 = call i32 @prlimit64(i32 noundef %45, i32 noundef %46, ptr noundef %11, ptr noundef %10) #7
+  store i32 %47, ptr %12, align 4, !tbaa !12
+  br label %52
 
-if.else:                                          ; preds = %if.end5
-  %11 = load i32, ptr %pid.addr, align 4
-  %12 = load i32, ptr %resource.addr, align 4
-  %call13 = call i32 @prlimit64(i32 noundef %11, i32 noundef %12, ptr noundef null, ptr noundef %old_limit) #5
-  store i32 %call13, ptr %retval1, align 4
-  br label %if.end14
+48:                                               ; preds = %35
+  %49 = load i32, ptr %7, align 4, !tbaa !12
+  %50 = load i32, ptr %8, align 4, !tbaa !12
+  %51 = call i32 @prlimit64(i32 noundef %49, i32 noundef %50, ptr noundef null, ptr noundef %10) #7
+  store i32 %51, ptr %12, align 4, !tbaa !12
+  br label %52
 
-if.end14:                                         ; preds = %if.else, %if.end11
-  %13 = load i32, ptr %retval1, align 4
-  %cmp15 = icmp eq i32 %13, -1
-  br i1 %cmp15, label %if.then16, label %if.end23
+52:                                               ; preds = %48, %44
+  %53 = load i32, ptr %12, align 4, !tbaa !12
+  %54 = icmp eq i32 %53, -1
+  br i1 %54, label %55, label %65
 
-if.then16:                                        ; preds = %if.end14
-  %call17 = call ptr @__errno_location() #6
-  %14 = load i32, ptr %call17, align 4
-  %cmp18 = icmp eq i32 %14, 22
-  br i1 %cmp18, label %if.then19, label %if.else20
+55:                                               ; preds = %52
+  %56 = call ptr @__errno_location() #8
+  %57 = load i32, ptr %56, align 4, !tbaa !12
+  %58 = icmp eq i32 %57, 22
+  br i1 %58, label %59, label %61
 
-if.then19:                                        ; preds = %if.then16
-  %15 = load ptr, ptr @PyExc_ValueError, align 8
-  call void @PyErr_SetString(ptr noundef %15, ptr noundef @.str.13)
-  br label %if.end22
+59:                                               ; preds = %55
+  %60 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !3
+  call void @PyErr_SetString(ptr noundef %60, ptr noundef @.str.14)
+  br label %64
 
-if.else20:                                        ; preds = %if.then16
-  %16 = load ptr, ptr @PyExc_OSError, align 8
-  %call21 = call ptr @PyErr_SetFromErrno(ptr noundef %16)
-  br label %if.end22
+61:                                               ; preds = %55
+  %62 = load ptr, ptr @PyExc_OSError, align 8, !tbaa !3
+  %63 = call ptr @PyErr_SetFromErrno(ptr noundef %62)
+  br label %64
 
-if.end22:                                         ; preds = %if.else20, %if.then19
-  store ptr null, ptr %retval, align 8
-  br label %return
+64:                                               ; preds = %61, %59
+  store ptr null, ptr %5, align 8
+  store i32 1, ptr %13, align 4
+  br label %71
 
-if.end23:                                         ; preds = %if.end14
-  %17 = getelementptr inbounds { i64, i64 }, ptr %old_limit, i32 0, i32 0
-  %18 = load i64, ptr %17, align 8
-  %19 = getelementptr inbounds { i64, i64 }, ptr %old_limit, i32 0, i32 1
-  %20 = load i64, ptr %19, align 8
-  %call24 = call ptr @rlimit2py(i64 %18, i64 %20)
-  store ptr %call24, ptr %retval, align 8
-  br label %return
+65:                                               ; preds = %52
+  %66 = getelementptr inbounds nuw { i64, i64 }, ptr %10, i32 0, i32 0
+  %67 = load i64, ptr %66, align 8
+  %68 = getelementptr inbounds nuw { i64, i64 }, ptr %10, i32 0, i32 1
+  %69 = load i64, ptr %68, align 8
+  %70 = call ptr @rlimit2py(i64 %67, i64 %69)
+  store ptr %70, ptr %5, align 8
+  store i32 1, ptr %13, align 4
+  br label %71
 
-return:                                           ; preds = %if.end23, %if.end22, %if.then10, %if.then4, %if.then
-  %21 = load ptr, ptr %retval, align 8
-  ret ptr %21
+71:                                               ; preds = %65, %64, %43, %34, %19
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #7
+  call void @llvm.lifetime.end.p0(i64 16, ptr %11) #7
+  call void @llvm.lifetime.end.p0(i64 16, ptr %10) #7
+  %72 = load ptr, ptr %5, align 8
+  ret ptr %72
 }
 
 declare i32 @PySys_Audit(ptr noundef, ptr noundef, ...) #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @py2rlimit(ptr noundef %limits, ptr noundef %rl_out) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %limits.addr = alloca ptr, align 8
-  %rl_out.addr = alloca ptr, align 8
-  %curobj = alloca ptr, align 8
-  %maxobj = alloca ptr, align 8
-  store ptr %limits, ptr %limits.addr, align 8
-  store ptr %rl_out, ptr %rl_out.addr, align 8
-  %0 = load ptr, ptr %limits.addr, align 8
-  %call = call ptr @PySequence_Tuple(ptr noundef %0)
-  store ptr %call, ptr %limits.addr, align 8
-  %1 = load ptr, ptr %limits.addr, align 8
-  %tobool = icmp ne ptr %1, null
-  br i1 %tobool, label %if.end, label %if.then
+define internal i32 @py2rlimit(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca i32, align 4
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !3
+  store ptr %1, ptr %5, align 8, !tbaa !31
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #7
+  %9 = load ptr, ptr %4, align 8, !tbaa !3
+  %10 = call ptr @PySequence_Tuple(ptr noundef %9)
+  store ptr %10, ptr %4, align 8, !tbaa !3
+  %11 = load ptr, ptr %4, align 8, !tbaa !3
+  %12 = icmp ne ptr %11, null
+  br i1 %12, label %14, label %13
 
-if.then:                                          ; preds = %entry
-  store i32 -1, ptr %retval, align 4
-  br label %return
+13:                                               ; preds = %2
+  store i32 -1, ptr %3, align 4
+  store i32 1, ptr %8, align 4
+  br label %66
 
-if.end:                                           ; preds = %entry
-  %2 = load ptr, ptr %limits.addr, align 8
-  %call1 = call i64 @PyTuple_Size(ptr noundef %2)
-  %cmp = icmp ne i64 %call1, 2
-  br i1 %cmp, label %if.then2, label %if.end3
+14:                                               ; preds = %2
+  %15 = load ptr, ptr %4, align 8, !tbaa !3
+  %16 = call i64 @PyTuple_Size(ptr noundef %15)
+  %17 = icmp ne i64 %16, 2
+  br i1 %17, label %18, label %20
 
-if.then2:                                         ; preds = %if.end
-  %3 = load ptr, ptr @PyExc_ValueError, align 8
-  call void @PyErr_SetString(ptr noundef %3, ptr noundef @.str.14)
-  br label %error
+18:                                               ; preds = %14
+  %19 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !3
+  call void @PyErr_SetString(ptr noundef %19, ptr noundef @.str.15)
+  br label %64
 
-if.end3:                                          ; preds = %if.end
-  %4 = load ptr, ptr %limits.addr, align 8
-  %call4 = call ptr @PyTuple_GetItem(ptr noundef %4, i64 noundef 0)
-  store ptr %call4, ptr %curobj, align 8
-  %5 = load ptr, ptr %limits.addr, align 8
-  %call5 = call ptr @PyTuple_GetItem(ptr noundef %5, i64 noundef 1)
-  store ptr %call5, ptr %maxobj, align 8
-  %6 = load ptr, ptr %curobj, align 8
-  %call6 = call i64 @PyLong_AsLong(ptr noundef %6)
-  %7 = load ptr, ptr %rl_out.addr, align 8
-  %rlim_cur = getelementptr inbounds %struct.rlimit, ptr %7, i32 0, i32 0
-  store i64 %call6, ptr %rlim_cur, align 8
-  %8 = load ptr, ptr %rl_out.addr, align 8
-  %rlim_cur7 = getelementptr inbounds %struct.rlimit, ptr %8, i32 0, i32 0
-  %9 = load i64, ptr %rlim_cur7, align 8
-  %cmp8 = icmp eq i64 %9, -1
-  br i1 %cmp8, label %land.lhs.true, label %if.end12
+20:                                               ; preds = %14
+  %21 = load ptr, ptr %4, align 8, !tbaa !3
+  %22 = call ptr @PyTuple_GetItem(ptr noundef %21, i64 noundef 0)
+  store ptr %22, ptr %6, align 8, !tbaa !3
+  %23 = load ptr, ptr %4, align 8, !tbaa !3
+  %24 = call ptr @PyTuple_GetItem(ptr noundef %23, i64 noundef 1)
+  store ptr %24, ptr %7, align 8, !tbaa !3
+  %25 = load ptr, ptr %6, align 8, !tbaa !3
+  %26 = call i64 @PyLong_AsLong(ptr noundef %25)
+  %27 = load ptr, ptr %5, align 8, !tbaa !31
+  %28 = getelementptr inbounds nuw %struct.rlimit, ptr %27, i32 0, i32 0
+  store i64 %26, ptr %28, align 8, !tbaa !28
+  %29 = load ptr, ptr %5, align 8, !tbaa !31
+  %30 = getelementptr inbounds nuw %struct.rlimit, ptr %29, i32 0, i32 0
+  %31 = load i64, ptr %30, align 8, !tbaa !28
+  %32 = icmp eq i64 %31, -1
+  br i1 %32, label %33, label %37
 
-land.lhs.true:                                    ; preds = %if.end3
-  %call9 = call ptr @PyErr_Occurred()
-  %tobool10 = icmp ne ptr %call9, null
-  br i1 %tobool10, label %if.then11, label %if.end12
+33:                                               ; preds = %20
+  %34 = call ptr @PyErr_Occurred()
+  %35 = icmp ne ptr %34, null
+  br i1 %35, label %36, label %37
 
-if.then11:                                        ; preds = %land.lhs.true
-  br label %error
+36:                                               ; preds = %33
+  br label %64
 
-if.end12:                                         ; preds = %land.lhs.true, %if.end3
-  %10 = load ptr, ptr %maxobj, align 8
-  %call13 = call i64 @PyLong_AsLong(ptr noundef %10)
-  %11 = load ptr, ptr %rl_out.addr, align 8
-  %rlim_max = getelementptr inbounds %struct.rlimit, ptr %11, i32 0, i32 1
-  store i64 %call13, ptr %rlim_max, align 8
-  %12 = load ptr, ptr %rl_out.addr, align 8
-  %rlim_max14 = getelementptr inbounds %struct.rlimit, ptr %12, i32 0, i32 1
-  %13 = load i64, ptr %rlim_max14, align 8
-  %cmp15 = icmp eq i64 %13, -1
-  br i1 %cmp15, label %land.lhs.true16, label %if.end20
+37:                                               ; preds = %33, %20
+  %38 = load ptr, ptr %7, align 8, !tbaa !3
+  %39 = call i64 @PyLong_AsLong(ptr noundef %38)
+  %40 = load ptr, ptr %5, align 8, !tbaa !31
+  %41 = getelementptr inbounds nuw %struct.rlimit, ptr %40, i32 0, i32 1
+  store i64 %39, ptr %41, align 8, !tbaa !30
+  %42 = load ptr, ptr %5, align 8, !tbaa !31
+  %43 = getelementptr inbounds nuw %struct.rlimit, ptr %42, i32 0, i32 1
+  %44 = load i64, ptr %43, align 8, !tbaa !30
+  %45 = icmp eq i64 %44, -1
+  br i1 %45, label %46, label %50
 
-land.lhs.true16:                                  ; preds = %if.end12
-  %call17 = call ptr @PyErr_Occurred()
-  %tobool18 = icmp ne ptr %call17, null
-  br i1 %tobool18, label %if.then19, label %if.end20
+46:                                               ; preds = %37
+  %47 = call ptr @PyErr_Occurred()
+  %48 = icmp ne ptr %47, null
+  br i1 %48, label %49, label %50
 
-if.then19:                                        ; preds = %land.lhs.true16
-  br label %error
+49:                                               ; preds = %46
+  br label %64
 
-if.end20:                                         ; preds = %land.lhs.true16, %if.end12
-  %14 = load ptr, ptr %limits.addr, align 8
-  call void @Py_DECREF(ptr noundef %14)
-  %15 = load ptr, ptr %rl_out.addr, align 8
-  %rlim_cur21 = getelementptr inbounds %struct.rlimit, ptr %15, i32 0, i32 0
-  %16 = load i64, ptr %rlim_cur21, align 8
-  %and = and i64 %16, -1
-  %17 = load ptr, ptr %rl_out.addr, align 8
-  %rlim_cur22 = getelementptr inbounds %struct.rlimit, ptr %17, i32 0, i32 0
-  store i64 %and, ptr %rlim_cur22, align 8
-  %18 = load ptr, ptr %rl_out.addr, align 8
-  %rlim_max23 = getelementptr inbounds %struct.rlimit, ptr %18, i32 0, i32 1
-  %19 = load i64, ptr %rlim_max23, align 8
-  %and24 = and i64 %19, -1
-  %20 = load ptr, ptr %rl_out.addr, align 8
-  %rlim_max25 = getelementptr inbounds %struct.rlimit, ptr %20, i32 0, i32 1
-  store i64 %and24, ptr %rlim_max25, align 8
-  store i32 0, ptr %retval, align 4
-  br label %return
+50:                                               ; preds = %46, %37
+  %51 = load ptr, ptr %4, align 8, !tbaa !3
+  call void @Py_DECREF(ptr noundef %51)
+  %52 = load ptr, ptr %5, align 8, !tbaa !31
+  %53 = getelementptr inbounds nuw %struct.rlimit, ptr %52, i32 0, i32 0
+  %54 = load i64, ptr %53, align 8, !tbaa !28
+  %55 = and i64 %54, -1
+  %56 = load ptr, ptr %5, align 8, !tbaa !31
+  %57 = getelementptr inbounds nuw %struct.rlimit, ptr %56, i32 0, i32 0
+  store i64 %55, ptr %57, align 8, !tbaa !28
+  %58 = load ptr, ptr %5, align 8, !tbaa !31
+  %59 = getelementptr inbounds nuw %struct.rlimit, ptr %58, i32 0, i32 1
+  %60 = load i64, ptr %59, align 8, !tbaa !30
+  %61 = and i64 %60, -1
+  %62 = load ptr, ptr %5, align 8, !tbaa !31
+  %63 = getelementptr inbounds nuw %struct.rlimit, ptr %62, i32 0, i32 1
+  store i64 %61, ptr %63, align 8, !tbaa !30
+  store i32 0, ptr %3, align 4
+  store i32 1, ptr %8, align 4
+  br label %66
 
-error:                                            ; preds = %if.then19, %if.then11, %if.then2
-  %21 = load ptr, ptr %limits.addr, align 8
-  call void @Py_DECREF(ptr noundef %21)
-  store i32 -1, ptr %retval, align 4
-  br label %return
+64:                                               ; preds = %49, %36, %18
+  %65 = load ptr, ptr %4, align 8, !tbaa !3
+  call void @Py_DECREF(ptr noundef %65)
+  store i32 -1, ptr %3, align 4
+  store i32 1, ptr %8, align 4
+  br label %66
 
-return:                                           ; preds = %error, %if.end20, %if.then
-  %22 = load i32, ptr %retval, align 4
-  ret i32 %22
+66:                                               ; preds = %64, %50, %13
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #7
+  %67 = load i32, ptr %3, align 4
+  ret i32 %67
 }
 
 ; Function Attrs: nounwind
-declare i32 @prlimit64(i32 noundef, i32 noundef, ptr noundef, ptr noundef) #2
+declare i32 @prlimit64(i32 noundef, i32 noundef, ptr noundef, ptr noundef) #3
 
 declare ptr @PySequence_Tuple(ptr noundef) #1
 
@@ -1028,508 +1102,608 @@ declare i64 @PyTuple_Size(ptr noundef) #1
 
 declare ptr @PyTuple_GetItem(ptr noundef, i64 noundef) #1
 
+declare i64 @PyLong_AsLong(ptr noundef) #1
+
 ; Function Attrs: nounwind uwtable
-define internal ptr @resource_setrlimit_impl(ptr noundef %module, i32 noundef %resource, ptr noundef %limits) #0 {
-entry:
-  %retval = alloca ptr, align 8
-  %module.addr = alloca ptr, align 8
-  %resource.addr = alloca i32, align 4
-  %limits.addr = alloca ptr, align 8
-  %rl = alloca %struct.rlimit, align 8
-  store ptr %module, ptr %module.addr, align 8
-  store i32 %resource, ptr %resource.addr, align 4
-  store ptr %limits, ptr %limits.addr, align 8
-  %0 = load i32, ptr %resource.addr, align 4
-  %cmp = icmp slt i32 %0, 0
-  br i1 %cmp, label %if.then, label %lor.lhs.false
+define internal ptr @resource_setrlimit_impl(ptr noundef %0, i32 noundef %1, ptr noundef %2) #0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  %7 = alloca ptr, align 8
+  %8 = alloca %struct.rlimit, align 8
+  %9 = alloca i32, align 4
+  store ptr %0, ptr %5, align 8, !tbaa !3
+  store i32 %1, ptr %6, align 4, !tbaa !12
+  store ptr %2, ptr %7, align 8, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 16, ptr %8) #7
+  %10 = load i32, ptr %6, align 4, !tbaa !12
+  %11 = icmp slt i32 %10, 0
+  br i1 %11, label %15, label %12
 
-lor.lhs.false:                                    ; preds = %entry
-  %1 = load i32, ptr %resource.addr, align 4
-  %cmp1 = icmp sge i32 %1, 16
-  br i1 %cmp1, label %if.then, label %if.end
+12:                                               ; preds = %3
+  %13 = load i32, ptr %6, align 4, !tbaa !12
+  %14 = icmp sge i32 %13, 16
+  br i1 %14, label %15, label %17
 
-if.then:                                          ; preds = %lor.lhs.false, %entry
-  %2 = load ptr, ptr @PyExc_ValueError, align 8
-  call void @PyErr_SetString(ptr noundef %2, ptr noundef @.str.7)
-  store ptr null, ptr %retval, align 8
-  br label %return
+15:                                               ; preds = %12, %3
+  %16 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !3
+  call void @PyErr_SetString(ptr noundef %16, ptr noundef @.str.8)
+  store ptr null, ptr %4, align 8
+  store i32 1, ptr %9, align 4
+  br label %58
 
-if.end:                                           ; preds = %lor.lhs.false
-  %3 = load i32, ptr %resource.addr, align 4
-  %4 = load ptr, ptr %limits.addr, align 8
-  %tobool = icmp ne ptr %4, null
-  br i1 %tobool, label %cond.true, label %cond.false
+17:                                               ; preds = %12
+  %18 = load i32, ptr %6, align 4, !tbaa !12
+  %19 = load ptr, ptr %7, align 8, !tbaa !3
+  %20 = icmp ne ptr %19, null
+  br i1 %20, label %21, label %23
 
-cond.true:                                        ; preds = %if.end
-  %5 = load ptr, ptr %limits.addr, align 8
-  br label %cond.end
+21:                                               ; preds = %17
+  %22 = load ptr, ptr %7, align 8, !tbaa !3
+  br label %25
 
-cond.false:                                       ; preds = %if.end
-  br label %cond.end
+23:                                               ; preds = %17
+  %24 = call ptr @Py_GetConstantBorrowed(i32 noundef 0)
+  br label %25
 
-cond.end:                                         ; preds = %cond.false, %cond.true
-  %cond = phi ptr [ %5, %cond.true ], [ @_Py_NoneStruct, %cond.false ]
-  %call = call i32 (ptr, ptr, ...) @PySys_Audit(ptr noundef @.str.16, ptr noundef @.str.17, i32 noundef %3, ptr noundef %cond)
-  %cmp2 = icmp slt i32 %call, 0
-  br i1 %cmp2, label %if.then3, label %if.end4
+25:                                               ; preds = %23, %21
+  %26 = phi ptr [ %22, %21 ], [ %24, %23 ]
+  %27 = call i32 (ptr, ptr, ...) @PySys_Audit(ptr noundef @.str.17, ptr noundef @.str.18, i32 noundef %18, ptr noundef %26)
+  %28 = icmp slt i32 %27, 0
+  br i1 %28, label %29, label %30
 
-if.then3:                                         ; preds = %cond.end
-  store ptr null, ptr %retval, align 8
-  br label %return
+29:                                               ; preds = %25
+  store ptr null, ptr %4, align 8
+  store i32 1, ptr %9, align 4
+  br label %58
 
-if.end4:                                          ; preds = %cond.end
-  %6 = load ptr, ptr %limits.addr, align 8
-  %call5 = call i32 @py2rlimit(ptr noundef %6, ptr noundef %rl)
-  %cmp6 = icmp slt i32 %call5, 0
-  br i1 %cmp6, label %if.then7, label %if.end8
+30:                                               ; preds = %25
+  %31 = load ptr, ptr %7, align 8, !tbaa !3
+  %32 = call i32 @py2rlimit(ptr noundef %31, ptr noundef %8)
+  %33 = icmp slt i32 %32, 0
+  br i1 %33, label %34, label %35
 
-if.then7:                                         ; preds = %if.end4
-  store ptr null, ptr %retval, align 8
-  br label %return
+34:                                               ; preds = %30
+  store ptr null, ptr %4, align 8
+  store i32 1, ptr %9, align 4
+  br label %58
 
-if.end8:                                          ; preds = %if.end4
-  %7 = load i32, ptr %resource.addr, align 4
-  %call9 = call i32 @setrlimit64(i32 noundef %7, ptr noundef %rl) #5
-  %cmp10 = icmp eq i32 %call9, -1
-  br i1 %cmp10, label %if.then11, label %if.end22
+35:                                               ; preds = %30
+  %36 = load i32, ptr %6, align 4, !tbaa !12
+  %37 = call i32 @setrlimit64(i32 noundef %36, ptr noundef %8) #7
+  %38 = icmp eq i32 %37, -1
+  br i1 %38, label %39, label %56
 
-if.then11:                                        ; preds = %if.end8
-  %call12 = call ptr @__errno_location() #6
-  %8 = load i32, ptr %call12, align 4
-  %cmp13 = icmp eq i32 %8, 22
-  br i1 %cmp13, label %if.then14, label %if.else
+39:                                               ; preds = %35
+  %40 = call ptr @__errno_location() #8
+  %41 = load i32, ptr %40, align 4, !tbaa !12
+  %42 = icmp eq i32 %41, 22
+  br i1 %42, label %43, label %45
 
-if.then14:                                        ; preds = %if.then11
-  %9 = load ptr, ptr @PyExc_ValueError, align 8
-  call void @PyErr_SetString(ptr noundef %9, ptr noundef @.str.13)
-  br label %if.end21
+43:                                               ; preds = %39
+  %44 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !3
+  call void @PyErr_SetString(ptr noundef %44, ptr noundef @.str.14)
+  br label %55
 
-if.else:                                          ; preds = %if.then11
-  %call15 = call ptr @__errno_location() #6
-  %10 = load i32, ptr %call15, align 4
-  %cmp16 = icmp eq i32 %10, 1
-  br i1 %cmp16, label %if.then17, label %if.else18
+45:                                               ; preds = %39
+  %46 = call ptr @__errno_location() #8
+  %47 = load i32, ptr %46, align 4, !tbaa !12
+  %48 = icmp eq i32 %47, 1
+  br i1 %48, label %49, label %51
 
-if.then17:                                        ; preds = %if.else
-  %11 = load ptr, ptr @PyExc_ValueError, align 8
-  call void @PyErr_SetString(ptr noundef %11, ptr noundef @.str.18)
-  br label %if.end20
+49:                                               ; preds = %45
+  %50 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !3
+  call void @PyErr_SetString(ptr noundef %50, ptr noundef @.str.19)
+  br label %54
 
-if.else18:                                        ; preds = %if.else
-  %12 = load ptr, ptr @PyExc_OSError, align 8
-  %call19 = call ptr @PyErr_SetFromErrno(ptr noundef %12)
-  br label %if.end20
+51:                                               ; preds = %45
+  %52 = load ptr, ptr @PyExc_OSError, align 8, !tbaa !3
+  %53 = call ptr @PyErr_SetFromErrno(ptr noundef %52)
+  br label %54
 
-if.end20:                                         ; preds = %if.else18, %if.then17
-  br label %if.end21
+54:                                               ; preds = %51, %49
+  br label %55
 
-if.end21:                                         ; preds = %if.end20, %if.then14
-  store ptr null, ptr %retval, align 8
-  br label %return
+55:                                               ; preds = %54, %43
+  store ptr null, ptr %4, align 8
+  store i32 1, ptr %9, align 4
+  br label %58
 
-if.end22:                                         ; preds = %if.end8
-  store ptr @_Py_NoneStruct, ptr %retval, align 8
-  br label %return
+56:                                               ; preds = %35
+  %57 = call ptr @Py_GetConstantBorrowed(i32 noundef 0)
+  store ptr %57, ptr %4, align 8
+  store i32 1, ptr %9, align 4
+  br label %58
 
-return:                                           ; preds = %if.end22, %if.end21, %if.then7, %if.then3, %if.then
-  %13 = load ptr, ptr %retval, align 8
-  ret ptr %13
+58:                                               ; preds = %56, %55, %34, %29, %15
+  call void @llvm.lifetime.end.p0(i64 16, ptr %8) #7
+  %59 = load ptr, ptr %4, align 8
+  ret ptr %59
 }
 
 ; Function Attrs: nounwind
-declare i32 @setrlimit64(i32 noundef, ptr noundef) #2
+declare i32 @setrlimit64(i32 noundef, ptr noundef) #3
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @resource_getpagesize_impl(ptr noundef %module) #0 {
-entry:
-  %module.addr = alloca ptr, align 8
-  %pagesize = alloca i64, align 8
-  store ptr %module, ptr %module.addr, align 8
-  store i64 0, ptr %pagesize, align 8
-  %call = call i32 @getpagesize() #6
-  %conv = sext i32 %call to i64
-  store i64 %conv, ptr %pagesize, align 8
-  %0 = load i64, ptr %pagesize, align 8
-  %conv1 = trunc i64 %0 to i32
-  ret i32 %conv1
+define internal i32 @resource_getpagesize_impl(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca i64, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #7
+  store i64 0, ptr %3, align 8, !tbaa !19
+  %4 = call i32 @getpagesize() #8
+  %5 = sext i32 %4 to i64
+  store i64 %5, ptr %3, align 8, !tbaa !19
+  %6 = load i64, ptr %3, align 8, !tbaa !19
+  %7 = trunc i64 %6 to i32
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #7
+  ret i32 %7
 }
 
 ; Function Attrs: nounwind willreturn memory(none)
-declare i32 @getpagesize() #3
+declare i32 @getpagesize() #4
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @resource_exec(ptr noundef %module) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %module.addr = alloca ptr, align 8
-  %state = alloca ptr, align 8
-  %v = alloca ptr, align 8
-  store ptr %module, ptr %module.addr, align 8
-  %0 = load ptr, ptr %module.addr, align 8
-  %call = call ptr @get_resource_state(ptr noundef %0)
-  store ptr %call, ptr %state, align 8
-  %1 = load ptr, ptr %module.addr, align 8
-  %2 = load ptr, ptr @PyExc_OSError, align 8
-  %call1 = call i32 @PyModule_AddObjectRef(ptr noundef %1, ptr noundef @.str.19, ptr noundef %2)
-  %cmp = icmp slt i32 %call1, 0
-  br i1 %cmp, label %if.then, label %if.end
-
-if.then:                                          ; preds = %entry
-  store i32 -1, ptr %retval, align 4
-  br label %return
-
-if.end:                                           ; preds = %entry
-  %call2 = call ptr @PyStructSequence_NewType(ptr noundef @struct_rusage_desc)
-  %3 = load ptr, ptr %state, align 8
-  %StructRUsageType = getelementptr inbounds %struct.resourcemodulestate, ptr %3, i32 0, i32 0
-  store ptr %call2, ptr %StructRUsageType, align 8
-  %4 = load ptr, ptr %state, align 8
-  %StructRUsageType3 = getelementptr inbounds %struct.resourcemodulestate, ptr %4, i32 0, i32 0
-  %5 = load ptr, ptr %StructRUsageType3, align 8
-  %cmp4 = icmp eq ptr %5, null
-  br i1 %cmp4, label %if.then5, label %if.end6
-
-if.then5:                                         ; preds = %if.end
-  store i32 -1, ptr %retval, align 4
-  br label %return
-
-if.end6:                                          ; preds = %if.end
-  %6 = load ptr, ptr %module.addr, align 8
-  %7 = load ptr, ptr %state, align 8
-  %StructRUsageType7 = getelementptr inbounds %struct.resourcemodulestate, ptr %7, i32 0, i32 0
-  %8 = load ptr, ptr %StructRUsageType7, align 8
-  %call8 = call i32 @PyModule_AddType(ptr noundef %6, ptr noundef %8)
-  %cmp9 = icmp slt i32 %call8, 0
-  br i1 %cmp9, label %if.then10, label %if.end11
-
-if.then10:                                        ; preds = %if.end6
-  store i32 -1, ptr %retval, align 4
-  br label %return
-
-if.end11:                                         ; preds = %if.end6
-  br label %do.body
-
-do.body:                                          ; preds = %if.end11
-  %9 = load ptr, ptr %module.addr, align 8
-  %call12 = call i32 @PyModule_AddIntConstant(ptr noundef %9, ptr noundef @.str.20, i64 noundef 0)
-  %cmp13 = icmp slt i32 %call12, 0
-  br i1 %cmp13, label %if.then14, label %if.end15
-
-if.then14:                                        ; preds = %do.body
-  store i32 -1, ptr %retval, align 4
-  br label %return
-
-if.end15:                                         ; preds = %do.body
-  br label %do.end
-
-do.end:                                           ; preds = %if.end15
-  br label %do.body16
-
-do.body16:                                        ; preds = %do.end
-  %10 = load ptr, ptr %module.addr, align 8
-  %call17 = call i32 @PyModule_AddIntConstant(ptr noundef %10, ptr noundef @.str.21, i64 noundef 1)
-  %cmp18 = icmp slt i32 %call17, 0
-  br i1 %cmp18, label %if.then19, label %if.end20
-
-if.then19:                                        ; preds = %do.body16
-  store i32 -1, ptr %retval, align 4
-  br label %return
-
-if.end20:                                         ; preds = %do.body16
-  br label %do.end21
-
-do.end21:                                         ; preds = %if.end20
-  br label %do.body22
-
-do.body22:                                        ; preds = %do.end21
-  %11 = load ptr, ptr %module.addr, align 8
-  %call23 = call i32 @PyModule_AddIntConstant(ptr noundef %11, ptr noundef @.str.22, i64 noundef 2)
-  %cmp24 = icmp slt i32 %call23, 0
-  br i1 %cmp24, label %if.then25, label %if.end26
-
-if.then25:                                        ; preds = %do.body22
-  store i32 -1, ptr %retval, align 4
-  br label %return
-
-if.end26:                                         ; preds = %do.body22
-  br label %do.end27
-
-do.end27:                                         ; preds = %if.end26
-  br label %do.body28
-
-do.body28:                                        ; preds = %do.end27
-  %12 = load ptr, ptr %module.addr, align 8
-  %call29 = call i32 @PyModule_AddIntConstant(ptr noundef %12, ptr noundef @.str.23, i64 noundef 3)
-  %cmp30 = icmp slt i32 %call29, 0
-  br i1 %cmp30, label %if.then31, label %if.end32
-
-if.then31:                                        ; preds = %do.body28
-  store i32 -1, ptr %retval, align 4
-  br label %return
+define internal i32 @resource_exec(ptr noundef %0) #0 {
+  %2 = alloca i32, align 4
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #7
+  %7 = load ptr, ptr %3, align 8, !tbaa !3
+  %8 = call ptr @get_resource_state(ptr noundef %7)
+  store ptr %8, ptr %4, align 8, !tbaa !8
+  %9 = load ptr, ptr %3, align 8, !tbaa !3
+  %10 = load ptr, ptr @PyExc_OSError, align 8, !tbaa !3
+  %11 = call i32 @PyModule_AddObjectRef(ptr noundef %9, ptr noundef @.str.21, ptr noundef %10)
+  %12 = icmp slt i32 %11, 0
+  br i1 %12, label %13, label %14
+
+13:                                               ; preds = %1
+  store i32 -1, ptr %2, align 4
+  store i32 1, ptr %5, align 4
+  br label %192
+
+14:                                               ; preds = %1
+  %15 = call ptr @PyStructSequence_NewType(ptr noundef @struct_rusage_desc)
+  %16 = load ptr, ptr %4, align 8, !tbaa !8
+  %17 = getelementptr inbounds nuw %struct.resourcemodulestate, ptr %16, i32 0, i32 0
+  store ptr %15, ptr %17, align 8, !tbaa !9
+  %18 = load ptr, ptr %4, align 8, !tbaa !8
+  %19 = getelementptr inbounds nuw %struct.resourcemodulestate, ptr %18, i32 0, i32 0
+  %20 = load ptr, ptr %19, align 8, !tbaa !9
+  %21 = icmp eq ptr %20, null
+  br i1 %21, label %22, label %23
+
+22:                                               ; preds = %14
+  store i32 -1, ptr %2, align 4
+  store i32 1, ptr %5, align 4
+  br label %192
+
+23:                                               ; preds = %14
+  %24 = load ptr, ptr %3, align 8, !tbaa !3
+  %25 = load ptr, ptr %4, align 8, !tbaa !8
+  %26 = getelementptr inbounds nuw %struct.resourcemodulestate, ptr %25, i32 0, i32 0
+  %27 = load ptr, ptr %26, align 8, !tbaa !9
+  %28 = call i32 @PyModule_AddType(ptr noundef %24, ptr noundef %27)
+  %29 = icmp slt i32 %28, 0
+  br i1 %29, label %30, label %31
+
+30:                                               ; preds = %23
+  store i32 -1, ptr %2, align 4
+  store i32 1, ptr %5, align 4
+  br label %192
+
+31:                                               ; preds = %23
+  br label %32
+
+32:                                               ; preds = %31
+  %33 = load ptr, ptr %3, align 8, !tbaa !3
+  %34 = call i32 @PyModule_AddIntConstant(ptr noundef %33, ptr noundef @.str.22, i64 noundef 0)
+  %35 = icmp slt i32 %34, 0
+  br i1 %35, label %36, label %37
+
+36:                                               ; preds = %32
+  store i32 -1, ptr %2, align 4
+  store i32 1, ptr %5, align 4
+  br label %192
+
+37:                                               ; preds = %32
+  br label %38
+
+38:                                               ; preds = %37
+  br label %39
+
+39:                                               ; preds = %38
+  br label %40
+
+40:                                               ; preds = %39
+  %41 = load ptr, ptr %3, align 8, !tbaa !3
+  %42 = call i32 @PyModule_AddIntConstant(ptr noundef %41, ptr noundef @.str.23, i64 noundef 1)
+  %43 = icmp slt i32 %42, 0
+  br i1 %43, label %44, label %45
+
+44:                                               ; preds = %40
+  store i32 -1, ptr %2, align 4
+  store i32 1, ptr %5, align 4
+  br label %192
+
+45:                                               ; preds = %40
+  br label %46
+
+46:                                               ; preds = %45
+  br label %47
+
+47:                                               ; preds = %46
+  br label %48
+
+48:                                               ; preds = %47
+  %49 = load ptr, ptr %3, align 8, !tbaa !3
+  %50 = call i32 @PyModule_AddIntConstant(ptr noundef %49, ptr noundef @.str.24, i64 noundef 2)
+  %51 = icmp slt i32 %50, 0
+  br i1 %51, label %52, label %53
+
+52:                                               ; preds = %48
+  store i32 -1, ptr %2, align 4
+  store i32 1, ptr %5, align 4
+  br label %192
+
+53:                                               ; preds = %48
+  br label %54
 
-if.end32:                                         ; preds = %do.body28
-  br label %do.end33
+54:                                               ; preds = %53
+  br label %55
 
-do.end33:                                         ; preds = %if.end32
-  br label %do.body34
-
-do.body34:                                        ; preds = %do.end33
-  %13 = load ptr, ptr %module.addr, align 8
-  %call35 = call i32 @PyModule_AddIntConstant(ptr noundef %13, ptr noundef @.str.24, i64 noundef 4)
-  %cmp36 = icmp slt i32 %call35, 0
-  br i1 %cmp36, label %if.then37, label %if.end38
-
-if.then37:                                        ; preds = %do.body34
-  store i32 -1, ptr %retval, align 4
-  br label %return
+55:                                               ; preds = %54
+  br label %56
 
-if.end38:                                         ; preds = %do.body34
-  br label %do.end39
+56:                                               ; preds = %55
+  %57 = load ptr, ptr %3, align 8, !tbaa !3
+  %58 = call i32 @PyModule_AddIntConstant(ptr noundef %57, ptr noundef @.str.25, i64 noundef 3)
+  %59 = icmp slt i32 %58, 0
+  br i1 %59, label %60, label %61
 
-do.end39:                                         ; preds = %if.end38
-  br label %do.body40
-
-do.body40:                                        ; preds = %do.end39
-  %14 = load ptr, ptr %module.addr, align 8
-  %call41 = call i32 @PyModule_AddIntConstant(ptr noundef %14, ptr noundef @.str.25, i64 noundef 7)
-  %cmp42 = icmp slt i32 %call41, 0
-  br i1 %cmp42, label %if.then43, label %if.end44
-
-if.then43:                                        ; preds = %do.body40
-  store i32 -1, ptr %retval, align 4
-  br label %return
+60:                                               ; preds = %56
+  store i32 -1, ptr %2, align 4
+  store i32 1, ptr %5, align 4
+  br label %192
+
+61:                                               ; preds = %56
+  br label %62
 
-if.end44:                                         ; preds = %do.body40
-  br label %do.end45
+62:                                               ; preds = %61
+  br label %63
 
-do.end45:                                         ; preds = %if.end44
-  br label %do.body46
-
-do.body46:                                        ; preds = %do.end45
-  %15 = load ptr, ptr %module.addr, align 8
-  %call47 = call i32 @PyModule_AddIntConstant(ptr noundef %15, ptr noundef @.str.26, i64 noundef 7)
-  %cmp48 = icmp slt i32 %call47, 0
-  br i1 %cmp48, label %if.then49, label %if.end50
-
-if.then49:                                        ; preds = %do.body46
-  store i32 -1, ptr %retval, align 4
-  br label %return
+63:                                               ; preds = %62
+  br label %64
 
-if.end50:                                         ; preds = %do.body46
-  br label %do.end51
+64:                                               ; preds = %63
+  %65 = load ptr, ptr %3, align 8, !tbaa !3
+  %66 = call i32 @PyModule_AddIntConstant(ptr noundef %65, ptr noundef @.str.26, i64 noundef 4)
+  %67 = icmp slt i32 %66, 0
+  br i1 %67, label %68, label %69
 
-do.end51:                                         ; preds = %if.end50
-  br label %do.body52
-
-do.body52:                                        ; preds = %do.end51
-  %16 = load ptr, ptr %module.addr, align 8
-  %call53 = call i32 @PyModule_AddIntConstant(ptr noundef %16, ptr noundef @.str.27, i64 noundef 9)
-  %cmp54 = icmp slt i32 %call53, 0
-  br i1 %cmp54, label %if.then55, label %if.end56
-
-if.then55:                                        ; preds = %do.body52
-  store i32 -1, ptr %retval, align 4
-  br label %return
+68:                                               ; preds = %64
+  store i32 -1, ptr %2, align 4
+  store i32 1, ptr %5, align 4
+  br label %192
+
+69:                                               ; preds = %64
+  br label %70
 
-if.end56:                                         ; preds = %do.body52
-  br label %do.end57
+70:                                               ; preds = %69
+  br label %71
 
-do.end57:                                         ; preds = %if.end56
-  br label %do.body58
-
-do.body58:                                        ; preds = %do.end57
-  %17 = load ptr, ptr %module.addr, align 8
-  %call59 = call i32 @PyModule_AddIntConstant(ptr noundef %17, ptr noundef @.str.28, i64 noundef 5)
-  %cmp60 = icmp slt i32 %call59, 0
-  br i1 %cmp60, label %if.then61, label %if.end62
-
-if.then61:                                        ; preds = %do.body58
-  store i32 -1, ptr %retval, align 4
-  br label %return
+71:                                               ; preds = %70
+  br label %72
 
-if.end62:                                         ; preds = %do.body58
-  br label %do.end63
+72:                                               ; preds = %71
+  %73 = load ptr, ptr %3, align 8, !tbaa !3
+  %74 = call i32 @PyModule_AddIntConstant(ptr noundef %73, ptr noundef @.str.27, i64 noundef 7)
+  %75 = icmp slt i32 %74, 0
+  br i1 %75, label %76, label %77
 
-do.end63:                                         ; preds = %if.end62
-  br label %do.body64
-
-do.body64:                                        ; preds = %do.end63
-  %18 = load ptr, ptr %module.addr, align 8
-  %call65 = call i32 @PyModule_AddIntConstant(ptr noundef %18, ptr noundef @.str.29, i64 noundef 6)
-  %cmp66 = icmp slt i32 %call65, 0
-  br i1 %cmp66, label %if.then67, label %if.end68
-
-if.then67:                                        ; preds = %do.body64
-  store i32 -1, ptr %retval, align 4
-  br label %return
+76:                                               ; preds = %72
+  store i32 -1, ptr %2, align 4
+  store i32 1, ptr %5, align 4
+  br label %192
+
+77:                                               ; preds = %72
+  br label %78
 
-if.end68:                                         ; preds = %do.body64
-  br label %do.end69
+78:                                               ; preds = %77
+  br label %79
 
-do.end69:                                         ; preds = %if.end68
-  br label %do.body70
-
-do.body70:                                        ; preds = %do.end69
-  %19 = load ptr, ptr %module.addr, align 8
-  %call71 = call i32 @PyModule_AddIntConstant(ptr noundef %19, ptr noundef @.str.30, i64 noundef 8)
-  %cmp72 = icmp slt i32 %call71, 0
-  br i1 %cmp72, label %if.then73, label %if.end74
-
-if.then73:                                        ; preds = %do.body70
-  store i32 -1, ptr %retval, align 4
-  br label %return
+79:                                               ; preds = %78
+  br label %80
 
-if.end74:                                         ; preds = %do.body70
-  br label %do.end75
+80:                                               ; preds = %79
+  %81 = load ptr, ptr %3, align 8, !tbaa !3
+  %82 = call i32 @PyModule_AddIntConstant(ptr noundef %81, ptr noundef @.str.28, i64 noundef 7)
+  %83 = icmp slt i32 %82, 0
+  br i1 %83, label %84, label %85
 
-do.end75:                                         ; preds = %if.end74
-  br label %do.body76
-
-do.body76:                                        ; preds = %do.end75
-  %20 = load ptr, ptr %module.addr, align 8
-  %call77 = call i32 @PyModule_AddIntConstant(ptr noundef %20, ptr noundef @.str.31, i64 noundef 12)
-  %cmp78 = icmp slt i32 %call77, 0
-  br i1 %cmp78, label %if.then79, label %if.end80
-
-if.then79:                                        ; preds = %do.body76
-  store i32 -1, ptr %retval, align 4
-  br label %return
+84:                                               ; preds = %80
+  store i32 -1, ptr %2, align 4
+  store i32 1, ptr %5, align 4
+  br label %192
+
+85:                                               ; preds = %80
+  br label %86
 
-if.end80:                                         ; preds = %do.body76
-  br label %do.end81
+86:                                               ; preds = %85
+  br label %87
 
-do.end81:                                         ; preds = %if.end80
-  br label %do.body82
-
-do.body82:                                        ; preds = %do.end81
-  %21 = load ptr, ptr %module.addr, align 8
-  %call83 = call i32 @PyModule_AddIntConstant(ptr noundef %21, ptr noundef @.str.32, i64 noundef 13)
-  %cmp84 = icmp slt i32 %call83, 0
-  br i1 %cmp84, label %if.then85, label %if.end86
-
-if.then85:                                        ; preds = %do.body82
-  store i32 -1, ptr %retval, align 4
-  br label %return
+87:                                               ; preds = %86
+  br label %88
 
-if.end86:                                         ; preds = %do.body82
-  br label %do.end87
-
-do.end87:                                         ; preds = %if.end86
-  br label %do.body88
-
-do.body88:                                        ; preds = %do.end87
-  %22 = load ptr, ptr %module.addr, align 8
-  %call89 = call i32 @PyModule_AddIntConstant(ptr noundef %22, ptr noundef @.str.33, i64 noundef 14)
-  %cmp90 = icmp slt i32 %call89, 0
-  br i1 %cmp90, label %if.then91, label %if.end92
-
-if.then91:                                        ; preds = %do.body88
-  store i32 -1, ptr %retval, align 4
-  br label %return
-
-if.end92:                                         ; preds = %do.body88
-  br label %do.end93
-
-do.end93:                                         ; preds = %if.end92
-  br label %do.body94
-
-do.body94:                                        ; preds = %do.end93
-  %23 = load ptr, ptr %module.addr, align 8
-  %call95 = call i32 @PyModule_AddIntConstant(ptr noundef %23, ptr noundef @.str.34, i64 noundef 15)
-  %cmp96 = icmp slt i32 %call95, 0
-  br i1 %cmp96, label %if.then97, label %if.end98
-
-if.then97:                                        ; preds = %do.body94
-  store i32 -1, ptr %retval, align 4
-  br label %return
-
-if.end98:                                         ; preds = %do.body94
-  br label %do.end99
-
-do.end99:                                         ; preds = %if.end98
-  br label %do.body100
-
-do.body100:                                       ; preds = %do.end99
-  %24 = load ptr, ptr %module.addr, align 8
-  %call101 = call i32 @PyModule_AddIntConstant(ptr noundef %24, ptr noundef @.str.35, i64 noundef 11)
-  %cmp102 = icmp slt i32 %call101, 0
-  br i1 %cmp102, label %if.then103, label %if.end104
-
-if.then103:                                       ; preds = %do.body100
-  store i32 -1, ptr %retval, align 4
-  br label %return
-
-if.end104:                                        ; preds = %do.body100
-  br label %do.end105
-
-do.end105:                                        ; preds = %if.end104
-  br label %do.body106
-
-do.body106:                                       ; preds = %do.end105
-  %25 = load ptr, ptr %module.addr, align 8
-  %call107 = call i32 @PyModule_AddIntConstant(ptr noundef %25, ptr noundef @.str.36, i64 noundef 0)
-  %cmp108 = icmp slt i32 %call107, 0
-  br i1 %cmp108, label %if.then109, label %if.end110
-
-if.then109:                                       ; preds = %do.body106
-  store i32 -1, ptr %retval, align 4
-  br label %return
-
-if.end110:                                        ; preds = %do.body106
-  br label %do.end111
-
-do.end111:                                        ; preds = %if.end110
-  br label %do.body112
-
-do.body112:                                       ; preds = %do.end111
-  %26 = load ptr, ptr %module.addr, align 8
-  %call113 = call i32 @PyModule_AddIntConstant(ptr noundef %26, ptr noundef @.str.37, i64 noundef -1)
-  %cmp114 = icmp slt i32 %call113, 0
-  br i1 %cmp114, label %if.then115, label %if.end116
-
-if.then115:                                       ; preds = %do.body112
-  store i32 -1, ptr %retval, align 4
-  br label %return
-
-if.end116:                                        ; preds = %do.body112
-  br label %do.end117
-
-do.end117:                                        ; preds = %if.end116
-  br label %do.body118
-
-do.body118:                                       ; preds = %do.end117
-  %27 = load ptr, ptr %module.addr, align 8
-  %call119 = call i32 @PyModule_AddIntConstant(ptr noundef %27, ptr noundef @.str.38, i64 noundef 1)
-  %cmp120 = icmp slt i32 %call119, 0
-  br i1 %cmp120, label %if.then121, label %if.end122
-
-if.then121:                                       ; preds = %do.body118
-  store i32 -1, ptr %retval, align 4
-  br label %return
-
-if.end122:                                        ; preds = %do.body118
-  br label %do.end123
-
-do.end123:                                        ; preds = %if.end122
-  %call124 = call ptr @PyLong_FromLong(i64 noundef -1)
-  store ptr %call124, ptr %v, align 8
-  %28 = load ptr, ptr %module.addr, align 8
-  %29 = load ptr, ptr %v, align 8
-  %call125 = call i32 @PyModule_Add(ptr noundef %28, ptr noundef @.str.39, ptr noundef %29)
-  %cmp126 = icmp slt i32 %call125, 0
-  br i1 %cmp126, label %if.then127, label %if.end128
-
-if.then127:                                       ; preds = %do.end123
-  store i32 -1, ptr %retval, align 4
-  br label %return
-
-if.end128:                                        ; preds = %do.end123
-  store i32 0, ptr %retval, align 4
-  br label %return
-
-return:                                           ; preds = %if.end128, %if.then127, %if.then121, %if.then115, %if.then109, %if.then103, %if.then97, %if.then91, %if.then85, %if.then79, %if.then73, %if.then67, %if.then61, %if.then55, %if.then49, %if.then43, %if.then37, %if.then31, %if.then25, %if.then19, %if.then14, %if.then10, %if.then5, %if.then
-  %30 = load i32, ptr %retval, align 4
-  ret i32 %30
+88:                                               ; preds = %87
+  %89 = load ptr, ptr %3, align 8, !tbaa !3
+  %90 = call i32 @PyModule_AddIntConstant(ptr noundef %89, ptr noundef @.str.29, i64 noundef 9)
+  %91 = icmp slt i32 %90, 0
+  br i1 %91, label %92, label %93
+
+92:                                               ; preds = %88
+  store i32 -1, ptr %2, align 4
+  store i32 1, ptr %5, align 4
+  br label %192
+
+93:                                               ; preds = %88
+  br label %94
+
+94:                                               ; preds = %93
+  br label %95
+
+95:                                               ; preds = %94
+  br label %96
+
+96:                                               ; preds = %95
+  %97 = load ptr, ptr %3, align 8, !tbaa !3
+  %98 = call i32 @PyModule_AddIntConstant(ptr noundef %97, ptr noundef @.str.30, i64 noundef 5)
+  %99 = icmp slt i32 %98, 0
+  br i1 %99, label %100, label %101
+
+100:                                              ; preds = %96
+  store i32 -1, ptr %2, align 4
+  store i32 1, ptr %5, align 4
+  br label %192
+
+101:                                              ; preds = %96
+  br label %102
+
+102:                                              ; preds = %101
+  br label %103
+
+103:                                              ; preds = %102
+  br label %104
+
+104:                                              ; preds = %103
+  %105 = load ptr, ptr %3, align 8, !tbaa !3
+  %106 = call i32 @PyModule_AddIntConstant(ptr noundef %105, ptr noundef @.str.31, i64 noundef 6)
+  %107 = icmp slt i32 %106, 0
+  br i1 %107, label %108, label %109
+
+108:                                              ; preds = %104
+  store i32 -1, ptr %2, align 4
+  store i32 1, ptr %5, align 4
+  br label %192
+
+109:                                              ; preds = %104
+  br label %110
+
+110:                                              ; preds = %109
+  br label %111
+
+111:                                              ; preds = %110
+  br label %112
+
+112:                                              ; preds = %111
+  %113 = load ptr, ptr %3, align 8, !tbaa !3
+  %114 = call i32 @PyModule_AddIntConstant(ptr noundef %113, ptr noundef @.str.32, i64 noundef 8)
+  %115 = icmp slt i32 %114, 0
+  br i1 %115, label %116, label %117
+
+116:                                              ; preds = %112
+  store i32 -1, ptr %2, align 4
+  store i32 1, ptr %5, align 4
+  br label %192
+
+117:                                              ; preds = %112
+  br label %118
+
+118:                                              ; preds = %117
+  br label %119
+
+119:                                              ; preds = %118
+  br label %120
+
+120:                                              ; preds = %119
+  %121 = load ptr, ptr %3, align 8, !tbaa !3
+  %122 = call i32 @PyModule_AddIntConstant(ptr noundef %121, ptr noundef @.str.33, i64 noundef 12)
+  %123 = icmp slt i32 %122, 0
+  br i1 %123, label %124, label %125
+
+124:                                              ; preds = %120
+  store i32 -1, ptr %2, align 4
+  store i32 1, ptr %5, align 4
+  br label %192
+
+125:                                              ; preds = %120
+  br label %126
+
+126:                                              ; preds = %125
+  br label %127
+
+127:                                              ; preds = %126
+  br label %128
+
+128:                                              ; preds = %127
+  %129 = load ptr, ptr %3, align 8, !tbaa !3
+  %130 = call i32 @PyModule_AddIntConstant(ptr noundef %129, ptr noundef @.str.34, i64 noundef 13)
+  %131 = icmp slt i32 %130, 0
+  br i1 %131, label %132, label %133
+
+132:                                              ; preds = %128
+  store i32 -1, ptr %2, align 4
+  store i32 1, ptr %5, align 4
+  br label %192
+
+133:                                              ; preds = %128
+  br label %134
+
+134:                                              ; preds = %133
+  br label %135
+
+135:                                              ; preds = %134
+  br label %136
+
+136:                                              ; preds = %135
+  %137 = load ptr, ptr %3, align 8, !tbaa !3
+  %138 = call i32 @PyModule_AddIntConstant(ptr noundef %137, ptr noundef @.str.35, i64 noundef 14)
+  %139 = icmp slt i32 %138, 0
+  br i1 %139, label %140, label %141
+
+140:                                              ; preds = %136
+  store i32 -1, ptr %2, align 4
+  store i32 1, ptr %5, align 4
+  br label %192
+
+141:                                              ; preds = %136
+  br label %142
+
+142:                                              ; preds = %141
+  br label %143
+
+143:                                              ; preds = %142
+  br label %144
+
+144:                                              ; preds = %143
+  %145 = load ptr, ptr %3, align 8, !tbaa !3
+  %146 = call i32 @PyModule_AddIntConstant(ptr noundef %145, ptr noundef @.str.36, i64 noundef 15)
+  %147 = icmp slt i32 %146, 0
+  br i1 %147, label %148, label %149
+
+148:                                              ; preds = %144
+  store i32 -1, ptr %2, align 4
+  store i32 1, ptr %5, align 4
+  br label %192
+
+149:                                              ; preds = %144
+  br label %150
+
+150:                                              ; preds = %149
+  br label %151
+
+151:                                              ; preds = %150
+  br label %152
+
+152:                                              ; preds = %151
+  %153 = load ptr, ptr %3, align 8, !tbaa !3
+  %154 = call i32 @PyModule_AddIntConstant(ptr noundef %153, ptr noundef @.str.37, i64 noundef 11)
+  %155 = icmp slt i32 %154, 0
+  br i1 %155, label %156, label %157
+
+156:                                              ; preds = %152
+  store i32 -1, ptr %2, align 4
+  store i32 1, ptr %5, align 4
+  br label %192
+
+157:                                              ; preds = %152
+  br label %158
+
+158:                                              ; preds = %157
+  br label %159
+
+159:                                              ; preds = %158
+  br label %160
+
+160:                                              ; preds = %159
+  %161 = load ptr, ptr %3, align 8, !tbaa !3
+  %162 = call i32 @PyModule_AddIntConstant(ptr noundef %161, ptr noundef @.str.38, i64 noundef 0)
+  %163 = icmp slt i32 %162, 0
+  br i1 %163, label %164, label %165
+
+164:                                              ; preds = %160
+  store i32 -1, ptr %2, align 4
+  store i32 1, ptr %5, align 4
+  br label %192
+
+165:                                              ; preds = %160
+  br label %166
+
+166:                                              ; preds = %165
+  br label %167
+
+167:                                              ; preds = %166
+  br label %168
+
+168:                                              ; preds = %167
+  %169 = load ptr, ptr %3, align 8, !tbaa !3
+  %170 = call i32 @PyModule_AddIntConstant(ptr noundef %169, ptr noundef @.str.39, i64 noundef -1)
+  %171 = icmp slt i32 %170, 0
+  br i1 %171, label %172, label %173
+
+172:                                              ; preds = %168
+  store i32 -1, ptr %2, align 4
+  store i32 1, ptr %5, align 4
+  br label %192
+
+173:                                              ; preds = %168
+  br label %174
+
+174:                                              ; preds = %173
+  br label %175
+
+175:                                              ; preds = %174
+  br label %176
+
+176:                                              ; preds = %175
+  %177 = load ptr, ptr %3, align 8, !tbaa !3
+  %178 = call i32 @PyModule_AddIntConstant(ptr noundef %177, ptr noundef @.str.40, i64 noundef 1)
+  %179 = icmp slt i32 %178, 0
+  br i1 %179, label %180, label %181
+
+180:                                              ; preds = %176
+  store i32 -1, ptr %2, align 4
+  store i32 1, ptr %5, align 4
+  br label %192
+
+181:                                              ; preds = %176
+  br label %182
+
+182:                                              ; preds = %181
+  br label %183
+
+183:                                              ; preds = %182
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #7
+  %184 = call ptr @PyLong_FromLong(i64 noundef -1)
+  store ptr %184, ptr %6, align 8, !tbaa !3
+  %185 = load ptr, ptr %3, align 8, !tbaa !3
+  %186 = load ptr, ptr %6, align 8, !tbaa !3
+  %187 = call i32 @PyModule_Add(ptr noundef %185, ptr noundef @.str.41, ptr noundef %186)
+  %188 = icmp slt i32 %187, 0
+  br i1 %188, label %189, label %190
+
+189:                                              ; preds = %183
+  store i32 -1, ptr %2, align 4
+  store i32 1, ptr %5, align 4
+  br label %191
+
+190:                                              ; preds = %183
+  store i32 0, ptr %2, align 4
+  store i32 1, ptr %5, align 4
+  br label %191
+
+191:                                              ; preds = %190, %189
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #7
+  br label %192
+
+192:                                              ; preds = %191, %180, %172, %164, %156, %148, %140, %132, %124, %116, %108, %100, %92, %84, %76, %68, %60, %52, %44, %36, %30, %22, %13
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #7
+  %193 = load i32, ptr %2, align 4
+  ret i32 %193
 }
 
 declare i32 @PyModule_AddObjectRef(ptr noundef, ptr noundef, ptr noundef) #1
@@ -1542,17 +1716,48 @@ declare i32 @PyModule_AddIntConstant(ptr noundef, ptr noundef, i64 noundef) #1
 
 declare i32 @PyModule_Add(ptr noundef, ptr noundef, ptr noundef) #1
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #5 = { nounwind }
-attributes #6 = { nounwind willreturn memory(none) }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { inlinehint nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #7 = { nounwind }
+attributes #8 = { nounwind willreturn memory(none) }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
+!3 = !{!4, !4, i64 0}
+!4 = !{!"p1 _ZTS7_object", !5, i64 0}
+!5 = !{!"any pointer", !6, i64 0}
+!6 = !{!"omnipotent char", !7, i64 0}
+!7 = !{!"Simple C/C++ TBAA"}
+!8 = !{!5, !5, i64 0}
+!9 = !{!10, !11, i64 0}
+!10 = !{!"", !11, i64 0}
+!11 = !{!"p1 _ZTS11_typeobject", !5, i64 0}
+!12 = !{!13, !13, i64 0}
+!13 = !{!"int", !6, i64 0}
+!14 = !{!15, !15, i64 0}
+!15 = !{!"p2 _ZTS11_typeobject", !5, i64 0}
+!16 = !{!11, !11, i64 0}
+!17 = !{!18, !18, i64 0}
+!18 = !{!"p2 _ZTS7_object", !5, i64 0}
+!19 = !{!20, !20, i64 0}
+!20 = !{!"long", !6, i64 0}
+!21 = !{!22, !20, i64 0}
+!22 = !{!"rusage", !23, i64 0, !23, i64 16, !6, i64 32, !6, i64 40, !6, i64 48, !6, i64 56, !6, i64 64, !6, i64 72, !6, i64 80, !6, i64 88, !6, i64 96, !6, i64 104, !6, i64 112, !6, i64 120, !6, i64 128, !6, i64 136}
+!23 = !{!"timeval", !20, i64 0, !20, i64 8}
+!24 = !{!22, !20, i64 8}
+!25 = !{!22, !20, i64 16}
+!26 = !{!22, !20, i64 24}
+!27 = !{!6, !6, i64 0}
+!28 = !{!29, !20, i64 0}
+!29 = !{!"rlimit", !20, i64 0, !20, i64 8}
+!30 = !{!29, !20, i64 8}
+!31 = !{!32, !32, i64 0}
+!32 = !{!"p1 _ZTS6rlimit", !5, i64 0}

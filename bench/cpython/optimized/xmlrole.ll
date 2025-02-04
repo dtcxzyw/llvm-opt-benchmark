@@ -1,7 +1,7 @@
 ; ModuleID = 'bench/cpython/original/xmlrole.ll'
 source_filename = "bench/cpython/original/xmlrole.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
 @KW_DOCTYPE = internal constant [8 x i8] c"DOCTYPE\00", align 1
 @KW_SYSTEM = internal constant [7 x i8] c"SYSTEM\00", align 1
@@ -29,2006 +29,1968 @@ target triple = "x86_64-unknown-linux-gnu"
 @KW_PCDATA = internal constant [7 x i8] c"PCDATA\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @PyExpat_XmlPrologStateInit(ptr noundef writeonly captures(none) initializes((0, 8), (16, 28)) %state) local_unnamed_addr #0 {
-entry:
-  store ptr @prolog0, ptr %state, align 8
-  %documentEntity = getelementptr inbounds nuw i8, ptr %state, i64 20
-  store i32 1, ptr %documentEntity, align 4
-  %includeLevel = getelementptr inbounds nuw i8, ptr %state, i64 16
-  store i32 0, ptr %includeLevel, align 8
-  %inEntityValue = getelementptr inbounds nuw i8, ptr %state, i64 24
-  store i32 0, ptr %inEntityValue, align 8
+define hidden void @PyExpat_XmlPrologStateInit(ptr noundef writeonly captures(none) initializes((0, 8), (16, 28)) %0) local_unnamed_addr #0 {
+  store ptr @prolog0, ptr %0, align 8, !tbaa !3
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  store i32 1, ptr %2, align 4, !tbaa !9
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i32 0, ptr %3, align 8, !tbaa !10
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store i32 0, ptr %4, align 8, !tbaa !11
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 60) i32 @prolog0(ptr noundef captures(none) %state, i32 noundef %tok, ptr noundef %ptr, ptr noundef %end, ptr noundef %enc) #1 {
-entry:
-  switch i32 %tok, label %sw.epilog [
-    i32 15, label %return.sink.split
-    i32 12, label %sw.bb1
-    i32 11, label %sw.bb3
-    i32 13, label %sw.bb5
-    i32 14, label %return
-    i32 16, label %sw.bb8
-    i32 29, label %sw.bb10
+define internal range(i32 -1, 60) i32 @prolog0(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #1 {
+  switch i32 %1, label %19 [
+    i32 15, label %common.exit.sink.split
+    i32 12, label %6
+    i32 11, label %7
+    i32 13, label %8
+    i32 14, label %common.exit
+    i32 16, label %9
+    i32 29, label %18
   ]
 
-sw.bb1:                                           ; preds = %entry
-  br label %return.sink.split
+6:                                                ; preds = %5
+  br label %common.exit.sink.split
 
-sw.bb3:                                           ; preds = %entry
-  br label %return.sink.split
+7:                                                ; preds = %5
+  br label %common.exit.sink.split
 
-sw.bb5:                                           ; preds = %entry
-  br label %return.sink.split
+8:                                                ; preds = %5
+  br label %common.exit.sink.split
 
-sw.bb8:                                           ; preds = %entry
-  %nameMatchesAscii = getelementptr inbounds nuw i8, ptr %enc, i64 48
-  %0 = load ptr, ptr %nameMatchesAscii, align 8
-  %minBytesPerChar = getelementptr inbounds nuw i8, ptr %enc, i64 128
-  %1 = load i32, ptr %minBytesPerChar, align 8
-  %mul = shl i32 %1, 1
-  %idx.ext = sext i32 %mul to i64
-  %add.ptr = getelementptr i8, ptr %ptr, i64 %idx.ext
-  %call = tail call i32 %0(ptr noundef %enc, ptr noundef %add.ptr, ptr noundef %end, ptr noundef nonnull @KW_DOCTYPE) #5
-  %tobool.not = icmp eq i32 %call, 0
-  br i1 %tobool.not, label %if.end.i, label %return.sink.split
+9:                                                ; preds = %5
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 48
+  %11 = load ptr, ptr %10, align 8, !tbaa !12
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 128
+  %13 = load i32, ptr %12, align 8, !tbaa !14
+  %14 = shl i32 %13, 1
+  %15 = sext i32 %14 to i64
+  %16 = getelementptr i8, ptr %2, i64 %15
+  %17 = tail call i32 %11(ptr noundef %4, ptr noundef %16, ptr noundef %3, ptr noundef nonnull @KW_DOCTYPE) #5
+  %.not = icmp eq i32 %17, 0
+  br i1 %.not, label %.thread, label %common.exit.sink.split
 
-sw.bb10:                                          ; preds = %entry
-  br label %return.sink.split
+18:                                               ; preds = %5
+  br label %common.exit.sink.split
 
-sw.epilog:                                        ; preds = %entry
-  %documentEntity.i = getelementptr inbounds nuw i8, ptr %state, i64 20
-  %2 = load i32, ptr %documentEntity.i, align 4
-  %tobool.i = icmp eq i32 %2, 0
-  %cmp.i = icmp eq i32 %tok, 28
-  %or.cond.i = and i1 %cmp.i, %tobool.i
-  br i1 %or.cond.i, label %return, label %if.end.i
+19:                                               ; preds = %5
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  %21 = load i32, ptr %20, align 4, !tbaa !9
+  %22 = icmp eq i32 %21, 0
+  %23 = icmp eq i32 %1, 28
+  %or.cond.i = and i1 %23, %22
+  br i1 %or.cond.i, label %common.exit, label %.thread
 
-if.end.i:                                         ; preds = %sw.bb8, %sw.epilog
-  br label %return.sink.split
+.thread:                                          ; preds = %9, %19
+  br label %common.exit.sink.split
 
-return.sink.split:                                ; preds = %sw.bb8, %entry, %sw.bb1, %sw.bb3, %sw.bb5, %sw.bb10, %if.end.i
-  %error.sink = phi ptr [ @error, %if.end.i ], [ @error, %sw.bb10 ], [ @prolog1, %sw.bb5 ], [ @prolog1, %sw.bb3 ], [ @prolog1, %sw.bb1 ], [ @prolog1, %entry ], [ @doctype0, %sw.bb8 ]
-  %retval.0.ph = phi i32 [ -1, %if.end.i ], [ 2, %sw.bb10 ], [ 56, %sw.bb5 ], [ 55, %sw.bb3 ], [ 1, %sw.bb1 ], [ 0, %entry ], [ 3, %sw.bb8 ]
-  store ptr %error.sink, ptr %state, align 8
-  br label %return
+common.exit.sink.split:                           ; preds = %9, %5, %6, %7, %8, %18, %.thread
+  %error.sink = phi ptr [ @error, %.thread ], [ @error, %18 ], [ @prolog1, %8 ], [ @prolog1, %7 ], [ @prolog1, %6 ], [ @prolog1, %5 ], [ @doctype0, %9 ]
+  %.0.ph = phi i32 [ -1, %.thread ], [ 2, %18 ], [ 56, %8 ], [ 55, %7 ], [ 1, %6 ], [ 0, %5 ], [ 3, %9 ]
+  store ptr %error.sink, ptr %0, align 8, !tbaa !3
+  br label %common.exit
 
-return:                                           ; preds = %return.sink.split, %sw.epilog, %entry
-  %retval.0 = phi i32 [ 0, %entry ], [ 59, %sw.epilog ], [ %retval.0.ph, %return.sink.split ]
-  ret i32 %retval.0
+common.exit:                                      ; preds = %common.exit.sink.split, %19, %5
+  %.0 = phi i32 [ 0, %5 ], [ 59, %19 ], [ %.0.ph, %common.exit.sink.split ]
+  ret i32 %.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @PyExpat_XmlPrologStateInitExternalEntity(ptr noundef writeonly captures(none) initializes((0, 8), (16, 24)) %state) local_unnamed_addr #0 {
-entry:
-  store ptr @externalSubset0, ptr %state, align 8
-  %documentEntity = getelementptr inbounds nuw i8, ptr %state, i64 20
-  store i32 0, ptr %documentEntity, align 4
-  %includeLevel = getelementptr inbounds nuw i8, ptr %state, i64 16
-  store i32 0, ptr %includeLevel, align 8
+define hidden void @PyExpat_XmlPrologStateInitExternalEntity(ptr noundef writeonly captures(none) initializes((0, 8), (16, 24)) %0) local_unnamed_addr #0 {
+  store ptr @externalSubset0, ptr %0, align 8, !tbaa !3
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  store i32 0, ptr %2, align 4, !tbaa !9
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i32 0, ptr %3, align 8, !tbaa !10
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 61) i32 @externalSubset0(ptr noundef captures(none) initializes((0, 8)) %state, i32 noundef %tok, ptr noundef %ptr, ptr noundef %end, ptr noundef %enc) #1 {
-entry:
-  store ptr @externalSubset1, ptr %state, align 8
-  %cmp = icmp eq i32 %tok, 12
-  br i1 %cmp, label %return, label %if.end
+define internal range(i32 -1, 61) i32 @externalSubset0(ptr noundef captures(none) initializes((0, 8)) %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #1 {
+  store ptr @externalSubset1, ptr %0, align 8, !tbaa !3
+  %6 = icmp eq i32 %1, 12
+  br i1 %6, label %9, label %7
 
-if.end:                                           ; preds = %entry
-  %call = tail call i32 @externalSubset1(ptr noundef nonnull %state, i32 noundef %tok, ptr noundef %ptr, ptr noundef %end, ptr noundef %enc)
-  br label %return
+7:                                                ; preds = %5
+  %8 = tail call i32 @externalSubset1(ptr noundef nonnull %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4)
+  br label %9
 
-return:                                           ; preds = %entry, %if.end
-  %retval.0 = phi i32 [ %call, %if.end ], [ 57, %entry ]
-  ret i32 %retval.0
+9:                                                ; preds = %5, %7
+  %.0 = phi i32 [ %8, %7 ], [ 57, %5 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 60) i32 @prolog1(ptr noundef captures(none) %state, i32 noundef %tok, ptr noundef %ptr, ptr noundef %end, ptr noundef %enc) #1 {
-entry:
-  switch i32 %tok, label %sw.epilog [
-    i32 15, label %return
-    i32 11, label %sw.bb1
-    i32 13, label %sw.bb2
-    i32 14, label %return
-    i32 16, label %sw.bb4
-    i32 29, label %sw.bb5
+define internal range(i32 -1, 60) i32 @prolog1(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #1 {
+  switch i32 %1, label %19 [
+    i32 15, label %common.exit
+    i32 11, label %6
+    i32 13, label %7
+    i32 14, label %common.exit
+    i32 16, label %8
+    i32 29, label %18
   ]
 
-sw.bb1:                                           ; preds = %entry
-  br label %return
+6:                                                ; preds = %5
+  br label %common.exit
 
-sw.bb2:                                           ; preds = %entry
-  br label %return
+7:                                                ; preds = %5
+  br label %common.exit
 
-sw.bb4:                                           ; preds = %entry
-  %nameMatchesAscii = getelementptr inbounds nuw i8, ptr %enc, i64 48
-  %0 = load ptr, ptr %nameMatchesAscii, align 8
-  %minBytesPerChar = getelementptr inbounds nuw i8, ptr %enc, i64 128
-  %1 = load i32, ptr %minBytesPerChar, align 8
-  %mul = shl i32 %1, 1
-  %idx.ext = sext i32 %mul to i64
-  %add.ptr = getelementptr i8, ptr %ptr, i64 %idx.ext
-  %call = tail call i32 %0(ptr noundef %enc, ptr noundef %add.ptr, ptr noundef %end, ptr noundef nonnull @KW_DOCTYPE) #5
-  %tobool.not = icmp eq i32 %call, 0
-  br i1 %tobool.not, label %if.end.i, label %if.end
+8:                                                ; preds = %5
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 48
+  %10 = load ptr, ptr %9, align 8, !tbaa !12
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 128
+  %12 = load i32, ptr %11, align 8, !tbaa !14
+  %13 = shl i32 %12, 1
+  %14 = sext i32 %13 to i64
+  %15 = getelementptr i8, ptr %2, i64 %14
+  %16 = tail call i32 %10(ptr noundef %4, ptr noundef %15, ptr noundef %3, ptr noundef nonnull @KW_DOCTYPE) #5
+  %.not = icmp eq i32 %16, 0
+  br i1 %.not, label %.thread, label %17
 
-if.end:                                           ; preds = %sw.bb4
-  store ptr @doctype0, ptr %state, align 8
-  br label %return
+17:                                               ; preds = %8
+  store ptr @doctype0, ptr %0, align 8, !tbaa !3
+  br label %common.exit
 
-sw.bb5:                                           ; preds = %entry
-  store ptr @error, ptr %state, align 8
-  br label %return
+18:                                               ; preds = %5
+  store ptr @error, ptr %0, align 8, !tbaa !3
+  br label %common.exit
 
-sw.epilog:                                        ; preds = %entry
-  %documentEntity.i = getelementptr inbounds nuw i8, ptr %state, i64 20
-  %2 = load i32, ptr %documentEntity.i, align 4
-  %tobool.i = icmp eq i32 %2, 0
-  %cmp.i = icmp eq i32 %tok, 28
-  %or.cond.i = and i1 %cmp.i, %tobool.i
-  br i1 %or.cond.i, label %return, label %if.end.i
+19:                                               ; preds = %5
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  %21 = load i32, ptr %20, align 4, !tbaa !9
+  %22 = icmp eq i32 %21, 0
+  %23 = icmp eq i32 %1, 28
+  %or.cond.i = and i1 %23, %22
+  br i1 %or.cond.i, label %common.exit, label %.thread
 
-if.end.i:                                         ; preds = %sw.bb4, %sw.epilog
-  store ptr @error, ptr %state, align 8
-  br label %return
+.thread:                                          ; preds = %8, %19
+  store ptr @error, ptr %0, align 8, !tbaa !3
+  br label %common.exit
 
-return:                                           ; preds = %if.end.i, %sw.epilog, %entry, %entry, %sw.bb5, %if.end, %sw.bb2, %sw.bb1
-  %retval.0 = phi i32 [ 2, %sw.bb5 ], [ 3, %if.end ], [ 56, %sw.bb2 ], [ 55, %sw.bb1 ], [ 0, %entry ], [ 0, %entry ], [ -1, %if.end.i ], [ 59, %sw.epilog ]
-  ret i32 %retval.0
+common.exit:                                      ; preds = %.thread, %19, %5, %5, %18, %17, %7, %6
+  %.0 = phi i32 [ 2, %18 ], [ 3, %17 ], [ 56, %7 ], [ 55, %6 ], [ 0, %5 ], [ 0, %5 ], [ -1, %.thread ], [ 59, %19 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal range(i32 -1, 60) i32 @doctype0(ptr noundef captures(none) %state, i32 noundef %tok, ptr readnone captures(none) %ptr, ptr readnone captures(none) %end, ptr readnone captures(none) %enc) #2 {
-entry:
-  switch i32 %tok, label %sw.epilog [
-    i32 15, label %return
-    i32 18, label %return.sink.split
-    i32 41, label %return.sink.split
+define internal range(i32 -1, 60) i32 @doctype0(ptr noundef captures(none) %0, i32 noundef %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #2 {
+  switch i32 %1, label %6 [
+    i32 15, label %common.exit
+    i32 18, label %common.exit.sink.split
+    i32 41, label %common.exit.sink.split
   ]
 
-sw.epilog:                                        ; preds = %entry
-  %documentEntity.i = getelementptr inbounds nuw i8, ptr %state, i64 20
-  %0 = load i32, ptr %documentEntity.i, align 4
-  %tobool.i = icmp eq i32 %0, 0
-  %cmp.i = icmp eq i32 %tok, 28
-  %or.cond.i = and i1 %cmp.i, %tobool.i
-  br i1 %or.cond.i, label %return, label %return.sink.split
+6:                                                ; preds = %5
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  %8 = load i32, ptr %7, align 4, !tbaa !9
+  %9 = icmp eq i32 %8, 0
+  %10 = icmp eq i32 %1, 28
+  %or.cond.i = and i1 %10, %9
+  br i1 %or.cond.i, label %common.exit, label %common.exit.sink.split
 
-return.sink.split:                                ; preds = %sw.epilog, %entry, %entry
-  %error.sink = phi ptr [ @doctype1, %entry ], [ @doctype1, %entry ], [ @error, %sw.epilog ]
-  %retval.0.ph = phi i32 [ 4, %entry ], [ 4, %entry ], [ -1, %sw.epilog ]
-  store ptr %error.sink, ptr %state, align 8
-  br label %return
+common.exit.sink.split:                           ; preds = %6, %5, %5
+  %error.sink = phi ptr [ @doctype1, %5 ], [ @doctype1, %5 ], [ @error, %6 ]
+  %.0.ph = phi i32 [ 4, %5 ], [ 4, %5 ], [ -1, %6 ]
+  store ptr %error.sink, ptr %0, align 8, !tbaa !3
+  br label %common.exit
 
-return:                                           ; preds = %return.sink.split, %sw.epilog, %entry
-  %retval.0 = phi i32 [ 3, %entry ], [ 59, %sw.epilog ], [ %retval.0.ph, %return.sink.split ]
-  ret i32 %retval.0
+common.exit:                                      ; preds = %common.exit.sink.split, %6, %5
+  %.0 = phi i32 [ 3, %5 ], [ 59, %6 ], [ %.0.ph, %common.exit.sink.split ]
+  ret i32 %.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @error(ptr readnone captures(none) %state, i32 %tok, ptr readnone captures(none) %ptr, ptr readnone captures(none) %end, ptr readnone captures(none) %enc) #3 {
-entry:
+define internal noundef i32 @error(ptr readnone captures(none) %0, i32 %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #3 {
   ret i32 0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 60) i32 @doctype1(ptr noundef captures(none) %state, i32 noundef %tok, ptr noundef %ptr, ptr noundef %end, ptr noundef %enc) #1 {
-entry:
-  switch i32 %tok, label %sw.epilog [
-    i32 15, label %return
-    i32 25, label %return.sink.split
-    i32 17, label %sw.bb2
-    i32 18, label %sw.bb4
+define internal range(i32 -1, 60) i32 @doctype1(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #1 {
+  switch i32 %1, label %14 [
+    i32 15, label %common.exit
+    i32 25, label %common.exit.sink.split
+    i32 17, label %6
+    i32 18, label %7
   ]
 
-sw.bb2:                                           ; preds = %entry
-  br label %return.sink.split
+6:                                                ; preds = %5
+  br label %common.exit.sink.split
 
-sw.bb4:                                           ; preds = %entry
-  %nameMatchesAscii = getelementptr inbounds nuw i8, ptr %enc, i64 48
-  %0 = load ptr, ptr %nameMatchesAscii, align 8
-  %call = tail call i32 %0(ptr noundef %enc, ptr noundef %ptr, ptr noundef %end, ptr noundef nonnull @KW_SYSTEM) #5
-  %tobool.not = icmp eq i32 %call, 0
-  br i1 %tobool.not, label %if.end, label %return.sink.split
+7:                                                ; preds = %5
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 48
+  %9 = load ptr, ptr %8, align 8, !tbaa !12
+  %10 = tail call i32 %9(ptr noundef %4, ptr noundef %2, ptr noundef %3, ptr noundef nonnull @KW_SYSTEM) #5
+  %.not = icmp eq i32 %10, 0
+  br i1 %.not, label %11, label %common.exit.sink.split
 
-if.end:                                           ; preds = %sw.bb4
-  %1 = load ptr, ptr %nameMatchesAscii, align 8
-  %call7 = tail call i32 %1(ptr noundef nonnull %enc, ptr noundef %ptr, ptr noundef %end, ptr noundef nonnull @KW_PUBLIC) #5
-  %tobool8.not = icmp eq i32 %call7, 0
-  br i1 %tobool8.not, label %if.end.i, label %return.sink.split
+11:                                               ; preds = %7
+  %12 = load ptr, ptr %8, align 8, !tbaa !12
+  %13 = tail call i32 %12(ptr noundef nonnull %4, ptr noundef %2, ptr noundef %3, ptr noundef nonnull @KW_PUBLIC) #5
+  %.not15 = icmp eq i32 %13, 0
+  br i1 %.not15, label %.thread, label %common.exit.sink.split
 
-sw.epilog:                                        ; preds = %entry
-  %documentEntity.i = getelementptr inbounds nuw i8, ptr %state, i64 20
-  %2 = load i32, ptr %documentEntity.i, align 4
-  %tobool.i = icmp eq i32 %2, 0
-  %cmp.i = icmp eq i32 %tok, 28
-  %or.cond.i = and i1 %cmp.i, %tobool.i
-  br i1 %or.cond.i, label %return, label %if.end.i
+14:                                               ; preds = %5
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  %16 = load i32, ptr %15, align 4, !tbaa !9
+  %17 = icmp eq i32 %16, 0
+  %18 = icmp eq i32 %1, 28
+  %or.cond.i = and i1 %18, %17
+  br i1 %or.cond.i, label %common.exit, label %.thread
 
-if.end.i:                                         ; preds = %if.end, %sw.epilog
-  br label %return.sink.split
+.thread:                                          ; preds = %11, %14
+  br label %common.exit.sink.split
 
-return.sink.split:                                ; preds = %if.end, %sw.bb4, %entry, %sw.bb2, %if.end.i
-  %error.sink = phi ptr [ @error, %if.end.i ], [ @prolog2, %sw.bb2 ], [ @internalSubset, %entry ], [ @doctype3, %sw.bb4 ], [ @doctype2, %if.end ]
-  %retval.0.ph = phi i32 [ -1, %if.end.i ], [ 8, %sw.bb2 ], [ 7, %entry ], [ 3, %sw.bb4 ], [ 3, %if.end ]
-  store ptr %error.sink, ptr %state, align 8
-  br label %return
+common.exit.sink.split:                           ; preds = %11, %7, %5, %6, %.thread
+  %error.sink = phi ptr [ @error, %.thread ], [ @prolog2, %6 ], [ @internalSubset, %5 ], [ @doctype3, %7 ], [ @doctype2, %11 ]
+  %.0.ph = phi i32 [ -1, %.thread ], [ 8, %6 ], [ 7, %5 ], [ 3, %7 ], [ 3, %11 ]
+  store ptr %error.sink, ptr %0, align 8, !tbaa !3
+  br label %common.exit
 
-return:                                           ; preds = %return.sink.split, %sw.epilog, %entry
-  %retval.0 = phi i32 [ 3, %entry ], [ 59, %sw.epilog ], [ %retval.0.ph, %return.sink.split ]
-  ret i32 %retval.0
+common.exit:                                      ; preds = %common.exit.sink.split, %14, %5
+  %.0 = phi i32 [ 3, %5 ], [ 59, %14 ], [ %.0.ph, %common.exit.sink.split ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 61) i32 @internalSubset(ptr noundef captures(none) %state, i32 noundef %tok, ptr noundef %ptr, ptr noundef %end, ptr noundef %enc) #1 {
-entry:
-  switch i32 %tok, label %sw.epilog [
-    i32 15, label %return
-    i32 16, label %sw.bb1
-    i32 11, label %sw.bb32
-    i32 13, label %sw.bb33
-    i32 28, label %sw.bb34
-    i32 26, label %sw.bb35
-    i32 -4, label %return
+define internal range(i32 -1, 61) i32 @internalSubset(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #1 {
+  switch i32 %1, label %44 [
+    i32 15, label %common.exit
+    i32 16, label %6
+    i32 11, label %40
+    i32 13, label %41
+    i32 28, label %42
+    i32 26, label %43
+    i32 -4, label %common.exit
   ]
 
-sw.bb1:                                           ; preds = %entry
-  %nameMatchesAscii = getelementptr inbounds nuw i8, ptr %enc, i64 48
-  %0 = load ptr, ptr %nameMatchesAscii, align 8
-  %minBytesPerChar = getelementptr inbounds nuw i8, ptr %enc, i64 128
-  %1 = load i32, ptr %minBytesPerChar, align 8
-  %mul = shl i32 %1, 1
-  %idx.ext = sext i32 %mul to i64
-  %add.ptr = getelementptr i8, ptr %ptr, i64 %idx.ext
-  %call = tail call i32 %0(ptr noundef %enc, ptr noundef %add.ptr, ptr noundef %end, ptr noundef nonnull @KW_ENTITY) #5
-  %tobool.not = icmp eq i32 %call, 0
-  br i1 %tobool.not, label %if.end, label %if.then
+6:                                                ; preds = %5
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 48
+  %8 = load ptr, ptr %7, align 8, !tbaa !12
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 128
+  %10 = load i32, ptr %9, align 8, !tbaa !14
+  %11 = shl i32 %10, 1
+  %12 = sext i32 %11 to i64
+  %13 = getelementptr i8, ptr %2, i64 %12
+  %14 = tail call i32 %8(ptr noundef %4, ptr noundef %13, ptr noundef %3, ptr noundef nonnull @KW_ENTITY) #5
+  %.not = icmp eq i32 %14, 0
+  br i1 %.not, label %16, label %15
 
-if.then:                                          ; preds = %sw.bb1
-  store ptr @entity0, ptr %state, align 8
-  br label %return
+15:                                               ; preds = %6
+  store ptr @entity0, ptr %0, align 8, !tbaa !3
+  br label %common.exit
 
-if.end:                                           ; preds = %sw.bb1
-  %2 = load ptr, ptr %nameMatchesAscii, align 8
-  %3 = load i32, ptr %minBytesPerChar, align 8
-  %mul4 = shl i32 %3, 1
-  %idx.ext5 = sext i32 %mul4 to i64
-  %add.ptr6 = getelementptr i8, ptr %ptr, i64 %idx.ext5
-  %call7 = tail call i32 %2(ptr noundef nonnull %enc, ptr noundef %add.ptr6, ptr noundef %end, ptr noundef nonnull @KW_ATTLIST) #5
-  %tobool8.not = icmp eq i32 %call7, 0
-  br i1 %tobool8.not, label %if.end11, label %if.then9
+16:                                               ; preds = %6
+  %17 = load ptr, ptr %7, align 8, !tbaa !12
+  %18 = load i32, ptr %9, align 8, !tbaa !14
+  %19 = shl i32 %18, 1
+  %20 = sext i32 %19 to i64
+  %21 = getelementptr i8, ptr %2, i64 %20
+  %22 = tail call i32 %17(ptr noundef nonnull %4, ptr noundef %21, ptr noundef %3, ptr noundef nonnull @KW_ATTLIST) #5
+  %.not28 = icmp eq i32 %22, 0
+  br i1 %.not28, label %24, label %23
 
-if.then9:                                         ; preds = %if.end
-  store ptr @attlist0, ptr %state, align 8
-  br label %return
+23:                                               ; preds = %16
+  store ptr @attlist0, ptr %0, align 8, !tbaa !3
+  br label %common.exit
 
-if.end11:                                         ; preds = %if.end
-  %4 = load ptr, ptr %nameMatchesAscii, align 8
-  %5 = load i32, ptr %minBytesPerChar, align 8
-  %mul14 = shl i32 %5, 1
-  %idx.ext15 = sext i32 %mul14 to i64
-  %add.ptr16 = getelementptr i8, ptr %ptr, i64 %idx.ext15
-  %call17 = tail call i32 %4(ptr noundef nonnull %enc, ptr noundef %add.ptr16, ptr noundef %end, ptr noundef nonnull @KW_ELEMENT) #5
-  %tobool18.not = icmp eq i32 %call17, 0
-  br i1 %tobool18.not, label %if.end21, label %if.then19
+24:                                               ; preds = %16
+  %25 = load ptr, ptr %7, align 8, !tbaa !12
+  %26 = load i32, ptr %9, align 8, !tbaa !14
+  %27 = shl i32 %26, 1
+  %28 = sext i32 %27 to i64
+  %29 = getelementptr i8, ptr %2, i64 %28
+  %30 = tail call i32 %25(ptr noundef nonnull %4, ptr noundef %29, ptr noundef %3, ptr noundef nonnull @KW_ELEMENT) #5
+  %.not29 = icmp eq i32 %30, 0
+  br i1 %.not29, label %32, label %31
 
-if.then19:                                        ; preds = %if.end11
-  store ptr @element0, ptr %state, align 8
-  br label %return
+31:                                               ; preds = %24
+  store ptr @element0, ptr %0, align 8, !tbaa !3
+  br label %common.exit
 
-if.end21:                                         ; preds = %if.end11
-  %6 = load ptr, ptr %nameMatchesAscii, align 8
-  %7 = load i32, ptr %minBytesPerChar, align 8
-  %mul24 = shl i32 %7, 1
-  %idx.ext25 = sext i32 %mul24 to i64
-  %add.ptr26 = getelementptr i8, ptr %ptr, i64 %idx.ext25
-  %call27 = tail call i32 %6(ptr noundef nonnull %enc, ptr noundef %add.ptr26, ptr noundef %end, ptr noundef nonnull @KW_NOTATION) #5
-  %tobool28.not = icmp eq i32 %call27, 0
-  br i1 %tobool28.not, label %if.end.i, label %if.then29
+32:                                               ; preds = %24
+  %33 = load ptr, ptr %7, align 8, !tbaa !12
+  %34 = load i32, ptr %9, align 8, !tbaa !14
+  %35 = shl i32 %34, 1
+  %36 = sext i32 %35 to i64
+  %37 = getelementptr i8, ptr %2, i64 %36
+  %38 = tail call i32 %33(ptr noundef nonnull %4, ptr noundef %37, ptr noundef %3, ptr noundef nonnull @KW_NOTATION) #5
+  %.not30 = icmp eq i32 %38, 0
+  br i1 %.not30, label %.thread, label %39
 
-if.then29:                                        ; preds = %if.end21
-  store ptr @notation0, ptr %state, align 8
-  br label %return
+39:                                               ; preds = %32
+  store ptr @notation0, ptr %0, align 8, !tbaa !3
+  br label %common.exit
 
-sw.bb32:                                          ; preds = %entry
-  br label %return
+40:                                               ; preds = %5
+  br label %common.exit
 
-sw.bb33:                                          ; preds = %entry
-  br label %return
+41:                                               ; preds = %5
+  br label %common.exit
 
-sw.bb34:                                          ; preds = %entry
-  br label %return
+42:                                               ; preds = %5
+  br label %common.exit
 
-sw.bb35:                                          ; preds = %entry
-  store ptr @doctype5, ptr %state, align 8
-  br label %return
+43:                                               ; preds = %5
+  store ptr @doctype5, ptr %0, align 8, !tbaa !3
+  br label %common.exit
 
-sw.epilog:                                        ; preds = %entry
-  %documentEntity.i = getelementptr inbounds nuw i8, ptr %state, i64 20
-  %8 = load i32, ptr %documentEntity.i, align 4
-  %tobool.i = icmp eq i32 %8, 0
-  %cmp.i = icmp eq i32 %tok, 28
-  %or.cond.i = and i1 %cmp.i, %tobool.i
-  br i1 %or.cond.i, label %return, label %if.end.i
+44:                                               ; preds = %5
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  %46 = load i32, ptr %45, align 4, !tbaa !9
+  %47 = icmp eq i32 %46, 0
+  %48 = icmp eq i32 %1, 28
+  %or.cond.i = and i1 %48, %47
+  br i1 %or.cond.i, label %common.exit, label %.thread
 
-if.end.i:                                         ; preds = %if.end21, %sw.epilog
-  store ptr @error, ptr %state, align 8
-  br label %return
+.thread:                                          ; preds = %32, %44
+  store ptr @error, ptr %0, align 8, !tbaa !3
+  br label %common.exit
 
-return:                                           ; preds = %if.end.i, %sw.epilog, %entry, %entry, %sw.bb35, %sw.bb34, %sw.bb33, %sw.bb32, %if.then29, %if.then19, %if.then9, %if.then
-  %retval.0 = phi i32 [ 3, %sw.bb35 ], [ 60, %sw.bb34 ], [ 56, %sw.bb33 ], [ 55, %sw.bb32 ], [ 11, %if.then ], [ 33, %if.then9 ], [ 39, %if.then19 ], [ 17, %if.then29 ], [ 0, %entry ], [ 0, %entry ], [ -1, %if.end.i ], [ 59, %sw.epilog ]
-  ret i32 %retval.0
+common.exit:                                      ; preds = %.thread, %44, %5, %5, %43, %42, %41, %40, %39, %31, %23, %15
+  %.0 = phi i32 [ 3, %43 ], [ 60, %42 ], [ 56, %41 ], [ 55, %40 ], [ 11, %15 ], [ 33, %23 ], [ 39, %31 ], [ 17, %39 ], [ 0, %5 ], [ 0, %5 ], [ -1, %.thread ], [ 59, %44 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal range(i32 -1, 60) i32 @prolog2(ptr noundef captures(none) %state, i32 noundef %tok, ptr readnone captures(none) %ptr, ptr readnone captures(none) %end, ptr readnone captures(none) %enc) #2 {
-entry:
-  %0 = add i32 %tok, -11
-  %1 = tail call i32 @llvm.fshl.i32(i32 %0, i32 %0, i32 31)
-  switch i32 %1, label %sw.epilog [
-    i32 2, label %return
-    i32 0, label %sw.bb1
-    i32 1, label %sw.bb2
-    i32 9, label %sw.bb3
+define internal range(i32 -1, 60) i32 @prolog2(ptr noundef captures(none) %0, i32 noundef %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #2 {
+  %6 = add i32 %1, -11
+  %7 = tail call i32 @llvm.fshl.i32(i32 %6, i32 %6, i32 31)
+  switch i32 %7, label %11 [
+    i32 2, label %common.exit
+    i32 0, label %8
+    i32 1, label %9
+    i32 9, label %10
   ]
 
-sw.bb1:                                           ; preds = %entry
-  br label %return
+8:                                                ; preds = %5
+  br label %common.exit
 
-sw.bb2:                                           ; preds = %entry
-  br label %return
+9:                                                ; preds = %5
+  br label %common.exit
 
-sw.bb3:                                           ; preds = %entry
-  store ptr @error, ptr %state, align 8
-  br label %return
+10:                                               ; preds = %5
+  store ptr @error, ptr %0, align 8, !tbaa !3
+  br label %common.exit
 
-sw.epilog:                                        ; preds = %entry
-  %documentEntity.i = getelementptr inbounds nuw i8, ptr %state, i64 20
-  %2 = load i32, ptr %documentEntity.i, align 4
-  %tobool.i = icmp eq i32 %2, 0
-  %cmp.i = icmp eq i32 %tok, 28
-  %or.cond.i = and i1 %cmp.i, %tobool.i
-  br i1 %or.cond.i, label %return, label %if.end.i
+11:                                               ; preds = %5
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  %13 = load i32, ptr %12, align 4, !tbaa !9
+  %14 = icmp eq i32 %13, 0
+  %15 = icmp eq i32 %1, 28
+  %or.cond.i = and i1 %15, %14
+  br i1 %or.cond.i, label %common.exit, label %16
 
-if.end.i:                                         ; preds = %sw.epilog
-  store ptr @error, ptr %state, align 8
-  br label %return
+16:                                               ; preds = %11
+  store ptr @error, ptr %0, align 8, !tbaa !3
+  br label %common.exit
 
-return:                                           ; preds = %if.end.i, %sw.epilog, %entry, %sw.bb3, %sw.bb2, %sw.bb1
-  %retval.0 = phi i32 [ 2, %sw.bb3 ], [ 56, %sw.bb2 ], [ 55, %sw.bb1 ], [ 0, %entry ], [ -1, %if.end.i ], [ 59, %sw.epilog ]
-  ret i32 %retval.0
+common.exit:                                      ; preds = %16, %11, %5, %10, %9, %8
+  %.0 = phi i32 [ 2, %10 ], [ 56, %9 ], [ 55, %8 ], [ 0, %5 ], [ -1, %16 ], [ 59, %11 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal range(i32 -1, 60) i32 @doctype3(ptr noundef captures(none) %state, i32 noundef %tok, ptr readnone captures(none) %ptr, ptr readnone captures(none) %end, ptr readnone captures(none) %enc) #2 {
-entry:
-  switch i32 %tok, label %sw.epilog [
-    i32 15, label %return
-    i32 27, label %return.sink.split
+define internal range(i32 -1, 60) i32 @doctype3(ptr noundef captures(none) %0, i32 noundef %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #2 {
+  switch i32 %1, label %6 [
+    i32 15, label %common.exit
+    i32 27, label %common.exit.sink.split
   ]
 
-sw.epilog:                                        ; preds = %entry
-  %documentEntity.i = getelementptr inbounds nuw i8, ptr %state, i64 20
-  %0 = load i32, ptr %documentEntity.i, align 4
-  %tobool.i = icmp eq i32 %0, 0
-  %cmp.i = icmp eq i32 %tok, 28
-  %or.cond.i = and i1 %cmp.i, %tobool.i
-  br i1 %or.cond.i, label %return, label %return.sink.split
+6:                                                ; preds = %5
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  %8 = load i32, ptr %7, align 4, !tbaa !9
+  %9 = icmp eq i32 %8, 0
+  %10 = icmp eq i32 %1, 28
+  %or.cond.i = and i1 %10, %9
+  br i1 %or.cond.i, label %common.exit, label %common.exit.sink.split
 
-return.sink.split:                                ; preds = %sw.epilog, %entry
-  %error.sink = phi ptr [ @doctype4, %entry ], [ @error, %sw.epilog ]
-  %retval.0.ph = phi i32 [ 5, %entry ], [ -1, %sw.epilog ]
-  store ptr %error.sink, ptr %state, align 8
-  br label %return
+common.exit.sink.split:                           ; preds = %6, %5
+  %error.sink = phi ptr [ @doctype4, %5 ], [ @error, %6 ]
+  %.0.ph = phi i32 [ 5, %5 ], [ -1, %6 ]
+  store ptr %error.sink, ptr %0, align 8, !tbaa !3
+  br label %common.exit
 
-return:                                           ; preds = %return.sink.split, %sw.epilog, %entry
-  %retval.0 = phi i32 [ 3, %entry ], [ 59, %sw.epilog ], [ %retval.0.ph, %return.sink.split ]
-  ret i32 %retval.0
+common.exit:                                      ; preds = %common.exit.sink.split, %6, %5
+  %.0 = phi i32 [ 3, %5 ], [ 59, %6 ], [ %.0.ph, %common.exit.sink.split ]
+  ret i32 %.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal range(i32 -1, 60) i32 @doctype2(ptr noundef captures(none) %state, i32 noundef %tok, ptr readnone captures(none) %ptr, ptr readnone captures(none) %end, ptr readnone captures(none) %enc) #2 {
-entry:
-  switch i32 %tok, label %sw.epilog [
-    i32 15, label %return
-    i32 27, label %return.sink.split
+define internal range(i32 -1, 60) i32 @doctype2(ptr noundef captures(none) %0, i32 noundef %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #2 {
+  switch i32 %1, label %6 [
+    i32 15, label %common.exit
+    i32 27, label %common.exit.sink.split
   ]
 
-sw.epilog:                                        ; preds = %entry
-  %documentEntity.i = getelementptr inbounds nuw i8, ptr %state, i64 20
-  %0 = load i32, ptr %documentEntity.i, align 4
-  %tobool.i = icmp eq i32 %0, 0
-  %cmp.i = icmp eq i32 %tok, 28
-  %or.cond.i = and i1 %cmp.i, %tobool.i
-  br i1 %or.cond.i, label %return, label %return.sink.split
+6:                                                ; preds = %5
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  %8 = load i32, ptr %7, align 4, !tbaa !9
+  %9 = icmp eq i32 %8, 0
+  %10 = icmp eq i32 %1, 28
+  %or.cond.i = and i1 %10, %9
+  br i1 %or.cond.i, label %common.exit, label %common.exit.sink.split
 
-return.sink.split:                                ; preds = %sw.epilog, %entry
-  %error.sink = phi ptr [ @doctype3, %entry ], [ @error, %sw.epilog ]
-  %retval.0.ph = phi i32 [ 6, %entry ], [ -1, %sw.epilog ]
-  store ptr %error.sink, ptr %state, align 8
-  br label %return
+common.exit.sink.split:                           ; preds = %6, %5
+  %error.sink = phi ptr [ @doctype3, %5 ], [ @error, %6 ]
+  %.0.ph = phi i32 [ 6, %5 ], [ -1, %6 ]
+  store ptr %error.sink, ptr %0, align 8, !tbaa !3
+  br label %common.exit
 
-return:                                           ; preds = %return.sink.split, %sw.epilog, %entry
-  %retval.0 = phi i32 [ 3, %entry ], [ 59, %sw.epilog ], [ %retval.0.ph, %return.sink.split ]
-  ret i32 %retval.0
+common.exit:                                      ; preds = %common.exit.sink.split, %6, %5
+  %.0 = phi i32 [ 3, %5 ], [ 59, %6 ], [ %.0.ph, %common.exit.sink.split ]
+  ret i32 %.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal range(i32 -1, 60) i32 @entity0(ptr noundef captures(none) %state, i32 noundef %tok, ptr readnone captures(none) %ptr, ptr readnone captures(none) %end, ptr readnone captures(none) %enc) #2 {
-entry:
-  switch i32 %tok, label %sw.epilog [
-    i32 15, label %return
-    i32 22, label %return.sink.split
-    i32 18, label %sw.bb2
+define internal range(i32 -1, 60) i32 @entity0(ptr noundef captures(none) %0, i32 noundef %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #2 {
+  switch i32 %1, label %7 [
+    i32 15, label %common.exit
+    i32 22, label %common.exit.sink.split
+    i32 18, label %6
   ]
 
-sw.bb2:                                           ; preds = %entry
-  br label %return.sink.split
+6:                                                ; preds = %5
+  br label %common.exit.sink.split
 
-sw.epilog:                                        ; preds = %entry
-  %documentEntity.i = getelementptr inbounds nuw i8, ptr %state, i64 20
-  %0 = load i32, ptr %documentEntity.i, align 4
-  %tobool.i = icmp eq i32 %0, 0
-  %cmp.i = icmp eq i32 %tok, 28
-  %or.cond.i = and i1 %cmp.i, %tobool.i
-  br i1 %or.cond.i, label %return, label %return.sink.split
+7:                                                ; preds = %5
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  %9 = load i32, ptr %8, align 4, !tbaa !9
+  %10 = icmp eq i32 %9, 0
+  %11 = icmp eq i32 %1, 28
+  %or.cond.i = and i1 %11, %10
+  br i1 %or.cond.i, label %common.exit, label %common.exit.sink.split
 
-return.sink.split:                                ; preds = %sw.epilog, %entry, %sw.bb2
-  %error.sink = phi ptr [ @entity2, %sw.bb2 ], [ @entity1, %entry ], [ @error, %sw.epilog ]
-  %retval.0.ph = phi i32 [ 9, %sw.bb2 ], [ 11, %entry ], [ -1, %sw.epilog ]
-  store ptr %error.sink, ptr %state, align 8
-  br label %return
+common.exit.sink.split:                           ; preds = %7, %5, %6
+  %error.sink = phi ptr [ @entity2, %6 ], [ @entity1, %5 ], [ @error, %7 ]
+  %.0.ph = phi i32 [ 9, %6 ], [ 11, %5 ], [ -1, %7 ]
+  store ptr %error.sink, ptr %0, align 8, !tbaa !3
+  br label %common.exit
 
-return:                                           ; preds = %return.sink.split, %sw.epilog, %entry
-  %retval.0 = phi i32 [ 11, %entry ], [ 59, %sw.epilog ], [ %retval.0.ph, %return.sink.split ]
-  ret i32 %retval.0
+common.exit:                                      ; preds = %common.exit.sink.split, %7, %5
+  %.0 = phi i32 [ 11, %5 ], [ 59, %7 ], [ %.0.ph, %common.exit.sink.split ]
+  ret i32 %.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal range(i32 -1, 60) i32 @attlist0(ptr noundef captures(none) %state, i32 noundef %tok, ptr readnone captures(none) %ptr, ptr readnone captures(none) %end, ptr readnone captures(none) %enc) #2 {
-entry:
-  switch i32 %tok, label %sw.epilog [
-    i32 15, label %return
-    i32 18, label %return.sink.split
-    i32 41, label %return.sink.split
+define internal range(i32 -1, 60) i32 @attlist0(ptr noundef captures(none) %0, i32 noundef %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #2 {
+  switch i32 %1, label %6 [
+    i32 15, label %common.exit
+    i32 18, label %common.exit.sink.split
+    i32 41, label %common.exit.sink.split
   ]
 
-sw.epilog:                                        ; preds = %entry
-  %documentEntity.i = getelementptr inbounds nuw i8, ptr %state, i64 20
-  %0 = load i32, ptr %documentEntity.i, align 4
-  %tobool.i = icmp eq i32 %0, 0
-  %cmp.i = icmp eq i32 %tok, 28
-  %or.cond.i = and i1 %cmp.i, %tobool.i
-  br i1 %or.cond.i, label %return, label %return.sink.split
+6:                                                ; preds = %5
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  %8 = load i32, ptr %7, align 4, !tbaa !9
+  %9 = icmp eq i32 %8, 0
+  %10 = icmp eq i32 %1, 28
+  %or.cond.i = and i1 %10, %9
+  br i1 %or.cond.i, label %common.exit, label %common.exit.sink.split
 
-return.sink.split:                                ; preds = %sw.epilog, %entry, %entry
-  %error.sink = phi ptr [ @attlist1, %entry ], [ @attlist1, %entry ], [ @error, %sw.epilog ]
-  %retval.0.ph = phi i32 [ 34, %entry ], [ 34, %entry ], [ -1, %sw.epilog ]
-  store ptr %error.sink, ptr %state, align 8
-  br label %return
+common.exit.sink.split:                           ; preds = %6, %5, %5
+  %error.sink = phi ptr [ @attlist1, %5 ], [ @attlist1, %5 ], [ @error, %6 ]
+  %.0.ph = phi i32 [ 34, %5 ], [ 34, %5 ], [ -1, %6 ]
+  store ptr %error.sink, ptr %0, align 8, !tbaa !3
+  br label %common.exit
 
-return:                                           ; preds = %return.sink.split, %sw.epilog, %entry
-  %retval.0 = phi i32 [ 33, %entry ], [ 59, %sw.epilog ], [ %retval.0.ph, %return.sink.split ]
-  ret i32 %retval.0
+common.exit:                                      ; preds = %common.exit.sink.split, %6, %5
+  %.0 = phi i32 [ 33, %5 ], [ 59, %6 ], [ %.0.ph, %common.exit.sink.split ]
+  ret i32 %.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal range(i32 -1, 60) i32 @element0(ptr noundef captures(none) %state, i32 noundef %tok, ptr readnone captures(none) %ptr, ptr readnone captures(none) %end, ptr readnone captures(none) %enc) #2 {
-entry:
-  switch i32 %tok, label %sw.epilog [
-    i32 15, label %return
-    i32 18, label %return.sink.split
-    i32 41, label %return.sink.split
+define internal range(i32 -1, 60) i32 @element0(ptr noundef captures(none) %0, i32 noundef %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #2 {
+  switch i32 %1, label %6 [
+    i32 15, label %common.exit
+    i32 18, label %common.exit.sink.split
+    i32 41, label %common.exit.sink.split
   ]
 
-sw.epilog:                                        ; preds = %entry
-  %documentEntity.i = getelementptr inbounds nuw i8, ptr %state, i64 20
-  %0 = load i32, ptr %documentEntity.i, align 4
-  %tobool.i = icmp eq i32 %0, 0
-  %cmp.i = icmp eq i32 %tok, 28
-  %or.cond.i = and i1 %cmp.i, %tobool.i
-  br i1 %or.cond.i, label %return, label %return.sink.split
+6:                                                ; preds = %5
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  %8 = load i32, ptr %7, align 4, !tbaa !9
+  %9 = icmp eq i32 %8, 0
+  %10 = icmp eq i32 %1, 28
+  %or.cond.i = and i1 %10, %9
+  br i1 %or.cond.i, label %common.exit, label %common.exit.sink.split
 
-return.sink.split:                                ; preds = %sw.epilog, %entry, %entry
-  %error.sink = phi ptr [ @element1, %entry ], [ @element1, %entry ], [ @error, %sw.epilog ]
-  %retval.0.ph = phi i32 [ 40, %entry ], [ 40, %entry ], [ -1, %sw.epilog ]
-  store ptr %error.sink, ptr %state, align 8
-  br label %return
+common.exit.sink.split:                           ; preds = %6, %5, %5
+  %error.sink = phi ptr [ @element1, %5 ], [ @element1, %5 ], [ @error, %6 ]
+  %.0.ph = phi i32 [ 40, %5 ], [ 40, %5 ], [ -1, %6 ]
+  store ptr %error.sink, ptr %0, align 8, !tbaa !3
+  br label %common.exit
 
-return:                                           ; preds = %return.sink.split, %sw.epilog, %entry
-  %retval.0 = phi i32 [ 39, %entry ], [ 59, %sw.epilog ], [ %retval.0.ph, %return.sink.split ]
-  ret i32 %retval.0
+common.exit:                                      ; preds = %common.exit.sink.split, %6, %5
+  %.0 = phi i32 [ 39, %5 ], [ 59, %6 ], [ %.0.ph, %common.exit.sink.split ]
+  ret i32 %.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal range(i32 -1, 60) i32 @notation0(ptr noundef captures(none) %state, i32 noundef %tok, ptr readnone captures(none) %ptr, ptr readnone captures(none) %end, ptr readnone captures(none) %enc) #2 {
-entry:
-  switch i32 %tok, label %sw.epilog [
-    i32 15, label %return
-    i32 18, label %return.sink.split
+define internal range(i32 -1, 60) i32 @notation0(ptr noundef captures(none) %0, i32 noundef %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #2 {
+  switch i32 %1, label %6 [
+    i32 15, label %common.exit
+    i32 18, label %common.exit.sink.split
   ]
 
-sw.epilog:                                        ; preds = %entry
-  %documentEntity.i = getelementptr inbounds nuw i8, ptr %state, i64 20
-  %0 = load i32, ptr %documentEntity.i, align 4
-  %tobool.i = icmp eq i32 %0, 0
-  %cmp.i = icmp eq i32 %tok, 28
-  %or.cond.i = and i1 %cmp.i, %tobool.i
-  br i1 %or.cond.i, label %return, label %return.sink.split
+6:                                                ; preds = %5
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  %8 = load i32, ptr %7, align 4, !tbaa !9
+  %9 = icmp eq i32 %8, 0
+  %10 = icmp eq i32 %1, 28
+  %or.cond.i = and i1 %10, %9
+  br i1 %or.cond.i, label %common.exit, label %common.exit.sink.split
 
-return.sink.split:                                ; preds = %sw.epilog, %entry
-  %error.sink = phi ptr [ @notation1, %entry ], [ @error, %sw.epilog ]
-  %retval.0.ph = phi i32 [ %tok, %entry ], [ -1, %sw.epilog ]
-  store ptr %error.sink, ptr %state, align 8
-  br label %return
+common.exit.sink.split:                           ; preds = %6, %5
+  %error.sink = phi ptr [ @notation1, %5 ], [ @error, %6 ]
+  %.0.ph = phi i32 [ %1, %5 ], [ -1, %6 ]
+  store ptr %error.sink, ptr %0, align 8, !tbaa !3
+  br label %common.exit
 
-return:                                           ; preds = %return.sink.split, %sw.epilog, %entry
-  %retval.0 = phi i32 [ 17, %entry ], [ 59, %sw.epilog ], [ %retval.0.ph, %return.sink.split ]
-  ret i32 %retval.0
+common.exit:                                      ; preds = %common.exit.sink.split, %6, %5
+  %.0 = phi i32 [ 17, %5 ], [ 59, %6 ], [ %.0.ph, %common.exit.sink.split ]
+  ret i32 %.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal range(i32 -1, 60) i32 @doctype5(ptr noundef captures(none) %state, i32 noundef %tok, ptr readnone captures(none) %ptr, ptr readnone captures(none) %end, ptr readnone captures(none) %enc) #2 {
-entry:
-  switch i32 %tok, label %sw.epilog [
-    i32 15, label %return
-    i32 17, label %return.sink.split
+define internal range(i32 -1, 60) i32 @doctype5(ptr noundef captures(none) %0, i32 noundef %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #2 {
+  switch i32 %1, label %6 [
+    i32 15, label %common.exit
+    i32 17, label %common.exit.sink.split
   ]
 
-sw.epilog:                                        ; preds = %entry
-  %documentEntity.i = getelementptr inbounds nuw i8, ptr %state, i64 20
-  %0 = load i32, ptr %documentEntity.i, align 4
-  %tobool.i = icmp eq i32 %0, 0
-  %cmp.i = icmp eq i32 %tok, 28
-  %or.cond.i = and i1 %cmp.i, %tobool.i
-  br i1 %or.cond.i, label %return, label %return.sink.split
+6:                                                ; preds = %5
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  %8 = load i32, ptr %7, align 4, !tbaa !9
+  %9 = icmp eq i32 %8, 0
+  %10 = icmp eq i32 %1, 28
+  %or.cond.i = and i1 %10, %9
+  br i1 %or.cond.i, label %common.exit, label %common.exit.sink.split
 
-return.sink.split:                                ; preds = %sw.epilog, %entry
-  %error.sink = phi ptr [ @prolog2, %entry ], [ @error, %sw.epilog ]
-  %retval.0.ph = phi i32 [ 8, %entry ], [ -1, %sw.epilog ]
-  store ptr %error.sink, ptr %state, align 8
-  br label %return
+common.exit.sink.split:                           ; preds = %6, %5
+  %error.sink = phi ptr [ @prolog2, %5 ], [ @error, %6 ]
+  %.0.ph = phi i32 [ 8, %5 ], [ -1, %6 ]
+  store ptr %error.sink, ptr %0, align 8, !tbaa !3
+  br label %common.exit
 
-return:                                           ; preds = %return.sink.split, %sw.epilog, %entry
-  %retval.0 = phi i32 [ 3, %entry ], [ 59, %sw.epilog ], [ %retval.0.ph, %return.sink.split ]
-  ret i32 %retval.0
+common.exit:                                      ; preds = %common.exit.sink.split, %6, %5
+  %.0 = phi i32 [ 3, %5 ], [ 59, %6 ], [ %.0.ph, %common.exit.sink.split ]
+  ret i32 %.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal range(i32 -1, 60) i32 @entity1(ptr noundef captures(none) %state, i32 noundef %tok, ptr readnone captures(none) %ptr, ptr readnone captures(none) %end, ptr readnone captures(none) %enc) #2 {
-entry:
-  switch i32 %tok, label %sw.epilog [
-    i32 15, label %return
-    i32 18, label %return.sink.split
+define internal range(i32 -1, 60) i32 @entity1(ptr noundef captures(none) %0, i32 noundef %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #2 {
+  switch i32 %1, label %6 [
+    i32 15, label %common.exit
+    i32 18, label %common.exit.sink.split
   ]
 
-sw.epilog:                                        ; preds = %entry
-  %documentEntity.i = getelementptr inbounds nuw i8, ptr %state, i64 20
-  %0 = load i32, ptr %documentEntity.i, align 4
-  %tobool.i = icmp eq i32 %0, 0
-  %cmp.i = icmp eq i32 %tok, 28
-  %or.cond.i = and i1 %cmp.i, %tobool.i
-  br i1 %or.cond.i, label %return, label %return.sink.split
+6:                                                ; preds = %5
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  %8 = load i32, ptr %7, align 4, !tbaa !9
+  %9 = icmp eq i32 %8, 0
+  %10 = icmp eq i32 %1, 28
+  %or.cond.i = and i1 %10, %9
+  br i1 %or.cond.i, label %common.exit, label %common.exit.sink.split
 
-return.sink.split:                                ; preds = %sw.epilog, %entry
-  %error.sink = phi ptr [ @entity7, %entry ], [ @error, %sw.epilog ]
-  %retval.0.ph = phi i32 [ 10, %entry ], [ -1, %sw.epilog ]
-  store ptr %error.sink, ptr %state, align 8
-  br label %return
+common.exit.sink.split:                           ; preds = %6, %5
+  %error.sink = phi ptr [ @entity7, %5 ], [ @error, %6 ]
+  %.0.ph = phi i32 [ 10, %5 ], [ -1, %6 ]
+  store ptr %error.sink, ptr %0, align 8, !tbaa !3
+  br label %common.exit
 
-return:                                           ; preds = %return.sink.split, %sw.epilog, %entry
-  %retval.0 = phi i32 [ 11, %entry ], [ 59, %sw.epilog ], [ %retval.0.ph, %return.sink.split ]
-  ret i32 %retval.0
+common.exit:                                      ; preds = %common.exit.sink.split, %6, %5
+  %.0 = phi i32 [ 11, %5 ], [ 59, %6 ], [ %.0.ph, %common.exit.sink.split ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 60) i32 @entity2(ptr noundef captures(none) %state, i32 noundef %tok, ptr noundef %ptr, ptr noundef %end, ptr noundef %enc) #1 {
-entry:
-  switch i32 %tok, label %sw.epilog [
-    i32 15, label %return
-    i32 18, label %sw.bb1
-    i32 27, label %sw.bb8
+define internal range(i32 -1, 60) i32 @entity2(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #1 {
+  switch i32 %1, label %17 [
+    i32 15, label %common.exit
+    i32 18, label %6
+    i32 27, label %15
   ]
 
-sw.bb1:                                           ; preds = %entry
-  %nameMatchesAscii = getelementptr inbounds nuw i8, ptr %enc, i64 48
-  %0 = load ptr, ptr %nameMatchesAscii, align 8
-  %call = tail call i32 %0(ptr noundef %enc, ptr noundef %ptr, ptr noundef %end, ptr noundef nonnull @KW_SYSTEM) #5
-  %tobool.not = icmp eq i32 %call, 0
-  br i1 %tobool.not, label %if.end, label %if.then
+6:                                                ; preds = %5
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 48
+  %8 = load ptr, ptr %7, align 8, !tbaa !12
+  %9 = tail call i32 %8(ptr noundef %4, ptr noundef %2, ptr noundef %3, ptr noundef nonnull @KW_SYSTEM) #5
+  %.not = icmp eq i32 %9, 0
+  br i1 %.not, label %11, label %10
 
-if.then:                                          ; preds = %sw.bb1
-  store ptr @entity4, ptr %state, align 8
-  br label %return
+10:                                               ; preds = %6
+  store ptr @entity4, ptr %0, align 8, !tbaa !3
+  br label %common.exit
 
-if.end:                                           ; preds = %sw.bb1
-  %1 = load ptr, ptr %nameMatchesAscii, align 8
-  %call3 = tail call i32 %1(ptr noundef nonnull %enc, ptr noundef %ptr, ptr noundef %end, ptr noundef nonnull @KW_PUBLIC) #5
-  %tobool4.not = icmp eq i32 %call3, 0
-  br i1 %tobool4.not, label %if.end.i, label %if.then5
+11:                                               ; preds = %6
+  %12 = load ptr, ptr %7, align 8, !tbaa !12
+  %13 = tail call i32 %12(ptr noundef nonnull %4, ptr noundef %2, ptr noundef %3, ptr noundef nonnull @KW_PUBLIC) #5
+  %.not15 = icmp eq i32 %13, 0
+  br i1 %.not15, label %.thread, label %14
 
-if.then5:                                         ; preds = %if.end
-  store ptr @entity3, ptr %state, align 8
-  br label %return
+14:                                               ; preds = %11
+  store ptr @entity3, ptr %0, align 8, !tbaa !3
+  br label %common.exit
 
-sw.bb8:                                           ; preds = %entry
-  store ptr @declClose, ptr %state, align 8
-  %role_none = getelementptr inbounds nuw i8, ptr %state, i64 12
-  store i32 11, ptr %role_none, align 4
-  br label %return
+15:                                               ; preds = %5
+  store ptr @declClose, ptr %0, align 8, !tbaa !3
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  store i32 11, ptr %16, align 4, !tbaa !15
+  br label %common.exit
 
-sw.epilog:                                        ; preds = %entry
-  %documentEntity.i = getelementptr inbounds nuw i8, ptr %state, i64 20
-  %2 = load i32, ptr %documentEntity.i, align 4
-  %tobool.i = icmp eq i32 %2, 0
-  %cmp.i = icmp eq i32 %tok, 28
-  %or.cond.i = and i1 %cmp.i, %tobool.i
-  br i1 %or.cond.i, label %return, label %if.end.i
+17:                                               ; preds = %5
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  %19 = load i32, ptr %18, align 4, !tbaa !9
+  %20 = icmp eq i32 %19, 0
+  %21 = icmp eq i32 %1, 28
+  %or.cond.i = and i1 %21, %20
+  br i1 %or.cond.i, label %common.exit, label %.thread
 
-if.end.i:                                         ; preds = %if.end, %sw.epilog
-  store ptr @error, ptr %state, align 8
-  br label %return
+.thread:                                          ; preds = %11, %17
+  store ptr @error, ptr %0, align 8, !tbaa !3
+  br label %common.exit
 
-return:                                           ; preds = %if.end.i, %sw.epilog, %entry, %sw.bb8, %if.then5, %if.then
-  %retval.0 = phi i32 [ 12, %sw.bb8 ], [ 11, %if.then ], [ 11, %if.then5 ], [ 11, %entry ], [ -1, %if.end.i ], [ 59, %sw.epilog ]
-  ret i32 %retval.0
+common.exit:                                      ; preds = %.thread, %17, %5, %15, %14, %10
+  %.0 = phi i32 [ 12, %15 ], [ 11, %10 ], [ 11, %14 ], [ 11, %5 ], [ -1, %.thread ], [ 59, %17 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 60) i32 @entity7(ptr noundef captures(none) %state, i32 noundef %tok, ptr noundef %ptr, ptr noundef %end, ptr noundef %enc) #1 {
-entry:
-  switch i32 %tok, label %sw.epilog [
-    i32 15, label %return
-    i32 18, label %sw.bb1
-    i32 27, label %sw.bb8
+define internal range(i32 -1, 60) i32 @entity7(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #1 {
+  switch i32 %1, label %17 [
+    i32 15, label %common.exit
+    i32 18, label %6
+    i32 27, label %15
   ]
 
-sw.bb1:                                           ; preds = %entry
-  %nameMatchesAscii = getelementptr inbounds nuw i8, ptr %enc, i64 48
-  %0 = load ptr, ptr %nameMatchesAscii, align 8
-  %call = tail call i32 %0(ptr noundef %enc, ptr noundef %ptr, ptr noundef %end, ptr noundef nonnull @KW_SYSTEM) #5
-  %tobool.not = icmp eq i32 %call, 0
-  br i1 %tobool.not, label %if.end, label %if.then
+6:                                                ; preds = %5
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 48
+  %8 = load ptr, ptr %7, align 8, !tbaa !12
+  %9 = tail call i32 %8(ptr noundef %4, ptr noundef %2, ptr noundef %3, ptr noundef nonnull @KW_SYSTEM) #5
+  %.not = icmp eq i32 %9, 0
+  br i1 %.not, label %11, label %10
 
-if.then:                                          ; preds = %sw.bb1
-  store ptr @entity9, ptr %state, align 8
-  br label %return
+10:                                               ; preds = %6
+  store ptr @entity9, ptr %0, align 8, !tbaa !3
+  br label %common.exit
 
-if.end:                                           ; preds = %sw.bb1
-  %1 = load ptr, ptr %nameMatchesAscii, align 8
-  %call3 = tail call i32 %1(ptr noundef nonnull %enc, ptr noundef %ptr, ptr noundef %end, ptr noundef nonnull @KW_PUBLIC) #5
-  %tobool4.not = icmp eq i32 %call3, 0
-  br i1 %tobool4.not, label %if.end.i, label %if.then5
+11:                                               ; preds = %6
+  %12 = load ptr, ptr %7, align 8, !tbaa !12
+  %13 = tail call i32 %12(ptr noundef nonnull %4, ptr noundef %2, ptr noundef %3, ptr noundef nonnull @KW_PUBLIC) #5
+  %.not15 = icmp eq i32 %13, 0
+  br i1 %.not15, label %.thread, label %14
 
-if.then5:                                         ; preds = %if.end
-  store ptr @entity8, ptr %state, align 8
-  br label %return
+14:                                               ; preds = %11
+  store ptr @entity8, ptr %0, align 8, !tbaa !3
+  br label %common.exit
 
-sw.bb8:                                           ; preds = %entry
-  store ptr @declClose, ptr %state, align 8
-  %role_none = getelementptr inbounds nuw i8, ptr %state, i64 12
-  store i32 11, ptr %role_none, align 4
-  br label %return
+15:                                               ; preds = %5
+  store ptr @declClose, ptr %0, align 8, !tbaa !3
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  store i32 11, ptr %16, align 4, !tbaa !15
+  br label %common.exit
 
-sw.epilog:                                        ; preds = %entry
-  %documentEntity.i = getelementptr inbounds nuw i8, ptr %state, i64 20
-  %2 = load i32, ptr %documentEntity.i, align 4
-  %tobool.i = icmp eq i32 %2, 0
-  %cmp.i = icmp eq i32 %tok, 28
-  %or.cond.i = and i1 %cmp.i, %tobool.i
-  br i1 %or.cond.i, label %return, label %if.end.i
+17:                                               ; preds = %5
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  %19 = load i32, ptr %18, align 4, !tbaa !9
+  %20 = icmp eq i32 %19, 0
+  %21 = icmp eq i32 %1, 28
+  %or.cond.i = and i1 %21, %20
+  br i1 %or.cond.i, label %common.exit, label %.thread
 
-if.end.i:                                         ; preds = %if.end, %sw.epilog
-  store ptr @error, ptr %state, align 8
-  br label %return
+.thread:                                          ; preds = %11, %17
+  store ptr @error, ptr %0, align 8, !tbaa !3
+  br label %common.exit
 
-return:                                           ; preds = %if.end.i, %sw.epilog, %entry, %sw.bb8, %if.then5, %if.then
-  %retval.0 = phi i32 [ 12, %sw.bb8 ], [ 11, %if.then ], [ 11, %if.then5 ], [ 11, %entry ], [ -1, %if.end.i ], [ 59, %sw.epilog ]
-  ret i32 %retval.0
+common.exit:                                      ; preds = %.thread, %17, %5, %15, %14, %10
+  %.0 = phi i32 [ 12, %15 ], [ 11, %10 ], [ 11, %14 ], [ 11, %5 ], [ -1, %.thread ], [ 59, %17 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal range(i32 -1, 60) i32 @entity9(ptr noundef captures(none) %state, i32 noundef %tok, ptr readnone captures(none) %ptr, ptr readnone captures(none) %end, ptr readnone captures(none) %enc) #2 {
-entry:
-  switch i32 %tok, label %sw.epilog [
-    i32 15, label %return
-    i32 27, label %return.sink.split
+define internal range(i32 -1, 60) i32 @entity9(ptr noundef captures(none) %0, i32 noundef %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #2 {
+  switch i32 %1, label %6 [
+    i32 15, label %common.exit
+    i32 27, label %common.exit.sink.split
   ]
 
-sw.epilog:                                        ; preds = %entry
-  %documentEntity.i = getelementptr inbounds nuw i8, ptr %state, i64 20
-  %0 = load i32, ptr %documentEntity.i, align 4
-  %tobool.i = icmp eq i32 %0, 0
-  %cmp.i = icmp eq i32 %tok, 28
-  %or.cond.i = and i1 %cmp.i, %tobool.i
-  br i1 %or.cond.i, label %return, label %return.sink.split
+6:                                                ; preds = %5
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  %8 = load i32, ptr %7, align 4, !tbaa !9
+  %9 = icmp eq i32 %8, 0
+  %10 = icmp eq i32 %1, 28
+  %or.cond.i = and i1 %10, %9
+  br i1 %or.cond.i, label %common.exit, label %common.exit.sink.split
 
-return.sink.split:                                ; preds = %sw.epilog, %entry
-  %error.sink = phi ptr [ @entity10, %entry ], [ @error, %sw.epilog ]
-  %retval.0.ph = phi i32 [ 13, %entry ], [ -1, %sw.epilog ]
-  store ptr %error.sink, ptr %state, align 8
-  br label %return
+common.exit.sink.split:                           ; preds = %6, %5
+  %error.sink = phi ptr [ @entity10, %5 ], [ @error, %6 ]
+  %.0.ph = phi i32 [ 13, %5 ], [ -1, %6 ]
+  store ptr %error.sink, ptr %0, align 8, !tbaa !3
+  br label %common.exit
 
-return:                                           ; preds = %return.sink.split, %sw.epilog, %entry
-  %retval.0 = phi i32 [ 11, %entry ], [ 59, %sw.epilog ], [ %retval.0.ph, %return.sink.split ]
-  ret i32 %retval.0
+common.exit:                                      ; preds = %common.exit.sink.split, %6, %5
+  %.0 = phi i32 [ 11, %5 ], [ 59, %6 ], [ %.0.ph, %common.exit.sink.split ]
+  ret i32 %.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal range(i32 -1, 60) i32 @entity8(ptr noundef captures(none) %state, i32 noundef %tok, ptr readnone captures(none) %ptr, ptr readnone captures(none) %end, ptr readnone captures(none) %enc) #2 {
-entry:
-  switch i32 %tok, label %sw.epilog [
-    i32 15, label %return
-    i32 27, label %return.sink.split
+define internal range(i32 -1, 60) i32 @entity8(ptr noundef captures(none) %0, i32 noundef %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #2 {
+  switch i32 %1, label %6 [
+    i32 15, label %common.exit
+    i32 27, label %common.exit.sink.split
   ]
 
-sw.epilog:                                        ; preds = %entry
-  %documentEntity.i = getelementptr inbounds nuw i8, ptr %state, i64 20
-  %0 = load i32, ptr %documentEntity.i, align 4
-  %tobool.i = icmp eq i32 %0, 0
-  %cmp.i = icmp eq i32 %tok, 28
-  %or.cond.i = and i1 %cmp.i, %tobool.i
-  br i1 %or.cond.i, label %return, label %return.sink.split
+6:                                                ; preds = %5
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  %8 = load i32, ptr %7, align 4, !tbaa !9
+  %9 = icmp eq i32 %8, 0
+  %10 = icmp eq i32 %1, 28
+  %or.cond.i = and i1 %10, %9
+  br i1 %or.cond.i, label %common.exit, label %common.exit.sink.split
 
-return.sink.split:                                ; preds = %sw.epilog, %entry
-  %error.sink = phi ptr [ @entity9, %entry ], [ @error, %sw.epilog ]
-  %retval.0.ph = phi i32 [ 14, %entry ], [ -1, %sw.epilog ]
-  store ptr %error.sink, ptr %state, align 8
-  br label %return
+common.exit.sink.split:                           ; preds = %6, %5
+  %error.sink = phi ptr [ @entity9, %5 ], [ @error, %6 ]
+  %.0.ph = phi i32 [ 14, %5 ], [ -1, %6 ]
+  store ptr %error.sink, ptr %0, align 8, !tbaa !3
+  br label %common.exit
 
-return:                                           ; preds = %return.sink.split, %sw.epilog, %entry
-  %retval.0 = phi i32 [ 11, %entry ], [ 59, %sw.epilog ], [ %retval.0.ph, %return.sink.split ]
-  ret i32 %retval.0
+common.exit:                                      ; preds = %common.exit.sink.split, %6, %5
+  %.0 = phi i32 [ 11, %5 ], [ 59, %6 ], [ %.0.ph, %common.exit.sink.split ]
+  ret i32 %.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal i32 @declClose(ptr noundef captures(none) %state, i32 noundef %tok, ptr readnone captures(none) %ptr, ptr readnone captures(none) %end, ptr readnone captures(none) %enc) #2 {
-entry:
-  switch i32 %tok, label %sw.epilog [
-    i32 15, label %sw.bb
-    i32 17, label %sw.bb1
+define internal i32 @declClose(ptr noundef captures(none) %0, i32 noundef %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #2 {
+  switch i32 %1, label %15 [
+    i32 15, label %6
+    i32 17, label %9
   ]
 
-sw.bb:                                            ; preds = %entry
-  %role_none = getelementptr inbounds nuw i8, ptr %state, i64 12
-  %0 = load i32, ptr %role_none, align 4
-  br label %return
+6:                                                ; preds = %5
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %8 = load i32, ptr %7, align 4, !tbaa !15
+  br label %common.exit
 
-sw.bb1:                                           ; preds = %entry
-  %documentEntity = getelementptr inbounds nuw i8, ptr %state, i64 20
-  %1 = load i32, ptr %documentEntity, align 4
-  %tobool.not = icmp eq i32 %1, 0
-  %cond = select i1 %tobool.not, ptr @externalSubset1, ptr @internalSubset
-  store ptr %cond, ptr %state, align 8
-  %role_none2 = getelementptr inbounds nuw i8, ptr %state, i64 12
-  %2 = load i32, ptr %role_none2, align 4
-  br label %return
+9:                                                ; preds = %5
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  %11 = load i32, ptr %10, align 4, !tbaa !9
+  %.not = icmp eq i32 %11, 0
+  %12 = select i1 %.not, ptr @externalSubset1, ptr @internalSubset
+  store ptr %12, ptr %0, align 8, !tbaa !3
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %14 = load i32, ptr %13, align 4, !tbaa !15
+  br label %common.exit
 
-sw.epilog:                                        ; preds = %entry
-  %documentEntity.i = getelementptr inbounds nuw i8, ptr %state, i64 20
-  %3 = load i32, ptr %documentEntity.i, align 4
-  %tobool.i = icmp eq i32 %3, 0
-  %cmp.i = icmp eq i32 %tok, 28
-  %or.cond.i = and i1 %cmp.i, %tobool.i
-  br i1 %or.cond.i, label %return, label %if.end.i
+15:                                               ; preds = %5
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  %17 = load i32, ptr %16, align 4, !tbaa !9
+  %18 = icmp eq i32 %17, 0
+  %19 = icmp eq i32 %1, 28
+  %or.cond.i = and i1 %19, %18
+  br i1 %or.cond.i, label %common.exit, label %20
 
-if.end.i:                                         ; preds = %sw.epilog
-  store ptr @error, ptr %state, align 8
-  br label %return
+20:                                               ; preds = %15
+  store ptr @error, ptr %0, align 8, !tbaa !3
+  br label %common.exit
 
-return:                                           ; preds = %if.end.i, %sw.epilog, %sw.bb1, %sw.bb
-  %retval.0 = phi i32 [ %2, %sw.bb1 ], [ %0, %sw.bb ], [ -1, %if.end.i ], [ 59, %sw.epilog ]
-  ret i32 %retval.0
+common.exit:                                      ; preds = %20, %15, %9, %6
+  %.0 = phi i32 [ %14, %9 ], [ %8, %6 ], [ -1, %20 ], [ 59, %15 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal range(i32 -1, 60) i32 @entity10(ptr noundef captures(none) %state, i32 noundef %tok, ptr readnone captures(none) %ptr, ptr readnone captures(none) %end, ptr readnone captures(none) %enc) #2 {
-entry:
-  switch i32 %tok, label %sw.epilog [
-    i32 15, label %return
-    i32 17, label %sw.bb1
+define internal range(i32 -1, 60) i32 @entity10(ptr noundef captures(none) %0, i32 noundef %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #2 {
+  switch i32 %1, label %10 [
+    i32 15, label %common.exit
+    i32 17, label %6
   ]
 
-sw.bb1:                                           ; preds = %entry
-  %documentEntity = getelementptr inbounds nuw i8, ptr %state, i64 20
-  %0 = load i32, ptr %documentEntity, align 4
-  %tobool.not = icmp eq i32 %0, 0
-  %cond = select i1 %tobool.not, ptr @externalSubset1, ptr @internalSubset
-  br label %return.sink.split
+6:                                                ; preds = %5
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  %8 = load i32, ptr %7, align 4, !tbaa !9
+  %.not = icmp eq i32 %8, 0
+  %9 = select i1 %.not, ptr @externalSubset1, ptr @internalSubset
+  br label %common.exit.sink.split
 
-sw.epilog:                                        ; preds = %entry
-  %documentEntity.i = getelementptr inbounds nuw i8, ptr %state, i64 20
-  %1 = load i32, ptr %documentEntity.i, align 4
-  %tobool.i = icmp eq i32 %1, 0
-  %cmp.i = icmp eq i32 %tok, 28
-  %or.cond.i = and i1 %cmp.i, %tobool.i
-  br i1 %or.cond.i, label %return, label %return.sink.split
+10:                                               ; preds = %5
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  %12 = load i32, ptr %11, align 4, !tbaa !9
+  %13 = icmp eq i32 %12, 0
+  %14 = icmp eq i32 %1, 28
+  %or.cond.i = and i1 %14, %13
+  br i1 %or.cond.i, label %common.exit, label %common.exit.sink.split
 
-return.sink.split:                                ; preds = %sw.epilog, %sw.bb1
-  %error.sink = phi ptr [ %cond, %sw.bb1 ], [ @error, %sw.epilog ]
-  %retval.0.ph = phi i32 [ 15, %sw.bb1 ], [ -1, %sw.epilog ]
-  store ptr %error.sink, ptr %state, align 8
-  br label %return
+common.exit.sink.split:                           ; preds = %10, %6
+  %error.sink = phi ptr [ %9, %6 ], [ @error, %10 ]
+  %.0.ph = phi i32 [ 15, %6 ], [ -1, %10 ]
+  store ptr %error.sink, ptr %0, align 8, !tbaa !3
+  br label %common.exit
 
-return:                                           ; preds = %return.sink.split, %sw.epilog, %entry
-  %retval.0 = phi i32 [ 11, %entry ], [ 59, %sw.epilog ], [ %retval.0.ph, %return.sink.split ]
-  ret i32 %retval.0
+common.exit:                                      ; preds = %common.exit.sink.split, %10, %5
+  %.0 = phi i32 [ 11, %5 ], [ 59, %10 ], [ %.0.ph, %common.exit.sink.split ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 61) i32 @externalSubset1(ptr noundef captures(none) %state, i32 noundef %tok, ptr noundef %ptr, ptr noundef %end, ptr noundef %enc) #1 {
-entry:
-  switch i32 %tok, label %sw.default [
-    i32 33, label %sw.bb
-    i32 34, label %sw.bb1
-    i32 15, label %return
+define internal range(i32 -1, 61) i32 @externalSubset1(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #1 {
+  switch i32 %1, label %16 [
+    i32 33, label %6
+    i32 34, label %7
+    i32 15, label %18
     i32 26, label %common.exit
-    i32 -4, label %sw.bb5
+    i32 -4, label %13
   ]
 
-sw.bb:                                            ; preds = %entry
-  store ptr @condSect0, ptr %state, align 8
-  br label %return
+6:                                                ; preds = %5
+  store ptr @condSect0, ptr %0, align 8, !tbaa !3
+  br label %18
 
-sw.bb1:                                           ; preds = %entry
-  %includeLevel = getelementptr inbounds nuw i8, ptr %state, i64 16
-  %0 = load i32, ptr %includeLevel, align 8
-  %cmp = icmp eq i32 %0, 0
-  br i1 %cmp, label %common.exit, label %if.end
+7:                                                ; preds = %5
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %9 = load i32, ptr %8, align 8, !tbaa !10
+  %10 = icmp eq i32 %9, 0
+  br i1 %10, label %common.exit, label %11
 
-if.end:                                           ; preds = %sw.bb1
-  %sub = add i32 %0, -1
-  store i32 %sub, ptr %includeLevel, align 8
-  br label %return
+11:                                               ; preds = %7
+  %12 = add i32 %9, -1
+  store i32 %12, ptr %8, align 8, !tbaa !10
+  br label %18
 
-sw.bb5:                                           ; preds = %entry
-  %includeLevel6 = getelementptr inbounds nuw i8, ptr %state, i64 16
-  %1 = load i32, ptr %includeLevel6, align 8
-  %tobool.not = icmp eq i32 %1, 0
-  br i1 %tobool.not, label %return, label %common.exit
+13:                                               ; preds = %5
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %15 = load i32, ptr %14, align 8, !tbaa !10
+  %.not = icmp eq i32 %15, 0
+  br i1 %.not, label %18, label %common.exit
 
-sw.default:                                       ; preds = %entry
-  %call = tail call i32 @internalSubset(ptr noundef %state, i32 noundef %tok, ptr noundef %ptr, ptr noundef %end, ptr noundef %enc)
-  br label %return
+16:                                               ; preds = %5
+  %17 = tail call i32 @internalSubset(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4)
+  br label %18
 
-common.exit:                                      ; preds = %sw.bb5, %entry, %sw.bb1
-  store ptr @error, ptr %state, align 8
-  br label %return
+common.exit:                                      ; preds = %13, %7, %5
+  store ptr @error, ptr %0, align 8, !tbaa !3
+  br label %18
 
-return:                                           ; preds = %sw.bb5, %entry, %common.exit, %sw.default, %if.end, %sw.bb
-  %retval.0 = phi i32 [ %call, %sw.default ], [ -1, %common.exit ], [ 0, %if.end ], [ 0, %sw.bb ], [ 0, %entry ], [ 0, %sw.bb5 ]
-  ret i32 %retval.0
+18:                                               ; preds = %13, %5, %common.exit, %16, %11, %6
+  %.0 = phi i32 [ %17, %16 ], [ -1, %common.exit ], [ 0, %11 ], [ 0, %6 ], [ 0, %5 ], [ 0, %13 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 60) i32 @condSect0(ptr noundef captures(none) %state, i32 noundef %tok, ptr noundef %ptr, ptr noundef %end, ptr noundef %enc) #1 {
-entry:
-  switch i32 %tok, label %sw.epilog [
-    i32 15, label %return
-    i32 18, label %sw.bb1
+define internal range(i32 -1, 60) i32 @condSect0(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #1 {
+  switch i32 %1, label %13 [
+    i32 15, label %common.exit
+    i32 18, label %6
   ]
 
-sw.bb1:                                           ; preds = %entry
-  %nameMatchesAscii = getelementptr inbounds nuw i8, ptr %enc, i64 48
-  %0 = load ptr, ptr %nameMatchesAscii, align 8
-  %call = tail call i32 %0(ptr noundef %enc, ptr noundef %ptr, ptr noundef %end, ptr noundef nonnull @KW_INCLUDE) #5
-  %tobool.not = icmp eq i32 %call, 0
-  br i1 %tobool.not, label %if.end, label %return.sink.split
+6:                                                ; preds = %5
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 48
+  %8 = load ptr, ptr %7, align 8, !tbaa !12
+  %9 = tail call i32 %8(ptr noundef %4, ptr noundef %2, ptr noundef %3, ptr noundef nonnull @KW_INCLUDE) #5
+  %.not = icmp eq i32 %9, 0
+  br i1 %.not, label %10, label %common.exit.sink.split
 
-if.end:                                           ; preds = %sw.bb1
-  %1 = load ptr, ptr %nameMatchesAscii, align 8
-  %call3 = tail call i32 %1(ptr noundef nonnull %enc, ptr noundef %ptr, ptr noundef %end, ptr noundef nonnull @KW_IGNORE) #5
-  %tobool4.not = icmp eq i32 %call3, 0
-  br i1 %tobool4.not, label %if.end.i, label %return.sink.split
+10:                                               ; preds = %6
+  %11 = load ptr, ptr %7, align 8, !tbaa !12
+  %12 = tail call i32 %11(ptr noundef nonnull %4, ptr noundef %2, ptr noundef %3, ptr noundef nonnull @KW_IGNORE) #5
+  %.not13 = icmp eq i32 %12, 0
+  br i1 %.not13, label %.thread, label %common.exit.sink.split
 
-sw.epilog:                                        ; preds = %entry
-  %documentEntity.i = getelementptr inbounds nuw i8, ptr %state, i64 20
-  %2 = load i32, ptr %documentEntity.i, align 4
-  %tobool.i = icmp eq i32 %2, 0
-  %cmp.i = icmp eq i32 %tok, 28
-  %or.cond.i = and i1 %cmp.i, %tobool.i
-  br i1 %or.cond.i, label %return, label %if.end.i
+13:                                               ; preds = %5
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  %15 = load i32, ptr %14, align 4, !tbaa !9
+  %16 = icmp eq i32 %15, 0
+  %17 = icmp eq i32 %1, 28
+  %or.cond.i = and i1 %17, %16
+  br i1 %or.cond.i, label %common.exit, label %.thread
 
-if.end.i:                                         ; preds = %if.end, %sw.epilog
-  br label %return.sink.split
+.thread:                                          ; preds = %10, %13
+  br label %common.exit.sink.split
 
-return.sink.split:                                ; preds = %if.end, %sw.bb1, %if.end.i
-  %error.sink = phi ptr [ @error, %if.end.i ], [ @condSect1, %sw.bb1 ], [ @condSect2, %if.end ]
-  %retval.0.ph = phi i32 [ -1, %if.end.i ], [ 0, %sw.bb1 ], [ 0, %if.end ]
-  store ptr %error.sink, ptr %state, align 8
-  br label %return
+common.exit.sink.split:                           ; preds = %10, %6, %.thread
+  %error.sink = phi ptr [ @error, %.thread ], [ @condSect1, %6 ], [ @condSect2, %10 ]
+  %.0.ph = phi i32 [ -1, %.thread ], [ 0, %6 ], [ 0, %10 ]
+  store ptr %error.sink, ptr %0, align 8, !tbaa !3
+  br label %common.exit
 
-return:                                           ; preds = %return.sink.split, %sw.epilog, %entry
-  %retval.0 = phi i32 [ 0, %entry ], [ 59, %sw.epilog ], [ %retval.0.ph, %return.sink.split ]
-  ret i32 %retval.0
+common.exit:                                      ; preds = %common.exit.sink.split, %13, %5
+  %.0 = phi i32 [ 0, %5 ], [ 59, %13 ], [ %.0.ph, %common.exit.sink.split ]
+  ret i32 %.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal range(i32 -1, 60) i32 @condSect1(ptr noundef captures(none) %state, i32 noundef %tok, ptr readnone captures(none) %ptr, ptr readnone captures(none) %end, ptr readnone captures(none) %enc) #2 {
-entry:
-  switch i32 %tok, label %sw.epilog [
-    i32 15, label %return
-    i32 25, label %sw.bb1
+define internal range(i32 -1, 60) i32 @condSect1(ptr noundef captures(none) %0, i32 noundef %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #2 {
+  switch i32 %1, label %10 [
+    i32 15, label %common.exit
+    i32 25, label %6
   ]
 
-sw.bb1:                                           ; preds = %entry
-  store ptr @externalSubset1, ptr %state, align 8
-  %includeLevel = getelementptr inbounds nuw i8, ptr %state, i64 16
-  %0 = load i32, ptr %includeLevel, align 8
-  %add = add i32 %0, 1
-  store i32 %add, ptr %includeLevel, align 8
-  br label %return
+6:                                                ; preds = %5
+  store ptr @externalSubset1, ptr %0, align 8, !tbaa !3
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %8 = load i32, ptr %7, align 8, !tbaa !10
+  %9 = add i32 %8, 1
+  store i32 %9, ptr %7, align 8, !tbaa !10
+  br label %common.exit
 
-sw.epilog:                                        ; preds = %entry
-  %documentEntity.i = getelementptr inbounds nuw i8, ptr %state, i64 20
-  %1 = load i32, ptr %documentEntity.i, align 4
-  %tobool.i = icmp eq i32 %1, 0
-  %cmp.i = icmp eq i32 %tok, 28
-  %or.cond.i = and i1 %cmp.i, %tobool.i
-  br i1 %or.cond.i, label %return, label %if.end.i
+10:                                               ; preds = %5
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  %12 = load i32, ptr %11, align 4, !tbaa !9
+  %13 = icmp eq i32 %12, 0
+  %14 = icmp eq i32 %1, 28
+  %or.cond.i = and i1 %14, %13
+  br i1 %or.cond.i, label %common.exit, label %15
 
-if.end.i:                                         ; preds = %sw.epilog
-  store ptr @error, ptr %state, align 8
-  br label %return
+15:                                               ; preds = %10
+  store ptr @error, ptr %0, align 8, !tbaa !3
+  br label %common.exit
 
-return:                                           ; preds = %if.end.i, %sw.epilog, %entry, %sw.bb1
-  %retval.0 = phi i32 [ 0, %sw.bb1 ], [ 0, %entry ], [ -1, %if.end.i ], [ 59, %sw.epilog ]
-  ret i32 %retval.0
+common.exit:                                      ; preds = %15, %10, %5, %6
+  %.0 = phi i32 [ 0, %6 ], [ 0, %5 ], [ -1, %15 ], [ 59, %10 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal range(i32 -1, 60) i32 @condSect2(ptr noundef captures(none) %state, i32 noundef %tok, ptr readnone captures(none) %ptr, ptr readnone captures(none) %end, ptr readnone captures(none) %enc) #2 {
-entry:
-  switch i32 %tok, label %sw.epilog [
-    i32 15, label %return
-    i32 25, label %return.sink.split
+define internal range(i32 -1, 60) i32 @condSect2(ptr noundef captures(none) %0, i32 noundef %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #2 {
+  switch i32 %1, label %6 [
+    i32 15, label %common.exit
+    i32 25, label %common.exit.sink.split
   ]
 
-sw.epilog:                                        ; preds = %entry
-  %documentEntity.i = getelementptr inbounds nuw i8, ptr %state, i64 20
-  %0 = load i32, ptr %documentEntity.i, align 4
-  %tobool.i = icmp eq i32 %0, 0
-  %cmp.i = icmp eq i32 %tok, 28
-  %or.cond.i = and i1 %cmp.i, %tobool.i
-  br i1 %or.cond.i, label %return, label %return.sink.split
+6:                                                ; preds = %5
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  %8 = load i32, ptr %7, align 4, !tbaa !9
+  %9 = icmp eq i32 %8, 0
+  %10 = icmp eq i32 %1, 28
+  %or.cond.i = and i1 %10, %9
+  br i1 %or.cond.i, label %common.exit, label %common.exit.sink.split
 
-return.sink.split:                                ; preds = %sw.epilog, %entry
-  %error.sink = phi ptr [ @externalSubset1, %entry ], [ @error, %sw.epilog ]
-  %retval.0.ph = phi i32 [ 58, %entry ], [ -1, %sw.epilog ]
-  store ptr %error.sink, ptr %state, align 8
-  br label %return
+common.exit.sink.split:                           ; preds = %6, %5
+  %error.sink = phi ptr [ @externalSubset1, %5 ], [ @error, %6 ]
+  %.0.ph = phi i32 [ 58, %5 ], [ -1, %6 ]
+  store ptr %error.sink, ptr %0, align 8, !tbaa !3
+  br label %common.exit
 
-return:                                           ; preds = %return.sink.split, %sw.epilog, %entry
-  %retval.0 = phi i32 [ 0, %entry ], [ 59, %sw.epilog ], [ %retval.0.ph, %return.sink.split ]
-  ret i32 %retval.0
+common.exit:                                      ; preds = %common.exit.sink.split, %6, %5
+  %.0 = phi i32 [ 0, %5 ], [ 59, %6 ], [ %.0.ph, %common.exit.sink.split ]
+  ret i32 %.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal range(i32 -1, 60) i32 @entity4(ptr noundef captures(none) %state, i32 noundef %tok, ptr readnone captures(none) %ptr, ptr readnone captures(none) %end, ptr readnone captures(none) %enc) #2 {
-entry:
-  switch i32 %tok, label %sw.epilog [
-    i32 15, label %return
-    i32 27, label %return.sink.split
+define internal range(i32 -1, 60) i32 @entity4(ptr noundef captures(none) %0, i32 noundef %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #2 {
+  switch i32 %1, label %6 [
+    i32 15, label %common.exit
+    i32 27, label %common.exit.sink.split
   ]
 
-sw.epilog:                                        ; preds = %entry
-  %documentEntity.i = getelementptr inbounds nuw i8, ptr %state, i64 20
-  %0 = load i32, ptr %documentEntity.i, align 4
-  %tobool.i = icmp eq i32 %0, 0
-  %cmp.i = icmp eq i32 %tok, 28
-  %or.cond.i = and i1 %cmp.i, %tobool.i
-  br i1 %or.cond.i, label %return, label %return.sink.split
+6:                                                ; preds = %5
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  %8 = load i32, ptr %7, align 4, !tbaa !9
+  %9 = icmp eq i32 %8, 0
+  %10 = icmp eq i32 %1, 28
+  %or.cond.i = and i1 %10, %9
+  br i1 %or.cond.i, label %common.exit, label %common.exit.sink.split
 
-return.sink.split:                                ; preds = %sw.epilog, %entry
-  %error.sink = phi ptr [ @entity5, %entry ], [ @error, %sw.epilog ]
-  %retval.0.ph = phi i32 [ 13, %entry ], [ -1, %sw.epilog ]
-  store ptr %error.sink, ptr %state, align 8
-  br label %return
+common.exit.sink.split:                           ; preds = %6, %5
+  %error.sink = phi ptr [ @entity5, %5 ], [ @error, %6 ]
+  %.0.ph = phi i32 [ 13, %5 ], [ -1, %6 ]
+  store ptr %error.sink, ptr %0, align 8, !tbaa !3
+  br label %common.exit
 
-return:                                           ; preds = %return.sink.split, %sw.epilog, %entry
-  %retval.0 = phi i32 [ 11, %entry ], [ 59, %sw.epilog ], [ %retval.0.ph, %return.sink.split ]
-  ret i32 %retval.0
+common.exit:                                      ; preds = %common.exit.sink.split, %6, %5
+  %.0 = phi i32 [ 11, %5 ], [ 59, %6 ], [ %.0.ph, %common.exit.sink.split ]
+  ret i32 %.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal range(i32 -1, 60) i32 @entity3(ptr noundef captures(none) %state, i32 noundef %tok, ptr readnone captures(none) %ptr, ptr readnone captures(none) %end, ptr readnone captures(none) %enc) #2 {
-entry:
-  switch i32 %tok, label %sw.epilog [
-    i32 15, label %return
-    i32 27, label %return.sink.split
+define internal range(i32 -1, 60) i32 @entity3(ptr noundef captures(none) %0, i32 noundef %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #2 {
+  switch i32 %1, label %6 [
+    i32 15, label %common.exit
+    i32 27, label %common.exit.sink.split
   ]
 
-sw.epilog:                                        ; preds = %entry
-  %documentEntity.i = getelementptr inbounds nuw i8, ptr %state, i64 20
-  %0 = load i32, ptr %documentEntity.i, align 4
-  %tobool.i = icmp eq i32 %0, 0
-  %cmp.i = icmp eq i32 %tok, 28
-  %or.cond.i = and i1 %cmp.i, %tobool.i
-  br i1 %or.cond.i, label %return, label %return.sink.split
+6:                                                ; preds = %5
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  %8 = load i32, ptr %7, align 4, !tbaa !9
+  %9 = icmp eq i32 %8, 0
+  %10 = icmp eq i32 %1, 28
+  %or.cond.i = and i1 %10, %9
+  br i1 %or.cond.i, label %common.exit, label %common.exit.sink.split
 
-return.sink.split:                                ; preds = %sw.epilog, %entry
-  %error.sink = phi ptr [ @entity4, %entry ], [ @error, %sw.epilog ]
-  %retval.0.ph = phi i32 [ 14, %entry ], [ -1, %sw.epilog ]
-  store ptr %error.sink, ptr %state, align 8
-  br label %return
+common.exit.sink.split:                           ; preds = %6, %5
+  %error.sink = phi ptr [ @entity4, %5 ], [ @error, %6 ]
+  %.0.ph = phi i32 [ 14, %5 ], [ -1, %6 ]
+  store ptr %error.sink, ptr %0, align 8, !tbaa !3
+  br label %common.exit
 
-return:                                           ; preds = %return.sink.split, %sw.epilog, %entry
-  %retval.0 = phi i32 [ 11, %entry ], [ 59, %sw.epilog ], [ %retval.0.ph, %return.sink.split ]
-  ret i32 %retval.0
+common.exit:                                      ; preds = %common.exit.sink.split, %6, %5
+  %.0 = phi i32 [ 11, %5 ], [ 59, %6 ], [ %.0.ph, %common.exit.sink.split ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 60) i32 @entity5(ptr noundef captures(none) %state, i32 noundef %tok, ptr noundef %ptr, ptr noundef %end, ptr noundef %enc) #1 {
-entry:
-  switch i32 %tok, label %sw.epilog [
-    i32 15, label %return
-    i32 17, label %sw.bb1
-    i32 18, label %sw.bb2
+define internal range(i32 -1, 60) i32 @entity5(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #1 {
+  switch i32 %1, label %14 [
+    i32 15, label %common.exit
+    i32 17, label %6
+    i32 18, label %10
   ]
 
-sw.bb1:                                           ; preds = %entry
-  %documentEntity = getelementptr inbounds nuw i8, ptr %state, i64 20
-  %0 = load i32, ptr %documentEntity, align 4
-  %tobool.not = icmp eq i32 %0, 0
-  %cond = select i1 %tobool.not, ptr @externalSubset1, ptr @internalSubset
-  br label %return.sink.split
+6:                                                ; preds = %5
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  %8 = load i32, ptr %7, align 4, !tbaa !9
+  %.not10 = icmp eq i32 %8, 0
+  %9 = select i1 %.not10, ptr @externalSubset1, ptr @internalSubset
+  br label %common.exit.sink.split
 
-sw.bb2:                                           ; preds = %entry
-  %nameMatchesAscii = getelementptr inbounds nuw i8, ptr %enc, i64 48
-  %1 = load ptr, ptr %nameMatchesAscii, align 8
-  %call = tail call i32 %1(ptr noundef %enc, ptr noundef %ptr, ptr noundef %end, ptr noundef nonnull @KW_NDATA) #5
-  %tobool3.not = icmp eq i32 %call, 0
-  br i1 %tobool3.not, label %if.end.i, label %return.sink.split
+10:                                               ; preds = %5
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 48
+  %12 = load ptr, ptr %11, align 8, !tbaa !12
+  %13 = tail call i32 %12(ptr noundef %4, ptr noundef %2, ptr noundef %3, ptr noundef nonnull @KW_NDATA) #5
+  %.not = icmp eq i32 %13, 0
+  br i1 %.not, label %.thread, label %common.exit.sink.split
 
-sw.epilog:                                        ; preds = %entry
-  %documentEntity.i = getelementptr inbounds nuw i8, ptr %state, i64 20
-  %2 = load i32, ptr %documentEntity.i, align 4
-  %tobool.i = icmp eq i32 %2, 0
-  %cmp.i = icmp eq i32 %tok, 28
-  %or.cond.i = and i1 %cmp.i, %tobool.i
-  br i1 %or.cond.i, label %return, label %if.end.i
+14:                                               ; preds = %5
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  %16 = load i32, ptr %15, align 4, !tbaa !9
+  %17 = icmp eq i32 %16, 0
+  %18 = icmp eq i32 %1, 28
+  %or.cond.i = and i1 %18, %17
+  br i1 %or.cond.i, label %common.exit, label %.thread
 
-if.end.i:                                         ; preds = %sw.bb2, %sw.epilog
-  br label %return.sink.split
+.thread:                                          ; preds = %10, %14
+  br label %common.exit.sink.split
 
-return.sink.split:                                ; preds = %sw.bb2, %sw.bb1, %if.end.i
-  %error.sink = phi ptr [ @error, %if.end.i ], [ %cond, %sw.bb1 ], [ @entity6, %sw.bb2 ]
-  %retval.0.ph = phi i32 [ -1, %if.end.i ], [ 15, %sw.bb1 ], [ 11, %sw.bb2 ]
-  store ptr %error.sink, ptr %state, align 8
-  br label %return
+common.exit.sink.split:                           ; preds = %10, %6, %.thread
+  %error.sink = phi ptr [ @error, %.thread ], [ %9, %6 ], [ @entity6, %10 ]
+  %.0.ph = phi i32 [ -1, %.thread ], [ 15, %6 ], [ 11, %10 ]
+  store ptr %error.sink, ptr %0, align 8, !tbaa !3
+  br label %common.exit
 
-return:                                           ; preds = %return.sink.split, %sw.epilog, %entry
-  %retval.0 = phi i32 [ 11, %entry ], [ 59, %sw.epilog ], [ %retval.0.ph, %return.sink.split ]
-  ret i32 %retval.0
+common.exit:                                      ; preds = %common.exit.sink.split, %14, %5
+  %.0 = phi i32 [ 11, %5 ], [ 59, %14 ], [ %.0.ph, %common.exit.sink.split ]
+  ret i32 %.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal range(i32 -1, 60) i32 @entity6(ptr noundef captures(none) %state, i32 noundef %tok, ptr readnone captures(none) %ptr, ptr readnone captures(none) %end, ptr readnone captures(none) %enc) #2 {
-entry:
-  switch i32 %tok, label %sw.epilog [
-    i32 15, label %return
-    i32 18, label %sw.bb1
+define internal range(i32 -1, 60) i32 @entity6(ptr noundef captures(none) %0, i32 noundef %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #2 {
+  switch i32 %1, label %8 [
+    i32 15, label %common.exit
+    i32 18, label %6
   ]
 
-sw.bb1:                                           ; preds = %entry
-  store ptr @declClose, ptr %state, align 8
-  %role_none = getelementptr inbounds nuw i8, ptr %state, i64 12
-  store i32 11, ptr %role_none, align 4
-  br label %return
+6:                                                ; preds = %5
+  store ptr @declClose, ptr %0, align 8, !tbaa !3
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  store i32 11, ptr %7, align 4, !tbaa !15
+  br label %common.exit
 
-sw.epilog:                                        ; preds = %entry
-  %documentEntity.i = getelementptr inbounds nuw i8, ptr %state, i64 20
-  %0 = load i32, ptr %documentEntity.i, align 4
-  %tobool.i = icmp eq i32 %0, 0
-  %cmp.i = icmp eq i32 %tok, 28
-  %or.cond.i = and i1 %cmp.i, %tobool.i
-  br i1 %or.cond.i, label %return, label %if.end.i
+8:                                                ; preds = %5
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  %10 = load i32, ptr %9, align 4, !tbaa !9
+  %11 = icmp eq i32 %10, 0
+  %12 = icmp eq i32 %1, 28
+  %or.cond.i = and i1 %12, %11
+  br i1 %or.cond.i, label %common.exit, label %13
 
-if.end.i:                                         ; preds = %sw.epilog
-  store ptr @error, ptr %state, align 8
-  br label %return
+13:                                               ; preds = %8
+  store ptr @error, ptr %0, align 8, !tbaa !3
+  br label %common.exit
 
-return:                                           ; preds = %if.end.i, %sw.epilog, %entry, %sw.bb1
-  %retval.0 = phi i32 [ 16, %sw.bb1 ], [ 11, %entry ], [ -1, %if.end.i ], [ 59, %sw.epilog ]
-  ret i32 %retval.0
+common.exit:                                      ; preds = %13, %8, %5, %6
+  %.0 = phi i32 [ 16, %6 ], [ 11, %5 ], [ -1, %13 ], [ 59, %8 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal range(i32 -1, 60) i32 @attlist1(ptr noundef captures(none) %state, i32 noundef %tok, ptr readnone captures(none) %ptr, ptr readnone captures(none) %end, ptr readnone captures(none) %enc) #2 {
-entry:
-  switch i32 %tok, label %sw.epilog [
-    i32 15, label %return
-    i32 17, label %sw.bb1
-    i32 18, label %return.sink.split
-    i32 41, label %return.sink.split
+define internal range(i32 -1, 60) i32 @attlist1(ptr noundef captures(none) %0, i32 noundef %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #2 {
+  switch i32 %1, label %10 [
+    i32 15, label %common.exit
+    i32 17, label %6
+    i32 18, label %common.exit.sink.split
+    i32 41, label %common.exit.sink.split
   ]
 
-sw.bb1:                                           ; preds = %entry
-  %documentEntity = getelementptr inbounds nuw i8, ptr %state, i64 20
-  %0 = load i32, ptr %documentEntity, align 4
-  %tobool.not = icmp eq i32 %0, 0
-  %cond = select i1 %tobool.not, ptr @externalSubset1, ptr @internalSubset
-  br label %return.sink.split
+6:                                                ; preds = %5
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  %8 = load i32, ptr %7, align 4, !tbaa !9
+  %.not = icmp eq i32 %8, 0
+  %9 = select i1 %.not, ptr @externalSubset1, ptr @internalSubset
+  br label %common.exit.sink.split
 
-sw.epilog:                                        ; preds = %entry
-  %documentEntity.i = getelementptr inbounds nuw i8, ptr %state, i64 20
-  %1 = load i32, ptr %documentEntity.i, align 4
-  %tobool.i = icmp eq i32 %1, 0
-  %cmp.i = icmp eq i32 %tok, 28
-  %or.cond.i = and i1 %cmp.i, %tobool.i
-  br i1 %or.cond.i, label %return, label %return.sink.split
+10:                                               ; preds = %5
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  %12 = load i32, ptr %11, align 4, !tbaa !9
+  %13 = icmp eq i32 %12, 0
+  %14 = icmp eq i32 %1, 28
+  %or.cond.i = and i1 %14, %13
+  br i1 %or.cond.i, label %common.exit, label %common.exit.sink.split
 
-return.sink.split:                                ; preds = %sw.epilog, %entry, %entry, %sw.bb1
-  %error.sink = phi ptr [ %cond, %sw.bb1 ], [ @attlist2, %entry ], [ @attlist2, %entry ], [ @error, %sw.epilog ]
-  %retval.0.ph = phi i32 [ 33, %sw.bb1 ], [ 22, %entry ], [ 22, %entry ], [ -1, %sw.epilog ]
-  store ptr %error.sink, ptr %state, align 8
-  br label %return
+common.exit.sink.split:                           ; preds = %10, %5, %5, %6
+  %error.sink = phi ptr [ %9, %6 ], [ @attlist2, %5 ], [ @attlist2, %5 ], [ @error, %10 ]
+  %.0.ph = phi i32 [ 33, %6 ], [ 22, %5 ], [ 22, %5 ], [ -1, %10 ]
+  store ptr %error.sink, ptr %0, align 8, !tbaa !3
+  br label %common.exit
 
-return:                                           ; preds = %return.sink.split, %sw.epilog, %entry
-  %retval.0 = phi i32 [ 33, %entry ], [ 59, %sw.epilog ], [ %retval.0.ph, %return.sink.split ]
-  ret i32 %retval.0
+common.exit:                                      ; preds = %common.exit.sink.split, %10, %5
+  %.0 = phi i32 [ 33, %5 ], [ 59, %10 ], [ %.0.ph, %common.exit.sink.split ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 60) i32 @attlist2(ptr noundef captures(none) %state, i32 noundef %tok, ptr noundef %ptr, ptr noundef %end, ptr noundef %enc) #1 {
-entry:
-  switch i32 %tok, label %sw.epilog [
-    i32 15, label %return
-    i32 18, label %for.cond.preheader
-    i32 23, label %sw.bb8
+define internal range(i32 -1, 60) i32 @attlist2(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #1 {
+  switch i32 %1, label %21 [
+    i32 15, label %common.exit
+    i32 18, label %.preheader
+    i32 23, label %20
   ]
 
-for.cond.preheader:                               ; preds = %entry
-  %nameMatchesAscii = getelementptr inbounds nuw i8, ptr %enc, i64 48
-  br label %for.body
+.preheader:                                       ; preds = %5
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 48
+  br label %7
 
-for.body:                                         ; preds = %for.cond.preheader, %for.inc
-  %indvars.iv = phi i64 [ 0, %for.cond.preheader ], [ %indvars.iv.next, %for.inc ]
-  %0 = load ptr, ptr %nameMatchesAscii, align 8
-  %arrayidx = getelementptr [8 x ptr], ptr @attlist2.types, i64 0, i64 %indvars.iv
-  %1 = load ptr, ptr %arrayidx, align 8
-  %call = tail call i32 %0(ptr noundef %enc, ptr noundef %ptr, ptr noundef %end, ptr noundef %1) #5
-  %tobool.not = icmp eq i32 %call, 0
-  br i1 %tobool.not, label %for.inc, label %if.then
+7:                                                ; preds = %.preheader, %12
+  %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %12 ]
+  %8 = load ptr, ptr %6, align 8, !tbaa !12
+  %9 = getelementptr [8 x ptr], ptr @attlist2.types, i64 0, i64 %indvars.iv
+  %10 = load ptr, ptr %9, align 8, !tbaa !16
+  %11 = tail call i32 %8(ptr noundef %4, ptr noundef %2, ptr noundef %3, ptr noundef %10) #5
+  %.not = icmp eq i32 %11, 0
+  br i1 %.not, label %12, label %13
 
-if.then:                                          ; preds = %for.body
-  %2 = trunc nuw nsw i64 %indvars.iv to i32
-  store ptr @attlist8, ptr %state, align 8
-  %add = add nuw nsw i32 %2, 23
-  br label %return
-
-for.inc:                                          ; preds = %for.body
+12:                                               ; preds = %7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !4
+  br i1 %exitcond.not, label %16, label %7, !llvm.loop !18
 
-for.end:                                          ; preds = %for.inc
-  %3 = load ptr, ptr %nameMatchesAscii, align 8
-  %call3 = tail call i32 %3(ptr noundef nonnull %enc, ptr noundef %ptr, ptr noundef %end, ptr noundef nonnull @KW_NOTATION) #5
-  %tobool4.not = icmp eq i32 %call3, 0
-  br i1 %tobool4.not, label %sw.epilog, label %if.then5
+13:                                               ; preds = %7
+  %14 = trunc nuw nsw i64 %indvars.iv to i32
+  store ptr @attlist8, ptr %0, align 8, !tbaa !3
+  %15 = add nuw nsw i32 %14, 23
+  br label %common.exit
 
-if.then5:                                         ; preds = %for.end
-  store ptr @attlist5, ptr %state, align 8
-  br label %return
+16:                                               ; preds = %12
+  %17 = load ptr, ptr %6, align 8, !tbaa !12
+  %18 = tail call i32 %17(ptr noundef nonnull %4, ptr noundef %2, ptr noundef %3, ptr noundef nonnull @KW_NOTATION) #5
+  %.not21 = icmp eq i32 %18, 0
+  br i1 %.not21, label %21, label %19
 
-sw.bb8:                                           ; preds = %entry
-  store ptr @attlist3, ptr %state, align 8
-  br label %return
+19:                                               ; preds = %16
+  store ptr @attlist5, ptr %0, align 8, !tbaa !3
+  br label %common.exit
 
-sw.epilog:                                        ; preds = %for.end, %entry
-  %documentEntity.i = getelementptr inbounds nuw i8, ptr %state, i64 20
-  %4 = load i32, ptr %documentEntity.i, align 4
-  %tobool.i = icmp eq i32 %4, 0
-  %cmp.i = icmp eq i32 %tok, 28
-  %or.cond.i = and i1 %cmp.i, %tobool.i
-  br i1 %or.cond.i, label %return, label %if.end.i
+20:                                               ; preds = %5
+  store ptr @attlist3, ptr %0, align 8, !tbaa !3
+  br label %common.exit
 
-if.end.i:                                         ; preds = %sw.epilog
-  store ptr @error, ptr %state, align 8
-  br label %return
+21:                                               ; preds = %16, %5
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  %23 = load i32, ptr %22, align 4, !tbaa !9
+  %24 = icmp eq i32 %23, 0
+  %25 = icmp eq i32 %1, 28
+  %or.cond.i = and i1 %25, %24
+  br i1 %or.cond.i, label %common.exit, label %26
 
-return:                                           ; preds = %if.end.i, %sw.epilog, %entry, %sw.bb8, %if.then5, %if.then
-  %retval.0 = phi i32 [ 33, %sw.bb8 ], [ %add, %if.then ], [ 33, %if.then5 ], [ 33, %entry ], [ -1, %if.end.i ], [ 59, %sw.epilog ]
-  ret i32 %retval.0
+26:                                               ; preds = %21
+  store ptr @error, ptr %0, align 8, !tbaa !3
+  br label %common.exit
+
+common.exit:                                      ; preds = %26, %21, %13, %5, %20, %19
+  %.020 = phi i32 [ 33, %20 ], [ %15, %13 ], [ 33, %19 ], [ 33, %5 ], [ -1, %26 ], [ 59, %21 ]
+  ret i32 %.020
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 60) i32 @attlist8(ptr noundef captures(none) %state, i32 noundef %tok, ptr noundef %ptr, ptr noundef %end, ptr noundef %enc) #1 {
-entry:
-  switch i32 %tok, label %sw.epilog [
-    i32 15, label %return
-    i32 20, label %sw.bb1
-    i32 27, label %return.sink.split
+define internal range(i32 -1, 60) i32 @attlist8(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #1 {
+  switch i32 %1, label %26 [
+    i32 15, label %common.exit
+    i32 20, label %6
+    i32 27, label %common.exit.sink.split
   ]
 
-sw.bb1:                                           ; preds = %entry
-  %nameMatchesAscii = getelementptr inbounds nuw i8, ptr %enc, i64 48
-  %0 = load ptr, ptr %nameMatchesAscii, align 8
-  %minBytesPerChar = getelementptr inbounds nuw i8, ptr %enc, i64 128
-  %1 = load i32, ptr %minBytesPerChar, align 8
-  %idx.ext = sext i32 %1 to i64
-  %add.ptr = getelementptr i8, ptr %ptr, i64 %idx.ext
-  %call = tail call i32 %0(ptr noundef %enc, ptr noundef %add.ptr, ptr noundef %end, ptr noundef nonnull @KW_IMPLIED) #5
-  %tobool.not = icmp eq i32 %call, 0
-  br i1 %tobool.not, label %if.end, label %return.sink.split
+6:                                                ; preds = %5
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 48
+  %8 = load ptr, ptr %7, align 8, !tbaa !12
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 128
+  %10 = load i32, ptr %9, align 8, !tbaa !14
+  %11 = sext i32 %10 to i64
+  %12 = getelementptr i8, ptr %2, i64 %11
+  %13 = tail call i32 %8(ptr noundef %4, ptr noundef %12, ptr noundef %3, ptr noundef nonnull @KW_IMPLIED) #5
+  %.not = icmp eq i32 %13, 0
+  br i1 %.not, label %14, label %common.exit.sink.split
 
-if.end:                                           ; preds = %sw.bb1
-  %2 = load ptr, ptr %nameMatchesAscii, align 8
-  %3 = load i32, ptr %minBytesPerChar, align 8
-  %idx.ext4 = sext i32 %3 to i64
-  %add.ptr5 = getelementptr i8, ptr %ptr, i64 %idx.ext4
-  %call6 = tail call i32 %2(ptr noundef nonnull %enc, ptr noundef %add.ptr5, ptr noundef %end, ptr noundef nonnull @KW_REQUIRED) #5
-  %tobool7.not = icmp eq i32 %call6, 0
-  br i1 %tobool7.not, label %if.end10, label %return.sink.split
+14:                                               ; preds = %6
+  %15 = load ptr, ptr %7, align 8, !tbaa !12
+  %16 = load i32, ptr %9, align 8, !tbaa !14
+  %17 = sext i32 %16 to i64
+  %18 = getelementptr i8, ptr %2, i64 %17
+  %19 = tail call i32 %15(ptr noundef nonnull %4, ptr noundef %18, ptr noundef %3, ptr noundef nonnull @KW_REQUIRED) #5
+  %.not22 = icmp eq i32 %19, 0
+  br i1 %.not22, label %20, label %common.exit.sink.split
 
-if.end10:                                         ; preds = %if.end
-  %4 = load ptr, ptr %nameMatchesAscii, align 8
-  %5 = load i32, ptr %minBytesPerChar, align 8
-  %idx.ext13 = sext i32 %5 to i64
-  %add.ptr14 = getelementptr i8, ptr %ptr, i64 %idx.ext13
-  %call15 = tail call i32 %4(ptr noundef nonnull %enc, ptr noundef %add.ptr14, ptr noundef %end, ptr noundef nonnull @KW_FIXED) #5
-  %tobool16.not = icmp eq i32 %call15, 0
-  br i1 %tobool16.not, label %if.end.i, label %return.sink.split
+20:                                               ; preds = %14
+  %21 = load ptr, ptr %7, align 8, !tbaa !12
+  %22 = load i32, ptr %9, align 8, !tbaa !14
+  %23 = sext i32 %22 to i64
+  %24 = getelementptr i8, ptr %2, i64 %23
+  %25 = tail call i32 %21(ptr noundef nonnull %4, ptr noundef %24, ptr noundef %3, ptr noundef nonnull @KW_FIXED) #5
+  %.not23 = icmp eq i32 %25, 0
+  br i1 %.not23, label %.thread, label %common.exit.sink.split
 
-sw.epilog:                                        ; preds = %entry
-  %documentEntity.i = getelementptr inbounds nuw i8, ptr %state, i64 20
-  %6 = load i32, ptr %documentEntity.i, align 4
-  %tobool.i = icmp eq i32 %6, 0
-  %cmp.i = icmp eq i32 %tok, 28
-  %or.cond.i = and i1 %cmp.i, %tobool.i
-  br i1 %or.cond.i, label %return, label %if.end.i
+26:                                               ; preds = %5
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  %28 = load i32, ptr %27, align 4, !tbaa !9
+  %29 = icmp eq i32 %28, 0
+  %30 = icmp eq i32 %1, 28
+  %or.cond.i = and i1 %30, %29
+  br i1 %or.cond.i, label %common.exit, label %.thread
 
-if.end.i:                                         ; preds = %if.end10, %sw.epilog
-  br label %return.sink.split
+.thread:                                          ; preds = %20, %26
+  br label %common.exit.sink.split
 
-return.sink.split:                                ; preds = %entry, %if.end10, %if.end, %sw.bb1, %if.end.i
-  %error.sink = phi ptr [ @error, %if.end.i ], [ @attlist1, %sw.bb1 ], [ @attlist1, %if.end ], [ @attlist9, %if.end10 ], [ @attlist1, %entry ]
-  %retval.0.ph = phi i32 [ -1, %if.end.i ], [ 35, %sw.bb1 ], [ 36, %if.end ], [ 33, %if.end10 ], [ 37, %entry ]
-  store ptr %error.sink, ptr %state, align 8
-  br label %return
+common.exit.sink.split:                           ; preds = %5, %20, %14, %6, %.thread
+  %error.sink = phi ptr [ @error, %.thread ], [ @attlist1, %6 ], [ @attlist1, %14 ], [ @attlist9, %20 ], [ @attlist1, %5 ]
+  %.0.ph = phi i32 [ -1, %.thread ], [ 35, %6 ], [ 36, %14 ], [ 33, %20 ], [ 37, %5 ]
+  store ptr %error.sink, ptr %0, align 8, !tbaa !3
+  br label %common.exit
 
-return:                                           ; preds = %return.sink.split, %sw.epilog, %entry
-  %retval.0 = phi i32 [ 33, %entry ], [ 59, %sw.epilog ], [ %retval.0.ph, %return.sink.split ]
-  ret i32 %retval.0
+common.exit:                                      ; preds = %common.exit.sink.split, %26, %5
+  %.0 = phi i32 [ 33, %5 ], [ 59, %26 ], [ %.0.ph, %common.exit.sink.split ]
+  ret i32 %.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal range(i32 -1, 60) i32 @attlist5(ptr noundef captures(none) %state, i32 noundef %tok, ptr readnone captures(none) %ptr, ptr readnone captures(none) %end, ptr readnone captures(none) %enc) #2 {
-entry:
-  switch i32 %tok, label %sw.epilog [
-    i32 15, label %return
-    i32 23, label %return.sink.split
+define internal range(i32 -1, 60) i32 @attlist5(ptr noundef captures(none) %0, i32 noundef %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #2 {
+  switch i32 %1, label %6 [
+    i32 15, label %common.exit
+    i32 23, label %common.exit.sink.split
   ]
 
-sw.epilog:                                        ; preds = %entry
-  %documentEntity.i = getelementptr inbounds nuw i8, ptr %state, i64 20
-  %0 = load i32, ptr %documentEntity.i, align 4
-  %tobool.i = icmp eq i32 %0, 0
-  %cmp.i = icmp eq i32 %tok, 28
-  %or.cond.i = and i1 %cmp.i, %tobool.i
-  br i1 %or.cond.i, label %return, label %return.sink.split
+6:                                                ; preds = %5
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  %8 = load i32, ptr %7, align 4, !tbaa !9
+  %9 = icmp eq i32 %8, 0
+  %10 = icmp eq i32 %1, 28
+  %or.cond.i = and i1 %10, %9
+  br i1 %or.cond.i, label %common.exit, label %common.exit.sink.split
 
-return.sink.split:                                ; preds = %sw.epilog, %entry
-  %error.sink = phi ptr [ @attlist6, %entry ], [ @error, %sw.epilog ]
-  %retval.0.ph = phi i32 [ 33, %entry ], [ -1, %sw.epilog ]
-  store ptr %error.sink, ptr %state, align 8
-  br label %return
+common.exit.sink.split:                           ; preds = %6, %5
+  %error.sink = phi ptr [ @attlist6, %5 ], [ @error, %6 ]
+  %.0.ph = phi i32 [ 33, %5 ], [ -1, %6 ]
+  store ptr %error.sink, ptr %0, align 8, !tbaa !3
+  br label %common.exit
 
-return:                                           ; preds = %return.sink.split, %sw.epilog, %entry
-  %retval.0 = phi i32 [ 33, %entry ], [ 59, %sw.epilog ], [ %retval.0.ph, %return.sink.split ]
-  ret i32 %retval.0
+common.exit:                                      ; preds = %common.exit.sink.split, %6, %5
+  %.0 = phi i32 [ 33, %5 ], [ 59, %6 ], [ %.0.ph, %common.exit.sink.split ]
+  ret i32 %.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal range(i32 -1, 60) i32 @attlist3(ptr noundef captures(none) %state, i32 noundef %tok, ptr readnone captures(none) %ptr, ptr readnone captures(none) %end, ptr readnone captures(none) %enc) #2 {
-entry:
-  switch i32 %tok, label %sw.epilog [
-    i32 15, label %return
-    i32 19, label %return.sink.split
-    i32 18, label %return.sink.split
-    i32 41, label %return.sink.split
+define internal range(i32 -1, 60) i32 @attlist3(ptr noundef captures(none) %0, i32 noundef %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #2 {
+  switch i32 %1, label %6 [
+    i32 15, label %common.exit
+    i32 19, label %common.exit.sink.split
+    i32 18, label %common.exit.sink.split
+    i32 41, label %common.exit.sink.split
   ]
 
-sw.epilog:                                        ; preds = %entry
-  %documentEntity.i = getelementptr inbounds nuw i8, ptr %state, i64 20
-  %0 = load i32, ptr %documentEntity.i, align 4
-  %tobool.i = icmp eq i32 %0, 0
-  %cmp.i = icmp eq i32 %tok, 28
-  %or.cond.i = and i1 %cmp.i, %tobool.i
-  br i1 %or.cond.i, label %return, label %return.sink.split
+6:                                                ; preds = %5
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  %8 = load i32, ptr %7, align 4, !tbaa !9
+  %9 = icmp eq i32 %8, 0
+  %10 = icmp eq i32 %1, 28
+  %or.cond.i = and i1 %10, %9
+  br i1 %or.cond.i, label %common.exit, label %common.exit.sink.split
 
-return.sink.split:                                ; preds = %sw.epilog, %entry, %entry, %entry
-  %error.sink = phi ptr [ @attlist4, %entry ], [ @attlist4, %entry ], [ @attlist4, %entry ], [ @error, %sw.epilog ]
-  %retval.0.ph = phi i32 [ 31, %entry ], [ 31, %entry ], [ 31, %entry ], [ -1, %sw.epilog ]
-  store ptr %error.sink, ptr %state, align 8
-  br label %return
+common.exit.sink.split:                           ; preds = %6, %5, %5, %5
+  %error.sink = phi ptr [ @attlist4, %5 ], [ @attlist4, %5 ], [ @attlist4, %5 ], [ @error, %6 ]
+  %.0.ph = phi i32 [ 31, %5 ], [ 31, %5 ], [ 31, %5 ], [ -1, %6 ]
+  store ptr %error.sink, ptr %0, align 8, !tbaa !3
+  br label %common.exit
 
-return:                                           ; preds = %return.sink.split, %sw.epilog, %entry
-  %retval.0 = phi i32 [ 33, %entry ], [ 59, %sw.epilog ], [ %retval.0.ph, %return.sink.split ]
-  ret i32 %retval.0
+common.exit:                                      ; preds = %common.exit.sink.split, %6, %5
+  %.0 = phi i32 [ 33, %5 ], [ 59, %6 ], [ %.0.ph, %common.exit.sink.split ]
+  ret i32 %.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal range(i32 -1, 60) i32 @attlist9(ptr noundef captures(none) %state, i32 noundef %tok, ptr readnone captures(none) %ptr, ptr readnone captures(none) %end, ptr readnone captures(none) %enc) #2 {
-entry:
-  switch i32 %tok, label %sw.epilog [
-    i32 15, label %return
-    i32 27, label %return.sink.split
+define internal range(i32 -1, 60) i32 @attlist9(ptr noundef captures(none) %0, i32 noundef %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #2 {
+  switch i32 %1, label %6 [
+    i32 15, label %common.exit
+    i32 27, label %common.exit.sink.split
   ]
 
-sw.epilog:                                        ; preds = %entry
-  %documentEntity.i = getelementptr inbounds nuw i8, ptr %state, i64 20
-  %0 = load i32, ptr %documentEntity.i, align 4
-  %tobool.i = icmp eq i32 %0, 0
-  %cmp.i = icmp eq i32 %tok, 28
-  %or.cond.i = and i1 %cmp.i, %tobool.i
-  br i1 %or.cond.i, label %return, label %return.sink.split
+6:                                                ; preds = %5
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  %8 = load i32, ptr %7, align 4, !tbaa !9
+  %9 = icmp eq i32 %8, 0
+  %10 = icmp eq i32 %1, 28
+  %or.cond.i = and i1 %10, %9
+  br i1 %or.cond.i, label %common.exit, label %common.exit.sink.split
 
-return.sink.split:                                ; preds = %sw.epilog, %entry
-  %error.sink = phi ptr [ @attlist1, %entry ], [ @error, %sw.epilog ]
-  %retval.0.ph = phi i32 [ 38, %entry ], [ -1, %sw.epilog ]
-  store ptr %error.sink, ptr %state, align 8
-  br label %return
+common.exit.sink.split:                           ; preds = %6, %5
+  %error.sink = phi ptr [ @attlist1, %5 ], [ @error, %6 ]
+  %.0.ph = phi i32 [ 38, %5 ], [ -1, %6 ]
+  store ptr %error.sink, ptr %0, align 8, !tbaa !3
+  br label %common.exit
 
-return:                                           ; preds = %return.sink.split, %sw.epilog, %entry
-  %retval.0 = phi i32 [ 33, %entry ], [ 59, %sw.epilog ], [ %retval.0.ph, %return.sink.split ]
-  ret i32 %retval.0
+common.exit:                                      ; preds = %common.exit.sink.split, %6, %5
+  %.0 = phi i32 [ 33, %5 ], [ 59, %6 ], [ %.0.ph, %common.exit.sink.split ]
+  ret i32 %.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal range(i32 -1, 60) i32 @attlist6(ptr noundef captures(none) %state, i32 noundef %tok, ptr readnone captures(none) %ptr, ptr readnone captures(none) %end, ptr readnone captures(none) %enc) #2 {
-entry:
-  switch i32 %tok, label %sw.epilog [
-    i32 15, label %return
-    i32 18, label %return.sink.split
+define internal range(i32 -1, 60) i32 @attlist6(ptr noundef captures(none) %0, i32 noundef %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #2 {
+  switch i32 %1, label %6 [
+    i32 15, label %common.exit
+    i32 18, label %common.exit.sink.split
   ]
 
-sw.epilog:                                        ; preds = %entry
-  %documentEntity.i = getelementptr inbounds nuw i8, ptr %state, i64 20
-  %0 = load i32, ptr %documentEntity.i, align 4
-  %tobool.i = icmp eq i32 %0, 0
-  %cmp.i = icmp eq i32 %tok, 28
-  %or.cond.i = and i1 %cmp.i, %tobool.i
-  br i1 %or.cond.i, label %return, label %return.sink.split
+6:                                                ; preds = %5
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  %8 = load i32, ptr %7, align 4, !tbaa !9
+  %9 = icmp eq i32 %8, 0
+  %10 = icmp eq i32 %1, 28
+  %or.cond.i = and i1 %10, %9
+  br i1 %or.cond.i, label %common.exit, label %common.exit.sink.split
 
-return.sink.split:                                ; preds = %sw.epilog, %entry
-  %error.sink = phi ptr [ @attlist7, %entry ], [ @error, %sw.epilog ]
-  %retval.0.ph = phi i32 [ 32, %entry ], [ -1, %sw.epilog ]
-  store ptr %error.sink, ptr %state, align 8
-  br label %return
+common.exit.sink.split:                           ; preds = %6, %5
+  %error.sink = phi ptr [ @attlist7, %5 ], [ @error, %6 ]
+  %.0.ph = phi i32 [ 32, %5 ], [ -1, %6 ]
+  store ptr %error.sink, ptr %0, align 8, !tbaa !3
+  br label %common.exit
 
-return:                                           ; preds = %return.sink.split, %sw.epilog, %entry
-  %retval.0 = phi i32 [ 33, %entry ], [ 59, %sw.epilog ], [ %retval.0.ph, %return.sink.split ]
-  ret i32 %retval.0
+common.exit:                                      ; preds = %common.exit.sink.split, %6, %5
+  %.0 = phi i32 [ 33, %5 ], [ 59, %6 ], [ %.0.ph, %common.exit.sink.split ]
+  ret i32 %.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal range(i32 -1, 60) i32 @attlist7(ptr noundef captures(none) %state, i32 noundef %tok, ptr readnone captures(none) %ptr, ptr readnone captures(none) %end, ptr readnone captures(none) %enc) #2 {
-entry:
-  switch i32 %tok, label %sw.epilog [
-    i32 15, label %return
-    i32 24, label %return.sink.split
-    i32 21, label %sw.bb2
+define internal range(i32 -1, 60) i32 @attlist7(ptr noundef captures(none) %0, i32 noundef %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #2 {
+  switch i32 %1, label %7 [
+    i32 15, label %common.exit
+    i32 24, label %common.exit.sink.split
+    i32 21, label %6
   ]
 
-sw.bb2:                                           ; preds = %entry
-  br label %return.sink.split
+6:                                                ; preds = %5
+  br label %common.exit.sink.split
 
-sw.epilog:                                        ; preds = %entry
-  %documentEntity.i = getelementptr inbounds nuw i8, ptr %state, i64 20
-  %0 = load i32, ptr %documentEntity.i, align 4
-  %tobool.i = icmp eq i32 %0, 0
-  %cmp.i = icmp eq i32 %tok, 28
-  %or.cond.i = and i1 %cmp.i, %tobool.i
-  br i1 %or.cond.i, label %return, label %return.sink.split
+7:                                                ; preds = %5
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  %9 = load i32, ptr %8, align 4, !tbaa !9
+  %10 = icmp eq i32 %9, 0
+  %11 = icmp eq i32 %1, 28
+  %or.cond.i = and i1 %11, %10
+  br i1 %or.cond.i, label %common.exit, label %common.exit.sink.split
 
-return.sink.split:                                ; preds = %sw.epilog, %entry, %sw.bb2
-  %error.sink = phi ptr [ @attlist6, %sw.bb2 ], [ @attlist8, %entry ], [ @error, %sw.epilog ]
-  %retval.0.ph = phi i32 [ 33, %sw.bb2 ], [ 33, %entry ], [ -1, %sw.epilog ]
-  store ptr %error.sink, ptr %state, align 8
-  br label %return
+common.exit.sink.split:                           ; preds = %7, %5, %6
+  %error.sink = phi ptr [ @attlist6, %6 ], [ @attlist8, %5 ], [ @error, %7 ]
+  %.0.ph = phi i32 [ 33, %6 ], [ 33, %5 ], [ -1, %7 ]
+  store ptr %error.sink, ptr %0, align 8, !tbaa !3
+  br label %common.exit
 
-return:                                           ; preds = %return.sink.split, %sw.epilog, %entry
-  %retval.0 = phi i32 [ 33, %entry ], [ 59, %sw.epilog ], [ %retval.0.ph, %return.sink.split ]
-  ret i32 %retval.0
+common.exit:                                      ; preds = %common.exit.sink.split, %7, %5
+  %.0 = phi i32 [ 33, %5 ], [ 59, %7 ], [ %.0.ph, %common.exit.sink.split ]
+  ret i32 %.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal range(i32 -1, 60) i32 @attlist4(ptr noundef captures(none) %state, i32 noundef %tok, ptr readnone captures(none) %ptr, ptr readnone captures(none) %end, ptr readnone captures(none) %enc) #2 {
-entry:
-  switch i32 %tok, label %sw.epilog [
-    i32 15, label %return
-    i32 24, label %return.sink.split
-    i32 21, label %sw.bb2
+define internal range(i32 -1, 60) i32 @attlist4(ptr noundef captures(none) %0, i32 noundef %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #2 {
+  switch i32 %1, label %7 [
+    i32 15, label %common.exit
+    i32 24, label %common.exit.sink.split
+    i32 21, label %6
   ]
 
-sw.bb2:                                           ; preds = %entry
-  br label %return.sink.split
+6:                                                ; preds = %5
+  br label %common.exit.sink.split
 
-sw.epilog:                                        ; preds = %entry
-  %documentEntity.i = getelementptr inbounds nuw i8, ptr %state, i64 20
-  %0 = load i32, ptr %documentEntity.i, align 4
-  %tobool.i = icmp eq i32 %0, 0
-  %cmp.i = icmp eq i32 %tok, 28
-  %or.cond.i = and i1 %cmp.i, %tobool.i
-  br i1 %or.cond.i, label %return, label %return.sink.split
+7:                                                ; preds = %5
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  %9 = load i32, ptr %8, align 4, !tbaa !9
+  %10 = icmp eq i32 %9, 0
+  %11 = icmp eq i32 %1, 28
+  %or.cond.i = and i1 %11, %10
+  br i1 %or.cond.i, label %common.exit, label %common.exit.sink.split
 
-return.sink.split:                                ; preds = %sw.epilog, %entry, %sw.bb2
-  %error.sink = phi ptr [ @attlist3, %sw.bb2 ], [ @attlist8, %entry ], [ @error, %sw.epilog ]
-  %retval.0.ph = phi i32 [ 33, %sw.bb2 ], [ 33, %entry ], [ -1, %sw.epilog ]
-  store ptr %error.sink, ptr %state, align 8
-  br label %return
+common.exit.sink.split:                           ; preds = %7, %5, %6
+  %error.sink = phi ptr [ @attlist3, %6 ], [ @attlist8, %5 ], [ @error, %7 ]
+  %.0.ph = phi i32 [ 33, %6 ], [ 33, %5 ], [ -1, %7 ]
+  store ptr %error.sink, ptr %0, align 8, !tbaa !3
+  br label %common.exit
 
-return:                                           ; preds = %return.sink.split, %sw.epilog, %entry
-  %retval.0 = phi i32 [ 33, %entry ], [ 59, %sw.epilog ], [ %retval.0.ph, %return.sink.split ]
-  ret i32 %retval.0
+common.exit:                                      ; preds = %common.exit.sink.split, %7, %5
+  %.0 = phi i32 [ 33, %5 ], [ 59, %7 ], [ %.0.ph, %common.exit.sink.split ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 60) i32 @element1(ptr noundef captures(none) %state, i32 noundef %tok, ptr noundef %ptr, ptr noundef %end, ptr noundef %enc) #1 {
-entry:
-  switch i32 %tok, label %sw.epilog [
-    i32 15, label %return
-    i32 18, label %sw.bb1
-    i32 23, label %sw.bb9
+define internal range(i32 -1, 60) i32 @element1(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #1 {
+  switch i32 %1, label %19 [
+    i32 15, label %common.exit
+    i32 18, label %6
+    i32 23, label %17
   ]
 
-sw.bb1:                                           ; preds = %entry
-  %nameMatchesAscii = getelementptr inbounds nuw i8, ptr %enc, i64 48
-  %0 = load ptr, ptr %nameMatchesAscii, align 8
-  %call = tail call i32 %0(ptr noundef %enc, ptr noundef %ptr, ptr noundef %end, ptr noundef nonnull @KW_EMPTY) #5
-  %tobool.not = icmp eq i32 %call, 0
-  br i1 %tobool.not, label %if.end, label %if.then
+6:                                                ; preds = %5
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 48
+  %8 = load ptr, ptr %7, align 8, !tbaa !12
+  %9 = tail call i32 %8(ptr noundef %4, ptr noundef %2, ptr noundef %3, ptr noundef nonnull @KW_EMPTY) #5
+  %.not = icmp eq i32 %9, 0
+  br i1 %.not, label %12, label %10
 
-if.then:                                          ; preds = %sw.bb1
-  store ptr @declClose, ptr %state, align 8
-  %role_none = getelementptr inbounds nuw i8, ptr %state, i64 12
-  store i32 39, ptr %role_none, align 4
-  br label %return
+10:                                               ; preds = %6
+  store ptr @declClose, ptr %0, align 8, !tbaa !3
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  store i32 39, ptr %11, align 4, !tbaa !15
+  br label %common.exit
 
-if.end:                                           ; preds = %sw.bb1
-  %1 = load ptr, ptr %nameMatchesAscii, align 8
-  %call3 = tail call i32 %1(ptr noundef nonnull %enc, ptr noundef %ptr, ptr noundef %end, ptr noundef nonnull @KW_ANY) #5
-  %tobool4.not = icmp eq i32 %call3, 0
-  br i1 %tobool4.not, label %if.end.i, label %if.then5
+12:                                               ; preds = %6
+  %13 = load ptr, ptr %7, align 8, !tbaa !12
+  %14 = tail call i32 %13(ptr noundef nonnull %4, ptr noundef %2, ptr noundef %3, ptr noundef nonnull @KW_ANY) #5
+  %.not17 = icmp eq i32 %14, 0
+  br i1 %.not17, label %.thread, label %15
 
-if.then5:                                         ; preds = %if.end
-  store ptr @declClose, ptr %state, align 8
-  %role_none7 = getelementptr inbounds nuw i8, ptr %state, i64 12
-  store i32 39, ptr %role_none7, align 4
-  br label %return
+15:                                               ; preds = %12
+  store ptr @declClose, ptr %0, align 8, !tbaa !3
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  store i32 39, ptr %16, align 4, !tbaa !15
+  br label %common.exit
 
-sw.bb9:                                           ; preds = %entry
-  store ptr @element2, ptr %state, align 8
-  %level = getelementptr inbounds nuw i8, ptr %state, i64 8
-  store i32 1, ptr %level, align 8
-  br label %return
+17:                                               ; preds = %5
+  store ptr @element2, ptr %0, align 8, !tbaa !3
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i32 1, ptr %18, align 8, !tbaa !20
+  br label %common.exit
 
-sw.epilog:                                        ; preds = %entry
-  %documentEntity.i = getelementptr inbounds nuw i8, ptr %state, i64 20
-  %2 = load i32, ptr %documentEntity.i, align 4
-  %tobool.i = icmp eq i32 %2, 0
-  %cmp.i = icmp eq i32 %tok, 28
-  %or.cond.i = and i1 %cmp.i, %tobool.i
-  br i1 %or.cond.i, label %return, label %if.end.i
+19:                                               ; preds = %5
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  %21 = load i32, ptr %20, align 4, !tbaa !9
+  %22 = icmp eq i32 %21, 0
+  %23 = icmp eq i32 %1, 28
+  %or.cond.i = and i1 %23, %22
+  br i1 %or.cond.i, label %common.exit, label %.thread
 
-if.end.i:                                         ; preds = %if.end, %sw.epilog
-  store ptr @error, ptr %state, align 8
-  br label %return
+.thread:                                          ; preds = %12, %19
+  store ptr @error, ptr %0, align 8, !tbaa !3
+  br label %common.exit
 
-return:                                           ; preds = %if.end.i, %sw.epilog, %entry, %sw.bb9, %if.then5, %if.then
-  %retval.0 = phi i32 [ 44, %sw.bb9 ], [ 42, %if.then ], [ 41, %if.then5 ], [ 39, %entry ], [ -1, %if.end.i ], [ 59, %sw.epilog ]
-  ret i32 %retval.0
+common.exit:                                      ; preds = %.thread, %19, %5, %17, %15, %10
+  %.0 = phi i32 [ 44, %17 ], [ 42, %10 ], [ 41, %15 ], [ 39, %5 ], [ -1, %.thread ], [ 59, %19 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 60) i32 @element2(ptr noundef captures(none) %state, i32 noundef %tok, ptr noundef %ptr, ptr noundef %end, ptr noundef %enc) #1 {
-entry:
-  switch i32 %tok, label %sw.epilog [
-    i32 15, label %return
-    i32 20, label %sw.bb1
-    i32 23, label %sw.bb2
-    i32 18, label %return.sink.split
-    i32 41, label %return.sink.split
-    i32 30, label %sw.bb6
-    i32 31, label %sw.bb8
-    i32 32, label %sw.bb10
+define internal range(i32 -1, 60) i32 @element2(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #1 {
+  switch i32 %1, label %19 [
+    i32 15, label %common.exit
+    i32 20, label %6
+    i32 23, label %14
+    i32 18, label %common.exit.sink.split
+    i32 41, label %common.exit.sink.split
+    i32 30, label %16
+    i32 31, label %17
+    i32 32, label %18
   ]
 
-sw.bb1:                                           ; preds = %entry
-  %nameMatchesAscii = getelementptr inbounds nuw i8, ptr %enc, i64 48
-  %0 = load ptr, ptr %nameMatchesAscii, align 8
-  %minBytesPerChar = getelementptr inbounds nuw i8, ptr %enc, i64 128
-  %1 = load i32, ptr %minBytesPerChar, align 8
-  %idx.ext = sext i32 %1 to i64
-  %add.ptr = getelementptr i8, ptr %ptr, i64 %idx.ext
-  %call = tail call i32 %0(ptr noundef %enc, ptr noundef %add.ptr, ptr noundef %end, ptr noundef nonnull @KW_PCDATA) #5
-  %tobool.not = icmp eq i32 %call, 0
-  br i1 %tobool.not, label %if.end.i, label %return.sink.split
+6:                                                ; preds = %5
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 48
+  %8 = load ptr, ptr %7, align 8, !tbaa !12
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 128
+  %10 = load i32, ptr %9, align 8, !tbaa !14
+  %11 = sext i32 %10 to i64
+  %12 = getelementptr i8, ptr %2, i64 %11
+  %13 = tail call i32 %8(ptr noundef %4, ptr noundef %12, ptr noundef %3, ptr noundef nonnull @KW_PCDATA) #5
+  %.not = icmp eq i32 %13, 0
+  br i1 %.not, label %.thread, label %common.exit.sink.split
 
-sw.bb2:                                           ; preds = %entry
-  %level = getelementptr inbounds nuw i8, ptr %state, i64 8
-  store i32 2, ptr %level, align 8
-  br label %return.sink.split
+14:                                               ; preds = %5
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i32 2, ptr %15, align 8, !tbaa !20
+  br label %common.exit.sink.split
 
-sw.bb6:                                           ; preds = %entry
-  br label %return.sink.split
+16:                                               ; preds = %5
+  br label %common.exit.sink.split
 
-sw.bb8:                                           ; preds = %entry
-  br label %return.sink.split
+17:                                               ; preds = %5
+  br label %common.exit.sink.split
 
-sw.bb10:                                          ; preds = %entry
-  br label %return.sink.split
+18:                                               ; preds = %5
+  br label %common.exit.sink.split
 
-sw.epilog:                                        ; preds = %entry
-  %documentEntity.i = getelementptr inbounds nuw i8, ptr %state, i64 20
-  %2 = load i32, ptr %documentEntity.i, align 4
-  %tobool.i = icmp eq i32 %2, 0
-  %cmp.i = icmp eq i32 %tok, 28
-  %or.cond.i = and i1 %cmp.i, %tobool.i
-  br i1 %or.cond.i, label %return, label %if.end.i
+19:                                               ; preds = %5
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  %21 = load i32, ptr %20, align 4, !tbaa !9
+  %22 = icmp eq i32 %21, 0
+  %23 = icmp eq i32 %1, 28
+  %or.cond.i = and i1 %23, %22
+  br i1 %or.cond.i, label %common.exit, label %.thread
 
-if.end.i:                                         ; preds = %sw.bb1, %sw.epilog
-  br label %return.sink.split
+.thread:                                          ; preds = %6, %19
+  br label %common.exit.sink.split
 
-return.sink.split:                                ; preds = %entry, %entry, %sw.bb1, %sw.bb2, %sw.bb6, %sw.bb8, %sw.bb10, %if.end.i
-  %error.sink = phi ptr [ @error, %if.end.i ], [ @element7, %sw.bb10 ], [ @element7, %sw.bb8 ], [ @element7, %sw.bb6 ], [ @element6, %sw.bb2 ], [ @element3, %sw.bb1 ], [ @element7, %entry ], [ @element7, %entry ]
-  %retval.0.ph = phi i32 [ -1, %if.end.i ], [ 54, %sw.bb10 ], [ 52, %sw.bb8 ], [ 53, %sw.bb6 ], [ 44, %sw.bb2 ], [ 43, %sw.bb1 ], [ 51, %entry ], [ 51, %entry ]
-  store ptr %error.sink, ptr %state, align 8
-  br label %return
+common.exit.sink.split:                           ; preds = %5, %5, %6, %14, %16, %17, %18, %.thread
+  %error.sink = phi ptr [ @error, %.thread ], [ @element7, %18 ], [ @element7, %17 ], [ @element7, %16 ], [ @element6, %14 ], [ @element3, %6 ], [ @element7, %5 ], [ @element7, %5 ]
+  %.0.ph = phi i32 [ -1, %.thread ], [ 54, %18 ], [ 52, %17 ], [ 53, %16 ], [ 44, %14 ], [ 43, %6 ], [ 51, %5 ], [ 51, %5 ]
+  store ptr %error.sink, ptr %0, align 8, !tbaa !3
+  br label %common.exit
 
-return:                                           ; preds = %return.sink.split, %sw.epilog, %entry
-  %retval.0 = phi i32 [ 39, %entry ], [ 59, %sw.epilog ], [ %retval.0.ph, %return.sink.split ]
-  ret i32 %retval.0
+common.exit:                                      ; preds = %common.exit.sink.split, %19, %5
+  %.0 = phi i32 [ 39, %5 ], [ 59, %19 ], [ %.0.ph, %common.exit.sink.split ]
+  ret i32 %.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal range(i32 -1, 60) i32 @element3(ptr noundef captures(none) %state, i32 noundef %tok, ptr readnone captures(none) %ptr, ptr readnone captures(none) %end, ptr readnone captures(none) %enc) #2 {
-entry:
-  switch i32 %tok, label %sw.epilog [
-    i32 15, label %return
-    i32 24, label %sw.bb1
-    i32 36, label %sw.bb2
-    i32 21, label %sw.bb5
+define internal range(i32 -1, 60) i32 @element3(ptr noundef captures(none) %0, i32 noundef %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #2 {
+  switch i32 %1, label %11 [
+    i32 15, label %common.exit
+    i32 24, label %6
+    i32 36, label %8
+    i32 21, label %10
   ]
 
-sw.bb1:                                           ; preds = %entry
-  store ptr @declClose, ptr %state, align 8
-  %role_none = getelementptr inbounds nuw i8, ptr %state, i64 12
-  store i32 39, ptr %role_none, align 4
-  br label %return
+6:                                                ; preds = %5
+  store ptr @declClose, ptr %0, align 8, !tbaa !3
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  store i32 39, ptr %7, align 4, !tbaa !15
+  br label %common.exit
 
-sw.bb2:                                           ; preds = %entry
-  store ptr @declClose, ptr %state, align 8
-  %role_none4 = getelementptr inbounds nuw i8, ptr %state, i64 12
-  store i32 39, ptr %role_none4, align 4
-  br label %return
+8:                                                ; preds = %5
+  store ptr @declClose, ptr %0, align 8, !tbaa !3
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  store i32 39, ptr %9, align 4, !tbaa !15
+  br label %common.exit
 
-sw.bb5:                                           ; preds = %entry
-  store ptr @element4, ptr %state, align 8
-  br label %return
+10:                                               ; preds = %5
+  store ptr @element4, ptr %0, align 8, !tbaa !3
+  br label %common.exit
 
-sw.epilog:                                        ; preds = %entry
-  %documentEntity.i = getelementptr inbounds nuw i8, ptr %state, i64 20
-  %0 = load i32, ptr %documentEntity.i, align 4
-  %tobool.i = icmp eq i32 %0, 0
-  %cmp.i = icmp eq i32 %tok, 28
-  %or.cond.i = and i1 %cmp.i, %tobool.i
-  br i1 %or.cond.i, label %return, label %if.end.i
+11:                                               ; preds = %5
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  %13 = load i32, ptr %12, align 4, !tbaa !9
+  %14 = icmp eq i32 %13, 0
+  %15 = icmp eq i32 %1, 28
+  %or.cond.i = and i1 %15, %14
+  br i1 %or.cond.i, label %common.exit, label %16
 
-if.end.i:                                         ; preds = %sw.epilog
-  store ptr @error, ptr %state, align 8
-  br label %return
+16:                                               ; preds = %11
+  store ptr @error, ptr %0, align 8, !tbaa !3
+  br label %common.exit
 
-return:                                           ; preds = %if.end.i, %sw.epilog, %entry, %sw.bb5, %sw.bb2, %sw.bb1
-  %retval.0 = phi i32 [ 39, %sw.bb5 ], [ 46, %sw.bb2 ], [ 45, %sw.bb1 ], [ 39, %entry ], [ -1, %if.end.i ], [ 59, %sw.epilog ]
-  ret i32 %retval.0
+common.exit:                                      ; preds = %16, %11, %5, %10, %8, %6
+  %.0 = phi i32 [ 39, %10 ], [ 46, %8 ], [ 45, %6 ], [ 39, %5 ], [ -1, %16 ], [ 59, %11 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal range(i32 -1, 60) i32 @element6(ptr noundef captures(none) %state, i32 noundef %tok, ptr readnone captures(none) %ptr, ptr readnone captures(none) %end, ptr readnone captures(none) %enc) #2 {
-entry:
-  switch i32 %tok, label %sw.epilog [
-    i32 15, label %return
-    i32 23, label %sw.bb1
-    i32 18, label %sw.bb2
-    i32 41, label %sw.bb2
-    i32 30, label %sw.bb3
-    i32 31, label %sw.bb5
-    i32 32, label %sw.bb7
+define internal range(i32 -1, 60) i32 @element6(ptr noundef captures(none) %0, i32 noundef %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #2 {
+  switch i32 %1, label %14 [
+    i32 15, label %common.exit
+    i32 23, label %6
+    i32 18, label %10
+    i32 41, label %10
+    i32 30, label %11
+    i32 31, label %12
+    i32 32, label %13
   ]
 
-sw.bb1:                                           ; preds = %entry
-  %level = getelementptr inbounds nuw i8, ptr %state, i64 8
-  %0 = load i32, ptr %level, align 8
-  %add = add i32 %0, 1
-  store i32 %add, ptr %level, align 8
-  br label %return
+6:                                                ; preds = %5
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %8 = load i32, ptr %7, align 8, !tbaa !20
+  %9 = add i32 %8, 1
+  store i32 %9, ptr %7, align 8, !tbaa !20
+  br label %common.exit
 
-sw.bb2:                                           ; preds = %entry, %entry
-  store ptr @element7, ptr %state, align 8
-  br label %return
+10:                                               ; preds = %5, %5
+  store ptr @element7, ptr %0, align 8, !tbaa !3
+  br label %common.exit
 
-sw.bb3:                                           ; preds = %entry
-  store ptr @element7, ptr %state, align 8
-  br label %return
+11:                                               ; preds = %5
+  store ptr @element7, ptr %0, align 8, !tbaa !3
+  br label %common.exit
 
-sw.bb5:                                           ; preds = %entry
-  store ptr @element7, ptr %state, align 8
-  br label %return
+12:                                               ; preds = %5
+  store ptr @element7, ptr %0, align 8, !tbaa !3
+  br label %common.exit
 
-sw.bb7:                                           ; preds = %entry
-  store ptr @element7, ptr %state, align 8
-  br label %return
+13:                                               ; preds = %5
+  store ptr @element7, ptr %0, align 8, !tbaa !3
+  br label %common.exit
 
-sw.epilog:                                        ; preds = %entry
-  %documentEntity.i = getelementptr inbounds nuw i8, ptr %state, i64 20
-  %1 = load i32, ptr %documentEntity.i, align 4
-  %tobool.i = icmp eq i32 %1, 0
-  %cmp.i = icmp eq i32 %tok, 28
-  %or.cond.i = and i1 %cmp.i, %tobool.i
-  br i1 %or.cond.i, label %return, label %if.end.i
+14:                                               ; preds = %5
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  %16 = load i32, ptr %15, align 4, !tbaa !9
+  %17 = icmp eq i32 %16, 0
+  %18 = icmp eq i32 %1, 28
+  %or.cond.i = and i1 %18, %17
+  br i1 %or.cond.i, label %common.exit, label %19
 
-if.end.i:                                         ; preds = %sw.epilog
-  store ptr @error, ptr %state, align 8
-  br label %return
+19:                                               ; preds = %14
+  store ptr @error, ptr %0, align 8, !tbaa !3
+  br label %common.exit
 
-return:                                           ; preds = %if.end.i, %sw.epilog, %entry, %sw.bb7, %sw.bb5, %sw.bb3, %sw.bb2, %sw.bb1
-  %retval.0 = phi i32 [ 54, %sw.bb7 ], [ 52, %sw.bb5 ], [ 53, %sw.bb3 ], [ 51, %sw.bb2 ], [ 44, %sw.bb1 ], [ 39, %entry ], [ -1, %if.end.i ], [ 59, %sw.epilog ]
-  ret i32 %retval.0
+common.exit:                                      ; preds = %19, %14, %5, %13, %12, %11, %10, %6
+  %.0 = phi i32 [ 54, %13 ], [ 52, %12 ], [ 53, %11 ], [ 51, %10 ], [ 44, %6 ], [ 39, %5 ], [ -1, %19 ], [ 59, %14 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal range(i32 -1, 60) i32 @element7(ptr noundef captures(none) %state, i32 noundef %tok, ptr readnone captures(none) %ptr, ptr readnone captures(none) %end, ptr readnone captures(none) %enc) #2 {
-entry:
-  switch i32 %tok, label %sw.epilog [
-    i32 15, label %return
-    i32 24, label %sw.bb1
-    i32 36, label %sw.bb3
-    i32 35, label %sw.bb12
-    i32 37, label %sw.bb21
-    i32 38, label %sw.bb30
-    i32 21, label %sw.bb32
+define internal range(i32 -1, 60) i32 @element7(ptr noundef captures(none) %0, i32 noundef %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #2 {
+  switch i32 %1, label %36 [
+    i32 15, label %common.exit
+    i32 24, label %6
+    i32 36, label %13
+    i32 35, label %20
+    i32 37, label %27
+    i32 38, label %34
+    i32 21, label %35
   ]
 
-sw.bb1:                                           ; preds = %entry
-  %level = getelementptr inbounds nuw i8, ptr %state, i64 8
-  %0 = load i32, ptr %level, align 8
-  %sub = add i32 %0, -1
-  store i32 %sub, ptr %level, align 8
-  %cmp = icmp eq i32 %sub, 0
-  br i1 %cmp, label %if.then, label %return
+6:                                                ; preds = %5
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %8 = load i32, ptr %7, align 8, !tbaa !20
+  %9 = add i32 %8, -1
+  store i32 %9, ptr %7, align 8, !tbaa !20
+  %10 = icmp eq i32 %9, 0
+  br i1 %10, label %11, label %common.exit
 
-if.then:                                          ; preds = %sw.bb1
-  store ptr @declClose, ptr %state, align 8
-  %role_none = getelementptr inbounds nuw i8, ptr %state, i64 12
-  store i32 39, ptr %role_none, align 4
-  br label %return
+11:                                               ; preds = %6
+  store ptr @declClose, ptr %0, align 8, !tbaa !3
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  store i32 39, ptr %12, align 4, !tbaa !15
+  br label %common.exit
 
-sw.bb3:                                           ; preds = %entry
-  %level4 = getelementptr inbounds nuw i8, ptr %state, i64 8
-  %1 = load i32, ptr %level4, align 8
-  %sub5 = add i32 %1, -1
-  store i32 %sub5, ptr %level4, align 8
-  %cmp7 = icmp eq i32 %sub5, 0
-  br i1 %cmp7, label %if.then8, label %return
+13:                                               ; preds = %5
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %15 = load i32, ptr %14, align 8, !tbaa !20
+  %16 = add i32 %15, -1
+  store i32 %16, ptr %14, align 8, !tbaa !20
+  %17 = icmp eq i32 %16, 0
+  br i1 %17, label %18, label %common.exit
 
-if.then8:                                         ; preds = %sw.bb3
-  store ptr @declClose, ptr %state, align 8
-  %role_none10 = getelementptr inbounds nuw i8, ptr %state, i64 12
-  store i32 39, ptr %role_none10, align 4
-  br label %return
+18:                                               ; preds = %13
+  store ptr @declClose, ptr %0, align 8, !tbaa !3
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  store i32 39, ptr %19, align 4, !tbaa !15
+  br label %common.exit
 
-sw.bb12:                                          ; preds = %entry
-  %level13 = getelementptr inbounds nuw i8, ptr %state, i64 8
-  %2 = load i32, ptr %level13, align 8
-  %sub14 = add i32 %2, -1
-  store i32 %sub14, ptr %level13, align 8
-  %cmp16 = icmp eq i32 %sub14, 0
-  br i1 %cmp16, label %if.then17, label %return
+20:                                               ; preds = %5
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %22 = load i32, ptr %21, align 8, !tbaa !20
+  %23 = add i32 %22, -1
+  store i32 %23, ptr %21, align 8, !tbaa !20
+  %24 = icmp eq i32 %23, 0
+  br i1 %24, label %25, label %common.exit
 
-if.then17:                                        ; preds = %sw.bb12
-  store ptr @declClose, ptr %state, align 8
-  %role_none19 = getelementptr inbounds nuw i8, ptr %state, i64 12
-  store i32 39, ptr %role_none19, align 4
-  br label %return
+25:                                               ; preds = %20
+  store ptr @declClose, ptr %0, align 8, !tbaa !3
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  store i32 39, ptr %26, align 4, !tbaa !15
+  br label %common.exit
 
-sw.bb21:                                          ; preds = %entry
-  %level22 = getelementptr inbounds nuw i8, ptr %state, i64 8
-  %3 = load i32, ptr %level22, align 8
-  %sub23 = add i32 %3, -1
-  store i32 %sub23, ptr %level22, align 8
-  %cmp25 = icmp eq i32 %sub23, 0
-  br i1 %cmp25, label %if.then26, label %return
+27:                                               ; preds = %5
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %29 = load i32, ptr %28, align 8, !tbaa !20
+  %30 = add i32 %29, -1
+  store i32 %30, ptr %28, align 8, !tbaa !20
+  %31 = icmp eq i32 %30, 0
+  br i1 %31, label %32, label %common.exit
 
-if.then26:                                        ; preds = %sw.bb21
-  store ptr @declClose, ptr %state, align 8
-  %role_none28 = getelementptr inbounds nuw i8, ptr %state, i64 12
-  store i32 39, ptr %role_none28, align 4
-  br label %return
+32:                                               ; preds = %27
+  store ptr @declClose, ptr %0, align 8, !tbaa !3
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  store i32 39, ptr %33, align 4, !tbaa !15
+  br label %common.exit
 
-sw.bb30:                                          ; preds = %entry
-  store ptr @element6, ptr %state, align 8
-  br label %return
+34:                                               ; preds = %5
+  store ptr @element6, ptr %0, align 8, !tbaa !3
+  br label %common.exit
 
-sw.bb32:                                          ; preds = %entry
-  store ptr @element6, ptr %state, align 8
-  br label %return
+35:                                               ; preds = %5
+  store ptr @element6, ptr %0, align 8, !tbaa !3
+  br label %common.exit
 
-sw.epilog:                                        ; preds = %entry
-  %documentEntity.i = getelementptr inbounds nuw i8, ptr %state, i64 20
-  %4 = load i32, ptr %documentEntity.i, align 4
-  %tobool.i = icmp eq i32 %4, 0
-  %cmp.i = icmp eq i32 %tok, 28
-  %or.cond.i = and i1 %cmp.i, %tobool.i
-  br i1 %or.cond.i, label %return, label %if.end.i
+36:                                               ; preds = %5
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  %38 = load i32, ptr %37, align 4, !tbaa !9
+  %39 = icmp eq i32 %38, 0
+  %40 = icmp eq i32 %1, 28
+  %or.cond.i = and i1 %40, %39
+  br i1 %or.cond.i, label %common.exit, label %41
 
-if.end.i:                                         ; preds = %sw.epilog
-  store ptr @error, ptr %state, align 8
-  br label %return
+41:                                               ; preds = %36
+  store ptr @error, ptr %0, align 8, !tbaa !3
+  br label %common.exit
 
-return:                                           ; preds = %if.end.i, %sw.epilog, %sw.bb21, %if.then26, %sw.bb12, %if.then17, %sw.bb3, %if.then8, %sw.bb1, %if.then, %entry, %sw.bb32, %sw.bb30
-  %retval.0 = phi i32 [ 49, %sw.bb32 ], [ 50, %sw.bb30 ], [ 39, %entry ], [ 45, %if.then ], [ 45, %sw.bb1 ], [ 46, %if.then8 ], [ 46, %sw.bb3 ], [ 47, %if.then17 ], [ 47, %sw.bb12 ], [ 48, %if.then26 ], [ 48, %sw.bb21 ], [ -1, %if.end.i ], [ 59, %sw.epilog ]
-  ret i32 %retval.0
+common.exit:                                      ; preds = %41, %36, %27, %32, %20, %25, %13, %18, %6, %11, %5, %35, %34
+  %.0 = phi i32 [ 49, %35 ], [ 50, %34 ], [ 39, %5 ], [ 45, %11 ], [ 45, %6 ], [ 46, %18 ], [ 46, %13 ], [ 47, %25 ], [ 47, %20 ], [ 48, %32 ], [ 48, %27 ], [ -1, %41 ], [ 59, %36 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal range(i32 -1, 60) i32 @element4(ptr noundef captures(none) %state, i32 noundef %tok, ptr readnone captures(none) %ptr, ptr readnone captures(none) %end, ptr readnone captures(none) %enc) #2 {
-entry:
-  switch i32 %tok, label %sw.epilog [
-    i32 15, label %return
-    i32 18, label %return.sink.split
-    i32 41, label %return.sink.split
+define internal range(i32 -1, 60) i32 @element4(ptr noundef captures(none) %0, i32 noundef %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #2 {
+  switch i32 %1, label %6 [
+    i32 15, label %common.exit
+    i32 18, label %common.exit.sink.split
+    i32 41, label %common.exit.sink.split
   ]
 
-sw.epilog:                                        ; preds = %entry
-  %documentEntity.i = getelementptr inbounds nuw i8, ptr %state, i64 20
-  %0 = load i32, ptr %documentEntity.i, align 4
-  %tobool.i = icmp eq i32 %0, 0
-  %cmp.i = icmp eq i32 %tok, 28
-  %or.cond.i = and i1 %cmp.i, %tobool.i
-  br i1 %or.cond.i, label %return, label %return.sink.split
+6:                                                ; preds = %5
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  %8 = load i32, ptr %7, align 4, !tbaa !9
+  %9 = icmp eq i32 %8, 0
+  %10 = icmp eq i32 %1, 28
+  %or.cond.i = and i1 %10, %9
+  br i1 %or.cond.i, label %common.exit, label %common.exit.sink.split
 
-return.sink.split:                                ; preds = %sw.epilog, %entry, %entry
-  %error.sink = phi ptr [ @element5, %entry ], [ @element5, %entry ], [ @error, %sw.epilog ]
-  %retval.0.ph = phi i32 [ 51, %entry ], [ 51, %entry ], [ -1, %sw.epilog ]
-  store ptr %error.sink, ptr %state, align 8
-  br label %return
+common.exit.sink.split:                           ; preds = %6, %5, %5
+  %error.sink = phi ptr [ @element5, %5 ], [ @element5, %5 ], [ @error, %6 ]
+  %.0.ph = phi i32 [ 51, %5 ], [ 51, %5 ], [ -1, %6 ]
+  store ptr %error.sink, ptr %0, align 8, !tbaa !3
+  br label %common.exit
 
-return:                                           ; preds = %return.sink.split, %sw.epilog, %entry
-  %retval.0 = phi i32 [ 39, %entry ], [ 59, %sw.epilog ], [ %retval.0.ph, %return.sink.split ]
-  ret i32 %retval.0
+common.exit:                                      ; preds = %common.exit.sink.split, %6, %5
+  %.0 = phi i32 [ 39, %5 ], [ 59, %6 ], [ %.0.ph, %common.exit.sink.split ]
+  ret i32 %.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal range(i32 -1, 60) i32 @element5(ptr noundef captures(none) %state, i32 noundef %tok, ptr readnone captures(none) %ptr, ptr readnone captures(none) %end, ptr readnone captures(none) %enc) #2 {
-entry:
-  switch i32 %tok, label %sw.epilog [
-    i32 15, label %return
-    i32 36, label %sw.bb1
-    i32 21, label %sw.bb2
+define internal range(i32 -1, 60) i32 @element5(ptr noundef captures(none) %0, i32 noundef %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #2 {
+  switch i32 %1, label %9 [
+    i32 15, label %common.exit
+    i32 36, label %6
+    i32 21, label %8
   ]
 
-sw.bb1:                                           ; preds = %entry
-  store ptr @declClose, ptr %state, align 8
-  %role_none = getelementptr inbounds nuw i8, ptr %state, i64 12
-  store i32 39, ptr %role_none, align 4
-  br label %return
+6:                                                ; preds = %5
+  store ptr @declClose, ptr %0, align 8, !tbaa !3
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  store i32 39, ptr %7, align 4, !tbaa !15
+  br label %common.exit
 
-sw.bb2:                                           ; preds = %entry
-  store ptr @element4, ptr %state, align 8
-  br label %return
+8:                                                ; preds = %5
+  store ptr @element4, ptr %0, align 8, !tbaa !3
+  br label %common.exit
 
-sw.epilog:                                        ; preds = %entry
-  %documentEntity.i = getelementptr inbounds nuw i8, ptr %state, i64 20
-  %0 = load i32, ptr %documentEntity.i, align 4
-  %tobool.i = icmp eq i32 %0, 0
-  %cmp.i = icmp eq i32 %tok, 28
-  %or.cond.i = and i1 %cmp.i, %tobool.i
-  br i1 %or.cond.i, label %return, label %if.end.i
+9:                                                ; preds = %5
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  %11 = load i32, ptr %10, align 4, !tbaa !9
+  %12 = icmp eq i32 %11, 0
+  %13 = icmp eq i32 %1, 28
+  %or.cond.i = and i1 %13, %12
+  br i1 %or.cond.i, label %common.exit, label %14
 
-if.end.i:                                         ; preds = %sw.epilog
-  store ptr @error, ptr %state, align 8
-  br label %return
+14:                                               ; preds = %9
+  store ptr @error, ptr %0, align 8, !tbaa !3
+  br label %common.exit
 
-return:                                           ; preds = %if.end.i, %sw.epilog, %entry, %sw.bb2, %sw.bb1
-  %retval.0 = phi i32 [ 39, %sw.bb2 ], [ 46, %sw.bb1 ], [ 39, %entry ], [ -1, %if.end.i ], [ 59, %sw.epilog ]
-  ret i32 %retval.0
+common.exit:                                      ; preds = %14, %9, %5, %8, %6
+  %.0 = phi i32 [ 39, %8 ], [ 46, %6 ], [ 39, %5 ], [ -1, %14 ], [ 59, %9 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 60) i32 @notation1(ptr noundef captures(none) %state, i32 noundef %tok, ptr noundef %ptr, ptr noundef %end, ptr noundef %enc) #1 {
-entry:
-  switch i32 %tok, label %sw.epilog [
-    i32 15, label %return
-    i32 18, label %sw.bb1
+define internal range(i32 -1, 60) i32 @notation1(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #1 {
+  switch i32 %1, label %13 [
+    i32 15, label %common.exit
+    i32 18, label %6
   ]
 
-sw.bb1:                                           ; preds = %entry
-  %nameMatchesAscii = getelementptr inbounds nuw i8, ptr %enc, i64 48
-  %0 = load ptr, ptr %nameMatchesAscii, align 8
-  %call = tail call i32 %0(ptr noundef %enc, ptr noundef %ptr, ptr noundef %end, ptr noundef nonnull @KW_SYSTEM) #5
-  %tobool.not = icmp eq i32 %call, 0
-  br i1 %tobool.not, label %if.end, label %return.sink.split
+6:                                                ; preds = %5
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 48
+  %8 = load ptr, ptr %7, align 8, !tbaa !12
+  %9 = tail call i32 %8(ptr noundef %4, ptr noundef %2, ptr noundef %3, ptr noundef nonnull @KW_SYSTEM) #5
+  %.not = icmp eq i32 %9, 0
+  br i1 %.not, label %10, label %common.exit.sink.split
 
-if.end:                                           ; preds = %sw.bb1
-  %1 = load ptr, ptr %nameMatchesAscii, align 8
-  %call3 = tail call i32 %1(ptr noundef nonnull %enc, ptr noundef %ptr, ptr noundef %end, ptr noundef nonnull @KW_PUBLIC) #5
-  %tobool4.not = icmp eq i32 %call3, 0
-  br i1 %tobool4.not, label %if.end.i, label %return.sink.split
+10:                                               ; preds = %6
+  %11 = load ptr, ptr %7, align 8, !tbaa !12
+  %12 = tail call i32 %11(ptr noundef nonnull %4, ptr noundef %2, ptr noundef %3, ptr noundef nonnull @KW_PUBLIC) #5
+  %.not13 = icmp eq i32 %12, 0
+  br i1 %.not13, label %.thread, label %common.exit.sink.split
 
-sw.epilog:                                        ; preds = %entry
-  %documentEntity.i = getelementptr inbounds nuw i8, ptr %state, i64 20
-  %2 = load i32, ptr %documentEntity.i, align 4
-  %tobool.i = icmp eq i32 %2, 0
-  %cmp.i = icmp eq i32 %tok, 28
-  %or.cond.i = and i1 %cmp.i, %tobool.i
-  br i1 %or.cond.i, label %return, label %if.end.i
+13:                                               ; preds = %5
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  %15 = load i32, ptr %14, align 4, !tbaa !9
+  %16 = icmp eq i32 %15, 0
+  %17 = icmp eq i32 %1, 28
+  %or.cond.i = and i1 %17, %16
+  br i1 %or.cond.i, label %common.exit, label %.thread
 
-if.end.i:                                         ; preds = %if.end, %sw.epilog
-  br label %return.sink.split
+.thread:                                          ; preds = %10, %13
+  br label %common.exit.sink.split
 
-return.sink.split:                                ; preds = %if.end, %sw.bb1, %if.end.i
-  %error.sink = phi ptr [ @error, %if.end.i ], [ @notation3, %sw.bb1 ], [ @notation2, %if.end ]
-  %retval.0.ph = phi i32 [ -1, %if.end.i ], [ 17, %sw.bb1 ], [ 17, %if.end ]
-  store ptr %error.sink, ptr %state, align 8
-  br label %return
+common.exit.sink.split:                           ; preds = %10, %6, %.thread
+  %error.sink = phi ptr [ @error, %.thread ], [ @notation3, %6 ], [ @notation2, %10 ]
+  %.0.ph = phi i32 [ -1, %.thread ], [ 17, %6 ], [ 17, %10 ]
+  store ptr %error.sink, ptr %0, align 8, !tbaa !3
+  br label %common.exit
 
-return:                                           ; preds = %return.sink.split, %sw.epilog, %entry
-  %retval.0 = phi i32 [ 17, %entry ], [ 59, %sw.epilog ], [ %retval.0.ph, %return.sink.split ]
-  ret i32 %retval.0
+common.exit:                                      ; preds = %common.exit.sink.split, %13, %5
+  %.0 = phi i32 [ 17, %5 ], [ 59, %13 ], [ %.0.ph, %common.exit.sink.split ]
+  ret i32 %.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal range(i32 -1, 60) i32 @notation3(ptr noundef captures(none) %state, i32 noundef %tok, ptr readnone captures(none) %ptr, ptr readnone captures(none) %end, ptr readnone captures(none) %enc) #2 {
-entry:
-  switch i32 %tok, label %sw.epilog [
-    i32 15, label %return
-    i32 27, label %sw.bb1
+define internal range(i32 -1, 60) i32 @notation3(ptr noundef captures(none) %0, i32 noundef %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #2 {
+  switch i32 %1, label %8 [
+    i32 15, label %common.exit
+    i32 27, label %6
   ]
 
-sw.bb1:                                           ; preds = %entry
-  store ptr @declClose, ptr %state, align 8
-  %role_none = getelementptr inbounds nuw i8, ptr %state, i64 12
-  store i32 17, ptr %role_none, align 4
-  br label %return
+6:                                                ; preds = %5
+  store ptr @declClose, ptr %0, align 8, !tbaa !3
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  store i32 17, ptr %7, align 4, !tbaa !15
+  br label %common.exit
 
-sw.epilog:                                        ; preds = %entry
-  %documentEntity.i = getelementptr inbounds nuw i8, ptr %state, i64 20
-  %0 = load i32, ptr %documentEntity.i, align 4
-  %tobool.i = icmp eq i32 %0, 0
-  %cmp.i = icmp eq i32 %tok, 28
-  %or.cond.i = and i1 %cmp.i, %tobool.i
-  br i1 %or.cond.i, label %return, label %if.end.i
+8:                                                ; preds = %5
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  %10 = load i32, ptr %9, align 4, !tbaa !9
+  %11 = icmp eq i32 %10, 0
+  %12 = icmp eq i32 %1, 28
+  %or.cond.i = and i1 %12, %11
+  br i1 %or.cond.i, label %common.exit, label %13
 
-if.end.i:                                         ; preds = %sw.epilog
-  store ptr @error, ptr %state, align 8
-  br label %return
+13:                                               ; preds = %8
+  store ptr @error, ptr %0, align 8, !tbaa !3
+  br label %common.exit
 
-return:                                           ; preds = %if.end.i, %sw.epilog, %entry, %sw.bb1
-  %retval.0 = phi i32 [ 19, %sw.bb1 ], [ 17, %entry ], [ -1, %if.end.i ], [ 59, %sw.epilog ]
-  ret i32 %retval.0
+common.exit:                                      ; preds = %13, %8, %5, %6
+  %.0 = phi i32 [ 19, %6 ], [ 17, %5 ], [ -1, %13 ], [ 59, %8 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal range(i32 -1, 60) i32 @notation2(ptr noundef captures(none) %state, i32 noundef %tok, ptr readnone captures(none) %ptr, ptr readnone captures(none) %end, ptr readnone captures(none) %enc) #2 {
-entry:
-  switch i32 %tok, label %sw.epilog [
-    i32 15, label %return
-    i32 27, label %return.sink.split
+define internal range(i32 -1, 60) i32 @notation2(ptr noundef captures(none) %0, i32 noundef %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #2 {
+  switch i32 %1, label %6 [
+    i32 15, label %common.exit
+    i32 27, label %common.exit.sink.split
   ]
 
-sw.epilog:                                        ; preds = %entry
-  %documentEntity.i = getelementptr inbounds nuw i8, ptr %state, i64 20
-  %0 = load i32, ptr %documentEntity.i, align 4
-  %tobool.i = icmp eq i32 %0, 0
-  %cmp.i = icmp eq i32 %tok, 28
-  %or.cond.i = and i1 %cmp.i, %tobool.i
-  br i1 %or.cond.i, label %return, label %return.sink.split
+6:                                                ; preds = %5
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  %8 = load i32, ptr %7, align 4, !tbaa !9
+  %9 = icmp eq i32 %8, 0
+  %10 = icmp eq i32 %1, 28
+  %or.cond.i = and i1 %10, %9
+  br i1 %or.cond.i, label %common.exit, label %common.exit.sink.split
 
-return.sink.split:                                ; preds = %sw.epilog, %entry
-  %error.sink = phi ptr [ @notation4, %entry ], [ @error, %sw.epilog ]
-  %retval.0.ph = phi i32 [ 21, %entry ], [ -1, %sw.epilog ]
-  store ptr %error.sink, ptr %state, align 8
-  br label %return
+common.exit.sink.split:                           ; preds = %6, %5
+  %error.sink = phi ptr [ @notation4, %5 ], [ @error, %6 ]
+  %.0.ph = phi i32 [ 21, %5 ], [ -1, %6 ]
+  store ptr %error.sink, ptr %0, align 8, !tbaa !3
+  br label %common.exit
 
-return:                                           ; preds = %return.sink.split, %sw.epilog, %entry
-  %retval.0 = phi i32 [ 17, %entry ], [ 59, %sw.epilog ], [ %retval.0.ph, %return.sink.split ]
-  ret i32 %retval.0
+common.exit:                                      ; preds = %common.exit.sink.split, %6, %5
+  %.0 = phi i32 [ 17, %5 ], [ 59, %6 ], [ %.0.ph, %common.exit.sink.split ]
+  ret i32 %.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal range(i32 -1, 60) i32 @notation4(ptr noundef captures(none) %state, i32 noundef %tok, ptr readnone captures(none) %ptr, ptr readnone captures(none) %end, ptr readnone captures(none) %enc) #2 {
-entry:
-  switch i32 %tok, label %sw.epilog [
-    i32 15, label %return
-    i32 27, label %sw.bb1
-    i32 17, label %sw.bb2
+define internal range(i32 -1, 60) i32 @notation4(ptr noundef captures(none) %0, i32 noundef %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #2 {
+  switch i32 %1, label %12 [
+    i32 15, label %common.exit
+    i32 27, label %6
+    i32 17, label %8
   ]
 
-sw.bb1:                                           ; preds = %entry
-  store ptr @declClose, ptr %state, align 8
-  %role_none = getelementptr inbounds nuw i8, ptr %state, i64 12
-  store i32 17, ptr %role_none, align 4
-  br label %return
+6:                                                ; preds = %5
+  store ptr @declClose, ptr %0, align 8, !tbaa !3
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  store i32 17, ptr %7, align 4, !tbaa !15
+  br label %common.exit
 
-sw.bb2:                                           ; preds = %entry
-  %documentEntity = getelementptr inbounds nuw i8, ptr %state, i64 20
-  %0 = load i32, ptr %documentEntity, align 4
-  %tobool.not = icmp eq i32 %0, 0
-  %cond = select i1 %tobool.not, ptr @externalSubset1, ptr @internalSubset
-  store ptr %cond, ptr %state, align 8
-  br label %return
+8:                                                ; preds = %5
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  %10 = load i32, ptr %9, align 4, !tbaa !9
+  %.not = icmp eq i32 %10, 0
+  %11 = select i1 %.not, ptr @externalSubset1, ptr @internalSubset
+  store ptr %11, ptr %0, align 8, !tbaa !3
+  br label %common.exit
 
-sw.epilog:                                        ; preds = %entry
-  %documentEntity.i = getelementptr inbounds nuw i8, ptr %state, i64 20
-  %1 = load i32, ptr %documentEntity.i, align 4
-  %tobool.i = icmp eq i32 %1, 0
-  %cmp.i = icmp eq i32 %tok, 28
-  %or.cond.i = and i1 %cmp.i, %tobool.i
-  br i1 %or.cond.i, label %return, label %if.end.i
+12:                                               ; preds = %5
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  %14 = load i32, ptr %13, align 4, !tbaa !9
+  %15 = icmp eq i32 %14, 0
+  %16 = icmp eq i32 %1, 28
+  %or.cond.i = and i1 %16, %15
+  br i1 %or.cond.i, label %common.exit, label %17
 
-if.end.i:                                         ; preds = %sw.epilog
-  store ptr @error, ptr %state, align 8
-  br label %return
+17:                                               ; preds = %12
+  store ptr @error, ptr %0, align 8, !tbaa !3
+  br label %common.exit
 
-return:                                           ; preds = %if.end.i, %sw.epilog, %entry, %sw.bb2, %sw.bb1
-  %retval.0 = phi i32 [ 20, %sw.bb2 ], [ 19, %sw.bb1 ], [ 17, %entry ], [ -1, %if.end.i ], [ 59, %sw.epilog ]
-  ret i32 %retval.0
+common.exit:                                      ; preds = %17, %12, %5, %8, %6
+  %.0 = phi i32 [ 20, %8 ], [ 19, %6 ], [ 17, %5 ], [ -1, %17 ], [ 59, %12 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal range(i32 -1, 60) i32 @doctype4(ptr noundef captures(none) %state, i32 noundef %tok, ptr readnone captures(none) %ptr, ptr readnone captures(none) %end, ptr readnone captures(none) %enc) #2 {
-entry:
-  switch i32 %tok, label %sw.epilog [
-    i32 15, label %return
-    i32 25, label %return.sink.split
-    i32 17, label %sw.bb2
+define internal range(i32 -1, 60) i32 @doctype4(ptr noundef captures(none) %0, i32 noundef %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #2 {
+  switch i32 %1, label %7 [
+    i32 15, label %common.exit
+    i32 25, label %common.exit.sink.split
+    i32 17, label %6
   ]
 
-sw.bb2:                                           ; preds = %entry
-  br label %return.sink.split
+6:                                                ; preds = %5
+  br label %common.exit.sink.split
 
-sw.epilog:                                        ; preds = %entry
-  %documentEntity.i = getelementptr inbounds nuw i8, ptr %state, i64 20
-  %0 = load i32, ptr %documentEntity.i, align 4
-  %tobool.i = icmp eq i32 %0, 0
-  %cmp.i = icmp eq i32 %tok, 28
-  %or.cond.i = and i1 %cmp.i, %tobool.i
-  br i1 %or.cond.i, label %return, label %return.sink.split
+7:                                                ; preds = %5
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  %9 = load i32, ptr %8, align 4, !tbaa !9
+  %10 = icmp eq i32 %9, 0
+  %11 = icmp eq i32 %1, 28
+  %or.cond.i = and i1 %11, %10
+  br i1 %or.cond.i, label %common.exit, label %common.exit.sink.split
 
-return.sink.split:                                ; preds = %sw.epilog, %entry, %sw.bb2
-  %error.sink = phi ptr [ @prolog2, %sw.bb2 ], [ @internalSubset, %entry ], [ @error, %sw.epilog ]
-  %retval.0.ph = phi i32 [ 8, %sw.bb2 ], [ 7, %entry ], [ -1, %sw.epilog ]
-  store ptr %error.sink, ptr %state, align 8
-  br label %return
+common.exit.sink.split:                           ; preds = %7, %5, %6
+  %error.sink = phi ptr [ @prolog2, %6 ], [ @internalSubset, %5 ], [ @error, %7 ]
+  %.0.ph = phi i32 [ 8, %6 ], [ 7, %5 ], [ -1, %7 ]
+  store ptr %error.sink, ptr %0, align 8, !tbaa !3
+  br label %common.exit
 
-return:                                           ; preds = %return.sink.split, %sw.epilog, %entry
-  %retval.0 = phi i32 [ 3, %entry ], [ 59, %sw.epilog ], [ %retval.0.ph, %return.sink.split ]
-  ret i32 %retval.0
+common.exit:                                      ; preds = %common.exit.sink.split, %7, %5
+  %.0 = phi i32 [ 3, %5 ], [ 59, %7 ], [ %.0.ph, %common.exit.sink.split ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.fshl.i32(i32, i32, i32) #4
 
-attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #5 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
+!3 = !{!4, !5, i64 0}
+!4 = !{!"prolog_state", !5, i64 0, !8, i64 8, !8, i64 12, !8, i64 16, !8, i64 20, !8, i64 24}
+!5 = !{!"any pointer", !6, i64 0}
+!6 = !{!"omnipotent char", !7, i64 0}
+!7 = !{!"Simple C/C++ TBAA"}
+!8 = !{!"int", !6, i64 0}
+!9 = !{!4, !8, i64 20}
+!10 = !{!4, !8, i64 16}
+!11 = !{!4, !8, i64 24}
+!12 = !{!13, !5, i64 48}
+!13 = !{!"encoding", !6, i64 0, !6, i64 32, !5, i64 48, !5, i64 56, !5, i64 64, !5, i64 72, !5, i64 80, !5, i64 88, !5, i64 96, !5, i64 104, !5, i64 112, !5, i64 120, !8, i64 128, !6, i64 132, !6, i64 133}
+!14 = !{!13, !8, i64 128}
+!15 = !{!4, !8, i64 12}
+!16 = !{!17, !17, i64 0}
+!17 = !{!"p1 omnipotent char", !5, i64 0}
+!18 = distinct !{!18, !19}
+!19 = !{!"llvm.loop.mustprogress"}
+!20 = !{!4, !8, i64 8}

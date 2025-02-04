@@ -13,6 +13,7 @@ supported_project = [
     "clamav",
     "cmake",
     "coremark",
+    "cpython",
 ]
 
 modify_only = [

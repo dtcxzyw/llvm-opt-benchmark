@@ -1,5 +1,5 @@
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
 %struct._PyPathConfig = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32 }
 %struct.PyMemAllocatorEx = type { ptr, ptr, ptr, ptr, ptr }
@@ -7,7 +7,7 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.PyConfig = type { i32, i32, i32, i32, i32, i32, i64, i32, i32, i32, i32, i32, i32, i32, ptr, i32, ptr, ptr, ptr, i32, %struct.PyWideStringList, %struct.PyWideStringList, %struct.PyWideStringList, %struct.PyWideStringList, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, ptr, ptr, ptr, i32, i32, i32, i32, i32, ptr, ptr, ptr, ptr, i32, %struct.PyWideStringList, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, ptr, ptr, ptr, ptr, i32, i32, i32 }
 %struct.PyWideStringList = type { i64, ptr }
 
-@_Py_path_config = hidden global %struct._PyPathConfig zeroinitializer, align 8
+@_Py_path_config = hidden global { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, [4 x i8] } zeroinitializer, align 8
 @__func__._PyPathConfig_UpdateGlobal = private unnamed_addr constant [27 x i8] c"_PyPathConfig_UpdateGlobal\00", align 1
 @.str = private unnamed_addr constant [25 x i8] c"memory allocation failed\00", align 1
 @.str.1 = private unnamed_addr constant [1 x i32] zeroinitializer, align 4
@@ -20,1397 +20,1504 @@ target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define hidden ptr @_PyPathConfig_GetGlobalModuleSearchPath() #0 {
-entry:
-  %0 = getelementptr inbounds %struct._PyPathConfig, ptr @_Py_path_config, i32 0, i32 4
-  %1 = load ptr, ptr %0, align 8
+  %1 = load ptr, ptr getelementptr inbounds nuw (%struct._PyPathConfig, ptr @_Py_path_config, i32 0, i32 4), align 8, !tbaa !4
   ret ptr %1
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @_PyPathConfig_ClearGlobal() #0 {
-entry:
-  %old_alloc = alloca %struct.PyMemAllocatorEx, align 8
-  %call = call i32 @_PyMem_SetDefaultAllocator(i32 noundef 0, ptr noundef %old_alloc)
-  br label %do.body
+  %1 = alloca %struct.PyMemAllocatorEx, align 8
+  call void @llvm.lifetime.start.p0(i64 40, ptr %1) #9
+  %2 = call i32 @_PyMem_SetDefaultAllocator(i32 noundef 0, ptr noundef %1)
+  br label %3
 
-do.body:                                          ; preds = %entry
-  %0 = load ptr, ptr @_Py_path_config, align 8
-  call void @PyMem_RawFree(ptr noundef %0)
-  store ptr null, ptr @_Py_path_config, align 8
-  br label %do.end
+3:                                                ; preds = %0
+  %4 = load ptr, ptr @_Py_path_config, align 8, !tbaa !11
+  call void @PyMem_RawFree(ptr noundef %4)
+  store ptr null, ptr @_Py_path_config, align 8, !tbaa !11
+  br label %5
 
-do.end:                                           ; preds = %do.body
-  br label %do.body1
+5:                                                ; preds = %3
+  br label %6
 
-do.body1:                                         ; preds = %do.end
-  %1 = getelementptr inbounds %struct._PyPathConfig, ptr @_Py_path_config, i32 0, i32 1
-  %2 = load ptr, ptr %1, align 8
-  call void @PyMem_RawFree(ptr noundef %2)
-  %3 = getelementptr inbounds %struct._PyPathConfig, ptr @_Py_path_config, i32 0, i32 1
-  store ptr null, ptr %3, align 8
-  br label %do.end2
+6:                                                ; preds = %5
+  br label %7
 
-do.end2:                                          ; preds = %do.body1
-  br label %do.body3
-
-do.body3:                                         ; preds = %do.end2
-  %4 = getelementptr inbounds %struct._PyPathConfig, ptr @_Py_path_config, i32 0, i32 2
-  %5 = load ptr, ptr %4, align 8
-  call void @PyMem_RawFree(ptr noundef %5)
-  %6 = getelementptr inbounds %struct._PyPathConfig, ptr @_Py_path_config, i32 0, i32 2
-  store ptr null, ptr %6, align 8
-  br label %do.end4
-
-do.end4:                                          ; preds = %do.body3
-  br label %do.body5
-
-do.body5:                                         ; preds = %do.end4
-  %7 = getelementptr inbounds %struct._PyPathConfig, ptr @_Py_path_config, i32 0, i32 3
-  %8 = load ptr, ptr %7, align 8
+7:                                                ; preds = %6
+  %8 = load ptr, ptr getelementptr inbounds nuw (%struct._PyPathConfig, ptr @_Py_path_config, i32 0, i32 1), align 8, !tbaa !12
   call void @PyMem_RawFree(ptr noundef %8)
-  %9 = getelementptr inbounds %struct._PyPathConfig, ptr @_Py_path_config, i32 0, i32 3
-  store ptr null, ptr %9, align 8
-  br label %do.end6
+  store ptr null, ptr getelementptr inbounds nuw (%struct._PyPathConfig, ptr @_Py_path_config, i32 0, i32 1), align 8, !tbaa !12
+  br label %9
 
-do.end6:                                          ; preds = %do.body5
-  br label %do.body7
+9:                                                ; preds = %7
+  br label %10
 
-do.body7:                                         ; preds = %do.end6
-  %10 = getelementptr inbounds %struct._PyPathConfig, ptr @_Py_path_config, i32 0, i32 4
-  %11 = load ptr, ptr %10, align 8
-  call void @PyMem_RawFree(ptr noundef %11)
-  %12 = getelementptr inbounds %struct._PyPathConfig, ptr @_Py_path_config, i32 0, i32 4
-  store ptr null, ptr %12, align 8
-  br label %do.end8
+10:                                               ; preds = %9
+  br label %11
 
-do.end8:                                          ; preds = %do.body7
-  br label %do.body9
+11:                                               ; preds = %10
+  %12 = load ptr, ptr getelementptr inbounds nuw (%struct._PyPathConfig, ptr @_Py_path_config, i32 0, i32 2), align 8, !tbaa !13
+  call void @PyMem_RawFree(ptr noundef %12)
+  store ptr null, ptr getelementptr inbounds nuw (%struct._PyPathConfig, ptr @_Py_path_config, i32 0, i32 2), align 8, !tbaa !13
+  br label %13
 
-do.body9:                                         ; preds = %do.end8
-  %13 = getelementptr inbounds %struct._PyPathConfig, ptr @_Py_path_config, i32 0, i32 5
-  %14 = load ptr, ptr %13, align 8
-  call void @PyMem_RawFree(ptr noundef %14)
-  %15 = getelementptr inbounds %struct._PyPathConfig, ptr @_Py_path_config, i32 0, i32 5
-  store ptr null, ptr %15, align 8
-  br label %do.end10
+13:                                               ; preds = %11
+  br label %14
 
-do.end10:                                         ; preds = %do.body9
-  br label %do.body11
+14:                                               ; preds = %13
+  br label %15
 
-do.body11:                                        ; preds = %do.end10
-  %16 = getelementptr inbounds %struct._PyPathConfig, ptr @_Py_path_config, i32 0, i32 6
-  %17 = load ptr, ptr %16, align 8
-  call void @PyMem_RawFree(ptr noundef %17)
-  %18 = getelementptr inbounds %struct._PyPathConfig, ptr @_Py_path_config, i32 0, i32 6
-  store ptr null, ptr %18, align 8
-  br label %do.end12
+15:                                               ; preds = %14
+  %16 = load ptr, ptr getelementptr inbounds nuw (%struct._PyPathConfig, ptr @_Py_path_config, i32 0, i32 3), align 8, !tbaa !14
+  call void @PyMem_RawFree(ptr noundef %16)
+  store ptr null, ptr getelementptr inbounds nuw (%struct._PyPathConfig, ptr @_Py_path_config, i32 0, i32 3), align 8, !tbaa !14
+  br label %17
 
-do.end12:                                         ; preds = %do.body11
-  br label %do.body13
+17:                                               ; preds = %15
+  br label %18
 
-do.body13:                                        ; preds = %do.end12
-  %19 = getelementptr inbounds %struct._PyPathConfig, ptr @_Py_path_config, i32 0, i32 7
-  %20 = load ptr, ptr %19, align 8
+18:                                               ; preds = %17
+  br label %19
+
+19:                                               ; preds = %18
+  %20 = load ptr, ptr getelementptr inbounds nuw (%struct._PyPathConfig, ptr @_Py_path_config, i32 0, i32 4), align 8, !tbaa !4
   call void @PyMem_RawFree(ptr noundef %20)
-  %21 = getelementptr inbounds %struct._PyPathConfig, ptr @_Py_path_config, i32 0, i32 7
-  store ptr null, ptr %21, align 8
-  br label %do.end14
+  store ptr null, ptr getelementptr inbounds nuw (%struct._PyPathConfig, ptr @_Py_path_config, i32 0, i32 4), align 8, !tbaa !4
+  br label %21
 
-do.end14:                                         ; preds = %do.body13
-  %22 = getelementptr inbounds %struct._PyPathConfig, ptr @_Py_path_config, i32 0, i32 8
-  store i32 0, ptr %22, align 8
-  call void @PyMem_SetAllocator(i32 noundef 0, ptr noundef %old_alloc)
+21:                                               ; preds = %19
+  br label %22
+
+22:                                               ; preds = %21
+  br label %23
+
+23:                                               ; preds = %22
+  %24 = load ptr, ptr getelementptr inbounds nuw (%struct._PyPathConfig, ptr @_Py_path_config, i32 0, i32 5), align 8, !tbaa !15
+  call void @PyMem_RawFree(ptr noundef %24)
+  store ptr null, ptr getelementptr inbounds nuw (%struct._PyPathConfig, ptr @_Py_path_config, i32 0, i32 5), align 8, !tbaa !15
+  br label %25
+
+25:                                               ; preds = %23
+  br label %26
+
+26:                                               ; preds = %25
+  br label %27
+
+27:                                               ; preds = %26
+  %28 = load ptr, ptr getelementptr inbounds nuw (%struct._PyPathConfig, ptr @_Py_path_config, i32 0, i32 6), align 8, !tbaa !16
+  call void @PyMem_RawFree(ptr noundef %28)
+  store ptr null, ptr getelementptr inbounds nuw (%struct._PyPathConfig, ptr @_Py_path_config, i32 0, i32 6), align 8, !tbaa !16
+  br label %29
+
+29:                                               ; preds = %27
+  br label %30
+
+30:                                               ; preds = %29
+  br label %31
+
+31:                                               ; preds = %30
+  %32 = load ptr, ptr getelementptr inbounds nuw (%struct._PyPathConfig, ptr @_Py_path_config, i32 0, i32 7), align 8, !tbaa !17
+  call void @PyMem_RawFree(ptr noundef %32)
+  store ptr null, ptr getelementptr inbounds nuw (%struct._PyPathConfig, ptr @_Py_path_config, i32 0, i32 7), align 8, !tbaa !17
+  br label %33
+
+33:                                               ; preds = %31
+  br label %34
+
+34:                                               ; preds = %33
+  store i32 0, ptr getelementptr inbounds nuw (%struct._PyPathConfig, ptr @_Py_path_config, i32 0, i32 8), align 8, !tbaa !18
+  call void @PyMem_SetAllocator(i32 noundef 0, ptr noundef %1)
+  call void @llvm.lifetime.end.p0(i64 40, ptr %1) #9
   ret void
 }
 
-declare i32 @_PyMem_SetDefaultAllocator(i32 noundef, ptr noundef) #1
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
-declare void @PyMem_RawFree(ptr noundef) #1
+declare i32 @_PyMem_SetDefaultAllocator(i32 noundef, ptr noundef) #2
 
-declare void @PyMem_SetAllocator(i32 noundef, ptr noundef) #1
+declare void @PyMem_RawFree(ptr noundef) #2
+
+declare void @PyMem_SetAllocator(i32 noundef, ptr noundef) #2
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @_PyPathConfig_ReadGlobal(ptr noalias sret(%struct.PyStatus) align 8 %agg.result, ptr noundef %config) #0 {
-entry:
-  %config.addr = alloca ptr, align 8
-  %tmp = alloca %struct.PyStatus, align 8
-  %tmp10 = alloca %struct.PyStatus, align 8
-  %tmp23 = alloca %struct.PyStatus, align 8
-  %tmp36 = alloca %struct.PyStatus, align 8
-  %tmp49 = alloca %struct.PyStatus, align 8
-  %tmp62 = alloca %struct.PyStatus, align 8
-  store ptr %config, ptr %config.addr, align 8
-  call void @llvm.memset.p0.i64(ptr align 8 %agg.result, i8 0, i64 32, i1 false)
-  br label %do.body
+define hidden void @_PyPathConfig_ReadGlobal(ptr dead_on_unwind noalias writable sret(%struct.PyStatus) align 8 %0, ptr noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca %struct.PyStatus, align 8
+  %5 = alloca %struct.PyStatus, align 8
+  %6 = alloca %struct.PyStatus, align 8
+  %7 = alloca %struct.PyStatus, align 8
+  %8 = alloca %struct.PyStatus, align 8
+  %9 = alloca %struct.PyStatus, align 8
+  store ptr %1, ptr %3, align 8, !tbaa !19
+  call void @llvm.memset.p0.i64(ptr align 8 %0, i8 0, i64 32, i1 false)
+  br label %10
 
-do.body:                                          ; preds = %entry
-  %0 = getelementptr inbounds %struct._PyPathConfig, ptr @_Py_path_config, i32 0, i32 1
-  %1 = load ptr, ptr %0, align 8
-  %tobool = icmp ne ptr %1, null
-  br i1 %tobool, label %land.lhs.true, label %if.end4
+10:                                               ; preds = %2
+  %11 = load ptr, ptr getelementptr inbounds nuw (%struct._PyPathConfig, ptr @_Py_path_config, i32 0, i32 1), align 8, !tbaa !12
+  %12 = icmp ne ptr %11, null
+  br i1 %12, label %13, label %28
 
-land.lhs.true:                                    ; preds = %do.body
-  %2 = load ptr, ptr %config.addr, align 8
-  %prefix = getelementptr inbounds %struct.PyConfig, ptr %2, i32 0, i32 54
-  %3 = load ptr, ptr %prefix, align 8
-  %tobool1 = icmp ne ptr %3, null
-  br i1 %tobool1, label %if.end4, label %if.then
+13:                                               ; preds = %10
+  %14 = load ptr, ptr %3, align 8, !tbaa !19
+  %15 = getelementptr inbounds nuw %struct.PyConfig, ptr %14, i32 0, i32 54
+  %16 = load ptr, ptr %15, align 8, !tbaa !21
+  %17 = icmp ne ptr %16, null
+  br i1 %17, label %28, label %18
 
-if.then:                                          ; preds = %land.lhs.true
-  %4 = load ptr, ptr %config.addr, align 8
-  %5 = load ptr, ptr %config.addr, align 8
-  %prefix2 = getelementptr inbounds %struct.PyConfig, ptr %5, i32 0, i32 54
-  %6 = getelementptr inbounds %struct._PyPathConfig, ptr @_Py_path_config, i32 0, i32 1
-  %7 = load ptr, ptr %6, align 8
-  call void @PyConfig_SetString(ptr sret(%struct.PyStatus) align 8 %tmp, ptr noundef %4, ptr noundef %prefix2, ptr noundef %7)
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.result, ptr align 8 %tmp, i64 32, i1 false)
-  %_type = getelementptr inbounds %struct.PyStatus, ptr %agg.result, i32 0, i32 0
-  %8 = load i32, ptr %_type, align 8
-  %cmp = icmp ne i32 %8, 0
-  br i1 %cmp, label %if.then3, label %if.end
+18:                                               ; preds = %13
+  call void @llvm.lifetime.start.p0(i64 32, ptr %4) #9
+  %19 = load ptr, ptr %3, align 8, !tbaa !19
+  %20 = load ptr, ptr %3, align 8, !tbaa !19
+  %21 = getelementptr inbounds nuw %struct.PyConfig, ptr %20, i32 0, i32 54
+  %22 = load ptr, ptr getelementptr inbounds nuw (%struct._PyPathConfig, ptr @_Py_path_config, i32 0, i32 1), align 8, !tbaa !12
+  call void @PyConfig_SetString(ptr dead_on_unwind writable sret(%struct.PyStatus) align 8 %4, ptr noundef %19, ptr noundef %21, ptr noundef %22)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %0, ptr align 8 %4, i64 32, i1 false), !tbaa.struct !26
+  call void @llvm.lifetime.end.p0(i64 32, ptr %4) #9
+  %23 = getelementptr inbounds nuw %struct.PyStatus, ptr %0, i32 0, i32 0
+  %24 = load i32, ptr %23, align 8, !tbaa !30
+  %25 = icmp ne i32 %24, 0
+  br i1 %25, label %26, label %27
 
-if.then3:                                         ; preds = %if.then
-  br label %done
+26:                                               ; preds = %18
+  br label %144
 
-if.end:                                           ; preds = %if.then
-  br label %if.end4
+27:                                               ; preds = %18
+  br label %28
 
-if.end4:                                          ; preds = %if.end, %land.lhs.true, %do.body
-  br label %do.end
+28:                                               ; preds = %27, %13, %10
+  br label %29
 
-do.end:                                           ; preds = %if.end4
-  br label %do.body5
+29:                                               ; preds = %28
+  br label %30
 
-do.body5:                                         ; preds = %do.end
-  %9 = getelementptr inbounds %struct._PyPathConfig, ptr @_Py_path_config, i32 0, i32 2
-  %10 = load ptr, ptr %9, align 8
-  %tobool6 = icmp ne ptr %10, null
-  br i1 %tobool6, label %land.lhs.true7, label %if.end16
+30:                                               ; preds = %29
+  %31 = load ptr, ptr getelementptr inbounds nuw (%struct._PyPathConfig, ptr @_Py_path_config, i32 0, i32 2), align 8, !tbaa !13
+  %32 = icmp ne ptr %31, null
+  br i1 %32, label %33, label %48
 
-land.lhs.true7:                                   ; preds = %do.body5
-  %11 = load ptr, ptr %config.addr, align 8
-  %exec_prefix = getelementptr inbounds %struct.PyConfig, ptr %11, i32 0, i32 56
-  %12 = load ptr, ptr %exec_prefix, align 8
-  %tobool8 = icmp ne ptr %12, null
-  br i1 %tobool8, label %if.end16, label %if.then9
+33:                                               ; preds = %30
+  %34 = load ptr, ptr %3, align 8, !tbaa !19
+  %35 = getelementptr inbounds nuw %struct.PyConfig, ptr %34, i32 0, i32 56
+  %36 = load ptr, ptr %35, align 8, !tbaa !32
+  %37 = icmp ne ptr %36, null
+  br i1 %37, label %48, label %38
 
-if.then9:                                         ; preds = %land.lhs.true7
-  %13 = load ptr, ptr %config.addr, align 8
-  %14 = load ptr, ptr %config.addr, align 8
-  %exec_prefix11 = getelementptr inbounds %struct.PyConfig, ptr %14, i32 0, i32 56
-  %15 = getelementptr inbounds %struct._PyPathConfig, ptr @_Py_path_config, i32 0, i32 2
-  %16 = load ptr, ptr %15, align 8
-  call void @PyConfig_SetString(ptr sret(%struct.PyStatus) align 8 %tmp10, ptr noundef %13, ptr noundef %exec_prefix11, ptr noundef %16)
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.result, ptr align 8 %tmp10, i64 32, i1 false)
-  %_type12 = getelementptr inbounds %struct.PyStatus, ptr %agg.result, i32 0, i32 0
-  %17 = load i32, ptr %_type12, align 8
-  %cmp13 = icmp ne i32 %17, 0
-  br i1 %cmp13, label %if.then14, label %if.end15
+38:                                               ; preds = %33
+  call void @llvm.lifetime.start.p0(i64 32, ptr %5) #9
+  %39 = load ptr, ptr %3, align 8, !tbaa !19
+  %40 = load ptr, ptr %3, align 8, !tbaa !19
+  %41 = getelementptr inbounds nuw %struct.PyConfig, ptr %40, i32 0, i32 56
+  %42 = load ptr, ptr getelementptr inbounds nuw (%struct._PyPathConfig, ptr @_Py_path_config, i32 0, i32 2), align 8, !tbaa !13
+  call void @PyConfig_SetString(ptr dead_on_unwind writable sret(%struct.PyStatus) align 8 %5, ptr noundef %39, ptr noundef %41, ptr noundef %42)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %0, ptr align 8 %5, i64 32, i1 false), !tbaa.struct !26
+  call void @llvm.lifetime.end.p0(i64 32, ptr %5) #9
+  %43 = getelementptr inbounds nuw %struct.PyStatus, ptr %0, i32 0, i32 0
+  %44 = load i32, ptr %43, align 8, !tbaa !30
+  %45 = icmp ne i32 %44, 0
+  br i1 %45, label %46, label %47
 
-if.then14:                                        ; preds = %if.then9
-  br label %done
+46:                                               ; preds = %38
+  br label %144
 
-if.end15:                                         ; preds = %if.then9
-  br label %if.end16
+47:                                               ; preds = %38
+  br label %48
 
-if.end16:                                         ; preds = %if.end15, %land.lhs.true7, %do.body5
-  br label %do.end17
+48:                                               ; preds = %47, %33, %30
+  br label %49
 
-do.end17:                                         ; preds = %if.end16
-  br label %do.body18
+49:                                               ; preds = %48
+  br label %50
 
-do.body18:                                        ; preds = %do.end17
-  %18 = getelementptr inbounds %struct._PyPathConfig, ptr @_Py_path_config, i32 0, i32 3
-  %19 = load ptr, ptr %18, align 8
-  %tobool19 = icmp ne ptr %19, null
-  br i1 %tobool19, label %land.lhs.true20, label %if.end29
+50:                                               ; preds = %49
+  %51 = load ptr, ptr getelementptr inbounds nuw (%struct._PyPathConfig, ptr @_Py_path_config, i32 0, i32 3), align 8, !tbaa !14
+  %52 = icmp ne ptr %51, null
+  br i1 %52, label %53, label %68
 
-land.lhs.true20:                                  ; preds = %do.body18
-  %20 = load ptr, ptr %config.addr, align 8
-  %stdlib_dir = getelementptr inbounds %struct.PyConfig, ptr %20, i32 0, i32 51
-  %21 = load ptr, ptr %stdlib_dir, align 8
-  %tobool21 = icmp ne ptr %21, null
-  br i1 %tobool21, label %if.end29, label %if.then22
+53:                                               ; preds = %50
+  %54 = load ptr, ptr %3, align 8, !tbaa !19
+  %55 = getelementptr inbounds nuw %struct.PyConfig, ptr %54, i32 0, i32 51
+  %56 = load ptr, ptr %55, align 8, !tbaa !33
+  %57 = icmp ne ptr %56, null
+  br i1 %57, label %68, label %58
 
-if.then22:                                        ; preds = %land.lhs.true20
-  %22 = load ptr, ptr %config.addr, align 8
-  %23 = load ptr, ptr %config.addr, align 8
-  %stdlib_dir24 = getelementptr inbounds %struct.PyConfig, ptr %23, i32 0, i32 51
-  %24 = getelementptr inbounds %struct._PyPathConfig, ptr @_Py_path_config, i32 0, i32 3
-  %25 = load ptr, ptr %24, align 8
-  call void @PyConfig_SetString(ptr sret(%struct.PyStatus) align 8 %tmp23, ptr noundef %22, ptr noundef %stdlib_dir24, ptr noundef %25)
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.result, ptr align 8 %tmp23, i64 32, i1 false)
-  %_type25 = getelementptr inbounds %struct.PyStatus, ptr %agg.result, i32 0, i32 0
-  %26 = load i32, ptr %_type25, align 8
-  %cmp26 = icmp ne i32 %26, 0
-  br i1 %cmp26, label %if.then27, label %if.end28
+58:                                               ; preds = %53
+  call void @llvm.lifetime.start.p0(i64 32, ptr %6) #9
+  %59 = load ptr, ptr %3, align 8, !tbaa !19
+  %60 = load ptr, ptr %3, align 8, !tbaa !19
+  %61 = getelementptr inbounds nuw %struct.PyConfig, ptr %60, i32 0, i32 51
+  %62 = load ptr, ptr getelementptr inbounds nuw (%struct._PyPathConfig, ptr @_Py_path_config, i32 0, i32 3), align 8, !tbaa !14
+  call void @PyConfig_SetString(ptr dead_on_unwind writable sret(%struct.PyStatus) align 8 %6, ptr noundef %59, ptr noundef %61, ptr noundef %62)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %0, ptr align 8 %6, i64 32, i1 false), !tbaa.struct !26
+  call void @llvm.lifetime.end.p0(i64 32, ptr %6) #9
+  %63 = getelementptr inbounds nuw %struct.PyStatus, ptr %0, i32 0, i32 0
+  %64 = load i32, ptr %63, align 8, !tbaa !30
+  %65 = icmp ne i32 %64, 0
+  br i1 %65, label %66, label %67
 
-if.then27:                                        ; preds = %if.then22
-  br label %done
+66:                                               ; preds = %58
+  br label %144
 
-if.end28:                                         ; preds = %if.then22
-  br label %if.end29
+67:                                               ; preds = %58
+  br label %68
 
-if.end29:                                         ; preds = %if.end28, %land.lhs.true20, %do.body18
-  br label %do.end30
+68:                                               ; preds = %67, %53, %50
+  br label %69
 
-do.end30:                                         ; preds = %if.end29
-  br label %do.body31
+69:                                               ; preds = %68
+  br label %70
 
-do.body31:                                        ; preds = %do.end30
-  %27 = getelementptr inbounds %struct._PyPathConfig, ptr @_Py_path_config, i32 0, i32 6
-  %28 = load ptr, ptr %27, align 8
-  %tobool32 = icmp ne ptr %28, null
-  br i1 %tobool32, label %land.lhs.true33, label %if.end42
+70:                                               ; preds = %69
+  %71 = load ptr, ptr getelementptr inbounds nuw (%struct._PyPathConfig, ptr @_Py_path_config, i32 0, i32 6), align 8, !tbaa !16
+  %72 = icmp ne ptr %71, null
+  br i1 %72, label %73, label %88
 
-land.lhs.true33:                                  ; preds = %do.body31
-  %29 = load ptr, ptr %config.addr, align 8
-  %program_name = getelementptr inbounds %struct.PyConfig, ptr %29, i32 0, i32 45
-  %30 = load ptr, ptr %program_name, align 8
-  %tobool34 = icmp ne ptr %30, null
-  br i1 %tobool34, label %if.end42, label %if.then35
+73:                                               ; preds = %70
+  %74 = load ptr, ptr %3, align 8, !tbaa !19
+  %75 = getelementptr inbounds nuw %struct.PyConfig, ptr %74, i32 0, i32 45
+  %76 = load ptr, ptr %75, align 8, !tbaa !34
+  %77 = icmp ne ptr %76, null
+  br i1 %77, label %88, label %78
 
-if.then35:                                        ; preds = %land.lhs.true33
-  %31 = load ptr, ptr %config.addr, align 8
-  %32 = load ptr, ptr %config.addr, align 8
-  %program_name37 = getelementptr inbounds %struct.PyConfig, ptr %32, i32 0, i32 45
-  %33 = getelementptr inbounds %struct._PyPathConfig, ptr @_Py_path_config, i32 0, i32 6
-  %34 = load ptr, ptr %33, align 8
-  call void @PyConfig_SetString(ptr sret(%struct.PyStatus) align 8 %tmp36, ptr noundef %31, ptr noundef %program_name37, ptr noundef %34)
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.result, ptr align 8 %tmp36, i64 32, i1 false)
-  %_type38 = getelementptr inbounds %struct.PyStatus, ptr %agg.result, i32 0, i32 0
-  %35 = load i32, ptr %_type38, align 8
-  %cmp39 = icmp ne i32 %35, 0
-  br i1 %cmp39, label %if.then40, label %if.end41
+78:                                               ; preds = %73
+  call void @llvm.lifetime.start.p0(i64 32, ptr %7) #9
+  %79 = load ptr, ptr %3, align 8, !tbaa !19
+  %80 = load ptr, ptr %3, align 8, !tbaa !19
+  %81 = getelementptr inbounds nuw %struct.PyConfig, ptr %80, i32 0, i32 45
+  %82 = load ptr, ptr getelementptr inbounds nuw (%struct._PyPathConfig, ptr @_Py_path_config, i32 0, i32 6), align 8, !tbaa !16
+  call void @PyConfig_SetString(ptr dead_on_unwind writable sret(%struct.PyStatus) align 8 %7, ptr noundef %79, ptr noundef %81, ptr noundef %82)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %0, ptr align 8 %7, i64 32, i1 false), !tbaa.struct !26
+  call void @llvm.lifetime.end.p0(i64 32, ptr %7) #9
+  %83 = getelementptr inbounds nuw %struct.PyStatus, ptr %0, i32 0, i32 0
+  %84 = load i32, ptr %83, align 8, !tbaa !30
+  %85 = icmp ne i32 %84, 0
+  br i1 %85, label %86, label %87
 
-if.then40:                                        ; preds = %if.then35
-  br label %done
+86:                                               ; preds = %78
+  br label %144
 
-if.end41:                                         ; preds = %if.then35
-  br label %if.end42
+87:                                               ; preds = %78
+  br label %88
 
-if.end42:                                         ; preds = %if.end41, %land.lhs.true33, %do.body31
-  br label %do.end43
+88:                                               ; preds = %87, %73, %70
+  br label %89
 
-do.end43:                                         ; preds = %if.end42
-  br label %do.body44
+89:                                               ; preds = %88
+  br label %90
 
-do.body44:                                        ; preds = %do.end43
-  %36 = getelementptr inbounds %struct._PyPathConfig, ptr @_Py_path_config, i32 0, i32 7
-  %37 = load ptr, ptr %36, align 8
-  %tobool45 = icmp ne ptr %37, null
-  br i1 %tobool45, label %land.lhs.true46, label %if.end55
+90:                                               ; preds = %89
+  %91 = load ptr, ptr getelementptr inbounds nuw (%struct._PyPathConfig, ptr @_Py_path_config, i32 0, i32 7), align 8, !tbaa !17
+  %92 = icmp ne ptr %91, null
+  br i1 %92, label %93, label %108
 
-land.lhs.true46:                                  ; preds = %do.body44
-  %38 = load ptr, ptr %config.addr, align 8
-  %home = getelementptr inbounds %struct.PyConfig, ptr %38, i32 0, i32 47
-  %39 = load ptr, ptr %home, align 8
-  %tobool47 = icmp ne ptr %39, null
-  br i1 %tobool47, label %if.end55, label %if.then48
+93:                                               ; preds = %90
+  %94 = load ptr, ptr %3, align 8, !tbaa !19
+  %95 = getelementptr inbounds nuw %struct.PyConfig, ptr %94, i32 0, i32 47
+  %96 = load ptr, ptr %95, align 8, !tbaa !35
+  %97 = icmp ne ptr %96, null
+  br i1 %97, label %108, label %98
 
-if.then48:                                        ; preds = %land.lhs.true46
-  %40 = load ptr, ptr %config.addr, align 8
-  %41 = load ptr, ptr %config.addr, align 8
-  %home50 = getelementptr inbounds %struct.PyConfig, ptr %41, i32 0, i32 47
-  %42 = getelementptr inbounds %struct._PyPathConfig, ptr @_Py_path_config, i32 0, i32 7
-  %43 = load ptr, ptr %42, align 8
-  call void @PyConfig_SetString(ptr sret(%struct.PyStatus) align 8 %tmp49, ptr noundef %40, ptr noundef %home50, ptr noundef %43)
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.result, ptr align 8 %tmp49, i64 32, i1 false)
-  %_type51 = getelementptr inbounds %struct.PyStatus, ptr %agg.result, i32 0, i32 0
-  %44 = load i32, ptr %_type51, align 8
-  %cmp52 = icmp ne i32 %44, 0
-  br i1 %cmp52, label %if.then53, label %if.end54
+98:                                               ; preds = %93
+  call void @llvm.lifetime.start.p0(i64 32, ptr %8) #9
+  %99 = load ptr, ptr %3, align 8, !tbaa !19
+  %100 = load ptr, ptr %3, align 8, !tbaa !19
+  %101 = getelementptr inbounds nuw %struct.PyConfig, ptr %100, i32 0, i32 47
+  %102 = load ptr, ptr getelementptr inbounds nuw (%struct._PyPathConfig, ptr @_Py_path_config, i32 0, i32 7), align 8, !tbaa !17
+  call void @PyConfig_SetString(ptr dead_on_unwind writable sret(%struct.PyStatus) align 8 %8, ptr noundef %99, ptr noundef %101, ptr noundef %102)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %0, ptr align 8 %8, i64 32, i1 false), !tbaa.struct !26
+  call void @llvm.lifetime.end.p0(i64 32, ptr %8) #9
+  %103 = getelementptr inbounds nuw %struct.PyStatus, ptr %0, i32 0, i32 0
+  %104 = load i32, ptr %103, align 8, !tbaa !30
+  %105 = icmp ne i32 %104, 0
+  br i1 %105, label %106, label %107
 
-if.then53:                                        ; preds = %if.then48
-  br label %done
+106:                                              ; preds = %98
+  br label %144
 
-if.end54:                                         ; preds = %if.then48
-  br label %if.end55
+107:                                              ; preds = %98
+  br label %108
 
-if.end55:                                         ; preds = %if.end54, %land.lhs.true46, %do.body44
-  br label %do.end56
+108:                                              ; preds = %107, %93, %90
+  br label %109
 
-do.end56:                                         ; preds = %if.end55
-  br label %do.body57
+109:                                              ; preds = %108
+  br label %110
 
-do.body57:                                        ; preds = %do.end56
-  %45 = load ptr, ptr @_Py_path_config, align 8
-  %tobool58 = icmp ne ptr %45, null
-  br i1 %tobool58, label %land.lhs.true59, label %if.end68
+110:                                              ; preds = %109
+  %111 = load ptr, ptr @_Py_path_config, align 8, !tbaa !11
+  %112 = icmp ne ptr %111, null
+  br i1 %112, label %113, label %128
 
-land.lhs.true59:                                  ; preds = %do.body57
-  %46 = load ptr, ptr %config.addr, align 8
-  %executable = getelementptr inbounds %struct.PyConfig, ptr %46, i32 0, i32 52
-  %47 = load ptr, ptr %executable, align 8
-  %tobool60 = icmp ne ptr %47, null
-  br i1 %tobool60, label %if.end68, label %if.then61
+113:                                              ; preds = %110
+  %114 = load ptr, ptr %3, align 8, !tbaa !19
+  %115 = getelementptr inbounds nuw %struct.PyConfig, ptr %114, i32 0, i32 52
+  %116 = load ptr, ptr %115, align 8, !tbaa !36
+  %117 = icmp ne ptr %116, null
+  br i1 %117, label %128, label %118
 
-if.then61:                                        ; preds = %land.lhs.true59
-  %48 = load ptr, ptr %config.addr, align 8
-  %49 = load ptr, ptr %config.addr, align 8
-  %executable63 = getelementptr inbounds %struct.PyConfig, ptr %49, i32 0, i32 52
-  %50 = load ptr, ptr @_Py_path_config, align 8
-  call void @PyConfig_SetString(ptr sret(%struct.PyStatus) align 8 %tmp62, ptr noundef %48, ptr noundef %executable63, ptr noundef %50)
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.result, ptr align 8 %tmp62, i64 32, i1 false)
-  %_type64 = getelementptr inbounds %struct.PyStatus, ptr %agg.result, i32 0, i32 0
-  %51 = load i32, ptr %_type64, align 8
-  %cmp65 = icmp ne i32 %51, 0
-  br i1 %cmp65, label %if.then66, label %if.end67
+118:                                              ; preds = %113
+  call void @llvm.lifetime.start.p0(i64 32, ptr %9) #9
+  %119 = load ptr, ptr %3, align 8, !tbaa !19
+  %120 = load ptr, ptr %3, align 8, !tbaa !19
+  %121 = getelementptr inbounds nuw %struct.PyConfig, ptr %120, i32 0, i32 52
+  %122 = load ptr, ptr @_Py_path_config, align 8, !tbaa !11
+  call void @PyConfig_SetString(ptr dead_on_unwind writable sret(%struct.PyStatus) align 8 %9, ptr noundef %119, ptr noundef %121, ptr noundef %122)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %0, ptr align 8 %9, i64 32, i1 false), !tbaa.struct !26
+  call void @llvm.lifetime.end.p0(i64 32, ptr %9) #9
+  %123 = getelementptr inbounds nuw %struct.PyStatus, ptr %0, i32 0, i32 0
+  %124 = load i32, ptr %123, align 8, !tbaa !30
+  %125 = icmp ne i32 %124, 0
+  br i1 %125, label %126, label %127
 
-if.then66:                                        ; preds = %if.then61
-  br label %done
+126:                                              ; preds = %118
+  br label %144
 
-if.end67:                                         ; preds = %if.then61
-  br label %if.end68
+127:                                              ; preds = %118
+  br label %128
 
-if.end68:                                         ; preds = %if.end67, %land.lhs.true59, %do.body57
-  br label %do.end69
+128:                                              ; preds = %127, %113, %110
+  br label %129
 
-do.end69:                                         ; preds = %if.end68
-  br label %do.body70
+129:                                              ; preds = %128
+  br label %130
 
-do.body70:                                        ; preds = %do.end69
-  %52 = getelementptr inbounds %struct._PyPathConfig, ptr @_Py_path_config, i32 0, i32 8
-  %53 = load i32, ptr %52, align 8
-  %cmp71 = icmp sge i32 %53, 0
-  br i1 %cmp71, label %land.lhs.true72, label %if.end76
+130:                                              ; preds = %129
+  %131 = load i32, ptr getelementptr inbounds nuw (%struct._PyPathConfig, ptr @_Py_path_config, i32 0, i32 8), align 8, !tbaa !18
+  %132 = icmp sge i32 %131, 0
+  br i1 %132, label %133, label %142
 
-land.lhs.true72:                                  ; preds = %do.body70
-  %54 = load ptr, ptr %config.addr, align 8
-  %_is_python_build = getelementptr inbounds %struct.PyConfig, ptr %54, i32 0, i32 65
-  %55 = load i32, ptr %_is_python_build, align 8
-  %cmp73 = icmp sle i32 %55, 0
-  br i1 %cmp73, label %if.then74, label %if.end76
+133:                                              ; preds = %130
+  %134 = load ptr, ptr %3, align 8, !tbaa !19
+  %135 = getelementptr inbounds nuw %struct.PyConfig, ptr %134, i32 0, i32 65
+  %136 = load i32, ptr %135, align 8, !tbaa !37
+  %137 = icmp sle i32 %136, 0
+  br i1 %137, label %138, label %142
 
-if.then74:                                        ; preds = %land.lhs.true72
-  %56 = getelementptr inbounds %struct._PyPathConfig, ptr @_Py_path_config, i32 0, i32 8
-  %57 = load i32, ptr %56, align 8
-  %58 = load ptr, ptr %config.addr, align 8
-  %_is_python_build75 = getelementptr inbounds %struct.PyConfig, ptr %58, i32 0, i32 65
-  store i32 %57, ptr %_is_python_build75, align 8
-  br label %if.end76
+138:                                              ; preds = %133
+  %139 = load i32, ptr getelementptr inbounds nuw (%struct._PyPathConfig, ptr @_Py_path_config, i32 0, i32 8), align 8, !tbaa !18
+  %140 = load ptr, ptr %3, align 8, !tbaa !19
+  %141 = getelementptr inbounds nuw %struct.PyConfig, ptr %140, i32 0, i32 65
+  store i32 %139, ptr %141, align 8, !tbaa !37
+  br label %142
 
-if.end76:                                         ; preds = %if.then74, %land.lhs.true72, %do.body70
-  br label %do.end77
+142:                                              ; preds = %138, %133, %130
+  br label %143
 
-do.end77:                                         ; preds = %if.end76
-  br label %done
+143:                                              ; preds = %142
+  br label %144
 
-done:                                             ; preds = %do.end77, %if.then66, %if.then53, %if.then40, %if.then27, %if.then14, %if.then3
+144:                                              ; preds = %143, %126, %106, %86, %66, %46, %26
   ret void
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
-declare void @PyConfig_SetString(ptr sret(%struct.PyStatus) align 8, ptr noundef, ptr noundef, ptr noundef) #1
+declare void @PyConfig_SetString(ptr dead_on_unwind writable sret(%struct.PyStatus) align 8, ptr noundef, ptr noundef, ptr noundef) #2
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: nounwind uwtable
-define hidden void @_PyPathConfig_UpdateGlobal(ptr noalias sret(%struct.PyStatus) align 8 %agg.result, ptr noundef %config) #0 {
-entry:
-  %config.addr = alloca ptr, align 8
-  %old_alloc = alloca %struct.PyMemAllocatorEx, align 8
-  %cch = alloca i64, align 8
-  %i = alloca i64, align 8
-  %path = alloca ptr, align 8
-  %p = alloca ptr, align 8
-  %i70 = alloca i64, align 8
-  store ptr %config, ptr %config.addr, align 8
-  %call = call i32 @_PyMem_SetDefaultAllocator(i32 noundef 0, ptr noundef %old_alloc)
-  br label %do.body
+define hidden void @_PyPathConfig_UpdateGlobal(ptr dead_on_unwind noalias writable sret(%struct.PyStatus) align 8 %0, ptr noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca %struct.PyMemAllocatorEx, align 8
+  %5 = alloca i64, align 8
+  %6 = alloca i64, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca i64, align 8
+  %10 = alloca i32, align 4
+  store ptr %1, ptr %3, align 8, !tbaa !19
+  call void @llvm.lifetime.start.p0(i64 40, ptr %4) #9
+  %11 = call i32 @_PyMem_SetDefaultAllocator(i32 noundef 0, ptr noundef %4)
+  br label %12
 
-do.body:                                          ; preds = %entry
-  %0 = load ptr, ptr %config.addr, align 8
-  %prefix = getelementptr inbounds %struct.PyConfig, ptr %0, i32 0, i32 54
-  %1 = load ptr, ptr %prefix, align 8
-  %tobool = icmp ne ptr %1, null
-  br i1 %tobool, label %if.then, label %if.end5
+12:                                               ; preds = %2
+  %13 = load ptr, ptr %3, align 8, !tbaa !19
+  %14 = getelementptr inbounds nuw %struct.PyConfig, ptr %13, i32 0, i32 54
+  %15 = load ptr, ptr %14, align 8, !tbaa !21
+  %16 = icmp ne ptr %15, null
+  br i1 %16, label %17, label %27
 
-if.then:                                          ; preds = %do.body
-  %2 = getelementptr inbounds %struct._PyPathConfig, ptr @_Py_path_config, i32 0, i32 1
-  %3 = load ptr, ptr %2, align 8
-  call void @PyMem_RawFree(ptr noundef %3)
-  %4 = load ptr, ptr %config.addr, align 8
-  %prefix1 = getelementptr inbounds %struct.PyConfig, ptr %4, i32 0, i32 54
-  %5 = load ptr, ptr %prefix1, align 8
-  %call2 = call ptr @_PyMem_RawWcsdup(ptr noundef %5)
-  %6 = getelementptr inbounds %struct._PyPathConfig, ptr @_Py_path_config, i32 0, i32 1
-  store ptr %call2, ptr %6, align 8
-  %7 = getelementptr inbounds %struct._PyPathConfig, ptr @_Py_path_config, i32 0, i32 1
-  %8 = load ptr, ptr %7, align 8
-  %tobool3 = icmp ne ptr %8, null
-  br i1 %tobool3, label %if.end, label %if.then4
+17:                                               ; preds = %12
+  %18 = load ptr, ptr getelementptr inbounds nuw (%struct._PyPathConfig, ptr @_Py_path_config, i32 0, i32 1), align 8, !tbaa !12
+  call void @PyMem_RawFree(ptr noundef %18)
+  %19 = load ptr, ptr %3, align 8, !tbaa !19
+  %20 = getelementptr inbounds nuw %struct.PyConfig, ptr %19, i32 0, i32 54
+  %21 = load ptr, ptr %20, align 8, !tbaa !21
+  %22 = call ptr @_PyMem_RawWcsdup(ptr noundef %21)
+  store ptr %22, ptr getelementptr inbounds nuw (%struct._PyPathConfig, ptr @_Py_path_config, i32 0, i32 1), align 8, !tbaa !12
+  %23 = load ptr, ptr getelementptr inbounds nuw (%struct._PyPathConfig, ptr @_Py_path_config, i32 0, i32 1), align 8, !tbaa !12
+  %24 = icmp ne ptr %23, null
+  br i1 %24, label %26, label %25
 
-if.then4:                                         ; preds = %if.then
-  br label %error
+25:                                               ; preds = %17
+  br label %215
 
-if.end:                                           ; preds = %if.then
-  br label %if.end5
+26:                                               ; preds = %17
+  br label %27
 
-if.end5:                                          ; preds = %if.end, %do.body
-  br label %do.end
+27:                                               ; preds = %26, %12
+  br label %28
 
-do.end:                                           ; preds = %if.end5
-  br label %do.body6
+28:                                               ; preds = %27
+  br label %29
 
-do.body6:                                         ; preds = %do.end
-  %9 = load ptr, ptr %config.addr, align 8
-  %exec_prefix = getelementptr inbounds %struct.PyConfig, ptr %9, i32 0, i32 56
-  %10 = load ptr, ptr %exec_prefix, align 8
-  %tobool7 = icmp ne ptr %10, null
-  br i1 %tobool7, label %if.then8, label %if.end14
+29:                                               ; preds = %28
+  br label %30
 
-if.then8:                                         ; preds = %do.body6
-  %11 = getelementptr inbounds %struct._PyPathConfig, ptr @_Py_path_config, i32 0, i32 2
-  %12 = load ptr, ptr %11, align 8
-  call void @PyMem_RawFree(ptr noundef %12)
-  %13 = load ptr, ptr %config.addr, align 8
-  %exec_prefix9 = getelementptr inbounds %struct.PyConfig, ptr %13, i32 0, i32 56
-  %14 = load ptr, ptr %exec_prefix9, align 8
-  %call10 = call ptr @_PyMem_RawWcsdup(ptr noundef %14)
-  %15 = getelementptr inbounds %struct._PyPathConfig, ptr @_Py_path_config, i32 0, i32 2
-  store ptr %call10, ptr %15, align 8
-  %16 = getelementptr inbounds %struct._PyPathConfig, ptr @_Py_path_config, i32 0, i32 2
-  %17 = load ptr, ptr %16, align 8
-  %tobool11 = icmp ne ptr %17, null
-  br i1 %tobool11, label %if.end13, label %if.then12
+30:                                               ; preds = %29
+  %31 = load ptr, ptr %3, align 8, !tbaa !19
+  %32 = getelementptr inbounds nuw %struct.PyConfig, ptr %31, i32 0, i32 56
+  %33 = load ptr, ptr %32, align 8, !tbaa !32
+  %34 = icmp ne ptr %33, null
+  br i1 %34, label %35, label %45
 
-if.then12:                                        ; preds = %if.then8
-  br label %error
+35:                                               ; preds = %30
+  %36 = load ptr, ptr getelementptr inbounds nuw (%struct._PyPathConfig, ptr @_Py_path_config, i32 0, i32 2), align 8, !tbaa !13
+  call void @PyMem_RawFree(ptr noundef %36)
+  %37 = load ptr, ptr %3, align 8, !tbaa !19
+  %38 = getelementptr inbounds nuw %struct.PyConfig, ptr %37, i32 0, i32 56
+  %39 = load ptr, ptr %38, align 8, !tbaa !32
+  %40 = call ptr @_PyMem_RawWcsdup(ptr noundef %39)
+  store ptr %40, ptr getelementptr inbounds nuw (%struct._PyPathConfig, ptr @_Py_path_config, i32 0, i32 2), align 8, !tbaa !13
+  %41 = load ptr, ptr getelementptr inbounds nuw (%struct._PyPathConfig, ptr @_Py_path_config, i32 0, i32 2), align 8, !tbaa !13
+  %42 = icmp ne ptr %41, null
+  br i1 %42, label %44, label %43
 
-if.end13:                                         ; preds = %if.then8
-  br label %if.end14
+43:                                               ; preds = %35
+  br label %215
 
-if.end14:                                         ; preds = %if.end13, %do.body6
-  br label %do.end15
+44:                                               ; preds = %35
+  br label %45
 
-do.end15:                                         ; preds = %if.end14
-  br label %do.body16
+45:                                               ; preds = %44, %30
+  br label %46
 
-do.body16:                                        ; preds = %do.end15
-  %18 = load ptr, ptr %config.addr, align 8
-  %stdlib_dir = getelementptr inbounds %struct.PyConfig, ptr %18, i32 0, i32 51
-  %19 = load ptr, ptr %stdlib_dir, align 8
-  %tobool17 = icmp ne ptr %19, null
-  br i1 %tobool17, label %if.then18, label %if.end24
+46:                                               ; preds = %45
+  br label %47
 
-if.then18:                                        ; preds = %do.body16
-  %20 = getelementptr inbounds %struct._PyPathConfig, ptr @_Py_path_config, i32 0, i32 3
-  %21 = load ptr, ptr %20, align 8
-  call void @PyMem_RawFree(ptr noundef %21)
-  %22 = load ptr, ptr %config.addr, align 8
-  %stdlib_dir19 = getelementptr inbounds %struct.PyConfig, ptr %22, i32 0, i32 51
-  %23 = load ptr, ptr %stdlib_dir19, align 8
-  %call20 = call ptr @_PyMem_RawWcsdup(ptr noundef %23)
-  %24 = getelementptr inbounds %struct._PyPathConfig, ptr @_Py_path_config, i32 0, i32 3
-  store ptr %call20, ptr %24, align 8
-  %25 = getelementptr inbounds %struct._PyPathConfig, ptr @_Py_path_config, i32 0, i32 3
-  %26 = load ptr, ptr %25, align 8
-  %tobool21 = icmp ne ptr %26, null
-  br i1 %tobool21, label %if.end23, label %if.then22
+47:                                               ; preds = %46
+  br label %48
 
-if.then22:                                        ; preds = %if.then18
-  br label %error
+48:                                               ; preds = %47
+  %49 = load ptr, ptr %3, align 8, !tbaa !19
+  %50 = getelementptr inbounds nuw %struct.PyConfig, ptr %49, i32 0, i32 51
+  %51 = load ptr, ptr %50, align 8, !tbaa !33
+  %52 = icmp ne ptr %51, null
+  br i1 %52, label %53, label %63
 
-if.end23:                                         ; preds = %if.then18
-  br label %if.end24
+53:                                               ; preds = %48
+  %54 = load ptr, ptr getelementptr inbounds nuw (%struct._PyPathConfig, ptr @_Py_path_config, i32 0, i32 3), align 8, !tbaa !14
+  call void @PyMem_RawFree(ptr noundef %54)
+  %55 = load ptr, ptr %3, align 8, !tbaa !19
+  %56 = getelementptr inbounds nuw %struct.PyConfig, ptr %55, i32 0, i32 51
+  %57 = load ptr, ptr %56, align 8, !tbaa !33
+  %58 = call ptr @_PyMem_RawWcsdup(ptr noundef %57)
+  store ptr %58, ptr getelementptr inbounds nuw (%struct._PyPathConfig, ptr @_Py_path_config, i32 0, i32 3), align 8, !tbaa !14
+  %59 = load ptr, ptr getelementptr inbounds nuw (%struct._PyPathConfig, ptr @_Py_path_config, i32 0, i32 3), align 8, !tbaa !14
+  %60 = icmp ne ptr %59, null
+  br i1 %60, label %62, label %61
 
-if.end24:                                         ; preds = %if.end23, %do.body16
-  br label %do.end25
+61:                                               ; preds = %53
+  br label %215
 
-do.end25:                                         ; preds = %if.end24
-  br label %do.body26
+62:                                               ; preds = %53
+  br label %63
 
-do.body26:                                        ; preds = %do.end25
-  %27 = load ptr, ptr %config.addr, align 8
-  %program_name = getelementptr inbounds %struct.PyConfig, ptr %27, i32 0, i32 45
-  %28 = load ptr, ptr %program_name, align 8
-  %tobool27 = icmp ne ptr %28, null
-  br i1 %tobool27, label %if.then28, label %if.end34
+63:                                               ; preds = %62, %48
+  br label %64
 
-if.then28:                                        ; preds = %do.body26
-  %29 = getelementptr inbounds %struct._PyPathConfig, ptr @_Py_path_config, i32 0, i32 6
-  %30 = load ptr, ptr %29, align 8
-  call void @PyMem_RawFree(ptr noundef %30)
-  %31 = load ptr, ptr %config.addr, align 8
-  %program_name29 = getelementptr inbounds %struct.PyConfig, ptr %31, i32 0, i32 45
-  %32 = load ptr, ptr %program_name29, align 8
-  %call30 = call ptr @_PyMem_RawWcsdup(ptr noundef %32)
-  %33 = getelementptr inbounds %struct._PyPathConfig, ptr @_Py_path_config, i32 0, i32 6
-  store ptr %call30, ptr %33, align 8
-  %34 = getelementptr inbounds %struct._PyPathConfig, ptr @_Py_path_config, i32 0, i32 6
-  %35 = load ptr, ptr %34, align 8
-  %tobool31 = icmp ne ptr %35, null
-  br i1 %tobool31, label %if.end33, label %if.then32
+64:                                               ; preds = %63
+  br label %65
 
-if.then32:                                        ; preds = %if.then28
-  br label %error
+65:                                               ; preds = %64
+  br label %66
 
-if.end33:                                         ; preds = %if.then28
-  br label %if.end34
+66:                                               ; preds = %65
+  %67 = load ptr, ptr %3, align 8, !tbaa !19
+  %68 = getelementptr inbounds nuw %struct.PyConfig, ptr %67, i32 0, i32 45
+  %69 = load ptr, ptr %68, align 8, !tbaa !34
+  %70 = icmp ne ptr %69, null
+  br i1 %70, label %71, label %81
 
-if.end34:                                         ; preds = %if.end33, %do.body26
-  br label %do.end35
+71:                                               ; preds = %66
+  %72 = load ptr, ptr getelementptr inbounds nuw (%struct._PyPathConfig, ptr @_Py_path_config, i32 0, i32 6), align 8, !tbaa !16
+  call void @PyMem_RawFree(ptr noundef %72)
+  %73 = load ptr, ptr %3, align 8, !tbaa !19
+  %74 = getelementptr inbounds nuw %struct.PyConfig, ptr %73, i32 0, i32 45
+  %75 = load ptr, ptr %74, align 8, !tbaa !34
+  %76 = call ptr @_PyMem_RawWcsdup(ptr noundef %75)
+  store ptr %76, ptr getelementptr inbounds nuw (%struct._PyPathConfig, ptr @_Py_path_config, i32 0, i32 6), align 8, !tbaa !16
+  %77 = load ptr, ptr getelementptr inbounds nuw (%struct._PyPathConfig, ptr @_Py_path_config, i32 0, i32 6), align 8, !tbaa !16
+  %78 = icmp ne ptr %77, null
+  br i1 %78, label %80, label %79
 
-do.end35:                                         ; preds = %if.end34
-  br label %do.body36
+79:                                               ; preds = %71
+  br label %215
 
-do.body36:                                        ; preds = %do.end35
-  %36 = load ptr, ptr %config.addr, align 8
-  %home = getelementptr inbounds %struct.PyConfig, ptr %36, i32 0, i32 47
-  %37 = load ptr, ptr %home, align 8
-  %tobool37 = icmp ne ptr %37, null
-  br i1 %tobool37, label %if.then38, label %if.end44
+80:                                               ; preds = %71
+  br label %81
 
-if.then38:                                        ; preds = %do.body36
-  %38 = getelementptr inbounds %struct._PyPathConfig, ptr @_Py_path_config, i32 0, i32 7
-  %39 = load ptr, ptr %38, align 8
-  call void @PyMem_RawFree(ptr noundef %39)
-  %40 = load ptr, ptr %config.addr, align 8
-  %home39 = getelementptr inbounds %struct.PyConfig, ptr %40, i32 0, i32 47
-  %41 = load ptr, ptr %home39, align 8
-  %call40 = call ptr @_PyMem_RawWcsdup(ptr noundef %41)
-  %42 = getelementptr inbounds %struct._PyPathConfig, ptr @_Py_path_config, i32 0, i32 7
-  store ptr %call40, ptr %42, align 8
-  %43 = getelementptr inbounds %struct._PyPathConfig, ptr @_Py_path_config, i32 0, i32 7
-  %44 = load ptr, ptr %43, align 8
-  %tobool41 = icmp ne ptr %44, null
-  br i1 %tobool41, label %if.end43, label %if.then42
+81:                                               ; preds = %80, %66
+  br label %82
 
-if.then42:                                        ; preds = %if.then38
-  br label %error
+82:                                               ; preds = %81
+  br label %83
 
-if.end43:                                         ; preds = %if.then38
-  br label %if.end44
+83:                                               ; preds = %82
+  br label %84
 
-if.end44:                                         ; preds = %if.end43, %do.body36
-  br label %do.end45
+84:                                               ; preds = %83
+  %85 = load ptr, ptr %3, align 8, !tbaa !19
+  %86 = getelementptr inbounds nuw %struct.PyConfig, ptr %85, i32 0, i32 47
+  %87 = load ptr, ptr %86, align 8, !tbaa !35
+  %88 = icmp ne ptr %87, null
+  br i1 %88, label %89, label %99
 
-do.end45:                                         ; preds = %if.end44
-  br label %do.body46
+89:                                               ; preds = %84
+  %90 = load ptr, ptr getelementptr inbounds nuw (%struct._PyPathConfig, ptr @_Py_path_config, i32 0, i32 7), align 8, !tbaa !17
+  call void @PyMem_RawFree(ptr noundef %90)
+  %91 = load ptr, ptr %3, align 8, !tbaa !19
+  %92 = getelementptr inbounds nuw %struct.PyConfig, ptr %91, i32 0, i32 47
+  %93 = load ptr, ptr %92, align 8, !tbaa !35
+  %94 = call ptr @_PyMem_RawWcsdup(ptr noundef %93)
+  store ptr %94, ptr getelementptr inbounds nuw (%struct._PyPathConfig, ptr @_Py_path_config, i32 0, i32 7), align 8, !tbaa !17
+  %95 = load ptr, ptr getelementptr inbounds nuw (%struct._PyPathConfig, ptr @_Py_path_config, i32 0, i32 7), align 8, !tbaa !17
+  %96 = icmp ne ptr %95, null
+  br i1 %96, label %98, label %97
 
-do.body46:                                        ; preds = %do.end45
-  %45 = load ptr, ptr %config.addr, align 8
-  %executable = getelementptr inbounds %struct.PyConfig, ptr %45, i32 0, i32 52
-  %46 = load ptr, ptr %executable, align 8
-  %tobool47 = icmp ne ptr %46, null
-  br i1 %tobool47, label %if.then48, label %if.end54
+97:                                               ; preds = %89
+  br label %215
 
-if.then48:                                        ; preds = %do.body46
-  %47 = load ptr, ptr @_Py_path_config, align 8
-  call void @PyMem_RawFree(ptr noundef %47)
-  %48 = load ptr, ptr %config.addr, align 8
-  %executable49 = getelementptr inbounds %struct.PyConfig, ptr %48, i32 0, i32 52
-  %49 = load ptr, ptr %executable49, align 8
-  %call50 = call ptr @_PyMem_RawWcsdup(ptr noundef %49)
-  store ptr %call50, ptr @_Py_path_config, align 8
-  %50 = load ptr, ptr @_Py_path_config, align 8
-  %tobool51 = icmp ne ptr %50, null
-  br i1 %tobool51, label %if.end53, label %if.then52
+98:                                               ; preds = %89
+  br label %99
 
-if.then52:                                        ; preds = %if.then48
-  br label %error
+99:                                               ; preds = %98, %84
+  br label %100
 
-if.end53:                                         ; preds = %if.then48
-  br label %if.end54
+100:                                              ; preds = %99
+  br label %101
 
-if.end54:                                         ; preds = %if.end53, %do.body46
-  br label %do.end55
+101:                                              ; preds = %100
+  br label %102
 
-do.end55:                                         ; preds = %if.end54
-  br label %do.body56
+102:                                              ; preds = %101
+  %103 = load ptr, ptr %3, align 8, !tbaa !19
+  %104 = getelementptr inbounds nuw %struct.PyConfig, ptr %103, i32 0, i32 52
+  %105 = load ptr, ptr %104, align 8, !tbaa !36
+  %106 = icmp ne ptr %105, null
+  br i1 %106, label %107, label %117
 
-do.body56:                                        ; preds = %do.end55
-  %51 = load ptr, ptr %config.addr, align 8
-  %_is_python_build = getelementptr inbounds %struct.PyConfig, ptr %51, i32 0, i32 65
-  %52 = load i32, ptr %_is_python_build, align 8
-  %cmp = icmp sgt i32 %52, 0
-  br i1 %cmp, label %if.then57, label %if.end59
+107:                                              ; preds = %102
+  %108 = load ptr, ptr @_Py_path_config, align 8, !tbaa !11
+  call void @PyMem_RawFree(ptr noundef %108)
+  %109 = load ptr, ptr %3, align 8, !tbaa !19
+  %110 = getelementptr inbounds nuw %struct.PyConfig, ptr %109, i32 0, i32 52
+  %111 = load ptr, ptr %110, align 8, !tbaa !36
+  %112 = call ptr @_PyMem_RawWcsdup(ptr noundef %111)
+  store ptr %112, ptr @_Py_path_config, align 8, !tbaa !11
+  %113 = load ptr, ptr @_Py_path_config, align 8, !tbaa !11
+  %114 = icmp ne ptr %113, null
+  br i1 %114, label %116, label %115
 
-if.then57:                                        ; preds = %do.body56
-  %53 = load ptr, ptr %config.addr, align 8
-  %_is_python_build58 = getelementptr inbounds %struct.PyConfig, ptr %53, i32 0, i32 65
-  %54 = load i32, ptr %_is_python_build58, align 8
-  %55 = getelementptr inbounds %struct._PyPathConfig, ptr @_Py_path_config, i32 0, i32 8
-  store i32 %54, ptr %55, align 8
-  br label %if.end59
+115:                                              ; preds = %107
+  br label %215
 
-if.end59:                                         ; preds = %if.then57, %do.body56
-  br label %do.end60
+116:                                              ; preds = %107
+  br label %117
 
-do.end60:                                         ; preds = %if.end59
-  %56 = getelementptr inbounds %struct._PyPathConfig, ptr @_Py_path_config, i32 0, i32 4
-  %57 = load ptr, ptr %56, align 8
-  call void @PyMem_RawFree(ptr noundef %57)
-  %58 = getelementptr inbounds %struct._PyPathConfig, ptr @_Py_path_config, i32 0, i32 4
-  store ptr null, ptr %58, align 8
-  %59 = getelementptr inbounds %struct._PyPathConfig, ptr @_Py_path_config, i32 0, i32 5
-  %60 = load ptr, ptr %59, align 8
-  call void @PyMem_RawFree(ptr noundef %60)
-  %61 = getelementptr inbounds %struct._PyPathConfig, ptr @_Py_path_config, i32 0, i32 5
-  store ptr null, ptr %61, align 8
-  br label %do.body61
+117:                                              ; preds = %116, %102
+  br label %118
 
-do.body61:                                        ; preds = %do.end60
-  store i64 1, ptr %cch, align 8
-  store i64 0, ptr %i, align 8
-  br label %for.cond
+118:                                              ; preds = %117
+  br label %119
 
-for.cond:                                         ; preds = %for.inc, %do.body61
-  %62 = load i64, ptr %i, align 8
-  %63 = load ptr, ptr %config.addr, align 8
-  %module_search_paths = getelementptr inbounds %struct.PyConfig, ptr %63, i32 0, i32 50
-  %length = getelementptr inbounds %struct.PyWideStringList, ptr %module_search_paths, i32 0, i32 0
-  %64 = load i64, ptr %length, align 8
-  %cmp62 = icmp slt i64 %62, %64
-  br i1 %cmp62, label %for.body, label %for.end
+119:                                              ; preds = %118
+  br label %120
 
-for.body:                                         ; preds = %for.cond
-  %65 = load ptr, ptr %config.addr, align 8
-  %module_search_paths63 = getelementptr inbounds %struct.PyConfig, ptr %65, i32 0, i32 50
-  %items = getelementptr inbounds %struct.PyWideStringList, ptr %module_search_paths63, i32 0, i32 1
-  %66 = load ptr, ptr %items, align 8
-  %67 = load i64, ptr %i, align 8
-  %arrayidx = getelementptr ptr, ptr %66, i64 %67
-  %68 = load ptr, ptr %arrayidx, align 8
-  %call64 = call i64 @wcslen(ptr noundef %68) #8
-  %add = add i64 1, %call64
-  %69 = load i64, ptr %cch, align 8
-  %add65 = add i64 %69, %add
-  store i64 %add65, ptr %cch, align 8
-  br label %for.inc
+120:                                              ; preds = %119
+  %121 = load ptr, ptr %3, align 8, !tbaa !19
+  %122 = getelementptr inbounds nuw %struct.PyConfig, ptr %121, i32 0, i32 65
+  %123 = load i32, ptr %122, align 8, !tbaa !37
+  %124 = icmp sgt i32 %123, 0
+  br i1 %124, label %125, label %129
 
-for.inc:                                          ; preds = %for.body
-  %70 = load i64, ptr %i, align 8
-  %inc = add i64 %70, 1
-  store i64 %inc, ptr %i, align 8
-  br label %for.cond, !llvm.loop !5
+125:                                              ; preds = %120
+  %126 = load ptr, ptr %3, align 8, !tbaa !19
+  %127 = getelementptr inbounds nuw %struct.PyConfig, ptr %126, i32 0, i32 65
+  %128 = load i32, ptr %127, align 8, !tbaa !37
+  store i32 %128, ptr getelementptr inbounds nuw (%struct._PyPathConfig, ptr @_Py_path_config, i32 0, i32 8), align 8, !tbaa !18
+  br label %129
 
-for.end:                                          ; preds = %for.cond
-  %71 = load i64, ptr %cch, align 8
-  %mul = mul i64 4, %71
-  %call66 = call ptr @PyMem_RawMalloc(i64 noundef %mul)
-  store ptr %call66, ptr %path, align 8
-  %72 = load ptr, ptr %path, align 8
-  %tobool67 = icmp ne ptr %72, null
-  br i1 %tobool67, label %if.end69, label %if.then68
+129:                                              ; preds = %125, %120
+  br label %130
 
-if.then68:                                        ; preds = %for.end
-  br label %error
+130:                                              ; preds = %129
+  br label %131
 
-if.end69:                                         ; preds = %for.end
-  %73 = load ptr, ptr %path, align 8
-  store ptr %73, ptr %p, align 8
-  store i64 0, ptr %i70, align 8
-  br label %for.cond71
+131:                                              ; preds = %130
+  %132 = load ptr, ptr getelementptr inbounds nuw (%struct._PyPathConfig, ptr @_Py_path_config, i32 0, i32 4), align 8, !tbaa !4
+  call void @PyMem_RawFree(ptr noundef %132)
+  store ptr null, ptr getelementptr inbounds nuw (%struct._PyPathConfig, ptr @_Py_path_config, i32 0, i32 4), align 8, !tbaa !4
+  %133 = load ptr, ptr getelementptr inbounds nuw (%struct._PyPathConfig, ptr @_Py_path_config, i32 0, i32 5), align 8, !tbaa !15
+  call void @PyMem_RawFree(ptr noundef %133)
+  store ptr null, ptr getelementptr inbounds nuw (%struct._PyPathConfig, ptr @_Py_path_config, i32 0, i32 5), align 8, !tbaa !15
+  br label %134
 
-for.cond71:                                       ; preds = %for.inc81, %if.end69
-  %74 = load i64, ptr %i70, align 8
-  %75 = load ptr, ptr %config.addr, align 8
-  %module_search_paths72 = getelementptr inbounds %struct.PyConfig, ptr %75, i32 0, i32 50
-  %length73 = getelementptr inbounds %struct.PyWideStringList, ptr %module_search_paths72, i32 0, i32 0
-  %76 = load i64, ptr %length73, align 8
-  %cmp74 = icmp slt i64 %74, %76
-  br i1 %cmp74, label %for.body75, label %for.end83
+134:                                              ; preds = %131
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #9
+  store i64 1, ptr %5, align 8, !tbaa !38
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #9
+  store i64 0, ptr %6, align 8, !tbaa !38
+  br label %135
 
-for.body75:                                       ; preds = %for.cond71
-  %77 = load ptr, ptr %p, align 8
-  %78 = load ptr, ptr %config.addr, align 8
-  %module_search_paths76 = getelementptr inbounds %struct.PyConfig, ptr %78, i32 0, i32 50
-  %items77 = getelementptr inbounds %struct.PyWideStringList, ptr %module_search_paths76, i32 0, i32 1
-  %79 = load ptr, ptr %items77, align 8
-  %80 = load i64, ptr %i70, align 8
-  %arrayidx78 = getelementptr ptr, ptr %79, i64 %80
-  %81 = load ptr, ptr %arrayidx78, align 8
-  %call79 = call ptr @wcscpy(ptr noundef %77, ptr noundef %81) #9
-  %82 = load ptr, ptr %p, align 8
-  %call80 = call ptr @wcschr(ptr noundef %82, i32 noundef 0) #8
-  store ptr %call80, ptr %p, align 8
-  %83 = load ptr, ptr %p, align 8
-  %incdec.ptr = getelementptr i32, ptr %83, i32 1
-  store ptr %incdec.ptr, ptr %p, align 8
-  store i32 58, ptr %83, align 4
-  %84 = load ptr, ptr %p, align 8
-  store i32 0, ptr %84, align 4
-  br label %for.inc81
+135:                                              ; preds = %155, %134
+  %136 = load i64, ptr %6, align 8, !tbaa !38
+  %137 = load ptr, ptr %3, align 8, !tbaa !19
+  %138 = getelementptr inbounds nuw %struct.PyConfig, ptr %137, i32 0, i32 50
+  %139 = getelementptr inbounds nuw %struct.PyWideStringList, ptr %138, i32 0, i32 0
+  %140 = load i64, ptr %139, align 8, !tbaa !39
+  %141 = icmp slt i64 %136, %140
+  br i1 %141, label %143, label %142
 
-for.inc81:                                        ; preds = %for.body75
-  %85 = load i64, ptr %i70, align 8
-  %inc82 = add i64 %85, 1
-  store i64 %inc82, ptr %i70, align 8
-  br label %for.cond71, !llvm.loop !7
+142:                                              ; preds = %135
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #9
+  br label %158
 
-for.end83:                                        ; preds = %for.cond71
-  br label %do.body84
+143:                                              ; preds = %135
+  %144 = load ptr, ptr %3, align 8, !tbaa !19
+  %145 = getelementptr inbounds nuw %struct.PyConfig, ptr %144, i32 0, i32 50
+  %146 = getelementptr inbounds nuw %struct.PyWideStringList, ptr %145, i32 0, i32 1
+  %147 = load ptr, ptr %146, align 8, !tbaa !40
+  %148 = load i64, ptr %6, align 8, !tbaa !38
+  %149 = getelementptr ptr, ptr %147, i64 %148
+  %150 = load ptr, ptr %149, align 8, !tbaa !41
+  %151 = call i64 @wcslen(ptr noundef %150) #10
+  %152 = add i64 1, %151
+  %153 = load i64, ptr %5, align 8, !tbaa !38
+  %154 = add i64 %153, %152
+  store i64 %154, ptr %5, align 8, !tbaa !38
+  br label %155
 
-do.body84:                                        ; preds = %land.end, %for.end83
-  %86 = load ptr, ptr %p, align 8
-  store i32 0, ptr %86, align 4
-  br label %do.cond
+155:                                              ; preds = %143
+  %156 = load i64, ptr %6, align 8, !tbaa !38
+  %157 = add i64 %156, 1
+  store i64 %157, ptr %6, align 8, !tbaa !38
+  br label %135, !llvm.loop !42
 
-do.cond:                                          ; preds = %do.body84
-  %87 = load ptr, ptr %p, align 8
-  %88 = load ptr, ptr %path, align 8
-  %cmp85 = icmp ne ptr %87, %88
-  br i1 %cmp85, label %land.rhs, label %land.end
+158:                                              ; preds = %142
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #9
+  %159 = load i64, ptr %5, align 8, !tbaa !38
+  %160 = mul i64 4, %159
+  %161 = call ptr @PyMem_RawMalloc(i64 noundef %160)
+  store ptr %161, ptr %7, align 8, !tbaa !41
+  %162 = load ptr, ptr %7, align 8, !tbaa !41
+  %163 = icmp ne ptr %162, null
+  br i1 %163, label %165, label %164
 
-land.rhs:                                         ; preds = %do.cond
-  %89 = load ptr, ptr %p, align 8
-  %incdec.ptr86 = getelementptr i32, ptr %89, i32 -1
-  store ptr %incdec.ptr86, ptr %p, align 8
-  %90 = load i32, ptr %incdec.ptr86, align 4
-  %cmp87 = icmp eq i32 %90, 58
-  br label %land.end
+164:                                              ; preds = %158
+  store i32 4, ptr %10, align 4
+  br label %209
 
-land.end:                                         ; preds = %land.rhs, %do.cond
-  %91 = phi i1 [ false, %do.cond ], [ %cmp87, %land.rhs ]
-  br i1 %91, label %do.body84, label %do.end88, !llvm.loop !8
+165:                                              ; preds = %158
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #9
+  %166 = load ptr, ptr %7, align 8, !tbaa !41
+  store ptr %166, ptr %8, align 8, !tbaa !41
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #9
+  store i64 0, ptr %9, align 8, !tbaa !38
+  br label %167
 
-do.end88:                                         ; preds = %land.end
-  %92 = load ptr, ptr %path, align 8
-  %93 = getelementptr inbounds %struct._PyPathConfig, ptr @_Py_path_config, i32 0, i32 5
-  store ptr %92, ptr %93, align 8
-  br label %do.end90
+167:                                              ; preds = %190, %165
+  %168 = load i64, ptr %9, align 8, !tbaa !38
+  %169 = load ptr, ptr %3, align 8, !tbaa !19
+  %170 = getelementptr inbounds nuw %struct.PyConfig, ptr %169, i32 0, i32 50
+  %171 = getelementptr inbounds nuw %struct.PyWideStringList, ptr %170, i32 0, i32 0
+  %172 = load i64, ptr %171, align 8, !tbaa !39
+  %173 = icmp slt i64 %168, %172
+  br i1 %173, label %175, label %174
 
-do.end90:                                         ; preds = %do.end88
-  call void @PyMem_SetAllocator(i32 noundef 0, ptr noundef %old_alloc)
-  call void @llvm.memset.p0.i64(ptr align 8 %agg.result, i8 0, i64 32, i1 false)
-  %_type = getelementptr inbounds %struct.PyStatus, ptr %agg.result, i32 0, i32 0
-  store i32 0, ptr %_type, align 8
-  br label %return
+174:                                              ; preds = %167
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #9
+  br label %193
 
-error:                                            ; preds = %if.then68, %if.then52, %if.then42, %if.then32, %if.then22, %if.then12, %if.then4
-  call void @PyMem_SetAllocator(i32 noundef 0, ptr noundef %old_alloc)
-  %_type91 = getelementptr inbounds %struct.PyStatus, ptr %agg.result, i32 0, i32 0
-  store i32 1, ptr %_type91, align 8
-  %func = getelementptr inbounds %struct.PyStatus, ptr %agg.result, i32 0, i32 1
-  store ptr @__func__._PyPathConfig_UpdateGlobal, ptr %func, align 8
-  %err_msg = getelementptr inbounds %struct.PyStatus, ptr %agg.result, i32 0, i32 2
-  store ptr @.str, ptr %err_msg, align 8
-  %exitcode = getelementptr inbounds %struct.PyStatus, ptr %agg.result, i32 0, i32 3
-  store i32 0, ptr %exitcode, align 8
-  br label %return
+175:                                              ; preds = %167
+  %176 = load ptr, ptr %8, align 8, !tbaa !41
+  %177 = load ptr, ptr %3, align 8, !tbaa !19
+  %178 = getelementptr inbounds nuw %struct.PyConfig, ptr %177, i32 0, i32 50
+  %179 = getelementptr inbounds nuw %struct.PyWideStringList, ptr %178, i32 0, i32 1
+  %180 = load ptr, ptr %179, align 8, !tbaa !40
+  %181 = load i64, ptr %9, align 8, !tbaa !38
+  %182 = getelementptr ptr, ptr %180, i64 %181
+  %183 = load ptr, ptr %182, align 8, !tbaa !41
+  %184 = call ptr @wcscpy(ptr noundef %176, ptr noundef %183) #9
+  %185 = load ptr, ptr %8, align 8, !tbaa !41
+  %186 = call ptr @wcschr(ptr noundef %185, i32 noundef 0) #10
+  store ptr %186, ptr %8, align 8, !tbaa !41
+  %187 = load ptr, ptr %8, align 8, !tbaa !41
+  %188 = getelementptr i32, ptr %187, i32 1
+  store ptr %188, ptr %8, align 8, !tbaa !41
+  store i32 58, ptr %187, align 4, !tbaa !27
+  %189 = load ptr, ptr %8, align 8, !tbaa !41
+  store i32 0, ptr %189, align 4, !tbaa !27
+  br label %190
 
-return:                                           ; preds = %error, %do.end90
+190:                                              ; preds = %175
+  %191 = load i64, ptr %9, align 8, !tbaa !38
+  %192 = add i64 %191, 1
+  store i64 %192, ptr %9, align 8, !tbaa !38
+  br label %167, !llvm.loop !44
+
+193:                                              ; preds = %174
+  br label %194
+
+194:                                              ; preds = %205, %193
+  %195 = load ptr, ptr %8, align 8, !tbaa !41
+  store i32 0, ptr %195, align 4, !tbaa !27
+  br label %196
+
+196:                                              ; preds = %194
+  %197 = load ptr, ptr %8, align 8, !tbaa !41
+  %198 = load ptr, ptr %7, align 8, !tbaa !41
+  %199 = icmp ne ptr %197, %198
+  br i1 %199, label %200, label %205
+
+200:                                              ; preds = %196
+  %201 = load ptr, ptr %8, align 8, !tbaa !41
+  %202 = getelementptr i32, ptr %201, i32 -1
+  store ptr %202, ptr %8, align 8, !tbaa !41
+  %203 = load i32, ptr %202, align 4, !tbaa !27
+  %204 = icmp eq i32 %203, 58
+  br label %205
+
+205:                                              ; preds = %200, %196
+  %206 = phi i1 [ false, %196 ], [ %204, %200 ]
+  br i1 %206, label %194, label %207, !llvm.loop !45
+
+207:                                              ; preds = %205
+  %208 = load ptr, ptr %7, align 8, !tbaa !41
+  store ptr %208, ptr getelementptr inbounds nuw (%struct._PyPathConfig, ptr @_Py_path_config, i32 0, i32 5), align 8, !tbaa !15
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #9
+  store i32 0, ptr %10, align 4
+  br label %209
+
+209:                                              ; preds = %164, %207
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #9
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #9
+  %210 = load i32, ptr %10, align 4
+  switch i32 %210, label %222 [
+    i32 0, label %211
+    i32 4, label %215
+  ]
+
+211:                                              ; preds = %209
+  br label %212
+
+212:                                              ; preds = %211
+  br label %213
+
+213:                                              ; preds = %212
+  call void @PyMem_SetAllocator(i32 noundef 0, ptr noundef %4)
+  call void @llvm.memset.p0.i64(ptr align 8 %0, i8 0, i64 32, i1 false)
+  %214 = getelementptr inbounds nuw %struct.PyStatus, ptr %0, i32 0, i32 0
+  store i32 0, ptr %214, align 8, !tbaa !30
+  store i32 1, ptr %10, align 4
+  br label %222
+
+215:                                              ; preds = %209, %115, %97, %79, %61, %43, %25
+  call void @PyMem_SetAllocator(i32 noundef 0, ptr noundef %4)
+  %216 = getelementptr inbounds nuw %struct.PyStatus, ptr %0, i32 0, i32 0
+  store i32 1, ptr %216, align 8, !tbaa !30
+  %217 = getelementptr i8, ptr %0, i64 4
+  call void @llvm.memset.p0.i64(ptr align 4 %217, i8 0, i64 4, i1 false)
+  %218 = getelementptr inbounds nuw %struct.PyStatus, ptr %0, i32 0, i32 1
+  store ptr @__func__._PyPathConfig_UpdateGlobal, ptr %218, align 8, !tbaa !46
+  %219 = getelementptr inbounds nuw %struct.PyStatus, ptr %0, i32 0, i32 2
+  store ptr @.str, ptr %219, align 8, !tbaa !47
+  %220 = getelementptr inbounds nuw %struct.PyStatus, ptr %0, i32 0, i32 3
+  store i32 0, ptr %220, align 8, !tbaa !48
+  %221 = getelementptr i8, ptr %0, i64 28
+  call void @llvm.memset.p0.i64(ptr align 4 %221, i8 0, i64 4, i1 false)
+  store i32 1, ptr %10, align 4
+  br label %222
+
+222:                                              ; preds = %215, %213, %209
+  call void @llvm.lifetime.end.p0(i64 40, ptr %4) #9
   ret void
 }
 
-declare ptr @_PyMem_RawWcsdup(ptr noundef) #1
+declare ptr @_PyMem_RawWcsdup(ptr noundef) #2
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare i64 @wcslen(ptr noundef) #4
+declare i64 @wcslen(ptr noundef) #5
 
-declare ptr @PyMem_RawMalloc(i64 noundef) #1
+declare ptr @PyMem_RawMalloc(i64 noundef) #2
 
 ; Function Attrs: nounwind
-declare ptr @wcscpy(ptr noundef, ptr noundef) #5
+declare ptr @wcscpy(ptr noundef, ptr noundef) #6
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare ptr @wcschr(ptr noundef, i32 noundef) #4
+declare ptr @wcschr(ptr noundef, i32 noundef) #5
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @Py_SetPath(ptr noundef %path) #0 {
-entry:
-  %path.addr = alloca ptr, align 8
-  %old_alloc = alloca %struct.PyMemAllocatorEx, align 8
-  store ptr %path, ptr %path.addr, align 8
-  %0 = load ptr, ptr %path.addr, align 8
-  %cmp = icmp eq ptr %0, null
-  br i1 %cmp, label %if.then, label %if.end
+define dso_local void @Py_SetPath(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca %struct.PyMemAllocatorEx, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !41
+  %4 = load ptr, ptr %2, align 8, !tbaa !41
+  %5 = icmp eq ptr %4, null
+  br i1 %5, label %6, label %7
 
-if.then:                                          ; preds = %entry
+6:                                                ; preds = %1
   call void @_PyPathConfig_ClearGlobal()
-  br label %if.end16
+  br label %39
 
-if.end:                                           ; preds = %entry
-  %call = call i32 @_PyMem_SetDefaultAllocator(i32 noundef 0, ptr noundef %old_alloc)
-  %1 = getelementptr inbounds %struct._PyPathConfig, ptr @_Py_path_config, i32 0, i32 1
-  %2 = load ptr, ptr %1, align 8
-  call void @PyMem_RawFree(ptr noundef %2)
-  %3 = getelementptr inbounds %struct._PyPathConfig, ptr @_Py_path_config, i32 0, i32 2
-  %4 = load ptr, ptr %3, align 8
-  call void @PyMem_RawFree(ptr noundef %4)
-  %5 = getelementptr inbounds %struct._PyPathConfig, ptr @_Py_path_config, i32 0, i32 3
-  %6 = load ptr, ptr %5, align 8
-  call void @PyMem_RawFree(ptr noundef %6)
-  %7 = getelementptr inbounds %struct._PyPathConfig, ptr @_Py_path_config, i32 0, i32 4
-  %8 = load ptr, ptr %7, align 8
-  call void @PyMem_RawFree(ptr noundef %8)
-  %9 = getelementptr inbounds %struct._PyPathConfig, ptr @_Py_path_config, i32 0, i32 5
-  %10 = load ptr, ptr %9, align 8
+7:                                                ; preds = %1
+  call void @llvm.lifetime.start.p0(i64 40, ptr %3) #9
+  %8 = call i32 @_PyMem_SetDefaultAllocator(i32 noundef 0, ptr noundef %3)
+  %9 = load ptr, ptr getelementptr inbounds nuw (%struct._PyPathConfig, ptr @_Py_path_config, i32 0, i32 1), align 8, !tbaa !12
+  call void @PyMem_RawFree(ptr noundef %9)
+  %10 = load ptr, ptr getelementptr inbounds nuw (%struct._PyPathConfig, ptr @_Py_path_config, i32 0, i32 2), align 8, !tbaa !13
   call void @PyMem_RawFree(ptr noundef %10)
-  %call1 = call ptr @_PyMem_RawWcsdup(ptr noundef @.str.1)
-  %11 = getelementptr inbounds %struct._PyPathConfig, ptr @_Py_path_config, i32 0, i32 1
-  store ptr %call1, ptr %11, align 8
-  %call2 = call ptr @_PyMem_RawWcsdup(ptr noundef @.str.1)
-  %12 = getelementptr inbounds %struct._PyPathConfig, ptr @_Py_path_config, i32 0, i32 2
-  store ptr %call2, ptr %12, align 8
-  %13 = getelementptr inbounds %struct._PyPathConfig, ptr @_Py_path_config, i32 0, i32 7
-  %14 = load ptr, ptr %13, align 8
-  %cmp3 = icmp ne ptr %14, null
-  br i1 %cmp3, label %if.then4, label %if.else
+  %11 = load ptr, ptr getelementptr inbounds nuw (%struct._PyPathConfig, ptr @_Py_path_config, i32 0, i32 3), align 8, !tbaa !14
+  call void @PyMem_RawFree(ptr noundef %11)
+  %12 = load ptr, ptr getelementptr inbounds nuw (%struct._PyPathConfig, ptr @_Py_path_config, i32 0, i32 4), align 8, !tbaa !4
+  call void @PyMem_RawFree(ptr noundef %12)
+  %13 = load ptr, ptr getelementptr inbounds nuw (%struct._PyPathConfig, ptr @_Py_path_config, i32 0, i32 5), align 8, !tbaa !15
+  call void @PyMem_RawFree(ptr noundef %13)
+  %14 = call ptr @_PyMem_RawWcsdup(ptr noundef @.str.1)
+  store ptr %14, ptr getelementptr inbounds nuw (%struct._PyPathConfig, ptr @_Py_path_config, i32 0, i32 1), align 8, !tbaa !12
+  %15 = call ptr @_PyMem_RawWcsdup(ptr noundef @.str.1)
+  store ptr %15, ptr getelementptr inbounds nuw (%struct._PyPathConfig, ptr @_Py_path_config, i32 0, i32 2), align 8, !tbaa !13
+  %16 = load ptr, ptr getelementptr inbounds nuw (%struct._PyPathConfig, ptr @_Py_path_config, i32 0, i32 7), align 8, !tbaa !17
+  %17 = icmp ne ptr %16, null
+  br i1 %17, label %18, label %21
 
-if.then4:                                         ; preds = %if.end
-  %15 = getelementptr inbounds %struct._PyPathConfig, ptr @_Py_path_config, i32 0, i32 7
-  %16 = load ptr, ptr %15, align 8
-  %call5 = call ptr @_PyMem_RawWcsdup(ptr noundef %16)
-  %17 = getelementptr inbounds %struct._PyPathConfig, ptr @_Py_path_config, i32 0, i32 3
-  store ptr %call5, ptr %17, align 8
-  br label %if.end7
+18:                                               ; preds = %7
+  %19 = load ptr, ptr getelementptr inbounds nuw (%struct._PyPathConfig, ptr @_Py_path_config, i32 0, i32 7), align 8, !tbaa !17
+  %20 = call ptr @_PyMem_RawWcsdup(ptr noundef %19)
+  store ptr %20, ptr getelementptr inbounds nuw (%struct._PyPathConfig, ptr @_Py_path_config, i32 0, i32 3), align 8, !tbaa !14
+  br label %23
 
-if.else:                                          ; preds = %if.end
-  %call6 = call ptr @_PyMem_RawWcsdup(ptr noundef @.str.1)
-  %18 = getelementptr inbounds %struct._PyPathConfig, ptr @_Py_path_config, i32 0, i32 3
-  store ptr %call6, ptr %18, align 8
-  br label %if.end7
+21:                                               ; preds = %7
+  %22 = call ptr @_PyMem_RawWcsdup(ptr noundef @.str.1)
+  store ptr %22, ptr getelementptr inbounds nuw (%struct._PyPathConfig, ptr @_Py_path_config, i32 0, i32 3), align 8, !tbaa !14
+  br label %23
 
-if.end7:                                          ; preds = %if.else, %if.then4
-  %19 = load ptr, ptr %path.addr, align 8
-  %call8 = call ptr @_PyMem_RawWcsdup(ptr noundef %19)
-  %20 = getelementptr inbounds %struct._PyPathConfig, ptr @_Py_path_config, i32 0, i32 4
-  store ptr %call8, ptr %20, align 8
-  %21 = getelementptr inbounds %struct._PyPathConfig, ptr @_Py_path_config, i32 0, i32 5
-  store ptr null, ptr %21, align 8
-  call void @PyMem_SetAllocator(i32 noundef 0, ptr noundef %old_alloc)
-  %22 = getelementptr inbounds %struct._PyPathConfig, ptr @_Py_path_config, i32 0, i32 1
-  %23 = load ptr, ptr %22, align 8
-  %cmp9 = icmp eq ptr %23, null
-  br i1 %cmp9, label %if.then15, label %lor.lhs.false
+23:                                               ; preds = %21, %18
+  %24 = load ptr, ptr %2, align 8, !tbaa !41
+  %25 = call ptr @_PyMem_RawWcsdup(ptr noundef %24)
+  store ptr %25, ptr getelementptr inbounds nuw (%struct._PyPathConfig, ptr @_Py_path_config, i32 0, i32 4), align 8, !tbaa !4
+  store ptr null, ptr getelementptr inbounds nuw (%struct._PyPathConfig, ptr @_Py_path_config, i32 0, i32 5), align 8, !tbaa !15
+  call void @PyMem_SetAllocator(i32 noundef 0, ptr noundef %3)
+  %26 = load ptr, ptr getelementptr inbounds nuw (%struct._PyPathConfig, ptr @_Py_path_config, i32 0, i32 1), align 8, !tbaa !12
+  %27 = icmp eq ptr %26, null
+  br i1 %27, label %37, label %28
 
-lor.lhs.false:                                    ; preds = %if.end7
-  %24 = getelementptr inbounds %struct._PyPathConfig, ptr @_Py_path_config, i32 0, i32 2
-  %25 = load ptr, ptr %24, align 8
-  %cmp10 = icmp eq ptr %25, null
-  br i1 %cmp10, label %if.then15, label %lor.lhs.false11
+28:                                               ; preds = %23
+  %29 = load ptr, ptr getelementptr inbounds nuw (%struct._PyPathConfig, ptr @_Py_path_config, i32 0, i32 2), align 8, !tbaa !13
+  %30 = icmp eq ptr %29, null
+  br i1 %30, label %37, label %31
 
-lor.lhs.false11:                                  ; preds = %lor.lhs.false
-  %26 = getelementptr inbounds %struct._PyPathConfig, ptr @_Py_path_config, i32 0, i32 3
-  %27 = load ptr, ptr %26, align 8
-  %cmp12 = icmp eq ptr %27, null
-  br i1 %cmp12, label %if.then15, label %lor.lhs.false13
+31:                                               ; preds = %28
+  %32 = load ptr, ptr getelementptr inbounds nuw (%struct._PyPathConfig, ptr @_Py_path_config, i32 0, i32 3), align 8, !tbaa !14
+  %33 = icmp eq ptr %32, null
+  br i1 %33, label %37, label %34
 
-lor.lhs.false13:                                  ; preds = %lor.lhs.false11
-  %28 = getelementptr inbounds %struct._PyPathConfig, ptr @_Py_path_config, i32 0, i32 4
-  %29 = load ptr, ptr %28, align 8
-  %cmp14 = icmp eq ptr %29, null
-  br i1 %cmp14, label %if.then15, label %if.end16
+34:                                               ; preds = %31
+  %35 = load ptr, ptr getelementptr inbounds nuw (%struct._PyPathConfig, ptr @_Py_path_config, i32 0, i32 4), align 8, !tbaa !4
+  %36 = icmp eq ptr %35, null
+  br i1 %36, label %37, label %38
 
-if.then15:                                        ; preds = %lor.lhs.false13, %lor.lhs.false11, %lor.lhs.false, %if.end7
-  call void @path_out_of_memory(ptr noundef @__func__.Py_SetPath) #10
+37:                                               ; preds = %34, %31, %28, %23
+  call void @path_out_of_memory(ptr noundef @__func__.Py_SetPath) #11
   unreachable
 
-if.end16:                                         ; preds = %lor.lhs.false13, %if.then
+38:                                               ; preds = %34
+  call void @llvm.lifetime.end.p0(i64 40, ptr %3) #9
+  br label %39
+
+39:                                               ; preds = %38, %6
   ret void
 }
 
 ; Function Attrs: noreturn nounwind uwtable
-define internal void @path_out_of_memory(ptr noundef %func) #6 {
-entry:
-  %func.addr = alloca ptr, align 8
-  store ptr %func, ptr %func.addr, align 8
-  %0 = load ptr, ptr %func.addr, align 8
-  call void @_Py_FatalErrorFunc(ptr noundef %0, ptr noundef @.str.4) #10
+define internal void @path_out_of_memory(ptr noundef %0) #7 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !28
+  %3 = load ptr, ptr %2, align 8, !tbaa !28
+  call void @_Py_FatalErrorFunc(ptr noundef %3, ptr noundef @.str.4) #11
   unreachable
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @Py_SetPythonHome(ptr noundef %home) #0 {
-entry:
-  %home.addr = alloca ptr, align 8
-  %has_value = alloca i32, align 4
-  %old_alloc = alloca %struct.PyMemAllocatorEx, align 8
-  store ptr %home, ptr %home.addr, align 8
-  %0 = load ptr, ptr %home.addr, align 8
-  %tobool = icmp ne ptr %0, null
-  br i1 %tobool, label %land.rhs, label %land.end
+define dso_local void @Py_SetPythonHome(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca i32, align 4
+  %4 = alloca %struct.PyMemAllocatorEx, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !41
+  call void @llvm.lifetime.start.p0(i64 4, ptr %3) #9
+  %5 = load ptr, ptr %2, align 8, !tbaa !41
+  %6 = icmp ne ptr %5, null
+  br i1 %6, label %7, label %12
 
-land.rhs:                                         ; preds = %entry
-  %1 = load ptr, ptr %home.addr, align 8
-  %arrayidx = getelementptr i32, ptr %1, i64 0
-  %2 = load i32, ptr %arrayidx, align 4
-  %tobool1 = icmp ne i32 %2, 0
-  br label %land.end
+7:                                                ; preds = %1
+  %8 = load ptr, ptr %2, align 8, !tbaa !41
+  %9 = getelementptr i32, ptr %8, i64 0
+  %10 = load i32, ptr %9, align 4, !tbaa !27
+  %11 = icmp ne i32 %10, 0
+  br label %12
 
-land.end:                                         ; preds = %land.rhs, %entry
-  %3 = phi i1 [ false, %entry ], [ %tobool1, %land.rhs ]
-  %land.ext = zext i1 %3 to i32
-  store i32 %land.ext, ptr %has_value, align 4
-  %call = call i32 @_PyMem_SetDefaultAllocator(i32 noundef 0, ptr noundef %old_alloc)
-  %4 = getelementptr inbounds %struct._PyPathConfig, ptr @_Py_path_config, i32 0, i32 7
-  %5 = load ptr, ptr %4, align 8
-  call void @PyMem_RawFree(ptr noundef %5)
-  %6 = getelementptr inbounds %struct._PyPathConfig, ptr @_Py_path_config, i32 0, i32 7
-  store ptr null, ptr %6, align 8
-  %7 = load i32, ptr %has_value, align 4
-  %tobool2 = icmp ne i32 %7, 0
-  br i1 %tobool2, label %if.then, label %if.end
+12:                                               ; preds = %7, %1
+  %13 = phi i1 [ false, %1 ], [ %11, %7 ]
+  %14 = zext i1 %13 to i32
+  store i32 %14, ptr %3, align 4, !tbaa !27
+  call void @llvm.lifetime.start.p0(i64 40, ptr %4) #9
+  %15 = call i32 @_PyMem_SetDefaultAllocator(i32 noundef 0, ptr noundef %4)
+  %16 = load ptr, ptr getelementptr inbounds nuw (%struct._PyPathConfig, ptr @_Py_path_config, i32 0, i32 7), align 8, !tbaa !17
+  call void @PyMem_RawFree(ptr noundef %16)
+  store ptr null, ptr getelementptr inbounds nuw (%struct._PyPathConfig, ptr @_Py_path_config, i32 0, i32 7), align 8, !tbaa !17
+  %17 = load i32, ptr %3, align 4, !tbaa !27
+  %18 = icmp ne i32 %17, 0
+  br i1 %18, label %19, label %22
 
-if.then:                                          ; preds = %land.end
-  %8 = load ptr, ptr %home.addr, align 8
-  %call3 = call ptr @_PyMem_RawWcsdup(ptr noundef %8)
-  %9 = getelementptr inbounds %struct._PyPathConfig, ptr @_Py_path_config, i32 0, i32 7
-  store ptr %call3, ptr %9, align 8
-  br label %if.end
+19:                                               ; preds = %12
+  %20 = load ptr, ptr %2, align 8, !tbaa !41
+  %21 = call ptr @_PyMem_RawWcsdup(ptr noundef %20)
+  store ptr %21, ptr getelementptr inbounds nuw (%struct._PyPathConfig, ptr @_Py_path_config, i32 0, i32 7), align 8, !tbaa !17
+  br label %22
 
-if.end:                                           ; preds = %if.then, %land.end
-  call void @PyMem_SetAllocator(i32 noundef 0, ptr noundef %old_alloc)
-  %10 = load i32, ptr %has_value, align 4
-  %tobool4 = icmp ne i32 %10, 0
-  br i1 %tobool4, label %land.lhs.true, label %if.end6
+22:                                               ; preds = %19, %12
+  call void @PyMem_SetAllocator(i32 noundef 0, ptr noundef %4)
+  %23 = load i32, ptr %3, align 4, !tbaa !27
+  %24 = icmp ne i32 %23, 0
+  br i1 %24, label %25, label %29
 
-land.lhs.true:                                    ; preds = %if.end
-  %11 = getelementptr inbounds %struct._PyPathConfig, ptr @_Py_path_config, i32 0, i32 7
-  %12 = load ptr, ptr %11, align 8
-  %cmp = icmp eq ptr %12, null
-  br i1 %cmp, label %if.then5, label %if.end6
+25:                                               ; preds = %22
+  %26 = load ptr, ptr getelementptr inbounds nuw (%struct._PyPathConfig, ptr @_Py_path_config, i32 0, i32 7), align 8, !tbaa !17
+  %27 = icmp eq ptr %26, null
+  br i1 %27, label %28, label %29
 
-if.then5:                                         ; preds = %land.lhs.true
-  call void @path_out_of_memory(ptr noundef @__func__.Py_SetPythonHome) #10
+28:                                               ; preds = %25
+  call void @path_out_of_memory(ptr noundef @__func__.Py_SetPythonHome) #11
   unreachable
 
-if.end6:                                          ; preds = %land.lhs.true, %if.end
+29:                                               ; preds = %25, %22
+  call void @llvm.lifetime.end.p0(i64 40, ptr %4) #9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %3) #9
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @Py_SetProgramName(ptr noundef %program_name) #0 {
-entry:
-  %program_name.addr = alloca ptr, align 8
-  %has_value = alloca i32, align 4
-  %old_alloc = alloca %struct.PyMemAllocatorEx, align 8
-  store ptr %program_name, ptr %program_name.addr, align 8
-  %0 = load ptr, ptr %program_name.addr, align 8
-  %tobool = icmp ne ptr %0, null
-  br i1 %tobool, label %land.rhs, label %land.end
+define dso_local void @Py_SetProgramName(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca i32, align 4
+  %4 = alloca %struct.PyMemAllocatorEx, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !41
+  call void @llvm.lifetime.start.p0(i64 4, ptr %3) #9
+  %5 = load ptr, ptr %2, align 8, !tbaa !41
+  %6 = icmp ne ptr %5, null
+  br i1 %6, label %7, label %12
 
-land.rhs:                                         ; preds = %entry
-  %1 = load ptr, ptr %program_name.addr, align 8
-  %arrayidx = getelementptr i32, ptr %1, i64 0
-  %2 = load i32, ptr %arrayidx, align 4
-  %tobool1 = icmp ne i32 %2, 0
-  br label %land.end
+7:                                                ; preds = %1
+  %8 = load ptr, ptr %2, align 8, !tbaa !41
+  %9 = getelementptr i32, ptr %8, i64 0
+  %10 = load i32, ptr %9, align 4, !tbaa !27
+  %11 = icmp ne i32 %10, 0
+  br label %12
 
-land.end:                                         ; preds = %land.rhs, %entry
-  %3 = phi i1 [ false, %entry ], [ %tobool1, %land.rhs ]
-  %land.ext = zext i1 %3 to i32
-  store i32 %land.ext, ptr %has_value, align 4
-  %call = call i32 @_PyMem_SetDefaultAllocator(i32 noundef 0, ptr noundef %old_alloc)
-  %4 = getelementptr inbounds %struct._PyPathConfig, ptr @_Py_path_config, i32 0, i32 6
-  %5 = load ptr, ptr %4, align 8
-  call void @PyMem_RawFree(ptr noundef %5)
-  %6 = getelementptr inbounds %struct._PyPathConfig, ptr @_Py_path_config, i32 0, i32 6
-  store ptr null, ptr %6, align 8
-  %7 = load i32, ptr %has_value, align 4
-  %tobool2 = icmp ne i32 %7, 0
-  br i1 %tobool2, label %if.then, label %if.end
+12:                                               ; preds = %7, %1
+  %13 = phi i1 [ false, %1 ], [ %11, %7 ]
+  %14 = zext i1 %13 to i32
+  store i32 %14, ptr %3, align 4, !tbaa !27
+  call void @llvm.lifetime.start.p0(i64 40, ptr %4) #9
+  %15 = call i32 @_PyMem_SetDefaultAllocator(i32 noundef 0, ptr noundef %4)
+  %16 = load ptr, ptr getelementptr inbounds nuw (%struct._PyPathConfig, ptr @_Py_path_config, i32 0, i32 6), align 8, !tbaa !16
+  call void @PyMem_RawFree(ptr noundef %16)
+  store ptr null, ptr getelementptr inbounds nuw (%struct._PyPathConfig, ptr @_Py_path_config, i32 0, i32 6), align 8, !tbaa !16
+  %17 = load i32, ptr %3, align 4, !tbaa !27
+  %18 = icmp ne i32 %17, 0
+  br i1 %18, label %19, label %22
 
-if.then:                                          ; preds = %land.end
-  %8 = load ptr, ptr %program_name.addr, align 8
-  %call3 = call ptr @_PyMem_RawWcsdup(ptr noundef %8)
-  %9 = getelementptr inbounds %struct._PyPathConfig, ptr @_Py_path_config, i32 0, i32 6
-  store ptr %call3, ptr %9, align 8
-  br label %if.end
+19:                                               ; preds = %12
+  %20 = load ptr, ptr %2, align 8, !tbaa !41
+  %21 = call ptr @_PyMem_RawWcsdup(ptr noundef %20)
+  store ptr %21, ptr getelementptr inbounds nuw (%struct._PyPathConfig, ptr @_Py_path_config, i32 0, i32 6), align 8, !tbaa !16
+  br label %22
 
-if.end:                                           ; preds = %if.then, %land.end
-  call void @PyMem_SetAllocator(i32 noundef 0, ptr noundef %old_alloc)
-  %10 = load i32, ptr %has_value, align 4
-  %tobool4 = icmp ne i32 %10, 0
-  br i1 %tobool4, label %land.lhs.true, label %if.end6
+22:                                               ; preds = %19, %12
+  call void @PyMem_SetAllocator(i32 noundef 0, ptr noundef %4)
+  %23 = load i32, ptr %3, align 4, !tbaa !27
+  %24 = icmp ne i32 %23, 0
+  br i1 %24, label %25, label %29
 
-land.lhs.true:                                    ; preds = %if.end
-  %11 = getelementptr inbounds %struct._PyPathConfig, ptr @_Py_path_config, i32 0, i32 6
-  %12 = load ptr, ptr %11, align 8
-  %cmp = icmp eq ptr %12, null
-  br i1 %cmp, label %if.then5, label %if.end6
+25:                                               ; preds = %22
+  %26 = load ptr, ptr getelementptr inbounds nuw (%struct._PyPathConfig, ptr @_Py_path_config, i32 0, i32 6), align 8, !tbaa !16
+  %27 = icmp eq ptr %26, null
+  br i1 %27, label %28, label %29
 
-if.then5:                                         ; preds = %land.lhs.true
-  call void @path_out_of_memory(ptr noundef @__func__.Py_SetProgramName) #10
+28:                                               ; preds = %25
+  call void @path_out_of_memory(ptr noundef @__func__.Py_SetProgramName) #11
   unreachable
 
-if.end6:                                          ; preds = %land.lhs.true, %if.end
+29:                                               ; preds = %25, %22
+  call void @llvm.lifetime.end.p0(i64 40, ptr %4) #9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %3) #9
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @Py_GetPath() #0 {
-entry:
-  %retval = alloca ptr, align 8
-  %0 = getelementptr inbounds %struct._PyPathConfig, ptr @_Py_path_config, i32 0, i32 4
-  %1 = load ptr, ptr %0, align 8
-  %tobool = icmp ne ptr %1, null
-  br i1 %tobool, label %if.then, label %if.end
+  %1 = alloca ptr, align 8
+  %2 = load ptr, ptr getelementptr inbounds nuw (%struct._PyPathConfig, ptr @_Py_path_config, i32 0, i32 4), align 8, !tbaa !4
+  %3 = icmp ne ptr %2, null
+  br i1 %3, label %4, label %6
 
-if.then:                                          ; preds = %entry
-  %2 = getelementptr inbounds %struct._PyPathConfig, ptr @_Py_path_config, i32 0, i32 4
-  %3 = load ptr, ptr %2, align 8
-  store ptr %3, ptr %retval, align 8
-  br label %return
+4:                                                ; preds = %0
+  %5 = load ptr, ptr getelementptr inbounds nuw (%struct._PyPathConfig, ptr @_Py_path_config, i32 0, i32 4), align 8, !tbaa !4
+  store ptr %5, ptr %1, align 8
+  br label %8
 
-if.end:                                           ; preds = %entry
-  %4 = getelementptr inbounds %struct._PyPathConfig, ptr @_Py_path_config, i32 0, i32 5
-  %5 = load ptr, ptr %4, align 8
-  store ptr %5, ptr %retval, align 8
-  br label %return
+6:                                                ; preds = %0
+  %7 = load ptr, ptr getelementptr inbounds nuw (%struct._PyPathConfig, ptr @_Py_path_config, i32 0, i32 5), align 8, !tbaa !15
+  store ptr %7, ptr %1, align 8
+  br label %8
 
-return:                                           ; preds = %if.end, %if.then
-  %6 = load ptr, ptr %retval, align 8
-  ret ptr %6
+8:                                                ; preds = %6, %4
+  %9 = load ptr, ptr %1, align 8
+  ret ptr %9
 }
 
 ; Function Attrs: nounwind uwtable
 define hidden ptr @_Py_GetStdlibDir() #0 {
-entry:
-  %retval = alloca ptr, align 8
-  %stdlib_dir = alloca ptr, align 8
-  %0 = getelementptr inbounds %struct._PyPathConfig, ptr @_Py_path_config, i32 0, i32 3
-  %1 = load ptr, ptr %0, align 8
-  store ptr %1, ptr %stdlib_dir, align 8
-  %2 = load ptr, ptr %stdlib_dir, align 8
-  %cmp = icmp ne ptr %2, null
-  br i1 %cmp, label %land.lhs.true, label %if.end
+  %1 = alloca ptr, align 8
+  %2 = alloca ptr, align 8
+  %3 = alloca i32, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %2) #9
+  %4 = load ptr, ptr getelementptr inbounds nuw (%struct._PyPathConfig, ptr @_Py_path_config, i32 0, i32 3), align 8, !tbaa !14
+  store ptr %4, ptr %2, align 8, !tbaa !41
+  %5 = load ptr, ptr %2, align 8, !tbaa !41
+  %6 = icmp ne ptr %5, null
+  br i1 %6, label %7, label %14
 
-land.lhs.true:                                    ; preds = %entry
-  %3 = load ptr, ptr %stdlib_dir, align 8
-  %arrayidx = getelementptr i32, ptr %3, i64 0
-  %4 = load i32, ptr %arrayidx, align 4
-  %cmp1 = icmp ne i32 %4, 0
-  br i1 %cmp1, label %if.then, label %if.end
+7:                                                ; preds = %0
+  %8 = load ptr, ptr %2, align 8, !tbaa !41
+  %9 = getelementptr i32, ptr %8, i64 0
+  %10 = load i32, ptr %9, align 4, !tbaa !27
+  %11 = icmp ne i32 %10, 0
+  br i1 %11, label %12, label %14
 
-if.then:                                          ; preds = %land.lhs.true
-  %5 = load ptr, ptr %stdlib_dir, align 8
-  store ptr %5, ptr %retval, align 8
-  br label %return
+12:                                               ; preds = %7
+  %13 = load ptr, ptr %2, align 8, !tbaa !41
+  store ptr %13, ptr %1, align 8
+  store i32 1, ptr %3, align 4
+  br label %15
 
-if.end:                                           ; preds = %land.lhs.true, %entry
-  store ptr null, ptr %retval, align 8
-  br label %return
+14:                                               ; preds = %7, %0
+  store ptr null, ptr %1, align 8
+  store i32 1, ptr %3, align 4
+  br label %15
 
-return:                                           ; preds = %if.end, %if.then
-  %6 = load ptr, ptr %retval, align 8
-  ret ptr %6
+15:                                               ; preds = %14, %12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %2) #9
+  %16 = load ptr, ptr %1, align 8
+  ret ptr %16
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @Py_GetPrefix() #0 {
-entry:
-  %0 = getelementptr inbounds %struct._PyPathConfig, ptr @_Py_path_config, i32 0, i32 1
-  %1 = load ptr, ptr %0, align 8
+  %1 = load ptr, ptr getelementptr inbounds nuw (%struct._PyPathConfig, ptr @_Py_path_config, i32 0, i32 1), align 8, !tbaa !12
   ret ptr %1
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @Py_GetExecPrefix() #0 {
-entry:
-  %0 = getelementptr inbounds %struct._PyPathConfig, ptr @_Py_path_config, i32 0, i32 2
-  %1 = load ptr, ptr %0, align 8
+  %1 = load ptr, ptr getelementptr inbounds nuw (%struct._PyPathConfig, ptr @_Py_path_config, i32 0, i32 2), align 8, !tbaa !13
   ret ptr %1
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @Py_GetProgramFullPath() #0 {
-entry:
-  %0 = load ptr, ptr @_Py_path_config, align 8
-  ret ptr %0
+  %1 = load ptr, ptr @_Py_path_config, align 8, !tbaa !11
+  ret ptr %1
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @Py_GetPythonHome() #0 {
-entry:
-  %0 = getelementptr inbounds %struct._PyPathConfig, ptr @_Py_path_config, i32 0, i32 7
-  %1 = load ptr, ptr %0, align 8
+  %1 = load ptr, ptr getelementptr inbounds nuw (%struct._PyPathConfig, ptr @_Py_path_config, i32 0, i32 7), align 8, !tbaa !17
   ret ptr %1
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @Py_GetProgramName() #0 {
-entry:
-  %0 = getelementptr inbounds %struct._PyPathConfig, ptr @_Py_path_config, i32 0, i32 6
-  %1 = load ptr, ptr %0, align 8
+  %1 = load ptr, ptr getelementptr inbounds nuw (%struct._PyPathConfig, ptr @_Py_path_config, i32 0, i32 6), align 8, !tbaa !16
   ret ptr %1
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @_PyPathConfig_ComputeSysPath0(ptr noundef %argv, ptr noundef %path0_p) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %argv.addr = alloca ptr, align 8
-  %path0_p.addr = alloca ptr, align 8
-  %argv0 = alloca ptr, align 8
-  %have_module_arg = alloca i32, align 4
-  %have_script_arg = alloca i32, align 4
-  %path0 = alloca ptr, align 8
-  %n = alloca i64, align 8
-  %fullpath = alloca [4096 x i32], align 16
-  %link = alloca [4097 x i32], align 16
-  %nr = alloca i32, align 4
-  %path0copy = alloca [8193 x i32], align 16
-  %q = alloca ptr, align 8
-  %p = alloca ptr, align 8
-  %path0_obj = alloca ptr, align 8
-  store ptr %argv, ptr %argv.addr, align 8
-  store ptr %path0_p, ptr %path0_p.addr, align 8
-  %0 = load ptr, ptr %argv.addr, align 8
-  %length = getelementptr inbounds %struct.PyWideStringList, ptr %0, i32 0, i32 0
-  %1 = load i64, ptr %length, align 8
-  %cmp = icmp eq i64 %1, 0
-  br i1 %cmp, label %if.then, label %if.end
+define hidden i32 @_PyPathConfig_ComputeSysPath0(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca i32, align 4
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i32, align 4
+  %8 = alloca i32, align 4
+  %9 = alloca ptr, align 8
+  %10 = alloca i64, align 8
+  %11 = alloca [4096 x i32], align 16
+  %12 = alloca i32, align 4
+  %13 = alloca [4097 x i32], align 16
+  %14 = alloca i32, align 4
+  %15 = alloca [8193 x i32], align 16
+  %16 = alloca ptr, align 8
+  %17 = alloca ptr, align 8
+  %18 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !49
+  store ptr %1, ptr %5, align 8, !tbaa !50
+  %19 = load ptr, ptr %4, align 8, !tbaa !49
+  %20 = getelementptr inbounds nuw %struct.PyWideStringList, ptr %19, i32 0, i32 0
+  %21 = load i64, ptr %20, align 8, !tbaa !52
+  %22 = icmp eq i64 %21, 0
+  br i1 %22, label %23, label %24
 
-if.then:                                          ; preds = %entry
-  store i32 0, ptr %retval, align 4
-  br label %return
+23:                                               ; preds = %2
+  store i32 0, ptr %3, align 4
+  br label %144
 
-if.end:                                           ; preds = %entry
-  %2 = load ptr, ptr %argv.addr, align 8
-  %items = getelementptr inbounds %struct.PyWideStringList, ptr %2, i32 0, i32 1
-  %3 = load ptr, ptr %items, align 8
-  %arrayidx = getelementptr ptr, ptr %3, i64 0
-  %4 = load ptr, ptr %arrayidx, align 8
-  store ptr %4, ptr %argv0, align 8
-  %5 = load ptr, ptr %argv0, align 8
-  %call = call i32 @wcscmp(ptr noundef %5, ptr noundef @.str.2) #8
-  %cmp1 = icmp eq i32 %call, 0
-  %conv = zext i1 %cmp1 to i32
-  store i32 %conv, ptr %have_module_arg, align 4
-  %6 = load i32, ptr %have_module_arg, align 4
-  %tobool = icmp ne i32 %6, 0
-  br i1 %tobool, label %land.end, label %land.rhs
+24:                                               ; preds = %2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #9
+  %25 = load ptr, ptr %4, align 8, !tbaa !49
+  %26 = getelementptr inbounds nuw %struct.PyWideStringList, ptr %25, i32 0, i32 1
+  %27 = load ptr, ptr %26, align 8, !tbaa !53
+  %28 = getelementptr ptr, ptr %27, i64 0
+  %29 = load ptr, ptr %28, align 8, !tbaa !41
+  store ptr %29, ptr %6, align 8, !tbaa !41
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #9
+  %30 = load ptr, ptr %6, align 8, !tbaa !41
+  %31 = call i32 @wcscmp(ptr noundef %30, ptr noundef @.str.2) #10
+  %32 = icmp eq i32 %31, 0
+  %33 = zext i1 %32 to i32
+  store i32 %33, ptr %7, align 4, !tbaa !27
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #9
+  %34 = load i32, ptr %7, align 4, !tbaa !27
+  %35 = icmp ne i32 %34, 0
+  br i1 %35, label %40, label %36
 
-land.rhs:                                         ; preds = %if.end
-  %7 = load ptr, ptr %argv0, align 8
-  %call2 = call i32 @wcscmp(ptr noundef %7, ptr noundef @.str.3) #8
-  %cmp3 = icmp ne i32 %call2, 0
-  br label %land.end
+36:                                               ; preds = %24
+  %37 = load ptr, ptr %6, align 8, !tbaa !41
+  %38 = call i32 @wcscmp(ptr noundef %37, ptr noundef @.str.3) #10
+  %39 = icmp ne i32 %38, 0
+  br label %40
 
-land.end:                                         ; preds = %land.rhs, %if.end
-  %8 = phi i1 [ false, %if.end ], [ %cmp3, %land.rhs ]
-  %land.ext = zext i1 %8 to i32
-  store i32 %land.ext, ptr %have_script_arg, align 4
-  %9 = load ptr, ptr %argv0, align 8
-  store ptr %9, ptr %path0, align 8
-  store i64 0, ptr %n, align 8
-  %10 = load i32, ptr %have_module_arg, align 4
-  %tobool5 = icmp ne i32 %10, 0
-  br i1 %tobool5, label %if.then6, label %if.end13
+40:                                               ; preds = %36, %24
+  %41 = phi i1 [ false, %24 ], [ %39, %36 ]
+  %42 = zext i1 %41 to i32
+  store i32 %42, ptr %8, align 4, !tbaa !27
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #9
+  %43 = load ptr, ptr %6, align 8, !tbaa !41
+  store ptr %43, ptr %9, align 8, !tbaa !41
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #9
+  store i64 0, ptr %10, align 8, !tbaa !38
+  call void @llvm.lifetime.start.p0(i64 16384, ptr %11) #9
+  %44 = load i32, ptr %7, align 4, !tbaa !27
+  %45 = icmp ne i32 %44, 0
+  br i1 %45, label %46, label %55
 
-if.then6:                                         ; preds = %land.end
-  %arraydecay = getelementptr inbounds [4096 x i32], ptr %fullpath, i64 0, i64 0
-  %call7 = call ptr @_Py_wgetcwd(ptr noundef %arraydecay, i64 noundef 4096)
-  %tobool8 = icmp ne ptr %call7, null
-  br i1 %tobool8, label %if.end10, label %if.then9
+46:                                               ; preds = %40
+  %47 = getelementptr inbounds [4096 x i32], ptr %11, i64 0, i64 0
+  %48 = call ptr @_Py_wgetcwd(ptr noundef %47, i64 noundef 4096)
+  %49 = icmp ne ptr %48, null
+  br i1 %49, label %51, label %50
 
-if.then9:                                         ; preds = %if.then6
-  store i32 0, ptr %retval, align 4
-  br label %return
+50:                                               ; preds = %46
+  store i32 0, ptr %3, align 4
+  store i32 1, ptr %12, align 4
+  br label %143
 
-if.end10:                                         ; preds = %if.then6
-  %arraydecay11 = getelementptr inbounds [4096 x i32], ptr %fullpath, i64 0, i64 0
-  store ptr %arraydecay11, ptr %path0, align 8
-  %11 = load ptr, ptr %path0, align 8
-  %call12 = call i64 @wcslen(ptr noundef %11) #8
-  store i64 %call12, ptr %n, align 8
-  br label %if.end13
+51:                                               ; preds = %46
+  %52 = getelementptr inbounds [4096 x i32], ptr %11, i64 0, i64 0
+  store ptr %52, ptr %9, align 8, !tbaa !41
+  %53 = load ptr, ptr %9, align 8, !tbaa !41
+  %54 = call i64 @wcslen(ptr noundef %53) #10
+  store i64 %54, ptr %10, align 8, !tbaa !38
+  br label %55
 
-if.end13:                                         ; preds = %if.end10, %land.end
-  store i32 0, ptr %nr, align 4
-  %12 = load i32, ptr %have_script_arg, align 4
-  %tobool14 = icmp ne i32 %12, 0
-  br i1 %tobool14, label %if.then15, label %if.end18
+55:                                               ; preds = %51, %40
+  call void @llvm.lifetime.start.p0(i64 16388, ptr %13) #9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #9
+  store i32 0, ptr %14, align 4, !tbaa !27
+  call void @llvm.lifetime.start.p0(i64 32772, ptr %15) #9
+  %56 = load i32, ptr %8, align 4, !tbaa !27
+  %57 = icmp ne i32 %56, 0
+  br i1 %57, label %58, label %62
 
-if.then15:                                        ; preds = %if.end13
-  %13 = load ptr, ptr %path0, align 8
-  %arraydecay16 = getelementptr inbounds [4097 x i32], ptr %link, i64 0, i64 0
-  %call17 = call i32 @_Py_wreadlink(ptr noundef %13, ptr noundef %arraydecay16, i64 noundef 4097)
-  store i32 %call17, ptr %nr, align 4
-  br label %if.end18
+58:                                               ; preds = %55
+  %59 = load ptr, ptr %9, align 8, !tbaa !41
+  %60 = getelementptr inbounds [4097 x i32], ptr %13, i64 0, i64 0
+  %61 = call i32 @_Py_wreadlink(ptr noundef %59, ptr noundef %60, i64 noundef 4097)
+  store i32 %61, ptr %14, align 4, !tbaa !27
+  br label %62
 
-if.end18:                                         ; preds = %if.then15, %if.end13
-  %14 = load i32, ptr %nr, align 4
-  %cmp19 = icmp sgt i32 %14, 0
-  br i1 %cmp19, label %if.then21, label %if.end51
+62:                                               ; preds = %58, %55
+  %63 = load i32, ptr %14, align 4, !tbaa !27
+  %64 = icmp sgt i32 %63, 0
+  br i1 %64, label %65, label %102
 
-if.then21:                                        ; preds = %if.end18
-  %15 = load i32, ptr %nr, align 4
-  %idxprom = sext i32 %15 to i64
-  %arrayidx22 = getelementptr [4097 x i32], ptr %link, i64 0, i64 %idxprom
-  store i32 0, ptr %arrayidx22, align 4
-  %arrayidx23 = getelementptr [4097 x i32], ptr %link, i64 0, i64 0
-  %16 = load i32, ptr %arrayidx23, align 16
-  %cmp24 = icmp eq i32 %16, 47
-  br i1 %cmp24, label %if.then26, label %if.else
+65:                                               ; preds = %62
+  %66 = load i32, ptr %14, align 4, !tbaa !27
+  %67 = sext i32 %66 to i64
+  %68 = getelementptr [4097 x i32], ptr %13, i64 0, i64 %67
+  store i32 0, ptr %68, align 4, !tbaa !27
+  %69 = getelementptr [4097 x i32], ptr %13, i64 0, i64 0
+  %70 = load i32, ptr %69, align 16, !tbaa !27
+  %71 = icmp eq i32 %70, 47
+  br i1 %71, label %72, label %74
 
-if.then26:                                        ; preds = %if.then21
-  %arraydecay27 = getelementptr inbounds [4097 x i32], ptr %link, i64 0, i64 0
-  store ptr %arraydecay27, ptr %path0, align 8
-  br label %if.end50
+72:                                               ; preds = %65
+  %73 = getelementptr inbounds [4097 x i32], ptr %13, i64 0, i64 0
+  store ptr %73, ptr %9, align 8, !tbaa !41
+  br label %101
 
-if.else:                                          ; preds = %if.then21
-  %arraydecay28 = getelementptr inbounds [4097 x i32], ptr %link, i64 0, i64 0
-  %call29 = call ptr @wcschr(ptr noundef %arraydecay28, i32 noundef 47) #8
-  %cmp30 = icmp eq ptr %call29, null
-  br i1 %cmp30, label %if.then32, label %if.else33
+74:                                               ; preds = %65
+  %75 = getelementptr inbounds [4097 x i32], ptr %13, i64 0, i64 0
+  %76 = call ptr @wcschr(ptr noundef %75, i32 noundef 47) #10
+  %77 = icmp eq ptr %76, null
+  br i1 %77, label %78, label %79
 
-if.then32:                                        ; preds = %if.else
-  br label %if.end49
+78:                                               ; preds = %74
+  br label %100
 
-if.else33:                                        ; preds = %if.else
-  %17 = load ptr, ptr %path0, align 8
-  %call34 = call ptr @wcsrchr(ptr noundef %17, i32 noundef 47) #8
-  store ptr %call34, ptr %q, align 8
-  %18 = load ptr, ptr %q, align 8
-  %cmp35 = icmp eq ptr %18, null
-  br i1 %cmp35, label %if.then37, label %if.else39
+79:                                               ; preds = %74
+  call void @llvm.lifetime.start.p0(i64 8, ptr %16) #9
+  %80 = load ptr, ptr %9, align 8, !tbaa !41
+  %81 = call ptr @wcsrchr(ptr noundef %80, i32 noundef 47) #10
+  store ptr %81, ptr %16, align 8, !tbaa !41
+  %82 = load ptr, ptr %16, align 8, !tbaa !41
+  %83 = icmp eq ptr %82, null
+  br i1 %83, label %84, label %86
 
-if.then37:                                        ; preds = %if.else33
-  %arraydecay38 = getelementptr inbounds [4097 x i32], ptr %link, i64 0, i64 0
-  store ptr %arraydecay38, ptr %path0, align 8
-  br label %if.end48
+84:                                               ; preds = %79
+  %85 = getelementptr inbounds [4097 x i32], ptr %13, i64 0, i64 0
+  store ptr %85, ptr %9, align 8, !tbaa !41
+  br label %99
 
-if.else39:                                        ; preds = %if.else33
-  %arraydecay40 = getelementptr inbounds [8193 x i32], ptr %path0copy, i64 0, i64 0
-  %19 = load ptr, ptr %path0, align 8
-  %call41 = call ptr @wcsncpy(ptr noundef %arraydecay40, ptr noundef %19, i64 noundef 4096) #9
-  %arraydecay42 = getelementptr inbounds [8193 x i32], ptr %path0copy, i64 0, i64 0
-  %call43 = call ptr @wcsrchr(ptr noundef %arraydecay42, i32 noundef 47) #8
-  store ptr %call43, ptr %q, align 8
-  %20 = load ptr, ptr %q, align 8
-  %add.ptr = getelementptr i32, ptr %20, i64 1
-  %arraydecay44 = getelementptr inbounds [4097 x i32], ptr %link, i64 0, i64 0
-  %call45 = call ptr @wcsncpy(ptr noundef %add.ptr, ptr noundef %arraydecay44, i64 noundef 4096) #9
-  %21 = load ptr, ptr %q, align 8
-  %arrayidx46 = getelementptr i32, ptr %21, i64 4097
-  store i32 0, ptr %arrayidx46, align 4
-  %arraydecay47 = getelementptr inbounds [8193 x i32], ptr %path0copy, i64 0, i64 0
-  store ptr %arraydecay47, ptr %path0, align 8
-  br label %if.end48
+86:                                               ; preds = %79
+  %87 = getelementptr inbounds [8193 x i32], ptr %15, i64 0, i64 0
+  %88 = load ptr, ptr %9, align 8, !tbaa !41
+  %89 = call ptr @wcsncpy(ptr noundef %87, ptr noundef %88, i64 noundef 4096) #9
+  %90 = getelementptr inbounds [8193 x i32], ptr %15, i64 0, i64 0
+  %91 = call ptr @wcsrchr(ptr noundef %90, i32 noundef 47) #10
+  store ptr %91, ptr %16, align 8, !tbaa !41
+  %92 = load ptr, ptr %16, align 8, !tbaa !41
+  %93 = getelementptr i32, ptr %92, i64 1
+  %94 = getelementptr inbounds [4097 x i32], ptr %13, i64 0, i64 0
+  %95 = call ptr @wcsncpy(ptr noundef %93, ptr noundef %94, i64 noundef 4096) #9
+  %96 = load ptr, ptr %16, align 8, !tbaa !41
+  %97 = getelementptr i32, ptr %96, i64 4097
+  store i32 0, ptr %97, align 4, !tbaa !27
+  %98 = getelementptr inbounds [8193 x i32], ptr %15, i64 0, i64 0
+  store ptr %98, ptr %9, align 8, !tbaa !41
+  br label %99
 
-if.end48:                                         ; preds = %if.else39, %if.then37
-  br label %if.end49
+99:                                               ; preds = %86, %84
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #9
+  br label %100
 
-if.end49:                                         ; preds = %if.end48, %if.then32
-  br label %if.end50
+100:                                              ; preds = %99, %78
+  br label %101
 
-if.end50:                                         ; preds = %if.end49, %if.then26
-  br label %if.end51
+101:                                              ; preds = %100, %72
+  br label %102
 
-if.end51:                                         ; preds = %if.end50, %if.end18
-  store ptr null, ptr %p, align 8
-  %22 = load i32, ptr %have_script_arg, align 4
-  %tobool52 = icmp ne i32 %22, 0
-  br i1 %tobool52, label %if.then53, label %if.end61
+102:                                              ; preds = %101, %62
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #9
+  store ptr null, ptr %17, align 8, !tbaa !41
+  %103 = load i32, ptr %8, align 4, !tbaa !27
+  %104 = icmp ne i32 %103, 0
+  br i1 %104, label %105, label %115
 
-if.then53:                                        ; preds = %if.end51
-  %23 = load ptr, ptr %path0, align 8
-  %arraydecay54 = getelementptr inbounds [4096 x i32], ptr %fullpath, i64 0, i64 0
-  %call55 = call ptr @_Py_wrealpath(ptr noundef %23, ptr noundef %arraydecay54, i64 noundef 4096)
-  %tobool56 = icmp ne ptr %call55, null
-  br i1 %tobool56, label %if.then57, label %if.end59
+105:                                              ; preds = %102
+  %106 = load ptr, ptr %9, align 8, !tbaa !41
+  %107 = getelementptr inbounds [4096 x i32], ptr %11, i64 0, i64 0
+  %108 = call ptr @_Py_wrealpath(ptr noundef %106, ptr noundef %107, i64 noundef 4096)
+  %109 = icmp ne ptr %108, null
+  br i1 %109, label %110, label %112
 
-if.then57:                                        ; preds = %if.then53
-  %arraydecay58 = getelementptr inbounds [4096 x i32], ptr %fullpath, i64 0, i64 0
-  store ptr %arraydecay58, ptr %path0, align 8
-  br label %if.end59
+110:                                              ; preds = %105
+  %111 = getelementptr inbounds [4096 x i32], ptr %11, i64 0, i64 0
+  store ptr %111, ptr %9, align 8, !tbaa !41
+  br label %112
 
-if.end59:                                         ; preds = %if.then57, %if.then53
-  %24 = load ptr, ptr %path0, align 8
-  %call60 = call ptr @wcsrchr(ptr noundef %24, i32 noundef 47) #8
-  store ptr %call60, ptr %p, align 8
-  br label %if.end61
+112:                                              ; preds = %110, %105
+  %113 = load ptr, ptr %9, align 8, !tbaa !41
+  %114 = call ptr @wcsrchr(ptr noundef %113, i32 noundef 47) #10
+  store ptr %114, ptr %17, align 8, !tbaa !41
+  br label %115
 
-if.end61:                                         ; preds = %if.end59, %if.end51
-  %25 = load ptr, ptr %p, align 8
-  %cmp62 = icmp ne ptr %25, null
-  br i1 %cmp62, label %if.then64, label %if.end70
+115:                                              ; preds = %112, %102
+  %116 = load ptr, ptr %17, align 8, !tbaa !41
+  %117 = icmp ne ptr %116, null
+  br i1 %117, label %118, label %132
 
-if.then64:                                        ; preds = %if.end61
-  %26 = load ptr, ptr %p, align 8
-  %add.ptr65 = getelementptr i32, ptr %26, i64 1
-  %27 = load ptr, ptr %path0, align 8
-  %sub.ptr.lhs.cast = ptrtoint ptr %add.ptr65 to i64
-  %sub.ptr.rhs.cast = ptrtoint ptr %27 to i64
-  %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
-  %sub.ptr.div = sdiv exact i64 %sub.ptr.sub, 4
-  store i64 %sub.ptr.div, ptr %n, align 8
-  %28 = load i64, ptr %n, align 8
-  %cmp66 = icmp sgt i64 %28, 1
-  br i1 %cmp66, label %if.then68, label %if.end69
+118:                                              ; preds = %115
+  %119 = load ptr, ptr %17, align 8, !tbaa !41
+  %120 = getelementptr i32, ptr %119, i64 1
+  %121 = load ptr, ptr %9, align 8, !tbaa !41
+  %122 = ptrtoint ptr %120 to i64
+  %123 = ptrtoint ptr %121 to i64
+  %124 = sub i64 %122, %123
+  %125 = sdiv exact i64 %124, 4
+  store i64 %125, ptr %10, align 8, !tbaa !38
+  %126 = load i64, ptr %10, align 8, !tbaa !38
+  %127 = icmp sgt i64 %126, 1
+  br i1 %127, label %128, label %131
 
-if.then68:                                        ; preds = %if.then64
-  %29 = load i64, ptr %n, align 8
-  %dec = add i64 %29, -1
-  store i64 %dec, ptr %n, align 8
-  br label %if.end69
+128:                                              ; preds = %118
+  %129 = load i64, ptr %10, align 8, !tbaa !38
+  %130 = add i64 %129, -1
+  store i64 %130, ptr %10, align 8, !tbaa !38
+  br label %131
 
-if.end69:                                         ; preds = %if.then68, %if.then64
-  br label %if.end70
+131:                                              ; preds = %128, %118
+  br label %132
 
-if.end70:                                         ; preds = %if.end69, %if.end61
-  %30 = load ptr, ptr %path0, align 8
-  %31 = load i64, ptr %n, align 8
-  %call71 = call ptr @PyUnicode_FromWideChar(ptr noundef %30, i64 noundef %31)
-  store ptr %call71, ptr %path0_obj, align 8
-  %32 = load ptr, ptr %path0_obj, align 8
-  %cmp72 = icmp eq ptr %32, null
-  br i1 %cmp72, label %if.then74, label %if.end75
+132:                                              ; preds = %131, %115
+  call void @llvm.lifetime.start.p0(i64 8, ptr %18) #9
+  %133 = load ptr, ptr %9, align 8, !tbaa !41
+  %134 = load i64, ptr %10, align 8, !tbaa !38
+  %135 = call ptr @PyUnicode_FromWideChar(ptr noundef %133, i64 noundef %134)
+  store ptr %135, ptr %18, align 8, !tbaa !54
+  %136 = load ptr, ptr %18, align 8, !tbaa !54
+  %137 = icmp eq ptr %136, null
+  br i1 %137, label %138, label %139
 
-if.then74:                                        ; preds = %if.end70
-  store i32 -1, ptr %retval, align 4
-  br label %return
+138:                                              ; preds = %132
+  store i32 -1, ptr %3, align 4
+  store i32 1, ptr %12, align 4
+  br label %142
 
-if.end75:                                         ; preds = %if.end70
-  %33 = load ptr, ptr %path0_obj, align 8
-  %34 = load ptr, ptr %path0_p.addr, align 8
-  store ptr %33, ptr %34, align 8
-  store i32 1, ptr %retval, align 4
-  br label %return
+139:                                              ; preds = %132
+  %140 = load ptr, ptr %18, align 8, !tbaa !54
+  %141 = load ptr, ptr %5, align 8, !tbaa !50
+  store ptr %140, ptr %141, align 8, !tbaa !54
+  store i32 1, ptr %3, align 4
+  store i32 1, ptr %12, align 4
+  br label %142
 
-return:                                           ; preds = %if.end75, %if.then74, %if.then9, %if.then
-  %35 = load i32, ptr %retval, align 4
-  ret i32 %35
+142:                                              ; preds = %139, %138
+  call void @llvm.lifetime.end.p0(i64 8, ptr %18) #9
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #9
+  call void @llvm.lifetime.end.p0(i64 32772, ptr %15) #9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #9
+  call void @llvm.lifetime.end.p0(i64 16388, ptr %13) #9
+  br label %143
+
+143:                                              ; preds = %142, %50
+  call void @llvm.lifetime.end.p0(i64 16384, ptr %11) #9
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #9
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #9
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #9
+  br label %144
+
+144:                                              ; preds = %143, %23
+  %145 = load i32, ptr %3, align 4
+  ret i32 %145
 }
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare i32 @wcscmp(ptr noundef, ptr noundef) #4
+declare i32 @wcscmp(ptr noundef, ptr noundef) #5
 
-declare ptr @_Py_wgetcwd(ptr noundef, i64 noundef) #1
+declare ptr @_Py_wgetcwd(ptr noundef, i64 noundef) #2
 
-declare i32 @_Py_wreadlink(ptr noundef, ptr noundef, i64 noundef) #1
+declare i32 @_Py_wreadlink(ptr noundef, ptr noundef, i64 noundef) #2
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare ptr @wcsrchr(ptr noundef, i32 noundef) #4
+declare ptr @wcsrchr(ptr noundef, i32 noundef) #5
 
 ; Function Attrs: nounwind
-declare ptr @wcsncpy(ptr noundef, ptr noundef, i64 noundef) #5
+declare ptr @wcsncpy(ptr noundef, ptr noundef, i64 noundef) #6
 
-declare ptr @_Py_wrealpath(ptr noundef, ptr noundef, i64 noundef) #1
+declare ptr @_Py_wrealpath(ptr noundef, ptr noundef, i64 noundef) #2
 
-declare ptr @PyUnicode_FromWideChar(ptr noundef, i64 noundef) #1
+declare ptr @PyUnicode_FromWideChar(ptr noundef, i64 noundef) #2
 
 ; Function Attrs: noreturn
-declare void @_Py_FatalErrorFunc(ptr noundef, ptr noundef) #7
+declare void @_Py_FatalErrorFunc(ptr noundef, ptr noundef) #8
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #3 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { noreturn nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { nounwind willreturn memory(read) }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #4 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #5 = { nounwind willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { noreturn nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { nounwind }
-attributes #10 = { noreturn }
+attributes #10 = { nounwind willreturn memory(read) }
+attributes #11 = { noreturn }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+!llvm.module.flags = !{!0, !1, !2, !3}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
+!4 = !{!5, !6, i64 32}
+!5 = !{!"_PyPathConfig", !6, i64 0, !6, i64 8, !6, i64 16, !6, i64 24, !6, i64 32, !6, i64 40, !6, i64 48, !6, i64 56, !10, i64 64}
+!6 = !{!"p1 int", !7, i64 0}
+!7 = !{!"any pointer", !8, i64 0}
+!8 = !{!"omnipotent char", !9, i64 0}
+!9 = !{!"Simple C/C++ TBAA"}
+!10 = !{!"int", !8, i64 0}
+!11 = !{!5, !6, i64 0}
+!12 = !{!5, !6, i64 8}
+!13 = !{!5, !6, i64 16}
+!14 = !{!5, !6, i64 24}
+!15 = !{!5, !6, i64 40}
+!16 = !{!5, !6, i64 48}
+!17 = !{!5, !6, i64 56}
+!18 = !{!5, !10, i64 64}
+!19 = !{!20, !20, i64 0}
+!20 = !{!"p1 _ZTS8PyConfig", !7, i64 0}
+!21 = !{!22, !6, i64 360}
+!22 = !{!"PyConfig", !10, i64 0, !10, i64 4, !10, i64 8, !10, i64 12, !10, i64 16, !10, i64 20, !23, i64 24, !10, i64 32, !10, i64 36, !10, i64 40, !10, i64 44, !10, i64 48, !10, i64 52, !10, i64 56, !6, i64 64, !10, i64 72, !6, i64 80, !6, i64 88, !6, i64 96, !10, i64 104, !24, i64 112, !24, i64 128, !24, i64 144, !24, i64 160, !10, i64 176, !10, i64 180, !10, i64 184, !10, i64 188, !10, i64 192, !10, i64 196, !10, i64 200, !10, i64 204, !10, i64 208, !10, i64 212, !10, i64 216, !10, i64 220, !10, i64 224, !6, i64 232, !6, i64 240, !6, i64 248, !10, i64 256, !10, i64 260, !10, i64 264, !10, i64 268, !10, i64 272, !6, i64 280, !6, i64 288, !6, i64 296, !6, i64 304, !10, i64 312, !24, i64 320, !6, i64 336, !6, i64 344, !6, i64 352, !6, i64 360, !6, i64 368, !6, i64 376, !6, i64 384, !10, i64 392, !6, i64 400, !6, i64 408, !6, i64 416, !6, i64 424, !10, i64 432, !10, i64 436, !10, i64 440}
+!23 = !{!"long", !8, i64 0}
+!24 = !{!"", !23, i64 0, !25, i64 8}
+!25 = !{!"p2 int", !7, i64 0}
+!26 = !{i64 0, i64 4, !27, i64 8, i64 8, !28, i64 16, i64 8, !28, i64 24, i64 4, !27}
+!27 = !{!10, !10, i64 0}
+!28 = !{!29, !29, i64 0}
+!29 = !{!"p1 omnipotent char", !7, i64 0}
+!30 = !{!31, !10, i64 0}
+!31 = !{!"", !10, i64 0, !29, i64 8, !29, i64 16, !10, i64 24}
+!32 = !{!22, !6, i64 376}
+!33 = !{!22, !6, i64 336}
+!34 = !{!22, !6, i64 280}
+!35 = !{!22, !6, i64 296}
+!36 = !{!22, !6, i64 344}
+!37 = !{!22, !10, i64 440}
+!38 = !{!23, !23, i64 0}
+!39 = !{!22, !23, i64 320}
+!40 = !{!22, !25, i64 328}
+!41 = !{!6, !6, i64 0}
+!42 = distinct !{!42, !43}
+!43 = !{!"llvm.loop.mustprogress"}
+!44 = distinct !{!44, !43}
+!45 = distinct !{!45, !43}
+!46 = !{!31, !29, i64 8}
+!47 = !{!31, !29, i64 16}
+!48 = !{!31, !10, i64 24}
+!49 = !{!7, !7, i64 0}
+!50 = !{!51, !51, i64 0}
+!51 = !{!"p2 _ZTS7_object", !7, i64 0}
+!52 = !{!24, !23, i64 0}
+!53 = !{!24, !25, i64 8}
+!54 = !{!55, !55, i64 0}
+!55 = !{!"p1 _ZTS7_object", !7, i64 0}

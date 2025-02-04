@@ -1,928 +1,571 @@
 ; ModuleID = 'bench/cpython/original/list.ll'
 source_filename = "bench/cpython/original/list.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
-%struct.PyMethodDef = type { ptr, ptr, i32, ptr }
 %struct._object = type { %union.anon, ptr }
 %union.anon = type { i64 }
-%struct._typeobject = type { %struct.PyVarObject, ptr, i64, i64, ptr, i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i64, ptr, ptr, ptr, ptr, i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, ptr, ptr, i8 }
+%struct._typeobject = type { %struct.PyVarObject, ptr, i64, i64, ptr, i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i64, ptr, ptr, ptr, ptr, i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, ptr, ptr, i8, i16 }
 %struct.PyVarObject = type { %struct._object, i64 }
 
-@test_methods = internal global [19 x %struct.PyMethodDef] [%struct.PyMethodDef { ptr @.str, ptr @list_check, i32 8, ptr null }, %struct.PyMethodDef { ptr @.str.1, ptr @list_check_exact, i32 8, ptr null }, %struct.PyMethodDef { ptr @.str.2, ptr @list_new, i32 8, ptr null }, %struct.PyMethodDef { ptr @.str.3, ptr @list_size, i32 8, ptr null }, %struct.PyMethodDef { ptr @.str.4, ptr @list_get_size, i32 8, ptr null }, %struct.PyMethodDef { ptr @.str.5, ptr @list_getitem, i32 1, ptr null }, %struct.PyMethodDef { ptr @.str.6, ptr @list_get_item, i32 1, ptr null }, %struct.PyMethodDef { ptr @.str.7, ptr @list_setitem, i32 1, ptr null }, %struct.PyMethodDef { ptr @.str.8, ptr @list_set_item, i32 1, ptr null }, %struct.PyMethodDef { ptr @.str.9, ptr @list_insert, i32 1, ptr null }, %struct.PyMethodDef { ptr @.str.10, ptr @list_append, i32 1, ptr null }, %struct.PyMethodDef { ptr @.str.11, ptr @list_getslice, i32 1, ptr null }, %struct.PyMethodDef { ptr @.str.12, ptr @list_setslice, i32 1, ptr null }, %struct.PyMethodDef { ptr @.str.13, ptr @list_sort, i32 8, ptr null }, %struct.PyMethodDef { ptr @.str.14, ptr @list_reverse, i32 8, ptr null }, %struct.PyMethodDef { ptr @.str.15, ptr @list_astuple, i32 8, ptr null }, %struct.PyMethodDef { ptr @.str.16, ptr @list_clear, i32 8, ptr null }, %struct.PyMethodDef { ptr @.str.17, ptr @list_extend, i32 1, ptr null }, %struct.PyMethodDef zeroinitializer], align 16
-@.str = private unnamed_addr constant [11 x i8] c"list_check\00", align 1
-@.str.1 = private unnamed_addr constant [17 x i8] c"list_check_exact\00", align 1
-@.str.2 = private unnamed_addr constant [9 x i8] c"list_new\00", align 1
-@.str.3 = private unnamed_addr constant [10 x i8] c"list_size\00", align 1
-@.str.4 = private unnamed_addr constant [14 x i8] c"list_get_size\00", align 1
-@.str.5 = private unnamed_addr constant [13 x i8] c"list_getitem\00", align 1
-@.str.6 = private unnamed_addr constant [14 x i8] c"list_get_item\00", align 1
-@.str.7 = private unnamed_addr constant [13 x i8] c"list_setitem\00", align 1
-@.str.8 = private unnamed_addr constant [14 x i8] c"list_set_item\00", align 1
-@.str.9 = private unnamed_addr constant [12 x i8] c"list_insert\00", align 1
-@.str.10 = private unnamed_addr constant [12 x i8] c"list_append\00", align 1
-@.str.11 = private unnamed_addr constant [14 x i8] c"list_getslice\00", align 1
-@.str.12 = private unnamed_addr constant [14 x i8] c"list_setslice\00", align 1
-@.str.13 = private unnamed_addr constant [10 x i8] c"list_sort\00", align 1
-@.str.14 = private unnamed_addr constant [13 x i8] c"list_reverse\00", align 1
-@.str.15 = private unnamed_addr constant [13 x i8] c"list_astuple\00", align 1
-@.str.16 = private unnamed_addr constant [11 x i8] c"list_clear\00", align 1
-@.str.17 = private unnamed_addr constant [12 x i8] c"list_extend\00", align 1
+@.str = private unnamed_addr constant [14 x i8] c"list_get_size\00", align 1
+@.str.1 = private unnamed_addr constant [14 x i8] c"list_get_item\00", align 1
+@.str.2 = private unnamed_addr constant [14 x i8] c"list_set_item\00", align 1
+@.str.3 = private unnamed_addr constant [11 x i8] c"list_clear\00", align 1
+@.str.4 = private unnamed_addr constant [12 x i8] c"list_extend\00", align 1
+@.str.5 = private unnamed_addr constant [14 x i8] c"test_list_api\00", align 1
+@test_methods = internal global [7 x { ptr, ptr, i32, [4 x i8], ptr }] [{ ptr, ptr, i32, [4 x i8], ptr } { ptr @.str, ptr @list_get_size, i32 8, [4 x i8] zeroinitializer, ptr null }, { ptr, ptr, i32, [4 x i8], ptr } { ptr @.str.1, ptr @list_get_item, i32 1, [4 x i8] zeroinitializer, ptr null }, { ptr, ptr, i32, [4 x i8], ptr } { ptr @.str.2, ptr @list_set_item, i32 1, [4 x i8] zeroinitializer, ptr null }, { ptr, ptr, i32, [4 x i8], ptr } { ptr @.str.3, ptr @list_clear, i32 8, [4 x i8] zeroinitializer, ptr null }, { ptr, ptr, i32, [4 x i8], ptr } { ptr @.str.4, ptr @list_extend, i32 1, [4 x i8] zeroinitializer, ptr null }, { ptr, ptr, i32, [4 x i8], ptr } { ptr @.str.5, ptr @test_list_api, i32 4, [4 x i8] zeroinitializer, ptr null }, { ptr, ptr, i32, [4 x i8], ptr } zeroinitializer], align 16
 @_Py_NoneStruct = external global %struct._object, align 8
-@PyList_Type = external global %struct._typeobject, align 8
-@.str.18 = private unnamed_addr constant [17 x i8] c"PyErr_Occurred()\00", align 1
-@.str.19 = private unnamed_addr constant [36 x i8] c"../cpython/Modules/_testcapi/list.c\00", align 1
-@__PRETTY_FUNCTION__.list_size = private unnamed_addr constant [44 x i8] c"PyObject *list_size(PyObject *, PyObject *)\00", align 1
-@.str.20 = private unnamed_addr constant [18 x i8] c"!PyErr_Occurred()\00", align 1
+@.str.7 = private unnamed_addr constant [17 x i8] c"PyErr_Occurred()\00", align 1
+@.str.8 = private unnamed_addr constant [36 x i8] c"../cpython/Modules/_testcapi/list.c\00", align 1
 @__PRETTY_FUNCTION__.list_get_size = private unnamed_addr constant [48 x i8] c"PyObject *list_get_size(PyObject *, PyObject *)\00", align 1
-@.str.21 = private unnamed_addr constant [17 x i8] c"PyList_Check(op)\00", align 1
-@.str.22 = private unnamed_addr constant [40 x i8] c"../cpython/Include/cpython/listobject.h\00", align 1
+@.str.9 = private unnamed_addr constant [18 x i8] c"!PyErr_Occurred()\00", align 1
+@.str.10 = private unnamed_addr constant [17 x i8] c"PyList_Check(op)\00", align 1
+@.str.11 = private unnamed_addr constant [40 x i8] c"../cpython/Include/cpython/listobject.h\00", align 1
 @__PRETTY_FUNCTION__.PyList_GET_SIZE = private unnamed_addr constant [39 x i8] c"Py_ssize_t PyList_GET_SIZE(PyObject *)\00", align 1
 @PyLong_Type = external global %struct._typeobject, align 8
-@.str.23 = private unnamed_addr constant [28 x i8] c"ob->ob_type != &PyLong_Type\00", align 1
-@.str.24 = private unnamed_addr constant [28 x i8] c"../cpython/Include/object.h\00", align 1
+@.str.12 = private unnamed_addr constant [28 x i8] c"Py_TYPE(ob) != &PyLong_Type\00", align 1
+@.str.13 = private unnamed_addr constant [28 x i8] c"../cpython/Include/object.h\00", align 1
 @__PRETTY_FUNCTION__.Py_SIZE = private unnamed_addr constant [31 x i8] c"Py_ssize_t Py_SIZE(PyObject *)\00", align 1
 @PyBool_Type = external global %struct._typeobject, align 8
-@.str.25 = private unnamed_addr constant [28 x i8] c"ob->ob_type != &PyBool_Type\00", align 1
-@.str.26 = private unnamed_addr constant [3 x i8] c"On\00", align 1
-@.str.27 = private unnamed_addr constant [18 x i8] c"PyList_Check(obj)\00", align 1
+@.str.14 = private unnamed_addr constant [28 x i8] c"Py_TYPE(ob) != &PyBool_Type\00", align 1
+@.str.15 = private unnamed_addr constant [3 x i8] c"On\00", align 1
+@.str.16 = private unnamed_addr constant [18 x i8] c"PyList_Check(obj)\00", align 1
 @__PRETTY_FUNCTION__.list_get_item = private unnamed_addr constant [48 x i8] c"PyObject *list_get_item(PyObject *, PyObject *)\00", align 1
-@.str.28 = private unnamed_addr constant [4 x i8] c"OnO\00", align 1
-@__PRETTY_FUNCTION__.list_setitem = private unnamed_addr constant [47 x i8] c"PyObject *list_setitem(PyObject *, PyObject *)\00", align 1
+@.str.17 = private unnamed_addr constant [4 x i8] c"OnO\00", align 1
 @__PRETTY_FUNCTION__.PyList_SET_ITEM = private unnamed_addr constant [57 x i8] c"void PyList_SET_ITEM(PyObject *, Py_ssize_t, PyObject *)\00", align 1
-@.str.29 = private unnamed_addr constant [11 x i8] c"0 <= index\00", align 1
-@.str.30 = private unnamed_addr constant [24 x i8] c"index < list->allocated\00", align 1
-@__PRETTY_FUNCTION__.list_insert = private unnamed_addr constant [46 x i8] c"PyObject *list_insert(PyObject *, PyObject *)\00", align 1
-@.str.31 = private unnamed_addr constant [3 x i8] c"OO\00", align 1
-@__PRETTY_FUNCTION__.list_append = private unnamed_addr constant [46 x i8] c"PyObject *list_append(PyObject *, PyObject *)\00", align 1
-@.str.32 = private unnamed_addr constant [4 x i8] c"Onn\00", align 1
-@.str.33 = private unnamed_addr constant [5 x i8] c"OnnO\00", align 1
-@__PRETTY_FUNCTION__.list_setslice = private unnamed_addr constant [48 x i8] c"PyObject *list_setslice(PyObject *, PyObject *)\00", align 1
-@__PRETTY_FUNCTION__.list_sort = private unnamed_addr constant [44 x i8] c"PyObject *list_sort(PyObject *, PyObject *)\00", align 1
-@__PRETTY_FUNCTION__.list_reverse = private unnamed_addr constant [47 x i8] c"PyObject *list_reverse(PyObject *, PyObject *)\00", align 1
+@.str.18 = private unnamed_addr constant [11 x i8] c"0 <= index\00", align 1
+@.str.19 = private unnamed_addr constant [24 x i8] c"index < list->allocated\00", align 1
 @__PRETTY_FUNCTION__.list_clear = private unnamed_addr constant [45 x i8] c"PyObject *list_clear(PyObject *, PyObject *)\00", align 1
+@.str.20 = private unnamed_addr constant [3 x i8] c"OO\00", align 1
 @__PRETTY_FUNCTION__.list_extend = private unnamed_addr constant [46 x i8] c"PyObject *list_extend(PyObject *, PyObject *)\00", align 1
+@.str.21 = private unnamed_addr constant [19 x i8] c"PyList_Check(list)\00", align 1
+@__PRETTY_FUNCTION__.test_list_api = private unnamed_addr constant [48 x i8] c"PyObject *test_list_api(PyObject *, PyObject *)\00", align 1
+@PyExc_AssertionError = external local_unnamed_addr global ptr, align 8
+@.str.22 = private unnamed_addr constant [34 x i8] c"test_list_api: reverse screwed up\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -1, 1) i32 @_PyTestCapi_Init_List(ptr noundef %m) local_unnamed_addr #0 {
-entry:
-  %call = tail call i32 @PyModule_AddFunctions(ptr noundef %m, ptr noundef nonnull @test_methods) #4
-  %call.lobit = ashr i32 %call, 31
-  ret i32 %call.lobit
+define hidden i32 @_PyTestCapi_Init_List(ptr noundef %0) local_unnamed_addr #0 {
+  %2 = tail call i32 @PyModule_AddFunctions(ptr noundef %0, ptr noundef nonnull @test_methods) #5
+  ret i32 %2
 }
 
 declare i32 @PyModule_AddFunctions(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @list_check(ptr readnone captures(none) %_unused_module, ptr noundef readonly %obj) #0 {
-entry:
-  %cmp = icmp eq ptr %obj, @_Py_NoneStruct
-  %spec.store.select = select i1 %cmp, ptr null, ptr %obj
-  %0 = getelementptr i8, ptr %spec.store.select, i64 8
-  %spec.store.select.val = load ptr, ptr %0, align 8
-  %1 = getelementptr i8, ptr %spec.store.select.val, i64 168
-  %call.val = load i64, ptr %1, align 8
-  %2 = lshr i64 %call.val, 25
-  %conv.i = and i64 %2, 1
-  %call2 = tail call ptr @PyLong_FromLong(i64 noundef %conv.i) #4
-  ret ptr %call2
+define internal ptr @list_get_size(ptr readnone captures(none) %0, ptr noundef readonly %1) #0 {
+  %3 = icmp eq ptr %1, @_Py_NoneStruct
+  %spec.store.select = select i1 %3, ptr null, ptr %1
+  %4 = getelementptr i8, ptr %spec.store.select, i64 8
+  %.val.i = load ptr, ptr %4, align 8, !tbaa !3
+  %5 = getelementptr i8, ptr %.val.i, i64 168
+  %.val3.i = load i64, ptr %5, align 8, !tbaa !9
+  %6 = and i64 %.val3.i, 33554432
+  %.not.i = icmp eq i64 %6, 0
+  br i1 %.not.i, label %7, label %8
+
+7:                                                ; preds = %2
+  tail call void @__assert_fail(ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11, i32 noundef 31, ptr noundef nonnull @__PRETTY_FUNCTION__.PyList_GET_SIZE) #6
+  unreachable
+
+8:                                                ; preds = %2
+  %.not.i.i = icmp eq ptr %.val.i, @PyLong_Type
+  br i1 %.not.i.i, label %9, label %10
+
+9:                                                ; preds = %8
+  tail call void @__assert_fail(ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.13, i32 noundef 282, ptr noundef nonnull @__PRETTY_FUNCTION__.Py_SIZE) #6
+  unreachable
+
+10:                                               ; preds = %8
+  %.not3.i.i = icmp eq ptr %.val.i, @PyBool_Type
+  br i1 %.not3.i.i, label %11, label %PyList_GET_SIZE.exit
+
+11:                                               ; preds = %10
+  tail call void @__assert_fail(ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.13, i32 noundef 283, ptr noundef nonnull @__PRETTY_FUNCTION__.Py_SIZE) #6
+  unreachable
+
+PyList_GET_SIZE.exit:                             ; preds = %10
+  %12 = getelementptr inbounds nuw i8, ptr %spec.store.select, i64 16
+  %13 = load i64, ptr %12, align 8, !tbaa !20
+  %14 = icmp eq i64 %13, -1
+  %15 = tail call ptr @PyErr_Occurred() #5
+  %.not5 = icmp eq ptr %15, null
+  br i1 %14, label %16, label %18
+
+16:                                               ; preds = %PyList_GET_SIZE.exit
+  br i1 %.not5, label %17, label %22
+
+17:                                               ; preds = %16
+  tail call void @__assert_fail(ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, i32 noundef 9, ptr noundef nonnull @__PRETTY_FUNCTION__.list_get_size) #6
+  unreachable
+
+18:                                               ; preds = %PyList_GET_SIZE.exit
+  br i1 %.not5, label %20, label %19
+
+19:                                               ; preds = %18
+  tail call void @__assert_fail(ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.8, i32 noundef 9, ptr noundef nonnull @__PRETTY_FUNCTION__.list_get_size) #6
+  unreachable
+
+20:                                               ; preds = %18
+  %21 = tail call ptr @PyLong_FromSsize_t(i64 noundef %13) #5
+  br label %22
+
+22:                                               ; preds = %16, %20
+  %.0 = phi ptr [ %21, %20 ], [ null, %16 ]
+  ret ptr %.0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @list_check_exact(ptr readnone captures(none) %_unused_module, ptr noundef readonly %obj) #0 {
-entry:
-  %cmp = icmp eq ptr %obj, @_Py_NoneStruct
-  %spec.store.select = select i1 %cmp, ptr null, ptr %obj
-  %0 = getelementptr i8, ptr %spec.store.select, i64 8
-  %spec.store.select.val = load ptr, ptr %0, align 8
-  %cmp.i = icmp eq ptr %spec.store.select.val, @PyList_Type
-  %conv = zext i1 %cmp.i to i64
-  %call1 = tail call ptr @PyLong_FromLong(i64 noundef %conv) #4
-  ret ptr %call1
-}
+define internal ptr @list_get_item(ptr readnone captures(none) %0, ptr noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #5
+  %5 = call i32 (ptr, ptr, ...) @PyArg_ParseTuple(ptr noundef %1, ptr noundef nonnull @.str.15, ptr noundef nonnull %3, ptr noundef nonnull %4) #5
+  %.not = icmp eq i32 %5, 0
+  br i1 %.not, label %_Py_XNewRef.exit, label %6
 
-; Function Attrs: nounwind uwtable
-define internal ptr @list_new(ptr readnone captures(none) %_unused_module, ptr noundef %obj) #0 {
-entry:
-  %call = tail call i64 @PyLong_AsSsize_t(ptr noundef %obj) #4
-  %call1 = tail call ptr @PyList_New(i64 noundef %call) #4
-  ret ptr %call1
-}
+6:                                                ; preds = %2
+  %7 = load ptr, ptr %3, align 8, !tbaa !21
+  %8 = icmp ne ptr %7, @_Py_NoneStruct
+  call void @llvm.assume(i1 %8)
+  %9 = getelementptr i8, ptr %7, i64 8
+  %.val = load ptr, ptr %9, align 8, !tbaa !3
+  %10 = getelementptr i8, ptr %.val, i64 168
+  %.val3 = load i64, ptr %10, align 8, !tbaa !9
+  %11 = and i64 %.val3, 33554432
+  %.not2 = icmp eq i64 %11, 0
+  br i1 %.not2, label %12, label %13
 
-; Function Attrs: nounwind uwtable
-define internal ptr @list_size(ptr readnone captures(none) %_unused_module, ptr noundef %obj) #0 {
-entry:
-  %cmp = icmp eq ptr %obj, @_Py_NoneStruct
-  %spec.store.select = select i1 %cmp, ptr null, ptr %obj
-  %call = tail call i64 @PyList_Size(ptr noundef %spec.store.select) #4
-  %cmp2 = icmp eq i64 %call, -1
-  %call4 = tail call ptr @PyErr_Occurred() #4
-  %tobool.not = icmp eq ptr %call4, null
-  br i1 %cmp2, label %if.then3, label %if.end5
-
-if.then3:                                         ; preds = %entry
-  br i1 %tobool.not, label %cond.false, label %do.end12
-
-cond.false:                                       ; preds = %if.then3
-  tail call void @__assert_fail(ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.19, i32 noundef 28, ptr noundef nonnull @__PRETTY_FUNCTION__.list_size) #5
+12:                                               ; preds = %6
+  call void @__assert_fail(ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.8, i32 noundef 22, ptr noundef nonnull @__PRETTY_FUNCTION__.list_get_item) #6
   unreachable
 
-if.end5:                                          ; preds = %entry
-  br i1 %tobool.not, label %cond.end10, label %cond.false9
+13:                                               ; preds = %6
+  %14 = getelementptr inbounds nuw i8, ptr %7, i64 24
+  %15 = load ptr, ptr %14, align 8, !tbaa !22
+  %16 = load i64, ptr %4, align 8, !tbaa !25
+  %17 = getelementptr ptr, ptr %15, i64 %16
+  %18 = load ptr, ptr %17, align 8, !tbaa !21
+  %.not.i.i = icmp eq ptr %18, null
+  br i1 %.not.i.i, label %_Py_XNewRef.exit, label %19
 
-cond.false9:                                      ; preds = %if.end5
-  tail call void @__assert_fail(ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.19, i32 noundef 28, ptr noundef nonnull @__PRETTY_FUNCTION__.list_size) #5
-  unreachable
+19:                                               ; preds = %13
+  %20 = load i32, ptr %18, align 8, !tbaa !26
+  %21 = icmp slt i32 %20, 0
+  br i1 %21, label %_Py_XNewRef.exit, label %22
 
-cond.end10:                                       ; preds = %if.end5
-  %call11 = tail call ptr @PyLong_FromSsize_t(i64 noundef %call) #4
-  br label %do.end12
-
-do.end12:                                         ; preds = %if.then3, %cond.end10
-  %retval.0 = phi ptr [ %call11, %cond.end10 ], [ null, %if.then3 ]
-  ret ptr %retval.0
-}
-
-; Function Attrs: nounwind uwtable
-define internal ptr @list_get_size(ptr readnone captures(none) %_unused_module, ptr noundef readonly %obj) #0 {
-entry:
-  %cmp = icmp eq ptr %obj, @_Py_NoneStruct
-  %spec.store.select = select i1 %cmp, ptr null, ptr %obj
-  %0 = getelementptr i8, ptr %spec.store.select, i64 8
-  %op.val.i = load ptr, ptr %0, align 8
-  %1 = getelementptr i8, ptr %op.val.i, i64 168
-  %call.val.i = load i64, ptr %1, align 8
-  %2 = and i64 %call.val.i, 33554432
-  %tobool.not.i = icmp eq i64 %2, 0
-  br i1 %tobool.not.i, label %cond.false.i, label %cond.end.i
-
-cond.false.i:                                     ; preds = %entry
-  tail call void @__assert_fail(ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.22, i32 noundef 31, ptr noundef nonnull @__PRETTY_FUNCTION__.PyList_GET_SIZE) #5
-  unreachable
-
-cond.end.i:                                       ; preds = %entry
-  %cmp.not.i.i = icmp eq ptr %op.val.i, @PyLong_Type
-  br i1 %cmp.not.i.i, label %cond.false.i.i, label %cond.end.i.i
-
-cond.false.i.i:                                   ; preds = %cond.end.i
-  tail call void @__assert_fail(ptr noundef nonnull @.str.23, ptr noundef nonnull @.str.24, i32 noundef 337, ptr noundef nonnull @__PRETTY_FUNCTION__.Py_SIZE) #5
-  unreachable
-
-cond.end.i.i:                                     ; preds = %cond.end.i
-  %cmp2.not.i.i = icmp eq ptr %op.val.i, @PyBool_Type
-  br i1 %cmp2.not.i.i, label %cond.false4.i.i, label %PyList_GET_SIZE.exit
-
-cond.false4.i.i:                                  ; preds = %cond.end.i.i
-  tail call void @__assert_fail(ptr noundef nonnull @.str.25, ptr noundef nonnull @.str.24, i32 noundef 338, ptr noundef nonnull @__PRETTY_FUNCTION__.Py_SIZE) #5
-  unreachable
-
-PyList_GET_SIZE.exit:                             ; preds = %cond.end.i.i
-  %ob_size.i.i = getelementptr inbounds nuw i8, ptr %spec.store.select, i64 16
-  %3 = load i64, ptr %ob_size.i.i, align 8
-  %cmp2 = icmp eq i64 %3, -1
-  %call4 = tail call ptr @PyErr_Occurred() #4
-  %tobool.not = icmp eq ptr %call4, null
-  br i1 %cmp2, label %if.then3, label %if.end5
-
-if.then3:                                         ; preds = %PyList_GET_SIZE.exit
-  br i1 %tobool.not, label %cond.false, label %do.end12
-
-cond.false:                                       ; preds = %if.then3
-  tail call void @__assert_fail(ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.19, i32 noundef 35, ptr noundef nonnull @__PRETTY_FUNCTION__.list_get_size) #5
-  unreachable
-
-if.end5:                                          ; preds = %PyList_GET_SIZE.exit
-  br i1 %tobool.not, label %cond.end10, label %cond.false9
-
-cond.false9:                                      ; preds = %if.end5
-  tail call void @__assert_fail(ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.19, i32 noundef 35, ptr noundef nonnull @__PRETTY_FUNCTION__.list_get_size) #5
-  unreachable
-
-cond.end10:                                       ; preds = %if.end5
-  %call11 = tail call ptr @PyLong_FromSsize_t(i64 noundef %3) #4
-  br label %do.end12
-
-do.end12:                                         ; preds = %if.then3, %cond.end10
-  %retval.0 = phi ptr [ %call11, %cond.end10 ], [ null, %if.then3 ]
-  ret ptr %retval.0
-}
-
-; Function Attrs: nounwind uwtable
-define internal ptr @list_getitem(ptr readnone captures(none) %_unused_module, ptr noundef %args) #0 {
-entry:
-  %obj = alloca ptr, align 8
-  %i = alloca i64, align 8
-  %call = call i32 (ptr, ptr, ...) @PyArg_ParseTuple(ptr noundef %args, ptr noundef nonnull @.str.26, ptr noundef nonnull %obj, ptr noundef nonnull %i) #4
-  %tobool.not = icmp eq i32 %call, 0
-  br i1 %tobool.not, label %return, label %do.body
-
-do.body:                                          ; preds = %entry
-  %0 = load ptr, ptr %obj, align 8
-  %cmp = icmp eq ptr %0, @_Py_NoneStruct
-  br i1 %cmp, label %if.then1, label %do.end
-
-if.then1:                                         ; preds = %do.body
-  store ptr null, ptr %obj, align 8
-  br label %do.end
-
-do.end:                                           ; preds = %do.body, %if.then1
-  %1 = phi ptr [ %0, %do.body ], [ null, %if.then1 ]
-  %2 = load i64, ptr %i, align 8
-  %call3 = call ptr @PyList_GetItem(ptr noundef %1, i64 noundef %2) #4
-  %cmp.not.i.i = icmp eq ptr %call3, null
-  br i1 %cmp.not.i.i, label %return, label %if.then.i.i
-
-if.then.i.i:                                      ; preds = %do.end
-  %3 = load i32, ptr %call3, align 8
-  %add.i.i.i = add i32 %3, 1
-  %cmp.i.i.i = icmp eq i32 %add.i.i.i, 0
-  br i1 %cmp.i.i.i, label %return, label %if.end.i.i.i
-
-if.end.i.i.i:                                     ; preds = %if.then.i.i
-  store i32 %add.i.i.i, ptr %call3, align 8
-  br label %return
-
-return:                                           ; preds = %if.end.i.i.i, %if.then.i.i, %do.end, %entry
-  %retval.0 = phi ptr [ null, %entry ], [ null, %do.end ], [ %call3, %if.then.i.i ], [ %call3, %if.end.i.i.i ]
-  ret ptr %retval.0
-}
-
-; Function Attrs: nounwind uwtable
-define internal ptr @list_get_item(ptr readnone captures(none) %_unused_module, ptr noundef %args) #0 {
-entry:
-  %obj = alloca ptr, align 8
-  %i = alloca i64, align 8
-  %call = call i32 (ptr, ptr, ...) @PyArg_ParseTuple(ptr noundef %args, ptr noundef nonnull @.str.26, ptr noundef nonnull %obj, ptr noundef nonnull %i) #4
-  %tobool.not = icmp eq i32 %call, 0
-  br i1 %tobool.not, label %return, label %do.body
-
-do.body:                                          ; preds = %entry
-  %0 = load ptr, ptr %obj, align 8
-  %cmp = icmp ne ptr %0, @_Py_NoneStruct
-  call void @llvm.assume(i1 %cmp)
-  %1 = getelementptr i8, ptr %0, i64 8
-  %.val = load ptr, ptr %1, align 8
-  %2 = getelementptr i8, ptr %.val, i64 168
-  %call3.val = load i64, ptr %2, align 8
-  %3 = and i64 %call3.val, 33554432
-  %tobool5.not = icmp eq i64 %3, 0
-  br i1 %tobool5.not, label %cond.false, label %cond.end
-
-cond.false:                                       ; preds = %do.body
-  call void @__assert_fail(ptr noundef nonnull @.str.27, ptr noundef nonnull @.str.19, i32 noundef 59, ptr noundef nonnull @__PRETTY_FUNCTION__.list_get_item) #5
-  unreachable
-
-cond.end:                                         ; preds = %do.body
-  %ob_item = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %4 = load ptr, ptr %ob_item, align 8
-  %5 = load i64, ptr %i, align 8
-  %arrayidx = getelementptr ptr, ptr %4, i64 %5
-  %6 = load ptr, ptr %arrayidx, align 8
-  %cmp.not.i.i = icmp eq ptr %6, null
-  br i1 %cmp.not.i.i, label %return, label %if.then.i.i
-
-if.then.i.i:                                      ; preds = %cond.end
-  %7 = load i32, ptr %6, align 8
-  %add.i.i.i = add i32 %7, 1
-  %cmp.i.i.i = icmp eq i32 %add.i.i.i, 0
-  br i1 %cmp.i.i.i, label %return, label %if.end.i.i.i
-
-if.end.i.i.i:                                     ; preds = %if.then.i.i
-  store i32 %add.i.i.i, ptr %6, align 8
-  br label %return
-
-return:                                           ; preds = %if.end.i.i.i, %if.then.i.i, %cond.end, %entry
-  %retval.0 = phi ptr [ null, %entry ], [ null, %cond.end ], [ %6, %if.then.i.i ], [ %6, %if.end.i.i.i ]
-  ret ptr %retval.0
-}
-
-; Function Attrs: nounwind uwtable
-define internal ptr @list_setitem(ptr readnone captures(none) %_unused_module, ptr noundef %args) #0 {
-entry:
-  %obj = alloca ptr, align 8
-  %value = alloca ptr, align 8
-  %i = alloca i64, align 8
-  %call = call i32 (ptr, ptr, ...) @PyArg_ParseTuple(ptr noundef %args, ptr noundef nonnull @.str.28, ptr noundef nonnull %obj, ptr noundef nonnull %i, ptr noundef nonnull %value) #4
-  %tobool.not = icmp eq i32 %call, 0
-  br i1 %tobool.not, label %do.end22, label %do.body
-
-do.body:                                          ; preds = %entry
-  %0 = load ptr, ptr %obj, align 8
-  %cmp = icmp eq ptr %0, @_Py_NoneStruct
-  br i1 %cmp, label %if.then1, label %do.body3
-
-if.then1:                                         ; preds = %do.body
-  store ptr null, ptr %obj, align 8
-  br label %do.body3
-
-do.body3:                                         ; preds = %if.then1, %do.body
-  %1 = phi ptr [ null, %if.then1 ], [ %0, %do.body ]
-  %2 = load ptr, ptr %value, align 8
-  %cmp4 = icmp eq ptr %2, @_Py_NoneStruct
-  br i1 %cmp4, label %do.body8.thread, label %do.body8
-
-do.body8.thread:                                  ; preds = %do.body3
-  store ptr null, ptr %value, align 8
-  %3 = load i64, ptr %i, align 8
+22:                                               ; preds = %19
+  %23 = add nuw i32 %20, 1
+  store i32 %23, ptr %18, align 8, !tbaa !26
   br label %_Py_XNewRef.exit
 
-do.body8:                                         ; preds = %do.body3
-  %4 = load i64, ptr %i, align 8
-  %cmp.not.i.i = icmp eq ptr %2, null
-  br i1 %cmp.not.i.i, label %_Py_XNewRef.exit, label %if.then.i.i
+_Py_XNewRef.exit:                                 ; preds = %22, %19, %13, %2
+  %.0 = phi ptr [ null, %2 ], [ null, %13 ], [ %18, %19 ], [ %18, %22 ]
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #5
+  ret ptr %.0
+}
 
-if.then.i.i:                                      ; preds = %do.body8
-  %5 = load i32, ptr %2, align 8
-  %add.i.i.i = add i32 %5, 1
-  %cmp.i.i.i = icmp eq i32 %add.i.i.i, 0
-  br i1 %cmp.i.i.i, label %_Py_XNewRef.exit, label %if.end.i.i.i
+; Function Attrs: nounwind uwtable
+define internal noundef ptr @list_set_item(ptr readnone captures(none) %0, ptr noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca i64, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #5
+  %6 = call i32 (ptr, ptr, ...) @PyArg_ParseTuple(ptr noundef %1, ptr noundef nonnull @.str.17, ptr noundef nonnull %3, ptr noundef nonnull %5, ptr noundef nonnull %4) #5
+  %.not = icmp eq i32 %6, 0
+  br i1 %.not, label %40, label %7
 
-if.end.i.i.i:                                     ; preds = %if.then.i.i
-  store i32 %add.i.i.i, ptr %2, align 8
+7:                                                ; preds = %2
+  %8 = load ptr, ptr %3, align 8, !tbaa !21
+  %9 = icmp eq ptr %8, @_Py_NoneStruct
+  br i1 %9, label %10, label %11
+
+10:                                               ; preds = %7
+  store ptr null, ptr %3, align 8, !tbaa !21
+  br label %11
+
+11:                                               ; preds = %7, %10
+  %12 = phi ptr [ %8, %7 ], [ null, %10 ]
+  %13 = load ptr, ptr %4, align 8, !tbaa !21
+  %14 = icmp eq ptr %13, @_Py_NoneStruct
+  br i1 %14, label %.thread, label %16
+
+.thread:                                          ; preds = %11
+  store ptr null, ptr %4, align 8, !tbaa !21
+  %15 = load i64, ptr %5, align 8, !tbaa !25
   br label %_Py_XNewRef.exit
 
-_Py_XNewRef.exit:                                 ; preds = %do.body8.thread, %do.body8, %if.then.i.i, %if.end.i.i.i
-  %6 = phi i64 [ %3, %do.body8.thread ], [ %4, %do.body8 ], [ %4, %if.then.i.i ], [ %4, %if.end.i.i.i ]
-  %7 = phi ptr [ null, %do.body8.thread ], [ null, %do.body8 ], [ %2, %if.then.i.i ], [ %2, %if.end.i.i.i ]
-  %call10 = call i32 @PyList_SetItem(ptr noundef %1, i64 noundef %6, ptr noundef %7) #4
-  %cmp11 = icmp eq i32 %call10, -1
-  %call13 = call ptr @PyErr_Occurred() #4
-  %tobool14.not = icmp eq ptr %call13, null
-  br i1 %cmp11, label %if.then12, label %if.end15
+16:                                               ; preds = %11
+  %17 = load i64, ptr %5, align 8, !tbaa !25
+  %.not.i.i = icmp eq ptr %13, null
+  br i1 %.not.i.i, label %_Py_XNewRef.exit, label %18
 
-if.then12:                                        ; preds = %_Py_XNewRef.exit
-  br i1 %tobool14.not, label %cond.false, label %do.end22
+18:                                               ; preds = %16
+  %19 = load i32, ptr %13, align 8, !tbaa !26
+  %20 = icmp slt i32 %19, 0
+  br i1 %20, label %_Py_XNewRef.exit, label %21
 
-cond.false:                                       ; preds = %if.then12
-  call void @__assert_fail(ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.19, i32 noundef 72, ptr noundef nonnull @__PRETTY_FUNCTION__.list_setitem) #5
-  unreachable
-
-if.end15:                                         ; preds = %_Py_XNewRef.exit
-  br i1 %tobool14.not, label %cond.end20, label %cond.false19
-
-cond.false19:                                     ; preds = %if.end15
-  call void @__assert_fail(ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.19, i32 noundef 72, ptr noundef nonnull @__PRETTY_FUNCTION__.list_setitem) #5
-  unreachable
-
-cond.end20:                                       ; preds = %if.end15
-  %conv = sext i32 %call10 to i64
-  %call21 = call ptr @PyLong_FromLong(i64 noundef %conv) #4
-  br label %do.end22
-
-do.end22:                                         ; preds = %if.then12, %entry, %cond.end20
-  %retval.0 = phi ptr [ %call21, %cond.end20 ], [ null, %entry ], [ null, %if.then12 ]
-  ret ptr %retval.0
-}
-
-; Function Attrs: nounwind uwtable
-define internal noundef ptr @list_set_item(ptr readnone captures(none) %_unused_module, ptr noundef %args) #0 {
-entry:
-  %obj = alloca ptr, align 8
-  %value = alloca ptr, align 8
-  %i = alloca i64, align 8
-  %call = call i32 (ptr, ptr, ...) @PyArg_ParseTuple(ptr noundef %args, ptr noundef nonnull @.str.28, ptr noundef nonnull %obj, ptr noundef nonnull %i, ptr noundef nonnull %value) #4
-  %tobool.not = icmp eq i32 %call, 0
-  br i1 %tobool.not, label %return, label %do.body
-
-do.body:                                          ; preds = %entry
-  %0 = load ptr, ptr %obj, align 8
-  %cmp = icmp eq ptr %0, @_Py_NoneStruct
-  br i1 %cmp, label %if.then1, label %do.body3
-
-if.then1:                                         ; preds = %do.body
-  store ptr null, ptr %obj, align 8
-  br label %do.body3
-
-do.body3:                                         ; preds = %if.then1, %do.body
-  %1 = phi ptr [ null, %if.then1 ], [ %0, %do.body ]
-  %2 = load ptr, ptr %value, align 8
-  %cmp4 = icmp eq ptr %2, @_Py_NoneStruct
-  br i1 %cmp4, label %do.end7.thread, label %do.end7
-
-do.end7.thread:                                   ; preds = %do.body3
-  store ptr null, ptr %value, align 8
-  %3 = load i64, ptr %i, align 8
+21:                                               ; preds = %18
+  %22 = add nuw i32 %19, 1
+  store i32 %22, ptr %13, align 8, !tbaa !26
   br label %_Py_XNewRef.exit
 
-do.end7:                                          ; preds = %do.body3
-  %4 = load i64, ptr %i, align 8
-  %cmp.not.i.i = icmp eq ptr %2, null
-  br i1 %cmp.not.i.i, label %_Py_XNewRef.exit, label %if.then.i.i
+_Py_XNewRef.exit:                                 ; preds = %.thread, %16, %18, %21
+  %23 = phi i64 [ %15, %.thread ], [ %17, %16 ], [ %17, %18 ], [ %17, %21 ]
+  %24 = phi ptr [ null, %.thread ], [ null, %16 ], [ %13, %18 ], [ %13, %21 ]
+  %25 = getelementptr i8, ptr %12, i64 8
+  %.val.i = load ptr, ptr %25, align 8, !tbaa !3
+  %26 = getelementptr i8, ptr %.val.i, i64 168
+  %.val7.i = load i64, ptr %26, align 8, !tbaa !9
+  %27 = and i64 %.val7.i, 33554432
+  %.not.i = icmp eq i64 %27, 0
+  br i1 %.not.i, label %28, label %29
 
-if.then.i.i:                                      ; preds = %do.end7
-  %5 = load i32, ptr %2, align 8
-  %add.i.i.i = add i32 %5, 1
-  %cmp.i.i.i = icmp eq i32 %add.i.i.i, 0
-  br i1 %cmp.i.i.i, label %_Py_XNewRef.exit, label %if.end.i.i.i
-
-if.end.i.i.i:                                     ; preds = %if.then.i.i
-  store i32 %add.i.i.i, ptr %2, align 8
-  br label %_Py_XNewRef.exit
-
-_Py_XNewRef.exit:                                 ; preds = %do.end7.thread, %do.end7, %if.then.i.i, %if.end.i.i.i
-  %6 = phi i64 [ %3, %do.end7.thread ], [ %4, %do.end7 ], [ %4, %if.then.i.i ], [ %4, %if.end.i.i.i ]
-  %7 = phi ptr [ null, %do.end7.thread ], [ null, %do.end7 ], [ %2, %if.then.i.i ], [ %2, %if.end.i.i.i ]
-  %8 = getelementptr i8, ptr %1, i64 8
-  %op.val.i = load ptr, ptr %8, align 8
-  %9 = getelementptr i8, ptr %op.val.i, i64 168
-  %call.val.i = load i64, ptr %9, align 8
-  %10 = and i64 %call.val.i, 33554432
-  %tobool.not.i = icmp eq i64 %10, 0
-  br i1 %tobool.not.i, label %cond.false.i, label %cond.end.i
-
-cond.false.i:                                     ; preds = %_Py_XNewRef.exit
-  call void @__assert_fail(ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.22, i32 noundef 40, ptr noundef nonnull @__PRETTY_FUNCTION__.PyList_SET_ITEM) #5
+28:                                               ; preds = %_Py_XNewRef.exit
+  call void @__assert_fail(ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11, i32 noundef 44, ptr noundef nonnull @__PRETTY_FUNCTION__.PyList_SET_ITEM) #6
   unreachable
 
-cond.end.i:                                       ; preds = %_Py_XNewRef.exit
-  %cmp.i = icmp sgt i64 %6, -1
-  br i1 %cmp.i, label %cond.end4.i, label %cond.false3.i
+29:                                               ; preds = %_Py_XNewRef.exit
+  %30 = icmp sgt i64 %23, -1
+  br i1 %30, label %32, label %31
 
-cond.false3.i:                                    ; preds = %cond.end.i
-  call void @__assert_fail(ptr noundef nonnull @.str.29, ptr noundef nonnull @.str.22, i32 noundef 41, ptr noundef nonnull @__PRETTY_FUNCTION__.PyList_SET_ITEM) #5
+31:                                               ; preds = %29
+  call void @__assert_fail(ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.11, i32 noundef 45, ptr noundef nonnull @__PRETTY_FUNCTION__.PyList_SET_ITEM) #6
   unreachable
 
-cond.end4.i:                                      ; preds = %cond.end.i
-  %allocated.i = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %11 = load i64, ptr %allocated.i, align 8
-  %cmp5.i = icmp slt i64 %6, %11
-  br i1 %cmp5.i, label %PyList_SET_ITEM.exit, label %cond.false7.i
+32:                                               ; preds = %29
+  %33 = getelementptr inbounds nuw i8, ptr %12, i64 32
+  %34 = load i64, ptr %33, align 8, !tbaa !27
+  %35 = icmp slt i64 %23, %34
+  br i1 %35, label %PyList_SET_ITEM.exit, label %36
 
-cond.false7.i:                                    ; preds = %cond.end4.i
-  call void @__assert_fail(ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.22, i32 noundef 42, ptr noundef nonnull @__PRETTY_FUNCTION__.PyList_SET_ITEM) #5
+36:                                               ; preds = %32
+  call void @__assert_fail(ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.11, i32 noundef 46, ptr noundef nonnull @__PRETTY_FUNCTION__.PyList_SET_ITEM) #6
   unreachable
 
-PyList_SET_ITEM.exit:                             ; preds = %cond.end4.i
-  %ob_item.i = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %12 = load ptr, ptr %ob_item.i, align 8
-  %arrayidx.i = getelementptr ptr, ptr %12, i64 %6
-  store ptr %7, ptr %arrayidx.i, align 8
-  br label %return
+PyList_SET_ITEM.exit:                             ; preds = %32
+  %37 = getelementptr inbounds nuw i8, ptr %12, i64 24
+  %38 = load ptr, ptr %37, align 8, !tbaa !22
+  %39 = getelementptr ptr, ptr %38, i64 %23
+  store ptr %24, ptr %39, align 8, !tbaa !21
+  br label %40
 
-return:                                           ; preds = %entry, %PyList_SET_ITEM.exit
-  %retval.0 = phi ptr [ @_Py_NoneStruct, %PyList_SET_ITEM.exit ], [ null, %entry ]
-  ret ptr %retval.0
+40:                                               ; preds = %2, %PyList_SET_ITEM.exit
+  %.0 = phi ptr [ @_Py_NoneStruct, %PyList_SET_ITEM.exit ], [ null, %2 ]
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #5
+  ret ptr %.0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @list_insert(ptr readnone captures(none) %_unused_module, ptr noundef %args) #0 {
-entry:
-  %obj = alloca ptr, align 8
-  %value = alloca ptr, align 8
-  %where = alloca i64, align 8
-  %call = call i32 (ptr, ptr, ...) @PyArg_ParseTuple(ptr noundef %args, ptr noundef nonnull @.str.28, ptr noundef nonnull %obj, ptr noundef nonnull %where, ptr noundef nonnull %value) #4
-  %tobool.not = icmp eq i32 %call, 0
-  br i1 %tobool.not, label %do.end22, label %do.body
+define internal ptr @list_clear(ptr readnone captures(none) %0, ptr noundef %1) #0 {
+  %3 = icmp eq ptr %1, @_Py_NoneStruct
+  %spec.store.select = select i1 %3, ptr null, ptr %1
+  %4 = tail call i32 @PyList_Clear(ptr noundef %spec.store.select) #5
+  %5 = icmp eq i32 %4, -1
+  %6 = tail call ptr @PyErr_Occurred() #5
+  %.not5 = icmp eq ptr %6, null
+  br i1 %5, label %7, label %9
 
-do.body:                                          ; preds = %entry
-  %0 = load ptr, ptr %obj, align 8
-  %cmp = icmp eq ptr %0, @_Py_NoneStruct
-  br i1 %cmp, label %if.then1, label %do.body3
+7:                                                ; preds = %2
+  br i1 %.not5, label %8, label %14
 
-if.then1:                                         ; preds = %do.body
-  store ptr null, ptr %obj, align 8
-  br label %do.body3
-
-do.body3:                                         ; preds = %if.then1, %do.body
-  %1 = phi ptr [ null, %if.then1 ], [ %0, %do.body ]
-  %2 = load ptr, ptr %value, align 8
-  %cmp4 = icmp eq ptr %2, @_Py_NoneStruct
-  br i1 %cmp4, label %do.body8.thread, label %do.body8
-
-do.body8.thread:                                  ; preds = %do.body3
-  store ptr null, ptr %value, align 8
-  %3 = load i64, ptr %where, align 8
-  br label %_Py_XNewRef.exit
-
-do.body8:                                         ; preds = %do.body3
-  %4 = load i64, ptr %where, align 8
-  %cmp.not.i.i = icmp eq ptr %2, null
-  br i1 %cmp.not.i.i, label %_Py_XNewRef.exit, label %if.then.i.i
-
-if.then.i.i:                                      ; preds = %do.body8
-  %5 = load i32, ptr %2, align 8
-  %add.i.i.i = add i32 %5, 1
-  %cmp.i.i.i = icmp eq i32 %add.i.i.i, 0
-  br i1 %cmp.i.i.i, label %_Py_XNewRef.exit, label %if.end.i.i.i
-
-if.end.i.i.i:                                     ; preds = %if.then.i.i
-  store i32 %add.i.i.i, ptr %2, align 8
-  br label %_Py_XNewRef.exit
-
-_Py_XNewRef.exit:                                 ; preds = %do.body8.thread, %do.body8, %if.then.i.i, %if.end.i.i.i
-  %6 = phi i64 [ %3, %do.body8.thread ], [ %4, %do.body8 ], [ %4, %if.then.i.i ], [ %4, %if.end.i.i.i ]
-  %7 = phi ptr [ null, %do.body8.thread ], [ null, %do.body8 ], [ %2, %if.then.i.i ], [ %2, %if.end.i.i.i ]
-  %call10 = call i32 @PyList_Insert(ptr noundef %1, i64 noundef %6, ptr noundef %7) #4
-  %cmp11 = icmp eq i32 %call10, -1
-  %call13 = call ptr @PyErr_Occurred() #4
-  %tobool14.not = icmp eq ptr %call13, null
-  br i1 %cmp11, label %if.then12, label %if.end15
-
-if.then12:                                        ; preds = %_Py_XNewRef.exit
-  br i1 %tobool14.not, label %cond.false, label %do.end22
-
-cond.false:                                       ; preds = %if.then12
-  call void @__assert_fail(ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.19, i32 noundef 101, ptr noundef nonnull @__PRETTY_FUNCTION__.list_insert) #5
+8:                                                ; preds = %7
+  tail call void @__assert_fail(ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, i32 noundef 46, ptr noundef nonnull @__PRETTY_FUNCTION__.list_clear) #6
   unreachable
 
-if.end15:                                         ; preds = %_Py_XNewRef.exit
-  br i1 %tobool14.not, label %cond.end20, label %cond.false19
+9:                                                ; preds = %2
+  br i1 %.not5, label %11, label %10
 
-cond.false19:                                     ; preds = %if.end15
-  call void @__assert_fail(ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.19, i32 noundef 101, ptr noundef nonnull @__PRETTY_FUNCTION__.list_insert) #5
+10:                                               ; preds = %9
+  tail call void @__assert_fail(ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.8, i32 noundef 46, ptr noundef nonnull @__PRETTY_FUNCTION__.list_clear) #6
   unreachable
 
-cond.end20:                                       ; preds = %if.end15
-  %conv = sext i32 %call10 to i64
-  %call21 = call ptr @PyLong_FromLong(i64 noundef %conv) #4
-  br label %do.end22
+11:                                               ; preds = %9
+  %12 = sext i32 %4 to i64
+  %13 = tail call ptr @PyLong_FromLong(i64 noundef %12) #5
+  br label %14
 
-do.end22:                                         ; preds = %if.then12, %entry, %cond.end20
-  %retval.0 = phi ptr [ %call21, %cond.end20 ], [ null, %entry ], [ null, %if.then12 ]
-  ret ptr %retval.0
+14:                                               ; preds = %7, %11
+  %.0 = phi ptr [ %13, %11 ], [ null, %7 ]
+  ret ptr %.0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @list_append(ptr readnone captures(none) %_unused_module, ptr noundef %args) #0 {
-entry:
-  %obj = alloca ptr, align 8
-  %value = alloca ptr, align 8
-  %call = call i32 (ptr, ptr, ...) @PyArg_ParseTuple(ptr noundef %args, ptr noundef nonnull @.str.31, ptr noundef nonnull %obj, ptr noundef nonnull %value) #4
-  %tobool.not = icmp eq i32 %call, 0
-  br i1 %tobool.not, label %do.end21, label %do.body
+define internal ptr @list_extend(ptr readnone captures(none) %0, ptr noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #5
+  %5 = call i32 (ptr, ptr, ...) @PyArg_ParseTuple(ptr noundef %1, ptr noundef nonnull @.str.20, ptr noundef nonnull %3, ptr noundef nonnull %4) #5
+  %.not = icmp eq i32 %5, 0
+  br i1 %.not, label %27, label %6
 
-do.body:                                          ; preds = %entry
-  %0 = load ptr, ptr %obj, align 8
-  %cmp = icmp eq ptr %0, @_Py_NoneStruct
-  br i1 %cmp, label %if.then1, label %do.body3
+6:                                                ; preds = %2
+  %7 = load ptr, ptr %3, align 8, !tbaa !21
+  %8 = icmp eq ptr %7, @_Py_NoneStruct
+  br i1 %8, label %9, label %10
 
-if.then1:                                         ; preds = %do.body
-  store ptr null, ptr %obj, align 8
-  br label %do.body3
+9:                                                ; preds = %6
+  store ptr null, ptr %3, align 8, !tbaa !21
+  br label %10
 
-do.body3:                                         ; preds = %if.then1, %do.body
-  %1 = phi ptr [ null, %if.then1 ], [ %0, %do.body ]
-  %2 = load ptr, ptr %value, align 8
-  %cmp4 = icmp eq ptr %2, @_Py_NoneStruct
-  br i1 %cmp4, label %if.then5, label %do.body8
+10:                                               ; preds = %6, %9
+  %11 = phi ptr [ %7, %6 ], [ null, %9 ]
+  %12 = load ptr, ptr %4, align 8, !tbaa !21
+  %13 = icmp eq ptr %12, @_Py_NoneStruct
+  br i1 %13, label %14, label %15
 
-if.then5:                                         ; preds = %do.body3
-  store ptr null, ptr %value, align 8
-  br label %do.body8
+14:                                               ; preds = %10
+  store ptr null, ptr %4, align 8, !tbaa !21
+  br label %15
 
-do.body8:                                         ; preds = %if.then5, %do.body3
-  %3 = phi ptr [ null, %if.then5 ], [ %2, %do.body3 ]
-  %call9 = call i32 @PyList_Append(ptr noundef %1, ptr noundef %3) #4
-  %cmp10 = icmp eq i32 %call9, -1
-  %call12 = call ptr @PyErr_Occurred() #4
-  %tobool13.not = icmp eq ptr %call12, null
-  br i1 %cmp10, label %if.then11, label %if.end14
+15:                                               ; preds = %10, %14
+  %16 = phi ptr [ %12, %10 ], [ null, %14 ]
+  %17 = call i32 @PyList_Extend(ptr noundef %11, ptr noundef %16) #5
+  %18 = icmp eq i32 %17, -1
+  %19 = call ptr @PyErr_Occurred() #5
+  %.not5 = icmp eq ptr %19, null
+  br i1 %18, label %20, label %22
 
-if.then11:                                        ; preds = %do.body8
-  br i1 %tobool13.not, label %cond.false, label %do.end21
+20:                                               ; preds = %15
+  br i1 %.not5, label %21, label %27
 
-cond.false:                                       ; preds = %if.then11
-  call void @__assert_fail(ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.19, i32 noundef 114, ptr noundef nonnull @__PRETTY_FUNCTION__.list_append) #5
+21:                                               ; preds = %20
+  call void @__assert_fail(ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, i32 noundef 59, ptr noundef nonnull @__PRETTY_FUNCTION__.list_extend) #6
   unreachable
 
-if.end14:                                         ; preds = %do.body8
-  br i1 %tobool13.not, label %cond.end19, label %cond.false18
+22:                                               ; preds = %15
+  br i1 %.not5, label %24, label %23
 
-cond.false18:                                     ; preds = %if.end14
-  call void @__assert_fail(ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.19, i32 noundef 114, ptr noundef nonnull @__PRETTY_FUNCTION__.list_append) #5
+23:                                               ; preds = %22
+  call void @__assert_fail(ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.8, i32 noundef 59, ptr noundef nonnull @__PRETTY_FUNCTION__.list_extend) #6
   unreachable
 
-cond.end19:                                       ; preds = %if.end14
-  %conv = sext i32 %call9 to i64
-  %call20 = call ptr @PyLong_FromLong(i64 noundef %conv) #4
-  br label %do.end21
+24:                                               ; preds = %22
+  %25 = sext i32 %17 to i64
+  %26 = call ptr @PyLong_FromLong(i64 noundef %25) #5
+  br label %27
 
-do.end21:                                         ; preds = %if.then11, %entry, %cond.end19
-  %retval.0 = phi ptr [ %call20, %cond.end19 ], [ null, %entry ], [ null, %if.then11 ]
-  ret ptr %retval.0
+27:                                               ; preds = %24, %20, %2
+  %.0 = phi ptr [ null, %2 ], [ %26, %24 ], [ null, %20 ]
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #5
+  ret ptr %.0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @list_getslice(ptr readnone captures(none) %_unused_module, ptr noundef %args) #0 {
-entry:
-  %obj = alloca ptr, align 8
-  %ilow = alloca i64, align 8
-  %ihigh = alloca i64, align 8
-  %call = call i32 (ptr, ptr, ...) @PyArg_ParseTuple(ptr noundef %args, ptr noundef nonnull @.str.32, ptr noundef nonnull %obj, ptr noundef nonnull %ilow, ptr noundef nonnull %ihigh) #4
-  %tobool.not = icmp eq i32 %call, 0
-  br i1 %tobool.not, label %return, label %do.body
+define internal noundef ptr @test_list_api(ptr readnone captures(none) %0, ptr readnone captures(none) %1) #0 {
+  %3 = tail call ptr @PyList_New(i64 noundef 30) #5
+  %4 = icmp eq ptr %3, null
+  br i1 %4, label %Py_DECREF.exit34, label %.preheader44
 
-do.body:                                          ; preds = %entry
-  %0 = load ptr, ptr %obj, align 8
-  %cmp = icmp eq ptr %0, @_Py_NoneStruct
-  br i1 %cmp, label %if.then1, label %do.end
+.preheader44:                                     ; preds = %2
+  %5 = getelementptr i8, ptr %3, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  br label %8
 
-if.then1:                                         ; preds = %do.body
-  store ptr null, ptr %obj, align 8
-  br label %do.end
+8:                                                ; preds = %.preheader44, %23
+  %indvars.iv = phi i64 [ 0, %.preheader44 ], [ %indvars.iv.next, %23 ]
+  %9 = tail call ptr @PyLong_FromLong(i64 noundef %indvars.iv) #5
+  %.not32 = icmp eq ptr %9, null
+  br i1 %.not32, label %10, label %15
 
-do.end:                                           ; preds = %do.body, %if.then1
-  %1 = phi ptr [ %0, %do.body ], [ null, %if.then1 ]
-  %2 = load i64, ptr %ilow, align 8
-  %3 = load i64, ptr %ihigh, align 8
-  %call3 = call ptr @PyList_GetSlice(ptr noundef %1, i64 noundef %2, i64 noundef %3) #4
-  br label %return
+10:                                               ; preds = %8
+  %11 = load i32, ptr %3, align 8, !tbaa !26
+  %.not.i = icmp sgt i32 %11, -1
+  br i1 %.not.i, label %12, label %Py_DECREF.exit34
 
-return:                                           ; preds = %entry, %do.end
-  %retval.0 = phi ptr [ %call3, %do.end ], [ null, %entry ]
-  ret ptr %retval.0
+12:                                               ; preds = %10
+  %13 = add nsw i32 %11, -1
+  store i32 %13, ptr %3, align 8, !tbaa !26
+  %14 = icmp eq i32 %13, 0
+  br i1 %14, label %Py_DECREF.exit34.sink.split, label %Py_DECREF.exit34
+
+15:                                               ; preds = %8
+  %.val.i = load ptr, ptr %5, align 8, !tbaa !3
+  %16 = getelementptr i8, ptr %.val.i, i64 168
+  %.val7.i = load i64, ptr %16, align 8, !tbaa !9
+  %17 = and i64 %.val7.i, 33554432
+  %.not.i43 = icmp eq i64 %17, 0
+  br i1 %.not.i43, label %18, label %19
+
+18:                                               ; preds = %15
+  tail call void @__assert_fail(ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11, i32 noundef 44, ptr noundef nonnull @__PRETTY_FUNCTION__.PyList_SET_ITEM) #6
+  unreachable
+
+19:                                               ; preds = %15
+  %20 = load i64, ptr %6, align 8, !tbaa !27
+  %21 = icmp sgt i64 %20, %indvars.iv
+  br i1 %21, label %23, label %22
+
+22:                                               ; preds = %19
+  tail call void @__assert_fail(ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.11, i32 noundef 46, ptr noundef nonnull @__PRETTY_FUNCTION__.PyList_SET_ITEM) #6
+  unreachable
+
+23:                                               ; preds = %19
+  %24 = load ptr, ptr %7, align 8, !tbaa !22
+  %25 = getelementptr ptr, ptr %24, i64 %indvars.iv
+  store ptr %9, ptr %25, align 8, !tbaa !21
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next, 30
+  br i1 %exitcond.not, label %26, label %8, !llvm.loop !28
+
+26:                                               ; preds = %23
+  %27 = tail call i32 @PyList_Reverse(ptr noundef nonnull %3) #5
+  %.not = icmp eq i32 %27, 0
+  br i1 %.not, label %.preheader, label %28
+
+28:                                               ; preds = %26
+  %29 = load i32, ptr %3, align 8, !tbaa !26
+  %.not.i33 = icmp sgt i32 %29, -1
+  br i1 %.not.i33, label %30, label %Py_DECREF.exit34
+
+30:                                               ; preds = %28
+  %31 = add nsw i32 %29, -1
+  store i32 %31, ptr %3, align 8, !tbaa !26
+  %32 = icmp eq i32 %31, 0
+  br i1 %32, label %Py_DECREF.exit34.sink.split, label %Py_DECREF.exit34
+
+33:                                               ; preds = %.critedge
+  %indvars.iv.next49 = add nuw nsw i64 %indvars.iv48, 1
+  %exitcond51.not = icmp eq i64 %indvars.iv.next49, 30
+  br i1 %exitcond51.not, label %48, label %.preheader, !llvm.loop !30
+
+.preheader:                                       ; preds = %26, %33
+  %indvars.iv48 = phi i64 [ %indvars.iv.next49, %33 ], [ 0, %26 ]
+  %.val = load ptr, ptr %5, align 8, !tbaa !3
+  %34 = getelementptr i8, ptr %.val, i64 168
+  %.val42 = load i64, ptr %34, align 8, !tbaa !9
+  %35 = and i64 %.val42, 33554432
+  %.not30 = icmp eq i64 %35, 0
+  br i1 %.not30, label %36, label %.critedge
+
+36:                                               ; preds = %.preheader
+  tail call void @__assert_fail(ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.8, i32 noundef 91, ptr noundef nonnull @__PRETTY_FUNCTION__.test_list_api) #6
+  unreachable
+
+.critedge:                                        ; preds = %.preheader
+  %37 = load ptr, ptr %7, align 8, !tbaa !22
+  %38 = getelementptr ptr, ptr %37, i64 %indvars.iv48
+  %39 = load ptr, ptr %38, align 8, !tbaa !21
+  %40 = tail call i64 @PyLong_AsLong(ptr noundef %39) #5
+  %41 = sub nuw nsw i64 29, %indvars.iv48
+  %.not31 = icmp eq i64 %40, %41
+  br i1 %.not31, label %33, label %42
+
+42:                                               ; preds = %.critedge
+  %43 = load ptr, ptr @PyExc_AssertionError, align 8, !tbaa !21
+  tail call void @PyErr_SetString(ptr noundef %43, ptr noundef nonnull @.str.22) #5
+  %44 = load i32, ptr %3, align 8, !tbaa !26
+  %.not.i35 = icmp sgt i32 %44, -1
+  br i1 %.not.i35, label %45, label %Py_DECREF.exit34
+
+45:                                               ; preds = %42
+  %46 = add nsw i32 %44, -1
+  store i32 %46, ptr %3, align 8, !tbaa !26
+  %47 = icmp eq i32 %46, 0
+  br i1 %47, label %Py_DECREF.exit34.sink.split, label %Py_DECREF.exit34
+
+48:                                               ; preds = %33
+  %49 = load i32, ptr %3, align 8, !tbaa !26
+  %.not.i37 = icmp sgt i32 %49, -1
+  br i1 %.not.i37, label %50, label %Py_DECREF.exit34
+
+50:                                               ; preds = %48
+  %51 = add nsw i32 %49, -1
+  store i32 %51, ptr %3, align 8, !tbaa !26
+  %52 = icmp eq i32 %51, 0
+  br i1 %52, label %Py_DECREF.exit34.sink.split, label %Py_DECREF.exit34
+
+Py_DECREF.exit34.sink.split:                      ; preds = %50, %45, %30, %12
+  %.0.ph = phi ptr [ null, %12 ], [ null, %30 ], [ null, %45 ], [ @_Py_NoneStruct, %50 ]
+  tail call void @_Py_Dealloc(ptr noundef nonnull %3) #5
+  br label %Py_DECREF.exit34
+
+Py_DECREF.exit34:                                 ; preds = %Py_DECREF.exit34.sink.split, %10, %12, %50, %48, %45, %42, %30, %28, %2
+  %.0 = phi ptr [ null, %2 ], [ null, %28 ], [ null, %30 ], [ null, %42 ], [ null, %45 ], [ @_Py_NoneStruct, %48 ], [ @_Py_NoneStruct, %50 ], [ null, %12 ], [ null, %10 ], [ %.0.ph, %Py_DECREF.exit34.sink.split ]
+  ret ptr %.0
 }
 
-; Function Attrs: nounwind uwtable
-define internal ptr @list_setslice(ptr readnone captures(none) %_unused_module, ptr noundef %args) #0 {
-entry:
-  %obj = alloca ptr, align 8
-  %value = alloca ptr, align 8
-  %ilow = alloca i64, align 8
-  %ihigh = alloca i64, align 8
-  %call = call i32 (ptr, ptr, ...) @PyArg_ParseTuple(ptr noundef %args, ptr noundef nonnull @.str.33, ptr noundef nonnull %obj, ptr noundef nonnull %ilow, ptr noundef nonnull %ihigh, ptr noundef nonnull %value) #4
-  %tobool.not = icmp eq i32 %call, 0
-  br i1 %tobool.not, label %do.end21, label %do.body
-
-do.body:                                          ; preds = %entry
-  %0 = load ptr, ptr %obj, align 8
-  %cmp = icmp eq ptr %0, @_Py_NoneStruct
-  br i1 %cmp, label %if.then1, label %do.body3
-
-if.then1:                                         ; preds = %do.body
-  store ptr null, ptr %obj, align 8
-  br label %do.body3
-
-do.body3:                                         ; preds = %if.then1, %do.body
-  %1 = phi ptr [ null, %if.then1 ], [ %0, %do.body ]
-  %2 = load ptr, ptr %value, align 8
-  %cmp4 = icmp eq ptr %2, @_Py_NoneStruct
-  br i1 %cmp4, label %if.then5, label %do.body8
-
-if.then5:                                         ; preds = %do.body3
-  store ptr null, ptr %value, align 8
-  br label %do.body8
-
-do.body8:                                         ; preds = %if.then5, %do.body3
-  %3 = phi ptr [ null, %if.then5 ], [ %2, %do.body3 ]
-  %4 = load i64, ptr %ilow, align 8
-  %5 = load i64, ptr %ihigh, align 8
-  %call9 = call i32 @PyList_SetSlice(ptr noundef %1, i64 noundef %4, i64 noundef %5, ptr noundef %3) #4
-  %cmp10 = icmp eq i32 %call9, -1
-  %call12 = call ptr @PyErr_Occurred() #4
-  %tobool13.not = icmp eq ptr %call12, null
-  br i1 %cmp10, label %if.then11, label %if.end14
-
-if.then11:                                        ; preds = %do.body8
-  br i1 %tobool13.not, label %cond.false, label %do.end21
-
-cond.false:                                       ; preds = %if.then11
-  call void @__assert_fail(ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.19, i32 noundef 140, ptr noundef nonnull @__PRETTY_FUNCTION__.list_setslice) #5
-  unreachable
-
-if.end14:                                         ; preds = %do.body8
-  br i1 %tobool13.not, label %cond.end19, label %cond.false18
-
-cond.false18:                                     ; preds = %if.end14
-  call void @__assert_fail(ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.19, i32 noundef 140, ptr noundef nonnull @__PRETTY_FUNCTION__.list_setslice) #5
-  unreachable
-
-cond.end19:                                       ; preds = %if.end14
-  %conv = sext i32 %call9 to i64
-  %call20 = call ptr @PyLong_FromLong(i64 noundef %conv) #4
-  br label %do.end21
-
-do.end21:                                         ; preds = %if.then11, %entry, %cond.end19
-  %retval.0 = phi ptr [ %call20, %cond.end19 ], [ null, %entry ], [ null, %if.then11 ]
-  ret ptr %retval.0
-}
-
-; Function Attrs: nounwind uwtable
-define internal ptr @list_sort(ptr readnone captures(none) %_unused_module, ptr noundef %obj) #0 {
-entry:
-  %cmp = icmp eq ptr %obj, @_Py_NoneStruct
-  %spec.store.select = select i1 %cmp, ptr null, ptr %obj
-  %call = tail call i32 @PyList_Sort(ptr noundef %spec.store.select) #4
-  %cmp2 = icmp eq i32 %call, -1
-  %call4 = tail call ptr @PyErr_Occurred() #4
-  %tobool.not = icmp eq ptr %call4, null
-  br i1 %cmp2, label %if.then3, label %if.end5
-
-if.then3:                                         ; preds = %entry
-  br i1 %tobool.not, label %cond.false, label %do.end12
-
-cond.false:                                       ; preds = %if.then3
-  tail call void @__assert_fail(ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.19, i32 noundef 147, ptr noundef nonnull @__PRETTY_FUNCTION__.list_sort) #5
-  unreachable
-
-if.end5:                                          ; preds = %entry
-  br i1 %tobool.not, label %cond.end10, label %cond.false9
-
-cond.false9:                                      ; preds = %if.end5
-  tail call void @__assert_fail(ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.19, i32 noundef 147, ptr noundef nonnull @__PRETTY_FUNCTION__.list_sort) #5
-  unreachable
-
-cond.end10:                                       ; preds = %if.end5
-  %conv = sext i32 %call to i64
-  %call11 = tail call ptr @PyLong_FromLong(i64 noundef %conv) #4
-  br label %do.end12
-
-do.end12:                                         ; preds = %if.then3, %cond.end10
-  %retval.0 = phi ptr [ %call11, %cond.end10 ], [ null, %if.then3 ]
-  ret ptr %retval.0
-}
-
-; Function Attrs: nounwind uwtable
-define internal ptr @list_reverse(ptr readnone captures(none) %_unused_module, ptr noundef %obj) #0 {
-entry:
-  %cmp = icmp eq ptr %obj, @_Py_NoneStruct
-  %spec.store.select = select i1 %cmp, ptr null, ptr %obj
-  %call = tail call i32 @PyList_Reverse(ptr noundef %spec.store.select) #4
-  %cmp2 = icmp eq i32 %call, -1
-  %call4 = tail call ptr @PyErr_Occurred() #4
-  %tobool.not = icmp eq ptr %call4, null
-  br i1 %cmp2, label %if.then3, label %if.end5
-
-if.then3:                                         ; preds = %entry
-  br i1 %tobool.not, label %cond.false, label %do.end12
-
-cond.false:                                       ; preds = %if.then3
-  tail call void @__assert_fail(ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.19, i32 noundef 154, ptr noundef nonnull @__PRETTY_FUNCTION__.list_reverse) #5
-  unreachable
-
-if.end5:                                          ; preds = %entry
-  br i1 %tobool.not, label %cond.end10, label %cond.false9
-
-cond.false9:                                      ; preds = %if.end5
-  tail call void @__assert_fail(ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.19, i32 noundef 154, ptr noundef nonnull @__PRETTY_FUNCTION__.list_reverse) #5
-  unreachable
-
-cond.end10:                                       ; preds = %if.end5
-  %conv = sext i32 %call to i64
-  %call11 = tail call ptr @PyLong_FromLong(i64 noundef %conv) #4
-  br label %do.end12
-
-do.end12:                                         ; preds = %if.then3, %cond.end10
-  %retval.0 = phi ptr [ %call11, %cond.end10 ], [ null, %if.then3 ]
-  ret ptr %retval.0
-}
-
-; Function Attrs: nounwind uwtable
-define internal ptr @list_astuple(ptr readnone captures(none) %_unused_module, ptr noundef %obj) #0 {
-entry:
-  %cmp = icmp eq ptr %obj, @_Py_NoneStruct
-  %spec.store.select = select i1 %cmp, ptr null, ptr %obj
-  %call = tail call ptr @PyList_AsTuple(ptr noundef %spec.store.select) #4
-  ret ptr %call
-}
-
-; Function Attrs: nounwind uwtable
-define internal ptr @list_clear(ptr readnone captures(none) %_unused_module, ptr noundef %obj) #0 {
-entry:
-  %cmp = icmp eq ptr %obj, @_Py_NoneStruct
-  %spec.store.select = select i1 %cmp, ptr null, ptr %obj
-  %call = tail call i32 @PyList_Clear(ptr noundef %spec.store.select) #4
-  %cmp2 = icmp eq i32 %call, -1
-  %call4 = tail call ptr @PyErr_Occurred() #4
-  %tobool.not = icmp eq ptr %call4, null
-  br i1 %cmp2, label %if.then3, label %if.end5
-
-if.then3:                                         ; preds = %entry
-  br i1 %tobool.not, label %cond.false, label %do.end12
-
-cond.false:                                       ; preds = %if.then3
-  tail call void @__assert_fail(ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.19, i32 noundef 169, ptr noundef nonnull @__PRETTY_FUNCTION__.list_clear) #5
-  unreachable
-
-if.end5:                                          ; preds = %entry
-  br i1 %tobool.not, label %cond.end10, label %cond.false9
-
-cond.false9:                                      ; preds = %if.end5
-  tail call void @__assert_fail(ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.19, i32 noundef 169, ptr noundef nonnull @__PRETTY_FUNCTION__.list_clear) #5
-  unreachable
-
-cond.end10:                                       ; preds = %if.end5
-  %conv = sext i32 %call to i64
-  %call11 = tail call ptr @PyLong_FromLong(i64 noundef %conv) #4
-  br label %do.end12
-
-do.end12:                                         ; preds = %if.then3, %cond.end10
-  %retval.0 = phi ptr [ %call11, %cond.end10 ], [ null, %if.then3 ]
-  ret ptr %retval.0
-}
-
-; Function Attrs: nounwind uwtable
-define internal ptr @list_extend(ptr readnone captures(none) %_unused_module, ptr noundef %args) #0 {
-entry:
-  %obj = alloca ptr, align 8
-  %arg = alloca ptr, align 8
-  %call = call i32 (ptr, ptr, ...) @PyArg_ParseTuple(ptr noundef %args, ptr noundef nonnull @.str.31, ptr noundef nonnull %obj, ptr noundef nonnull %arg) #4
-  %tobool.not = icmp eq i32 %call, 0
-  br i1 %tobool.not, label %do.end21, label %do.body
-
-do.body:                                          ; preds = %entry
-  %0 = load ptr, ptr %obj, align 8
-  %cmp = icmp eq ptr %0, @_Py_NoneStruct
-  br i1 %cmp, label %if.then1, label %do.body3
-
-if.then1:                                         ; preds = %do.body
-  store ptr null, ptr %obj, align 8
-  br label %do.body3
-
-do.body3:                                         ; preds = %if.then1, %do.body
-  %1 = phi ptr [ null, %if.then1 ], [ %0, %do.body ]
-  %2 = load ptr, ptr %arg, align 8
-  %cmp4 = icmp eq ptr %2, @_Py_NoneStruct
-  br i1 %cmp4, label %if.then5, label %do.body8
-
-if.then5:                                         ; preds = %do.body3
-  store ptr null, ptr %arg, align 8
-  br label %do.body8
-
-do.body8:                                         ; preds = %if.then5, %do.body3
-  %3 = phi ptr [ null, %if.then5 ], [ %2, %do.body3 ]
-  %call9 = call i32 @PyList_Extend(ptr noundef %1, ptr noundef %3) #4
-  %cmp10 = icmp eq i32 %call9, -1
-  %call12 = call ptr @PyErr_Occurred() #4
-  %tobool13.not = icmp eq ptr %call12, null
-  br i1 %cmp10, label %if.then11, label %if.end14
-
-if.then11:                                        ; preds = %do.body8
-  br i1 %tobool13.not, label %cond.false, label %do.end21
-
-cond.false:                                       ; preds = %if.then11
-  call void @__assert_fail(ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.19, i32 noundef 182, ptr noundef nonnull @__PRETTY_FUNCTION__.list_extend) #5
-  unreachable
-
-if.end14:                                         ; preds = %do.body8
-  br i1 %tobool13.not, label %cond.end19, label %cond.false18
-
-cond.false18:                                     ; preds = %if.end14
-  call void @__assert_fail(ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.19, i32 noundef 182, ptr noundef nonnull @__PRETTY_FUNCTION__.list_extend) #5
-  unreachable
-
-cond.end19:                                       ; preds = %if.end14
-  %conv = sext i32 %call9 to i64
-  %call20 = call ptr @PyLong_FromLong(i64 noundef %conv) #4
-  br label %do.end21
-
-do.end21:                                         ; preds = %if.then11, %entry, %cond.end19
-  %retval.0 = phi ptr [ %call20, %cond.end19 ], [ null, %entry ], [ null, %if.then11 ]
-  ret ptr %retval.0
-}
-
-declare ptr @PyLong_FromLong(i64 noundef) local_unnamed_addr #1
-
-declare ptr @PyList_New(i64 noundef) local_unnamed_addr #1
-
-declare i64 @PyLong_AsSsize_t(ptr noundef) local_unnamed_addr #1
-
-declare i64 @PyList_Size(ptr noundef) local_unnamed_addr #1
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
 declare ptr @PyErr_Occurred() local_unnamed_addr #1
 
 ; Function Attrs: noreturn nounwind
-declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
 declare ptr @PyLong_FromSsize_t(i64 noundef) local_unnamed_addr #1
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
+
 declare i32 @PyArg_ParseTuple(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
-
-declare ptr @PyList_GetItem(ptr noundef, i64 noundef) local_unnamed_addr #1
-
-declare i32 @PyList_SetItem(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
-
-declare i32 @PyList_Insert(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
-
-declare i32 @PyList_Append(ptr noundef, ptr noundef) local_unnamed_addr #1
-
-declare ptr @PyList_GetSlice(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
-
-declare i32 @PyList_SetSlice(ptr noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
-
-declare i32 @PyList_Sort(ptr noundef) local_unnamed_addr #1
-
-declare i32 @PyList_Reverse(ptr noundef) local_unnamed_addr #1
-
-declare ptr @PyList_AsTuple(ptr noundef) local_unnamed_addr #1
 
 declare i32 @PyList_Clear(ptr noundef) local_unnamed_addr #1
 
+declare ptr @PyLong_FromLong(i64 noundef) local_unnamed_addr #1
+
 declare i32 @PyList_Extend(ptr noundef, ptr noundef) local_unnamed_addr #1
 
+declare ptr @PyList_New(i64 noundef) local_unnamed_addr #1
+
+declare i32 @PyList_Reverse(ptr noundef) local_unnamed_addr #1
+
+declare i64 @PyLong_AsLong(ptr noundef) local_unnamed_addr #1
+
+declare void @PyErr_SetString(ptr noundef, ptr noundef) local_unnamed_addr #1
+
+declare void @_Py_Dealloc(ptr noundef) local_unnamed_addr #1
+
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #3
+declare void @llvm.assume(i1 noundef) #4
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #4 = { nounwind }
-attributes #5 = { noreturn nounwind }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #5 = { nounwind }
+attributes #6 = { noreturn nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
+!3 = !{!4, !7, i64 8}
+!4 = !{!"_object", !5, i64 0, !7, i64 8}
+!5 = !{!"omnipotent char", !6, i64 0}
+!6 = !{!"Simple C/C++ TBAA"}
+!7 = !{!"p1 _ZTS11_typeobject", !8, i64 0}
+!8 = !{!"any pointer", !5, i64 0}
+!9 = !{!10, !12, i64 168}
+!10 = !{!"_typeobject", !11, i64 0, !13, i64 24, !12, i64 32, !12, i64 40, !8, i64 48, !12, i64 56, !8, i64 64, !8, i64 72, !8, i64 80, !8, i64 88, !8, i64 96, !8, i64 104, !8, i64 112, !8, i64 120, !8, i64 128, !8, i64 136, !8, i64 144, !8, i64 152, !8, i64 160, !12, i64 168, !13, i64 176, !8, i64 184, !8, i64 192, !8, i64 200, !12, i64 208, !8, i64 216, !8, i64 224, !14, i64 232, !15, i64 240, !16, i64 248, !7, i64 256, !17, i64 264, !8, i64 272, !8, i64 280, !12, i64 288, !8, i64 296, !8, i64 304, !8, i64 312, !8, i64 320, !8, i64 328, !17, i64 336, !17, i64 344, !17, i64 352, !8, i64 360, !17, i64 368, !8, i64 376, !18, i64 384, !8, i64 392, !8, i64 400, !5, i64 408, !19, i64 410}
+!11 = !{!"", !4, i64 0, !12, i64 16}
+!12 = !{!"long", !5, i64 0}
+!13 = !{!"p1 omnipotent char", !8, i64 0}
+!14 = !{!"p1 _ZTS11PyMethodDef", !8, i64 0}
+!15 = !{!"p1 _ZTS11PyMemberDef", !8, i64 0}
+!16 = !{!"p1 _ZTS11PyGetSetDef", !8, i64 0}
+!17 = !{!"p1 _ZTS7_object", !8, i64 0}
+!18 = !{!"int", !5, i64 0}
+!19 = !{!"short", !5, i64 0}
+!20 = !{!11, !12, i64 16}
+!21 = !{!17, !17, i64 0}
+!22 = !{!23, !24, i64 24}
+!23 = !{!"", !11, i64 0, !24, i64 24, !12, i64 32}
+!24 = !{!"p2 _ZTS7_object", !8, i64 0}
+!25 = !{!12, !12, i64 0}
+!26 = !{!5, !5, i64 0}
+!27 = !{!23, !12, i64 32}
+!28 = distinct !{!28, !29}
+!29 = !{!"llvm.loop.mustprogress"}
+!30 = distinct !{!30, !29}

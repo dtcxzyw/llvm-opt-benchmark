@@ -1,22 +1,18 @@
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
 %struct._object = type { %union.anon, ptr }
 %union.anon = type { i64 }
-%struct.PyType_Spec = type { ptr, i32, i32, i32, ptr }
 %struct.PyModuleDef = type { %struct.PyModuleDef_Base, ptr, ptr, i64, ptr, ptr, ptr, ptr, ptr }
 %struct.PyModuleDef_Base = type { %struct._object, ptr, i64, ptr }
-%struct._typeobject = type { %struct.PyVarObject, ptr, i64, i64, ptr, i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i64, ptr, ptr, ptr, ptr, i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, ptr, ptr, i8 }
+%struct._typeobject = type { %struct.PyVarObject, ptr, i64, i64, ptr, i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i64, ptr, ptr, ptr, ptr, i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, ptr, ptr, i8, i16 }
 %struct.PyVarObject = type { %struct._object, i64 }
-%struct.PyType_Slot = type { i32, ptr }
-%struct.PyMethodDef = type { ptr, ptr, i32, ptr }
-%struct.PyMemberDef = type { ptr, i32, i64, i32, ptr }
-%struct._PyArg_Parser = type { ptr, ptr, ptr, ptr, %struct._PyOnceFlag, i32, i32, i32, i32, ptr, ptr }
 %struct._PyOnceFlag = type { i8 }
 %struct.pysqlite_Cursor = type { %struct._object, ptr, ptr, ptr, i32, ptr, i64, ptr, ptr, i32, i32, i32, ptr }
 %struct.pysqlite_Connection = type { %struct._object, ptr, ptr, i32, ptr, i32, i32, i32, i64, ptr, ptr, ptr, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 %struct.pysqlite_Statement = type { %struct._object, ptr, i32 }
 %struct.pysqlite_state = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
+%struct.anon = type { i32, i32 }
 %struct.PyTupleObject = type { %struct.PyVarObject, [1 x ptr] }
 %struct.Py_buffer = type { ptr, ptr, i64, i64, i32, i32, ptr, ptr, ptr, ptr, ptr }
 %struct.PyListObject = type { %struct.PyVarObject, ptr, i64 }
@@ -24,7 +20,6 @@ target triple = "x86_64-unknown-linux-gnu"
 @_Py_NoneStruct = external global %struct._object, align 8
 @.str = private unnamed_addr constant [47 x i8] c"executemany() can only execute DML statements.\00", align 1
 @.str.1 = private unnamed_addr constant [34 x i8] c"Error while building row_cast_map\00", align 1
-@cursor_spec = internal global %struct.PyType_Spec { ptr @.str.13, i32 104, i32 0, i32 17664, ptr @cursor_slots }, align 8
 @.str.2 = private unnamed_addr constant [33 x i8] c"Base Cursor.__init__ not called.\00", align 1
 @.str.3 = private unnamed_addr constant [35 x i8] c"Cannot operate on a closed cursor.\00", align 1
 @_sqlite3module = external global %struct.PyModuleDef, align 8
@@ -33,8 +28,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @PyTuple_Type = external global %struct._typeobject, align 8
 @PyList_Type = external global %struct._typeobject, align 8
 @.str.5 = private unnamed_addr constant [98 x i8] c"Incorrect number of bindings supplied. The current statement uses %d, and there are %zd supplied.\00", align 1
-@PyExc_DeprecationWarning = external global ptr, align 8
-@.str.6 = private unnamed_addr constant [184 x i8] c"Binding %d ('%s') is a named parameter, but you supplied a sequence which requires nameless (qmark) placeholders. Starting with Python 3.14 an sqlite3.ProgrammingError will be raised.\00", align 1
+@.str.6 = private unnamed_addr constant [114 x i8] c"Binding %d ('%s') is a named parameter, but you supplied a sequence which requires nameless (qmark) placeholders.\00", align 1
 @.str.7 = private unnamed_addr constant [78 x i8] c"Binding %d has no name, but you supplied a dictionary (which has only names).\00", align 1
 @PyExc_LookupError = external global ptr, align 8
 @.str.8 = private unnamed_addr constant [54 x i8] c"You did not supply a value for binding parameter :%s.\00", align 1
@@ -48,6943 +42,6424 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.11 = private unnamed_addr constant [31 x i8] c"BLOB longer than INT_MAX bytes\00", align 1
 @.str.12 = private unnamed_addr constant [55 x i8] c"Error binding parameter %d: type '%s' is not supported\00", align 1
 @.str.13 = private unnamed_addr constant [15 x i8] c"sqlite3.Cursor\00", align 1
-@cursor_slots = internal global [10 x %struct.PyType_Slot] [%struct.PyType_Slot { i32 52, ptr @cursor_dealloc }, %struct.PyType_Slot { i32 56, ptr @cursor_doc }, %struct.PyType_Slot { i32 62, ptr @PyObject_SelfIter }, %struct.PyType_Slot { i32 63, ptr @pysqlite_cursor_iternext }, %struct.PyType_Slot { i32 64, ptr @cursor_methods }, %struct.PyType_Slot { i32 72, ptr @cursor_members }, %struct.PyType_Slot { i32 60, ptr @pysqlite_cursor_init }, %struct.PyType_Slot { i32 71, ptr @cursor_traverse }, %struct.PyType_Slot { i32 51, ptr @cursor_clear }, %struct.PyType_Slot zeroinitializer], align 16
+@cursor_spec = internal global { ptr, i32, i32, i32, [4 x i8], ptr } { ptr @.str.13, i32 104, i32 0, i32 17664, [4 x i8] zeroinitializer, ptr @cursor_slots }, align 8
 @cursor_doc = internal constant [30 x i8] c"SQLite database cursor class.\00", align 16
-@cursor_methods = internal global [10 x %struct.PyMethodDef] [%struct.PyMethodDef { ptr @.str.19, ptr @pysqlite_cursor_close, i32 4, ptr @pysqlite_cursor_close__doc__ }, %struct.PyMethodDef { ptr @.str.20, ptr @pysqlite_cursor_executemany, i32 128, ptr @pysqlite_cursor_executemany__doc__ }, %struct.PyMethodDef { ptr @.str.21, ptr @pysqlite_cursor_executescript, i32 8, ptr @pysqlite_cursor_executescript__doc__ }, %struct.PyMethodDef { ptr @.str.22, ptr @pysqlite_cursor_execute, i32 128, ptr @pysqlite_cursor_execute__doc__ }, %struct.PyMethodDef { ptr @.str.23, ptr @pysqlite_cursor_fetchall, i32 4, ptr @pysqlite_cursor_fetchall__doc__ }, %struct.PyMethodDef { ptr @.str.24, ptr @pysqlite_cursor_fetchmany, i32 130, ptr @pysqlite_cursor_fetchmany__doc__ }, %struct.PyMethodDef { ptr @.str.25, ptr @pysqlite_cursor_fetchone, i32 4, ptr @pysqlite_cursor_fetchone__doc__ }, %struct.PyMethodDef { ptr @.str.26, ptr @pysqlite_cursor_setinputsizes, i32 8, ptr @pysqlite_cursor_setinputsizes__doc__ }, %struct.PyMethodDef { ptr @.str.27, ptr @pysqlite_cursor_setoutputsize, i32 128, ptr @pysqlite_cursor_setoutputsize__doc__ }, %struct.PyMethodDef zeroinitializer], align 16
-@cursor_members = internal global [8 x %struct.PyMemberDef] [%struct.PyMemberDef { ptr @.str.35, i32 6, i64 16, i32 1, ptr null }, %struct.PyMemberDef { ptr @.str.36, i32 6, i64 24, i32 1, ptr null }, %struct.PyMemberDef { ptr @.str.37, i32 1, i64 40, i32 0, ptr null }, %struct.PyMemberDef { ptr @.str.38, i32 6, i64 48, i32 1, ptr null }, %struct.PyMemberDef { ptr @.str.39, i32 2, i64 56, i32 1, ptr null }, %struct.PyMemberDef { ptr @.str.40, i32 6, i64 64, i32 0, ptr null }, %struct.PyMemberDef { ptr @.str.41, i32 19, i64 96, i32 1, ptr null }, %struct.PyMemberDef zeroinitializer], align 16
+@cursor_slots = internal global [10 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 52, [4 x i8] zeroinitializer, ptr @cursor_dealloc }, { i32, [4 x i8], ptr } { i32 56, [4 x i8] zeroinitializer, ptr @cursor_doc }, { i32, [4 x i8], ptr } { i32 62, [4 x i8] zeroinitializer, ptr @PyObject_SelfIter }, { i32, [4 x i8], ptr } { i32 63, [4 x i8] zeroinitializer, ptr @pysqlite_cursor_iternext }, { i32, [4 x i8], ptr } { i32 64, [4 x i8] zeroinitializer, ptr @cursor_methods }, { i32, [4 x i8], ptr } { i32 72, [4 x i8] zeroinitializer, ptr @cursor_members }, { i32, [4 x i8], ptr } { i32 60, [4 x i8] zeroinitializer, ptr @pysqlite_cursor_init }, { i32, [4 x i8], ptr } { i32 71, [4 x i8] zeroinitializer, ptr @cursor_traverse }, { i32, [4 x i8], ptr } { i32 51, [4 x i8] zeroinitializer, ptr @cursor_clear }, { i32, [4 x i8], ptr } zeroinitializer], align 16
 @PyExc_UnicodeDecodeError = external global ptr, align 8
-@.str.14 = private unnamed_addr constant [53 x i8] c"Could not decode to UTF-8 column '%s' with text '%s'\00", align 1
-@.str.15 = private unnamed_addr constant [6 x i8] c"ascii\00", align 1
-@.str.16 = private unnamed_addr constant [8 x i8] c"replace\00", align 1
-@.str.17 = private unnamed_addr constant [26 x i8] c"Could not decode to UTF-8\00", align 1
+@.str.16 = private unnamed_addr constant [53 x i8] c"Could not decode to UTF-8 column '%s' with text '%s'\00", align 1
+@.str.17 = private unnamed_addr constant [6 x i8] c"ascii\00", align 1
+@.str.18 = private unnamed_addr constant [8 x i8] c"replace\00", align 1
+@.str.19 = private unnamed_addr constant [26 x i8] c"Could not decode to UTF-8\00", align 1
 @PyBytes_Type = external global %struct._typeobject, align 8
-@.str.18 = private unnamed_addr constant [3 x i8] c"y#\00", align 1
-@.str.19 = private unnamed_addr constant [6 x i8] c"close\00", align 1
+@.str.20 = private unnamed_addr constant [3 x i8] c"y#\00", align 1
+@.str.21 = private unnamed_addr constant [6 x i8] c"close\00", align 1
 @pysqlite_cursor_close__doc__ = internal constant [39 x i8] c"close($self, /)\0A--\0A\0ACloses the cursor.\00", align 16
-@.str.20 = private unnamed_addr constant [12 x i8] c"executemany\00", align 1
+@.str.22 = private unnamed_addr constant [12 x i8] c"executemany\00", align 1
 @pysqlite_cursor_executemany__doc__ = internal constant [88 x i8] c"executemany($self, sql, seq_of_parameters, /)\0A--\0A\0ARepeatedly executes an SQL statement.\00", align 16
-@.str.21 = private unnamed_addr constant [14 x i8] c"executescript\00", align 1
+@.str.23 = private unnamed_addr constant [14 x i8] c"executescript\00", align 1
 @pysqlite_cursor_executescript__doc__ = internal constant [82 x i8] c"executescript($self, sql_script, /)\0A--\0A\0AExecutes multiple SQL statements at once.\00", align 16
-@.str.22 = private unnamed_addr constant [8 x i8] c"execute\00", align 1
+@.str.24 = private unnamed_addr constant [8 x i8] c"execute\00", align 1
 @pysqlite_cursor_execute__doc__ = internal constant [69 x i8] c"execute($self, sql, parameters=(), /)\0A--\0A\0AExecutes an SQL statement.\00", align 16
-@.str.23 = private unnamed_addr constant [9 x i8] c"fetchall\00", align 1
+@.str.25 = private unnamed_addr constant [9 x i8] c"fetchall\00", align 1
 @pysqlite_cursor_fetchall__doc__ = internal constant [60 x i8] c"fetchall($self, /)\0A--\0A\0AFetches all rows from the resultset.\00", align 16
-@.str.24 = private unnamed_addr constant [10 x i8] c"fetchmany\00", align 1
+@.str.26 = private unnamed_addr constant [10 x i8] c"fetchmany\00", align 1
 @pysqlite_cursor_fetchmany__doc__ = internal constant [145 x i8] c"fetchmany($self, /, size=1)\0A--\0A\0AFetches several rows from the resultset.\0A\0A  size\0A    The default value is set by the Cursor.arraysize attribute.\00", align 16
-@.str.25 = private unnamed_addr constant [9 x i8] c"fetchone\00", align 1
+@.str.27 = private unnamed_addr constant [9 x i8] c"fetchone\00", align 1
 @pysqlite_cursor_fetchone__doc__ = internal constant [59 x i8] c"fetchone($self, /)\0A--\0A\0AFetches one row from the resultset.\00", align 16
-@.str.26 = private unnamed_addr constant [14 x i8] c"setinputsizes\00", align 1
+@.str.28 = private unnamed_addr constant [14 x i8] c"setinputsizes\00", align 1
 @pysqlite_cursor_setinputsizes__doc__ = internal constant [80 x i8] c"setinputsizes($self, sizes, /)\0A--\0A\0ARequired by DB-API. Does nothing in sqlite3.\00", align 16
-@.str.27 = private unnamed_addr constant [14 x i8] c"setoutputsize\00", align 1
+@.str.29 = private unnamed_addr constant [14 x i8] c"setoutputsize\00", align 1
 @pysqlite_cursor_setoutputsize__doc__ = internal constant [92 x i8] c"setoutputsize($self, size, column=None, /)\0A--\0A\0ARequired by DB-API. Does nothing in sqlite3.\00", align 16
-@.str.28 = private unnamed_addr constant [11 x i8] c"argument 1\00", align 1
-@.str.29 = private unnamed_addr constant [4 x i8] c"str\00", align 1
-@.str.30 = private unnamed_addr constant [9 x i8] c"argument\00", align 1
+@cursor_methods = internal global [10 x { ptr, ptr, i32, [4 x i8], ptr }] [{ ptr, ptr, i32, [4 x i8], ptr } { ptr @.str.21, ptr @pysqlite_cursor_close, i32 4, [4 x i8] zeroinitializer, ptr @pysqlite_cursor_close__doc__ }, { ptr, ptr, i32, [4 x i8], ptr } { ptr @.str.22, ptr @pysqlite_cursor_executemany, i32 128, [4 x i8] zeroinitializer, ptr @pysqlite_cursor_executemany__doc__ }, { ptr, ptr, i32, [4 x i8], ptr } { ptr @.str.23, ptr @pysqlite_cursor_executescript, i32 8, [4 x i8] zeroinitializer, ptr @pysqlite_cursor_executescript__doc__ }, { ptr, ptr, i32, [4 x i8], ptr } { ptr @.str.24, ptr @pysqlite_cursor_execute, i32 128, [4 x i8] zeroinitializer, ptr @pysqlite_cursor_execute__doc__ }, { ptr, ptr, i32, [4 x i8], ptr } { ptr @.str.25, ptr @pysqlite_cursor_fetchall, i32 4, [4 x i8] zeroinitializer, ptr @pysqlite_cursor_fetchall__doc__ }, { ptr, ptr, i32, [4 x i8], ptr } { ptr @.str.26, ptr @pysqlite_cursor_fetchmany, i32 130, [4 x i8] zeroinitializer, ptr @pysqlite_cursor_fetchmany__doc__ }, { ptr, ptr, i32, [4 x i8], ptr } { ptr @.str.27, ptr @pysqlite_cursor_fetchone, i32 4, [4 x i8] zeroinitializer, ptr @pysqlite_cursor_fetchone__doc__ }, { ptr, ptr, i32, [4 x i8], ptr } { ptr @.str.28, ptr @pysqlite_cursor_setinputsizes, i32 8, [4 x i8] zeroinitializer, ptr @pysqlite_cursor_setinputsizes__doc__ }, { ptr, ptr, i32, [4 x i8], ptr } { ptr @.str.29, ptr @pysqlite_cursor_setoutputsize, i32 128, [4 x i8] zeroinitializer, ptr @pysqlite_cursor_setoutputsize__doc__ }, { ptr, ptr, i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.31 = private unnamed_addr constant [11 x i8] c"argument 1\00", align 1
+@.str.32 = private unnamed_addr constant [4 x i8] c"str\00", align 1
+@.str.33 = private unnamed_addr constant [9 x i8] c"argument\00", align 1
 @PyExc_ValueError = external global ptr, align 8
-@.str.31 = private unnamed_addr constant [24 x i8] c"embedded null character\00", align 1
-@.str.32 = private unnamed_addr constant [26 x i8] c"query string is too large\00", align 1
-@.str.33 = private unnamed_addr constant [7 x i8] c"COMMIT\00", align 1
-@pysqlite_cursor_fetchmany._keywords = internal constant [2 x ptr] [ptr @.str.34, ptr null], align 16
-@.str.34 = private unnamed_addr constant [5 x i8] c"size\00", align 1
-@pysqlite_cursor_fetchmany._parser = internal global %struct._PyArg_Parser { ptr null, ptr @pysqlite_cursor_fetchmany._keywords, ptr @.str.24, ptr null, %struct._PyOnceFlag zeroinitializer, i32 0, i32 0, i32 0, i32 0, ptr null, ptr null }, align 8
-@.str.35 = private unnamed_addr constant [11 x i8] c"connection\00", align 1
-@.str.36 = private unnamed_addr constant [12 x i8] c"description\00", align 1
-@.str.37 = private unnamed_addr constant [10 x i8] c"arraysize\00", align 1
-@.str.38 = private unnamed_addr constant [10 x i8] c"lastrowid\00", align 1
-@.str.39 = private unnamed_addr constant [9 x i8] c"rowcount\00", align 1
-@.str.40 = private unnamed_addr constant [12 x i8] c"row_factory\00", align 1
-@.str.41 = private unnamed_addr constant [19 x i8] c"__weaklistoffset__\00", align 1
-@.str.42 = private unnamed_addr constant [7 x i8] c"Cursor\00", align 1
+@.str.34 = private unnamed_addr constant [24 x i8] c"embedded null character\00", align 1
+@.str.35 = private unnamed_addr constant [26 x i8] c"query string is too large\00", align 1
+@.str.36 = private unnamed_addr constant [7 x i8] c"COMMIT\00", align 1
+@pysqlite_cursor_fetchmany._keywords = internal constant [2 x ptr] [ptr @.str.37, ptr null], align 16
+@.str.37 = private unnamed_addr constant [5 x i8] c"size\00", align 1
+@pysqlite_cursor_fetchmany._parser = internal global { ptr, ptr, ptr, ptr, %struct._PyOnceFlag, [3 x i8], i32, i32, i32, i32, [4 x i8], ptr, ptr } { ptr null, ptr @pysqlite_cursor_fetchmany._keywords, ptr @.str.26, ptr null, %struct._PyOnceFlag zeroinitializer, [3 x i8] zeroinitializer, i32 0, i32 0, i32 0, i32 0, [4 x i8] zeroinitializer, ptr null, ptr null }, align 8
+@.str.38 = private unnamed_addr constant [11 x i8] c"connection\00", align 1
+@.str.39 = private unnamed_addr constant [12 x i8] c"description\00", align 1
+@.str.40 = private unnamed_addr constant [10 x i8] c"arraysize\00", align 1
+@.str.41 = private unnamed_addr constant [10 x i8] c"lastrowid\00", align 1
+@.str.42 = private unnamed_addr constant [9 x i8] c"rowcount\00", align 1
+@.str.43 = private unnamed_addr constant [12 x i8] c"row_factory\00", align 1
+@.str.44 = private unnamed_addr constant [19 x i8] c"__weaklistoffset__\00", align 1
+@cursor_members = internal global [8 x { ptr, i32, [4 x i8], i64, i32, [4 x i8], ptr }] [{ ptr, i32, [4 x i8], i64, i32, [4 x i8], ptr } { ptr @.str.38, i32 6, [4 x i8] zeroinitializer, i64 16, i32 1, [4 x i8] zeroinitializer, ptr null }, { ptr, i32, [4 x i8], i64, i32, [4 x i8], ptr } { ptr @.str.39, i32 6, [4 x i8] zeroinitializer, i64 24, i32 1, [4 x i8] zeroinitializer, ptr null }, { ptr, i32, [4 x i8], i64, i32, [4 x i8], ptr } { ptr @.str.40, i32 1, [4 x i8] zeroinitializer, i64 40, i32 0, [4 x i8] zeroinitializer, ptr null }, { ptr, i32, [4 x i8], i64, i32, [4 x i8], ptr } { ptr @.str.41, i32 6, [4 x i8] zeroinitializer, i64 48, i32 1, [4 x i8] zeroinitializer, ptr null }, { ptr, i32, [4 x i8], i64, i32, [4 x i8], ptr } { ptr @.str.42, i32 2, [4 x i8] zeroinitializer, i64 56, i32 1, [4 x i8] zeroinitializer, ptr null }, { ptr, i32, [4 x i8], i64, i32, [4 x i8], ptr } { ptr @.str.43, i32 6, [4 x i8] zeroinitializer, i64 64, i32 0, [4 x i8] zeroinitializer, ptr null }, { ptr, i32, [4 x i8], i64, i32, [4 x i8], ptr } { ptr @.str.44, i32 19, [4 x i8] zeroinitializer, i64 96, i32 1, [4 x i8] zeroinitializer, ptr null }, { ptr, i32, [4 x i8], i64, i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.46 = private unnamed_addr constant [7 x i8] c"Cursor\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @_pysqlite_query_execute(ptr noundef %self, i32 noundef %multiple, ptr noundef %operation, ptr noundef %second_argument) #0 {
-entry:
-  %op.addr.i353 = alloca ptr, align 8
-  %op.addr.i349 = alloca ptr, align 8
-  %op.addr.i345 = alloca ptr, align 8
-  %op.addr.i341 = alloca ptr, align 8
-  %op.addr.i337 = alloca ptr, align 8
-  %op.addr.i333 = alloca ptr, align 8
-  %op.addr.i329 = alloca ptr, align 8
-  %op.addr.i325 = alloca ptr, align 8
-  %op.addr.i323 = alloca ptr, align 8
-  %op.addr.i314 = alloca ptr, align 8
-  %op.addr.i305 = alloca ptr, align 8
-  %op.addr.i296 = alloca ptr, align 8
-  %op.addr.i287 = alloca ptr, align 8
-  %op.addr.i278 = alloca ptr, align 8
-  %op.addr.i269 = alloca ptr, align 8
-  %op.addr.i260 = alloca ptr, align 8
-  %op.addr.i251 = alloca ptr, align 8
-  %op.addr.i247 = alloca ptr, align 8
-  %op.addr.i239 = alloca ptr, align 8
-  %cur_refcnt.i240 = alloca i32, align 4
-  %new_refcnt.i241 = alloca i32, align 4
-  %op.addr.i = alloca ptr, align 8
-  %cur_refcnt.i = alloca i32, align 4
-  %new_refcnt.i = alloca i32, align 4
-  %retval = alloca ptr, align 8
-  %self.addr = alloca ptr, align 8
-  %multiple.addr = alloca i32, align 4
-  %operation.addr = alloca ptr, align 8
-  %second_argument.addr = alloca ptr, align 8
-  %parameters_list = alloca ptr, align 8
-  %parameters_iter = alloca ptr, align 8
-  %parameters = alloca ptr, align 8
-  %i = alloca i32, align 4
-  %rc = alloca i32, align 4
-  %numcols = alloca i32, align 4
-  %column_name = alloca ptr, align 8
-  %_tmp_dst_ptr = alloca ptr, align 8
-  %_tmp_old_dst = alloca ptr, align 8
-  %stmt = alloca ptr, align 8
-  %_tmp_dst_ptr40 = alloca ptr, align 8
-  %_tmp_old_dst42 = alloca ptr, align 8
-  %state = alloca ptr, align 8
-  %_tmp_dst_ptr61 = alloca ptr, align 8
-  %_tmp_old_dst63 = alloca ptr, align 8
-  %_save = alloca ptr, align 8
-  %_tmp_dst_ptr139 = alloca ptr, align 8
-  %_tmp_old_dst141 = alloca ptr, align 8
-  %colname = alloca ptr, align 8
-  %descriptor = alloca ptr, align 8
-  %lastrowid = alloca i64, align 8
-  %_save189 = alloca ptr, align 8
-  %_tmp_dst_ptr195 = alloca ptr, align 8
-  %_tmp_old_dst197 = alloca ptr, align 8
-  %_tmp_op_ptr = alloca ptr, align 8
-  %_tmp_old_op = alloca ptr, align 8
-  %_tmp_op_ptr229 = alloca ptr, align 8
-  %_tmp_old_op231 = alloca ptr, align 8
-  store ptr %self, ptr %self.addr, align 8
-  store i32 %multiple, ptr %multiple.addr, align 4
-  store ptr %operation, ptr %operation.addr, align 8
-  store ptr %second_argument, ptr %second_argument.addr, align 8
-  store ptr null, ptr %parameters_list, align 8
-  store ptr null, ptr %parameters_iter, align 8
-  store ptr null, ptr %parameters, align 8
-  %0 = load ptr, ptr %self.addr, align 8
-  %call = call i32 @check_cursor(ptr noundef %0)
-  %tobool = icmp ne i32 %call, 0
-  br i1 %tobool, label %if.end, label %if.then
-
-if.then:                                          ; preds = %entry
-  br label %error
-
-if.end:                                           ; preds = %entry
-  %1 = load ptr, ptr %self.addr, align 8
-  %locked = getelementptr inbounds %struct.pysqlite_Cursor, ptr %1, i32 0, i32 10
-  store i32 1, ptr %locked, align 4
-  %2 = load i32, ptr %multiple.addr, align 4
-  %tobool1 = icmp ne i32 %2, 0
-  br i1 %tobool1, label %if.then2, label %if.else12
-
-if.then2:                                         ; preds = %if.end
-  %3 = load ptr, ptr %second_argument.addr, align 8
-  %call3 = call i32 @PyIter_Check(ptr noundef %3)
-  %tobool4 = icmp ne i32 %call3, 0
-  br i1 %tobool4, label %if.then5, label %if.else
-
-if.then5:                                         ; preds = %if.then2
-  %4 = load ptr, ptr %second_argument.addr, align 8
-  %call6 = call ptr @_Py_NewRef(ptr noundef %4)
-  store ptr %call6, ptr %parameters_iter, align 8
-  br label %if.end11
-
-if.else:                                          ; preds = %if.then2
-  %5 = load ptr, ptr %second_argument.addr, align 8
-  %call7 = call ptr @PyObject_GetIter(ptr noundef %5)
-  store ptr %call7, ptr %parameters_iter, align 8
-  %6 = load ptr, ptr %parameters_iter, align 8
-  %tobool8 = icmp ne ptr %6, null
-  br i1 %tobool8, label %if.end10, label %if.then9
-
-if.then9:                                         ; preds = %if.else
-  br label %error
-
-if.end10:                                         ; preds = %if.else
-  br label %if.end11
-
-if.end11:                                         ; preds = %if.end10, %if.then5
-  br label %if.end32
-
-if.else12:                                        ; preds = %if.end
-  %call13 = call ptr @PyList_New(i64 noundef 0)
-  store ptr %call13, ptr %parameters_list, align 8
-  %7 = load ptr, ptr %parameters_list, align 8
-  %tobool14 = icmp ne ptr %7, null
-  br i1 %tobool14, label %if.end16, label %if.then15
-
-if.then15:                                        ; preds = %if.else12
-  br label %error
-
-if.end16:                                         ; preds = %if.else12
-  %8 = load ptr, ptr %second_argument.addr, align 8
-  %cmp = icmp eq ptr %8, null
-  br i1 %cmp, label %if.then17, label %if.else22
-
-if.then17:                                        ; preds = %if.end16
-  %call18 = call ptr @PyTuple_New(i64 noundef 0)
-  store ptr %call18, ptr %second_argument.addr, align 8
-  %9 = load ptr, ptr %second_argument.addr, align 8
-  %tobool19 = icmp ne ptr %9, null
-  br i1 %tobool19, label %if.end21, label %if.then20
-
-if.then20:                                        ; preds = %if.then17
-  br label %error
-
-if.end21:                                         ; preds = %if.then17
-  br label %if.end23
-
-if.else22:                                        ; preds = %if.end16
-  %10 = load ptr, ptr %second_argument.addr, align 8
-  store ptr %10, ptr %op.addr.i239, align 8
-  %11 = load ptr, ptr %op.addr.i239, align 8
-  %12 = load i32, ptr %11, align 8
-  store i32 %12, ptr %cur_refcnt.i240, align 4
-  %13 = load i32, ptr %cur_refcnt.i240, align 4
-  %add.i242 = add i32 %13, 1
-  store i32 %add.i242, ptr %new_refcnt.i241, align 4
-  %14 = load i32, ptr %new_refcnt.i241, align 4
-  %cmp.i243 = icmp eq i32 %14, 0
-  br i1 %cmp.i243, label %if.then.i245, label %if.end.i244
-
-if.then.i245:                                     ; preds = %if.else22
-  br label %Py_INCREF.exit246
-
-if.end.i244:                                      ; preds = %if.else22
-  %15 = load i32, ptr %new_refcnt.i241, align 4
-  %16 = load ptr, ptr %op.addr.i239, align 8
-  store i32 %15, ptr %16, align 8
-  br label %Py_INCREF.exit246
-
-Py_INCREF.exit246:                                ; preds = %if.end.i244, %if.then.i245
-  br label %if.end23
-
-if.end23:                                         ; preds = %Py_INCREF.exit246, %if.end21
-  %17 = load ptr, ptr %parameters_list, align 8
-  %18 = load ptr, ptr %second_argument.addr, align 8
-  %call24 = call i32 @PyList_Append(ptr noundef %17, ptr noundef %18)
-  %cmp25 = icmp ne i32 %call24, 0
-  br i1 %cmp25, label %if.then26, label %if.end27
-
-if.then26:                                        ; preds = %if.end23
-  %19 = load ptr, ptr %second_argument.addr, align 8
-  store ptr %19, ptr %op.addr.i314, align 8
-  %20 = load ptr, ptr %op.addr.i314, align 8
-  store ptr %20, ptr %op.addr.i323, align 8
-  %21 = load ptr, ptr %op.addr.i323, align 8
-  %22 = load i64, ptr %21, align 8
-  %conv.i = trunc i64 %22 to i32
-  %cmp.i324 = icmp slt i32 %conv.i, 0
-  %conv1.i = zext i1 %cmp.i324 to i32
-  %tobool.i316 = icmp ne i32 %conv1.i, 0
-  br i1 %tobool.i316, label %if.then.i321, label %if.end.i317
-
-if.then.i321:                                     ; preds = %if.then26
-  br label %Py_DECREF.exit322
-
-if.end.i317:                                      ; preds = %if.then26
-  %23 = load ptr, ptr %op.addr.i314, align 8
-  %24 = load i64, ptr %23, align 8
-  %dec.i318 = add i64 %24, -1
-  store i64 %dec.i318, ptr %23, align 8
-  %cmp.i319 = icmp eq i64 %dec.i318, 0
-  br i1 %cmp.i319, label %if.then1.i320, label %Py_DECREF.exit322
-
-if.then1.i320:                                    ; preds = %if.end.i317
-  %25 = load ptr, ptr %op.addr.i314, align 8
-  call void @_Py_Dealloc(ptr noundef %25) #5
-  br label %Py_DECREF.exit322
-
-Py_DECREF.exit322:                                ; preds = %if.then1.i320, %if.end.i317, %if.then.i321
-  br label %error
-
-if.end27:                                         ; preds = %if.end23
-  %26 = load ptr, ptr %second_argument.addr, align 8
-  store ptr %26, ptr %op.addr.i305, align 8
-  %27 = load ptr, ptr %op.addr.i305, align 8
-  store ptr %27, ptr %op.addr.i325, align 8
-  %28 = load ptr, ptr %op.addr.i325, align 8
-  %29 = load i64, ptr %28, align 8
-  %conv.i326 = trunc i64 %29 to i32
-  %cmp.i327 = icmp slt i32 %conv.i326, 0
-  %conv1.i328 = zext i1 %cmp.i327 to i32
-  %tobool.i307 = icmp ne i32 %conv1.i328, 0
-  br i1 %tobool.i307, label %if.then.i312, label %if.end.i308
-
-if.then.i312:                                     ; preds = %if.end27
-  br label %Py_DECREF.exit313
-
-if.end.i308:                                      ; preds = %if.end27
-  %30 = load ptr, ptr %op.addr.i305, align 8
-  %31 = load i64, ptr %30, align 8
-  %dec.i309 = add i64 %31, -1
-  store i64 %dec.i309, ptr %30, align 8
-  %cmp.i310 = icmp eq i64 %dec.i309, 0
-  br i1 %cmp.i310, label %if.then1.i311, label %Py_DECREF.exit313
-
-if.then1.i311:                                    ; preds = %if.end.i308
-  %32 = load ptr, ptr %op.addr.i305, align 8
-  call void @_Py_Dealloc(ptr noundef %32) #5
-  br label %Py_DECREF.exit313
-
-Py_DECREF.exit313:                                ; preds = %if.then1.i311, %if.end.i308, %if.then.i312
-  %33 = load ptr, ptr %parameters_list, align 8
-  %call28 = call ptr @PyObject_GetIter(ptr noundef %33)
-  store ptr %call28, ptr %parameters_iter, align 8
-  %34 = load ptr, ptr %parameters_iter, align 8
-  %tobool29 = icmp ne ptr %34, null
-  br i1 %tobool29, label %if.end31, label %if.then30
-
-if.then30:                                        ; preds = %Py_DECREF.exit313
-  br label %error
-
-if.end31:                                         ; preds = %Py_DECREF.exit313
-  br label %if.end32
-
-if.end32:                                         ; preds = %if.end31, %if.end11
-  store ptr @_Py_NoneStruct, ptr %op.addr.i, align 8
-  %35 = load ptr, ptr %op.addr.i, align 8
-  %36 = load i32, ptr %35, align 8
-  store i32 %36, ptr %cur_refcnt.i, align 4
-  %37 = load i32, ptr %cur_refcnt.i, align 4
-  %add.i = add i32 %37, 1
-  store i32 %add.i, ptr %new_refcnt.i, align 4
-  %38 = load i32, ptr %new_refcnt.i, align 4
-  %cmp.i = icmp eq i32 %38, 0
-  br i1 %cmp.i, label %if.then.i, label %if.end.i
-
-if.then.i:                                        ; preds = %if.end32
-  br label %Py_INCREF.exit
-
-if.end.i:                                         ; preds = %if.end32
-  %39 = load i32, ptr %new_refcnt.i, align 4
-  %40 = load ptr, ptr %op.addr.i, align 8
-  store i32 %39, ptr %40, align 8
-  br label %Py_INCREF.exit
-
-Py_INCREF.exit:                                   ; preds = %if.end.i, %if.then.i
-  br label %do.body
-
-do.body:                                          ; preds = %Py_INCREF.exit
-  %41 = load ptr, ptr %self.addr, align 8
-  %description = getelementptr inbounds %struct.pysqlite_Cursor, ptr %41, i32 0, i32 2
-  store ptr %description, ptr %_tmp_dst_ptr, align 8
-  %42 = load ptr, ptr %_tmp_dst_ptr, align 8
-  %43 = load ptr, ptr %42, align 8
-  store ptr %43, ptr %_tmp_old_dst, align 8
-  %44 = load ptr, ptr %_tmp_dst_ptr, align 8
-  store ptr @_Py_NoneStruct, ptr %44, align 8
-  %45 = load ptr, ptr %_tmp_old_dst, align 8
-  store ptr %45, ptr %op.addr.i296, align 8
-  %46 = load ptr, ptr %op.addr.i296, align 8
-  store ptr %46, ptr %op.addr.i329, align 8
-  %47 = load ptr, ptr %op.addr.i329, align 8
-  %48 = load i64, ptr %47, align 8
-  %conv.i330 = trunc i64 %48 to i32
-  %cmp.i331 = icmp slt i32 %conv.i330, 0
-  %conv1.i332 = zext i1 %cmp.i331 to i32
-  %tobool.i298 = icmp ne i32 %conv1.i332, 0
-  br i1 %tobool.i298, label %if.then.i303, label %if.end.i299
-
-if.then.i303:                                     ; preds = %do.body
-  br label %Py_DECREF.exit304
-
-if.end.i299:                                      ; preds = %do.body
-  %49 = load ptr, ptr %op.addr.i296, align 8
-  %50 = load i64, ptr %49, align 8
-  %dec.i300 = add i64 %50, -1
-  store i64 %dec.i300, ptr %49, align 8
-  %cmp.i301 = icmp eq i64 %dec.i300, 0
-  br i1 %cmp.i301, label %if.then1.i302, label %Py_DECREF.exit304
-
-if.then1.i302:                                    ; preds = %if.end.i299
-  %51 = load ptr, ptr %op.addr.i296, align 8
-  call void @_Py_Dealloc(ptr noundef %51) #5
-  br label %Py_DECREF.exit304
-
-Py_DECREF.exit304:                                ; preds = %if.then1.i302, %if.end.i299, %if.then.i303
-  br label %do.end
-
-do.end:                                           ; preds = %Py_DECREF.exit304
-  %52 = load ptr, ptr %self.addr, align 8
-  %statement = getelementptr inbounds %struct.pysqlite_Cursor, ptr %52, i32 0, i32 8
-  %53 = load ptr, ptr %statement, align 8
-  %tobool33 = icmp ne ptr %53, null
-  br i1 %tobool33, label %if.then34, label %if.end37
-
-if.then34:                                        ; preds = %do.end
-  %54 = load ptr, ptr %self.addr, align 8
-  %statement35 = getelementptr inbounds %struct.pysqlite_Cursor, ptr %54, i32 0, i32 8
-  %55 = load ptr, ptr %statement35, align 8
-  %call36 = call i32 @stmt_reset(ptr noundef %55)
-  br label %if.end37
-
-if.end37:                                         ; preds = %if.then34, %do.end
-  %56 = load ptr, ptr %self.addr, align 8
-  %57 = load ptr, ptr %operation.addr, align 8
-  %call38 = call ptr @get_statement_from_cache(ptr noundef %56, ptr noundef %57)
-  store ptr %call38, ptr %stmt, align 8
-  br label %do.body39
-
-do.body39:                                        ; preds = %if.end37
-  %58 = load ptr, ptr %self.addr, align 8
-  %statement41 = getelementptr inbounds %struct.pysqlite_Cursor, ptr %58, i32 0, i32 8
-  store ptr %statement41, ptr %_tmp_dst_ptr40, align 8
-  %59 = load ptr, ptr %_tmp_dst_ptr40, align 8
-  %60 = load ptr, ptr %59, align 8
-  store ptr %60, ptr %_tmp_old_dst42, align 8
-  %61 = load ptr, ptr %stmt, align 8
-  %62 = load ptr, ptr %_tmp_dst_ptr40, align 8
-  store ptr %61, ptr %62, align 8
-  %63 = load ptr, ptr %_tmp_old_dst42, align 8
-  call void @Py_XDECREF(ptr noundef %63)
-  br label %do.end43
-
-do.end43:                                         ; preds = %do.body39
-  %64 = load ptr, ptr %self.addr, align 8
-  %statement44 = getelementptr inbounds %struct.pysqlite_Cursor, ptr %64, i32 0, i32 8
-  %65 = load ptr, ptr %statement44, align 8
-  %tobool45 = icmp ne ptr %65, null
-  br i1 %tobool45, label %if.end47, label %if.then46
-
-if.then46:                                        ; preds = %do.end43
-  br label %error
-
-if.end47:                                         ; preds = %do.end43
-  %66 = load ptr, ptr %self.addr, align 8
-  %connection = getelementptr inbounds %struct.pysqlite_Cursor, ptr %66, i32 0, i32 1
-  %67 = load ptr, ptr %connection, align 8
-  %state48 = getelementptr inbounds %struct.pysqlite_Connection, ptr %67, i32 0, i32 2
-  %68 = load ptr, ptr %state48, align 8
-  store ptr %68, ptr %state, align 8
-  %69 = load i32, ptr %multiple.addr, align 4
-  %tobool49 = icmp ne i32 %69, 0
-  br i1 %tobool49, label %land.lhs.true, label %if.end54
-
-land.lhs.true:                                    ; preds = %if.end47
-  %70 = load ptr, ptr %self.addr, align 8
-  %statement50 = getelementptr inbounds %struct.pysqlite_Cursor, ptr %70, i32 0, i32 8
-  %71 = load ptr, ptr %statement50, align 8
-  %st = getelementptr inbounds %struct.pysqlite_Statement, ptr %71, i32 0, i32 1
-  %72 = load ptr, ptr %st, align 8
-  %call51 = call i32 @sqlite3_stmt_readonly(ptr noundef %72)
-  %tobool52 = icmp ne i32 %call51, 0
-  br i1 %tobool52, label %if.then53, label %if.end54
-
-if.then53:                                        ; preds = %land.lhs.true
-  %73 = load ptr, ptr %state, align 8
-  %ProgrammingError = getelementptr inbounds %struct.pysqlite_state, ptr %73, i32 0, i32 8
-  %74 = load ptr, ptr %ProgrammingError, align 8
-  call void @PyErr_SetString(ptr noundef %74, ptr noundef @.str)
-  br label %error
-
-if.end54:                                         ; preds = %land.lhs.true, %if.end47
-  %75 = load ptr, ptr %self.addr, align 8
-  %statement55 = getelementptr inbounds %struct.pysqlite_Cursor, ptr %75, i32 0, i32 8
-  %76 = load ptr, ptr %statement55, align 8
-  %st56 = getelementptr inbounds %struct.pysqlite_Statement, ptr %76, i32 0, i32 1
-  %77 = load ptr, ptr %st56, align 8
-  %call57 = call i32 @sqlite3_stmt_busy(ptr noundef %77)
-  %tobool58 = icmp ne i32 %call57, 0
-  br i1 %tobool58, label %if.then59, label %if.end71
-
-if.then59:                                        ; preds = %if.end54
-  br label %do.body60
-
-do.body60:                                        ; preds = %if.then59
-  %78 = load ptr, ptr %self.addr, align 8
-  %statement62 = getelementptr inbounds %struct.pysqlite_Cursor, ptr %78, i32 0, i32 8
-  store ptr %statement62, ptr %_tmp_dst_ptr61, align 8
-  %79 = load ptr, ptr %_tmp_dst_ptr61, align 8
-  %80 = load ptr, ptr %79, align 8
-  store ptr %80, ptr %_tmp_old_dst63, align 8
-  %81 = load ptr, ptr %self.addr, align 8
-  %connection64 = getelementptr inbounds %struct.pysqlite_Cursor, ptr %81, i32 0, i32 1
-  %82 = load ptr, ptr %connection64, align 8
-  %83 = load ptr, ptr %operation.addr, align 8
-  %call65 = call ptr @pysqlite_statement_create(ptr noundef %82, ptr noundef %83)
-  %84 = load ptr, ptr %_tmp_dst_ptr61, align 8
-  store ptr %call65, ptr %84, align 8
-  %85 = load ptr, ptr %_tmp_old_dst63, align 8
-  store ptr %85, ptr %op.addr.i287, align 8
-  %86 = load ptr, ptr %op.addr.i287, align 8
-  store ptr %86, ptr %op.addr.i333, align 8
-  %87 = load ptr, ptr %op.addr.i333, align 8
-  %88 = load i64, ptr %87, align 8
-  %conv.i334 = trunc i64 %88 to i32
-  %cmp.i335 = icmp slt i32 %conv.i334, 0
-  %conv1.i336 = zext i1 %cmp.i335 to i32
-  %tobool.i289 = icmp ne i32 %conv1.i336, 0
-  br i1 %tobool.i289, label %if.then.i294, label %if.end.i290
-
-if.then.i294:                                     ; preds = %do.body60
-  br label %Py_DECREF.exit295
-
-if.end.i290:                                      ; preds = %do.body60
-  %89 = load ptr, ptr %op.addr.i287, align 8
-  %90 = load i64, ptr %89, align 8
-  %dec.i291 = add i64 %90, -1
-  store i64 %dec.i291, ptr %89, align 8
-  %cmp.i292 = icmp eq i64 %dec.i291, 0
-  br i1 %cmp.i292, label %if.then1.i293, label %Py_DECREF.exit295
-
-if.then1.i293:                                    ; preds = %if.end.i290
-  %91 = load ptr, ptr %op.addr.i287, align 8
-  call void @_Py_Dealloc(ptr noundef %91) #5
-  br label %Py_DECREF.exit295
-
-Py_DECREF.exit295:                                ; preds = %if.then1.i293, %if.end.i290, %if.then.i294
-  br label %do.end66
-
-do.end66:                                         ; preds = %Py_DECREF.exit295
-  %92 = load ptr, ptr %self.addr, align 8
-  %statement67 = getelementptr inbounds %struct.pysqlite_Cursor, ptr %92, i32 0, i32 8
-  %93 = load ptr, ptr %statement67, align 8
-  %cmp68 = icmp eq ptr %93, null
-  br i1 %cmp68, label %if.then69, label %if.end70
-
-if.then69:                                        ; preds = %do.end66
-  br label %error
-
-if.end70:                                         ; preds = %do.end66
-  br label %if.end71
-
-if.end71:                                         ; preds = %if.end70, %if.end54
-  %94 = load ptr, ptr %self.addr, align 8
-  %statement72 = getelementptr inbounds %struct.pysqlite_Cursor, ptr %94, i32 0, i32 8
-  %95 = load ptr, ptr %statement72, align 8
-  %call73 = call i32 @stmt_reset(ptr noundef %95)
-  %96 = load ptr, ptr %self.addr, align 8
-  %statement74 = getelementptr inbounds %struct.pysqlite_Cursor, ptr %96, i32 0, i32 8
-  %97 = load ptr, ptr %statement74, align 8
-  %is_dml = getelementptr inbounds %struct.pysqlite_Statement, ptr %97, i32 0, i32 2
-  %98 = load i32, ptr %is_dml, align 8
-  %tobool75 = icmp ne i32 %98, 0
-  %cond = select i1 %tobool75, i64 0, i64 -1
-  %99 = load ptr, ptr %self.addr, align 8
-  %rowcount = getelementptr inbounds %struct.pysqlite_Cursor, ptr %99, i32 0, i32 6
-  store i64 %cond, ptr %rowcount, align 8
-  %100 = load ptr, ptr %self.addr, align 8
-  %connection76 = getelementptr inbounds %struct.pysqlite_Cursor, ptr %100, i32 0, i32 1
-  %101 = load ptr, ptr %connection76, align 8
-  %autocommit = getelementptr inbounds %struct.pysqlite_Connection, ptr %101, i32 0, i32 5
-  %102 = load i32, ptr %autocommit, align 8
-  %cmp77 = icmp eq i32 %102, -1
-  br i1 %cmp77, label %land.lhs.true78, label %if.end95
-
-land.lhs.true78:                                  ; preds = %if.end71
-  %103 = load ptr, ptr %self.addr, align 8
-  %connection79 = getelementptr inbounds %struct.pysqlite_Cursor, ptr %103, i32 0, i32 1
-  %104 = load ptr, ptr %connection79, align 8
-  %isolation_level = getelementptr inbounds %struct.pysqlite_Connection, ptr %104, i32 0, i32 4
-  %105 = load ptr, ptr %isolation_level, align 8
-  %tobool80 = icmp ne ptr %105, null
-  br i1 %tobool80, label %land.lhs.true81, label %if.end95
-
-land.lhs.true81:                                  ; preds = %land.lhs.true78
-  %106 = load ptr, ptr %self.addr, align 8
-  %statement82 = getelementptr inbounds %struct.pysqlite_Cursor, ptr %106, i32 0, i32 8
-  %107 = load ptr, ptr %statement82, align 8
-  %is_dml83 = getelementptr inbounds %struct.pysqlite_Statement, ptr %107, i32 0, i32 2
-  %108 = load i32, ptr %is_dml83, align 8
-  %tobool84 = icmp ne i32 %108, 0
-  br i1 %tobool84, label %land.lhs.true85, label %if.end95
-
-land.lhs.true85:                                  ; preds = %land.lhs.true81
-  %109 = load ptr, ptr %self.addr, align 8
-  %connection86 = getelementptr inbounds %struct.pysqlite_Cursor, ptr %109, i32 0, i32 1
-  %110 = load ptr, ptr %connection86, align 8
-  %db = getelementptr inbounds %struct.pysqlite_Connection, ptr %110, i32 0, i32 1
-  %111 = load ptr, ptr %db, align 8
-  %call87 = call i32 @sqlite3_get_autocommit(ptr noundef %111)
-  %tobool88 = icmp ne i32 %call87, 0
-  br i1 %tobool88, label %if.then89, label %if.end95
-
-if.then89:                                        ; preds = %land.lhs.true85
-  %112 = load ptr, ptr %self.addr, align 8
-  %connection90 = getelementptr inbounds %struct.pysqlite_Cursor, ptr %112, i32 0, i32 1
-  %113 = load ptr, ptr %connection90, align 8
-  %call91 = call i32 @begin_transaction(ptr noundef %113)
-  %cmp92 = icmp slt i32 %call91, 0
-  br i1 %cmp92, label %if.then93, label %if.end94
-
-if.then93:                                        ; preds = %if.then89
-  br label %error
-
-if.end94:                                         ; preds = %if.then89
-  br label %if.end95
-
-if.end95:                                         ; preds = %if.end94, %land.lhs.true85, %land.lhs.true81, %land.lhs.true78, %if.end71
-  br label %while.body
-
-while.body:                                       ; preds = %if.end186, %if.end95
-  %114 = load ptr, ptr %parameters_iter, align 8
-  %call96 = call ptr @PyIter_Next(ptr noundef %114)
-  store ptr %call96, ptr %parameters, align 8
-  %115 = load ptr, ptr %parameters, align 8
-  %tobool97 = icmp ne ptr %115, null
-  br i1 %tobool97, label %if.end99, label %if.then98
-
-if.then98:                                        ; preds = %while.body
-  br label %while.end
-
-if.end99:                                         ; preds = %while.body
-  %116 = load ptr, ptr %state, align 8
-  %117 = load ptr, ptr %self.addr, align 8
-  %statement100 = getelementptr inbounds %struct.pysqlite_Cursor, ptr %117, i32 0, i32 8
-  %118 = load ptr, ptr %statement100, align 8
-  %119 = load ptr, ptr %parameters, align 8
-  call void @bind_parameters(ptr noundef %116, ptr noundef %118, ptr noundef %119)
-  %call101 = call ptr @PyErr_Occurred()
-  %tobool102 = icmp ne ptr %call101, null
-  br i1 %tobool102, label %if.then103, label %if.end104
-
-if.then103:                                       ; preds = %if.end99
-  br label %error
-
-if.end104:                                        ; preds = %if.end99
-  %120 = load ptr, ptr %self.addr, align 8
-  %statement105 = getelementptr inbounds %struct.pysqlite_Cursor, ptr %120, i32 0, i32 8
-  %121 = load ptr, ptr %statement105, align 8
-  %st106 = getelementptr inbounds %struct.pysqlite_Statement, ptr %121, i32 0, i32 1
-  %122 = load ptr, ptr %st106, align 8
-  %call107 = call i32 @stmt_step(ptr noundef %122)
-  store i32 %call107, ptr %rc, align 4
-  %123 = load i32, ptr %rc, align 4
-  %cmp108 = icmp ne i32 %123, 101
-  br i1 %cmp108, label %land.lhs.true109, label %if.end123
-
-land.lhs.true109:                                 ; preds = %if.end104
-  %124 = load i32, ptr %rc, align 4
-  %cmp110 = icmp ne i32 %124, 100
-  br i1 %cmp110, label %if.then111, label %if.end123
-
-if.then111:                                       ; preds = %land.lhs.true109
-  %call112 = call ptr @PyErr_Occurred()
-  %tobool113 = icmp ne ptr %call112, null
-  br i1 %tobool113, label %if.then114, label %if.end119
-
-if.then114:                                       ; preds = %if.then111
-  %125 = load ptr, ptr %state, align 8
-  %enable_callback_tracebacks = getelementptr inbounds %struct.pysqlite_state, ptr %125, i32 0, i32 14
-  %126 = load i32, ptr %enable_callback_tracebacks, align 4
-  %tobool115 = icmp ne i32 %126, 0
-  br i1 %tobool115, label %if.then116, label %if.else117
-
-if.then116:                                       ; preds = %if.then114
+define hidden ptr @_pysqlite_query_execute(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) #0 {
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i32, align 4
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca i32, align 4
+  %14 = alloca i32, align 4
+  %15 = alloca i32, align 4
+  %16 = alloca ptr, align 8
+  %17 = alloca ptr, align 8
+  %18 = alloca ptr, align 8
+  %19 = alloca ptr, align 8
+  %20 = alloca ptr, align 8
+  %21 = alloca ptr, align 8
+  %22 = alloca ptr, align 8
+  %23 = alloca ptr, align 8
+  %24 = alloca ptr, align 8
+  %25 = alloca ptr, align 8
+  %26 = alloca ptr, align 8
+  %27 = alloca ptr, align 8
+  %28 = alloca ptr, align 8
+  %29 = alloca ptr, align 8
+  %30 = alloca i32, align 4
+  %31 = alloca i64, align 8
+  %32 = alloca ptr, align 8
+  %33 = alloca ptr, align 8
+  %34 = alloca ptr, align 8
+  %35 = alloca ptr, align 8
+  %36 = alloca ptr, align 8
+  %37 = alloca ptr, align 8
+  %38 = alloca ptr, align 8
+  store ptr %0, ptr %6, align 8, !tbaa !3
+  store i32 %1, ptr %7, align 4, !tbaa !7
+  store ptr %2, ptr %8, align 8, !tbaa !9
+  store ptr %3, ptr %9, align 8, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #8
+  store ptr null, ptr %10, align 8, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #8
+  store ptr null, ptr %11, align 8, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #8
+  store ptr null, ptr %12, align 8, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %15) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %16) #8
+  %39 = load ptr, ptr %6, align 8, !tbaa !3
+  %40 = call i32 @check_cursor(ptr noundef %39)
+  %41 = icmp ne i32 %40, 0
+  br i1 %41, label %43, label %42
+
+42:                                               ; preds = %4
+  br label %421
+
+43:                                               ; preds = %4
+  %44 = load ptr, ptr %6, align 8, !tbaa !3
+  %45 = getelementptr inbounds nuw %struct.pysqlite_Cursor, ptr %44, i32 0, i32 10
+  store i32 1, ptr %45, align 4, !tbaa !11
+  %46 = load i32, ptr %7, align 4, !tbaa !7
+  %47 = icmp ne i32 %46, 0
+  br i1 %47, label %48, label %63
+
+48:                                               ; preds = %43
+  %49 = load ptr, ptr %9, align 8, !tbaa !9
+  %50 = call i32 @PyIter_Check(ptr noundef %49)
+  %51 = icmp ne i32 %50, 0
+  br i1 %51, label %52, label %55
+
+52:                                               ; preds = %48
+  %53 = load ptr, ptr %9, align 8, !tbaa !9
+  %54 = call ptr @_Py_NewRef(ptr noundef %53)
+  store ptr %54, ptr %11, align 8, !tbaa !9
+  br label %62
+
+55:                                               ; preds = %48
+  %56 = load ptr, ptr %9, align 8, !tbaa !9
+  %57 = call ptr @PyObject_GetIter(ptr noundef %56)
+  store ptr %57, ptr %11, align 8, !tbaa !9
+  %58 = load ptr, ptr %11, align 8, !tbaa !9
+  %59 = icmp ne ptr %58, null
+  br i1 %59, label %61, label %60
+
+60:                                               ; preds = %55
+  br label %421
+
+61:                                               ; preds = %55
+  br label %62
+
+62:                                               ; preds = %61, %52
+  br label %94
+
+63:                                               ; preds = %43
+  %64 = call ptr @PyList_New(i64 noundef 0)
+  store ptr %64, ptr %10, align 8, !tbaa !9
+  %65 = load ptr, ptr %10, align 8, !tbaa !9
+  %66 = icmp ne ptr %65, null
+  br i1 %66, label %68, label %67
+
+67:                                               ; preds = %63
+  br label %421
+
+68:                                               ; preds = %63
+  %69 = load ptr, ptr %9, align 8, !tbaa !9
+  %70 = icmp eq ptr %69, null
+  br i1 %70, label %71, label %77
+
+71:                                               ; preds = %68
+  %72 = call ptr @PyTuple_New(i64 noundef 0)
+  store ptr %72, ptr %9, align 8, !tbaa !9
+  %73 = load ptr, ptr %9, align 8, !tbaa !9
+  %74 = icmp ne ptr %73, null
+  br i1 %74, label %76, label %75
+
+75:                                               ; preds = %71
+  br label %421
+
+76:                                               ; preds = %71
+  br label %79
+
+77:                                               ; preds = %68
+  %78 = load ptr, ptr %9, align 8, !tbaa !9
+  call void @Py_INCREF(ptr noundef %78)
+  br label %79
+
+79:                                               ; preds = %77, %76
+  %80 = load ptr, ptr %10, align 8, !tbaa !9
+  %81 = load ptr, ptr %9, align 8, !tbaa !9
+  %82 = call i32 @PyList_Append(ptr noundef %80, ptr noundef %81)
+  %83 = icmp ne i32 %82, 0
+  br i1 %83, label %84, label %86
+
+84:                                               ; preds = %79
+  %85 = load ptr, ptr %9, align 8, !tbaa !9
+  call void @Py_DECREF(ptr noundef %85)
+  br label %421
+
+86:                                               ; preds = %79
+  %87 = load ptr, ptr %9, align 8, !tbaa !9
+  call void @Py_DECREF(ptr noundef %87)
+  %88 = load ptr, ptr %10, align 8, !tbaa !9
+  %89 = call ptr @PyObject_GetIter(ptr noundef %88)
+  store ptr %89, ptr %11, align 8, !tbaa !9
+  %90 = load ptr, ptr %11, align 8, !tbaa !9
+  %91 = icmp ne ptr %90, null
+  br i1 %91, label %93, label %92
+
+92:                                               ; preds = %86
+  br label %421
+
+93:                                               ; preds = %86
+  br label %94
+
+94:                                               ; preds = %93, %62
+  call void @Py_INCREF(ptr noundef @_Py_NoneStruct)
+  br label %95
+
+95:                                               ; preds = %94
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #8
+  %96 = load ptr, ptr %6, align 8, !tbaa !3
+  %97 = getelementptr inbounds nuw %struct.pysqlite_Cursor, ptr %96, i32 0, i32 2
+  store ptr %97, ptr %17, align 8, !tbaa !16
+  call void @llvm.lifetime.start.p0(i64 8, ptr %18) #8
+  %98 = load ptr, ptr %17, align 8, !tbaa !16
+  %99 = load ptr, ptr %98, align 8, !tbaa !9
+  store ptr %99, ptr %18, align 8, !tbaa !9
+  %100 = load ptr, ptr %17, align 8, !tbaa !16
+  store ptr @_Py_NoneStruct, ptr %100, align 8, !tbaa !9
+  %101 = load ptr, ptr %18, align 8, !tbaa !9
+  call void @Py_DECREF(ptr noundef %101)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %18) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #8
+  br label %102
+
+102:                                              ; preds = %95
+  br label %103
+
+103:                                              ; preds = %102
+  %104 = load ptr, ptr %6, align 8, !tbaa !3
+  %105 = getelementptr inbounds nuw %struct.pysqlite_Cursor, ptr %104, i32 0, i32 8
+  %106 = load ptr, ptr %105, align 8, !tbaa !18
+  %107 = icmp ne ptr %106, null
+  br i1 %107, label %108, label %113
+
+108:                                              ; preds = %103
+  %109 = load ptr, ptr %6, align 8, !tbaa !3
+  %110 = getelementptr inbounds nuw %struct.pysqlite_Cursor, ptr %109, i32 0, i32 8
+  %111 = load ptr, ptr %110, align 8, !tbaa !18
+  %112 = call i32 @stmt_reset(ptr noundef %111)
+  br label %113
+
+113:                                              ; preds = %108, %103
+  %114 = load ptr, ptr %6, align 8, !tbaa !3
+  %115 = load ptr, ptr %8, align 8, !tbaa !9
+  %116 = call ptr @get_statement_from_cache(ptr noundef %114, ptr noundef %115)
+  store ptr %116, ptr %19, align 8, !tbaa !9
+  br label %117
+
+117:                                              ; preds = %113
+  call void @llvm.lifetime.start.p0(i64 8, ptr %20) #8
+  %118 = load ptr, ptr %6, align 8, !tbaa !3
+  %119 = getelementptr inbounds nuw %struct.pysqlite_Cursor, ptr %118, i32 0, i32 8
+  store ptr %119, ptr %20, align 8, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %21) #8
+  %120 = load ptr, ptr %20, align 8, !tbaa !3
+  %121 = load ptr, ptr %120, align 8, !tbaa !3
+  store ptr %121, ptr %21, align 8, !tbaa !3
+  %122 = load ptr, ptr %19, align 8, !tbaa !9
+  %123 = load ptr, ptr %20, align 8, !tbaa !3
+  store ptr %122, ptr %123, align 8, !tbaa !3
+  %124 = load ptr, ptr %21, align 8, !tbaa !3
+  call void @Py_XDECREF(ptr noundef %124)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %21) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %20) #8
+  br label %125
+
+125:                                              ; preds = %117
+  br label %126
+
+126:                                              ; preds = %125
+  %127 = load ptr, ptr %6, align 8, !tbaa !3
+  %128 = getelementptr inbounds nuw %struct.pysqlite_Cursor, ptr %127, i32 0, i32 8
+  %129 = load ptr, ptr %128, align 8, !tbaa !18
+  %130 = icmp ne ptr %129, null
+  br i1 %130, label %132, label %131
+
+131:                                              ; preds = %126
+  br label %421
+
+132:                                              ; preds = %126
+  %133 = load ptr, ptr %6, align 8, !tbaa !3
+  %134 = getelementptr inbounds nuw %struct.pysqlite_Cursor, ptr %133, i32 0, i32 1
+  %135 = load ptr, ptr %134, align 8, !tbaa !19
+  %136 = getelementptr inbounds nuw %struct.pysqlite_Connection, ptr %135, i32 0, i32 2
+  %137 = load ptr, ptr %136, align 8, !tbaa !20
+  store ptr %137, ptr %22, align 8, !tbaa !3
+  %138 = load i32, ptr %7, align 4, !tbaa !7
+  %139 = icmp ne i32 %138, 0
+  br i1 %139, label %140, label %152
+
+140:                                              ; preds = %132
+  %141 = load ptr, ptr %6, align 8, !tbaa !3
+  %142 = getelementptr inbounds nuw %struct.pysqlite_Cursor, ptr %141, i32 0, i32 8
+  %143 = load ptr, ptr %142, align 8, !tbaa !18
+  %144 = getelementptr inbounds nuw %struct.pysqlite_Statement, ptr %143, i32 0, i32 1
+  %145 = load ptr, ptr %144, align 8, !tbaa !25
+  %146 = call i32 @sqlite3_stmt_readonly(ptr noundef %145)
+  %147 = icmp ne i32 %146, 0
+  br i1 %147, label %148, label %152
+
+148:                                              ; preds = %140
+  %149 = load ptr, ptr %22, align 8, !tbaa !3
+  %150 = getelementptr inbounds nuw %struct.pysqlite_state, ptr %149, i32 0, i32 8
+  %151 = load ptr, ptr %150, align 8, !tbaa !28
+  call void @PyErr_SetString(ptr noundef %151, ptr noundef @.str)
+  br label %421
+
+152:                                              ; preds = %140, %132
+  %153 = load ptr, ptr %6, align 8, !tbaa !3
+  %154 = getelementptr inbounds nuw %struct.pysqlite_Cursor, ptr %153, i32 0, i32 8
+  %155 = load ptr, ptr %154, align 8, !tbaa !18
+  %156 = getelementptr inbounds nuw %struct.pysqlite_Statement, ptr %155, i32 0, i32 1
+  %157 = load ptr, ptr %156, align 8, !tbaa !25
+  %158 = call i32 @sqlite3_stmt_busy(ptr noundef %157)
+  %159 = icmp ne i32 %158, 0
+  br i1 %159, label %160, label %181
+
+160:                                              ; preds = %152
+  br label %161
+
+161:                                              ; preds = %160
+  call void @llvm.lifetime.start.p0(i64 8, ptr %23) #8
+  %162 = load ptr, ptr %6, align 8, !tbaa !3
+  %163 = getelementptr inbounds nuw %struct.pysqlite_Cursor, ptr %162, i32 0, i32 8
+  store ptr %163, ptr %23, align 8, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %24) #8
+  %164 = load ptr, ptr %23, align 8, !tbaa !3
+  %165 = load ptr, ptr %164, align 8, !tbaa !3
+  store ptr %165, ptr %24, align 8, !tbaa !3
+  %166 = load ptr, ptr %6, align 8, !tbaa !3
+  %167 = getelementptr inbounds nuw %struct.pysqlite_Cursor, ptr %166, i32 0, i32 1
+  %168 = load ptr, ptr %167, align 8, !tbaa !19
+  %169 = load ptr, ptr %8, align 8, !tbaa !9
+  %170 = call ptr @pysqlite_statement_create(ptr noundef %168, ptr noundef %169)
+  %171 = load ptr, ptr %23, align 8, !tbaa !3
+  store ptr %170, ptr %171, align 8, !tbaa !3
+  %172 = load ptr, ptr %24, align 8, !tbaa !3
+  call void @Py_DECREF(ptr noundef %172)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %24) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %23) #8
+  br label %173
+
+173:                                              ; preds = %161
+  br label %174
+
+174:                                              ; preds = %173
+  %175 = load ptr, ptr %6, align 8, !tbaa !3
+  %176 = getelementptr inbounds nuw %struct.pysqlite_Cursor, ptr %175, i32 0, i32 8
+  %177 = load ptr, ptr %176, align 8, !tbaa !18
+  %178 = icmp eq ptr %177, null
+  br i1 %178, label %179, label %180
+
+179:                                              ; preds = %174
+  br label %421
+
+180:                                              ; preds = %174
+  br label %181
+
+181:                                              ; preds = %180, %152
+  %182 = load ptr, ptr %6, align 8, !tbaa !3
+  %183 = getelementptr inbounds nuw %struct.pysqlite_Cursor, ptr %182, i32 0, i32 8
+  %184 = load ptr, ptr %183, align 8, !tbaa !18
+  %185 = call i32 @stmt_reset(ptr noundef %184)
+  %186 = load ptr, ptr %6, align 8, !tbaa !3
+  %187 = getelementptr inbounds nuw %struct.pysqlite_Cursor, ptr %186, i32 0, i32 8
+  %188 = load ptr, ptr %187, align 8, !tbaa !18
+  %189 = getelementptr inbounds nuw %struct.pysqlite_Statement, ptr %188, i32 0, i32 2
+  %190 = load i32, ptr %189, align 8, !tbaa !30
+  %191 = icmp ne i32 %190, 0
+  %192 = select i1 %191, i64 0, i64 -1
+  %193 = load ptr, ptr %6, align 8, !tbaa !3
+  %194 = getelementptr inbounds nuw %struct.pysqlite_Cursor, ptr %193, i32 0, i32 6
+  store i64 %192, ptr %194, align 8, !tbaa !31
+  %195 = load ptr, ptr %6, align 8, !tbaa !3
+  %196 = getelementptr inbounds nuw %struct.pysqlite_Cursor, ptr %195, i32 0, i32 1
+  %197 = load ptr, ptr %196, align 8, !tbaa !19
+  %198 = getelementptr inbounds nuw %struct.pysqlite_Connection, ptr %197, i32 0, i32 5
+  %199 = load i32, ptr %198, align 8, !tbaa !32
+  %200 = icmp eq i32 %199, -1
+  br i1 %200, label %201, label %231
+
+201:                                              ; preds = %181
+  %202 = load ptr, ptr %6, align 8, !tbaa !3
+  %203 = getelementptr inbounds nuw %struct.pysqlite_Cursor, ptr %202, i32 0, i32 1
+  %204 = load ptr, ptr %203, align 8, !tbaa !19
+  %205 = getelementptr inbounds nuw %struct.pysqlite_Connection, ptr %204, i32 0, i32 4
+  %206 = load ptr, ptr %205, align 8, !tbaa !33
+  %207 = icmp ne ptr %206, null
+  br i1 %207, label %208, label %231
+
+208:                                              ; preds = %201
+  %209 = load ptr, ptr %6, align 8, !tbaa !3
+  %210 = getelementptr inbounds nuw %struct.pysqlite_Cursor, ptr %209, i32 0, i32 8
+  %211 = load ptr, ptr %210, align 8, !tbaa !18
+  %212 = getelementptr inbounds nuw %struct.pysqlite_Statement, ptr %211, i32 0, i32 2
+  %213 = load i32, ptr %212, align 8, !tbaa !30
+  %214 = icmp ne i32 %213, 0
+  br i1 %214, label %215, label %231
+
+215:                                              ; preds = %208
+  %216 = load ptr, ptr %6, align 8, !tbaa !3
+  %217 = getelementptr inbounds nuw %struct.pysqlite_Cursor, ptr %216, i32 0, i32 1
+  %218 = load ptr, ptr %217, align 8, !tbaa !19
+  %219 = getelementptr inbounds nuw %struct.pysqlite_Connection, ptr %218, i32 0, i32 1
+  %220 = load ptr, ptr %219, align 8, !tbaa !34
+  %221 = call i32 @sqlite3_get_autocommit(ptr noundef %220)
+  %222 = icmp ne i32 %221, 0
+  br i1 %222, label %223, label %231
+
+223:                                              ; preds = %215
+  %224 = load ptr, ptr %6, align 8, !tbaa !3
+  %225 = getelementptr inbounds nuw %struct.pysqlite_Cursor, ptr %224, i32 0, i32 1
+  %226 = load ptr, ptr %225, align 8, !tbaa !19
+  %227 = call i32 @begin_transaction(ptr noundef %226)
+  %228 = icmp slt i32 %227, 0
+  br i1 %228, label %229, label %230
+
+229:                                              ; preds = %223
+  br label %421
+
+230:                                              ; preds = %223
+  br label %231
+
+231:                                              ; preds = %230, %215, %208, %201, %181
+  br label %232
+
+232:                                              ; preds = %395, %231
+  br label %233
+
+233:                                              ; preds = %232
+  %234 = load ptr, ptr %11, align 8, !tbaa !9
+  %235 = call ptr @PyIter_Next(ptr noundef %234)
+  store ptr %235, ptr %12, align 8, !tbaa !9
+  %236 = load ptr, ptr %12, align 8, !tbaa !9
+  %237 = icmp ne ptr %236, null
+  br i1 %237, label %239, label %238
+
+238:                                              ; preds = %233
+  br label %397
+
+239:                                              ; preds = %233
+  %240 = load ptr, ptr %22, align 8, !tbaa !3
+  %241 = load ptr, ptr %6, align 8, !tbaa !3
+  %242 = getelementptr inbounds nuw %struct.pysqlite_Cursor, ptr %241, i32 0, i32 8
+  %243 = load ptr, ptr %242, align 8, !tbaa !18
+  %244 = load ptr, ptr %12, align 8, !tbaa !9
+  call void @bind_parameters(ptr noundef %240, ptr noundef %243, ptr noundef %244)
+  %245 = call ptr @PyErr_Occurred()
+  %246 = icmp ne ptr %245, null
+  br i1 %246, label %247, label %248
+
+247:                                              ; preds = %239
+  br label %421
+
+248:                                              ; preds = %239
+  %249 = load ptr, ptr %6, align 8, !tbaa !3
+  %250 = getelementptr inbounds nuw %struct.pysqlite_Cursor, ptr %249, i32 0, i32 8
+  %251 = load ptr, ptr %250, align 8, !tbaa !18
+  %252 = getelementptr inbounds nuw %struct.pysqlite_Statement, ptr %251, i32 0, i32 1
+  %253 = load ptr, ptr %252, align 8, !tbaa !25
+  %254 = call i32 @stmt_step(ptr noundef %253)
+  store i32 %254, ptr %14, align 4, !tbaa !7
+  %255 = load i32, ptr %14, align 4, !tbaa !7
+  %256 = icmp ne i32 %255, 101
+  br i1 %256, label %257, label %279
+
+257:                                              ; preds = %248
+  %258 = load i32, ptr %14, align 4, !tbaa !7
+  %259 = icmp ne i32 %258, 100
+  br i1 %259, label %260, label %279
+
+260:                                              ; preds = %257
+  %261 = call ptr @PyErr_Occurred()
+  %262 = icmp ne ptr %261, null
+  br i1 %262, label %263, label %271
+
+263:                                              ; preds = %260
+  %264 = load ptr, ptr %22, align 8, !tbaa !3
+  %265 = getelementptr inbounds nuw %struct.pysqlite_state, ptr %264, i32 0, i32 14
+  %266 = load i32, ptr %265, align 4, !tbaa !35
+  %267 = icmp ne i32 %266, 0
+  br i1 %267, label %268, label %269
+
+268:                                              ; preds = %263
   call void @PyErr_Print()
-  br label %if.end118
+  br label %270
 
-if.else117:                                       ; preds = %if.then114
+269:                                              ; preds = %263
   call void @PyErr_Clear()
-  br label %if.end118
-
-if.end118:                                        ; preds = %if.else117, %if.then116
-  br label %if.end119
-
-if.end119:                                        ; preds = %if.end118, %if.then111
-  %127 = load ptr, ptr %state, align 8
-  %128 = load ptr, ptr %self.addr, align 8
-  %connection120 = getelementptr inbounds %struct.pysqlite_Cursor, ptr %128, i32 0, i32 1
-  %129 = load ptr, ptr %connection120, align 8
-  %db121 = getelementptr inbounds %struct.pysqlite_Connection, ptr %129, i32 0, i32 1
-  %130 = load ptr, ptr %db121, align 8
-  %call122 = call i32 @_pysqlite_seterror(ptr noundef %127, ptr noundef %130)
-  br label %error
-
-if.end123:                                        ; preds = %land.lhs.true109, %if.end104
-  %131 = load ptr, ptr %self.addr, align 8
-  %call124 = call i32 @pysqlite_build_row_cast_map(ptr noundef %131)
-  %cmp125 = icmp ne i32 %call124, 0
-  br i1 %cmp125, label %if.then126, label %if.end128
-
-if.then126:                                       ; preds = %if.end123
-  %132 = load ptr, ptr %state, align 8
-  %OperationalError = getelementptr inbounds %struct.pysqlite_state, ptr %132, i32 0, i32 7
-  %133 = load ptr, ptr %OperationalError, align 8
-  %call127 = call ptr (ptr, ptr, ...) @_PyErr_FormatFromCause(ptr noundef %133, ptr noundef @.str.1)
-  br label %error
-
-if.end128:                                        ; preds = %if.end123
-  %call129 = call ptr @PyEval_SaveThread()
-  store ptr %call129, ptr %_save, align 8
-  %134 = load ptr, ptr %self.addr, align 8
-  %statement130 = getelementptr inbounds %struct.pysqlite_Cursor, ptr %134, i32 0, i32 8
-  %135 = load ptr, ptr %statement130, align 8
-  %st131 = getelementptr inbounds %struct.pysqlite_Statement, ptr %135, i32 0, i32 1
-  %136 = load ptr, ptr %st131, align 8
-  %call132 = call i32 @sqlite3_column_count(ptr noundef %136)
-  store i32 %call132, ptr %numcols, align 4
-  %137 = load ptr, ptr %_save, align 8
-  call void @PyEval_RestoreThread(ptr noundef %137)
-  %138 = load ptr, ptr %self.addr, align 8
-  %description133 = getelementptr inbounds %struct.pysqlite_Cursor, ptr %138, i32 0, i32 2
-  %139 = load ptr, ptr %description133, align 8
-  %cmp134 = icmp eq ptr %139, @_Py_NoneStruct
-  br i1 %cmp134, label %land.lhs.true135, label %if.end170
-
-land.lhs.true135:                                 ; preds = %if.end128
-  %140 = load i32, ptr %numcols, align 4
-  %cmp136 = icmp sgt i32 %140, 0
-  br i1 %cmp136, label %if.then137, label %if.end170
-
-if.then137:                                       ; preds = %land.lhs.true135
-  br label %do.body138
-
-do.body138:                                       ; preds = %if.then137
-  %141 = load ptr, ptr %self.addr, align 8
-  %description140 = getelementptr inbounds %struct.pysqlite_Cursor, ptr %141, i32 0, i32 2
-  store ptr %description140, ptr %_tmp_dst_ptr139, align 8
-  %142 = load ptr, ptr %_tmp_dst_ptr139, align 8
-  %143 = load ptr, ptr %142, align 8
-  store ptr %143, ptr %_tmp_old_dst141, align 8
-  %144 = load i32, ptr %numcols, align 4
-  %conv = sext i32 %144 to i64
-  %call142 = call ptr @PyTuple_New(i64 noundef %conv)
-  %145 = load ptr, ptr %_tmp_dst_ptr139, align 8
-  store ptr %call142, ptr %145, align 8
-  %146 = load ptr, ptr %_tmp_old_dst141, align 8
-  store ptr %146, ptr %op.addr.i278, align 8
-  %147 = load ptr, ptr %op.addr.i278, align 8
-  store ptr %147, ptr %op.addr.i337, align 8
-  %148 = load ptr, ptr %op.addr.i337, align 8
-  %149 = load i64, ptr %148, align 8
-  %conv.i338 = trunc i64 %149 to i32
-  %cmp.i339 = icmp slt i32 %conv.i338, 0
-  %conv1.i340 = zext i1 %cmp.i339 to i32
-  %tobool.i280 = icmp ne i32 %conv1.i340, 0
-  br i1 %tobool.i280, label %if.then.i285, label %if.end.i281
-
-if.then.i285:                                     ; preds = %do.body138
-  br label %Py_DECREF.exit286
-
-if.end.i281:                                      ; preds = %do.body138
-  %150 = load ptr, ptr %op.addr.i278, align 8
-  %151 = load i64, ptr %150, align 8
-  %dec.i282 = add i64 %151, -1
-  store i64 %dec.i282, ptr %150, align 8
-  %cmp.i283 = icmp eq i64 %dec.i282, 0
-  br i1 %cmp.i283, label %if.then1.i284, label %Py_DECREF.exit286
-
-if.then1.i284:                                    ; preds = %if.end.i281
-  %152 = load ptr, ptr %op.addr.i278, align 8
-  call void @_Py_Dealloc(ptr noundef %152) #5
-  br label %Py_DECREF.exit286
-
-Py_DECREF.exit286:                                ; preds = %if.then1.i284, %if.end.i281, %if.then.i285
-  br label %do.end143
-
-do.end143:                                        ; preds = %Py_DECREF.exit286
-  %153 = load ptr, ptr %self.addr, align 8
-  %description144 = getelementptr inbounds %struct.pysqlite_Cursor, ptr %153, i32 0, i32 2
-  %154 = load ptr, ptr %description144, align 8
-  %tobool145 = icmp ne ptr %154, null
-  br i1 %tobool145, label %if.end147, label %if.then146
-
-if.then146:                                       ; preds = %do.end143
-  br label %error
-
-if.end147:                                        ; preds = %do.end143
-  store i32 0, ptr %i, align 4
-  br label %for.cond
-
-for.cond:                                         ; preds = %for.inc, %if.end147
-  %155 = load i32, ptr %i, align 4
-  %156 = load i32, ptr %numcols, align 4
-  %cmp148 = icmp slt i32 %155, %156
-  br i1 %cmp148, label %for.body, label %for.end
-
-for.body:                                         ; preds = %for.cond
-  %157 = load ptr, ptr %self.addr, align 8
-  %statement150 = getelementptr inbounds %struct.pysqlite_Cursor, ptr %157, i32 0, i32 8
-  %158 = load ptr, ptr %statement150, align 8
-  %st151 = getelementptr inbounds %struct.pysqlite_Statement, ptr %158, i32 0, i32 1
-  %159 = load ptr, ptr %st151, align 8
-  %160 = load i32, ptr %i, align 4
-  %call152 = call ptr @sqlite3_column_name(ptr noundef %159, i32 noundef %160)
-  store ptr %call152, ptr %colname, align 8
-  %161 = load ptr, ptr %colname, align 8
-  %cmp153 = icmp eq ptr %161, null
-  br i1 %cmp153, label %if.then155, label %if.end157
-
-if.then155:                                       ; preds = %for.body
-  %call156 = call ptr @PyErr_NoMemory()
-  br label %error
-
-if.end157:                                        ; preds = %for.body
-  %162 = load ptr, ptr %self.addr, align 8
-  %163 = load ptr, ptr %colname, align 8
-  %call158 = call ptr @_pysqlite_build_column_name(ptr noundef %162, ptr noundef %163)
-  store ptr %call158, ptr %column_name, align 8
-  %164 = load ptr, ptr %column_name, align 8
-  %cmp159 = icmp eq ptr %164, null
-  br i1 %cmp159, label %if.then161, label %if.end162
-
-if.then161:                                       ; preds = %if.end157
-  br label %error
-
-if.end162:                                        ; preds = %if.end157
-  %165 = load ptr, ptr %column_name, align 8
-  %call163 = call ptr (i64, ...) @PyTuple_Pack(i64 noundef 7, ptr noundef %165, ptr noundef @_Py_NoneStruct, ptr noundef @_Py_NoneStruct, ptr noundef @_Py_NoneStruct, ptr noundef @_Py_NoneStruct, ptr noundef @_Py_NoneStruct, ptr noundef @_Py_NoneStruct)
-  store ptr %call163, ptr %descriptor, align 8
-  %166 = load ptr, ptr %column_name, align 8
-  store ptr %166, ptr %op.addr.i269, align 8
-  %167 = load ptr, ptr %op.addr.i269, align 8
-  store ptr %167, ptr %op.addr.i341, align 8
-  %168 = load ptr, ptr %op.addr.i341, align 8
-  %169 = load i64, ptr %168, align 8
-  %conv.i342 = trunc i64 %169 to i32
-  %cmp.i343 = icmp slt i32 %conv.i342, 0
-  %conv1.i344 = zext i1 %cmp.i343 to i32
-  %tobool.i271 = icmp ne i32 %conv1.i344, 0
-  br i1 %tobool.i271, label %if.then.i276, label %if.end.i272
-
-if.then.i276:                                     ; preds = %if.end162
-  br label %Py_DECREF.exit277
-
-if.end.i272:                                      ; preds = %if.end162
-  %170 = load ptr, ptr %op.addr.i269, align 8
-  %171 = load i64, ptr %170, align 8
-  %dec.i273 = add i64 %171, -1
-  store i64 %dec.i273, ptr %170, align 8
-  %cmp.i274 = icmp eq i64 %dec.i273, 0
-  br i1 %cmp.i274, label %if.then1.i275, label %Py_DECREF.exit277
-
-if.then1.i275:                                    ; preds = %if.end.i272
-  %172 = load ptr, ptr %op.addr.i269, align 8
-  call void @_Py_Dealloc(ptr noundef %172) #5
-  br label %Py_DECREF.exit277
-
-Py_DECREF.exit277:                                ; preds = %if.then1.i275, %if.end.i272, %if.then.i276
-  %173 = load ptr, ptr %descriptor, align 8
-  %cmp164 = icmp eq ptr %173, null
-  br i1 %cmp164, label %if.then166, label %if.end167
-
-if.then166:                                       ; preds = %Py_DECREF.exit277
-  br label %error
-
-if.end167:                                        ; preds = %Py_DECREF.exit277
-  %174 = load ptr, ptr %self.addr, align 8
-  %description168 = getelementptr inbounds %struct.pysqlite_Cursor, ptr %174, i32 0, i32 2
-  %175 = load ptr, ptr %description168, align 8
-  %176 = load i32, ptr %i, align 4
-  %conv169 = sext i32 %176 to i64
-  %177 = load ptr, ptr %descriptor, align 8
-  call void @PyTuple_SET_ITEM(ptr noundef %175, i64 noundef %conv169, ptr noundef %177)
-  br label %for.inc
-
-for.inc:                                          ; preds = %if.end167
-  %178 = load i32, ptr %i, align 4
-  %inc = add i32 %178, 1
-  store i32 %inc, ptr %i, align 4
-  br label %for.cond, !llvm.loop !4
-
-for.end:                                          ; preds = %for.cond
-  br label %if.end170
-
-if.end170:                                        ; preds = %for.end, %land.lhs.true135, %if.end128
-  %179 = load i32, ptr %rc, align 4
-  %cmp171 = icmp eq i32 %179, 101
-  br i1 %cmp171, label %if.then173, label %if.end186
-
-if.then173:                                       ; preds = %if.end170
-  %180 = load ptr, ptr %self.addr, align 8
-  %statement174 = getelementptr inbounds %struct.pysqlite_Cursor, ptr %180, i32 0, i32 8
-  %181 = load ptr, ptr %statement174, align 8
-  %is_dml175 = getelementptr inbounds %struct.pysqlite_Statement, ptr %181, i32 0, i32 2
-  %182 = load i32, ptr %is_dml175, align 8
-  %tobool176 = icmp ne i32 %182, 0
-  br i1 %tobool176, label %if.then177, label %if.end183
-
-if.then177:                                       ; preds = %if.then173
-  %183 = load ptr, ptr %self.addr, align 8
-  %connection178 = getelementptr inbounds %struct.pysqlite_Cursor, ptr %183, i32 0, i32 1
-  %184 = load ptr, ptr %connection178, align 8
-  %db179 = getelementptr inbounds %struct.pysqlite_Connection, ptr %184, i32 0, i32 1
-  %185 = load ptr, ptr %db179, align 8
-  %call180 = call i32 @sqlite3_changes(ptr noundef %185)
-  %conv181 = sext i32 %call180 to i64
-  %186 = load ptr, ptr %self.addr, align 8
-  %rowcount182 = getelementptr inbounds %struct.pysqlite_Cursor, ptr %186, i32 0, i32 6
-  %187 = load i64, ptr %rowcount182, align 8
-  %add = add i64 %187, %conv181
-  store i64 %add, ptr %rowcount182, align 8
-  br label %if.end183
-
-if.end183:                                        ; preds = %if.then177, %if.then173
-  %188 = load ptr, ptr %self.addr, align 8
-  %statement184 = getelementptr inbounds %struct.pysqlite_Cursor, ptr %188, i32 0, i32 8
-  %189 = load ptr, ptr %statement184, align 8
-  %call185 = call i32 @stmt_reset(ptr noundef %189)
-  br label %if.end186
-
-if.end186:                                        ; preds = %if.end183, %if.end170
-  %190 = load ptr, ptr %parameters, align 8
-  call void @Py_XDECREF(ptr noundef %190)
-  br label %while.body
-
-while.end:                                        ; preds = %if.then98
-  %191 = load i32, ptr %multiple.addr, align 4
-  %tobool187 = icmp ne i32 %191, 0
-  br i1 %tobool187, label %if.end200, label %if.then188
-
-if.then188:                                       ; preds = %while.end
-  %call190 = call ptr @PyEval_SaveThread()
-  store ptr %call190, ptr %_save189, align 8
-  %192 = load ptr, ptr %self.addr, align 8
-  %connection191 = getelementptr inbounds %struct.pysqlite_Cursor, ptr %192, i32 0, i32 1
-  %193 = load ptr, ptr %connection191, align 8
-  %db192 = getelementptr inbounds %struct.pysqlite_Connection, ptr %193, i32 0, i32 1
-  %194 = load ptr, ptr %db192, align 8
-  %call193 = call i64 @sqlite3_last_insert_rowid(ptr noundef %194)
-  store i64 %call193, ptr %lastrowid, align 8
-  %195 = load ptr, ptr %_save189, align 8
-  call void @PyEval_RestoreThread(ptr noundef %195)
-  br label %do.body194
-
-do.body194:                                       ; preds = %if.then188
-  %196 = load ptr, ptr %self.addr, align 8
-  %lastrowid196 = getelementptr inbounds %struct.pysqlite_Cursor, ptr %196, i32 0, i32 5
-  store ptr %lastrowid196, ptr %_tmp_dst_ptr195, align 8
-  %197 = load ptr, ptr %_tmp_dst_ptr195, align 8
-  %198 = load ptr, ptr %197, align 8
-  store ptr %198, ptr %_tmp_old_dst197, align 8
-  %199 = load i64, ptr %lastrowid, align 8
-  %call198 = call ptr @PyLong_FromLongLong(i64 noundef %199)
-  %200 = load ptr, ptr %_tmp_dst_ptr195, align 8
-  store ptr %call198, ptr %200, align 8
-  %201 = load ptr, ptr %_tmp_old_dst197, align 8
-  store ptr %201, ptr %op.addr.i260, align 8
-  %202 = load ptr, ptr %op.addr.i260, align 8
-  store ptr %202, ptr %op.addr.i345, align 8
-  %203 = load ptr, ptr %op.addr.i345, align 8
-  %204 = load i64, ptr %203, align 8
-  %conv.i346 = trunc i64 %204 to i32
-  %cmp.i347 = icmp slt i32 %conv.i346, 0
-  %conv1.i348 = zext i1 %cmp.i347 to i32
-  %tobool.i262 = icmp ne i32 %conv1.i348, 0
-  br i1 %tobool.i262, label %if.then.i267, label %if.end.i263
-
-if.then.i267:                                     ; preds = %do.body194
-  br label %Py_DECREF.exit268
-
-if.end.i263:                                      ; preds = %do.body194
-  %205 = load ptr, ptr %op.addr.i260, align 8
-  %206 = load i64, ptr %205, align 8
-  %dec.i264 = add i64 %206, -1
-  store i64 %dec.i264, ptr %205, align 8
-  %cmp.i265 = icmp eq i64 %dec.i264, 0
-  br i1 %cmp.i265, label %if.then1.i266, label %Py_DECREF.exit268
-
-if.then1.i266:                                    ; preds = %if.end.i263
-  %207 = load ptr, ptr %op.addr.i260, align 8
-  call void @_Py_Dealloc(ptr noundef %207) #5
-  br label %Py_DECREF.exit268
-
-Py_DECREF.exit268:                                ; preds = %if.then1.i266, %if.end.i263, %if.then.i267
-  br label %do.end199
-
-do.end199:                                        ; preds = %Py_DECREF.exit268
-  br label %if.end200
-
-if.end200:                                        ; preds = %do.end199, %while.end
-  br label %error
-
-error:                                            ; preds = %if.end200, %if.then166, %if.then161, %if.then155, %if.then146, %if.then126, %if.end119, %if.then103, %if.then93, %if.then69, %if.then53, %if.then46, %if.then30, %Py_DECREF.exit322, %if.then20, %if.then15, %if.then9, %if.then
-  %208 = load ptr, ptr %parameters, align 8
-  call void @Py_XDECREF(ptr noundef %208)
-  %209 = load ptr, ptr %parameters_iter, align 8
-  call void @Py_XDECREF(ptr noundef %209)
-  %210 = load ptr, ptr %parameters_list, align 8
-  call void @Py_XDECREF(ptr noundef %210)
-  %211 = load ptr, ptr %self.addr, align 8
-  %locked201 = getelementptr inbounds %struct.pysqlite_Cursor, ptr %211, i32 0, i32 10
-  store i32 0, ptr %locked201, align 4
-  %call202 = call ptr @PyErr_Occurred()
-  %tobool203 = icmp ne ptr %call202, null
-  br i1 %tobool203, label %if.then204, label %if.end219
-
-if.then204:                                       ; preds = %error
-  %212 = load ptr, ptr %self.addr, align 8
-  %statement205 = getelementptr inbounds %struct.pysqlite_Cursor, ptr %212, i32 0, i32 8
-  %213 = load ptr, ptr %statement205, align 8
-  %tobool206 = icmp ne ptr %213, null
-  br i1 %tobool206, label %if.then207, label %if.end217
-
-if.then207:                                       ; preds = %if.then204
-  %214 = load ptr, ptr %self.addr, align 8
-  %statement208 = getelementptr inbounds %struct.pysqlite_Cursor, ptr %214, i32 0, i32 8
-  %215 = load ptr, ptr %statement208, align 8
-  %call209 = call i32 @stmt_reset(ptr noundef %215)
-  br label %do.body210
-
-do.body210:                                       ; preds = %if.then207
-  %216 = load ptr, ptr %self.addr, align 8
-  %statement211 = getelementptr inbounds %struct.pysqlite_Cursor, ptr %216, i32 0, i32 8
-  store ptr %statement211, ptr %_tmp_op_ptr, align 8
-  %217 = load ptr, ptr %_tmp_op_ptr, align 8
-  %218 = load ptr, ptr %217, align 8
-  store ptr %218, ptr %_tmp_old_op, align 8
-  %219 = load ptr, ptr %_tmp_old_op, align 8
-  %cmp212 = icmp ne ptr %219, null
-  br i1 %cmp212, label %if.then214, label %if.end215
-
-if.then214:                                       ; preds = %do.body210
-  %220 = load ptr, ptr %_tmp_op_ptr, align 8
-  store ptr null, ptr %220, align 8
-  %221 = load ptr, ptr %_tmp_old_op, align 8
-  store ptr %221, ptr %op.addr.i251, align 8
-  %222 = load ptr, ptr %op.addr.i251, align 8
-  store ptr %222, ptr %op.addr.i349, align 8
-  %223 = load ptr, ptr %op.addr.i349, align 8
-  %224 = load i64, ptr %223, align 8
-  %conv.i350 = trunc i64 %224 to i32
-  %cmp.i351 = icmp slt i32 %conv.i350, 0
-  %conv1.i352 = zext i1 %cmp.i351 to i32
-  %tobool.i253 = icmp ne i32 %conv1.i352, 0
-  br i1 %tobool.i253, label %if.then.i258, label %if.end.i254
-
-if.then.i258:                                     ; preds = %if.then214
-  br label %Py_DECREF.exit259
-
-if.end.i254:                                      ; preds = %if.then214
-  %225 = load ptr, ptr %op.addr.i251, align 8
-  %226 = load i64, ptr %225, align 8
-  %dec.i255 = add i64 %226, -1
-  store i64 %dec.i255, ptr %225, align 8
-  %cmp.i256 = icmp eq i64 %dec.i255, 0
-  br i1 %cmp.i256, label %if.then1.i257, label %Py_DECREF.exit259
-
-if.then1.i257:                                    ; preds = %if.end.i254
-  %227 = load ptr, ptr %op.addr.i251, align 8
-  call void @_Py_Dealloc(ptr noundef %227) #5
-  br label %Py_DECREF.exit259
-
-Py_DECREF.exit259:                                ; preds = %if.then1.i257, %if.end.i254, %if.then.i258
-  br label %if.end215
-
-if.end215:                                        ; preds = %Py_DECREF.exit259, %do.body210
-  br label %do.end216
-
-do.end216:                                        ; preds = %if.end215
-  br label %if.end217
-
-if.end217:                                        ; preds = %do.end216, %if.then204
-  %228 = load ptr, ptr %self.addr, align 8
-  %rowcount218 = getelementptr inbounds %struct.pysqlite_Cursor, ptr %228, i32 0, i32 6
-  store i64 -1, ptr %rowcount218, align 8
-  store ptr null, ptr %retval, align 8
-  br label %return
-
-if.end219:                                        ; preds = %error
-  %229 = load ptr, ptr %self.addr, align 8
-  %statement220 = getelementptr inbounds %struct.pysqlite_Cursor, ptr %229, i32 0, i32 8
-  %230 = load ptr, ptr %statement220, align 8
-  %tobool221 = icmp ne ptr %230, null
-  br i1 %tobool221, label %land.lhs.true222, label %if.end237
-
-land.lhs.true222:                                 ; preds = %if.end219
-  %231 = load ptr, ptr %self.addr, align 8
-  %statement223 = getelementptr inbounds %struct.pysqlite_Cursor, ptr %231, i32 0, i32 8
-  %232 = load ptr, ptr %statement223, align 8
-  %st224 = getelementptr inbounds %struct.pysqlite_Statement, ptr %232, i32 0, i32 1
-  %233 = load ptr, ptr %st224, align 8
-  %call225 = call i32 @sqlite3_stmt_busy(ptr noundef %233)
-  %tobool226 = icmp ne i32 %call225, 0
-  br i1 %tobool226, label %if.end237, label %if.then227
-
-if.then227:                                       ; preds = %land.lhs.true222
-  br label %do.body228
-
-do.body228:                                       ; preds = %if.then227
-  %234 = load ptr, ptr %self.addr, align 8
-  %statement230 = getelementptr inbounds %struct.pysqlite_Cursor, ptr %234, i32 0, i32 8
-  store ptr %statement230, ptr %_tmp_op_ptr229, align 8
-  %235 = load ptr, ptr %_tmp_op_ptr229, align 8
-  %236 = load ptr, ptr %235, align 8
-  store ptr %236, ptr %_tmp_old_op231, align 8
-  %237 = load ptr, ptr %_tmp_old_op231, align 8
-  %cmp232 = icmp ne ptr %237, null
-  br i1 %cmp232, label %if.then234, label %if.end235
-
-if.then234:                                       ; preds = %do.body228
-  %238 = load ptr, ptr %_tmp_op_ptr229, align 8
-  store ptr null, ptr %238, align 8
-  %239 = load ptr, ptr %_tmp_old_op231, align 8
-  store ptr %239, ptr %op.addr.i247, align 8
-  %240 = load ptr, ptr %op.addr.i247, align 8
-  store ptr %240, ptr %op.addr.i353, align 8
-  %241 = load ptr, ptr %op.addr.i353, align 8
-  %242 = load i64, ptr %241, align 8
-  %conv.i354 = trunc i64 %242 to i32
-  %cmp.i355 = icmp slt i32 %conv.i354, 0
-  %conv1.i356 = zext i1 %cmp.i355 to i32
-  %tobool.i = icmp ne i32 %conv1.i356, 0
-  br i1 %tobool.i, label %if.then.i250, label %if.end.i248
-
-if.then.i250:                                     ; preds = %if.then234
-  br label %Py_DECREF.exit
-
-if.end.i248:                                      ; preds = %if.then234
-  %243 = load ptr, ptr %op.addr.i247, align 8
-  %244 = load i64, ptr %243, align 8
-  %dec.i = add i64 %244, -1
-  store i64 %dec.i, ptr %243, align 8
-  %cmp.i249 = icmp eq i64 %dec.i, 0
-  br i1 %cmp.i249, label %if.then1.i, label %Py_DECREF.exit
-
-if.then1.i:                                       ; preds = %if.end.i248
-  %245 = load ptr, ptr %op.addr.i247, align 8
-  call void @_Py_Dealloc(ptr noundef %245) #5
-  br label %Py_DECREF.exit
-
-Py_DECREF.exit:                                   ; preds = %if.then1.i, %if.end.i248, %if.then.i250
-  br label %if.end235
-
-if.end235:                                        ; preds = %Py_DECREF.exit, %do.body228
-  br label %do.end236
-
-do.end236:                                        ; preds = %if.end235
-  br label %if.end237
-
-if.end237:                                        ; preds = %do.end236, %land.lhs.true222, %if.end219
-  %246 = load ptr, ptr %self.addr, align 8
-  %call238 = call ptr @_Py_NewRef(ptr noundef %246)
-  store ptr %call238, ptr %retval, align 8
-  br label %return
-
-return:                                           ; preds = %if.end237, %if.end217
-  %247 = load ptr, ptr %retval, align 8
-  ret ptr %247
-}
-
-; Function Attrs: nounwind uwtable
-define internal i32 @check_cursor(ptr noundef %cur) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %cur.addr = alloca ptr, align 8
-  %state = alloca ptr, align 8
-  store ptr %cur, ptr %cur.addr, align 8
-  %0 = load ptr, ptr %cur.addr, align 8
-  %initialized = getelementptr inbounds %struct.pysqlite_Cursor, ptr %0, i32 0, i32 11
-  %1 = load i32, ptr %initialized, align 8
-  %tobool = icmp ne i32 %1, 0
-  br i1 %tobool, label %if.end, label %if.then
-
-if.then:                                          ; preds = %entry
-  %2 = load ptr, ptr %cur.addr, align 8
-  %call = call ptr @Py_TYPE(ptr noundef %2)
-  %call1 = call ptr @pysqlite_get_state_by_type(ptr noundef %call)
-  store ptr %call1, ptr %state, align 8
-  %3 = load ptr, ptr %state, align 8
-  %ProgrammingError = getelementptr inbounds %struct.pysqlite_state, ptr %3, i32 0, i32 8
-  %4 = load ptr, ptr %ProgrammingError, align 8
-  call void @PyErr_SetString(ptr noundef %4, ptr noundef @.str.2)
-  store i32 0, ptr %retval, align 4
-  br label %return
-
-if.end:                                           ; preds = %entry
-  %5 = load ptr, ptr %cur.addr, align 8
-  %closed = getelementptr inbounds %struct.pysqlite_Cursor, ptr %5, i32 0, i32 9
-  %6 = load i32, ptr %closed, align 8
-  %tobool2 = icmp ne i32 %6, 0
-  br i1 %tobool2, label %if.then3, label %if.end6
-
-if.then3:                                         ; preds = %if.end
-  %7 = load ptr, ptr %cur.addr, align 8
-  %connection = getelementptr inbounds %struct.pysqlite_Cursor, ptr %7, i32 0, i32 1
-  %8 = load ptr, ptr %connection, align 8
-  %state4 = getelementptr inbounds %struct.pysqlite_Connection, ptr %8, i32 0, i32 2
-  %9 = load ptr, ptr %state4, align 8
-  %ProgrammingError5 = getelementptr inbounds %struct.pysqlite_state, ptr %9, i32 0, i32 8
-  %10 = load ptr, ptr %ProgrammingError5, align 8
-  call void @PyErr_SetString(ptr noundef %10, ptr noundef @.str.3)
-  store i32 0, ptr %retval, align 4
-  br label %return
-
-if.end6:                                          ; preds = %if.end
-  %11 = load ptr, ptr %cur.addr, align 8
-  %connection7 = getelementptr inbounds %struct.pysqlite_Cursor, ptr %11, i32 0, i32 1
-  %12 = load ptr, ptr %connection7, align 8
-  %call8 = call i32 @pysqlite_check_thread(ptr noundef %12)
-  %tobool9 = icmp ne i32 %call8, 0
-  br i1 %tobool9, label %land.lhs.true, label %land.end
-
-land.lhs.true:                                    ; preds = %if.end6
-  %13 = load ptr, ptr %cur.addr, align 8
-  %connection10 = getelementptr inbounds %struct.pysqlite_Cursor, ptr %13, i32 0, i32 1
-  %14 = load ptr, ptr %connection10, align 8
-  %call11 = call i32 @pysqlite_check_connection(ptr noundef %14)
-  %tobool12 = icmp ne i32 %call11, 0
-  br i1 %tobool12, label %land.rhs, label %land.end
-
-land.rhs:                                         ; preds = %land.lhs.true
-  %15 = load ptr, ptr %cur.addr, align 8
-  %call13 = call i32 @check_cursor_locked(ptr noundef %15)
-  %tobool14 = icmp ne i32 %call13, 0
-  br label %land.end
-
-land.end:                                         ; preds = %land.rhs, %land.lhs.true, %if.end6
-  %16 = phi i1 [ false, %land.lhs.true ], [ false, %if.end6 ], [ %tobool14, %land.rhs ]
-  %land.ext = zext i1 %16 to i32
-  store i32 %land.ext, ptr %retval, align 4
-  br label %return
-
-return:                                           ; preds = %land.end, %if.then3, %if.then
-  %17 = load i32, ptr %retval, align 4
-  ret i32 %17
-}
-
-declare i32 @PyIter_Check(ptr noundef) #1
-
-; Function Attrs: nounwind uwtable
-define internal ptr @_Py_NewRef(ptr noundef %obj) #0 {
-entry:
-  %op.addr.i = alloca ptr, align 8
-  %cur_refcnt.i = alloca i32, align 4
-  %new_refcnt.i = alloca i32, align 4
-  %obj.addr = alloca ptr, align 8
-  store ptr %obj, ptr %obj.addr, align 8
-  %0 = load ptr, ptr %obj.addr, align 8
-  store ptr %0, ptr %op.addr.i, align 8
-  %1 = load ptr, ptr %op.addr.i, align 8
-  %2 = load i32, ptr %1, align 8
-  store i32 %2, ptr %cur_refcnt.i, align 4
-  %3 = load i32, ptr %cur_refcnt.i, align 4
-  %add.i = add i32 %3, 1
-  store i32 %add.i, ptr %new_refcnt.i, align 4
-  %4 = load i32, ptr %new_refcnt.i, align 4
-  %cmp.i = icmp eq i32 %4, 0
-  br i1 %cmp.i, label %if.then.i, label %if.end.i
-
-if.then.i:                                        ; preds = %entry
-  br label %Py_INCREF.exit
-
-if.end.i:                                         ; preds = %entry
-  %5 = load i32, ptr %new_refcnt.i, align 4
-  %6 = load ptr, ptr %op.addr.i, align 8
-  store i32 %5, ptr %6, align 8
-  br label %Py_INCREF.exit
-
-Py_INCREF.exit:                                   ; preds = %if.end.i, %if.then.i
-  %7 = load ptr, ptr %obj.addr, align 8
-  ret ptr %7
-}
-
-declare ptr @PyObject_GetIter(ptr noundef) #1
-
-declare ptr @PyList_New(i64 noundef) #1
-
-declare ptr @PyTuple_New(i64 noundef) #1
-
-declare i32 @PyList_Append(ptr noundef, ptr noundef) #1
-
-; Function Attrs: nounwind uwtable
-define internal i32 @stmt_reset(ptr noundef %self) #0 {
-entry:
-  %self.addr = alloca ptr, align 8
-  %rc = alloca i32, align 4
-  %_save = alloca ptr, align 8
-  store ptr %self, ptr %self.addr, align 8
-  store i32 0, ptr %rc, align 4
-  %0 = load ptr, ptr %self.addr, align 8
-  %st = getelementptr inbounds %struct.pysqlite_Statement, ptr %0, i32 0, i32 1
-  %1 = load ptr, ptr %st, align 8
-  %cmp = icmp ne ptr %1, null
-  br i1 %cmp, label %if.then, label %if.end
-
-if.then:                                          ; preds = %entry
-  %call = call ptr @PyEval_SaveThread()
-  store ptr %call, ptr %_save, align 8
-  %2 = load ptr, ptr %self.addr, align 8
-  %st1 = getelementptr inbounds %struct.pysqlite_Statement, ptr %2, i32 0, i32 1
-  %3 = load ptr, ptr %st1, align 8
-  %call2 = call i32 @sqlite3_reset(ptr noundef %3)
-  store i32 %call2, ptr %rc, align 4
-  %4 = load ptr, ptr %_save, align 8
-  call void @PyEval_RestoreThread(ptr noundef %4)
-  br label %if.end
-
-if.end:                                           ; preds = %if.then, %entry
-  %5 = load i32, ptr %rc, align 4
-  ret i32 %5
-}
-
-; Function Attrs: nounwind uwtable
-define internal ptr @get_statement_from_cache(ptr noundef %self, ptr noundef %operation) #0 {
-entry:
-  %self.addr = alloca ptr, align 8
-  %operation.addr = alloca ptr, align 8
-  %args = alloca [2 x ptr], align 16
-  %cache = alloca ptr, align 8
-  %nargsf = alloca i64, align 8
-  store ptr %self, ptr %self.addr, align 8
-  store ptr %operation, ptr %operation.addr, align 8
-  %arrayinit.begin = getelementptr inbounds [2 x ptr], ptr %args, i64 0, i64 0
-  store ptr null, ptr %arrayinit.begin, align 8
-  %arrayinit.element = getelementptr inbounds ptr, ptr %arrayinit.begin, i64 1
-  %0 = load ptr, ptr %operation.addr, align 8
-  store ptr %0, ptr %arrayinit.element, align 8
-  %1 = load ptr, ptr %self.addr, align 8
-  %connection = getelementptr inbounds %struct.pysqlite_Cursor, ptr %1, i32 0, i32 1
-  %2 = load ptr, ptr %connection, align 8
-  %statement_cache = getelementptr inbounds %struct.pysqlite_Connection, ptr %2, i32 0, i32 9
-  %3 = load ptr, ptr %statement_cache, align 8
-  store ptr %3, ptr %cache, align 8
-  store i64 -9223372036854775807, ptr %nargsf, align 8
-  %4 = load ptr, ptr %cache, align 8
-  %arraydecay = getelementptr inbounds [2 x ptr], ptr %args, i64 0, i64 0
-  %add.ptr = getelementptr ptr, ptr %arraydecay, i64 1
-  %5 = load i64, ptr %nargsf, align 8
-  %call = call ptr @PyObject_Vectorcall(ptr noundef %4, ptr noundef %add.ptr, i64 noundef %5, ptr noundef null)
-  ret ptr %call
-}
-
-; Function Attrs: nounwind uwtable
-define internal void @Py_XDECREF(ptr noundef %op) #0 {
-entry:
-  %op.addr.i1 = alloca ptr, align 8
-  %op.addr.i = alloca ptr, align 8
-  %op.addr = alloca ptr, align 8
-  store ptr %op, ptr %op.addr, align 8
-  %0 = load ptr, ptr %op.addr, align 8
-  %cmp = icmp ne ptr %0, null
-  br i1 %cmp, label %if.then, label %if.end
-
-if.then:                                          ; preds = %entry
-  %1 = load ptr, ptr %op.addr, align 8
-  store ptr %1, ptr %op.addr.i, align 8
-  %2 = load ptr, ptr %op.addr.i, align 8
-  store ptr %2, ptr %op.addr.i1, align 8
-  %3 = load ptr, ptr %op.addr.i1, align 8
-  %4 = load i64, ptr %3, align 8
-  %conv.i = trunc i64 %4 to i32
-  %cmp.i2 = icmp slt i32 %conv.i, 0
-  %conv1.i = zext i1 %cmp.i2 to i32
-  %tobool.i = icmp ne i32 %conv1.i, 0
-  br i1 %tobool.i, label %if.then.i, label %if.end.i
-
-if.then.i:                                        ; preds = %if.then
-  br label %Py_DECREF.exit
-
-if.end.i:                                         ; preds = %if.then
-  %5 = load ptr, ptr %op.addr.i, align 8
-  %6 = load i64, ptr %5, align 8
-  %dec.i = add i64 %6, -1
-  store i64 %dec.i, ptr %5, align 8
-  %cmp.i = icmp eq i64 %dec.i, 0
-  br i1 %cmp.i, label %if.then1.i, label %Py_DECREF.exit
-
-if.then1.i:                                       ; preds = %if.end.i
-  %7 = load ptr, ptr %op.addr.i, align 8
-  call void @_Py_Dealloc(ptr noundef %7) #5
-  br label %Py_DECREF.exit
-
-Py_DECREF.exit:                                   ; preds = %if.then1.i, %if.end.i, %if.then.i
-  br label %if.end
-
-if.end:                                           ; preds = %Py_DECREF.exit, %entry
-  ret void
-}
-
-declare i32 @sqlite3_stmt_readonly(ptr noundef) #1
-
-declare void @PyErr_SetString(ptr noundef, ptr noundef) #1
-
-declare i32 @sqlite3_stmt_busy(ptr noundef) #1
-
-declare ptr @pysqlite_statement_create(ptr noundef, ptr noundef) #1
-
-declare i32 @sqlite3_get_autocommit(ptr noundef) #1
-
-; Function Attrs: nounwind uwtable
-define internal i32 @begin_transaction(ptr noundef %self) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %self.addr = alloca ptr, align 8
-  %rc = alloca i32, align 4
-  %_save = alloca ptr, align 8
-  %statement = alloca ptr, align 8
-  %begin_stmt = alloca [16 x i8], align 16
-  store ptr %self, ptr %self.addr, align 8
-  %call = call ptr @PyEval_SaveThread()
-  store ptr %call, ptr %_save, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 16 %begin_stmt, ptr align 16 @__const.begin_transaction.begin_stmt, i64 16, i1 false)
-  %arraydecay = getelementptr inbounds [16 x i8], ptr %begin_stmt, i64 0, i64 0
-  %0 = load ptr, ptr %self.addr, align 8
-  %isolation_level = getelementptr inbounds %struct.pysqlite_Connection, ptr %0, i32 0, i32 4
-  %1 = load ptr, ptr %isolation_level, align 8
-  %call1 = call ptr @strcat(ptr noundef %arraydecay, ptr noundef %1) #5
-  %2 = load ptr, ptr %self.addr, align 8
-  %db = getelementptr inbounds %struct.pysqlite_Connection, ptr %2, i32 0, i32 1
-  %3 = load ptr, ptr %db, align 8
-  %arraydecay2 = getelementptr inbounds [16 x i8], ptr %begin_stmt, i64 0, i64 0
-  %call3 = call i32 @sqlite3_prepare_v2(ptr noundef %3, ptr noundef %arraydecay2, i32 noundef -1, ptr noundef %statement, ptr noundef null)
-  store i32 %call3, ptr %rc, align 4
-  %4 = load i32, ptr %rc, align 4
-  %cmp = icmp eq i32 %4, 0
-  br i1 %cmp, label %if.then, label %if.end
-
-if.then:                                          ; preds = %entry
-  %5 = load ptr, ptr %statement, align 8
-  %call4 = call i32 @sqlite3_step(ptr noundef %5)
-  %6 = load ptr, ptr %statement, align 8
-  %call5 = call i32 @sqlite3_finalize(ptr noundef %6)
-  store i32 %call5, ptr %rc, align 4
-  br label %if.end
-
-if.end:                                           ; preds = %if.then, %entry
-  %7 = load ptr, ptr %_save, align 8
-  call void @PyEval_RestoreThread(ptr noundef %7)
-  %8 = load i32, ptr %rc, align 4
-  %cmp6 = icmp ne i32 %8, 0
-  br i1 %cmp6, label %if.then7, label %if.end10
-
-if.then7:                                         ; preds = %if.end
-  %9 = load ptr, ptr %self.addr, align 8
-  %state = getelementptr inbounds %struct.pysqlite_Connection, ptr %9, i32 0, i32 2
-  %10 = load ptr, ptr %state, align 8
-  %11 = load ptr, ptr %self.addr, align 8
-  %db8 = getelementptr inbounds %struct.pysqlite_Connection, ptr %11, i32 0, i32 1
-  %12 = load ptr, ptr %db8, align 8
-  %call9 = call i32 @_pysqlite_seterror(ptr noundef %10, ptr noundef %12)
-  store i32 -1, ptr %retval, align 4
-  br label %return
-
-if.end10:                                         ; preds = %if.end
-  store i32 0, ptr %retval, align 4
-  br label %return
-
-return:                                           ; preds = %if.end10, %if.then7
-  %13 = load i32, ptr %retval, align 4
-  ret i32 %13
-}
-
-declare ptr @PyIter_Next(ptr noundef) #1
-
-; Function Attrs: nounwind uwtable
-define internal void @bind_parameters(ptr noundef %state, ptr noundef %self, ptr noundef %parameters) #0 {
-entry:
-  %op.addr.i181 = alloca ptr, align 8
-  %op.addr.i177 = alloca ptr, align 8
-  %op.addr.i173 = alloca ptr, align 8
-  %op.addr.i171 = alloca ptr, align 8
-  %op.addr.i162 = alloca ptr, align 8
-  %op.addr.i153 = alloca ptr, align 8
-  %op.addr.i144 = alloca ptr, align 8
-  %op.addr.i = alloca ptr, align 8
-  %state.addr = alloca ptr, align 8
-  %self.addr = alloca ptr, align 8
-  %parameters.addr = alloca ptr, align 8
-  %current_param = alloca ptr, align 8
-  %adapted = alloca ptr, align 8
-  %binding_name = alloca ptr, align 8
-  %i = alloca i32, align 4
-  %rc = alloca i32, align 4
-  %num_params_needed = alloca i32, align 4
-  %num_params = alloca i64, align 8
-  %_save = alloca ptr, align 8
-  %name = alloca ptr, align 8
-  %ret = alloca i32, align 4
-  %item = alloca ptr, align 8
-  %item52 = alloca ptr, align 8
-  %protocol = alloca ptr, align 8
-  %exc = alloca ptr, align 8
-  %db = alloca ptr, align 8
-  %_save92 = alloca ptr, align 8
-  %current_param101 = alloca ptr, align 8
-  %protocol119 = alloca ptr, align 8
-  %exc130 = alloca ptr, align 8
-  %db132 = alloca ptr, align 8
-  store ptr %state, ptr %state.addr, align 8
-  store ptr %self, ptr %self.addr, align 8
-  store ptr %parameters, ptr %parameters.addr, align 8
-  %call = call ptr @PyEval_SaveThread()
-  store ptr %call, ptr %_save, align 8
-  %0 = load ptr, ptr %self.addr, align 8
-  %st = getelementptr inbounds %struct.pysqlite_Statement, ptr %0, i32 0, i32 1
-  %1 = load ptr, ptr %st, align 8
-  %call1 = call i32 @sqlite3_bind_parameter_count(ptr noundef %1)
-  store i32 %call1, ptr %num_params_needed, align 4
-  %2 = load ptr, ptr %_save, align 8
-  call void @PyEval_RestoreThread(ptr noundef %2)
-  %3 = load ptr, ptr %parameters.addr, align 8
-  %call2 = call i32 @Py_IS_TYPE(ptr noundef %3, ptr noundef @PyTuple_Type)
-  %tobool = icmp ne i32 %call2, 0
-  br i1 %tobool, label %if.then, label %lor.lhs.false
-
-lor.lhs.false:                                    ; preds = %entry
-  %4 = load ptr, ptr %parameters.addr, align 8
-  %call3 = call i32 @Py_IS_TYPE(ptr noundef %4, ptr noundef @PyList_Type)
-  %tobool4 = icmp ne i32 %call3, 0
-  br i1 %tobool4, label %if.then, label %lor.lhs.false5
-
-lor.lhs.false5:                                   ; preds = %lor.lhs.false
-  %5 = load ptr, ptr %parameters.addr, align 8
-  %call6 = call ptr @Py_TYPE(ptr noundef %5)
-  %call7 = call i32 @PyType_HasFeature(ptr noundef %call6, i64 noundef 536870912)
-  %tobool8 = icmp ne i32 %call7, 0
-  br i1 %tobool8, label %if.else83, label %land.lhs.true
-
-land.lhs.true:                                    ; preds = %lor.lhs.false5
-  %6 = load ptr, ptr %parameters.addr, align 8
-  %call9 = call i32 @PySequence_Check(ptr noundef %6)
-  %tobool10 = icmp ne i32 %call9, 0
-  br i1 %tobool10, label %if.then, label %if.else83
-
-if.then:                                          ; preds = %land.lhs.true, %lor.lhs.false, %entry
-  %7 = load ptr, ptr %parameters.addr, align 8
-  %call11 = call i32 @Py_IS_TYPE(ptr noundef %7, ptr noundef @PyTuple_Type)
-  %tobool12 = icmp ne i32 %call11, 0
-  br i1 %tobool12, label %if.then13, label %if.else
-
-if.then13:                                        ; preds = %if.then
-  %8 = load ptr, ptr %parameters.addr, align 8
-  %call14 = call i64 @PyTuple_GET_SIZE(ptr noundef %8)
-  store i64 %call14, ptr %num_params, align 8
-  br label %if.end23
-
-if.else:                                          ; preds = %if.then
-  %9 = load ptr, ptr %parameters.addr, align 8
-  %call15 = call i32 @Py_IS_TYPE(ptr noundef %9, ptr noundef @PyList_Type)
-  %tobool16 = icmp ne i32 %call15, 0
-  br i1 %tobool16, label %if.then17, label %if.else19
-
-if.then17:                                        ; preds = %if.else
-  %10 = load ptr, ptr %parameters.addr, align 8
-  %call18 = call i64 @PyList_GET_SIZE(ptr noundef %10)
-  store i64 %call18, ptr %num_params, align 8
-  br label %if.end22
-
-if.else19:                                        ; preds = %if.else
-  %11 = load ptr, ptr %parameters.addr, align 8
-  %call20 = call i64 @PySequence_Size(ptr noundef %11)
-  store i64 %call20, ptr %num_params, align 8
-  %12 = load i64, ptr %num_params, align 8
-  %cmp = icmp eq i64 %12, -1
-  br i1 %cmp, label %if.then21, label %if.end
-
-if.then21:                                        ; preds = %if.else19
-  br label %if.end143
-
-if.end:                                           ; preds = %if.else19
-  br label %if.end22
-
-if.end22:                                         ; preds = %if.end, %if.then17
-  br label %if.end23
-
-if.end23:                                         ; preds = %if.end22, %if.then13
-  %13 = load i64, ptr %num_params, align 8
-  %14 = load i32, ptr %num_params_needed, align 4
-  %conv = sext i32 %14 to i64
-  %cmp24 = icmp ne i64 %13, %conv
-  br i1 %cmp24, label %if.then26, label %if.end28
-
-if.then26:                                        ; preds = %if.end23
-  %15 = load ptr, ptr %state.addr, align 8
-  %ProgrammingError = getelementptr inbounds %struct.pysqlite_state, ptr %15, i32 0, i32 8
-  %16 = load ptr, ptr %ProgrammingError, align 8
-  %17 = load i32, ptr %num_params_needed, align 4
-  %18 = load i64, ptr %num_params, align 8
-  %call27 = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %16, ptr noundef @.str.5, i32 noundef %17, i64 noundef %18)
-  br label %if.end143
-
-if.end28:                                         ; preds = %if.end23
-  store i32 0, ptr %i, align 4
-  br label %for.cond
-
-for.cond:                                         ; preds = %for.inc, %if.end28
-  %19 = load i32, ptr %i, align 4
-  %conv29 = sext i32 %19 to i64
-  %20 = load i64, ptr %num_params, align 8
-  %cmp30 = icmp slt i64 %conv29, %20
-  br i1 %cmp30, label %for.body, label %for.end
-
-for.body:                                         ; preds = %for.cond
-  %21 = load ptr, ptr %self.addr, align 8
-  %st32 = getelementptr inbounds %struct.pysqlite_Statement, ptr %21, i32 0, i32 1
-  %22 = load ptr, ptr %st32, align 8
-  %23 = load i32, ptr %i, align 4
-  %add = add i32 %23, 1
-  %call33 = call ptr @sqlite3_bind_parameter_name(ptr noundef %22, i32 noundef %add)
-  store ptr %call33, ptr %name, align 8
-  %24 = load ptr, ptr %name, align 8
-  %cmp34 = icmp ne ptr %24, null
-  br i1 %cmp34, label %if.then36, label %if.end43
-
-if.then36:                                        ; preds = %for.body
-  %25 = load ptr, ptr @PyExc_DeprecationWarning, align 8
-  %26 = load i32, ptr %i, align 4
-  %add37 = add i32 %26, 1
-  %27 = load ptr, ptr %name, align 8
-  %call38 = call i32 (ptr, i64, ptr, ...) @PyErr_WarnFormat(ptr noundef %25, i64 noundef 1, ptr noundef @.str.6, i32 noundef %add37, ptr noundef %27)
-  store i32 %call38, ptr %ret, align 4
-  %28 = load i32, ptr %ret, align 4
-  %cmp39 = icmp slt i32 %28, 0
-  br i1 %cmp39, label %if.then41, label %if.end42
-
-if.then41:                                        ; preds = %if.then36
-  br label %if.end143
-
-if.end42:                                         ; preds = %if.then36
-  br label %if.end43
-
-if.end43:                                         ; preds = %if.end42, %for.body
-  %29 = load ptr, ptr %parameters.addr, align 8
-  %call44 = call i32 @Py_IS_TYPE(ptr noundef %29, ptr noundef @PyTuple_Type)
-  %tobool45 = icmp ne i32 %call44, 0
-  br i1 %tobool45, label %if.then46, label %if.else48
-
-if.then46:                                        ; preds = %if.end43
-  %30 = load ptr, ptr %parameters.addr, align 8
-  %ob_item = getelementptr inbounds %struct.PyTupleObject, ptr %30, i32 0, i32 1
-  %31 = load i32, ptr %i, align 4
-  %idxprom = sext i32 %31 to i64
-  %arrayidx = getelementptr [1 x ptr], ptr %ob_item, i64 0, i64 %idxprom
-  %32 = load ptr, ptr %arrayidx, align 8
-  store ptr %32, ptr %item, align 8
-  %33 = load ptr, ptr %item, align 8
-  %call47 = call ptr @_Py_NewRef(ptr noundef %33)
-  store ptr %call47, ptr %current_param, align 8
-  br label %if.end60
-
-if.else48:                                        ; preds = %if.end43
-  %34 = load ptr, ptr %parameters.addr, align 8
-  %call49 = call i32 @Py_IS_TYPE(ptr noundef %34, ptr noundef @PyList_Type)
-  %tobool50 = icmp ne i32 %call49, 0
-  br i1 %tobool50, label %if.then51, label %if.else56
-
-if.then51:                                        ; preds = %if.else48
-  %35 = load ptr, ptr %parameters.addr, align 8
-  %36 = load i32, ptr %i, align 4
-  %conv53 = sext i32 %36 to i64
-  %call54 = call ptr @PyList_GetItem(ptr noundef %35, i64 noundef %conv53)
-  store ptr %call54, ptr %item52, align 8
-  %37 = load ptr, ptr %item52, align 8
-  %call55 = call ptr @_Py_XNewRef(ptr noundef %37)
-  store ptr %call55, ptr %current_param, align 8
-  br label %if.end59
-
-if.else56:                                        ; preds = %if.else48
-  %38 = load ptr, ptr %parameters.addr, align 8
-  %39 = load i32, ptr %i, align 4
-  %conv57 = sext i32 %39 to i64
-  %call58 = call ptr @PySequence_GetItem(ptr noundef %38, i64 noundef %conv57)
-  store ptr %call58, ptr %current_param, align 8
-  br label %if.end59
-
-if.end59:                                         ; preds = %if.else56, %if.then51
-  br label %if.end60
-
-if.end60:                                         ; preds = %if.end59, %if.then46
-  %40 = load ptr, ptr %current_param, align 8
-  %tobool61 = icmp ne ptr %40, null
-  br i1 %tobool61, label %if.end63, label %if.then62
-
-if.then62:                                        ; preds = %if.end60
-  br label %if.end143
-
-if.end63:                                         ; preds = %if.end60
-  %41 = load ptr, ptr %state.addr, align 8
-  %42 = load ptr, ptr %current_param, align 8
-  %call64 = call i32 @need_adapt(ptr noundef %41, ptr noundef %42)
-  %tobool65 = icmp ne i32 %call64, 0
-  br i1 %tobool65, label %if.else67, label %if.then66
-
-if.then66:                                        ; preds = %if.end63
-  %43 = load ptr, ptr %current_param, align 8
-  store ptr %43, ptr %adapted, align 8
-  br label %if.end72
-
-if.else67:                                        ; preds = %if.end63
-  %44 = load ptr, ptr %state.addr, align 8
-  %PrepareProtocolType = getelementptr inbounds %struct.pysqlite_state, ptr %44, i32 0, i32 18
-  %45 = load ptr, ptr %PrepareProtocolType, align 8
-  store ptr %45, ptr %protocol, align 8
-  %46 = load ptr, ptr %state.addr, align 8
-  %47 = load ptr, ptr %current_param, align 8
-  %48 = load ptr, ptr %protocol, align 8
-  %49 = load ptr, ptr %current_param, align 8
-  %call68 = call ptr @pysqlite_microprotocols_adapt(ptr noundef %46, ptr noundef %47, ptr noundef %48, ptr noundef %49)
-  store ptr %call68, ptr %adapted, align 8
-  %50 = load ptr, ptr %current_param, align 8
-  store ptr %50, ptr %op.addr.i162, align 8
-  %51 = load ptr, ptr %op.addr.i162, align 8
-  store ptr %51, ptr %op.addr.i171, align 8
-  %52 = load ptr, ptr %op.addr.i171, align 8
-  %53 = load i64, ptr %52, align 8
-  %conv.i = trunc i64 %53 to i32
-  %cmp.i172 = icmp slt i32 %conv.i, 0
-  %conv1.i = zext i1 %cmp.i172 to i32
-  %tobool.i164 = icmp ne i32 %conv1.i, 0
-  br i1 %tobool.i164, label %if.then.i169, label %if.end.i165
-
-if.then.i169:                                     ; preds = %if.else67
-  br label %Py_DECREF.exit170
-
-if.end.i165:                                      ; preds = %if.else67
-  %54 = load ptr, ptr %op.addr.i162, align 8
-  %55 = load i64, ptr %54, align 8
-  %dec.i166 = add i64 %55, -1
-  store i64 %dec.i166, ptr %54, align 8
-  %cmp.i167 = icmp eq i64 %dec.i166, 0
-  br i1 %cmp.i167, label %if.then1.i168, label %Py_DECREF.exit170
-
-if.then1.i168:                                    ; preds = %if.end.i165
-  %56 = load ptr, ptr %op.addr.i162, align 8
-  call void @_Py_Dealloc(ptr noundef %56) #5
-  br label %Py_DECREF.exit170
-
-Py_DECREF.exit170:                                ; preds = %if.then1.i168, %if.end.i165, %if.then.i169
-  %57 = load ptr, ptr %adapted, align 8
-  %tobool69 = icmp ne ptr %57, null
-  br i1 %tobool69, label %if.end71, label %if.then70
-
-if.then70:                                        ; preds = %Py_DECREF.exit170
-  br label %if.end143
-
-if.end71:                                         ; preds = %Py_DECREF.exit170
-  br label %if.end72
-
-if.end72:                                         ; preds = %if.end71, %if.then66
-  %58 = load ptr, ptr %state.addr, align 8
-  %59 = load ptr, ptr %self.addr, align 8
-  %60 = load i32, ptr %i, align 4
-  %add73 = add i32 %60, 1
-  %61 = load ptr, ptr %adapted, align 8
-  %call74 = call i32 @bind_param(ptr noundef %58, ptr noundef %59, i32 noundef %add73, ptr noundef %61)
-  store i32 %call74, ptr %rc, align 4
-  %62 = load ptr, ptr %adapted, align 8
-  store ptr %62, ptr %op.addr.i153, align 8
-  %63 = load ptr, ptr %op.addr.i153, align 8
-  store ptr %63, ptr %op.addr.i173, align 8
-  %64 = load ptr, ptr %op.addr.i173, align 8
-  %65 = load i64, ptr %64, align 8
-  %conv.i174 = trunc i64 %65 to i32
-  %cmp.i175 = icmp slt i32 %conv.i174, 0
-  %conv1.i176 = zext i1 %cmp.i175 to i32
-  %tobool.i155 = icmp ne i32 %conv1.i176, 0
-  br i1 %tobool.i155, label %if.then.i160, label %if.end.i156
-
-if.then.i160:                                     ; preds = %if.end72
-  br label %Py_DECREF.exit161
-
-if.end.i156:                                      ; preds = %if.end72
-  %66 = load ptr, ptr %op.addr.i153, align 8
-  %67 = load i64, ptr %66, align 8
-  %dec.i157 = add i64 %67, -1
-  store i64 %dec.i157, ptr %66, align 8
-  %cmp.i158 = icmp eq i64 %dec.i157, 0
-  br i1 %cmp.i158, label %if.then1.i159, label %Py_DECREF.exit161
-
-if.then1.i159:                                    ; preds = %if.end.i156
-  %68 = load ptr, ptr %op.addr.i153, align 8
-  call void @_Py_Dealloc(ptr noundef %68) #5
-  br label %Py_DECREF.exit161
-
-Py_DECREF.exit161:                                ; preds = %if.then1.i159, %if.end.i156, %if.then.i160
-  %69 = load i32, ptr %rc, align 4
-  %cmp75 = icmp ne i32 %69, 0
-  br i1 %cmp75, label %if.then77, label %if.end82
-
-if.then77:                                        ; preds = %Py_DECREF.exit161
-  %call78 = call ptr @PyErr_GetRaisedException()
-  store ptr %call78, ptr %exc, align 8
-  %70 = load ptr, ptr %self.addr, align 8
-  %st79 = getelementptr inbounds %struct.pysqlite_Statement, ptr %70, i32 0, i32 1
-  %71 = load ptr, ptr %st79, align 8
-  %call80 = call ptr @sqlite3_db_handle(ptr noundef %71)
-  store ptr %call80, ptr %db, align 8
-  %72 = load ptr, ptr %state.addr, align 8
-  %73 = load ptr, ptr %db, align 8
-  %call81 = call i32 @_pysqlite_seterror(ptr noundef %72, ptr noundef %73)
-  %74 = load ptr, ptr %exc, align 8
-  call void @_PyErr_ChainExceptions1(ptr noundef %74)
-  br label %if.end143
-
-if.end82:                                         ; preds = %Py_DECREF.exit161
-  br label %for.inc
-
-for.inc:                                          ; preds = %if.end82
-  %75 = load i32, ptr %i, align 4
-  %inc = add i32 %75, 1
-  store i32 %inc, ptr %i, align 4
-  br label %for.cond, !llvm.loop !6
-
-for.end:                                          ; preds = %for.cond
-  br label %if.end143
-
-if.else83:                                        ; preds = %land.lhs.true, %lor.lhs.false5
-  %76 = load ptr, ptr %parameters.addr, align 8
-  %call84 = call ptr @Py_TYPE(ptr noundef %76)
-  %call85 = call i32 @PyType_HasFeature(ptr noundef %call84, i64 noundef 536870912)
-  %tobool86 = icmp ne i32 %call85, 0
-  br i1 %tobool86, label %if.then87, label %if.else140
-
-if.then87:                                        ; preds = %if.else83
-  store i32 1, ptr %i, align 4
-  br label %for.cond88
-
-for.cond88:                                       ; preds = %for.inc137, %if.then87
-  %77 = load i32, ptr %i, align 4
-  %78 = load i32, ptr %num_params_needed, align 4
-  %cmp89 = icmp sle i32 %77, %78
-  br i1 %cmp89, label %for.body91, label %for.end139
-
-for.body91:                                       ; preds = %for.cond88
-  %call93 = call ptr @PyEval_SaveThread()
-  store ptr %call93, ptr %_save92, align 8
-  %79 = load ptr, ptr %self.addr, align 8
-  %st94 = getelementptr inbounds %struct.pysqlite_Statement, ptr %79, i32 0, i32 1
-  %80 = load ptr, ptr %st94, align 8
-  %81 = load i32, ptr %i, align 4
-  %call95 = call ptr @sqlite3_bind_parameter_name(ptr noundef %80, i32 noundef %81)
-  store ptr %call95, ptr %binding_name, align 8
-  %82 = load ptr, ptr %_save92, align 8
-  call void @PyEval_RestoreThread(ptr noundef %82)
-  %83 = load ptr, ptr %binding_name, align 8
-  %tobool96 = icmp ne ptr %83, null
-  br i1 %tobool96, label %if.end100, label %if.then97
-
-if.then97:                                        ; preds = %for.body91
-  %84 = load ptr, ptr %state.addr, align 8
-  %ProgrammingError98 = getelementptr inbounds %struct.pysqlite_state, ptr %84, i32 0, i32 8
-  %85 = load ptr, ptr %ProgrammingError98, align 8
-  %86 = load i32, ptr %i, align 4
-  %call99 = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %85, ptr noundef @.str.7, i32 noundef %86)
-  br label %if.end143
-
-if.end100:                                        ; preds = %for.body91
-  %87 = load ptr, ptr %binding_name, align 8
-  %incdec.ptr = getelementptr i8, ptr %87, i32 1
-  store ptr %incdec.ptr, ptr %binding_name, align 8
-  %88 = load ptr, ptr %parameters.addr, align 8
-  %89 = load ptr, ptr %binding_name, align 8
-  %call102 = call i32 @PyMapping_GetOptionalItemString(ptr noundef %88, ptr noundef %89, ptr noundef %current_param101)
-  %90 = load ptr, ptr %current_param101, align 8
-  %tobool103 = icmp ne ptr %90, null
-  br i1 %tobool103, label %if.end114, label %if.then104
-
-if.then104:                                       ; preds = %if.end100
-  %call105 = call ptr @PyErr_Occurred()
-  %tobool106 = icmp ne ptr %call105, null
-  br i1 %tobool106, label %lor.lhs.false107, label %if.then110
-
-lor.lhs.false107:                                 ; preds = %if.then104
-  %91 = load ptr, ptr @PyExc_LookupError, align 8
-  %call108 = call i32 @PyErr_ExceptionMatches(ptr noundef %91)
-  %tobool109 = icmp ne i32 %call108, 0
-  br i1 %tobool109, label %if.then110, label %if.end113
-
-if.then110:                                       ; preds = %lor.lhs.false107, %if.then104
-  %92 = load ptr, ptr %state.addr, align 8
-  %ProgrammingError111 = getelementptr inbounds %struct.pysqlite_state, ptr %92, i32 0, i32 8
-  %93 = load ptr, ptr %ProgrammingError111, align 8
-  %94 = load ptr, ptr %binding_name, align 8
-  %call112 = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %93, ptr noundef @.str.8, ptr noundef %94)
-  br label %if.end113
-
-if.end113:                                        ; preds = %if.then110, %lor.lhs.false107
-  br label %if.end143
-
-if.end114:                                        ; preds = %if.end100
-  %95 = load ptr, ptr %state.addr, align 8
-  %96 = load ptr, ptr %current_param101, align 8
-  %call115 = call i32 @need_adapt(ptr noundef %95, ptr noundef %96)
-  %tobool116 = icmp ne i32 %call115, 0
-  br i1 %tobool116, label %if.else118, label %if.then117
-
-if.then117:                                       ; preds = %if.end114
-  %97 = load ptr, ptr %current_param101, align 8
-  store ptr %97, ptr %adapted, align 8
-  br label %if.end125
-
-if.else118:                                       ; preds = %if.end114
-  %98 = load ptr, ptr %state.addr, align 8
-  %PrepareProtocolType120 = getelementptr inbounds %struct.pysqlite_state, ptr %98, i32 0, i32 18
-  %99 = load ptr, ptr %PrepareProtocolType120, align 8
-  store ptr %99, ptr %protocol119, align 8
-  %100 = load ptr, ptr %state.addr, align 8
-  %101 = load ptr, ptr %current_param101, align 8
-  %102 = load ptr, ptr %protocol119, align 8
-  %103 = load ptr, ptr %current_param101, align 8
-  %call121 = call ptr @pysqlite_microprotocols_adapt(ptr noundef %100, ptr noundef %101, ptr noundef %102, ptr noundef %103)
-  store ptr %call121, ptr %adapted, align 8
-  %104 = load ptr, ptr %current_param101, align 8
-  store ptr %104, ptr %op.addr.i144, align 8
-  %105 = load ptr, ptr %op.addr.i144, align 8
-  store ptr %105, ptr %op.addr.i177, align 8
-  %106 = load ptr, ptr %op.addr.i177, align 8
-  %107 = load i64, ptr %106, align 8
-  %conv.i178 = trunc i64 %107 to i32
-  %cmp.i179 = icmp slt i32 %conv.i178, 0
-  %conv1.i180 = zext i1 %cmp.i179 to i32
-  %tobool.i146 = icmp ne i32 %conv1.i180, 0
-  br i1 %tobool.i146, label %if.then.i151, label %if.end.i147
-
-if.then.i151:                                     ; preds = %if.else118
-  br label %Py_DECREF.exit152
-
-if.end.i147:                                      ; preds = %if.else118
-  %108 = load ptr, ptr %op.addr.i144, align 8
-  %109 = load i64, ptr %108, align 8
-  %dec.i148 = add i64 %109, -1
-  store i64 %dec.i148, ptr %108, align 8
-  %cmp.i149 = icmp eq i64 %dec.i148, 0
-  br i1 %cmp.i149, label %if.then1.i150, label %Py_DECREF.exit152
-
-if.then1.i150:                                    ; preds = %if.end.i147
-  %110 = load ptr, ptr %op.addr.i144, align 8
-  call void @_Py_Dealloc(ptr noundef %110) #5
-  br label %Py_DECREF.exit152
-
-Py_DECREF.exit152:                                ; preds = %if.then1.i150, %if.end.i147, %if.then.i151
-  %111 = load ptr, ptr %adapted, align 8
-  %tobool122 = icmp ne ptr %111, null
-  br i1 %tobool122, label %if.end124, label %if.then123
-
-if.then123:                                       ; preds = %Py_DECREF.exit152
-  br label %if.end143
-
-if.end124:                                        ; preds = %Py_DECREF.exit152
-  br label %if.end125
-
-if.end125:                                        ; preds = %if.end124, %if.then117
-  %112 = load ptr, ptr %state.addr, align 8
-  %113 = load ptr, ptr %self.addr, align 8
-  %114 = load i32, ptr %i, align 4
-  %115 = load ptr, ptr %adapted, align 8
-  %call126 = call i32 @bind_param(ptr noundef %112, ptr noundef %113, i32 noundef %114, ptr noundef %115)
-  store i32 %call126, ptr %rc, align 4
-  %116 = load ptr, ptr %adapted, align 8
-  store ptr %116, ptr %op.addr.i, align 8
-  %117 = load ptr, ptr %op.addr.i, align 8
-  store ptr %117, ptr %op.addr.i181, align 8
-  %118 = load ptr, ptr %op.addr.i181, align 8
-  %119 = load i64, ptr %118, align 8
-  %conv.i182 = trunc i64 %119 to i32
-  %cmp.i183 = icmp slt i32 %conv.i182, 0
-  %conv1.i184 = zext i1 %cmp.i183 to i32
-  %tobool.i = icmp ne i32 %conv1.i184, 0
-  br i1 %tobool.i, label %if.then.i, label %if.end.i
-
-if.then.i:                                        ; preds = %if.end125
-  br label %Py_DECREF.exit
-
-if.end.i:                                         ; preds = %if.end125
-  %120 = load ptr, ptr %op.addr.i, align 8
-  %121 = load i64, ptr %120, align 8
-  %dec.i = add i64 %121, -1
-  store i64 %dec.i, ptr %120, align 8
-  %cmp.i = icmp eq i64 %dec.i, 0
-  br i1 %cmp.i, label %if.then1.i, label %Py_DECREF.exit
-
-if.then1.i:                                       ; preds = %if.end.i
-  %122 = load ptr, ptr %op.addr.i, align 8
-  call void @_Py_Dealloc(ptr noundef %122) #5
-  br label %Py_DECREF.exit
-
-Py_DECREF.exit:                                   ; preds = %if.then1.i, %if.end.i, %if.then.i
-  %123 = load i32, ptr %rc, align 4
-  %cmp127 = icmp ne i32 %123, 0
-  br i1 %cmp127, label %if.then129, label %if.end136
-
-if.then129:                                       ; preds = %Py_DECREF.exit
-  %call131 = call ptr @PyErr_GetRaisedException()
-  store ptr %call131, ptr %exc130, align 8
-  %124 = load ptr, ptr %self.addr, align 8
-  %st133 = getelementptr inbounds %struct.pysqlite_Statement, ptr %124, i32 0, i32 1
-  %125 = load ptr, ptr %st133, align 8
-  %call134 = call ptr @sqlite3_db_handle(ptr noundef %125)
-  store ptr %call134, ptr %db132, align 8
-  %126 = load ptr, ptr %state.addr, align 8
-  %127 = load ptr, ptr %db132, align 8
-  %call135 = call i32 @_pysqlite_seterror(ptr noundef %126, ptr noundef %127)
-  %128 = load ptr, ptr %exc130, align 8
-  call void @_PyErr_ChainExceptions1(ptr noundef %128)
-  br label %if.end143
-
-if.end136:                                        ; preds = %Py_DECREF.exit
-  br label %for.inc137
-
-for.inc137:                                       ; preds = %if.end136
-  %129 = load i32, ptr %i, align 4
-  %inc138 = add i32 %129, 1
-  store i32 %inc138, ptr %i, align 4
-  br label %for.cond88, !llvm.loop !7
-
-for.end139:                                       ; preds = %for.cond88
-  br label %if.end142
-
-if.else140:                                       ; preds = %if.else83
-  %130 = load ptr, ptr %state.addr, align 8
-  %ProgrammingError141 = getelementptr inbounds %struct.pysqlite_state, ptr %130, i32 0, i32 8
-  %131 = load ptr, ptr %ProgrammingError141, align 8
-  call void @PyErr_SetString(ptr noundef %131, ptr noundef @.str.9)
-  br label %if.end142
-
-if.end142:                                        ; preds = %if.else140, %for.end139
-  br label %if.end143
-
-if.end143:                                        ; preds = %if.end142, %if.then129, %if.then123, %if.end113, %if.then97, %for.end, %if.then77, %if.then70, %if.then62, %if.then41, %if.then26, %if.then21
-  ret void
-}
-
-declare ptr @PyErr_Occurred() #1
-
-; Function Attrs: nounwind uwtable
-define internal i32 @stmt_step(ptr noundef %statement) #0 {
-entry:
-  %statement.addr = alloca ptr, align 8
-  %rc = alloca i32, align 4
-  %_save = alloca ptr, align 8
-  store ptr %statement, ptr %statement.addr, align 8
-  %call = call ptr @PyEval_SaveThread()
-  store ptr %call, ptr %_save, align 8
-  %0 = load ptr, ptr %statement.addr, align 8
-  %call1 = call i32 @sqlite3_step(ptr noundef %0)
-  store i32 %call1, ptr %rc, align 4
-  %1 = load ptr, ptr %_save, align 8
-  call void @PyEval_RestoreThread(ptr noundef %1)
-  %2 = load i32, ptr %rc, align 4
-  ret i32 %2
-}
-
-declare void @PyErr_Print() #1
-
-declare void @PyErr_Clear() #1
-
-declare i32 @_pysqlite_seterror(ptr noundef, ptr noundef) #1
-
-; Function Attrs: nounwind uwtable
-define internal i32 @pysqlite_build_row_cast_map(ptr noundef %self) #0 {
-entry:
-  %op.addr.i167 = alloca ptr, align 8
-  %op.addr.i163 = alloca ptr, align 8
-  %op.addr.i159 = alloca ptr, align 8
-  %op.addr.i157 = alloca ptr, align 8
-  %op.addr.i148 = alloca ptr, align 8
-  %op.addr.i139 = alloca ptr, align 8
-  %op.addr.i130 = alloca ptr, align 8
-  %op.addr.i = alloca ptr, align 8
-  %retval = alloca i32, align 4
-  %self.addr = alloca ptr, align 8
-  %i = alloca i32, align 4
-  %pos = alloca ptr, align 8
-  %decltype = alloca ptr, align 8
-  %converter = alloca ptr, align 8
-  %_tmp_dst_ptr = alloca ptr, align 8
-  %_tmp_old_dst = alloca ptr, align 8
-  %colname = alloca ptr, align 8
-  %_tmp_op_ptr = alloca ptr, align 8
-  %_tmp_old_op = alloca ptr, align 8
-  %type_start = alloca ptr, align 8
-  %state = alloca ptr, align 8
-  %_tmp_op_ptr46 = alloca ptr, align 8
-  %_tmp_old_op48 = alloca ptr, align 8
-  %state82 = alloca ptr, align 8
-  %_tmp_op_ptr95 = alloca ptr, align 8
-  %_tmp_old_op97 = alloca ptr, align 8
-  %_tmp_op_ptr119 = alloca ptr, align 8
-  %_tmp_old_op121 = alloca ptr, align 8
-  store ptr %self, ptr %self.addr, align 8
-  %0 = load ptr, ptr %self.addr, align 8
-  %connection = getelementptr inbounds %struct.pysqlite_Cursor, ptr %0, i32 0, i32 1
-  %1 = load ptr, ptr %connection, align 8
-  %detect_types = getelementptr inbounds %struct.pysqlite_Connection, ptr %1, i32 0, i32 3
-  %2 = load i32, ptr %detect_types, align 8
-  %tobool = icmp ne i32 %2, 0
-  br i1 %tobool, label %if.end, label %if.then
-
-if.then:                                          ; preds = %entry
-  store i32 0, ptr %retval, align 4
-  br label %return
-
-if.end:                                           ; preds = %entry
-  br label %do.body
-
-do.body:                                          ; preds = %if.end
-  %3 = load ptr, ptr %self.addr, align 8
-  %row_cast_map = getelementptr inbounds %struct.pysqlite_Cursor, ptr %3, i32 0, i32 3
-  store ptr %row_cast_map, ptr %_tmp_dst_ptr, align 8
-  %4 = load ptr, ptr %_tmp_dst_ptr, align 8
-  %5 = load ptr, ptr %4, align 8
-  store ptr %5, ptr %_tmp_old_dst, align 8
-  %call = call ptr @PyList_New(i64 noundef 0)
-  %6 = load ptr, ptr %_tmp_dst_ptr, align 8
-  store ptr %call, ptr %6, align 8
-  %7 = load ptr, ptr %_tmp_old_dst, align 8
-  call void @Py_XDECREF(ptr noundef %7)
-  br label %do.end
-
-do.end:                                           ; preds = %do.body
-  %8 = load ptr, ptr %self.addr, align 8
-  %row_cast_map1 = getelementptr inbounds %struct.pysqlite_Cursor, ptr %8, i32 0, i32 3
-  %9 = load ptr, ptr %row_cast_map1, align 8
-  %tobool2 = icmp ne ptr %9, null
-  br i1 %tobool2, label %if.end4, label %if.then3
-
-if.then3:                                         ; preds = %do.end
-  store i32 -1, ptr %retval, align 4
-  br label %return
-
-if.end4:                                          ; preds = %do.end
-  store i32 0, ptr %i, align 4
-  br label %for.cond
-
-for.cond:                                         ; preds = %for.inc128, %if.end4
-  %10 = load i32, ptr %i, align 4
-  %11 = load ptr, ptr %self.addr, align 8
-  %statement = getelementptr inbounds %struct.pysqlite_Cursor, ptr %11, i32 0, i32 8
-  %12 = load ptr, ptr %statement, align 8
-  %st = getelementptr inbounds %struct.pysqlite_Statement, ptr %12, i32 0, i32 1
-  %13 = load ptr, ptr %st, align 8
-  %call5 = call i32 @sqlite3_column_count(ptr noundef %13)
-  %cmp = icmp slt i32 %10, %call5
-  br i1 %cmp, label %for.body, label %for.end129
-
-for.body:                                         ; preds = %for.cond
-  store ptr null, ptr %converter, align 8
-  %14 = load ptr, ptr %self.addr, align 8
-  %connection6 = getelementptr inbounds %struct.pysqlite_Cursor, ptr %14, i32 0, i32 1
-  %15 = load ptr, ptr %connection6, align 8
-  %detect_types7 = getelementptr inbounds %struct.pysqlite_Connection, ptr %15, i32 0, i32 3
-  %16 = load i32, ptr %detect_types7, align 8
-  %and = and i32 %16, 2
-  %tobool8 = icmp ne i32 %and, 0
-  br i1 %tobool8, label %if.then9, label %if.end57
-
-if.then9:                                         ; preds = %for.body
-  %17 = load ptr, ptr %self.addr, align 8
-  %statement10 = getelementptr inbounds %struct.pysqlite_Cursor, ptr %17, i32 0, i32 8
-  %18 = load ptr, ptr %statement10, align 8
-  %st11 = getelementptr inbounds %struct.pysqlite_Statement, ptr %18, i32 0, i32 1
-  %19 = load ptr, ptr %st11, align 8
-  %20 = load i32, ptr %i, align 4
-  %call12 = call ptr @sqlite3_column_name(ptr noundef %19, i32 noundef %20)
-  store ptr %call12, ptr %colname, align 8
-  %21 = load ptr, ptr %colname, align 8
-  %cmp13 = icmp eq ptr %21, null
-  br i1 %cmp13, label %if.then14, label %if.end22
-
-if.then14:                                        ; preds = %if.then9
-  %call15 = call ptr @PyErr_NoMemory()
-  br label %do.body16
-
-do.body16:                                        ; preds = %if.then14
-  %22 = load ptr, ptr %self.addr, align 8
-  %row_cast_map17 = getelementptr inbounds %struct.pysqlite_Cursor, ptr %22, i32 0, i32 3
-  store ptr %row_cast_map17, ptr %_tmp_op_ptr, align 8
-  %23 = load ptr, ptr %_tmp_op_ptr, align 8
-  %24 = load ptr, ptr %23, align 8
-  store ptr %24, ptr %_tmp_old_op, align 8
-  %25 = load ptr, ptr %_tmp_old_op, align 8
-  %cmp18 = icmp ne ptr %25, null
-  br i1 %cmp18, label %if.then19, label %if.end20
-
-if.then19:                                        ; preds = %do.body16
-  %26 = load ptr, ptr %_tmp_op_ptr, align 8
-  store ptr null, ptr %26, align 8
-  %27 = load ptr, ptr %_tmp_old_op, align 8
-  store ptr %27, ptr %op.addr.i148, align 8
-  %28 = load ptr, ptr %op.addr.i148, align 8
-  store ptr %28, ptr %op.addr.i157, align 8
-  %29 = load ptr, ptr %op.addr.i157, align 8
-  %30 = load i64, ptr %29, align 8
-  %conv.i = trunc i64 %30 to i32
-  %cmp.i158 = icmp slt i32 %conv.i, 0
-  %conv1.i = zext i1 %cmp.i158 to i32
-  %tobool.i150 = icmp ne i32 %conv1.i, 0
-  br i1 %tobool.i150, label %if.then.i155, label %if.end.i151
-
-if.then.i155:                                     ; preds = %if.then19
-  br label %Py_DECREF.exit156
-
-if.end.i151:                                      ; preds = %if.then19
-  %31 = load ptr, ptr %op.addr.i148, align 8
-  %32 = load i64, ptr %31, align 8
-  %dec.i152 = add i64 %32, -1
-  store i64 %dec.i152, ptr %31, align 8
-  %cmp.i153 = icmp eq i64 %dec.i152, 0
-  br i1 %cmp.i153, label %if.then1.i154, label %Py_DECREF.exit156
-
-if.then1.i154:                                    ; preds = %if.end.i151
-  %33 = load ptr, ptr %op.addr.i148, align 8
-  call void @_Py_Dealloc(ptr noundef %33) #5
-  br label %Py_DECREF.exit156
-
-Py_DECREF.exit156:                                ; preds = %if.then1.i154, %if.end.i151, %if.then.i155
-  br label %if.end20
-
-if.end20:                                         ; preds = %Py_DECREF.exit156, %do.body16
-  br label %do.end21
-
-do.end21:                                         ; preds = %if.end20
-  store i32 -1, ptr %retval, align 4
-  br label %return
-
-if.end22:                                         ; preds = %if.then9
-  store ptr null, ptr %type_start, align 8
-  %34 = load ptr, ptr %colname, align 8
-  store ptr %34, ptr %pos, align 8
-  br label %for.cond23
-
-for.cond23:                                       ; preds = %for.inc, %if.end22
-  %35 = load ptr, ptr %pos, align 8
-  %36 = load i8, ptr %35, align 1
-  %conv = sext i8 %36 to i32
-  %cmp24 = icmp ne i32 %conv, 0
-  br i1 %cmp24, label %for.body26, label %for.end
-
-for.body26:                                       ; preds = %for.cond23
-  %37 = load ptr, ptr %pos, align 8
-  %38 = load i8, ptr %37, align 1
-  %conv27 = sext i8 %38 to i32
-  %cmp28 = icmp eq i32 %conv27, 91
-  br i1 %cmp28, label %if.then30, label %if.else
-
-if.then30:                                        ; preds = %for.body26
-  %39 = load ptr, ptr %pos, align 8
-  %add.ptr = getelementptr i8, ptr %39, i64 1
-  store ptr %add.ptr, ptr %type_start, align 8
-  br label %if.end56
-
-if.else:                                          ; preds = %for.body26
-  %40 = load ptr, ptr %pos, align 8
-  %41 = load i8, ptr %40, align 1
-  %conv31 = sext i8 %41 to i32
-  %cmp32 = icmp eq i32 %conv31, 93
-  br i1 %cmp32, label %land.lhs.true, label %if.end55
-
-land.lhs.true:                                    ; preds = %if.else
-  %42 = load ptr, ptr %type_start, align 8
-  %cmp34 = icmp ne ptr %42, null
-  br i1 %cmp34, label %if.then36, label %if.end55
-
-if.then36:                                        ; preds = %land.lhs.true
-  %43 = load ptr, ptr %self.addr, align 8
-  %connection37 = getelementptr inbounds %struct.pysqlite_Cursor, ptr %43, i32 0, i32 1
-  %44 = load ptr, ptr %connection37, align 8
-  %state38 = getelementptr inbounds %struct.pysqlite_Connection, ptr %44, i32 0, i32 2
-  %45 = load ptr, ptr %state38, align 8
-  store ptr %45, ptr %state, align 8
-  %46 = load ptr, ptr %state, align 8
-  %47 = load ptr, ptr %type_start, align 8
-  %48 = load ptr, ptr %pos, align 8
-  %49 = load ptr, ptr %type_start, align 8
-  %sub.ptr.lhs.cast = ptrtoint ptr %48 to i64
-  %sub.ptr.rhs.cast = ptrtoint ptr %49 to i64
-  %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
-  %call39 = call ptr @_pysqlite_get_converter(ptr noundef %46, ptr noundef %47, i64 noundef %sub.ptr.sub)
-  store ptr %call39, ptr %converter, align 8
-  %50 = load ptr, ptr %converter, align 8
-  %tobool40 = icmp ne ptr %50, null
-  br i1 %tobool40, label %if.end54, label %land.lhs.true41
-
-land.lhs.true41:                                  ; preds = %if.then36
-  %call42 = call ptr @PyErr_Occurred()
-  %tobool43 = icmp ne ptr %call42, null
-  br i1 %tobool43, label %if.then44, label %if.end54
-
-if.then44:                                        ; preds = %land.lhs.true41
-  br label %do.body45
-
-do.body45:                                        ; preds = %if.then44
-  %51 = load ptr, ptr %self.addr, align 8
-  %row_cast_map47 = getelementptr inbounds %struct.pysqlite_Cursor, ptr %51, i32 0, i32 3
-  store ptr %row_cast_map47, ptr %_tmp_op_ptr46, align 8
-  %52 = load ptr, ptr %_tmp_op_ptr46, align 8
-  %53 = load ptr, ptr %52, align 8
-  store ptr %53, ptr %_tmp_old_op48, align 8
-  %54 = load ptr, ptr %_tmp_old_op48, align 8
-  %cmp49 = icmp ne ptr %54, null
-  br i1 %cmp49, label %if.then51, label %if.end52
-
-if.then51:                                        ; preds = %do.body45
-  %55 = load ptr, ptr %_tmp_op_ptr46, align 8
-  store ptr null, ptr %55, align 8
-  %56 = load ptr, ptr %_tmp_old_op48, align 8
-  store ptr %56, ptr %op.addr.i139, align 8
-  %57 = load ptr, ptr %op.addr.i139, align 8
-  store ptr %57, ptr %op.addr.i159, align 8
-  %58 = load ptr, ptr %op.addr.i159, align 8
-  %59 = load i64, ptr %58, align 8
-  %conv.i160 = trunc i64 %59 to i32
-  %cmp.i161 = icmp slt i32 %conv.i160, 0
-  %conv1.i162 = zext i1 %cmp.i161 to i32
-  %tobool.i141 = icmp ne i32 %conv1.i162, 0
-  br i1 %tobool.i141, label %if.then.i146, label %if.end.i142
-
-if.then.i146:                                     ; preds = %if.then51
-  br label %Py_DECREF.exit147
-
-if.end.i142:                                      ; preds = %if.then51
-  %60 = load ptr, ptr %op.addr.i139, align 8
-  %61 = load i64, ptr %60, align 8
-  %dec.i143 = add i64 %61, -1
-  store i64 %dec.i143, ptr %60, align 8
-  %cmp.i144 = icmp eq i64 %dec.i143, 0
-  br i1 %cmp.i144, label %if.then1.i145, label %Py_DECREF.exit147
-
-if.then1.i145:                                    ; preds = %if.end.i142
-  %62 = load ptr, ptr %op.addr.i139, align 8
-  call void @_Py_Dealloc(ptr noundef %62) #5
-  br label %Py_DECREF.exit147
-
-Py_DECREF.exit147:                                ; preds = %if.then1.i145, %if.end.i142, %if.then.i146
-  br label %if.end52
-
-if.end52:                                         ; preds = %Py_DECREF.exit147, %do.body45
-  br label %do.end53
-
-do.end53:                                         ; preds = %if.end52
-  store i32 -1, ptr %retval, align 4
-  br label %return
-
-if.end54:                                         ; preds = %land.lhs.true41, %if.then36
-  br label %for.end
-
-if.end55:                                         ; preds = %land.lhs.true, %if.else
-  br label %if.end56
-
-if.end56:                                         ; preds = %if.end55, %if.then30
-  br label %for.inc
-
-for.inc:                                          ; preds = %if.end56
-  %63 = load ptr, ptr %pos, align 8
-  %incdec.ptr = getelementptr i8, ptr %63, i32 1
-  store ptr %incdec.ptr, ptr %pos, align 8
-  br label %for.cond23, !llvm.loop !8
-
-for.end:                                          ; preds = %if.end54, %for.cond23
-  br label %if.end57
-
-if.end57:                                         ; preds = %for.end, %for.body
-  %64 = load ptr, ptr %converter, align 8
-  %tobool58 = icmp ne ptr %64, null
-  br i1 %tobool58, label %if.end109, label %land.lhs.true59
-
-land.lhs.true59:                                  ; preds = %if.end57
-  %65 = load ptr, ptr %self.addr, align 8
-  %connection60 = getelementptr inbounds %struct.pysqlite_Cursor, ptr %65, i32 0, i32 1
-  %66 = load ptr, ptr %connection60, align 8
-  %detect_types61 = getelementptr inbounds %struct.pysqlite_Connection, ptr %66, i32 0, i32 3
-  %67 = load i32, ptr %detect_types61, align 8
-  %and62 = and i32 %67, 1
-  %tobool63 = icmp ne i32 %and62, 0
-  br i1 %tobool63, label %if.then64, label %if.end109
-
-if.then64:                                        ; preds = %land.lhs.true59
-  %68 = load ptr, ptr %self.addr, align 8
-  %statement65 = getelementptr inbounds %struct.pysqlite_Cursor, ptr %68, i32 0, i32 8
-  %69 = load ptr, ptr %statement65, align 8
-  %st66 = getelementptr inbounds %struct.pysqlite_Statement, ptr %69, i32 0, i32 1
-  %70 = load ptr, ptr %st66, align 8
-  %71 = load i32, ptr %i, align 4
-  %call67 = call ptr @sqlite3_column_decltype(ptr noundef %70, i32 noundef %71)
-  store ptr %call67, ptr %decltype, align 8
-  %72 = load ptr, ptr %decltype, align 8
-  %tobool68 = icmp ne ptr %72, null
-  br i1 %tobool68, label %if.then69, label %if.end108
-
-if.then69:                                        ; preds = %if.then64
-  %73 = load ptr, ptr %decltype, align 8
-  store ptr %73, ptr %pos, align 8
-  br label %for.cond70
-
-for.cond70:                                       ; preds = %for.inc105, %if.then69
-  %74 = load ptr, ptr %pos, align 8
-  %75 = load i8, ptr %74, align 1
-  %conv71 = sext i8 %75 to i32
-  %cmp72 = icmp eq i32 %conv71, 32
-  br i1 %cmp72, label %if.then81, label %lor.lhs.false
-
-lor.lhs.false:                                    ; preds = %for.cond70
-  %76 = load ptr, ptr %pos, align 8
-  %77 = load i8, ptr %76, align 1
-  %conv74 = sext i8 %77 to i32
-  %cmp75 = icmp eq i32 %conv74, 40
-  br i1 %cmp75, label %if.then81, label %lor.lhs.false77
-
-lor.lhs.false77:                                  ; preds = %lor.lhs.false
-  %78 = load ptr, ptr %pos, align 8
-  %79 = load i8, ptr %78, align 1
-  %conv78 = sext i8 %79 to i32
-  %cmp79 = icmp eq i32 %conv78, 0
-  br i1 %cmp79, label %if.then81, label %if.end104
-
-if.then81:                                        ; preds = %lor.lhs.false77, %lor.lhs.false, %for.cond70
-  %80 = load ptr, ptr %self.addr, align 8
-  %connection83 = getelementptr inbounds %struct.pysqlite_Cursor, ptr %80, i32 0, i32 1
-  %81 = load ptr, ptr %connection83, align 8
-  %state84 = getelementptr inbounds %struct.pysqlite_Connection, ptr %81, i32 0, i32 2
-  %82 = load ptr, ptr %state84, align 8
-  store ptr %82, ptr %state82, align 8
-  %83 = load ptr, ptr %state82, align 8
-  %84 = load ptr, ptr %decltype, align 8
-  %85 = load ptr, ptr %pos, align 8
-  %86 = load ptr, ptr %decltype, align 8
-  %sub.ptr.lhs.cast85 = ptrtoint ptr %85 to i64
-  %sub.ptr.rhs.cast86 = ptrtoint ptr %86 to i64
-  %sub.ptr.sub87 = sub i64 %sub.ptr.lhs.cast85, %sub.ptr.rhs.cast86
-  %call88 = call ptr @_pysqlite_get_converter(ptr noundef %83, ptr noundef %84, i64 noundef %sub.ptr.sub87)
-  store ptr %call88, ptr %converter, align 8
-  %87 = load ptr, ptr %converter, align 8
-  %tobool89 = icmp ne ptr %87, null
-  br i1 %tobool89, label %if.end103, label %land.lhs.true90
-
-land.lhs.true90:                                  ; preds = %if.then81
-  %call91 = call ptr @PyErr_Occurred()
-  %tobool92 = icmp ne ptr %call91, null
-  br i1 %tobool92, label %if.then93, label %if.end103
-
-if.then93:                                        ; preds = %land.lhs.true90
-  br label %do.body94
-
-do.body94:                                        ; preds = %if.then93
-  %88 = load ptr, ptr %self.addr, align 8
-  %row_cast_map96 = getelementptr inbounds %struct.pysqlite_Cursor, ptr %88, i32 0, i32 3
-  store ptr %row_cast_map96, ptr %_tmp_op_ptr95, align 8
-  %89 = load ptr, ptr %_tmp_op_ptr95, align 8
-  %90 = load ptr, ptr %89, align 8
-  store ptr %90, ptr %_tmp_old_op97, align 8
-  %91 = load ptr, ptr %_tmp_old_op97, align 8
-  %cmp98 = icmp ne ptr %91, null
-  br i1 %cmp98, label %if.then100, label %if.end101
-
-if.then100:                                       ; preds = %do.body94
-  %92 = load ptr, ptr %_tmp_op_ptr95, align 8
-  store ptr null, ptr %92, align 8
-  %93 = load ptr, ptr %_tmp_old_op97, align 8
-  store ptr %93, ptr %op.addr.i130, align 8
-  %94 = load ptr, ptr %op.addr.i130, align 8
-  store ptr %94, ptr %op.addr.i163, align 8
-  %95 = load ptr, ptr %op.addr.i163, align 8
-  %96 = load i64, ptr %95, align 8
-  %conv.i164 = trunc i64 %96 to i32
-  %cmp.i165 = icmp slt i32 %conv.i164, 0
-  %conv1.i166 = zext i1 %cmp.i165 to i32
-  %tobool.i132 = icmp ne i32 %conv1.i166, 0
-  br i1 %tobool.i132, label %if.then.i137, label %if.end.i133
-
-if.then.i137:                                     ; preds = %if.then100
-  br label %Py_DECREF.exit138
-
-if.end.i133:                                      ; preds = %if.then100
-  %97 = load ptr, ptr %op.addr.i130, align 8
-  %98 = load i64, ptr %97, align 8
-  %dec.i134 = add i64 %98, -1
-  store i64 %dec.i134, ptr %97, align 8
-  %cmp.i135 = icmp eq i64 %dec.i134, 0
-  br i1 %cmp.i135, label %if.then1.i136, label %Py_DECREF.exit138
-
-if.then1.i136:                                    ; preds = %if.end.i133
-  %99 = load ptr, ptr %op.addr.i130, align 8
-  call void @_Py_Dealloc(ptr noundef %99) #5
-  br label %Py_DECREF.exit138
-
-Py_DECREF.exit138:                                ; preds = %if.then1.i136, %if.end.i133, %if.then.i137
-  br label %if.end101
-
-if.end101:                                        ; preds = %Py_DECREF.exit138, %do.body94
-  br label %do.end102
-
-do.end102:                                        ; preds = %if.end101
-  store i32 -1, ptr %retval, align 4
-  br label %return
-
-if.end103:                                        ; preds = %land.lhs.true90, %if.then81
-  br label %for.end107
-
-if.end104:                                        ; preds = %lor.lhs.false77
-  br label %for.inc105
-
-for.inc105:                                       ; preds = %if.end104
-  %100 = load ptr, ptr %pos, align 8
-  %incdec.ptr106 = getelementptr i8, ptr %100, i32 1
-  store ptr %incdec.ptr106, ptr %pos, align 8
-  br label %for.cond70
-
-for.end107:                                       ; preds = %if.end103
-  br label %if.end108
-
-if.end108:                                        ; preds = %for.end107, %if.then64
-  br label %if.end109
-
-if.end109:                                        ; preds = %if.end108, %land.lhs.true59, %if.end57
-  %101 = load ptr, ptr %converter, align 8
-  %tobool110 = icmp ne ptr %101, null
-  br i1 %tobool110, label %if.end112, label %if.then111
-
-if.then111:                                       ; preds = %if.end109
-  store ptr @_Py_NoneStruct, ptr %converter, align 8
-  br label %if.end112
-
-if.end112:                                        ; preds = %if.then111, %if.end109
-  %102 = load ptr, ptr %self.addr, align 8
-  %row_cast_map113 = getelementptr inbounds %struct.pysqlite_Cursor, ptr %102, i32 0, i32 3
-  %103 = load ptr, ptr %row_cast_map113, align 8
-  %104 = load ptr, ptr %converter, align 8
-  %call114 = call i32 @PyList_Append(ptr noundef %103, ptr noundef %104)
-  %cmp115 = icmp ne i32 %call114, 0
-  br i1 %cmp115, label %if.then117, label %if.end127
-
-if.then117:                                       ; preds = %if.end112
-  br label %do.body118
-
-do.body118:                                       ; preds = %if.then117
-  %105 = load ptr, ptr %self.addr, align 8
-  %row_cast_map120 = getelementptr inbounds %struct.pysqlite_Cursor, ptr %105, i32 0, i32 3
-  store ptr %row_cast_map120, ptr %_tmp_op_ptr119, align 8
-  %106 = load ptr, ptr %_tmp_op_ptr119, align 8
-  %107 = load ptr, ptr %106, align 8
-  store ptr %107, ptr %_tmp_old_op121, align 8
-  %108 = load ptr, ptr %_tmp_old_op121, align 8
-  %cmp122 = icmp ne ptr %108, null
-  br i1 %cmp122, label %if.then124, label %if.end125
-
-if.then124:                                       ; preds = %do.body118
-  %109 = load ptr, ptr %_tmp_op_ptr119, align 8
-  store ptr null, ptr %109, align 8
-  %110 = load ptr, ptr %_tmp_old_op121, align 8
-  store ptr %110, ptr %op.addr.i, align 8
-  %111 = load ptr, ptr %op.addr.i, align 8
-  store ptr %111, ptr %op.addr.i167, align 8
-  %112 = load ptr, ptr %op.addr.i167, align 8
-  %113 = load i64, ptr %112, align 8
-  %conv.i168 = trunc i64 %113 to i32
-  %cmp.i169 = icmp slt i32 %conv.i168, 0
-  %conv1.i170 = zext i1 %cmp.i169 to i32
-  %tobool.i = icmp ne i32 %conv1.i170, 0
-  br i1 %tobool.i, label %if.then.i, label %if.end.i
-
-if.then.i:                                        ; preds = %if.then124
-  br label %Py_DECREF.exit
-
-if.end.i:                                         ; preds = %if.then124
-  %114 = load ptr, ptr %op.addr.i, align 8
-  %115 = load i64, ptr %114, align 8
-  %dec.i = add i64 %115, -1
-  store i64 %dec.i, ptr %114, align 8
-  %cmp.i = icmp eq i64 %dec.i, 0
-  br i1 %cmp.i, label %if.then1.i, label %Py_DECREF.exit
-
-if.then1.i:                                       ; preds = %if.end.i
-  %116 = load ptr, ptr %op.addr.i, align 8
-  call void @_Py_Dealloc(ptr noundef %116) #5
-  br label %Py_DECREF.exit
-
-Py_DECREF.exit:                                   ; preds = %if.then1.i, %if.end.i, %if.then.i
-  br label %if.end125
-
-if.end125:                                        ; preds = %Py_DECREF.exit, %do.body118
-  br label %do.end126
-
-do.end126:                                        ; preds = %if.end125
-  store i32 -1, ptr %retval, align 4
-  br label %return
-
-if.end127:                                        ; preds = %if.end112
-  br label %for.inc128
-
-for.inc128:                                       ; preds = %if.end127
-  %117 = load i32, ptr %i, align 4
-  %inc = add i32 %117, 1
-  store i32 %inc, ptr %i, align 4
-  br label %for.cond, !llvm.loop !9
-
-for.end129:                                       ; preds = %for.cond
-  store i32 0, ptr %retval, align 4
-  br label %return
-
-return:                                           ; preds = %for.end129, %do.end126, %do.end102, %do.end53, %do.end21, %if.then3, %if.then
-  %118 = load i32, ptr %retval, align 4
-  ret i32 %118
-}
-
-declare ptr @_PyErr_FormatFromCause(ptr noundef, ptr noundef, ...) #1
-
-declare ptr @PyEval_SaveThread() #1
-
-declare i32 @sqlite3_column_count(ptr noundef) #1
-
-declare void @PyEval_RestoreThread(ptr noundef) #1
-
-declare ptr @sqlite3_column_name(ptr noundef, i32 noundef) #1
-
-declare ptr @PyErr_NoMemory() #1
-
-; Function Attrs: nounwind uwtable
-define internal ptr @_pysqlite_build_column_name(ptr noundef %self, ptr noundef %colname) #0 {
-entry:
-  %self.addr = alloca ptr, align 8
-  %colname.addr = alloca ptr, align 8
-  %pos = alloca ptr, align 8
-  %len = alloca i64, align 8
-  store ptr %self, ptr %self.addr, align 8
-  store ptr %colname, ptr %colname.addr, align 8
-  %0 = load ptr, ptr %self.addr, align 8
-  %connection = getelementptr inbounds %struct.pysqlite_Cursor, ptr %0, i32 0, i32 1
-  %1 = load ptr, ptr %connection, align 8
-  %detect_types = getelementptr inbounds %struct.pysqlite_Connection, ptr %1, i32 0, i32 3
-  %2 = load i32, ptr %detect_types, align 8
-  %and = and i32 %2, 2
-  %tobool = icmp ne i32 %and, 0
-  br i1 %tobool, label %if.then, label %if.else
-
-if.then:                                          ; preds = %entry
-  %3 = load ptr, ptr %colname.addr, align 8
-  store ptr %3, ptr %pos, align 8
-  br label %for.cond
-
-for.cond:                                         ; preds = %for.inc, %if.then
-  %4 = load ptr, ptr %pos, align 8
-  %5 = load i8, ptr %4, align 1
-  %tobool1 = icmp ne i8 %5, 0
-  br i1 %tobool1, label %for.body, label %for.end
-
-for.body:                                         ; preds = %for.cond
-  %6 = load ptr, ptr %pos, align 8
-  %7 = load i8, ptr %6, align 1
-  %conv = sext i8 %7 to i32
-  %cmp = icmp eq i32 %conv, 91
-  br i1 %cmp, label %if.then3, label %if.end10
-
-if.then3:                                         ; preds = %for.body
-  %8 = load ptr, ptr %pos, align 8
-  %9 = load ptr, ptr %colname.addr, align 8
-  %cmp4 = icmp ne ptr %8, %9
-  br i1 %cmp4, label %land.lhs.true, label %if.end
-
-land.lhs.true:                                    ; preds = %if.then3
-  %10 = load ptr, ptr %pos, align 8
-  %add.ptr = getelementptr i8, ptr %10, i64 -1
-  %11 = load i8, ptr %add.ptr, align 1
-  %conv6 = sext i8 %11 to i32
-  %cmp7 = icmp eq i32 %conv6, 32
-  br i1 %cmp7, label %if.then9, label %if.end
-
-if.then9:                                         ; preds = %land.lhs.true
-  %12 = load ptr, ptr %pos, align 8
-  %incdec.ptr = getelementptr i8, ptr %12, i32 -1
-  store ptr %incdec.ptr, ptr %pos, align 8
-  br label %if.end
-
-if.end:                                           ; preds = %if.then9, %land.lhs.true, %if.then3
-  br label %for.end
-
-if.end10:                                         ; preds = %for.body
-  br label %for.inc
-
-for.inc:                                          ; preds = %if.end10
-  %13 = load ptr, ptr %pos, align 8
-  %incdec.ptr11 = getelementptr i8, ptr %13, i32 1
-  store ptr %incdec.ptr11, ptr %pos, align 8
-  br label %for.cond, !llvm.loop !10
-
-for.end:                                          ; preds = %if.end, %for.cond
-  %14 = load ptr, ptr %pos, align 8
-  %15 = load ptr, ptr %colname.addr, align 8
-  %sub.ptr.lhs.cast = ptrtoint ptr %14 to i64
-  %sub.ptr.rhs.cast = ptrtoint ptr %15 to i64
-  %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
-  store i64 %sub.ptr.sub, ptr %len, align 8
-  br label %if.end12
-
-if.else:                                          ; preds = %entry
-  %16 = load ptr, ptr %colname.addr, align 8
-  %call = call i64 @strlen(ptr noundef %16) #6
-  store i64 %call, ptr %len, align 8
-  br label %if.end12
-
-if.end12:                                         ; preds = %if.else, %for.end
-  %17 = load ptr, ptr %colname.addr, align 8
-  %18 = load i64, ptr %len, align 8
-  %call13 = call ptr @PyUnicode_FromStringAndSize(ptr noundef %17, i64 noundef %18)
-  ret ptr %call13
-}
-
-declare ptr @PyTuple_Pack(i64 noundef, ...) #1
-
-; Function Attrs: nounwind uwtable
-define internal void @PyTuple_SET_ITEM(ptr noundef %op, i64 noundef %index, ptr noundef %value) #0 {
-entry:
-  %op.addr = alloca ptr, align 8
-  %index.addr = alloca i64, align 8
-  %value.addr = alloca ptr, align 8
-  %tuple = alloca ptr, align 8
-  store ptr %op, ptr %op.addr, align 8
-  store i64 %index, ptr %index.addr, align 8
-  store ptr %value, ptr %value.addr, align 8
-  %0 = load ptr, ptr %op.addr, align 8
-  store ptr %0, ptr %tuple, align 8
-  %1 = load ptr, ptr %value.addr, align 8
-  %2 = load ptr, ptr %tuple, align 8
-  %ob_item = getelementptr inbounds %struct.PyTupleObject, ptr %2, i32 0, i32 1
-  %3 = load i64, ptr %index.addr, align 8
-  %arrayidx = getelementptr [1 x ptr], ptr %ob_item, i64 0, i64 %3
-  store ptr %1, ptr %arrayidx, align 8
-  ret void
-}
-
-declare i32 @sqlite3_changes(ptr noundef) #1
-
-declare i64 @sqlite3_last_insert_rowid(ptr noundef) #1
-
-declare ptr @PyLong_FromLongLong(i64 noundef) #1
-
-; Function Attrs: nounwind uwtable
-define hidden i32 @pysqlite_cursor_setup_types(ptr noundef %module) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %module.addr = alloca ptr, align 8
-  %type = alloca ptr, align 8
-  %state = alloca ptr, align 8
-  store ptr %module, ptr %module.addr, align 8
-  %0 = load ptr, ptr %module.addr, align 8
-  %call = call ptr @PyType_FromModuleAndSpec(ptr noundef %0, ptr noundef @cursor_spec, ptr noundef null)
-  store ptr %call, ptr %type, align 8
-  %1 = load ptr, ptr %type, align 8
-  %cmp = icmp eq ptr %1, null
-  br i1 %cmp, label %if.then, label %if.end
-
-if.then:                                          ; preds = %entry
-  store i32 -1, ptr %retval, align 4
-  br label %return
-
-if.end:                                           ; preds = %entry
-  %2 = load ptr, ptr %module.addr, align 8
-  %call1 = call ptr @pysqlite_get_state(ptr noundef %2)
-  store ptr %call1, ptr %state, align 8
-  %3 = load ptr, ptr %type, align 8
-  %4 = load ptr, ptr %state, align 8
-  %CursorType = getelementptr inbounds %struct.pysqlite_state, ptr %4, i32 0, i32 17
-  store ptr %3, ptr %CursorType, align 8
-  store i32 0, ptr %retval, align 4
-  br label %return
-
-return:                                           ; preds = %if.end, %if.then
-  %5 = load i32, ptr %retval, align 4
-  ret i32 %5
-}
-
-declare ptr @PyType_FromModuleAndSpec(ptr noundef, ptr noundef, ptr noundef) #1
-
-; Function Attrs: nounwind uwtable
-define internal ptr @pysqlite_get_state(ptr noundef %module) #0 {
-entry:
-  %module.addr = alloca ptr, align 8
-  %state = alloca ptr, align 8
-  store ptr %module, ptr %module.addr, align 8
-  %0 = load ptr, ptr %module.addr, align 8
-  %call = call ptr @PyModule_GetState(ptr noundef %0)
-  store ptr %call, ptr %state, align 8
-  %1 = load ptr, ptr %state, align 8
-  ret ptr %1
-}
-
-; Function Attrs: nounwind uwtable
-define internal ptr @pysqlite_get_state_by_type(ptr noundef %tp) #0 {
-entry:
-  %tp.addr = alloca ptr, align 8
-  %module = alloca ptr, align 8
-  store ptr %tp, ptr %tp.addr, align 8
-  %0 = load ptr, ptr %tp.addr, align 8
-  %call = call ptr @PyType_GetModuleByDef(ptr noundef %0, ptr noundef @_sqlite3module)
-  store ptr %call, ptr %module, align 8
-  %1 = load ptr, ptr %module, align 8
-  %call1 = call ptr @pysqlite_get_state(ptr noundef %1)
-  ret ptr %call1
-}
-
-; Function Attrs: nounwind uwtable
-define internal ptr @Py_TYPE(ptr noundef %ob) #0 {
-entry:
-  %ob.addr = alloca ptr, align 8
-  store ptr %ob, ptr %ob.addr, align 8
-  %0 = load ptr, ptr %ob.addr, align 8
-  %ob_type = getelementptr inbounds %struct._object, ptr %0, i32 0, i32 1
-  %1 = load ptr, ptr %ob_type, align 8
-  ret ptr %1
-}
-
-declare i32 @pysqlite_check_thread(ptr noundef) #1
-
-declare i32 @pysqlite_check_connection(ptr noundef) #1
-
-; Function Attrs: nounwind uwtable
-define internal i32 @check_cursor_locked(ptr noundef %cur) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %cur.addr = alloca ptr, align 8
-  store ptr %cur, ptr %cur.addr, align 8
-  %0 = load ptr, ptr %cur.addr, align 8
-  %locked = getelementptr inbounds %struct.pysqlite_Cursor, ptr %0, i32 0, i32 10
-  %1 = load i32, ptr %locked, align 4
-  %tobool = icmp ne i32 %1, 0
-  br i1 %tobool, label %if.then, label %if.end
-
-if.then:                                          ; preds = %entry
-  %2 = load ptr, ptr %cur.addr, align 8
-  %connection = getelementptr inbounds %struct.pysqlite_Cursor, ptr %2, i32 0, i32 1
-  %3 = load ptr, ptr %connection, align 8
-  %ProgrammingError = getelementptr inbounds %struct.pysqlite_Connection, ptr %3, i32 0, i32 26
-  %4 = load ptr, ptr %ProgrammingError, align 8
-  call void @PyErr_SetString(ptr noundef %4, ptr noundef @.str.4)
-  store i32 0, ptr %retval, align 4
-  br label %return
-
-if.end:                                           ; preds = %entry
-  store i32 1, ptr %retval, align 4
-  br label %return
-
-return:                                           ; preds = %if.end, %if.then
-  %5 = load i32, ptr %retval, align 4
-  ret i32 %5
-}
-
-declare ptr @PyType_GetModuleByDef(ptr noundef, ptr noundef) #1
-
-declare void @_Py_Dealloc(ptr noundef) #1
-
-declare i32 @sqlite3_reset(ptr noundef) #1
-
-declare ptr @PyObject_Vectorcall(ptr noundef, ptr noundef, i64 noundef, ptr noundef) #1
-
-; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
-
-; Function Attrs: nounwind
-declare ptr @strcat(ptr noundef, ptr noundef) #3
-
-declare i32 @sqlite3_prepare_v2(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) #1
-
-declare i32 @sqlite3_step(ptr noundef) #1
-
-declare i32 @sqlite3_finalize(ptr noundef) #1
-
-declare i32 @sqlite3_bind_parameter_count(ptr noundef) #1
-
-; Function Attrs: nounwind uwtable
-define internal i32 @Py_IS_TYPE(ptr noundef %ob, ptr noundef %type) #0 {
-entry:
-  %ob.addr = alloca ptr, align 8
-  %type.addr = alloca ptr, align 8
-  store ptr %ob, ptr %ob.addr, align 8
-  store ptr %type, ptr %type.addr, align 8
-  %0 = load ptr, ptr %ob.addr, align 8
-  %call = call ptr @Py_TYPE(ptr noundef %0)
-  %1 = load ptr, ptr %type.addr, align 8
-  %cmp = icmp eq ptr %call, %1
-  %conv = zext i1 %cmp to i32
-  ret i32 %conv
-}
-
-; Function Attrs: nounwind uwtable
-define internal i32 @PyType_HasFeature(ptr noundef %type, i64 noundef %feature) #0 {
-entry:
-  %type.addr = alloca ptr, align 8
-  %feature.addr = alloca i64, align 8
-  %flags = alloca i64, align 8
-  store ptr %type, ptr %type.addr, align 8
-  store i64 %feature, ptr %feature.addr, align 8
-  %0 = load ptr, ptr %type.addr, align 8
-  %tp_flags = getelementptr inbounds %struct._typeobject, ptr %0, i32 0, i32 19
-  %1 = load i64, ptr %tp_flags, align 8
-  store i64 %1, ptr %flags, align 8
-  %2 = load i64, ptr %flags, align 8
-  %3 = load i64, ptr %feature.addr, align 8
-  %and = and i64 %2, %3
-  %cmp = icmp ne i64 %and, 0
-  %conv = zext i1 %cmp to i32
-  ret i32 %conv
-}
-
-declare i32 @PySequence_Check(ptr noundef) #1
-
-; Function Attrs: nounwind uwtable
-define internal i64 @PyTuple_GET_SIZE(ptr noundef %op) #0 {
-entry:
-  %op.addr = alloca ptr, align 8
-  %tuple = alloca ptr, align 8
-  store ptr %op, ptr %op.addr, align 8
-  %0 = load ptr, ptr %op.addr, align 8
-  store ptr %0, ptr %tuple, align 8
-  %1 = load ptr, ptr %tuple, align 8
-  %call = call i64 @Py_SIZE(ptr noundef %1)
-  ret i64 %call
-}
-
-; Function Attrs: nounwind uwtable
-define internal i64 @PyList_GET_SIZE(ptr noundef %op) #0 {
-entry:
-  %op.addr = alloca ptr, align 8
-  %list = alloca ptr, align 8
-  store ptr %op, ptr %op.addr, align 8
-  %0 = load ptr, ptr %op.addr, align 8
-  store ptr %0, ptr %list, align 8
-  %1 = load ptr, ptr %list, align 8
-  %call = call i64 @Py_SIZE(ptr noundef %1)
-  ret i64 %call
-}
-
-declare i64 @PySequence_Size(ptr noundef) #1
-
-declare ptr @PyErr_Format(ptr noundef, ptr noundef, ...) #1
-
-declare ptr @sqlite3_bind_parameter_name(ptr noundef, i32 noundef) #1
-
-declare i32 @PyErr_WarnFormat(ptr noundef, i64 noundef, ptr noundef, ...) #1
-
-declare ptr @PyList_GetItem(ptr noundef, i64 noundef) #1
-
-; Function Attrs: nounwind uwtable
-define internal ptr @_Py_XNewRef(ptr noundef %obj) #0 {
-entry:
-  %obj.addr = alloca ptr, align 8
-  store ptr %obj, ptr %obj.addr, align 8
-  %0 = load ptr, ptr %obj.addr, align 8
-  call void @Py_XINCREF(ptr noundef %0)
-  %1 = load ptr, ptr %obj.addr, align 8
-  ret ptr %1
-}
-
-declare ptr @PySequence_GetItem(ptr noundef, i64 noundef) #1
-
-; Function Attrs: nounwind uwtable
-define internal i32 @need_adapt(ptr noundef %state, ptr noundef %obj) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %state.addr = alloca ptr, align 8
-  %obj.addr = alloca ptr, align 8
-  store ptr %state, ptr %state.addr, align 8
-  store ptr %obj, ptr %obj.addr, align 8
-  %0 = load ptr, ptr %state.addr, align 8
-  %BaseTypeAdapted = getelementptr inbounds %struct.pysqlite_state, ptr %0, i32 0, i32 13
-  %1 = load i32, ptr %BaseTypeAdapted, align 8
-  %tobool = icmp ne i32 %1, 0
-  br i1 %tobool, label %if.then, label %if.end
-
-if.then:                                          ; preds = %entry
-  store i32 1, ptr %retval, align 4
-  br label %return
-
-if.end:                                           ; preds = %entry
-  %2 = load ptr, ptr %obj.addr, align 8
-  %call = call i32 @Py_IS_TYPE(ptr noundef %2, ptr noundef @PyLong_Type)
-  %tobool1 = icmp ne i32 %call, 0
-  br i1 %tobool1, label %if.then10, label %lor.lhs.false
-
-lor.lhs.false:                                    ; preds = %if.end
-  %3 = load ptr, ptr %obj.addr, align 8
-  %call2 = call i32 @Py_IS_TYPE(ptr noundef %3, ptr noundef @PyFloat_Type)
-  %tobool3 = icmp ne i32 %call2, 0
-  br i1 %tobool3, label %if.then10, label %lor.lhs.false4
-
-lor.lhs.false4:                                   ; preds = %lor.lhs.false
-  %4 = load ptr, ptr %obj.addr, align 8
-  %call5 = call i32 @Py_IS_TYPE(ptr noundef %4, ptr noundef @PyUnicode_Type)
-  %tobool6 = icmp ne i32 %call5, 0
-  br i1 %tobool6, label %if.then10, label %lor.lhs.false7
-
-lor.lhs.false7:                                   ; preds = %lor.lhs.false4
-  %5 = load ptr, ptr %obj.addr, align 8
-  %call8 = call i32 @Py_IS_TYPE(ptr noundef %5, ptr noundef @PyByteArray_Type)
-  %tobool9 = icmp ne i32 %call8, 0
-  br i1 %tobool9, label %if.then10, label %if.else
-
-if.then10:                                        ; preds = %lor.lhs.false7, %lor.lhs.false4, %lor.lhs.false, %if.end
-  store i32 0, ptr %retval, align 4
-  br label %return
-
-if.else:                                          ; preds = %lor.lhs.false7
-  store i32 1, ptr %retval, align 4
-  br label %return
-
-return:                                           ; preds = %if.else, %if.then10, %if.then
-  %6 = load i32, ptr %retval, align 4
-  ret i32 %6
-}
-
-declare ptr @pysqlite_microprotocols_adapt(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #1
-
-; Function Attrs: nounwind uwtable
-define internal i32 @bind_param(ptr noundef %state, ptr noundef %self, i32 noundef %pos, ptr noundef %parameter) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %state.addr = alloca ptr, align 8
-  %self.addr = alloca ptr, align 8
-  %pos.addr = alloca i32, align 4
-  %parameter.addr = alloca ptr, align 8
-  %rc = alloca i32, align 4
-  %string = alloca ptr, align 8
-  %buflen = alloca i64, align 8
-  %paramtype = alloca i32, align 4
-  %value = alloca i64, align 8
-  %value46 = alloca double, align 8
-  %view = alloca %struct.Py_buffer, align 8
-  store ptr %state, ptr %state.addr, align 8
-  store ptr %self, ptr %self.addr, align 8
-  store i32 %pos, ptr %pos.addr, align 4
-  store ptr %parameter, ptr %parameter.addr, align 8
-  store i32 0, ptr %rc, align 4
-  %0 = load ptr, ptr %parameter.addr, align 8
-  %cmp = icmp eq ptr %0, @_Py_NoneStruct
-  br i1 %cmp, label %if.then, label %if.end
-
-if.then:                                          ; preds = %entry
-  %1 = load ptr, ptr %self.addr, align 8
-  %st = getelementptr inbounds %struct.pysqlite_Statement, ptr %1, i32 0, i32 1
-  %2 = load ptr, ptr %st, align 8
-  %3 = load i32, ptr %pos.addr, align 4
-  %call = call i32 @sqlite3_bind_null(ptr noundef %2, i32 noundef %3)
-  store i32 %call, ptr %rc, align 4
-  br label %final
-
-if.end:                                           ; preds = %entry
-  %4 = load ptr, ptr %parameter.addr, align 8
-  %call1 = call i32 @Py_IS_TYPE(ptr noundef %4, ptr noundef @PyLong_Type)
-  %tobool = icmp ne i32 %call1, 0
-  br i1 %tobool, label %if.then2, label %if.else
-
-if.then2:                                         ; preds = %if.end
-  store i32 0, ptr %paramtype, align 4
-  br label %if.end35
-
-if.else:                                          ; preds = %if.end
-  %5 = load ptr, ptr %parameter.addr, align 8
-  %call3 = call i32 @Py_IS_TYPE(ptr noundef %5, ptr noundef @PyFloat_Type)
-  %tobool4 = icmp ne i32 %call3, 0
-  br i1 %tobool4, label %if.then5, label %if.else6
-
-if.then5:                                         ; preds = %if.else
-  store i32 1, ptr %paramtype, align 4
-  br label %if.end34
-
-if.else6:                                         ; preds = %if.else
-  %6 = load ptr, ptr %parameter.addr, align 8
-  %call7 = call i32 @Py_IS_TYPE(ptr noundef %6, ptr noundef @PyUnicode_Type)
-  %tobool8 = icmp ne i32 %call7, 0
-  br i1 %tobool8, label %if.then9, label %if.else10
-
-if.then9:                                         ; preds = %if.else6
-  store i32 2, ptr %paramtype, align 4
-  br label %if.end33
-
-if.else10:                                        ; preds = %if.else6
-  %7 = load ptr, ptr %parameter.addr, align 8
-  %call11 = call ptr @Py_TYPE(ptr noundef %7)
-  %call12 = call i32 @PyType_HasFeature(ptr noundef %call11, i64 noundef 16777216)
-  %tobool13 = icmp ne i32 %call12, 0
-  br i1 %tobool13, label %if.then14, label %if.else15
-
-if.then14:                                        ; preds = %if.else10
-  store i32 0, ptr %paramtype, align 4
-  br label %if.end32
-
-if.else15:                                        ; preds = %if.else10
-  %8 = load ptr, ptr %parameter.addr, align 8
-  %call16 = call i32 @PyObject_TypeCheck(ptr noundef %8, ptr noundef @PyFloat_Type)
-  %tobool17 = icmp ne i32 %call16, 0
-  br i1 %tobool17, label %if.then18, label %if.else19
-
-if.then18:                                        ; preds = %if.else15
-  store i32 1, ptr %paramtype, align 4
-  br label %if.end31
-
-if.else19:                                        ; preds = %if.else15
-  %9 = load ptr, ptr %parameter.addr, align 8
-  %call20 = call ptr @Py_TYPE(ptr noundef %9)
-  %call21 = call i32 @PyType_HasFeature(ptr noundef %call20, i64 noundef 268435456)
-  %tobool22 = icmp ne i32 %call21, 0
-  br i1 %tobool22, label %if.then23, label %if.else24
-
-if.then23:                                        ; preds = %if.else19
-  store i32 2, ptr %paramtype, align 4
-  br label %if.end30
-
-if.else24:                                        ; preds = %if.else19
-  %10 = load ptr, ptr %parameter.addr, align 8
-  %call25 = call i32 @PyObject_CheckBuffer(ptr noundef %10)
-  %tobool26 = icmp ne i32 %call25, 0
-  br i1 %tobool26, label %if.then27, label %if.else28
-
-if.then27:                                        ; preds = %if.else24
-  store i32 3, ptr %paramtype, align 4
-  br label %if.end29
-
-if.else28:                                        ; preds = %if.else24
-  store i32 4, ptr %paramtype, align 4
-  br label %if.end29
-
-if.end29:                                         ; preds = %if.else28, %if.then27
-  br label %if.end30
-
-if.end30:                                         ; preds = %if.end29, %if.then23
-  br label %if.end31
-
-if.end31:                                         ; preds = %if.end30, %if.then18
-  br label %if.end32
-
-if.end32:                                         ; preds = %if.end31, %if.then14
-  br label %if.end33
-
-if.end33:                                         ; preds = %if.end32, %if.then9
-  br label %if.end34
-
-if.end34:                                         ; preds = %if.end33, %if.then5
-  br label %if.end35
-
-if.end35:                                         ; preds = %if.end34, %if.then2
-  %11 = load i32, ptr %paramtype, align 4
-  switch i32 %11, label %sw.epilog [
-    i32 0, label %sw.bb
-    i32 1, label %sw.bb45
-    i32 2, label %sw.bb57
-    i32 3, label %sw.bb67
-    i32 4, label %sw.bb81
+  br label %270
+
+270:                                              ; preds = %269, %268
+  br label %271
+
+271:                                              ; preds = %270, %260
+  %272 = load ptr, ptr %22, align 8, !tbaa !3
+  %273 = load ptr, ptr %6, align 8, !tbaa !3
+  %274 = getelementptr inbounds nuw %struct.pysqlite_Cursor, ptr %273, i32 0, i32 1
+  %275 = load ptr, ptr %274, align 8, !tbaa !19
+  %276 = getelementptr inbounds nuw %struct.pysqlite_Connection, ptr %275, i32 0, i32 1
+  %277 = load ptr, ptr %276, align 8, !tbaa !34
+  %278 = call i32 @_pysqlite_seterror(ptr noundef %272, ptr noundef %277)
+  br label %421
+
+279:                                              ; preds = %257, %248
+  %280 = load ptr, ptr %6, align 8, !tbaa !3
+  %281 = call i32 @pysqlite_build_row_cast_map(ptr noundef %280)
+  %282 = icmp ne i32 %281, 0
+  br i1 %282, label %283, label %288
+
+283:                                              ; preds = %279
+  %284 = load ptr, ptr %22, align 8, !tbaa !3
+  %285 = getelementptr inbounds nuw %struct.pysqlite_state, ptr %284, i32 0, i32 7
+  %286 = load ptr, ptr %285, align 8, !tbaa !36
+  %287 = call ptr (ptr, ptr, ...) @_PyErr_FormatFromCause(ptr noundef %286, ptr noundef @.str.1)
+  br label %421
+
+288:                                              ; preds = %279
+  call void @llvm.lifetime.start.p0(i64 8, ptr %25) #8
+  %289 = call ptr @PyEval_SaveThread()
+  store ptr %289, ptr %25, align 8, !tbaa !37
+  %290 = load ptr, ptr %6, align 8, !tbaa !3
+  %291 = getelementptr inbounds nuw %struct.pysqlite_Cursor, ptr %290, i32 0, i32 8
+  %292 = load ptr, ptr %291, align 8, !tbaa !18
+  %293 = getelementptr inbounds nuw %struct.pysqlite_Statement, ptr %292, i32 0, i32 1
+  %294 = load ptr, ptr %293, align 8, !tbaa !25
+  %295 = call i32 @sqlite3_column_count(ptr noundef %294)
+  store i32 %295, ptr %15, align 4, !tbaa !7
+  %296 = load ptr, ptr %25, align 8, !tbaa !37
+  call void @PyEval_RestoreThread(ptr noundef %296)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %25) #8
+  %297 = load ptr, ptr %6, align 8, !tbaa !3
+  %298 = getelementptr inbounds nuw %struct.pysqlite_Cursor, ptr %297, i32 0, i32 2
+  %299 = load ptr, ptr %298, align 8, !tbaa !39
+  %300 = icmp eq ptr %299, @_Py_NoneStruct
+  br i1 %300, label %301, label %368
+
+301:                                              ; preds = %288
+  %302 = load i32, ptr %15, align 4, !tbaa !7
+  %303 = icmp sgt i32 %302, 0
+  br i1 %303, label %304, label %368
+
+304:                                              ; preds = %301
+  br label %305
+
+305:                                              ; preds = %304
+  call void @llvm.lifetime.start.p0(i64 8, ptr %26) #8
+  %306 = load ptr, ptr %6, align 8, !tbaa !3
+  %307 = getelementptr inbounds nuw %struct.pysqlite_Cursor, ptr %306, i32 0, i32 2
+  store ptr %307, ptr %26, align 8, !tbaa !16
+  call void @llvm.lifetime.start.p0(i64 8, ptr %27) #8
+  %308 = load ptr, ptr %26, align 8, !tbaa !16
+  %309 = load ptr, ptr %308, align 8, !tbaa !9
+  store ptr %309, ptr %27, align 8, !tbaa !9
+  %310 = load i32, ptr %15, align 4, !tbaa !7
+  %311 = sext i32 %310 to i64
+  %312 = call ptr @PyTuple_New(i64 noundef %311)
+  %313 = load ptr, ptr %26, align 8, !tbaa !16
+  store ptr %312, ptr %313, align 8, !tbaa !9
+  %314 = load ptr, ptr %27, align 8, !tbaa !9
+  call void @Py_DECREF(ptr noundef %314)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %27) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %26) #8
+  br label %315
+
+315:                                              ; preds = %305
+  br label %316
+
+316:                                              ; preds = %315
+  %317 = load ptr, ptr %6, align 8, !tbaa !3
+  %318 = getelementptr inbounds nuw %struct.pysqlite_Cursor, ptr %317, i32 0, i32 2
+  %319 = load ptr, ptr %318, align 8, !tbaa !39
+  %320 = icmp ne ptr %319, null
+  br i1 %320, label %322, label %321
+
+321:                                              ; preds = %316
+  br label %421
+
+322:                                              ; preds = %316
+  store i32 0, ptr %13, align 4, !tbaa !7
+  br label %323
+
+323:                                              ; preds = %364, %322
+  %324 = load i32, ptr %13, align 4, !tbaa !7
+  %325 = load i32, ptr %15, align 4, !tbaa !7
+  %326 = icmp slt i32 %324, %325
+  br i1 %326, label %327, label %367
+
+327:                                              ; preds = %323
+  call void @llvm.lifetime.start.p0(i64 8, ptr %28) #8
+  %328 = load ptr, ptr %6, align 8, !tbaa !3
+  %329 = getelementptr inbounds nuw %struct.pysqlite_Cursor, ptr %328, i32 0, i32 8
+  %330 = load ptr, ptr %329, align 8, !tbaa !18
+  %331 = getelementptr inbounds nuw %struct.pysqlite_Statement, ptr %330, i32 0, i32 1
+  %332 = load ptr, ptr %331, align 8, !tbaa !25
+  %333 = load i32, ptr %13, align 4, !tbaa !7
+  %334 = call ptr @sqlite3_column_name(ptr noundef %332, i32 noundef %333)
+  store ptr %334, ptr %28, align 8, !tbaa !40
+  %335 = load ptr, ptr %28, align 8, !tbaa !40
+  %336 = icmp eq ptr %335, null
+  br i1 %336, label %337, label %339
+
+337:                                              ; preds = %327
+  %338 = call ptr @PyErr_NoMemory()
+  store i32 2, ptr %30, align 4
+  br label %361
+
+339:                                              ; preds = %327
+  %340 = load ptr, ptr %6, align 8, !tbaa !3
+  %341 = load ptr, ptr %28, align 8, !tbaa !40
+  %342 = call ptr @_pysqlite_build_column_name(ptr noundef %340, ptr noundef %341)
+  store ptr %342, ptr %16, align 8, !tbaa !9
+  %343 = load ptr, ptr %16, align 8, !tbaa !9
+  %344 = icmp eq ptr %343, null
+  br i1 %344, label %345, label %346
+
+345:                                              ; preds = %339
+  store i32 2, ptr %30, align 4
+  br label %361
+
+346:                                              ; preds = %339
+  call void @llvm.lifetime.start.p0(i64 8, ptr %29) #8
+  %347 = load ptr, ptr %16, align 8, !tbaa !9
+  %348 = call ptr (i64, ...) @PyTuple_Pack(i64 noundef 7, ptr noundef %347, ptr noundef @_Py_NoneStruct, ptr noundef @_Py_NoneStruct, ptr noundef @_Py_NoneStruct, ptr noundef @_Py_NoneStruct, ptr noundef @_Py_NoneStruct, ptr noundef @_Py_NoneStruct)
+  store ptr %348, ptr %29, align 8, !tbaa !9
+  %349 = load ptr, ptr %16, align 8, !tbaa !9
+  call void @Py_DECREF(ptr noundef %349)
+  %350 = load ptr, ptr %29, align 8, !tbaa !9
+  %351 = icmp eq ptr %350, null
+  br i1 %351, label %352, label %353
+
+352:                                              ; preds = %346
+  store i32 2, ptr %30, align 4
+  br label %360
+
+353:                                              ; preds = %346
+  %354 = load ptr, ptr %6, align 8, !tbaa !3
+  %355 = getelementptr inbounds nuw %struct.pysqlite_Cursor, ptr %354, i32 0, i32 2
+  %356 = load ptr, ptr %355, align 8, !tbaa !39
+  %357 = load i32, ptr %13, align 4, !tbaa !7
+  %358 = sext i32 %357 to i64
+  %359 = load ptr, ptr %29, align 8, !tbaa !9
+  call void @PyTuple_SET_ITEM(ptr noundef %356, i64 noundef %358, ptr noundef %359)
+  store i32 0, ptr %30, align 4
+  br label %360
+
+360:                                              ; preds = %352, %353
+  call void @llvm.lifetime.end.p0(i64 8, ptr %29) #8
+  br label %361
+
+361:                                              ; preds = %345, %337, %360
+  call void @llvm.lifetime.end.p0(i64 8, ptr %28) #8
+  %362 = load i32, ptr %30, align 4
+  switch i32 %362, label %485 [
+    i32 0, label %363
+    i32 2, label %421
   ]
 
-sw.bb:                                            ; preds = %if.end35
-  %12 = load ptr, ptr %parameter.addr, align 8
-  %call36 = call i64 @_pysqlite_long_as_int64(ptr noundef %12)
-  store i64 %call36, ptr %value, align 8
-  %13 = load i64, ptr %value, align 8
-  %cmp37 = icmp eq i64 %13, -1
-  br i1 %cmp37, label %land.lhs.true, label %if.else41
+363:                                              ; preds = %361
+  br label %364
 
-land.lhs.true:                                    ; preds = %sw.bb
-  %call38 = call ptr @PyErr_Occurred()
-  %tobool39 = icmp ne ptr %call38, null
-  br i1 %tobool39, label %if.then40, label %if.else41
+364:                                              ; preds = %363
+  %365 = load i32, ptr %13, align 4, !tbaa !7
+  %366 = add i32 %365, 1
+  store i32 %366, ptr %13, align 4, !tbaa !7
+  br label %323, !llvm.loop !41
 
-if.then40:                                        ; preds = %land.lhs.true
-  store i32 -1, ptr %rc, align 4
-  br label %if.end44
+367:                                              ; preds = %323
+  br label %368
 
-if.else41:                                        ; preds = %land.lhs.true, %sw.bb
-  %14 = load ptr, ptr %self.addr, align 8
-  %st42 = getelementptr inbounds %struct.pysqlite_Statement, ptr %14, i32 0, i32 1
-  %15 = load ptr, ptr %st42, align 8
-  %16 = load i32, ptr %pos.addr, align 4
-  %17 = load i64, ptr %value, align 8
-  %call43 = call i32 @sqlite3_bind_int64(ptr noundef %15, i32 noundef %16, i64 noundef %17)
-  store i32 %call43, ptr %rc, align 4
-  br label %if.end44
+368:                                              ; preds = %367, %301, %288
+  %369 = load i32, ptr %14, align 4, !tbaa !7
+  %370 = icmp eq i32 %369, 101
+  br i1 %370, label %371, label %395
 
-if.end44:                                         ; preds = %if.else41, %if.then40
-  br label %sw.epilog
+371:                                              ; preds = %368
+  %372 = load ptr, ptr %6, align 8, !tbaa !3
+  %373 = getelementptr inbounds nuw %struct.pysqlite_Cursor, ptr %372, i32 0, i32 8
+  %374 = load ptr, ptr %373, align 8, !tbaa !18
+  %375 = getelementptr inbounds nuw %struct.pysqlite_Statement, ptr %374, i32 0, i32 2
+  %376 = load i32, ptr %375, align 8, !tbaa !30
+  %377 = icmp ne i32 %376, 0
+  br i1 %377, label %378, label %390
 
-sw.bb45:                                          ; preds = %if.end35
-  %18 = load ptr, ptr %parameter.addr, align 8
-  %call47 = call double @PyFloat_AsDouble(ptr noundef %18)
-  store double %call47, ptr %value46, align 8
-  %19 = load double, ptr %value46, align 8
-  %cmp48 = fcmp oeq double %19, -1.000000e+00
-  br i1 %cmp48, label %land.lhs.true49, label %if.else53
+378:                                              ; preds = %371
+  %379 = load ptr, ptr %6, align 8, !tbaa !3
+  %380 = getelementptr inbounds nuw %struct.pysqlite_Cursor, ptr %379, i32 0, i32 1
+  %381 = load ptr, ptr %380, align 8, !tbaa !19
+  %382 = getelementptr inbounds nuw %struct.pysqlite_Connection, ptr %381, i32 0, i32 1
+  %383 = load ptr, ptr %382, align 8, !tbaa !34
+  %384 = call i32 @sqlite3_changes(ptr noundef %383)
+  %385 = sext i32 %384 to i64
+  %386 = load ptr, ptr %6, align 8, !tbaa !3
+  %387 = getelementptr inbounds nuw %struct.pysqlite_Cursor, ptr %386, i32 0, i32 6
+  %388 = load i64, ptr %387, align 8, !tbaa !31
+  %389 = add i64 %388, %385
+  store i64 %389, ptr %387, align 8, !tbaa !31
+  br label %390
 
-land.lhs.true49:                                  ; preds = %sw.bb45
-  %call50 = call ptr @PyErr_Occurred()
-  %tobool51 = icmp ne ptr %call50, null
-  br i1 %tobool51, label %if.then52, label %if.else53
+390:                                              ; preds = %378, %371
+  %391 = load ptr, ptr %6, align 8, !tbaa !3
+  %392 = getelementptr inbounds nuw %struct.pysqlite_Cursor, ptr %391, i32 0, i32 8
+  %393 = load ptr, ptr %392, align 8, !tbaa !18
+  %394 = call i32 @stmt_reset(ptr noundef %393)
+  br label %395
 
-if.then52:                                        ; preds = %land.lhs.true49
-  store i32 -1, ptr %rc, align 4
-  br label %if.end56
+395:                                              ; preds = %390, %368
+  %396 = load ptr, ptr %12, align 8, !tbaa !9
+  call void @Py_XDECREF(ptr noundef %396)
+  br label %232
 
-if.else53:                                        ; preds = %land.lhs.true49, %sw.bb45
-  %20 = load ptr, ptr %self.addr, align 8
-  %st54 = getelementptr inbounds %struct.pysqlite_Statement, ptr %20, i32 0, i32 1
-  %21 = load ptr, ptr %st54, align 8
-  %22 = load i32, ptr %pos.addr, align 4
-  %23 = load double, ptr %value46, align 8
-  %call55 = call i32 @sqlite3_bind_double(ptr noundef %21, i32 noundef %22, double noundef %23)
-  store i32 %call55, ptr %rc, align 4
-  br label %if.end56
+397:                                              ; preds = %238
+  %398 = load i32, ptr %7, align 4, !tbaa !7
+  %399 = icmp ne i32 %398, 0
+  br i1 %399, label %420, label %400
 
-if.end56:                                         ; preds = %if.else53, %if.then52
-  br label %sw.epilog
+400:                                              ; preds = %397
+  call void @llvm.lifetime.start.p0(i64 8, ptr %31) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %32) #8
+  %401 = call ptr @PyEval_SaveThread()
+  store ptr %401, ptr %32, align 8, !tbaa !37
+  %402 = load ptr, ptr %6, align 8, !tbaa !3
+  %403 = getelementptr inbounds nuw %struct.pysqlite_Cursor, ptr %402, i32 0, i32 1
+  %404 = load ptr, ptr %403, align 8, !tbaa !19
+  %405 = getelementptr inbounds nuw %struct.pysqlite_Connection, ptr %404, i32 0, i32 1
+  %406 = load ptr, ptr %405, align 8, !tbaa !34
+  %407 = call i64 @sqlite3_last_insert_rowid(ptr noundef %406)
+  store i64 %407, ptr %31, align 8, !tbaa !43
+  %408 = load ptr, ptr %32, align 8, !tbaa !37
+  call void @PyEval_RestoreThread(ptr noundef %408)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %32) #8
+  br label %409
 
-sw.bb57:                                          ; preds = %if.end35
-  %24 = load ptr, ptr %parameter.addr, align 8
-  %call58 = call ptr @PyUnicode_AsUTF8AndSize(ptr noundef %24, ptr noundef %buflen)
-  store ptr %call58, ptr %string, align 8
-  %25 = load ptr, ptr %string, align 8
-  %cmp59 = icmp eq ptr %25, null
-  br i1 %cmp59, label %if.then60, label %if.end61
+409:                                              ; preds = %400
+  call void @llvm.lifetime.start.p0(i64 8, ptr %33) #8
+  %410 = load ptr, ptr %6, align 8, !tbaa !3
+  %411 = getelementptr inbounds nuw %struct.pysqlite_Cursor, ptr %410, i32 0, i32 5
+  store ptr %411, ptr %33, align 8, !tbaa !16
+  call void @llvm.lifetime.start.p0(i64 8, ptr %34) #8
+  %412 = load ptr, ptr %33, align 8, !tbaa !16
+  %413 = load ptr, ptr %412, align 8, !tbaa !9
+  store ptr %413, ptr %34, align 8, !tbaa !9
+  %414 = load i64, ptr %31, align 8, !tbaa !43
+  %415 = call ptr @PyLong_FromLongLong(i64 noundef %414)
+  %416 = load ptr, ptr %33, align 8, !tbaa !16
+  store ptr %415, ptr %416, align 8, !tbaa !9
+  %417 = load ptr, ptr %34, align 8, !tbaa !9
+  call void @Py_DECREF(ptr noundef %417)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %34) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %33) #8
+  br label %418
 
-if.then60:                                        ; preds = %sw.bb57
-  store i32 -1, ptr %retval, align 4
-  br label %return
+418:                                              ; preds = %409
+  br label %419
 
-if.end61:                                         ; preds = %sw.bb57
-  %26 = load i64, ptr %buflen, align 8
-  %cmp62 = icmp sgt i64 %26, 2147483647
-  br i1 %cmp62, label %if.then63, label %if.end64
+419:                                              ; preds = %418
+  call void @llvm.lifetime.end.p0(i64 8, ptr %31) #8
+  br label %420
 
-if.then63:                                        ; preds = %if.end61
-  %27 = load ptr, ptr @PyExc_OverflowError, align 8
-  call void @PyErr_SetString(ptr noundef %27, ptr noundef @.str.10)
-  store i32 -1, ptr %retval, align 4
-  br label %return
+420:                                              ; preds = %419, %397
+  br label %421
 
-if.end64:                                         ; preds = %if.end61
-  %28 = load ptr, ptr %self.addr, align 8
-  %st65 = getelementptr inbounds %struct.pysqlite_Statement, ptr %28, i32 0, i32 1
-  %29 = load ptr, ptr %st65, align 8
-  %30 = load i32, ptr %pos.addr, align 4
-  %31 = load ptr, ptr %string, align 8
-  %32 = load i64, ptr %buflen, align 8
-  %conv = trunc i64 %32 to i32
-  %33 = inttoptr i64 -1 to ptr
-  %call66 = call i32 @sqlite3_bind_text(ptr noundef %29, i32 noundef %30, ptr noundef %31, i32 noundef %conv, ptr noundef %33)
-  store i32 %call66, ptr %rc, align 4
-  br label %sw.epilog
+421:                                              ; preds = %420, %361, %321, %283, %271, %247, %229, %179, %148, %131, %92, %84, %75, %67, %60, %42
+  %422 = load ptr, ptr %12, align 8, !tbaa !9
+  call void @Py_XDECREF(ptr noundef %422)
+  %423 = load ptr, ptr %11, align 8, !tbaa !9
+  call void @Py_XDECREF(ptr noundef %423)
+  %424 = load ptr, ptr %10, align 8, !tbaa !9
+  call void @Py_XDECREF(ptr noundef %424)
+  %425 = load ptr, ptr %6, align 8, !tbaa !3
+  %426 = getelementptr inbounds nuw %struct.pysqlite_Cursor, ptr %425, i32 0, i32 10
+  store i32 0, ptr %426, align 4, !tbaa !11
+  %427 = call ptr @PyErr_Occurred()
+  %428 = icmp ne ptr %427, null
+  br i1 %428, label %429, label %455
 
-sw.bb67:                                          ; preds = %if.end35
-  %34 = load ptr, ptr %parameter.addr, align 8
-  %call68 = call i32 @PyObject_GetBuffer(ptr noundef %34, ptr noundef %view, i32 noundef 0)
-  %cmp69 = icmp ne i32 %call68, 0
-  br i1 %cmp69, label %if.then71, label %if.end72
+429:                                              ; preds = %421
+  %430 = load ptr, ptr %6, align 8, !tbaa !3
+  %431 = getelementptr inbounds nuw %struct.pysqlite_Cursor, ptr %430, i32 0, i32 8
+  %432 = load ptr, ptr %431, align 8, !tbaa !18
+  %433 = icmp ne ptr %432, null
+  br i1 %433, label %434, label %452
 
-if.then71:                                        ; preds = %sw.bb67
-  store i32 -1, ptr %retval, align 4
-  br label %return
+434:                                              ; preds = %429
+  %435 = load ptr, ptr %6, align 8, !tbaa !3
+  %436 = getelementptr inbounds nuw %struct.pysqlite_Cursor, ptr %435, i32 0, i32 8
+  %437 = load ptr, ptr %436, align 8, !tbaa !18
+  %438 = call i32 @stmt_reset(ptr noundef %437)
+  br label %439
 
-if.end72:                                         ; preds = %sw.bb67
-  %len = getelementptr inbounds %struct.Py_buffer, ptr %view, i32 0, i32 2
-  %35 = load i64, ptr %len, align 8
-  %cmp73 = icmp sgt i64 %35, 2147483647
-  br i1 %cmp73, label %if.then75, label %if.end76
+439:                                              ; preds = %434
+  call void @llvm.lifetime.start.p0(i64 8, ptr %35) #8
+  %440 = load ptr, ptr %6, align 8, !tbaa !3
+  %441 = getelementptr inbounds nuw %struct.pysqlite_Cursor, ptr %440, i32 0, i32 8
+  store ptr %441, ptr %35, align 8, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %36) #8
+  %442 = load ptr, ptr %35, align 8, !tbaa !3
+  %443 = load ptr, ptr %442, align 8, !tbaa !3
+  store ptr %443, ptr %36, align 8, !tbaa !3
+  %444 = load ptr, ptr %36, align 8, !tbaa !3
+  %445 = icmp ne ptr %444, null
+  br i1 %445, label %446, label %449
 
-if.then75:                                        ; preds = %if.end72
-  %36 = load ptr, ptr @PyExc_OverflowError, align 8
-  call void @PyErr_SetString(ptr noundef %36, ptr noundef @.str.11)
-  call void @PyBuffer_Release(ptr noundef %view)
-  store i32 -1, ptr %retval, align 4
-  br label %return
+446:                                              ; preds = %439
+  %447 = load ptr, ptr %35, align 8, !tbaa !3
+  store ptr null, ptr %447, align 8, !tbaa !3
+  %448 = load ptr, ptr %36, align 8, !tbaa !3
+  call void @Py_DECREF(ptr noundef %448)
+  br label %449
 
-if.end76:                                         ; preds = %if.end72
-  %37 = load ptr, ptr %self.addr, align 8
-  %st77 = getelementptr inbounds %struct.pysqlite_Statement, ptr %37, i32 0, i32 1
-  %38 = load ptr, ptr %st77, align 8
-  %39 = load i32, ptr %pos.addr, align 4
-  %buf = getelementptr inbounds %struct.Py_buffer, ptr %view, i32 0, i32 0
-  %40 = load ptr, ptr %buf, align 8
-  %len78 = getelementptr inbounds %struct.Py_buffer, ptr %view, i32 0, i32 2
-  %41 = load i64, ptr %len78, align 8
-  %conv79 = trunc i64 %41 to i32
-  %42 = inttoptr i64 -1 to ptr
-  %call80 = call i32 @sqlite3_bind_blob(ptr noundef %38, i32 noundef %39, ptr noundef %40, i32 noundef %conv79, ptr noundef %42)
-  store i32 %call80, ptr %rc, align 4
-  call void @PyBuffer_Release(ptr noundef %view)
-  br label %sw.epilog
+449:                                              ; preds = %446, %439
+  call void @llvm.lifetime.end.p0(i64 8, ptr %36) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %35) #8
+  br label %450
 
-sw.bb81:                                          ; preds = %if.end35
-  %43 = load ptr, ptr %state.addr, align 8
-  %ProgrammingError = getelementptr inbounds %struct.pysqlite_state, ptr %43, i32 0, i32 8
-  %44 = load ptr, ptr %ProgrammingError, align 8
-  %45 = load i32, ptr %pos.addr, align 4
-  %46 = load ptr, ptr %parameter.addr, align 8
-  %call82 = call ptr @Py_TYPE(ptr noundef %46)
-  %tp_name = getelementptr inbounds %struct._typeobject, ptr %call82, i32 0, i32 1
-  %47 = load ptr, ptr %tp_name, align 8
-  %call83 = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %44, ptr noundef @.str.12, i32 noundef %45, ptr noundef %47)
-  store i32 -1, ptr %rc, align 4
-  br label %sw.epilog
+450:                                              ; preds = %449
+  br label %451
 
-sw.epilog:                                        ; preds = %sw.bb81, %if.end76, %if.end64, %if.end56, %if.end44, %if.end35
-  br label %final
+451:                                              ; preds = %450
+  br label %452
 
-final:                                            ; preds = %sw.epilog, %if.then
-  %48 = load i32, ptr %rc, align 4
-  store i32 %48, ptr %retval, align 4
-  br label %return
+452:                                              ; preds = %451, %429
+  %453 = load ptr, ptr %6, align 8, !tbaa !3
+  %454 = getelementptr inbounds nuw %struct.pysqlite_Cursor, ptr %453, i32 0, i32 6
+  store i64 -1, ptr %454, align 8, !tbaa !31
+  store ptr null, ptr %5, align 8
+  store i32 1, ptr %30, align 4
+  br label %485
 
-return:                                           ; preds = %final, %if.then75, %if.then71, %if.then63, %if.then60
-  %49 = load i32, ptr %retval, align 4
+455:                                              ; preds = %421
+  %456 = load ptr, ptr %6, align 8, !tbaa !3
+  %457 = getelementptr inbounds nuw %struct.pysqlite_Cursor, ptr %456, i32 0, i32 8
+  %458 = load ptr, ptr %457, align 8, !tbaa !18
+  %459 = icmp ne ptr %458, null
+  br i1 %459, label %460, label %482
+
+460:                                              ; preds = %455
+  %461 = load ptr, ptr %6, align 8, !tbaa !3
+  %462 = getelementptr inbounds nuw %struct.pysqlite_Cursor, ptr %461, i32 0, i32 8
+  %463 = load ptr, ptr %462, align 8, !tbaa !18
+  %464 = getelementptr inbounds nuw %struct.pysqlite_Statement, ptr %463, i32 0, i32 1
+  %465 = load ptr, ptr %464, align 8, !tbaa !25
+  %466 = call i32 @sqlite3_stmt_busy(ptr noundef %465)
+  %467 = icmp ne i32 %466, 0
+  br i1 %467, label %482, label %468
+
+468:                                              ; preds = %460
+  br label %469
+
+469:                                              ; preds = %468
+  call void @llvm.lifetime.start.p0(i64 8, ptr %37) #8
+  %470 = load ptr, ptr %6, align 8, !tbaa !3
+  %471 = getelementptr inbounds nuw %struct.pysqlite_Cursor, ptr %470, i32 0, i32 8
+  store ptr %471, ptr %37, align 8, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %38) #8
+  %472 = load ptr, ptr %37, align 8, !tbaa !3
+  %473 = load ptr, ptr %472, align 8, !tbaa !3
+  store ptr %473, ptr %38, align 8, !tbaa !3
+  %474 = load ptr, ptr %38, align 8, !tbaa !3
+  %475 = icmp ne ptr %474, null
+  br i1 %475, label %476, label %479
+
+476:                                              ; preds = %469
+  %477 = load ptr, ptr %37, align 8, !tbaa !3
+  store ptr null, ptr %477, align 8, !tbaa !3
+  %478 = load ptr, ptr %38, align 8, !tbaa !3
+  call void @Py_DECREF(ptr noundef %478)
+  br label %479
+
+479:                                              ; preds = %476, %469
+  call void @llvm.lifetime.end.p0(i64 8, ptr %38) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %37) #8
+  br label %480
+
+480:                                              ; preds = %479
+  br label %481
+
+481:                                              ; preds = %480
+  br label %482
+
+482:                                              ; preds = %481, %460, %455
+  %483 = load ptr, ptr %6, align 8, !tbaa !3
+  %484 = call ptr @_Py_NewRef(ptr noundef %483)
+  store ptr %484, ptr %5, align 8
+  store i32 1, ptr %30, align 4
+  br label %485
+
+485:                                              ; preds = %482, %452, %361
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %15) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #8
+  %486 = load ptr, ptr %5, align 8
+  ret ptr %486
+}
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+
+; Function Attrs: nounwind uwtable
+define internal i32 @check_cursor(ptr noundef %0) #0 {
+  %2 = alloca i32, align 4
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  %5 = load ptr, ptr %3, align 8, !tbaa !3
+  %6 = getelementptr inbounds nuw %struct.pysqlite_Cursor, ptr %5, i32 0, i32 11
+  %7 = load i32, ptr %6, align 8, !tbaa !45
+  %8 = icmp ne i32 %7, 0
+  br i1 %8, label %16, label %9
+
+9:                                                ; preds = %1
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #8
+  %10 = load ptr, ptr %3, align 8, !tbaa !3
+  %11 = call ptr @_Py_TYPE(ptr noundef %10)
+  %12 = call ptr @pysqlite_get_state_by_type(ptr noundef %11)
+  store ptr %12, ptr %4, align 8, !tbaa !3
+  %13 = load ptr, ptr %4, align 8, !tbaa !3
+  %14 = getelementptr inbounds nuw %struct.pysqlite_state, ptr %13, i32 0, i32 8
+  %15 = load ptr, ptr %14, align 8, !tbaa !28
+  call void @PyErr_SetString(ptr noundef %15, ptr noundef @.str.2)
+  store i32 0, ptr %2, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #8
+  br label %48
+
+16:                                               ; preds = %1
+  %17 = load ptr, ptr %3, align 8, !tbaa !3
+  %18 = getelementptr inbounds nuw %struct.pysqlite_Cursor, ptr %17, i32 0, i32 9
+  %19 = load i32, ptr %18, align 8, !tbaa !46
+  %20 = icmp ne i32 %19, 0
+  br i1 %20, label %21, label %29
+
+21:                                               ; preds = %16
+  %22 = load ptr, ptr %3, align 8, !tbaa !3
+  %23 = getelementptr inbounds nuw %struct.pysqlite_Cursor, ptr %22, i32 0, i32 1
+  %24 = load ptr, ptr %23, align 8, !tbaa !19
+  %25 = getelementptr inbounds nuw %struct.pysqlite_Connection, ptr %24, i32 0, i32 2
+  %26 = load ptr, ptr %25, align 8, !tbaa !20
+  %27 = getelementptr inbounds nuw %struct.pysqlite_state, ptr %26, i32 0, i32 8
+  %28 = load ptr, ptr %27, align 8, !tbaa !28
+  call void @PyErr_SetString(ptr noundef %28, ptr noundef @.str.3)
+  store i32 0, ptr %2, align 4
+  br label %48
+
+29:                                               ; preds = %16
+  %30 = load ptr, ptr %3, align 8, !tbaa !3
+  %31 = getelementptr inbounds nuw %struct.pysqlite_Cursor, ptr %30, i32 0, i32 1
+  %32 = load ptr, ptr %31, align 8, !tbaa !19
+  %33 = call i32 @pysqlite_check_thread(ptr noundef %32)
+  %34 = icmp ne i32 %33, 0
+  br i1 %34, label %35, label %45
+
+35:                                               ; preds = %29
+  %36 = load ptr, ptr %3, align 8, !tbaa !3
+  %37 = getelementptr inbounds nuw %struct.pysqlite_Cursor, ptr %36, i32 0, i32 1
+  %38 = load ptr, ptr %37, align 8, !tbaa !19
+  %39 = call i32 @pysqlite_check_connection(ptr noundef %38)
+  %40 = icmp ne i32 %39, 0
+  br i1 %40, label %41, label %45
+
+41:                                               ; preds = %35
+  %42 = load ptr, ptr %3, align 8, !tbaa !3
+  %43 = call i32 @check_cursor_locked(ptr noundef %42)
+  %44 = icmp ne i32 %43, 0
+  br label %45
+
+45:                                               ; preds = %41, %35, %29
+  %46 = phi i1 [ false, %35 ], [ false, %29 ], [ %44, %41 ]
+  %47 = zext i1 %46 to i32
+  store i32 %47, ptr %2, align 4
+  br label %48
+
+48:                                               ; preds = %45, %21, %9
+  %49 = load i32, ptr %2, align 4
   ret i32 %49
 }
 
-declare ptr @PyErr_GetRaisedException() #1
+declare i32 @PyIter_Check(ptr noundef) #2
 
-declare ptr @sqlite3_db_handle(ptr noundef) #1
-
-declare void @_PyErr_ChainExceptions1(ptr noundef) #1
-
-declare i32 @PyMapping_GetOptionalItemString(ptr noundef, ptr noundef, ptr noundef) #1
-
-declare i32 @PyErr_ExceptionMatches(ptr noundef) #1
-
-; Function Attrs: nounwind uwtable
-define internal i64 @Py_SIZE(ptr noundef %ob) #0 {
-entry:
-  %ob.addr = alloca ptr, align 8
-  %var_ob = alloca ptr, align 8
-  store ptr %ob, ptr %ob.addr, align 8
-  %0 = load ptr, ptr %ob.addr, align 8
-  store ptr %0, ptr %var_ob, align 8
-  %1 = load ptr, ptr %var_ob, align 8
-  %ob_size = getelementptr inbounds %struct.PyVarObject, ptr %1, i32 0, i32 1
-  %2 = load i64, ptr %ob_size, align 8
-  ret i64 %2
+; Function Attrs: inlinehint nounwind uwtable
+define internal ptr @_Py_NewRef(ptr noundef %0) #3 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !9
+  %3 = load ptr, ptr %2, align 8, !tbaa !9
+  call void @Py_INCREF(ptr noundef %3)
+  %4 = load ptr, ptr %2, align 8, !tbaa !9
+  ret ptr %4
 }
 
-; Function Attrs: nounwind uwtable
-define internal void @Py_XINCREF(ptr noundef %op) #0 {
-entry:
-  %op.addr.i = alloca ptr, align 8
-  %cur_refcnt.i = alloca i32, align 4
-  %new_refcnt.i = alloca i32, align 4
-  %op.addr = alloca ptr, align 8
-  store ptr %op, ptr %op.addr, align 8
-  %0 = load ptr, ptr %op.addr, align 8
-  %cmp = icmp ne ptr %0, null
-  br i1 %cmp, label %if.then, label %if.end
+declare ptr @PyObject_GetIter(ptr noundef) #2
 
-if.then:                                          ; preds = %entry
-  %1 = load ptr, ptr %op.addr, align 8
-  store ptr %1, ptr %op.addr.i, align 8
-  %2 = load ptr, ptr %op.addr.i, align 8
-  %3 = load i32, ptr %2, align 8
-  store i32 %3, ptr %cur_refcnt.i, align 4
-  %4 = load i32, ptr %cur_refcnt.i, align 4
-  %add.i = add i32 %4, 1
-  store i32 %add.i, ptr %new_refcnt.i, align 4
-  %5 = load i32, ptr %new_refcnt.i, align 4
-  %cmp.i = icmp eq i32 %5, 0
-  br i1 %cmp.i, label %if.then.i, label %if.end.i
+declare ptr @PyList_New(i64 noundef) #2
 
-if.then.i:                                        ; preds = %if.then
-  br label %Py_INCREF.exit
+declare ptr @PyTuple_New(i64 noundef) #2
 
-if.end.i:                                         ; preds = %if.then
-  %6 = load i32, ptr %new_refcnt.i, align 4
-  %7 = load ptr, ptr %op.addr.i, align 8
-  store i32 %6, ptr %7, align 8
-  br label %Py_INCREF.exit
+; Function Attrs: alwaysinline nounwind uwtable
+define internal void @Py_INCREF(ptr noundef %0) #4 {
+  %2 = alloca ptr, align 8
+  %3 = alloca i32, align 4
+  %4 = alloca i32, align 4
+  store ptr %0, ptr %2, align 8, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %3) #8
+  %5 = load ptr, ptr %2, align 8, !tbaa !9
+  %6 = getelementptr inbounds nuw %struct._object, ptr %5, i32 0, i32 0
+  %7 = getelementptr inbounds nuw %struct.anon, ptr %6, i32 0, i32 0
+  %8 = load i32, ptr %7, align 8, !tbaa !47
+  store i32 %8, ptr %3, align 4, !tbaa !7
+  %9 = load i32, ptr %3, align 4, !tbaa !7
+  %10 = icmp slt i32 %9, 0
+  br i1 %10, label %11, label %12
 
-Py_INCREF.exit:                                   ; preds = %if.end.i, %if.then.i
-  br label %if.end
+11:                                               ; preds = %1
+  store i32 1, ptr %4, align 4
+  br label %18
 
-if.end:                                           ; preds = %Py_INCREF.exit, %entry
+12:                                               ; preds = %1
+  %13 = load i32, ptr %3, align 4, !tbaa !7
+  %14 = add i32 %13, 1
+  %15 = load ptr, ptr %2, align 8, !tbaa !9
+  %16 = getelementptr inbounds nuw %struct._object, ptr %15, i32 0, i32 0
+  %17 = getelementptr inbounds nuw %struct.anon, ptr %16, i32 0, i32 0
+  store i32 %14, ptr %17, align 8, !tbaa !47
+  store i32 0, ptr %4, align 4
+  br label %18
+
+18:                                               ; preds = %12, %11
+  call void @llvm.lifetime.end.p0(i64 4, ptr %3) #8
+  %19 = load i32, ptr %4, align 4
+  switch i32 %19, label %21 [
+    i32 0, label %20
+    i32 1, label %20
+  ]
+
+20:                                               ; preds = %18, %18
+  ret void
+
+21:                                               ; preds = %18
+  unreachable
+}
+
+declare i32 @PyList_Append(ptr noundef, ptr noundef) #2
+
+; Function Attrs: alwaysinline nounwind uwtable
+define internal void @Py_DECREF(ptr noundef %0) #4 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !9
+  %3 = load ptr, ptr %2, align 8, !tbaa !9
+  %4 = call i32 @_Py_IsImmortal(ptr noundef %3)
+  %5 = icmp ne i32 %4, 0
+  br i1 %5, label %6, label %7
+
+6:                                                ; preds = %1
+  br label %16
+
+7:                                                ; preds = %1
+  %8 = load ptr, ptr %2, align 8, !tbaa !9
+  %9 = getelementptr inbounds nuw %struct._object, ptr %8, i32 0, i32 0
+  %10 = getelementptr inbounds nuw %struct.anon, ptr %9, i32 0, i32 0
+  %11 = load i32, ptr %10, align 8, !tbaa !47
+  %12 = add i32 %11, -1
+  store i32 %12, ptr %10, align 8, !tbaa !47
+  %13 = icmp eq i32 %12, 0
+  br i1 %13, label %14, label %16
+
+14:                                               ; preds = %7
+  %15 = load ptr, ptr %2, align 8, !tbaa !9
+  call void @_Py_Dealloc(ptr noundef %15)
+  br label %16
+
+16:                                               ; preds = %6, %14, %7
   ret void
 }
 
-declare i32 @sqlite3_bind_null(ptr noundef, i32 noundef) #1
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
-; Function Attrs: nounwind uwtable
-define internal i32 @PyObject_TypeCheck(ptr noundef %ob, ptr noundef %type) #0 {
-entry:
-  %ob.addr = alloca ptr, align 8
-  %type.addr = alloca ptr, align 8
-  store ptr %ob, ptr %ob.addr, align 8
-  store ptr %type, ptr %type.addr, align 8
-  %0 = load ptr, ptr %ob.addr, align 8
-  %1 = load ptr, ptr %type.addr, align 8
-  %call = call i32 @Py_IS_TYPE(ptr noundef %0, ptr noundef %1)
-  %tobool = icmp ne i32 %call, 0
-  br i1 %tobool, label %lor.end, label %lor.rhs
+; Function Attrs: inlinehint nounwind uwtable
+define internal i32 @stmt_reset(ptr noundef %0) #3 {
+  %2 = alloca ptr, align 8
+  %3 = alloca i32, align 4
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %3) #8
+  store i32 0, ptr %3, align 4, !tbaa !7
+  %5 = load ptr, ptr %2, align 8, !tbaa !3
+  %6 = getelementptr inbounds nuw %struct.pysqlite_Statement, ptr %5, i32 0, i32 1
+  %7 = load ptr, ptr %6, align 8, !tbaa !25
+  %8 = icmp ne ptr %7, null
+  br i1 %8, label %9, label %16
 
-lor.rhs:                                          ; preds = %entry
-  %2 = load ptr, ptr %ob.addr, align 8
-  %call1 = call ptr @Py_TYPE(ptr noundef %2)
-  %3 = load ptr, ptr %type.addr, align 8
-  %call2 = call i32 @PyType_IsSubtype(ptr noundef %call1, ptr noundef %3)
-  %tobool3 = icmp ne i32 %call2, 0
-  br label %lor.end
+9:                                                ; preds = %1
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #8
+  %10 = call ptr @PyEval_SaveThread()
+  store ptr %10, ptr %4, align 8, !tbaa !37
+  %11 = load ptr, ptr %2, align 8, !tbaa !3
+  %12 = getelementptr inbounds nuw %struct.pysqlite_Statement, ptr %11, i32 0, i32 1
+  %13 = load ptr, ptr %12, align 8, !tbaa !25
+  %14 = call i32 @sqlite3_reset(ptr noundef %13)
+  store i32 %14, ptr %3, align 4, !tbaa !7
+  %15 = load ptr, ptr %4, align 8, !tbaa !37
+  call void @PyEval_RestoreThread(ptr noundef %15)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #8
+  br label %16
 
-lor.end:                                          ; preds = %lor.rhs, %entry
-  %4 = phi i1 [ true, %entry ], [ %tobool3, %lor.rhs ]
-  %lor.ext = zext i1 %4 to i32
-  ret i32 %lor.ext
+16:                                               ; preds = %9, %1
+  %17 = load i32, ptr %3, align 4, !tbaa !7
+  call void @llvm.lifetime.end.p0(i64 4, ptr %3) #8
+  ret i32 %17
 }
 
-declare i32 @PyObject_CheckBuffer(ptr noundef) #1
-
-declare i64 @_pysqlite_long_as_int64(ptr noundef) #1
-
-declare i32 @sqlite3_bind_int64(ptr noundef, i32 noundef, i64 noundef) #1
-
-declare double @PyFloat_AsDouble(ptr noundef) #1
-
-declare i32 @sqlite3_bind_double(ptr noundef, i32 noundef, double noundef) #1
-
-declare ptr @PyUnicode_AsUTF8AndSize(ptr noundef, ptr noundef) #1
-
-declare i32 @sqlite3_bind_text(ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef) #1
-
-declare i32 @PyObject_GetBuffer(ptr noundef, ptr noundef, i32 noundef) #1
-
-declare void @PyBuffer_Release(ptr noundef) #1
-
-declare i32 @sqlite3_bind_blob(ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef) #1
-
-declare i32 @PyType_IsSubtype(ptr noundef, ptr noundef) #1
-
 ; Function Attrs: nounwind uwtable
-define internal ptr @_pysqlite_get_converter(ptr noundef %state, ptr noundef %keystr, i64 noundef %keylen) #0 {
-entry:
-  %op.addr.i18 = alloca ptr, align 8
-  %op.addr.i16 = alloca ptr, align 8
-  %op.addr.i7 = alloca ptr, align 8
-  %op.addr.i = alloca ptr, align 8
-  %retval = alloca ptr, align 8
-  %state.addr = alloca ptr, align 8
-  %keystr.addr = alloca ptr, align 8
-  %keylen.addr = alloca i64, align 8
-  %key = alloca ptr, align 8
-  %upcase_key = alloca ptr, align 8
-  %retval1 = alloca ptr, align 8
-  store ptr %state, ptr %state.addr, align 8
-  store ptr %keystr, ptr %keystr.addr, align 8
-  store i64 %keylen, ptr %keylen.addr, align 8
-  %0 = load ptr, ptr %keystr.addr, align 8
-  %1 = load i64, ptr %keylen.addr, align 8
-  %call = call ptr @PyUnicode_FromStringAndSize(ptr noundef %0, i64 noundef %1)
-  store ptr %call, ptr %key, align 8
-  %2 = load ptr, ptr %key, align 8
-  %tobool = icmp ne ptr %2, null
-  br i1 %tobool, label %if.end, label %if.then
-
-if.then:                                          ; preds = %entry
-  store ptr null, ptr %retval, align 8
-  br label %return
-
-if.end:                                           ; preds = %entry
-  %3 = load ptr, ptr %key, align 8
-  %4 = load ptr, ptr %state.addr, align 8
-  %str_upper = getelementptr inbounds %struct.pysqlite_state, ptr %4, i32 0, i32 27
-  %5 = load ptr, ptr %str_upper, align 8
-  %call2 = call ptr @PyObject_CallMethodNoArgs(ptr noundef %3, ptr noundef %5)
-  store ptr %call2, ptr %upcase_key, align 8
-  %6 = load ptr, ptr %key, align 8
-  store ptr %6, ptr %op.addr.i7, align 8
-  %7 = load ptr, ptr %op.addr.i7, align 8
-  store ptr %7, ptr %op.addr.i16, align 8
-  %8 = load ptr, ptr %op.addr.i16, align 8
-  %9 = load i64, ptr %8, align 8
-  %conv.i = trunc i64 %9 to i32
-  %cmp.i17 = icmp slt i32 %conv.i, 0
-  %conv1.i = zext i1 %cmp.i17 to i32
-  %tobool.i9 = icmp ne i32 %conv1.i, 0
-  br i1 %tobool.i9, label %if.then.i14, label %if.end.i10
-
-if.then.i14:                                      ; preds = %if.end
-  br label %Py_DECREF.exit15
-
-if.end.i10:                                       ; preds = %if.end
-  %10 = load ptr, ptr %op.addr.i7, align 8
-  %11 = load i64, ptr %10, align 8
-  %dec.i11 = add i64 %11, -1
-  store i64 %dec.i11, ptr %10, align 8
-  %cmp.i12 = icmp eq i64 %dec.i11, 0
-  br i1 %cmp.i12, label %if.then1.i13, label %Py_DECREF.exit15
-
-if.then1.i13:                                     ; preds = %if.end.i10
-  %12 = load ptr, ptr %op.addr.i7, align 8
-  call void @_Py_Dealloc(ptr noundef %12) #5
-  br label %Py_DECREF.exit15
-
-Py_DECREF.exit15:                                 ; preds = %if.then1.i13, %if.end.i10, %if.then.i14
-  %13 = load ptr, ptr %upcase_key, align 8
-  %tobool3 = icmp ne ptr %13, null
-  br i1 %tobool3, label %if.end5, label %if.then4
-
-if.then4:                                         ; preds = %Py_DECREF.exit15
-  store ptr null, ptr %retval, align 8
-  br label %return
-
-if.end5:                                          ; preds = %Py_DECREF.exit15
-  %14 = load ptr, ptr %state.addr, align 8
-  %converters = getelementptr inbounds %struct.pysqlite_state, ptr %14, i32 0, i32 10
-  %15 = load ptr, ptr %converters, align 8
-  %16 = load ptr, ptr %upcase_key, align 8
-  %call6 = call ptr @PyDict_GetItemWithError(ptr noundef %15, ptr noundef %16)
-  store ptr %call6, ptr %retval1, align 8
-  %17 = load ptr, ptr %upcase_key, align 8
-  store ptr %17, ptr %op.addr.i, align 8
-  %18 = load ptr, ptr %op.addr.i, align 8
-  store ptr %18, ptr %op.addr.i18, align 8
-  %19 = load ptr, ptr %op.addr.i18, align 8
-  %20 = load i64, ptr %19, align 8
-  %conv.i19 = trunc i64 %20 to i32
-  %cmp.i20 = icmp slt i32 %conv.i19, 0
-  %conv1.i21 = zext i1 %cmp.i20 to i32
-  %tobool.i = icmp ne i32 %conv1.i21, 0
-  br i1 %tobool.i, label %if.then.i, label %if.end.i
-
-if.then.i:                                        ; preds = %if.end5
-  br label %Py_DECREF.exit
-
-if.end.i:                                         ; preds = %if.end5
-  %21 = load ptr, ptr %op.addr.i, align 8
-  %22 = load i64, ptr %21, align 8
-  %dec.i = add i64 %22, -1
-  store i64 %dec.i, ptr %21, align 8
-  %cmp.i = icmp eq i64 %dec.i, 0
-  br i1 %cmp.i, label %if.then1.i, label %Py_DECREF.exit
-
-if.then1.i:                                       ; preds = %if.end.i
-  %23 = load ptr, ptr %op.addr.i, align 8
-  call void @_Py_Dealloc(ptr noundef %23) #5
-  br label %Py_DECREF.exit
-
-Py_DECREF.exit:                                   ; preds = %if.then1.i, %if.end.i, %if.then.i
-  %24 = load ptr, ptr %retval1, align 8
-  store ptr %24, ptr %retval, align 8
-  br label %return
-
-return:                                           ; preds = %Py_DECREF.exit, %if.then4, %if.then
-  %25 = load ptr, ptr %retval, align 8
-  ret ptr %25
+define internal ptr @get_statement_from_cache(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca [2 x ptr], align 16
+  %6 = alloca ptr, align 8
+  %7 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  store ptr %1, ptr %4, align 8, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 16, ptr %5) #8
+  store ptr null, ptr %5, align 8, !tbaa !9
+  %8 = getelementptr inbounds ptr, ptr %5, i64 1
+  %9 = load ptr, ptr %4, align 8, !tbaa !9
+  store ptr %9, ptr %8, align 8, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #8
+  %10 = load ptr, ptr %3, align 8, !tbaa !3
+  %11 = getelementptr inbounds nuw %struct.pysqlite_Cursor, ptr %10, i32 0, i32 1
+  %12 = load ptr, ptr %11, align 8, !tbaa !19
+  %13 = getelementptr inbounds nuw %struct.pysqlite_Connection, ptr %12, i32 0, i32 9
+  %14 = load ptr, ptr %13, align 8, !tbaa !48
+  store ptr %14, ptr %6, align 8, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #8
+  store i64 -9223372036854775807, ptr %7, align 8, !tbaa !49
+  %15 = load ptr, ptr %6, align 8, !tbaa !9
+  %16 = getelementptr inbounds [2 x ptr], ptr %5, i64 0, i64 0
+  %17 = getelementptr ptr, ptr %16, i64 1
+  %18 = load i64, ptr %7, align 8, !tbaa !49
+  %19 = call ptr @PyObject_Vectorcall(ptr noundef %15, ptr noundef %17, i64 noundef %18, ptr noundef null)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #8
+  call void @llvm.lifetime.end.p0(i64 16, ptr %5) #8
+  ret ptr %19
 }
 
-declare ptr @sqlite3_column_decltype(ptr noundef, i32 noundef) #1
+; Function Attrs: inlinehint nounwind uwtable
+define internal void @Py_XDECREF(ptr noundef %0) #3 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !9
+  %3 = load ptr, ptr %2, align 8, !tbaa !9
+  %4 = icmp ne ptr %3, null
+  br i1 %4, label %5, label %7
 
-declare ptr @PyUnicode_FromStringAndSize(ptr noundef, i64 noundef) #1
+5:                                                ; preds = %1
+  %6 = load ptr, ptr %2, align 8, !tbaa !9
+  call void @Py_DECREF(ptr noundef %6)
+  br label %7
 
-; Function Attrs: nounwind uwtable
-define internal ptr @PyObject_CallMethodNoArgs(ptr noundef %self, ptr noundef %name) #0 {
-entry:
-  %self.addr = alloca ptr, align 8
-  %name.addr = alloca ptr, align 8
-  %nargsf = alloca i64, align 8
-  store ptr %self, ptr %self.addr, align 8
-  store ptr %name, ptr %name.addr, align 8
-  store i64 -9223372036854775807, ptr %nargsf, align 8
-  %0 = load ptr, ptr %name.addr, align 8
-  %1 = load i64, ptr %nargsf, align 8
-  %call = call ptr @PyObject_VectorcallMethod(ptr noundef %0, ptr noundef %self.addr, i64 noundef %1, ptr noundef null)
-  ret ptr %call
+7:                                                ; preds = %5, %1
+  ret void
 }
 
-declare ptr @PyDict_GetItemWithError(ptr noundef, ptr noundef) #1
+declare i32 @sqlite3_stmt_readonly(ptr noundef) #2
 
-declare ptr @PyObject_VectorcallMethod(ptr noundef, ptr noundef, i64 noundef, ptr noundef) #1
+declare void @PyErr_SetString(ptr noundef, ptr noundef) #2
+
+declare i32 @sqlite3_stmt_busy(ptr noundef) #2
+
+declare ptr @pysqlite_statement_create(ptr noundef, ptr noundef) #2
+
+declare i32 @sqlite3_get_autocommit(ptr noundef) #2
+
+; Function Attrs: nounwind uwtable
+define internal i32 @begin_transaction(ptr noundef %0) #0 {
+  %2 = alloca i32, align 4
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca [16 x i8], align 16
+  %8 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %4) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #8
+  %9 = call ptr @PyEval_SaveThread()
+  store ptr %9, ptr %5, align 8, !tbaa !37
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #8
+  call void @llvm.lifetime.start.p0(i64 16, ptr %7) #8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 16 %7, ptr align 16 @__const.begin_transaction.begin_stmt, i64 16, i1 false)
+  %10 = getelementptr inbounds [16 x i8], ptr %7, i64 0, i64 0
+  %11 = load ptr, ptr %3, align 8, !tbaa !3
+  %12 = getelementptr inbounds nuw %struct.pysqlite_Connection, ptr %11, i32 0, i32 4
+  %13 = load ptr, ptr %12, align 8, !tbaa !33
+  %14 = call ptr @strcat(ptr noundef %10, ptr noundef %13) #8
+  %15 = load ptr, ptr %3, align 8, !tbaa !3
+  %16 = getelementptr inbounds nuw %struct.pysqlite_Connection, ptr %15, i32 0, i32 1
+  %17 = load ptr, ptr %16, align 8, !tbaa !34
+  %18 = getelementptr inbounds [16 x i8], ptr %7, i64 0, i64 0
+  %19 = call i32 @sqlite3_prepare_v2(ptr noundef %17, ptr noundef %18, i32 noundef -1, ptr noundef %6, ptr noundef null)
+  store i32 %19, ptr %4, align 4, !tbaa !7
+  %20 = load i32, ptr %4, align 4, !tbaa !7
+  %21 = icmp eq i32 %20, 0
+  br i1 %21, label %22, label %27
+
+22:                                               ; preds = %1
+  %23 = load ptr, ptr %6, align 8, !tbaa !50
+  %24 = call i32 @sqlite3_step(ptr noundef %23)
+  %25 = load ptr, ptr %6, align 8, !tbaa !50
+  %26 = call i32 @sqlite3_finalize(ptr noundef %25)
+  store i32 %26, ptr %4, align 4, !tbaa !7
+  br label %27
+
+27:                                               ; preds = %22, %1
+  %28 = load ptr, ptr %5, align 8, !tbaa !37
+  call void @PyEval_RestoreThread(ptr noundef %28)
+  call void @llvm.lifetime.end.p0(i64 16, ptr %7) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #8
+  %29 = load i32, ptr %4, align 4, !tbaa !7
+  %30 = icmp ne i32 %29, 0
+  br i1 %30, label %31, label %39
+
+31:                                               ; preds = %27
+  %32 = load ptr, ptr %3, align 8, !tbaa !3
+  %33 = getelementptr inbounds nuw %struct.pysqlite_Connection, ptr %32, i32 0, i32 2
+  %34 = load ptr, ptr %33, align 8, !tbaa !20
+  %35 = load ptr, ptr %3, align 8, !tbaa !3
+  %36 = getelementptr inbounds nuw %struct.pysqlite_Connection, ptr %35, i32 0, i32 1
+  %37 = load ptr, ptr %36, align 8, !tbaa !34
+  %38 = call i32 @_pysqlite_seterror(ptr noundef %34, ptr noundef %37)
+  store i32 -1, ptr %2, align 4
+  store i32 1, ptr %8, align 4
+  br label %40
+
+39:                                               ; preds = %27
+  store i32 0, ptr %2, align 4
+  store i32 1, ptr %8, align 4
+  br label %40
+
+40:                                               ; preds = %39, %31
+  call void @llvm.lifetime.end.p0(i64 4, ptr %4) #8
+  %41 = load i32, ptr %2, align 4
+  ret i32 %41
+}
+
+declare ptr @PyIter_Next(ptr noundef) #2
+
+; Function Attrs: nounwind uwtable
+define internal void @bind_parameters(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca i32, align 4
+  %11 = alloca i32, align 4
+  %12 = alloca i32, align 4
+  %13 = alloca i64, align 8
+  %14 = alloca ptr, align 8
+  %15 = alloca i32, align 4
+  %16 = alloca ptr, align 8
+  %17 = alloca ptr, align 8
+  %18 = alloca ptr, align 8
+  %19 = alloca ptr, align 8
+  %20 = alloca ptr, align 8
+  %21 = alloca ptr, align 8
+  %22 = alloca ptr, align 8
+  %23 = alloca ptr, align 8
+  %24 = alloca ptr, align 8
+  %25 = alloca ptr, align 8
+  %26 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !3
+  store ptr %1, ptr %5, align 8, !tbaa !3
+  store ptr %2, ptr %6, align 8, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #8
+  %27 = call ptr @PyEval_SaveThread()
+  store ptr %27, ptr %14, align 8, !tbaa !37
+  %28 = load ptr, ptr %5, align 8, !tbaa !3
+  %29 = getelementptr inbounds nuw %struct.pysqlite_Statement, ptr %28, i32 0, i32 1
+  %30 = load ptr, ptr %29, align 8, !tbaa !25
+  %31 = call i32 @sqlite3_bind_parameter_count(ptr noundef %30)
+  store i32 %31, ptr %12, align 4, !tbaa !7
+  %32 = load ptr, ptr %14, align 8, !tbaa !37
+  call void @PyEval_RestoreThread(ptr noundef %32)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #8
+  %33 = load ptr, ptr %6, align 8, !tbaa !9
+  %34 = call i32 @Py_IS_TYPE(ptr noundef %33, ptr noundef @PyTuple_Type)
+  %35 = icmp ne i32 %34, 0
+  br i1 %35, label %49, label %36
+
+36:                                               ; preds = %3
+  %37 = load ptr, ptr %6, align 8, !tbaa !9
+  %38 = call i32 @Py_IS_TYPE(ptr noundef %37, ptr noundef @PyList_Type)
+  %39 = icmp ne i32 %38, 0
+  br i1 %39, label %49, label %40
+
+40:                                               ; preds = %36
+  %41 = load ptr, ptr %6, align 8, !tbaa !9
+  %42 = call ptr @_Py_TYPE(ptr noundef %41)
+  %43 = call i32 @PyType_HasFeature(ptr noundef %42, i64 noundef 536870912)
+  %44 = icmp ne i32 %43, 0
+  br i1 %44, label %198, label %45
+
+45:                                               ; preds = %40
+  %46 = load ptr, ptr %6, align 8, !tbaa !9
+  %47 = call i32 @PySequence_Check(ptr noundef %46)
+  %48 = icmp ne i32 %47, 0
+  br i1 %48, label %49, label %198
+
+49:                                               ; preds = %45, %36, %3
+  %50 = load ptr, ptr %6, align 8, !tbaa !9
+  %51 = call i32 @Py_IS_TYPE(ptr noundef %50, ptr noundef @PyTuple_Type)
+  %52 = icmp ne i32 %51, 0
+  br i1 %52, label %53, label %56
+
+53:                                               ; preds = %49
+  %54 = load ptr, ptr %6, align 8, !tbaa !9
+  %55 = call i64 @PyTuple_GET_SIZE(ptr noundef %54)
+  store i64 %55, ptr %13, align 8, !tbaa !49
+  br label %71
+
+56:                                               ; preds = %49
+  %57 = load ptr, ptr %6, align 8, !tbaa !9
+  %58 = call i32 @Py_IS_TYPE(ptr noundef %57, ptr noundef @PyList_Type)
+  %59 = icmp ne i32 %58, 0
+  br i1 %59, label %60, label %63
+
+60:                                               ; preds = %56
+  %61 = load ptr, ptr %6, align 8, !tbaa !9
+  %62 = call i64 @PyList_GET_SIZE(ptr noundef %61)
+  store i64 %62, ptr %13, align 8, !tbaa !49
+  br label %70
+
+63:                                               ; preds = %56
+  %64 = load ptr, ptr %6, align 8, !tbaa !9
+  %65 = call i64 @PySequence_Size(ptr noundef %64)
+  store i64 %65, ptr %13, align 8, !tbaa !49
+  %66 = load i64, ptr %13, align 8, !tbaa !49
+  %67 = icmp eq i64 %66, -1
+  br i1 %67, label %68, label %69
+
+68:                                               ; preds = %63
+  store i32 1, ptr %15, align 4
+  br label %303
+
+69:                                               ; preds = %63
+  br label %70
+
+70:                                               ; preds = %69, %60
+  br label %71
+
+71:                                               ; preds = %70, %53
+  %72 = load i64, ptr %13, align 8, !tbaa !49
+  %73 = load i32, ptr %12, align 4, !tbaa !7
+  %74 = sext i32 %73 to i64
+  %75 = icmp ne i64 %72, %74
+  br i1 %75, label %76, label %83
+
+76:                                               ; preds = %71
+  %77 = load ptr, ptr %4, align 8, !tbaa !3
+  %78 = getelementptr inbounds nuw %struct.pysqlite_state, ptr %77, i32 0, i32 8
+  %79 = load ptr, ptr %78, align 8, !tbaa !28
+  %80 = load i32, ptr %12, align 4, !tbaa !7
+  %81 = load i64, ptr %13, align 8, !tbaa !49
+  %82 = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %79, ptr noundef @.str.5, i32 noundef %80, i64 noundef %81)
+  store i32 1, ptr %15, align 4
+  br label %303
+
+83:                                               ; preds = %71
+  store i32 0, ptr %10, align 4, !tbaa !7
+  br label %84
+
+84:                                               ; preds = %194, %83
+  %85 = load i32, ptr %10, align 4, !tbaa !7
+  %86 = sext i32 %85 to i64
+  %87 = load i64, ptr %13, align 8, !tbaa !49
+  %88 = icmp slt i64 %86, %87
+  br i1 %88, label %89, label %197
+
+89:                                               ; preds = %84
+  call void @llvm.lifetime.start.p0(i64 8, ptr %16) #8
+  %90 = load ptr, ptr %5, align 8, !tbaa !3
+  %91 = getelementptr inbounds nuw %struct.pysqlite_Statement, ptr %90, i32 0, i32 1
+  %92 = load ptr, ptr %91, align 8, !tbaa !25
+  %93 = load i32, ptr %10, align 4, !tbaa !7
+  %94 = add i32 %93, 1
+  %95 = call ptr @sqlite3_bind_parameter_name(ptr noundef %92, i32 noundef %94)
+  store ptr %95, ptr %16, align 8, !tbaa !40
+  %96 = load ptr, ptr %16, align 8, !tbaa !40
+  %97 = icmp ne ptr %96, null
+  br i1 %97, label %98, label %112
+
+98:                                               ; preds = %89
+  %99 = load ptr, ptr %16, align 8, !tbaa !40
+  %100 = getelementptr i8, ptr %99, i64 0
+  %101 = load i8, ptr %100, align 1, !tbaa !47
+  %102 = sext i8 %101 to i32
+  %103 = icmp ne i32 %102, 63
+  br i1 %103, label %104, label %112
+
+104:                                              ; preds = %98
+  %105 = load ptr, ptr %4, align 8, !tbaa !3
+  %106 = getelementptr inbounds nuw %struct.pysqlite_state, ptr %105, i32 0, i32 8
+  %107 = load ptr, ptr %106, align 8, !tbaa !28
+  %108 = load i32, ptr %10, align 4, !tbaa !7
+  %109 = add i32 %108, 1
+  %110 = load ptr, ptr %16, align 8, !tbaa !40
+  %111 = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %107, ptr noundef @.str.6, i32 noundef %109, ptr noundef %110)
+  store i32 1, ptr %15, align 4
+  br label %191
+
+112:                                              ; preds = %98, %89
+  %113 = load ptr, ptr %6, align 8, !tbaa !9
+  %114 = call i32 @Py_IS_TYPE(ptr noundef %113, ptr noundef @PyTuple_Type)
+  %115 = icmp ne i32 %114, 0
+  br i1 %115, label %116, label %125
+
+116:                                              ; preds = %112
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #8
+  %117 = load ptr, ptr %6, align 8, !tbaa !9
+  %118 = getelementptr inbounds nuw %struct.PyTupleObject, ptr %117, i32 0, i32 1
+  %119 = load i32, ptr %10, align 4, !tbaa !7
+  %120 = sext i32 %119 to i64
+  %121 = getelementptr [1 x ptr], ptr %118, i64 0, i64 %120
+  %122 = load ptr, ptr %121, align 8, !tbaa !9
+  store ptr %122, ptr %17, align 8, !tbaa !9
+  %123 = load ptr, ptr %17, align 8, !tbaa !9
+  %124 = call ptr @_Py_NewRef(ptr noundef %123)
+  store ptr %124, ptr %7, align 8, !tbaa !9
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #8
+  br label %142
+
+125:                                              ; preds = %112
+  %126 = load ptr, ptr %6, align 8, !tbaa !9
+  %127 = call i32 @Py_IS_TYPE(ptr noundef %126, ptr noundef @PyList_Type)
+  %128 = icmp ne i32 %127, 0
+  br i1 %128, label %129, label %136
+
+129:                                              ; preds = %125
+  call void @llvm.lifetime.start.p0(i64 8, ptr %18) #8
+  %130 = load ptr, ptr %6, align 8, !tbaa !9
+  %131 = load i32, ptr %10, align 4, !tbaa !7
+  %132 = sext i32 %131 to i64
+  %133 = call ptr @PyList_GetItem(ptr noundef %130, i64 noundef %132)
+  store ptr %133, ptr %18, align 8, !tbaa !9
+  %134 = load ptr, ptr %18, align 8, !tbaa !9
+  %135 = call ptr @_Py_XNewRef(ptr noundef %134)
+  store ptr %135, ptr %7, align 8, !tbaa !9
+  call void @llvm.lifetime.end.p0(i64 8, ptr %18) #8
+  br label %141
+
+136:                                              ; preds = %125
+  %137 = load ptr, ptr %6, align 8, !tbaa !9
+  %138 = load i32, ptr %10, align 4, !tbaa !7
+  %139 = sext i32 %138 to i64
+  %140 = call ptr @PySequence_GetItem(ptr noundef %137, i64 noundef %139)
+  store ptr %140, ptr %7, align 8, !tbaa !9
+  br label %141
+
+141:                                              ; preds = %136, %129
+  br label %142
+
+142:                                              ; preds = %141, %116
+  %143 = load ptr, ptr %7, align 8, !tbaa !9
+  %144 = icmp ne ptr %143, null
+  br i1 %144, label %146, label %145
+
+145:                                              ; preds = %142
+  store i32 1, ptr %15, align 4
+  br label %191
+
+146:                                              ; preds = %142
+  %147 = load ptr, ptr %4, align 8, !tbaa !3
+  %148 = load ptr, ptr %7, align 8, !tbaa !9
+  %149 = call i32 @need_adapt(ptr noundef %147, ptr noundef %148)
+  %150 = icmp ne i32 %149, 0
+  br i1 %150, label %153, label %151
+
+151:                                              ; preds = %146
+  %152 = load ptr, ptr %7, align 8, !tbaa !9
+  store ptr %152, ptr %8, align 8, !tbaa !9
+  br label %170
+
+153:                                              ; preds = %146
+  call void @llvm.lifetime.start.p0(i64 8, ptr %19) #8
+  %154 = load ptr, ptr %4, align 8, !tbaa !3
+  %155 = getelementptr inbounds nuw %struct.pysqlite_state, ptr %154, i32 0, i32 18
+  %156 = load ptr, ptr %155, align 8, !tbaa !51
+  store ptr %156, ptr %19, align 8, !tbaa !9
+  %157 = load ptr, ptr %4, align 8, !tbaa !3
+  %158 = load ptr, ptr %7, align 8, !tbaa !9
+  %159 = load ptr, ptr %19, align 8, !tbaa !9
+  %160 = load ptr, ptr %7, align 8, !tbaa !9
+  %161 = call ptr @pysqlite_microprotocols_adapt(ptr noundef %157, ptr noundef %158, ptr noundef %159, ptr noundef %160)
+  store ptr %161, ptr %8, align 8, !tbaa !9
+  %162 = load ptr, ptr %7, align 8, !tbaa !9
+  call void @Py_DECREF(ptr noundef %162)
+  %163 = load ptr, ptr %8, align 8, !tbaa !9
+  %164 = icmp ne ptr %163, null
+  br i1 %164, label %166, label %165
+
+165:                                              ; preds = %153
+  store i32 1, ptr %15, align 4
+  br label %167
+
+166:                                              ; preds = %153
+  store i32 0, ptr %15, align 4
+  br label %167
+
+167:                                              ; preds = %166, %165
+  call void @llvm.lifetime.end.p0(i64 8, ptr %19) #8
+  %168 = load i32, ptr %15, align 4
+  switch i32 %168, label %191 [
+    i32 0, label %169
+  ]
+
+169:                                              ; preds = %167
+  br label %170
+
+170:                                              ; preds = %169, %151
+  %171 = load ptr, ptr %4, align 8, !tbaa !3
+  %172 = load ptr, ptr %5, align 8, !tbaa !3
+  %173 = load i32, ptr %10, align 4, !tbaa !7
+  %174 = add i32 %173, 1
+  %175 = load ptr, ptr %8, align 8, !tbaa !9
+  %176 = call i32 @bind_param(ptr noundef %171, ptr noundef %172, i32 noundef %174, ptr noundef %175)
+  store i32 %176, ptr %11, align 4, !tbaa !7
+  %177 = load ptr, ptr %8, align 8, !tbaa !9
+  call void @Py_DECREF(ptr noundef %177)
+  %178 = load i32, ptr %11, align 4, !tbaa !7
+  %179 = icmp ne i32 %178, 0
+  br i1 %179, label %180, label %190
+
+180:                                              ; preds = %170
+  call void @llvm.lifetime.start.p0(i64 8, ptr %20) #8
+  %181 = call ptr @PyErr_GetRaisedException()
+  store ptr %181, ptr %20, align 8, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 8, ptr %21) #8
+  %182 = load ptr, ptr %5, align 8, !tbaa !3
+  %183 = getelementptr inbounds nuw %struct.pysqlite_Statement, ptr %182, i32 0, i32 1
+  %184 = load ptr, ptr %183, align 8, !tbaa !25
+  %185 = call ptr @sqlite3_db_handle(ptr noundef %184)
+  store ptr %185, ptr %21, align 8, !tbaa !52
+  %186 = load ptr, ptr %4, align 8, !tbaa !3
+  %187 = load ptr, ptr %21, align 8, !tbaa !52
+  %188 = call i32 @_pysqlite_seterror(ptr noundef %186, ptr noundef %187)
+  %189 = load ptr, ptr %20, align 8, !tbaa !9
+  call void @_PyErr_ChainExceptions1(ptr noundef %189)
+  store i32 1, ptr %15, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %21) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %20) #8
+  br label %191
+
+190:                                              ; preds = %170
+  store i32 0, ptr %15, align 4
+  br label %191
+
+191:                                              ; preds = %190, %180, %167, %145, %104
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #8
+  %192 = load i32, ptr %15, align 4
+  switch i32 %192, label %303 [
+    i32 0, label %193
+  ]
+
+193:                                              ; preds = %191
+  br label %194
+
+194:                                              ; preds = %193
+  %195 = load i32, ptr %10, align 4, !tbaa !7
+  %196 = add i32 %195, 1
+  store i32 %196, ptr %10, align 4, !tbaa !7
+  br label %84, !llvm.loop !53
+
+197:                                              ; preds = %84
+  br label %302
+
+198:                                              ; preds = %45, %40
+  %199 = load ptr, ptr %6, align 8, !tbaa !9
+  %200 = call ptr @_Py_TYPE(ptr noundef %199)
+  %201 = call i32 @PyType_HasFeature(ptr noundef %200, i64 noundef 536870912)
+  %202 = icmp ne i32 %201, 0
+  br i1 %202, label %203, label %297
+
+203:                                              ; preds = %198
+  store i32 1, ptr %10, align 4, !tbaa !7
+  br label %204
+
+204:                                              ; preds = %293, %203
+  %205 = load i32, ptr %10, align 4, !tbaa !7
+  %206 = load i32, ptr %12, align 4, !tbaa !7
+  %207 = icmp sle i32 %205, %206
+  br i1 %207, label %208, label %296
+
+208:                                              ; preds = %204
+  call void @llvm.lifetime.start.p0(i64 8, ptr %22) #8
+  %209 = call ptr @PyEval_SaveThread()
+  store ptr %209, ptr %22, align 8, !tbaa !37
+  %210 = load ptr, ptr %5, align 8, !tbaa !3
+  %211 = getelementptr inbounds nuw %struct.pysqlite_Statement, ptr %210, i32 0, i32 1
+  %212 = load ptr, ptr %211, align 8, !tbaa !25
+  %213 = load i32, ptr %10, align 4, !tbaa !7
+  %214 = call ptr @sqlite3_bind_parameter_name(ptr noundef %212, i32 noundef %213)
+  store ptr %214, ptr %9, align 8, !tbaa !40
+  %215 = load ptr, ptr %22, align 8, !tbaa !37
+  call void @PyEval_RestoreThread(ptr noundef %215)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %22) #8
+  %216 = load ptr, ptr %9, align 8, !tbaa !40
+  %217 = icmp ne ptr %216, null
+  br i1 %217, label %224, label %218
+
+218:                                              ; preds = %208
+  %219 = load ptr, ptr %4, align 8, !tbaa !3
+  %220 = getelementptr inbounds nuw %struct.pysqlite_state, ptr %219, i32 0, i32 8
+  %221 = load ptr, ptr %220, align 8, !tbaa !28
+  %222 = load i32, ptr %10, align 4, !tbaa !7
+  %223 = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %221, ptr noundef @.str.7, i32 noundef %222)
+  store i32 1, ptr %15, align 4
+  br label %303
+
+224:                                              ; preds = %208
+  %225 = load ptr, ptr %9, align 8, !tbaa !40
+  %226 = getelementptr i8, ptr %225, i32 1
+  store ptr %226, ptr %9, align 8, !tbaa !40
+  call void @llvm.lifetime.start.p0(i64 8, ptr %23) #8
+  %227 = load ptr, ptr %6, align 8, !tbaa !9
+  %228 = load ptr, ptr %9, align 8, !tbaa !40
+  %229 = call i32 @PyMapping_GetOptionalItemString(ptr noundef %227, ptr noundef %228, ptr noundef %23)
+  %230 = load ptr, ptr %23, align 8, !tbaa !9
+  %231 = icmp ne ptr %230, null
+  br i1 %231, label %246, label %232
+
+232:                                              ; preds = %224
+  %233 = call ptr @PyErr_Occurred()
+  %234 = icmp ne ptr %233, null
+  br i1 %234, label %235, label %239
+
+235:                                              ; preds = %232
+  %236 = load ptr, ptr @PyExc_LookupError, align 8, !tbaa !9
+  %237 = call i32 @PyErr_ExceptionMatches(ptr noundef %236)
+  %238 = icmp ne i32 %237, 0
+  br i1 %238, label %239, label %245
+
+239:                                              ; preds = %235, %232
+  %240 = load ptr, ptr %4, align 8, !tbaa !3
+  %241 = getelementptr inbounds nuw %struct.pysqlite_state, ptr %240, i32 0, i32 8
+  %242 = load ptr, ptr %241, align 8, !tbaa !28
+  %243 = load ptr, ptr %9, align 8, !tbaa !40
+  %244 = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %242, ptr noundef @.str.8, ptr noundef %243)
+  br label %245
+
+245:                                              ; preds = %239, %235
+  store i32 1, ptr %15, align 4
+  br label %290
+
+246:                                              ; preds = %224
+  %247 = load ptr, ptr %4, align 8, !tbaa !3
+  %248 = load ptr, ptr %23, align 8, !tbaa !9
+  %249 = call i32 @need_adapt(ptr noundef %247, ptr noundef %248)
+  %250 = icmp ne i32 %249, 0
+  br i1 %250, label %253, label %251
+
+251:                                              ; preds = %246
+  %252 = load ptr, ptr %23, align 8, !tbaa !9
+  store ptr %252, ptr %8, align 8, !tbaa !9
+  br label %270
+
+253:                                              ; preds = %246
+  call void @llvm.lifetime.start.p0(i64 8, ptr %24) #8
+  %254 = load ptr, ptr %4, align 8, !tbaa !3
+  %255 = getelementptr inbounds nuw %struct.pysqlite_state, ptr %254, i32 0, i32 18
+  %256 = load ptr, ptr %255, align 8, !tbaa !51
+  store ptr %256, ptr %24, align 8, !tbaa !9
+  %257 = load ptr, ptr %4, align 8, !tbaa !3
+  %258 = load ptr, ptr %23, align 8, !tbaa !9
+  %259 = load ptr, ptr %24, align 8, !tbaa !9
+  %260 = load ptr, ptr %23, align 8, !tbaa !9
+  %261 = call ptr @pysqlite_microprotocols_adapt(ptr noundef %257, ptr noundef %258, ptr noundef %259, ptr noundef %260)
+  store ptr %261, ptr %8, align 8, !tbaa !9
+  %262 = load ptr, ptr %23, align 8, !tbaa !9
+  call void @Py_DECREF(ptr noundef %262)
+  %263 = load ptr, ptr %8, align 8, !tbaa !9
+  %264 = icmp ne ptr %263, null
+  br i1 %264, label %266, label %265
+
+265:                                              ; preds = %253
+  store i32 1, ptr %15, align 4
+  br label %267
+
+266:                                              ; preds = %253
+  store i32 0, ptr %15, align 4
+  br label %267
+
+267:                                              ; preds = %266, %265
+  call void @llvm.lifetime.end.p0(i64 8, ptr %24) #8
+  %268 = load i32, ptr %15, align 4
+  switch i32 %268, label %290 [
+    i32 0, label %269
+  ]
+
+269:                                              ; preds = %267
+  br label %270
+
+270:                                              ; preds = %269, %251
+  %271 = load ptr, ptr %4, align 8, !tbaa !3
+  %272 = load ptr, ptr %5, align 8, !tbaa !3
+  %273 = load i32, ptr %10, align 4, !tbaa !7
+  %274 = load ptr, ptr %8, align 8, !tbaa !9
+  %275 = call i32 @bind_param(ptr noundef %271, ptr noundef %272, i32 noundef %273, ptr noundef %274)
+  store i32 %275, ptr %11, align 4, !tbaa !7
+  %276 = load ptr, ptr %8, align 8, !tbaa !9
+  call void @Py_DECREF(ptr noundef %276)
+  %277 = load i32, ptr %11, align 4, !tbaa !7
+  %278 = icmp ne i32 %277, 0
+  br i1 %278, label %279, label %289
+
+279:                                              ; preds = %270
+  call void @llvm.lifetime.start.p0(i64 8, ptr %25) #8
+  %280 = call ptr @PyErr_GetRaisedException()
+  store ptr %280, ptr %25, align 8, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 8, ptr %26) #8
+  %281 = load ptr, ptr %5, align 8, !tbaa !3
+  %282 = getelementptr inbounds nuw %struct.pysqlite_Statement, ptr %281, i32 0, i32 1
+  %283 = load ptr, ptr %282, align 8, !tbaa !25
+  %284 = call ptr @sqlite3_db_handle(ptr noundef %283)
+  store ptr %284, ptr %26, align 8, !tbaa !52
+  %285 = load ptr, ptr %4, align 8, !tbaa !3
+  %286 = load ptr, ptr %26, align 8, !tbaa !52
+  %287 = call i32 @_pysqlite_seterror(ptr noundef %285, ptr noundef %286)
+  %288 = load ptr, ptr %25, align 8, !tbaa !9
+  call void @_PyErr_ChainExceptions1(ptr noundef %288)
+  store i32 1, ptr %15, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %26) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %25) #8
+  br label %290
+
+289:                                              ; preds = %270
+  store i32 0, ptr %15, align 4
+  br label %290
+
+290:                                              ; preds = %289, %279, %267, %245
+  call void @llvm.lifetime.end.p0(i64 8, ptr %23) #8
+  %291 = load i32, ptr %15, align 4
+  switch i32 %291, label %303 [
+    i32 0, label %292
+  ]
+
+292:                                              ; preds = %290
+  br label %293
+
+293:                                              ; preds = %292
+  %294 = load i32, ptr %10, align 4, !tbaa !7
+  %295 = add i32 %294, 1
+  store i32 %295, ptr %10, align 4, !tbaa !7
+  br label %204, !llvm.loop !54
+
+296:                                              ; preds = %204
+  br label %301
+
+297:                                              ; preds = %198
+  %298 = load ptr, ptr %4, align 8, !tbaa !3
+  %299 = getelementptr inbounds nuw %struct.pysqlite_state, ptr %298, i32 0, i32 8
+  %300 = load ptr, ptr %299, align 8, !tbaa !28
+  call void @PyErr_SetString(ptr noundef %300, ptr noundef @.str.9)
+  br label %301
+
+301:                                              ; preds = %297, %296
+  br label %302
+
+302:                                              ; preds = %301, %197
+  store i32 0, ptr %15, align 4
+  br label %303
+
+303:                                              ; preds = %302, %290, %218, %191, %76, %68
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #8
+  %304 = load i32, ptr %15, align 4
+  switch i32 %304, label %306 [
+    i32 0, label %305
+    i32 1, label %305
+  ]
+
+305:                                              ; preds = %303, %303
+  ret void
+
+306:                                              ; preds = %303
+  unreachable
+}
+
+declare ptr @PyErr_Occurred() #2
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal i32 @stmt_step(ptr noundef %0) #3 {
+  %2 = alloca ptr, align 8
+  %3 = alloca i32, align 4
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !50
+  call void @llvm.lifetime.start.p0(i64 4, ptr %3) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #8
+  %5 = call ptr @PyEval_SaveThread()
+  store ptr %5, ptr %4, align 8, !tbaa !37
+  %6 = load ptr, ptr %2, align 8, !tbaa !50
+  %7 = call i32 @sqlite3_step(ptr noundef %6)
+  store i32 %7, ptr %3, align 4, !tbaa !7
+  %8 = load ptr, ptr %4, align 8, !tbaa !37
+  call void @PyEval_RestoreThread(ptr noundef %8)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #8
+  %9 = load i32, ptr %3, align 4, !tbaa !7
+  call void @llvm.lifetime.end.p0(i64 4, ptr %3) #8
+  ret i32 %9
+}
+
+declare void @PyErr_Print() #2
+
+declare void @PyErr_Clear() #2
+
+declare i32 @_pysqlite_seterror(ptr noundef, ptr noundef) #2
+
+; Function Attrs: nounwind uwtable
+define internal i32 @pysqlite_build_row_cast_map(ptr noundef %0) #0 {
+  %2 = alloca i32, align 4
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca ptr, align 8
+  %14 = alloca ptr, align 8
+  %15 = alloca ptr, align 8
+  %16 = alloca ptr, align 8
+  %17 = alloca ptr, align 8
+  %18 = alloca ptr, align 8
+  %19 = alloca ptr, align 8
+  %20 = alloca ptr, align 8
+  %21 = alloca ptr, align 8
+  %22 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %4) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #8
+  %23 = load ptr, ptr %3, align 8, !tbaa !3
+  %24 = getelementptr inbounds nuw %struct.pysqlite_Cursor, ptr %23, i32 0, i32 1
+  %25 = load ptr, ptr %24, align 8, !tbaa !19
+  %26 = getelementptr inbounds nuw %struct.pysqlite_Connection, ptr %25, i32 0, i32 3
+  %27 = load i32, ptr %26, align 8, !tbaa !55
+  %28 = icmp ne i32 %27, 0
+  br i1 %28, label %30, label %29
+
+29:                                               ; preds = %1
+  store i32 0, ptr %2, align 4
+  store i32 1, ptr %8, align 4
+  br label %268
+
+30:                                               ; preds = %1
+  br label %31
+
+31:                                               ; preds = %30
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #8
+  %32 = load ptr, ptr %3, align 8, !tbaa !3
+  %33 = getelementptr inbounds nuw %struct.pysqlite_Cursor, ptr %32, i32 0, i32 3
+  store ptr %33, ptr %9, align 8, !tbaa !16
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #8
+  %34 = load ptr, ptr %9, align 8, !tbaa !16
+  %35 = load ptr, ptr %34, align 8, !tbaa !9
+  store ptr %35, ptr %10, align 8, !tbaa !9
+  %36 = call ptr @PyList_New(i64 noundef 0)
+  %37 = load ptr, ptr %9, align 8, !tbaa !16
+  store ptr %36, ptr %37, align 8, !tbaa !9
+  %38 = load ptr, ptr %10, align 8, !tbaa !9
+  call void @Py_XDECREF(ptr noundef %38)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #8
+  br label %39
+
+39:                                               ; preds = %31
+  br label %40
+
+40:                                               ; preds = %39
+  %41 = load ptr, ptr %3, align 8, !tbaa !3
+  %42 = getelementptr inbounds nuw %struct.pysqlite_Cursor, ptr %41, i32 0, i32 3
+  %43 = load ptr, ptr %42, align 8, !tbaa !56
+  %44 = icmp ne ptr %43, null
+  br i1 %44, label %46, label %45
+
+45:                                               ; preds = %40
+  store i32 -1, ptr %2, align 4
+  store i32 1, ptr %8, align 4
+  br label %268
+
+46:                                               ; preds = %40
+  store i32 0, ptr %4, align 4, !tbaa !7
+  br label %47
+
+47:                                               ; preds = %264, %46
+  %48 = load i32, ptr %4, align 4, !tbaa !7
+  %49 = load ptr, ptr %3, align 8, !tbaa !3
+  %50 = getelementptr inbounds nuw %struct.pysqlite_Cursor, ptr %49, i32 0, i32 8
+  %51 = load ptr, ptr %50, align 8, !tbaa !18
+  %52 = getelementptr inbounds nuw %struct.pysqlite_Statement, ptr %51, i32 0, i32 1
+  %53 = load ptr, ptr %52, align 8, !tbaa !25
+  %54 = call i32 @sqlite3_column_count(ptr noundef %53)
+  %55 = icmp slt i32 %48, %54
+  br i1 %55, label %56, label %267
+
+56:                                               ; preds = %47
+  store ptr null, ptr %7, align 8, !tbaa !9
+  %57 = load ptr, ptr %3, align 8, !tbaa !3
+  %58 = getelementptr inbounds nuw %struct.pysqlite_Cursor, ptr %57, i32 0, i32 1
+  %59 = load ptr, ptr %58, align 8, !tbaa !19
+  %60 = getelementptr inbounds nuw %struct.pysqlite_Connection, ptr %59, i32 0, i32 3
+  %61 = load i32, ptr %60, align 8, !tbaa !55
+  %62 = and i32 %61, 2
+  %63 = icmp ne i32 %62, 0
+  br i1 %63, label %64, label %158
+
+64:                                               ; preds = %56
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #8
+  %65 = load ptr, ptr %3, align 8, !tbaa !3
+  %66 = getelementptr inbounds nuw %struct.pysqlite_Cursor, ptr %65, i32 0, i32 8
+  %67 = load ptr, ptr %66, align 8, !tbaa !18
+  %68 = getelementptr inbounds nuw %struct.pysqlite_Statement, ptr %67, i32 0, i32 1
+  %69 = load ptr, ptr %68, align 8, !tbaa !25
+  %70 = load i32, ptr %4, align 4, !tbaa !7
+  %71 = call ptr @sqlite3_column_name(ptr noundef %69, i32 noundef %70)
+  store ptr %71, ptr %11, align 8, !tbaa !40
+  %72 = load ptr, ptr %11, align 8, !tbaa !40
+  %73 = icmp eq ptr %72, null
+  br i1 %73, label %74, label %89
+
+74:                                               ; preds = %64
+  %75 = call ptr @PyErr_NoMemory()
+  br label %76
+
+76:                                               ; preds = %74
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #8
+  %77 = load ptr, ptr %3, align 8, !tbaa !3
+  %78 = getelementptr inbounds nuw %struct.pysqlite_Cursor, ptr %77, i32 0, i32 3
+  store ptr %78, ptr %12, align 8, !tbaa !16
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #8
+  %79 = load ptr, ptr %12, align 8, !tbaa !16
+  %80 = load ptr, ptr %79, align 8, !tbaa !9
+  store ptr %80, ptr %13, align 8, !tbaa !9
+  %81 = load ptr, ptr %13, align 8, !tbaa !9
+  %82 = icmp ne ptr %81, null
+  br i1 %82, label %83, label %86
+
+83:                                               ; preds = %76
+  %84 = load ptr, ptr %12, align 8, !tbaa !16
+  store ptr null, ptr %84, align 8, !tbaa !9
+  %85 = load ptr, ptr %13, align 8, !tbaa !9
+  call void @Py_DECREF(ptr noundef %85)
+  br label %86
+
+86:                                               ; preds = %83, %76
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #8
+  br label %87
+
+87:                                               ; preds = %86
+  br label %88
+
+88:                                               ; preds = %87
+  store i32 -1, ptr %2, align 4
+  store i32 1, ptr %8, align 4
+  br label %155
+
+89:                                               ; preds = %64
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #8
+  store ptr null, ptr %14, align 8, !tbaa !40
+  %90 = load ptr, ptr %11, align 8, !tbaa !40
+  store ptr %90, ptr %5, align 8, !tbaa !40
+  br label %91
+
+91:                                               ; preds = %150, %89
+  %92 = load ptr, ptr %5, align 8, !tbaa !40
+  %93 = load i8, ptr %92, align 1, !tbaa !47
+  %94 = sext i8 %93 to i32
+  %95 = icmp ne i32 %94, 0
+  br i1 %95, label %96, label %153
+
+96:                                               ; preds = %91
+  %97 = load ptr, ptr %5, align 8, !tbaa !40
+  %98 = load i8, ptr %97, align 1, !tbaa !47
+  %99 = sext i8 %98 to i32
+  %100 = icmp eq i32 %99, 91
+  br i1 %100, label %101, label %104
+
+101:                                              ; preds = %96
+  %102 = load ptr, ptr %5, align 8, !tbaa !40
+  %103 = getelementptr i8, ptr %102, i64 1
+  store ptr %103, ptr %14, align 8, !tbaa !40
+  br label %149
+
+104:                                              ; preds = %96
+  %105 = load ptr, ptr %5, align 8, !tbaa !40
+  %106 = load i8, ptr %105, align 1, !tbaa !47
+  %107 = sext i8 %106 to i32
+  %108 = icmp eq i32 %107, 93
+  br i1 %108, label %109, label %148
+
+109:                                              ; preds = %104
+  %110 = load ptr, ptr %14, align 8, !tbaa !40
+  %111 = icmp ne ptr %110, null
+  br i1 %111, label %112, label %148
+
+112:                                              ; preds = %109
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #8
+  %113 = load ptr, ptr %3, align 8, !tbaa !3
+  %114 = getelementptr inbounds nuw %struct.pysqlite_Cursor, ptr %113, i32 0, i32 1
+  %115 = load ptr, ptr %114, align 8, !tbaa !19
+  %116 = getelementptr inbounds nuw %struct.pysqlite_Connection, ptr %115, i32 0, i32 2
+  %117 = load ptr, ptr %116, align 8, !tbaa !20
+  store ptr %117, ptr %15, align 8, !tbaa !3
+  %118 = load ptr, ptr %15, align 8, !tbaa !3
+  %119 = load ptr, ptr %14, align 8, !tbaa !40
+  %120 = load ptr, ptr %5, align 8, !tbaa !40
+  %121 = load ptr, ptr %14, align 8, !tbaa !40
+  %122 = ptrtoint ptr %120 to i64
+  %123 = ptrtoint ptr %121 to i64
+  %124 = sub i64 %122, %123
+  %125 = call ptr @_pysqlite_get_converter(ptr noundef %118, ptr noundef %119, i64 noundef %124)
+  store ptr %125, ptr %7, align 8, !tbaa !9
+  %126 = load ptr, ptr %7, align 8, !tbaa !9
+  %127 = icmp ne ptr %126, null
+  br i1 %127, label %145, label %128
+
+128:                                              ; preds = %112
+  %129 = call ptr @PyErr_Occurred()
+  %130 = icmp ne ptr %129, null
+  br i1 %130, label %131, label %145
+
+131:                                              ; preds = %128
+  br label %132
+
+132:                                              ; preds = %131
+  call void @llvm.lifetime.start.p0(i64 8, ptr %16) #8
+  %133 = load ptr, ptr %3, align 8, !tbaa !3
+  %134 = getelementptr inbounds nuw %struct.pysqlite_Cursor, ptr %133, i32 0, i32 3
+  store ptr %134, ptr %16, align 8, !tbaa !16
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #8
+  %135 = load ptr, ptr %16, align 8, !tbaa !16
+  %136 = load ptr, ptr %135, align 8, !tbaa !9
+  store ptr %136, ptr %17, align 8, !tbaa !9
+  %137 = load ptr, ptr %17, align 8, !tbaa !9
+  %138 = icmp ne ptr %137, null
+  br i1 %138, label %139, label %142
+
+139:                                              ; preds = %132
+  %140 = load ptr, ptr %16, align 8, !tbaa !16
+  store ptr null, ptr %140, align 8, !tbaa !9
+  %141 = load ptr, ptr %17, align 8, !tbaa !9
+  call void @Py_DECREF(ptr noundef %141)
+  br label %142
+
+142:                                              ; preds = %139, %132
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #8
+  br label %143
+
+143:                                              ; preds = %142
+  br label %144
+
+144:                                              ; preds = %143
+  store i32 -1, ptr %2, align 4
+  store i32 1, ptr %8, align 4
+  br label %146
+
+145:                                              ; preds = %128, %112
+  store i32 9, ptr %8, align 4
+  br label %146
+
+146:                                              ; preds = %145, %144
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #8
+  %147 = load i32, ptr %8, align 4
+  switch i32 %147, label %154 [
+    i32 9, label %153
+  ]
+
+148:                                              ; preds = %109, %104
+  br label %149
+
+149:                                              ; preds = %148, %101
+  br label %150
+
+150:                                              ; preds = %149
+  %151 = load ptr, ptr %5, align 8, !tbaa !40
+  %152 = getelementptr i8, ptr %151, i32 1
+  store ptr %152, ptr %5, align 8, !tbaa !40
+  br label %91, !llvm.loop !57
+
+153:                                              ; preds = %146, %91
+  store i32 0, ptr %8, align 4
+  br label %154
+
+154:                                              ; preds = %153, %146
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #8
+  br label %155
+
+155:                                              ; preds = %154, %88
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #8
+  %156 = load i32, ptr %8, align 4
+  switch i32 %156, label %268 [
+    i32 0, label %157
+  ]
+
+157:                                              ; preds = %155
+  br label %158
+
+158:                                              ; preds = %157, %56
+  %159 = load ptr, ptr %7, align 8, !tbaa !9
+  %160 = icmp ne ptr %159, null
+  br i1 %160, label %238, label %161
+
+161:                                              ; preds = %158
+  %162 = load ptr, ptr %3, align 8, !tbaa !3
+  %163 = getelementptr inbounds nuw %struct.pysqlite_Cursor, ptr %162, i32 0, i32 1
+  %164 = load ptr, ptr %163, align 8, !tbaa !19
+  %165 = getelementptr inbounds nuw %struct.pysqlite_Connection, ptr %164, i32 0, i32 3
+  %166 = load i32, ptr %165, align 8, !tbaa !55
+  %167 = and i32 %166, 1
+  %168 = icmp ne i32 %167, 0
+  br i1 %168, label %169, label %238
+
+169:                                              ; preds = %161
+  %170 = load ptr, ptr %3, align 8, !tbaa !3
+  %171 = getelementptr inbounds nuw %struct.pysqlite_Cursor, ptr %170, i32 0, i32 8
+  %172 = load ptr, ptr %171, align 8, !tbaa !18
+  %173 = getelementptr inbounds nuw %struct.pysqlite_Statement, ptr %172, i32 0, i32 1
+  %174 = load ptr, ptr %173, align 8, !tbaa !25
+  %175 = load i32, ptr %4, align 4, !tbaa !7
+  %176 = call ptr @sqlite3_column_decltype(ptr noundef %174, i32 noundef %175)
+  store ptr %176, ptr %6, align 8, !tbaa !40
+  %177 = load ptr, ptr %6, align 8, !tbaa !40
+  %178 = icmp ne ptr %177, null
+  br i1 %178, label %179, label %237
+
+179:                                              ; preds = %169
+  %180 = load ptr, ptr %6, align 8, !tbaa !40
+  store ptr %180, ptr %5, align 8, !tbaa !40
+  br label %181
+
+181:                                              ; preds = %233, %179
+  %182 = load ptr, ptr %5, align 8, !tbaa !40
+  %183 = load i8, ptr %182, align 1, !tbaa !47
+  %184 = sext i8 %183 to i32
+  %185 = icmp eq i32 %184, 32
+  br i1 %185, label %196, label %186
+
+186:                                              ; preds = %181
+  %187 = load ptr, ptr %5, align 8, !tbaa !40
+  %188 = load i8, ptr %187, align 1, !tbaa !47
+  %189 = sext i8 %188 to i32
+  %190 = icmp eq i32 %189, 40
+  br i1 %190, label %196, label %191
+
+191:                                              ; preds = %186
+  %192 = load ptr, ptr %5, align 8, !tbaa !40
+  %193 = load i8, ptr %192, align 1, !tbaa !47
+  %194 = sext i8 %193 to i32
+  %195 = icmp eq i32 %194, 0
+  br i1 %195, label %196, label %232
+
+196:                                              ; preds = %191, %186, %181
+  call void @llvm.lifetime.start.p0(i64 8, ptr %18) #8
+  %197 = load ptr, ptr %3, align 8, !tbaa !3
+  %198 = getelementptr inbounds nuw %struct.pysqlite_Cursor, ptr %197, i32 0, i32 1
+  %199 = load ptr, ptr %198, align 8, !tbaa !19
+  %200 = getelementptr inbounds nuw %struct.pysqlite_Connection, ptr %199, i32 0, i32 2
+  %201 = load ptr, ptr %200, align 8, !tbaa !20
+  store ptr %201, ptr %18, align 8, !tbaa !3
+  %202 = load ptr, ptr %18, align 8, !tbaa !3
+  %203 = load ptr, ptr %6, align 8, !tbaa !40
+  %204 = load ptr, ptr %5, align 8, !tbaa !40
+  %205 = load ptr, ptr %6, align 8, !tbaa !40
+  %206 = ptrtoint ptr %204 to i64
+  %207 = ptrtoint ptr %205 to i64
+  %208 = sub i64 %206, %207
+  %209 = call ptr @_pysqlite_get_converter(ptr noundef %202, ptr noundef %203, i64 noundef %208)
+  store ptr %209, ptr %7, align 8, !tbaa !9
+  %210 = load ptr, ptr %7, align 8, !tbaa !9
+  %211 = icmp ne ptr %210, null
+  br i1 %211, label %229, label %212
+
+212:                                              ; preds = %196
+  %213 = call ptr @PyErr_Occurred()
+  %214 = icmp ne ptr %213, null
+  br i1 %214, label %215, label %229
+
+215:                                              ; preds = %212
+  br label %216
+
+216:                                              ; preds = %215
+  call void @llvm.lifetime.start.p0(i64 8, ptr %19) #8
+  %217 = load ptr, ptr %3, align 8, !tbaa !3
+  %218 = getelementptr inbounds nuw %struct.pysqlite_Cursor, ptr %217, i32 0, i32 3
+  store ptr %218, ptr %19, align 8, !tbaa !16
+  call void @llvm.lifetime.start.p0(i64 8, ptr %20) #8
+  %219 = load ptr, ptr %19, align 8, !tbaa !16
+  %220 = load ptr, ptr %219, align 8, !tbaa !9
+  store ptr %220, ptr %20, align 8, !tbaa !9
+  %221 = load ptr, ptr %20, align 8, !tbaa !9
+  %222 = icmp ne ptr %221, null
+  br i1 %222, label %223, label %226
+
+223:                                              ; preds = %216
+  %224 = load ptr, ptr %19, align 8, !tbaa !16
+  store ptr null, ptr %224, align 8, !tbaa !9
+  %225 = load ptr, ptr %20, align 8, !tbaa !9
+  call void @Py_DECREF(ptr noundef %225)
+  br label %226
+
+226:                                              ; preds = %223, %216
+  call void @llvm.lifetime.end.p0(i64 8, ptr %20) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %19) #8
+  br label %227
+
+227:                                              ; preds = %226
+  br label %228
+
+228:                                              ; preds = %227
+  store i32 -1, ptr %2, align 4
+  store i32 1, ptr %8, align 4
+  br label %230
+
+229:                                              ; preds = %212, %196
+  store i32 14, ptr %8, align 4
+  br label %230
+
+230:                                              ; preds = %229, %228
+  call void @llvm.lifetime.end.p0(i64 8, ptr %18) #8
+  %231 = load i32, ptr %8, align 4
+  switch i32 %231, label %268 [
+    i32 14, label %236
+  ]
+
+232:                                              ; preds = %191
+  br label %233
+
+233:                                              ; preds = %232
+  %234 = load ptr, ptr %5, align 8, !tbaa !40
+  %235 = getelementptr i8, ptr %234, i32 1
+  store ptr %235, ptr %5, align 8, !tbaa !40
+  br label %181
+
+236:                                              ; preds = %230
+  br label %237
+
+237:                                              ; preds = %236, %169
+  br label %238
+
+238:                                              ; preds = %237, %161, %158
+  %239 = load ptr, ptr %7, align 8, !tbaa !9
+  %240 = icmp ne ptr %239, null
+  br i1 %240, label %242, label %241
+
+241:                                              ; preds = %238
+  store ptr @_Py_NoneStruct, ptr %7, align 8, !tbaa !9
+  br label %242
+
+242:                                              ; preds = %241, %238
+  %243 = load ptr, ptr %3, align 8, !tbaa !3
+  %244 = getelementptr inbounds nuw %struct.pysqlite_Cursor, ptr %243, i32 0, i32 3
+  %245 = load ptr, ptr %244, align 8, !tbaa !56
+  %246 = load ptr, ptr %7, align 8, !tbaa !9
+  %247 = call i32 @PyList_Append(ptr noundef %245, ptr noundef %246)
+  %248 = icmp ne i32 %247, 0
+  br i1 %248, label %249, label %263
+
+249:                                              ; preds = %242
+  br label %250
+
+250:                                              ; preds = %249
+  call void @llvm.lifetime.start.p0(i64 8, ptr %21) #8
+  %251 = load ptr, ptr %3, align 8, !tbaa !3
+  %252 = getelementptr inbounds nuw %struct.pysqlite_Cursor, ptr %251, i32 0, i32 3
+  store ptr %252, ptr %21, align 8, !tbaa !16
+  call void @llvm.lifetime.start.p0(i64 8, ptr %22) #8
+  %253 = load ptr, ptr %21, align 8, !tbaa !16
+  %254 = load ptr, ptr %253, align 8, !tbaa !9
+  store ptr %254, ptr %22, align 8, !tbaa !9
+  %255 = load ptr, ptr %22, align 8, !tbaa !9
+  %256 = icmp ne ptr %255, null
+  br i1 %256, label %257, label %260
+
+257:                                              ; preds = %250
+  %258 = load ptr, ptr %21, align 8, !tbaa !16
+  store ptr null, ptr %258, align 8, !tbaa !9
+  %259 = load ptr, ptr %22, align 8, !tbaa !9
+  call void @Py_DECREF(ptr noundef %259)
+  br label %260
+
+260:                                              ; preds = %257, %250
+  call void @llvm.lifetime.end.p0(i64 8, ptr %22) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %21) #8
+  br label %261
+
+261:                                              ; preds = %260
+  br label %262
+
+262:                                              ; preds = %261
+  store i32 -1, ptr %2, align 4
+  store i32 1, ptr %8, align 4
+  br label %268
+
+263:                                              ; preds = %242
+  br label %264
+
+264:                                              ; preds = %263
+  %265 = load i32, ptr %4, align 4, !tbaa !7
+  %266 = add i32 %265, 1
+  store i32 %266, ptr %4, align 4, !tbaa !7
+  br label %47, !llvm.loop !58
+
+267:                                              ; preds = %47
+  store i32 0, ptr %2, align 4
+  store i32 1, ptr %8, align 4
+  br label %268
+
+268:                                              ; preds = %267, %262, %230, %155, %45, %29
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %4) #8
+  %269 = load i32, ptr %2, align 4
+  ret i32 %269
+}
+
+declare ptr @_PyErr_FormatFromCause(ptr noundef, ptr noundef, ...) #2
+
+declare ptr @PyEval_SaveThread() #2
+
+declare i32 @sqlite3_column_count(ptr noundef) #2
+
+declare void @PyEval_RestoreThread(ptr noundef) #2
+
+declare ptr @sqlite3_column_name(ptr noundef, i32 noundef) #2
+
+declare ptr @PyErr_NoMemory() #2
+
+; Function Attrs: nounwind uwtable
+define internal ptr @_pysqlite_build_column_name(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  store ptr %1, ptr %4, align 8, !tbaa !40
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #8
+  %7 = load ptr, ptr %3, align 8, !tbaa !3
+  %8 = getelementptr inbounds nuw %struct.pysqlite_Cursor, ptr %7, i32 0, i32 1
+  %9 = load ptr, ptr %8, align 8, !tbaa !19
+  %10 = getelementptr inbounds nuw %struct.pysqlite_Connection, ptr %9, i32 0, i32 3
+  %11 = load i32, ptr %10, align 8, !tbaa !55
+  %12 = and i32 %11, 2
+  %13 = icmp ne i32 %12, 0
+  br i1 %13, label %14, label %49
+
+14:                                               ; preds = %2
+  %15 = load ptr, ptr %4, align 8, !tbaa !40
+  store ptr %15, ptr %5, align 8, !tbaa !40
+  br label %16
+
+16:                                               ; preds = %40, %14
+  %17 = load ptr, ptr %5, align 8, !tbaa !40
+  %18 = load i8, ptr %17, align 1, !tbaa !47
+  %19 = icmp ne i8 %18, 0
+  br i1 %19, label %20, label %43
+
+20:                                               ; preds = %16
+  %21 = load ptr, ptr %5, align 8, !tbaa !40
+  %22 = load i8, ptr %21, align 1, !tbaa !47
+  %23 = sext i8 %22 to i32
+  %24 = icmp eq i32 %23, 91
+  br i1 %24, label %25, label %39
+
+25:                                               ; preds = %20
+  %26 = load ptr, ptr %5, align 8, !tbaa !40
+  %27 = load ptr, ptr %4, align 8, !tbaa !40
+  %28 = icmp ne ptr %26, %27
+  br i1 %28, label %29, label %38
+
+29:                                               ; preds = %25
+  %30 = load ptr, ptr %5, align 8, !tbaa !40
+  %31 = getelementptr i8, ptr %30, i64 -1
+  %32 = load i8, ptr %31, align 1, !tbaa !47
+  %33 = sext i8 %32 to i32
+  %34 = icmp eq i32 %33, 32
+  br i1 %34, label %35, label %38
+
+35:                                               ; preds = %29
+  %36 = load ptr, ptr %5, align 8, !tbaa !40
+  %37 = getelementptr i8, ptr %36, i32 -1
+  store ptr %37, ptr %5, align 8, !tbaa !40
+  br label %38
+
+38:                                               ; preds = %35, %29, %25
+  br label %43
+
+39:                                               ; preds = %20
+  br label %40
+
+40:                                               ; preds = %39
+  %41 = load ptr, ptr %5, align 8, !tbaa !40
+  %42 = getelementptr i8, ptr %41, i32 1
+  store ptr %42, ptr %5, align 8, !tbaa !40
+  br label %16, !llvm.loop !59
+
+43:                                               ; preds = %38, %16
+  %44 = load ptr, ptr %5, align 8, !tbaa !40
+  %45 = load ptr, ptr %4, align 8, !tbaa !40
+  %46 = ptrtoint ptr %44 to i64
+  %47 = ptrtoint ptr %45 to i64
+  %48 = sub i64 %46, %47
+  store i64 %48, ptr %6, align 8, !tbaa !49
+  br label %52
+
+49:                                               ; preds = %2
+  %50 = load ptr, ptr %4, align 8, !tbaa !40
+  %51 = call i64 @strlen(ptr noundef %50) #9
+  store i64 %51, ptr %6, align 8, !tbaa !49
+  br label %52
+
+52:                                               ; preds = %49, %43
+  %53 = load ptr, ptr %4, align 8, !tbaa !40
+  %54 = load i64, ptr %6, align 8, !tbaa !49
+  %55 = call ptr @PyUnicode_FromStringAndSize(ptr noundef %53, i64 noundef %54)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #8
+  ret ptr %55
+}
+
+declare ptr @PyTuple_Pack(i64 noundef, ...) #2
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal void @PyTuple_SET_ITEM(ptr noundef %0, i64 noundef %1, ptr noundef %2) #3 {
+  %4 = alloca ptr, align 8
+  %5 = alloca i64, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !9
+  store i64 %1, ptr %5, align 8, !tbaa !49
+  store ptr %2, ptr %6, align 8, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #8
+  %8 = load ptr, ptr %4, align 8, !tbaa !9
+  store ptr %8, ptr %7, align 8, !tbaa !3
+  %9 = load ptr, ptr %6, align 8, !tbaa !9
+  %10 = load ptr, ptr %7, align 8, !tbaa !3
+  %11 = getelementptr inbounds nuw %struct.PyTupleObject, ptr %10, i32 0, i32 1
+  %12 = load i64, ptr %5, align 8, !tbaa !49
+  %13 = getelementptr [1 x ptr], ptr %11, i64 0, i64 %12
+  store ptr %9, ptr %13, align 8, !tbaa !9
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #8
+  ret void
+}
+
+declare i32 @sqlite3_changes(ptr noundef) #2
+
+declare i64 @sqlite3_last_insert_rowid(ptr noundef) #2
+
+declare ptr @PyLong_FromLongLong(i64 noundef) #2
+
+; Function Attrs: nounwind uwtable
+define hidden i32 @pysqlite_cursor_setup_types(ptr noundef %0) #0 {
+  %2 = alloca i32, align 4
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #8
+  %7 = load ptr, ptr %3, align 8, !tbaa !9
+  %8 = call ptr @PyType_FromModuleAndSpec(ptr noundef %7, ptr noundef @cursor_spec, ptr noundef null)
+  store ptr %8, ptr %4, align 8, !tbaa !9
+  %9 = load ptr, ptr %4, align 8, !tbaa !9
+  %10 = icmp eq ptr %9, null
+  br i1 %10, label %11, label %12
+
+11:                                               ; preds = %1
+  store i32 -1, ptr %2, align 4
+  store i32 1, ptr %5, align 4
+  br label %18
+
+12:                                               ; preds = %1
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #8
+  %13 = load ptr, ptr %3, align 8, !tbaa !9
+  %14 = call ptr @pysqlite_get_state(ptr noundef %13)
+  store ptr %14, ptr %6, align 8, !tbaa !3
+  %15 = load ptr, ptr %4, align 8, !tbaa !9
+  %16 = load ptr, ptr %6, align 8, !tbaa !3
+  %17 = getelementptr inbounds nuw %struct.pysqlite_state, ptr %16, i32 0, i32 17
+  store ptr %15, ptr %17, align 8, !tbaa !60
+  store i32 0, ptr %2, align 4
+  store i32 1, ptr %5, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #8
+  br label %18
+
+18:                                               ; preds = %12, %11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #8
+  %19 = load i32, ptr %2, align 4
+  ret i32 %19
+}
+
+declare ptr @PyType_FromModuleAndSpec(ptr noundef, ptr noundef, ptr noundef) #2
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal ptr @pysqlite_get_state(ptr noundef %0) #3 {
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #8
+  %4 = load ptr, ptr %2, align 8, !tbaa !9
+  %5 = call ptr @PyModule_GetState(ptr noundef %4)
+  store ptr %5, ptr %3, align 8, !tbaa !3
+  %6 = load ptr, ptr %3, align 8, !tbaa !3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #8
+  ret ptr %6
+}
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal ptr @pysqlite_get_state_by_type(ptr noundef %0) #3 {
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !61
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #8
+  %4 = load ptr, ptr %2, align 8, !tbaa !61
+  %5 = call ptr @PyType_GetModuleByDef(ptr noundef %4, ptr noundef @_sqlite3module)
+  store ptr %5, ptr %3, align 8, !tbaa !9
+  %6 = load ptr, ptr %3, align 8, !tbaa !9
+  %7 = call ptr @pysqlite_get_state(ptr noundef %6)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #8
+  ret ptr %7
+}
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal ptr @_Py_TYPE(ptr noundef %0) #3 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !9
+  %3 = load ptr, ptr %2, align 8, !tbaa !9
+  %4 = getelementptr inbounds nuw %struct._object, ptr %3, i32 0, i32 1
+  %5 = load ptr, ptr %4, align 8, !tbaa !62
+  ret ptr %5
+}
+
+declare i32 @pysqlite_check_thread(ptr noundef) #2
+
+declare i32 @pysqlite_check_connection(ptr noundef) #2
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal i32 @check_cursor_locked(ptr noundef %0) #3 {
+  %2 = alloca i32, align 4
+  %3 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  %4 = load ptr, ptr %3, align 8, !tbaa !3
+  %5 = getelementptr inbounds nuw %struct.pysqlite_Cursor, ptr %4, i32 0, i32 10
+  %6 = load i32, ptr %5, align 4, !tbaa !11
+  %7 = icmp ne i32 %6, 0
+  br i1 %7, label %8, label %14
+
+8:                                                ; preds = %1
+  %9 = load ptr, ptr %3, align 8, !tbaa !3
+  %10 = getelementptr inbounds nuw %struct.pysqlite_Cursor, ptr %9, i32 0, i32 1
+  %11 = load ptr, ptr %10, align 8, !tbaa !19
+  %12 = getelementptr inbounds nuw %struct.pysqlite_Connection, ptr %11, i32 0, i32 26
+  %13 = load ptr, ptr %12, align 8, !tbaa !63
+  call void @PyErr_SetString(ptr noundef %13, ptr noundef @.str.4)
+  store i32 0, ptr %2, align 4
+  br label %15
+
+14:                                               ; preds = %1
+  store i32 1, ptr %2, align 4
+  br label %15
+
+15:                                               ; preds = %14, %8
+  %16 = load i32, ptr %2, align 4
+  ret i32 %16
+}
+
+declare ptr @PyType_GetModuleByDef(ptr noundef, ptr noundef) #2
+
+; Function Attrs: alwaysinline nounwind uwtable
+define internal i32 @_Py_IsImmortal(ptr noundef %0) #4 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !9
+  %3 = load ptr, ptr %2, align 8, !tbaa !9
+  %4 = getelementptr inbounds nuw %struct._object, ptr %3, i32 0, i32 0
+  %5 = getelementptr inbounds nuw %struct.anon, ptr %4, i32 0, i32 0
+  %6 = load i32, ptr %5, align 8, !tbaa !47
+  %7 = icmp slt i32 %6, 0
+  %8 = zext i1 %7 to i32
+  ret i32 %8
+}
+
+declare void @_Py_Dealloc(ptr noundef) #2
+
+declare i32 @sqlite3_reset(ptr noundef) #2
+
+declare ptr @PyObject_Vectorcall(ptr noundef, ptr noundef, i64 noundef, ptr noundef) #2
+
+; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
+
+; Function Attrs: nounwind
+declare ptr @strcat(ptr noundef, ptr noundef) #6
+
+declare i32 @sqlite3_prepare_v2(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) #2
+
+declare i32 @sqlite3_step(ptr noundef) #2
+
+declare i32 @sqlite3_finalize(ptr noundef) #2
+
+declare i32 @sqlite3_bind_parameter_count(ptr noundef) #2
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal i32 @Py_IS_TYPE(ptr noundef %0, ptr noundef %1) #3 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !9
+  store ptr %1, ptr %4, align 8, !tbaa !61
+  %5 = load ptr, ptr %3, align 8, !tbaa !9
+  %6 = call ptr @_Py_TYPE(ptr noundef %5)
+  %7 = load ptr, ptr %4, align 8, !tbaa !61
+  %8 = icmp eq ptr %6, %7
+  %9 = zext i1 %8 to i32
+  ret i32 %9
+}
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal i32 @PyType_HasFeature(ptr noundef %0, i64 noundef %1) #3 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  %5 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !61
+  store i64 %1, ptr %4, align 8, !tbaa !49
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #8
+  %6 = load ptr, ptr %3, align 8, !tbaa !61
+  %7 = getelementptr inbounds nuw %struct._typeobject, ptr %6, i32 0, i32 19
+  %8 = load i64, ptr %7, align 8, !tbaa !64
+  store i64 %8, ptr %5, align 8, !tbaa !49
+  %9 = load i64, ptr %5, align 8, !tbaa !49
+  %10 = load i64, ptr %4, align 8, !tbaa !49
+  %11 = and i64 %9, %10
+  %12 = icmp ne i64 %11, 0
+  %13 = zext i1 %12 to i32
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #8
+  ret i32 %13
+}
+
+declare i32 @PySequence_Check(ptr noundef) #2
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal i64 @PyTuple_GET_SIZE(ptr noundef %0) #3 {
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #8
+  %4 = load ptr, ptr %2, align 8, !tbaa !9
+  store ptr %4, ptr %3, align 8, !tbaa !3
+  %5 = load ptr, ptr %3, align 8, !tbaa !3
+  %6 = call i64 @Py_SIZE(ptr noundef %5)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #8
+  ret i64 %6
+}
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal i64 @PyList_GET_SIZE(ptr noundef %0) #3 {
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #8
+  %4 = load ptr, ptr %2, align 8, !tbaa !9
+  store ptr %4, ptr %3, align 8, !tbaa !3
+  %5 = load ptr, ptr %3, align 8, !tbaa !3
+  %6 = call i64 @Py_SIZE(ptr noundef %5)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #8
+  ret i64 %6
+}
+
+declare i64 @PySequence_Size(ptr noundef) #2
+
+declare ptr @PyErr_Format(ptr noundef, ptr noundef, ...) #2
+
+declare ptr @sqlite3_bind_parameter_name(ptr noundef, i32 noundef) #2
+
+declare ptr @PyList_GetItem(ptr noundef, i64 noundef) #2
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal ptr @_Py_XNewRef(ptr noundef %0) #3 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !9
+  %3 = load ptr, ptr %2, align 8, !tbaa !9
+  call void @Py_XINCREF(ptr noundef %3)
+  %4 = load ptr, ptr %2, align 8, !tbaa !9
+  ret ptr %4
+}
+
+declare ptr @PySequence_GetItem(ptr noundef, i64 noundef) #2
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal i32 @need_adapt(ptr noundef %0, ptr noundef %1) #3 {
+  %3 = alloca i32, align 4
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !3
+  store ptr %1, ptr %5, align 8, !tbaa !9
+  %6 = load ptr, ptr %4, align 8, !tbaa !3
+  %7 = getelementptr inbounds nuw %struct.pysqlite_state, ptr %6, i32 0, i32 13
+  %8 = load i32, ptr %7, align 8, !tbaa !71
+  %9 = icmp ne i32 %8, 0
+  br i1 %9, label %10, label %11
+
+10:                                               ; preds = %2
+  store i32 1, ptr %3, align 4
+  br label %29
+
+11:                                               ; preds = %2
+  %12 = load ptr, ptr %5, align 8, !tbaa !9
+  %13 = call i32 @Py_IS_TYPE(ptr noundef %12, ptr noundef @PyLong_Type)
+  %14 = icmp ne i32 %13, 0
+  br i1 %14, label %27, label %15
+
+15:                                               ; preds = %11
+  %16 = load ptr, ptr %5, align 8, !tbaa !9
+  %17 = call i32 @Py_IS_TYPE(ptr noundef %16, ptr noundef @PyFloat_Type)
+  %18 = icmp ne i32 %17, 0
+  br i1 %18, label %27, label %19
+
+19:                                               ; preds = %15
+  %20 = load ptr, ptr %5, align 8, !tbaa !9
+  %21 = call i32 @Py_IS_TYPE(ptr noundef %20, ptr noundef @PyUnicode_Type)
+  %22 = icmp ne i32 %21, 0
+  br i1 %22, label %27, label %23
+
+23:                                               ; preds = %19
+  %24 = load ptr, ptr %5, align 8, !tbaa !9
+  %25 = call i32 @Py_IS_TYPE(ptr noundef %24, ptr noundef @PyByteArray_Type)
+  %26 = icmp ne i32 %25, 0
+  br i1 %26, label %27, label %28
+
+27:                                               ; preds = %23, %19, %15, %11
+  store i32 0, ptr %3, align 4
+  br label %29
+
+28:                                               ; preds = %23
+  store i32 1, ptr %3, align 4
+  br label %29
+
+29:                                               ; preds = %28, %27, %10
+  %30 = load i32, ptr %3, align 4
+  ret i32 %30
+}
+
+declare ptr @pysqlite_microprotocols_adapt(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #2
+
+; Function Attrs: nounwind uwtable
+define internal i32 @bind_param(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) #0 {
+  %5 = alloca i32, align 4
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca ptr, align 8
+  %10 = alloca i32, align 4
+  %11 = alloca ptr, align 8
+  %12 = alloca i64, align 8
+  %13 = alloca i32, align 4
+  %14 = alloca i64, align 8
+  %15 = alloca double, align 8
+  %16 = alloca i32, align 4
+  %17 = alloca %struct.Py_buffer, align 8
+  store ptr %0, ptr %6, align 8, !tbaa !3
+  store ptr %1, ptr %7, align 8, !tbaa !3
+  store i32 %2, ptr %8, align 4, !tbaa !7
+  store ptr %3, ptr %9, align 8, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #8
+  store i32 0, ptr %10, align 4, !tbaa !7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #8
+  %18 = load ptr, ptr %9, align 8, !tbaa !9
+  %19 = icmp eq ptr %18, @_Py_NoneStruct
+  br i1 %19, label %20, label %26
+
+20:                                               ; preds = %4
+  %21 = load ptr, ptr %7, align 8, !tbaa !3
+  %22 = getelementptr inbounds nuw %struct.pysqlite_Statement, ptr %21, i32 0, i32 1
+  %23 = load ptr, ptr %22, align 8, !tbaa !25
+  %24 = load i32, ptr %8, align 4, !tbaa !7
+  %25 = call i32 @sqlite3_bind_null(ptr noundef %23, i32 noundef %24)
+  store i32 %25, ptr %10, align 4, !tbaa !7
+  br label %161
+
+26:                                               ; preds = %4
+  %27 = load ptr, ptr %9, align 8, !tbaa !9
+  %28 = call i32 @Py_IS_TYPE(ptr noundef %27, ptr noundef @PyLong_Type)
+  %29 = icmp ne i32 %28, 0
+  br i1 %29, label %30, label %31
+
+30:                                               ; preds = %26
+  store i32 0, ptr %13, align 4, !tbaa !7
+  br label %70
+
+31:                                               ; preds = %26
+  %32 = load ptr, ptr %9, align 8, !tbaa !9
+  %33 = call i32 @Py_IS_TYPE(ptr noundef %32, ptr noundef @PyFloat_Type)
+  %34 = icmp ne i32 %33, 0
+  br i1 %34, label %35, label %36
+
+35:                                               ; preds = %31
+  store i32 1, ptr %13, align 4, !tbaa !7
+  br label %69
+
+36:                                               ; preds = %31
+  %37 = load ptr, ptr %9, align 8, !tbaa !9
+  %38 = call i32 @Py_IS_TYPE(ptr noundef %37, ptr noundef @PyUnicode_Type)
+  %39 = icmp ne i32 %38, 0
+  br i1 %39, label %40, label %41
+
+40:                                               ; preds = %36
+  store i32 2, ptr %13, align 4, !tbaa !7
+  br label %68
+
+41:                                               ; preds = %36
+  %42 = load ptr, ptr %9, align 8, !tbaa !9
+  %43 = call ptr @_Py_TYPE(ptr noundef %42)
+  %44 = call i32 @PyType_HasFeature(ptr noundef %43, i64 noundef 16777216)
+  %45 = icmp ne i32 %44, 0
+  br i1 %45, label %46, label %47
+
+46:                                               ; preds = %41
+  store i32 0, ptr %13, align 4, !tbaa !7
+  br label %67
+
+47:                                               ; preds = %41
+  %48 = load ptr, ptr %9, align 8, !tbaa !9
+  %49 = call i32 @PyObject_TypeCheck(ptr noundef %48, ptr noundef @PyFloat_Type)
+  %50 = icmp ne i32 %49, 0
+  br i1 %50, label %51, label %52
+
+51:                                               ; preds = %47
+  store i32 1, ptr %13, align 4, !tbaa !7
+  br label %66
+
+52:                                               ; preds = %47
+  %53 = load ptr, ptr %9, align 8, !tbaa !9
+  %54 = call ptr @_Py_TYPE(ptr noundef %53)
+  %55 = call i32 @PyType_HasFeature(ptr noundef %54, i64 noundef 268435456)
+  %56 = icmp ne i32 %55, 0
+  br i1 %56, label %57, label %58
+
+57:                                               ; preds = %52
+  store i32 2, ptr %13, align 4, !tbaa !7
+  br label %65
+
+58:                                               ; preds = %52
+  %59 = load ptr, ptr %9, align 8, !tbaa !9
+  %60 = call i32 @PyObject_CheckBuffer(ptr noundef %59)
+  %61 = icmp ne i32 %60, 0
+  br i1 %61, label %62, label %63
+
+62:                                               ; preds = %58
+  store i32 3, ptr %13, align 4, !tbaa !7
+  br label %64
+
+63:                                               ; preds = %58
+  store i32 4, ptr %13, align 4, !tbaa !7
+  br label %64
+
+64:                                               ; preds = %63, %62
+  br label %65
+
+65:                                               ; preds = %64, %57
+  br label %66
+
+66:                                               ; preds = %65, %51
+  br label %67
+
+67:                                               ; preds = %66, %46
+  br label %68
+
+68:                                               ; preds = %67, %40
+  br label %69
+
+69:                                               ; preds = %68, %35
+  br label %70
+
+70:                                               ; preds = %69, %30
+  %71 = load i32, ptr %13, align 4, !tbaa !7
+  switch i32 %71, label %160 [
+    i32 0, label %72
+    i32 1, label %89
+    i32 2, label %106
+    i32 3, label %126
+    i32 4, label %150
+  ]
+
+72:                                               ; preds = %70
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #8
+  %73 = load ptr, ptr %9, align 8, !tbaa !9
+  %74 = call i64 @_pysqlite_long_as_int64(ptr noundef %73)
+  store i64 %74, ptr %14, align 8, !tbaa !43
+  %75 = load i64, ptr %14, align 8, !tbaa !43
+  %76 = icmp eq i64 %75, -1
+  br i1 %76, label %77, label %81
+
+77:                                               ; preds = %72
+  %78 = call ptr @PyErr_Occurred()
+  %79 = icmp ne ptr %78, null
+  br i1 %79, label %80, label %81
+
+80:                                               ; preds = %77
+  store i32 -1, ptr %10, align 4, !tbaa !7
+  br label %88
+
+81:                                               ; preds = %77, %72
+  %82 = load ptr, ptr %7, align 8, !tbaa !3
+  %83 = getelementptr inbounds nuw %struct.pysqlite_Statement, ptr %82, i32 0, i32 1
+  %84 = load ptr, ptr %83, align 8, !tbaa !25
+  %85 = load i32, ptr %8, align 4, !tbaa !7
+  %86 = load i64, ptr %14, align 8, !tbaa !43
+  %87 = call i32 @sqlite3_bind_int64(ptr noundef %84, i32 noundef %85, i64 noundef %86)
+  store i32 %87, ptr %10, align 4, !tbaa !7
+  br label %88
+
+88:                                               ; preds = %81, %80
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #8
+  br label %160
+
+89:                                               ; preds = %70
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #8
+  %90 = load ptr, ptr %9, align 8, !tbaa !9
+  %91 = call double @PyFloat_AsDouble(ptr noundef %90)
+  store double %91, ptr %15, align 8, !tbaa !72
+  %92 = load double, ptr %15, align 8, !tbaa !72
+  %93 = fcmp oeq double %92, -1.000000e+00
+  br i1 %93, label %94, label %98
+
+94:                                               ; preds = %89
+  %95 = call ptr @PyErr_Occurred()
+  %96 = icmp ne ptr %95, null
+  br i1 %96, label %97, label %98
+
+97:                                               ; preds = %94
+  store i32 -1, ptr %10, align 4, !tbaa !7
+  br label %105
+
+98:                                               ; preds = %94, %89
+  %99 = load ptr, ptr %7, align 8, !tbaa !3
+  %100 = getelementptr inbounds nuw %struct.pysqlite_Statement, ptr %99, i32 0, i32 1
+  %101 = load ptr, ptr %100, align 8, !tbaa !25
+  %102 = load i32, ptr %8, align 4, !tbaa !7
+  %103 = load double, ptr %15, align 8, !tbaa !72
+  %104 = call i32 @sqlite3_bind_double(ptr noundef %101, i32 noundef %102, double noundef %103)
+  store i32 %104, ptr %10, align 4, !tbaa !7
+  br label %105
+
+105:                                              ; preds = %98, %97
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #8
+  br label %160
+
+106:                                              ; preds = %70
+  %107 = load ptr, ptr %9, align 8, !tbaa !9
+  %108 = call ptr @PyUnicode_AsUTF8AndSize(ptr noundef %107, ptr noundef %12)
+  store ptr %108, ptr %11, align 8, !tbaa !40
+  %109 = load ptr, ptr %11, align 8, !tbaa !40
+  %110 = icmp eq ptr %109, null
+  br i1 %110, label %111, label %112
+
+111:                                              ; preds = %106
+  store i32 -1, ptr %5, align 4
+  store i32 1, ptr %16, align 4
+  br label %163
+
+112:                                              ; preds = %106
+  %113 = load i64, ptr %12, align 8, !tbaa !49
+  %114 = icmp sgt i64 %113, 2147483647
+  br i1 %114, label %115, label %117
+
+115:                                              ; preds = %112
+  %116 = load ptr, ptr @PyExc_OverflowError, align 8, !tbaa !9
+  call void @PyErr_SetString(ptr noundef %116, ptr noundef @.str.10)
+  store i32 -1, ptr %5, align 4
+  store i32 1, ptr %16, align 4
+  br label %163
+
+117:                                              ; preds = %112
+  %118 = load ptr, ptr %7, align 8, !tbaa !3
+  %119 = getelementptr inbounds nuw %struct.pysqlite_Statement, ptr %118, i32 0, i32 1
+  %120 = load ptr, ptr %119, align 8, !tbaa !25
+  %121 = load i32, ptr %8, align 4, !tbaa !7
+  %122 = load ptr, ptr %11, align 8, !tbaa !40
+  %123 = load i64, ptr %12, align 8, !tbaa !49
+  %124 = trunc i64 %123 to i32
+  %125 = call i32 @sqlite3_bind_text(ptr noundef %120, i32 noundef %121, ptr noundef %122, i32 noundef %124, ptr noundef inttoptr (i64 -1 to ptr))
+  store i32 %125, ptr %10, align 4, !tbaa !7
+  br label %160
+
+126:                                              ; preds = %70
+  call void @llvm.lifetime.start.p0(i64 80, ptr %17) #8
+  %127 = load ptr, ptr %9, align 8, !tbaa !9
+  %128 = call i32 @PyObject_GetBuffer(ptr noundef %127, ptr noundef %17, i32 noundef 0)
+  %129 = icmp ne i32 %128, 0
+  br i1 %129, label %130, label %131
+
+130:                                              ; preds = %126
+  store i32 -1, ptr %5, align 4
+  store i32 1, ptr %16, align 4
+  br label %148
+
+131:                                              ; preds = %126
+  %132 = getelementptr inbounds nuw %struct.Py_buffer, ptr %17, i32 0, i32 2
+  %133 = load i64, ptr %132, align 8, !tbaa !74
+  %134 = icmp sgt i64 %133, 2147483647
+  br i1 %134, label %135, label %137
+
+135:                                              ; preds = %131
+  %136 = load ptr, ptr @PyExc_OverflowError, align 8, !tbaa !9
+  call void @PyErr_SetString(ptr noundef %136, ptr noundef @.str.11)
+  call void @PyBuffer_Release(ptr noundef %17)
+  store i32 -1, ptr %5, align 4
+  store i32 1, ptr %16, align 4
+  br label %148
+
+137:                                              ; preds = %131
+  %138 = load ptr, ptr %7, align 8, !tbaa !3
+  %139 = getelementptr inbounds nuw %struct.pysqlite_Statement, ptr %138, i32 0, i32 1
+  %140 = load ptr, ptr %139, align 8, !tbaa !25
+  %141 = load i32, ptr %8, align 4, !tbaa !7
+  %142 = getelementptr inbounds nuw %struct.Py_buffer, ptr %17, i32 0, i32 0
+  %143 = load ptr, ptr %142, align 8, !tbaa !77
+  %144 = getelementptr inbounds nuw %struct.Py_buffer, ptr %17, i32 0, i32 2
+  %145 = load i64, ptr %144, align 8, !tbaa !74
+  %146 = trunc i64 %145 to i32
+  %147 = call i32 @sqlite3_bind_blob(ptr noundef %140, i32 noundef %141, ptr noundef %143, i32 noundef %146, ptr noundef inttoptr (i64 -1 to ptr))
+  store i32 %147, ptr %10, align 4, !tbaa !7
+  call void @PyBuffer_Release(ptr noundef %17)
+  store i32 3, ptr %16, align 4
+  br label %148
+
+148:                                              ; preds = %137, %135, %130
+  call void @llvm.lifetime.end.p0(i64 80, ptr %17) #8
+  %149 = load i32, ptr %16, align 4
+  switch i32 %149, label %163 [
+    i32 3, label %160
+  ]
+
+150:                                              ; preds = %70
+  %151 = load ptr, ptr %6, align 8, !tbaa !3
+  %152 = getelementptr inbounds nuw %struct.pysqlite_state, ptr %151, i32 0, i32 8
+  %153 = load ptr, ptr %152, align 8, !tbaa !28
+  %154 = load i32, ptr %8, align 4, !tbaa !7
+  %155 = load ptr, ptr %9, align 8, !tbaa !9
+  %156 = call ptr @_Py_TYPE(ptr noundef %155)
+  %157 = getelementptr inbounds nuw %struct._typeobject, ptr %156, i32 0, i32 1
+  %158 = load ptr, ptr %157, align 8, !tbaa !78
+  %159 = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %153, ptr noundef @.str.12, i32 noundef %154, ptr noundef %158)
+  store i32 -1, ptr %10, align 4, !tbaa !7
+  br label %160
+
+160:                                              ; preds = %150, %70, %148, %117, %105, %88
+  br label %161
+
+161:                                              ; preds = %160, %20
+  %162 = load i32, ptr %10, align 4, !tbaa !7
+  store i32 %162, ptr %5, align 4
+  store i32 1, ptr %16, align 4
+  br label %163
+
+163:                                              ; preds = %161, %148, %115, %111
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #8
+  %164 = load i32, ptr %5, align 4
+  ret i32 %164
+}
+
+declare ptr @PyErr_GetRaisedException() #2
+
+declare ptr @sqlite3_db_handle(ptr noundef) #2
+
+declare void @_PyErr_ChainExceptions1(ptr noundef) #2
+
+declare i32 @PyMapping_GetOptionalItemString(ptr noundef, ptr noundef, ptr noundef) #2
+
+declare i32 @PyErr_ExceptionMatches(ptr noundef) #2
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal i64 @Py_SIZE(ptr noundef %0) #3 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !9
+  %3 = load ptr, ptr %2, align 8, !tbaa !9
+  %4 = getelementptr inbounds nuw %struct.PyVarObject, ptr %3, i32 0, i32 1
+  %5 = load i64, ptr %4, align 8, !tbaa !79
+  ret i64 %5
+}
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal void @Py_XINCREF(ptr noundef %0) #3 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !9
+  %3 = load ptr, ptr %2, align 8, !tbaa !9
+  %4 = icmp ne ptr %3, null
+  br i1 %4, label %5, label %7
+
+5:                                                ; preds = %1
+  %6 = load ptr, ptr %2, align 8, !tbaa !9
+  call void @Py_INCREF(ptr noundef %6)
+  br label %7
+
+7:                                                ; preds = %5, %1
+  ret void
+}
+
+declare i32 @sqlite3_bind_null(ptr noundef, i32 noundef) #2
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal i32 @PyObject_TypeCheck(ptr noundef %0, ptr noundef %1) #3 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !9
+  store ptr %1, ptr %4, align 8, !tbaa !61
+  %5 = load ptr, ptr %3, align 8, !tbaa !9
+  %6 = load ptr, ptr %4, align 8, !tbaa !61
+  %7 = call i32 @Py_IS_TYPE(ptr noundef %5, ptr noundef %6)
+  %8 = icmp ne i32 %7, 0
+  br i1 %8, label %15, label %9
+
+9:                                                ; preds = %2
+  %10 = load ptr, ptr %3, align 8, !tbaa !9
+  %11 = call ptr @_Py_TYPE(ptr noundef %10)
+  %12 = load ptr, ptr %4, align 8, !tbaa !61
+  %13 = call i32 @PyType_IsSubtype(ptr noundef %11, ptr noundef %12)
+  %14 = icmp ne i32 %13, 0
+  br label %15
+
+15:                                               ; preds = %9, %2
+  %16 = phi i1 [ true, %2 ], [ %14, %9 ]
+  %17 = zext i1 %16 to i32
+  ret i32 %17
+}
+
+declare i32 @PyObject_CheckBuffer(ptr noundef) #2
+
+declare i64 @_pysqlite_long_as_int64(ptr noundef) #2
+
+declare i32 @sqlite3_bind_int64(ptr noundef, i32 noundef, i64 noundef) #2
+
+declare double @PyFloat_AsDouble(ptr noundef) #2
+
+declare i32 @sqlite3_bind_double(ptr noundef, i32 noundef, double noundef) #2
+
+declare ptr @PyUnicode_AsUTF8AndSize(ptr noundef, ptr noundef) #2
+
+declare i32 @sqlite3_bind_text(ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef) #2
+
+declare i32 @PyObject_GetBuffer(ptr noundef, ptr noundef, i32 noundef) #2
+
+declare void @PyBuffer_Release(ptr noundef) #2
+
+declare i32 @sqlite3_bind_blob(ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef) #2
+
+declare i32 @PyType_IsSubtype(ptr noundef, ptr noundef) #2
+
+; Function Attrs: nounwind uwtable
+define internal ptr @_pysqlite_get_converter(ptr noundef %0, ptr noundef %1, i64 noundef %2) #0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i64, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca i32, align 4
+  store ptr %0, ptr %5, align 8, !tbaa !3
+  store ptr %1, ptr %6, align 8, !tbaa !40
+  store i64 %2, ptr %7, align 8, !tbaa !49
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #8
+  %12 = load ptr, ptr %6, align 8, !tbaa !40
+  %13 = load i64, ptr %7, align 8, !tbaa !49
+  %14 = call ptr @PyUnicode_FromStringAndSize(ptr noundef %12, i64 noundef %13)
+  store ptr %14, ptr %8, align 8, !tbaa !9
+  %15 = load ptr, ptr %8, align 8, !tbaa !9
+  %16 = icmp ne ptr %15, null
+  br i1 %16, label %18, label %17
+
+17:                                               ; preds = %3
+  store ptr null, ptr %4, align 8
+  store i32 1, ptr %11, align 4
+  br label %36
+
+18:                                               ; preds = %3
+  %19 = load ptr, ptr %8, align 8, !tbaa !9
+  %20 = load ptr, ptr %5, align 8, !tbaa !3
+  %21 = getelementptr inbounds nuw %struct.pysqlite_state, ptr %20, i32 0, i32 27
+  %22 = load ptr, ptr %21, align 8, !tbaa !80
+  %23 = call ptr @PyObject_CallMethodNoArgs(ptr noundef %19, ptr noundef %22)
+  store ptr %23, ptr %9, align 8, !tbaa !9
+  %24 = load ptr, ptr %8, align 8, !tbaa !9
+  call void @Py_DECREF(ptr noundef %24)
+  %25 = load ptr, ptr %9, align 8, !tbaa !9
+  %26 = icmp ne ptr %25, null
+  br i1 %26, label %28, label %27
+
+27:                                               ; preds = %18
+  store ptr null, ptr %4, align 8
+  store i32 1, ptr %11, align 4
+  br label %36
+
+28:                                               ; preds = %18
+  %29 = load ptr, ptr %5, align 8, !tbaa !3
+  %30 = getelementptr inbounds nuw %struct.pysqlite_state, ptr %29, i32 0, i32 10
+  %31 = load ptr, ptr %30, align 8, !tbaa !81
+  %32 = load ptr, ptr %9, align 8, !tbaa !9
+  %33 = call ptr @PyDict_GetItemWithError(ptr noundef %31, ptr noundef %32)
+  store ptr %33, ptr %10, align 8, !tbaa !9
+  %34 = load ptr, ptr %9, align 8, !tbaa !9
+  call void @Py_DECREF(ptr noundef %34)
+  %35 = load ptr, ptr %10, align 8, !tbaa !9
+  store ptr %35, ptr %4, align 8
+  store i32 1, ptr %11, align 4
+  br label %36
+
+36:                                               ; preds = %28, %27, %17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #8
+  %37 = load ptr, ptr %4, align 8
+  ret ptr %37
+}
+
+declare ptr @sqlite3_column_decltype(ptr noundef, i32 noundef) #2
+
+declare ptr @PyUnicode_FromStringAndSize(ptr noundef, i64 noundef) #2
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal ptr @PyObject_CallMethodNoArgs(ptr noundef %0, ptr noundef %1) #3 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !9
+  store ptr %1, ptr %4, align 8, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #8
+  store i64 -9223372036854775807, ptr %5, align 8, !tbaa !49
+  %6 = load ptr, ptr %4, align 8, !tbaa !9
+  %7 = load i64, ptr %5, align 8, !tbaa !49
+  %8 = call ptr @PyObject_VectorcallMethod(ptr noundef %6, ptr noundef %3, i64 noundef %7, ptr noundef null)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #8
+  ret ptr %8
+}
+
+declare ptr @PyDict_GetItemWithError(ptr noundef, ptr noundef) #2
+
+declare ptr @PyObject_VectorcallMethod(ptr noundef, ptr noundef, i64 noundef, ptr noundef) #2
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare i64 @strlen(ptr noundef) #4
+declare i64 @strlen(ptr noundef) #7
 
 ; Function Attrs: nounwind uwtable
-define internal void @cursor_dealloc(ptr noundef %self) #0 {
-entry:
-  %op.addr.i2 = alloca ptr, align 8
-  %op.addr.i = alloca ptr, align 8
-  %self.addr = alloca ptr, align 8
-  %tp = alloca ptr, align 8
-  store ptr %self, ptr %self.addr, align 8
-  %0 = load ptr, ptr %self.addr, align 8
-  %call = call ptr @Py_TYPE(ptr noundef %0)
-  store ptr %call, ptr %tp, align 8
-  %1 = load ptr, ptr %self.addr, align 8
-  call void @PyObject_GC_UnTrack(ptr noundef %1)
-  %2 = load ptr, ptr %self.addr, align 8
-  %in_weakreflist = getelementptr inbounds %struct.pysqlite_Cursor, ptr %2, i32 0, i32 12
-  %3 = load ptr, ptr %in_weakreflist, align 8
-  %cmp = icmp ne ptr %3, null
-  br i1 %cmp, label %if.then, label %if.end
+define internal void @cursor_dealloc(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #8
+  %5 = load ptr, ptr %2, align 8, !tbaa !9
+  store ptr %5, ptr %3, align 8, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #8
+  %6 = load ptr, ptr %3, align 8, !tbaa !3
+  %7 = call ptr @_Py_TYPE(ptr noundef %6)
+  store ptr %7, ptr %4, align 8, !tbaa !61
+  %8 = load ptr, ptr %3, align 8, !tbaa !3
+  call void @PyObject_GC_UnTrack(ptr noundef %8)
+  %9 = load ptr, ptr %3, align 8, !tbaa !3
+  %10 = getelementptr inbounds nuw %struct.pysqlite_Cursor, ptr %9, i32 0, i32 12
+  %11 = load ptr, ptr %10, align 8, !tbaa !82
+  %12 = icmp ne ptr %11, null
+  br i1 %12, label %13, label %15
 
-if.then:                                          ; preds = %entry
-  %4 = load ptr, ptr %self.addr, align 8
-  call void @PyObject_ClearWeakRefs(ptr noundef %4)
-  br label %if.end
+13:                                               ; preds = %1
+  %14 = load ptr, ptr %2, align 8, !tbaa !9
+  call void @PyObject_ClearWeakRefs(ptr noundef %14)
+  br label %15
 
-if.end:                                           ; preds = %if.then, %entry
-  %5 = load ptr, ptr %tp, align 8
-  %tp_clear = getelementptr inbounds %struct._typeobject, ptr %5, i32 0, i32 22
-  %6 = load ptr, ptr %tp_clear, align 8
-  %7 = load ptr, ptr %self.addr, align 8
-  %call1 = call i32 %6(ptr noundef %7)
-  %8 = load ptr, ptr %tp, align 8
-  %tp_free = getelementptr inbounds %struct._typeobject, ptr %8, i32 0, i32 38
-  %9 = load ptr, ptr %tp_free, align 8
-  %10 = load ptr, ptr %self.addr, align 8
-  call void %9(ptr noundef %10)
-  %11 = load ptr, ptr %tp, align 8
-  store ptr %11, ptr %op.addr.i, align 8
-  %12 = load ptr, ptr %op.addr.i, align 8
-  store ptr %12, ptr %op.addr.i2, align 8
-  %13 = load ptr, ptr %op.addr.i2, align 8
-  %14 = load i64, ptr %13, align 8
-  %conv.i = trunc i64 %14 to i32
-  %cmp.i3 = icmp slt i32 %conv.i, 0
-  %conv1.i = zext i1 %cmp.i3 to i32
-  %tobool.i = icmp ne i32 %conv1.i, 0
-  br i1 %tobool.i, label %if.then.i, label %if.end.i
-
-if.then.i:                                        ; preds = %if.end
-  br label %Py_DECREF.exit
-
-if.end.i:                                         ; preds = %if.end
-  %15 = load ptr, ptr %op.addr.i, align 8
-  %16 = load i64, ptr %15, align 8
-  %dec.i = add i64 %16, -1
-  store i64 %dec.i, ptr %15, align 8
-  %cmp.i = icmp eq i64 %dec.i, 0
-  br i1 %cmp.i, label %if.then1.i, label %Py_DECREF.exit
-
-if.then1.i:                                       ; preds = %if.end.i
-  %17 = load ptr, ptr %op.addr.i, align 8
-  call void @_Py_Dealloc(ptr noundef %17) #5
-  br label %Py_DECREF.exit
-
-Py_DECREF.exit:                                   ; preds = %if.then1.i, %if.end.i, %if.then.i
+15:                                               ; preds = %13, %1
+  %16 = load ptr, ptr %4, align 8, !tbaa !61
+  %17 = getelementptr inbounds nuw %struct._typeobject, ptr %16, i32 0, i32 22
+  %18 = load ptr, ptr %17, align 8, !tbaa !83
+  %19 = load ptr, ptr %2, align 8, !tbaa !9
+  %20 = call i32 %18(ptr noundef %19)
+  %21 = load ptr, ptr %4, align 8, !tbaa !61
+  %22 = getelementptr inbounds nuw %struct._typeobject, ptr %21, i32 0, i32 38
+  %23 = load ptr, ptr %22, align 8, !tbaa !84
+  %24 = load ptr, ptr %3, align 8, !tbaa !3
+  call void %23(ptr noundef %24)
+  %25 = load ptr, ptr %4, align 8, !tbaa !61
+  call void @Py_DECREF(ptr noundef %25)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #8
   ret void
 }
 
-declare ptr @PyObject_SelfIter(ptr noundef) #1
+declare ptr @PyObject_SelfIter(ptr noundef) #2
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @pysqlite_cursor_iternext(ptr noundef %self) #0 {
-entry:
-  %op.addr.i89 = alloca ptr, align 8
-  %op.addr.i85 = alloca ptr, align 8
-  %op.addr.i81 = alloca ptr, align 8
-  %op.addr.i79 = alloca ptr, align 8
-  %op.addr.i70 = alloca ptr, align 8
-  %op.addr.i61 = alloca ptr, align 8
-  %op.addr.i52 = alloca ptr, align 8
-  %op.addr.i = alloca ptr, align 8
-  %retval = alloca ptr, align 8
-  %self.addr = alloca ptr, align 8
-  %stmt = alloca ptr, align 8
-  %row = alloca ptr, align 8
-  %rc = alloca i32, align 4
-  %_tmp_op_ptr = alloca ptr, align 8
-  %_tmp_old_op = alloca ptr, align 8
-  %_tmp_op_ptr34 = alloca ptr, align 8
-  %_tmp_old_op36 = alloca ptr, align 8
-  %factory = alloca ptr, align 8
-  %args = alloca [2 x ptr], align 16
-  %new_row = alloca ptr, align 8
-  %_tmp_dst_ptr = alloca ptr, align 8
-  %_tmp_old_dst = alloca ptr, align 8
-  store ptr %self, ptr %self.addr, align 8
-  %0 = load ptr, ptr %self.addr, align 8
-  %call = call i32 @check_cursor(ptr noundef %0)
-  %tobool = icmp ne i32 %call, 0
-  br i1 %tobool, label %if.end, label %if.then
+define internal ptr @pysqlite_cursor_iternext(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca ptr, align 8
+  %14 = alloca [2 x ptr], align 16
+  %15 = alloca ptr, align 8
+  %16 = alloca ptr, align 8
+  %17 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #8
+  %18 = load ptr, ptr %3, align 8, !tbaa !9
+  store ptr %18, ptr %4, align 8, !tbaa !3
+  %19 = load ptr, ptr %4, align 8, !tbaa !3
+  %20 = call i32 @check_cursor(ptr noundef %19)
+  %21 = icmp ne i32 %20, 0
+  br i1 %21, label %23, label %22
 
-if.then:                                          ; preds = %entry
-  store ptr null, ptr %retval, align 8
-  br label %return
+22:                                               ; preds = %1
+  store ptr null, ptr %2, align 8
+  store i32 1, ptr %5, align 4
+  br label %145
 
-if.end:                                           ; preds = %entry
-  %1 = load ptr, ptr %self.addr, align 8
-  %statement = getelementptr inbounds %struct.pysqlite_Cursor, ptr %1, i32 0, i32 8
-  %2 = load ptr, ptr %statement, align 8
-  %cmp = icmp eq ptr %2, null
-  br i1 %cmp, label %if.then1, label %if.end2
+23:                                               ; preds = %1
+  %24 = load ptr, ptr %4, align 8, !tbaa !3
+  %25 = getelementptr inbounds nuw %struct.pysqlite_Cursor, ptr %24, i32 0, i32 8
+  %26 = load ptr, ptr %25, align 8, !tbaa !18
+  %27 = icmp eq ptr %26, null
+  br i1 %27, label %28, label %29
 
-if.then1:                                         ; preds = %if.end
-  store ptr null, ptr %retval, align 8
-  br label %return
+28:                                               ; preds = %23
+  store ptr null, ptr %2, align 8
+  store i32 1, ptr %5, align 4
+  br label %145
 
-if.end2:                                          ; preds = %if.end
-  %3 = load ptr, ptr %self.addr, align 8
-  %statement3 = getelementptr inbounds %struct.pysqlite_Cursor, ptr %3, i32 0, i32 8
-  %4 = load ptr, ptr %statement3, align 8
-  %st = getelementptr inbounds %struct.pysqlite_Statement, ptr %4, i32 0, i32 1
-  %5 = load ptr, ptr %st, align 8
-  store ptr %5, ptr %stmt, align 8
-  %6 = load ptr, ptr %self.addr, align 8
-  %locked = getelementptr inbounds %struct.pysqlite_Cursor, ptr %6, i32 0, i32 10
-  store i32 1, ptr %locked, align 4
-  %7 = load ptr, ptr %self.addr, align 8
-  %call4 = call ptr @_pysqlite_fetch_one_row(ptr noundef %7)
-  store ptr %call4, ptr %row, align 8
-  %8 = load ptr, ptr %self.addr, align 8
-  %locked5 = getelementptr inbounds %struct.pysqlite_Cursor, ptr %8, i32 0, i32 10
-  store i32 0, ptr %locked5, align 4
-  %9 = load ptr, ptr %row, align 8
-  %cmp6 = icmp eq ptr %9, null
-  br i1 %cmp6, label %if.then7, label %if.end8
+29:                                               ; preds = %23
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #8
+  %30 = load ptr, ptr %4, align 8, !tbaa !3
+  %31 = getelementptr inbounds nuw %struct.pysqlite_Cursor, ptr %30, i32 0, i32 8
+  %32 = load ptr, ptr %31, align 8, !tbaa !18
+  %33 = getelementptr inbounds nuw %struct.pysqlite_Statement, ptr %32, i32 0, i32 1
+  %34 = load ptr, ptr %33, align 8, !tbaa !25
+  store ptr %34, ptr %6, align 8, !tbaa !50
+  %35 = load ptr, ptr %4, align 8, !tbaa !3
+  %36 = getelementptr inbounds nuw %struct.pysqlite_Cursor, ptr %35, i32 0, i32 10
+  store i32 1, ptr %36, align 4, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #8
+  %37 = load ptr, ptr %4, align 8, !tbaa !3
+  %38 = call ptr @_pysqlite_fetch_one_row(ptr noundef %37)
+  store ptr %38, ptr %7, align 8, !tbaa !9
+  %39 = load ptr, ptr %4, align 8, !tbaa !3
+  %40 = getelementptr inbounds nuw %struct.pysqlite_Cursor, ptr %39, i32 0, i32 10
+  store i32 0, ptr %40, align 4, !tbaa !11
+  %41 = load ptr, ptr %7, align 8, !tbaa !9
+  %42 = icmp eq ptr %41, null
+  br i1 %42, label %43, label %44
 
-if.then7:                                         ; preds = %if.end2
-  store ptr null, ptr %retval, align 8
-  br label %return
+43:                                               ; preds = %29
+  store ptr null, ptr %2, align 8
+  store i32 1, ptr %5, align 4
+  br label %144
 
-if.end8:                                          ; preds = %if.end2
-  %10 = load ptr, ptr %stmt, align 8
-  %call9 = call i32 @stmt_step(ptr noundef %10)
-  store i32 %call9, ptr %rc, align 4
-  %11 = load i32, ptr %rc, align 4
-  %cmp10 = icmp eq i32 %11, 101
-  br i1 %cmp10, label %if.then11, label %if.else
+44:                                               ; preds = %29
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #8
+  %45 = load ptr, ptr %6, align 8, !tbaa !50
+  %46 = call i32 @stmt_step(ptr noundef %45)
+  store i32 %46, ptr %8, align 4, !tbaa !7
+  %47 = load i32, ptr %8, align 4, !tbaa !7
+  %48 = icmp eq i32 %47, 101
+  br i1 %48, label %49, label %84
 
-if.then11:                                        ; preds = %if.end8
-  %12 = load ptr, ptr %self.addr, align 8
-  %statement12 = getelementptr inbounds %struct.pysqlite_Cursor, ptr %12, i32 0, i32 8
-  %13 = load ptr, ptr %statement12, align 8
-  %is_dml = getelementptr inbounds %struct.pysqlite_Statement, ptr %13, i32 0, i32 2
-  %14 = load i32, ptr %is_dml, align 8
-  %tobool13 = icmp ne i32 %14, 0
-  br i1 %tobool13, label %if.then14, label %if.end16
+49:                                               ; preds = %44
+  %50 = load ptr, ptr %4, align 8, !tbaa !3
+  %51 = getelementptr inbounds nuw %struct.pysqlite_Cursor, ptr %50, i32 0, i32 8
+  %52 = load ptr, ptr %51, align 8, !tbaa !18
+  %53 = getelementptr inbounds nuw %struct.pysqlite_Statement, ptr %52, i32 0, i32 2
+  %54 = load i32, ptr %53, align 8, !tbaa !30
+  %55 = icmp ne i32 %54, 0
+  br i1 %55, label %56, label %66
 
-if.then14:                                        ; preds = %if.then11
-  %15 = load ptr, ptr %self.addr, align 8
-  %connection = getelementptr inbounds %struct.pysqlite_Cursor, ptr %15, i32 0, i32 1
-  %16 = load ptr, ptr %connection, align 8
-  %db = getelementptr inbounds %struct.pysqlite_Connection, ptr %16, i32 0, i32 1
-  %17 = load ptr, ptr %db, align 8
-  %call15 = call i32 @sqlite3_changes(ptr noundef %17)
-  %conv = sext i32 %call15 to i64
-  %18 = load ptr, ptr %self.addr, align 8
-  %rowcount = getelementptr inbounds %struct.pysqlite_Cursor, ptr %18, i32 0, i32 6
-  store i64 %conv, ptr %rowcount, align 8
-  br label %if.end16
+56:                                               ; preds = %49
+  %57 = load ptr, ptr %4, align 8, !tbaa !3
+  %58 = getelementptr inbounds nuw %struct.pysqlite_Cursor, ptr %57, i32 0, i32 1
+  %59 = load ptr, ptr %58, align 8, !tbaa !19
+  %60 = getelementptr inbounds nuw %struct.pysqlite_Connection, ptr %59, i32 0, i32 1
+  %61 = load ptr, ptr %60, align 8, !tbaa !34
+  %62 = call i32 @sqlite3_changes(ptr noundef %61)
+  %63 = sext i32 %62 to i64
+  %64 = load ptr, ptr %4, align 8, !tbaa !3
+  %65 = getelementptr inbounds nuw %struct.pysqlite_Cursor, ptr %64, i32 0, i32 6
+  store i64 %63, ptr %65, align 8, !tbaa !31
+  br label %66
 
-if.end16:                                         ; preds = %if.then14, %if.then11
-  %19 = load ptr, ptr %self.addr, align 8
-  %statement17 = getelementptr inbounds %struct.pysqlite_Cursor, ptr %19, i32 0, i32 8
-  %20 = load ptr, ptr %statement17, align 8
-  %call18 = call i32 @stmt_reset(ptr noundef %20)
-  br label %do.body
+66:                                               ; preds = %56, %49
+  %67 = load ptr, ptr %4, align 8, !tbaa !3
+  %68 = getelementptr inbounds nuw %struct.pysqlite_Cursor, ptr %67, i32 0, i32 8
+  %69 = load ptr, ptr %68, align 8, !tbaa !18
+  %70 = call i32 @stmt_reset(ptr noundef %69)
+  br label %71
 
-do.body:                                          ; preds = %if.end16
-  %21 = load ptr, ptr %self.addr, align 8
-  %statement19 = getelementptr inbounds %struct.pysqlite_Cursor, ptr %21, i32 0, i32 8
-  store ptr %statement19, ptr %_tmp_op_ptr, align 8
-  %22 = load ptr, ptr %_tmp_op_ptr, align 8
-  %23 = load ptr, ptr %22, align 8
-  store ptr %23, ptr %_tmp_old_op, align 8
-  %24 = load ptr, ptr %_tmp_old_op, align 8
-  %cmp20 = icmp ne ptr %24, null
-  br i1 %cmp20, label %if.then22, label %if.end23
+71:                                               ; preds = %66
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #8
+  %72 = load ptr, ptr %4, align 8, !tbaa !3
+  %73 = getelementptr inbounds nuw %struct.pysqlite_Cursor, ptr %72, i32 0, i32 8
+  store ptr %73, ptr %9, align 8, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #8
+  %74 = load ptr, ptr %9, align 8, !tbaa !3
+  %75 = load ptr, ptr %74, align 8, !tbaa !3
+  store ptr %75, ptr %10, align 8, !tbaa !3
+  %76 = load ptr, ptr %10, align 8, !tbaa !3
+  %77 = icmp ne ptr %76, null
+  br i1 %77, label %78, label %81
 
-if.then22:                                        ; preds = %do.body
-  %25 = load ptr, ptr %_tmp_op_ptr, align 8
-  store ptr null, ptr %25, align 8
-  %26 = load ptr, ptr %_tmp_old_op, align 8
-  store ptr %26, ptr %op.addr.i70, align 8
-  %27 = load ptr, ptr %op.addr.i70, align 8
-  store ptr %27, ptr %op.addr.i79, align 8
-  %28 = load ptr, ptr %op.addr.i79, align 8
-  %29 = load i64, ptr %28, align 8
-  %conv.i = trunc i64 %29 to i32
-  %cmp.i80 = icmp slt i32 %conv.i, 0
-  %conv1.i = zext i1 %cmp.i80 to i32
-  %tobool.i72 = icmp ne i32 %conv1.i, 0
-  br i1 %tobool.i72, label %if.then.i77, label %if.end.i73
+78:                                               ; preds = %71
+  %79 = load ptr, ptr %9, align 8, !tbaa !3
+  store ptr null, ptr %79, align 8, !tbaa !3
+  %80 = load ptr, ptr %10, align 8, !tbaa !3
+  call void @Py_DECREF(ptr noundef %80)
+  br label %81
 
-if.then.i77:                                      ; preds = %if.then22
-  br label %Py_DECREF.exit78
+81:                                               ; preds = %78, %71
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #8
+  br label %82
 
-if.end.i73:                                       ; preds = %if.then22
-  %30 = load ptr, ptr %op.addr.i70, align 8
-  %31 = load i64, ptr %30, align 8
-  %dec.i74 = add i64 %31, -1
-  store i64 %dec.i74, ptr %30, align 8
-  %cmp.i75 = icmp eq i64 %dec.i74, 0
-  br i1 %cmp.i75, label %if.then1.i76, label %Py_DECREF.exit78
+82:                                               ; preds = %81
+  br label %83
 
-if.then1.i76:                                     ; preds = %if.end.i73
-  %32 = load ptr, ptr %op.addr.i70, align 8
-  call void @_Py_Dealloc(ptr noundef %32) #5
-  br label %Py_DECREF.exit78
+83:                                               ; preds = %82
+  br label %118
 
-Py_DECREF.exit78:                                 ; preds = %if.then1.i76, %if.end.i73, %if.then.i77
-  br label %if.end23
+84:                                               ; preds = %44
+  %85 = load i32, ptr %8, align 4, !tbaa !7
+  %86 = icmp ne i32 %85, 100
+  br i1 %86, label %87, label %117
 
-if.end23:                                         ; preds = %Py_DECREF.exit78, %do.body
-  br label %do.end
+87:                                               ; preds = %84
+  %88 = load ptr, ptr %4, align 8, !tbaa !3
+  %89 = getelementptr inbounds nuw %struct.pysqlite_Cursor, ptr %88, i32 0, i32 1
+  %90 = load ptr, ptr %89, align 8, !tbaa !19
+  %91 = getelementptr inbounds nuw %struct.pysqlite_Connection, ptr %90, i32 0, i32 2
+  %92 = load ptr, ptr %91, align 8, !tbaa !20
+  %93 = load ptr, ptr %4, align 8, !tbaa !3
+  %94 = getelementptr inbounds nuw %struct.pysqlite_Cursor, ptr %93, i32 0, i32 1
+  %95 = load ptr, ptr %94, align 8, !tbaa !19
+  %96 = getelementptr inbounds nuw %struct.pysqlite_Connection, ptr %95, i32 0, i32 1
+  %97 = load ptr, ptr %96, align 8, !tbaa !34
+  %98 = call i32 @_pysqlite_seterror(ptr noundef %92, ptr noundef %97)
+  %99 = load ptr, ptr %4, align 8, !tbaa !3
+  %100 = getelementptr inbounds nuw %struct.pysqlite_Cursor, ptr %99, i32 0, i32 8
+  %101 = load ptr, ptr %100, align 8, !tbaa !18
+  %102 = call i32 @stmt_reset(ptr noundef %101)
+  br label %103
 
-do.end:                                           ; preds = %if.end23
-  br label %if.end43
+103:                                              ; preds = %87
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #8
+  %104 = load ptr, ptr %4, align 8, !tbaa !3
+  %105 = getelementptr inbounds nuw %struct.pysqlite_Cursor, ptr %104, i32 0, i32 8
+  store ptr %105, ptr %11, align 8, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #8
+  %106 = load ptr, ptr %11, align 8, !tbaa !3
+  %107 = load ptr, ptr %106, align 8, !tbaa !3
+  store ptr %107, ptr %12, align 8, !tbaa !3
+  %108 = load ptr, ptr %12, align 8, !tbaa !3
+  %109 = icmp ne ptr %108, null
+  br i1 %109, label %110, label %113
 
-if.else:                                          ; preds = %if.end8
-  %33 = load i32, ptr %rc, align 4
-  %cmp24 = icmp ne i32 %33, 100
-  br i1 %cmp24, label %if.then26, label %if.end42
+110:                                              ; preds = %103
+  %111 = load ptr, ptr %11, align 8, !tbaa !3
+  store ptr null, ptr %111, align 8, !tbaa !3
+  %112 = load ptr, ptr %12, align 8, !tbaa !3
+  call void @Py_DECREF(ptr noundef %112)
+  br label %113
 
-if.then26:                                        ; preds = %if.else
-  %34 = load ptr, ptr %self.addr, align 8
-  %connection27 = getelementptr inbounds %struct.pysqlite_Cursor, ptr %34, i32 0, i32 1
-  %35 = load ptr, ptr %connection27, align 8
-  %state = getelementptr inbounds %struct.pysqlite_Connection, ptr %35, i32 0, i32 2
-  %36 = load ptr, ptr %state, align 8
-  %37 = load ptr, ptr %self.addr, align 8
-  %connection28 = getelementptr inbounds %struct.pysqlite_Cursor, ptr %37, i32 0, i32 1
-  %38 = load ptr, ptr %connection28, align 8
-  %db29 = getelementptr inbounds %struct.pysqlite_Connection, ptr %38, i32 0, i32 1
-  %39 = load ptr, ptr %db29, align 8
-  %call30 = call i32 @_pysqlite_seterror(ptr noundef %36, ptr noundef %39)
-  %40 = load ptr, ptr %self.addr, align 8
-  %statement31 = getelementptr inbounds %struct.pysqlite_Cursor, ptr %40, i32 0, i32 8
-  %41 = load ptr, ptr %statement31, align 8
-  %call32 = call i32 @stmt_reset(ptr noundef %41)
-  br label %do.body33
+113:                                              ; preds = %110, %103
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #8
+  br label %114
 
-do.body33:                                        ; preds = %if.then26
-  %42 = load ptr, ptr %self.addr, align 8
-  %statement35 = getelementptr inbounds %struct.pysqlite_Cursor, ptr %42, i32 0, i32 8
-  store ptr %statement35, ptr %_tmp_op_ptr34, align 8
-  %43 = load ptr, ptr %_tmp_op_ptr34, align 8
-  %44 = load ptr, ptr %43, align 8
-  store ptr %44, ptr %_tmp_old_op36, align 8
-  %45 = load ptr, ptr %_tmp_old_op36, align 8
-  %cmp37 = icmp ne ptr %45, null
-  br i1 %cmp37, label %if.then39, label %if.end40
+114:                                              ; preds = %113
+  br label %115
 
-if.then39:                                        ; preds = %do.body33
-  %46 = load ptr, ptr %_tmp_op_ptr34, align 8
-  store ptr null, ptr %46, align 8
-  %47 = load ptr, ptr %_tmp_old_op36, align 8
-  store ptr %47, ptr %op.addr.i61, align 8
-  %48 = load ptr, ptr %op.addr.i61, align 8
-  store ptr %48, ptr %op.addr.i81, align 8
-  %49 = load ptr, ptr %op.addr.i81, align 8
-  %50 = load i64, ptr %49, align 8
-  %conv.i82 = trunc i64 %50 to i32
-  %cmp.i83 = icmp slt i32 %conv.i82, 0
-  %conv1.i84 = zext i1 %cmp.i83 to i32
-  %tobool.i63 = icmp ne i32 %conv1.i84, 0
-  br i1 %tobool.i63, label %if.then.i68, label %if.end.i64
+115:                                              ; preds = %114
+  %116 = load ptr, ptr %7, align 8, !tbaa !9
+  call void @Py_DECREF(ptr noundef %116)
+  store ptr null, ptr %2, align 8
+  store i32 1, ptr %5, align 4
+  br label %143
 
-if.then.i68:                                      ; preds = %if.then39
-  br label %Py_DECREF.exit69
+117:                                              ; preds = %84
+  br label %118
 
-if.end.i64:                                       ; preds = %if.then39
-  %51 = load ptr, ptr %op.addr.i61, align 8
-  %52 = load i64, ptr %51, align 8
-  %dec.i65 = add i64 %52, -1
-  store i64 %dec.i65, ptr %51, align 8
-  %cmp.i66 = icmp eq i64 %dec.i65, 0
-  br i1 %cmp.i66, label %if.then1.i67, label %Py_DECREF.exit69
+118:                                              ; preds = %117, %83
+  %119 = load ptr, ptr %4, align 8, !tbaa !3
+  %120 = getelementptr inbounds nuw %struct.pysqlite_Cursor, ptr %119, i32 0, i32 7
+  %121 = load ptr, ptr %120, align 8, !tbaa !85
+  %122 = icmp eq ptr %121, @_Py_NoneStruct
+  br i1 %122, label %141, label %123
 
-if.then1.i67:                                     ; preds = %if.end.i64
-  %53 = load ptr, ptr %op.addr.i61, align 8
-  call void @_Py_Dealloc(ptr noundef %53) #5
-  br label %Py_DECREF.exit69
+123:                                              ; preds = %118
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #8
+  %124 = load ptr, ptr %4, align 8, !tbaa !3
+  %125 = getelementptr inbounds nuw %struct.pysqlite_Cursor, ptr %124, i32 0, i32 7
+  %126 = load ptr, ptr %125, align 8, !tbaa !85
+  store ptr %126, ptr %13, align 8, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 16, ptr %14) #8
+  %127 = load ptr, ptr %3, align 8, !tbaa !9
+  store ptr %127, ptr %14, align 8, !tbaa !9
+  %128 = getelementptr inbounds ptr, ptr %14, i64 1
+  %129 = load ptr, ptr %7, align 8, !tbaa !9
+  store ptr %129, ptr %128, align 8, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #8
+  %130 = load ptr, ptr %13, align 8, !tbaa !9
+  %131 = getelementptr inbounds [2 x ptr], ptr %14, i64 0, i64 0
+  %132 = call ptr @PyObject_Vectorcall(ptr noundef %130, ptr noundef %131, i64 noundef 2, ptr noundef null)
+  store ptr %132, ptr %15, align 8, !tbaa !9
+  br label %133
 
-Py_DECREF.exit69:                                 ; preds = %if.then1.i67, %if.end.i64, %if.then.i68
-  br label %if.end40
+133:                                              ; preds = %123
+  call void @llvm.lifetime.start.p0(i64 8, ptr %16) #8
+  store ptr %7, ptr %16, align 8, !tbaa !16
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #8
+  %134 = load ptr, ptr %16, align 8, !tbaa !16
+  %135 = load ptr, ptr %134, align 8, !tbaa !9
+  store ptr %135, ptr %17, align 8, !tbaa !9
+  %136 = load ptr, ptr %15, align 8, !tbaa !9
+  %137 = load ptr, ptr %16, align 8, !tbaa !16
+  store ptr %136, ptr %137, align 8, !tbaa !9
+  %138 = load ptr, ptr %17, align 8, !tbaa !9
+  call void @Py_DECREF(ptr noundef %138)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #8
+  br label %139
 
-if.end40:                                         ; preds = %Py_DECREF.exit69, %do.body33
-  br label %do.end41
+139:                                              ; preds = %133
+  br label %140
 
-do.end41:                                         ; preds = %if.end40
-  %54 = load ptr, ptr %row, align 8
-  store ptr %54, ptr %op.addr.i52, align 8
-  %55 = load ptr, ptr %op.addr.i52, align 8
-  store ptr %55, ptr %op.addr.i85, align 8
-  %56 = load ptr, ptr %op.addr.i85, align 8
-  %57 = load i64, ptr %56, align 8
-  %conv.i86 = trunc i64 %57 to i32
-  %cmp.i87 = icmp slt i32 %conv.i86, 0
-  %conv1.i88 = zext i1 %cmp.i87 to i32
-  %tobool.i54 = icmp ne i32 %conv1.i88, 0
-  br i1 %tobool.i54, label %if.then.i59, label %if.end.i55
+140:                                              ; preds = %139
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #8
+  call void @llvm.lifetime.end.p0(i64 16, ptr %14) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #8
+  br label %141
 
-if.then.i59:                                      ; preds = %do.end41
-  br label %Py_DECREF.exit60
+141:                                              ; preds = %140, %118
+  %142 = load ptr, ptr %7, align 8, !tbaa !9
+  store ptr %142, ptr %2, align 8
+  store i32 1, ptr %5, align 4
+  br label %143
 
-if.end.i55:                                       ; preds = %do.end41
-  %58 = load ptr, ptr %op.addr.i52, align 8
-  %59 = load i64, ptr %58, align 8
-  %dec.i56 = add i64 %59, -1
-  store i64 %dec.i56, ptr %58, align 8
-  %cmp.i57 = icmp eq i64 %dec.i56, 0
-  br i1 %cmp.i57, label %if.then1.i58, label %Py_DECREF.exit60
+143:                                              ; preds = %141, %115
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #8
+  br label %144
 
-if.then1.i58:                                     ; preds = %if.end.i55
-  %60 = load ptr, ptr %op.addr.i52, align 8
-  call void @_Py_Dealloc(ptr noundef %60) #5
-  br label %Py_DECREF.exit60
+144:                                              ; preds = %143, %43
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #8
+  br label %145
 
-Py_DECREF.exit60:                                 ; preds = %if.then1.i58, %if.end.i55, %if.then.i59
-  store ptr null, ptr %retval, align 8
-  br label %return
-
-if.end42:                                         ; preds = %if.else
-  br label %if.end43
-
-if.end43:                                         ; preds = %if.end42, %do.end
-  %61 = load ptr, ptr %self.addr, align 8
-  %row_factory = getelementptr inbounds %struct.pysqlite_Cursor, ptr %61, i32 0, i32 7
-  %62 = load ptr, ptr %row_factory, align 8
-  %cmp44 = icmp eq ptr %62, @_Py_NoneStruct
-  br i1 %cmp44, label %if.end51, label %if.then46
-
-if.then46:                                        ; preds = %if.end43
-  %63 = load ptr, ptr %self.addr, align 8
-  %row_factory47 = getelementptr inbounds %struct.pysqlite_Cursor, ptr %63, i32 0, i32 7
-  %64 = load ptr, ptr %row_factory47, align 8
-  store ptr %64, ptr %factory, align 8
-  %arrayinit.begin = getelementptr inbounds [2 x ptr], ptr %args, i64 0, i64 0
-  %65 = load ptr, ptr %self.addr, align 8
-  store ptr %65, ptr %arrayinit.begin, align 8
-  %arrayinit.element = getelementptr inbounds ptr, ptr %arrayinit.begin, i64 1
-  %66 = load ptr, ptr %row, align 8
-  store ptr %66, ptr %arrayinit.element, align 8
-  %67 = load ptr, ptr %factory, align 8
-  %arraydecay = getelementptr inbounds [2 x ptr], ptr %args, i64 0, i64 0
-  %call48 = call ptr @PyObject_Vectorcall(ptr noundef %67, ptr noundef %arraydecay, i64 noundef 2, ptr noundef null)
-  store ptr %call48, ptr %new_row, align 8
-  br label %do.body49
-
-do.body49:                                        ; preds = %if.then46
-  store ptr %row, ptr %_tmp_dst_ptr, align 8
-  %68 = load ptr, ptr %_tmp_dst_ptr, align 8
-  %69 = load ptr, ptr %68, align 8
-  store ptr %69, ptr %_tmp_old_dst, align 8
-  %70 = load ptr, ptr %new_row, align 8
-  %71 = load ptr, ptr %_tmp_dst_ptr, align 8
-  store ptr %70, ptr %71, align 8
-  %72 = load ptr, ptr %_tmp_old_dst, align 8
-  store ptr %72, ptr %op.addr.i, align 8
-  %73 = load ptr, ptr %op.addr.i, align 8
-  store ptr %73, ptr %op.addr.i89, align 8
-  %74 = load ptr, ptr %op.addr.i89, align 8
-  %75 = load i64, ptr %74, align 8
-  %conv.i90 = trunc i64 %75 to i32
-  %cmp.i91 = icmp slt i32 %conv.i90, 0
-  %conv1.i92 = zext i1 %cmp.i91 to i32
-  %tobool.i = icmp ne i32 %conv1.i92, 0
-  br i1 %tobool.i, label %if.then.i, label %if.end.i
-
-if.then.i:                                        ; preds = %do.body49
-  br label %Py_DECREF.exit
-
-if.end.i:                                         ; preds = %do.body49
-  %76 = load ptr, ptr %op.addr.i, align 8
-  %77 = load i64, ptr %76, align 8
-  %dec.i = add i64 %77, -1
-  store i64 %dec.i, ptr %76, align 8
-  %cmp.i = icmp eq i64 %dec.i, 0
-  br i1 %cmp.i, label %if.then1.i, label %Py_DECREF.exit
-
-if.then1.i:                                       ; preds = %if.end.i
-  %78 = load ptr, ptr %op.addr.i, align 8
-  call void @_Py_Dealloc(ptr noundef %78) #5
-  br label %Py_DECREF.exit
-
-Py_DECREF.exit:                                   ; preds = %if.then1.i, %if.end.i, %if.then.i
-  br label %do.end50
-
-do.end50:                                         ; preds = %Py_DECREF.exit
-  br label %if.end51
-
-if.end51:                                         ; preds = %do.end50, %if.end43
-  %79 = load ptr, ptr %row, align 8
-  store ptr %79, ptr %retval, align 8
-  br label %return
-
-return:                                           ; preds = %if.end51, %Py_DECREF.exit60, %if.then7, %if.then1, %if.then
-  %80 = load ptr, ptr %retval, align 8
-  ret ptr %80
+145:                                              ; preds = %144, %28, %22
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #8
+  %146 = load ptr, ptr %2, align 8
+  ret ptr %146
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @pysqlite_cursor_init(ptr noundef %self, ptr noundef %args, ptr noundef %kwargs) #0 {
-entry:
-  %self.addr = alloca ptr, align 8
-  %args.addr = alloca ptr, align 8
-  %kwargs.addr = alloca ptr, align 8
-  %return_value = alloca i32, align 4
-  %base_tp = alloca ptr, align 8
-  %connection = alloca ptr, align 8
-  store ptr %self, ptr %self.addr, align 8
-  store ptr %args, ptr %args.addr, align 8
-  store ptr %kwargs, ptr %kwargs.addr, align 8
-  store i32 -1, ptr %return_value, align 4
-  %0 = load ptr, ptr %self.addr, align 8
-  %call = call ptr @Py_TYPE(ptr noundef %0)
-  %call1 = call ptr @pysqlite_get_state_by_type(ptr noundef %call)
-  %CursorType = getelementptr inbounds %struct.pysqlite_state, ptr %call1, i32 0, i32 17
-  %1 = load ptr, ptr %CursorType, align 8
-  store ptr %1, ptr %base_tp, align 8
-  %2 = load ptr, ptr %self.addr, align 8
-  %3 = load ptr, ptr %base_tp, align 8
-  %call2 = call i32 @Py_IS_TYPE(ptr noundef %2, ptr noundef %3)
-  %tobool = icmp ne i32 %call2, 0
-  br i1 %tobool, label %land.lhs.true, label %lor.lhs.false
+define internal i32 @pysqlite_cursor_init(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i32, align 4
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !9
+  store ptr %1, ptr %5, align 8, !tbaa !9
+  store ptr %2, ptr %6, align 8, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #8
+  store i32 -1, ptr %7, align 4, !tbaa !7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #8
+  %10 = load ptr, ptr %4, align 8, !tbaa !9
+  %11 = call ptr @_Py_TYPE(ptr noundef %10)
+  %12 = call ptr @pysqlite_get_state_by_type(ptr noundef %11)
+  %13 = getelementptr inbounds nuw %struct.pysqlite_state, ptr %12, i32 0, i32 17
+  %14 = load ptr, ptr %13, align 8, !tbaa !60
+  store ptr %14, ptr %8, align 8, !tbaa !61
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #8
+  %15 = load ptr, ptr %4, align 8, !tbaa !9
+  %16 = load ptr, ptr %8, align 8, !tbaa !61
+  %17 = call i32 @Py_IS_TYPE(ptr noundef %15, ptr noundef %16)
+  %18 = icmp ne i32 %17, 0
+  br i1 %18, label %28, label %19
 
-lor.lhs.false:                                    ; preds = %entry
-  %4 = load ptr, ptr %self.addr, align 8
-  %call3 = call ptr @Py_TYPE(ptr noundef %4)
-  %tp_new = getelementptr inbounds %struct._typeobject, ptr %call3, i32 0, i32 37
-  %5 = load ptr, ptr %tp_new, align 8
-  %6 = load ptr, ptr %base_tp, align 8
-  %tp_new4 = getelementptr inbounds %struct._typeobject, ptr %6, i32 0, i32 37
-  %7 = load ptr, ptr %tp_new4, align 8
-  %cmp = icmp eq ptr %5, %7
-  br i1 %cmp, label %land.lhs.true, label %if.end
+19:                                               ; preds = %3
+  %20 = load ptr, ptr %4, align 8, !tbaa !9
+  %21 = call ptr @_Py_TYPE(ptr noundef %20)
+  %22 = getelementptr inbounds nuw %struct._typeobject, ptr %21, i32 0, i32 37
+  %23 = load ptr, ptr %22, align 8, !tbaa !86
+  %24 = load ptr, ptr %8, align 8, !tbaa !61
+  %25 = getelementptr inbounds nuw %struct._typeobject, ptr %24, i32 0, i32 37
+  %26 = load ptr, ptr %25, align 8, !tbaa !86
+  %27 = icmp eq ptr %23, %26
+  br i1 %27, label %28, label %36
 
-land.lhs.true:                                    ; preds = %lor.lhs.false, %entry
-  %8 = load ptr, ptr %kwargs.addr, align 8
-  %cmp5 = icmp eq ptr %8, null
-  br i1 %cmp5, label %if.end, label %lor.lhs.false6
+28:                                               ; preds = %19, %3
+  %29 = load ptr, ptr %6, align 8, !tbaa !9
+  %30 = icmp eq ptr %29, null
+  br i1 %30, label %36, label %31
 
-lor.lhs.false6:                                   ; preds = %land.lhs.true
-  %9 = load ptr, ptr %kwargs.addr, align 8
-  %call7 = call i32 @_PyArg_NoKeywords(ptr noundef @.str.42, ptr noundef %9)
-  %tobool8 = icmp ne i32 %call7, 0
-  br i1 %tobool8, label %if.end, label %if.then
+31:                                               ; preds = %28
+  %32 = load ptr, ptr %6, align 8, !tbaa !9
+  %33 = call i32 @_PyArg_NoKeywords(ptr noundef @.str.46, ptr noundef %32)
+  %34 = icmp ne i32 %33, 0
+  br i1 %34, label %36, label %35
 
-if.then:                                          ; preds = %lor.lhs.false6
-  br label %exit
+35:                                               ; preds = %31
+  br label %82
 
-if.end:                                           ; preds = %lor.lhs.false6, %land.lhs.true, %lor.lhs.false
-  %10 = load ptr, ptr %args.addr, align 8
-  %call9 = call i64 @PyTuple_GET_SIZE(ptr noundef %10)
-  %cmp10 = icmp sle i64 1, %call9
-  br i1 %cmp10, label %land.lhs.true11, label %lor.lhs.false14
+36:                                               ; preds = %31, %28, %19
+  %37 = load ptr, ptr %5, align 8, !tbaa !9
+  %38 = call i64 @PyTuple_GET_SIZE(ptr noundef %37)
+  %39 = icmp sle i64 1, %38
+  br i1 %39, label %40, label %44
 
-land.lhs.true11:                                  ; preds = %if.end
-  %11 = load ptr, ptr %args.addr, align 8
-  %call12 = call i64 @PyTuple_GET_SIZE(ptr noundef %11)
-  %cmp13 = icmp sle i64 %call12, 1
-  br i1 %cmp13, label %if.end19, label %lor.lhs.false14
+40:                                               ; preds = %36
+  %41 = load ptr, ptr %5, align 8, !tbaa !9
+  %42 = call i64 @PyTuple_GET_SIZE(ptr noundef %41)
+  %43 = icmp sle i64 %42, 1
+  br i1 %43, label %50, label %44
 
-lor.lhs.false14:                                  ; preds = %land.lhs.true11, %if.end
-  %12 = load ptr, ptr %args.addr, align 8
-  %call15 = call i64 @PyTuple_GET_SIZE(ptr noundef %12)
-  %call16 = call i32 @_PyArg_CheckPositional(ptr noundef @.str.42, i64 noundef %call15, i64 noundef 1, i64 noundef 1)
-  %tobool17 = icmp ne i32 %call16, 0
-  br i1 %tobool17, label %if.end19, label %if.then18
+44:                                               ; preds = %40, %36
+  %45 = load ptr, ptr %5, align 8, !tbaa !9
+  %46 = call i64 @PyTuple_GET_SIZE(ptr noundef %45)
+  %47 = call i32 @_PyArg_CheckPositional(ptr noundef @.str.46, i64 noundef %46, i64 noundef 1, i64 noundef 1)
+  %48 = icmp ne i32 %47, 0
+  br i1 %48, label %50, label %49
 
-if.then18:                                        ; preds = %lor.lhs.false14
-  br label %exit
+49:                                               ; preds = %44
+  br label %82
 
-if.end19:                                         ; preds = %lor.lhs.false14, %land.lhs.true11
-  %13 = load ptr, ptr %args.addr, align 8
-  %ob_item = getelementptr inbounds %struct.PyTupleObject, ptr %13, i32 0, i32 1
-  %arrayidx = getelementptr [1 x ptr], ptr %ob_item, i64 0, i64 0
-  %14 = load ptr, ptr %arrayidx, align 8
-  %15 = load ptr, ptr %self.addr, align 8
-  %call20 = call ptr @Py_TYPE(ptr noundef %15)
-  %call21 = call ptr @pysqlite_get_state_by_type(ptr noundef %call20)
-  %ConnectionType = getelementptr inbounds %struct.pysqlite_state, ptr %call21, i32 0, i32 16
-  %16 = load ptr, ptr %ConnectionType, align 8
-  %call22 = call i32 @PyObject_TypeCheck(ptr noundef %14, ptr noundef %16)
-  %tobool23 = icmp ne i32 %call22, 0
-  br i1 %tobool23, label %if.end30, label %if.then24
+50:                                               ; preds = %44, %40
+  %51 = load ptr, ptr %5, align 8, !tbaa !9
+  %52 = getelementptr inbounds nuw %struct.PyTupleObject, ptr %51, i32 0, i32 1
+  %53 = getelementptr [1 x ptr], ptr %52, i64 0, i64 0
+  %54 = load ptr, ptr %53, align 8, !tbaa !9
+  %55 = load ptr, ptr %4, align 8, !tbaa !9
+  %56 = call ptr @_Py_TYPE(ptr noundef %55)
+  %57 = call ptr @pysqlite_get_state_by_type(ptr noundef %56)
+  %58 = getelementptr inbounds nuw %struct.pysqlite_state, ptr %57, i32 0, i32 16
+  %59 = load ptr, ptr %58, align 8, !tbaa !87
+  %60 = call i32 @PyObject_TypeCheck(ptr noundef %54, ptr noundef %59)
+  %61 = icmp ne i32 %60, 0
+  br i1 %61, label %74, label %62
 
-if.then24:                                        ; preds = %if.end19
-  %17 = load ptr, ptr %self.addr, align 8
-  %call25 = call ptr @Py_TYPE(ptr noundef %17)
-  %call26 = call ptr @pysqlite_get_state_by_type(ptr noundef %call25)
-  %ConnectionType27 = getelementptr inbounds %struct.pysqlite_state, ptr %call26, i32 0, i32 16
-  %18 = load ptr, ptr %ConnectionType27, align 8
-  %tp_name = getelementptr inbounds %struct._typeobject, ptr %18, i32 0, i32 1
-  %19 = load ptr, ptr %tp_name, align 8
-  %20 = load ptr, ptr %args.addr, align 8
-  %ob_item28 = getelementptr inbounds %struct.PyTupleObject, ptr %20, i32 0, i32 1
-  %arrayidx29 = getelementptr [1 x ptr], ptr %ob_item28, i64 0, i64 0
-  %21 = load ptr, ptr %arrayidx29, align 8
-  call void @_PyArg_BadArgument(ptr noundef @.str.42, ptr noundef @.str.28, ptr noundef %19, ptr noundef %21)
-  br label %exit
+62:                                               ; preds = %50
+  %63 = load ptr, ptr %4, align 8, !tbaa !9
+  %64 = call ptr @_Py_TYPE(ptr noundef %63)
+  %65 = call ptr @pysqlite_get_state_by_type(ptr noundef %64)
+  %66 = getelementptr inbounds nuw %struct.pysqlite_state, ptr %65, i32 0, i32 16
+  %67 = load ptr, ptr %66, align 8, !tbaa !87
+  %68 = getelementptr inbounds nuw %struct._typeobject, ptr %67, i32 0, i32 1
+  %69 = load ptr, ptr %68, align 8, !tbaa !78
+  %70 = load ptr, ptr %5, align 8, !tbaa !9
+  %71 = getelementptr inbounds nuw %struct.PyTupleObject, ptr %70, i32 0, i32 1
+  %72 = getelementptr [1 x ptr], ptr %71, i64 0, i64 0
+  %73 = load ptr, ptr %72, align 8, !tbaa !9
+  call void @_PyArg_BadArgument(ptr noundef @.str.46, ptr noundef @.str.31, ptr noundef %69, ptr noundef %73)
+  br label %82
 
-if.end30:                                         ; preds = %if.end19
-  %22 = load ptr, ptr %args.addr, align 8
-  %ob_item31 = getelementptr inbounds %struct.PyTupleObject, ptr %22, i32 0, i32 1
-  %arrayidx32 = getelementptr [1 x ptr], ptr %ob_item31, i64 0, i64 0
-  %23 = load ptr, ptr %arrayidx32, align 8
-  store ptr %23, ptr %connection, align 8
-  %24 = load ptr, ptr %self.addr, align 8
-  %25 = load ptr, ptr %connection, align 8
-  %call33 = call i32 @pysqlite_cursor_init_impl(ptr noundef %24, ptr noundef %25)
-  store i32 %call33, ptr %return_value, align 4
-  br label %exit
+74:                                               ; preds = %50
+  %75 = load ptr, ptr %5, align 8, !tbaa !9
+  %76 = getelementptr inbounds nuw %struct.PyTupleObject, ptr %75, i32 0, i32 1
+  %77 = getelementptr [1 x ptr], ptr %76, i64 0, i64 0
+  %78 = load ptr, ptr %77, align 8, !tbaa !9
+  store ptr %78, ptr %9, align 8, !tbaa !3
+  %79 = load ptr, ptr %4, align 8, !tbaa !9
+  %80 = load ptr, ptr %9, align 8, !tbaa !3
+  %81 = call i32 @pysqlite_cursor_init_impl(ptr noundef %79, ptr noundef %80)
+  store i32 %81, ptr %7, align 4, !tbaa !7
+  br label %82
 
-exit:                                             ; preds = %if.end30, %if.then24, %if.then18, %if.then
-  %26 = load i32, ptr %return_value, align 4
-  ret i32 %26
+82:                                               ; preds = %74, %62, %49, %35
+  %83 = load i32, ptr %7, align 4, !tbaa !7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #8
+  ret i32 %83
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @cursor_traverse(ptr noundef %self, ptr noundef %visit, ptr noundef %arg) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %self.addr = alloca ptr, align 8
-  %visit.addr = alloca ptr, align 8
-  %arg.addr = alloca ptr, align 8
-  %vret = alloca i32, align 4
-  %vret9 = alloca i32, align 4
-  %vret20 = alloca i32, align 4
-  %vret31 = alloca i32, align 4
-  %vret42 = alloca i32, align 4
-  %vret53 = alloca i32, align 4
-  %vret64 = alloca i32, align 4
-  store ptr %self, ptr %self.addr, align 8
-  store ptr %visit, ptr %visit.addr, align 8
-  store ptr %arg, ptr %arg.addr, align 8
-  br label %do.body
+define internal i32 @cursor_traverse(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
+  %4 = alloca i32, align 4
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca i32, align 4
+  %10 = alloca i32, align 4
+  %11 = alloca i32, align 4
+  %12 = alloca i32, align 4
+  %13 = alloca i32, align 4
+  %14 = alloca i32, align 4
+  %15 = alloca i32, align 4
+  %16 = alloca i32, align 4
+  store ptr %0, ptr %5, align 8, !tbaa !9
+  store ptr %1, ptr %6, align 8, !tbaa !3
+  store ptr %2, ptr %7, align 8, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #8
+  %17 = load ptr, ptr %5, align 8, !tbaa !9
+  store ptr %17, ptr %8, align 8, !tbaa !3
+  br label %18
 
-do.body:                                          ; preds = %entry
-  %0 = load ptr, ptr %self.addr, align 8
-  %call = call ptr @Py_TYPE(ptr noundef %0)
-  %tobool = icmp ne ptr %call, null
-  br i1 %tobool, label %if.then, label %if.end5
+18:                                               ; preds = %3
+  %19 = load ptr, ptr %8, align 8, !tbaa !3
+  %20 = call ptr @_Py_TYPE(ptr noundef %19)
+  %21 = icmp ne ptr %20, null
+  br i1 %21, label %22, label %36
 
-if.then:                                          ; preds = %do.body
-  %1 = load ptr, ptr %visit.addr, align 8
-  %2 = load ptr, ptr %self.addr, align 8
-  %call1 = call ptr @Py_TYPE(ptr noundef %2)
-  %3 = load ptr, ptr %arg.addr, align 8
-  %call2 = call i32 %1(ptr noundef %call1, ptr noundef %3)
-  store i32 %call2, ptr %vret, align 4
-  %4 = load i32, ptr %vret, align 4
-  %tobool3 = icmp ne i32 %4, 0
-  br i1 %tobool3, label %if.then4, label %if.end
+22:                                               ; preds = %18
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #8
+  %23 = load ptr, ptr %6, align 8, !tbaa !3
+  %24 = load ptr, ptr %8, align 8, !tbaa !3
+  %25 = call ptr @_Py_TYPE(ptr noundef %24)
+  %26 = load ptr, ptr %7, align 8, !tbaa !3
+  %27 = call i32 %23(ptr noundef %25, ptr noundef %26)
+  store i32 %27, ptr %9, align 4, !tbaa !7
+  %28 = load i32, ptr %9, align 4, !tbaa !7
+  %29 = icmp ne i32 %28, 0
+  br i1 %29, label %30, label %32
 
-if.then4:                                         ; preds = %if.then
-  %5 = load i32, ptr %vret, align 4
-  store i32 %5, ptr %retval, align 4
-  br label %return
+30:                                               ; preds = %22
+  %31 = load i32, ptr %9, align 4, !tbaa !7
+  store i32 %31, ptr %4, align 4
+  store i32 1, ptr %10, align 4
+  br label %33
 
-if.end:                                           ; preds = %if.then
-  br label %if.end5
+32:                                               ; preds = %22
+  store i32 0, ptr %10, align 4
+  br label %33
 
-if.end5:                                          ; preds = %if.end, %do.body
-  br label %do.end
+33:                                               ; preds = %32, %30
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #8
+  %34 = load i32, ptr %10, align 4
+  switch i32 %34, label %177 [
+    i32 0, label %35
+  ]
 
-do.end:                                           ; preds = %if.end5
-  br label %do.body6
+35:                                               ; preds = %33
+  br label %36
 
-do.body6:                                         ; preds = %do.end
-  %6 = load ptr, ptr %self.addr, align 8
-  %connection = getelementptr inbounds %struct.pysqlite_Cursor, ptr %6, i32 0, i32 1
-  %7 = load ptr, ptr %connection, align 8
-  %tobool7 = icmp ne ptr %7, null
-  br i1 %tobool7, label %if.then8, label %if.end15
+36:                                               ; preds = %35, %18
+  br label %37
 
-if.then8:                                         ; preds = %do.body6
-  %8 = load ptr, ptr %visit.addr, align 8
-  %9 = load ptr, ptr %self.addr, align 8
-  %connection10 = getelementptr inbounds %struct.pysqlite_Cursor, ptr %9, i32 0, i32 1
-  %10 = load ptr, ptr %connection10, align 8
-  %11 = load ptr, ptr %arg.addr, align 8
-  %call11 = call i32 %8(ptr noundef %10, ptr noundef %11)
-  store i32 %call11, ptr %vret9, align 4
-  %12 = load i32, ptr %vret9, align 4
-  %tobool12 = icmp ne i32 %12, 0
-  br i1 %tobool12, label %if.then13, label %if.end14
+37:                                               ; preds = %36
+  br label %38
 
-if.then13:                                        ; preds = %if.then8
-  %13 = load i32, ptr %vret9, align 4
-  store i32 %13, ptr %retval, align 4
-  br label %return
+38:                                               ; preds = %37
+  br label %39
 
-if.end14:                                         ; preds = %if.then8
-  br label %if.end15
+39:                                               ; preds = %38
+  %40 = load ptr, ptr %8, align 8, !tbaa !3
+  %41 = getelementptr inbounds nuw %struct.pysqlite_Cursor, ptr %40, i32 0, i32 1
+  %42 = load ptr, ptr %41, align 8, !tbaa !19
+  %43 = icmp ne ptr %42, null
+  br i1 %43, label %44, label %59
 
-if.end15:                                         ; preds = %if.end14, %do.body6
-  br label %do.end16
+44:                                               ; preds = %39
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #8
+  %45 = load ptr, ptr %6, align 8, !tbaa !3
+  %46 = load ptr, ptr %8, align 8, !tbaa !3
+  %47 = getelementptr inbounds nuw %struct.pysqlite_Cursor, ptr %46, i32 0, i32 1
+  %48 = load ptr, ptr %47, align 8, !tbaa !19
+  %49 = load ptr, ptr %7, align 8, !tbaa !3
+  %50 = call i32 %45(ptr noundef %48, ptr noundef %49)
+  store i32 %50, ptr %11, align 4, !tbaa !7
+  %51 = load i32, ptr %11, align 4, !tbaa !7
+  %52 = icmp ne i32 %51, 0
+  br i1 %52, label %53, label %55
 
-do.end16:                                         ; preds = %if.end15
-  br label %do.body17
+53:                                               ; preds = %44
+  %54 = load i32, ptr %11, align 4, !tbaa !7
+  store i32 %54, ptr %4, align 4
+  store i32 1, ptr %10, align 4
+  br label %56
 
-do.body17:                                        ; preds = %do.end16
-  %14 = load ptr, ptr %self.addr, align 8
-  %description = getelementptr inbounds %struct.pysqlite_Cursor, ptr %14, i32 0, i32 2
-  %15 = load ptr, ptr %description, align 8
-  %tobool18 = icmp ne ptr %15, null
-  br i1 %tobool18, label %if.then19, label %if.end26
+55:                                               ; preds = %44
+  store i32 0, ptr %10, align 4
+  br label %56
 
-if.then19:                                        ; preds = %do.body17
-  %16 = load ptr, ptr %visit.addr, align 8
-  %17 = load ptr, ptr %self.addr, align 8
-  %description21 = getelementptr inbounds %struct.pysqlite_Cursor, ptr %17, i32 0, i32 2
-  %18 = load ptr, ptr %description21, align 8
-  %19 = load ptr, ptr %arg.addr, align 8
-  %call22 = call i32 %16(ptr noundef %18, ptr noundef %19)
-  store i32 %call22, ptr %vret20, align 4
-  %20 = load i32, ptr %vret20, align 4
-  %tobool23 = icmp ne i32 %20, 0
-  br i1 %tobool23, label %if.then24, label %if.end25
+56:                                               ; preds = %55, %53
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #8
+  %57 = load i32, ptr %10, align 4
+  switch i32 %57, label %177 [
+    i32 0, label %58
+  ]
 
-if.then24:                                        ; preds = %if.then19
-  %21 = load i32, ptr %vret20, align 4
-  store i32 %21, ptr %retval, align 4
-  br label %return
+58:                                               ; preds = %56
+  br label %59
 
-if.end25:                                         ; preds = %if.then19
-  br label %if.end26
+59:                                               ; preds = %58, %39
+  br label %60
 
-if.end26:                                         ; preds = %if.end25, %do.body17
-  br label %do.end27
+60:                                               ; preds = %59
+  br label %61
 
-do.end27:                                         ; preds = %if.end26
-  br label %do.body28
+61:                                               ; preds = %60
+  br label %62
 
-do.body28:                                        ; preds = %do.end27
-  %22 = load ptr, ptr %self.addr, align 8
-  %row_cast_map = getelementptr inbounds %struct.pysqlite_Cursor, ptr %22, i32 0, i32 3
-  %23 = load ptr, ptr %row_cast_map, align 8
-  %tobool29 = icmp ne ptr %23, null
-  br i1 %tobool29, label %if.then30, label %if.end37
+62:                                               ; preds = %61
+  %63 = load ptr, ptr %8, align 8, !tbaa !3
+  %64 = getelementptr inbounds nuw %struct.pysqlite_Cursor, ptr %63, i32 0, i32 2
+  %65 = load ptr, ptr %64, align 8, !tbaa !39
+  %66 = icmp ne ptr %65, null
+  br i1 %66, label %67, label %82
 
-if.then30:                                        ; preds = %do.body28
-  %24 = load ptr, ptr %visit.addr, align 8
-  %25 = load ptr, ptr %self.addr, align 8
-  %row_cast_map32 = getelementptr inbounds %struct.pysqlite_Cursor, ptr %25, i32 0, i32 3
-  %26 = load ptr, ptr %row_cast_map32, align 8
-  %27 = load ptr, ptr %arg.addr, align 8
-  %call33 = call i32 %24(ptr noundef %26, ptr noundef %27)
-  store i32 %call33, ptr %vret31, align 4
-  %28 = load i32, ptr %vret31, align 4
-  %tobool34 = icmp ne i32 %28, 0
-  br i1 %tobool34, label %if.then35, label %if.end36
+67:                                               ; preds = %62
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #8
+  %68 = load ptr, ptr %6, align 8, !tbaa !3
+  %69 = load ptr, ptr %8, align 8, !tbaa !3
+  %70 = getelementptr inbounds nuw %struct.pysqlite_Cursor, ptr %69, i32 0, i32 2
+  %71 = load ptr, ptr %70, align 8, !tbaa !39
+  %72 = load ptr, ptr %7, align 8, !tbaa !3
+  %73 = call i32 %68(ptr noundef %71, ptr noundef %72)
+  store i32 %73, ptr %12, align 4, !tbaa !7
+  %74 = load i32, ptr %12, align 4, !tbaa !7
+  %75 = icmp ne i32 %74, 0
+  br i1 %75, label %76, label %78
 
-if.then35:                                        ; preds = %if.then30
-  %29 = load i32, ptr %vret31, align 4
-  store i32 %29, ptr %retval, align 4
-  br label %return
+76:                                               ; preds = %67
+  %77 = load i32, ptr %12, align 4, !tbaa !7
+  store i32 %77, ptr %4, align 4
+  store i32 1, ptr %10, align 4
+  br label %79
 
-if.end36:                                         ; preds = %if.then30
-  br label %if.end37
+78:                                               ; preds = %67
+  store i32 0, ptr %10, align 4
+  br label %79
 
-if.end37:                                         ; preds = %if.end36, %do.body28
-  br label %do.end38
+79:                                               ; preds = %78, %76
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #8
+  %80 = load i32, ptr %10, align 4
+  switch i32 %80, label %177 [
+    i32 0, label %81
+  ]
 
-do.end38:                                         ; preds = %if.end37
-  br label %do.body39
+81:                                               ; preds = %79
+  br label %82
 
-do.body39:                                        ; preds = %do.end38
-  %30 = load ptr, ptr %self.addr, align 8
-  %lastrowid = getelementptr inbounds %struct.pysqlite_Cursor, ptr %30, i32 0, i32 5
-  %31 = load ptr, ptr %lastrowid, align 8
-  %tobool40 = icmp ne ptr %31, null
-  br i1 %tobool40, label %if.then41, label %if.end48
+82:                                               ; preds = %81, %62
+  br label %83
 
-if.then41:                                        ; preds = %do.body39
-  %32 = load ptr, ptr %visit.addr, align 8
-  %33 = load ptr, ptr %self.addr, align 8
-  %lastrowid43 = getelementptr inbounds %struct.pysqlite_Cursor, ptr %33, i32 0, i32 5
-  %34 = load ptr, ptr %lastrowid43, align 8
-  %35 = load ptr, ptr %arg.addr, align 8
-  %call44 = call i32 %32(ptr noundef %34, ptr noundef %35)
-  store i32 %call44, ptr %vret42, align 4
-  %36 = load i32, ptr %vret42, align 4
-  %tobool45 = icmp ne i32 %36, 0
-  br i1 %tobool45, label %if.then46, label %if.end47
+83:                                               ; preds = %82
+  br label %84
 
-if.then46:                                        ; preds = %if.then41
-  %37 = load i32, ptr %vret42, align 4
-  store i32 %37, ptr %retval, align 4
-  br label %return
+84:                                               ; preds = %83
+  br label %85
 
-if.end47:                                         ; preds = %if.then41
-  br label %if.end48
+85:                                               ; preds = %84
+  %86 = load ptr, ptr %8, align 8, !tbaa !3
+  %87 = getelementptr inbounds nuw %struct.pysqlite_Cursor, ptr %86, i32 0, i32 3
+  %88 = load ptr, ptr %87, align 8, !tbaa !56
+  %89 = icmp ne ptr %88, null
+  br i1 %89, label %90, label %105
 
-if.end48:                                         ; preds = %if.end47, %do.body39
-  br label %do.end49
+90:                                               ; preds = %85
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #8
+  %91 = load ptr, ptr %6, align 8, !tbaa !3
+  %92 = load ptr, ptr %8, align 8, !tbaa !3
+  %93 = getelementptr inbounds nuw %struct.pysqlite_Cursor, ptr %92, i32 0, i32 3
+  %94 = load ptr, ptr %93, align 8, !tbaa !56
+  %95 = load ptr, ptr %7, align 8, !tbaa !3
+  %96 = call i32 %91(ptr noundef %94, ptr noundef %95)
+  store i32 %96, ptr %13, align 4, !tbaa !7
+  %97 = load i32, ptr %13, align 4, !tbaa !7
+  %98 = icmp ne i32 %97, 0
+  br i1 %98, label %99, label %101
 
-do.end49:                                         ; preds = %if.end48
-  br label %do.body50
+99:                                               ; preds = %90
+  %100 = load i32, ptr %13, align 4, !tbaa !7
+  store i32 %100, ptr %4, align 4
+  store i32 1, ptr %10, align 4
+  br label %102
 
-do.body50:                                        ; preds = %do.end49
-  %38 = load ptr, ptr %self.addr, align 8
-  %row_factory = getelementptr inbounds %struct.pysqlite_Cursor, ptr %38, i32 0, i32 7
-  %39 = load ptr, ptr %row_factory, align 8
-  %tobool51 = icmp ne ptr %39, null
-  br i1 %tobool51, label %if.then52, label %if.end59
+101:                                              ; preds = %90
+  store i32 0, ptr %10, align 4
+  br label %102
 
-if.then52:                                        ; preds = %do.body50
-  %40 = load ptr, ptr %visit.addr, align 8
-  %41 = load ptr, ptr %self.addr, align 8
-  %row_factory54 = getelementptr inbounds %struct.pysqlite_Cursor, ptr %41, i32 0, i32 7
-  %42 = load ptr, ptr %row_factory54, align 8
-  %43 = load ptr, ptr %arg.addr, align 8
-  %call55 = call i32 %40(ptr noundef %42, ptr noundef %43)
-  store i32 %call55, ptr %vret53, align 4
-  %44 = load i32, ptr %vret53, align 4
-  %tobool56 = icmp ne i32 %44, 0
-  br i1 %tobool56, label %if.then57, label %if.end58
+102:                                              ; preds = %101, %99
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #8
+  %103 = load i32, ptr %10, align 4
+  switch i32 %103, label %177 [
+    i32 0, label %104
+  ]
 
-if.then57:                                        ; preds = %if.then52
-  %45 = load i32, ptr %vret53, align 4
-  store i32 %45, ptr %retval, align 4
-  br label %return
+104:                                              ; preds = %102
+  br label %105
 
-if.end58:                                         ; preds = %if.then52
-  br label %if.end59
+105:                                              ; preds = %104, %85
+  br label %106
 
-if.end59:                                         ; preds = %if.end58, %do.body50
-  br label %do.end60
+106:                                              ; preds = %105
+  br label %107
 
-do.end60:                                         ; preds = %if.end59
-  br label %do.body61
+107:                                              ; preds = %106
+  br label %108
 
-do.body61:                                        ; preds = %do.end60
-  %46 = load ptr, ptr %self.addr, align 8
-  %statement = getelementptr inbounds %struct.pysqlite_Cursor, ptr %46, i32 0, i32 8
-  %47 = load ptr, ptr %statement, align 8
-  %tobool62 = icmp ne ptr %47, null
-  br i1 %tobool62, label %if.then63, label %if.end70
+108:                                              ; preds = %107
+  %109 = load ptr, ptr %8, align 8, !tbaa !3
+  %110 = getelementptr inbounds nuw %struct.pysqlite_Cursor, ptr %109, i32 0, i32 5
+  %111 = load ptr, ptr %110, align 8, !tbaa !88
+  %112 = icmp ne ptr %111, null
+  br i1 %112, label %113, label %128
 
-if.then63:                                        ; preds = %do.body61
-  %48 = load ptr, ptr %visit.addr, align 8
-  %49 = load ptr, ptr %self.addr, align 8
-  %statement65 = getelementptr inbounds %struct.pysqlite_Cursor, ptr %49, i32 0, i32 8
-  %50 = load ptr, ptr %statement65, align 8
-  %51 = load ptr, ptr %arg.addr, align 8
-  %call66 = call i32 %48(ptr noundef %50, ptr noundef %51)
-  store i32 %call66, ptr %vret64, align 4
-  %52 = load i32, ptr %vret64, align 4
-  %tobool67 = icmp ne i32 %52, 0
-  br i1 %tobool67, label %if.then68, label %if.end69
+113:                                              ; preds = %108
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #8
+  %114 = load ptr, ptr %6, align 8, !tbaa !3
+  %115 = load ptr, ptr %8, align 8, !tbaa !3
+  %116 = getelementptr inbounds nuw %struct.pysqlite_Cursor, ptr %115, i32 0, i32 5
+  %117 = load ptr, ptr %116, align 8, !tbaa !88
+  %118 = load ptr, ptr %7, align 8, !tbaa !3
+  %119 = call i32 %114(ptr noundef %117, ptr noundef %118)
+  store i32 %119, ptr %14, align 4, !tbaa !7
+  %120 = load i32, ptr %14, align 4, !tbaa !7
+  %121 = icmp ne i32 %120, 0
+  br i1 %121, label %122, label %124
 
-if.then68:                                        ; preds = %if.then63
-  %53 = load i32, ptr %vret64, align 4
-  store i32 %53, ptr %retval, align 4
-  br label %return
+122:                                              ; preds = %113
+  %123 = load i32, ptr %14, align 4, !tbaa !7
+  store i32 %123, ptr %4, align 4
+  store i32 1, ptr %10, align 4
+  br label %125
 
-if.end69:                                         ; preds = %if.then63
-  br label %if.end70
+124:                                              ; preds = %113
+  store i32 0, ptr %10, align 4
+  br label %125
 
-if.end70:                                         ; preds = %if.end69, %do.body61
-  br label %do.end71
+125:                                              ; preds = %124, %122
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #8
+  %126 = load i32, ptr %10, align 4
+  switch i32 %126, label %177 [
+    i32 0, label %127
+  ]
 
-do.end71:                                         ; preds = %if.end70
-  store i32 0, ptr %retval, align 4
-  br label %return
+127:                                              ; preds = %125
+  br label %128
 
-return:                                           ; preds = %do.end71, %if.then68, %if.then57, %if.then46, %if.then35, %if.then24, %if.then13, %if.then4
-  %54 = load i32, ptr %retval, align 4
-  ret i32 %54
+128:                                              ; preds = %127, %108
+  br label %129
+
+129:                                              ; preds = %128
+  br label %130
+
+130:                                              ; preds = %129
+  br label %131
+
+131:                                              ; preds = %130
+  %132 = load ptr, ptr %8, align 8, !tbaa !3
+  %133 = getelementptr inbounds nuw %struct.pysqlite_Cursor, ptr %132, i32 0, i32 7
+  %134 = load ptr, ptr %133, align 8, !tbaa !85
+  %135 = icmp ne ptr %134, null
+  br i1 %135, label %136, label %151
+
+136:                                              ; preds = %131
+  call void @llvm.lifetime.start.p0(i64 4, ptr %15) #8
+  %137 = load ptr, ptr %6, align 8, !tbaa !3
+  %138 = load ptr, ptr %8, align 8, !tbaa !3
+  %139 = getelementptr inbounds nuw %struct.pysqlite_Cursor, ptr %138, i32 0, i32 7
+  %140 = load ptr, ptr %139, align 8, !tbaa !85
+  %141 = load ptr, ptr %7, align 8, !tbaa !3
+  %142 = call i32 %137(ptr noundef %140, ptr noundef %141)
+  store i32 %142, ptr %15, align 4, !tbaa !7
+  %143 = load i32, ptr %15, align 4, !tbaa !7
+  %144 = icmp ne i32 %143, 0
+  br i1 %144, label %145, label %147
+
+145:                                              ; preds = %136
+  %146 = load i32, ptr %15, align 4, !tbaa !7
+  store i32 %146, ptr %4, align 4
+  store i32 1, ptr %10, align 4
+  br label %148
+
+147:                                              ; preds = %136
+  store i32 0, ptr %10, align 4
+  br label %148
+
+148:                                              ; preds = %147, %145
+  call void @llvm.lifetime.end.p0(i64 4, ptr %15) #8
+  %149 = load i32, ptr %10, align 4
+  switch i32 %149, label %177 [
+    i32 0, label %150
+  ]
+
+150:                                              ; preds = %148
+  br label %151
+
+151:                                              ; preds = %150, %131
+  br label %152
+
+152:                                              ; preds = %151
+  br label %153
+
+153:                                              ; preds = %152
+  br label %154
+
+154:                                              ; preds = %153
+  %155 = load ptr, ptr %8, align 8, !tbaa !3
+  %156 = getelementptr inbounds nuw %struct.pysqlite_Cursor, ptr %155, i32 0, i32 8
+  %157 = load ptr, ptr %156, align 8, !tbaa !18
+  %158 = icmp ne ptr %157, null
+  br i1 %158, label %159, label %174
+
+159:                                              ; preds = %154
+  call void @llvm.lifetime.start.p0(i64 4, ptr %16) #8
+  %160 = load ptr, ptr %6, align 8, !tbaa !3
+  %161 = load ptr, ptr %8, align 8, !tbaa !3
+  %162 = getelementptr inbounds nuw %struct.pysqlite_Cursor, ptr %161, i32 0, i32 8
+  %163 = load ptr, ptr %162, align 8, !tbaa !18
+  %164 = load ptr, ptr %7, align 8, !tbaa !3
+  %165 = call i32 %160(ptr noundef %163, ptr noundef %164)
+  store i32 %165, ptr %16, align 4, !tbaa !7
+  %166 = load i32, ptr %16, align 4, !tbaa !7
+  %167 = icmp ne i32 %166, 0
+  br i1 %167, label %168, label %170
+
+168:                                              ; preds = %159
+  %169 = load i32, ptr %16, align 4, !tbaa !7
+  store i32 %169, ptr %4, align 4
+  store i32 1, ptr %10, align 4
+  br label %171
+
+170:                                              ; preds = %159
+  store i32 0, ptr %10, align 4
+  br label %171
+
+171:                                              ; preds = %170, %168
+  call void @llvm.lifetime.end.p0(i64 4, ptr %16) #8
+  %172 = load i32, ptr %10, align 4
+  switch i32 %172, label %177 [
+    i32 0, label %173
+  ]
+
+173:                                              ; preds = %171
+  br label %174
+
+174:                                              ; preds = %173, %154
+  br label %175
+
+175:                                              ; preds = %174
+  br label %176
+
+176:                                              ; preds = %175
+  store i32 0, ptr %4, align 4
+  store i32 1, ptr %10, align 4
+  br label %177
+
+177:                                              ; preds = %176, %171, %148, %125, %102, %79, %56, %33
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #8
+  %178 = load i32, ptr %4, align 4
+  ret i32 %178
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @cursor_clear(ptr noundef %self) #0 {
-entry:
-  %op.addr.i103 = alloca ptr, align 8
-  %op.addr.i99 = alloca ptr, align 8
-  %op.addr.i95 = alloca ptr, align 8
-  %op.addr.i91 = alloca ptr, align 8
-  %op.addr.i87 = alloca ptr, align 8
-  %op.addr.i85 = alloca ptr, align 8
-  %op.addr.i76 = alloca ptr, align 8
-  %op.addr.i67 = alloca ptr, align 8
-  %op.addr.i58 = alloca ptr, align 8
-  %op.addr.i49 = alloca ptr, align 8
-  %op.addr.i40 = alloca ptr, align 8
-  %op.addr.i = alloca ptr, align 8
-  %self.addr = alloca ptr, align 8
-  %_tmp_op_ptr = alloca ptr, align 8
-  %_tmp_old_op = alloca ptr, align 8
-  %_tmp_op_ptr2 = alloca ptr, align 8
-  %_tmp_old_op3 = alloca ptr, align 8
-  %_tmp_op_ptr9 = alloca ptr, align 8
-  %_tmp_old_op10 = alloca ptr, align 8
-  %_tmp_op_ptr16 = alloca ptr, align 8
-  %_tmp_old_op17 = alloca ptr, align 8
-  %_tmp_op_ptr23 = alloca ptr, align 8
-  %_tmp_old_op24 = alloca ptr, align 8
-  %_tmp_op_ptr32 = alloca ptr, align 8
-  %_tmp_old_op34 = alloca ptr, align 8
-  store ptr %self, ptr %self.addr, align 8
-  br label %do.body
+define internal i32 @cursor_clear(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca ptr, align 8
+  %14 = alloca ptr, align 8
+  %15 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #8
+  %16 = load ptr, ptr %2, align 8, !tbaa !9
+  store ptr %16, ptr %3, align 8, !tbaa !3
+  br label %17
 
-do.body:                                          ; preds = %entry
-  %0 = load ptr, ptr %self.addr, align 8
-  %connection = getelementptr inbounds %struct.pysqlite_Cursor, ptr %0, i32 0, i32 1
-  store ptr %connection, ptr %_tmp_op_ptr, align 8
-  %1 = load ptr, ptr %_tmp_op_ptr, align 8
-  %2 = load ptr, ptr %1, align 8
-  store ptr %2, ptr %_tmp_old_op, align 8
-  %3 = load ptr, ptr %_tmp_old_op, align 8
-  %cmp = icmp ne ptr %3, null
-  br i1 %cmp, label %if.then, label %if.end
+17:                                               ; preds = %1
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #8
+  %18 = load ptr, ptr %3, align 8, !tbaa !3
+  %19 = getelementptr inbounds nuw %struct.pysqlite_Cursor, ptr %18, i32 0, i32 1
+  store ptr %19, ptr %4, align 8, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #8
+  %20 = load ptr, ptr %4, align 8, !tbaa !3
+  %21 = load ptr, ptr %20, align 8, !tbaa !3
+  store ptr %21, ptr %5, align 8, !tbaa !3
+  %22 = load ptr, ptr %5, align 8, !tbaa !3
+  %23 = icmp ne ptr %22, null
+  br i1 %23, label %24, label %27
 
-if.then:                                          ; preds = %do.body
-  %4 = load ptr, ptr %_tmp_op_ptr, align 8
-  store ptr null, ptr %4, align 8
-  %5 = load ptr, ptr %_tmp_old_op, align 8
-  store ptr %5, ptr %op.addr.i76, align 8
-  %6 = load ptr, ptr %op.addr.i76, align 8
-  store ptr %6, ptr %op.addr.i85, align 8
-  %7 = load ptr, ptr %op.addr.i85, align 8
-  %8 = load i64, ptr %7, align 8
-  %conv.i = trunc i64 %8 to i32
-  %cmp.i86 = icmp slt i32 %conv.i, 0
-  %conv1.i = zext i1 %cmp.i86 to i32
-  %tobool.i78 = icmp ne i32 %conv1.i, 0
-  br i1 %tobool.i78, label %if.then.i83, label %if.end.i79
+24:                                               ; preds = %17
+  %25 = load ptr, ptr %4, align 8, !tbaa !3
+  store ptr null, ptr %25, align 8, !tbaa !3
+  %26 = load ptr, ptr %5, align 8, !tbaa !3
+  call void @Py_DECREF(ptr noundef %26)
+  br label %27
 
-if.then.i83:                                      ; preds = %if.then
-  br label %Py_DECREF.exit84
+27:                                               ; preds = %24, %17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #8
+  br label %28
 
-if.end.i79:                                       ; preds = %if.then
-  %9 = load ptr, ptr %op.addr.i76, align 8
-  %10 = load i64, ptr %9, align 8
-  %dec.i80 = add i64 %10, -1
-  store i64 %dec.i80, ptr %9, align 8
-  %cmp.i81 = icmp eq i64 %dec.i80, 0
-  br i1 %cmp.i81, label %if.then1.i82, label %Py_DECREF.exit84
+28:                                               ; preds = %27
+  br label %29
 
-if.then1.i82:                                     ; preds = %if.end.i79
-  %11 = load ptr, ptr %op.addr.i76, align 8
-  call void @_Py_Dealloc(ptr noundef %11) #5
-  br label %Py_DECREF.exit84
+29:                                               ; preds = %28
+  br label %30
 
-Py_DECREF.exit84:                                 ; preds = %if.then1.i82, %if.end.i79, %if.then.i83
-  br label %if.end
+30:                                               ; preds = %29
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #8
+  %31 = load ptr, ptr %3, align 8, !tbaa !3
+  %32 = getelementptr inbounds nuw %struct.pysqlite_Cursor, ptr %31, i32 0, i32 2
+  store ptr %32, ptr %6, align 8, !tbaa !16
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #8
+  %33 = load ptr, ptr %6, align 8, !tbaa !16
+  %34 = load ptr, ptr %33, align 8, !tbaa !9
+  store ptr %34, ptr %7, align 8, !tbaa !9
+  %35 = load ptr, ptr %7, align 8, !tbaa !9
+  %36 = icmp ne ptr %35, null
+  br i1 %36, label %37, label %40
 
-if.end:                                           ; preds = %Py_DECREF.exit84, %do.body
-  br label %do.end
+37:                                               ; preds = %30
+  %38 = load ptr, ptr %6, align 8, !tbaa !16
+  store ptr null, ptr %38, align 8, !tbaa !9
+  %39 = load ptr, ptr %7, align 8, !tbaa !9
+  call void @Py_DECREF(ptr noundef %39)
+  br label %40
 
-do.end:                                           ; preds = %if.end
-  br label %do.body1
+40:                                               ; preds = %37, %30
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #8
+  br label %41
 
-do.body1:                                         ; preds = %do.end
-  %12 = load ptr, ptr %self.addr, align 8
-  %description = getelementptr inbounds %struct.pysqlite_Cursor, ptr %12, i32 0, i32 2
-  store ptr %description, ptr %_tmp_op_ptr2, align 8
-  %13 = load ptr, ptr %_tmp_op_ptr2, align 8
-  %14 = load ptr, ptr %13, align 8
-  store ptr %14, ptr %_tmp_old_op3, align 8
-  %15 = load ptr, ptr %_tmp_old_op3, align 8
-  %cmp4 = icmp ne ptr %15, null
-  br i1 %cmp4, label %if.then5, label %if.end6
+41:                                               ; preds = %40
+  br label %42
 
-if.then5:                                         ; preds = %do.body1
-  %16 = load ptr, ptr %_tmp_op_ptr2, align 8
-  store ptr null, ptr %16, align 8
-  %17 = load ptr, ptr %_tmp_old_op3, align 8
-  store ptr %17, ptr %op.addr.i67, align 8
-  %18 = load ptr, ptr %op.addr.i67, align 8
-  store ptr %18, ptr %op.addr.i87, align 8
-  %19 = load ptr, ptr %op.addr.i87, align 8
-  %20 = load i64, ptr %19, align 8
-  %conv.i88 = trunc i64 %20 to i32
-  %cmp.i89 = icmp slt i32 %conv.i88, 0
-  %conv1.i90 = zext i1 %cmp.i89 to i32
-  %tobool.i69 = icmp ne i32 %conv1.i90, 0
-  br i1 %tobool.i69, label %if.then.i74, label %if.end.i70
+42:                                               ; preds = %41
+  br label %43
 
-if.then.i74:                                      ; preds = %if.then5
-  br label %Py_DECREF.exit75
+43:                                               ; preds = %42
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #8
+  %44 = load ptr, ptr %3, align 8, !tbaa !3
+  %45 = getelementptr inbounds nuw %struct.pysqlite_Cursor, ptr %44, i32 0, i32 3
+  store ptr %45, ptr %8, align 8, !tbaa !16
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #8
+  %46 = load ptr, ptr %8, align 8, !tbaa !16
+  %47 = load ptr, ptr %46, align 8, !tbaa !9
+  store ptr %47, ptr %9, align 8, !tbaa !9
+  %48 = load ptr, ptr %9, align 8, !tbaa !9
+  %49 = icmp ne ptr %48, null
+  br i1 %49, label %50, label %53
 
-if.end.i70:                                       ; preds = %if.then5
-  %21 = load ptr, ptr %op.addr.i67, align 8
-  %22 = load i64, ptr %21, align 8
-  %dec.i71 = add i64 %22, -1
-  store i64 %dec.i71, ptr %21, align 8
-  %cmp.i72 = icmp eq i64 %dec.i71, 0
-  br i1 %cmp.i72, label %if.then1.i73, label %Py_DECREF.exit75
+50:                                               ; preds = %43
+  %51 = load ptr, ptr %8, align 8, !tbaa !16
+  store ptr null, ptr %51, align 8, !tbaa !9
+  %52 = load ptr, ptr %9, align 8, !tbaa !9
+  call void @Py_DECREF(ptr noundef %52)
+  br label %53
 
-if.then1.i73:                                     ; preds = %if.end.i70
-  %23 = load ptr, ptr %op.addr.i67, align 8
-  call void @_Py_Dealloc(ptr noundef %23) #5
-  br label %Py_DECREF.exit75
+53:                                               ; preds = %50, %43
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #8
+  br label %54
 
-Py_DECREF.exit75:                                 ; preds = %if.then1.i73, %if.end.i70, %if.then.i74
-  br label %if.end6
+54:                                               ; preds = %53
+  br label %55
 
-if.end6:                                          ; preds = %Py_DECREF.exit75, %do.body1
-  br label %do.end7
+55:                                               ; preds = %54
+  br label %56
 
-do.end7:                                          ; preds = %if.end6
-  br label %do.body8
+56:                                               ; preds = %55
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #8
+  %57 = load ptr, ptr %3, align 8, !tbaa !3
+  %58 = getelementptr inbounds nuw %struct.pysqlite_Cursor, ptr %57, i32 0, i32 5
+  store ptr %58, ptr %10, align 8, !tbaa !16
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #8
+  %59 = load ptr, ptr %10, align 8, !tbaa !16
+  %60 = load ptr, ptr %59, align 8, !tbaa !9
+  store ptr %60, ptr %11, align 8, !tbaa !9
+  %61 = load ptr, ptr %11, align 8, !tbaa !9
+  %62 = icmp ne ptr %61, null
+  br i1 %62, label %63, label %66
 
-do.body8:                                         ; preds = %do.end7
-  %24 = load ptr, ptr %self.addr, align 8
-  %row_cast_map = getelementptr inbounds %struct.pysqlite_Cursor, ptr %24, i32 0, i32 3
-  store ptr %row_cast_map, ptr %_tmp_op_ptr9, align 8
-  %25 = load ptr, ptr %_tmp_op_ptr9, align 8
-  %26 = load ptr, ptr %25, align 8
-  store ptr %26, ptr %_tmp_old_op10, align 8
-  %27 = load ptr, ptr %_tmp_old_op10, align 8
-  %cmp11 = icmp ne ptr %27, null
-  br i1 %cmp11, label %if.then12, label %if.end13
+63:                                               ; preds = %56
+  %64 = load ptr, ptr %10, align 8, !tbaa !16
+  store ptr null, ptr %64, align 8, !tbaa !9
+  %65 = load ptr, ptr %11, align 8, !tbaa !9
+  call void @Py_DECREF(ptr noundef %65)
+  br label %66
 
-if.then12:                                        ; preds = %do.body8
-  %28 = load ptr, ptr %_tmp_op_ptr9, align 8
-  store ptr null, ptr %28, align 8
-  %29 = load ptr, ptr %_tmp_old_op10, align 8
-  store ptr %29, ptr %op.addr.i58, align 8
-  %30 = load ptr, ptr %op.addr.i58, align 8
-  store ptr %30, ptr %op.addr.i91, align 8
-  %31 = load ptr, ptr %op.addr.i91, align 8
-  %32 = load i64, ptr %31, align 8
-  %conv.i92 = trunc i64 %32 to i32
-  %cmp.i93 = icmp slt i32 %conv.i92, 0
-  %conv1.i94 = zext i1 %cmp.i93 to i32
-  %tobool.i60 = icmp ne i32 %conv1.i94, 0
-  br i1 %tobool.i60, label %if.then.i65, label %if.end.i61
+66:                                               ; preds = %63, %56
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #8
+  br label %67
 
-if.then.i65:                                      ; preds = %if.then12
-  br label %Py_DECREF.exit66
+67:                                               ; preds = %66
+  br label %68
 
-if.end.i61:                                       ; preds = %if.then12
-  %33 = load ptr, ptr %op.addr.i58, align 8
-  %34 = load i64, ptr %33, align 8
-  %dec.i62 = add i64 %34, -1
-  store i64 %dec.i62, ptr %33, align 8
-  %cmp.i63 = icmp eq i64 %dec.i62, 0
-  br i1 %cmp.i63, label %if.then1.i64, label %Py_DECREF.exit66
+68:                                               ; preds = %67
+  br label %69
 
-if.then1.i64:                                     ; preds = %if.end.i61
-  %35 = load ptr, ptr %op.addr.i58, align 8
-  call void @_Py_Dealloc(ptr noundef %35) #5
-  br label %Py_DECREF.exit66
+69:                                               ; preds = %68
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #8
+  %70 = load ptr, ptr %3, align 8, !tbaa !3
+  %71 = getelementptr inbounds nuw %struct.pysqlite_Cursor, ptr %70, i32 0, i32 7
+  store ptr %71, ptr %12, align 8, !tbaa !16
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #8
+  %72 = load ptr, ptr %12, align 8, !tbaa !16
+  %73 = load ptr, ptr %72, align 8, !tbaa !9
+  store ptr %73, ptr %13, align 8, !tbaa !9
+  %74 = load ptr, ptr %13, align 8, !tbaa !9
+  %75 = icmp ne ptr %74, null
+  br i1 %75, label %76, label %79
 
-Py_DECREF.exit66:                                 ; preds = %if.then1.i64, %if.end.i61, %if.then.i65
-  br label %if.end13
+76:                                               ; preds = %69
+  %77 = load ptr, ptr %12, align 8, !tbaa !16
+  store ptr null, ptr %77, align 8, !tbaa !9
+  %78 = load ptr, ptr %13, align 8, !tbaa !9
+  call void @Py_DECREF(ptr noundef %78)
+  br label %79
 
-if.end13:                                         ; preds = %Py_DECREF.exit66, %do.body8
-  br label %do.end14
+79:                                               ; preds = %76, %69
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #8
+  br label %80
 
-do.end14:                                         ; preds = %if.end13
-  br label %do.body15
+80:                                               ; preds = %79
+  br label %81
 
-do.body15:                                        ; preds = %do.end14
-  %36 = load ptr, ptr %self.addr, align 8
-  %lastrowid = getelementptr inbounds %struct.pysqlite_Cursor, ptr %36, i32 0, i32 5
-  store ptr %lastrowid, ptr %_tmp_op_ptr16, align 8
-  %37 = load ptr, ptr %_tmp_op_ptr16, align 8
-  %38 = load ptr, ptr %37, align 8
-  store ptr %38, ptr %_tmp_old_op17, align 8
-  %39 = load ptr, ptr %_tmp_old_op17, align 8
-  %cmp18 = icmp ne ptr %39, null
-  br i1 %cmp18, label %if.then19, label %if.end20
+81:                                               ; preds = %80
+  %82 = load ptr, ptr %3, align 8, !tbaa !3
+  %83 = getelementptr inbounds nuw %struct.pysqlite_Cursor, ptr %82, i32 0, i32 8
+  %84 = load ptr, ptr %83, align 8, !tbaa !18
+  %85 = icmp ne ptr %84, null
+  br i1 %85, label %86, label %104
 
-if.then19:                                        ; preds = %do.body15
-  %40 = load ptr, ptr %_tmp_op_ptr16, align 8
-  store ptr null, ptr %40, align 8
-  %41 = load ptr, ptr %_tmp_old_op17, align 8
-  store ptr %41, ptr %op.addr.i49, align 8
-  %42 = load ptr, ptr %op.addr.i49, align 8
-  store ptr %42, ptr %op.addr.i95, align 8
-  %43 = load ptr, ptr %op.addr.i95, align 8
-  %44 = load i64, ptr %43, align 8
-  %conv.i96 = trunc i64 %44 to i32
-  %cmp.i97 = icmp slt i32 %conv.i96, 0
-  %conv1.i98 = zext i1 %cmp.i97 to i32
-  %tobool.i51 = icmp ne i32 %conv1.i98, 0
-  br i1 %tobool.i51, label %if.then.i56, label %if.end.i52
+86:                                               ; preds = %81
+  %87 = load ptr, ptr %3, align 8, !tbaa !3
+  %88 = getelementptr inbounds nuw %struct.pysqlite_Cursor, ptr %87, i32 0, i32 8
+  %89 = load ptr, ptr %88, align 8, !tbaa !18
+  %90 = call i32 @stmt_reset(ptr noundef %89)
+  br label %91
 
-if.then.i56:                                      ; preds = %if.then19
-  br label %Py_DECREF.exit57
+91:                                               ; preds = %86
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #8
+  %92 = load ptr, ptr %3, align 8, !tbaa !3
+  %93 = getelementptr inbounds nuw %struct.pysqlite_Cursor, ptr %92, i32 0, i32 8
+  store ptr %93, ptr %14, align 8, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #8
+  %94 = load ptr, ptr %14, align 8, !tbaa !3
+  %95 = load ptr, ptr %94, align 8, !tbaa !3
+  store ptr %95, ptr %15, align 8, !tbaa !3
+  %96 = load ptr, ptr %15, align 8, !tbaa !3
+  %97 = icmp ne ptr %96, null
+  br i1 %97, label %98, label %101
 
-if.end.i52:                                       ; preds = %if.then19
-  %45 = load ptr, ptr %op.addr.i49, align 8
-  %46 = load i64, ptr %45, align 8
-  %dec.i53 = add i64 %46, -1
-  store i64 %dec.i53, ptr %45, align 8
-  %cmp.i54 = icmp eq i64 %dec.i53, 0
-  br i1 %cmp.i54, label %if.then1.i55, label %Py_DECREF.exit57
+98:                                               ; preds = %91
+  %99 = load ptr, ptr %14, align 8, !tbaa !3
+  store ptr null, ptr %99, align 8, !tbaa !3
+  %100 = load ptr, ptr %15, align 8, !tbaa !3
+  call void @Py_DECREF(ptr noundef %100)
+  br label %101
 
-if.then1.i55:                                     ; preds = %if.end.i52
-  %47 = load ptr, ptr %op.addr.i49, align 8
-  call void @_Py_Dealloc(ptr noundef %47) #5
-  br label %Py_DECREF.exit57
+101:                                              ; preds = %98, %91
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #8
+  br label %102
 
-Py_DECREF.exit57:                                 ; preds = %if.then1.i55, %if.end.i52, %if.then.i56
-  br label %if.end20
+102:                                              ; preds = %101
+  br label %103
 
-if.end20:                                         ; preds = %Py_DECREF.exit57, %do.body15
-  br label %do.end21
+103:                                              ; preds = %102
+  br label %104
 
-do.end21:                                         ; preds = %if.end20
-  br label %do.body22
-
-do.body22:                                        ; preds = %do.end21
-  %48 = load ptr, ptr %self.addr, align 8
-  %row_factory = getelementptr inbounds %struct.pysqlite_Cursor, ptr %48, i32 0, i32 7
-  store ptr %row_factory, ptr %_tmp_op_ptr23, align 8
-  %49 = load ptr, ptr %_tmp_op_ptr23, align 8
-  %50 = load ptr, ptr %49, align 8
-  store ptr %50, ptr %_tmp_old_op24, align 8
-  %51 = load ptr, ptr %_tmp_old_op24, align 8
-  %cmp25 = icmp ne ptr %51, null
-  br i1 %cmp25, label %if.then26, label %if.end27
-
-if.then26:                                        ; preds = %do.body22
-  %52 = load ptr, ptr %_tmp_op_ptr23, align 8
-  store ptr null, ptr %52, align 8
-  %53 = load ptr, ptr %_tmp_old_op24, align 8
-  store ptr %53, ptr %op.addr.i40, align 8
-  %54 = load ptr, ptr %op.addr.i40, align 8
-  store ptr %54, ptr %op.addr.i99, align 8
-  %55 = load ptr, ptr %op.addr.i99, align 8
-  %56 = load i64, ptr %55, align 8
-  %conv.i100 = trunc i64 %56 to i32
-  %cmp.i101 = icmp slt i32 %conv.i100, 0
-  %conv1.i102 = zext i1 %cmp.i101 to i32
-  %tobool.i42 = icmp ne i32 %conv1.i102, 0
-  br i1 %tobool.i42, label %if.then.i47, label %if.end.i43
-
-if.then.i47:                                      ; preds = %if.then26
-  br label %Py_DECREF.exit48
-
-if.end.i43:                                       ; preds = %if.then26
-  %57 = load ptr, ptr %op.addr.i40, align 8
-  %58 = load i64, ptr %57, align 8
-  %dec.i44 = add i64 %58, -1
-  store i64 %dec.i44, ptr %57, align 8
-  %cmp.i45 = icmp eq i64 %dec.i44, 0
-  br i1 %cmp.i45, label %if.then1.i46, label %Py_DECREF.exit48
-
-if.then1.i46:                                     ; preds = %if.end.i43
-  %59 = load ptr, ptr %op.addr.i40, align 8
-  call void @_Py_Dealloc(ptr noundef %59) #5
-  br label %Py_DECREF.exit48
-
-Py_DECREF.exit48:                                 ; preds = %if.then1.i46, %if.end.i43, %if.then.i47
-  br label %if.end27
-
-if.end27:                                         ; preds = %Py_DECREF.exit48, %do.body22
-  br label %do.end28
-
-do.end28:                                         ; preds = %if.end27
-  %60 = load ptr, ptr %self.addr, align 8
-  %statement = getelementptr inbounds %struct.pysqlite_Cursor, ptr %60, i32 0, i32 8
-  %61 = load ptr, ptr %statement, align 8
-  %tobool = icmp ne ptr %61, null
-  br i1 %tobool, label %if.then29, label %if.end39
-
-if.then29:                                        ; preds = %do.end28
-  %62 = load ptr, ptr %self.addr, align 8
-  %statement30 = getelementptr inbounds %struct.pysqlite_Cursor, ptr %62, i32 0, i32 8
-  %63 = load ptr, ptr %statement30, align 8
-  %call = call i32 @stmt_reset(ptr noundef %63)
-  br label %do.body31
-
-do.body31:                                        ; preds = %if.then29
-  %64 = load ptr, ptr %self.addr, align 8
-  %statement33 = getelementptr inbounds %struct.pysqlite_Cursor, ptr %64, i32 0, i32 8
-  store ptr %statement33, ptr %_tmp_op_ptr32, align 8
-  %65 = load ptr, ptr %_tmp_op_ptr32, align 8
-  %66 = load ptr, ptr %65, align 8
-  store ptr %66, ptr %_tmp_old_op34, align 8
-  %67 = load ptr, ptr %_tmp_old_op34, align 8
-  %cmp35 = icmp ne ptr %67, null
-  br i1 %cmp35, label %if.then36, label %if.end37
-
-if.then36:                                        ; preds = %do.body31
-  %68 = load ptr, ptr %_tmp_op_ptr32, align 8
-  store ptr null, ptr %68, align 8
-  %69 = load ptr, ptr %_tmp_old_op34, align 8
-  store ptr %69, ptr %op.addr.i, align 8
-  %70 = load ptr, ptr %op.addr.i, align 8
-  store ptr %70, ptr %op.addr.i103, align 8
-  %71 = load ptr, ptr %op.addr.i103, align 8
-  %72 = load i64, ptr %71, align 8
-  %conv.i104 = trunc i64 %72 to i32
-  %cmp.i105 = icmp slt i32 %conv.i104, 0
-  %conv1.i106 = zext i1 %cmp.i105 to i32
-  %tobool.i = icmp ne i32 %conv1.i106, 0
-  br i1 %tobool.i, label %if.then.i, label %if.end.i
-
-if.then.i:                                        ; preds = %if.then36
-  br label %Py_DECREF.exit
-
-if.end.i:                                         ; preds = %if.then36
-  %73 = load ptr, ptr %op.addr.i, align 8
-  %74 = load i64, ptr %73, align 8
-  %dec.i = add i64 %74, -1
-  store i64 %dec.i, ptr %73, align 8
-  %cmp.i = icmp eq i64 %dec.i, 0
-  br i1 %cmp.i, label %if.then1.i, label %Py_DECREF.exit
-
-if.then1.i:                                       ; preds = %if.end.i
-  %75 = load ptr, ptr %op.addr.i, align 8
-  call void @_Py_Dealloc(ptr noundef %75) #5
-  br label %Py_DECREF.exit
-
-Py_DECREF.exit:                                   ; preds = %if.then1.i, %if.end.i, %if.then.i
-  br label %if.end37
-
-if.end37:                                         ; preds = %Py_DECREF.exit, %do.body31
-  br label %do.end38
-
-do.end38:                                         ; preds = %if.end37
-  br label %if.end39
-
-if.end39:                                         ; preds = %do.end38, %do.end28
+104:                                              ; preds = %103, %81
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #8
   ret i32 0
 }
 
-declare void @PyObject_GC_UnTrack(ptr noundef) #1
+declare void @PyObject_GC_UnTrack(ptr noundef) #2
 
-declare void @PyObject_ClearWeakRefs(ptr noundef) #1
+declare void @PyObject_ClearWeakRefs(ptr noundef) #2
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @_pysqlite_fetch_one_row(ptr noundef %self) #0 {
-entry:
-  %op.addr.i198 = alloca ptr, align 8
-  %op.addr.i194 = alloca ptr, align 8
-  %op.addr.i192 = alloca ptr, align 8
-  %op.addr.i183 = alloca ptr, align 8
-  %op.addr.i174 = alloca ptr, align 8
-  %op.addr.i = alloca ptr, align 8
-  %retval = alloca ptr, align 8
-  %self.addr = alloca ptr, align 8
-  %i = alloca i32, align 4
-  %numcols = alloca i32, align 4
-  %row = alloca ptr, align 8
-  %coltype = alloca i32, align 4
-  %converter = alloca ptr, align 8
-  %converted = alloca ptr, align 8
-  %nbytes = alloca i64, align 8
-  %buf = alloca [200 x i8], align 16
-  %colname = alloca ptr, align 8
-  %error_msg = alloca ptr, align 8
-  %_save = alloca ptr, align 8
-  %db = alloca ptr, align 8
-  %blob = alloca ptr, align 8
-  %item = alloca ptr, align 8
-  %_save47 = alloca ptr, align 8
-  %text = alloca ptr, align 8
-  %exc = alloca ptr, align 8
-  %blob143 = alloca ptr, align 8
-  store ptr %self, ptr %self.addr, align 8
-  %call = call ptr @PyEval_SaveThread()
-  store ptr %call, ptr %_save, align 8
-  %0 = load ptr, ptr %self.addr, align 8
-  %statement = getelementptr inbounds %struct.pysqlite_Cursor, ptr %0, i32 0, i32 8
-  %1 = load ptr, ptr %statement, align 8
-  %st = getelementptr inbounds %struct.pysqlite_Statement, ptr %1, i32 0, i32 1
-  %2 = load ptr, ptr %st, align 8
-  %call1 = call i32 @sqlite3_data_count(ptr noundef %2)
-  store i32 %call1, ptr %numcols, align 4
-  %3 = load ptr, ptr %_save, align 8
-  call void @PyEval_RestoreThread(ptr noundef %3)
-  %4 = load i32, ptr %numcols, align 4
-  %conv = sext i32 %4 to i64
-  %call2 = call ptr @PyTuple_New(i64 noundef %conv)
-  store ptr %call2, ptr %row, align 8
-  %5 = load ptr, ptr %row, align 8
-  %tobool = icmp ne ptr %5, null
-  br i1 %tobool, label %if.end, label %if.then
+define internal ptr @_pysqlite_fetch_one_row(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  %5 = alloca i32, align 4
+  %6 = alloca ptr, align 8
+  %7 = alloca i32, align 4
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca i64, align 8
+  %11 = alloca [200 x i8], align 16
+  %12 = alloca ptr, align 8
+  %13 = alloca ptr, align 8
+  %14 = alloca ptr, align 8
+  %15 = alloca i32, align 4
+  %16 = alloca ptr, align 8
+  %17 = alloca ptr, align 8
+  %18 = alloca ptr, align 8
+  %19 = alloca ptr, align 8
+  %20 = alloca ptr, align 8
+  %21 = alloca ptr, align 8
+  %22 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %4) #8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #8
+  call void @llvm.lifetime.start.p0(i64 200, ptr %11) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #8
+  %23 = call ptr @PyEval_SaveThread()
+  store ptr %23, ptr %14, align 8, !tbaa !37
+  %24 = load ptr, ptr %3, align 8, !tbaa !3
+  %25 = getelementptr inbounds nuw %struct.pysqlite_Cursor, ptr %24, i32 0, i32 8
+  %26 = load ptr, ptr %25, align 8, !tbaa !18
+  %27 = getelementptr inbounds nuw %struct.pysqlite_Statement, ptr %26, i32 0, i32 1
+  %28 = load ptr, ptr %27, align 8, !tbaa !25
+  %29 = call i32 @sqlite3_data_count(ptr noundef %28)
+  store i32 %29, ptr %5, align 4, !tbaa !7
+  %30 = load ptr, ptr %14, align 8, !tbaa !37
+  call void @PyEval_RestoreThread(ptr noundef %30)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #8
+  %31 = load i32, ptr %5, align 4, !tbaa !7
+  %32 = sext i32 %31 to i64
+  %33 = call ptr @PyTuple_New(i64 noundef %32)
+  store ptr %33, ptr %6, align 8, !tbaa !9
+  %34 = load ptr, ptr %6, align 8, !tbaa !9
+  %35 = icmp ne ptr %34, null
+  br i1 %35, label %37, label %36
 
-if.then:                                          ; preds = %entry
-  store ptr null, ptr %retval, align 8
-  br label %return
+36:                                               ; preds = %1
+  store ptr null, ptr %2, align 8
+  store i32 1, ptr %15, align 4
+  br label %337
 
-if.end:                                           ; preds = %entry
-  %6 = load ptr, ptr %self.addr, align 8
-  %connection = getelementptr inbounds %struct.pysqlite_Cursor, ptr %6, i32 0, i32 1
-  %7 = load ptr, ptr %connection, align 8
-  %db3 = getelementptr inbounds %struct.pysqlite_Connection, ptr %7, i32 0, i32 1
-  %8 = load ptr, ptr %db3, align 8
-  store ptr %8, ptr %db, align 8
-  store i32 0, ptr %i, align 4
-  br label %for.cond
+37:                                               ; preds = %1
+  call void @llvm.lifetime.start.p0(i64 8, ptr %16) #8
+  %38 = load ptr, ptr %3, align 8, !tbaa !3
+  %39 = getelementptr inbounds nuw %struct.pysqlite_Cursor, ptr %38, i32 0, i32 1
+  %40 = load ptr, ptr %39, align 8, !tbaa !19
+  %41 = getelementptr inbounds nuw %struct.pysqlite_Connection, ptr %40, i32 0, i32 1
+  %42 = load ptr, ptr %41, align 8, !tbaa !34
+  store ptr %42, ptr %16, align 8, !tbaa !52
+  store i32 0, ptr %4, align 4, !tbaa !7
+  br label %43
 
-for.cond:                                         ; preds = %for.inc, %if.end
-  %9 = load i32, ptr %i, align 4
-  %10 = load i32, ptr %numcols, align 4
-  %cmp = icmp slt i32 %9, %10
-  br i1 %cmp, label %for.body, label %for.end
+43:                                               ; preds = %325, %37
+  %44 = load i32, ptr %4, align 4, !tbaa !7
+  %45 = load i32, ptr %5, align 4, !tbaa !7
+  %46 = icmp slt i32 %44, %45
+  br i1 %46, label %47, label %328
 
-for.body:                                         ; preds = %for.cond
-  %11 = load ptr, ptr %self.addr, align 8
-  %connection5 = getelementptr inbounds %struct.pysqlite_Cursor, ptr %11, i32 0, i32 1
-  %12 = load ptr, ptr %connection5, align 8
-  %detect_types = getelementptr inbounds %struct.pysqlite_Connection, ptr %12, i32 0, i32 3
-  %13 = load i32, ptr %detect_types, align 8
-  %tobool6 = icmp ne i32 %13, 0
-  br i1 %tobool6, label %land.lhs.true, label %if.else
+47:                                               ; preds = %43
+  %48 = load ptr, ptr %3, align 8, !tbaa !3
+  %49 = getelementptr inbounds nuw %struct.pysqlite_Cursor, ptr %48, i32 0, i32 1
+  %50 = load ptr, ptr %49, align 8, !tbaa !19
+  %51 = getelementptr inbounds nuw %struct.pysqlite_Connection, ptr %50, i32 0, i32 3
+  %52 = load i32, ptr %51, align 8, !tbaa !55
+  %53 = icmp ne i32 %52, 0
+  br i1 %53, label %54, label %77
 
-land.lhs.true:                                    ; preds = %for.body
-  %14 = load ptr, ptr %self.addr, align 8
-  %row_cast_map = getelementptr inbounds %struct.pysqlite_Cursor, ptr %14, i32 0, i32 3
-  %15 = load ptr, ptr %row_cast_map, align 8
-  %cmp7 = icmp ne ptr %15, null
-  br i1 %cmp7, label %land.lhs.true9, label %if.else
+54:                                               ; preds = %47
+  %55 = load ptr, ptr %3, align 8, !tbaa !3
+  %56 = getelementptr inbounds nuw %struct.pysqlite_Cursor, ptr %55, i32 0, i32 3
+  %57 = load ptr, ptr %56, align 8, !tbaa !56
+  %58 = icmp ne ptr %57, null
+  br i1 %58, label %59, label %77
 
-land.lhs.true9:                                   ; preds = %land.lhs.true
-  %16 = load i32, ptr %i, align 4
-  %conv10 = sext i32 %16 to i64
-  %17 = load ptr, ptr %self.addr, align 8
-  %row_cast_map11 = getelementptr inbounds %struct.pysqlite_Cursor, ptr %17, i32 0, i32 3
-  %18 = load ptr, ptr %row_cast_map11, align 8
-  %call12 = call i64 @PyList_GET_SIZE(ptr noundef %18)
-  %cmp13 = icmp slt i64 %conv10, %call12
-  br i1 %cmp13, label %if.then15, label %if.else
+59:                                               ; preds = %54
+  %60 = load i32, ptr %4, align 4, !tbaa !7
+  %61 = sext i32 %60 to i64
+  %62 = load ptr, ptr %3, align 8, !tbaa !3
+  %63 = getelementptr inbounds nuw %struct.pysqlite_Cursor, ptr %62, i32 0, i32 3
+  %64 = load ptr, ptr %63, align 8, !tbaa !56
+  %65 = call i64 @PyList_GET_SIZE(ptr noundef %64)
+  %66 = icmp slt i64 %61, %65
+  br i1 %66, label %67, label %77
 
-if.then15:                                        ; preds = %land.lhs.true9
-  %19 = load ptr, ptr %self.addr, align 8
-  %row_cast_map16 = getelementptr inbounds %struct.pysqlite_Cursor, ptr %19, i32 0, i32 3
-  %20 = load ptr, ptr %row_cast_map16, align 8
-  %ob_item = getelementptr inbounds %struct.PyListObject, ptr %20, i32 0, i32 1
-  %21 = load ptr, ptr %ob_item, align 8
-  %22 = load i32, ptr %i, align 4
-  %idxprom = sext i32 %22 to i64
-  %arrayidx = getelementptr ptr, ptr %21, i64 %idxprom
-  %23 = load ptr, ptr %arrayidx, align 8
-  store ptr %23, ptr %converter, align 8
-  br label %if.end17
+67:                                               ; preds = %59
+  %68 = load ptr, ptr %3, align 8, !tbaa !3
+  %69 = getelementptr inbounds nuw %struct.pysqlite_Cursor, ptr %68, i32 0, i32 3
+  %70 = load ptr, ptr %69, align 8, !tbaa !56
+  %71 = getelementptr inbounds nuw %struct.PyListObject, ptr %70, i32 0, i32 1
+  %72 = load ptr, ptr %71, align 8, !tbaa !89
+  %73 = load i32, ptr %4, align 4, !tbaa !7
+  %74 = sext i32 %73 to i64
+  %75 = getelementptr ptr, ptr %72, i64 %74
+  %76 = load ptr, ptr %75, align 8, !tbaa !9
+  store ptr %76, ptr %8, align 8, !tbaa !9
+  br label %78
 
-if.else:                                          ; preds = %land.lhs.true9, %land.lhs.true, %for.body
-  store ptr @_Py_NoneStruct, ptr %converter, align 8
-  br label %if.end17
+77:                                               ; preds = %59, %54, %47
+  store ptr @_Py_NoneStruct, ptr %8, align 8, !tbaa !9
+  br label %78
 
-if.end17:                                         ; preds = %if.else, %if.then15
-  %24 = load ptr, ptr %converter, align 8
-  %cmp18 = icmp ne ptr %24, @_Py_NoneStruct
-  br i1 %cmp18, label %if.then20, label %if.else46
+78:                                               ; preds = %77, %67
+  %79 = load ptr, ptr %8, align 8, !tbaa !9
+  %80 = icmp ne ptr %79, @_Py_NoneStruct
+  br i1 %80, label %81, label %126
 
-if.then20:                                        ; preds = %if.end17
-  %25 = load ptr, ptr %self.addr, align 8
-  %statement21 = getelementptr inbounds %struct.pysqlite_Cursor, ptr %25, i32 0, i32 8
-  %26 = load ptr, ptr %statement21, align 8
-  %st22 = getelementptr inbounds %struct.pysqlite_Statement, ptr %26, i32 0, i32 1
-  %27 = load ptr, ptr %st22, align 8
-  %28 = load i32, ptr %i, align 4
-  %call23 = call ptr @sqlite3_column_blob(ptr noundef %27, i32 noundef %28)
-  store ptr %call23, ptr %blob, align 8
-  %29 = load ptr, ptr %blob, align 8
-  %cmp24 = icmp eq ptr %29, null
-  br i1 %cmp24, label %if.then26, label %if.else34
+81:                                               ; preds = %78
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #8
+  %82 = load ptr, ptr %3, align 8, !tbaa !3
+  %83 = getelementptr inbounds nuw %struct.pysqlite_Cursor, ptr %82, i32 0, i32 8
+  %84 = load ptr, ptr %83, align 8, !tbaa !18
+  %85 = getelementptr inbounds nuw %struct.pysqlite_Statement, ptr %84, i32 0, i32 1
+  %86 = load ptr, ptr %85, align 8, !tbaa !25
+  %87 = load i32, ptr %4, align 4, !tbaa !7
+  %88 = call ptr @sqlite3_column_blob(ptr noundef %86, i32 noundef %87)
+  store ptr %88, ptr %17, align 8, !tbaa !3
+  %89 = load ptr, ptr %17, align 8, !tbaa !3
+  %90 = icmp eq ptr %89, null
+  br i1 %90, label %91, label %99
 
-if.then26:                                        ; preds = %if.then20
-  %30 = load ptr, ptr %db, align 8
-  %call27 = call i32 @sqlite3_errcode(ptr noundef %30)
-  %cmp28 = icmp eq i32 %call27, 7
-  br i1 %cmp28, label %if.then30, label %if.end32
+91:                                               ; preds = %81
+  %92 = load ptr, ptr %16, align 8, !tbaa !52
+  %93 = call i32 @sqlite3_errcode(ptr noundef %92)
+  %94 = icmp eq i32 %93, 7
+  br i1 %94, label %95, label %97
 
-if.then30:                                        ; preds = %if.then26
-  %call31 = call ptr @PyErr_NoMemory()
-  br label %error
+95:                                               ; preds = %91
+  %96 = call ptr @PyErr_NoMemory()
+  store i32 5, ptr %15, align 4
+  br label %123
 
-if.end32:                                         ; preds = %if.then26
-  %call33 = call ptr @_Py_NewRef(ptr noundef @_Py_NoneStruct)
-  store ptr %call33, ptr %converted, align 8
-  br label %if.end45
+97:                                               ; preds = %91
+  %98 = call ptr @_Py_NewRef(ptr noundef @_Py_NoneStruct)
+  store ptr %98, ptr %9, align 8, !tbaa !9
+  br label %122
 
-if.else34:                                        ; preds = %if.then20
-  %31 = load ptr, ptr %self.addr, align 8
-  %statement35 = getelementptr inbounds %struct.pysqlite_Cursor, ptr %31, i32 0, i32 8
-  %32 = load ptr, ptr %statement35, align 8
-  %st36 = getelementptr inbounds %struct.pysqlite_Statement, ptr %32, i32 0, i32 1
-  %33 = load ptr, ptr %st36, align 8
-  %34 = load i32, ptr %i, align 4
-  %call37 = call i32 @sqlite3_column_bytes(ptr noundef %33, i32 noundef %34)
-  %conv38 = sext i32 %call37 to i64
-  store i64 %conv38, ptr %nbytes, align 8
-  %35 = load ptr, ptr %blob, align 8
-  %36 = load i64, ptr %nbytes, align 8
-  %call39 = call ptr @PyBytes_FromStringAndSize(ptr noundef %35, i64 noundef %36)
-  store ptr %call39, ptr %item, align 8
-  %37 = load ptr, ptr %item, align 8
-  %cmp40 = icmp eq ptr %37, null
-  br i1 %cmp40, label %if.then42, label %if.end43
+99:                                               ; preds = %81
+  %100 = load ptr, ptr %3, align 8, !tbaa !3
+  %101 = getelementptr inbounds nuw %struct.pysqlite_Cursor, ptr %100, i32 0, i32 8
+  %102 = load ptr, ptr %101, align 8, !tbaa !18
+  %103 = getelementptr inbounds nuw %struct.pysqlite_Statement, ptr %102, i32 0, i32 1
+  %104 = load ptr, ptr %103, align 8, !tbaa !25
+  %105 = load i32, ptr %4, align 4, !tbaa !7
+  %106 = call i32 @sqlite3_column_bytes(ptr noundef %104, i32 noundef %105)
+  %107 = sext i32 %106 to i64
+  store i64 %107, ptr %10, align 8, !tbaa !49
+  call void @llvm.lifetime.start.p0(i64 8, ptr %18) #8
+  %108 = load ptr, ptr %17, align 8, !tbaa !3
+  %109 = load i64, ptr %10, align 8, !tbaa !49
+  %110 = call ptr @PyBytes_FromStringAndSize(ptr noundef %108, i64 noundef %109)
+  store ptr %110, ptr %18, align 8, !tbaa !9
+  %111 = load ptr, ptr %18, align 8, !tbaa !9
+  %112 = icmp eq ptr %111, null
+  br i1 %112, label %113, label %114
 
-if.then42:                                        ; preds = %if.else34
-  br label %error
+113:                                              ; preds = %99
+  store i32 5, ptr %15, align 4
+  br label %119
 
-if.end43:                                         ; preds = %if.else34
-  %38 = load ptr, ptr %converter, align 8
-  %39 = load ptr, ptr %item, align 8
-  %call44 = call ptr @PyObject_CallOneArg(ptr noundef %38, ptr noundef %39)
-  store ptr %call44, ptr %converted, align 8
-  %40 = load ptr, ptr %item, align 8
-  store ptr %40, ptr %op.addr.i183, align 8
-  %41 = load ptr, ptr %op.addr.i183, align 8
-  store ptr %41, ptr %op.addr.i192, align 8
-  %42 = load ptr, ptr %op.addr.i192, align 8
-  %43 = load i64, ptr %42, align 8
-  %conv.i = trunc i64 %43 to i32
-  %cmp.i193 = icmp slt i32 %conv.i, 0
-  %conv1.i = zext i1 %cmp.i193 to i32
-  %tobool.i185 = icmp ne i32 %conv1.i, 0
-  br i1 %tobool.i185, label %if.then.i190, label %if.end.i186
+114:                                              ; preds = %99
+  %115 = load ptr, ptr %8, align 8, !tbaa !9
+  %116 = load ptr, ptr %18, align 8, !tbaa !9
+  %117 = call ptr @PyObject_CallOneArg(ptr noundef %115, ptr noundef %116)
+  store ptr %117, ptr %9, align 8, !tbaa !9
+  %118 = load ptr, ptr %18, align 8, !tbaa !9
+  call void @Py_DECREF(ptr noundef %118)
+  store i32 0, ptr %15, align 4
+  br label %119
 
-if.then.i190:                                     ; preds = %if.end43
-  br label %Py_DECREF.exit191
+119:                                              ; preds = %113, %114
+  call void @llvm.lifetime.end.p0(i64 8, ptr %18) #8
+  %120 = load i32, ptr %15, align 4
+  switch i32 %120, label %123 [
+    i32 0, label %121
+  ]
 
-if.end.i186:                                      ; preds = %if.end43
-  %44 = load ptr, ptr %op.addr.i183, align 8
-  %45 = load i64, ptr %44, align 8
-  %dec.i187 = add i64 %45, -1
-  store i64 %dec.i187, ptr %44, align 8
-  %cmp.i188 = icmp eq i64 %dec.i187, 0
-  br i1 %cmp.i188, label %if.then1.i189, label %Py_DECREF.exit191
+121:                                              ; preds = %119
+  br label %122
 
-if.then1.i189:                                    ; preds = %if.end.i186
-  %46 = load ptr, ptr %op.addr.i183, align 8
-  call void @_Py_Dealloc(ptr noundef %46) #5
-  br label %Py_DECREF.exit191
+122:                                              ; preds = %121, %97
+  store i32 0, ptr %15, align 4
+  br label %123
 
-Py_DECREF.exit191:                                ; preds = %if.then1.i189, %if.end.i186, %if.then.i190
-  br label %if.end45
+123:                                              ; preds = %95, %122, %119
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #8
+  %124 = load i32, ptr %15, align 4
+  switch i32 %124, label %336 [
+    i32 0, label %125
+    i32 5, label %334
+  ]
 
-if.end45:                                         ; preds = %Py_DECREF.exit191, %if.end32
-  br label %if.end165
+125:                                              ; preds = %123
+  br label %316
 
-if.else46:                                        ; preds = %if.end17
-  %call48 = call ptr @PyEval_SaveThread()
-  store ptr %call48, ptr %_save47, align 8
-  %47 = load ptr, ptr %self.addr, align 8
-  %statement49 = getelementptr inbounds %struct.pysqlite_Cursor, ptr %47, i32 0, i32 8
-  %48 = load ptr, ptr %statement49, align 8
-  %st50 = getelementptr inbounds %struct.pysqlite_Statement, ptr %48, i32 0, i32 1
-  %49 = load ptr, ptr %st50, align 8
-  %50 = load i32, ptr %i, align 4
-  %call51 = call i32 @sqlite3_column_type(ptr noundef %49, i32 noundef %50)
-  store i32 %call51, ptr %coltype, align 4
-  %51 = load ptr, ptr %_save47, align 8
-  call void @PyEval_RestoreThread(ptr noundef %51)
-  %52 = load i32, ptr %coltype, align 4
-  %cmp52 = icmp eq i32 %52, 5
-  br i1 %cmp52, label %if.then54, label %if.else56
+126:                                              ; preds = %78
+  call void @llvm.lifetime.start.p0(i64 8, ptr %19) #8
+  %127 = call ptr @PyEval_SaveThread()
+  store ptr %127, ptr %19, align 8, !tbaa !37
+  %128 = load ptr, ptr %3, align 8, !tbaa !3
+  %129 = getelementptr inbounds nuw %struct.pysqlite_Cursor, ptr %128, i32 0, i32 8
+  %130 = load ptr, ptr %129, align 8, !tbaa !18
+  %131 = getelementptr inbounds nuw %struct.pysqlite_Statement, ptr %130, i32 0, i32 1
+  %132 = load ptr, ptr %131, align 8, !tbaa !25
+  %133 = load i32, ptr %4, align 4, !tbaa !7
+  %134 = call i32 @sqlite3_column_type(ptr noundef %132, i32 noundef %133)
+  store i32 %134, ptr %7, align 4, !tbaa !7
+  %135 = load ptr, ptr %19, align 8, !tbaa !37
+  call void @PyEval_RestoreThread(ptr noundef %135)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %19) #8
+  %136 = load i32, ptr %7, align 4, !tbaa !7
+  %137 = icmp eq i32 %136, 5
+  br i1 %137, label %138, label %140
 
-if.then54:                                        ; preds = %if.else46
-  %call55 = call ptr @_Py_NewRef(ptr noundef @_Py_NoneStruct)
-  store ptr %call55, ptr %converted, align 8
-  br label %if.end164
+138:                                              ; preds = %126
+  %139 = call ptr @_Py_NewRef(ptr noundef @_Py_NoneStruct)
+  store ptr %139, ptr %9, align 8, !tbaa !9
+  br label %315
 
-if.else56:                                        ; preds = %if.else46
-  %53 = load i32, ptr %coltype, align 4
-  %cmp57 = icmp eq i32 %53, 1
-  br i1 %cmp57, label %if.then59, label %if.else64
+140:                                              ; preds = %126
+  %141 = load i32, ptr %7, align 4, !tbaa !7
+  %142 = icmp eq i32 %141, 1
+  br i1 %142, label %143, label %152
 
-if.then59:                                        ; preds = %if.else56
-  %54 = load ptr, ptr %self.addr, align 8
-  %statement60 = getelementptr inbounds %struct.pysqlite_Cursor, ptr %54, i32 0, i32 8
-  %55 = load ptr, ptr %statement60, align 8
-  %st61 = getelementptr inbounds %struct.pysqlite_Statement, ptr %55, i32 0, i32 1
-  %56 = load ptr, ptr %st61, align 8
-  %57 = load i32, ptr %i, align 4
-  %call62 = call i64 @sqlite3_column_int64(ptr noundef %56, i32 noundef %57)
-  %call63 = call ptr @PyLong_FromLongLong(i64 noundef %call62)
-  store ptr %call63, ptr %converted, align 8
-  br label %if.end163
+143:                                              ; preds = %140
+  %144 = load ptr, ptr %3, align 8, !tbaa !3
+  %145 = getelementptr inbounds nuw %struct.pysqlite_Cursor, ptr %144, i32 0, i32 8
+  %146 = load ptr, ptr %145, align 8, !tbaa !18
+  %147 = getelementptr inbounds nuw %struct.pysqlite_Statement, ptr %146, i32 0, i32 1
+  %148 = load ptr, ptr %147, align 8, !tbaa !25
+  %149 = load i32, ptr %4, align 4, !tbaa !7
+  %150 = call i64 @sqlite3_column_int64(ptr noundef %148, i32 noundef %149)
+  %151 = call ptr @PyLong_FromLongLong(i64 noundef %150)
+  store ptr %151, ptr %9, align 8, !tbaa !9
+  br label %314
 
-if.else64:                                        ; preds = %if.else56
-  %58 = load i32, ptr %coltype, align 4
-  %cmp65 = icmp eq i32 %58, 2
-  br i1 %cmp65, label %if.then67, label %if.else72
+152:                                              ; preds = %140
+  %153 = load i32, ptr %7, align 4, !tbaa !7
+  %154 = icmp eq i32 %153, 2
+  br i1 %154, label %155, label %164
 
-if.then67:                                        ; preds = %if.else64
-  %59 = load ptr, ptr %self.addr, align 8
-  %statement68 = getelementptr inbounds %struct.pysqlite_Cursor, ptr %59, i32 0, i32 8
-  %60 = load ptr, ptr %statement68, align 8
-  %st69 = getelementptr inbounds %struct.pysqlite_Statement, ptr %60, i32 0, i32 1
-  %61 = load ptr, ptr %st69, align 8
-  %62 = load i32, ptr %i, align 4
-  %call70 = call double @sqlite3_column_double(ptr noundef %61, i32 noundef %62)
-  %call71 = call ptr @PyFloat_FromDouble(double noundef %call70)
-  store ptr %call71, ptr %converted, align 8
-  br label %if.end162
+155:                                              ; preds = %152
+  %156 = load ptr, ptr %3, align 8, !tbaa !3
+  %157 = getelementptr inbounds nuw %struct.pysqlite_Cursor, ptr %156, i32 0, i32 8
+  %158 = load ptr, ptr %157, align 8, !tbaa !18
+  %159 = getelementptr inbounds nuw %struct.pysqlite_Statement, ptr %158, i32 0, i32 1
+  %160 = load ptr, ptr %159, align 8, !tbaa !25
+  %161 = load i32, ptr %4, align 4, !tbaa !7
+  %162 = call double @sqlite3_column_double(ptr noundef %160, i32 noundef %161)
+  %163 = call ptr @PyFloat_FromDouble(double noundef %162)
+  store ptr %163, ptr %9, align 8, !tbaa !9
+  br label %313
 
-if.else72:                                        ; preds = %if.else64
-  %63 = load i32, ptr %coltype, align 4
-  %cmp73 = icmp eq i32 %63, 3
-  br i1 %cmp73, label %if.then75, label %if.else142
+164:                                              ; preds = %152
+  %165 = load i32, ptr %7, align 4, !tbaa !7
+  %166 = icmp eq i32 %165, 3
+  br i1 %166, label %167, label %281
 
-if.then75:                                        ; preds = %if.else72
-  %64 = load ptr, ptr %self.addr, align 8
-  %statement76 = getelementptr inbounds %struct.pysqlite_Cursor, ptr %64, i32 0, i32 8
-  %65 = load ptr, ptr %statement76, align 8
-  %st77 = getelementptr inbounds %struct.pysqlite_Statement, ptr %65, i32 0, i32 1
-  %66 = load ptr, ptr %st77, align 8
-  %67 = load i32, ptr %i, align 4
-  %call78 = call ptr @sqlite3_column_text(ptr noundef %66, i32 noundef %67)
-  store ptr %call78, ptr %text, align 8
-  %68 = load ptr, ptr %text, align 8
-  %cmp79 = icmp eq ptr %68, null
-  br i1 %cmp79, label %land.lhs.true81, label %if.end87
+167:                                              ; preds = %164
+  call void @llvm.lifetime.start.p0(i64 8, ptr %20) #8
+  %168 = load ptr, ptr %3, align 8, !tbaa !3
+  %169 = getelementptr inbounds nuw %struct.pysqlite_Cursor, ptr %168, i32 0, i32 8
+  %170 = load ptr, ptr %169, align 8, !tbaa !18
+  %171 = getelementptr inbounds nuw %struct.pysqlite_Statement, ptr %170, i32 0, i32 1
+  %172 = load ptr, ptr %171, align 8, !tbaa !25
+  %173 = load i32, ptr %4, align 4, !tbaa !7
+  %174 = call ptr @sqlite3_column_text(ptr noundef %172, i32 noundef %173)
+  store ptr %174, ptr %20, align 8, !tbaa !40
+  %175 = load ptr, ptr %20, align 8, !tbaa !40
+  %176 = icmp eq ptr %175, null
+  br i1 %176, label %177, label %183
 
-land.lhs.true81:                                  ; preds = %if.then75
-  %69 = load ptr, ptr %db, align 8
-  %call82 = call i32 @sqlite3_errcode(ptr noundef %69)
-  %cmp83 = icmp eq i32 %call82, 7
-  br i1 %cmp83, label %if.then85, label %if.end87
+177:                                              ; preds = %167
+  %178 = load ptr, ptr %16, align 8, !tbaa !52
+  %179 = call i32 @sqlite3_errcode(ptr noundef %178)
+  %180 = icmp eq i32 %179, 7
+  br i1 %180, label %181, label %183
 
-if.then85:                                        ; preds = %land.lhs.true81
-  %call86 = call ptr @PyErr_NoMemory()
-  br label %error
+181:                                              ; preds = %177
+  %182 = call ptr @PyErr_NoMemory()
+  store i32 5, ptr %15, align 4
+  br label %278
 
-if.end87:                                         ; preds = %land.lhs.true81, %if.then75
-  %70 = load ptr, ptr %self.addr, align 8
-  %statement88 = getelementptr inbounds %struct.pysqlite_Cursor, ptr %70, i32 0, i32 8
-  %71 = load ptr, ptr %statement88, align 8
-  %st89 = getelementptr inbounds %struct.pysqlite_Statement, ptr %71, i32 0, i32 1
-  %72 = load ptr, ptr %st89, align 8
-  %73 = load i32, ptr %i, align 4
-  %call90 = call i32 @sqlite3_column_bytes(ptr noundef %72, i32 noundef %73)
-  %conv91 = sext i32 %call90 to i64
-  store i64 %conv91, ptr %nbytes, align 8
-  %74 = load ptr, ptr %self.addr, align 8
-  %connection92 = getelementptr inbounds %struct.pysqlite_Cursor, ptr %74, i32 0, i32 1
-  %75 = load ptr, ptr %connection92, align 8
-  %text_factory = getelementptr inbounds %struct.pysqlite_Connection, ptr %75, i32 0, i32 14
-  %76 = load ptr, ptr %text_factory, align 8
-  %cmp93 = icmp eq ptr %76, @PyUnicode_Type
-  br i1 %cmp93, label %if.then95, label %if.else121
+183:                                              ; preds = %177, %167
+  %184 = load ptr, ptr %3, align 8, !tbaa !3
+  %185 = getelementptr inbounds nuw %struct.pysqlite_Cursor, ptr %184, i32 0, i32 8
+  %186 = load ptr, ptr %185, align 8, !tbaa !18
+  %187 = getelementptr inbounds nuw %struct.pysqlite_Statement, ptr %186, i32 0, i32 1
+  %188 = load ptr, ptr %187, align 8, !tbaa !25
+  %189 = load i32, ptr %4, align 4, !tbaa !7
+  %190 = call i32 @sqlite3_column_bytes(ptr noundef %188, i32 noundef %189)
+  %191 = sext i32 %190 to i64
+  store i64 %191, ptr %10, align 8, !tbaa !49
+  %192 = load ptr, ptr %3, align 8, !tbaa !3
+  %193 = getelementptr inbounds nuw %struct.pysqlite_Cursor, ptr %192, i32 0, i32 1
+  %194 = load ptr, ptr %193, align 8, !tbaa !19
+  %195 = getelementptr inbounds nuw %struct.pysqlite_Connection, ptr %194, i32 0, i32 14
+  %196 = load ptr, ptr %195, align 8, !tbaa !91
+  %197 = icmp eq ptr %196, @PyUnicode_Type
+  br i1 %197, label %198, label %244
 
-if.then95:                                        ; preds = %if.end87
-  %77 = load ptr, ptr %text, align 8
-  %78 = load i64, ptr %nbytes, align 8
-  %call96 = call ptr @PyUnicode_FromStringAndSize(ptr noundef %77, i64 noundef %78)
-  store ptr %call96, ptr %converted, align 8
-  %79 = load ptr, ptr %converted, align 8
-  %tobool97 = icmp ne ptr %79, null
-  br i1 %tobool97, label %if.end120, label %land.lhs.true98
+198:                                              ; preds = %183
+  %199 = load ptr, ptr %20, align 8, !tbaa !40
+  %200 = load i64, ptr %10, align 8, !tbaa !49
+  %201 = call ptr @PyUnicode_FromStringAndSize(ptr noundef %199, i64 noundef %200)
+  store ptr %201, ptr %9, align 8, !tbaa !9
+  %202 = load ptr, ptr %9, align 8, !tbaa !9
+  %203 = icmp ne ptr %202, null
+  br i1 %203, label %243, label %204
 
-land.lhs.true98:                                  ; preds = %if.then95
-  %80 = load ptr, ptr @PyExc_UnicodeDecodeError, align 8
-  %call99 = call i32 @PyErr_ExceptionMatches(ptr noundef %80)
-  %tobool100 = icmp ne i32 %call99, 0
-  br i1 %tobool100, label %if.then101, label %if.end120
+204:                                              ; preds = %198
+  %205 = load ptr, ptr @PyExc_UnicodeDecodeError, align 8, !tbaa !9
+  %206 = call i32 @PyErr_ExceptionMatches(ptr noundef %205)
+  %207 = icmp ne i32 %206, 0
+  br i1 %207, label %208, label %243
 
-if.then101:                                       ; preds = %land.lhs.true98
+208:                                              ; preds = %204
   call void @PyErr_Clear()
-  %81 = load ptr, ptr %self.addr, align 8
-  %statement102 = getelementptr inbounds %struct.pysqlite_Cursor, ptr %81, i32 0, i32 8
-  %82 = load ptr, ptr %statement102, align 8
-  %st103 = getelementptr inbounds %struct.pysqlite_Statement, ptr %82, i32 0, i32 1
-  %83 = load ptr, ptr %st103, align 8
-  %84 = load i32, ptr %i, align 4
-  %call104 = call ptr @sqlite3_column_name(ptr noundef %83, i32 noundef %84)
-  store ptr %call104, ptr %colname, align 8
-  %85 = load ptr, ptr %colname, align 8
-  %cmp105 = icmp eq ptr %85, null
-  br i1 %cmp105, label %if.then107, label %if.end109
+  %209 = load ptr, ptr %3, align 8, !tbaa !3
+  %210 = getelementptr inbounds nuw %struct.pysqlite_Cursor, ptr %209, i32 0, i32 8
+  %211 = load ptr, ptr %210, align 8, !tbaa !18
+  %212 = getelementptr inbounds nuw %struct.pysqlite_Statement, ptr %211, i32 0, i32 1
+  %213 = load ptr, ptr %212, align 8, !tbaa !25
+  %214 = load i32, ptr %4, align 4, !tbaa !7
+  %215 = call ptr @sqlite3_column_name(ptr noundef %213, i32 noundef %214)
+  store ptr %215, ptr %12, align 8, !tbaa !40
+  %216 = load ptr, ptr %12, align 8, !tbaa !40
+  %217 = icmp eq ptr %216, null
+  br i1 %217, label %218, label %220
 
-if.then107:                                       ; preds = %if.then101
-  %call108 = call ptr @PyErr_NoMemory()
-  br label %error
+218:                                              ; preds = %208
+  %219 = call ptr @PyErr_NoMemory()
+  store i32 5, ptr %15, align 4
+  br label %278
 
-if.end109:                                        ; preds = %if.then101
-  %arraydecay = getelementptr inbounds [200 x i8], ptr %buf, i64 0, i64 0
-  %86 = load ptr, ptr %colname, align 8
-  %87 = load ptr, ptr %text, align 8
-  %call110 = call i32 (ptr, i64, ptr, ...) @PyOS_snprintf(ptr noundef %arraydecay, i64 noundef 199, ptr noundef @.str.14, ptr noundef %86, ptr noundef %87)
-  %arraydecay111 = getelementptr inbounds [200 x i8], ptr %buf, i64 0, i64 0
-  %arraydecay112 = getelementptr inbounds [200 x i8], ptr %buf, i64 0, i64 0
-  %call113 = call i64 @strlen(ptr noundef %arraydecay112) #6
-  %call114 = call ptr @PyUnicode_Decode(ptr noundef %arraydecay111, i64 noundef %call113, ptr noundef @.str.15, ptr noundef @.str.16)
-  store ptr %call114, ptr %error_msg, align 8
-  %88 = load ptr, ptr %self.addr, align 8
-  %connection115 = getelementptr inbounds %struct.pysqlite_Cursor, ptr %88, i32 0, i32 1
-  %89 = load ptr, ptr %connection115, align 8
-  %OperationalError = getelementptr inbounds %struct.pysqlite_Connection, ptr %89, i32 0, i32 23
-  %90 = load ptr, ptr %OperationalError, align 8
-  store ptr %90, ptr %exc, align 8
-  %91 = load ptr, ptr %error_msg, align 8
-  %tobool116 = icmp ne ptr %91, null
-  br i1 %tobool116, label %if.else118, label %if.then117
+220:                                              ; preds = %208
+  %221 = getelementptr inbounds [200 x i8], ptr %11, i64 0, i64 0
+  %222 = load ptr, ptr %12, align 8, !tbaa !40
+  %223 = load ptr, ptr %20, align 8, !tbaa !40
+  %224 = call i32 (ptr, i64, ptr, ...) @PyOS_snprintf(ptr noundef %221, i64 noundef 199, ptr noundef @.str.16, ptr noundef %222, ptr noundef %223)
+  %225 = getelementptr inbounds [200 x i8], ptr %11, i64 0, i64 0
+  %226 = getelementptr inbounds [200 x i8], ptr %11, i64 0, i64 0
+  %227 = call i64 @strlen(ptr noundef %226) #9
+  %228 = call ptr @PyUnicode_Decode(ptr noundef %225, i64 noundef %227, ptr noundef @.str.17, ptr noundef @.str.18)
+  store ptr %228, ptr %13, align 8, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 8, ptr %21) #8
+  %229 = load ptr, ptr %3, align 8, !tbaa !3
+  %230 = getelementptr inbounds nuw %struct.pysqlite_Cursor, ptr %229, i32 0, i32 1
+  %231 = load ptr, ptr %230, align 8, !tbaa !19
+  %232 = getelementptr inbounds nuw %struct.pysqlite_Connection, ptr %231, i32 0, i32 23
+  %233 = load ptr, ptr %232, align 8, !tbaa !92
+  store ptr %233, ptr %21, align 8, !tbaa !9
+  %234 = load ptr, ptr %13, align 8, !tbaa !9
+  %235 = icmp ne ptr %234, null
+  br i1 %235, label %238, label %236
 
-if.then117:                                       ; preds = %if.end109
-  %92 = load ptr, ptr %exc, align 8
-  call void @PyErr_SetString(ptr noundef %92, ptr noundef @.str.17)
-  br label %if.end119
+236:                                              ; preds = %220
+  %237 = load ptr, ptr %21, align 8, !tbaa !9
+  call void @PyErr_SetString(ptr noundef %237, ptr noundef @.str.19)
+  br label %242
 
-if.else118:                                       ; preds = %if.end109
-  %93 = load ptr, ptr %exc, align 8
-  %94 = load ptr, ptr %error_msg, align 8
-  call void @PyErr_SetObject(ptr noundef %93, ptr noundef %94)
-  %95 = load ptr, ptr %error_msg, align 8
-  store ptr %95, ptr %op.addr.i174, align 8
-  %96 = load ptr, ptr %op.addr.i174, align 8
-  store ptr %96, ptr %op.addr.i194, align 8
-  %97 = load ptr, ptr %op.addr.i194, align 8
-  %98 = load i64, ptr %97, align 8
-  %conv.i195 = trunc i64 %98 to i32
-  %cmp.i196 = icmp slt i32 %conv.i195, 0
-  %conv1.i197 = zext i1 %cmp.i196 to i32
-  %tobool.i176 = icmp ne i32 %conv1.i197, 0
-  br i1 %tobool.i176, label %if.then.i181, label %if.end.i177
+238:                                              ; preds = %220
+  %239 = load ptr, ptr %21, align 8, !tbaa !9
+  %240 = load ptr, ptr %13, align 8, !tbaa !9
+  call void @PyErr_SetObject(ptr noundef %239, ptr noundef %240)
+  %241 = load ptr, ptr %13, align 8, !tbaa !9
+  call void @Py_DECREF(ptr noundef %241)
+  br label %242
 
-if.then.i181:                                     ; preds = %if.else118
-  br label %Py_DECREF.exit182
+242:                                              ; preds = %238, %236
+  call void @llvm.lifetime.end.p0(i64 8, ptr %21) #8
+  br label %243
 
-if.end.i177:                                      ; preds = %if.else118
-  %99 = load ptr, ptr %op.addr.i174, align 8
-  %100 = load i64, ptr %99, align 8
-  %dec.i178 = add i64 %100, -1
-  store i64 %dec.i178, ptr %99, align 8
-  %cmp.i179 = icmp eq i64 %dec.i178, 0
-  br i1 %cmp.i179, label %if.then1.i180, label %Py_DECREF.exit182
+243:                                              ; preds = %242, %204, %198
+  br label %277
 
-if.then1.i180:                                    ; preds = %if.end.i177
-  %101 = load ptr, ptr %op.addr.i174, align 8
-  call void @_Py_Dealloc(ptr noundef %101) #5
-  br label %Py_DECREF.exit182
+244:                                              ; preds = %183
+  %245 = load ptr, ptr %3, align 8, !tbaa !3
+  %246 = getelementptr inbounds nuw %struct.pysqlite_Cursor, ptr %245, i32 0, i32 1
+  %247 = load ptr, ptr %246, align 8, !tbaa !19
+  %248 = getelementptr inbounds nuw %struct.pysqlite_Connection, ptr %247, i32 0, i32 14
+  %249 = load ptr, ptr %248, align 8, !tbaa !91
+  %250 = icmp eq ptr %249, @PyBytes_Type
+  br i1 %250, label %251, label %255
 
-Py_DECREF.exit182:                                ; preds = %if.then1.i180, %if.end.i177, %if.then.i181
-  br label %if.end119
+251:                                              ; preds = %244
+  %252 = load ptr, ptr %20, align 8, !tbaa !40
+  %253 = load i64, ptr %10, align 8, !tbaa !49
+  %254 = call ptr @PyBytes_FromStringAndSize(ptr noundef %252, i64 noundef %253)
+  store ptr %254, ptr %9, align 8, !tbaa !9
+  br label %276
 
-if.end119:                                        ; preds = %Py_DECREF.exit182, %if.then117
-  br label %if.end120
+255:                                              ; preds = %244
+  %256 = load ptr, ptr %3, align 8, !tbaa !3
+  %257 = getelementptr inbounds nuw %struct.pysqlite_Cursor, ptr %256, i32 0, i32 1
+  %258 = load ptr, ptr %257, align 8, !tbaa !19
+  %259 = getelementptr inbounds nuw %struct.pysqlite_Connection, ptr %258, i32 0, i32 14
+  %260 = load ptr, ptr %259, align 8, !tbaa !91
+  %261 = icmp eq ptr %260, @PyByteArray_Type
+  br i1 %261, label %262, label %266
 
-if.end120:                                        ; preds = %if.end119, %land.lhs.true98, %if.then95
-  br label %if.end141
+262:                                              ; preds = %255
+  %263 = load ptr, ptr %20, align 8, !tbaa !40
+  %264 = load i64, ptr %10, align 8, !tbaa !49
+  %265 = call ptr @PyByteArray_FromStringAndSize(ptr noundef %263, i64 noundef %264)
+  store ptr %265, ptr %9, align 8, !tbaa !9
+  br label %275
 
-if.else121:                                       ; preds = %if.end87
-  %102 = load ptr, ptr %self.addr, align 8
-  %connection122 = getelementptr inbounds %struct.pysqlite_Cursor, ptr %102, i32 0, i32 1
-  %103 = load ptr, ptr %connection122, align 8
-  %text_factory123 = getelementptr inbounds %struct.pysqlite_Connection, ptr %103, i32 0, i32 14
-  %104 = load ptr, ptr %text_factory123, align 8
-  %cmp124 = icmp eq ptr %104, @PyBytes_Type
-  br i1 %cmp124, label %if.then126, label %if.else128
+266:                                              ; preds = %255
+  %267 = load ptr, ptr %3, align 8, !tbaa !3
+  %268 = getelementptr inbounds nuw %struct.pysqlite_Cursor, ptr %267, i32 0, i32 1
+  %269 = load ptr, ptr %268, align 8, !tbaa !19
+  %270 = getelementptr inbounds nuw %struct.pysqlite_Connection, ptr %269, i32 0, i32 14
+  %271 = load ptr, ptr %270, align 8, !tbaa !91
+  %272 = load ptr, ptr %20, align 8, !tbaa !40
+  %273 = load i64, ptr %10, align 8, !tbaa !49
+  %274 = call ptr (ptr, ptr, ...) @PyObject_CallFunction(ptr noundef %271, ptr noundef @.str.20, ptr noundef %272, i64 noundef %273)
+  store ptr %274, ptr %9, align 8, !tbaa !9
+  br label %275
 
-if.then126:                                       ; preds = %if.else121
-  %105 = load ptr, ptr %text, align 8
-  %106 = load i64, ptr %nbytes, align 8
-  %call127 = call ptr @PyBytes_FromStringAndSize(ptr noundef %105, i64 noundef %106)
-  store ptr %call127, ptr %converted, align 8
-  br label %if.end140
+275:                                              ; preds = %266, %262
+  br label %276
 
-if.else128:                                       ; preds = %if.else121
-  %107 = load ptr, ptr %self.addr, align 8
-  %connection129 = getelementptr inbounds %struct.pysqlite_Cursor, ptr %107, i32 0, i32 1
-  %108 = load ptr, ptr %connection129, align 8
-  %text_factory130 = getelementptr inbounds %struct.pysqlite_Connection, ptr %108, i32 0, i32 14
-  %109 = load ptr, ptr %text_factory130, align 8
-  %cmp131 = icmp eq ptr %109, @PyByteArray_Type
-  br i1 %cmp131, label %if.then133, label %if.else135
+276:                                              ; preds = %275, %251
+  br label %277
 
-if.then133:                                       ; preds = %if.else128
-  %110 = load ptr, ptr %text, align 8
-  %111 = load i64, ptr %nbytes, align 8
-  %call134 = call ptr @PyByteArray_FromStringAndSize(ptr noundef %110, i64 noundef %111)
-  store ptr %call134, ptr %converted, align 8
-  br label %if.end139
+277:                                              ; preds = %276, %243
+  store i32 0, ptr %15, align 4
+  br label %278
 
-if.else135:                                       ; preds = %if.else128
-  %112 = load ptr, ptr %self.addr, align 8
-  %connection136 = getelementptr inbounds %struct.pysqlite_Cursor, ptr %112, i32 0, i32 1
-  %113 = load ptr, ptr %connection136, align 8
-  %text_factory137 = getelementptr inbounds %struct.pysqlite_Connection, ptr %113, i32 0, i32 14
-  %114 = load ptr, ptr %text_factory137, align 8
-  %115 = load ptr, ptr %text, align 8
-  %116 = load i64, ptr %nbytes, align 8
-  %call138 = call ptr (ptr, ptr, ...) @PyObject_CallFunction(ptr noundef %114, ptr noundef @.str.18, ptr noundef %115, i64 noundef %116)
-  store ptr %call138, ptr %converted, align 8
-  br label %if.end139
+278:                                              ; preds = %218, %181, %277
+  call void @llvm.lifetime.end.p0(i64 8, ptr %20) #8
+  %279 = load i32, ptr %15, align 4
+  switch i32 %279, label %336 [
+    i32 0, label %280
+    i32 5, label %334
+  ]
 
-if.end139:                                        ; preds = %if.else135, %if.then133
-  br label %if.end140
+280:                                              ; preds = %278
+  br label %312
 
-if.end140:                                        ; preds = %if.end139, %if.then126
-  br label %if.end141
+281:                                              ; preds = %164
+  call void @llvm.lifetime.start.p0(i64 8, ptr %22) #8
+  %282 = load ptr, ptr %3, align 8, !tbaa !3
+  %283 = getelementptr inbounds nuw %struct.pysqlite_Cursor, ptr %282, i32 0, i32 8
+  %284 = load ptr, ptr %283, align 8, !tbaa !18
+  %285 = getelementptr inbounds nuw %struct.pysqlite_Statement, ptr %284, i32 0, i32 1
+  %286 = load ptr, ptr %285, align 8, !tbaa !25
+  %287 = load i32, ptr %4, align 4, !tbaa !7
+  %288 = call ptr @sqlite3_column_blob(ptr noundef %286, i32 noundef %287)
+  store ptr %288, ptr %22, align 8, !tbaa !3
+  %289 = load ptr, ptr %22, align 8, !tbaa !3
+  %290 = icmp eq ptr %289, null
+  br i1 %290, label %291, label %297
 
-if.end141:                                        ; preds = %if.end140, %if.end120
-  br label %if.end161
+291:                                              ; preds = %281
+  %292 = load ptr, ptr %16, align 8, !tbaa !52
+  %293 = call i32 @sqlite3_errcode(ptr noundef %292)
+  %294 = icmp eq i32 %293, 7
+  br i1 %294, label %295, label %297
 
-if.else142:                                       ; preds = %if.else72
-  %117 = load ptr, ptr %self.addr, align 8
-  %statement144 = getelementptr inbounds %struct.pysqlite_Cursor, ptr %117, i32 0, i32 8
-  %118 = load ptr, ptr %statement144, align 8
-  %st145 = getelementptr inbounds %struct.pysqlite_Statement, ptr %118, i32 0, i32 1
-  %119 = load ptr, ptr %st145, align 8
-  %120 = load i32, ptr %i, align 4
-  %call146 = call ptr @sqlite3_column_blob(ptr noundef %119, i32 noundef %120)
-  store ptr %call146, ptr %blob143, align 8
-  %121 = load ptr, ptr %blob143, align 8
-  %cmp147 = icmp eq ptr %121, null
-  br i1 %cmp147, label %land.lhs.true149, label %if.end155
+295:                                              ; preds = %291
+  %296 = call ptr @PyErr_NoMemory()
+  store i32 5, ptr %15, align 4
+  br label %309
 
-land.lhs.true149:                                 ; preds = %if.else142
-  %122 = load ptr, ptr %db, align 8
-  %call150 = call i32 @sqlite3_errcode(ptr noundef %122)
-  %cmp151 = icmp eq i32 %call150, 7
-  br i1 %cmp151, label %if.then153, label %if.end155
+297:                                              ; preds = %291, %281
+  %298 = load ptr, ptr %3, align 8, !tbaa !3
+  %299 = getelementptr inbounds nuw %struct.pysqlite_Cursor, ptr %298, i32 0, i32 8
+  %300 = load ptr, ptr %299, align 8, !tbaa !18
+  %301 = getelementptr inbounds nuw %struct.pysqlite_Statement, ptr %300, i32 0, i32 1
+  %302 = load ptr, ptr %301, align 8, !tbaa !25
+  %303 = load i32, ptr %4, align 4, !tbaa !7
+  %304 = call i32 @sqlite3_column_bytes(ptr noundef %302, i32 noundef %303)
+  %305 = sext i32 %304 to i64
+  store i64 %305, ptr %10, align 8, !tbaa !49
+  %306 = load ptr, ptr %22, align 8, !tbaa !3
+  %307 = load i64, ptr %10, align 8, !tbaa !49
+  %308 = call ptr @PyBytes_FromStringAndSize(ptr noundef %306, i64 noundef %307)
+  store ptr %308, ptr %9, align 8, !tbaa !9
+  store i32 0, ptr %15, align 4
+  br label %309
 
-if.then153:                                       ; preds = %land.lhs.true149
-  %call154 = call ptr @PyErr_NoMemory()
-  br label %error
+309:                                              ; preds = %295, %297
+  call void @llvm.lifetime.end.p0(i64 8, ptr %22) #8
+  %310 = load i32, ptr %15, align 4
+  switch i32 %310, label %336 [
+    i32 0, label %311
+    i32 5, label %334
+  ]
 
-if.end155:                                        ; preds = %land.lhs.true149, %if.else142
-  %123 = load ptr, ptr %self.addr, align 8
-  %statement156 = getelementptr inbounds %struct.pysqlite_Cursor, ptr %123, i32 0, i32 8
-  %124 = load ptr, ptr %statement156, align 8
-  %st157 = getelementptr inbounds %struct.pysqlite_Statement, ptr %124, i32 0, i32 1
-  %125 = load ptr, ptr %st157, align 8
-  %126 = load i32, ptr %i, align 4
-  %call158 = call i32 @sqlite3_column_bytes(ptr noundef %125, i32 noundef %126)
-  %conv159 = sext i32 %call158 to i64
-  store i64 %conv159, ptr %nbytes, align 8
-  %127 = load ptr, ptr %blob143, align 8
-  %128 = load i64, ptr %nbytes, align 8
-  %call160 = call ptr @PyBytes_FromStringAndSize(ptr noundef %127, i64 noundef %128)
-  store ptr %call160, ptr %converted, align 8
-  br label %if.end161
+311:                                              ; preds = %309
+  br label %312
 
-if.end161:                                        ; preds = %if.end155, %if.end141
-  br label %if.end162
+312:                                              ; preds = %311, %280
+  br label %313
 
-if.end162:                                        ; preds = %if.end161, %if.then67
-  br label %if.end163
+313:                                              ; preds = %312, %155
+  br label %314
 
-if.end163:                                        ; preds = %if.end162, %if.then59
-  br label %if.end164
+314:                                              ; preds = %313, %143
+  br label %315
 
-if.end164:                                        ; preds = %if.end163, %if.then54
-  br label %if.end165
+315:                                              ; preds = %314, %138
+  br label %316
 
-if.end165:                                        ; preds = %if.end164, %if.end45
-  %129 = load ptr, ptr %converted, align 8
-  %tobool166 = icmp ne ptr %129, null
-  br i1 %tobool166, label %if.end168, label %if.then167
+316:                                              ; preds = %315, %125
+  %317 = load ptr, ptr %9, align 8, !tbaa !9
+  %318 = icmp ne ptr %317, null
+  br i1 %318, label %320, label %319
 
-if.then167:                                       ; preds = %if.end165
-  br label %error
+319:                                              ; preds = %316
+  br label %334
 
-if.end168:                                        ; preds = %if.end165
-  %130 = load ptr, ptr %row, align 8
-  %131 = load i32, ptr %i, align 4
-  %conv169 = sext i32 %131 to i64
-  %132 = load ptr, ptr %converted, align 8
-  call void @PyTuple_SET_ITEM(ptr noundef %130, i64 noundef %conv169, ptr noundef %132)
-  br label %for.inc
+320:                                              ; preds = %316
+  %321 = load ptr, ptr %6, align 8, !tbaa !9
+  %322 = load i32, ptr %4, align 4, !tbaa !7
+  %323 = sext i32 %322 to i64
+  %324 = load ptr, ptr %9, align 8, !tbaa !9
+  call void @PyTuple_SET_ITEM(ptr noundef %321, i64 noundef %323, ptr noundef %324)
+  br label %325
 
-for.inc:                                          ; preds = %if.end168
-  %133 = load i32, ptr %i, align 4
-  %inc = add i32 %133, 1
-  store i32 %inc, ptr %i, align 4
-  br label %for.cond, !llvm.loop !11
+325:                                              ; preds = %320
+  %326 = load i32, ptr %4, align 4, !tbaa !7
+  %327 = add i32 %326, 1
+  store i32 %327, ptr %4, align 4, !tbaa !7
+  br label %43, !llvm.loop !93
 
-for.end:                                          ; preds = %for.cond
-  %call170 = call ptr @PyErr_Occurred()
-  %tobool171 = icmp ne ptr %call170, null
-  br i1 %tobool171, label %if.then172, label %if.end173
+328:                                              ; preds = %43
+  %329 = call ptr @PyErr_Occurred()
+  %330 = icmp ne ptr %329, null
+  br i1 %330, label %331, label %332
 
-if.then172:                                       ; preds = %for.end
-  br label %error
+331:                                              ; preds = %328
+  br label %334
 
-if.end173:                                        ; preds = %for.end
-  %134 = load ptr, ptr %row, align 8
-  store ptr %134, ptr %retval, align 8
-  br label %return
+332:                                              ; preds = %328
+  %333 = load ptr, ptr %6, align 8, !tbaa !9
+  store ptr %333, ptr %2, align 8
+  store i32 1, ptr %15, align 4
+  br label %336
 
-error:                                            ; preds = %if.then172, %if.then167, %if.then153, %if.then107, %if.then85, %if.then42, %if.then30
-  %135 = load ptr, ptr %row, align 8
-  store ptr %135, ptr %op.addr.i, align 8
-  %136 = load ptr, ptr %op.addr.i, align 8
-  store ptr %136, ptr %op.addr.i198, align 8
-  %137 = load ptr, ptr %op.addr.i198, align 8
-  %138 = load i64, ptr %137, align 8
-  %conv.i199 = trunc i64 %138 to i32
-  %cmp.i200 = icmp slt i32 %conv.i199, 0
-  %conv1.i201 = zext i1 %cmp.i200 to i32
-  %tobool.i = icmp ne i32 %conv1.i201, 0
-  br i1 %tobool.i, label %if.then.i, label %if.end.i
+334:                                              ; preds = %309, %278, %123, %331, %319
+  %335 = load ptr, ptr %6, align 8, !tbaa !9
+  call void @Py_DECREF(ptr noundef %335)
+  store ptr null, ptr %2, align 8
+  store i32 1, ptr %15, align 4
+  br label %336
 
-if.then.i:                                        ; preds = %error
-  br label %Py_DECREF.exit
+336:                                              ; preds = %334, %332, %309, %278, %123
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #8
+  br label %337
 
-if.end.i:                                         ; preds = %error
-  %139 = load ptr, ptr %op.addr.i, align 8
-  %140 = load i64, ptr %139, align 8
-  %dec.i = add i64 %140, -1
-  store i64 %dec.i, ptr %139, align 8
-  %cmp.i = icmp eq i64 %dec.i, 0
-  br i1 %cmp.i, label %if.then1.i, label %Py_DECREF.exit
-
-if.then1.i:                                       ; preds = %if.end.i
-  %141 = load ptr, ptr %op.addr.i, align 8
-  call void @_Py_Dealloc(ptr noundef %141) #5
-  br label %Py_DECREF.exit
-
-Py_DECREF.exit:                                   ; preds = %if.then1.i, %if.end.i, %if.then.i
-  store ptr null, ptr %retval, align 8
-  br label %return
-
-return:                                           ; preds = %Py_DECREF.exit, %if.end173, %if.then
-  %142 = load ptr, ptr %retval, align 8
-  ret ptr %142
+337:                                              ; preds = %336, %36
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #8
+  call void @llvm.lifetime.end.p0(i64 200, ptr %11) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %4) #8
+  %338 = load ptr, ptr %2, align 8
+  ret ptr %338
 }
 
-declare i32 @sqlite3_data_count(ptr noundef) #1
+declare i32 @sqlite3_data_count(ptr noundef) #2
 
-declare ptr @sqlite3_column_blob(ptr noundef, i32 noundef) #1
+declare ptr @sqlite3_column_blob(ptr noundef, i32 noundef) #2
 
-declare i32 @sqlite3_errcode(ptr noundef) #1
+declare i32 @sqlite3_errcode(ptr noundef) #2
 
-declare i32 @sqlite3_column_bytes(ptr noundef, i32 noundef) #1
+declare i32 @sqlite3_column_bytes(ptr noundef, i32 noundef) #2
 
-declare ptr @PyBytes_FromStringAndSize(ptr noundef, i64 noundef) #1
+declare ptr @PyBytes_FromStringAndSize(ptr noundef, i64 noundef) #2
 
-declare ptr @PyObject_CallOneArg(ptr noundef, ptr noundef) #1
+declare ptr @PyObject_CallOneArg(ptr noundef, ptr noundef) #2
 
-declare i32 @sqlite3_column_type(ptr noundef, i32 noundef) #1
+declare i32 @sqlite3_column_type(ptr noundef, i32 noundef) #2
 
-declare i64 @sqlite3_column_int64(ptr noundef, i32 noundef) #1
+declare i64 @sqlite3_column_int64(ptr noundef, i32 noundef) #2
 
-declare ptr @PyFloat_FromDouble(double noundef) #1
+declare ptr @PyFloat_FromDouble(double noundef) #2
 
-declare double @sqlite3_column_double(ptr noundef, i32 noundef) #1
+declare double @sqlite3_column_double(ptr noundef, i32 noundef) #2
 
-declare ptr @sqlite3_column_text(ptr noundef, i32 noundef) #1
+declare ptr @sqlite3_column_text(ptr noundef, i32 noundef) #2
 
-declare i32 @PyOS_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) #1
+declare i32 @PyOS_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) #2
 
-declare ptr @PyUnicode_Decode(ptr noundef, i64 noundef, ptr noundef, ptr noundef) #1
+declare ptr @PyUnicode_Decode(ptr noundef, i64 noundef, ptr noundef, ptr noundef) #2
 
-declare void @PyErr_SetObject(ptr noundef, ptr noundef) #1
+declare void @PyErr_SetObject(ptr noundef, ptr noundef) #2
 
-declare ptr @PyByteArray_FromStringAndSize(ptr noundef, i64 noundef) #1
+declare ptr @PyByteArray_FromStringAndSize(ptr noundef, i64 noundef) #2
 
-declare ptr @PyObject_CallFunction(ptr noundef, ptr noundef, ...) #1
+declare ptr @PyObject_CallFunction(ptr noundef, ptr noundef, ...) #2
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @pysqlite_cursor_close(ptr noundef %self, ptr noundef %_unused_ignored) #0 {
-entry:
-  %self.addr = alloca ptr, align 8
-  %_unused_ignored.addr = alloca ptr, align 8
-  store ptr %self, ptr %self.addr, align 8
-  store ptr %_unused_ignored, ptr %_unused_ignored.addr, align 8
-  %0 = load ptr, ptr %self.addr, align 8
-  %call = call ptr @pysqlite_cursor_close_impl(ptr noundef %0)
-  ret ptr %call
+define internal ptr @pysqlite_cursor_close(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !9
+  store ptr %1, ptr %4, align 8, !tbaa !9
+  %5 = load ptr, ptr %3, align 8, !tbaa !9
+  %6 = call ptr @pysqlite_cursor_close_impl(ptr noundef %5)
+  ret ptr %6
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @pysqlite_cursor_executemany(ptr noundef %self, ptr noundef %args, i64 noundef %nargs) #0 {
-entry:
-  %self.addr = alloca ptr, align 8
-  %args.addr = alloca ptr, align 8
-  %nargs.addr = alloca i64, align 8
-  %return_value = alloca ptr, align 8
-  %sql = alloca ptr, align 8
-  %seq_of_parameters = alloca ptr, align 8
-  store ptr %self, ptr %self.addr, align 8
-  store ptr %args, ptr %args.addr, align 8
-  store i64 %nargs, ptr %nargs.addr, align 8
-  store ptr null, ptr %return_value, align 8
-  %0 = load i64, ptr %nargs.addr, align 8
-  %cmp = icmp sle i64 2, %0
-  br i1 %cmp, label %land.lhs.true, label %lor.lhs.false
+define internal ptr @pysqlite_cursor_executemany(ptr noundef %0, ptr noundef %1, i64 noundef %2) #0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i64, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !9
+  store ptr %1, ptr %5, align 8, !tbaa !16
+  store i64 %2, ptr %6, align 8, !tbaa !49
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #8
+  store ptr null, ptr %7, align 8, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #8
+  %10 = load i64, ptr %6, align 8, !tbaa !49
+  %11 = icmp sle i64 2, %10
+  br i1 %11, label %12, label %15
 
-land.lhs.true:                                    ; preds = %entry
-  %1 = load i64, ptr %nargs.addr, align 8
-  %cmp1 = icmp sle i64 %1, 2
-  br i1 %cmp1, label %if.end, label %lor.lhs.false
+12:                                               ; preds = %3
+  %13 = load i64, ptr %6, align 8, !tbaa !49
+  %14 = icmp sle i64 %13, 2
+  br i1 %14, label %20, label %15
 
-lor.lhs.false:                                    ; preds = %land.lhs.true, %entry
-  %2 = load i64, ptr %nargs.addr, align 8
-  %call = call i32 @_PyArg_CheckPositional(ptr noundef @.str.20, i64 noundef %2, i64 noundef 2, i64 noundef 2)
-  %tobool = icmp ne i32 %call, 0
-  br i1 %tobool, label %if.end, label %if.then
+15:                                               ; preds = %12, %3
+  %16 = load i64, ptr %6, align 8, !tbaa !49
+  %17 = call i32 @_PyArg_CheckPositional(ptr noundef @.str.22, i64 noundef %16, i64 noundef 2, i64 noundef 2)
+  %18 = icmp ne i32 %17, 0
+  br i1 %18, label %20, label %19
 
-if.then:                                          ; preds = %lor.lhs.false
-  br label %exit
+19:                                               ; preds = %15
+  br label %42
 
-if.end:                                           ; preds = %lor.lhs.false, %land.lhs.true
-  %3 = load ptr, ptr %args.addr, align 8
-  %arrayidx = getelementptr ptr, ptr %3, i64 0
-  %4 = load ptr, ptr %arrayidx, align 8
-  %call2 = call ptr @Py_TYPE(ptr noundef %4)
-  %call3 = call i32 @PyType_HasFeature(ptr noundef %call2, i64 noundef 268435456)
-  %tobool4 = icmp ne i32 %call3, 0
-  br i1 %tobool4, label %if.end7, label %if.then5
+20:                                               ; preds = %15, %12
+  %21 = load ptr, ptr %5, align 8, !tbaa !16
+  %22 = getelementptr ptr, ptr %21, i64 0
+  %23 = load ptr, ptr %22, align 8, !tbaa !9
+  %24 = call ptr @_Py_TYPE(ptr noundef %23)
+  %25 = call i32 @PyType_HasFeature(ptr noundef %24, i64 noundef 268435456)
+  %26 = icmp ne i32 %25, 0
+  br i1 %26, label %31, label %27
 
-if.then5:                                         ; preds = %if.end
-  %5 = load ptr, ptr %args.addr, align 8
-  %arrayidx6 = getelementptr ptr, ptr %5, i64 0
-  %6 = load ptr, ptr %arrayidx6, align 8
-  call void @_PyArg_BadArgument(ptr noundef @.str.20, ptr noundef @.str.28, ptr noundef @.str.29, ptr noundef %6)
-  br label %exit
+27:                                               ; preds = %20
+  %28 = load ptr, ptr %5, align 8, !tbaa !16
+  %29 = getelementptr ptr, ptr %28, i64 0
+  %30 = load ptr, ptr %29, align 8, !tbaa !9
+  call void @_PyArg_BadArgument(ptr noundef @.str.22, ptr noundef @.str.31, ptr noundef @.str.32, ptr noundef %30)
+  br label %42
 
-if.end7:                                          ; preds = %if.end
-  %7 = load ptr, ptr %args.addr, align 8
-  %arrayidx8 = getelementptr ptr, ptr %7, i64 0
-  %8 = load ptr, ptr %arrayidx8, align 8
-  store ptr %8, ptr %sql, align 8
-  %9 = load ptr, ptr %args.addr, align 8
-  %arrayidx9 = getelementptr ptr, ptr %9, i64 1
-  %10 = load ptr, ptr %arrayidx9, align 8
-  store ptr %10, ptr %seq_of_parameters, align 8
-  %11 = load ptr, ptr %self.addr, align 8
-  %12 = load ptr, ptr %sql, align 8
-  %13 = load ptr, ptr %seq_of_parameters, align 8
-  %call10 = call ptr @pysqlite_cursor_executemany_impl(ptr noundef %11, ptr noundef %12, ptr noundef %13)
-  store ptr %call10, ptr %return_value, align 8
-  br label %exit
+31:                                               ; preds = %20
+  %32 = load ptr, ptr %5, align 8, !tbaa !16
+  %33 = getelementptr ptr, ptr %32, i64 0
+  %34 = load ptr, ptr %33, align 8, !tbaa !9
+  store ptr %34, ptr %8, align 8, !tbaa !9
+  %35 = load ptr, ptr %5, align 8, !tbaa !16
+  %36 = getelementptr ptr, ptr %35, i64 1
+  %37 = load ptr, ptr %36, align 8, !tbaa !9
+  store ptr %37, ptr %9, align 8, !tbaa !9
+  %38 = load ptr, ptr %4, align 8, !tbaa !9
+  %39 = load ptr, ptr %8, align 8, !tbaa !9
+  %40 = load ptr, ptr %9, align 8, !tbaa !9
+  %41 = call ptr @pysqlite_cursor_executemany_impl(ptr noundef %38, ptr noundef %39, ptr noundef %40)
+  store ptr %41, ptr %7, align 8, !tbaa !9
+  br label %42
 
-exit:                                             ; preds = %if.end7, %if.then5, %if.then
-  %14 = load ptr, ptr %return_value, align 8
-  ret ptr %14
+42:                                               ; preds = %31, %27, %19
+  %43 = load ptr, ptr %7, align 8, !tbaa !9
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #8
+  ret ptr %43
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @pysqlite_cursor_executescript(ptr noundef %self, ptr noundef %arg) #0 {
-entry:
-  %self.addr = alloca ptr, align 8
-  %arg.addr = alloca ptr, align 8
-  %return_value = alloca ptr, align 8
-  %sql_script = alloca ptr, align 8
-  %sql_script_length = alloca i64, align 8
-  store ptr %self, ptr %self.addr, align 8
-  store ptr %arg, ptr %arg.addr, align 8
-  store ptr null, ptr %return_value, align 8
-  %0 = load ptr, ptr %arg.addr, align 8
-  %call = call ptr @Py_TYPE(ptr noundef %0)
-  %call1 = call i32 @PyType_HasFeature(ptr noundef %call, i64 noundef 268435456)
-  %tobool = icmp ne i32 %call1, 0
-  br i1 %tobool, label %if.end, label %if.then
+define internal ptr @pysqlite_cursor_executescript(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !9
+  store ptr %1, ptr %4, align 8, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #8
+  store ptr null, ptr %5, align 8, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #8
+  %8 = load ptr, ptr %4, align 8, !tbaa !9
+  %9 = call ptr @_Py_TYPE(ptr noundef %8)
+  %10 = call i32 @PyType_HasFeature(ptr noundef %9, i64 noundef 268435456)
+  %11 = icmp ne i32 %10, 0
+  br i1 %11, label %14, label %12
 
-if.then:                                          ; preds = %entry
-  %1 = load ptr, ptr %arg.addr, align 8
-  call void @_PyArg_BadArgument(ptr noundef @.str.21, ptr noundef @.str.30, ptr noundef @.str.29, ptr noundef %1)
-  br label %exit
+12:                                               ; preds = %2
+  %13 = load ptr, ptr %4, align 8, !tbaa !9
+  call void @_PyArg_BadArgument(ptr noundef @.str.23, ptr noundef @.str.33, ptr noundef @.str.32, ptr noundef %13)
+  br label %31
 
-if.end:                                           ; preds = %entry
-  %2 = load ptr, ptr %arg.addr, align 8
-  %call2 = call ptr @PyUnicode_AsUTF8AndSize(ptr noundef %2, ptr noundef %sql_script_length)
-  store ptr %call2, ptr %sql_script, align 8
-  %3 = load ptr, ptr %sql_script, align 8
-  %cmp = icmp eq ptr %3, null
-  br i1 %cmp, label %if.then3, label %if.end4
+14:                                               ; preds = %2
+  %15 = load ptr, ptr %4, align 8, !tbaa !9
+  %16 = call ptr @PyUnicode_AsUTF8AndSize(ptr noundef %15, ptr noundef %7)
+  store ptr %16, ptr %6, align 8, !tbaa !40
+  %17 = load ptr, ptr %6, align 8, !tbaa !40
+  %18 = icmp eq ptr %17, null
+  br i1 %18, label %19, label %20
 
-if.then3:                                         ; preds = %if.end
-  br label %exit
+19:                                               ; preds = %14
+  br label %31
 
-if.end4:                                          ; preds = %if.end
-  %4 = load ptr, ptr %sql_script, align 8
-  %call5 = call i64 @strlen(ptr noundef %4) #6
-  %5 = load i64, ptr %sql_script_length, align 8
-  %cmp6 = icmp ne i64 %call5, %5
-  br i1 %cmp6, label %if.then7, label %if.end8
+20:                                               ; preds = %14
+  %21 = load ptr, ptr %6, align 8, !tbaa !40
+  %22 = call i64 @strlen(ptr noundef %21) #9
+  %23 = load i64, ptr %7, align 8, !tbaa !49
+  %24 = icmp ne i64 %22, %23
+  br i1 %24, label %25, label %27
 
-if.then7:                                         ; preds = %if.end4
-  %6 = load ptr, ptr @PyExc_ValueError, align 8
-  call void @PyErr_SetString(ptr noundef %6, ptr noundef @.str.31)
-  br label %exit
+25:                                               ; preds = %20
+  %26 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !9
+  call void @PyErr_SetString(ptr noundef %26, ptr noundef @.str.34)
+  br label %31
 
-if.end8:                                          ; preds = %if.end4
-  %7 = load ptr, ptr %self.addr, align 8
-  %8 = load ptr, ptr %sql_script, align 8
-  %call9 = call ptr @pysqlite_cursor_executescript_impl(ptr noundef %7, ptr noundef %8)
-  store ptr %call9, ptr %return_value, align 8
-  br label %exit
+27:                                               ; preds = %20
+  %28 = load ptr, ptr %3, align 8, !tbaa !9
+  %29 = load ptr, ptr %6, align 8, !tbaa !40
+  %30 = call ptr @pysqlite_cursor_executescript_impl(ptr noundef %28, ptr noundef %29)
+  store ptr %30, ptr %5, align 8, !tbaa !9
+  br label %31
 
-exit:                                             ; preds = %if.end8, %if.then7, %if.then3, %if.then
-  %9 = load ptr, ptr %return_value, align 8
-  ret ptr %9
+31:                                               ; preds = %27, %25, %19, %12
+  %32 = load ptr, ptr %5, align 8, !tbaa !9
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #8
+  ret ptr %32
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @pysqlite_cursor_execute(ptr noundef %self, ptr noundef %args, i64 noundef %nargs) #0 {
-entry:
-  %self.addr = alloca ptr, align 8
-  %args.addr = alloca ptr, align 8
-  %nargs.addr = alloca i64, align 8
-  %return_value = alloca ptr, align 8
-  %sql = alloca ptr, align 8
-  %parameters = alloca ptr, align 8
-  store ptr %self, ptr %self.addr, align 8
-  store ptr %args, ptr %args.addr, align 8
-  store i64 %nargs, ptr %nargs.addr, align 8
-  store ptr null, ptr %return_value, align 8
-  store ptr null, ptr %parameters, align 8
-  %0 = load i64, ptr %nargs.addr, align 8
-  %cmp = icmp sle i64 1, %0
-  br i1 %cmp, label %land.lhs.true, label %lor.lhs.false
+define internal ptr @pysqlite_cursor_execute(ptr noundef %0, ptr noundef %1, i64 noundef %2) #0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i64, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !9
+  store ptr %1, ptr %5, align 8, !tbaa !16
+  store i64 %2, ptr %6, align 8, !tbaa !49
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #8
+  store ptr null, ptr %7, align 8, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #8
+  store ptr null, ptr %9, align 8, !tbaa !9
+  %10 = load i64, ptr %6, align 8, !tbaa !49
+  %11 = icmp sle i64 1, %10
+  br i1 %11, label %12, label %15
 
-land.lhs.true:                                    ; preds = %entry
-  %1 = load i64, ptr %nargs.addr, align 8
-  %cmp1 = icmp sle i64 %1, 2
-  br i1 %cmp1, label %if.end, label %lor.lhs.false
+12:                                               ; preds = %3
+  %13 = load i64, ptr %6, align 8, !tbaa !49
+  %14 = icmp sle i64 %13, 2
+  br i1 %14, label %20, label %15
 
-lor.lhs.false:                                    ; preds = %land.lhs.true, %entry
-  %2 = load i64, ptr %nargs.addr, align 8
-  %call = call i32 @_PyArg_CheckPositional(ptr noundef @.str.22, i64 noundef %2, i64 noundef 1, i64 noundef 2)
-  %tobool = icmp ne i32 %call, 0
-  br i1 %tobool, label %if.end, label %if.then
+15:                                               ; preds = %12, %3
+  %16 = load i64, ptr %6, align 8, !tbaa !49
+  %17 = call i32 @_PyArg_CheckPositional(ptr noundef @.str.24, i64 noundef %16, i64 noundef 1, i64 noundef 2)
+  %18 = icmp ne i32 %17, 0
+  br i1 %18, label %20, label %19
 
-if.then:                                          ; preds = %lor.lhs.false
-  br label %exit
+19:                                               ; preds = %15
+  br label %47
 
-if.end:                                           ; preds = %lor.lhs.false, %land.lhs.true
-  %3 = load ptr, ptr %args.addr, align 8
-  %arrayidx = getelementptr ptr, ptr %3, i64 0
-  %4 = load ptr, ptr %arrayidx, align 8
-  %call2 = call ptr @Py_TYPE(ptr noundef %4)
-  %call3 = call i32 @PyType_HasFeature(ptr noundef %call2, i64 noundef 268435456)
-  %tobool4 = icmp ne i32 %call3, 0
-  br i1 %tobool4, label %if.end7, label %if.then5
+20:                                               ; preds = %15, %12
+  %21 = load ptr, ptr %5, align 8, !tbaa !16
+  %22 = getelementptr ptr, ptr %21, i64 0
+  %23 = load ptr, ptr %22, align 8, !tbaa !9
+  %24 = call ptr @_Py_TYPE(ptr noundef %23)
+  %25 = call i32 @PyType_HasFeature(ptr noundef %24, i64 noundef 268435456)
+  %26 = icmp ne i32 %25, 0
+  br i1 %26, label %31, label %27
 
-if.then5:                                         ; preds = %if.end
-  %5 = load ptr, ptr %args.addr, align 8
-  %arrayidx6 = getelementptr ptr, ptr %5, i64 0
-  %6 = load ptr, ptr %arrayidx6, align 8
-  call void @_PyArg_BadArgument(ptr noundef @.str.22, ptr noundef @.str.28, ptr noundef @.str.29, ptr noundef %6)
-  br label %exit
+27:                                               ; preds = %20
+  %28 = load ptr, ptr %5, align 8, !tbaa !16
+  %29 = getelementptr ptr, ptr %28, i64 0
+  %30 = load ptr, ptr %29, align 8, !tbaa !9
+  call void @_PyArg_BadArgument(ptr noundef @.str.24, ptr noundef @.str.31, ptr noundef @.str.32, ptr noundef %30)
+  br label %47
 
-if.end7:                                          ; preds = %if.end
-  %7 = load ptr, ptr %args.addr, align 8
-  %arrayidx8 = getelementptr ptr, ptr %7, i64 0
-  %8 = load ptr, ptr %arrayidx8, align 8
-  store ptr %8, ptr %sql, align 8
-  %9 = load i64, ptr %nargs.addr, align 8
-  %cmp9 = icmp slt i64 %9, 2
-  br i1 %cmp9, label %if.then10, label %if.end11
+31:                                               ; preds = %20
+  %32 = load ptr, ptr %5, align 8, !tbaa !16
+  %33 = getelementptr ptr, ptr %32, i64 0
+  %34 = load ptr, ptr %33, align 8, !tbaa !9
+  store ptr %34, ptr %8, align 8, !tbaa !9
+  %35 = load i64, ptr %6, align 8, !tbaa !49
+  %36 = icmp slt i64 %35, 2
+  br i1 %36, label %37, label %38
 
-if.then10:                                        ; preds = %if.end7
-  br label %skip_optional
+37:                                               ; preds = %31
+  br label %42
 
-if.end11:                                         ; preds = %if.end7
-  %10 = load ptr, ptr %args.addr, align 8
-  %arrayidx12 = getelementptr ptr, ptr %10, i64 1
-  %11 = load ptr, ptr %arrayidx12, align 8
-  store ptr %11, ptr %parameters, align 8
-  br label %skip_optional
+38:                                               ; preds = %31
+  %39 = load ptr, ptr %5, align 8, !tbaa !16
+  %40 = getelementptr ptr, ptr %39, i64 1
+  %41 = load ptr, ptr %40, align 8, !tbaa !9
+  store ptr %41, ptr %9, align 8, !tbaa !9
+  br label %42
 
-skip_optional:                                    ; preds = %if.end11, %if.then10
-  %12 = load ptr, ptr %self.addr, align 8
-  %13 = load ptr, ptr %sql, align 8
-  %14 = load ptr, ptr %parameters, align 8
-  %call13 = call ptr @pysqlite_cursor_execute_impl(ptr noundef %12, ptr noundef %13, ptr noundef %14)
-  store ptr %call13, ptr %return_value, align 8
-  br label %exit
+42:                                               ; preds = %38, %37
+  %43 = load ptr, ptr %4, align 8, !tbaa !9
+  %44 = load ptr, ptr %8, align 8, !tbaa !9
+  %45 = load ptr, ptr %9, align 8, !tbaa !9
+  %46 = call ptr @pysqlite_cursor_execute_impl(ptr noundef %43, ptr noundef %44, ptr noundef %45)
+  store ptr %46, ptr %7, align 8, !tbaa !9
+  br label %47
 
-exit:                                             ; preds = %skip_optional, %if.then5, %if.then
-  %15 = load ptr, ptr %return_value, align 8
-  ret ptr %15
+47:                                               ; preds = %42, %27, %19
+  %48 = load ptr, ptr %7, align 8, !tbaa !9
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #8
+  ret ptr %48
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @pysqlite_cursor_fetchall(ptr noundef %self, ptr noundef %_unused_ignored) #0 {
-entry:
-  %self.addr = alloca ptr, align 8
-  %_unused_ignored.addr = alloca ptr, align 8
-  store ptr %self, ptr %self.addr, align 8
-  store ptr %_unused_ignored, ptr %_unused_ignored.addr, align 8
-  %0 = load ptr, ptr %self.addr, align 8
-  %call = call ptr @pysqlite_cursor_fetchall_impl(ptr noundef %0)
-  ret ptr %call
+define internal ptr @pysqlite_cursor_fetchall(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !9
+  store ptr %1, ptr %4, align 8, !tbaa !9
+  %5 = load ptr, ptr %3, align 8, !tbaa !9
+  %6 = call ptr @pysqlite_cursor_fetchall_impl(ptr noundef %5)
+  ret ptr %6
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @pysqlite_cursor_fetchmany(ptr noundef %self, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
-entry:
-  %self.addr = alloca ptr, align 8
-  %args.addr = alloca ptr, align 8
-  %nargs.addr = alloca i64, align 8
-  %kwnames.addr = alloca ptr, align 8
-  %return_value = alloca ptr, align 8
-  %argsbuf = alloca [1 x ptr], align 8
-  %noptargs = alloca i64, align 8
-  %maxrows = alloca i32, align 4
-  store ptr %self, ptr %self.addr, align 8
-  store ptr %args, ptr %args.addr, align 8
-  store i64 %nargs, ptr %nargs.addr, align 8
-  store ptr %kwnames, ptr %kwnames.addr, align 8
-  store ptr null, ptr %return_value, align 8
-  %0 = load i64, ptr %nargs.addr, align 8
-  %1 = load ptr, ptr %kwnames.addr, align 8
-  %tobool = icmp ne ptr %1, null
-  br i1 %tobool, label %cond.true, label %cond.false
+define internal ptr @pysqlite_cursor_fetchmany(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) #0 {
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i64, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca [1 x ptr], align 8
+  %11 = alloca i64, align 8
+  %12 = alloca i32, align 4
+  store ptr %0, ptr %5, align 8, !tbaa !9
+  store ptr %1, ptr %6, align 8, !tbaa !16
+  store i64 %2, ptr %7, align 8, !tbaa !49
+  store ptr %3, ptr %8, align 8, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #8
+  store ptr null, ptr %9, align 8, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #8
+  %13 = load i64, ptr %7, align 8, !tbaa !49
+  %14 = load ptr, ptr %8, align 8, !tbaa !9
+  %15 = icmp ne ptr %14, null
+  br i1 %15, label %16, label %19
 
-cond.true:                                        ; preds = %entry
-  %2 = load ptr, ptr %kwnames.addr, align 8
-  %call = call i64 @PyTuple_GET_SIZE(ptr noundef %2)
-  br label %cond.end
+16:                                               ; preds = %4
+  %17 = load ptr, ptr %8, align 8, !tbaa !9
+  %18 = call i64 @PyTuple_GET_SIZE(ptr noundef %17)
+  br label %20
 
-cond.false:                                       ; preds = %entry
-  br label %cond.end
+19:                                               ; preds = %4
+  br label %20
 
-cond.end:                                         ; preds = %cond.false, %cond.true
-  %cond = phi i64 [ %call, %cond.true ], [ 0, %cond.false ]
-  %add = add i64 %0, %cond
-  %sub = sub i64 %add, 0
-  store i64 %sub, ptr %noptargs, align 8
-  %3 = load ptr, ptr %self.addr, align 8
-  %arraysize = getelementptr inbounds %struct.pysqlite_Cursor, ptr %3, i32 0, i32 4
-  %4 = load i32, ptr %arraysize, align 8
-  store i32 %4, ptr %maxrows, align 4
-  %5 = load ptr, ptr %kwnames.addr, align 8
-  %cmp = icmp eq ptr %5, null
-  br i1 %cmp, label %land.lhs.true, label %cond.false7
+20:                                               ; preds = %19, %16
+  %21 = phi i64 [ %18, %16 ], [ 0, %19 ]
+  %22 = add i64 %13, %21
+  %23 = sub i64 %22, 0
+  store i64 %23, ptr %11, align 8, !tbaa !49
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #8
+  %24 = load ptr, ptr %5, align 8, !tbaa !9
+  %25 = getelementptr inbounds nuw %struct.pysqlite_Cursor, ptr %24, i32 0, i32 4
+  %26 = load i32, ptr %25, align 8, !tbaa !94
+  store i32 %26, ptr %12, align 4, !tbaa !7
+  %27 = load ptr, ptr %8, align 8, !tbaa !9
+  %28 = icmp eq ptr %27, null
+  br i1 %28, label %29, label %40
 
-land.lhs.true:                                    ; preds = %cond.end
-  %6 = load i64, ptr %nargs.addr, align 8
-  %cmp1 = icmp sle i64 0, %6
-  br i1 %cmp1, label %land.lhs.true2, label %cond.false7
+29:                                               ; preds = %20
+  %30 = load i64, ptr %7, align 8, !tbaa !49
+  %31 = icmp sle i64 0, %30
+  br i1 %31, label %32, label %40
 
-land.lhs.true2:                                   ; preds = %land.lhs.true
-  %7 = load i64, ptr %nargs.addr, align 8
-  %cmp3 = icmp sle i64 %7, 1
-  br i1 %cmp3, label %land.lhs.true4, label %cond.false7
+32:                                               ; preds = %29
+  %33 = load i64, ptr %7, align 8, !tbaa !49
+  %34 = icmp sle i64 %33, 1
+  br i1 %34, label %35, label %40
 
-land.lhs.true4:                                   ; preds = %land.lhs.true2
-  %8 = load ptr, ptr %args.addr, align 8
-  %cmp5 = icmp ne ptr %8, null
-  br i1 %cmp5, label %cond.true6, label %cond.false7
+35:                                               ; preds = %32
+  %36 = load ptr, ptr %6, align 8, !tbaa !16
+  %37 = icmp ne ptr %36, null
+  br i1 %37, label %38, label %40
 
-cond.true6:                                       ; preds = %land.lhs.true4
-  %9 = load ptr, ptr %args.addr, align 8
-  br label %cond.end9
+38:                                               ; preds = %35
+  %39 = load ptr, ptr %6, align 8, !tbaa !16
+  br label %46
 
-cond.false7:                                      ; preds = %land.lhs.true4, %land.lhs.true2, %land.lhs.true, %cond.end
-  %10 = load ptr, ptr %args.addr, align 8
-  %11 = load i64, ptr %nargs.addr, align 8
-  %12 = load ptr, ptr %kwnames.addr, align 8
-  %arraydecay = getelementptr inbounds [1 x ptr], ptr %argsbuf, i64 0, i64 0
-  %call8 = call ptr @_PyArg_UnpackKeywords(ptr noundef %10, i64 noundef %11, ptr noundef null, ptr noundef %12, ptr noundef @pysqlite_cursor_fetchmany._parser, i32 noundef 0, i32 noundef 1, i32 noundef 0, ptr noundef %arraydecay)
-  br label %cond.end9
+40:                                               ; preds = %35, %32, %29, %20
+  %41 = load ptr, ptr %6, align 8, !tbaa !16
+  %42 = load i64, ptr %7, align 8, !tbaa !49
+  %43 = load ptr, ptr %8, align 8, !tbaa !9
+  %44 = getelementptr inbounds [1 x ptr], ptr %10, i64 0, i64 0
+  %45 = call ptr @_PyArg_UnpackKeywords(ptr noundef %41, i64 noundef %42, ptr noundef null, ptr noundef %43, ptr noundef @pysqlite_cursor_fetchmany._parser, i32 noundef 0, i32 noundef 1, i32 noundef 0, i32 noundef 0, ptr noundef %44)
+  br label %46
 
-cond.end9:                                        ; preds = %cond.false7, %cond.true6
-  %cond10 = phi ptr [ %9, %cond.true6 ], [ %call8, %cond.false7 ]
-  store ptr %cond10, ptr %args.addr, align 8
-  %13 = load ptr, ptr %args.addr, align 8
-  %tobool11 = icmp ne ptr %13, null
-  br i1 %tobool11, label %if.end, label %if.then
+46:                                               ; preds = %40, %38
+  %47 = phi ptr [ %39, %38 ], [ %45, %40 ]
+  store ptr %47, ptr %6, align 8, !tbaa !16
+  %48 = load ptr, ptr %6, align 8, !tbaa !16
+  %49 = icmp ne ptr %48, null
+  br i1 %49, label %51, label %50
 
-if.then:                                          ; preds = %cond.end9
-  br label %exit
+50:                                               ; preds = %46
+  br label %71
 
-if.end:                                           ; preds = %cond.end9
-  %14 = load i64, ptr %noptargs, align 8
-  %tobool12 = icmp ne i64 %14, 0
-  br i1 %tobool12, label %if.end14, label %if.then13
+51:                                               ; preds = %46
+  %52 = load i64, ptr %11, align 8, !tbaa !49
+  %53 = icmp ne i64 %52, 0
+  br i1 %53, label %55, label %54
 
-if.then13:                                        ; preds = %if.end
-  br label %skip_optional_pos
+54:                                               ; preds = %51
+  br label %67
 
-if.end14:                                         ; preds = %if.end
-  %15 = load ptr, ptr %args.addr, align 8
-  %arrayidx = getelementptr ptr, ptr %15, i64 0
-  %16 = load ptr, ptr %arrayidx, align 8
-  %call15 = call i32 @PyLong_AsInt(ptr noundef %16)
-  store i32 %call15, ptr %maxrows, align 4
-  %17 = load i32, ptr %maxrows, align 4
-  %cmp16 = icmp eq i32 %17, -1
-  br i1 %cmp16, label %land.lhs.true17, label %if.end21
+55:                                               ; preds = %51
+  %56 = load ptr, ptr %6, align 8, !tbaa !16
+  %57 = getelementptr ptr, ptr %56, i64 0
+  %58 = load ptr, ptr %57, align 8, !tbaa !9
+  %59 = call i32 @PyLong_AsInt(ptr noundef %58)
+  store i32 %59, ptr %12, align 4, !tbaa !7
+  %60 = load i32, ptr %12, align 4, !tbaa !7
+  %61 = icmp eq i32 %60, -1
+  br i1 %61, label %62, label %66
 
-land.lhs.true17:                                  ; preds = %if.end14
-  %call18 = call ptr @PyErr_Occurred()
-  %tobool19 = icmp ne ptr %call18, null
-  br i1 %tobool19, label %if.then20, label %if.end21
+62:                                               ; preds = %55
+  %63 = call ptr @PyErr_Occurred()
+  %64 = icmp ne ptr %63, null
+  br i1 %64, label %65, label %66
 
-if.then20:                                        ; preds = %land.lhs.true17
-  br label %exit
+65:                                               ; preds = %62
+  br label %71
 
-if.end21:                                         ; preds = %land.lhs.true17, %if.end14
-  br label %skip_optional_pos
+66:                                               ; preds = %62, %55
+  br label %67
 
-skip_optional_pos:                                ; preds = %if.end21, %if.then13
-  %18 = load ptr, ptr %self.addr, align 8
-  %19 = load i32, ptr %maxrows, align 4
-  %call22 = call ptr @pysqlite_cursor_fetchmany_impl(ptr noundef %18, i32 noundef %19)
-  store ptr %call22, ptr %return_value, align 8
-  br label %exit
+67:                                               ; preds = %66, %54
+  %68 = load ptr, ptr %5, align 8, !tbaa !9
+  %69 = load i32, ptr %12, align 4, !tbaa !7
+  %70 = call ptr @pysqlite_cursor_fetchmany_impl(ptr noundef %68, i32 noundef %69)
+  store ptr %70, ptr %9, align 8, !tbaa !9
+  br label %71
 
-exit:                                             ; preds = %skip_optional_pos, %if.then20, %if.then
-  %20 = load ptr, ptr %return_value, align 8
-  ret ptr %20
+71:                                               ; preds = %67, %65, %50
+  %72 = load ptr, ptr %9, align 8, !tbaa !9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #8
+  ret ptr %72
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @pysqlite_cursor_fetchone(ptr noundef %self, ptr noundef %_unused_ignored) #0 {
-entry:
-  %self.addr = alloca ptr, align 8
-  %_unused_ignored.addr = alloca ptr, align 8
-  store ptr %self, ptr %self.addr, align 8
-  store ptr %_unused_ignored, ptr %_unused_ignored.addr, align 8
-  %0 = load ptr, ptr %self.addr, align 8
-  %call = call ptr @pysqlite_cursor_fetchone_impl(ptr noundef %0)
-  ret ptr %call
+define internal ptr @pysqlite_cursor_fetchone(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !9
+  store ptr %1, ptr %4, align 8, !tbaa !9
+  %5 = load ptr, ptr %3, align 8, !tbaa !9
+  %6 = call ptr @pysqlite_cursor_fetchone_impl(ptr noundef %5)
+  ret ptr %6
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @pysqlite_cursor_setinputsizes(ptr noundef %self, ptr noundef %sizes) #0 {
-entry:
-  %self.addr = alloca ptr, align 8
-  %sizes.addr = alloca ptr, align 8
-  store ptr %self, ptr %self.addr, align 8
-  store ptr %sizes, ptr %sizes.addr, align 8
+define internal ptr @pysqlite_cursor_setinputsizes(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  store ptr %1, ptr %4, align 8, !tbaa !9
   ret ptr @_Py_NoneStruct
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @pysqlite_cursor_setoutputsize(ptr noundef %self, ptr noundef %args, i64 noundef %nargs) #0 {
-entry:
-  %self.addr = alloca ptr, align 8
-  %args.addr = alloca ptr, align 8
-  %nargs.addr = alloca i64, align 8
-  %return_value = alloca ptr, align 8
-  %size = alloca ptr, align 8
-  %column = alloca ptr, align 8
-  store ptr %self, ptr %self.addr, align 8
-  store ptr %args, ptr %args.addr, align 8
-  store i64 %nargs, ptr %nargs.addr, align 8
-  store ptr null, ptr %return_value, align 8
-  store ptr @_Py_NoneStruct, ptr %column, align 8
-  %0 = load i64, ptr %nargs.addr, align 8
-  %cmp = icmp sle i64 1, %0
-  br i1 %cmp, label %land.lhs.true, label %lor.lhs.false
+define internal ptr @pysqlite_cursor_setoutputsize(ptr noundef %0, ptr noundef %1, i64 noundef %2) #0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i64, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !9
+  store ptr %1, ptr %5, align 8, !tbaa !16
+  store i64 %2, ptr %6, align 8, !tbaa !49
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #8
+  store ptr null, ptr %7, align 8, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #8
+  store ptr @_Py_NoneStruct, ptr %9, align 8, !tbaa !9
+  %10 = load i64, ptr %6, align 8, !tbaa !49
+  %11 = icmp sle i64 1, %10
+  br i1 %11, label %12, label %15
 
-land.lhs.true:                                    ; preds = %entry
-  %1 = load i64, ptr %nargs.addr, align 8
-  %cmp1 = icmp sle i64 %1, 2
-  br i1 %cmp1, label %if.end, label %lor.lhs.false
+12:                                               ; preds = %3
+  %13 = load i64, ptr %6, align 8, !tbaa !49
+  %14 = icmp sle i64 %13, 2
+  br i1 %14, label %20, label %15
 
-lor.lhs.false:                                    ; preds = %land.lhs.true, %entry
-  %2 = load i64, ptr %nargs.addr, align 8
-  %call = call i32 @_PyArg_CheckPositional(ptr noundef @.str.27, i64 noundef %2, i64 noundef 1, i64 noundef 2)
-  %tobool = icmp ne i32 %call, 0
-  br i1 %tobool, label %if.end, label %if.then
+15:                                               ; preds = %12, %3
+  %16 = load i64, ptr %6, align 8, !tbaa !49
+  %17 = call i32 @_PyArg_CheckPositional(ptr noundef @.str.29, i64 noundef %16, i64 noundef 1, i64 noundef 2)
+  %18 = icmp ne i32 %17, 0
+  br i1 %18, label %20, label %19
 
-if.then:                                          ; preds = %lor.lhs.false
-  br label %exit
+19:                                               ; preds = %15
+  br label %36
 
-if.end:                                           ; preds = %lor.lhs.false, %land.lhs.true
-  %3 = load ptr, ptr %args.addr, align 8
-  %arrayidx = getelementptr ptr, ptr %3, i64 0
-  %4 = load ptr, ptr %arrayidx, align 8
-  store ptr %4, ptr %size, align 8
-  %5 = load i64, ptr %nargs.addr, align 8
-  %cmp2 = icmp slt i64 %5, 2
-  br i1 %cmp2, label %if.then3, label %if.end4
+20:                                               ; preds = %15, %12
+  %21 = load ptr, ptr %5, align 8, !tbaa !16
+  %22 = getelementptr ptr, ptr %21, i64 0
+  %23 = load ptr, ptr %22, align 8, !tbaa !9
+  store ptr %23, ptr %8, align 8, !tbaa !9
+  %24 = load i64, ptr %6, align 8, !tbaa !49
+  %25 = icmp slt i64 %24, 2
+  br i1 %25, label %26, label %27
 
-if.then3:                                         ; preds = %if.end
-  br label %skip_optional
+26:                                               ; preds = %20
+  br label %31
 
-if.end4:                                          ; preds = %if.end
-  %6 = load ptr, ptr %args.addr, align 8
-  %arrayidx5 = getelementptr ptr, ptr %6, i64 1
-  %7 = load ptr, ptr %arrayidx5, align 8
-  store ptr %7, ptr %column, align 8
-  br label %skip_optional
+27:                                               ; preds = %20
+  %28 = load ptr, ptr %5, align 8, !tbaa !16
+  %29 = getelementptr ptr, ptr %28, i64 1
+  %30 = load ptr, ptr %29, align 8, !tbaa !9
+  store ptr %30, ptr %9, align 8, !tbaa !9
+  br label %31
 
-skip_optional:                                    ; preds = %if.end4, %if.then3
-  %8 = load ptr, ptr %self.addr, align 8
-  %9 = load ptr, ptr %size, align 8
-  %10 = load ptr, ptr %column, align 8
-  %call6 = call ptr @pysqlite_cursor_setoutputsize_impl(ptr noundef %8, ptr noundef %9, ptr noundef %10)
-  store ptr %call6, ptr %return_value, align 8
-  br label %exit
+31:                                               ; preds = %27, %26
+  %32 = load ptr, ptr %4, align 8, !tbaa !9
+  %33 = load ptr, ptr %8, align 8, !tbaa !9
+  %34 = load ptr, ptr %9, align 8, !tbaa !9
+  %35 = call ptr @pysqlite_cursor_setoutputsize_impl(ptr noundef %32, ptr noundef %33, ptr noundef %34)
+  store ptr %35, ptr %7, align 8, !tbaa !9
+  br label %36
 
-exit:                                             ; preds = %skip_optional, %if.then
-  %11 = load ptr, ptr %return_value, align 8
-  ret ptr %11
+36:                                               ; preds = %31, %19
+  %37 = load ptr, ptr %7, align 8, !tbaa !9
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #8
+  ret ptr %37
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @pysqlite_cursor_close_impl(ptr noundef %self) #0 {
-entry:
-  %op.addr.i22 = alloca ptr, align 8
-  %op.addr.i = alloca ptr, align 8
-  %retval = alloca ptr, align 8
-  %self.addr = alloca ptr, align 8
-  %tp = alloca ptr, align 8
-  %state = alloca ptr, align 8
-  %_tmp_op_ptr = alloca ptr, align 8
-  %_tmp_old_op = alloca ptr, align 8
-  store ptr %self, ptr %self.addr, align 8
-  %0 = load ptr, ptr %self.addr, align 8
-  %call = call i32 @check_cursor_locked(ptr noundef %0)
-  %tobool = icmp ne i32 %call, 0
-  br i1 %tobool, label %if.end, label %if.then
+define internal ptr @pysqlite_cursor_close_impl(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  %8 = load ptr, ptr %3, align 8, !tbaa !3
+  %9 = call i32 @check_cursor_locked(ptr noundef %8)
+  %10 = icmp ne i32 %9, 0
+  br i1 %10, label %12, label %11
 
-if.then:                                          ; preds = %entry
-  store ptr null, ptr %retval, align 8
-  br label %return
+11:                                               ; preds = %1
+  store ptr null, ptr %2, align 8
+  br label %63
 
-if.end:                                           ; preds = %entry
-  %1 = load ptr, ptr %self.addr, align 8
-  %connection = getelementptr inbounds %struct.pysqlite_Cursor, ptr %1, i32 0, i32 1
-  %2 = load ptr, ptr %connection, align 8
-  %tobool1 = icmp ne ptr %2, null
-  br i1 %tobool1, label %if.end5, label %if.then2
+12:                                               ; preds = %1
+  %13 = load ptr, ptr %3, align 8, !tbaa !3
+  %14 = getelementptr inbounds nuw %struct.pysqlite_Cursor, ptr %13, i32 0, i32 1
+  %15 = load ptr, ptr %14, align 8, !tbaa !19
+  %16 = icmp ne ptr %15, null
+  br i1 %16, label %25, label %17
 
-if.then2:                                         ; preds = %if.end
-  %3 = load ptr, ptr %self.addr, align 8
-  %call3 = call ptr @Py_TYPE(ptr noundef %3)
-  store ptr %call3, ptr %tp, align 8
-  %4 = load ptr, ptr %tp, align 8
-  %call4 = call ptr @pysqlite_get_state_by_type(ptr noundef %4)
-  store ptr %call4, ptr %state, align 8
-  %5 = load ptr, ptr %state, align 8
-  %ProgrammingError = getelementptr inbounds %struct.pysqlite_state, ptr %5, i32 0, i32 8
-  %6 = load ptr, ptr %ProgrammingError, align 8
-  call void @PyErr_SetString(ptr noundef %6, ptr noundef @.str.2)
-  store ptr null, ptr %retval, align 8
-  br label %return
+17:                                               ; preds = %12
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #8
+  %18 = load ptr, ptr %3, align 8, !tbaa !3
+  %19 = call ptr @_Py_TYPE(ptr noundef %18)
+  store ptr %19, ptr %4, align 8, !tbaa !61
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #8
+  %20 = load ptr, ptr %4, align 8, !tbaa !61
+  %21 = call ptr @pysqlite_get_state_by_type(ptr noundef %20)
+  store ptr %21, ptr %5, align 8, !tbaa !3
+  %22 = load ptr, ptr %5, align 8, !tbaa !3
+  %23 = getelementptr inbounds nuw %struct.pysqlite_state, ptr %22, i32 0, i32 8
+  %24 = load ptr, ptr %23, align 8, !tbaa !28
+  call void @PyErr_SetString(ptr noundef %24, ptr noundef @.str.2)
+  store ptr null, ptr %2, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #8
+  br label %63
 
-if.end5:                                          ; preds = %if.end
-  %7 = load ptr, ptr %self.addr, align 8
-  %connection6 = getelementptr inbounds %struct.pysqlite_Cursor, ptr %7, i32 0, i32 1
-  %8 = load ptr, ptr %connection6, align 8
-  %call7 = call i32 @pysqlite_check_thread(ptr noundef %8)
-  %tobool8 = icmp ne i32 %call7, 0
-  br i1 %tobool8, label %lor.lhs.false, label %if.then12
+25:                                               ; preds = %12
+  %26 = load ptr, ptr %3, align 8, !tbaa !3
+  %27 = getelementptr inbounds nuw %struct.pysqlite_Cursor, ptr %26, i32 0, i32 1
+  %28 = load ptr, ptr %27, align 8, !tbaa !19
+  %29 = call i32 @pysqlite_check_thread(ptr noundef %28)
+  %30 = icmp ne i32 %29, 0
+  br i1 %30, label %31, label %37
 
-lor.lhs.false:                                    ; preds = %if.end5
-  %9 = load ptr, ptr %self.addr, align 8
-  %connection9 = getelementptr inbounds %struct.pysqlite_Cursor, ptr %9, i32 0, i32 1
-  %10 = load ptr, ptr %connection9, align 8
-  %call10 = call i32 @pysqlite_check_connection(ptr noundef %10)
-  %tobool11 = icmp ne i32 %call10, 0
-  br i1 %tobool11, label %if.end13, label %if.then12
+31:                                               ; preds = %25
+  %32 = load ptr, ptr %3, align 8, !tbaa !3
+  %33 = getelementptr inbounds nuw %struct.pysqlite_Cursor, ptr %32, i32 0, i32 1
+  %34 = load ptr, ptr %33, align 8, !tbaa !19
+  %35 = call i32 @pysqlite_check_connection(ptr noundef %34)
+  %36 = icmp ne i32 %35, 0
+  br i1 %36, label %38, label %37
 
-if.then12:                                        ; preds = %lor.lhs.false, %if.end5
-  store ptr null, ptr %retval, align 8
-  br label %return
+37:                                               ; preds = %31, %25
+  store ptr null, ptr %2, align 8
+  br label %63
 
-if.end13:                                         ; preds = %lor.lhs.false
-  %11 = load ptr, ptr %self.addr, align 8
-  %statement = getelementptr inbounds %struct.pysqlite_Cursor, ptr %11, i32 0, i32 8
-  %12 = load ptr, ptr %statement, align 8
-  %tobool14 = icmp ne ptr %12, null
-  br i1 %tobool14, label %if.then15, label %if.end21
+38:                                               ; preds = %31
+  %39 = load ptr, ptr %3, align 8, !tbaa !3
+  %40 = getelementptr inbounds nuw %struct.pysqlite_Cursor, ptr %39, i32 0, i32 8
+  %41 = load ptr, ptr %40, align 8, !tbaa !18
+  %42 = icmp ne ptr %41, null
+  br i1 %42, label %43, label %60
 
-if.then15:                                        ; preds = %if.end13
-  %13 = load ptr, ptr %self.addr, align 8
-  %statement16 = getelementptr inbounds %struct.pysqlite_Cursor, ptr %13, i32 0, i32 8
-  %14 = load ptr, ptr %statement16, align 8
-  %call17 = call i32 @stmt_reset(ptr noundef %14)
-  br label %do.body
+43:                                               ; preds = %38
+  %44 = load ptr, ptr %3, align 8, !tbaa !3
+  %45 = getelementptr inbounds nuw %struct.pysqlite_Cursor, ptr %44, i32 0, i32 8
+  %46 = load ptr, ptr %45, align 8, !tbaa !18
+  %47 = call i32 @stmt_reset(ptr noundef %46)
+  br label %48
 
-do.body:                                          ; preds = %if.then15
-  %15 = load ptr, ptr %self.addr, align 8
-  %statement18 = getelementptr inbounds %struct.pysqlite_Cursor, ptr %15, i32 0, i32 8
-  store ptr %statement18, ptr %_tmp_op_ptr, align 8
-  %16 = load ptr, ptr %_tmp_op_ptr, align 8
-  %17 = load ptr, ptr %16, align 8
-  store ptr %17, ptr %_tmp_old_op, align 8
-  %18 = load ptr, ptr %_tmp_old_op, align 8
-  %cmp = icmp ne ptr %18, null
-  br i1 %cmp, label %if.then19, label %if.end20
+48:                                               ; preds = %43
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #8
+  %49 = load ptr, ptr %3, align 8, !tbaa !3
+  %50 = getelementptr inbounds nuw %struct.pysqlite_Cursor, ptr %49, i32 0, i32 8
+  store ptr %50, ptr %6, align 8, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #8
+  %51 = load ptr, ptr %6, align 8, !tbaa !3
+  %52 = load ptr, ptr %51, align 8, !tbaa !3
+  store ptr %52, ptr %7, align 8, !tbaa !3
+  %53 = load ptr, ptr %7, align 8, !tbaa !3
+  %54 = icmp ne ptr %53, null
+  br i1 %54, label %55, label %58
 
-if.then19:                                        ; preds = %do.body
-  %19 = load ptr, ptr %_tmp_op_ptr, align 8
-  store ptr null, ptr %19, align 8
-  %20 = load ptr, ptr %_tmp_old_op, align 8
-  store ptr %20, ptr %op.addr.i, align 8
-  %21 = load ptr, ptr %op.addr.i, align 8
-  store ptr %21, ptr %op.addr.i22, align 8
-  %22 = load ptr, ptr %op.addr.i22, align 8
-  %23 = load i64, ptr %22, align 8
-  %conv.i = trunc i64 %23 to i32
-  %cmp.i23 = icmp slt i32 %conv.i, 0
-  %conv1.i = zext i1 %cmp.i23 to i32
-  %tobool.i = icmp ne i32 %conv1.i, 0
-  br i1 %tobool.i, label %if.then.i, label %if.end.i
+55:                                               ; preds = %48
+  %56 = load ptr, ptr %6, align 8, !tbaa !3
+  store ptr null, ptr %56, align 8, !tbaa !3
+  %57 = load ptr, ptr %7, align 8, !tbaa !3
+  call void @Py_DECREF(ptr noundef %57)
+  br label %58
 
-if.then.i:                                        ; preds = %if.then19
-  br label %Py_DECREF.exit
+58:                                               ; preds = %55, %48
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #8
+  br label %59
 
-if.end.i:                                         ; preds = %if.then19
-  %24 = load ptr, ptr %op.addr.i, align 8
-  %25 = load i64, ptr %24, align 8
-  %dec.i = add i64 %25, -1
-  store i64 %dec.i, ptr %24, align 8
-  %cmp.i = icmp eq i64 %dec.i, 0
-  br i1 %cmp.i, label %if.then1.i, label %Py_DECREF.exit
+59:                                               ; preds = %58
+  br label %60
 
-if.then1.i:                                       ; preds = %if.end.i
-  %26 = load ptr, ptr %op.addr.i, align 8
-  call void @_Py_Dealloc(ptr noundef %26) #5
-  br label %Py_DECREF.exit
+60:                                               ; preds = %59, %38
+  %61 = load ptr, ptr %3, align 8, !tbaa !3
+  %62 = getelementptr inbounds nuw %struct.pysqlite_Cursor, ptr %61, i32 0, i32 9
+  store i32 1, ptr %62, align 8, !tbaa !46
+  store ptr @_Py_NoneStruct, ptr %2, align 8
+  br label %63
 
-Py_DECREF.exit:                                   ; preds = %if.then1.i, %if.end.i, %if.then.i
-  br label %if.end20
-
-if.end20:                                         ; preds = %Py_DECREF.exit, %do.body
-  br label %do.end
-
-do.end:                                           ; preds = %if.end20
-  br label %if.end21
-
-if.end21:                                         ; preds = %do.end, %if.end13
-  %27 = load ptr, ptr %self.addr, align 8
-  %closed = getelementptr inbounds %struct.pysqlite_Cursor, ptr %27, i32 0, i32 9
-  store i32 1, ptr %closed, align 8
-  store ptr @_Py_NoneStruct, ptr %retval, align 8
-  br label %return
-
-return:                                           ; preds = %if.end21, %if.then12, %if.then2, %if.then
-  %28 = load ptr, ptr %retval, align 8
-  ret ptr %28
+63:                                               ; preds = %60, %37, %17, %11
+  %64 = load ptr, ptr %2, align 8
+  ret ptr %64
 }
 
-declare i32 @_PyArg_CheckPositional(ptr noundef, i64 noundef, i64 noundef, i64 noundef) #1
+declare i32 @_PyArg_CheckPositional(ptr noundef, i64 noundef, i64 noundef, i64 noundef) #2
 
-declare void @_PyArg_BadArgument(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #1
+declare void @_PyArg_BadArgument(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #2
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @pysqlite_cursor_executemany_impl(ptr noundef %self, ptr noundef %sql, ptr noundef %seq_of_parameters) #0 {
-entry:
-  %self.addr = alloca ptr, align 8
-  %sql.addr = alloca ptr, align 8
-  %seq_of_parameters.addr = alloca ptr, align 8
-  store ptr %self, ptr %self.addr, align 8
-  store ptr %sql, ptr %sql.addr, align 8
-  store ptr %seq_of_parameters, ptr %seq_of_parameters.addr, align 8
-  %0 = load ptr, ptr %self.addr, align 8
-  %1 = load ptr, ptr %sql.addr, align 8
-  %2 = load ptr, ptr %seq_of_parameters.addr, align 8
-  %call = call ptr @_pysqlite_query_execute(ptr noundef %0, i32 noundef 1, ptr noundef %1, ptr noundef %2)
-  ret ptr %call
+define internal ptr @pysqlite_cursor_executemany_impl(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !3
+  store ptr %1, ptr %5, align 8, !tbaa !9
+  store ptr %2, ptr %6, align 8, !tbaa !9
+  %7 = load ptr, ptr %4, align 8, !tbaa !3
+  %8 = load ptr, ptr %5, align 8, !tbaa !9
+  %9 = load ptr, ptr %6, align 8, !tbaa !9
+  %10 = call ptr @_pysqlite_query_execute(ptr noundef %7, i32 noundef 1, ptr noundef %8, ptr noundef %9)
+  ret ptr %10
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @pysqlite_cursor_executescript_impl(ptr noundef %self, ptr noundef %sql_script) #0 {
-entry:
-  %retval = alloca ptr, align 8
-  %self.addr = alloca ptr, align 8
-  %sql_script.addr = alloca ptr, align 8
-  %sql_len = alloca i64, align 8
-  %max_length = alloca i32, align 4
-  %db7 = alloca ptr, align 8
-  %rc = alloca i32, align 4
-  %_save = alloca ptr, align 8
-  %rc23 = alloca i32, align 4
-  %tail = alloca ptr, align 8
-  %_save24 = alloca ptr, align 8
-  %stmt = alloca ptr, align 8
-  store ptr %self, ptr %self.addr, align 8
-  store ptr %sql_script, ptr %sql_script.addr, align 8
-  %0 = load ptr, ptr %self.addr, align 8
-  %call = call i32 @check_cursor(ptr noundef %0)
-  %tobool = icmp ne i32 %call, 0
-  br i1 %tobool, label %if.end, label %if.then
+define internal ptr @pysqlite_cursor_executescript_impl(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i64, align 8
+  %7 = alloca i32, align 4
+  %8 = alloca i32, align 4
+  %9 = alloca ptr, align 8
+  %10 = alloca i32, align 4
+  %11 = alloca ptr, align 8
+  %12 = alloca i32, align 4
+  %13 = alloca ptr, align 8
+  %14 = alloca ptr, align 8
+  %15 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !3
+  store ptr %1, ptr %5, align 8, !tbaa !40
+  %16 = load ptr, ptr %4, align 8, !tbaa !3
+  %17 = call i32 @check_cursor(ptr noundef %16)
+  %18 = icmp ne i32 %17, 0
+  br i1 %18, label %20, label %19
 
-if.then:                                          ; preds = %entry
-  store ptr null, ptr %retval, align 8
-  br label %return
+19:                                               ; preds = %2
+  store ptr null, ptr %3, align 8
+  br label %125
 
-if.end:                                           ; preds = %entry
-  %1 = load ptr, ptr %sql_script.addr, align 8
-  %call1 = call i64 @strlen(ptr noundef %1) #6
-  store i64 %call1, ptr %sql_len, align 8
-  %2 = load ptr, ptr %self.addr, align 8
-  %connection = getelementptr inbounds %struct.pysqlite_Cursor, ptr %2, i32 0, i32 1
-  %3 = load ptr, ptr %connection, align 8
-  %db = getelementptr inbounds %struct.pysqlite_Connection, ptr %3, i32 0, i32 1
-  %4 = load ptr, ptr %db, align 8
-  %call2 = call i32 @sqlite3_limit(ptr noundef %4, i32 noundef 1, i32 noundef -1)
-  store i32 %call2, ptr %max_length, align 4
-  %5 = load i64, ptr %sql_len, align 8
-  %6 = load i32, ptr %max_length, align 4
-  %conv = zext i32 %6 to i64
-  %cmp = icmp ugt i64 %5, %conv
-  br i1 %cmp, label %if.then4, label %if.end6
+20:                                               ; preds = %2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #8
+  %21 = load ptr, ptr %5, align 8, !tbaa !40
+  %22 = call i64 @strlen(ptr noundef %21) #9
+  store i64 %22, ptr %6, align 8, !tbaa !49
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #8
+  %23 = load ptr, ptr %4, align 8, !tbaa !3
+  %24 = getelementptr inbounds nuw %struct.pysqlite_Cursor, ptr %23, i32 0, i32 1
+  %25 = load ptr, ptr %24, align 8, !tbaa !19
+  %26 = getelementptr inbounds nuw %struct.pysqlite_Connection, ptr %25, i32 0, i32 1
+  %27 = load ptr, ptr %26, align 8, !tbaa !34
+  %28 = call i32 @sqlite3_limit(ptr noundef %27, i32 noundef 1, i32 noundef -1)
+  store i32 %28, ptr %7, align 4, !tbaa !7
+  %29 = load i64, ptr %6, align 8, !tbaa !49
+  %30 = load i32, ptr %7, align 4, !tbaa !7
+  %31 = zext i32 %30 to i64
+  %32 = icmp ugt i64 %29, %31
+  br i1 %32, label %33, label %39
 
-if.then4:                                         ; preds = %if.end
-  %7 = load ptr, ptr %self.addr, align 8
-  %connection5 = getelementptr inbounds %struct.pysqlite_Cursor, ptr %7, i32 0, i32 1
-  %8 = load ptr, ptr %connection5, align 8
-  %DataError = getelementptr inbounds %struct.pysqlite_Connection, ptr %8, i32 0, i32 22
-  %9 = load ptr, ptr %DataError, align 8
-  call void @PyErr_SetString(ptr noundef %9, ptr noundef @.str.32)
-  store ptr null, ptr %retval, align 8
-  br label %return
+33:                                               ; preds = %20
+  %34 = load ptr, ptr %4, align 8, !tbaa !3
+  %35 = getelementptr inbounds nuw %struct.pysqlite_Cursor, ptr %34, i32 0, i32 1
+  %36 = load ptr, ptr %35, align 8, !tbaa !19
+  %37 = getelementptr inbounds nuw %struct.pysqlite_Connection, ptr %36, i32 0, i32 22
+  %38 = load ptr, ptr %37, align 8, !tbaa !95
+  call void @PyErr_SetString(ptr noundef %38, ptr noundef @.str.35)
+  store ptr null, ptr %3, align 8
+  store i32 1, ptr %8, align 4
+  br label %124
 
-if.end6:                                          ; preds = %if.end
-  %10 = load ptr, ptr %self.addr, align 8
-  %connection8 = getelementptr inbounds %struct.pysqlite_Cursor, ptr %10, i32 0, i32 1
-  %11 = load ptr, ptr %connection8, align 8
-  %db9 = getelementptr inbounds %struct.pysqlite_Connection, ptr %11, i32 0, i32 1
-  %12 = load ptr, ptr %db9, align 8
-  store ptr %12, ptr %db7, align 8
-  %13 = load ptr, ptr %self.addr, align 8
-  %connection10 = getelementptr inbounds %struct.pysqlite_Cursor, ptr %13, i32 0, i32 1
-  %14 = load ptr, ptr %connection10, align 8
-  %autocommit = getelementptr inbounds %struct.pysqlite_Connection, ptr %14, i32 0, i32 5
-  %15 = load i32, ptr %autocommit, align 8
-  %cmp11 = icmp eq i32 %15, -1
-  br i1 %cmp11, label %land.lhs.true, label %if.end22
+39:                                               ; preds = %20
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #8
+  %40 = load ptr, ptr %4, align 8, !tbaa !3
+  %41 = getelementptr inbounds nuw %struct.pysqlite_Cursor, ptr %40, i32 0, i32 1
+  %42 = load ptr, ptr %41, align 8, !tbaa !19
+  %43 = getelementptr inbounds nuw %struct.pysqlite_Connection, ptr %42, i32 0, i32 1
+  %44 = load ptr, ptr %43, align 8, !tbaa !34
+  store ptr %44, ptr %9, align 8, !tbaa !52
+  %45 = load ptr, ptr %4, align 8, !tbaa !3
+  %46 = getelementptr inbounds nuw %struct.pysqlite_Cursor, ptr %45, i32 0, i32 1
+  %47 = load ptr, ptr %46, align 8, !tbaa !19
+  %48 = getelementptr inbounds nuw %struct.pysqlite_Connection, ptr %47, i32 0, i32 5
+  %49 = load i32, ptr %48, align 8, !tbaa !32
+  %50 = icmp eq i32 %49, -1
+  br i1 %50, label %51, label %67
 
-land.lhs.true:                                    ; preds = %if.end6
-  %16 = load ptr, ptr %db7, align 8
-  %call13 = call i32 @sqlite3_get_autocommit(ptr noundef %16)
-  %tobool14 = icmp ne i32 %call13, 0
-  br i1 %tobool14, label %if.end22, label %if.then15
+51:                                               ; preds = %39
+  %52 = load ptr, ptr %9, align 8, !tbaa !52
+  %53 = call i32 @sqlite3_get_autocommit(ptr noundef %52)
+  %54 = icmp ne i32 %53, 0
+  br i1 %54, label %67, label %55
 
-if.then15:                                        ; preds = %land.lhs.true
-  store i32 0, ptr %rc, align 4
-  %call16 = call ptr @PyEval_SaveThread()
-  store ptr %call16, ptr %_save, align 8
-  %17 = load ptr, ptr %db7, align 8
-  %call17 = call i32 @sqlite3_exec(ptr noundef %17, ptr noundef @.str.33, ptr noundef null, ptr noundef null, ptr noundef null)
-  store i32 %call17, ptr %rc, align 4
-  %18 = load ptr, ptr %_save, align 8
-  call void @PyEval_RestoreThread(ptr noundef %18)
-  %19 = load i32, ptr %rc, align 4
-  %cmp18 = icmp ne i32 %19, 0
-  br i1 %cmp18, label %if.then20, label %if.end21
+55:                                               ; preds = %51
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #8
+  store i32 0, ptr %10, align 4, !tbaa !7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #8
+  %56 = call ptr @PyEval_SaveThread()
+  store ptr %56, ptr %11, align 8, !tbaa !37
+  %57 = load ptr, ptr %9, align 8, !tbaa !52
+  %58 = call i32 @sqlite3_exec(ptr noundef %57, ptr noundef @.str.36, ptr noundef null, ptr noundef null, ptr noundef null)
+  store i32 %58, ptr %10, align 4, !tbaa !7
+  %59 = load ptr, ptr %11, align 8, !tbaa !37
+  call void @PyEval_RestoreThread(ptr noundef %59)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #8
+  %60 = load i32, ptr %10, align 4, !tbaa !7
+  %61 = icmp ne i32 %60, 0
+  br i1 %61, label %62, label %63
 
-if.then20:                                        ; preds = %if.then15
-  br label %error
+62:                                               ; preds = %55
+  store i32 2, ptr %8, align 4
+  br label %64
 
-if.end21:                                         ; preds = %if.then15
-  br label %if.end22
+63:                                               ; preds = %55
+  store i32 0, ptr %8, align 4
+  br label %64
 
-if.end22:                                         ; preds = %if.end21, %land.lhs.true, %if.end6
-  br label %while.body
+64:                                               ; preds = %62, %63
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #8
+  %65 = load i32, ptr %8, align 4
+  switch i32 %65, label %123 [
+    i32 0, label %66
+    i32 2, label %115
+  ]
 
-while.body:                                       ; preds = %if.end44, %if.end22
-  %call25 = call ptr @PyEval_SaveThread()
-  store ptr %call25, ptr %_save24, align 8
-  %20 = load ptr, ptr %db7, align 8
-  %21 = load ptr, ptr %sql_script.addr, align 8
-  %22 = load i64, ptr %sql_len, align 8
-  %conv26 = trunc i64 %22 to i32
-  %add = add i32 %conv26, 1
-  %call27 = call i32 @sqlite3_prepare_v2(ptr noundef %20, ptr noundef %21, i32 noundef %add, ptr noundef %stmt, ptr noundef %tail)
-  store i32 %call27, ptr %rc23, align 4
-  %23 = load i32, ptr %rc23, align 4
-  %cmp28 = icmp eq i32 %23, 0
-  br i1 %cmp28, label %if.then30, label %if.end35
+66:                                               ; preds = %64
+  br label %67
 
-if.then30:                                        ; preds = %while.body
-  br label %do.body
+67:                                               ; preds = %66, %51, %39
+  br label %68
 
-do.body:                                          ; preds = %do.cond, %if.then30
-  %24 = load ptr, ptr %stmt, align 8
-  %call31 = call i32 @sqlite3_step(ptr noundef %24)
-  store i32 %call31, ptr %rc23, align 4
-  br label %do.cond
+68:                                               ; preds = %111, %67
+  br label %69
 
-do.cond:                                          ; preds = %do.body
-  %25 = load i32, ptr %rc23, align 4
-  %cmp32 = icmp eq i32 %25, 100
-  br i1 %cmp32, label %do.body, label %do.end, !llvm.loop !12
+69:                                               ; preds = %68
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #8
+  %70 = call ptr @PyEval_SaveThread()
+  store ptr %70, ptr %14, align 8, !tbaa !37
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #8
+  %71 = load ptr, ptr %9, align 8, !tbaa !52
+  %72 = load ptr, ptr %5, align 8, !tbaa !40
+  %73 = load i64, ptr %6, align 8, !tbaa !49
+  %74 = trunc i64 %73 to i32
+  %75 = add i32 %74, 1
+  %76 = call i32 @sqlite3_prepare_v2(ptr noundef %71, ptr noundef %72, i32 noundef %75, ptr noundef %15, ptr noundef %13)
+  store i32 %76, ptr %12, align 4, !tbaa !7
+  %77 = load i32, ptr %12, align 4, !tbaa !7
+  %78 = icmp eq i32 %77, 0
+  br i1 %78, label %79, label %89
 
-do.end:                                           ; preds = %do.cond
-  %26 = load ptr, ptr %stmt, align 8
-  %call34 = call i32 @sqlite3_finalize(ptr noundef %26)
-  store i32 %call34, ptr %rc23, align 4
-  br label %if.end35
+79:                                               ; preds = %69
+  br label %80
 
-if.end35:                                         ; preds = %do.end, %while.body
-  %27 = load ptr, ptr %_save24, align 8
-  call void @PyEval_RestoreThread(ptr noundef %27)
-  %28 = load i32, ptr %rc23, align 4
-  %cmp36 = icmp ne i32 %28, 0
-  br i1 %cmp36, label %if.then38, label %if.end39
+80:                                               ; preds = %83, %79
+  %81 = load ptr, ptr %15, align 8, !tbaa !50
+  %82 = call i32 @sqlite3_step(ptr noundef %81)
+  store i32 %82, ptr %12, align 4, !tbaa !7
+  br label %83
 
-if.then38:                                        ; preds = %if.end35
-  br label %error
+83:                                               ; preds = %80
+  %84 = load i32, ptr %12, align 4, !tbaa !7
+  %85 = icmp eq i32 %84, 100
+  br i1 %85, label %80, label %86, !llvm.loop !96
 
-if.end39:                                         ; preds = %if.end35
-  %29 = load ptr, ptr %tail, align 8
-  %30 = load i8, ptr %29, align 1
-  %conv40 = sext i8 %30 to i32
-  %cmp41 = icmp eq i32 %conv40, 0
-  br i1 %cmp41, label %if.then43, label %if.end44
+86:                                               ; preds = %83
+  %87 = load ptr, ptr %15, align 8, !tbaa !50
+  %88 = call i32 @sqlite3_finalize(ptr noundef %87)
+  store i32 %88, ptr %12, align 4, !tbaa !7
+  br label %89
 
-if.then43:                                        ; preds = %if.end39
-  br label %while.end
+89:                                               ; preds = %86, %69
+  %90 = load ptr, ptr %14, align 8, !tbaa !37
+  call void @PyEval_RestoreThread(ptr noundef %90)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #8
+  %91 = load i32, ptr %12, align 4, !tbaa !7
+  %92 = icmp ne i32 %91, 0
+  br i1 %92, label %93, label %94
 
-if.end44:                                         ; preds = %if.end39
-  %31 = load ptr, ptr %tail, align 8
-  %32 = load ptr, ptr %sql_script.addr, align 8
-  %sub.ptr.lhs.cast = ptrtoint ptr %31 to i64
-  %sub.ptr.rhs.cast = ptrtoint ptr %32 to i64
-  %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
-  %33 = load i64, ptr %sql_len, align 8
-  %sub = sub i64 %33, %sub.ptr.sub
-  store i64 %sub, ptr %sql_len, align 8
-  %34 = load ptr, ptr %tail, align 8
-  store ptr %34, ptr %sql_script.addr, align 8
-  br label %while.body
+93:                                               ; preds = %89
+  store i32 2, ptr %8, align 4
+  br label %109
 
-while.end:                                        ; preds = %if.then43
-  %35 = load ptr, ptr %self.addr, align 8
-  %call45 = call ptr @_Py_NewRef(ptr noundef %35)
-  store ptr %call45, ptr %retval, align 8
-  br label %return
+94:                                               ; preds = %89
+  %95 = load ptr, ptr %13, align 8, !tbaa !40
+  %96 = load i8, ptr %95, align 1, !tbaa !47
+  %97 = sext i8 %96 to i32
+  %98 = icmp eq i32 %97, 0
+  br i1 %98, label %99, label %100
 
-error:                                            ; preds = %if.then38, %if.then20
-  %36 = load ptr, ptr %self.addr, align 8
-  %connection46 = getelementptr inbounds %struct.pysqlite_Cursor, ptr %36, i32 0, i32 1
-  %37 = load ptr, ptr %connection46, align 8
-  %state = getelementptr inbounds %struct.pysqlite_Connection, ptr %37, i32 0, i32 2
-  %38 = load ptr, ptr %state, align 8
-  %39 = load ptr, ptr %db7, align 8
-  %call47 = call i32 @_pysqlite_seterror(ptr noundef %38, ptr noundef %39)
-  store ptr null, ptr %retval, align 8
-  br label %return
+99:                                               ; preds = %94
+  store i32 4, ptr %8, align 4
+  br label %109
 
-return:                                           ; preds = %error, %while.end, %if.then4, %if.then
-  %40 = load ptr, ptr %retval, align 8
-  ret ptr %40
+100:                                              ; preds = %94
+  %101 = load ptr, ptr %13, align 8, !tbaa !40
+  %102 = load ptr, ptr %5, align 8, !tbaa !40
+  %103 = ptrtoint ptr %101 to i64
+  %104 = ptrtoint ptr %102 to i64
+  %105 = sub i64 %103, %104
+  %106 = load i64, ptr %6, align 8, !tbaa !49
+  %107 = sub i64 %106, %105
+  store i64 %107, ptr %6, align 8, !tbaa !49
+  %108 = load ptr, ptr %13, align 8, !tbaa !40
+  store ptr %108, ptr %5, align 8, !tbaa !40
+  store i32 0, ptr %8, align 4
+  br label %109
+
+109:                                              ; preds = %93, %100, %99
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #8
+  %110 = load i32, ptr %8, align 4
+  switch i32 %110, label %123 [
+    i32 0, label %111
+    i32 4, label %112
+    i32 2, label %115
+  ]
+
+111:                                              ; preds = %109
+  br label %68
+
+112:                                              ; preds = %109
+  %113 = load ptr, ptr %4, align 8, !tbaa !3
+  %114 = call ptr @_Py_NewRef(ptr noundef %113)
+  store ptr %114, ptr %3, align 8
+  store i32 1, ptr %8, align 4
+  br label %123
+
+115:                                              ; preds = %109, %64
+  %116 = load ptr, ptr %4, align 8, !tbaa !3
+  %117 = getelementptr inbounds nuw %struct.pysqlite_Cursor, ptr %116, i32 0, i32 1
+  %118 = load ptr, ptr %117, align 8, !tbaa !19
+  %119 = getelementptr inbounds nuw %struct.pysqlite_Connection, ptr %118, i32 0, i32 2
+  %120 = load ptr, ptr %119, align 8, !tbaa !20
+  %121 = load ptr, ptr %9, align 8, !tbaa !52
+  %122 = call i32 @_pysqlite_seterror(ptr noundef %120, ptr noundef %121)
+  store ptr null, ptr %3, align 8
+  store i32 1, ptr %8, align 4
+  br label %123
+
+123:                                              ; preds = %115, %112, %109, %64
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #8
+  br label %124
+
+124:                                              ; preds = %123, %33
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #8
+  br label %125
+
+125:                                              ; preds = %124, %19
+  %126 = load ptr, ptr %3, align 8
+  ret ptr %126
 }
 
-declare i32 @sqlite3_limit(ptr noundef, i32 noundef, i32 noundef) #1
+declare i32 @sqlite3_limit(ptr noundef, i32 noundef, i32 noundef) #2
 
-declare i32 @sqlite3_exec(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #1
-
-; Function Attrs: nounwind uwtable
-define internal ptr @pysqlite_cursor_execute_impl(ptr noundef %self, ptr noundef %sql, ptr noundef %parameters) #0 {
-entry:
-  %self.addr = alloca ptr, align 8
-  %sql.addr = alloca ptr, align 8
-  %parameters.addr = alloca ptr, align 8
-  store ptr %self, ptr %self.addr, align 8
-  store ptr %sql, ptr %sql.addr, align 8
-  store ptr %parameters, ptr %parameters.addr, align 8
-  %0 = load ptr, ptr %self.addr, align 8
-  %1 = load ptr, ptr %sql.addr, align 8
-  %2 = load ptr, ptr %parameters.addr, align 8
-  %call = call ptr @_pysqlite_query_execute(ptr noundef %0, i32 noundef 0, ptr noundef %1, ptr noundef %2)
-  ret ptr %call
-}
+declare i32 @sqlite3_exec(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #2
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @pysqlite_cursor_fetchall_impl(ptr noundef %self) #0 {
-entry:
-  %op.addr.i33 = alloca ptr, align 8
-  %op.addr.i29 = alloca ptr, align 8
-  %op.addr.i27 = alloca ptr, align 8
-  %op.addr.i18 = alloca ptr, align 8
-  %op.addr.i9 = alloca ptr, align 8
-  %op.addr.i = alloca ptr, align 8
-  %retval = alloca ptr, align 8
-  %self.addr = alloca ptr, align 8
-  %row = alloca ptr, align 8
-  %list = alloca ptr, align 8
-  store ptr %self, ptr %self.addr, align 8
-  %call = call ptr @PyList_New(i64 noundef 0)
-  store ptr %call, ptr %list, align 8
-  %0 = load ptr, ptr %list, align 8
-  %tobool = icmp ne ptr %0, null
-  br i1 %tobool, label %if.end, label %if.then
-
-if.then:                                          ; preds = %entry
-  store ptr null, ptr %retval, align 8
-  br label %return
-
-if.end:                                           ; preds = %entry
-  br label %while.cond
-
-while.cond:                                       ; preds = %Py_DECREF.exit17, %if.end
-  %1 = load ptr, ptr %self.addr, align 8
-  %call1 = call ptr @pysqlite_cursor_iternext(ptr noundef %1)
-  store ptr %call1, ptr %row, align 8
-  %tobool2 = icmp ne ptr %call1, null
-  br i1 %tobool2, label %while.body, label %while.end
-
-while.body:                                       ; preds = %while.cond
-  %2 = load ptr, ptr %list, align 8
-  %3 = load ptr, ptr %row, align 8
-  %call3 = call i32 @PyList_Append(ptr noundef %2, ptr noundef %3)
-  %cmp = icmp slt i32 %call3, 0
-  br i1 %cmp, label %if.then4, label %if.end5
-
-if.then4:                                         ; preds = %while.body
-  %4 = load ptr, ptr %row, align 8
-  store ptr %4, ptr %op.addr.i18, align 8
-  %5 = load ptr, ptr %op.addr.i18, align 8
-  store ptr %5, ptr %op.addr.i27, align 8
-  %6 = load ptr, ptr %op.addr.i27, align 8
-  %7 = load i64, ptr %6, align 8
-  %conv.i = trunc i64 %7 to i32
-  %cmp.i28 = icmp slt i32 %conv.i, 0
-  %conv1.i = zext i1 %cmp.i28 to i32
-  %tobool.i20 = icmp ne i32 %conv1.i, 0
-  br i1 %tobool.i20, label %if.then.i25, label %if.end.i21
-
-if.then.i25:                                      ; preds = %if.then4
-  br label %Py_DECREF.exit26
-
-if.end.i21:                                       ; preds = %if.then4
-  %8 = load ptr, ptr %op.addr.i18, align 8
-  %9 = load i64, ptr %8, align 8
-  %dec.i22 = add i64 %9, -1
-  store i64 %dec.i22, ptr %8, align 8
-  %cmp.i23 = icmp eq i64 %dec.i22, 0
-  br i1 %cmp.i23, label %if.then1.i24, label %Py_DECREF.exit26
-
-if.then1.i24:                                     ; preds = %if.end.i21
-  %10 = load ptr, ptr %op.addr.i18, align 8
-  call void @_Py_Dealloc(ptr noundef %10) #5
-  br label %Py_DECREF.exit26
-
-Py_DECREF.exit26:                                 ; preds = %if.then1.i24, %if.end.i21, %if.then.i25
-  br label %while.end
-
-if.end5:                                          ; preds = %while.body
-  %11 = load ptr, ptr %row, align 8
-  store ptr %11, ptr %op.addr.i9, align 8
-  %12 = load ptr, ptr %op.addr.i9, align 8
-  store ptr %12, ptr %op.addr.i29, align 8
-  %13 = load ptr, ptr %op.addr.i29, align 8
-  %14 = load i64, ptr %13, align 8
-  %conv.i30 = trunc i64 %14 to i32
-  %cmp.i31 = icmp slt i32 %conv.i30, 0
-  %conv1.i32 = zext i1 %cmp.i31 to i32
-  %tobool.i11 = icmp ne i32 %conv1.i32, 0
-  br i1 %tobool.i11, label %if.then.i16, label %if.end.i12
-
-if.then.i16:                                      ; preds = %if.end5
-  br label %Py_DECREF.exit17
-
-if.end.i12:                                       ; preds = %if.end5
-  %15 = load ptr, ptr %op.addr.i9, align 8
-  %16 = load i64, ptr %15, align 8
-  %dec.i13 = add i64 %16, -1
-  store i64 %dec.i13, ptr %15, align 8
-  %cmp.i14 = icmp eq i64 %dec.i13, 0
-  br i1 %cmp.i14, label %if.then1.i15, label %Py_DECREF.exit17
-
-if.then1.i15:                                     ; preds = %if.end.i12
-  %17 = load ptr, ptr %op.addr.i9, align 8
-  call void @_Py_Dealloc(ptr noundef %17) #5
-  br label %Py_DECREF.exit17
-
-Py_DECREF.exit17:                                 ; preds = %if.then1.i15, %if.end.i12, %if.then.i16
-  br label %while.cond, !llvm.loop !13
-
-while.end:                                        ; preds = %Py_DECREF.exit26, %while.cond
-  %call6 = call ptr @PyErr_Occurred()
-  %tobool7 = icmp ne ptr %call6, null
-  br i1 %tobool7, label %if.then8, label %if.else
-
-if.then8:                                         ; preds = %while.end
-  %18 = load ptr, ptr %list, align 8
-  store ptr %18, ptr %op.addr.i, align 8
-  %19 = load ptr, ptr %op.addr.i, align 8
-  store ptr %19, ptr %op.addr.i33, align 8
-  %20 = load ptr, ptr %op.addr.i33, align 8
-  %21 = load i64, ptr %20, align 8
-  %conv.i34 = trunc i64 %21 to i32
-  %cmp.i35 = icmp slt i32 %conv.i34, 0
-  %conv1.i36 = zext i1 %cmp.i35 to i32
-  %tobool.i = icmp ne i32 %conv1.i36, 0
-  br i1 %tobool.i, label %if.then.i, label %if.end.i
-
-if.then.i:                                        ; preds = %if.then8
-  br label %Py_DECREF.exit
-
-if.end.i:                                         ; preds = %if.then8
-  %22 = load ptr, ptr %op.addr.i, align 8
-  %23 = load i64, ptr %22, align 8
-  %dec.i = add i64 %23, -1
-  store i64 %dec.i, ptr %22, align 8
-  %cmp.i = icmp eq i64 %dec.i, 0
-  br i1 %cmp.i, label %if.then1.i, label %Py_DECREF.exit
-
-if.then1.i:                                       ; preds = %if.end.i
-  %24 = load ptr, ptr %op.addr.i, align 8
-  call void @_Py_Dealloc(ptr noundef %24) #5
-  br label %Py_DECREF.exit
-
-Py_DECREF.exit:                                   ; preds = %if.then1.i, %if.end.i, %if.then.i
-  store ptr null, ptr %retval, align 8
-  br label %return
-
-if.else:                                          ; preds = %while.end
-  %25 = load ptr, ptr %list, align 8
-  store ptr %25, ptr %retval, align 8
-  br label %return
-
-return:                                           ; preds = %if.else, %Py_DECREF.exit, %if.then
-  %26 = load ptr, ptr %retval, align 8
-  ret ptr %26
-}
-
-declare ptr @_PyArg_UnpackKeywords(ptr noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) #1
-
-declare i32 @PyLong_AsInt(ptr noundef) #1
-
-; Function Attrs: nounwind uwtable
-define internal ptr @pysqlite_cursor_fetchmany_impl(ptr noundef %self, i32 noundef %maxrows) #0 {
-entry:
-  %op.addr.i36 = alloca ptr, align 8
-  %op.addr.i32 = alloca ptr, align 8
-  %op.addr.i30 = alloca ptr, align 8
-  %op.addr.i21 = alloca ptr, align 8
-  %op.addr.i12 = alloca ptr, align 8
-  %op.addr.i = alloca ptr, align 8
-  %retval = alloca ptr, align 8
-  %self.addr = alloca ptr, align 8
-  %maxrows.addr = alloca i32, align 4
-  %row = alloca ptr, align 8
-  %list = alloca ptr, align 8
-  %counter = alloca i32, align 4
-  store ptr %self, ptr %self.addr, align 8
-  store i32 %maxrows, ptr %maxrows.addr, align 4
-  store i32 0, ptr %counter, align 4
-  %call = call ptr @PyList_New(i64 noundef 0)
-  store ptr %call, ptr %list, align 8
-  %0 = load ptr, ptr %list, align 8
-  %tobool = icmp ne ptr %0, null
-  br i1 %tobool, label %if.end, label %if.then
-
-if.then:                                          ; preds = %entry
-  store ptr null, ptr %retval, align 8
-  br label %return
-
-if.end:                                           ; preds = %entry
-  br label %while.cond
-
-while.cond:                                       ; preds = %if.end8, %if.end
-  %1 = load ptr, ptr %self.addr, align 8
-  %call1 = call ptr @pysqlite_cursor_iternext(ptr noundef %1)
-  store ptr %call1, ptr %row, align 8
-  %tobool2 = icmp ne ptr %call1, null
-  br i1 %tobool2, label %while.body, label %while.end
-
-while.body:                                       ; preds = %while.cond
-  %2 = load ptr, ptr %list, align 8
-  %3 = load ptr, ptr %row, align 8
-  %call3 = call i32 @PyList_Append(ptr noundef %2, ptr noundef %3)
-  %cmp = icmp slt i32 %call3, 0
-  br i1 %cmp, label %if.then4, label %if.end5
-
-if.then4:                                         ; preds = %while.body
-  %4 = load ptr, ptr %row, align 8
-  store ptr %4, ptr %op.addr.i21, align 8
-  %5 = load ptr, ptr %op.addr.i21, align 8
-  store ptr %5, ptr %op.addr.i30, align 8
-  %6 = load ptr, ptr %op.addr.i30, align 8
-  %7 = load i64, ptr %6, align 8
-  %conv.i = trunc i64 %7 to i32
-  %cmp.i31 = icmp slt i32 %conv.i, 0
-  %conv1.i = zext i1 %cmp.i31 to i32
-  %tobool.i23 = icmp ne i32 %conv1.i, 0
-  br i1 %tobool.i23, label %if.then.i28, label %if.end.i24
-
-if.then.i28:                                      ; preds = %if.then4
-  br label %Py_DECREF.exit29
-
-if.end.i24:                                       ; preds = %if.then4
-  %8 = load ptr, ptr %op.addr.i21, align 8
-  %9 = load i64, ptr %8, align 8
-  %dec.i25 = add i64 %9, -1
-  store i64 %dec.i25, ptr %8, align 8
-  %cmp.i26 = icmp eq i64 %dec.i25, 0
-  br i1 %cmp.i26, label %if.then1.i27, label %Py_DECREF.exit29
-
-if.then1.i27:                                     ; preds = %if.end.i24
-  %10 = load ptr, ptr %op.addr.i21, align 8
-  call void @_Py_Dealloc(ptr noundef %10) #5
-  br label %Py_DECREF.exit29
-
-Py_DECREF.exit29:                                 ; preds = %if.then1.i27, %if.end.i24, %if.then.i28
-  br label %while.end
-
-if.end5:                                          ; preds = %while.body
-  %11 = load ptr, ptr %row, align 8
-  store ptr %11, ptr %op.addr.i12, align 8
-  %12 = load ptr, ptr %op.addr.i12, align 8
-  store ptr %12, ptr %op.addr.i32, align 8
-  %13 = load ptr, ptr %op.addr.i32, align 8
-  %14 = load i64, ptr %13, align 8
-  %conv.i33 = trunc i64 %14 to i32
-  %cmp.i34 = icmp slt i32 %conv.i33, 0
-  %conv1.i35 = zext i1 %cmp.i34 to i32
-  %tobool.i14 = icmp ne i32 %conv1.i35, 0
-  br i1 %tobool.i14, label %if.then.i19, label %if.end.i15
-
-if.then.i19:                                      ; preds = %if.end5
-  br label %Py_DECREF.exit20
-
-if.end.i15:                                       ; preds = %if.end5
-  %15 = load ptr, ptr %op.addr.i12, align 8
-  %16 = load i64, ptr %15, align 8
-  %dec.i16 = add i64 %16, -1
-  store i64 %dec.i16, ptr %15, align 8
-  %cmp.i17 = icmp eq i64 %dec.i16, 0
-  br i1 %cmp.i17, label %if.then1.i18, label %Py_DECREF.exit20
-
-if.then1.i18:                                     ; preds = %if.end.i15
-  %17 = load ptr, ptr %op.addr.i12, align 8
-  call void @_Py_Dealloc(ptr noundef %17) #5
-  br label %Py_DECREF.exit20
-
-Py_DECREF.exit20:                                 ; preds = %if.then1.i18, %if.end.i15, %if.then.i19
-  %18 = load i32, ptr %counter, align 4
-  %inc = add i32 %18, 1
-  store i32 %inc, ptr %counter, align 4
-  %19 = load i32, ptr %maxrows.addr, align 4
-  %cmp6 = icmp eq i32 %inc, %19
-  br i1 %cmp6, label %if.then7, label %if.end8
-
-if.then7:                                         ; preds = %Py_DECREF.exit20
-  br label %while.end
-
-if.end8:                                          ; preds = %Py_DECREF.exit20
-  br label %while.cond, !llvm.loop !14
-
-while.end:                                        ; preds = %if.then7, %Py_DECREF.exit29, %while.cond
-  %call9 = call ptr @PyErr_Occurred()
-  %tobool10 = icmp ne ptr %call9, null
-  br i1 %tobool10, label %if.then11, label %if.else
-
-if.then11:                                        ; preds = %while.end
-  %20 = load ptr, ptr %list, align 8
-  store ptr %20, ptr %op.addr.i, align 8
-  %21 = load ptr, ptr %op.addr.i, align 8
-  store ptr %21, ptr %op.addr.i36, align 8
-  %22 = load ptr, ptr %op.addr.i36, align 8
-  %23 = load i64, ptr %22, align 8
-  %conv.i37 = trunc i64 %23 to i32
-  %cmp.i38 = icmp slt i32 %conv.i37, 0
-  %conv1.i39 = zext i1 %cmp.i38 to i32
-  %tobool.i = icmp ne i32 %conv1.i39, 0
-  br i1 %tobool.i, label %if.then.i, label %if.end.i
-
-if.then.i:                                        ; preds = %if.then11
-  br label %Py_DECREF.exit
-
-if.end.i:                                         ; preds = %if.then11
-  %24 = load ptr, ptr %op.addr.i, align 8
-  %25 = load i64, ptr %24, align 8
-  %dec.i = add i64 %25, -1
-  store i64 %dec.i, ptr %24, align 8
-  %cmp.i = icmp eq i64 %dec.i, 0
-  br i1 %cmp.i, label %if.then1.i, label %Py_DECREF.exit
-
-if.then1.i:                                       ; preds = %if.end.i
-  %26 = load ptr, ptr %op.addr.i, align 8
-  call void @_Py_Dealloc(ptr noundef %26) #5
-  br label %Py_DECREF.exit
-
-Py_DECREF.exit:                                   ; preds = %if.then1.i, %if.end.i, %if.then.i
-  store ptr null, ptr %retval, align 8
-  br label %return
-
-if.else:                                          ; preds = %while.end
-  %27 = load ptr, ptr %list, align 8
-  store ptr %27, ptr %retval, align 8
-  br label %return
-
-return:                                           ; preds = %if.else, %Py_DECREF.exit, %if.then
-  %28 = load ptr, ptr %retval, align 8
-  ret ptr %28
+define internal ptr @pysqlite_cursor_execute_impl(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !3
+  store ptr %1, ptr %5, align 8, !tbaa !9
+  store ptr %2, ptr %6, align 8, !tbaa !9
+  %7 = load ptr, ptr %4, align 8, !tbaa !3
+  %8 = load ptr, ptr %5, align 8, !tbaa !9
+  %9 = load ptr, ptr %6, align 8, !tbaa !9
+  %10 = call ptr @_pysqlite_query_execute(ptr noundef %7, i32 noundef 0, ptr noundef %8, ptr noundef %9)
+  ret ptr %10
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @pysqlite_cursor_fetchone_impl(ptr noundef %self) #0 {
-entry:
-  %retval = alloca ptr, align 8
-  %self.addr = alloca ptr, align 8
-  %row = alloca ptr, align 8
-  store ptr %self, ptr %self.addr, align 8
-  %0 = load ptr, ptr %self.addr, align 8
-  %call = call ptr @pysqlite_cursor_iternext(ptr noundef %0)
-  store ptr %call, ptr %row, align 8
-  %1 = load ptr, ptr %row, align 8
-  %tobool = icmp ne ptr %1, null
-  br i1 %tobool, label %if.end, label %land.lhs.true
+define internal ptr @pysqlite_cursor_fetchall_impl(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #8
+  %7 = call ptr @PyList_New(i64 noundef 0)
+  store ptr %7, ptr %5, align 8, !tbaa !9
+  %8 = load ptr, ptr %5, align 8, !tbaa !9
+  %9 = icmp ne ptr %8, null
+  br i1 %9, label %11, label %10
 
-land.lhs.true:                                    ; preds = %entry
-  %call1 = call ptr @PyErr_Occurred()
-  %tobool2 = icmp ne ptr %call1, null
-  br i1 %tobool2, label %if.end, label %if.then
+10:                                               ; preds = %1
+  store ptr null, ptr %2, align 8
+  store i32 1, ptr %6, align 4
+  br label %32
 
-if.then:                                          ; preds = %land.lhs.true
-  store ptr @_Py_NoneStruct, ptr %retval, align 8
-  br label %return
+11:                                               ; preds = %1
+  br label %12
 
-if.end:                                           ; preds = %land.lhs.true, %entry
-  %2 = load ptr, ptr %row, align 8
-  store ptr %2, ptr %retval, align 8
-  br label %return
+12:                                               ; preds = %23, %11
+  %13 = load ptr, ptr %3, align 8, !tbaa !3
+  %14 = call ptr @pysqlite_cursor_iternext(ptr noundef %13)
+  store ptr %14, ptr %4, align 8, !tbaa !9
+  %15 = icmp ne ptr %14, null
+  br i1 %15, label %16, label %25
 
-return:                                           ; preds = %if.end, %if.then
-  %3 = load ptr, ptr %retval, align 8
-  ret ptr %3
+16:                                               ; preds = %12
+  %17 = load ptr, ptr %5, align 8, !tbaa !9
+  %18 = load ptr, ptr %4, align 8, !tbaa !9
+  %19 = call i32 @PyList_Append(ptr noundef %17, ptr noundef %18)
+  %20 = icmp slt i32 %19, 0
+  br i1 %20, label %21, label %23
+
+21:                                               ; preds = %16
+  %22 = load ptr, ptr %4, align 8, !tbaa !9
+  call void @Py_DECREF(ptr noundef %22)
+  br label %25
+
+23:                                               ; preds = %16
+  %24 = load ptr, ptr %4, align 8, !tbaa !9
+  call void @Py_DECREF(ptr noundef %24)
+  br label %12, !llvm.loop !97
+
+25:                                               ; preds = %21, %12
+  %26 = call ptr @PyErr_Occurred()
+  %27 = icmp ne ptr %26, null
+  br i1 %27, label %28, label %30
+
+28:                                               ; preds = %25
+  %29 = load ptr, ptr %5, align 8, !tbaa !9
+  call void @Py_DECREF(ptr noundef %29)
+  store ptr null, ptr %2, align 8
+  store i32 1, ptr %6, align 4
+  br label %32
+
+30:                                               ; preds = %25
+  %31 = load ptr, ptr %5, align 8, !tbaa !9
+  store ptr %31, ptr %2, align 8
+  store i32 1, ptr %6, align 4
+  br label %32
+
+32:                                               ; preds = %30, %28, %10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #8
+  %33 = load ptr, ptr %2, align 8
+  ret ptr %33
+}
+
+declare ptr @_PyArg_UnpackKeywords(ptr noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) #2
+
+declare i32 @PyLong_AsInt(ptr noundef) #2
+
+; Function Attrs: nounwind uwtable
+define internal ptr @pysqlite_cursor_fetchmany_impl(ptr noundef %0, i32 noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !3
+  store i32 %1, ptr %5, align 4, !tbaa !7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #8
+  store i32 0, ptr %8, align 4, !tbaa !7
+  %10 = call ptr @PyList_New(i64 noundef 0)
+  store ptr %10, ptr %7, align 8, !tbaa !9
+  %11 = load ptr, ptr %7, align 8, !tbaa !9
+  %12 = icmp ne ptr %11, null
+  br i1 %12, label %14, label %13
+
+13:                                               ; preds = %2
+  store ptr null, ptr %3, align 8
+  store i32 1, ptr %9, align 4
+  br label %41
+
+14:                                               ; preds = %2
+  br label %15
+
+15:                                               ; preds = %33, %14
+  %16 = load ptr, ptr %4, align 8, !tbaa !3
+  %17 = call ptr @pysqlite_cursor_iternext(ptr noundef %16)
+  store ptr %17, ptr %6, align 8, !tbaa !9
+  %18 = icmp ne ptr %17, null
+  br i1 %18, label %19, label %34
+
+19:                                               ; preds = %15
+  %20 = load ptr, ptr %7, align 8, !tbaa !9
+  %21 = load ptr, ptr %6, align 8, !tbaa !9
+  %22 = call i32 @PyList_Append(ptr noundef %20, ptr noundef %21)
+  %23 = icmp slt i32 %22, 0
+  br i1 %23, label %24, label %26
+
+24:                                               ; preds = %19
+  %25 = load ptr, ptr %6, align 8, !tbaa !9
+  call void @Py_DECREF(ptr noundef %25)
+  br label %34
+
+26:                                               ; preds = %19
+  %27 = load ptr, ptr %6, align 8, !tbaa !9
+  call void @Py_DECREF(ptr noundef %27)
+  %28 = load i32, ptr %8, align 4, !tbaa !7
+  %29 = add i32 %28, 1
+  store i32 %29, ptr %8, align 4, !tbaa !7
+  %30 = load i32, ptr %5, align 4, !tbaa !7
+  %31 = icmp eq i32 %29, %30
+  br i1 %31, label %32, label %33
+
+32:                                               ; preds = %26
+  br label %34
+
+33:                                               ; preds = %26
+  br label %15, !llvm.loop !98
+
+34:                                               ; preds = %32, %24, %15
+  %35 = call ptr @PyErr_Occurred()
+  %36 = icmp ne ptr %35, null
+  br i1 %36, label %37, label %39
+
+37:                                               ; preds = %34
+  %38 = load ptr, ptr %7, align 8, !tbaa !9
+  call void @Py_DECREF(ptr noundef %38)
+  store ptr null, ptr %3, align 8
+  store i32 1, ptr %9, align 4
+  br label %41
+
+39:                                               ; preds = %34
+  %40 = load ptr, ptr %7, align 8, !tbaa !9
+  store ptr %40, ptr %3, align 8
+  store i32 1, ptr %9, align 4
+  br label %41
+
+41:                                               ; preds = %39, %37, %13
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #8
+  %42 = load ptr, ptr %3, align 8
+  ret ptr %42
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @pysqlite_cursor_setoutputsize_impl(ptr noundef %self, ptr noundef %size, ptr noundef %column) #0 {
-entry:
-  %self.addr = alloca ptr, align 8
-  %size.addr = alloca ptr, align 8
-  %column.addr = alloca ptr, align 8
-  store ptr %self, ptr %self.addr, align 8
-  store ptr %size, ptr %size.addr, align 8
-  store ptr %column, ptr %column.addr, align 8
+define internal ptr @pysqlite_cursor_fetchone_impl(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #8
+  %6 = load ptr, ptr %3, align 8, !tbaa !3
+  %7 = call ptr @pysqlite_cursor_iternext(ptr noundef %6)
+  store ptr %7, ptr %4, align 8, !tbaa !9
+  %8 = load ptr, ptr %4, align 8, !tbaa !9
+  %9 = icmp ne ptr %8, null
+  br i1 %9, label %14, label %10
+
+10:                                               ; preds = %1
+  %11 = call ptr @PyErr_Occurred()
+  %12 = icmp ne ptr %11, null
+  br i1 %12, label %14, label %13
+
+13:                                               ; preds = %10
+  store ptr @_Py_NoneStruct, ptr %2, align 8
+  store i32 1, ptr %5, align 4
+  br label %16
+
+14:                                               ; preds = %10, %1
+  %15 = load ptr, ptr %4, align 8, !tbaa !9
+  store ptr %15, ptr %2, align 8
+  store i32 1, ptr %5, align 4
+  br label %16
+
+16:                                               ; preds = %14, %13
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #8
+  %17 = load ptr, ptr %2, align 8
+  ret ptr %17
+}
+
+; Function Attrs: nounwind uwtable
+define internal ptr @pysqlite_cursor_setoutputsize_impl(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !3
+  store ptr %1, ptr %5, align 8, !tbaa !9
+  store ptr %2, ptr %6, align 8, !tbaa !9
   ret ptr @_Py_NoneStruct
 }
 
-declare i32 @_PyArg_NoKeywords(ptr noundef, ptr noundef) #1
+declare i32 @_PyArg_NoKeywords(ptr noundef, ptr noundef) #2
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @pysqlite_cursor_init_impl(ptr noundef %self, ptr noundef %connection) #0 {
-entry:
-  %op.addr.i73 = alloca ptr, align 8
-  %op.addr.i71 = alloca ptr, align 8
-  %op.addr.i62 = alloca ptr, align 8
-  %op.addr.i58 = alloca ptr, align 8
-  %op.addr.i50 = alloca ptr, align 8
-  %cur_refcnt.i51 = alloca i32, align 4
-  %new_refcnt.i52 = alloca i32, align 4
-  %op.addr.i42 = alloca ptr, align 8
-  %cur_refcnt.i43 = alloca i32, align 4
-  %new_refcnt.i44 = alloca i32, align 4
-  %op.addr.i34 = alloca ptr, align 8
-  %cur_refcnt.i35 = alloca i32, align 4
-  %new_refcnt.i36 = alloca i32, align 4
-  %op.addr.i = alloca ptr, align 8
-  %cur_refcnt.i = alloca i32, align 4
-  %new_refcnt.i = alloca i32, align 4
-  %retval = alloca i32, align 4
-  %self.addr = alloca ptr, align 8
-  %connection.addr = alloca ptr, align 8
-  %_tmp_dst_ptr = alloca ptr, align 8
-  %_tmp_old_dst = alloca ptr, align 8
-  %_tmp_op_ptr = alloca ptr, align 8
-  %_tmp_old_op = alloca ptr, align 8
-  %_tmp_op_ptr7 = alloca ptr, align 8
-  %_tmp_old_op8 = alloca ptr, align 8
-  %_tmp_dst_ptr14 = alloca ptr, align 8
-  %_tmp_old_dst15 = alloca ptr, align 8
-  %_tmp_dst_ptr18 = alloca ptr, align 8
-  %_tmp_old_dst19 = alloca ptr, align 8
-  %_tmp_dst_ptr22 = alloca ptr, align 8
-  %_tmp_old_dst23 = alloca ptr, align 8
-  store ptr %self, ptr %self.addr, align 8
-  store ptr %connection, ptr %connection.addr, align 8
-  %0 = load ptr, ptr %self.addr, align 8
-  %call = call i32 @check_cursor_locked(ptr noundef %0)
-  %tobool = icmp ne i32 %call, 0
-  br i1 %tobool, label %if.end, label %if.then
+define internal i32 @pysqlite_cursor_init_impl(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca i32, align 4
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca ptr, align 8
+  %14 = alloca ptr, align 8
+  %15 = alloca ptr, align 8
+  %16 = alloca ptr, align 8
+  %17 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !3
+  store ptr %1, ptr %5, align 8, !tbaa !3
+  %18 = load ptr, ptr %4, align 8, !tbaa !3
+  %19 = call i32 @check_cursor_locked(ptr noundef %18)
+  %20 = icmp ne i32 %19, 0
+  br i1 %20, label %22, label %21
 
-if.then:                                          ; preds = %entry
-  store i32 -1, ptr %retval, align 4
-  br label %return
+21:                                               ; preds = %2
+  store i32 -1, ptr %3, align 4
+  br label %102
 
-if.end:                                           ; preds = %entry
-  %1 = load ptr, ptr %connection.addr, align 8
-  store ptr %1, ptr %op.addr.i50, align 8
-  %2 = load ptr, ptr %op.addr.i50, align 8
-  %3 = load i32, ptr %2, align 8
-  store i32 %3, ptr %cur_refcnt.i51, align 4
-  %4 = load i32, ptr %cur_refcnt.i51, align 4
-  %add.i53 = add i32 %4, 1
-  store i32 %add.i53, ptr %new_refcnt.i52, align 4
-  %5 = load i32, ptr %new_refcnt.i52, align 4
-  %cmp.i54 = icmp eq i32 %5, 0
-  br i1 %cmp.i54, label %if.then.i56, label %if.end.i55
+22:                                               ; preds = %2
+  %23 = load ptr, ptr %5, align 8, !tbaa !3
+  call void @Py_INCREF(ptr noundef %23)
+  br label %24
 
-if.then.i56:                                      ; preds = %if.end
-  br label %Py_INCREF.exit57
+24:                                               ; preds = %22
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #8
+  %25 = load ptr, ptr %4, align 8, !tbaa !3
+  %26 = getelementptr inbounds nuw %struct.pysqlite_Cursor, ptr %25, i32 0, i32 1
+  store ptr %26, ptr %6, align 8, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #8
+  %27 = load ptr, ptr %6, align 8, !tbaa !3
+  %28 = load ptr, ptr %27, align 8, !tbaa !3
+  store ptr %28, ptr %7, align 8, !tbaa !3
+  %29 = load ptr, ptr %5, align 8, !tbaa !3
+  %30 = load ptr, ptr %6, align 8, !tbaa !3
+  store ptr %29, ptr %30, align 8, !tbaa !3
+  %31 = load ptr, ptr %7, align 8, !tbaa !3
+  call void @Py_XDECREF(ptr noundef %31)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #8
+  br label %32
 
-if.end.i55:                                       ; preds = %if.end
-  %6 = load i32, ptr %new_refcnt.i52, align 4
-  %7 = load ptr, ptr %op.addr.i50, align 8
-  store i32 %6, ptr %7, align 8
-  br label %Py_INCREF.exit57
+32:                                               ; preds = %24
+  br label %33
 
-Py_INCREF.exit57:                                 ; preds = %if.end.i55, %if.then.i56
-  br label %do.body
+33:                                               ; preds = %32
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #8
+  %34 = load ptr, ptr %4, align 8, !tbaa !3
+  %35 = getelementptr inbounds nuw %struct.pysqlite_Cursor, ptr %34, i32 0, i32 8
+  store ptr %35, ptr %8, align 8, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #8
+  %36 = load ptr, ptr %8, align 8, !tbaa !3
+  %37 = load ptr, ptr %36, align 8, !tbaa !3
+  store ptr %37, ptr %9, align 8, !tbaa !3
+  %38 = load ptr, ptr %9, align 8, !tbaa !3
+  %39 = icmp ne ptr %38, null
+  br i1 %39, label %40, label %43
 
-do.body:                                          ; preds = %Py_INCREF.exit57
-  %8 = load ptr, ptr %self.addr, align 8
-  %connection1 = getelementptr inbounds %struct.pysqlite_Cursor, ptr %8, i32 0, i32 1
-  store ptr %connection1, ptr %_tmp_dst_ptr, align 8
-  %9 = load ptr, ptr %_tmp_dst_ptr, align 8
-  %10 = load ptr, ptr %9, align 8
-  store ptr %10, ptr %_tmp_old_dst, align 8
-  %11 = load ptr, ptr %connection.addr, align 8
-  %12 = load ptr, ptr %_tmp_dst_ptr, align 8
-  store ptr %11, ptr %12, align 8
-  %13 = load ptr, ptr %_tmp_old_dst, align 8
-  call void @Py_XDECREF(ptr noundef %13)
-  br label %do.end
+40:                                               ; preds = %33
+  %41 = load ptr, ptr %8, align 8, !tbaa !3
+  store ptr null, ptr %41, align 8, !tbaa !3
+  %42 = load ptr, ptr %9, align 8, !tbaa !3
+  call void @Py_DECREF(ptr noundef %42)
+  br label %43
 
-do.end:                                           ; preds = %do.body
-  br label %do.body2
+43:                                               ; preds = %40, %33
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #8
+  br label %44
 
-do.body2:                                         ; preds = %do.end
-  %14 = load ptr, ptr %self.addr, align 8
-  %statement = getelementptr inbounds %struct.pysqlite_Cursor, ptr %14, i32 0, i32 8
-  store ptr %statement, ptr %_tmp_op_ptr, align 8
-  %15 = load ptr, ptr %_tmp_op_ptr, align 8
-  %16 = load ptr, ptr %15, align 8
-  store ptr %16, ptr %_tmp_old_op, align 8
-  %17 = load ptr, ptr %_tmp_old_op, align 8
-  %cmp = icmp ne ptr %17, null
-  br i1 %cmp, label %if.then3, label %if.end4
+44:                                               ; preds = %43
+  br label %45
 
-if.then3:                                         ; preds = %do.body2
-  %18 = load ptr, ptr %_tmp_op_ptr, align 8
-  store ptr null, ptr %18, align 8
-  %19 = load ptr, ptr %_tmp_old_op, align 8
-  store ptr %19, ptr %op.addr.i62, align 8
-  %20 = load ptr, ptr %op.addr.i62, align 8
-  store ptr %20, ptr %op.addr.i71, align 8
-  %21 = load ptr, ptr %op.addr.i71, align 8
-  %22 = load i64, ptr %21, align 8
-  %conv.i = trunc i64 %22 to i32
-  %cmp.i72 = icmp slt i32 %conv.i, 0
-  %conv1.i = zext i1 %cmp.i72 to i32
-  %tobool.i64 = icmp ne i32 %conv1.i, 0
-  br i1 %tobool.i64, label %if.then.i69, label %if.end.i65
+45:                                               ; preds = %44
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #8
+  %46 = load ptr, ptr %4, align 8, !tbaa !3
+  %47 = getelementptr inbounds nuw %struct.pysqlite_Cursor, ptr %46, i32 0, i32 3
+  store ptr %47, ptr %10, align 8, !tbaa !16
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #8
+  %48 = load ptr, ptr %10, align 8, !tbaa !16
+  %49 = load ptr, ptr %48, align 8, !tbaa !9
+  store ptr %49, ptr %11, align 8, !tbaa !9
+  %50 = load ptr, ptr %11, align 8, !tbaa !9
+  %51 = icmp ne ptr %50, null
+  br i1 %51, label %52, label %55
 
-if.then.i69:                                      ; preds = %if.then3
-  br label %Py_DECREF.exit70
+52:                                               ; preds = %45
+  %53 = load ptr, ptr %10, align 8, !tbaa !16
+  store ptr null, ptr %53, align 8, !tbaa !9
+  %54 = load ptr, ptr %11, align 8, !tbaa !9
+  call void @Py_DECREF(ptr noundef %54)
+  br label %55
 
-if.end.i65:                                       ; preds = %if.then3
-  %23 = load ptr, ptr %op.addr.i62, align 8
-  %24 = load i64, ptr %23, align 8
-  %dec.i66 = add i64 %24, -1
-  store i64 %dec.i66, ptr %23, align 8
-  %cmp.i67 = icmp eq i64 %dec.i66, 0
-  br i1 %cmp.i67, label %if.then1.i68, label %Py_DECREF.exit70
+55:                                               ; preds = %52, %45
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #8
+  br label %56
 
-if.then1.i68:                                     ; preds = %if.end.i65
-  %25 = load ptr, ptr %op.addr.i62, align 8
-  call void @_Py_Dealloc(ptr noundef %25) #5
-  br label %Py_DECREF.exit70
+56:                                               ; preds = %55
+  call void @Py_INCREF(ptr noundef @_Py_NoneStruct)
+  br label %57
 
-Py_DECREF.exit70:                                 ; preds = %if.then1.i68, %if.end.i65, %if.then.i69
-  br label %if.end4
+57:                                               ; preds = %56
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #8
+  %58 = load ptr, ptr %4, align 8, !tbaa !3
+  %59 = getelementptr inbounds nuw %struct.pysqlite_Cursor, ptr %58, i32 0, i32 2
+  store ptr %59, ptr %12, align 8, !tbaa !16
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #8
+  %60 = load ptr, ptr %12, align 8, !tbaa !16
+  %61 = load ptr, ptr %60, align 8, !tbaa !9
+  store ptr %61, ptr %13, align 8, !tbaa !9
+  %62 = load ptr, ptr %12, align 8, !tbaa !16
+  store ptr @_Py_NoneStruct, ptr %62, align 8, !tbaa !9
+  %63 = load ptr, ptr %13, align 8, !tbaa !9
+  call void @Py_XDECREF(ptr noundef %63)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #8
+  br label %64
 
-if.end4:                                          ; preds = %Py_DECREF.exit70, %do.body2
-  br label %do.end5
+64:                                               ; preds = %57
+  call void @Py_INCREF(ptr noundef @_Py_NoneStruct)
+  br label %65
 
-do.end5:                                          ; preds = %if.end4
-  br label %do.body6
+65:                                               ; preds = %64
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #8
+  %66 = load ptr, ptr %4, align 8, !tbaa !3
+  %67 = getelementptr inbounds nuw %struct.pysqlite_Cursor, ptr %66, i32 0, i32 5
+  store ptr %67, ptr %14, align 8, !tbaa !16
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #8
+  %68 = load ptr, ptr %14, align 8, !tbaa !16
+  %69 = load ptr, ptr %68, align 8, !tbaa !9
+  store ptr %69, ptr %15, align 8, !tbaa !9
+  %70 = load ptr, ptr %14, align 8, !tbaa !16
+  store ptr @_Py_NoneStruct, ptr %70, align 8, !tbaa !9
+  %71 = load ptr, ptr %15, align 8, !tbaa !9
+  call void @Py_XDECREF(ptr noundef %71)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #8
+  br label %72
 
-do.body6:                                         ; preds = %do.end5
-  %26 = load ptr, ptr %self.addr, align 8
-  %row_cast_map = getelementptr inbounds %struct.pysqlite_Cursor, ptr %26, i32 0, i32 3
-  store ptr %row_cast_map, ptr %_tmp_op_ptr7, align 8
-  %27 = load ptr, ptr %_tmp_op_ptr7, align 8
-  %28 = load ptr, ptr %27, align 8
-  store ptr %28, ptr %_tmp_old_op8, align 8
-  %29 = load ptr, ptr %_tmp_old_op8, align 8
-  %cmp9 = icmp ne ptr %29, null
-  br i1 %cmp9, label %if.then10, label %if.end11
+72:                                               ; preds = %65
+  %73 = load ptr, ptr %4, align 8, !tbaa !3
+  %74 = getelementptr inbounds nuw %struct.pysqlite_Cursor, ptr %73, i32 0, i32 4
+  store i32 1, ptr %74, align 8, !tbaa !94
+  %75 = load ptr, ptr %4, align 8, !tbaa !3
+  %76 = getelementptr inbounds nuw %struct.pysqlite_Cursor, ptr %75, i32 0, i32 9
+  store i32 0, ptr %76, align 8, !tbaa !46
+  %77 = load ptr, ptr %4, align 8, !tbaa !3
+  %78 = getelementptr inbounds nuw %struct.pysqlite_Cursor, ptr %77, i32 0, i32 6
+  store i64 -1, ptr %78, align 8, !tbaa !31
+  call void @Py_INCREF(ptr noundef @_Py_NoneStruct)
+  br label %79
 
-if.then10:                                        ; preds = %do.body6
-  %30 = load ptr, ptr %_tmp_op_ptr7, align 8
-  store ptr null, ptr %30, align 8
-  %31 = load ptr, ptr %_tmp_old_op8, align 8
-  store ptr %31, ptr %op.addr.i58, align 8
-  %32 = load ptr, ptr %op.addr.i58, align 8
-  store ptr %32, ptr %op.addr.i73, align 8
-  %33 = load ptr, ptr %op.addr.i73, align 8
-  %34 = load i64, ptr %33, align 8
-  %conv.i74 = trunc i64 %34 to i32
-  %cmp.i75 = icmp slt i32 %conv.i74, 0
-  %conv1.i76 = zext i1 %cmp.i75 to i32
-  %tobool.i = icmp ne i32 %conv1.i76, 0
-  br i1 %tobool.i, label %if.then.i61, label %if.end.i59
+79:                                               ; preds = %72
+  call void @llvm.lifetime.start.p0(i64 8, ptr %16) #8
+  %80 = load ptr, ptr %4, align 8, !tbaa !3
+  %81 = getelementptr inbounds nuw %struct.pysqlite_Cursor, ptr %80, i32 0, i32 7
+  store ptr %81, ptr %16, align 8, !tbaa !16
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #8
+  %82 = load ptr, ptr %16, align 8, !tbaa !16
+  %83 = load ptr, ptr %82, align 8, !tbaa !9
+  store ptr %83, ptr %17, align 8, !tbaa !9
+  %84 = load ptr, ptr %16, align 8, !tbaa !16
+  store ptr @_Py_NoneStruct, ptr %84, align 8, !tbaa !9
+  %85 = load ptr, ptr %17, align 8, !tbaa !9
+  call void @Py_XDECREF(ptr noundef %85)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #8
+  br label %86
 
-if.then.i61:                                      ; preds = %if.then10
-  br label %Py_DECREF.exit
+86:                                               ; preds = %79
+  %87 = load ptr, ptr %4, align 8, !tbaa !3
+  %88 = getelementptr inbounds nuw %struct.pysqlite_Cursor, ptr %87, i32 0, i32 1
+  %89 = load ptr, ptr %88, align 8, !tbaa !19
+  %90 = call i32 @pysqlite_check_thread(ptr noundef %89)
+  %91 = icmp ne i32 %90, 0
+  br i1 %91, label %93, label %92
 
-if.end.i59:                                       ; preds = %if.then10
-  %35 = load ptr, ptr %op.addr.i58, align 8
-  %36 = load i64, ptr %35, align 8
-  %dec.i = add i64 %36, -1
-  store i64 %dec.i, ptr %35, align 8
-  %cmp.i60 = icmp eq i64 %dec.i, 0
-  br i1 %cmp.i60, label %if.then1.i, label %Py_DECREF.exit
+92:                                               ; preds = %86
+  store i32 -1, ptr %3, align 4
+  br label %102
 
-if.then1.i:                                       ; preds = %if.end.i59
-  %37 = load ptr, ptr %op.addr.i58, align 8
-  call void @_Py_Dealloc(ptr noundef %37) #5
-  br label %Py_DECREF.exit
+93:                                               ; preds = %86
+  %94 = load ptr, ptr %5, align 8, !tbaa !3
+  %95 = load ptr, ptr %4, align 8, !tbaa !3
+  %96 = call i32 @register_cursor(ptr noundef %94, ptr noundef %95)
+  %97 = icmp ne i32 %96, 0
+  br i1 %97, label %99, label %98
 
-Py_DECREF.exit:                                   ; preds = %if.then1.i, %if.end.i59, %if.then.i61
-  br label %if.end11
+98:                                               ; preds = %93
+  store i32 -1, ptr %3, align 4
+  br label %102
 
-if.end11:                                         ; preds = %Py_DECREF.exit, %do.body6
-  br label %do.end12
+99:                                               ; preds = %93
+  %100 = load ptr, ptr %4, align 8, !tbaa !3
+  %101 = getelementptr inbounds nuw %struct.pysqlite_Cursor, ptr %100, i32 0, i32 11
+  store i32 1, ptr %101, align 8, !tbaa !45
+  store i32 0, ptr %3, align 4
+  br label %102
 
-do.end12:                                         ; preds = %if.end11
-  store ptr @_Py_NoneStruct, ptr %op.addr.i42, align 8
-  %38 = load ptr, ptr %op.addr.i42, align 8
-  %39 = load i32, ptr %38, align 8
-  store i32 %39, ptr %cur_refcnt.i43, align 4
-  %40 = load i32, ptr %cur_refcnt.i43, align 4
-  %add.i45 = add i32 %40, 1
-  store i32 %add.i45, ptr %new_refcnt.i44, align 4
-  %41 = load i32, ptr %new_refcnt.i44, align 4
-  %cmp.i46 = icmp eq i32 %41, 0
-  br i1 %cmp.i46, label %if.then.i48, label %if.end.i47
-
-if.then.i48:                                      ; preds = %do.end12
-  br label %Py_INCREF.exit49
-
-if.end.i47:                                       ; preds = %do.end12
-  %42 = load i32, ptr %new_refcnt.i44, align 4
-  %43 = load ptr, ptr %op.addr.i42, align 8
-  store i32 %42, ptr %43, align 8
-  br label %Py_INCREF.exit49
-
-Py_INCREF.exit49:                                 ; preds = %if.end.i47, %if.then.i48
-  br label %do.body13
-
-do.body13:                                        ; preds = %Py_INCREF.exit49
-  %44 = load ptr, ptr %self.addr, align 8
-  %description = getelementptr inbounds %struct.pysqlite_Cursor, ptr %44, i32 0, i32 2
-  store ptr %description, ptr %_tmp_dst_ptr14, align 8
-  %45 = load ptr, ptr %_tmp_dst_ptr14, align 8
-  %46 = load ptr, ptr %45, align 8
-  store ptr %46, ptr %_tmp_old_dst15, align 8
-  %47 = load ptr, ptr %_tmp_dst_ptr14, align 8
-  store ptr @_Py_NoneStruct, ptr %47, align 8
-  %48 = load ptr, ptr %_tmp_old_dst15, align 8
-  call void @Py_XDECREF(ptr noundef %48)
-  br label %do.end16
-
-do.end16:                                         ; preds = %do.body13
-  store ptr @_Py_NoneStruct, ptr %op.addr.i34, align 8
-  %49 = load ptr, ptr %op.addr.i34, align 8
-  %50 = load i32, ptr %49, align 8
-  store i32 %50, ptr %cur_refcnt.i35, align 4
-  %51 = load i32, ptr %cur_refcnt.i35, align 4
-  %add.i37 = add i32 %51, 1
-  store i32 %add.i37, ptr %new_refcnt.i36, align 4
-  %52 = load i32, ptr %new_refcnt.i36, align 4
-  %cmp.i38 = icmp eq i32 %52, 0
-  br i1 %cmp.i38, label %if.then.i40, label %if.end.i39
-
-if.then.i40:                                      ; preds = %do.end16
-  br label %Py_INCREF.exit41
-
-if.end.i39:                                       ; preds = %do.end16
-  %53 = load i32, ptr %new_refcnt.i36, align 4
-  %54 = load ptr, ptr %op.addr.i34, align 8
-  store i32 %53, ptr %54, align 8
-  br label %Py_INCREF.exit41
-
-Py_INCREF.exit41:                                 ; preds = %if.end.i39, %if.then.i40
-  br label %do.body17
-
-do.body17:                                        ; preds = %Py_INCREF.exit41
-  %55 = load ptr, ptr %self.addr, align 8
-  %lastrowid = getelementptr inbounds %struct.pysqlite_Cursor, ptr %55, i32 0, i32 5
-  store ptr %lastrowid, ptr %_tmp_dst_ptr18, align 8
-  %56 = load ptr, ptr %_tmp_dst_ptr18, align 8
-  %57 = load ptr, ptr %56, align 8
-  store ptr %57, ptr %_tmp_old_dst19, align 8
-  %58 = load ptr, ptr %_tmp_dst_ptr18, align 8
-  store ptr @_Py_NoneStruct, ptr %58, align 8
-  %59 = load ptr, ptr %_tmp_old_dst19, align 8
-  call void @Py_XDECREF(ptr noundef %59)
-  br label %do.end20
-
-do.end20:                                         ; preds = %do.body17
-  %60 = load ptr, ptr %self.addr, align 8
-  %arraysize = getelementptr inbounds %struct.pysqlite_Cursor, ptr %60, i32 0, i32 4
-  store i32 1, ptr %arraysize, align 8
-  %61 = load ptr, ptr %self.addr, align 8
-  %closed = getelementptr inbounds %struct.pysqlite_Cursor, ptr %61, i32 0, i32 9
-  store i32 0, ptr %closed, align 8
-  %62 = load ptr, ptr %self.addr, align 8
-  %rowcount = getelementptr inbounds %struct.pysqlite_Cursor, ptr %62, i32 0, i32 6
-  store i64 -1, ptr %rowcount, align 8
-  store ptr @_Py_NoneStruct, ptr %op.addr.i, align 8
-  %63 = load ptr, ptr %op.addr.i, align 8
-  %64 = load i32, ptr %63, align 8
-  store i32 %64, ptr %cur_refcnt.i, align 4
-  %65 = load i32, ptr %cur_refcnt.i, align 4
-  %add.i = add i32 %65, 1
-  store i32 %add.i, ptr %new_refcnt.i, align 4
-  %66 = load i32, ptr %new_refcnt.i, align 4
-  %cmp.i = icmp eq i32 %66, 0
-  br i1 %cmp.i, label %if.then.i, label %if.end.i
-
-if.then.i:                                        ; preds = %do.end20
-  br label %Py_INCREF.exit
-
-if.end.i:                                         ; preds = %do.end20
-  %67 = load i32, ptr %new_refcnt.i, align 4
-  %68 = load ptr, ptr %op.addr.i, align 8
-  store i32 %67, ptr %68, align 8
-  br label %Py_INCREF.exit
-
-Py_INCREF.exit:                                   ; preds = %if.end.i, %if.then.i
-  br label %do.body21
-
-do.body21:                                        ; preds = %Py_INCREF.exit
-  %69 = load ptr, ptr %self.addr, align 8
-  %row_factory = getelementptr inbounds %struct.pysqlite_Cursor, ptr %69, i32 0, i32 7
-  store ptr %row_factory, ptr %_tmp_dst_ptr22, align 8
-  %70 = load ptr, ptr %_tmp_dst_ptr22, align 8
-  %71 = load ptr, ptr %70, align 8
-  store ptr %71, ptr %_tmp_old_dst23, align 8
-  %72 = load ptr, ptr %_tmp_dst_ptr22, align 8
-  store ptr @_Py_NoneStruct, ptr %72, align 8
-  %73 = load ptr, ptr %_tmp_old_dst23, align 8
-  call void @Py_XDECREF(ptr noundef %73)
-  br label %do.end24
-
-do.end24:                                         ; preds = %do.body21
-  %74 = load ptr, ptr %self.addr, align 8
-  %connection25 = getelementptr inbounds %struct.pysqlite_Cursor, ptr %74, i32 0, i32 1
-  %75 = load ptr, ptr %connection25, align 8
-  %call26 = call i32 @pysqlite_check_thread(ptr noundef %75)
-  %tobool27 = icmp ne i32 %call26, 0
-  br i1 %tobool27, label %if.end29, label %if.then28
-
-if.then28:                                        ; preds = %do.end24
-  store i32 -1, ptr %retval, align 4
-  br label %return
-
-if.end29:                                         ; preds = %do.end24
-  %76 = load ptr, ptr %connection.addr, align 8
-  %77 = load ptr, ptr %self.addr, align 8
-  %call30 = call i32 @register_cursor(ptr noundef %76, ptr noundef %77)
-  %tobool31 = icmp ne i32 %call30, 0
-  br i1 %tobool31, label %if.end33, label %if.then32
-
-if.then32:                                        ; preds = %if.end29
-  store i32 -1, ptr %retval, align 4
-  br label %return
-
-if.end33:                                         ; preds = %if.end29
-  %78 = load ptr, ptr %self.addr, align 8
-  %initialized = getelementptr inbounds %struct.pysqlite_Cursor, ptr %78, i32 0, i32 11
-  store i32 1, ptr %initialized, align 8
-  store i32 0, ptr %retval, align 4
-  br label %return
-
-return:                                           ; preds = %if.end33, %if.then32, %if.then28, %if.then
-  %79 = load i32, ptr %retval, align 4
-  ret i32 %79
+102:                                              ; preds = %99, %98, %92, %21
+  %103 = load i32, ptr %3, align 4
+  ret i32 %103
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @register_cursor(ptr noundef %connection, ptr noundef %cursor) #0 {
-entry:
-  %op.addr.i19 = alloca ptr, align 8
-  %op.addr.i17 = alloca ptr, align 8
-  %op.addr.i8 = alloca ptr, align 8
-  %op.addr.i = alloca ptr, align 8
-  %retval = alloca i32, align 4
-  %connection.addr = alloca ptr, align 8
-  %cursor.addr = alloca ptr, align 8
-  %weakref = alloca ptr, align 8
-  %_tmp_op_ptr = alloca ptr, align 8
-  %_tmp_old_op = alloca ptr, align 8
-  store ptr %connection, ptr %connection.addr, align 8
-  store ptr %cursor, ptr %cursor.addr, align 8
-  %0 = load ptr, ptr %cursor.addr, align 8
-  %call = call ptr @PyWeakref_NewRef(ptr noundef %0, ptr noundef null)
-  store ptr %call, ptr %weakref, align 8
-  %1 = load ptr, ptr %weakref, align 8
-  %cmp = icmp eq ptr %1, null
-  br i1 %cmp, label %if.then, label %if.end
+define internal i32 @register_cursor(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca i32, align 4
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i32, align 4
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !3
+  store ptr %1, ptr %5, align 8, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #8
+  %10 = load ptr, ptr %5, align 8, !tbaa !9
+  %11 = call ptr @PyWeakref_NewRef(ptr noundef %10, ptr noundef null)
+  store ptr %11, ptr %6, align 8, !tbaa !9
+  %12 = load ptr, ptr %6, align 8, !tbaa !9
+  %13 = icmp eq ptr %12, null
+  br i1 %13, label %14, label %15
 
-if.then:                                          ; preds = %entry
-  store i32 0, ptr %retval, align 4
-  br label %return
+14:                                               ; preds = %2
+  store i32 0, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %36
 
-if.end:                                           ; preds = %entry
-  %2 = load ptr, ptr %connection.addr, align 8
-  %cursors = getelementptr inbounds %struct.pysqlite_Connection, ptr %2, i32 0, i32 10
-  %3 = load ptr, ptr %cursors, align 8
-  %4 = load ptr, ptr %weakref, align 8
-  %call1 = call i32 @PyList_Append(ptr noundef %3, ptr noundef %4)
-  %cmp2 = icmp slt i32 %call1, 0
-  br i1 %cmp2, label %if.then3, label %if.end7
+15:                                               ; preds = %2
+  %16 = load ptr, ptr %4, align 8, !tbaa !3
+  %17 = getelementptr inbounds nuw %struct.pysqlite_Connection, ptr %16, i32 0, i32 10
+  %18 = load ptr, ptr %17, align 8, !tbaa !99
+  %19 = load ptr, ptr %6, align 8, !tbaa !9
+  %20 = call i32 @PyList_Append(ptr noundef %18, ptr noundef %19)
+  %21 = icmp slt i32 %20, 0
+  br i1 %21, label %22, label %34
 
-if.then3:                                         ; preds = %if.end
-  br label %do.body
+22:                                               ; preds = %15
+  br label %23
 
-do.body:                                          ; preds = %if.then3
-  store ptr %weakref, ptr %_tmp_op_ptr, align 8
-  %5 = load ptr, ptr %_tmp_op_ptr, align 8
-  %6 = load ptr, ptr %5, align 8
-  store ptr %6, ptr %_tmp_old_op, align 8
-  %7 = load ptr, ptr %_tmp_old_op, align 8
-  %cmp4 = icmp ne ptr %7, null
-  br i1 %cmp4, label %if.then5, label %if.end6
+23:                                               ; preds = %22
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #8
+  store ptr %6, ptr %8, align 8, !tbaa !16
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #8
+  %24 = load ptr, ptr %8, align 8, !tbaa !16
+  %25 = load ptr, ptr %24, align 8, !tbaa !9
+  store ptr %25, ptr %9, align 8, !tbaa !9
+  %26 = load ptr, ptr %9, align 8, !tbaa !9
+  %27 = icmp ne ptr %26, null
+  br i1 %27, label %28, label %31
 
-if.then5:                                         ; preds = %do.body
-  %8 = load ptr, ptr %_tmp_op_ptr, align 8
-  store ptr null, ptr %8, align 8
-  %9 = load ptr, ptr %_tmp_old_op, align 8
-  store ptr %9, ptr %op.addr.i8, align 8
-  %10 = load ptr, ptr %op.addr.i8, align 8
-  store ptr %10, ptr %op.addr.i17, align 8
-  %11 = load ptr, ptr %op.addr.i17, align 8
-  %12 = load i64, ptr %11, align 8
-  %conv.i = trunc i64 %12 to i32
-  %cmp.i18 = icmp slt i32 %conv.i, 0
-  %conv1.i = zext i1 %cmp.i18 to i32
-  %tobool.i10 = icmp ne i32 %conv1.i, 0
-  br i1 %tobool.i10, label %if.then.i15, label %if.end.i11
+28:                                               ; preds = %23
+  %29 = load ptr, ptr %8, align 8, !tbaa !16
+  store ptr null, ptr %29, align 8, !tbaa !9
+  %30 = load ptr, ptr %9, align 8, !tbaa !9
+  call void @Py_DECREF(ptr noundef %30)
+  br label %31
 
-if.then.i15:                                      ; preds = %if.then5
-  br label %Py_DECREF.exit16
+31:                                               ; preds = %28, %23
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #8
+  br label %32
 
-if.end.i11:                                       ; preds = %if.then5
-  %13 = load ptr, ptr %op.addr.i8, align 8
-  %14 = load i64, ptr %13, align 8
-  %dec.i12 = add i64 %14, -1
-  store i64 %dec.i12, ptr %13, align 8
-  %cmp.i13 = icmp eq i64 %dec.i12, 0
-  br i1 %cmp.i13, label %if.then1.i14, label %Py_DECREF.exit16
+32:                                               ; preds = %31
+  br label %33
 
-if.then1.i14:                                     ; preds = %if.end.i11
-  %15 = load ptr, ptr %op.addr.i8, align 8
-  call void @_Py_Dealloc(ptr noundef %15) #5
-  br label %Py_DECREF.exit16
+33:                                               ; preds = %32
+  store i32 0, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %36
 
-Py_DECREF.exit16:                                 ; preds = %if.then1.i14, %if.end.i11, %if.then.i15
-  br label %if.end6
+34:                                               ; preds = %15
+  %35 = load ptr, ptr %6, align 8, !tbaa !9
+  call void @Py_DECREF(ptr noundef %35)
+  store i32 1, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %36
 
-if.end6:                                          ; preds = %Py_DECREF.exit16, %do.body
-  br label %do.end
-
-do.end:                                           ; preds = %if.end6
-  store i32 0, ptr %retval, align 4
-  br label %return
-
-if.end7:                                          ; preds = %if.end
-  %16 = load ptr, ptr %weakref, align 8
-  store ptr %16, ptr %op.addr.i, align 8
-  %17 = load ptr, ptr %op.addr.i, align 8
-  store ptr %17, ptr %op.addr.i19, align 8
-  %18 = load ptr, ptr %op.addr.i19, align 8
-  %19 = load i64, ptr %18, align 8
-  %conv.i20 = trunc i64 %19 to i32
-  %cmp.i21 = icmp slt i32 %conv.i20, 0
-  %conv1.i22 = zext i1 %cmp.i21 to i32
-  %tobool.i = icmp ne i32 %conv1.i22, 0
-  br i1 %tobool.i, label %if.then.i, label %if.end.i
-
-if.then.i:                                        ; preds = %if.end7
-  br label %Py_DECREF.exit
-
-if.end.i:                                         ; preds = %if.end7
-  %20 = load ptr, ptr %op.addr.i, align 8
-  %21 = load i64, ptr %20, align 8
-  %dec.i = add i64 %21, -1
-  store i64 %dec.i, ptr %20, align 8
-  %cmp.i = icmp eq i64 %dec.i, 0
-  br i1 %cmp.i, label %if.then1.i, label %Py_DECREF.exit
-
-if.then1.i:                                       ; preds = %if.end.i
-  %22 = load ptr, ptr %op.addr.i, align 8
-  call void @_Py_Dealloc(ptr noundef %22) #5
-  br label %Py_DECREF.exit
-
-Py_DECREF.exit:                                   ; preds = %if.then1.i, %if.end.i, %if.then.i
-  store i32 1, ptr %retval, align 4
-  br label %return
-
-return:                                           ; preds = %Py_DECREF.exit, %do.end, %if.then
-  %23 = load i32, ptr %retval, align 4
-  ret i32 %23
+36:                                               ; preds = %34, %33, %14
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #8
+  %37 = load i32, ptr %3, align 4
+  ret i32 %37
 }
 
-declare ptr @PyWeakref_NewRef(ptr noundef, ptr noundef) #1
+declare ptr @PyWeakref_NewRef(ptr noundef, ptr noundef) #2
 
-declare ptr @PyModule_GetState(ptr noundef) #1
+declare ptr @PyModule_GetState(ptr noundef) #2
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nounwind }
-attributes #6 = { nounwind willreturn memory(read) }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { inlinehint nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { alwaysinline nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #6 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nounwind willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { nounwind }
+attributes #9 = { nounwind willreturn memory(read) }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
-!9 = distinct !{!9, !5}
-!10 = distinct !{!10, !5}
-!11 = distinct !{!11, !5}
-!12 = distinct !{!12, !5}
-!13 = distinct !{!13, !5}
-!14 = distinct !{!14, !5}
+!3 = !{!4, !4, i64 0}
+!4 = !{!"any pointer", !5, i64 0}
+!5 = !{!"omnipotent char", !6, i64 0}
+!6 = !{!"Simple C/C++ TBAA"}
+!7 = !{!8, !8, i64 0}
+!8 = !{!"int", !5, i64 0}
+!9 = !{!10, !10, i64 0}
+!10 = !{!"p1 _ZTS7_object", !4, i64 0}
+!11 = !{!12, !8, i64 84}
+!12 = !{!"", !13, i64 0, !4, i64 16, !10, i64 24, !10, i64 32, !8, i64 40, !10, i64 48, !15, i64 56, !10, i64 64, !4, i64 72, !8, i64 80, !8, i64 84, !8, i64 88, !10, i64 96}
+!13 = !{!"_object", !5, i64 0, !14, i64 8}
+!14 = !{!"p1 _ZTS11_typeobject", !4, i64 0}
+!15 = !{!"long", !5, i64 0}
+!16 = !{!17, !17, i64 0}
+!17 = !{!"p2 _ZTS7_object", !4, i64 0}
+!18 = !{!12, !4, i64 72}
+!19 = !{!12, !4, i64 16}
+!20 = !{!21, !4, i64 24}
+!21 = !{!"", !13, i64 0, !22, i64 16, !4, i64 24, !8, i64 32, !23, i64 40, !8, i64 48, !8, i64 52, !8, i64 56, !15, i64 64, !10, i64 72, !10, i64 80, !10, i64 88, !8, i64 96, !10, i64 104, !10, i64 112, !24, i64 120, !24, i64 128, !24, i64 136, !10, i64 144, !10, i64 152, !10, i64 160, !10, i64 168, !10, i64 176, !10, i64 184, !10, i64 192, !10, i64 200, !10, i64 208, !10, i64 216}
+!22 = !{!"p1 _ZTS7sqlite3", !4, i64 0}
+!23 = !{!"p1 omnipotent char", !4, i64 0}
+!24 = !{!"p1 _ZTS17_callback_context", !4, i64 0}
+!25 = !{!26, !27, i64 16}
+!26 = !{!"", !13, i64 0, !27, i64 16, !8, i64 24}
+!27 = !{!"p1 _ZTS12sqlite3_stmt", !4, i64 0}
+!28 = !{!29, !10, i64 64}
+!29 = !{!"", !10, i64 0, !10, i64 8, !10, i64 16, !10, i64 24, !10, i64 32, !10, i64 40, !10, i64 48, !10, i64 56, !10, i64 64, !10, i64 72, !10, i64 80, !10, i64 88, !10, i64 96, !8, i64 104, !8, i64 108, !14, i64 112, !14, i64 120, !14, i64 128, !14, i64 136, !14, i64 144, !14, i64 152, !10, i64 160, !10, i64 168, !10, i64 176, !10, i64 184, !10, i64 192, !10, i64 200, !10, i64 208, !10, i64 216}
+!30 = !{!26, !8, i64 24}
+!31 = !{!12, !15, i64 56}
+!32 = !{!21, !8, i64 48}
+!33 = !{!21, !23, i64 40}
+!34 = !{!21, !22, i64 16}
+!35 = !{!29, !8, i64 108}
+!36 = !{!29, !10, i64 56}
+!37 = !{!38, !38, i64 0}
+!38 = !{!"p1 _ZTS3_ts", !4, i64 0}
+!39 = !{!12, !10, i64 24}
+!40 = !{!23, !23, i64 0}
+!41 = distinct !{!41, !42}
+!42 = !{!"llvm.loop.mustprogress"}
+!43 = !{!44, !44, i64 0}
+!44 = !{!"long long", !5, i64 0}
+!45 = !{!12, !8, i64 88}
+!46 = !{!12, !8, i64 80}
+!47 = !{!5, !5, i64 0}
+!48 = !{!21, !10, i64 72}
+!49 = !{!15, !15, i64 0}
+!50 = !{!27, !27, i64 0}
+!51 = !{!29, !14, i64 136}
+!52 = !{!22, !22, i64 0}
+!53 = distinct !{!53, !42}
+!54 = distinct !{!54, !42}
+!55 = !{!21, !8, i64 32}
+!56 = !{!12, !10, i64 32}
+!57 = distinct !{!57, !42}
+!58 = distinct !{!58, !42}
+!59 = distinct !{!59, !42}
+!60 = !{!29, !14, i64 128}
+!61 = !{!14, !14, i64 0}
+!62 = !{!13, !14, i64 8}
+!63 = !{!21, !10, i64 208}
+!64 = !{!65, !15, i64 168}
+!65 = !{!"_typeobject", !66, i64 0, !23, i64 24, !15, i64 32, !15, i64 40, !4, i64 48, !15, i64 56, !4, i64 64, !4, i64 72, !4, i64 80, !4, i64 88, !4, i64 96, !4, i64 104, !4, i64 112, !4, i64 120, !4, i64 128, !4, i64 136, !4, i64 144, !4, i64 152, !4, i64 160, !15, i64 168, !23, i64 176, !4, i64 184, !4, i64 192, !4, i64 200, !15, i64 208, !4, i64 216, !4, i64 224, !67, i64 232, !68, i64 240, !69, i64 248, !14, i64 256, !10, i64 264, !4, i64 272, !4, i64 280, !15, i64 288, !4, i64 296, !4, i64 304, !4, i64 312, !4, i64 320, !4, i64 328, !10, i64 336, !10, i64 344, !10, i64 352, !4, i64 360, !10, i64 368, !4, i64 376, !8, i64 384, !4, i64 392, !4, i64 400, !5, i64 408, !70, i64 410}
+!66 = !{!"", !13, i64 0, !15, i64 16}
+!67 = !{!"p1 _ZTS11PyMethodDef", !4, i64 0}
+!68 = !{!"p1 _ZTS11PyMemberDef", !4, i64 0}
+!69 = !{!"p1 _ZTS11PyGetSetDef", !4, i64 0}
+!70 = !{!"short", !5, i64 0}
+!71 = !{!29, !8, i64 104}
+!72 = !{!73, !73, i64 0}
+!73 = !{!"double", !5, i64 0}
+!74 = !{!75, !15, i64 16}
+!75 = !{!"", !4, i64 0, !10, i64 8, !15, i64 16, !15, i64 24, !8, i64 32, !8, i64 36, !23, i64 40, !76, i64 48, !76, i64 56, !76, i64 64, !4, i64 72}
+!76 = !{!"p1 long", !4, i64 0}
+!77 = !{!75, !4, i64 0}
+!78 = !{!65, !23, i64 24}
+!79 = !{!66, !15, i64 16}
+!80 = !{!29, !10, i64 208}
+!81 = !{!29, !10, i64 80}
+!82 = !{!12, !10, i64 96}
+!83 = !{!65, !4, i64 192}
+!84 = !{!65, !4, i64 320}
+!85 = !{!12, !10, i64 64}
+!86 = !{!65, !4, i64 312}
+!87 = !{!29, !14, i64 120}
+!88 = !{!12, !10, i64 48}
+!89 = !{!90, !17, i64 24}
+!90 = !{!"", !66, i64 0, !17, i64 24, !15, i64 32}
+!91 = !{!21, !10, i64 112}
+!92 = !{!21, !10, i64 184}
+!93 = distinct !{!93, !42}
+!94 = !{!12, !8, i64 40}
+!95 = !{!21, !10, i64 176}
+!96 = distinct !{!96, !42}
+!97 = distinct !{!97, !42}
+!98 = distinct !{!98, !42}
+!99 = !{!21, !10, i64 80}

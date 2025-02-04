@@ -1,535 +1,616 @@
 ; ModuleID = 'bench/cpython/original/difradix2.ll'
 source_filename = "bench/cpython/original/difradix2.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
 @mpd_moduli = external hidden local_unnamed_addr constant [0 x i64], align 8
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @fnt_dif2(ptr noundef captures(none) %a, i64 noundef %n, ptr noundef readonly captures(none) %tparams) local_unnamed_addr #0 {
-entry:
-  %wtable1 = getelementptr inbounds nuw i8, ptr %tparams, i64 24
-  %0 = load i32, ptr %tparams, align 8
-  %idxprom.i = sext i32 %0 to i64
-  %arrayidx.i = getelementptr [0 x i64], ptr @mpd_moduli, i64 0, i64 %idxprom.i
-  %1 = load i64, ptr %arrayidx.i, align 8
-  %div109 = lshr i64 %n, 1
-  %cmp297.not = icmp ult i64 %n, 2
-  br i1 %cmp297.not, label %for.end97, label %for.body
+define hidden void @fnt_dif2(ptr noundef captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #0 {
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %5 = load i32, ptr %2, align 8, !tbaa !3
+  %6 = sext i32 %5 to i64
+  %7 = getelementptr [0 x i64], ptr @mpd_moduli, i64 0, i64 %6
+  %8 = load i64, ptr %7, align 8, !tbaa !7
+  %9 = lshr i64 %1, 1
+  %.not = icmp ult i64 %1, 2
+  br i1 %.not, label %._crit_edge, label %.lr.ph
 
-for.cond24.preheader:                             ; preds = %for.body
-  %cmp25307 = icmp ugt i64 %n, 3
-  br i1 %cmp25307, label %for.body26.lr.ph, label %for.end97
+.lr.ph:                                           ; preds = %3
+  %10 = and i64 %8, 4294967296
+  %.not.i.i = icmp eq i64 %10, 0
+  %11 = and i64 %8, 17179869184
+  %.not62.i.i = icmp eq i64 %11, 0
+  br label %15
 
-for.body26.lr.ph:                                 ; preds = %for.cond24.preheader
-  %and.i188 = and i64 %1, 4294967296
-  %tobool.not.i189 = icmp eq i64 %and.i188, 0
-  %and20.i221 = and i64 %1, 17179869184
-  %tobool21.not.i222 = icmp eq i64 %and20.i221, 0
-  br label %for.body30.lr.ph
+.preheader218:                                    ; preds = %x64_mulmod2.exit
+  %12 = icmp ugt i64 %1, 3
+  br i1 %12, label %.lr.ph232, label %._crit_edge
 
-for.body:                                         ; preds = %entry, %for.body
-  %j.0298 = phi i64 [ %add22, %for.body ], [ 0, %entry ]
-  %arrayidx = getelementptr i64, ptr %wtable1, i64 %j.0298
-  %2 = load i64, ptr %arrayidx, align 8
-  %add = or disjoint i64 %j.0298, 1
-  %arrayidx2 = getelementptr i64, ptr %wtable1, i64 %add
-  %3 = load i64, ptr %arrayidx2, align 8
-  %arrayidx3 = getelementptr i64, ptr %a, i64 %j.0298
-  %4 = load i64, ptr %arrayidx3, align 8
-  %arrayidx5 = getelementptr i64, ptr %arrayidx3, i64 %div109
-  %5 = load i64, ptr %arrayidx5, align 8
-  %arrayidx7 = getelementptr i64, ptr %a, i64 %add
-  %6 = load i64, ptr %arrayidx7, align 8
-  %arrayidx10 = getelementptr i64, ptr %arrayidx7, i64 %div109
-  %7 = load i64, ptr %arrayidx10, align 8
-  %add.i = add i64 %5, %4
-  %cmp.i = icmp ult i64 %add.i, %4
-  %sub.i = select i1 %cmp.i, i64 %1, i64 0
-  %cond.i = sub i64 %add.i, %sub.i
-  %cmp1.not.i = icmp ult i64 %cond.i, %1
-  %sub3.i = select i1 %cmp1.not.i, i64 0, i64 %1
-  %cond6.i = sub i64 %cond.i, %sub3.i
-  store i64 %cond6.i, ptr %arrayidx3, align 8
-  %sub.i111 = sub i64 %4, %5
-  %cmp.i112 = icmp ult i64 %4, %5
-  %add.i113 = select i1 %cmp.i112, i64 %1, i64 0
-  %cond.i114 = add i64 %sub.i111, %add.i113
-  %add.i115 = add i64 %7, %6
-  %cmp.i116 = icmp ult i64 %add.i115, %6
-  %sub.i117 = select i1 %cmp.i116, i64 %1, i64 0
-  %cond.i118 = sub i64 %add.i115, %sub.i117
-  %cmp1.not.i119 = icmp ult i64 %cond.i118, %1
-  %sub3.i120 = select i1 %cmp1.not.i119, i64 0, i64 %1
-  %cond6.i121 = sub i64 %cond.i118, %sub3.i120
-  store i64 %cond6.i121, ptr %arrayidx7, align 8
-  %sub.i122 = sub i64 %6, %7
-  %cmp.i123 = icmp ult i64 %6, %7
-  %add.i124 = select i1 %cmp.i123, i64 %1, i64 0
-  %cond.i125 = add i64 %sub.i122, %add.i124
-  %call.i = tail call fastcc i64 @x64_mulmod(i64 noundef %cond.i114, i64 noundef %2, i64 noundef %1)
-  %call1.i = tail call fastcc i64 @x64_mulmod(i64 noundef %cond.i125, i64 noundef %3, i64 noundef %1)
-  store i64 %call.i, ptr %arrayidx5, align 8
-  store i64 %call1.i, ptr %arrayidx10, align 8
-  %add22 = add nuw i64 %j.0298, 2
-  %cmp = icmp ult i64 %add22, %div109
-  br i1 %cmp, label %for.body, label %for.cond24.preheader, !llvm.loop !4
+.lr.ph232:                                        ; preds = %.preheader218
+  %13 = and i64 %8, 4294967296
+  %.not.i.i134 = icmp eq i64 %13, 0
+  %14 = and i64 %8, 17179869184
+  %.not62.i.i169 = icmp eq i64 %14, 0
+  br label %.lr.ph221
 
-for.body30.lr.ph:                                 ; preds = %for.inc96, %for.body26.lr.ph
-  %m.0310 = phi i64 [ %div109, %for.body26.lr.ph ], [ %div27110, %for.inc96 ]
-  %wstep.0308 = phi i64 [ 2, %for.body26.lr.ph ], [ %shl, %for.inc96 ]
-  %div27110 = lshr i64 %m.0310, 1
-  %8 = getelementptr i64, ptr %a, i64 %m.0310
-  %mul = shl nuw i64 %m.0310, 1
-  br label %for.body30
+15:                                               ; preds = %.lr.ph, %x64_mulmod2.exit
+  %.0121219 = phi i64 [ 0, %.lr.ph ], [ %155, %x64_mulmod2.exit ]
+  %16 = getelementptr i64, ptr %4, i64 %.0121219
+  %17 = load i64, ptr %16, align 8, !tbaa !7
+  %18 = or disjoint i64 %.0121219, 1
+  %19 = getelementptr i64, ptr %4, i64 %18
+  %20 = load i64, ptr %19, align 8, !tbaa !7
+  %21 = getelementptr i64, ptr %0, i64 %.0121219
+  %22 = load i64, ptr %21, align 8, !tbaa !7
+  %23 = getelementptr i64, ptr %21, i64 %9
+  %24 = load i64, ptr %23, align 8, !tbaa !7
+  %25 = getelementptr i64, ptr %0, i64 %18
+  %26 = load i64, ptr %25, align 8, !tbaa !7
+  %27 = getelementptr i64, ptr %25, i64 %9
+  %28 = load i64, ptr %27, align 8, !tbaa !7
+  %29 = add i64 %24, %22
+  %30 = icmp ult i64 %29, %22
+  %31 = select i1 %30, i64 %8, i64 0
+  %32 = sub i64 %29, %31
+  %.not.i = icmp ult i64 %32, %8
+  %33 = select i1 %.not.i, i64 0, i64 %8
+  %34 = sub i64 %32, %33
+  store i64 %34, ptr %21, align 8, !tbaa !7
+  %35 = sub i64 %22, %24
+  %36 = icmp ult i64 %22, %24
+  %37 = select i1 %36, i64 %8, i64 0
+  %38 = add i64 %35, %37
+  %39 = add i64 %28, %26
+  %40 = icmp ult i64 %39, %26
+  %41 = select i1 %40, i64 %8, i64 0
+  %42 = sub i64 %39, %41
+  %.not.i129 = icmp ult i64 %42, %8
+  %43 = select i1 %.not.i129, i64 0, i64 %8
+  %44 = sub i64 %42, %43
+  store i64 %44, ptr %25, align 8, !tbaa !7
+  %45 = sub i64 %26, %28
+  %46 = icmp ult i64 %26, %28
+  %47 = select i1 %46, i64 %8, i64 0
+  %48 = add i64 %45, %47
+  %49 = zext i64 %38 to i128
+  %50 = zext i64 %17 to i128
+  %51 = mul nuw i128 %49, %50
+  %52 = lshr i128 %51, 64
+  %53 = trunc nuw i128 %52 to i64
+  %54 = trunc i128 %51 to i64
+  br i1 %.not.i.i, label %63, label %55
 
-for.cond54.preheader:                             ; preds = %for.body30
-  %cmp55305 = icmp samesign ugt i64 %m.0310, 3
-  br i1 %cmp55305, label %for.body56.us.preheader, label %for.end97
+55:                                               ; preds = %15
+  %56 = lshr i64 %53, 32
+  %57 = sub i64 %54, %53
+  %58 = icmp ugt i64 %53, %54
+  %59 = sext i1 %58 to i64
+  %spec.select.i.i = add nsw i64 %56, %59
+  %60 = shl i64 %53, 32
+  %61 = add i64 %60, %57
+  %62 = icmp ult i64 %61, %60
+  br label %x64_mulmod.exit.i
 
-for.body56.us.preheader:                          ; preds = %for.cond54.preheader
-  %9 = getelementptr i64, ptr %a, i64 %m.0310
-  %mul91 = shl nuw i64 %m.0310, 1
-  br label %for.body56.us
+63:                                               ; preds = %15
+  %64 = sub i64 %54, %53
+  %65 = icmp ugt i64 %53, %54
+  %66 = sext i1 %65 to i64
+  br i1 %.not62.i.i, label %80, label %67
 
-for.body56.us:                                    ; preds = %for.body56.us.preheader, %for.cond59.for.inc94_crit_edge.us
-  %j.1306.us = phi i64 [ %inc.us, %for.cond59.for.inc94_crit_edge.us ], [ 1, %for.body56.us.preheader ]
-  %mul57.us = mul i64 %j.1306.us, %wstep.0308
-  %arrayidx58.us = getelementptr i64, ptr %wtable1, i64 %mul57.us
-  %10 = load i64, ptr %arrayidx58.us, align 8
-  %invariant.gep.us = getelementptr i64, ptr %a, i64 %j.1306.us
-  %invariant.gep303.us = getelementptr i64, ptr %9, i64 %j.1306.us
-  %conv1.i.i183.us = zext i64 %10 to i128
-  br label %for.body61.us
+67:                                               ; preds = %63
+  %68 = lshr i64 %53, 30
+  %spec.select104.i.i = add nsw i64 %68, %66
+  %69 = shl i64 %53, 34
+  %70 = add i64 %69, %64
+  %71 = icmp ult i64 %70, %69
+  %72 = zext i1 %71 to i64
+  %.5.i.i = add nsw i64 %spec.select104.i.i, %72
+  %73 = lshr i64 %.5.i.i, 30
+  %74 = sub i64 %70, %.5.i.i
+  %75 = icmp ugt i64 %.5.i.i, %70
+  %76 = sext i1 %75 to i64
+  %.6.i.i = add nsw i64 %73, %76
+  %77 = shl i64 %.5.i.i, 34
+  %78 = add i64 %77, %74
+  %79 = icmp ult i64 %78, %77
+  br label %x64_mulmod.exit.i
 
-for.body61.us:                                    ; preds = %for.body56.us, %x64_mulmod.exit.us
-  %r.1302.us = phi i64 [ 0, %for.body56.us ], [ %add92.us, %x64_mulmod.exit.us ]
-  %gep.us = getelementptr i64, ptr %invariant.gep.us, i64 %r.1302.us
-  %11 = load i64, ptr %gep.us, align 8
-  %arrayidx66.us = getelementptr i64, ptr %gep.us, i64 %div27110
-  %12 = load i64, ptr %arrayidx66.us, align 8
-  %gep304.us = getelementptr i64, ptr %invariant.gep303.us, i64 %r.1302.us
-  %13 = load i64, ptr %gep304.us, align 8
-  %arrayidx73.us = getelementptr i64, ptr %gep304.us, i64 %div27110
-  %14 = load i64, ptr %arrayidx73.us, align 8
-  %add.i148.us = add i64 %12, %11
-  %cmp.i149.us = icmp ult i64 %add.i148.us, %11
-  %sub.i150.us = select i1 %cmp.i149.us, i64 %1, i64 0
-  %cond.i151.us = sub i64 %add.i148.us, %sub.i150.us
-  %cmp1.not.i152.us = icmp ult i64 %cond.i151.us, %1
-  %sub3.i153.us = select i1 %cmp1.not.i152.us, i64 0, i64 %1
-  %cond6.i154.us = sub i64 %cond.i151.us, %sub3.i153.us
-  store i64 %cond6.i154.us, ptr %gep.us, align 8
-  %sub.i155.us = sub i64 %11, %12
-  %cmp.i156.us = icmp ult i64 %11, %12
-  %add.i157.us = select i1 %cmp.i156.us, i64 %1, i64 0
-  %cond.i158.us = add i64 %sub.i155.us, %add.i157.us
-  %add.i159.us = add i64 %14, %13
-  %cmp.i160.us = icmp ult i64 %add.i159.us, %13
-  %sub.i161.us = select i1 %cmp.i160.us, i64 %1, i64 0
-  %cond.i162.us = sub i64 %add.i159.us, %sub.i161.us
-  %cmp1.not.i163.us = icmp ult i64 %cond.i162.us, %1
-  %sub3.i164.us = select i1 %cmp1.not.i163.us, i64 0, i64 %1
-  %cond6.i165.us = sub i64 %cond.i162.us, %sub3.i164.us
-  store i64 %cond6.i165.us, ptr %gep304.us, align 8
-  %sub.i166.us = sub i64 %13, %14
-  %cmp.i167.us = icmp ult i64 %13, %14
-  %add.i168.us = select i1 %cmp.i167.us, i64 %1, i64 0
-  %cond.i169.us = add i64 %sub.i166.us, %add.i168.us
-  %conv.i.i182.us = zext i64 %cond.i158.us to i128
-  %mul.i.i184.us = mul nuw i128 %conv.i.i182.us, %conv1.i.i183.us
-  %shr.i.i185.us = lshr i128 %mul.i.i184.us, 64
-  %conv2.i.i186.us = trunc nuw i128 %shr.i.i185.us to i64
-  %conv3.i.i187.us = trunc i128 %mul.i.i184.us to i64
-  br i1 %tobool.not.i189, label %if.else.i220.us, label %if.then.i190.us
+80:                                               ; preds = %63
+  %81 = lshr i64 %53, 24
+  %spec.select105.i.i = add nsw i64 %81, %66
+  %82 = shl i64 %53, 40
+  %83 = add i64 %82, %64
+  %84 = icmp ult i64 %83, %82
+  %85 = zext i1 %84 to i64
+  %.11.i.i = add nsw i64 %spec.select105.i.i, %85
+  %86 = lshr i64 %.11.i.i, 24
+  %87 = sub i64 %83, %.11.i.i
+  %88 = icmp ugt i64 %.11.i.i, %83
+  %89 = sext i1 %88 to i64
+  %.12.i.i = add nsw i64 %86, %89
+  %90 = shl i64 %.11.i.i, 40
+  %91 = add i64 %90, %87
+  %92 = icmp ult i64 %91, %90
+  br label %x64_mulmod.exit.i
 
-if.then.i190.us:                                  ; preds = %for.body61.us
-  %shr.i191.us = lshr i64 %conv2.i.i186.us, 32
-  %sub.i192.us = sub i64 %conv3.i.i187.us, %conv2.i.i186.us
-  %cmp.i193.us = icmp ugt i64 %conv2.i.i186.us, %conv3.i.i187.us
-  %dec.i194.us = sext i1 %cmp.i193.us to i64
-  %spec.select.i195.us = add nsw i64 %shr.i191.us, %dec.i194.us
-  %shl.i196.us = shl i64 %conv2.i.i186.us, 32
-  %add.i197.us = add i64 %shl.i196.us, %sub.i192.us
-  %cmp2.i198.us = icmp ult i64 %add.i197.us, %shl.i196.us
-  br label %x64_mulmod.exit258.us
+x64_mulmod.exit.i:                                ; preds = %80, %67, %55
+  %.sink128.i.i = phi i1 [ %92, %80 ], [ %79, %67 ], [ %62, %55 ]
+  %.12.sink.i.i = phi i64 [ %.12.i.i, %80 ], [ %.6.i.i, %67 ], [ %spec.select.i.i, %55 ]
+  %.sink126.i.i = phi i64 [ 24, %80 ], [ 30, %67 ], [ 32, %55 ]
+  %.sink123.i.i = phi i64 [ %91, %80 ], [ %78, %67 ], [ %61, %55 ]
+  %.sink.i.i = phi i64 [ 40, %80 ], [ 34, %67 ], [ 32, %55 ]
+  %93 = zext i1 %.sink128.i.i to i64
+  %.13.i.i = add nsw i64 %.12.sink.i.i, %93
+  %94 = lshr i64 %.13.i.i, %.sink126.i.i
+  %95 = sub i64 %.sink123.i.i, %.13.i.i
+  %96 = icmp ugt i64 %.13.i.i, %.sink123.i.i
+  %97 = sext i1 %96 to i64
+  %.14.i.i = add nsw i64 %94, %97
+  %98 = shl i64 %.13.i.i, %.sink.i.i
+  %99 = add i64 %98, %95
+  %100 = icmp ult i64 %99, %98
+  %.neg110.i.i = sext i1 %100 to i64
+  %.not63.i.i = icmp eq i64 %.14.i.i, %.neg110.i.i
+  %.not64.i.i = icmp ult i64 %99, %8
+  %or.cond70.i.i = select i1 %.not63.i.i, i1 %.not64.i.i, i1 false
+  %101 = select i1 %or.cond70.i.i, i64 0, i64 %8
+  %spec.select108.i.i = sub i64 %99, %101
+  %102 = zext i64 %48 to i128
+  %103 = zext i64 %20 to i128
+  %104 = mul nuw i128 %102, %103
+  %105 = lshr i128 %104, 64
+  %106 = trunc nuw i128 %105 to i64
+  %107 = trunc i128 %104 to i64
+  br i1 %.not.i.i, label %116, label %108
 
-if.else.i220.us:                                  ; preds = %for.body61.us
-  %sub69.i223.us = sub i64 %conv3.i.i187.us, %conv2.i.i186.us
-  %cmp70.i224.us = icmp ugt i64 %conv2.i.i186.us, %conv3.i.i187.us
-  %dec72.i225.us = sext i1 %cmp70.i224.us to i64
-  br i1 %tobool21.not.i222, label %if.else67.i242.us, label %if.then22.i226.us
+108:                                              ; preds = %x64_mulmod.exit.i
+  %109 = lshr i64 %106, 32
+  %110 = sub i64 %107, %106
+  %111 = icmp ugt i64 %106, %107
+  %112 = sext i1 %111 to i64
+  %spec.select.i8.i = add nsw i64 %109, %112
+  %113 = shl i64 %106, 32
+  %114 = add i64 %113, %110
+  %115 = icmp ult i64 %114, %113
+  br label %x64_mulmod2.exit
 
-if.then22.i226.us:                                ; preds = %if.else.i220.us
-  %shr23.i227.us = lshr i64 %conv2.i.i186.us, 30
-  %spec.select89.i228.us = add nsw i64 %shr23.i227.us, %dec72.i225.us
-  %shl29.i229.us = shl i64 %conv2.i.i186.us, 34
-  %add30.i230.us = add i64 %shl29.i229.us, %sub69.i223.us
-  %cmp31.i231.us = icmp ult i64 %add30.i230.us, %shl29.i229.us
-  %inc33.i232.us = zext i1 %cmp31.i231.us to i64
-  %hi.5.i233.us = add nsw i64 %spec.select89.i228.us, %inc33.i232.us
-  %shr35.i234.us = lshr i64 %hi.5.i233.us, 30
-  %sub36.i235.us = sub i64 %add30.i230.us, %hi.5.i233.us
-  %cmp37.i236.us = icmp ugt i64 %hi.5.i233.us, %add30.i230.us
-  %dec39.i237.us = sext i1 %cmp37.i236.us to i64
-  %hi.6.i238.us = add nsw i64 %shr35.i234.us, %dec39.i237.us
-  %shl41.i239.us = shl i64 %hi.5.i233.us, 34
-  %add42.i240.us = add i64 %shl41.i239.us, %sub36.i235.us
-  %cmp43.i241.us = icmp ult i64 %add42.i240.us, %shl41.i239.us
-  br label %x64_mulmod.exit258.us
+116:                                              ; preds = %x64_mulmod.exit.i
+  %117 = sub i64 %107, %106
+  %118 = icmp ugt i64 %106, %107
+  %119 = sext i1 %118 to i64
+  br i1 %.not62.i.i, label %133, label %120
 
-if.else67.i242.us:                                ; preds = %if.else.i220.us
-  %shr68.i243.us = lshr i64 %conv2.i.i186.us, 24
-  %spec.select90.i244.us = add nsw i64 %shr68.i243.us, %dec72.i225.us
-  %shl74.i245.us = shl i64 %conv2.i.i186.us, 40
-  %add75.i246.us = add i64 %shl74.i245.us, %sub69.i223.us
-  %cmp76.i247.us = icmp ult i64 %add75.i246.us, %shl74.i245.us
-  %inc78.i248.us = zext i1 %cmp76.i247.us to i64
-  %hi.11.i249.us = add nsw i64 %spec.select90.i244.us, %inc78.i248.us
-  %shr80.i250.us = lshr i64 %hi.11.i249.us, 24
-  %sub81.i251.us = sub i64 %add75.i246.us, %hi.11.i249.us
-  %cmp82.i252.us = icmp ugt i64 %hi.11.i249.us, %add75.i246.us
-  %dec84.i253.us = sext i1 %cmp82.i252.us to i64
-  %hi.12.i254.us = add nsw i64 %shr80.i250.us, %dec84.i253.us
-  %shl86.i255.us = shl i64 %hi.11.i249.us, 40
-  %add87.i256.us = add i64 %shl86.i255.us, %sub81.i251.us
-  %cmp88.i257.us = icmp ult i64 %add87.i256.us, %shl86.i255.us
-  br label %x64_mulmod.exit258.us
+120:                                              ; preds = %116
+  %121 = lshr i64 %106, 30
+  %spec.select104.i22.i = add nsw i64 %121, %119
+  %122 = shl i64 %106, 34
+  %123 = add i64 %122, %117
+  %124 = icmp ult i64 %123, %122
+  %125 = zext i1 %124 to i64
+  %.5.i23.i = add nsw i64 %spec.select104.i22.i, %125
+  %126 = lshr i64 %.5.i23.i, 30
+  %127 = sub i64 %123, %.5.i23.i
+  %128 = icmp ugt i64 %.5.i23.i, %123
+  %129 = sext i1 %128 to i64
+  %.6.i24.i = add nsw i64 %126, %129
+  %130 = shl i64 %.5.i23.i, 34
+  %131 = add i64 %130, %127
+  %132 = icmp ult i64 %131, %130
+  br label %x64_mulmod2.exit
 
-x64_mulmod.exit258.us:                            ; preds = %if.else67.i242.us, %if.then22.i226.us, %if.then.i190.us
-  %cmp88.sink.i199.us = phi i1 [ %cmp88.i257.us, %if.else67.i242.us ], [ %cmp43.i241.us, %if.then22.i226.us ], [ %cmp2.i198.us, %if.then.i190.us ]
-  %hi.12.sink.i200.us = phi i64 [ %hi.12.i254.us, %if.else67.i242.us ], [ %hi.6.i238.us, %if.then22.i226.us ], [ %spec.select.i195.us, %if.then.i190.us ]
-  %.sink101.i201.us = phi i64 [ 24, %if.else67.i242.us ], [ 30, %if.then22.i226.us ], [ 32, %if.then.i190.us ]
-  %add87.sink98.i202.us = phi i64 [ %add87.i256.us, %if.else67.i242.us ], [ %add42.i240.us, %if.then22.i226.us ], [ %add.i197.us, %if.then.i190.us ]
-  %.sink.i203.us = phi i64 [ 40, %if.else67.i242.us ], [ 34, %if.then22.i226.us ], [ 32, %if.then.i190.us ]
-  %inc90.i204.us = zext i1 %cmp88.sink.i199.us to i64
-  %hi.13.i205.us = add nsw i64 %hi.12.sink.i200.us, %inc90.i204.us
-  %shr92.i206.us = lshr i64 %hi.13.i205.us, %.sink101.i201.us
-  %sub93.i207.us = sub i64 %add87.sink98.i202.us, %hi.13.i205.us
-  %cmp94.i208.us = icmp ugt i64 %hi.13.i205.us, %add87.sink98.i202.us
-  %dec96.i209.us = sext i1 %cmp94.i208.us to i64
-  %hi.14.i210.us = add nsw i64 %shr92.i206.us, %dec96.i209.us
-  %shl98.i211.us = shl i64 %hi.13.i205.us, %.sink.i203.us
-  %add99.i212.us = add i64 %shl98.i211.us, %sub93.i207.us
-  %cmp100.i213.us = icmp ult i64 %add99.i212.us, %shl98.i211.us
-  %inc102.neg.i214.us = sext i1 %cmp100.i213.us to i64
-  %tobool104.not.i215.us = icmp eq i64 %hi.14.i210.us, %inc102.neg.i214.us
-  %cmp106.not.i216.us = icmp ult i64 %add99.i212.us, %1
-  %or.cond57.i217.us = select i1 %tobool104.not.i215.us, i1 %cmp106.not.i216.us, i1 false
-  %sub108.i218.us = select i1 %or.cond57.i217.us, i64 0, i64 %1
-  %spec.select93.i219.us = sub i64 %add99.i212.us, %sub108.i218.us
-  %conv.i.i.us = zext i64 %cond.i169.us to i128
-  %mul.i.i.us = mul nuw i128 %conv.i.i.us, %conv1.i.i183.us
-  %shr.i.i176.us = lshr i128 %mul.i.i.us, 64
-  %conv2.i.i.us = trunc nuw i128 %shr.i.i176.us to i64
-  %conv3.i.i.us = trunc i128 %mul.i.i.us to i64
-  br i1 %tobool.not.i189, label %if.else.i.us, label %if.then.i177.us
+133:                                              ; preds = %116
+  %134 = lshr i64 %106, 24
+  %spec.select105.i25.i = add nsw i64 %134, %119
+  %135 = shl i64 %106, 40
+  %136 = add i64 %135, %117
+  %137 = icmp ult i64 %136, %135
+  %138 = zext i1 %137 to i64
+  %.11.i26.i = add nsw i64 %spec.select105.i25.i, %138
+  %139 = lshr i64 %.11.i26.i, 24
+  %140 = sub i64 %136, %.11.i26.i
+  %141 = icmp ugt i64 %.11.i26.i, %136
+  %142 = sext i1 %141 to i64
+  %.12.i27.i = add nsw i64 %139, %142
+  %143 = shl i64 %.11.i26.i, 40
+  %144 = add i64 %143, %140
+  %145 = icmp ult i64 %144, %143
+  br label %x64_mulmod2.exit
 
-if.then.i177.us:                                  ; preds = %x64_mulmod.exit258.us
-  %shr.i178.us = lshr i64 %conv2.i.i.us, 32
-  %sub.i179.us = sub i64 %conv3.i.i.us, %conv2.i.i.us
-  %cmp.i180.us = icmp ugt i64 %conv2.i.i.us, %conv3.i.i.us
-  %dec.i.us = sext i1 %cmp.i180.us to i64
-  %spec.select.i.us = add nsw i64 %shr.i178.us, %dec.i.us
-  %shl.i.us = shl i64 %conv2.i.i.us, 32
-  %add.i181.us = add i64 %shl.i.us, %sub.i179.us
-  %cmp2.i.us = icmp ult i64 %add.i181.us, %shl.i.us
-  br label %x64_mulmod.exit.us
+x64_mulmod2.exit:                                 ; preds = %108, %120, %133
+  %.sink128.i9.i = phi i1 [ %145, %133 ], [ %132, %120 ], [ %115, %108 ]
+  %.12.sink.i10.i = phi i64 [ %.12.i27.i, %133 ], [ %.6.i24.i, %120 ], [ %spec.select.i8.i, %108 ]
+  %.sink126.i11.i = phi i64 [ 24, %133 ], [ 30, %120 ], [ 32, %108 ]
+  %.sink123.i12.i = phi i64 [ %144, %133 ], [ %131, %120 ], [ %114, %108 ]
+  %.sink.i13.i = phi i64 [ 40, %133 ], [ 34, %120 ], [ 32, %108 ]
+  %146 = zext i1 %.sink128.i9.i to i64
+  %.13.i14.i = add nsw i64 %.12.sink.i10.i, %146
+  %147 = lshr i64 %.13.i14.i, %.sink126.i11.i
+  %148 = sub i64 %.sink123.i12.i, %.13.i14.i
+  %149 = icmp ugt i64 %.13.i14.i, %.sink123.i12.i
+  %150 = sext i1 %149 to i64
+  %.14.i15.i = add nsw i64 %147, %150
+  %151 = shl i64 %.13.i14.i, %.sink.i13.i
+  %152 = add i64 %151, %148
+  %153 = icmp ult i64 %152, %151
+  %.neg110.i16.i = sext i1 %153 to i64
+  %.not63.i17.i = icmp eq i64 %.14.i15.i, %.neg110.i16.i
+  %.not64.i18.i = icmp ult i64 %152, %8
+  %or.cond70.i19.i = select i1 %.not63.i17.i, i1 %.not64.i18.i, i1 false
+  %154 = select i1 %or.cond70.i19.i, i64 0, i64 %8
+  %spec.select108.i20.i = sub i64 %152, %154
+  store i64 %spec.select108.i.i, ptr %23, align 8, !tbaa !7
+  store i64 %spec.select108.i20.i, ptr %27, align 8, !tbaa !7
+  %155 = add nuw i64 %.0121219, 2
+  %156 = icmp ult i64 %155, %9
+  br i1 %156, label %15, label %.preheader218, !llvm.loop !9
 
-if.else.i.us:                                     ; preds = %x64_mulmod.exit258.us
-  %sub69.i.us = sub i64 %conv3.i.i.us, %conv2.i.i.us
-  %cmp70.i.us = icmp ugt i64 %conv2.i.i.us, %conv3.i.i.us
-  %dec72.i.us = sext i1 %cmp70.i.us to i64
-  br i1 %tobool21.not.i222, label %if.else67.i.us, label %if.then22.i.us
+.lr.ph221:                                        ; preds = %._crit_edge228, %.lr.ph232
+  %.0123231 = phi i64 [ %9, %.lr.ph232 ], [ %157, %._crit_edge228 ]
+  %.0124229 = phi i64 [ 2, %.lr.ph232 ], [ %332, %._crit_edge228 ]
+  %157 = lshr i64 %.0123231, 1
+  %158 = getelementptr i64, ptr %0, i64 %.0123231
+  %159 = shl nuw i64 %.0123231, 1
+  br label %301
 
-if.then22.i.us:                                   ; preds = %if.else.i.us
-  %shr23.i.us = lshr i64 %conv2.i.i.us, 30
-  %spec.select89.i.us = add nsw i64 %shr23.i.us, %dec72.i.us
-  %shl29.i.us = shl i64 %conv2.i.i.us, 34
-  %add30.i.us = add i64 %shl29.i.us, %sub69.i.us
-  %cmp31.i.us = icmp ult i64 %add30.i.us, %shl29.i.us
-  %inc33.i.us = zext i1 %cmp31.i.us to i64
-  %hi.5.i.us = add nsw i64 %spec.select89.i.us, %inc33.i.us
-  %shr35.i.us = lshr i64 %hi.5.i.us, 30
-  %sub36.i.us = sub i64 %add30.i.us, %hi.5.i.us
-  %cmp37.i.us = icmp ugt i64 %hi.5.i.us, %add30.i.us
-  %dec39.i.us = sext i1 %cmp37.i.us to i64
-  %hi.6.i.us = add nsw i64 %shr35.i.us, %dec39.i.us
-  %shl41.i.us = shl i64 %hi.5.i.us, 34
-  %add42.i.us = add i64 %shl41.i.us, %sub36.i.us
-  %cmp43.i.us = icmp ult i64 %add42.i.us, %shl41.i.us
-  br label %x64_mulmod.exit.us
+.preheader:                                       ; preds = %301
+  %160 = icmp samesign ugt i64 %.0123231, 3
+  br i1 %160, label %.lr.ph223.us.preheader, label %._crit_edge
 
-if.else67.i.us:                                   ; preds = %if.else.i.us
-  %shr68.i.us = lshr i64 %conv2.i.i.us, 24
-  %spec.select90.i.us = add nsw i64 %shr68.i.us, %dec72.i.us
-  %shl74.i.us = shl i64 %conv2.i.i.us, 40
-  %add75.i.us = add i64 %shl74.i.us, %sub69.i.us
-  %cmp76.i.us = icmp ult i64 %add75.i.us, %shl74.i.us
-  %inc78.i.us = zext i1 %cmp76.i.us to i64
-  %hi.11.i.us = add nsw i64 %spec.select90.i.us, %inc78.i.us
-  %shr80.i.us = lshr i64 %hi.11.i.us, 24
-  %sub81.i.us = sub i64 %add75.i.us, %hi.11.i.us
-  %cmp82.i.us = icmp ugt i64 %hi.11.i.us, %add75.i.us
-  %dec84.i.us = sext i1 %cmp82.i.us to i64
-  %hi.12.i.us = add nsw i64 %shr80.i.us, %dec84.i.us
-  %shl86.i.us = shl i64 %hi.11.i.us, 40
-  %add87.i.us = add i64 %shl86.i.us, %sub81.i.us
-  %cmp88.i.us = icmp ult i64 %add87.i.us, %shl86.i.us
-  br label %x64_mulmod.exit.us
+.lr.ph223.us.preheader:                           ; preds = %.preheader
+  %161 = getelementptr i64, ptr %0, i64 %.0123231
+  %162 = shl nuw i64 %.0123231, 1
+  br label %.lr.ph223.us
 
-x64_mulmod.exit.us:                               ; preds = %if.else67.i.us, %if.then22.i.us, %if.then.i177.us
-  %cmp88.sink.i.us = phi i1 [ %cmp88.i.us, %if.else67.i.us ], [ %cmp43.i.us, %if.then22.i.us ], [ %cmp2.i.us, %if.then.i177.us ]
-  %hi.12.sink.i.us = phi i64 [ %hi.12.i.us, %if.else67.i.us ], [ %hi.6.i.us, %if.then22.i.us ], [ %spec.select.i.us, %if.then.i177.us ]
-  %.sink101.i.us = phi i64 [ 24, %if.else67.i.us ], [ 30, %if.then22.i.us ], [ 32, %if.then.i177.us ]
-  %add87.sink98.i.us = phi i64 [ %add87.i.us, %if.else67.i.us ], [ %add42.i.us, %if.then22.i.us ], [ %add.i181.us, %if.then.i177.us ]
-  %.sink.i.us = phi i64 [ 40, %if.else67.i.us ], [ 34, %if.then22.i.us ], [ 32, %if.then.i177.us ]
-  %inc90.i.us = zext i1 %cmp88.sink.i.us to i64
-  %hi.13.i.us = add nsw i64 %hi.12.sink.i.us, %inc90.i.us
-  %shr92.i.us = lshr i64 %hi.13.i.us, %.sink101.i.us
-  %sub93.i.us = sub i64 %add87.sink98.i.us, %hi.13.i.us
-  %cmp94.i.us = icmp ugt i64 %hi.13.i.us, %add87.sink98.i.us
-  %dec96.i.us = sext i1 %cmp94.i.us to i64
-  %hi.14.i.us = add nsw i64 %shr92.i.us, %dec96.i.us
-  %shl98.i.us = shl i64 %hi.13.i.us, %.sink.i.us
-  %add99.i.us = add i64 %shl98.i.us, %sub93.i.us
-  %cmp100.i.us = icmp ult i64 %add99.i.us, %shl98.i.us
-  %inc102.neg.i.us = sext i1 %cmp100.i.us to i64
-  %tobool104.not.i.us = icmp eq i64 %hi.14.i.us, %inc102.neg.i.us
-  %cmp106.not.i.us = icmp ult i64 %add99.i.us, %1
-  %or.cond57.i.us = select i1 %tobool104.not.i.us, i1 %cmp106.not.i.us, i1 false
-  %sub108.i.us = select i1 %or.cond57.i.us, i64 0, i64 %1
-  %spec.select93.i.us = sub i64 %add99.i.us, %sub108.i.us
-  store i64 %spec.select93.i219.us, ptr %arrayidx66.us, align 8
-  store i64 %spec.select93.i.us, ptr %arrayidx73.us, align 8
-  %add92.us = add i64 %r.1302.us, %mul91
-  %cmp60.us = icmp ult i64 %add92.us, %n
-  br i1 %cmp60.us, label %for.body61.us, label %for.cond59.for.inc94_crit_edge.us, !llvm.loop !6
+.lr.ph223.us:                                     ; preds = %.lr.ph223.us.preheader, %._crit_edge.us
+  %.1122226.us = phi i64 [ %300, %._crit_edge.us ], [ 1, %.lr.ph223.us.preheader ]
+  %163 = mul i64 %.1122226.us, %.0124229
+  %164 = getelementptr i64, ptr %4, i64 %163
+  %165 = load i64, ptr %164, align 8, !tbaa !7
+  %invariant.gep.us = getelementptr i64, ptr %0, i64 %.1122226.us
+  %invariant.gep224.us = getelementptr i64, ptr %161, i64 %.1122226.us
+  %166 = zext i64 %165 to i128
+  br label %167
 
-for.cond59.for.inc94_crit_edge.us:                ; preds = %x64_mulmod.exit.us
-  %inc.us = add nuw nsw i64 %j.1306.us, 1
-  %exitcond.not = icmp eq i64 %inc.us, %div27110
-  br i1 %exitcond.not, label %for.inc96, label %for.body56.us, !llvm.loop !7
+167:                                              ; preds = %.lr.ph223.us, %x64_mulmod2c.exit.us
+  %.1222.us = phi i64 [ 0, %.lr.ph223.us ], [ %298, %x64_mulmod2c.exit.us ]
+  %gep.us = getelementptr i64, ptr %invariant.gep.us, i64 %.1222.us
+  %168 = load i64, ptr %gep.us, align 8, !tbaa !7
+  %169 = getelementptr i64, ptr %gep.us, i64 %157
+  %170 = load i64, ptr %169, align 8, !tbaa !7
+  %gep225.us = getelementptr i64, ptr %invariant.gep224.us, i64 %.1222.us
+  %171 = load i64, ptr %gep225.us, align 8, !tbaa !7
+  %172 = getelementptr i64, ptr %gep225.us, i64 %157
+  %173 = load i64, ptr %172, align 8, !tbaa !7
+  %174 = add i64 %170, %168
+  %175 = icmp ult i64 %174, %168
+  %176 = select i1 %175, i64 %8, i64 0
+  %177 = sub i64 %174, %176
+  %.not.i132.us = icmp ult i64 %177, %8
+  %178 = select i1 %.not.i132.us, i64 0, i64 %8
+  %179 = sub i64 %177, %178
+  store i64 %179, ptr %gep.us, align 8, !tbaa !7
+  %180 = sub i64 %168, %170
+  %181 = icmp ult i64 %168, %170
+  %182 = select i1 %181, i64 %8, i64 0
+  %183 = add i64 %180, %182
+  %184 = add i64 %173, %171
+  %185 = icmp ult i64 %184, %171
+  %186 = select i1 %185, i64 %8, i64 0
+  %187 = sub i64 %184, %186
+  %.not.i133.us = icmp ult i64 %187, %8
+  %188 = select i1 %.not.i133.us, i64 0, i64 %8
+  %189 = sub i64 %187, %188
+  store i64 %189, ptr %gep225.us, align 8, !tbaa !7
+  %190 = sub i64 %171, %173
+  %191 = icmp ult i64 %171, %173
+  %192 = select i1 %191, i64 %8, i64 0
+  %193 = add i64 %190, %192
+  %194 = zext i64 %183 to i128
+  %195 = mul nuw i128 %194, %166
+  %196 = lshr i128 %195, 64
+  %197 = trunc nuw i128 %196 to i64
+  %198 = trunc i128 %195 to i64
+  br i1 %.not.i.i134, label %207, label %199
 
-for.body30:                                       ; preds = %for.body30.lr.ph, %for.body30
-  %r.0300 = phi i64 [ 0, %for.body30.lr.ph ], [ %add52, %for.body30 ]
-  %arrayidx31 = getelementptr i64, ptr %a, i64 %r.0300
-  %15 = load i64, ptr %arrayidx31, align 8
-  %arrayidx33 = getelementptr i64, ptr %arrayidx31, i64 %div27110
-  %16 = load i64, ptr %arrayidx33, align 8
-  %arrayidx35 = getelementptr i64, ptr %8, i64 %r.0300
-  %17 = load i64, ptr %arrayidx35, align 8
-  %arrayidx38 = getelementptr i64, ptr %arrayidx35, i64 %div27110
-  %18 = load i64, ptr %arrayidx38, align 8
-  %add.i126 = add i64 %16, %15
-  %cmp.i127 = icmp ult i64 %add.i126, %15
-  %sub.i128 = select i1 %cmp.i127, i64 %1, i64 0
-  %cond.i129 = sub i64 %add.i126, %sub.i128
-  %cmp1.not.i130 = icmp ult i64 %cond.i129, %1
-  %sub3.i131 = select i1 %cmp1.not.i130, i64 0, i64 %1
-  %cond6.i132 = sub i64 %cond.i129, %sub3.i131
-  store i64 %cond6.i132, ptr %arrayidx31, align 8
-  %sub.i133 = sub i64 %15, %16
-  %cmp.i134 = icmp ult i64 %15, %16
-  %add.i135 = select i1 %cmp.i134, i64 %1, i64 0
-  %cond.i136 = add i64 %sub.i133, %add.i135
-  %add.i137 = add i64 %18, %17
-  %cmp.i138 = icmp ult i64 %add.i137, %17
-  %sub.i139 = select i1 %cmp.i138, i64 %1, i64 0
-  %cond.i140 = sub i64 %add.i137, %sub.i139
-  %cmp1.not.i141 = icmp ult i64 %cond.i140, %1
-  %sub3.i142 = select i1 %cmp1.not.i141, i64 0, i64 %1
-  %cond6.i143 = sub i64 %cond.i140, %sub3.i142
-  store i64 %cond6.i143, ptr %arrayidx35, align 8
-  %sub.i144 = sub i64 %17, %18
-  %cmp.i145 = icmp ult i64 %17, %18
-  %add.i146 = select i1 %cmp.i145, i64 %1, i64 0
-  %cond.i147 = add i64 %sub.i144, %add.i146
-  store i64 %cond.i136, ptr %arrayidx33, align 8
-  store i64 %cond.i147, ptr %arrayidx38, align 8
-  %add52 = add i64 %r.0300, %mul
-  %cmp29 = icmp ult i64 %add52, %n
-  br i1 %cmp29, label %for.body30, label %for.cond54.preheader, !llvm.loop !8
+199:                                              ; preds = %167
+  %200 = lshr i64 %197, 32
+  %201 = sub i64 %198, %197
+  %202 = icmp ugt i64 %197, %198
+  %203 = sext i1 %202 to i64
+  %spec.select.i.i135.us = add nsw i64 %200, %203
+  %204 = shl i64 %197, 32
+  %205 = add i64 %204, %201
+  %206 = icmp ult i64 %205, %204
+  br label %x64_mulmod.exit.i136.us
 
-for.inc96:                                        ; preds = %for.cond59.for.inc94_crit_edge.us
-  %shl = shl i64 %wstep.0308, 1
-  br label %for.body30.lr.ph, !llvm.loop !9
+207:                                              ; preds = %167
+  %208 = sub i64 %198, %197
+  %209 = icmp ugt i64 %197, %198
+  %210 = sext i1 %209 to i64
+  br i1 %.not62.i.i169, label %224, label %211
 
-for.end97:                                        ; preds = %for.cond54.preheader, %entry, %for.cond24.preheader
-  %umax.i = tail call i64 @llvm.umax.i64(i64 %n, i64 1)
-  br label %do.body.i
+211:                                              ; preds = %207
+  %212 = lshr i64 %197, 30
+  %spec.select104.i.i170.us = add nsw i64 %212, %210
+  %213 = shl i64 %197, 34
+  %214 = add i64 %213, %208
+  %215 = icmp ult i64 %214, %213
+  %216 = zext i1 %215 to i64
+  %.5.i.i171.us = add nsw i64 %spec.select104.i.i170.us, %216
+  %217 = lshr i64 %.5.i.i171.us, 30
+  %218 = sub i64 %214, %.5.i.i171.us
+  %219 = icmp ugt i64 %.5.i.i171.us, %214
+  %220 = sext i1 %219 to i64
+  %.6.i.i172.us = add nsw i64 %217, %220
+  %221 = shl i64 %.5.i.i171.us, 34
+  %222 = add i64 %221, %218
+  %223 = icmp ult i64 %222, %221
+  br label %x64_mulmod.exit.i136.us
 
-do.body.i:                                        ; preds = %if.end.i, %for.end97
-  %r.0.i = phi i64 [ 0, %for.end97 ], [ %xor.i, %if.end.i ]
-  %x.0.i = phi i64 [ 0, %for.end97 ], [ %add.i173, %if.end.i ]
-  %cmp.i172 = icmp ugt i64 %r.0.i, %x.0.i
-  br i1 %cmp.i172, label %if.then.i, label %if.end.i
+224:                                              ; preds = %207
+  %225 = lshr i64 %197, 24
+  %spec.select105.i.i173.us = add nsw i64 %225, %210
+  %226 = shl i64 %197, 40
+  %227 = add i64 %226, %208
+  %228 = icmp ult i64 %227, %226
+  %229 = zext i1 %228 to i64
+  %.11.i.i174.us = add nsw i64 %spec.select105.i.i173.us, %229
+  %230 = lshr i64 %.11.i.i174.us, 24
+  %231 = sub i64 %227, %.11.i.i174.us
+  %232 = icmp ugt i64 %.11.i.i174.us, %227
+  %233 = sext i1 %232 to i64
+  %.12.i.i175.us = add nsw i64 %230, %233
+  %234 = shl i64 %.11.i.i174.us, 40
+  %235 = add i64 %234, %231
+  %236 = icmp ult i64 %235, %234
+  br label %x64_mulmod.exit.i136.us
 
-if.then.i:                                        ; preds = %do.body.i
-  %arrayidx.i175 = getelementptr i64, ptr %a, i64 %x.0.i
-  %19 = load i64, ptr %arrayidx.i175, align 8
-  %arrayidx1.i = getelementptr i64, ptr %a, i64 %r.0.i
-  %20 = load i64, ptr %arrayidx1.i, align 8
-  store i64 %20, ptr %arrayidx.i175, align 8
-  store i64 %19, ptr %arrayidx1.i, align 8
-  br label %if.end.i
+x64_mulmod.exit.i136.us:                          ; preds = %224, %211, %199
+  %.sink128.i.i137.us = phi i1 [ %236, %224 ], [ %223, %211 ], [ %206, %199 ]
+  %.12.sink.i.i138.us = phi i64 [ %.12.i.i175.us, %224 ], [ %.6.i.i172.us, %211 ], [ %spec.select.i.i135.us, %199 ]
+  %.sink126.i.i139.us = phi i64 [ 24, %224 ], [ 30, %211 ], [ 32, %199 ]
+  %.sink123.i.i140.us = phi i64 [ %235, %224 ], [ %222, %211 ], [ %205, %199 ]
+  %.sink.i.i141.us = phi i64 [ 40, %224 ], [ 34, %211 ], [ 32, %199 ]
+  %237 = zext i1 %.sink128.i.i137.us to i64
+  %.13.i.i142.us = add nsw i64 %.12.sink.i.i138.us, %237
+  %238 = lshr i64 %.13.i.i142.us, %.sink126.i.i139.us
+  %239 = sub i64 %.sink123.i.i140.us, %.13.i.i142.us
+  %240 = icmp ugt i64 %.13.i.i142.us, %.sink123.i.i140.us
+  %241 = sext i1 %240 to i64
+  %.14.i.i143.us = add nsw i64 %238, %241
+  %242 = shl i64 %.13.i.i142.us, %.sink.i.i141.us
+  %243 = add i64 %242, %239
+  %244 = icmp ult i64 %243, %242
+  %.neg110.i.i144.us = sext i1 %244 to i64
+  %.not63.i.i145.us = icmp eq i64 %.14.i.i143.us, %.neg110.i.i144.us
+  %.not64.i.i146.us = icmp ult i64 %243, %8
+  %or.cond70.i.i147.us = select i1 %.not63.i.i145.us, i1 %.not64.i.i146.us, i1 false
+  %245 = select i1 %or.cond70.i.i147.us, i64 0, i64 %8
+  %spec.select108.i.i148.us = sub i64 %243, %245
+  %246 = zext i64 %193 to i128
+  %247 = mul nuw i128 %246, %166
+  %248 = lshr i128 %247, 64
+  %249 = trunc nuw i128 %248 to i64
+  %250 = trunc i128 %247 to i64
+  br i1 %.not.i.i134, label %259, label %251
 
-if.end.i:                                         ; preds = %if.then.i, %do.body.i
-  %add.i173 = add nuw i64 %x.0.i, 1
-  %and.i.i = and i64 %add.i173, 4294967295
-  %tobool.not.i.i = icmp eq i64 %and.i.i, 0
-  %shr.i.i = lshr exact i64 %add.i173, 32
-  %n.addr.0.i.i = select i1 %tobool.not.i.i, i64 %shr.i.i, i64 %add.i173
-  %pos.0.i.i = select i1 %tobool.not.i.i, i32 63, i32 31
-  %and1.i.i = and i64 %n.addr.0.i.i, 65535
-  %tobool2.not.i.i = icmp eq i64 %and1.i.i, 0
-  %sub4.i.i = add nsw i32 %pos.0.i.i, -16
-  %shr6.i.i = lshr exact i64 %n.addr.0.i.i, 16
-  %n.addr.1.i.i = select i1 %tobool2.not.i.i, i64 %shr6.i.i, i64 %n.addr.0.i.i
-  %pos.1.i.i = select i1 %tobool2.not.i.i, i32 %pos.0.i.i, i32 %sub4.i.i
-  %and8.i.i = and i64 %n.addr.1.i.i, 255
-  %tobool9.not.i.i = icmp eq i64 %and8.i.i, 0
-  %sub11.i.i = add nsw i32 %pos.1.i.i, -8
-  %shr13.i.i = lshr exact i64 %n.addr.1.i.i, 8
-  %n.addr.2.i.i = select i1 %tobool9.not.i.i, i64 %shr13.i.i, i64 %n.addr.1.i.i
-  %pos.2.i.i = select i1 %tobool9.not.i.i, i32 %pos.1.i.i, i32 %sub11.i.i
-  %and15.i.i = and i64 %n.addr.2.i.i, 15
-  %tobool16.not.i.i = icmp eq i64 %and15.i.i, 0
-  %sub18.i.i = add nsw i32 %pos.2.i.i, -4
-  %shr20.i.i = lshr exact i64 %n.addr.2.i.i, 4
-  %n.addr.3.i.i = select i1 %tobool16.not.i.i, i64 %shr20.i.i, i64 %n.addr.2.i.i
-  %pos.3.i.i = select i1 %tobool16.not.i.i, i32 %pos.2.i.i, i32 %sub18.i.i
-  %and22.i.i = and i64 %n.addr.3.i.i, 3
-  %tobool23.not.i.i = icmp eq i64 %and22.i.i, 0
-  %sub25.i.i = add nsw i32 %pos.3.i.i, -2
-  %shr27.i.i = lshr exact i64 %n.addr.3.i.i, 2
-  %n.addr.4.i.i = select i1 %tobool23.not.i.i, i64 %shr27.i.i, i64 %n.addr.3.i.i
-  %pos.4.i.i = select i1 %tobool23.not.i.i, i32 %pos.3.i.i, i32 %sub25.i.i
-  %21 = trunc i64 %n.addr.4.i.i to i32
-  %22 = and i32 %21, 1
-  %pos.5.i.i = add nuw nsw i32 %pos.4.i.i, 1
-  %add4.i = sub nuw nsw i32 %pos.5.i.i, %22
-  %sh_prom.i = zext nneg i32 %add4.i to i64
-  %shr.i = lshr i64 %n, %sh_prom.i
-  %sub.i174 = sub i64 %n, %shr.i
-  %xor.i = xor i64 %sub.i174, %r.0.i
-  %exitcond.not.i = icmp eq i64 %add.i173, %umax.i
-  br i1 %exitcond.not.i, label %bitreverse_permute.exit, label %do.body.i, !llvm.loop !10
+251:                                              ; preds = %x64_mulmod.exit.i136.us
+  %252 = lshr i64 %249, 32
+  %253 = sub i64 %250, %249
+  %254 = icmp ugt i64 %249, %250
+  %255 = sext i1 %254 to i64
+  %spec.select.i8.i149.us = add nsw i64 %252, %255
+  %256 = shl i64 %249, 32
+  %257 = add i64 %256, %253
+  %258 = icmp ult i64 %257, %256
+  br label %x64_mulmod2c.exit.us
 
-bitreverse_permute.exit:                          ; preds = %if.end.i
+259:                                              ; preds = %x64_mulmod.exit.i136.us
+  %260 = sub i64 %250, %249
+  %261 = icmp ugt i64 %249, %250
+  %262 = sext i1 %261 to i64
+  br i1 %.not62.i.i169, label %276, label %263
+
+263:                                              ; preds = %259
+  %264 = lshr i64 %249, 30
+  %spec.select104.i22.i163.us = add nsw i64 %264, %262
+  %265 = shl i64 %249, 34
+  %266 = add i64 %265, %260
+  %267 = icmp ult i64 %266, %265
+  %268 = zext i1 %267 to i64
+  %.5.i23.i164.us = add nsw i64 %spec.select104.i22.i163.us, %268
+  %269 = lshr i64 %.5.i23.i164.us, 30
+  %270 = sub i64 %266, %.5.i23.i164.us
+  %271 = icmp ugt i64 %.5.i23.i164.us, %266
+  %272 = sext i1 %271 to i64
+  %.6.i24.i165.us = add nsw i64 %269, %272
+  %273 = shl i64 %.5.i23.i164.us, 34
+  %274 = add i64 %273, %270
+  %275 = icmp ult i64 %274, %273
+  br label %x64_mulmod2c.exit.us
+
+276:                                              ; preds = %259
+  %277 = lshr i64 %249, 24
+  %spec.select105.i25.i166.us = add nsw i64 %277, %262
+  %278 = shl i64 %249, 40
+  %279 = add i64 %278, %260
+  %280 = icmp ult i64 %279, %278
+  %281 = zext i1 %280 to i64
+  %.11.i26.i167.us = add nsw i64 %spec.select105.i25.i166.us, %281
+  %282 = lshr i64 %.11.i26.i167.us, 24
+  %283 = sub i64 %279, %.11.i26.i167.us
+  %284 = icmp ugt i64 %.11.i26.i167.us, %279
+  %285 = sext i1 %284 to i64
+  %.12.i27.i168.us = add nsw i64 %282, %285
+  %286 = shl i64 %.11.i26.i167.us, 40
+  %287 = add i64 %286, %283
+  %288 = icmp ult i64 %287, %286
+  br label %x64_mulmod2c.exit.us
+
+x64_mulmod2c.exit.us:                             ; preds = %276, %263, %251
+  %.sink128.i9.i150.us = phi i1 [ %288, %276 ], [ %275, %263 ], [ %258, %251 ]
+  %.12.sink.i10.i151.us = phi i64 [ %.12.i27.i168.us, %276 ], [ %.6.i24.i165.us, %263 ], [ %spec.select.i8.i149.us, %251 ]
+  %.sink126.i11.i152.us = phi i64 [ 24, %276 ], [ 30, %263 ], [ 32, %251 ]
+  %.sink123.i12.i153.us = phi i64 [ %287, %276 ], [ %274, %263 ], [ %257, %251 ]
+  %.sink.i13.i154.us = phi i64 [ 40, %276 ], [ 34, %263 ], [ 32, %251 ]
+  %289 = zext i1 %.sink128.i9.i150.us to i64
+  %.13.i14.i155.us = add nsw i64 %.12.sink.i10.i151.us, %289
+  %290 = lshr i64 %.13.i14.i155.us, %.sink126.i11.i152.us
+  %291 = sub i64 %.sink123.i12.i153.us, %.13.i14.i155.us
+  %292 = icmp ugt i64 %.13.i14.i155.us, %.sink123.i12.i153.us
+  %293 = sext i1 %292 to i64
+  %.14.i15.i156.us = add nsw i64 %290, %293
+  %294 = shl i64 %.13.i14.i155.us, %.sink.i13.i154.us
+  %295 = add i64 %294, %291
+  %296 = icmp ult i64 %295, %294
+  %.neg110.i16.i157.us = sext i1 %296 to i64
+  %.not63.i17.i158.us = icmp eq i64 %.14.i15.i156.us, %.neg110.i16.i157.us
+  %.not64.i18.i159.us = icmp ult i64 %295, %8
+  %or.cond70.i19.i160.us = select i1 %.not63.i17.i158.us, i1 %.not64.i18.i159.us, i1 false
+  %297 = select i1 %or.cond70.i19.i160.us, i64 0, i64 %8
+  %spec.select108.i20.i161.us = sub i64 %295, %297
+  store i64 %spec.select108.i.i148.us, ptr %169, align 8, !tbaa !7
+  store i64 %spec.select108.i20.i161.us, ptr %172, align 8, !tbaa !7
+  %298 = add i64 %.1222.us, %162
+  %299 = icmp ult i64 %298, %1
+  br i1 %299, label %167, label %._crit_edge.us, !llvm.loop !11
+
+._crit_edge.us:                                   ; preds = %x64_mulmod2c.exit.us
+  %300 = add nuw nsw i64 %.1122226.us, 1
+  %exitcond.not = icmp eq i64 %300, %157
+  br i1 %exitcond.not, label %._crit_edge228, label %.lr.ph223.us, !llvm.loop !12
+
+301:                                              ; preds = %.lr.ph221, %301
+  %.0220 = phi i64 [ 0, %.lr.ph221 ], [ %330, %301 ]
+  %302 = getelementptr i64, ptr %0, i64 %.0220
+  %303 = load i64, ptr %302, align 8, !tbaa !7
+  %304 = getelementptr i64, ptr %302, i64 %157
+  %305 = load i64, ptr %304, align 8, !tbaa !7
+  %306 = getelementptr i64, ptr %158, i64 %.0220
+  %307 = load i64, ptr %306, align 8, !tbaa !7
+  %308 = getelementptr i64, ptr %306, i64 %157
+  %309 = load i64, ptr %308, align 8, !tbaa !7
+  %310 = add i64 %305, %303
+  %311 = icmp ult i64 %310, %303
+  %312 = select i1 %311, i64 %8, i64 0
+  %313 = sub i64 %310, %312
+  %.not.i130 = icmp ult i64 %313, %8
+  %314 = select i1 %.not.i130, i64 0, i64 %8
+  %315 = sub i64 %313, %314
+  store i64 %315, ptr %302, align 8, !tbaa !7
+  %316 = sub i64 %303, %305
+  %317 = icmp ult i64 %303, %305
+  %318 = select i1 %317, i64 %8, i64 0
+  %319 = add i64 %316, %318
+  %320 = add i64 %309, %307
+  %321 = icmp ult i64 %320, %307
+  %322 = select i1 %321, i64 %8, i64 0
+  %323 = sub i64 %320, %322
+  %.not.i131 = icmp ult i64 %323, %8
+  %324 = select i1 %.not.i131, i64 0, i64 %8
+  %325 = sub i64 %323, %324
+  store i64 %325, ptr %306, align 8, !tbaa !7
+  %326 = sub i64 %307, %309
+  %327 = icmp ult i64 %307, %309
+  %328 = select i1 %327, i64 %8, i64 0
+  %329 = add i64 %326, %328
+  store i64 %319, ptr %304, align 8, !tbaa !7
+  store i64 %329, ptr %308, align 8, !tbaa !7
+  %330 = add i64 %.0220, %159
+  %331 = icmp ult i64 %330, %1
+  br i1 %331, label %301, label %.preheader, !llvm.loop !13
+
+._crit_edge228:                                   ; preds = %._crit_edge.us
+  %332 = shl i64 %.0124229, 1
+  br label %.lr.ph221, !llvm.loop !14
+
+._crit_edge:                                      ; preds = %.preheader, %3, %.preheader218
+  %umax.i = tail call i64 @llvm.umax.i64(i64 %1, i64 1)
+  br label %333
+
+333:                                              ; preds = %340, %._crit_edge
+  %.017.i = phi i64 [ 0, %._crit_edge ], [ %362, %340 ]
+  %.0.i = phi i64 [ 0, %._crit_edge ], [ %341, %340 ]
+  %334 = icmp ugt i64 %.017.i, %.0.i
+  br i1 %334, label %335, label %340
+
+335:                                              ; preds = %333
+  %336 = getelementptr i64, ptr %0, i64 %.0.i
+  %337 = load i64, ptr %336, align 8, !tbaa !7
+  %338 = getelementptr i64, ptr %0, i64 %.017.i
+  %339 = load i64, ptr %338, align 8, !tbaa !7
+  store i64 %339, ptr %336, align 8, !tbaa !7
+  store i64 %337, ptr %338, align 8, !tbaa !7
+  br label %340
+
+340:                                              ; preds = %335, %333
+  %341 = add nuw i64 %.0.i, 1
+  %342 = and i64 %341, 4294967295
+  %.not.i.i176 = icmp eq i64 %342, 0
+  %343 = lshr exact i64 %341, 32
+  %.018.i.i = select i1 %.not.i.i176, i64 %343, i64 %341
+  %.0.i.i = select i1 %.not.i.i176, i32 63, i32 31
+  %344 = and i64 %.018.i.i, 65535
+  %.not23.i.i = icmp eq i64 %344, 0
+  %345 = add nsw i32 %.0.i.i, -16
+  %346 = lshr exact i64 %.018.i.i, 16
+  %.119.i.i = select i1 %.not23.i.i, i64 %346, i64 %.018.i.i
+  %.1.i.i = select i1 %.not23.i.i, i32 %.0.i.i, i32 %345
+  %347 = and i64 %.119.i.i, 255
+  %.not24.i.i = icmp eq i64 %347, 0
+  %348 = add nsw i32 %.1.i.i, -8
+  %349 = lshr exact i64 %.119.i.i, 8
+  %.220.i.i = select i1 %.not24.i.i, i64 %349, i64 %.119.i.i
+  %.2.i.i = select i1 %.not24.i.i, i32 %.1.i.i, i32 %348
+  %350 = and i64 %.220.i.i, 15
+  %.not25.i.i = icmp eq i64 %350, 0
+  %351 = add nsw i32 %.2.i.i, -4
+  %352 = lshr exact i64 %.220.i.i, 4
+  %.321.i.i = select i1 %.not25.i.i, i64 %352, i64 %.220.i.i
+  %.3.i.i = select i1 %.not25.i.i, i32 %.2.i.i, i32 %351
+  %353 = and i64 %.321.i.i, 3
+  %.not26.i.i = icmp eq i64 %353, 0
+  %354 = add nsw i32 %.3.i.i, -2
+  %355 = lshr exact i64 %.321.i.i, 2
+  %.422.i.i = select i1 %.not26.i.i, i64 %355, i64 %.321.i.i
+  %.4.i.i = select i1 %.not26.i.i, i32 %.3.i.i, i32 %354
+  %356 = trunc i64 %.422.i.i to i32
+  %357 = and i32 %356, 1
+  %.5.i.i177 = add nuw nsw i32 %.4.i.i, 1
+  %358 = sub nuw nsw i32 %.5.i.i177, %357
+  %359 = zext nneg i32 %358 to i64
+  %360 = lshr i64 %1, %359
+  %361 = sub i64 %1, %360
+  %362 = xor i64 %361, %.017.i
+  %exitcond.not.i = icmp eq i64 %341, %umax.i
+  br i1 %exitcond.not.i, label %bitreverse_permute.exit, label %333, !llvm.loop !15
+
+bitreverse_permute.exit:                          ; preds = %340
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal fastcc i64 @x64_mulmod(i64 noundef %a, i64 noundef %b, i64 noundef %m) unnamed_addr #1 {
-entry:
-  %conv.i = zext i64 %a to i128
-  %conv1.i = zext i64 %b to i128
-  %mul.i = mul nuw i128 %conv1.i, %conv.i
-  %shr.i = lshr i128 %mul.i, 64
-  %conv2.i = trunc nuw i128 %shr.i to i64
-  %conv3.i = trunc i128 %mul.i to i64
-  %and = and i64 %m, 4294967296
-  %tobool.not = icmp eq i64 %and, 0
-  br i1 %tobool.not, label %if.else, label %if.then
-
-if.then:                                          ; preds = %entry
-  %shr = lshr i64 %conv2.i, 32
-  %sub = sub i64 %conv3.i, %conv2.i
-  %cmp = icmp ugt i64 %conv2.i, %conv3.i
-  %dec = sext i1 %cmp to i64
-  %spec.select = add nsw i64 %shr, %dec
-  %shl = shl i64 %conv2.i, 32
-  %add = add i64 %shl, %sub
-  %cmp2 = icmp ult i64 %add, %shl
-  br label %return
-
-if.else:                                          ; preds = %entry
-  %and20 = and i64 %m, 17179869184
-  %tobool21.not = icmp eq i64 %and20, 0
-  %sub69 = sub i64 %conv3.i, %conv2.i
-  %cmp70 = icmp ugt i64 %conv2.i, %conv3.i
-  %dec72 = sext i1 %cmp70 to i64
-  br i1 %tobool21.not, label %if.else67, label %if.then22
-
-if.then22:                                        ; preds = %if.else
-  %shr23 = lshr i64 %conv2.i, 30
-  %spec.select89 = add nsw i64 %shr23, %dec72
-  %shl29 = shl i64 %conv2.i, 34
-  %add30 = add i64 %shl29, %sub69
-  %cmp31 = icmp ult i64 %add30, %shl29
-  %inc33 = zext i1 %cmp31 to i64
-  %hi.5 = add nsw i64 %spec.select89, %inc33
-  %shr35 = lshr i64 %hi.5, 30
-  %sub36 = sub i64 %add30, %hi.5
-  %cmp37 = icmp ugt i64 %hi.5, %add30
-  %dec39 = sext i1 %cmp37 to i64
-  %hi.6 = add nsw i64 %shr35, %dec39
-  %shl41 = shl i64 %hi.5, 34
-  %add42 = add i64 %shl41, %sub36
-  %cmp43 = icmp ult i64 %add42, %shl41
-  br label %return
-
-if.else67:                                        ; preds = %if.else
-  %shr68 = lshr i64 %conv2.i, 24
-  %spec.select90 = add nsw i64 %shr68, %dec72
-  %shl74 = shl i64 %conv2.i, 40
-  %add75 = add i64 %shl74, %sub69
-  %cmp76 = icmp ult i64 %add75, %shl74
-  %inc78 = zext i1 %cmp76 to i64
-  %hi.11 = add nsw i64 %spec.select90, %inc78
-  %shr80 = lshr i64 %hi.11, 24
-  %sub81 = sub i64 %add75, %hi.11
-  %cmp82 = icmp ugt i64 %hi.11, %add75
-  %dec84 = sext i1 %cmp82 to i64
-  %hi.12 = add nsw i64 %shr80, %dec84
-  %shl86 = shl i64 %hi.11, 40
-  %add87 = add i64 %shl86, %sub81
-  %cmp88 = icmp ult i64 %add87, %shl86
-  br label %return
-
-return:                                           ; preds = %if.else67, %if.then22, %if.then
-  %cmp88.sink = phi i1 [ %cmp88, %if.else67 ], [ %cmp43, %if.then22 ], [ %cmp2, %if.then ]
-  %hi.12.sink = phi i64 [ %hi.12, %if.else67 ], [ %hi.6, %if.then22 ], [ %spec.select, %if.then ]
-  %.sink101 = phi i64 [ 24, %if.else67 ], [ 30, %if.then22 ], [ 32, %if.then ]
-  %add87.sink98 = phi i64 [ %add87, %if.else67 ], [ %add42, %if.then22 ], [ %add, %if.then ]
-  %.sink = phi i64 [ 40, %if.else67 ], [ 34, %if.then22 ], [ 32, %if.then ]
-  %inc90 = zext i1 %cmp88.sink to i64
-  %hi.13 = add nsw i64 %hi.12.sink, %inc90
-  %shr92 = lshr i64 %hi.13, %.sink101
-  %sub93 = sub i64 %add87.sink98, %hi.13
-  %cmp94 = icmp ugt i64 %hi.13, %add87.sink98
-  %dec96 = sext i1 %cmp94 to i64
-  %hi.14 = add nsw i64 %shr92, %dec96
-  %shl98 = shl i64 %hi.13, %.sink
-  %add99 = add i64 %shl98, %sub93
-  %cmp100 = icmp ult i64 %add99, %shl98
-  %inc102.neg = sext i1 %cmp100 to i64
-  %tobool104.not = icmp eq i64 %hi.14, %inc102.neg
-  %cmp106.not = icmp ult i64 %add99, %m
-  %or.cond57 = select i1 %tobool104.not, i1 %cmp106.not, i1 false
-  %sub108 = select i1 %or.cond57, i64 0, i64 %m
-  %spec.select93 = sub i64 %add99, %sub108
-  ret i64 %spec.select93
-}
-
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #2
+declare i64 @llvm.umax.i64(i64, i64) #1
 
-attributes #0 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #0 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
-!9 = distinct !{!9, !5}
-!10 = distinct !{!10, !5}
+!3 = !{!4, !4, i64 0}
+!4 = !{!"int", !5, i64 0}
+!5 = !{!"omnipotent char", !6, i64 0}
+!6 = !{!"Simple C/C++ TBAA"}
+!7 = !{!8, !8, i64 0}
+!8 = !{!"long", !5, i64 0}
+!9 = distinct !{!9, !10}
+!10 = !{!"llvm.loop.mustprogress"}
+!11 = distinct !{!11, !10}
+!12 = distinct !{!12, !10}
+!13 = distinct !{!13, !10}
+!14 = distinct !{!14, !10}
+!15 = distinct !{!15, !10}

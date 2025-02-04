@@ -1,12 +1,13 @@
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
 %struct.tok_state = type { ptr, ptr, ptr, i32, ptr, ptr, ptr, ptr, i32, ptr, i32, i32, [100 x i32], i32, i32, ptr, ptr, i32, i32, i32, i32, i32, [200 x i8], [200 x i32], [200 x i32], ptr, [100 x i32], i32, i32, ptr, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, i32, ptr, i32, [150 x %struct._tokenizer_mode], i32, i32, i32, i32 }
-%struct._tokenizer_mode = type { i32, i32, i32, i8, i32, i32, ptr, ptr, i32, i64, i64, i64, i64, ptr, i32 }
-%struct._typeobject = type { %struct.PyVarObject, ptr, i64, i64, ptr, i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i64, ptr, ptr, ptr, ptr, i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, ptr, ptr, i8 }
-%struct.PyVarObject = type { %struct._object, i64 }
+%struct._tokenizer_mode = type { i32, i32, i32, i8, i32, i32, ptr, ptr, i32, i64, i64, i64, i64, ptr, i32, i32 }
 %struct._object = type { %union.anon, ptr }
 %union.anon = type { i64 }
+%struct.anon = type { i32, i32 }
+%struct._typeobject = type { %struct.PyVarObject, ptr, i64, i64, ptr, i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i64, ptr, ptr, ptr, ptr, i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, ptr, ptr, i8, i16 }
+%struct.PyVarObject = type { %struct._object, i64 }
 %struct.PyBytesObject = type { %struct.PyVarObject, i64, [1 x i8] }
 
 @PyExc_StopIteration = external global ptr, align 8
@@ -16,695 +17,743 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.2 = private unnamed_addr constant [40 x i8] c"readline() returned a non-string object\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @_PyTokenizer_FromReadline(ptr noundef %readline, ptr noundef %enc, i32 noundef %exec_input, i32 noundef %preserve_crlf) #0 {
-entry:
-  %op.addr.i = alloca ptr, align 8
-  %cur_refcnt.i = alloca i32, align 4
-  %new_refcnt.i = alloca i32, align 4
-  %retval = alloca ptr, align 8
-  %readline.addr = alloca ptr, align 8
-  %enc.addr = alloca ptr, align 8
-  %exec_input.addr = alloca i32, align 4
-  %preserve_crlf.addr = alloca i32, align 4
-  %tok = alloca ptr, align 8
-  store ptr %readline, ptr %readline.addr, align 8
-  store ptr %enc, ptr %enc.addr, align 8
-  store i32 %exec_input, ptr %exec_input.addr, align 4
-  store i32 %preserve_crlf, ptr %preserve_crlf.addr, align 4
-  %call = call ptr @_PyTokenizer_tok_new()
-  store ptr %call, ptr %tok, align 8
-  %0 = load ptr, ptr %tok, align 8
-  %cmp = icmp eq ptr %0, null
-  br i1 %cmp, label %if.then, label %if.end
+define hidden ptr @_PyTokenizer_FromReadline(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) #0 {
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca i32, align 4
+  %10 = alloca ptr, align 8
+  %11 = alloca i32, align 4
+  store ptr %0, ptr %6, align 8, !tbaa !4
+  store ptr %1, ptr %7, align 8, !tbaa !9
+  store i32 %2, ptr %8, align 4, !tbaa !11
+  store i32 %3, ptr %9, align 4, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #7
+  %12 = call ptr @_PyTokenizer_tok_new()
+  store ptr %12, ptr %10, align 8, !tbaa !13
+  %13 = load ptr, ptr %10, align 8, !tbaa !13
+  %14 = icmp eq ptr %13, null
+  br i1 %14, label %15, label %16
 
-if.then:                                          ; preds = %entry
-  store ptr null, ptr %retval, align 8
-  br label %return
+15:                                               ; preds = %4
+  store ptr null, ptr %5, align 8
+  store i32 1, ptr %11, align 4
+  br label %66
 
-if.end:                                           ; preds = %entry
-  %call1 = call ptr @PyMem_Malloc(i64 noundef 8192)
-  %1 = load ptr, ptr %tok, align 8
-  %buf = getelementptr inbounds %struct.tok_state, ptr %1, i32 0, i32 0
-  store ptr %call1, ptr %buf, align 8
-  %cmp2 = icmp eq ptr %call1, null
-  br i1 %cmp2, label %if.then3, label %if.end4
+16:                                               ; preds = %4
+  %17 = call ptr @PyMem_Malloc(i64 noundef 8192)
+  %18 = load ptr, ptr %10, align 8, !tbaa !13
+  %19 = getelementptr inbounds nuw %struct.tok_state, ptr %18, i32 0, i32 0
+  store ptr %17, ptr %19, align 8, !tbaa !15
+  %20 = icmp eq ptr %17, null
+  br i1 %20, label %21, label %23
 
-if.then3:                                         ; preds = %if.end
-  %2 = load ptr, ptr %tok, align 8
-  call void @_PyTokenizer_Free(ptr noundef %2)
-  store ptr null, ptr %retval, align 8
-  br label %return
+21:                                               ; preds = %16
+  %22 = load ptr, ptr %10, align 8, !tbaa !13
+  call void @_PyTokenizer_Free(ptr noundef %22)
+  store ptr null, ptr %5, align 8
+  store i32 1, ptr %11, align 4
+  br label %66
 
-if.end4:                                          ; preds = %if.end
-  %3 = load ptr, ptr %tok, align 8
-  %buf5 = getelementptr inbounds %struct.tok_state, ptr %3, i32 0, i32 0
-  %4 = load ptr, ptr %buf5, align 8
-  %5 = load ptr, ptr %tok, align 8
-  %inp = getelementptr inbounds %struct.tok_state, ptr %5, i32 0, i32 2
-  store ptr %4, ptr %inp, align 8
-  %6 = load ptr, ptr %tok, align 8
-  %cur = getelementptr inbounds %struct.tok_state, ptr %6, i32 0, i32 1
-  store ptr %4, ptr %cur, align 8
-  %7 = load ptr, ptr %tok, align 8
-  %buf6 = getelementptr inbounds %struct.tok_state, ptr %7, i32 0, i32 0
-  %8 = load ptr, ptr %buf6, align 8
-  %add.ptr = getelementptr i8, ptr %8, i64 8192
-  %9 = load ptr, ptr %tok, align 8
-  %end = getelementptr inbounds %struct.tok_state, ptr %9, i32 0, i32 6
-  store ptr %add.ptr, ptr %end, align 8
-  %10 = load ptr, ptr %tok, align 8
-  %fp = getelementptr inbounds %struct.tok_state, ptr %10, i32 0, i32 9
-  store ptr null, ptr %fp, align 8
-  %11 = load ptr, ptr %enc.addr, align 8
-  %cmp7 = icmp ne ptr %11, null
-  br i1 %cmp7, label %if.then8, label %if.end14
+23:                                               ; preds = %16
+  %24 = load ptr, ptr %10, align 8, !tbaa !13
+  %25 = getelementptr inbounds nuw %struct.tok_state, ptr %24, i32 0, i32 0
+  %26 = load ptr, ptr %25, align 8, !tbaa !15
+  %27 = load ptr, ptr %10, align 8, !tbaa !13
+  %28 = getelementptr inbounds nuw %struct.tok_state, ptr %27, i32 0, i32 2
+  store ptr %26, ptr %28, align 8, !tbaa !18
+  %29 = load ptr, ptr %10, align 8, !tbaa !13
+  %30 = getelementptr inbounds nuw %struct.tok_state, ptr %29, i32 0, i32 1
+  store ptr %26, ptr %30, align 8, !tbaa !19
+  %31 = load ptr, ptr %10, align 8, !tbaa !13
+  %32 = getelementptr inbounds nuw %struct.tok_state, ptr %31, i32 0, i32 0
+  %33 = load ptr, ptr %32, align 8, !tbaa !15
+  %34 = getelementptr i8, ptr %33, i64 8192
+  %35 = load ptr, ptr %10, align 8, !tbaa !13
+  %36 = getelementptr inbounds nuw %struct.tok_state, ptr %35, i32 0, i32 6
+  store ptr %34, ptr %36, align 8, !tbaa !20
+  %37 = load ptr, ptr %10, align 8, !tbaa !13
+  %38 = getelementptr inbounds nuw %struct.tok_state, ptr %37, i32 0, i32 9
+  store ptr null, ptr %38, align 8, !tbaa !21
+  %39 = load ptr, ptr %7, align 8, !tbaa !9
+  %40 = icmp ne ptr %39, null
+  br i1 %40, label %41, label %56
 
-if.then8:                                         ; preds = %if.end4
-  %12 = load ptr, ptr %enc.addr, align 8
-  %13 = load ptr, ptr %enc.addr, align 8
-  %call9 = call i64 @strlen(ptr noundef %13) #4
-  %14 = load ptr, ptr %tok, align 8
-  %call10 = call ptr @_PyTokenizer_new_string(ptr noundef %12, i64 noundef %call9, ptr noundef %14)
-  %15 = load ptr, ptr %tok, align 8
-  %encoding = getelementptr inbounds %struct.tok_state, ptr %15, i32 0, i32 29
-  store ptr %call10, ptr %encoding, align 8
-  %16 = load ptr, ptr %tok, align 8
-  %encoding11 = getelementptr inbounds %struct.tok_state, ptr %16, i32 0, i32 29
-  %17 = load ptr, ptr %encoding11, align 8
-  %tobool = icmp ne ptr %17, null
-  br i1 %tobool, label %if.end13, label %if.then12
+41:                                               ; preds = %23
+  %42 = load ptr, ptr %7, align 8, !tbaa !9
+  %43 = load ptr, ptr %7, align 8, !tbaa !9
+  %44 = call i64 @strlen(ptr noundef %43) #8
+  %45 = load ptr, ptr %10, align 8, !tbaa !13
+  %46 = call ptr @_PyTokenizer_new_string(ptr noundef %42, i64 noundef %44, ptr noundef %45)
+  %47 = load ptr, ptr %10, align 8, !tbaa !13
+  %48 = getelementptr inbounds nuw %struct.tok_state, ptr %47, i32 0, i32 29
+  store ptr %46, ptr %48, align 8, !tbaa !22
+  %49 = load ptr, ptr %10, align 8, !tbaa !13
+  %50 = getelementptr inbounds nuw %struct.tok_state, ptr %49, i32 0, i32 29
+  %51 = load ptr, ptr %50, align 8, !tbaa !22
+  %52 = icmp ne ptr %51, null
+  br i1 %52, label %55, label %53
 
-if.then12:                                        ; preds = %if.then8
-  %18 = load ptr, ptr %tok, align 8
-  call void @_PyTokenizer_Free(ptr noundef %18)
-  store ptr null, ptr %retval, align 8
-  br label %return
+53:                                               ; preds = %41
+  %54 = load ptr, ptr %10, align 8, !tbaa !13
+  call void @_PyTokenizer_Free(ptr noundef %54)
+  store ptr null, ptr %5, align 8
+  store i32 1, ptr %11, align 4
+  br label %66
 
-if.end13:                                         ; preds = %if.then8
-  br label %if.end14
+55:                                               ; preds = %41
+  br label %56
 
-if.end14:                                         ; preds = %if.end13, %if.end4
-  %19 = load ptr, ptr %tok, align 8
-  %decoding_state = getelementptr inbounds %struct.tok_state, ptr %19, i32 0, i32 27
-  store i32 2, ptr %decoding_state, align 8
-  %20 = load ptr, ptr %tok, align 8
-  %underflow = getelementptr inbounds %struct.tok_state, ptr %20, i32 0, i32 41
-  store ptr @tok_underflow_readline, ptr %underflow, align 8
-  %21 = load ptr, ptr %readline.addr, align 8
-  store ptr %21, ptr %op.addr.i, align 8
-  %22 = load ptr, ptr %op.addr.i, align 8
-  %23 = load i32, ptr %22, align 8
-  store i32 %23, ptr %cur_refcnt.i, align 4
-  %24 = load i32, ptr %cur_refcnt.i, align 4
-  %add.i = add i32 %24, 1
-  store i32 %add.i, ptr %new_refcnt.i, align 4
-  %25 = load i32, ptr %new_refcnt.i, align 4
-  %cmp.i = icmp eq i32 %25, 0
-  br i1 %cmp.i, label %if.then.i, label %if.end.i
+56:                                               ; preds = %55, %23
+  %57 = load ptr, ptr %10, align 8, !tbaa !13
+  %58 = getelementptr inbounds nuw %struct.tok_state, ptr %57, i32 0, i32 27
+  store i32 2, ptr %58, align 8, !tbaa !23
+  %59 = load ptr, ptr %10, align 8, !tbaa !13
+  %60 = getelementptr inbounds nuw %struct.tok_state, ptr %59, i32 0, i32 41
+  store ptr @tok_underflow_readline, ptr %60, align 8, !tbaa !24
+  %61 = load ptr, ptr %6, align 8, !tbaa !4
+  call void @Py_INCREF(ptr noundef %61)
+  %62 = load ptr, ptr %6, align 8, !tbaa !4
+  %63 = load ptr, ptr %10, align 8, !tbaa !13
+  %64 = getelementptr inbounds nuw %struct.tok_state, ptr %63, i32 0, i32 35
+  store ptr %62, ptr %64, align 8, !tbaa !25
+  %65 = load ptr, ptr %10, align 8, !tbaa !13
+  store ptr %65, ptr %5, align 8
+  store i32 1, ptr %11, align 4
+  br label %66
 
-if.then.i:                                        ; preds = %if.end14
-  br label %Py_INCREF.exit
-
-if.end.i:                                         ; preds = %if.end14
-  %26 = load i32, ptr %new_refcnt.i, align 4
-  %27 = load ptr, ptr %op.addr.i, align 8
-  store i32 %26, ptr %27, align 8
-  br label %Py_INCREF.exit
-
-Py_INCREF.exit:                                   ; preds = %if.end.i, %if.then.i
-  %28 = load ptr, ptr %readline.addr, align 8
-  %29 = load ptr, ptr %tok, align 8
-  %readline15 = getelementptr inbounds %struct.tok_state, ptr %29, i32 0, i32 35
-  store ptr %28, ptr %readline15, align 8
-  %30 = load ptr, ptr %tok, align 8
-  store ptr %30, ptr %retval, align 8
-  br label %return
-
-return:                                           ; preds = %Py_INCREF.exit, %if.then12, %if.then3, %if.then
-  %31 = load ptr, ptr %retval, align 8
-  ret ptr %31
+66:                                               ; preds = %56, %53, %21, %15
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #7
+  %67 = load ptr, ptr %5, align 8
+  ret ptr %67
 }
 
-declare ptr @_PyTokenizer_tok_new() #1
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
-declare ptr @PyMem_Malloc(i64 noundef) #1
+declare ptr @_PyTokenizer_tok_new() #2
 
-declare void @_PyTokenizer_Free(ptr noundef) #1
+declare ptr @PyMem_Malloc(i64 noundef) #2
 
-declare ptr @_PyTokenizer_new_string(ptr noundef, i64 noundef, ptr noundef) #1
+declare void @_PyTokenizer_Free(ptr noundef) #2
+
+declare ptr @_PyTokenizer_new_string(ptr noundef, i64 noundef, ptr noundef) #2
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare i64 @strlen(ptr noundef) #2
+declare i64 @strlen(ptr noundef) #3
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @tok_underflow_readline(ptr noundef %tok) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %tok.addr = alloca ptr, align 8
-  store ptr %tok, ptr %tok.addr, align 8
-  %0 = load ptr, ptr %tok.addr, align 8
-  %start = getelementptr inbounds %struct.tok_state, ptr %0, i32 0, i32 7
-  %1 = load ptr, ptr %start, align 8
-  %cmp = icmp eq ptr %1, null
-  br i1 %cmp, label %land.lhs.true, label %if.end
+define internal i32 @tok_underflow_readline(ptr noundef %0) #0 {
+  %2 = alloca i32, align 4
+  %3 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !13
+  %4 = load ptr, ptr %3, align 8, !tbaa !13
+  %5 = getelementptr inbounds nuw %struct.tok_state, ptr %4, i32 0, i32 7
+  %6 = load ptr, ptr %5, align 8, !tbaa !26
+  %7 = icmp eq ptr %6, null
+  br i1 %7, label %8, label %21
 
-land.lhs.true:                                    ; preds = %entry
-  %2 = load ptr, ptr %tok.addr, align 8
-  %tok_mode_stack_index = getelementptr inbounds %struct.tok_state, ptr %2, i32 0, i32 44
-  %3 = load i32, ptr %tok_mode_stack_index, align 8
-  %cmp1 = icmp sgt i32 %3, 0
-  br i1 %cmp1, label %if.end, label %if.then
+8:                                                ; preds = %1
+  %9 = load ptr, ptr %3, align 8, !tbaa !13
+  %10 = getelementptr inbounds nuw %struct.tok_state, ptr %9, i32 0, i32 44
+  %11 = load i32, ptr %10, align 8, !tbaa !27
+  %12 = icmp sgt i32 %11, 0
+  br i1 %12, label %21, label %13
 
-if.then:                                          ; preds = %land.lhs.true
-  %4 = load ptr, ptr %tok.addr, align 8
-  %buf = getelementptr inbounds %struct.tok_state, ptr %4, i32 0, i32 0
-  %5 = load ptr, ptr %buf, align 8
-  %6 = load ptr, ptr %tok.addr, align 8
-  %inp = getelementptr inbounds %struct.tok_state, ptr %6, i32 0, i32 2
-  store ptr %5, ptr %inp, align 8
-  %7 = load ptr, ptr %tok.addr, align 8
-  %cur = getelementptr inbounds %struct.tok_state, ptr %7, i32 0, i32 1
-  store ptr %5, ptr %cur, align 8
-  br label %if.end
+13:                                               ; preds = %8
+  %14 = load ptr, ptr %3, align 8, !tbaa !13
+  %15 = getelementptr inbounds nuw %struct.tok_state, ptr %14, i32 0, i32 0
+  %16 = load ptr, ptr %15, align 8, !tbaa !15
+  %17 = load ptr, ptr %3, align 8, !tbaa !13
+  %18 = getelementptr inbounds nuw %struct.tok_state, ptr %17, i32 0, i32 2
+  store ptr %16, ptr %18, align 8, !tbaa !18
+  %19 = load ptr, ptr %3, align 8, !tbaa !13
+  %20 = getelementptr inbounds nuw %struct.tok_state, ptr %19, i32 0, i32 1
+  store ptr %16, ptr %20, align 8, !tbaa !19
+  br label %21
 
-if.end:                                           ; preds = %if.then, %land.lhs.true, %entry
-  %8 = load ptr, ptr %tok.addr, align 8
-  %call = call i32 @tok_readline_string(ptr noundef %8)
-  %tobool = icmp ne i32 %call, 0
-  br i1 %tobool, label %if.end3, label %if.then2
+21:                                               ; preds = %13, %8, %1
+  %22 = load ptr, ptr %3, align 8, !tbaa !13
+  %23 = call i32 @tok_readline_string(ptr noundef %22)
+  %24 = icmp ne i32 %23, 0
+  br i1 %24, label %26, label %25
 
-if.then2:                                         ; preds = %if.end
-  store i32 0, ptr %retval, align 4
-  br label %return
+25:                                               ; preds = %21
+  store i32 0, ptr %2, align 4
+  br label %94
 
-if.end3:                                          ; preds = %if.end
-  %9 = load ptr, ptr %tok.addr, align 8
-  %inp4 = getelementptr inbounds %struct.tok_state, ptr %9, i32 0, i32 2
-  %10 = load ptr, ptr %inp4, align 8
-  %11 = load ptr, ptr %tok.addr, align 8
-  %cur5 = getelementptr inbounds %struct.tok_state, ptr %11, i32 0, i32 1
-  %12 = load ptr, ptr %cur5, align 8
-  %cmp6 = icmp eq ptr %10, %12
-  br i1 %cmp6, label %if.then7, label %if.end8
+26:                                               ; preds = %21
+  %27 = load ptr, ptr %3, align 8, !tbaa !13
+  %28 = getelementptr inbounds nuw %struct.tok_state, ptr %27, i32 0, i32 2
+  %29 = load ptr, ptr %28, align 8, !tbaa !18
+  %30 = load ptr, ptr %3, align 8, !tbaa !13
+  %31 = getelementptr inbounds nuw %struct.tok_state, ptr %30, i32 0, i32 1
+  %32 = load ptr, ptr %31, align 8, !tbaa !19
+  %33 = icmp eq ptr %29, %32
+  br i1 %33, label %34, label %37
 
-if.then7:                                         ; preds = %if.end3
-  %13 = load ptr, ptr %tok.addr, align 8
-  %done = getelementptr inbounds %struct.tok_state, ptr %13, i32 0, i32 8
-  store i32 11, ptr %done, align 8
-  store i32 0, ptr %retval, align 4
-  br label %return
+34:                                               ; preds = %26
+  %35 = load ptr, ptr %3, align 8, !tbaa !13
+  %36 = getelementptr inbounds nuw %struct.tok_state, ptr %35, i32 0, i32 8
+  store i32 11, ptr %36, align 8, !tbaa !28
+  store i32 0, ptr %2, align 4
+  br label %94
 
-if.end8:                                          ; preds = %if.end3
-  %14 = load ptr, ptr %tok.addr, align 8
-  %implicit_newline = getelementptr inbounds %struct.tok_state, ptr %14, i32 0, i32 47
-  store i32 0, ptr %implicit_newline, align 4
-  %15 = load ptr, ptr %tok.addr, align 8
-  %inp9 = getelementptr inbounds %struct.tok_state, ptr %15, i32 0, i32 2
-  %16 = load ptr, ptr %inp9, align 8
-  %arrayidx = getelementptr i8, ptr %16, i64 -1
-  %17 = load i8, ptr %arrayidx, align 1
-  %conv = sext i8 %17 to i32
-  %cmp10 = icmp ne i32 %conv, 10
-  br i1 %cmp10, label %if.then12, label %if.end16
+37:                                               ; preds = %26
+  %38 = load ptr, ptr %3, align 8, !tbaa !13
+  %39 = getelementptr inbounds nuw %struct.tok_state, ptr %38, i32 0, i32 47
+  store i32 0, ptr %39, align 4, !tbaa !29
+  %40 = load ptr, ptr %3, align 8, !tbaa !13
+  %41 = getelementptr inbounds nuw %struct.tok_state, ptr %40, i32 0, i32 2
+  %42 = load ptr, ptr %41, align 8, !tbaa !18
+  %43 = getelementptr i8, ptr %42, i64 -1
+  %44 = load i8, ptr %43, align 1, !tbaa !30
+  %45 = sext i8 %44 to i32
+  %46 = icmp ne i32 %45, 10
+  br i1 %46, label %47, label %57
 
-if.then12:                                        ; preds = %if.end8
-  %18 = load ptr, ptr %tok.addr, align 8
-  %inp13 = getelementptr inbounds %struct.tok_state, ptr %18, i32 0, i32 2
-  %19 = load ptr, ptr %inp13, align 8
-  %incdec.ptr = getelementptr i8, ptr %19, i32 1
-  store ptr %incdec.ptr, ptr %inp13, align 8
-  store i8 10, ptr %19, align 1
-  %20 = load ptr, ptr %tok.addr, align 8
-  %inp14 = getelementptr inbounds %struct.tok_state, ptr %20, i32 0, i32 2
-  %21 = load ptr, ptr %inp14, align 8
-  store i8 0, ptr %21, align 1
-  %22 = load ptr, ptr %tok.addr, align 8
-  %implicit_newline15 = getelementptr inbounds %struct.tok_state, ptr %22, i32 0, i32 47
-  store i32 1, ptr %implicit_newline15, align 4
-  br label %if.end16
+47:                                               ; preds = %37
+  %48 = load ptr, ptr %3, align 8, !tbaa !13
+  %49 = getelementptr inbounds nuw %struct.tok_state, ptr %48, i32 0, i32 2
+  %50 = load ptr, ptr %49, align 8, !tbaa !18
+  %51 = getelementptr i8, ptr %50, i32 1
+  store ptr %51, ptr %49, align 8, !tbaa !18
+  store i8 10, ptr %50, align 1, !tbaa !30
+  %52 = load ptr, ptr %3, align 8, !tbaa !13
+  %53 = getelementptr inbounds nuw %struct.tok_state, ptr %52, i32 0, i32 2
+  %54 = load ptr, ptr %53, align 8, !tbaa !18
+  store i8 0, ptr %54, align 1, !tbaa !30
+  %55 = load ptr, ptr %3, align 8, !tbaa !13
+  %56 = getelementptr inbounds nuw %struct.tok_state, ptr %55, i32 0, i32 47
+  store i32 1, ptr %56, align 4, !tbaa !29
+  br label %57
 
-if.end16:                                         ; preds = %if.then12, %if.end8
-  %23 = load ptr, ptr %tok.addr, align 8
-  %tok_mode_stack_index17 = getelementptr inbounds %struct.tok_state, ptr %23, i32 0, i32 44
-  %24 = load i32, ptr %tok_mode_stack_index17, align 8
-  %tobool18 = icmp ne i32 %24, 0
-  br i1 %tobool18, label %land.lhs.true19, label %if.end23
+57:                                               ; preds = %47, %37
+  %58 = load ptr, ptr %3, align 8, !tbaa !13
+  %59 = getelementptr inbounds nuw %struct.tok_state, ptr %58, i32 0, i32 44
+  %60 = load i32, ptr %59, align 8, !tbaa !27
+  %61 = icmp ne i32 %60, 0
+  br i1 %61, label %62, label %67
 
-land.lhs.true19:                                  ; preds = %if.end16
-  %25 = load ptr, ptr %tok.addr, align 8
-  %call20 = call i32 @_PyLexer_update_fstring_expr(ptr noundef %25, i8 noundef signext 0)
-  %tobool21 = icmp ne i32 %call20, 0
-  br i1 %tobool21, label %if.end23, label %if.then22
+62:                                               ; preds = %57
+  %63 = load ptr, ptr %3, align 8, !tbaa !13
+  %64 = call i32 @_PyLexer_update_fstring_expr(ptr noundef %63, i8 noundef signext 0)
+  %65 = icmp ne i32 %64, 0
+  br i1 %65, label %67, label %66
 
-if.then22:                                        ; preds = %land.lhs.true19
-  store i32 0, ptr %retval, align 4
-  br label %return
+66:                                               ; preds = %62
+  store i32 0, ptr %2, align 4
+  br label %94
 
-if.end23:                                         ; preds = %land.lhs.true19, %if.end16
-  %26 = load ptr, ptr %tok.addr, align 8
-  %lineno = getelementptr inbounds %struct.tok_state, ptr %26, i32 0, i32 17
-  %27 = load i32, ptr %lineno, align 8
-  %inc = add i32 %27, 1
-  store i32 %inc, ptr %lineno, align 8
-  %28 = load ptr, ptr %tok.addr, align 8
-  %col_offset = getelementptr inbounds %struct.tok_state, ptr %28, i32 0, i32 20
-  store i32 0, ptr %col_offset, align 4
-  %29 = load ptr, ptr %tok.addr, align 8
-  %encoding = getelementptr inbounds %struct.tok_state, ptr %29, i32 0, i32 29
-  %30 = load ptr, ptr %encoding, align 8
-  %tobool24 = icmp ne ptr %30, null
-  br i1 %tobool24, label %if.end31, label %land.lhs.true25
+67:                                               ; preds = %62, %57
+  %68 = load ptr, ptr %3, align 8, !tbaa !13
+  %69 = getelementptr inbounds nuw %struct.tok_state, ptr %68, i32 0, i32 17
+  %70 = load i32, ptr %69, align 8, !tbaa !31
+  %71 = add i32 %70, 1
+  store i32 %71, ptr %69, align 8, !tbaa !31
+  %72 = load ptr, ptr %3, align 8, !tbaa !13
+  %73 = getelementptr inbounds nuw %struct.tok_state, ptr %72, i32 0, i32 20
+  store i32 0, ptr %73, align 4, !tbaa !32
+  %74 = load ptr, ptr %3, align 8, !tbaa !13
+  %75 = getelementptr inbounds nuw %struct.tok_state, ptr %74, i32 0, i32 29
+  %76 = load ptr, ptr %75, align 8, !tbaa !22
+  %77 = icmp ne ptr %76, null
+  br i1 %77, label %88, label %78
 
-land.lhs.true25:                                  ; preds = %if.end23
-  %31 = load ptr, ptr %tok.addr, align 8
-  %cur26 = getelementptr inbounds %struct.tok_state, ptr %31, i32 0, i32 1
-  %32 = load ptr, ptr %cur26, align 8
-  %33 = load ptr, ptr %tok.addr, align 8
-  %call27 = call i32 @_PyTokenizer_ensure_utf8(ptr noundef %32, ptr noundef %33)
-  %tobool28 = icmp ne i32 %call27, 0
-  br i1 %tobool28, label %if.end31, label %if.then29
+78:                                               ; preds = %67
+  %79 = load ptr, ptr %3, align 8, !tbaa !13
+  %80 = getelementptr inbounds nuw %struct.tok_state, ptr %79, i32 0, i32 1
+  %81 = load ptr, ptr %80, align 8, !tbaa !19
+  %82 = load ptr, ptr %3, align 8, !tbaa !13
+  %83 = call i32 @_PyTokenizer_ensure_utf8(ptr noundef %81, ptr noundef %82)
+  %84 = icmp ne i32 %83, 0
+  br i1 %84, label %88, label %85
 
-if.then29:                                        ; preds = %land.lhs.true25
-  %34 = load ptr, ptr %tok.addr, align 8
-  %call30 = call ptr @_PyTokenizer_error_ret(ptr noundef %34)
-  store i32 0, ptr %retval, align 4
-  br label %return
+85:                                               ; preds = %78
+  %86 = load ptr, ptr %3, align 8, !tbaa !13
+  %87 = call ptr @_PyTokenizer_error_ret(ptr noundef %86)
+  store i32 0, ptr %2, align 4
+  br label %94
 
-if.end31:                                         ; preds = %land.lhs.true25, %if.end23
-  %35 = load ptr, ptr %tok.addr, align 8
-  %done32 = getelementptr inbounds %struct.tok_state, ptr %35, i32 0, i32 8
-  %36 = load i32, ptr %done32, align 8
-  %cmp33 = icmp eq i32 %36, 10
-  %conv34 = zext i1 %cmp33 to i32
-  store i32 %conv34, ptr %retval, align 4
-  br label %return
+88:                                               ; preds = %78, %67
+  %89 = load ptr, ptr %3, align 8, !tbaa !13
+  %90 = getelementptr inbounds nuw %struct.tok_state, ptr %89, i32 0, i32 8
+  %91 = load i32, ptr %90, align 8, !tbaa !28
+  %92 = icmp eq i32 %91, 10
+  %93 = zext i1 %92 to i32
+  store i32 %93, ptr %2, align 4
+  br label %94
 
-return:                                           ; preds = %if.end31, %if.then29, %if.then22, %if.then7, %if.then2
-  %37 = load i32, ptr %retval, align 4
-  ret i32 %37
+94:                                               ; preds = %88, %85, %66, %34, %25
+  %95 = load i32, ptr %2, align 4
+  ret i32 %95
 }
 
+; Function Attrs: alwaysinline nounwind uwtable
+define internal void @Py_INCREF(ptr noundef %0) #4 {
+  %2 = alloca ptr, align 8
+  %3 = alloca i32, align 4
+  %4 = alloca i32, align 4
+  store ptr %0, ptr %2, align 8, !tbaa !4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %3) #7
+  %5 = load ptr, ptr %2, align 8, !tbaa !4
+  %6 = getelementptr inbounds nuw %struct._object, ptr %5, i32 0, i32 0
+  %7 = getelementptr inbounds nuw %struct.anon, ptr %6, i32 0, i32 0
+  %8 = load i32, ptr %7, align 8, !tbaa !30
+  store i32 %8, ptr %3, align 4, !tbaa !11
+  %9 = load i32, ptr %3, align 4, !tbaa !11
+  %10 = icmp slt i32 %9, 0
+  br i1 %10, label %11, label %12
+
+11:                                               ; preds = %1
+  store i32 1, ptr %4, align 4
+  br label %18
+
+12:                                               ; preds = %1
+  %13 = load i32, ptr %3, align 4, !tbaa !11
+  %14 = add i32 %13, 1
+  %15 = load ptr, ptr %2, align 8, !tbaa !4
+  %16 = getelementptr inbounds nuw %struct._object, ptr %15, i32 0, i32 0
+  %17 = getelementptr inbounds nuw %struct.anon, ptr %16, i32 0, i32 0
+  store i32 %14, ptr %17, align 8, !tbaa !30
+  store i32 0, ptr %4, align 4
+  br label %18
+
+18:                                               ; preds = %12, %11
+  call void @llvm.lifetime.end.p0(i64 4, ptr %3) #7
+  %19 = load i32, ptr %4, align 4
+  switch i32 %19, label %21 [
+    i32 0, label %20
+    i32 1, label %20
+  ]
+
+20:                                               ; preds = %18, %18
+  ret void
+
+21:                                               ; preds = %18
+  unreachable
+}
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+
 ; Function Attrs: nounwind uwtable
-define internal i32 @tok_readline_string(ptr noundef %tok) #0 {
-entry:
-  %op.addr.i55 = alloca ptr, align 8
-  %op.addr.i53 = alloca ptr, align 8
-  %op.addr.i44 = alloca ptr, align 8
-  %op.addr.i = alloca ptr, align 8
-  %retval = alloca i32, align 4
-  %tok.addr = alloca ptr, align 8
-  %line = alloca ptr, align 8
-  %raw_line = alloca ptr, align 8
-  %_tmp_op_ptr = alloca ptr, align 8
-  %_tmp_old_op = alloca ptr, align 8
-  %buflen = alloca i64, align 8
-  %buf = alloca ptr, align 8
-  %buffer_size = alloca i64, align 8
-  store ptr %tok, ptr %tok.addr, align 8
-  store ptr null, ptr %line, align 8
-  %0 = load ptr, ptr %tok.addr, align 8
-  %readline = getelementptr inbounds %struct.tok_state, ptr %0, i32 0, i32 35
-  %1 = load ptr, ptr %readline, align 8
-  %call = call ptr @PyObject_CallNoArgs(ptr noundef %1)
-  store ptr %call, ptr %raw_line, align 8
-  %2 = load ptr, ptr %raw_line, align 8
-  %cmp = icmp eq ptr %2, null
-  br i1 %cmp, label %if.then, label %if.end4
+define internal i32 @tok_readline_string(ptr noundef %0) #0 {
+  %2 = alloca i32, align 4
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca i64, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !13
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #7
+  store ptr null, ptr %4, align 8, !tbaa !4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #7
+  %12 = load ptr, ptr %3, align 8, !tbaa !13
+  %13 = getelementptr inbounds nuw %struct.tok_state, ptr %12, i32 0, i32 35
+  %14 = load ptr, ptr %13, align 8, !tbaa !25
+  %15 = call ptr @PyObject_CallNoArgs(ptr noundef %14)
+  store ptr %15, ptr %5, align 8, !tbaa !4
+  %16 = load ptr, ptr %5, align 8, !tbaa !4
+  %17 = icmp eq ptr %16, null
+  br i1 %17, label %18, label %26
 
-if.then:                                          ; preds = %entry
-  %3 = load ptr, ptr @PyExc_StopIteration, align 8
-  %call1 = call i32 @PyErr_ExceptionMatches(ptr noundef %3)
-  %tobool = icmp ne i32 %call1, 0
-  br i1 %tobool, label %if.then2, label %if.end
+18:                                               ; preds = %1
+  %19 = load ptr, ptr @PyExc_StopIteration, align 8, !tbaa !4
+  %20 = call i32 @PyErr_ExceptionMatches(ptr noundef %19)
+  %21 = icmp ne i32 %20, 0
+  br i1 %21, label %22, label %23
 
-if.then2:                                         ; preds = %if.then
+22:                                               ; preds = %18
   call void @PyErr_Clear()
-  store i32 1, ptr %retval, align 4
-  br label %return
+  store i32 1, ptr %2, align 4
+  store i32 1, ptr %6, align 4
+  br label %118
 
-if.end:                                           ; preds = %if.then
-  %4 = load ptr, ptr %tok.addr, align 8
-  %call3 = call ptr @_PyTokenizer_error_ret(ptr noundef %4)
-  br label %error
+23:                                               ; preds = %18
+  %24 = load ptr, ptr %3, align 8, !tbaa !13
+  %25 = call ptr @_PyTokenizer_error_ret(ptr noundef %24)
+  br label %115
 
-if.end4:                                          ; preds = %entry
-  %5 = load ptr, ptr %tok.addr, align 8
-  %encoding = getelementptr inbounds %struct.tok_state, ptr %5, i32 0, i32 29
-  %6 = load ptr, ptr %encoding, align 8
-  %cmp5 = icmp ne ptr %6, null
-  br i1 %cmp5, label %if.then6, label %if.else
+26:                                               ; preds = %1
+  %27 = load ptr, ptr %3, align 8, !tbaa !13
+  %28 = getelementptr inbounds nuw %struct.tok_state, ptr %27, i32 0, i32 29
+  %29 = load ptr, ptr %28, align 8, !tbaa !22
+  %30 = icmp ne ptr %29, null
+  br i1 %30, label %31, label %67
 
-if.then6:                                         ; preds = %if.end4
-  %7 = load ptr, ptr %raw_line, align 8
-  %call7 = call ptr @Py_TYPE(ptr noundef %7)
-  %call8 = call i32 @PyType_HasFeature(ptr noundef %call7, i64 noundef 134217728)
-  %tobool9 = icmp ne i32 %call8, 0
-  br i1 %tobool9, label %if.end13, label %if.then10
+31:                                               ; preds = %26
+  %32 = load ptr, ptr %5, align 8, !tbaa !4
+  %33 = call ptr @_Py_TYPE(ptr noundef %32)
+  %34 = call i32 @PyType_HasFeature(ptr noundef %33, i64 noundef 134217728)
+  %35 = icmp ne i32 %34, 0
+  br i1 %35, label %41, label %36
 
-if.then10:                                        ; preds = %if.then6
-  %8 = load ptr, ptr @PyExc_TypeError, align 8
-  %call11 = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %8, ptr noundef @.str)
-  %9 = load ptr, ptr %tok.addr, align 8
-  %call12 = call ptr @_PyTokenizer_error_ret(ptr noundef %9)
-  br label %error
+36:                                               ; preds = %31
+  %37 = load ptr, ptr @PyExc_TypeError, align 8, !tbaa !4
+  %38 = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %37, ptr noundef @.str)
+  %39 = load ptr, ptr %3, align 8, !tbaa !13
+  %40 = call ptr @_PyTokenizer_error_ret(ptr noundef %39)
+  br label %115
 
-if.end13:                                         ; preds = %if.then6
-  %10 = load ptr, ptr %raw_line, align 8
-  %call14 = call ptr @PyBytes_AS_STRING(ptr noundef %10)
-  %11 = load ptr, ptr %raw_line, align 8
-  %call15 = call i64 @PyBytes_GET_SIZE(ptr noundef %11)
-  %12 = load ptr, ptr %tok.addr, align 8
-  %encoding16 = getelementptr inbounds %struct.tok_state, ptr %12, i32 0, i32 29
-  %13 = load ptr, ptr %encoding16, align 8
-  %call17 = call ptr @PyUnicode_Decode(ptr noundef %call14, i64 noundef %call15, ptr noundef %13, ptr noundef @.str.1)
-  store ptr %call17, ptr %line, align 8
-  br label %do.body
+41:                                               ; preds = %31
+  %42 = load ptr, ptr %5, align 8, !tbaa !4
+  %43 = call ptr @PyBytes_AS_STRING(ptr noundef %42)
+  %44 = load ptr, ptr %5, align 8, !tbaa !4
+  %45 = call i64 @PyBytes_GET_SIZE(ptr noundef %44)
+  %46 = load ptr, ptr %3, align 8, !tbaa !13
+  %47 = getelementptr inbounds nuw %struct.tok_state, ptr %46, i32 0, i32 29
+  %48 = load ptr, ptr %47, align 8, !tbaa !22
+  %49 = call ptr @PyUnicode_Decode(ptr noundef %43, i64 noundef %45, ptr noundef %48, ptr noundef @.str.1)
+  store ptr %49, ptr %4, align 8, !tbaa !4
+  br label %50
 
-do.body:                                          ; preds = %if.end13
-  store ptr %raw_line, ptr %_tmp_op_ptr, align 8
-  %14 = load ptr, ptr %_tmp_op_ptr, align 8
-  %15 = load ptr, ptr %14, align 8
-  store ptr %15, ptr %_tmp_old_op, align 8
-  %16 = load ptr, ptr %_tmp_old_op, align 8
-  %cmp18 = icmp ne ptr %16, null
-  br i1 %cmp18, label %if.then19, label %if.end20
+50:                                               ; preds = %41
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #7
+  store ptr %5, ptr %7, align 8, !tbaa !33
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #7
+  %51 = load ptr, ptr %7, align 8, !tbaa !33
+  %52 = load ptr, ptr %51, align 8, !tbaa !4
+  store ptr %52, ptr %8, align 8, !tbaa !4
+  %53 = load ptr, ptr %8, align 8, !tbaa !4
+  %54 = icmp ne ptr %53, null
+  br i1 %54, label %55, label %58
 
-if.then19:                                        ; preds = %do.body
-  %17 = load ptr, ptr %_tmp_op_ptr, align 8
-  store ptr null, ptr %17, align 8
-  %18 = load ptr, ptr %_tmp_old_op, align 8
-  store ptr %18, ptr %op.addr.i44, align 8
-  %19 = load ptr, ptr %op.addr.i44, align 8
-  store ptr %19, ptr %op.addr.i53, align 8
-  %20 = load ptr, ptr %op.addr.i53, align 8
-  %21 = load i64, ptr %20, align 8
-  %conv.i = trunc i64 %21 to i32
-  %cmp.i54 = icmp slt i32 %conv.i, 0
-  %conv1.i = zext i1 %cmp.i54 to i32
-  %tobool.i46 = icmp ne i32 %conv1.i, 0
-  br i1 %tobool.i46, label %if.then.i51, label %if.end.i47
+55:                                               ; preds = %50
+  %56 = load ptr, ptr %7, align 8, !tbaa !33
+  store ptr null, ptr %56, align 8, !tbaa !4
+  %57 = load ptr, ptr %8, align 8, !tbaa !4
+  call void @Py_DECREF(ptr noundef %57)
+  br label %58
 
-if.then.i51:                                      ; preds = %if.then19
-  br label %Py_DECREF.exit52
+58:                                               ; preds = %55, %50
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #7
+  br label %59
 
-if.end.i47:                                       ; preds = %if.then19
-  %22 = load ptr, ptr %op.addr.i44, align 8
-  %23 = load i64, ptr %22, align 8
-  %dec.i48 = add i64 %23, -1
-  store i64 %dec.i48, ptr %22, align 8
-  %cmp.i49 = icmp eq i64 %dec.i48, 0
-  br i1 %cmp.i49, label %if.then1.i50, label %Py_DECREF.exit52
+59:                                               ; preds = %58
+  br label %60
 
-if.then1.i50:                                     ; preds = %if.end.i47
-  %24 = load ptr, ptr %op.addr.i44, align 8
-  call void @_Py_Dealloc(ptr noundef %24) #5
-  br label %Py_DECREF.exit52
+60:                                               ; preds = %59
+  %61 = load ptr, ptr %4, align 8, !tbaa !4
+  %62 = icmp eq ptr %61, null
+  br i1 %62, label %63, label %66
 
-Py_DECREF.exit52:                                 ; preds = %if.then1.i50, %if.end.i47, %if.then.i51
-  br label %if.end20
+63:                                               ; preds = %60
+  %64 = load ptr, ptr %3, align 8, !tbaa !13
+  %65 = call ptr @_PyTokenizer_error_ret(ptr noundef %64)
+  br label %115
 
-if.end20:                                         ; preds = %Py_DECREF.exit52, %do.body
-  br label %do.end
+66:                                               ; preds = %60
+  br label %79
 
-do.end:                                           ; preds = %if.end20
-  %25 = load ptr, ptr %line, align 8
-  %cmp21 = icmp eq ptr %25, null
-  br i1 %cmp21, label %if.then22, label %if.end24
+67:                                               ; preds = %26
+  %68 = load ptr, ptr %5, align 8, !tbaa !4
+  %69 = call ptr @_Py_TYPE(ptr noundef %68)
+  %70 = call i32 @PyType_HasFeature(ptr noundef %69, i64 noundef 268435456)
+  %71 = icmp ne i32 %70, 0
+  br i1 %71, label %77, label %72
 
-if.then22:                                        ; preds = %do.end
-  %26 = load ptr, ptr %tok.addr, align 8
-  %call23 = call ptr @_PyTokenizer_error_ret(ptr noundef %26)
-  br label %error
+72:                                               ; preds = %67
+  %73 = load ptr, ptr @PyExc_TypeError, align 8, !tbaa !4
+  %74 = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %73, ptr noundef @.str.2)
+  %75 = load ptr, ptr %3, align 8, !tbaa !13
+  %76 = call ptr @_PyTokenizer_error_ret(ptr noundef %75)
+  br label %115
 
-if.end24:                                         ; preds = %do.end
-  br label %if.end32
+77:                                               ; preds = %67
+  %78 = load ptr, ptr %5, align 8, !tbaa !4
+  store ptr %78, ptr %4, align 8, !tbaa !4
+  store ptr null, ptr %5, align 8, !tbaa !4
+  br label %79
 
-if.else:                                          ; preds = %if.end4
-  %27 = load ptr, ptr %raw_line, align 8
-  %call25 = call ptr @Py_TYPE(ptr noundef %27)
-  %call26 = call i32 @PyType_HasFeature(ptr noundef %call25, i64 noundef 268435456)
-  %tobool27 = icmp ne i32 %call26, 0
-  br i1 %tobool27, label %if.end31, label %if.then28
+79:                                               ; preds = %77, %66
+  %80 = load ptr, ptr %4, align 8, !tbaa !4
+  %81 = call ptr @PyUnicode_AsUTF8AndSize(ptr noundef %80, ptr noundef %9)
+  store ptr %81, ptr %10, align 8, !tbaa !9
+  %82 = load ptr, ptr %10, align 8, !tbaa !9
+  %83 = icmp eq ptr %82, null
+  br i1 %83, label %84, label %87
 
-if.then28:                                        ; preds = %if.else
-  %28 = load ptr, ptr @PyExc_TypeError, align 8
-  %call29 = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %28, ptr noundef @.str.2)
-  %29 = load ptr, ptr %tok.addr, align 8
-  %call30 = call ptr @_PyTokenizer_error_ret(ptr noundef %29)
-  br label %error
+84:                                               ; preds = %79
+  %85 = load ptr, ptr %3, align 8, !tbaa !13
+  %86 = call ptr @_PyTokenizer_error_ret(ptr noundef %85)
+  br label %115
 
-if.end31:                                         ; preds = %if.else
-  %30 = load ptr, ptr %raw_line, align 8
-  store ptr %30, ptr %line, align 8
-  store ptr null, ptr %raw_line, align 8
-  br label %if.end32
+87:                                               ; preds = %79
+  %88 = load i64, ptr %9, align 8, !tbaa !35
+  %89 = add i64 %88, 2
+  store i64 %89, ptr %11, align 8, !tbaa !35
+  %90 = load ptr, ptr %3, align 8, !tbaa !13
+  %91 = load i64, ptr %11, align 8, !tbaa !35
+  %92 = call i32 @_PyLexer_tok_reserve_buf(ptr noundef %90, i64 noundef %91)
+  %93 = icmp ne i32 %92, 0
+  br i1 %93, label %95, label %94
 
-if.end32:                                         ; preds = %if.end31, %if.end24
-  %31 = load ptr, ptr %line, align 8
-  %call33 = call ptr @PyUnicode_AsUTF8AndSize(ptr noundef %31, ptr noundef %buflen)
-  store ptr %call33, ptr %buf, align 8
-  %32 = load ptr, ptr %buf, align 8
-  %cmp34 = icmp eq ptr %32, null
-  br i1 %cmp34, label %if.then35, label %if.end37
+94:                                               ; preds = %87
+  br label %115
 
-if.then35:                                        ; preds = %if.end32
-  %33 = load ptr, ptr %tok.addr, align 8
-  %call36 = call ptr @_PyTokenizer_error_ret(ptr noundef %33)
-  br label %error
+95:                                               ; preds = %87
+  %96 = load ptr, ptr %3, align 8, !tbaa !13
+  %97 = getelementptr inbounds nuw %struct.tok_state, ptr %96, i32 0, i32 2
+  %98 = load ptr, ptr %97, align 8, !tbaa !18
+  %99 = load ptr, ptr %10, align 8, !tbaa !9
+  %100 = load i64, ptr %9, align 8, !tbaa !35
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %98, ptr align 1 %99, i64 %100, i1 false)
+  %101 = load i64, ptr %9, align 8, !tbaa !35
+  %102 = load ptr, ptr %3, align 8, !tbaa !13
+  %103 = getelementptr inbounds nuw %struct.tok_state, ptr %102, i32 0, i32 2
+  %104 = load ptr, ptr %103, align 8, !tbaa !18
+  %105 = getelementptr i8, ptr %104, i64 %101
+  store ptr %105, ptr %103, align 8, !tbaa !18
+  %106 = load ptr, ptr %3, align 8, !tbaa !13
+  %107 = getelementptr inbounds nuw %struct.tok_state, ptr %106, i32 0, i32 2
+  %108 = load ptr, ptr %107, align 8, !tbaa !18
+  store i8 0, ptr %108, align 1, !tbaa !30
+  %109 = load ptr, ptr %3, align 8, !tbaa !13
+  %110 = getelementptr inbounds nuw %struct.tok_state, ptr %109, i32 0, i32 1
+  %111 = load ptr, ptr %110, align 8, !tbaa !19
+  %112 = load ptr, ptr %3, align 8, !tbaa !13
+  %113 = getelementptr inbounds nuw %struct.tok_state, ptr %112, i32 0, i32 31
+  store ptr %111, ptr %113, align 8, !tbaa !37
+  %114 = load ptr, ptr %4, align 8, !tbaa !4
+  call void @Py_DECREF(ptr noundef %114)
+  store i32 1, ptr %2, align 4
+  store i32 1, ptr %6, align 4
+  br label %118
 
-if.end37:                                         ; preds = %if.end32
-  %34 = load i64, ptr %buflen, align 8
-  %add = add i64 %34, 2
-  store i64 %add, ptr %buffer_size, align 8
-  %35 = load ptr, ptr %tok.addr, align 8
-  %36 = load i64, ptr %buffer_size, align 8
-  %call38 = call i32 @_PyLexer_tok_reserve_buf(ptr noundef %35, i64 noundef %36)
-  %tobool39 = icmp ne i32 %call38, 0
-  br i1 %tobool39, label %if.end41, label %if.then40
+115:                                              ; preds = %94, %84, %72, %63, %36, %23
+  %116 = load ptr, ptr %5, align 8, !tbaa !4
+  call void @Py_XDECREF(ptr noundef %116)
+  %117 = load ptr, ptr %4, align 8, !tbaa !4
+  call void @Py_XDECREF(ptr noundef %117)
+  store i32 0, ptr %2, align 4
+  store i32 1, ptr %6, align 4
+  br label %118
 
-if.then40:                                        ; preds = %if.end37
-  br label %error
-
-if.end41:                                         ; preds = %if.end37
-  %37 = load ptr, ptr %tok.addr, align 8
-  %inp = getelementptr inbounds %struct.tok_state, ptr %37, i32 0, i32 2
-  %38 = load ptr, ptr %inp, align 8
-  %39 = load ptr, ptr %buf, align 8
-  %40 = load i64, ptr %buflen, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %38, ptr align 1 %39, i64 %40, i1 false)
-  %41 = load i64, ptr %buflen, align 8
-  %42 = load ptr, ptr %tok.addr, align 8
-  %inp42 = getelementptr inbounds %struct.tok_state, ptr %42, i32 0, i32 2
-  %43 = load ptr, ptr %inp42, align 8
-  %add.ptr = getelementptr i8, ptr %43, i64 %41
-  store ptr %add.ptr, ptr %inp42, align 8
-  %44 = load ptr, ptr %tok.addr, align 8
-  %inp43 = getelementptr inbounds %struct.tok_state, ptr %44, i32 0, i32 2
-  %45 = load ptr, ptr %inp43, align 8
-  store i8 0, ptr %45, align 1
-  %46 = load ptr, ptr %tok.addr, align 8
-  %cur = getelementptr inbounds %struct.tok_state, ptr %46, i32 0, i32 1
-  %47 = load ptr, ptr %cur, align 8
-  %48 = load ptr, ptr %tok.addr, align 8
-  %line_start = getelementptr inbounds %struct.tok_state, ptr %48, i32 0, i32 31
-  store ptr %47, ptr %line_start, align 8
-  %49 = load ptr, ptr %line, align 8
-  store ptr %49, ptr %op.addr.i, align 8
-  %50 = load ptr, ptr %op.addr.i, align 8
-  store ptr %50, ptr %op.addr.i55, align 8
-  %51 = load ptr, ptr %op.addr.i55, align 8
-  %52 = load i64, ptr %51, align 8
-  %conv.i56 = trunc i64 %52 to i32
-  %cmp.i57 = icmp slt i32 %conv.i56, 0
-  %conv1.i58 = zext i1 %cmp.i57 to i32
-  %tobool.i = icmp ne i32 %conv1.i58, 0
-  br i1 %tobool.i, label %if.then.i, label %if.end.i
-
-if.then.i:                                        ; preds = %if.end41
-  br label %Py_DECREF.exit
-
-if.end.i:                                         ; preds = %if.end41
-  %53 = load ptr, ptr %op.addr.i, align 8
-  %54 = load i64, ptr %53, align 8
-  %dec.i = add i64 %54, -1
-  store i64 %dec.i, ptr %53, align 8
-  %cmp.i = icmp eq i64 %dec.i, 0
-  br i1 %cmp.i, label %if.then1.i, label %Py_DECREF.exit
-
-if.then1.i:                                       ; preds = %if.end.i
-  %55 = load ptr, ptr %op.addr.i, align 8
-  call void @_Py_Dealloc(ptr noundef %55) #5
-  br label %Py_DECREF.exit
-
-Py_DECREF.exit:                                   ; preds = %if.then1.i, %if.end.i, %if.then.i
-  store i32 1, ptr %retval, align 4
-  br label %return
-
-error:                                            ; preds = %if.then40, %if.then35, %if.then28, %if.then22, %if.then10, %if.end
-  %56 = load ptr, ptr %raw_line, align 8
-  call void @Py_XDECREF(ptr noundef %56)
-  %57 = load ptr, ptr %line, align 8
-  call void @Py_XDECREF(ptr noundef %57)
-  store i32 0, ptr %retval, align 4
-  br label %return
-
-return:                                           ; preds = %error, %Py_DECREF.exit, %if.then2
-  %58 = load i32, ptr %retval, align 4
-  ret i32 %58
+118:                                              ; preds = %115, %95, %22
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #7
+  %119 = load i32, ptr %2, align 4
+  ret i32 %119
 }
 
-declare i32 @_PyLexer_update_fstring_expr(ptr noundef, i8 noundef signext) #1
+declare i32 @_PyLexer_update_fstring_expr(ptr noundef, i8 noundef signext) #2
 
-declare i32 @_PyTokenizer_ensure_utf8(ptr noundef, ptr noundef) #1
+declare i32 @_PyTokenizer_ensure_utf8(ptr noundef, ptr noundef) #2
 
-declare ptr @_PyTokenizer_error_ret(ptr noundef) #1
+declare ptr @_PyTokenizer_error_ret(ptr noundef) #2
 
-declare ptr @PyObject_CallNoArgs(ptr noundef) #1
+declare ptr @PyObject_CallNoArgs(ptr noundef) #2
 
-declare i32 @PyErr_ExceptionMatches(ptr noundef) #1
+declare i32 @PyErr_ExceptionMatches(ptr noundef) #2
 
-declare void @PyErr_Clear() #1
+declare void @PyErr_Clear() #2
 
-; Function Attrs: nounwind uwtable
-define internal i32 @PyType_HasFeature(ptr noundef %type, i64 noundef %feature) #0 {
-entry:
-  %type.addr = alloca ptr, align 8
-  %feature.addr = alloca i64, align 8
-  %flags = alloca i64, align 8
-  store ptr %type, ptr %type.addr, align 8
-  store i64 %feature, ptr %feature.addr, align 8
-  %0 = load ptr, ptr %type.addr, align 8
-  %tp_flags = getelementptr inbounds %struct._typeobject, ptr %0, i32 0, i32 19
-  %1 = load i64, ptr %tp_flags, align 8
-  store i64 %1, ptr %flags, align 8
-  %2 = load i64, ptr %flags, align 8
-  %3 = load i64, ptr %feature.addr, align 8
-  %and = and i64 %2, %3
-  %cmp = icmp ne i64 %and, 0
-  %conv = zext i1 %cmp to i32
-  ret i32 %conv
+; Function Attrs: inlinehint nounwind uwtable
+define internal i32 @PyType_HasFeature(ptr noundef %0, i64 noundef %1) #5 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  %5 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !38
+  store i64 %1, ptr %4, align 8, !tbaa !35
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #7
+  %6 = load ptr, ptr %3, align 8, !tbaa !38
+  %7 = getelementptr inbounds nuw %struct._typeobject, ptr %6, i32 0, i32 19
+  %8 = load i64, ptr %7, align 8, !tbaa !40
+  store i64 %8, ptr %5, align 8, !tbaa !35
+  %9 = load i64, ptr %5, align 8, !tbaa !35
+  %10 = load i64, ptr %4, align 8, !tbaa !35
+  %11 = and i64 %9, %10
+  %12 = icmp ne i64 %11, 0
+  %13 = zext i1 %12 to i32
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #7
+  ret i32 %13
 }
 
-; Function Attrs: nounwind uwtable
-define internal ptr @Py_TYPE(ptr noundef %ob) #0 {
-entry:
-  %ob.addr = alloca ptr, align 8
-  store ptr %ob, ptr %ob.addr, align 8
-  %0 = load ptr, ptr %ob.addr, align 8
-  %ob_type = getelementptr inbounds %struct._object, ptr %0, i32 0, i32 1
-  %1 = load ptr, ptr %ob_type, align 8
-  ret ptr %1
+; Function Attrs: inlinehint nounwind uwtable
+define internal ptr @_Py_TYPE(ptr noundef %0) #5 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !4
+  %3 = load ptr, ptr %2, align 8, !tbaa !4
+  %4 = getelementptr inbounds nuw %struct._object, ptr %3, i32 0, i32 1
+  %5 = load ptr, ptr %4, align 8, !tbaa !48
+  ret ptr %5
 }
 
-declare ptr @PyErr_Format(ptr noundef, ptr noundef, ...) #1
+declare ptr @PyErr_Format(ptr noundef, ptr noundef, ...) #2
 
-declare ptr @PyUnicode_Decode(ptr noundef, i64 noundef, ptr noundef, ptr noundef) #1
+declare ptr @PyUnicode_Decode(ptr noundef, i64 noundef, ptr noundef, ptr noundef) #2
 
-; Function Attrs: nounwind uwtable
-define internal ptr @PyBytes_AS_STRING(ptr noundef %op) #0 {
-entry:
-  %op.addr = alloca ptr, align 8
-  store ptr %op, ptr %op.addr, align 8
-  %0 = load ptr, ptr %op.addr, align 8
-  %ob_sval = getelementptr inbounds %struct.PyBytesObject, ptr %0, i32 0, i32 2
-  %arraydecay = getelementptr inbounds [1 x i8], ptr %ob_sval, i64 0, i64 0
-  ret ptr %arraydecay
+; Function Attrs: inlinehint nounwind uwtable
+define internal ptr @PyBytes_AS_STRING(ptr noundef %0) #5 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !4
+  %3 = load ptr, ptr %2, align 8, !tbaa !4
+  %4 = getelementptr inbounds nuw %struct.PyBytesObject, ptr %3, i32 0, i32 2
+  %5 = getelementptr inbounds [1 x i8], ptr %4, i64 0, i64 0
+  ret ptr %5
 }
 
-; Function Attrs: nounwind uwtable
-define internal i64 @PyBytes_GET_SIZE(ptr noundef %op) #0 {
-entry:
-  %op.addr = alloca ptr, align 8
-  %self = alloca ptr, align 8
-  store ptr %op, ptr %op.addr, align 8
-  %0 = load ptr, ptr %op.addr, align 8
-  store ptr %0, ptr %self, align 8
-  %1 = load ptr, ptr %self, align 8
-  %call = call i64 @Py_SIZE(ptr noundef %1)
-  ret i64 %call
+; Function Attrs: inlinehint nounwind uwtable
+define internal i64 @PyBytes_GET_SIZE(ptr noundef %0) #5 {
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #7
+  %4 = load ptr, ptr %2, align 8, !tbaa !4
+  store ptr %4, ptr %3, align 8, !tbaa !49
+  %5 = load ptr, ptr %3, align 8, !tbaa !49
+  %6 = call i64 @Py_SIZE(ptr noundef %5)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #7
+  ret i64 %6
 }
 
-declare ptr @PyUnicode_AsUTF8AndSize(ptr noundef, ptr noundef) #1
+; Function Attrs: alwaysinline nounwind uwtable
+define internal void @Py_DECREF(ptr noundef %0) #4 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !4
+  %3 = load ptr, ptr %2, align 8, !tbaa !4
+  %4 = call i32 @_Py_IsImmortal(ptr noundef %3)
+  %5 = icmp ne i32 %4, 0
+  br i1 %5, label %6, label %7
 
-declare i32 @_PyLexer_tok_reserve_buf(ptr noundef, i64 noundef) #1
+6:                                                ; preds = %1
+  br label %16
 
-; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+7:                                                ; preds = %1
+  %8 = load ptr, ptr %2, align 8, !tbaa !4
+  %9 = getelementptr inbounds nuw %struct._object, ptr %8, i32 0, i32 0
+  %10 = getelementptr inbounds nuw %struct.anon, ptr %9, i32 0, i32 0
+  %11 = load i32, ptr %10, align 8, !tbaa !30
+  %12 = add i32 %11, -1
+  store i32 %12, ptr %10, align 8, !tbaa !30
+  %13 = icmp eq i32 %12, 0
+  br i1 %13, label %14, label %16
 
-; Function Attrs: nounwind uwtable
-define internal void @Py_XDECREF(ptr noundef %op) #0 {
-entry:
-  %op.addr.i1 = alloca ptr, align 8
-  %op.addr.i = alloca ptr, align 8
-  %op.addr = alloca ptr, align 8
-  store ptr %op, ptr %op.addr, align 8
-  %0 = load ptr, ptr %op.addr, align 8
-  %cmp = icmp ne ptr %0, null
-  br i1 %cmp, label %if.then, label %if.end
+14:                                               ; preds = %7
+  %15 = load ptr, ptr %2, align 8, !tbaa !4
+  call void @_Py_Dealloc(ptr noundef %15)
+  br label %16
 
-if.then:                                          ; preds = %entry
-  %1 = load ptr, ptr %op.addr, align 8
-  store ptr %1, ptr %op.addr.i, align 8
-  %2 = load ptr, ptr %op.addr.i, align 8
-  store ptr %2, ptr %op.addr.i1, align 8
-  %3 = load ptr, ptr %op.addr.i1, align 8
-  %4 = load i64, ptr %3, align 8
-  %conv.i = trunc i64 %4 to i32
-  %cmp.i2 = icmp slt i32 %conv.i, 0
-  %conv1.i = zext i1 %cmp.i2 to i32
-  %tobool.i = icmp ne i32 %conv1.i, 0
-  br i1 %tobool.i, label %if.then.i, label %if.end.i
-
-if.then.i:                                        ; preds = %if.then
-  br label %Py_DECREF.exit
-
-if.end.i:                                         ; preds = %if.then
-  %5 = load ptr, ptr %op.addr.i, align 8
-  %6 = load i64, ptr %5, align 8
-  %dec.i = add i64 %6, -1
-  store i64 %dec.i, ptr %5, align 8
-  %cmp.i = icmp eq i64 %dec.i, 0
-  br i1 %cmp.i, label %if.then1.i, label %Py_DECREF.exit
-
-if.then1.i:                                       ; preds = %if.end.i
-  %7 = load ptr, ptr %op.addr.i, align 8
-  call void @_Py_Dealloc(ptr noundef %7) #5
-  br label %Py_DECREF.exit
-
-Py_DECREF.exit:                                   ; preds = %if.then1.i, %if.end.i, %if.then.i
-  br label %if.end
-
-if.end:                                           ; preds = %Py_DECREF.exit, %entry
+16:                                               ; preds = %6, %14, %7
   ret void
 }
 
-; Function Attrs: nounwind uwtable
-define internal i64 @Py_SIZE(ptr noundef %ob) #0 {
-entry:
-  %ob.addr = alloca ptr, align 8
-  %var_ob = alloca ptr, align 8
-  store ptr %ob, ptr %ob.addr, align 8
-  %0 = load ptr, ptr %ob.addr, align 8
-  store ptr %0, ptr %var_ob, align 8
-  %1 = load ptr, ptr %var_ob, align 8
-  %ob_size = getelementptr inbounds %struct.PyVarObject, ptr %1, i32 0, i32 1
-  %2 = load i64, ptr %ob_size, align 8
-  ret i64 %2
+declare ptr @PyUnicode_AsUTF8AndSize(ptr noundef, ptr noundef) #2
+
+declare i32 @_PyLexer_tok_reserve_buf(ptr noundef, i64 noundef) #2
+
+; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal void @Py_XDECREF(ptr noundef %0) #5 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !4
+  %3 = load ptr, ptr %2, align 8, !tbaa !4
+  %4 = icmp ne ptr %3, null
+  br i1 %4, label %5, label %7
+
+5:                                                ; preds = %1
+  %6 = load ptr, ptr %2, align 8, !tbaa !4
+  call void @Py_DECREF(ptr noundef %6)
+  br label %7
+
+7:                                                ; preds = %5, %1
+  ret void
 }
 
-declare void @_Py_Dealloc(ptr noundef) #1
+; Function Attrs: inlinehint nounwind uwtable
+define internal i64 @Py_SIZE(ptr noundef %0) #5 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !4
+  %3 = load ptr, ptr %2, align 8, !tbaa !4
+  %4 = getelementptr inbounds nuw %struct.PyVarObject, ptr %3, i32 0, i32 1
+  %5 = load i64, ptr %4, align 8, !tbaa !50
+  ret i64 %5
+}
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { nounwind willreturn memory(read) }
-attributes #5 = { nounwind }
+; Function Attrs: alwaysinline nounwind uwtable
+define internal i32 @_Py_IsImmortal(ptr noundef %0) #4 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !4
+  %3 = load ptr, ptr %2, align 8, !tbaa !4
+  %4 = getelementptr inbounds nuw %struct._object, ptr %3, i32 0, i32 0
+  %5 = getelementptr inbounds nuw %struct.anon, ptr %4, i32 0, i32 0
+  %6 = load i32, ptr %5, align 8, !tbaa !30
+  %7 = icmp slt i32 %6, 0
+  %8 = zext i1 %7 to i32
+  ret i32 %8
+}
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+declare void @_Py_Dealloc(ptr noundef) #2
+
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nounwind willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { alwaysinline nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { inlinehint nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #7 = { nounwind }
+attributes #8 = { nounwind willreturn memory(read) }
+
+!llvm.module.flags = !{!0, !1, !2, !3}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}
+!4 = !{!5, !5, i64 0}
+!5 = !{!"p1 _ZTS7_object", !6, i64 0}
+!6 = !{!"any pointer", !7, i64 0}
+!7 = !{!"omnipotent char", !8, i64 0}
+!8 = !{!"Simple C/C++ TBAA"}
+!9 = !{!10, !10, i64 0}
+!10 = !{!"p1 omnipotent char", !6, i64 0}
+!11 = !{!12, !12, i64 0}
+!12 = !{!"int", !7, i64 0}
+!13 = !{!14, !14, i64 0}
+!14 = !{!"p1 _ZTS9tok_state", !6, i64 0}
+!15 = !{!16, !10, i64 0}
+!16 = !{!"tok_state", !10, i64 0, !10, i64 8, !10, i64 16, !12, i64 24, !10, i64 32, !10, i64 40, !10, i64 48, !10, i64 56, !12, i64 64, !17, i64 72, !12, i64 80, !12, i64 84, !7, i64 88, !12, i64 488, !12, i64 492, !10, i64 496, !10, i64 504, !12, i64 512, !12, i64 516, !12, i64 520, !12, i64 524, !12, i64 528, !7, i64 532, !7, i64 732, !7, i64 1532, !5, i64 2336, !7, i64 2344, !12, i64 2744, !12, i64 2748, !10, i64 2752, !12, i64 2760, !10, i64 2768, !10, i64 2776, !5, i64 2784, !5, i64 2792, !5, i64 2800, !10, i64 2808, !10, i64 2816, !10, i64 2824, !12, i64 2832, !12, i64 2836, !6, i64 2840, !12, i64 2848, !7, i64 2856, !12, i64 17256, !12, i64 17260, !12, i64 17264, !12, i64 17268}
+!17 = !{!"p1 _ZTS8_IO_FILE", !6, i64 0}
+!18 = !{!16, !10, i64 16}
+!19 = !{!16, !10, i64 8}
+!20 = !{!16, !10, i64 48}
+!21 = !{!16, !17, i64 72}
+!22 = !{!16, !10, i64 2752}
+!23 = !{!16, !12, i64 2744}
+!24 = !{!16, !6, i64 2840}
+!25 = !{!16, !5, i64 2800}
+!26 = !{!16, !10, i64 56}
+!27 = !{!16, !12, i64 17256}
+!28 = !{!16, !12, i64 64}
+!29 = !{!16, !12, i64 17268}
+!30 = !{!7, !7, i64 0}
+!31 = !{!16, !12, i64 512}
+!32 = !{!16, !12, i64 524}
+!33 = !{!34, !34, i64 0}
+!34 = !{!"p2 _ZTS7_object", !6, i64 0}
+!35 = !{!36, !36, i64 0}
+!36 = !{!"long", !7, i64 0}
+!37 = !{!16, !10, i64 2768}
+!38 = !{!39, !39, i64 0}
+!39 = !{!"p1 _ZTS11_typeobject", !6, i64 0}
+!40 = !{!41, !36, i64 168}
+!41 = !{!"_typeobject", !42, i64 0, !10, i64 24, !36, i64 32, !36, i64 40, !6, i64 48, !36, i64 56, !6, i64 64, !6, i64 72, !6, i64 80, !6, i64 88, !6, i64 96, !6, i64 104, !6, i64 112, !6, i64 120, !6, i64 128, !6, i64 136, !6, i64 144, !6, i64 152, !6, i64 160, !36, i64 168, !10, i64 176, !6, i64 184, !6, i64 192, !6, i64 200, !36, i64 208, !6, i64 216, !6, i64 224, !44, i64 232, !45, i64 240, !46, i64 248, !39, i64 256, !5, i64 264, !6, i64 272, !6, i64 280, !36, i64 288, !6, i64 296, !6, i64 304, !6, i64 312, !6, i64 320, !6, i64 328, !5, i64 336, !5, i64 344, !5, i64 352, !6, i64 360, !5, i64 368, !6, i64 376, !12, i64 384, !6, i64 392, !6, i64 400, !7, i64 408, !47, i64 410}
+!42 = !{!"", !43, i64 0, !36, i64 16}
+!43 = !{!"_object", !7, i64 0, !39, i64 8}
+!44 = !{!"p1 _ZTS11PyMethodDef", !6, i64 0}
+!45 = !{!"p1 _ZTS11PyMemberDef", !6, i64 0}
+!46 = !{!"p1 _ZTS11PyGetSetDef", !6, i64 0}
+!47 = !{!"short", !7, i64 0}
+!48 = !{!43, !39, i64 8}
+!49 = !{!6, !6, i64 0}
+!50 = !{!42, !36, i64 16}

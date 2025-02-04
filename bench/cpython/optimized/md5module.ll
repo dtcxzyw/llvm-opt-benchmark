@@ -1,354 +1,349 @@
 ; ModuleID = 'bench/cpython/original/md5module.ll'
 source_filename = "bench/cpython/original/md5module.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
 %struct.PyModuleDef = type { %struct.PyModuleDef_Base, ptr, ptr, i64, ptr, ptr, ptr, ptr, ptr }
 %struct.PyModuleDef_Base = type { %struct._object, ptr, i64, ptr }
 %struct._object = type { %union.anon, ptr }
 %union.anon = type { i64 }
-%struct.PyMethodDef = type { ptr, ptr, i32, ptr }
-%struct.PyModuleDef_Slot = type { i32, ptr }
-%struct._PyArg_Parser = type { ptr, ptr, ptr, ptr, %struct._PyOnceFlag, i32, i32, i32, i32, ptr, ptr }
 %struct._PyOnceFlag = type { i8 }
-%struct.PyType_Spec = type { ptr, i32, i32, i32, ptr }
-%struct.PyType_Slot = type { i32, ptr }
 %struct.PyGetSetDef = type { ptr, ptr, ptr, ptr, ptr }
 %struct.Py_buffer = type { ptr, ptr, i64, i64, i32, i32, ptr, ptr, ptr, ptr, ptr }
 
-@_md5module = internal global %struct.PyModuleDef { %struct.PyModuleDef_Base { %struct._object { %union.anon { i64 4294967295 }, ptr null }, ptr null, i64 0, ptr null }, ptr @.str, ptr null, i64 8, ptr @MD5_functions, ptr @_md5_slots, ptr @_md5_traverse, ptr @_md5_clear, ptr @_md5_free }, align 8
+@_md5module = internal global %struct.PyModuleDef { %struct.PyModuleDef_Base { %struct._object { %union.anon { i64 552977039360 }, ptr null }, ptr null, i64 0, ptr null }, ptr @.str, ptr null, i64 8, ptr @MD5_functions, ptr @_md5_slots, ptr @_md5_traverse, ptr @_md5_clear, ptr @_md5_free }, align 8
 @.str = private unnamed_addr constant [5 x i8] c"_md5\00", align 1
-@MD5_functions = internal global [2 x %struct.PyMethodDef] [%struct.PyMethodDef { ptr @.str.1, ptr @_md5_md5, i32 130, ptr @_md5_md5__doc__ }, %struct.PyMethodDef zeroinitializer], align 16
-@_md5_slots = internal global [3 x %struct.PyModuleDef_Slot] [%struct.PyModuleDef_Slot { i32 2, ptr @md5_exec }, %struct.PyModuleDef_Slot { i32 3, ptr inttoptr (i64 2 to ptr) }, %struct.PyModuleDef_Slot zeroinitializer], align 16
 @.str.1 = private unnamed_addr constant [4 x i8] c"md5\00", align 1
 @_md5_md5__doc__ = internal constant [125 x i8] c"md5($module, /, string=b'', *, usedforsecurity=True)\0A--\0A\0AReturn a new MD5 hash object; optionally initialized with a string.\00", align 16
-@_md5_md5._keywords = internal constant [3 x ptr] [ptr @.str.2, ptr @.str.3, ptr null], align 16
-@.str.2 = private unnamed_addr constant [7 x i8] c"string\00", align 1
-@.str.3 = private unnamed_addr constant [16 x i8] c"usedforsecurity\00", align 1
-@_md5_md5._parser = internal global %struct._PyArg_Parser { ptr null, ptr @_md5_md5._keywords, ptr @.str.1, ptr null, %struct._PyOnceFlag zeroinitializer, i32 0, i32 0, i32 0, i32 0, ptr null, ptr null }, align 8
+@MD5_functions = internal global [2 x { ptr, ptr, i32, [4 x i8], ptr }] [{ ptr, ptr, i32, [4 x i8], ptr } { ptr @.str.1, ptr @_md5_md5, i32 130, [4 x i8] zeroinitializer, ptr @_md5_md5__doc__ }, { ptr, ptr, i32, [4 x i8], ptr } zeroinitializer], align 16
+@_md5_md5._keywords = internal constant [3 x ptr] [ptr @.str.3, ptr @.str.4, ptr null], align 16
+@.str.3 = private unnamed_addr constant [7 x i8] c"string\00", align 1
+@.str.4 = private unnamed_addr constant [16 x i8] c"usedforsecurity\00", align 1
+@_md5_md5._parser = internal global { ptr, ptr, ptr, ptr, %struct._PyOnceFlag, [3 x i8], i32, i32, i32, i32, [4 x i8], ptr, ptr } { ptr null, ptr @_md5_md5._keywords, ptr @.str.1, ptr null, %struct._PyOnceFlag zeroinitializer, [3 x i8] zeroinitializer, i32 0, i32 0, i32 0, i32 0, [4 x i8] zeroinitializer, ptr null, ptr null }, align 8
 @PyExc_TypeError = external local_unnamed_addr global ptr, align 8
-@.str.4 = private unnamed_addr constant [39 x i8] c"Strings must be encoded before hashing\00", align 1
-@.str.5 = private unnamed_addr constant [42 x i8] c"object supporting the buffer API required\00", align 1
+@.str.5 = private unnamed_addr constant [39 x i8] c"Strings must be encoded before hashing\00", align 1
+@.str.6 = private unnamed_addr constant [42 x i8] c"object supporting the buffer API required\00", align 1
 @PyExc_BufferError = external local_unnamed_addr global ptr, align 8
-@.str.6 = private unnamed_addr constant [32 x i8] c"Buffer must be single dimension\00", align 1
-@md5_type_spec = internal global %struct.PyType_Spec { ptr @.str.8, i32 32, i32 0, i32 16768, ptr @md5_type_slots }, align 8
-@.str.7 = private unnamed_addr constant [8 x i8] c"MD5Type\00", align 1
-@.str.8 = private unnamed_addr constant [9 x i8] c"_md5.md5\00", align 1
-@md5_type_slots = internal global [5 x %struct.PyType_Slot] [%struct.PyType_Slot { i32 52, ptr @MD5_dealloc }, %struct.PyType_Slot { i32 64, ptr @MD5_methods }, %struct.PyType_Slot { i32 73, ptr @MD5_getseters }, %struct.PyType_Slot { i32 71, ptr @MD5_traverse }, %struct.PyType_Slot zeroinitializer], align 16
-@MD5_methods = internal global [5 x %struct.PyMethodDef] [%struct.PyMethodDef { ptr @.str.9, ptr @MD5Type_copy, i32 642, ptr @MD5Type_copy__doc__ }, %struct.PyMethodDef { ptr @.str.10, ptr @MD5Type_digest, i32 4, ptr @MD5Type_digest__doc__ }, %struct.PyMethodDef { ptr @.str.11, ptr @MD5Type_hexdigest, i32 4, ptr @MD5Type_hexdigest__doc__ }, %struct.PyMethodDef { ptr @.str.12, ptr @MD5Type_update, i32 8, ptr @MD5Type_update__doc__ }, %struct.PyMethodDef zeroinitializer], align 16
-@MD5_getseters = internal global [4 x %struct.PyGetSetDef] [%struct.PyGetSetDef { ptr @.str.15, ptr @MD5_get_block_size, ptr null, ptr null, ptr null }, %struct.PyGetSetDef { ptr @.str.16, ptr @MD5_get_name, ptr null, ptr null, ptr null }, %struct.PyGetSetDef { ptr @.str.17, ptr @md5_get_digest_size, ptr null, ptr null, ptr null }, %struct.PyGetSetDef zeroinitializer], align 16
-@.str.9 = private unnamed_addr constant [5 x i8] c"copy\00", align 1
+@.str.7 = private unnamed_addr constant [32 x i8] c"Buffer must be single dimension\00", align 1
+@_md5_slots = internal global [4 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @md5_exec }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr inttoptr (i64 2 to ptr) }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr inttoptr (i64 1 to ptr) }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.9 = private unnamed_addr constant [8 x i8] c"MD5Type\00", align 1
+@.str.10 = private unnamed_addr constant [9 x i8] c"_md5.md5\00", align 1
+@md5_type_spec = internal global { ptr, i32, i32, i32, [4 x i8], ptr } { ptr @.str.10, i32 32, i32 0, i32 16768, [4 x i8] zeroinitializer, ptr @md5_type_slots }, align 8
+@MD5_getseters = internal global [4 x %struct.PyGetSetDef] [%struct.PyGetSetDef { ptr @.str.20, ptr @MD5_get_block_size, ptr null, ptr null, ptr null }, %struct.PyGetSetDef { ptr @.str.21, ptr @MD5_get_name, ptr null, ptr null, ptr null }, %struct.PyGetSetDef { ptr @.str.22, ptr @md5_get_digest_size, ptr null, ptr null, ptr null }, %struct.PyGetSetDef zeroinitializer], align 16
+@md5_type_slots = internal global [5 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 52, [4 x i8] zeroinitializer, ptr @MD5_dealloc }, { i32, [4 x i8], ptr } { i32 64, [4 x i8] zeroinitializer, ptr @MD5_methods }, { i32, [4 x i8], ptr } { i32 73, [4 x i8] zeroinitializer, ptr @MD5_getseters }, { i32, [4 x i8], ptr } { i32 71, [4 x i8] zeroinitializer, ptr @MD5_traverse }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.13 = private unnamed_addr constant [5 x i8] c"copy\00", align 1
 @MD5Type_copy__doc__ = internal constant [53 x i8] c"copy($self, /)\0A--\0A\0AReturn a copy of the hash object.\00", align 16
-@.str.10 = private unnamed_addr constant [7 x i8] c"digest\00", align 1
+@.str.14 = private unnamed_addr constant [7 x i8] c"digest\00", align 1
 @MD5Type_digest__doc__ = internal constant [64 x i8] c"digest($self, /)\0A--\0A\0AReturn the digest value as a bytes object.\00", align 16
-@.str.11 = private unnamed_addr constant [10 x i8] c"hexdigest\00", align 1
+@.str.15 = private unnamed_addr constant [10 x i8] c"hexdigest\00", align 1
 @MD5Type_hexdigest__doc__ = internal constant [83 x i8] c"hexdigest($self, /)\0A--\0A\0AReturn the digest value as a string of hexadecimal digits.\00", align 16
-@.str.12 = private unnamed_addr constant [7 x i8] c"update\00", align 1
+@.str.16 = private unnamed_addr constant [7 x i8] c"update\00", align 1
 @MD5Type_update__doc__ = internal constant [84 x i8] c"update($self, obj, /)\0A--\0A\0AUpdate this hash object's state with the provided string.\00", align 16
-@.str.13 = private unnamed_addr constant [26 x i8] c"copy() takes no arguments\00", align 1
-@.str.14 = private unnamed_addr constant [17 x i8] c"0123456789abcdef\00", align 1
+@MD5_methods = internal global [5 x { ptr, ptr, i32, [4 x i8], ptr }] [{ ptr, ptr, i32, [4 x i8], ptr } { ptr @.str.13, ptr @MD5Type_copy, i32 642, [4 x i8] zeroinitializer, ptr @MD5Type_copy__doc__ }, { ptr, ptr, i32, [4 x i8], ptr } { ptr @.str.14, ptr @MD5Type_digest, i32 4, [4 x i8] zeroinitializer, ptr @MD5Type_digest__doc__ }, { ptr, ptr, i32, [4 x i8], ptr } { ptr @.str.15, ptr @MD5Type_hexdigest, i32 4, [4 x i8] zeroinitializer, ptr @MD5Type_hexdigest__doc__ }, { ptr, ptr, i32, [4 x i8], ptr } { ptr @.str.16, ptr @MD5Type_update, i32 8, [4 x i8] zeroinitializer, ptr @MD5Type_update__doc__ }, { ptr, ptr, i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.18 = private unnamed_addr constant [26 x i8] c"copy() takes no arguments\00", align 1
+@.str.19 = private unnamed_addr constant [17 x i8] c"0123456789abcdef\00", align 1
 @_Py_NoneStruct = external global %struct._object, align 8
-@.str.15 = private unnamed_addr constant [11 x i8] c"block_size\00", align 1
-@.str.16 = private unnamed_addr constant [5 x i8] c"name\00", align 1
-@.str.17 = private unnamed_addr constant [12 x i8] c"digest_size\00", align 1
+@.str.20 = private unnamed_addr constant [11 x i8] c"block_size\00", align 1
+@.str.21 = private unnamed_addr constant [5 x i8] c"name\00", align 1
+@.str.22 = private unnamed_addr constant [12 x i8] c"digest_size\00", align 1
 
 ; Function Attrs: nounwind uwtable
 define ptr @PyInit__md5() local_unnamed_addr #0 {
-entry:
-  %call = tail call ptr @PyModuleDef_Init(ptr noundef nonnull @_md5module) #3
-  ret ptr %call
+  %1 = tail call ptr @PyModuleDef_Init(ptr noundef nonnull @_md5module) #3
+  ret ptr %1
 }
 
 declare ptr @PyModuleDef_Init(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @_md5_traverse(ptr noundef %module, ptr noundef readonly captures(none) %visit, ptr noundef %arg) #0 {
-entry:
-  %call.i = tail call ptr @PyModule_GetState(ptr noundef %module) #3
-  %0 = load ptr, ptr %call.i, align 8
-  %tobool.not = icmp eq ptr %0, null
-  br i1 %tobool.not, label %do.end, label %if.then
+define internal i32 @_md5_traverse(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2) #0 {
+  %4 = tail call ptr @PyModule_GetState(ptr noundef %0) #3
+  %5 = load ptr, ptr %4, align 8, !tbaa !3
+  %.not = icmp eq ptr %5, null
+  br i1 %.not, label %8, label %6
 
-if.then:                                          ; preds = %entry
-  %call2 = tail call i32 %visit(ptr noundef nonnull %0, ptr noundef %arg) #3
-  %tobool3.not = icmp eq i32 %call2, 0
-  br i1 %tobool3.not, label %do.end, label %return
+6:                                                ; preds = %3
+  %7 = tail call i32 %1(ptr noundef nonnull %5, ptr noundef %2) #3
+  %.not10 = icmp eq i32 %7, 0
+  br i1 %.not10, label %8, label %9
 
-do.end:                                           ; preds = %entry, %if.then
-  br label %return
+8:                                                ; preds = %6, %3
+  br label %9
 
-return:                                           ; preds = %if.then, %do.end
-  %retval.0 = phi i32 [ 0, %do.end ], [ %call2, %if.then ]
-  ret i32 %retval.0
+9:                                                ; preds = %6, %8
+  %.1 = phi i32 [ 0, %8 ], [ %7, %6 ]
+  ret i32 %.1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_md5_clear(ptr noundef %module) #0 {
-entry:
-  %call.i = tail call ptr @PyModule_GetState(ptr noundef %module) #3
-  %0 = load ptr, ptr %call.i, align 8
-  %cmp.not = icmp eq ptr %0, null
-  br i1 %cmp.not, label %do.end, label %if.then
+define internal noundef i32 @_md5_clear(ptr noundef %0) #0 {
+  %2 = tail call ptr @PyModule_GetState(ptr noundef %0) #3
+  %3 = load ptr, ptr %2, align 8, !tbaa !9
+  %.not = icmp eq ptr %3, null
+  br i1 %.not, label %Py_DECREF.exit, label %4
 
-if.then:                                          ; preds = %entry
-  store ptr null, ptr %call.i, align 8
-  %1 = load i64, ptr %0, align 8
-  %2 = and i64 %1, 2147483648
-  %cmp.i2.not = icmp eq i64 %2, 0
-  br i1 %cmp.i2.not, label %if.end.i, label %do.end
+4:                                                ; preds = %1
+  store ptr null, ptr %2, align 8, !tbaa !9
+  %5 = load i32, ptr %3, align 8, !tbaa !10
+  %.not.i = icmp sgt i32 %5, -1
+  br i1 %.not.i, label %6, label %Py_DECREF.exit
 
-if.end.i:                                         ; preds = %if.then
-  %dec.i = add i64 %1, -1
-  store i64 %dec.i, ptr %0, align 8
-  %cmp.i = icmp eq i64 %dec.i, 0
-  br i1 %cmp.i, label %if.then1.i, label %do.end
+6:                                                ; preds = %4
+  %7 = add nsw i32 %5, -1
+  store i32 %7, ptr %3, align 8, !tbaa !10
+  %8 = icmp eq i32 %7, 0
+  br i1 %8, label %9, label %Py_DECREF.exit
 
-if.then1.i:                                       ; preds = %if.end.i
-  tail call void @_Py_Dealloc(ptr noundef nonnull %0) #3
-  br label %do.end
+9:                                                ; preds = %6
+  tail call void @_Py_Dealloc(ptr noundef nonnull %3) #3
+  br label %Py_DECREF.exit
 
-do.end:                                           ; preds = %entry, %if.then, %if.then1.i, %if.end.i
+Py_DECREF.exit:                                   ; preds = %9, %6, %4, %1
   ret i32 0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_md5_free(ptr noundef %module) #0 {
-entry:
-  %call.i.i = tail call ptr @PyModule_GetState(ptr noundef %module) #3
-  %0 = load ptr, ptr %call.i.i, align 8
-  %cmp.not.i = icmp eq ptr %0, null
-  br i1 %cmp.not.i, label %_md5_clear.exit, label %if.then.i
+define internal void @_md5_free(ptr noundef %0) #0 {
+  %2 = tail call ptr @PyModule_GetState(ptr noundef %0) #3
+  %3 = load ptr, ptr %2, align 8, !tbaa !9
+  %.not.i = icmp eq ptr %3, null
+  br i1 %.not.i, label %_md5_clear.exit, label %4
 
-if.then.i:                                        ; preds = %entry
-  store ptr null, ptr %call.i.i, align 8
-  %1 = load i64, ptr %0, align 8
-  %2 = and i64 %1, 2147483648
-  %cmp.i2.not.i = icmp eq i64 %2, 0
-  br i1 %cmp.i2.not.i, label %if.end.i.i, label %_md5_clear.exit
+4:                                                ; preds = %1
+  store ptr null, ptr %2, align 8, !tbaa !9
+  %5 = load i32, ptr %3, align 8, !tbaa !10
+  %.not.i.i = icmp sgt i32 %5, -1
+  br i1 %.not.i.i, label %6, label %_md5_clear.exit
 
-if.end.i.i:                                       ; preds = %if.then.i
-  %dec.i.i = add i64 %1, -1
-  store i64 %dec.i.i, ptr %0, align 8
-  %cmp.i.i = icmp eq i64 %dec.i.i, 0
-  br i1 %cmp.i.i, label %if.then1.i.i, label %_md5_clear.exit
+6:                                                ; preds = %4
+  %7 = add nsw i32 %5, -1
+  store i32 %7, ptr %3, align 8, !tbaa !10
+  %8 = icmp eq i32 %7, 0
+  br i1 %8, label %9, label %_md5_clear.exit
 
-if.then1.i.i:                                     ; preds = %if.end.i.i
-  tail call void @_Py_Dealloc(ptr noundef nonnull %0) #3
+9:                                                ; preds = %6
+  tail call void @_Py_Dealloc(ptr noundef nonnull %3) #3
   br label %_md5_clear.exit
 
-_md5_clear.exit:                                  ; preds = %entry, %if.then.i, %if.end.i.i, %if.then1.i.i
+_md5_clear.exit:                                  ; preds = %1, %4, %6, %9
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @_md5_md5(ptr noundef %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
-entry:
-  %buf.i = alloca %struct.Py_buffer, align 8
-  %argsbuf = alloca [2 x ptr], align 16
-  %tobool.not = icmp eq ptr %kwnames, null
-  br i1 %tobool.not, label %cond.end, label %cond.end.thread
+define internal ptr @_md5_md5(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) #0 {
+  %5 = alloca %struct.Py_buffer, align 8
+  %6 = alloca [2 x ptr], align 16
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #3
+  %.not = icmp eq ptr %3, null
+  br i1 %.not, label %9, label %.thread
 
-cond.end.thread:                                  ; preds = %entry
-  %0 = getelementptr i8, ptr %kwnames, i64 16
-  %kwnames.val = load i64, ptr %0, align 8
-  %add20 = add i64 %kwnames.val, %nargs
-  br label %cond.end9
+.thread:                                          ; preds = %4
+  %7 = getelementptr i8, ptr %3, i64 16
+  %.val = load i64, ptr %7, align 8, !tbaa !11
+  %8 = add i64 %.val, %2
+  br label %12
 
-cond.end:                                         ; preds = %entry
-  %1 = icmp ult i64 %nargs, 2
-  %cmp5 = icmp ne ptr %args, null
-  %or.cond2 = and i1 %cmp5, %1
-  br i1 %or.cond2, label %if.end, label %cond.end9
+9:                                                ; preds = %4
+  %10 = icmp ult i64 %2, 2
+  %11 = icmp ne ptr %1, null
+  %or.cond5 = and i1 %11, %10
+  br i1 %or.cond5, label %.thread43, label %12
 
-cond.end9:                                        ; preds = %cond.end, %cond.end.thread
-  %add24 = phi i64 [ %add20, %cond.end.thread ], [ %nargs, %cond.end ]
-  %call8 = call ptr @_PyArg_UnpackKeywords(ptr noundef %args, i64 noundef %nargs, ptr noundef null, ptr noundef %kwnames, ptr noundef nonnull @_md5_md5._parser, i32 noundef 0, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %argsbuf) #3
-  %tobool11.not = icmp eq ptr %call8, null
-  br i1 %tobool11.not, label %exit, label %if.end
+12:                                               ; preds = %9, %.thread
+  %13 = phi i64 [ %8, %.thread ], [ %2, %9 ]
+  %14 = call ptr @_PyArg_UnpackKeywords(ptr noundef %1, i64 noundef %2, ptr noundef null, ptr noundef %3, ptr noundef nonnull @_md5_md5._parser, i32 noundef 0, i32 noundef 1, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %6) #3
+  %.not36 = icmp eq ptr %14, null
+  br i1 %.not36, label %85, label %.thread43
 
-if.end:                                           ; preds = %cond.end, %cond.end9
-  %cond1030 = phi ptr [ %call8, %cond.end9 ], [ %args, %cond.end ]
-  %add2529 = phi i64 [ %add24, %cond.end9 ], [ %nargs, %cond.end ]
-  %tobool12.not = icmp eq i64 %add2529, 0
-  br i1 %tobool12.not, label %skip_optional_kwonly.thread, label %skip_optional_pos
+.thread43:                                        ; preds = %9, %12
+  %15 = phi ptr [ %14, %12 ], [ %1, %9 ]
+  %16 = phi i64 [ %13, %12 ], [ %2, %9 ]
+  %.not37 = icmp eq i64 %16, 0
+  br i1 %.not37, label %.thread49, label %17
 
-skip_optional_kwonly.thread:                      ; preds = %if.end
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %buf.i)
-  br label %if.end14.i
+.thread49:                                        ; preds = %.thread43
+  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %5) #3
+  br label %45
 
-skip_optional_pos:                                ; preds = %if.end
-  %2 = load ptr, ptr %cond1030, align 8
-  %tobool15.not = icmp ne ptr %2, null
-  %3 = icmp eq i64 %add2529, 1
-  %spec.select = and i1 %3, %tobool15.not
-  br i1 %spec.select, label %skip_optional_kwonly.thread37, label %if.end24
+17:                                               ; preds = %.thread43
+  %18 = load ptr, ptr %15, align 8, !tbaa !15
+  %.not38 = icmp ne ptr %18, null
+  %19 = icmp eq i64 %16, 1
+  %spec.select = and i1 %19, %.not38
+  br i1 %spec.select, label %.thread55, label %20
 
-skip_optional_kwonly.thread37:                    ; preds = %skip_optional_pos
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %buf.i)
-  br label %do.body.i
+.thread55:                                        ; preds = %17
+  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %5) #3
+  br label %26
 
-if.end24:                                         ; preds = %skip_optional_pos
-  %arrayidx25 = getelementptr i8, ptr %cond1030, i64 8
-  %4 = load ptr, ptr %arrayidx25, align 8
-  %call26 = call i32 @PyObject_IsTrue(ptr noundef %4) #3
-  %cmp27 = icmp slt i32 %call26, 0
-  br i1 %cmp27, label %exit, label %skip_optional_kwonly
+20:                                               ; preds = %17
+  %21 = getelementptr i8, ptr %15, i64 8
+  %22 = load ptr, ptr %21, align 8, !tbaa !15
+  %23 = call i32 @PyObject_IsTrue(ptr noundef %22) #3
+  %24 = icmp slt i32 %23, 0
+  br i1 %24, label %85, label %25
 
-skip_optional_kwonly:                             ; preds = %if.end24
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %buf.i)
-  %tobool.not.i = icmp eq ptr %2, null
-  br i1 %tobool.not.i, label %if.end14.i, label %do.body.i
+25:                                               ; preds = %20
+  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %5) #3
+  %.not.i = icmp eq ptr %18, null
+  br i1 %.not.i, label %45, label %26
 
-do.body.i:                                        ; preds = %skip_optional_kwonly.thread37, %skip_optional_kwonly
-  %5 = getelementptr i8, ptr %2, i64 8
-  %string.val.i = load ptr, ptr %5, align 8
-  %6 = getelementptr i8, ptr %string.val.i, i64 168
-  %call.val.i = load i64, ptr %6, align 8
-  %7 = and i64 %call.val.i, 268435456
-  %tobool2.not.i = icmp eq i64 %7, 0
-  br i1 %tobool2.not.i, label %if.end.i, label %if.then3.i
+26:                                               ; preds = %.thread55, %25
+  %27 = getelementptr i8, ptr %18, i64 8
+  %.val.i = load ptr, ptr %27, align 8, !tbaa !17
+  %28 = getelementptr i8, ptr %.val.i, i64 168
+  %.val22.i = load i64, ptr %28, align 8, !tbaa !18
+  %29 = and i64 %.val22.i, 268435456
+  %.not19.i = icmp eq i64 %29, 0
+  br i1 %.not19.i, label %32, label %30
 
-if.then3.i:                                       ; preds = %do.body.i
-  %8 = load ptr, ptr @PyExc_TypeError, align 8
-  call void @PyErr_SetString(ptr noundef %8, ptr noundef nonnull @.str.4) #3
+30:                                               ; preds = %26
+  %31 = load ptr, ptr @PyExc_TypeError, align 8, !tbaa !15
+  call void @PyErr_SetString(ptr noundef %31, ptr noundef nonnull @.str.5) #3
   br label %_md5_md5_impl.exit
 
-if.end.i:                                         ; preds = %do.body.i
-  %call4.i = call i32 @PyObject_CheckBuffer(ptr noundef nonnull %2) #3
-  %tobool5.not.i = icmp eq i32 %call4.i, 0
-  br i1 %tobool5.not.i, label %if.then6.i, label %if.end7.i
+32:                                               ; preds = %26
+  %33 = call i32 @PyObject_CheckBuffer(ptr noundef nonnull %18) #3
+  %.not20.i = icmp eq i32 %33, 0
+  br i1 %.not20.i, label %34, label %36
 
-if.then6.i:                                       ; preds = %if.end.i
-  %9 = load ptr, ptr @PyExc_TypeError, align 8
-  call void @PyErr_SetString(ptr noundef %9, ptr noundef nonnull @.str.5) #3
+34:                                               ; preds = %32
+  %35 = load ptr, ptr @PyExc_TypeError, align 8, !tbaa !15
+  call void @PyErr_SetString(ptr noundef %35, ptr noundef nonnull @.str.6) #3
   br label %_md5_md5_impl.exit
 
-if.end7.i:                                        ; preds = %if.end.i
-  %call8.i = call i32 @PyObject_GetBuffer(ptr noundef nonnull %2, ptr noundef nonnull %buf.i, i32 noundef 0) #3
-  %cmp.i = icmp eq i32 %call8.i, -1
-  br i1 %cmp.i, label %_md5_md5_impl.exit, label %if.end10.i
+36:                                               ; preds = %32
+  %37 = call i32 @PyObject_GetBuffer(ptr noundef nonnull %18, ptr noundef nonnull %5, i32 noundef 0) #3
+  %38 = icmp eq i32 %37, -1
+  br i1 %38, label %_md5_md5_impl.exit, label %39
 
-if.end10.i:                                       ; preds = %if.end7.i
-  %ndim.i = getelementptr inbounds nuw i8, ptr %buf.i, i64 36
-  %10 = load i32, ptr %ndim.i, align 4
-  %cmp11.i = icmp sgt i32 %10, 1
-  br i1 %cmp11.i, label %if.then12.i, label %if.end14.i
+39:                                               ; preds = %36
+  %40 = getelementptr inbounds nuw i8, ptr %5, i64 36
+  %41 = load i32, ptr %40, align 4, !tbaa !26
+  %42 = icmp sgt i32 %41, 1
+  br i1 %42, label %43, label %45
 
-if.then12.i:                                      ; preds = %if.end10.i
-  %11 = load ptr, ptr @PyExc_BufferError, align 8
-  call void @PyErr_SetString(ptr noundef %11, ptr noundef nonnull @.str.6) #3
-  call void @PyBuffer_Release(ptr noundef nonnull %buf.i) #3
+43:                                               ; preds = %39
+  %44 = load ptr, ptr @PyExc_BufferError, align 8, !tbaa !15
+  call void @PyErr_SetString(ptr noundef %44, ptr noundef nonnull @.str.7) #3
+  call void @PyBuffer_Release(ptr noundef nonnull %5) #3
   br label %_md5_md5_impl.exit
 
-if.end14.i:                                       ; preds = %skip_optional_kwonly.thread, %if.end10.i, %skip_optional_kwonly
-  %tobool.not.i36 = phi i1 [ true, %skip_optional_kwonly.thread ], [ false, %if.end10.i ], [ true, %skip_optional_kwonly ]
-  %call.i.i = call ptr @PyModule_GetState(ptr noundef %module) #3
-  %call15.val.i = load ptr, ptr %call.i.i, align 8
-  %call.i13.i = call ptr @_PyObject_GC_New(ptr noundef %call15.val.i) #3
-  %tobool.not.i.i = icmp eq ptr %call.i13.i, null
-  br i1 %tobool.not.i.i, label %if.then18.i, label %if.end22.i
+45:                                               ; preds = %.thread49, %39, %25
+  %.not.i52 = phi i1 [ true, %.thread49 ], [ false, %39 ], [ true, %25 ]
+  %46 = call ptr @PyModule_GetState(ptr noundef %0) #3
+  %.val23.i = load ptr, ptr %46, align 8, !tbaa !3
+  %47 = call ptr @_PyObject_GC_New(ptr noundef %.val23.i) #3
+  %.not.i24.i = icmp eq ptr %47, null
+  br i1 %.not.i24.i, label %48, label %50
 
-if.then18.i:                                      ; preds = %if.end14.i
-  br i1 %tobool.not.i36, label %_md5_md5_impl.exit, label %if.then20.i
+48:                                               ; preds = %45
+  br i1 %.not.i52, label %_md5_md5_impl.exit, label %49
 
-if.then20.i:                                      ; preds = %if.then18.i
-  call void @PyBuffer_Release(ptr noundef nonnull %buf.i) #3
+49:                                               ; preds = %48
+  call void @PyBuffer_Release(ptr noundef nonnull %5) #3
   br label %_md5_md5_impl.exit
 
-if.end22.i:                                       ; preds = %if.end14.i
-  %mutex.i.i = getelementptr inbounds nuw i8, ptr %call.i13.i, i64 17
-  store i8 0, ptr %mutex.i.i, align 1
-  %use_mutex.i.i = getelementptr inbounds nuw i8, ptr %call.i13.i, i64 16
-  store i8 0, ptr %use_mutex.i.i, align 8
-  call void @PyObject_GC_Track(ptr noundef nonnull %call.i13.i) #3
-  %call23.i = call ptr @Hacl_Streaming_MD5_legacy_create_in() #3
-  %hash_state.i = getelementptr inbounds nuw i8, ptr %call.i13.i, i64 24
-  store ptr %call23.i, ptr %hash_state.i, align 8
-  %call24.i = call ptr @PyErr_Occurred() #3
-  %tobool25.not.i = icmp eq ptr %call24.i, null
-  br i1 %tobool25.not.i, label %if.end30.i, label %if.then26.i
+50:                                               ; preds = %45
+  %51 = getelementptr inbounds nuw i8, ptr %47, i64 17
+  store i8 0, ptr %51, align 1, !tbaa !10
+  %52 = getelementptr inbounds nuw i8, ptr %47, i64 16
+  store i8 0, ptr %52, align 8, !tbaa !29
+  call void @PyObject_GC_Track(ptr noundef nonnull %47) #3
+  %53 = call ptr @python_hashlib_Hacl_Hash_MD5_malloc() #3
+  %54 = getelementptr inbounds nuw i8, ptr %47, i64 24
+  store ptr %53, ptr %54, align 8, !tbaa !34
+  %55 = call ptr @PyErr_Occurred() #3
+  %.not21.i = icmp eq ptr %55, null
+  br i1 %.not21.i, label %63, label %56
 
-if.then26.i:                                      ; preds = %if.end22.i
-  %12 = load i64, ptr %call.i13.i, align 8
-  %13 = and i64 %12, 2147483648
-  %cmp.i45.not.i = icmp eq i64 %13, 0
-  br i1 %cmp.i45.not.i, label %if.end.i.i, label %Py_DECREF.exit.i
+56:                                               ; preds = %50
+  %57 = load i32, ptr %47, align 8, !tbaa !10
+  %.not.i.i = icmp sgt i32 %57, -1
+  br i1 %.not.i.i, label %58, label %Py_DECREF.exit.i
 
-if.end.i.i:                                       ; preds = %if.then26.i
-  %dec.i.i = add i64 %12, -1
-  store i64 %dec.i.i, ptr %call.i13.i, align 8
-  %cmp.i.i = icmp eq i64 %dec.i.i, 0
-  br i1 %cmp.i.i, label %if.then1.i.i, label %Py_DECREF.exit.i
+58:                                               ; preds = %56
+  %59 = add nsw i32 %57, -1
+  store i32 %59, ptr %47, align 8, !tbaa !10
+  %60 = icmp eq i32 %59, 0
+  br i1 %60, label %61, label %Py_DECREF.exit.i
 
-if.then1.i.i:                                     ; preds = %if.end.i.i
-  call void @_Py_Dealloc(ptr noundef nonnull %call.i13.i) #3
+61:                                               ; preds = %58
+  call void @_Py_Dealloc(ptr noundef nonnull %47) #3
   br label %Py_DECREF.exit.i
 
-Py_DECREF.exit.i:                                 ; preds = %if.then1.i.i, %if.end.i.i, %if.then26.i
-  br i1 %tobool.not.i36, label %_md5_md5_impl.exit, label %if.then28.i
+Py_DECREF.exit.i:                                 ; preds = %61, %58, %56
+  br i1 %.not.i52, label %_md5_md5_impl.exit, label %62
 
-if.then28.i:                                      ; preds = %Py_DECREF.exit.i
-  call void @PyBuffer_Release(ptr noundef nonnull %buf.i) #3
+62:                                               ; preds = %Py_DECREF.exit.i
+  call void @PyBuffer_Release(ptr noundef nonnull %5) #3
   br label %_md5_md5_impl.exit
 
-if.end30.i:                                       ; preds = %if.end22.i
-  br i1 %tobool.not.i36, label %_md5_md5_impl.exit, label %if.then32.i
+63:                                               ; preds = %50
+  br i1 %.not.i52, label %_md5_md5_impl.exit, label %64
 
-if.then32.i:                                      ; preds = %if.end30.i
-  %len.i = getelementptr inbounds nuw i8, ptr %buf.i, i64 16
-  %14 = load i64, ptr %len.i, align 8
-  %cmp33.i = icmp sgt i64 %14, 2047
-  br i1 %cmp33.i, label %if.then34.i, label %update.exit29.i
+64:                                               ; preds = %63
+  %65 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %66 = load i64, ptr %65, align 8, !tbaa !35
+  %67 = icmp sgt i64 %66, 2047
+  br i1 %67, label %68, label %update.exit30.i
 
-if.then34.i:                                      ; preds = %if.then32.i
-  %call35.i = call ptr @PyEval_SaveThread() #3
-  %15 = load ptr, ptr %hash_state.i, align 8
-  %16 = load ptr, ptr %buf.i, align 8
-  %17 = load i64, ptr %len.i, align 8
-  %cmp6.i.i = icmp sgt i64 %17, 4294967295
-  br i1 %cmp6.i.i, label %while.body.i.i, label %update.exit.i
+68:                                               ; preds = %64
+  %69 = call ptr @PyEval_SaveThread() #3
+  %70 = load ptr, ptr %54, align 8, !tbaa !34
+  %71 = load ptr, ptr %5, align 8, !tbaa !36
+  %72 = load i64, ptr %65, align 8, !tbaa !35
+  %73 = icmp sgt i64 %72, 4294967295
+  br i1 %73, label %.lr.ph.i.i, label %update.exit.i
 
-while.body.i.i:                                   ; preds = %if.then34.i, %while.body.i.i
-  %len.addr.08.i.i = phi i64 [ %sub.i.i, %while.body.i.i ], [ %17, %if.then34.i ]
-  %buf.addr.07.i.i = phi ptr [ %add.ptr.i.i, %while.body.i.i ], [ %16, %if.then34.i ]
-  %call.i15.i = call zeroext i8 @Hacl_Streaming_MD5_legacy_update(ptr noundef %15, ptr noundef %buf.addr.07.i.i, i32 noundef -1) #3
-  %sub.i.i = add nsw i64 %len.addr.08.i.i, -4294967295
-  %add.ptr.i.i = getelementptr i8, ptr %buf.addr.07.i.i, i64 4294967295
-  %cmp.i16.i = icmp samesign ugt i64 %len.addr.08.i.i, 8589934590
-  br i1 %cmp.i16.i, label %while.body.i.i, label %update.exit.i, !llvm.loop !4
+.lr.ph.i.i:                                       ; preds = %68, %.lr.ph.i.i
+  %.09.i.i = phi i64 [ %75, %.lr.ph.i.i ], [ %72, %68 ]
+  %.078.i.i = phi ptr [ %76, %.lr.ph.i.i ], [ %71, %68 ]
+  %74 = call zeroext i8 @python_hashlib_Hacl_Hash_MD5_update(ptr noundef %70, ptr noundef %.078.i.i, i32 noundef -1) #3
+  %75 = add nsw i64 %.09.i.i, -4294967295
+  %76 = getelementptr i8, ptr %.078.i.i, i64 4294967295
+  %77 = icmp samesign ugt i64 %.09.i.i, 8589934590
+  br i1 %77, label %.lr.ph.i.i, label %update.exit.i, !llvm.loop !37
 
-update.exit.i:                                    ; preds = %while.body.i.i, %if.then34.i
-  %buf.addr.0.lcssa.i.i = phi ptr [ %16, %if.then34.i ], [ %add.ptr.i.i, %while.body.i.i ]
-  %len.addr.0.lcssa.i.i = phi i64 [ %17, %if.then34.i ], [ %sub.i.i, %while.body.i.i ]
-  %conv.i14.i = trunc i64 %len.addr.0.lcssa.i.i to i32
-  %call1.i.i = call zeroext i8 @Hacl_Streaming_MD5_legacy_update(ptr noundef %15, ptr noundef %buf.addr.0.lcssa.i.i, i32 noundef %conv.i14.i) #3
-  call void @PyEval_RestoreThread(ptr noundef %call35.i) #3
-  br label %if.end42.i
+update.exit.i:                                    ; preds = %.lr.ph.i.i, %68
+  %.07.lcssa.i.i = phi ptr [ %71, %68 ], [ %76, %.lr.ph.i.i ]
+  %.0.lcssa.i.i = phi i64 [ %72, %68 ], [ %75, %.lr.ph.i.i ]
+  %78 = trunc i64 %.0.lcssa.i.i to i32
+  %79 = call zeroext i8 @python_hashlib_Hacl_Hash_MD5_update(ptr noundef %70, ptr noundef %.07.lcssa.i.i, i32 noundef %78) #3
+  call void @PyEval_RestoreThread(ptr noundef %69) #3
+  br label %84
 
-update.exit29.i:                                  ; preds = %if.then32.i
-  %18 = load ptr, ptr %hash_state.i, align 8
-  %19 = load ptr, ptr %buf.i, align 8
-  %conv.i20.i = trunc i64 %14 to i32
-  %call1.i21.i = call zeroext i8 @Hacl_Streaming_MD5_legacy_update(ptr noundef %18, ptr noundef %19, i32 noundef %conv.i20.i) #3
-  br label %if.end42.i
+update.exit30.i:                                  ; preds = %64
+  %80 = load ptr, ptr %54, align 8, !tbaa !34
+  %81 = load ptr, ptr %5, align 8, !tbaa !36
+  %82 = trunc i64 %66 to i32
+  %83 = call zeroext i8 @python_hashlib_Hacl_Hash_MD5_update(ptr noundef %80, ptr noundef %81, i32 noundef %82) #3
+  br label %84
 
-if.end42.i:                                       ; preds = %update.exit29.i, %update.exit.i
-  call void @PyBuffer_Release(ptr noundef nonnull %buf.i) #3
+84:                                               ; preds = %update.exit30.i, %update.exit.i
+  call void @PyBuffer_Release(ptr noundef nonnull %5) #3
   br label %_md5_md5_impl.exit
 
-_md5_md5_impl.exit:                               ; preds = %if.then3.i, %if.then6.i, %if.end7.i, %if.then12.i, %if.then18.i, %if.then20.i, %Py_DECREF.exit.i, %if.then28.i, %if.end30.i, %if.end42.i
-  %retval.0.i = phi ptr [ null, %if.then3.i ], [ null, %if.then12.i ], [ null, %if.then6.i ], [ null, %if.end7.i ], [ null, %if.then20.i ], [ null, %if.then18.i ], [ null, %if.then28.i ], [ null, %Py_DECREF.exit.i ], [ %call.i13.i, %if.end42.i ], [ %call.i13.i, %if.end30.i ]
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %buf.i)
-  br label %exit
+_md5_md5_impl.exit:                               ; preds = %30, %34, %36, %43, %48, %49, %Py_DECREF.exit.i, %62, %63, %84
+  %.0.i = phi ptr [ null, %30 ], [ null, %43 ], [ null, %34 ], [ null, %36 ], [ null, %49 ], [ null, %48 ], [ null, %62 ], [ null, %Py_DECREF.exit.i ], [ %47, %84 ], [ %47, %63 ]
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %5) #3
+  br label %85
 
-exit:                                             ; preds = %if.end24, %cond.end9, %_md5_md5_impl.exit
-  %return_value.0 = phi ptr [ null, %if.end24 ], [ %retval.0.i, %_md5_md5_impl.exit ], [ null, %cond.end9 ]
-  ret ptr %return_value.0
+85:                                               ; preds = %20, %12, %_md5_md5_impl.exit
+  %.029 = phi ptr [ null, %20 ], [ %.0.i, %_md5_md5_impl.exit ], [ null, %12 ]
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #3
+  ret ptr %.029
 }
 
-declare ptr @_PyArg_UnpackKeywords(ptr noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
+
+declare ptr @_PyArg_UnpackKeywords(ptr noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 declare i32 @PyObject_IsTrue(ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 declare void @PyErr_SetString(ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -358,7 +353,7 @@ declare i32 @PyObject_GetBuffer(ptr noundef, ptr noundef, i32 noundef) local_unn
 
 declare void @PyBuffer_Release(ptr noundef) local_unnamed_addr #1
 
-declare ptr @Hacl_Streaming_MD5_legacy_create_in() local_unnamed_addr #1
+declare ptr @python_hashlib_Hacl_Hash_MD5_malloc() local_unnamed_addr #1
 
 declare ptr @PyErr_Occurred() local_unnamed_addr #1
 
@@ -374,17 +369,16 @@ declare void @PyObject_GC_Track(ptr noundef) local_unnamed_addr #1
 
 declare void @_Py_Dealloc(ptr noundef) local_unnamed_addr #1
 
-declare zeroext i8 @Hacl_Streaming_MD5_legacy_update(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
+declare zeroext i8 @python_hashlib_Hacl_Hash_MD5_update(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @md5_exec(ptr noundef %m) #0 {
-entry:
-  %call.i = tail call ptr @PyModule_GetState(ptr noundef %m) #3
-  %call1 = tail call ptr @PyType_FromModuleAndSpec(ptr noundef %m, ptr noundef nonnull @md5_type_spec, ptr noundef null) #3
-  store ptr %call1, ptr %call.i, align 8
-  %call3 = tail call i32 @PyModule_AddObjectRef(ptr noundef %m, ptr noundef nonnull @.str.7, ptr noundef %call1) #3
-  %call3.lobit = ashr i32 %call3, 31
-  ret i32 %call3.lobit
+define internal range(i32 -1, 1) i32 @md5_exec(ptr noundef %0) #0 {
+  %2 = tail call ptr @PyModule_GetState(ptr noundef %0) #3
+  %3 = tail call ptr @PyType_FromModuleAndSpec(ptr noundef %0, ptr noundef nonnull @md5_type_spec, ptr noundef null) #3
+  store ptr %3, ptr %2, align 8, !tbaa !3
+  %4 = tail call i32 @PyModule_AddObjectRef(ptr noundef %0, ptr noundef nonnull @.str.9, ptr noundef %3) #3
+  %.lobit = ashr i32 %4, 31
+  ret i32 %.lobit
 }
 
 declare ptr @PyType_FromModuleAndSpec(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
@@ -392,434 +386,465 @@ declare ptr @PyType_FromModuleAndSpec(ptr noundef, ptr noundef, ptr noundef) loc
 declare i32 @PyModule_AddObjectRef(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @MD5_dealloc(ptr noundef %ptr) #0 {
-entry:
-  %hash_state = getelementptr inbounds nuw i8, ptr %ptr, i64 24
-  %0 = load ptr, ptr %hash_state, align 8
-  tail call void @Hacl_Streaming_MD5_legacy_free(ptr noundef %0) #3
-  %1 = getelementptr i8, ptr %ptr, i64 8
-  %ptr.val = load ptr, ptr %1, align 8
-  tail call void @PyObject_GC_UnTrack(ptr noundef %ptr) #3
-  tail call void @PyObject_GC_Del(ptr noundef %ptr) #3
-  %2 = load i64, ptr %ptr.val, align 8
-  %3 = and i64 %2, 2147483648
-  %cmp.i2.not = icmp eq i64 %3, 0
-  br i1 %cmp.i2.not, label %if.end.i, label %Py_DECREF.exit
+define internal void @MD5_dealloc(ptr noundef %0) #0 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %3 = load ptr, ptr %2, align 8, !tbaa !34
+  tail call void @python_hashlib_Hacl_Hash_MD5_free(ptr noundef %3) #3
+  %4 = getelementptr i8, ptr %0, i64 8
+  %.val = load ptr, ptr %4, align 8, !tbaa !17
+  tail call void @PyObject_GC_UnTrack(ptr noundef %0) #3
+  tail call void @PyObject_GC_Del(ptr noundef %0) #3
+  %5 = load i32, ptr %.val, align 8, !tbaa !10
+  %.not.i = icmp sgt i32 %5, -1
+  br i1 %.not.i, label %6, label %Py_DECREF.exit
 
-if.end.i:                                         ; preds = %entry
-  %dec.i = add i64 %2, -1
-  store i64 %dec.i, ptr %ptr.val, align 8
-  %cmp.i = icmp eq i64 %dec.i, 0
-  br i1 %cmp.i, label %if.then1.i, label %Py_DECREF.exit
+6:                                                ; preds = %1
+  %7 = add nsw i32 %5, -1
+  store i32 %7, ptr %.val, align 8, !tbaa !10
+  %8 = icmp eq i32 %7, 0
+  br i1 %8, label %9, label %Py_DECREF.exit
 
-if.then1.i:                                       ; preds = %if.end.i
-  tail call void @_Py_Dealloc(ptr noundef nonnull %ptr.val) #3
+9:                                                ; preds = %6
+  tail call void @_Py_Dealloc(ptr noundef nonnull %.val) #3
   br label %Py_DECREF.exit
 
-Py_DECREF.exit:                                   ; preds = %entry, %if.then1.i, %if.end.i
+Py_DECREF.exit:                                   ; preds = %1, %6, %9
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @MD5_traverse(ptr noundef readonly captures(none) %ptr, ptr noundef readonly captures(none) %visit, ptr noundef %arg) #0 {
-entry:
-  %0 = getelementptr i8, ptr %ptr, i64 8
-  %ptr.val3 = load ptr, ptr %0, align 8
-  %tobool.not = icmp eq ptr %ptr.val3, null
-  br i1 %tobool.not, label %do.end, label %if.then
+define internal i32 @MD5_traverse(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2) #0 {
+  %4 = getelementptr i8, ptr %0, i64 8
+  %.val9 = load ptr, ptr %4, align 8, !tbaa !17
+  %.not = icmp eq ptr %.val9, null
+  br i1 %.not, label %7, label %5
 
-if.then:                                          ; preds = %entry
-  %call2 = tail call i32 %visit(ptr noundef nonnull %ptr.val3, ptr noundef %arg) #3
-  %tobool3.not = icmp eq i32 %call2, 0
-  br i1 %tobool3.not, label %do.end, label %return
+5:                                                ; preds = %3
+  %6 = tail call i32 %1(ptr noundef nonnull %.val9, ptr noundef %2) #3
+  %.not8.not = icmp eq i32 %6, 0
+  br i1 %.not8.not, label %7, label %8
 
-do.end:                                           ; preds = %entry, %if.then
-  br label %return
+7:                                                ; preds = %5, %3
+  br label %8
 
-return:                                           ; preds = %if.then, %do.end
-  %retval.0 = phi i32 [ 0, %do.end ], [ %call2, %if.then ]
-  ret i32 %retval.0
+8:                                                ; preds = %5, %7
+  %.1 = phi i32 [ %6, %5 ], [ 0, %7 ]
+  ret i32 %.1
 }
 
-declare void @Hacl_Streaming_MD5_legacy_free(ptr noundef) local_unnamed_addr #1
+declare void @python_hashlib_Hacl_Hash_MD5_free(ptr noundef) local_unnamed_addr #1
 
 declare void @PyObject_GC_UnTrack(ptr noundef) local_unnamed_addr #1
 
 declare void @PyObject_GC_Del(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @MD5Type_copy(ptr noundef %self, ptr noundef %cls, ptr readnone captures(none) %args, i64 noundef %nargs, ptr readnone captures(none) %kwnames) #0 {
-entry:
-  %tobool.not = icmp eq i64 %nargs, 0
-  br i1 %tobool.not, label %if.end, label %if.then
+define internal ptr @MD5Type_copy(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2, i64 noundef %3, ptr noundef readonly %4) #0 {
+  %.not = icmp eq i64 %3, 0
+  br i1 %.not, label %6, label %9
 
-if.then:                                          ; preds = %entry
-  %0 = load ptr, ptr @PyExc_TypeError, align 8
-  tail call void @PyErr_SetString(ptr noundef %0, ptr noundef nonnull @.str.13) #3
-  br label %return
+6:                                                ; preds = %5
+  %.not6 = icmp eq ptr %4, null
+  br i1 %.not6, label %11, label %7
 
-if.end:                                           ; preds = %entry
-  %call.i = tail call ptr @PyType_GetModuleState(ptr noundef %cls) #3
-  %call.val.i = load ptr, ptr %call.i, align 8
-  %call.i.i = tail call ptr @_PyObject_GC_New(ptr noundef %call.val.i) #3
-  %tobool.not.i.i = icmp eq ptr %call.i.i, null
-  br i1 %tobool.not.i.i, label %return, label %if.end.i
+7:                                                ; preds = %6
+  %8 = getelementptr i8, ptr %4, i64 16
+  %.val = load i64, ptr %8, align 8, !tbaa !11
+  %.not7 = icmp eq i64 %.val, 0
+  br i1 %.not7, label %11, label %9
 
-if.end.i:                                         ; preds = %if.end
-  %mutex.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 17
-  store i8 0, ptr %mutex.i.i, align 1
-  %use_mutex.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 16
-  store i8 0, ptr %use_mutex.i.i, align 8
-  tail call void @PyObject_GC_Track(ptr noundef nonnull %call.i.i) #3
-  %use_mutex.i = getelementptr inbounds nuw i8, ptr %self, i64 16
-  %1 = load i8, ptr %use_mutex.i, align 8
-  %tobool.i = trunc i8 %1 to i1
-  br i1 %tobool.i, label %if.then2.i, label %if.end3.i
+9:                                                ; preds = %7, %5
+  %10 = load ptr, ptr @PyExc_TypeError, align 8, !tbaa !15
+  tail call void @PyErr_SetString(ptr noundef %10, ptr noundef nonnull @.str.18) #3
+  br label %MD5Type_copy_impl.exit
 
-if.then2.i:                                       ; preds = %if.end.i
-  %mutex.i = getelementptr inbounds nuw i8, ptr %self, i64 17
-  %2 = cmpxchg ptr %mutex.i, i8 0, i8 1 seq_cst seq_cst, align 1
-  %3 = extractvalue { i8, i1 } %2, 1
-  br i1 %3, label %if.end3.i, label %if.then.i.i
+11:                                               ; preds = %7, %6
+  %12 = tail call ptr @PyType_GetModuleState(ptr noundef %1) #3
+  %.val.i = load ptr, ptr %12, align 8, !tbaa !3
+  %13 = tail call ptr @_PyObject_GC_New(ptr noundef %.val.i) #3
+  %.not.i.i = icmp eq ptr %13, null
+  br i1 %.not.i.i, label %MD5Type_copy_impl.exit, label %14
 
-if.then.i.i:                                      ; preds = %if.then2.i
-  tail call void @_PyMutex_LockSlow(ptr noundef nonnull %mutex.i) #3
-  br label %if.end3.i
+14:                                               ; preds = %11
+  %15 = getelementptr inbounds nuw i8, ptr %13, i64 17
+  store i8 0, ptr %15, align 1, !tbaa !10
+  %16 = getelementptr inbounds nuw i8, ptr %13, i64 16
+  store i8 0, ptr %16, align 8, !tbaa !29
+  tail call void @PyObject_GC_Track(ptr noundef nonnull %13) #3
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %18 = load i8, ptr %17, align 8, !tbaa !29, !range !39, !noundef !40
+  %19 = trunc nuw i8 %18 to i1
+  br i1 %19, label %20, label %_PyMutex_Lock.exit.i
 
-if.end3.i:                                        ; preds = %if.then.i.i, %if.then2.i, %if.end.i
-  %hash_state.i = getelementptr inbounds nuw i8, ptr %self, i64 24
-  %4 = load ptr, ptr %hash_state.i, align 8
-  %call4.i = tail call ptr @Hacl_Streaming_MD5_legacy_copy(ptr noundef %4) #3
-  %hash_state5.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 24
-  store ptr %call4.i, ptr %hash_state5.i, align 8
-  %5 = load i8, ptr %use_mutex.i, align 8
-  %tobool7.i = trunc i8 %5 to i1
-  br i1 %tobool7.i, label %if.then8.i, label %return
+20:                                               ; preds = %14
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 17
+  %22 = cmpxchg ptr %21, i8 0, i8 1 seq_cst seq_cst, align 1
+  %23 = extractvalue { i8, i1 } %22, 1
+  br i1 %23, label %_PyMutex_Lock.exit.i, label %24
 
-if.then8.i:                                       ; preds = %if.end3.i
-  %mutex9.i = getelementptr inbounds nuw i8, ptr %self, i64 17
-  %6 = cmpxchg ptr %mutex9.i, i8 1, i8 0 seq_cst seq_cst, align 1
-  %7 = extractvalue { i8, i1 } %6, 1
-  br i1 %7, label %return, label %if.then.i6.i
+24:                                               ; preds = %20
+  tail call void @PyMutex_Lock(ptr noundef nonnull %21) #3
+  br label %_PyMutex_Lock.exit.i
 
-if.then.i6.i:                                     ; preds = %if.then8.i
-  tail call void @_PyMutex_UnlockSlow(ptr noundef nonnull %mutex9.i) #3
-  br label %return
+_PyMutex_Lock.exit.i:                             ; preds = %24, %20, %14
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %26 = load ptr, ptr %25, align 8, !tbaa !34
+  %27 = tail call ptr @python_hashlib_Hacl_Hash_MD5_copy(ptr noundef %26) #3
+  %28 = getelementptr inbounds nuw i8, ptr %13, i64 24
+  store ptr %27, ptr %28, align 8, !tbaa !34
+  %29 = load i8, ptr %17, align 8, !tbaa !29, !range !39, !noundef !40
+  %30 = trunc nuw i8 %29 to i1
+  br i1 %30, label %31, label %MD5Type_copy_impl.exit
 
-return:                                           ; preds = %if.then.i6.i, %if.then8.i, %if.end3.i, %if.end, %if.then
-  %retval.0 = phi ptr [ null, %if.then ], [ null, %if.end ], [ %call.i.i, %if.end3.i ], [ %call.i.i, %if.then8.i ], [ %call.i.i, %if.then.i6.i ]
-  ret ptr %retval.0
+31:                                               ; preds = %_PyMutex_Lock.exit.i
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 17
+  %33 = cmpxchg ptr %32, i8 1, i8 0 seq_cst seq_cst, align 1
+  %34 = extractvalue { i8, i1 } %33, 1
+  br i1 %34, label %MD5Type_copy_impl.exit, label %35
+
+35:                                               ; preds = %31
+  tail call void @PyMutex_Unlock(ptr noundef nonnull %32) #3
+  br label %MD5Type_copy_impl.exit
+
+MD5Type_copy_impl.exit:                           ; preds = %35, %31, %_PyMutex_Lock.exit.i, %11, %9
+  %.0 = phi ptr [ null, %9 ], [ null, %11 ], [ %13, %_PyMutex_Lock.exit.i ], [ %13, %31 ], [ %13, %35 ]
+  ret ptr %.0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @MD5Type_digest(ptr noundef %self, ptr readnone captures(none) %_unused_ignored) #0 {
-entry:
-  %digest.i = alloca [16 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %digest.i)
-  %use_mutex.i = getelementptr inbounds nuw i8, ptr %self, i64 16
-  %0 = load i8, ptr %use_mutex.i, align 8
-  %tobool.i = trunc i8 %0 to i1
-  br i1 %tobool.i, label %if.then.i, label %if.end.i
+define internal ptr @MD5Type_digest(ptr noundef %0, ptr readnone captures(none) %1) #0 {
+  %3 = alloca [16 x i8], align 16
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #3
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %5 = load i8, ptr %4, align 8, !tbaa !29, !range !39, !noundef !40
+  %6 = trunc nuw i8 %5 to i1
+  br i1 %6, label %7, label %_PyMutex_Lock.exit.i
 
-if.then.i:                                        ; preds = %entry
-  %mutex.i = getelementptr inbounds nuw i8, ptr %self, i64 17
-  %1 = cmpxchg ptr %mutex.i, i8 0, i8 1 seq_cst seq_cst, align 1
-  %2 = extractvalue { i8, i1 } %1, 1
-  br i1 %2, label %if.end.i, label %if.then.i.i
+7:                                                ; preds = %2
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 17
+  %9 = cmpxchg ptr %8, i8 0, i8 1 seq_cst seq_cst, align 1
+  %10 = extractvalue { i8, i1 } %9, 1
+  br i1 %10, label %_PyMutex_Lock.exit.i, label %11
 
-if.then.i.i:                                      ; preds = %if.then.i
-  tail call void @_PyMutex_LockSlow(ptr noundef nonnull %mutex.i) #3
-  br label %if.end.i
+11:                                               ; preds = %7
+  tail call void @PyMutex_Lock(ptr noundef nonnull %8) #3
+  br label %_PyMutex_Lock.exit.i
 
-if.end.i:                                         ; preds = %if.then.i.i, %if.then.i, %entry
-  %hash_state.i = getelementptr inbounds nuw i8, ptr %self, i64 24
-  %3 = load ptr, ptr %hash_state.i, align 8
-  call void @Hacl_Streaming_MD5_legacy_finish(ptr noundef %3, ptr noundef nonnull %digest.i) #3
-  %4 = load i8, ptr %use_mutex.i, align 8
-  %tobool2.i = trunc i8 %4 to i1
-  br i1 %tobool2.i, label %if.then3.i, label %MD5Type_digest_impl.exit
+_PyMutex_Lock.exit.i:                             ; preds = %11, %7, %2
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %13 = load ptr, ptr %12, align 8, !tbaa !34
+  call void @python_hashlib_Hacl_Hash_MD5_digest(ptr noundef %13, ptr noundef nonnull %3) #3
+  %14 = load i8, ptr %4, align 8, !tbaa !29, !range !39, !noundef !40
+  %15 = trunc nuw i8 %14 to i1
+  br i1 %15, label %16, label %MD5Type_digest_impl.exit
 
-if.then3.i:                                       ; preds = %if.end.i
-  %mutex4.i = getelementptr inbounds nuw i8, ptr %self, i64 17
-  %5 = cmpxchg ptr %mutex4.i, i8 1, i8 0 seq_cst seq_cst, align 1
-  %6 = extractvalue { i8, i1 } %5, 1
-  br i1 %6, label %MD5Type_digest_impl.exit, label %if.then.i5.i
+16:                                               ; preds = %_PyMutex_Lock.exit.i
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 17
+  %18 = cmpxchg ptr %17, i8 1, i8 0 seq_cst seq_cst, align 1
+  %19 = extractvalue { i8, i1 } %18, 1
+  br i1 %19, label %MD5Type_digest_impl.exit, label %20
 
-if.then.i5.i:                                     ; preds = %if.then3.i
-  call void @_PyMutex_UnlockSlow(ptr noundef nonnull %mutex4.i) #3
+20:                                               ; preds = %16
+  call void @PyMutex_Unlock(ptr noundef nonnull %17) #3
   br label %MD5Type_digest_impl.exit
 
-MD5Type_digest_impl.exit:                         ; preds = %if.end.i, %if.then3.i, %if.then.i5.i
-  %call.i = call ptr @PyBytes_FromStringAndSize(ptr noundef nonnull %digest.i, i64 noundef 16) #3
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %digest.i)
-  ret ptr %call.i
+MD5Type_digest_impl.exit:                         ; preds = %_PyMutex_Lock.exit.i, %16, %20
+  %21 = call ptr @PyBytes_FromStringAndSize(ptr noundef nonnull %3, i64 noundef 16) #3
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #3
+  ret ptr %21
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @MD5Type_hexdigest(ptr noundef %self, ptr readnone captures(none) %_unused_ignored) #0 {
-entry:
-  %digest.i = alloca [16 x i8], align 16
-  %digest_hex.i = alloca [32 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %digest.i)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %digest_hex.i)
-  %use_mutex.i = getelementptr inbounds nuw i8, ptr %self, i64 16
-  %0 = load i8, ptr %use_mutex.i, align 8
-  %tobool.i = trunc i8 %0 to i1
-  br i1 %tobool.i, label %if.then.i, label %if.end.i
+define internal ptr @MD5Type_hexdigest(ptr noundef %0, ptr readnone captures(none) %1) #0 {
+  %3 = alloca [16 x i8], align 16
+  %4 = alloca [32 x i8], align 16
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #3
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %6 = load i8, ptr %5, align 8, !tbaa !29, !range !39, !noundef !40
+  %7 = trunc nuw i8 %6 to i1
+  br i1 %7, label %8, label %_PyMutex_Lock.exit.i
 
-if.then.i:                                        ; preds = %entry
-  %mutex.i = getelementptr inbounds nuw i8, ptr %self, i64 17
-  %1 = cmpxchg ptr %mutex.i, i8 0, i8 1 seq_cst seq_cst, align 1
-  %2 = extractvalue { i8, i1 } %1, 1
-  br i1 %2, label %if.end.i, label %if.then.i.i
+8:                                                ; preds = %2
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 17
+  %10 = cmpxchg ptr %9, i8 0, i8 1 seq_cst seq_cst, align 1
+  %11 = extractvalue { i8, i1 } %10, 1
+  br i1 %11, label %_PyMutex_Lock.exit.i, label %12
 
-if.then.i.i:                                      ; preds = %if.then.i
-  tail call void @_PyMutex_LockSlow(ptr noundef nonnull %mutex.i) #3
-  br label %if.end.i
+12:                                               ; preds = %8
+  tail call void @PyMutex_Lock(ptr noundef nonnull %9) #3
+  br label %_PyMutex_Lock.exit.i
 
-if.end.i:                                         ; preds = %if.then.i.i, %if.then.i, %entry
-  %hash_state.i = getelementptr inbounds nuw i8, ptr %self, i64 24
-  %3 = load ptr, ptr %hash_state.i, align 8
-  call void @Hacl_Streaming_MD5_legacy_finish(ptr noundef %3, ptr noundef nonnull %digest.i) #3
-  %4 = load i8, ptr %use_mutex.i, align 8
-  %tobool2.i = trunc i8 %4 to i1
-  br i1 %tobool2.i, label %if.then3.i, label %for.body.i.preheader
+_PyMutex_Lock.exit.i:                             ; preds = %12, %8, %2
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %14 = load ptr, ptr %13, align 8, !tbaa !34
+  call void @python_hashlib_Hacl_Hash_MD5_digest(ptr noundef %14, ptr noundef nonnull %3) #3
+  %15 = load i8, ptr %5, align 8, !tbaa !29, !range !39, !noundef !40
+  %16 = trunc nuw i8 %15 to i1
+  br i1 %16, label %17, label %_PyMutex_Unlock.exit.i
 
-if.then3.i:                                       ; preds = %if.end.i
-  %mutex4.i = getelementptr inbounds nuw i8, ptr %self, i64 17
-  %5 = cmpxchg ptr %mutex4.i, i8 1, i8 0 seq_cst seq_cst, align 1
-  %6 = extractvalue { i8, i1 } %5, 1
-  br i1 %6, label %for.body.i.preheader, label %if.then.i10.i
+17:                                               ; preds = %_PyMutex_Lock.exit.i
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 17
+  %19 = cmpxchg ptr %18, i8 1, i8 0 seq_cst seq_cst, align 1
+  %20 = extractvalue { i8, i1 } %19, 1
+  br i1 %20, label %_PyMutex_Unlock.exit.i, label %21
 
-if.then.i10.i:                                    ; preds = %if.then3.i
-  call void @_PyMutex_UnlockSlow(ptr noundef nonnull %mutex4.i) #3
-  br label %for.body.i.preheader
+21:                                               ; preds = %17
+  call void @PyMutex_Unlock(ptr noundef nonnull %18) #3
+  br label %_PyMutex_Unlock.exit.i
 
-for.body.i.preheader:                             ; preds = %if.then.i10.i, %if.then3.i, %if.end.i
-  br label %for.body.i
+_PyMutex_Unlock.exit.i:                           ; preds = %21, %17, %_PyMutex_Lock.exit.i
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #3
+  br label %22
 
-for.body.i:                                       ; preds = %for.body.i.preheader, %for.body.i
-  %str.012.i = phi ptr [ %incdec.ptr11.i, %for.body.i ], [ %digest_hex.i, %for.body.i.preheader ]
-  %i.011.i = phi i64 [ %inc.i, %for.body.i ], [ 0, %for.body.i.preheader ]
-  %arrayidx.i = getelementptr [16 x i8], ptr %digest.i, i64 0, i64 %i.011.i
-  %7 = load i8, ptr %arrayidx.i, align 1
-  %conv.i = zext i8 %7 to i32
-  %shr.i = lshr i32 %conv.i, 4
-  %idxprom.i = zext nneg i32 %shr.i to i64
-  %arrayidx7.i = getelementptr i8, ptr @.str.14, i64 %idxprom.i
-  %8 = load i8, ptr %arrayidx7.i, align 1
-  %incdec.ptr.i = getelementptr i8, ptr %str.012.i, i64 1
-  store i8 %8, ptr %str.012.i, align 1
-  %and.i = and i32 %conv.i, 15
-  %idxprom9.i = zext nneg i32 %and.i to i64
-  %arrayidx10.i = getelementptr i8, ptr @.str.14, i64 %idxprom9.i
-  %9 = load i8, ptr %arrayidx10.i, align 1
-  %incdec.ptr11.i = getelementptr i8, ptr %str.012.i, i64 2
-  store i8 %9, ptr %incdec.ptr.i, align 1
-  %inc.i = add nuw nsw i64 %i.011.i, 1
-  %exitcond.not.i = icmp eq i64 %inc.i, 16
-  br i1 %exitcond.not.i, label %MD5Type_hexdigest_impl.exit, label %for.body.i, !llvm.loop !6
+22:                                               ; preds = %22, %_PyMutex_Unlock.exit.i
+  %.015.i = phi ptr [ %4, %_PyMutex_Unlock.exit.i ], [ %35, %22 ]
+  %.01314.i = phi i64 [ 0, %_PyMutex_Unlock.exit.i ], [ %36, %22 ]
+  %23 = getelementptr [16 x i8], ptr %3, i64 0, i64 %.01314.i
+  %24 = load i8, ptr %23, align 1, !tbaa !10
+  %25 = zext i8 %24 to i32
+  %26 = lshr i32 %25, 4
+  %27 = zext nneg i32 %26 to i64
+  %28 = getelementptr i8, ptr @.str.19, i64 %27
+  %29 = load i8, ptr %28, align 1, !tbaa !10
+  %30 = getelementptr i8, ptr %.015.i, i64 1
+  store i8 %29, ptr %.015.i, align 1, !tbaa !10
+  %31 = and i32 %25, 15
+  %32 = zext nneg i32 %31 to i64
+  %33 = getelementptr i8, ptr @.str.19, i64 %32
+  %34 = load i8, ptr %33, align 1, !tbaa !10
+  %35 = getelementptr i8, ptr %.015.i, i64 2
+  store i8 %34, ptr %30, align 1, !tbaa !10
+  %36 = add nuw nsw i64 %.01314.i, 1
+  %exitcond.not.i = icmp eq i64 %36, 16
+  br i1 %exitcond.not.i, label %MD5Type_hexdigest_impl.exit, label %22, !llvm.loop !41
 
-MD5Type_hexdigest_impl.exit:                      ; preds = %for.body.i
-  %call.i = call ptr @PyUnicode_FromStringAndSize(ptr noundef nonnull %digest_hex.i, i64 noundef 32) #3
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %digest.i)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %digest_hex.i)
-  ret ptr %call.i
+MD5Type_hexdigest_impl.exit:                      ; preds = %22
+  %37 = call ptr @PyUnicode_FromStringAndSize(ptr noundef nonnull %4, i64 noundef 32) #3
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #3
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #3
+  ret ptr %37
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @MD5Type_update(ptr noundef %self, ptr noundef %obj) #0 {
-entry:
-  %buf = alloca %struct.Py_buffer, align 8
-  %0 = getelementptr i8, ptr %obj, i64 8
-  %obj.val = load ptr, ptr %0, align 8
-  %1 = getelementptr i8, ptr %obj.val, i64 168
-  %call.val = load i64, ptr %1, align 8
-  %2 = and i64 %call.val, 268435456
-  %tobool.not = icmp eq i64 %2, 0
-  br i1 %tobool.not, label %if.end, label %if.then
+define internal noundef ptr @MD5Type_update(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca %struct.Py_buffer, align 8
+  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %3) #3
+  %4 = getelementptr i8, ptr %1, i64 8
+  %.val = load ptr, ptr %4, align 8, !tbaa !17
+  %5 = getelementptr i8, ptr %.val, i64 168
+  %.val17 = load i64, ptr %5, align 8, !tbaa !18
+  %6 = and i64 %.val17, 268435456
+  %.not14 = icmp eq i64 %6, 0
+  br i1 %.not14, label %9, label %7
 
-if.then:                                          ; preds = %entry
-  %3 = load ptr, ptr @PyExc_TypeError, align 8
-  tail call void @PyErr_SetString(ptr noundef %3, ptr noundef nonnull @.str.4) #3
-  br label %return
+7:                                                ; preds = %2
+  %8 = load ptr, ptr @PyExc_TypeError, align 8, !tbaa !15
+  tail call void @PyErr_SetString(ptr noundef %8, ptr noundef nonnull @.str.5) #3
+  br label %63
 
-if.end:                                           ; preds = %entry
-  %call2 = tail call i32 @PyObject_CheckBuffer(ptr noundef nonnull %obj) #3
-  %tobool3.not = icmp eq i32 %call2, 0
-  br i1 %tobool3.not, label %if.then4, label %if.end5
+9:                                                ; preds = %2
+  %10 = tail call i32 @PyObject_CheckBuffer(ptr noundef nonnull %1) #3
+  %.not15 = icmp eq i32 %10, 0
+  br i1 %.not15, label %11, label %13
 
-if.then4:                                         ; preds = %if.end
-  %4 = load ptr, ptr @PyExc_TypeError, align 8
-  tail call void @PyErr_SetString(ptr noundef %4, ptr noundef nonnull @.str.5) #3
-  br label %return
+11:                                               ; preds = %9
+  %12 = load ptr, ptr @PyExc_TypeError, align 8, !tbaa !15
+  tail call void @PyErr_SetString(ptr noundef %12, ptr noundef nonnull @.str.6) #3
+  br label %63
 
-if.end5:                                          ; preds = %if.end
-  %call6 = call i32 @PyObject_GetBuffer(ptr noundef nonnull %obj, ptr noundef nonnull %buf, i32 noundef 0) #3
-  %cmp = icmp eq i32 %call6, -1
-  br i1 %cmp, label %return, label %if.end8
+13:                                               ; preds = %9
+  %14 = call i32 @PyObject_GetBuffer(ptr noundef nonnull %1, ptr noundef nonnull %3, i32 noundef 0) #3
+  %15 = icmp eq i32 %14, -1
+  br i1 %15, label %63, label %16
 
-if.end8:                                          ; preds = %if.end5
-  %ndim = getelementptr inbounds nuw i8, ptr %buf, i64 36
-  %5 = load i32, ptr %ndim, align 4
-  %cmp9 = icmp sgt i32 %5, 1
-  br i1 %cmp9, label %if.then10, label %do.end
+16:                                               ; preds = %13
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 36
+  %18 = load i32, ptr %17, align 4, !tbaa !26
+  %19 = icmp sgt i32 %18, 1
+  br i1 %19, label %20, label %22
 
-if.then10:                                        ; preds = %if.end8
-  %6 = load ptr, ptr @PyExc_BufferError, align 8
-  call void @PyErr_SetString(ptr noundef %6, ptr noundef nonnull @.str.6) #3
-  call void @PyBuffer_Release(ptr noundef nonnull %buf) #3
-  br label %return
+20:                                               ; preds = %16
+  %21 = load ptr, ptr @PyExc_BufferError, align 8, !tbaa !15
+  call void @PyErr_SetString(ptr noundef %21, ptr noundef nonnull @.str.7) #3
+  call void @PyBuffer_Release(ptr noundef nonnull %3) #3
+  br label %63
 
-do.end:                                           ; preds = %if.end8
-  %use_mutex = getelementptr inbounds nuw i8, ptr %self, i64 16
-  %7 = load i8, ptr %use_mutex, align 8
-  %tobool12 = trunc i8 %7 to i1
-  %len = getelementptr inbounds nuw i8, ptr %buf, i64 16
-  %8 = load i64, ptr %len, align 8
-  %cmp13 = icmp slt i64 %8, 2048
-  %or.cond.not = select i1 %tobool12, i1 true, i1 %cmp13
-  br i1 %or.cond.not, label %if.end16, label %if.end16.thread
+22:                                               ; preds = %16
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %24 = load i8, ptr %23, align 8, !tbaa !29, !range !39, !noundef !40
+  %25 = trunc nuw i8 %24 to i1
+  %26 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %27 = load i64, ptr %26, align 8
+  %28 = icmp slt i64 %27, 2048
+  %or.cond.not = select i1 %25, i1 true, i1 %28
+  br i1 %or.cond.not, label %29, label %.thread
 
-if.end16.thread:                                  ; preds = %do.end
-  store i8 1, ptr %use_mutex, align 8
-  br label %if.then19
+.thread:                                          ; preds = %22
+  store i8 1, ptr %23, align 8, !tbaa !29
+  br label %31
 
-if.end16:                                         ; preds = %do.end
-  %tobool18 = trunc i8 %7 to i1
-  br i1 %tobool18, label %if.then19, label %if.else
+29:                                               ; preds = %22
+  %30 = trunc nuw i8 %24 to i1
+  br i1 %30, label %31, label %51
 
-if.then19:                                        ; preds = %if.end16.thread, %if.end16
-  %call20 = call ptr @PyEval_SaveThread() #3
-  %mutex = getelementptr inbounds nuw i8, ptr %self, i64 17
-  %9 = cmpxchg ptr %mutex, i8 0, i8 1 seq_cst seq_cst, align 1
-  %10 = extractvalue { i8, i1 } %9, 1
-  br i1 %10, label %PyMutex_Lock.exit, label %if.then.i
+31:                                               ; preds = %.thread, %29
+  %32 = call ptr @PyEval_SaveThread() #3
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 17
+  %34 = cmpxchg ptr %33, i8 0, i8 1 seq_cst seq_cst, align 1
+  %35 = extractvalue { i8, i1 } %34, 1
+  br i1 %35, label %_PyMutex_Lock.exit, label %36
 
-if.then.i:                                        ; preds = %if.then19
-  call void @_PyMutex_LockSlow(ptr noundef nonnull %mutex) #3
-  br label %PyMutex_Lock.exit
+36:                                               ; preds = %31
+  call void @PyMutex_Lock(ptr noundef nonnull %33) #3
+  br label %_PyMutex_Lock.exit
 
-PyMutex_Lock.exit:                                ; preds = %if.then19, %if.then.i
-  %hash_state = getelementptr inbounds nuw i8, ptr %self, i64 24
-  %11 = load ptr, ptr %hash_state, align 8
-  %12 = load ptr, ptr %buf, align 8
-  %13 = load i64, ptr %len, align 8
-  %cmp6.i = icmp sgt i64 %13, 4294967295
-  br i1 %cmp6.i, label %while.body.i, label %update.exit
+_PyMutex_Lock.exit:                               ; preds = %31, %36
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %38 = load ptr, ptr %37, align 8, !tbaa !34
+  %39 = load ptr, ptr %3, align 8, !tbaa !36
+  %40 = load i64, ptr %26, align 8, !tbaa !35
+  %41 = icmp sgt i64 %40, 4294967295
+  br i1 %41, label %.lr.ph.i, label %update.exit
 
-while.body.i:                                     ; preds = %PyMutex_Lock.exit, %while.body.i
-  %len.addr.08.i = phi i64 [ %sub.i, %while.body.i ], [ %13, %PyMutex_Lock.exit ]
-  %buf.addr.07.i = phi ptr [ %add.ptr.i, %while.body.i ], [ %12, %PyMutex_Lock.exit ]
-  %call.i = call zeroext i8 @Hacl_Streaming_MD5_legacy_update(ptr noundef %11, ptr noundef %buf.addr.07.i, i32 noundef -1) #3
-  %sub.i = add nsw i64 %len.addr.08.i, -4294967295
-  %add.ptr.i = getelementptr i8, ptr %buf.addr.07.i, i64 4294967295
-  %cmp.i = icmp samesign ugt i64 %len.addr.08.i, 8589934590
-  br i1 %cmp.i, label %while.body.i, label %update.exit, !llvm.loop !4
+.lr.ph.i:                                         ; preds = %_PyMutex_Lock.exit, %.lr.ph.i
+  %.09.i = phi i64 [ %43, %.lr.ph.i ], [ %40, %_PyMutex_Lock.exit ]
+  %.078.i = phi ptr [ %44, %.lr.ph.i ], [ %39, %_PyMutex_Lock.exit ]
+  %42 = call zeroext i8 @python_hashlib_Hacl_Hash_MD5_update(ptr noundef %38, ptr noundef %.078.i, i32 noundef -1) #3
+  %43 = add nsw i64 %.09.i, -4294967295
+  %44 = getelementptr i8, ptr %.078.i, i64 4294967295
+  %45 = icmp samesign ugt i64 %.09.i, 8589934590
+  br i1 %45, label %.lr.ph.i, label %update.exit, !llvm.loop !37
 
-update.exit:                                      ; preds = %while.body.i, %PyMutex_Lock.exit
-  %buf.addr.0.lcssa.i = phi ptr [ %12, %PyMutex_Lock.exit ], [ %add.ptr.i, %while.body.i ]
-  %len.addr.0.lcssa.i = phi i64 [ %13, %PyMutex_Lock.exit ], [ %sub.i, %while.body.i ]
-  %conv.i9 = trunc i64 %len.addr.0.lcssa.i to i32
-  %call1.i = call zeroext i8 @Hacl_Streaming_MD5_legacy_update(ptr noundef %11, ptr noundef %buf.addr.0.lcssa.i, i32 noundef %conv.i9) #3
-  %14 = cmpxchg ptr %mutex, i8 1, i8 0 seq_cst seq_cst, align 1
-  %15 = extractvalue { i8, i1 } %14, 1
-  br i1 %15, label %PyMutex_Unlock.exit, label %if.then.i10
+update.exit:                                      ; preds = %.lr.ph.i, %_PyMutex_Lock.exit
+  %.07.lcssa.i = phi ptr [ %39, %_PyMutex_Lock.exit ], [ %44, %.lr.ph.i ]
+  %.0.lcssa.i = phi i64 [ %40, %_PyMutex_Lock.exit ], [ %43, %.lr.ph.i ]
+  %46 = trunc i64 %.0.lcssa.i to i32
+  %47 = call zeroext i8 @python_hashlib_Hacl_Hash_MD5_update(ptr noundef %38, ptr noundef %.07.lcssa.i, i32 noundef %46) #3
+  %48 = cmpxchg ptr %33, i8 1, i8 0 seq_cst seq_cst, align 1
+  %49 = extractvalue { i8, i1 } %48, 1
+  br i1 %49, label %_PyMutex_Unlock.exit, label %50
 
-if.then.i10:                                      ; preds = %update.exit
-  call void @_PyMutex_UnlockSlow(ptr noundef nonnull %mutex) #3
-  br label %PyMutex_Unlock.exit
+50:                                               ; preds = %update.exit
+  call void @PyMutex_Unlock(ptr noundef nonnull %33) #3
+  br label %_PyMutex_Unlock.exit
 
-PyMutex_Unlock.exit:                              ; preds = %update.exit, %if.then.i10
-  call void @PyEval_RestoreThread(ptr noundef %call20) #3
-  br label %if.end27
+_PyMutex_Unlock.exit:                             ; preds = %update.exit, %50
+  call void @PyEval_RestoreThread(ptr noundef %32) #3
+  br label %62
 
-if.else:                                          ; preds = %if.end16
-  %hash_state24 = getelementptr inbounds nuw i8, ptr %self, i64 24
-  %16 = load ptr, ptr %hash_state24, align 8
-  %17 = load ptr, ptr %buf, align 8
-  %cmp6.i11 = icmp sgt i64 %8, 4294967295
-  br i1 %cmp6.i11, label %while.body.i16, label %update.exit23
+51:                                               ; preds = %29
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %53 = load ptr, ptr %52, align 8, !tbaa !34
+  %54 = load ptr, ptr %3, align 8, !tbaa !36
+  %55 = icmp sgt i64 %27, 4294967295
+  br i1 %55, label %.lr.ph.i20, label %update.exit23
 
-while.body.i16:                                   ; preds = %if.else, %while.body.i16
-  %len.addr.08.i17 = phi i64 [ %sub.i20, %while.body.i16 ], [ %8, %if.else ]
-  %buf.addr.07.i18 = phi ptr [ %add.ptr.i21, %while.body.i16 ], [ %17, %if.else ]
-  %call.i19 = call zeroext i8 @Hacl_Streaming_MD5_legacy_update(ptr noundef %16, ptr noundef %buf.addr.07.i18, i32 noundef -1) #3
-  %sub.i20 = add nsw i64 %len.addr.08.i17, -4294967295
-  %add.ptr.i21 = getelementptr i8, ptr %buf.addr.07.i18, i64 4294967295
-  %cmp.i22 = icmp samesign ugt i64 %len.addr.08.i17, 8589934590
-  br i1 %cmp.i22, label %while.body.i16, label %update.exit23, !llvm.loop !4
+.lr.ph.i20:                                       ; preds = %51, %.lr.ph.i20
+  %.09.i21 = phi i64 [ %57, %.lr.ph.i20 ], [ %27, %51 ]
+  %.078.i22 = phi ptr [ %58, %.lr.ph.i20 ], [ %54, %51 ]
+  %56 = call zeroext i8 @python_hashlib_Hacl_Hash_MD5_update(ptr noundef %53, ptr noundef %.078.i22, i32 noundef -1) #3
+  %57 = add nsw i64 %.09.i21, -4294967295
+  %58 = getelementptr i8, ptr %.078.i22, i64 4294967295
+  %59 = icmp samesign ugt i64 %.09.i21, 8589934590
+  br i1 %59, label %.lr.ph.i20, label %update.exit23, !llvm.loop !37
 
-update.exit23:                                    ; preds = %while.body.i16, %if.else
-  %buf.addr.0.lcssa.i12 = phi ptr [ %17, %if.else ], [ %add.ptr.i21, %while.body.i16 ]
-  %len.addr.0.lcssa.i13 = phi i64 [ %8, %if.else ], [ %sub.i20, %while.body.i16 ]
-  %conv.i14 = trunc i64 %len.addr.0.lcssa.i13 to i32
-  %call1.i15 = call zeroext i8 @Hacl_Streaming_MD5_legacy_update(ptr noundef %16, ptr noundef %buf.addr.0.lcssa.i12, i32 noundef %conv.i14) #3
-  br label %if.end27
+update.exit23:                                    ; preds = %.lr.ph.i20, %51
+  %.07.lcssa.i18 = phi ptr [ %54, %51 ], [ %58, %.lr.ph.i20 ]
+  %.0.lcssa.i19 = phi i64 [ %27, %51 ], [ %57, %.lr.ph.i20 ]
+  %60 = trunc i64 %.0.lcssa.i19 to i32
+  %61 = call zeroext i8 @python_hashlib_Hacl_Hash_MD5_update(ptr noundef %53, ptr noundef %.07.lcssa.i18, i32 noundef %60) #3
+  br label %62
 
-if.end27:                                         ; preds = %update.exit23, %PyMutex_Unlock.exit
-  call void @PyBuffer_Release(ptr noundef nonnull %buf) #3
-  br label %return
+62:                                               ; preds = %update.exit23, %_PyMutex_Unlock.exit
+  call void @PyBuffer_Release(ptr noundef nonnull %3) #3
+  br label %63
 
-return:                                           ; preds = %if.end5, %if.end27, %if.then10, %if.then4, %if.then
-  %retval.0 = phi ptr [ null, %if.then ], [ null, %if.then10 ], [ @_Py_NoneStruct, %if.end27 ], [ null, %if.then4 ], [ null, %if.end5 ]
-  ret ptr %retval.0
+63:                                               ; preds = %13, %62, %20, %11, %7
+  %.0 = phi ptr [ null, %7 ], [ null, %20 ], [ @_Py_NoneStruct, %62 ], [ null, %11 ], [ null, %13 ]
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %3) #3
+  ret ptr %.0
 }
 
 declare ptr @PyType_GetModuleState(ptr noundef) local_unnamed_addr #1
 
-declare ptr @Hacl_Streaming_MD5_legacy_copy(ptr noundef) local_unnamed_addr #1
+declare ptr @python_hashlib_Hacl_Hash_MD5_copy(ptr noundef) local_unnamed_addr #1
 
-declare void @_PyMutex_LockSlow(ptr noundef) local_unnamed_addr #1
+declare void @PyMutex_Lock(ptr noundef) local_unnamed_addr #1
 
-declare void @_PyMutex_UnlockSlow(ptr noundef) local_unnamed_addr #1
+declare void @PyMutex_Unlock(ptr noundef) local_unnamed_addr #1
 
-declare void @Hacl_Streaming_MD5_legacy_finish(ptr noundef, ptr noundef) local_unnamed_addr #1
+declare void @python_hashlib_Hacl_Hash_MD5_digest(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 declare ptr @PyBytes_FromStringAndSize(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 declare ptr @PyUnicode_FromStringAndSize(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @MD5_get_block_size(ptr readnone captures(none) %self, ptr readnone captures(none) %closure) #0 {
-entry:
-  %call = tail call ptr @PyLong_FromLong(i64 noundef 64) #3
-  ret ptr %call
+define internal ptr @MD5_get_block_size(ptr readnone captures(none) %0, ptr readnone captures(none) %1) #0 {
+  %3 = tail call ptr @PyLong_FromLong(i64 noundef 64) #3
+  ret ptr %3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @MD5_get_name(ptr readnone captures(none) %self, ptr readnone captures(none) %closure) #0 {
-entry:
-  %call = tail call ptr @PyUnicode_FromStringAndSize(ptr noundef nonnull @.str.1, i64 noundef 3) #3
-  ret ptr %call
+define internal ptr @MD5_get_name(ptr readnone captures(none) %0, ptr readnone captures(none) %1) #0 {
+  %3 = tail call ptr @PyUnicode_FromStringAndSize(ptr noundef nonnull @.str.1, i64 noundef 3) #3
+  ret ptr %3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @md5_get_digest_size(ptr readnone captures(none) %self, ptr readnone captures(none) %closure) #0 {
-entry:
-  %call = tail call ptr @PyLong_FromLong(i64 noundef 16) #3
-  ret ptr %call
+define internal ptr @md5_get_digest_size(ptr readnone captures(none) %0, ptr readnone captures(none) %1) #0 {
+  %3 = tail call ptr @PyLong_FromLong(i64 noundef 16) #3
+  ret ptr %3
 }
 
 declare ptr @PyLong_FromLong(i64 noundef) local_unnamed_addr #1
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
-
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #3 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
+!3 = !{!4, !5, i64 0}
+!4 = !{!"", !5, i64 0}
+!5 = !{!"p1 _ZTS11_typeobject", !6, i64 0}
+!6 = !{!"any pointer", !7, i64 0}
+!7 = !{!"omnipotent char", !8, i64 0}
+!8 = !{!"Simple C/C++ TBAA"}
+!9 = !{!5, !5, i64 0}
+!10 = !{!7, !7, i64 0}
+!11 = !{!12, !14, i64 16}
+!12 = !{!"", !13, i64 0, !14, i64 16}
+!13 = !{!"_object", !7, i64 0, !5, i64 8}
+!14 = !{!"long", !7, i64 0}
+!15 = !{!16, !16, i64 0}
+!16 = !{!"p1 _ZTS7_object", !6, i64 0}
+!17 = !{!13, !5, i64 8}
+!18 = !{!19, !14, i64 168}
+!19 = !{!"_typeobject", !12, i64 0, !20, i64 24, !14, i64 32, !14, i64 40, !6, i64 48, !14, i64 56, !6, i64 64, !6, i64 72, !6, i64 80, !6, i64 88, !6, i64 96, !6, i64 104, !6, i64 112, !6, i64 120, !6, i64 128, !6, i64 136, !6, i64 144, !6, i64 152, !6, i64 160, !14, i64 168, !20, i64 176, !6, i64 184, !6, i64 192, !6, i64 200, !14, i64 208, !6, i64 216, !6, i64 224, !21, i64 232, !22, i64 240, !23, i64 248, !5, i64 256, !16, i64 264, !6, i64 272, !6, i64 280, !14, i64 288, !6, i64 296, !6, i64 304, !6, i64 312, !6, i64 320, !6, i64 328, !16, i64 336, !16, i64 344, !16, i64 352, !6, i64 360, !16, i64 368, !6, i64 376, !24, i64 384, !6, i64 392, !6, i64 400, !7, i64 408, !25, i64 410}
+!20 = !{!"p1 omnipotent char", !6, i64 0}
+!21 = !{!"p1 _ZTS11PyMethodDef", !6, i64 0}
+!22 = !{!"p1 _ZTS11PyMemberDef", !6, i64 0}
+!23 = !{!"p1 _ZTS11PyGetSetDef", !6, i64 0}
+!24 = !{!"int", !7, i64 0}
+!25 = !{!"short", !7, i64 0}
+!26 = !{!27, !24, i64 36}
+!27 = !{!"", !6, i64 0, !16, i64 8, !14, i64 16, !14, i64 24, !24, i64 32, !24, i64 36, !20, i64 40, !28, i64 48, !28, i64 56, !28, i64 64, !6, i64 72}
+!28 = !{!"p1 long", !6, i64 0}
+!29 = !{!30, !31, i64 16}
+!30 = !{!"", !13, i64 0, !31, i64 16, !32, i64 17, !33, i64 24}
+!31 = !{!"_Bool", !7, i64 0}
+!32 = !{!"PyMutex", !7, i64 0}
+!33 = !{!"p1 _ZTS28Hacl_Streaming_MD_state_32_s", !6, i64 0}
+!34 = !{!30, !33, i64 24}
+!35 = !{!27, !14, i64 16}
+!36 = !{!27, !6, i64 0}
+!37 = distinct !{!37, !38}
+!38 = !{!"llvm.loop.mustprogress"}
+!39 = !{i8 0, i8 2}
+!40 = !{}
+!41 = distinct !{!41, !38}

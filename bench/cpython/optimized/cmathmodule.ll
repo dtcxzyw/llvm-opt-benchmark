@@ -1,25 +1,20 @@
 ; ModuleID = 'bench/cpython/original/cmathmodule.ll'
 source_filename = "bench/cpython/original/cmathmodule.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
 %struct.PyModuleDef = type { %struct.PyModuleDef_Base, ptr, ptr, i64, ptr, ptr, ptr, ptr, ptr }
 %struct.PyModuleDef_Base = type { %struct._object, ptr, i64, ptr }
 %struct._object = type { %union.anon, ptr }
 %union.anon = type { i64 }
-%struct.PyMethodDef = type { ptr, ptr, i32, ptr }
-%struct.PyModuleDef_Slot = type { i32, ptr }
 %struct.Py_complex = type { double, double }
-%struct._PyArg_Parser = type { ptr, ptr, ptr, ptr, %struct._PyOnceFlag, i32, i32, i32, i32, ptr, ptr }
 %struct._PyOnceFlag = type { i8 }
-%struct._typeobject = type { %struct.PyVarObject, ptr, i64, i64, ptr, i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i64, ptr, ptr, ptr, ptr, i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, ptr, ptr, i8 }
+%struct._typeobject = type { %struct.PyVarObject, ptr, i64, i64, ptr, i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i64, ptr, ptr, ptr, ptr, i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, ptr, ptr, i8, i16 }
 %struct.PyVarObject = type { %struct._object, i64 }
 
-@cmathmodule = internal global %struct.PyModuleDef { %struct.PyModuleDef_Base { %struct._object { %union.anon { i64 4294967295 }, ptr null }, ptr null, i64 0, ptr null }, ptr @.str, ptr @module_doc, i64 0, ptr @cmath_methods, ptr @cmath_slots, ptr null, ptr null, ptr null }, align 8
+@cmathmodule = internal global %struct.PyModuleDef { %struct.PyModuleDef_Base { %struct._object { %union.anon { i64 552977039360 }, ptr null }, ptr null, i64 0, ptr null }, ptr @.str, ptr @module_doc, i64 0, ptr @cmath_methods, ptr @cmath_slots, ptr null, ptr null, ptr null }, align 8
 @.str = private unnamed_addr constant [6 x i8] c"cmath\00", align 1
 @module_doc = internal constant [75 x i8] c"This module provides access to mathematical functions for complex\0Anumbers.\00", align 16
-@cmath_methods = internal global [24 x %struct.PyMethodDef] [%struct.PyMethodDef { ptr @.str.1, ptr @cmath_acos, i32 8, ptr @cmath_acos__doc__ }, %struct.PyMethodDef { ptr @.str.2, ptr @cmath_acosh, i32 8, ptr @cmath_acosh__doc__ }, %struct.PyMethodDef { ptr @.str.3, ptr @cmath_asin, i32 8, ptr @cmath_asin__doc__ }, %struct.PyMethodDef { ptr @.str.4, ptr @cmath_asinh, i32 8, ptr @cmath_asinh__doc__ }, %struct.PyMethodDef { ptr @.str.5, ptr @cmath_atan, i32 8, ptr @cmath_atan__doc__ }, %struct.PyMethodDef { ptr @.str.6, ptr @cmath_atanh, i32 8, ptr @cmath_atanh__doc__ }, %struct.PyMethodDef { ptr @.str.7, ptr @cmath_cos, i32 8, ptr @cmath_cos__doc__ }, %struct.PyMethodDef { ptr @.str.8, ptr @cmath_cosh, i32 8, ptr @cmath_cosh__doc__ }, %struct.PyMethodDef { ptr @.str.9, ptr @cmath_exp, i32 8, ptr @cmath_exp__doc__ }, %struct.PyMethodDef { ptr @.str.10, ptr @cmath_isclose, i32 130, ptr @cmath_isclose__doc__ }, %struct.PyMethodDef { ptr @.str.11, ptr @cmath_isfinite, i32 8, ptr @cmath_isfinite__doc__ }, %struct.PyMethodDef { ptr @.str.12, ptr @cmath_isinf, i32 8, ptr @cmath_isinf__doc__ }, %struct.PyMethodDef { ptr @.str.13, ptr @cmath_isnan, i32 8, ptr @cmath_isnan__doc__ }, %struct.PyMethodDef { ptr @.str.14, ptr @cmath_log, i32 128, ptr @cmath_log__doc__ }, %struct.PyMethodDef { ptr @.str.15, ptr @cmath_log10, i32 8, ptr @cmath_log10__doc__ }, %struct.PyMethodDef { ptr @.str.16, ptr @cmath_phase, i32 8, ptr @cmath_phase__doc__ }, %struct.PyMethodDef { ptr @.str.17, ptr @cmath_polar, i32 8, ptr @cmath_polar__doc__ }, %struct.PyMethodDef { ptr @.str.18, ptr @cmath_rect, i32 128, ptr @cmath_rect__doc__ }, %struct.PyMethodDef { ptr @.str.19, ptr @cmath_sin, i32 8, ptr @cmath_sin__doc__ }, %struct.PyMethodDef { ptr @.str.20, ptr @cmath_sinh, i32 8, ptr @cmath_sinh__doc__ }, %struct.PyMethodDef { ptr @.str.21, ptr @cmath_sqrt, i32 8, ptr @cmath_sqrt__doc__ }, %struct.PyMethodDef { ptr @.str.22, ptr @cmath_tan, i32 8, ptr @cmath_tan__doc__ }, %struct.PyMethodDef { ptr @.str.23, ptr @cmath_tanh, i32 8, ptr @cmath_tanh__doc__ }, %struct.PyMethodDef zeroinitializer], align 16
-@cmath_slots = internal global [3 x %struct.PyModuleDef_Slot] [%struct.PyModuleDef_Slot { i32 2, ptr @cmath_exec }, %struct.PyModuleDef_Slot { i32 3, ptr inttoptr (i64 2 to ptr) }, %struct.PyModuleDef_Slot zeroinitializer], align 16
 @.str.1 = private unnamed_addr constant [5 x i8] c"acos\00", align 1
 @cmath_acos__doc__ = internal constant [52 x i8] c"acos($module, z, /)\0A--\0A\0AReturn the arc cosine of z.\00", align 16
 @.str.2 = private unnamed_addr constant [6 x i8] c"acosh\00", align 1
@@ -66,10 +61,11 @@ target triple = "x86_64-unknown-linux-gnu"
 @cmath_tan__doc__ = internal constant [48 x i8] c"tan($module, z, /)\0A--\0A\0AReturn the tangent of z.\00", align 16
 @.str.23 = private unnamed_addr constant [5 x i8] c"tanh\00", align 1
 @cmath_tanh__doc__ = internal constant [60 x i8] c"tanh($module, z, /)\0A--\0A\0AReturn the hyperbolic tangent of z.\00", align 16
+@cmath_methods = internal global [24 x { ptr, ptr, i32, [4 x i8], ptr }] [{ ptr, ptr, i32, [4 x i8], ptr } { ptr @.str.1, ptr @cmath_acos, i32 8, [4 x i8] zeroinitializer, ptr @cmath_acos__doc__ }, { ptr, ptr, i32, [4 x i8], ptr } { ptr @.str.2, ptr @cmath_acosh, i32 8, [4 x i8] zeroinitializer, ptr @cmath_acosh__doc__ }, { ptr, ptr, i32, [4 x i8], ptr } { ptr @.str.3, ptr @cmath_asin, i32 8, [4 x i8] zeroinitializer, ptr @cmath_asin__doc__ }, { ptr, ptr, i32, [4 x i8], ptr } { ptr @.str.4, ptr @cmath_asinh, i32 8, [4 x i8] zeroinitializer, ptr @cmath_asinh__doc__ }, { ptr, ptr, i32, [4 x i8], ptr } { ptr @.str.5, ptr @cmath_atan, i32 8, [4 x i8] zeroinitializer, ptr @cmath_atan__doc__ }, { ptr, ptr, i32, [4 x i8], ptr } { ptr @.str.6, ptr @cmath_atanh, i32 8, [4 x i8] zeroinitializer, ptr @cmath_atanh__doc__ }, { ptr, ptr, i32, [4 x i8], ptr } { ptr @.str.7, ptr @cmath_cos, i32 8, [4 x i8] zeroinitializer, ptr @cmath_cos__doc__ }, { ptr, ptr, i32, [4 x i8], ptr } { ptr @.str.8, ptr @cmath_cosh, i32 8, [4 x i8] zeroinitializer, ptr @cmath_cosh__doc__ }, { ptr, ptr, i32, [4 x i8], ptr } { ptr @.str.9, ptr @cmath_exp, i32 8, [4 x i8] zeroinitializer, ptr @cmath_exp__doc__ }, { ptr, ptr, i32, [4 x i8], ptr } { ptr @.str.10, ptr @cmath_isclose, i32 130, [4 x i8] zeroinitializer, ptr @cmath_isclose__doc__ }, { ptr, ptr, i32, [4 x i8], ptr } { ptr @.str.11, ptr @cmath_isfinite, i32 8, [4 x i8] zeroinitializer, ptr @cmath_isfinite__doc__ }, { ptr, ptr, i32, [4 x i8], ptr } { ptr @.str.12, ptr @cmath_isinf, i32 8, [4 x i8] zeroinitializer, ptr @cmath_isinf__doc__ }, { ptr, ptr, i32, [4 x i8], ptr } { ptr @.str.13, ptr @cmath_isnan, i32 8, [4 x i8] zeroinitializer, ptr @cmath_isnan__doc__ }, { ptr, ptr, i32, [4 x i8], ptr } { ptr @.str.14, ptr @cmath_log, i32 128, [4 x i8] zeroinitializer, ptr @cmath_log__doc__ }, { ptr, ptr, i32, [4 x i8], ptr } { ptr @.str.15, ptr @cmath_log10, i32 8, [4 x i8] zeroinitializer, ptr @cmath_log10__doc__ }, { ptr, ptr, i32, [4 x i8], ptr } { ptr @.str.16, ptr @cmath_phase, i32 8, [4 x i8] zeroinitializer, ptr @cmath_phase__doc__ }, { ptr, ptr, i32, [4 x i8], ptr } { ptr @.str.17, ptr @cmath_polar, i32 8, [4 x i8] zeroinitializer, ptr @cmath_polar__doc__ }, { ptr, ptr, i32, [4 x i8], ptr } { ptr @.str.18, ptr @cmath_rect, i32 128, [4 x i8] zeroinitializer, ptr @cmath_rect__doc__ }, { ptr, ptr, i32, [4 x i8], ptr } { ptr @.str.19, ptr @cmath_sin, i32 8, [4 x i8] zeroinitializer, ptr @cmath_sin__doc__ }, { ptr, ptr, i32, [4 x i8], ptr } { ptr @.str.20, ptr @cmath_sinh, i32 8, [4 x i8] zeroinitializer, ptr @cmath_sinh__doc__ }, { ptr, ptr, i32, [4 x i8], ptr } { ptr @.str.21, ptr @cmath_sqrt, i32 8, [4 x i8] zeroinitializer, ptr @cmath_sqrt__doc__ }, { ptr, ptr, i32, [4 x i8], ptr } { ptr @.str.22, ptr @cmath_tan, i32 8, [4 x i8] zeroinitializer, ptr @cmath_tan__doc__ }, { ptr, ptr, i32, [4 x i8], ptr } { ptr @.str.23, ptr @cmath_tanh, i32 8, [4 x i8] zeroinitializer, ptr @cmath_tanh__doc__ }, { ptr, ptr, i32, [4 x i8], ptr } zeroinitializer], align 16
 @PyExc_ValueError = external local_unnamed_addr global ptr, align 8
-@.str.24 = private unnamed_addr constant [18 x i8] c"math domain error\00", align 1
+@.str.25 = private unnamed_addr constant [18 x i8] c"math domain error\00", align 1
 @PyExc_OverflowError = external local_unnamed_addr global ptr, align 8
-@.str.25 = private unnamed_addr constant [17 x i8] c"math range error\00", align 1
+@.str.26 = private unnamed_addr constant [17 x i8] c"math range error\00", align 1
 @acos_special_values = internal unnamed_addr global [7 x [7 x %struct.Py_complex]] zeroinitializer, align 16
 @sqrt_special_values = internal unnamed_addr global [7 x [7 x %struct.Py_complex]] zeroinitializer, align 16
 @acosh_special_values = internal unnamed_addr global [7 x [7 x %struct.Py_complex]] zeroinitializer, align 16
@@ -77,2362 +73,2236 @@ target triple = "x86_64-unknown-linux-gnu"
 @atanh_special_values = internal unnamed_addr global [7 x [7 x %struct.Py_complex]] zeroinitializer, align 16
 @cosh_special_values = internal unnamed_addr global [7 x [7 x %struct.Py_complex]] zeroinitializer, align 16
 @exp_special_values = internal unnamed_addr global [7 x [7 x %struct.Py_complex]] zeroinitializer, align 16
-@cmath_isclose._keywords = internal constant [5 x ptr] [ptr @.str.26, ptr @.str.27, ptr @.str.28, ptr @.str.29, ptr null], align 16
-@.str.26 = private unnamed_addr constant [2 x i8] c"a\00", align 1
-@.str.27 = private unnamed_addr constant [2 x i8] c"b\00", align 1
-@.str.28 = private unnamed_addr constant [8 x i8] c"rel_tol\00", align 1
-@.str.29 = private unnamed_addr constant [8 x i8] c"abs_tol\00", align 1
-@cmath_isclose._parser = internal global %struct._PyArg_Parser { ptr null, ptr @cmath_isclose._keywords, ptr @.str.10, ptr null, %struct._PyOnceFlag zeroinitializer, i32 0, i32 0, i32 0, i32 0, ptr null, ptr null }, align 8
+@cmath_isclose._keywords = internal constant [5 x ptr] [ptr @.str.27, ptr @.str.28, ptr @.str.29, ptr @.str.30, ptr null], align 16
+@.str.27 = private unnamed_addr constant [2 x i8] c"a\00", align 1
+@.str.28 = private unnamed_addr constant [2 x i8] c"b\00", align 1
+@.str.29 = private unnamed_addr constant [8 x i8] c"rel_tol\00", align 1
+@.str.30 = private unnamed_addr constant [8 x i8] c"abs_tol\00", align 1
+@cmath_isclose._parser = internal global { ptr, ptr, ptr, ptr, %struct._PyOnceFlag, [3 x i8], i32, i32, i32, i32, [4 x i8], ptr, ptr } { ptr null, ptr @cmath_isclose._keywords, ptr @.str.10, ptr null, %struct._PyOnceFlag zeroinitializer, [3 x i8] zeroinitializer, i32 0, i32 0, i32 0, i32 0, [4 x i8] zeroinitializer, ptr null, ptr null }, align 8
 @PyFloat_Type = external global %struct._typeobject, align 8
-@.str.30 = private unnamed_addr constant [32 x i8] c"tolerances must be non-negative\00", align 1
+@.str.31 = private unnamed_addr constant [32 x i8] c"tolerances must be non-negative\00", align 1
 @log_special_values = internal unnamed_addr global [7 x [7 x %struct.Py_complex]] zeroinitializer, align 16
-@.str.31 = private unnamed_addr constant [3 x i8] c"dd\00", align 1
+@.str.32 = private unnamed_addr constant [3 x i8] c"dd\00", align 1
 @rect_special_values = internal unnamed_addr global [7 x [7 x %struct.Py_complex]] zeroinitializer, align 16
 @sinh_special_values = internal unnamed_addr global [7 x [7 x %struct.Py_complex]] zeroinitializer, align 16
 @tanh_special_values = internal unnamed_addr global [7 x [7 x %struct.Py_complex]] zeroinitializer, align 16
-@.str.32 = private unnamed_addr constant [3 x i8] c"pi\00", align 1
-@.str.33 = private unnamed_addr constant [2 x i8] c"e\00", align 1
-@.str.34 = private unnamed_addr constant [4 x i8] c"tau\00", align 1
-@.str.35 = private unnamed_addr constant [4 x i8] c"inf\00", align 1
-@.str.36 = private unnamed_addr constant [5 x i8] c"infj\00", align 1
-@.str.37 = private unnamed_addr constant [4 x i8] c"nan\00", align 1
-@.str.38 = private unnamed_addr constant [5 x i8] c"nanj\00", align 1
+@cmath_slots = internal global [4 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @cmath_exec }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr inttoptr (i64 2 to ptr) }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr inttoptr (i64 1 to ptr) }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.34 = private unnamed_addr constant [3 x i8] c"pi\00", align 1
+@.str.35 = private unnamed_addr constant [2 x i8] c"e\00", align 1
+@.str.36 = private unnamed_addr constant [4 x i8] c"tau\00", align 1
+@.str.37 = private unnamed_addr constant [4 x i8] c"inf\00", align 1
+@.str.38 = private unnamed_addr constant [5 x i8] c"infj\00", align 1
+@.str.39 = private unnamed_addr constant [4 x i8] c"nan\00", align 1
+@.str.40 = private unnamed_addr constant [5 x i8] c"nanj\00", align 1
 
 ; Function Attrs: nounwind uwtable
 define ptr @PyInit_cmath() local_unnamed_addr #0 {
-entry:
-  %call = tail call ptr @PyModuleDef_Init(ptr noundef nonnull @cmathmodule) #10
-  ret ptr %call
+  %1 = tail call ptr @PyModuleDef_Init(ptr noundef nonnull @cmathmodule) #11
+  ret ptr %1
 }
 
 declare ptr @PyModuleDef_Init(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @cmath_acos(ptr readnone captures(none) %module, ptr noundef %arg) #0 {
-entry:
-  %call = tail call { double, double } @PyComplex_AsCComplex(ptr noundef %arg) #10
-  %call1 = tail call ptr @PyErr_Occurred() #10
-  %tobool.not = icmp eq ptr %call1, null
-  br i1 %tobool.not, label %if.end, label %exit
+define internal ptr @cmath_acos(ptr readnone captures(none) %0, ptr noundef %1) #0 {
+  %3 = tail call { double, double } @PyComplex_AsCComplex(ptr noundef %1) #11
+  %4 = tail call ptr @PyErr_Occurred() #11
+  %.not = icmp eq ptr %4, null
+  br i1 %.not, label %5, label %67
 
-if.end:                                           ; preds = %entry
-  %0 = extractvalue { double, double } %call, 1
-  %1 = extractvalue { double, double } %call, 0
-  %call2 = tail call ptr @__errno_location() #11
-  store i32 0, ptr %call2, align 4
-  %2 = tail call double @llvm.fabs.f64(double %1)
-  %3 = fcmp ueq double %2, 0x7FF0000000000000
-  %4 = tail call double @llvm.fabs.f64(double %0)
-  %5 = fcmp ueq double %4, 0x7FF0000000000000
-  %or.cond.i = select i1 %3, i1 true, i1 %5
-  br i1 %or.cond.i, label %if.then.i, label %if.end.i
+5:                                                ; preds = %2
+  %6 = extractvalue { double, double } %3, 1
+  %7 = extractvalue { double, double } %3, 0
+  %8 = tail call ptr @__errno_location() #12
+  store i32 0, ptr %8, align 4, !tbaa !3
+  %9 = tail call double @llvm.fabs.f64(double %7)
+  %10 = fcmp ueq double %9, 0x7FF0000000000000
+  %11 = tail call double @llvm.fabs.f64(double %6)
+  %12 = fcmp ueq double %11, 0x7FF0000000000000
+  %or.cond.i = select i1 %10, i1 true, i1 %12
+  br i1 %or.cond.i, label %13, label %36
 
-if.then.i:                                        ; preds = %if.end
-  br i1 %3, label %if.end.i.i, label %if.then.i.i
+13:                                               ; preds = %5
+  br i1 %10, label %20, label %14
 
-if.then.i.i:                                      ; preds = %if.then.i
-  %cmp.i.i = fcmp une double %1, 0.000000e+00
-  %6 = tail call double @llvm.copysign.f64(double 1.000000e+00, double %1)
-  %cmp2.i.i = fcmp oeq double %6, 1.000000e+00
-  br i1 %cmp.i.i, label %if.then1.i.i, label %if.else4.i.i
+14:                                               ; preds = %13
+  %15 = fcmp une double %7, 0.000000e+00
+  %16 = tail call double @llvm.copysign.f64(double 1.000000e+00, double %7)
+  %17 = fcmp oeq double %16, 1.000000e+00
+  br i1 %15, label %18, label %19
 
-if.then1.i.i:                                     ; preds = %if.then.i.i
-  %..i.i = select i1 %cmp2.i.i, i64 4, i64 1
+18:                                               ; preds = %14
+  %..i.i = select i1 %17, i64 4, i64 1
   br label %special_type.exit.i
 
-if.else4.i.i:                                     ; preds = %if.then.i.i
-  %.6.i.i = select i1 %cmp2.i.i, i64 3, i64 2
+19:                                               ; preds = %14
+  %.7.i.i = select i1 %17, i64 3, i64 2
   br label %special_type.exit.i
 
-if.end.i.i:                                       ; preds = %if.then.i
-  %7 = fcmp uno double %1, 0.000000e+00
-  br i1 %7, label %special_type.exit.i, label %if.end9.i.i
+20:                                               ; preds = %13
+  %21 = fcmp uno double %7, 0.000000e+00
+  br i1 %21, label %special_type.exit.i, label %22
 
-if.end9.i.i:                                      ; preds = %if.end.i.i
-  %8 = tail call double @llvm.copysign.f64(double 1.000000e+00, double %1)
-  %cmp10.i.i = fcmp oeq double %8, 1.000000e+00
-  %.7.i.i = select i1 %cmp10.i.i, i64 5, i64 0
+22:                                               ; preds = %20
+  %23 = tail call double @llvm.copysign.f64(double 1.000000e+00, double %7)
+  %24 = fcmp oeq double %23, 1.000000e+00
+  %.8.i.i = select i1 %24, i64 5, i64 0
   br label %special_type.exit.i
 
-special_type.exit.i:                              ; preds = %if.end9.i.i, %if.end.i.i, %if.else4.i.i, %if.then1.i.i
-  %retval.0.i.i = phi i64 [ %..i.i, %if.then1.i.i ], [ %.6.i.i, %if.else4.i.i ], [ 6, %if.end.i.i ], [ %.7.i.i, %if.end9.i.i ]
-  br i1 %5, label %if.end.i35.i, label %if.then.i27.i
+special_type.exit.i:                              ; preds = %22, %20, %19, %18
+  %.0.i.i = phi i64 [ %..i.i, %18 ], [ %.7.i.i, %19 ], [ 6, %20 ], [ %.8.i.i, %22 ]
+  br i1 %12, label %31, label %25
 
-if.then.i27.i:                                    ; preds = %special_type.exit.i
-  %cmp.i28.i = fcmp une double %0, 0.000000e+00
-  %9 = tail call double @llvm.copysign.f64(double 1.000000e+00, double %0)
-  %cmp2.i29.i = fcmp oeq double %9, 1.000000e+00
-  br i1 %cmp.i28.i, label %if.then1.i33.i, label %if.else4.i30.i
+25:                                               ; preds = %special_type.exit.i
+  %26 = fcmp une double %6, 0.000000e+00
+  %27 = tail call double @llvm.copysign.f64(double 1.000000e+00, double %6)
+  %28 = fcmp oeq double %27, 1.000000e+00
+  br i1 %26, label %29, label %30
 
-if.then1.i33.i:                                   ; preds = %if.then.i27.i
-  %..i34.i = select i1 %cmp2.i29.i, i64 4, i64 1
+29:                                               ; preds = %25
+  %..i34.i = select i1 %28, i64 4, i64 1
   br label %cmath_acos_impl.exit
 
-if.else4.i30.i:                                   ; preds = %if.then.i27.i
-  %.6.i31.i = select i1 %cmp2.i29.i, i64 3, i64 2
+30:                                               ; preds = %25
+  %.7.i32.i = select i1 %28, i64 3, i64 2
   br label %cmath_acos_impl.exit
 
-if.end.i35.i:                                     ; preds = %special_type.exit.i
-  %10 = fcmp uno double %0, 0.000000e+00
-  br i1 %10, label %cmath_acos_impl.exit, label %if.end9.i36.i
+31:                                               ; preds = %special_type.exit.i
+  %32 = fcmp uno double %6, 0.000000e+00
+  br i1 %32, label %cmath_acos_impl.exit, label %33
 
-if.end9.i36.i:                                    ; preds = %if.end.i35.i
-  %11 = tail call double @llvm.copysign.f64(double 1.000000e+00, double %0)
-  %cmp10.i37.i = fcmp oeq double %11, 1.000000e+00
-  %.7.i38.i = select i1 %cmp10.i37.i, i64 5, i64 0
+33:                                               ; preds = %31
+  %34 = tail call double @llvm.copysign.f64(double 1.000000e+00, double %6)
+  %35 = fcmp oeq double %34, 1.000000e+00
+  %.8.i35.i = select i1 %35, i64 5, i64 0
   br label %cmath_acos_impl.exit
 
-if.end.i:                                         ; preds = %if.end
-  %cmp.i = fcmp ogt double %2, 0x7FCFFFFFFFFFFFFF
-  %cmp10.i = fcmp ogt double %4, 0x7FCFFFFFFFFFFFFF
-  %or.cond26.i = select i1 %cmp.i, i1 true, i1 %cmp10.i
-  br i1 %or.cond26.i, label %if.then11.i, label %if.else37.i
+36:                                               ; preds = %5
+  %37 = fcmp ogt double %9, 0x7FCFFFFFFFFFFFFF
+  %38 = fcmp ogt double %11, 0x7FCFFFFFFFFFFFFF
+  %or.cond31.i = select i1 %37, i1 true, i1 %38
+  br i1 %or.cond31.i, label %39, label %48
 
-if.then11.i:                                      ; preds = %if.end.i
-  %call14.i = tail call double @atan2(double noundef %4, double noundef %1) #10
-  %div.i = fmul double %1, 5.000000e-01
-  %div21.i = fmul double %0, 5.000000e-01
-  %call22.i = tail call double @hypot(double noundef %div.i, double noundef %div21.i) #10
-  %call23.i = tail call double @log(double noundef %call22.i) #10
-  %add.i = fadd double %call23.i, 0x3FF62E42FEFA39EF
-  %12 = fneg double %0
-  %fneg.i = tail call double @llvm.copysign.f64(double %add.i, double %12)
+39:                                               ; preds = %36
+  %40 = tail call double @atan2(double noundef %11, double noundef %7) #11, !tbaa !3
+  %41 = fmul double %7, 5.000000e-01
+  %42 = fmul double %6, 5.000000e-01
+  %43 = tail call double @hypot(double noundef %41, double noundef %42) #11, !tbaa !3
+  %44 = tail call double @log(double noundef %43) #11, !tbaa !3
+  %45 = fadd double %44, 0x3FF62E42FEFA39EF
+  %46 = fneg double %6
+  %47 = tail call double @llvm.copysign.f64(double %45, double %46)
   br label %cmath_acos_impl.exit.thread
 
-if.else37.i:                                      ; preds = %if.end.i
-  %sub.i = fsub double 1.000000e+00, %1
-  %fneg41.i = fneg double %0
-  %call43.i = tail call fastcc { double, double } @cmath_sqrt_impl(double %sub.i, double %fneg41.i)
-  %13 = extractvalue { double, double } %call43.i, 0
-  %14 = extractvalue { double, double } %call43.i, 1
-  %add45.i = fadd double %1, 1.000000e+00
-  %call50.i = tail call fastcc { double, double } @cmath_sqrt_impl(double %add45.i, double %0)
-  %15 = extractvalue { double, double } %call50.i, 0
-  %16 = extractvalue { double, double } %call50.i, 1
-  %call53.i = tail call double @atan2(double noundef %13, double noundef %15) #10
-  %mul.i = fmul double %call53.i, 2.000000e+00
-  %17 = fneg double %13
-  %neg.i = fmul double %16, %17
-  %18 = tail call double @llvm.fmuladd.f64(double %15, double %14, double %neg.i)
-  %call61.i = tail call double @asinh(double noundef %18) #10
+48:                                               ; preds = %36
+  %49 = fsub double 1.000000e+00, %7
+  %50 = fneg double %6
+  %51 = tail call fastcc { double, double } @cmath_sqrt_impl(double %49, double %50)
+  %52 = extractvalue { double, double } %51, 0
+  %53 = extractvalue { double, double } %51, 1
+  %54 = fadd double %7, 1.000000e+00
+  %55 = tail call fastcc { double, double } @cmath_sqrt_impl(double %54, double %6)
+  %56 = extractvalue { double, double } %55, 0
+  %57 = extractvalue { double, double } %55, 1
+  %58 = tail call double @atan2(double noundef %52, double noundef %56) #11, !tbaa !3
+  %59 = fmul double %58, 2.000000e+00
+  %60 = fneg double %52
+  %61 = fmul double %57, %60
+  %62 = tail call double @llvm.fmuladd.f64(double %56, double %53, double %61)
+  %63 = tail call double @asinh(double noundef %62) #11, !tbaa !3
   br label %cmath_acos_impl.exit.thread
 
-cmath_acos_impl.exit.thread:                      ; preds = %if.then11.i, %if.else37.i
-  %r.sroa.0.0.i = phi double [ %mul.i, %if.else37.i ], [ %call14.i, %if.then11.i ]
-  %r.sroa.3.0.i = phi double [ %call61.i, %if.else37.i ], [ %fneg.i, %if.then11.i ]
-  store i32 0, ptr %call2, align 4
-  br label %if.else10
+cmath_acos_impl.exit.thread:                      ; preds = %39, %48
+  %.sroa.03.0.i = phi double [ %40, %39 ], [ %59, %48 ]
+  %.sroa.5.0.i = phi double [ %47, %39 ], [ %63, %48 ]
+  store i32 0, ptr %8, align 4, !tbaa !3
+  br label %65
 
-cmath_acos_impl.exit:                             ; preds = %if.then1.i33.i, %if.else4.i30.i, %if.end.i35.i, %if.end9.i36.i
-  %retval.0.i32.i = phi i64 [ %..i34.i, %if.then1.i33.i ], [ %.6.i31.i, %if.else4.i30.i ], [ 6, %if.end.i35.i ], [ %.7.i38.i, %if.end9.i36.i ]
-  %arrayidx6.i = getelementptr [7 x [7 x %struct.Py_complex]], ptr @acos_special_values, i64 0, i64 %retval.0.i.i, i64 %retval.0.i32.i
-  %retval.sroa.0.0.copyload.i = load double, ptr %arrayidx6.i, align 16
-  %retval.sroa.3.0.arrayidx6.sroa_idx.i = getelementptr inbounds nuw i8, ptr %arrayidx6.i, i64 8
-  %retval.sroa.3.0.copyload.i = load double, ptr %retval.sroa.3.0.arrayidx6.sroa_idx.i, align 8
-  br label %if.else10
+cmath_acos_impl.exit:                             ; preds = %29, %30, %31, %33
+  %.0.i33.i = phi i64 [ %..i34.i, %29 ], [ %.7.i32.i, %30 ], [ 6, %31 ], [ %.8.i35.i, %33 ]
+  %64 = getelementptr [7 x [7 x %struct.Py_complex]], ptr @acos_special_values, i64 0, i64 %.0.i.i, i64 %.0.i33.i
+  %.sroa.028.0.copyload.i = load double, ptr %64, align 16, !tbaa !7
+  %.sroa.3.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %64, i64 8
+  %.sroa.3.0.copyload.i = load double, ptr %.sroa.3.0..sroa_idx.i, align 8, !tbaa !7
+  br label %65
 
-if.else10:                                        ; preds = %cmath_acos_impl.exit, %cmath_acos_impl.exit.thread
-  %retval.sroa.3.0.i6 = phi double [ %r.sroa.3.0.i, %cmath_acos_impl.exit.thread ], [ %retval.sroa.3.0.copyload.i, %cmath_acos_impl.exit ]
-  %retval.sroa.0.0.i5 = phi double [ %r.sroa.0.0.i, %cmath_acos_impl.exit.thread ], [ %retval.sroa.0.0.copyload.i, %cmath_acos_impl.exit ]
-  %call11 = tail call ptr @PyComplex_FromCComplex(double %retval.sroa.0.0.i5, double %retval.sroa.3.0.i6) #10
-  br label %exit
+65:                                               ; preds = %cmath_acos_impl.exit, %cmath_acos_impl.exit.thread
+  %.sroa.3.0.i15 = phi double [ %.sroa.5.0.i, %cmath_acos_impl.exit.thread ], [ %.sroa.3.0.copyload.i, %cmath_acos_impl.exit ]
+  %.sroa.028.0.i14 = phi double [ %.sroa.03.0.i, %cmath_acos_impl.exit.thread ], [ %.sroa.028.0.copyload.i, %cmath_acos_impl.exit ]
+  %66 = tail call ptr @PyComplex_FromCComplex(double %.sroa.028.0.i14, double %.sroa.3.0.i15) #11
+  br label %67
 
-exit:                                             ; preds = %entry, %if.else10
-  %return_value.0 = phi ptr [ null, %entry ], [ %call11, %if.else10 ]
-  ret ptr %return_value.0
+67:                                               ; preds = %2, %65
+  %.0 = phi ptr [ null, %2 ], [ %66, %65 ]
+  ret ptr %.0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @cmath_acosh(ptr readnone captures(none) %module, ptr noundef %arg) #0 {
-entry:
-  %call = tail call { double, double } @PyComplex_AsCComplex(ptr noundef %arg) #10
-  %call1 = tail call ptr @PyErr_Occurred() #10
-  %tobool.not = icmp eq ptr %call1, null
-  br i1 %tobool.not, label %if.end, label %exit
+define internal ptr @cmath_acosh(ptr readnone captures(none) %0, ptr noundef %1) #0 {
+  %3 = tail call { double, double } @PyComplex_AsCComplex(ptr noundef %1) #11
+  %4 = tail call ptr @PyErr_Occurred() #11
+  %.not = icmp eq ptr %4, null
+  br i1 %.not, label %5, label %63
 
-if.end:                                           ; preds = %entry
-  %0 = extractvalue { double, double } %call, 1
-  %1 = extractvalue { double, double } %call, 0
-  %call2 = tail call ptr @__errno_location() #11
-  store i32 0, ptr %call2, align 4
-  %2 = tail call double @llvm.fabs.f64(double %1)
-  %3 = fcmp ueq double %2, 0x7FF0000000000000
-  %4 = tail call double @llvm.fabs.f64(double %0)
-  %5 = fcmp ueq double %4, 0x7FF0000000000000
-  %or.cond.i = select i1 %3, i1 true, i1 %5
-  br i1 %or.cond.i, label %if.then.i, label %if.end.i
+5:                                                ; preds = %2
+  %6 = extractvalue { double, double } %3, 1
+  %7 = extractvalue { double, double } %3, 0
+  %8 = tail call ptr @__errno_location() #12
+  store i32 0, ptr %8, align 4, !tbaa !3
+  %9 = tail call double @llvm.fabs.f64(double %7)
+  %10 = fcmp ueq double %9, 0x7FF0000000000000
+  %11 = tail call double @llvm.fabs.f64(double %6)
+  %12 = fcmp ueq double %11, 0x7FF0000000000000
+  %or.cond.i = select i1 %10, i1 true, i1 %12
+  br i1 %or.cond.i, label %13, label %36
 
-if.then.i:                                        ; preds = %if.end
-  br i1 %3, label %if.end.i.i, label %if.then.i.i
+13:                                               ; preds = %5
+  br i1 %10, label %20, label %14
 
-if.then.i.i:                                      ; preds = %if.then.i
-  %cmp.i.i = fcmp une double %1, 0.000000e+00
-  %6 = tail call double @llvm.copysign.f64(double 1.000000e+00, double %1)
-  %cmp2.i.i = fcmp oeq double %6, 1.000000e+00
-  br i1 %cmp.i.i, label %if.then1.i.i, label %if.else4.i.i
+14:                                               ; preds = %13
+  %15 = fcmp une double %7, 0.000000e+00
+  %16 = tail call double @llvm.copysign.f64(double 1.000000e+00, double %7)
+  %17 = fcmp oeq double %16, 1.000000e+00
+  br i1 %15, label %18, label %19
 
-if.then1.i.i:                                     ; preds = %if.then.i.i
-  %..i.i = select i1 %cmp2.i.i, i64 4, i64 1
+18:                                               ; preds = %14
+  %..i.i = select i1 %17, i64 4, i64 1
   br label %special_type.exit.i
 
-if.else4.i.i:                                     ; preds = %if.then.i.i
-  %.6.i.i = select i1 %cmp2.i.i, i64 3, i64 2
+19:                                               ; preds = %14
+  %.7.i.i = select i1 %17, i64 3, i64 2
   br label %special_type.exit.i
 
-if.end.i.i:                                       ; preds = %if.then.i
-  %7 = fcmp uno double %1, 0.000000e+00
-  br i1 %7, label %special_type.exit.i, label %if.end9.i.i
+20:                                               ; preds = %13
+  %21 = fcmp uno double %7, 0.000000e+00
+  br i1 %21, label %special_type.exit.i, label %22
 
-if.end9.i.i:                                      ; preds = %if.end.i.i
-  %8 = tail call double @llvm.copysign.f64(double 1.000000e+00, double %1)
-  %cmp10.i.i = fcmp oeq double %8, 1.000000e+00
-  %.7.i.i = select i1 %cmp10.i.i, i64 5, i64 0
+22:                                               ; preds = %20
+  %23 = tail call double @llvm.copysign.f64(double 1.000000e+00, double %7)
+  %24 = fcmp oeq double %23, 1.000000e+00
+  %.8.i.i = select i1 %24, i64 5, i64 0
   br label %special_type.exit.i
 
-special_type.exit.i:                              ; preds = %if.end9.i.i, %if.end.i.i, %if.else4.i.i, %if.then1.i.i
-  %retval.0.i.i = phi i64 [ %..i.i, %if.then1.i.i ], [ %.6.i.i, %if.else4.i.i ], [ 6, %if.end.i.i ], [ %.7.i.i, %if.end9.i.i ]
-  br i1 %5, label %if.end.i30.i, label %if.then.i22.i
+special_type.exit.i:                              ; preds = %22, %20, %19, %18
+  %.0.i.i = phi i64 [ %..i.i, %18 ], [ %.7.i.i, %19 ], [ 6, %20 ], [ %.8.i.i, %22 ]
+  br i1 %12, label %31, label %25
 
-if.then.i22.i:                                    ; preds = %special_type.exit.i
-  %cmp.i23.i = fcmp une double %0, 0.000000e+00
-  %9 = tail call double @llvm.copysign.f64(double 1.000000e+00, double %0)
-  %cmp2.i24.i = fcmp oeq double %9, 1.000000e+00
-  br i1 %cmp.i23.i, label %if.then1.i28.i, label %if.else4.i25.i
+25:                                               ; preds = %special_type.exit.i
+  %26 = fcmp une double %6, 0.000000e+00
+  %27 = tail call double @llvm.copysign.f64(double 1.000000e+00, double %6)
+  %28 = fcmp oeq double %27, 1.000000e+00
+  br i1 %26, label %29, label %30
 
-if.then1.i28.i:                                   ; preds = %if.then.i22.i
-  %..i29.i = select i1 %cmp2.i24.i, i64 4, i64 1
+29:                                               ; preds = %25
+  %..i32.i = select i1 %28, i64 4, i64 1
   br label %cmath_acosh_impl.exit
 
-if.else4.i25.i:                                   ; preds = %if.then.i22.i
-  %.6.i26.i = select i1 %cmp2.i24.i, i64 3, i64 2
+30:                                               ; preds = %25
+  %.7.i30.i = select i1 %28, i64 3, i64 2
   br label %cmath_acosh_impl.exit
 
-if.end.i30.i:                                     ; preds = %special_type.exit.i
-  %10 = fcmp uno double %0, 0.000000e+00
-  br i1 %10, label %cmath_acosh_impl.exit, label %if.end9.i31.i
+31:                                               ; preds = %special_type.exit.i
+  %32 = fcmp uno double %6, 0.000000e+00
+  br i1 %32, label %cmath_acosh_impl.exit, label %33
 
-if.end9.i31.i:                                    ; preds = %if.end.i30.i
-  %11 = tail call double @llvm.copysign.f64(double 1.000000e+00, double %0)
-  %cmp10.i32.i = fcmp oeq double %11, 1.000000e+00
-  %.7.i33.i = select i1 %cmp10.i32.i, i64 5, i64 0
+33:                                               ; preds = %31
+  %34 = tail call double @llvm.copysign.f64(double 1.000000e+00, double %6)
+  %35 = fcmp oeq double %34, 1.000000e+00
+  %.8.i33.i = select i1 %35, i64 5, i64 0
   br label %cmath_acosh_impl.exit
 
-if.end.i:                                         ; preds = %if.end
-  %cmp.i = fcmp ogt double %2, 0x7FCFFFFFFFFFFFFF
-  %cmp10.i = fcmp ogt double %4, 0x7FCFFFFFFFFFFFFF
-  %or.cond21.i = select i1 %cmp.i, i1 true, i1 %cmp10.i
-  br i1 %or.cond21.i, label %if.then11.i, label %if.else.i
+36:                                               ; preds = %5
+  %37 = fcmp ogt double %9, 0x7FCFFFFFFFFFFFFF
+  %38 = fcmp ogt double %11, 0x7FCFFFFFFFFFFFFF
+  %or.cond29.i = select i1 %37, i1 true, i1 %38
+  br i1 %or.cond29.i, label %39, label %46
 
-if.then11.i:                                      ; preds = %if.end.i
-  %div.i = fmul double %1, 5.000000e-01
-  %div14.i = fmul double %0, 5.000000e-01
-  %call15.i = tail call double @hypot(double noundef %div.i, double noundef %div14.i) #10
-  %call16.i = tail call double @log(double noundef %call15.i) #10
-  %add.i = fadd double %call16.i, 0x3FF62E42FEFA39EF
-  %call20.i = tail call double @atan2(double noundef %0, double noundef %1) #10
+39:                                               ; preds = %36
+  %40 = fmul double %7, 5.000000e-01
+  %41 = fmul double %6, 5.000000e-01
+  %42 = tail call double @hypot(double noundef %40, double noundef %41) #11, !tbaa !3
+  %43 = tail call double @log(double noundef %42) #11, !tbaa !3
+  %44 = fadd double %43, 0x3FF62E42FEFA39EF
+  %45 = tail call double @atan2(double noundef %6, double noundef %7) #11, !tbaa !3
   br label %cmath_acosh_impl.exit.thread
 
-if.else.i:                                        ; preds = %if.end.i
-  %sub.i = fadd double %1, -1.000000e+00
-  %call26.i = tail call fastcc { double, double } @cmath_sqrt_impl(double %sub.i, double %0)
-  %12 = extractvalue { double, double } %call26.i, 0
-  %13 = extractvalue { double, double } %call26.i, 1
-  %add28.i = fadd double %1, 1.000000e+00
-  %call33.i = tail call fastcc { double, double } @cmath_sqrt_impl(double %add28.i, double %0)
-  %14 = extractvalue { double, double } %call33.i, 0
-  %15 = extractvalue { double, double } %call33.i, 1
-  %mul38.i = fmul double %13, %15
-  %16 = tail call double @llvm.fmuladd.f64(double %12, double %14, double %mul38.i)
-  %call39.i = tail call double @asinh(double noundef %16) #10
-  %call43.i = tail call double @atan2(double noundef %13, double noundef %14) #10
-  %mul.i = fmul double %call43.i, 2.000000e+00
+46:                                               ; preds = %36
+  %47 = fadd double %7, -1.000000e+00
+  %48 = tail call fastcc { double, double } @cmath_sqrt_impl(double %47, double %6)
+  %49 = extractvalue { double, double } %48, 0
+  %50 = extractvalue { double, double } %48, 1
+  %51 = fadd double %7, 1.000000e+00
+  %52 = tail call fastcc { double, double } @cmath_sqrt_impl(double %51, double %6)
+  %53 = extractvalue { double, double } %52, 0
+  %54 = extractvalue { double, double } %52, 1
+  %55 = fmul double %50, %54
+  %56 = tail call double @llvm.fmuladd.f64(double %49, double %53, double %55)
+  %57 = tail call double @asinh(double noundef %56) #11, !tbaa !3
+  %58 = tail call double @atan2(double noundef %50, double noundef %53) #11, !tbaa !3
+  %59 = fmul double %58, 2.000000e+00
   br label %cmath_acosh_impl.exit.thread
 
-cmath_acosh_impl.exit.thread:                     ; preds = %if.then11.i, %if.else.i
-  %r.sroa.0.0.i = phi double [ %add.i, %if.then11.i ], [ %call39.i, %if.else.i ]
-  %r.sroa.3.0.i = phi double [ %call20.i, %if.then11.i ], [ %mul.i, %if.else.i ]
-  store i32 0, ptr %call2, align 4
-  br label %if.else10
+cmath_acosh_impl.exit.thread:                     ; preds = %39, %46
+  %.sroa.03.0.i = phi double [ %44, %39 ], [ %57, %46 ]
+  %.sroa.5.0.i = phi double [ %45, %39 ], [ %59, %46 ]
+  store i32 0, ptr %8, align 4, !tbaa !3
+  br label %61
 
-cmath_acosh_impl.exit:                            ; preds = %if.then1.i28.i, %if.else4.i25.i, %if.end.i30.i, %if.end9.i31.i
-  %retval.0.i27.i = phi i64 [ %..i29.i, %if.then1.i28.i ], [ %.6.i26.i, %if.else4.i25.i ], [ 6, %if.end.i30.i ], [ %.7.i33.i, %if.end9.i31.i ]
-  %arrayidx6.i = getelementptr [7 x [7 x %struct.Py_complex]], ptr @acosh_special_values, i64 0, i64 %retval.0.i.i, i64 %retval.0.i27.i
-  %retval.sroa.0.0.copyload.i = load double, ptr %arrayidx6.i, align 16
-  %retval.sroa.3.0.arrayidx6.sroa_idx.i = getelementptr inbounds nuw i8, ptr %arrayidx6.i, i64 8
-  %retval.sroa.3.0.copyload.i = load double, ptr %retval.sroa.3.0.arrayidx6.sroa_idx.i, align 8
-  br label %if.else10
+cmath_acosh_impl.exit:                            ; preds = %29, %30, %31, %33
+  %.0.i31.i = phi i64 [ %..i32.i, %29 ], [ %.7.i30.i, %30 ], [ 6, %31 ], [ %.8.i33.i, %33 ]
+  %60 = getelementptr [7 x [7 x %struct.Py_complex]], ptr @acosh_special_values, i64 0, i64 %.0.i.i, i64 %.0.i31.i
+  %.sroa.026.0.copyload.i = load double, ptr %60, align 16, !tbaa !7
+  %.sroa.3.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %60, i64 8
+  %.sroa.3.0.copyload.i = load double, ptr %.sroa.3.0..sroa_idx.i, align 8, !tbaa !7
+  br label %61
 
-if.else10:                                        ; preds = %cmath_acosh_impl.exit, %cmath_acosh_impl.exit.thread
-  %retval.sroa.3.0.i6 = phi double [ %r.sroa.3.0.i, %cmath_acosh_impl.exit.thread ], [ %retval.sroa.3.0.copyload.i, %cmath_acosh_impl.exit ]
-  %retval.sroa.0.0.i5 = phi double [ %r.sroa.0.0.i, %cmath_acosh_impl.exit.thread ], [ %retval.sroa.0.0.copyload.i, %cmath_acosh_impl.exit ]
-  %call11 = tail call ptr @PyComplex_FromCComplex(double %retval.sroa.0.0.i5, double %retval.sroa.3.0.i6) #10
-  br label %exit
+61:                                               ; preds = %cmath_acosh_impl.exit, %cmath_acosh_impl.exit.thread
+  %.sroa.3.0.i15 = phi double [ %.sroa.5.0.i, %cmath_acosh_impl.exit.thread ], [ %.sroa.3.0.copyload.i, %cmath_acosh_impl.exit ]
+  %.sroa.026.0.i14 = phi double [ %.sroa.03.0.i, %cmath_acosh_impl.exit.thread ], [ %.sroa.026.0.copyload.i, %cmath_acosh_impl.exit ]
+  %62 = tail call ptr @PyComplex_FromCComplex(double %.sroa.026.0.i14, double %.sroa.3.0.i15) #11
+  br label %63
 
-exit:                                             ; preds = %entry, %if.else10
-  %return_value.0 = phi ptr [ null, %entry ], [ %call11, %if.else10 ]
-  ret ptr %return_value.0
+63:                                               ; preds = %2, %61
+  %.0 = phi ptr [ null, %2 ], [ %62, %61 ]
+  ret ptr %.0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @cmath_asin(ptr readnone captures(none) %module, ptr noundef %arg) #0 {
-entry:
-  %call = tail call { double, double } @PyComplex_AsCComplex(ptr noundef %arg) #10
-  %call1 = tail call ptr @PyErr_Occurred() #10
-  %tobool.not = icmp eq ptr %call1, null
-  br i1 %tobool.not, label %if.end, label %exit
+define internal ptr @cmath_asin(ptr readnone captures(none) %0, ptr noundef %1) #0 {
+  %3 = tail call { double, double } @PyComplex_AsCComplex(ptr noundef %1) #11
+  %4 = tail call ptr @PyErr_Occurred() #11
+  %.not = icmp eq ptr %4, null
+  br i1 %.not, label %5, label %21
 
-if.end:                                           ; preds = %entry
-  %0 = extractvalue { double, double } %call, 1
-  %1 = extractvalue { double, double } %call, 0
-  %call2 = tail call ptr @__errno_location() #11
-  store i32 0, ptr %call2, align 4
-  %fneg.i = fneg double %0
-  %call.i = tail call fastcc { double, double } @cmath_asinh_impl(double %fneg.i, double %1)
-  %2 = load i32, ptr %call2, align 4
-  switch i32 %2, label %if.else10 [
-    i32 33, label %if.then6
-    i32 34, label %if.then9
+5:                                                ; preds = %2
+  %6 = extractvalue { double, double } %3, 1
+  %7 = extractvalue { double, double } %3, 0
+  %8 = tail call ptr @__errno_location() #12
+  store i32 0, ptr %8, align 4, !tbaa !3
+  %9 = fneg double %6
+  %10 = tail call fastcc { double, double } @cmath_asinh_impl(double %9, double %7)
+  %11 = load i32, ptr %8, align 4, !tbaa !3
+  switch i32 %11, label %16 [
+    i32 33, label %12
+    i32 34, label %14
   ]
 
-if.then6:                                         ; preds = %if.end
-  %3 = load ptr, ptr @PyExc_ValueError, align 8
-  tail call void @PyErr_SetString(ptr noundef %3, ptr noundef nonnull @.str.24) #10
-  br label %exit
+12:                                               ; preds = %5
+  %13 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !9
+  tail call void @PyErr_SetString(ptr noundef %13, ptr noundef nonnull @.str.25) #11
+  br label %21
 
-if.then9:                                         ; preds = %if.end
-  %4 = load ptr, ptr @PyExc_OverflowError, align 8
-  tail call void @PyErr_SetString(ptr noundef %4, ptr noundef nonnull @.str.25) #10
-  br label %exit
+14:                                               ; preds = %5
+  %15 = load ptr, ptr @PyExc_OverflowError, align 8, !tbaa !9
+  tail call void @PyErr_SetString(ptr noundef %15, ptr noundef nonnull @.str.26) #11
+  br label %21
 
-if.else10:                                        ; preds = %if.end
-  %5 = extractvalue { double, double } %call.i, 0
-  %fneg6.i = fneg double %5
-  %6 = extractvalue { double, double } %call.i, 1
-  %call11 = tail call ptr @PyComplex_FromCComplex(double %6, double %fneg6.i) #10
-  br label %exit
+16:                                               ; preds = %5
+  %17 = extractvalue { double, double } %10, 0
+  %18 = fneg double %17
+  %19 = extractvalue { double, double } %10, 1
+  %20 = tail call ptr @PyComplex_FromCComplex(double %19, double %18) #11
+  br label %21
 
-exit:                                             ; preds = %entry, %if.else10, %if.then9, %if.then6
-  %return_value.0 = phi ptr [ null, %entry ], [ null, %if.then6 ], [ null, %if.then9 ], [ %call11, %if.else10 ]
-  ret ptr %return_value.0
+21:                                               ; preds = %2, %16, %14, %12
+  %.0 = phi ptr [ null, %2 ], [ null, %12 ], [ null, %14 ], [ %20, %16 ]
+  ret ptr %.0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @cmath_asinh(ptr readnone captures(none) %module, ptr noundef %arg) #0 {
-entry:
-  %call = tail call { double, double } @PyComplex_AsCComplex(ptr noundef %arg) #10
-  %call1 = tail call ptr @PyErr_Occurred() #10
-  %tobool.not = icmp eq ptr %call1, null
-  br i1 %tobool.not, label %if.end, label %exit
+define internal ptr @cmath_asinh(ptr readnone captures(none) %0, ptr noundef %1) #0 {
+  %3 = tail call { double, double } @PyComplex_AsCComplex(ptr noundef %1) #11
+  %4 = tail call ptr @PyErr_Occurred() #11
+  %.not = icmp eq ptr %4, null
+  br i1 %.not, label %5, label %19
 
-if.end:                                           ; preds = %entry
-  %0 = extractvalue { double, double } %call, 1
-  %1 = extractvalue { double, double } %call, 0
-  %call2 = tail call ptr @__errno_location() #11
-  store i32 0, ptr %call2, align 4
-  %call4 = tail call fastcc { double, double } @cmath_asinh_impl(double %1, double %0)
-  %2 = load i32, ptr %call2, align 4
-  switch i32 %2, label %if.else10 [
-    i32 33, label %if.then6
-    i32 34, label %if.then9
+5:                                                ; preds = %2
+  %6 = extractvalue { double, double } %3, 1
+  %7 = extractvalue { double, double } %3, 0
+  %8 = tail call ptr @__errno_location() #12
+  store i32 0, ptr %8, align 4, !tbaa !3
+  %9 = tail call fastcc { double, double } @cmath_asinh_impl(double %7, double %6)
+  %10 = load i32, ptr %8, align 4, !tbaa !3
+  switch i32 %10, label %15 [
+    i32 33, label %11
+    i32 34, label %13
   ]
 
-if.then6:                                         ; preds = %if.end
-  %3 = load ptr, ptr @PyExc_ValueError, align 8
-  tail call void @PyErr_SetString(ptr noundef %3, ptr noundef nonnull @.str.24) #10
-  br label %exit
+11:                                               ; preds = %5
+  %12 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !9
+  tail call void @PyErr_SetString(ptr noundef %12, ptr noundef nonnull @.str.25) #11
+  br label %19
 
-if.then9:                                         ; preds = %if.end
-  %4 = load ptr, ptr @PyExc_OverflowError, align 8
-  tail call void @PyErr_SetString(ptr noundef %4, ptr noundef nonnull @.str.25) #10
-  br label %exit
+13:                                               ; preds = %5
+  %14 = load ptr, ptr @PyExc_OverflowError, align 8, !tbaa !9
+  tail call void @PyErr_SetString(ptr noundef %14, ptr noundef nonnull @.str.26) #11
+  br label %19
 
-if.else10:                                        ; preds = %if.end
-  %5 = extractvalue { double, double } %call4, 1
-  %6 = extractvalue { double, double } %call4, 0
-  %call11 = tail call ptr @PyComplex_FromCComplex(double %6, double %5) #10
-  br label %exit
+15:                                               ; preds = %5
+  %16 = extractvalue { double, double } %9, 1
+  %17 = extractvalue { double, double } %9, 0
+  %18 = tail call ptr @PyComplex_FromCComplex(double %17, double %16) #11
+  br label %19
 
-exit:                                             ; preds = %entry, %if.else10, %if.then9, %if.then6
-  %return_value.0 = phi ptr [ null, %entry ], [ null, %if.then6 ], [ null, %if.then9 ], [ %call11, %if.else10 ]
-  ret ptr %return_value.0
+19:                                               ; preds = %2, %15, %13, %11
+  %.0 = phi ptr [ null, %2 ], [ null, %11 ], [ null, %13 ], [ %18, %15 ]
+  ret ptr %.0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @cmath_atan(ptr readnone captures(none) %module, ptr noundef %arg) #0 {
-entry:
-  %call = tail call { double, double } @PyComplex_AsCComplex(ptr noundef %arg) #10
-  %call1 = tail call ptr @PyErr_Occurred() #10
-  %tobool.not = icmp eq ptr %call1, null
-  br i1 %tobool.not, label %if.end, label %exit
+define internal ptr @cmath_atan(ptr readnone captures(none) %0, ptr noundef %1) #0 {
+  %3 = tail call { double, double } @PyComplex_AsCComplex(ptr noundef %1) #11
+  %4 = tail call ptr @PyErr_Occurred() #11
+  %.not = icmp eq ptr %4, null
+  br i1 %.not, label %5, label %21
 
-if.end:                                           ; preds = %entry
-  %0 = extractvalue { double, double } %call, 1
-  %1 = extractvalue { double, double } %call, 0
-  %call2 = tail call ptr @__errno_location() #11
-  store i32 0, ptr %call2, align 4
-  %fneg.i = fneg double %0
-  %call.i = tail call fastcc { double, double } @cmath_atanh_impl(double %fneg.i, double %1)
-  %2 = load i32, ptr %call2, align 4
-  switch i32 %2, label %if.else10 [
-    i32 33, label %if.then6
-    i32 34, label %if.then9
+5:                                                ; preds = %2
+  %6 = extractvalue { double, double } %3, 1
+  %7 = extractvalue { double, double } %3, 0
+  %8 = tail call ptr @__errno_location() #12
+  store i32 0, ptr %8, align 4, !tbaa !3
+  %9 = fneg double %6
+  %10 = tail call fastcc { double, double } @cmath_atanh_impl(double %9, double %7)
+  %11 = load i32, ptr %8, align 4, !tbaa !3
+  switch i32 %11, label %16 [
+    i32 33, label %12
+    i32 34, label %14
   ]
 
-if.then6:                                         ; preds = %if.end
-  %3 = load ptr, ptr @PyExc_ValueError, align 8
-  tail call void @PyErr_SetString(ptr noundef %3, ptr noundef nonnull @.str.24) #10
-  br label %exit
+12:                                               ; preds = %5
+  %13 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !9
+  tail call void @PyErr_SetString(ptr noundef %13, ptr noundef nonnull @.str.25) #11
+  br label %21
 
-if.then9:                                         ; preds = %if.end
-  %4 = load ptr, ptr @PyExc_OverflowError, align 8
-  tail call void @PyErr_SetString(ptr noundef %4, ptr noundef nonnull @.str.25) #10
-  br label %exit
+14:                                               ; preds = %5
+  %15 = load ptr, ptr @PyExc_OverflowError, align 8, !tbaa !9
+  tail call void @PyErr_SetString(ptr noundef %15, ptr noundef nonnull @.str.26) #11
+  br label %21
 
-if.else10:                                        ; preds = %if.end
-  %5 = extractvalue { double, double } %call.i, 0
-  %fneg6.i = fneg double %5
-  %6 = extractvalue { double, double } %call.i, 1
-  %call11 = tail call ptr @PyComplex_FromCComplex(double %6, double %fneg6.i) #10
-  br label %exit
+16:                                               ; preds = %5
+  %17 = extractvalue { double, double } %10, 0
+  %18 = fneg double %17
+  %19 = extractvalue { double, double } %10, 1
+  %20 = tail call ptr @PyComplex_FromCComplex(double %19, double %18) #11
+  br label %21
 
-exit:                                             ; preds = %entry, %if.else10, %if.then9, %if.then6
-  %return_value.0 = phi ptr [ null, %entry ], [ null, %if.then6 ], [ null, %if.then9 ], [ %call11, %if.else10 ]
-  ret ptr %return_value.0
+21:                                               ; preds = %2, %16, %14, %12
+  %.0 = phi ptr [ null, %2 ], [ null, %12 ], [ null, %14 ], [ %20, %16 ]
+  ret ptr %.0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @cmath_atanh(ptr readnone captures(none) %module, ptr noundef %arg) #0 {
-entry:
-  %call = tail call { double, double } @PyComplex_AsCComplex(ptr noundef %arg) #10
-  %call1 = tail call ptr @PyErr_Occurred() #10
-  %tobool.not = icmp eq ptr %call1, null
-  br i1 %tobool.not, label %if.end, label %exit
+define internal ptr @cmath_atanh(ptr readnone captures(none) %0, ptr noundef %1) #0 {
+  %3 = tail call { double, double } @PyComplex_AsCComplex(ptr noundef %1) #11
+  %4 = tail call ptr @PyErr_Occurred() #11
+  %.not = icmp eq ptr %4, null
+  br i1 %.not, label %5, label %19
 
-if.end:                                           ; preds = %entry
-  %0 = extractvalue { double, double } %call, 1
-  %1 = extractvalue { double, double } %call, 0
-  %call2 = tail call ptr @__errno_location() #11
-  store i32 0, ptr %call2, align 4
-  %call4 = tail call fastcc { double, double } @cmath_atanh_impl(double %1, double %0)
-  %2 = load i32, ptr %call2, align 4
-  switch i32 %2, label %if.else10 [
-    i32 33, label %if.then6
-    i32 34, label %if.then9
+5:                                                ; preds = %2
+  %6 = extractvalue { double, double } %3, 1
+  %7 = extractvalue { double, double } %3, 0
+  %8 = tail call ptr @__errno_location() #12
+  store i32 0, ptr %8, align 4, !tbaa !3
+  %9 = tail call fastcc { double, double } @cmath_atanh_impl(double %7, double %6)
+  %10 = load i32, ptr %8, align 4, !tbaa !3
+  switch i32 %10, label %15 [
+    i32 33, label %11
+    i32 34, label %13
   ]
 
-if.then6:                                         ; preds = %if.end
-  %3 = load ptr, ptr @PyExc_ValueError, align 8
-  tail call void @PyErr_SetString(ptr noundef %3, ptr noundef nonnull @.str.24) #10
-  br label %exit
+11:                                               ; preds = %5
+  %12 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !9
+  tail call void @PyErr_SetString(ptr noundef %12, ptr noundef nonnull @.str.25) #11
+  br label %19
 
-if.then9:                                         ; preds = %if.end
-  %4 = load ptr, ptr @PyExc_OverflowError, align 8
-  tail call void @PyErr_SetString(ptr noundef %4, ptr noundef nonnull @.str.25) #10
-  br label %exit
+13:                                               ; preds = %5
+  %14 = load ptr, ptr @PyExc_OverflowError, align 8, !tbaa !9
+  tail call void @PyErr_SetString(ptr noundef %14, ptr noundef nonnull @.str.26) #11
+  br label %19
 
-if.else10:                                        ; preds = %if.end
-  %5 = extractvalue { double, double } %call4, 1
-  %6 = extractvalue { double, double } %call4, 0
-  %call11 = tail call ptr @PyComplex_FromCComplex(double %6, double %5) #10
-  br label %exit
+15:                                               ; preds = %5
+  %16 = extractvalue { double, double } %9, 1
+  %17 = extractvalue { double, double } %9, 0
+  %18 = tail call ptr @PyComplex_FromCComplex(double %17, double %16) #11
+  br label %19
 
-exit:                                             ; preds = %entry, %if.else10, %if.then9, %if.then6
-  %return_value.0 = phi ptr [ null, %entry ], [ null, %if.then6 ], [ null, %if.then9 ], [ %call11, %if.else10 ]
-  ret ptr %return_value.0
+19:                                               ; preds = %2, %15, %13, %11
+  %.0 = phi ptr [ null, %2 ], [ null, %11 ], [ null, %13 ], [ %18, %15 ]
+  ret ptr %.0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @cmath_cos(ptr readnone captures(none) %module, ptr noundef %arg) #0 {
-entry:
-  %call = tail call { double, double } @PyComplex_AsCComplex(ptr noundef %arg) #10
-  %call1 = tail call ptr @PyErr_Occurred() #10
-  %tobool.not = icmp eq ptr %call1, null
-  br i1 %tobool.not, label %if.end, label %exit
+define internal ptr @cmath_cos(ptr readnone captures(none) %0, ptr noundef %1) #0 {
+  %3 = tail call { double, double } @PyComplex_AsCComplex(ptr noundef %1) #11
+  %4 = tail call ptr @PyErr_Occurred() #11
+  %.not = icmp eq ptr %4, null
+  br i1 %.not, label %5, label %20
 
-if.end:                                           ; preds = %entry
-  %0 = extractvalue { double, double } %call, 1
-  %1 = extractvalue { double, double } %call, 0
-  %call2 = tail call ptr @__errno_location() #11
-  store i32 0, ptr %call2, align 4
-  %fneg.i = fneg double %0
-  %call.i = tail call fastcc { double, double } @cmath_cosh_impl(double %fneg.i, double %1)
-  %2 = load i32, ptr %call2, align 4
-  switch i32 %2, label %if.else10 [
-    i32 33, label %if.then6
-    i32 34, label %if.then9
+5:                                                ; preds = %2
+  %6 = extractvalue { double, double } %3, 1
+  %7 = extractvalue { double, double } %3, 0
+  %8 = tail call ptr @__errno_location() #12
+  store i32 0, ptr %8, align 4, !tbaa !3
+  %9 = fneg double %6
+  %10 = tail call fastcc { double, double } @cmath_cosh_impl(double %9, double %7)
+  %11 = load i32, ptr %8, align 4, !tbaa !3
+  switch i32 %11, label %16 [
+    i32 33, label %12
+    i32 34, label %14
   ]
 
-if.then6:                                         ; preds = %if.end
-  %3 = load ptr, ptr @PyExc_ValueError, align 8
-  tail call void @PyErr_SetString(ptr noundef %3, ptr noundef nonnull @.str.24) #10
-  br label %exit
+12:                                               ; preds = %5
+  %13 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !9
+  tail call void @PyErr_SetString(ptr noundef %13, ptr noundef nonnull @.str.25) #11
+  br label %20
 
-if.then9:                                         ; preds = %if.end
-  %4 = load ptr, ptr @PyExc_OverflowError, align 8
-  tail call void @PyErr_SetString(ptr noundef %4, ptr noundef nonnull @.str.25) #10
-  br label %exit
+14:                                               ; preds = %5
+  %15 = load ptr, ptr @PyExc_OverflowError, align 8, !tbaa !9
+  tail call void @PyErr_SetString(ptr noundef %15, ptr noundef nonnull @.str.26) #11
+  br label %20
 
-if.else10:                                        ; preds = %if.end
-  %5 = extractvalue { double, double } %call.i, 1
-  %6 = extractvalue { double, double } %call.i, 0
-  %call11 = tail call ptr @PyComplex_FromCComplex(double %6, double %5) #10
-  br label %exit
+16:                                               ; preds = %5
+  %17 = extractvalue { double, double } %10, 1
+  %18 = extractvalue { double, double } %10, 0
+  %19 = tail call ptr @PyComplex_FromCComplex(double %18, double %17) #11
+  br label %20
 
-exit:                                             ; preds = %entry, %if.else10, %if.then9, %if.then6
-  %return_value.0 = phi ptr [ null, %entry ], [ null, %if.then6 ], [ null, %if.then9 ], [ %call11, %if.else10 ]
-  ret ptr %return_value.0
+20:                                               ; preds = %2, %16, %14, %12
+  %.0 = phi ptr [ null, %2 ], [ null, %12 ], [ null, %14 ], [ %19, %16 ]
+  ret ptr %.0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @cmath_cosh(ptr readnone captures(none) %module, ptr noundef %arg) #0 {
-entry:
-  %call = tail call { double, double } @PyComplex_AsCComplex(ptr noundef %arg) #10
-  %call1 = tail call ptr @PyErr_Occurred() #10
-  %tobool.not = icmp eq ptr %call1, null
-  br i1 %tobool.not, label %if.end, label %exit
+define internal ptr @cmath_cosh(ptr readnone captures(none) %0, ptr noundef %1) #0 {
+  %3 = tail call { double, double } @PyComplex_AsCComplex(ptr noundef %1) #11
+  %4 = tail call ptr @PyErr_Occurred() #11
+  %.not = icmp eq ptr %4, null
+  br i1 %.not, label %5, label %19
 
-if.end:                                           ; preds = %entry
-  %0 = extractvalue { double, double } %call, 1
-  %1 = extractvalue { double, double } %call, 0
-  %call2 = tail call ptr @__errno_location() #11
-  store i32 0, ptr %call2, align 4
-  %call4 = tail call fastcc { double, double } @cmath_cosh_impl(double %1, double %0)
-  %2 = load i32, ptr %call2, align 4
-  switch i32 %2, label %if.else10 [
-    i32 33, label %if.then6
-    i32 34, label %if.then9
+5:                                                ; preds = %2
+  %6 = extractvalue { double, double } %3, 1
+  %7 = extractvalue { double, double } %3, 0
+  %8 = tail call ptr @__errno_location() #12
+  store i32 0, ptr %8, align 4, !tbaa !3
+  %9 = tail call fastcc { double, double } @cmath_cosh_impl(double %7, double %6)
+  %10 = load i32, ptr %8, align 4, !tbaa !3
+  switch i32 %10, label %15 [
+    i32 33, label %11
+    i32 34, label %13
   ]
 
-if.then6:                                         ; preds = %if.end
-  %3 = load ptr, ptr @PyExc_ValueError, align 8
-  tail call void @PyErr_SetString(ptr noundef %3, ptr noundef nonnull @.str.24) #10
-  br label %exit
+11:                                               ; preds = %5
+  %12 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !9
+  tail call void @PyErr_SetString(ptr noundef %12, ptr noundef nonnull @.str.25) #11
+  br label %19
 
-if.then9:                                         ; preds = %if.end
-  %4 = load ptr, ptr @PyExc_OverflowError, align 8
-  tail call void @PyErr_SetString(ptr noundef %4, ptr noundef nonnull @.str.25) #10
-  br label %exit
+13:                                               ; preds = %5
+  %14 = load ptr, ptr @PyExc_OverflowError, align 8, !tbaa !9
+  tail call void @PyErr_SetString(ptr noundef %14, ptr noundef nonnull @.str.26) #11
+  br label %19
 
-if.else10:                                        ; preds = %if.end
-  %5 = extractvalue { double, double } %call4, 1
-  %6 = extractvalue { double, double } %call4, 0
-  %call11 = tail call ptr @PyComplex_FromCComplex(double %6, double %5) #10
-  br label %exit
+15:                                               ; preds = %5
+  %16 = extractvalue { double, double } %9, 1
+  %17 = extractvalue { double, double } %9, 0
+  %18 = tail call ptr @PyComplex_FromCComplex(double %17, double %16) #11
+  br label %19
 
-exit:                                             ; preds = %entry, %if.else10, %if.then9, %if.then6
-  %return_value.0 = phi ptr [ null, %entry ], [ null, %if.then6 ], [ null, %if.then9 ], [ %call11, %if.else10 ]
-  ret ptr %return_value.0
+19:                                               ; preds = %2, %15, %13, %11
+  %.0 = phi ptr [ null, %2 ], [ null, %11 ], [ null, %13 ], [ %18, %15 ]
+  ret ptr %.0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @cmath_exp(ptr readnone captures(none) %module, ptr noundef %arg) #0 {
-entry:
-  %call = tail call { double, double } @PyComplex_AsCComplex(ptr noundef %arg) #10
-  %call1 = tail call ptr @PyErr_Occurred() #10
-  %tobool.not = icmp eq ptr %call1, null
-  br i1 %tobool.not, label %if.end, label %exit
+define internal ptr @cmath_exp(ptr readnone captures(none) %0, ptr noundef %1) #0 {
+  %3 = tail call { double, double } @PyComplex_AsCComplex(ptr noundef %1) #11
+  %4 = tail call ptr @PyErr_Occurred() #11
+  %.not = icmp eq ptr %4, null
+  br i1 %.not, label %5, label %83
 
-if.end:                                           ; preds = %entry
-  %0 = extractvalue { double, double } %call, 1
-  %1 = extractvalue { double, double } %call, 0
-  %call2 = tail call ptr @__errno_location() #11
-  %2 = tail call double @llvm.fabs.f64(double %1)
-  %3 = fcmp one double %2, 0x7FF0000000000000
-  %4 = tail call double @llvm.fabs.f64(double %0)
-  %5 = fcmp one double %4, 0x7FF0000000000000
-  %or.cond27.not.i = select i1 %3, i1 %5, i1 false
-  br i1 %or.cond27.not.i, label %if.end45.i, label %if.then.i
+5:                                                ; preds = %2
+  %6 = extractvalue { double, double } %3, 1
+  %7 = extractvalue { double, double } %3, 0
+  %8 = tail call ptr @__errno_location() #12
+  %9 = tail call double @llvm.fabs.f64(double %7)
+  %10 = fcmp one double %9, 0x7FF0000000000000
+  %11 = tail call double @llvm.fabs.f64(double %6)
+  %12 = fcmp one double %11, 0x7FF0000000000000
+  %or.cond33.not.i = select i1 %10, i1 %12, i1 false
+  br i1 %or.cond33.not.i, label %55, label %13
 
-if.then.i:                                        ; preds = %if.end
-  %isinf.i = fcmp oeq double %2, 0x7FF0000000000000
-  br i1 %isinf.i, label %land.lhs.true.i, label %if.else20.i
+13:                                               ; preds = %5
+  %14 = fcmp oeq double %9, 0x7FF0000000000000
+  br i1 %14, label %15, label %26
 
-land.lhs.true.i:                                  ; preds = %if.then.i
-  %or.cond.i = tail call i1 @llvm.is.fpclass.f64(double %0, i32 408)
-  br i1 %or.cond.i, label %if.then5.i, label %if.else20.i
+15:                                               ; preds = %13
+  %or.cond.i = tail call i1 @llvm.is.fpclass.f64(double %6, i32 408)
+  br i1 %or.cond.i, label %16, label %26
 
-if.then5.i:                                       ; preds = %land.lhs.true.i
-  %cmp7.i = fcmp ogt double %1, 0.000000e+00
-  %call.i = tail call double @cos(double noundef %0) #10
-  %call12.i = tail call double @sin(double noundef %0) #10
-  br i1 %cmp7.i, label %if.then8.i, label %if.else.i
+16:                                               ; preds = %15
+  %17 = fcmp ogt double %7, 0.000000e+00
+  %18 = tail call double @cos(double noundef %6) #11, !tbaa !3
+  %19 = tail call double @sin(double noundef %6) #11, !tbaa !3
+  br i1 %17, label %20, label %23
 
-if.then8.i:                                       ; preds = %if.then5.i
-  %6 = tail call double @llvm.copysign.f64(double 0x7FF0000000000000, double %call.i)
-  %7 = tail call double @llvm.copysign.f64(double 0x7FF0000000000000, double %call12.i)
-  br label %if.end27.i
+20:                                               ; preds = %16
+  %21 = tail call double @llvm.copysign.f64(double 0x7FF0000000000000, double %18)
+  %22 = tail call double @llvm.copysign.f64(double 0x7FF0000000000000, double %19)
+  br label %51
 
-if.else.i:                                        ; preds = %if.then5.i
-  %8 = tail call double @llvm.copysign.f64(double 0.000000e+00, double %call.i)
-  %9 = tail call double @llvm.copysign.f64(double 0.000000e+00, double %call12.i)
-  br label %if.end27.i
+23:                                               ; preds = %16
+  %24 = tail call double @llvm.copysign.f64(double 0.000000e+00, double %18)
+  %25 = tail call double @llvm.copysign.f64(double 0.000000e+00, double %19)
+  br label %51
 
-if.else20.i:                                      ; preds = %land.lhs.true.i, %if.then.i
-  %10 = fcmp ueq double %2, 0x7FF0000000000000
-  br i1 %10, label %if.end.i.i, label %if.then.i.i
+26:                                               ; preds = %15, %13
+  %27 = fcmp ueq double %9, 0x7FF0000000000000
+  br i1 %27, label %34, label %28
 
-if.then.i.i:                                      ; preds = %if.else20.i
-  %cmp.i.i = fcmp une double %1, 0.000000e+00
-  %11 = tail call double @llvm.copysign.f64(double 1.000000e+00, double %1)
-  %cmp2.i.i = fcmp oeq double %11, 1.000000e+00
-  br i1 %cmp.i.i, label %if.then1.i.i, label %if.else4.i.i
+28:                                               ; preds = %26
+  %29 = fcmp une double %7, 0.000000e+00
+  %30 = tail call double @llvm.copysign.f64(double 1.000000e+00, double %7)
+  %31 = fcmp oeq double %30, 1.000000e+00
+  br i1 %29, label %32, label %33
 
-if.then1.i.i:                                     ; preds = %if.then.i.i
-  %..i.i = select i1 %cmp2.i.i, i64 4, i64 1
+32:                                               ; preds = %28
+  %..i.i = select i1 %31, i64 4, i64 1
   br label %special_type.exit.i
 
-if.else4.i.i:                                     ; preds = %if.then.i.i
-  %.6.i.i = select i1 %cmp2.i.i, i64 3, i64 2
+33:                                               ; preds = %28
+  %.7.i.i = select i1 %31, i64 3, i64 2
   br label %special_type.exit.i
 
-if.end.i.i:                                       ; preds = %if.else20.i
-  %12 = fcmp uno double %1, 0.000000e+00
-  br i1 %12, label %special_type.exit.i, label %if.end9.i.i
+34:                                               ; preds = %26
+  %35 = fcmp uno double %7, 0.000000e+00
+  br i1 %35, label %special_type.exit.i, label %36
 
-if.end9.i.i:                                      ; preds = %if.end.i.i
-  %13 = tail call double @llvm.copysign.f64(double 1.000000e+00, double %1)
-  %cmp10.i.i = fcmp oeq double %13, 1.000000e+00
-  %.7.i.i = select i1 %cmp10.i.i, i64 5, i64 0
+36:                                               ; preds = %34
+  %37 = tail call double @llvm.copysign.f64(double 1.000000e+00, double %7)
+  %38 = fcmp oeq double %37, 1.000000e+00
+  %.8.i.i = select i1 %38, i64 5, i64 0
   br label %special_type.exit.i
 
-special_type.exit.i:                              ; preds = %if.end9.i.i, %if.end.i.i, %if.else4.i.i, %if.then1.i.i
-  %retval.0.i.i = phi i64 [ %..i.i, %if.then1.i.i ], [ %.6.i.i, %if.else4.i.i ], [ 6, %if.end.i.i ], [ %.7.i.i, %if.end9.i.i ]
-  br i1 %5, label %if.then.i30.i, label %if.end.i38.i
+special_type.exit.i:                              ; preds = %36, %34, %33, %32
+  %.0.i.i = phi i64 [ %..i.i, %32 ], [ %.7.i.i, %33 ], [ 6, %34 ], [ %.8.i.i, %36 ]
+  br i1 %12, label %39, label %45
 
-if.then.i30.i:                                    ; preds = %special_type.exit.i
-  %cmp.i31.i = fcmp une double %0, 0.000000e+00
-  %14 = tail call double @llvm.copysign.f64(double 1.000000e+00, double %0)
-  %cmp2.i32.i = fcmp oeq double %14, 1.000000e+00
-  br i1 %cmp.i31.i, label %if.then1.i36.i, label %if.else4.i33.i
+39:                                               ; preds = %special_type.exit.i
+  %40 = fcmp une double %6, 0.000000e+00
+  %41 = tail call double @llvm.copysign.f64(double 1.000000e+00, double %6)
+  %42 = fcmp oeq double %41, 1.000000e+00
+  br i1 %40, label %43, label %44
 
-if.then1.i36.i:                                   ; preds = %if.then.i30.i
-  %..i37.i = select i1 %cmp2.i32.i, i64 4, i64 1
-  br label %special_type.exit42.i
+43:                                               ; preds = %39
+  %..i39.i = select i1 %42, i64 4, i64 1
+  br label %special_type.exit41.i
 
-if.else4.i33.i:                                   ; preds = %if.then.i30.i
-  %.6.i34.i = select i1 %cmp2.i32.i, i64 3, i64 2
-  br label %special_type.exit42.i
+44:                                               ; preds = %39
+  %.7.i37.i = select i1 %42, i64 3, i64 2
+  br label %special_type.exit41.i
 
-if.end.i38.i:                                     ; preds = %special_type.exit.i
-  %15 = fcmp uno double %0, 0.000000e+00
-  br i1 %15, label %special_type.exit42.i, label %if.end9.i39.i
+45:                                               ; preds = %special_type.exit.i
+  %46 = fcmp uno double %6, 0.000000e+00
+  br i1 %46, label %special_type.exit41.i, label %47
 
-if.end9.i39.i:                                    ; preds = %if.end.i38.i
-  %16 = tail call double @llvm.copysign.f64(double 1.000000e+00, double %0)
-  %cmp10.i40.i = fcmp oeq double %16, 1.000000e+00
-  %.7.i41.i = select i1 %cmp10.i40.i, i64 5, i64 0
-  br label %special_type.exit42.i
+47:                                               ; preds = %45
+  %48 = tail call double @llvm.copysign.f64(double 1.000000e+00, double %6)
+  %49 = fcmp oeq double %48, 1.000000e+00
+  %.8.i40.i = select i1 %49, i64 5, i64 0
+  br label %special_type.exit41.i
 
-special_type.exit42.i:                            ; preds = %if.end9.i39.i, %if.end.i38.i, %if.else4.i33.i, %if.then1.i36.i
-  %retval.0.i35.i = phi i64 [ %..i37.i, %if.then1.i36.i ], [ %.6.i34.i, %if.else4.i33.i ], [ 6, %if.end.i38.i ], [ %.7.i41.i, %if.end9.i39.i ]
-  %arrayidx26.i = getelementptr [7 x [7 x %struct.Py_complex]], ptr @exp_special_values, i64 0, i64 %retval.0.i.i, i64 %retval.0.i35.i
-  %retval.sroa.0.0.copyload.i = load double, ptr %arrayidx26.i, align 16
-  %retval.sroa.7.0.arrayidx26.sroa_idx.i = getelementptr inbounds nuw i8, ptr %arrayidx26.i, i64 8
-  %retval.sroa.7.0.copyload.i = load double, ptr %retval.sroa.7.0.arrayidx26.sroa_idx.i, align 8
-  br label %if.end27.i
+special_type.exit41.i:                            ; preds = %47, %45, %44, %43
+  %.0.i38.i = phi i64 [ %..i39.i, %43 ], [ %.7.i37.i, %44 ], [ 6, %45 ], [ %.8.i40.i, %47 ]
+  %50 = getelementptr [7 x [7 x %struct.Py_complex]], ptr @exp_special_values, i64 0, i64 %.0.i.i, i64 %.0.i38.i
+  %.sroa.030.0.copyload.i = load double, ptr %50, align 16, !tbaa !7
+  %.sroa.7.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %50, i64 8
+  %.sroa.7.0.copyload.i = load double, ptr %.sroa.7.0..sroa_idx.i, align 8, !tbaa !7
+  br label %51
 
-if.end27.i:                                       ; preds = %special_type.exit42.i, %if.else.i, %if.then8.i
-  %retval.sroa.0.0.i = phi double [ %6, %if.then8.i ], [ %8, %if.else.i ], [ %retval.sroa.0.0.copyload.i, %special_type.exit42.i ]
-  %retval.sroa.7.0.i = phi double [ %7, %if.then8.i ], [ %9, %if.else.i ], [ %retval.sroa.7.0.copyload.i, %special_type.exit42.i ]
-  %isinf29.i = fcmp oeq double %4, 0x7FF0000000000000
-  br i1 %isinf29.i, label %land.lhs.true31.i, label %if.else10
+51:                                               ; preds = %special_type.exit41.i, %23, %20
+  %.sroa.030.0.i = phi double [ %21, %20 ], [ %24, %23 ], [ %.sroa.030.0.copyload.i, %special_type.exit41.i ]
+  %.sroa.7.0.i = phi double [ %22, %20 ], [ %25, %23 ], [ %.sroa.7.0.copyload.i, %special_type.exit41.i ]
+  %52 = fcmp oeq double %11, 0x7FF0000000000000
+  br i1 %52, label %53, label %81
 
-land.lhs.true31.i:                                ; preds = %if.end27.i
-  %cmp39.i = fcmp ogt double %1, 0.000000e+00
-  %or.cond1.i = select i1 %isinf.i, i1 %cmp39.i, i1 false
-  %or.cond28.i = select i1 %3, i1 true, i1 %or.cond1.i
-  br i1 %or.cond28.i, label %if.then6, label %if.else10
+53:                                               ; preds = %51
+  %54 = fcmp ogt double %7, 0.000000e+00
+  %or.cond5.i = select i1 %14, i1 %54, i1 false
+  %or.cond34.i = select i1 %10, i1 true, i1 %or.cond5.i
+  br i1 %or.cond34.i, label %77, label %81
 
-if.end45.i:                                       ; preds = %if.end
-  %cmp48.i = fcmp ogt double %1, 0x4086232BDD7ABCD2
-  br i1 %cmp48.i, label %if.then49.i, label %if.else61.i
+55:                                               ; preds = %5
+  %56 = fcmp ogt double %7, 0x4086232BDD7ABCD2
+  br i1 %56, label %57, label %66
 
-if.then49.i:                                      ; preds = %if.end45.i
-  %sub.i = fadd double %1, -1.000000e+00
-  %call51.i = tail call double @exp(double noundef %sub.i) #10
-  %call53.i = tail call double @cos(double noundef %0) #10
-  %mul.i = fmul double %call51.i, %call53.i
-  %mul54.i = fmul double %mul.i, 0x4005BF0A8B145769
-  %call57.i = tail call double @sin(double noundef %0) #10
-  %mul58.i = fmul double %call51.i, %call57.i
-  %mul59.i = fmul double %mul58.i, 0x4005BF0A8B145769
-  br label %if.end72.i
+57:                                               ; preds = %55
+  %58 = fadd double %7, -1.000000e+00
+  %59 = tail call double @exp(double noundef %58) #11, !tbaa !3
+  %60 = tail call double @cos(double noundef %6) #11, !tbaa !3
+  %61 = fmul double %59, %60
+  %62 = fmul double %61, 0x4005BF0A8B145769
+  %63 = tail call double @sin(double noundef %6) #11, !tbaa !3
+  %64 = fmul double %59, %63
+  %65 = fmul double %64, 0x4005BF0A8B145769
+  br label %72
 
-if.else61.i:                                      ; preds = %if.end45.i
-  %call63.i = tail call double @exp(double noundef %1) #10
-  %call65.i = tail call double @cos(double noundef %0) #10
-  %mul66.i = fmul double %call63.i, %call65.i
-  %call69.i = tail call double @sin(double noundef %0) #10
-  %mul70.i = fmul double %call63.i, %call69.i
-  br label %if.end72.i
+66:                                               ; preds = %55
+  %67 = tail call double @exp(double noundef %7) #11, !tbaa !3
+  %68 = tail call double @cos(double noundef %6) #11, !tbaa !3
+  %69 = fmul double %67, %68
+  %70 = tail call double @sin(double noundef %6) #11, !tbaa !3
+  %71 = fmul double %67, %70
+  br label %72
 
-if.end72.i:                                       ; preds = %if.else61.i, %if.then49.i
-  %retval.sroa.0.2.i = phi double [ %mul54.i, %if.then49.i ], [ %mul66.i, %if.else61.i ]
-  %retval.sroa.7.2.i = phi double [ %mul59.i, %if.then49.i ], [ %mul70.i, %if.else61.i ]
-  %17 = tail call double @llvm.fabs.f64(double %retval.sroa.0.2.i) #12
-  %isinf74.i = fcmp oeq double %17, 0x7FF0000000000000
-  %18 = tail call double @llvm.fabs.f64(double %retval.sroa.7.2.i) #12
-  %isinf78.i = fcmp oeq double %18, 0x7FF0000000000000
-  %or.cond29.i = select i1 %isinf74.i, i1 true, i1 %isinf78.i
-  br i1 %or.cond29.i, label %if.then9, label %if.else10
+72:                                               ; preds = %66, %57
+  %.sroa.030.2.i = phi double [ %62, %57 ], [ %69, %66 ]
+  %.sroa.7.2.i = phi double [ %65, %57 ], [ %71, %66 ]
+  %73 = tail call double @llvm.fabs.f64(double %.sroa.030.2.i) #13
+  %74 = fcmp oeq double %73, 0x7FF0000000000000
+  %75 = tail call double @llvm.fabs.f64(double %.sroa.7.2.i) #13
+  %76 = fcmp oeq double %75, 0x7FF0000000000000
+  %or.cond36.i = select i1 %74, i1 true, i1 %76
+  br i1 %or.cond36.i, label %79, label %81
 
-if.then6:                                         ; preds = %land.lhs.true31.i
-  store i32 33, ptr %call2, align 4
-  %19 = load ptr, ptr @PyExc_ValueError, align 8
-  tail call void @PyErr_SetString(ptr noundef %19, ptr noundef nonnull @.str.24) #10
-  br label %exit
+77:                                               ; preds = %53
+  store i32 33, ptr %8, align 4, !tbaa !3
+  %78 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !9
+  tail call void @PyErr_SetString(ptr noundef %78, ptr noundef nonnull @.str.25) #11
+  br label %83
 
-if.then9:                                         ; preds = %if.end72.i
-  store i32 34, ptr %call2, align 4
-  %20 = load ptr, ptr @PyExc_OverflowError, align 8
-  tail call void @PyErr_SetString(ptr noundef %20, ptr noundef nonnull @.str.25) #10
-  br label %exit
+79:                                               ; preds = %72
+  store i32 34, ptr %8, align 4, !tbaa !3
+  %80 = load ptr, ptr @PyExc_OverflowError, align 8, !tbaa !9
+  tail call void @PyErr_SetString(ptr noundef %80, ptr noundef nonnull @.str.26) #11
+  br label %83
 
-if.else10:                                        ; preds = %if.end72.i, %if.end27.i, %land.lhs.true31.i
-  %retval.sroa.0.1.i.ph = phi double [ %retval.sroa.0.0.i, %land.lhs.true31.i ], [ %retval.sroa.0.0.i, %if.end27.i ], [ %retval.sroa.0.2.i, %if.end72.i ]
-  %retval.sroa.7.1.i.ph = phi double [ %retval.sroa.7.0.i, %land.lhs.true31.i ], [ %retval.sroa.7.0.i, %if.end27.i ], [ %retval.sroa.7.2.i, %if.end72.i ]
-  store i32 0, ptr %call2, align 4
-  %call11 = tail call ptr @PyComplex_FromCComplex(double %retval.sroa.0.1.i.ph, double %retval.sroa.7.1.i.ph) #10
-  br label %exit
+81:                                               ; preds = %72, %51, %53
+  %.sroa.030.1.i.ph = phi double [ %.sroa.030.0.i, %53 ], [ %.sroa.030.0.i, %51 ], [ %.sroa.030.2.i, %72 ]
+  %.sroa.7.1.i.ph = phi double [ %.sroa.7.0.i, %53 ], [ %.sroa.7.0.i, %51 ], [ %.sroa.7.2.i, %72 ]
+  store i32 0, ptr %8, align 4, !tbaa !3
+  %82 = tail call ptr @PyComplex_FromCComplex(double %.sroa.030.1.i.ph, double %.sroa.7.1.i.ph) #11
+  br label %83
 
-exit:                                             ; preds = %entry, %if.else10, %if.then9, %if.then6
-  %return_value.0 = phi ptr [ null, %entry ], [ null, %if.then6 ], [ null, %if.then9 ], [ %call11, %if.else10 ]
-  ret ptr %return_value.0
+83:                                               ; preds = %2, %81, %79, %77
+  %.0 = phi ptr [ null, %2 ], [ null, %77 ], [ null, %79 ], [ %82, %81 ]
+  ret ptr %.0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @cmath_isclose(ptr readnone captures(none) %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
-entry:
-  %argsbuf = alloca [4 x ptr], align 16
-  %tobool.not = icmp eq ptr %kwnames, null
-  br i1 %tobool.not, label %cond.end, label %cond.end.thread
+define internal ptr @cmath_isclose(ptr readnone captures(none) %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) #0 {
+  %5 = alloca [4 x ptr], align 16
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #11
+  %.not = icmp eq ptr %3, null
+  br i1 %.not, label %8, label %.thread
 
-cond.end.thread:                                  ; preds = %entry
-  %0 = getelementptr i8, ptr %kwnames, i64 16
-  %kwnames.val = load i64, ptr %0, align 8
-  %add32 = add i64 %kwnames.val, %nargs
-  br label %cond.end9
+.thread:                                          ; preds = %4
+  %6 = getelementptr i8, ptr %3, i64 16
+  %.val66 = load i64, ptr %6, align 8, !tbaa !12
+  %7 = add i64 %.val66, %2
+  br label %11
 
-cond.end:                                         ; preds = %entry
-  %1 = icmp eq i64 %nargs, 2
-  %cmp5 = icmp ne ptr %args, null
-  %or.cond2 = and i1 %cmp5, %1
-  br i1 %or.cond2, label %if.end, label %cond.end9
+8:                                                ; preds = %4
+  %9 = icmp eq i64 %2, 2
+  %10 = icmp ne ptr %1, null
+  %or.cond5 = and i1 %10, %9
+  br i1 %or.cond5, label %.thread69, label %11
 
-cond.end9:                                        ; preds = %cond.end, %cond.end.thread
-  %add36 = phi i64 [ %add32, %cond.end.thread ], [ %nargs, %cond.end ]
-  %call8 = call ptr @_PyArg_UnpackKeywords(ptr noundef %args, i64 noundef %nargs, ptr noundef null, ptr noundef %kwnames, ptr noundef nonnull @cmath_isclose._parser, i32 noundef 2, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %argsbuf) #10
-  %tobool11.not = icmp eq ptr %call8, null
-  br i1 %tobool11.not, label %exit, label %if.end
+11:                                               ; preds = %8, %.thread
+  %12 = phi i64 [ %7, %.thread ], [ %2, %8 ]
+  %13 = call ptr @_PyArg_UnpackKeywords(ptr noundef %1, i64 noundef %2, ptr noundef null, ptr noundef %3, ptr noundef nonnull @cmath_isclose._parser, i32 noundef 2, i32 noundef 2, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %5) #11
+  %.not52 = icmp eq ptr %13, null
+  br i1 %.not52, label %86, label %.thread69
 
-if.end:                                           ; preds = %cond.end, %cond.end9
-  %cond1042 = phi ptr [ %call8, %cond.end9 ], [ %args, %cond.end ]
-  %add3741 = phi i64 [ %add36, %cond.end9 ], [ 2, %cond.end ]
-  %2 = load ptr, ptr %cond1042, align 8
-  %call12 = call { double, double } @PyComplex_AsCComplex(ptr noundef %2) #10
-  %3 = extractvalue { double, double } %call12, 0
-  %4 = extractvalue { double, double } %call12, 1
-  %call13 = call ptr @PyErr_Occurred() #10
-  %tobool14.not = icmp eq ptr %call13, null
-  br i1 %tobool14.not, label %if.end16, label %exit
+.thread69:                                        ; preds = %8, %11
+  %14 = phi ptr [ %13, %11 ], [ %1, %8 ]
+  %15 = phi i64 [ %12, %11 ], [ 2, %8 ]
+  %16 = load ptr, ptr %14, align 8, !tbaa !9
+  %17 = call { double, double } @PyComplex_AsCComplex(ptr noundef %16) #11
+  %18 = extractvalue { double, double } %17, 0
+  %19 = extractvalue { double, double } %17, 1
+  %20 = call ptr @PyErr_Occurred() #11
+  %.not53 = icmp eq ptr %20, null
+  br i1 %.not53, label %21, label %86
 
-if.end16:                                         ; preds = %if.end
-  %arrayidx18 = getelementptr i8, ptr %cond1042, i64 8
-  %5 = load ptr, ptr %arrayidx18, align 8
-  %call19 = call { double, double } @PyComplex_AsCComplex(ptr noundef %5) #10
-  %6 = extractvalue { double, double } %call19, 0
-  %7 = extractvalue { double, double } %call19, 1
-  %call20 = call ptr @PyErr_Occurred() #10
-  %tobool21.not = icmp eq ptr %call20, null
-  br i1 %tobool21.not, label %if.end23, label %exit
+21:                                               ; preds = %.thread69
+  %22 = getelementptr i8, ptr %14, i64 8
+  %23 = load ptr, ptr %22, align 8, !tbaa !9
+  %24 = call { double, double } @PyComplex_AsCComplex(ptr noundef %23) #11
+  %25 = extractvalue { double, double } %24, 0
+  %26 = extractvalue { double, double } %24, 1
+  %27 = call ptr @PyErr_Occurred() #11
+  %.not54 = icmp eq ptr %27, null
+  br i1 %.not54, label %28, label %86
 
-if.end23:                                         ; preds = %if.end16
-  %tobool24.not = icmp eq i64 %add3741, 2
-  br i1 %tobool24.not, label %skip_optional_kwonly, label %if.end26
+28:                                               ; preds = %21
+  %.not55 = icmp eq i64 %15, 2
+  br i1 %.not55, label %53, label %29
 
-if.end26:                                         ; preds = %if.end23
-  %arrayidx27 = getelementptr i8, ptr %cond1042, i64 16
-  %8 = load ptr, ptr %arrayidx27, align 8
-  %tobool28.not = icmp eq ptr %8, null
-  br i1 %tobool28.not, label %if.end48, label %if.then29
+29:                                               ; preds = %28
+  %30 = getelementptr i8, ptr %14, i64 16
+  %31 = load ptr, ptr %30, align 8, !tbaa !9
+  %.not56 = icmp eq ptr %31, null
+  br i1 %.not56, label %42, label %32
 
-if.then29:                                        ; preds = %if.end26
-  %9 = getelementptr i8, ptr %8, i64 8
-  %.val = load ptr, ptr %9, align 8
-  %cmp.i.not = icmp eq ptr %.val, @PyFloat_Type
-  br i1 %cmp.i.not, label %if.then33, label %if.else
+32:                                               ; preds = %29
+  %33 = getelementptr i8, ptr %31, i64 8
+  %.val = load ptr, ptr %33, align 8, !tbaa !17
+  %.not73 = icmp eq ptr %.val, @PyFloat_Type
+  br i1 %.not73, label %34, label %36
 
-if.then33:                                        ; preds = %if.then29
-  %10 = getelementptr i8, ptr %8, i64 16
-  %.val26 = load double, ptr %10, align 8
-  br label %if.end44
+34:                                               ; preds = %32
+  %35 = getelementptr i8, ptr %31, i64 16
+  %.val64 = load double, ptr %35, align 8, !tbaa !18
+  br label %41
 
-if.else:                                          ; preds = %if.then29
-  %call37 = call double @PyFloat_AsDouble(ptr noundef nonnull %8) #10
-  %cmp38 = fcmp oeq double %call37, -1.000000e+00
-  br i1 %cmp38, label %land.lhs.true39, label %if.end44
+36:                                               ; preds = %32
+  %37 = call double @PyFloat_AsDouble(ptr noundef nonnull %31) #11
+  %38 = fcmp oeq double %37, -1.000000e+00
+  br i1 %38, label %39, label %41
 
-land.lhs.true39:                                  ; preds = %if.else
-  %call40 = call ptr @PyErr_Occurred() #10
-  %tobool41.not = icmp eq ptr %call40, null
-  br i1 %tobool41.not, label %if.end44, label %exit
+39:                                               ; preds = %36
+  %40 = call ptr @PyErr_Occurred() #11
+  %.not58 = icmp eq ptr %40, null
+  br i1 %.not58, label %41, label %86
 
-if.end44:                                         ; preds = %if.else, %land.lhs.true39, %if.then33
-  %rel_tol.2 = phi double [ %.val26, %if.then33 ], [ -1.000000e+00, %land.lhs.true39 ], [ %call37, %if.else ]
-  %tobool45.not = icmp eq i64 %add3741, 3
-  br i1 %tobool45.not, label %skip_optional_kwonly, label %if.end48
+41:                                               ; preds = %36, %39, %34
+  %.2 = phi double [ %.val64, %34 ], [ -1.000000e+00, %39 ], [ %37, %36 ]
+  %.not59 = icmp eq i64 %15, 3
+  br i1 %.not59, label %53, label %42
 
-if.end48:                                         ; preds = %if.end44, %if.end26
-  %rel_tol.1 = phi double [ %rel_tol.2, %if.end44 ], [ 1.000000e-09, %if.end26 ]
-  %arrayidx49 = getelementptr i8, ptr %cond1042, i64 24
-  %11 = load ptr, ptr %arrayidx49, align 8
-  %12 = getelementptr i8, ptr %11, i64 8
-  %.val25 = load ptr, ptr %12, align 8
-  %cmp.i28.not = icmp eq ptr %.val25, @PyFloat_Type
-  br i1 %cmp.i28.not, label %if.then52, label %if.else55
+42:                                               ; preds = %41, %29
+  %.1 = phi double [ %.2, %41 ], [ 1.000000e-09, %29 ]
+  %43 = getelementptr i8, ptr %14, i64 24
+  %44 = load ptr, ptr %43, align 8, !tbaa !9
+  %45 = getelementptr i8, ptr %44, i64 8
+  %.val63 = load ptr, ptr %45, align 8, !tbaa !17
+  %.not74 = icmp eq ptr %.val63, @PyFloat_Type
+  br i1 %.not74, label %46, label %48
 
-if.then52:                                        ; preds = %if.end48
-  %13 = getelementptr i8, ptr %11, i64 16
-  %.val27 = load double, ptr %13, align 8
-  br label %skip_optional_kwonly
+46:                                               ; preds = %42
+  %47 = getelementptr i8, ptr %44, i64 16
+  %.val65 = load double, ptr %47, align 8, !tbaa !18
+  br label %53
 
-if.else55:                                        ; preds = %if.end48
-  %call57 = call double @PyFloat_AsDouble(ptr noundef nonnull %11) #10
-  %cmp58 = fcmp oeq double %call57, -1.000000e+00
-  br i1 %cmp58, label %land.lhs.true59, label %skip_optional_kwonly
+48:                                               ; preds = %42
+  %49 = call double @PyFloat_AsDouble(ptr noundef nonnull %44) #11
+  %50 = fcmp oeq double %49, -1.000000e+00
+  br i1 %50, label %51, label %53
 
-land.lhs.true59:                                  ; preds = %if.else55
-  %call60 = call ptr @PyErr_Occurred() #10
-  %tobool61.not = icmp eq ptr %call60, null
-  br i1 %tobool61.not, label %land.lhs.true67, label %exit
+51:                                               ; preds = %48
+  %52 = call ptr @PyErr_Occurred() #11
+  %.not61 = icmp eq ptr %52, null
+  br i1 %.not61, label %.thread75, label %86
 
-skip_optional_kwonly:                             ; preds = %if.then52, %if.else55, %if.end44, %if.end23
-  %abs_tol.0 = phi double [ %.val27, %if.then52 ], [ %call57, %if.else55 ], [ 0.000000e+00, %if.end44 ], [ 0.000000e+00, %if.end23 ]
-  %rel_tol.0 = phi double [ %rel_tol.1, %if.then52 ], [ %rel_tol.1, %if.else55 ], [ %rel_tol.2, %if.end44 ], [ 1.000000e-09, %if.end23 ]
-  %cmp.i30 = fcmp olt double %rel_tol.0, 0.000000e+00
-  %cmp1.i = fcmp olt double %abs_tol.0, 0.000000e+00
-  %or.cond.i = or i1 %cmp1.i, %cmp.i30
-  br i1 %or.cond.i, label %land.lhs.true67, label %if.end.i
+53:                                               ; preds = %46, %48, %41, %28
+  %.042 = phi double [ %.val65, %46 ], [ %49, %48 ], [ 0.000000e+00, %41 ], [ 0.000000e+00, %28 ]
+  %.041 = phi double [ %.1, %46 ], [ %.1, %48 ], [ %.2, %41 ], [ 1.000000e-09, %28 ]
+  %54 = fcmp olt double %.041, 0.000000e+00
+  %55 = fcmp olt double %.042, 0.000000e+00
+  %or.cond.i = or i1 %55, %54
+  br i1 %or.cond.i, label %.thread75, label %56
 
-if.end.i:                                         ; preds = %skip_optional_kwonly
-  %cmp3.i = fcmp oeq double %3, %6
-  %cmp5.i = fcmp oeq double %4, %7
-  %or.cond18.i = select i1 %cmp3.i, i1 %cmp5.i, i1 false
-  br i1 %or.cond18.i, label %if.end71, label %if.end7.i
+56:                                               ; preds = %53
+  %57 = fcmp oeq double %18, %25
+  %58 = fcmp oeq double %19, %26
+  %or.cond27.i = select i1 %57, i1 %58, i1 false
+  br i1 %or.cond27.i, label %cmath_isclose_impl.exit.thread, label %59
 
-if.end7.i:                                        ; preds = %if.end.i
-  %14 = call double @llvm.fabs.f64(double %3) #12
-  %isinf.i = fcmp oeq double %14, 0x7FF0000000000000
-  %15 = call double @llvm.fabs.f64(double %4) #12
-  %isinf11.i = fcmp oeq double %15, 0x7FF0000000000000
-  %or.cond19.i = select i1 %isinf.i, i1 true, i1 %isinf11.i
-  %16 = call double @llvm.fabs.f64(double %6) #12
-  %isinf15.i = fcmp oeq double %16, 0x7FF0000000000000
-  %or.cond20.i = select i1 %or.cond19.i, i1 true, i1 %isinf15.i
-  %17 = call double @llvm.fabs.f64(double %7) #12
-  %isinf19.i = fcmp oeq double %17, 0x7FF0000000000000
-  %or.cond21.i = select i1 %or.cond20.i, i1 true, i1 %isinf19.i
-  br i1 %or.cond21.i, label %if.end71, label %if.end22.i
+59:                                               ; preds = %56
+  %60 = call double @llvm.fabs.f64(double %18) #13
+  %61 = fcmp oeq double %60, 0x7FF0000000000000
+  %62 = call double @llvm.fabs.f64(double %19) #13
+  %63 = fcmp oeq double %62, 0x7FF0000000000000
+  %or.cond29.i = select i1 %61, i1 true, i1 %63
+  %64 = call double @llvm.fabs.f64(double %25) #13
+  %65 = fcmp oeq double %64, 0x7FF0000000000000
+  %or.cond31.i = select i1 %or.cond29.i, i1 true, i1 %65
+  %66 = call double @llvm.fabs.f64(double %26) #13
+  %67 = fcmp oeq double %66, 0x7FF0000000000000
+  %or.cond33.i = select i1 %or.cond31.i, i1 true, i1 %67
+  br i1 %or.cond33.i, label %cmath_isclose_impl.exit.thread, label %68
 
-if.end22.i:                                       ; preds = %if.end7.i
-  %call.i = call { double, double } @_Py_c_diff(double %3, double %4, double %6, double %7) #10
-  %18 = extractvalue { double, double } %call.i, 0
-  %19 = extractvalue { double, double } %call.i, 1
-  %call23.i = call double @_Py_c_abs(double %18, double %19) #10
-  %call24.i = call double @_Py_c_abs(double %6, double %7) #10
-  %mul.i = fmul double %rel_tol.0, %call24.i
-  %cmp25.i = fcmp ugt double %call23.i, %mul.i
-  br i1 %cmp25.i, label %lor.lhs.false26.i, label %if.end71
+68:                                               ; preds = %59
+  %69 = call { double, double } @_Py_c_diff(double %18, double %19, double %25, double %26) #11
+  %70 = extractvalue { double, double } %69, 0
+  %71 = extractvalue { double, double } %69, 1
+  %72 = call double @_Py_c_abs(double %70, double %71) #11
+  %73 = call double @_Py_c_abs(double %25, double %26) #11
+  %74 = fmul double %.041, %73
+  %75 = fcmp ugt double %72, %74
+  br i1 %75, label %76, label %cmath_isclose_impl.exit.thread
 
-lor.lhs.false26.i:                                ; preds = %if.end22.i
-  %call27.i = call double @_Py_c_abs(double %3, double %4) #10
-  %mul28.i = fmul double %rel_tol.0, %call27.i
-  %cmp29.i = fcmp ugt double %call23.i, %mul28.i
-  br i1 %cmp29.i, label %lor.rhs.i, label %if.end71
+76:                                               ; preds = %68
+  %77 = call double @_Py_c_abs(double %18, double %19) #11
+  %78 = fmul double %.041, %77
+  %79 = fcmp ugt double %72, %78
+  br i1 %79, label %80, label %cmath_isclose_impl.exit.thread
 
-lor.rhs.i:                                        ; preds = %lor.lhs.false26.i
-  %cmp30.i = fcmp ole double %call23.i, %abs_tol.0
-  %20 = zext i1 %cmp30.i to i64
-  br label %if.end71
+80:                                               ; preds = %76
+  %81 = fcmp ole double %72, %.042
+  %82 = zext i1 %81 to i64
+  br label %cmath_isclose_impl.exit.thread
 
-land.lhs.true67:                                  ; preds = %land.lhs.true59, %skip_optional_kwonly
-  %21 = load ptr, ptr @PyExc_ValueError, align 8
-  call void @PyErr_SetString(ptr noundef %21, ptr noundef nonnull @.str.30) #10
-  %call68 = call ptr @PyErr_Occurred() #10
-  %tobool69.not = icmp eq ptr %call68, null
-  br i1 %tobool69.not, label %if.end71, label %exit
+.thread75:                                        ; preds = %51, %53
+  %83 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !9
+  call void @PyErr_SetString(ptr noundef %83, ptr noundef nonnull @.str.31) #11
+  %84 = call ptr @PyErr_Occurred() #11
+  %.not62 = icmp eq ptr %84, null
+  br i1 %.not62, label %cmath_isclose_impl.exit.thread, label %86
 
-if.end71:                                         ; preds = %lor.rhs.i, %if.end22.i, %lor.lhs.false26.i, %if.end7.i, %if.end.i, %land.lhs.true67
-  %retval.0.i45 = phi i64 [ -1, %land.lhs.true67 ], [ %20, %lor.rhs.i ], [ 1, %if.end22.i ], [ 1, %lor.lhs.false26.i ], [ 0, %if.end7.i ], [ 1, %if.end.i ]
-  %call72 = call ptr @PyBool_FromLong(i64 noundef %retval.0.i45) #10
-  br label %exit
+cmath_isclose_impl.exit.thread:                   ; preds = %80, %68, %76, %59, %56, %.thread75
+  %.0.i72 = phi i64 [ -1, %.thread75 ], [ %82, %80 ], [ 1, %68 ], [ 1, %76 ], [ 0, %59 ], [ 1, %56 ]
+  %85 = call ptr @PyBool_FromLong(i64 noundef %.0.i72) #11
+  br label %86
 
-exit:                                             ; preds = %land.lhs.true67, %land.lhs.true59, %land.lhs.true39, %if.end16, %if.end, %cond.end9, %if.end71
-  %return_value.0 = phi ptr [ null, %if.end ], [ null, %if.end16 ], [ null, %land.lhs.true67 ], [ %call72, %if.end71 ], [ null, %land.lhs.true59 ], [ null, %land.lhs.true39 ], [ null, %cond.end9 ]
-  ret ptr %return_value.0
+86:                                               ; preds = %.thread75, %51, %39, %21, %.thread69, %11, %cmath_isclose_impl.exit.thread
+  %.0 = phi ptr [ null, %.thread69 ], [ null, %21 ], [ null, %.thread75 ], [ %85, %cmath_isclose_impl.exit.thread ], [ null, %51 ], [ null, %39 ], [ null, %11 ]
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #11
+  ret ptr %.0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @cmath_isfinite(ptr readnone captures(none) %module, ptr noundef %arg) #0 {
-entry:
-  %call = tail call { double, double } @PyComplex_AsCComplex(ptr noundef %arg) #10
-  %call1 = tail call ptr @PyErr_Occurred() #10
-  %tobool.not = icmp eq ptr %call1, null
-  br i1 %tobool.not, label %if.end, label %exit
+define internal ptr @cmath_isfinite(ptr readnone captures(none) %0, ptr noundef %1) #0 {
+  %3 = tail call { double, double } @PyComplex_AsCComplex(ptr noundef %1) #11
+  %4 = tail call ptr @PyErr_Occurred() #11
+  %.not = icmp eq ptr %4, null
+  br i1 %.not, label %5, label %15
 
-if.end:                                           ; preds = %entry
-  %0 = extractvalue { double, double } %call, 1
-  %1 = extractvalue { double, double } %call, 0
-  %2 = tail call double @llvm.fabs.f64(double %1)
-  %3 = fcmp one double %2, 0x7FF0000000000000
-  %4 = tail call double @llvm.fabs.f64(double %0)
-  %5 = fcmp one double %4, 0x7FF0000000000000
-  %6 = select i1 %3, i1 %5, i1 false
-  %conv.i = zext i1 %6 to i64
-  %call.i = tail call ptr @PyBool_FromLong(i64 noundef %conv.i) #10
-  br label %exit
+5:                                                ; preds = %2
+  %6 = extractvalue { double, double } %3, 1
+  %7 = extractvalue { double, double } %3, 0
+  %8 = tail call double @llvm.fabs.f64(double %7)
+  %9 = fcmp one double %8, 0x7FF0000000000000
+  %10 = tail call double @llvm.fabs.f64(double %6)
+  %11 = fcmp one double %10, 0x7FF0000000000000
+  %12 = select i1 %9, i1 %11, i1 false
+  %13 = zext i1 %12 to i64
+  %14 = tail call ptr @PyBool_FromLong(i64 noundef %13) #11
+  br label %15
 
-exit:                                             ; preds = %entry, %if.end
-  %return_value.0 = phi ptr [ null, %entry ], [ %call.i, %if.end ]
-  ret ptr %return_value.0
+15:                                               ; preds = %2, %5
+  %.0 = phi ptr [ null, %2 ], [ %14, %5 ]
+  ret ptr %.0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @cmath_isinf(ptr readnone captures(none) %module, ptr noundef %arg) #0 {
-entry:
-  %call = tail call { double, double } @PyComplex_AsCComplex(ptr noundef %arg) #10
-  %call1 = tail call ptr @PyErr_Occurred() #10
-  %tobool.not = icmp eq ptr %call1, null
-  br i1 %tobool.not, label %if.end, label %exit
+define internal ptr @cmath_isinf(ptr readnone captures(none) %0, ptr noundef %1) #0 {
+  %3 = tail call { double, double } @PyComplex_AsCComplex(ptr noundef %1) #11
+  %4 = tail call ptr @PyErr_Occurred() #11
+  %.not = icmp eq ptr %4, null
+  br i1 %.not, label %5, label %14
 
-if.end:                                           ; preds = %entry
-  %0 = extractvalue { double, double } %call, 1
-  %1 = extractvalue { double, double } %call, 0
-  %2 = tail call double @llvm.fabs.f64(double %1) #12
-  %isinf.i = fcmp oeq double %2, 0x7FF0000000000000
-  %3 = tail call double @llvm.fabs.f64(double %0) #12
-  %isinf1.i = fcmp oeq double %3, 0x7FF0000000000000
-  %narrow.i = select i1 %isinf.i, i1 true, i1 %isinf1.i
-  %lor.ext.i = zext i1 %narrow.i to i64
-  %call.i = tail call ptr @PyBool_FromLong(i64 noundef %lor.ext.i) #10
-  br label %exit
+5:                                                ; preds = %2
+  %6 = extractvalue { double, double } %3, 1
+  %7 = extractvalue { double, double } %3, 0
+  %8 = tail call double @llvm.fabs.f64(double %7) #13
+  %9 = fcmp oeq double %8, 0x7FF0000000000000
+  %10 = tail call double @llvm.fabs.f64(double %6) #13
+  %11 = fcmp oeq double %10, 0x7FF0000000000000
+  %narrow.i = select i1 %9, i1 true, i1 %11
+  %12 = zext i1 %narrow.i to i64
+  %13 = tail call ptr @PyBool_FromLong(i64 noundef %12) #11
+  br label %14
 
-exit:                                             ; preds = %entry, %if.end
-  %return_value.0 = phi ptr [ null, %entry ], [ %call.i, %if.end ]
-  ret ptr %return_value.0
+14:                                               ; preds = %2, %5
+  %.0 = phi ptr [ null, %2 ], [ %13, %5 ]
+  ret ptr %.0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @cmath_isnan(ptr readnone captures(none) %module, ptr noundef %arg) #0 {
-entry:
-  %call = tail call { double, double } @PyComplex_AsCComplex(ptr noundef %arg) #10
-  %call1 = tail call ptr @PyErr_Occurred() #10
-  %tobool.not = icmp eq ptr %call1, null
-  br i1 %tobool.not, label %if.end, label %exit
+define internal ptr @cmath_isnan(ptr readnone captures(none) %0, ptr noundef %1) #0 {
+  %3 = tail call { double, double } @PyComplex_AsCComplex(ptr noundef %1) #11
+  %4 = tail call ptr @PyErr_Occurred() #11
+  %.not = icmp eq ptr %4, null
+  br i1 %.not, label %5, label %13
 
-if.end:                                           ; preds = %entry
-  %0 = extractvalue { double, double } %call, 1
-  %1 = extractvalue { double, double } %call, 0
-  %2 = fcmp uno double %1, 0.000000e+00
-  %3 = fcmp uno double %0, 0.000000e+00
-  %4 = select i1 %2, i1 true, i1 %3
-  %conv.i = zext i1 %4 to i64
-  %call.i = tail call ptr @PyBool_FromLong(i64 noundef %conv.i) #10
-  br label %exit
+5:                                                ; preds = %2
+  %6 = extractvalue { double, double } %3, 1
+  %7 = extractvalue { double, double } %3, 0
+  %8 = fcmp uno double %7, 0.000000e+00
+  %9 = fcmp uno double %6, 0.000000e+00
+  %10 = select i1 %8, i1 true, i1 %9
+  %11 = zext i1 %10 to i64
+  %12 = tail call ptr @PyBool_FromLong(i64 noundef %11) #11
+  br label %13
 
-exit:                                             ; preds = %entry, %if.end
-  %return_value.0 = phi ptr [ null, %entry ], [ %call.i, %if.end ]
-  ret ptr %return_value.0
+13:                                               ; preds = %2, %5
+  %.0 = phi ptr [ null, %2 ], [ %12, %5 ]
+  ret ptr %.0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @cmath_log(ptr readnone captures(none) %module, ptr noundef readonly captures(none) %args, i64 noundef %nargs) #0 {
-entry:
-  %0 = add i64 %nargs, -1
-  %or.cond = icmp ult i64 %0, 2
-  br i1 %or.cond, label %if.end, label %lor.lhs.false
+define internal ptr @cmath_log(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) #0 {
+  %4 = add i64 %2, -1
+  %or.cond = icmp ult i64 %4, 2
+  br i1 %or.cond, label %7, label %5
 
-lor.lhs.false:                                    ; preds = %entry
-  %call = tail call i32 @_PyArg_CheckPositional(ptr noundef nonnull @.str.14, i64 noundef %nargs, i64 noundef 1, i64 noundef 2) #10
-  %tobool.not = icmp eq i32 %call, 0
-  br i1 %tobool.not, label %exit, label %if.end
+5:                                                ; preds = %3
+  %6 = tail call i32 @_PyArg_CheckPositional(ptr noundef nonnull @.str.14, i64 noundef %2, i64 noundef 1, i64 noundef 2) #11
+  %.not = icmp eq i32 %6, 0
+  br i1 %.not, label %cmath_log_impl.exit, label %7
 
-if.end:                                           ; preds = %entry, %lor.lhs.false
-  %1 = load ptr, ptr %args, align 8
-  %call2 = tail call { double, double } @PyComplex_AsCComplex(ptr noundef %1) #10
-  %2 = extractvalue { double, double } %call2, 0
-  %3 = extractvalue { double, double } %call2, 1
-  %call3 = tail call ptr @PyErr_Occurred() #10
-  %tobool4.not = icmp eq ptr %call3, null
-  br i1 %tobool4.not, label %if.end6, label %exit
+7:                                                ; preds = %3, %5
+  %8 = load ptr, ptr %1, align 8, !tbaa !9
+  %9 = tail call { double, double } @PyComplex_AsCComplex(ptr noundef %8) #11
+  %10 = extractvalue { double, double } %9, 0
+  %11 = extractvalue { double, double } %9, 1
+  %12 = tail call ptr @PyErr_Occurred() #11
+  %.not12 = icmp eq ptr %12, null
+  br i1 %.not12, label %13, label %cmath_log_impl.exit
 
-if.end6:                                          ; preds = %if.end
-  %cmp7 = icmp slt i64 %nargs, 2
-  br i1 %cmp7, label %skip_optional, label %if.end9
+13:                                               ; preds = %7
+  %14 = icmp slt i64 %2, 2
+  br i1 %14, label %18, label %15
 
-if.end9:                                          ; preds = %if.end6
-  %arrayidx10 = getelementptr i8, ptr %args, i64 8
-  %4 = load ptr, ptr %arrayidx10, align 8
-  br label %skip_optional
+15:                                               ; preds = %13
+  %16 = getelementptr i8, ptr %1, i64 8
+  %17 = load ptr, ptr %16, align 8, !tbaa !9
+  br label %18
 
-skip_optional:                                    ; preds = %if.end6, %if.end9
-  %y_obj.0 = phi ptr [ null, %if.end6 ], [ %4, %if.end9 ]
-  %call.i = tail call ptr @__errno_location() #11
-  store i32 0, ptr %call.i, align 4
-  %call1.i = tail call fastcc { double, double } @c_log(double %2, double %3)
-  %5 = extractvalue { double, double } %call1.i, 0
-  %6 = extractvalue { double, double } %call1.i, 1
-  %cmp.not.i = icmp eq ptr %y_obj.0, null
-  br i1 %cmp.not.i, label %if.end10.i, label %if.then.i
+18:                                               ; preds = %13, %15
+  %.011 = phi ptr [ null, %13 ], [ %17, %15 ]
+  %19 = tail call ptr @__errno_location() #12
+  store i32 0, ptr %19, align 4, !tbaa !3
+  %20 = tail call fastcc { double, double } @c_log(double %10, double %11)
+  %21 = extractvalue { double, double } %20, 0
+  %22 = extractvalue { double, double } %20, 1
+  %.not.i = icmp eq ptr %.011, null
+  br i1 %.not.i, label %35, label %23
 
-if.then.i:                                        ; preds = %skip_optional
-  %call3.i = tail call { double, double } @PyComplex_AsCComplex(ptr noundef nonnull %y_obj.0) #10
-  %call4.i = tail call ptr @PyErr_Occurred() #10
-  %tobool.not.i = icmp eq ptr %call4.i, null
-  br i1 %tobool.not.i, label %if.end.i, label %exit
+23:                                               ; preds = %18
+  %24 = tail call { double, double } @PyComplex_AsCComplex(ptr noundef nonnull %.011) #11
+  %25 = tail call ptr @PyErr_Occurred() #11
+  %.not19.i = icmp eq ptr %25, null
+  br i1 %.not19.i, label %26, label %cmath_log_impl.exit
 
-if.end.i:                                         ; preds = %if.then.i
-  %7 = extractvalue { double, double } %call3.i, 1
-  %8 = extractvalue { double, double } %call3.i, 0
-  %call7.i = tail call fastcc { double, double } @c_log(double %8, double %7)
-  %9 = extractvalue { double, double } %call7.i, 0
-  %10 = extractvalue { double, double } %call7.i, 1
-  %call9.i = tail call { double, double } @_Py_c_quot(double %5, double %6, double %9, double %10) #10
-  %11 = extractvalue { double, double } %call9.i, 0
-  %12 = extractvalue { double, double } %call9.i, 1
-  br label %if.end10.i
+26:                                               ; preds = %23
+  %27 = extractvalue { double, double } %24, 1
+  %28 = extractvalue { double, double } %24, 0
+  %29 = tail call fastcc { double, double } @c_log(double %28, double %27)
+  %30 = extractvalue { double, double } %29, 0
+  %31 = extractvalue { double, double } %29, 1
+  %32 = tail call { double, double } @_Py_c_quot(double %21, double %22, double %30, double %31) #11
+  %33 = extractvalue { double, double } %32, 0
+  %34 = extractvalue { double, double } %32, 1
+  br label %35
 
-if.end10.i:                                       ; preds = %if.end.i, %skip_optional
-  %x.sroa.0.0.i = phi double [ %11, %if.end.i ], [ %5, %skip_optional ]
-  %x.sroa.6.0.i = phi double [ %12, %if.end.i ], [ %6, %skip_optional ]
-  %13 = load i32, ptr %call.i, align 4
-  switch i32 %13, label %if.else4.i.i [
-    i32 0, label %if.end15.i
-    i32 33, label %if.then.i.i
-    i32 34, label %if.then3.i.i
+35:                                               ; preds = %26, %18
+  %.sroa.011.0.i = phi double [ %33, %26 ], [ %21, %18 ]
+  %.sroa.614.0.i = phi double [ %34, %26 ], [ %22, %18 ]
+  %36 = load i32, ptr %19, align 4, !tbaa !3
+  switch i32 %36, label %41 [
+    i32 0, label %44
+    i32 33, label %37
+    i32 34, label %39
   ]
 
-if.then.i.i:                                      ; preds = %if.end10.i
-  %14 = load ptr, ptr @PyExc_ValueError, align 8
-  tail call void @PyErr_SetString(ptr noundef %14, ptr noundef nonnull @.str.24) #10
-  br label %exit
+37:                                               ; preds = %35
+  %38 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !9
+  tail call void @PyErr_SetString(ptr noundef %38, ptr noundef nonnull @.str.25) #11
+  br label %cmath_log_impl.exit
 
-if.then3.i.i:                                     ; preds = %if.end10.i
-  %15 = load ptr, ptr @PyExc_OverflowError, align 8
-  tail call void @PyErr_SetString(ptr noundef %15, ptr noundef nonnull @.str.25) #10
-  br label %exit
+39:                                               ; preds = %35
+  %40 = load ptr, ptr @PyExc_OverflowError, align 8, !tbaa !9
+  tail call void @PyErr_SetString(ptr noundef %40, ptr noundef nonnull @.str.26) #11
+  br label %cmath_log_impl.exit
 
-if.else4.i.i:                                     ; preds = %if.end10.i
-  %16 = load ptr, ptr @PyExc_ValueError, align 8
-  %call5.i.i = tail call ptr @PyErr_SetFromErrno(ptr noundef %16) #10
-  br label %exit
+41:                                               ; preds = %35
+  %42 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !9
+  %43 = tail call ptr @PyErr_SetFromErrno(ptr noundef %42) #11
+  br label %cmath_log_impl.exit
 
-if.end15.i:                                       ; preds = %if.end10.i
-  %call16.i = tail call ptr @PyComplex_FromCComplex(double %x.sroa.0.0.i, double %x.sroa.6.0.i) #10
-  br label %exit
+44:                                               ; preds = %35
+  %45 = tail call ptr @PyComplex_FromCComplex(double %.sroa.011.0.i, double %.sroa.614.0.i) #11
+  br label %cmath_log_impl.exit
 
-exit:                                             ; preds = %if.end15.i, %if.else4.i.i, %if.then3.i.i, %if.then.i.i, %if.then.i, %if.end, %lor.lhs.false
-  %return_value.0 = phi ptr [ null, %if.end ], [ null, %lor.lhs.false ], [ %call16.i, %if.end15.i ], [ null, %if.then.i ], [ null, %if.then.i.i ], [ null, %if.then3.i.i ], [ null, %if.else4.i.i ]
-  ret ptr %return_value.0
+cmath_log_impl.exit:                              ; preds = %44, %41, %39, %37, %23, %7, %5
+  %.0 = phi ptr [ null, %7 ], [ null, %5 ], [ %45, %44 ], [ null, %23 ], [ null, %37 ], [ null, %39 ], [ null, %41 ]
+  ret ptr %.0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @cmath_log10(ptr readnone captures(none) %module, ptr noundef %arg) #0 {
-entry:
-  %call = tail call { double, double } @PyComplex_AsCComplex(ptr noundef %arg) #10
-  %call1 = tail call ptr @PyErr_Occurred() #10
-  %tobool.not = icmp eq ptr %call1, null
-  br i1 %tobool.not, label %if.end, label %exit
+define internal ptr @cmath_log10(ptr readnone captures(none) %0, ptr noundef %1) #0 {
+  %3 = tail call { double, double } @PyComplex_AsCComplex(ptr noundef %1) #11
+  %4 = tail call ptr @PyErr_Occurred() #11
+  %.not = icmp eq ptr %4, null
+  br i1 %.not, label %5, label %21
 
-if.end:                                           ; preds = %entry
-  %0 = extractvalue { double, double } %call, 1
-  %1 = extractvalue { double, double } %call, 0
-  %call2 = tail call ptr @__errno_location() #11
-  store i32 0, ptr %call2, align 4
-  %call.i = tail call fastcc { double, double } @c_log(double %1, double %0)
-  %2 = load i32, ptr %call2, align 4
-  switch i32 %2, label %if.else10 [
-    i32 33, label %if.then6
-    i32 34, label %if.then9
+5:                                                ; preds = %2
+  %6 = extractvalue { double, double } %3, 1
+  %7 = extractvalue { double, double } %3, 0
+  %8 = tail call ptr @__errno_location() #12
+  store i32 0, ptr %8, align 4, !tbaa !3
+  %9 = tail call fastcc { double, double } @c_log(double %7, double %6)
+  %10 = load i32, ptr %8, align 4, !tbaa !3
+  switch i32 %10, label %15 [
+    i32 33, label %11
+    i32 34, label %13
   ]
 
-if.then6:                                         ; preds = %if.end
-  %3 = load ptr, ptr @PyExc_ValueError, align 8
-  tail call void @PyErr_SetString(ptr noundef %3, ptr noundef nonnull @.str.24) #10
-  br label %exit
+11:                                               ; preds = %5
+  %12 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !9
+  tail call void @PyErr_SetString(ptr noundef %12, ptr noundef nonnull @.str.25) #11
+  br label %21
 
-if.then9:                                         ; preds = %if.end
-  %4 = load ptr, ptr @PyExc_OverflowError, align 8
-  tail call void @PyErr_SetString(ptr noundef %4, ptr noundef nonnull @.str.25) #10
-  br label %exit
+13:                                               ; preds = %5
+  %14 = load ptr, ptr @PyExc_OverflowError, align 8, !tbaa !9
+  tail call void @PyErr_SetString(ptr noundef %14, ptr noundef nonnull @.str.26) #11
+  br label %21
 
-if.else10:                                        ; preds = %if.end
-  %5 = extractvalue { double, double } %call.i, 1
-  %div3.i = fdiv double %5, 0x40026BB1BBB55516
-  %6 = extractvalue { double, double } %call.i, 0
-  %div.i = fdiv double %6, 0x40026BB1BBB55516
-  %call11 = tail call ptr @PyComplex_FromCComplex(double %div.i, double %div3.i) #10
-  br label %exit
+15:                                               ; preds = %5
+  %16 = extractvalue { double, double } %9, 1
+  %17 = fdiv double %16, 0x40026BB1BBB55516
+  %18 = extractvalue { double, double } %9, 0
+  %19 = fdiv double %18, 0x40026BB1BBB55516
+  %20 = tail call ptr @PyComplex_FromCComplex(double %19, double %17) #11
+  br label %21
 
-exit:                                             ; preds = %entry, %if.else10, %if.then9, %if.then6
-  %return_value.0 = phi ptr [ null, %entry ], [ null, %if.then6 ], [ null, %if.then9 ], [ %call11, %if.else10 ]
-  ret ptr %return_value.0
+21:                                               ; preds = %2, %15, %13, %11
+  %.0 = phi ptr [ null, %2 ], [ null, %11 ], [ null, %13 ], [ %20, %15 ]
+  ret ptr %.0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @cmath_phase(ptr readnone captures(none) %module, ptr noundef %arg) #0 {
-entry:
-  %call = tail call { double, double } @PyComplex_AsCComplex(ptr noundef %arg) #10
-  %call1 = tail call ptr @PyErr_Occurred() #10
-  %tobool.not = icmp eq ptr %call1, null
-  br i1 %tobool.not, label %if.end, label %exit
+define internal ptr @cmath_phase(ptr readnone captures(none) %0, ptr noundef %1) #0 {
+  %3 = tail call { double, double } @PyComplex_AsCComplex(ptr noundef %1) #11
+  %4 = tail call ptr @PyErr_Occurred() #11
+  %.not = icmp eq ptr %4, null
+  br i1 %.not, label %5, label %cmath_phase_impl.exit
 
-if.end:                                           ; preds = %entry
-  %0 = extractvalue { double, double } %call, 1
-  %1 = extractvalue { double, double } %call, 0
-  %call.i = tail call ptr @__errno_location() #11
-  store i32 0, ptr %call.i, align 4
-  %2 = fcmp uno double %1, 0.000000e+00
-  %3 = fcmp uno double %0, 0.000000e+00
-  %or.cond14.i.i = select i1 %2, i1 true, i1 %3
-  br i1 %or.cond14.i.i, label %if.else.i, label %if.end.i.i
-
-if.end.i.i:                                       ; preds = %if.end
-  %4 = tail call double @llvm.fabs.f64(double %0) #12
-  %isinf.i.i = fcmp oeq double %4, 0x7FF0000000000000
-  %5 = tail call double @llvm.fabs.f64(double %1) #12
-  %isinf4.i.i = fcmp oeq double %5, 0x7FF0000000000000
-  br i1 %isinf.i.i, label %if.then2.i.i, label %if.end13.i.i
-
-if.then2.i.i:                                     ; preds = %if.end.i.i
-  br i1 %isinf4.i.i, label %if.then6.i.i, label %if.end11.i.i
-
-if.then6.i.i:                                     ; preds = %if.then2.i.i
-  %6 = tail call double @llvm.copysign.f64(double 1.000000e+00, double %1)
-  %cmp.i.i = fcmp oeq double %6, 1.000000e+00
-  br i1 %cmp.i.i, label %if.then8.i.i, label %if.else.i.i
-
-if.then8.i.i:                                     ; preds = %if.then6.i.i
-  %7 = tail call double @llvm.copysign.f64(double 0x3FE921FB54442D18, double %0)
-  br label %if.else.i
-
-if.else.i.i:                                      ; preds = %if.then6.i.i
-  %8 = tail call double @llvm.copysign.f64(double 0x4002D97C7F3321D2, double %0)
-  br label %if.else.i
-
-if.end11.i.i:                                     ; preds = %if.then2.i.i
-  %9 = tail call double @llvm.copysign.f64(double 0x3FF921FB54442D18, double %0)
-  br label %if.else.i
-
-if.end13.i.i:                                     ; preds = %if.end.i.i
-  %cmp19.i.i = fcmp oeq double %0, 0.000000e+00
-  %or.cond.i.i = select i1 %isinf4.i.i, i1 true, i1 %cmp19.i.i
-  br i1 %or.cond.i.i, label %if.then20.i.i, label %c_atan2.exit.i
-
-if.then20.i.i:                                    ; preds = %if.end13.i.i
-  %10 = tail call double @llvm.copysign.f64(double 1.000000e+00, double %1)
-  %cmp22.i.i = fcmp oeq double %10, 1.000000e+00
-  br i1 %cmp22.i.i, label %if.then23.i.i, label %if.else25.i.i
-
-if.then23.i.i:                                    ; preds = %if.then20.i.i
-  %11 = tail call double @llvm.copysign.f64(double 0.000000e+00, double %0)
-  br label %if.else.i
-
-if.else25.i.i:                                    ; preds = %if.then20.i.i
-  %12 = tail call double @llvm.copysign.f64(double 0x400921FB54442D18, double %0)
-  br label %if.else.i
-
-c_atan2.exit.i:                                   ; preds = %if.end13.i.i
-  %call.i.i = tail call double @atan2(double noundef %0, double noundef %1) #10
-  %.pr.pre.i = load i32, ptr %call.i, align 4
-  switch i32 %.pr.pre.i, label %if.else4.i.i [
-    i32 0, label %if.else.i
-    i32 33, label %if.then.i.i
-    i32 34, label %if.then3.i.i
+5:                                                ; preds = %2
+  %6 = extractvalue { double, double } %3, 1
+  %7 = extractvalue { double, double } %3, 0
+  %8 = tail call ptr @__errno_location() #12
+  store i32 0, ptr %8, align 4, !tbaa !3
+  %9 = tail call double @atan2(double noundef %6, double noundef %7) #11, !tbaa !3
+  %10 = load i32, ptr %8, align 4, !tbaa !3
+  switch i32 %10, label %15 [
+    i32 0, label %18
+    i32 33, label %11
+    i32 34, label %13
   ]
 
-if.then.i.i:                                      ; preds = %c_atan2.exit.i
-  %13 = load ptr, ptr @PyExc_ValueError, align 8
-  tail call void @PyErr_SetString(ptr noundef %13, ptr noundef nonnull @.str.24) #10
-  br label %exit
+11:                                               ; preds = %5
+  %12 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !9
+  tail call void @PyErr_SetString(ptr noundef %12, ptr noundef nonnull @.str.25) #11
+  br label %cmath_phase_impl.exit
 
-if.then3.i.i:                                     ; preds = %c_atan2.exit.i
-  %14 = load ptr, ptr @PyExc_OverflowError, align 8
-  tail call void @PyErr_SetString(ptr noundef %14, ptr noundef nonnull @.str.25) #10
-  br label %exit
+13:                                               ; preds = %5
+  %14 = load ptr, ptr @PyExc_OverflowError, align 8, !tbaa !9
+  tail call void @PyErr_SetString(ptr noundef %14, ptr noundef nonnull @.str.26) #11
+  br label %cmath_phase_impl.exit
 
-if.else4.i.i:                                     ; preds = %c_atan2.exit.i
-  %15 = load ptr, ptr @PyExc_ValueError, align 8
-  %call5.i.i = tail call ptr @PyErr_SetFromErrno(ptr noundef %15) #10
-  br label %exit
+15:                                               ; preds = %5
+  %16 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !9
+  %17 = tail call ptr @PyErr_SetFromErrno(ptr noundef %16) #11
+  br label %cmath_phase_impl.exit
 
-if.else.i:                                        ; preds = %c_atan2.exit.i, %if.else25.i.i, %if.then23.i.i, %if.end11.i.i, %if.else.i.i, %if.then8.i.i, %if.end
-  %retval.0.i3.i = phi double [ %call.i.i, %c_atan2.exit.i ], [ 0x7FF8000000000000, %if.end ], [ %7, %if.then8.i.i ], [ %8, %if.else.i.i ], [ %9, %if.end11.i.i ], [ %11, %if.then23.i.i ], [ %12, %if.else25.i.i ]
-  %call4.i = tail call ptr @PyFloat_FromDouble(double noundef %retval.0.i3.i) #10
-  br label %exit
+18:                                               ; preds = %5
+  %19 = tail call ptr @PyFloat_FromDouble(double noundef %9) #11
+  br label %cmath_phase_impl.exit
 
-exit:                                             ; preds = %if.else.i, %if.else4.i.i, %if.then3.i.i, %if.then.i.i, %entry
-  %return_value.0 = phi ptr [ null, %entry ], [ %call4.i, %if.else.i ], [ null, %if.then.i.i ], [ null, %if.then3.i.i ], [ null, %if.else4.i.i ]
-  ret ptr %return_value.0
+cmath_phase_impl.exit:                            ; preds = %18, %15, %13, %11, %2
+  %.0 = phi ptr [ null, %2 ], [ %19, %18 ], [ null, %11 ], [ null, %13 ], [ null, %15 ]
+  ret ptr %.0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @cmath_polar(ptr readnone captures(none) %module, ptr noundef %arg) #0 {
-entry:
-  %call = tail call { double, double } @PyComplex_AsCComplex(ptr noundef %arg) #10
-  %call1 = tail call ptr @PyErr_Occurred() #10
-  %tobool.not = icmp eq ptr %call1, null
-  br i1 %tobool.not, label %if.end, label %exit
+define internal ptr @cmath_polar(ptr readnone captures(none) %0, ptr noundef %1) #0 {
+  %3 = tail call { double, double } @PyComplex_AsCComplex(ptr noundef %1) #11
+  %4 = tail call ptr @PyErr_Occurred() #11
+  %.not = icmp eq ptr %4, null
+  br i1 %.not, label %5, label %cmath_polar_impl.exit
 
-if.end:                                           ; preds = %entry
-  %0 = extractvalue { double, double } %call, 1
-  %1 = extractvalue { double, double } %call, 0
-  %call.i = tail call ptr @__errno_location() #11
-  store i32 0, ptr %call.i, align 4
-  %2 = fcmp uno double %1, 0.000000e+00
-  %3 = fcmp uno double %0, 0.000000e+00
-  %or.cond14.i.i = select i1 %2, i1 true, i1 %3
-  br i1 %or.cond14.i.i, label %c_atan2.exit.i, label %if.end.i.i
-
-if.end.i.i:                                       ; preds = %if.end
-  %4 = tail call double @llvm.fabs.f64(double %0) #12
-  %isinf.i.i = fcmp oeq double %4, 0x7FF0000000000000
-  %5 = tail call double @llvm.fabs.f64(double %1) #12
-  %isinf4.i.i = fcmp oeq double %5, 0x7FF0000000000000
-  br i1 %isinf.i.i, label %if.then2.i.i, label %if.end13.i.i
-
-if.then2.i.i:                                     ; preds = %if.end.i.i
-  br i1 %isinf4.i.i, label %if.then6.i.i, label %if.end11.i.i
-
-if.then6.i.i:                                     ; preds = %if.then2.i.i
-  %6 = tail call double @llvm.copysign.f64(double 1.000000e+00, double %1)
-  %cmp.i.i = fcmp oeq double %6, 1.000000e+00
-  br i1 %cmp.i.i, label %if.then8.i.i, label %if.else.i.i
-
-if.then8.i.i:                                     ; preds = %if.then6.i.i
-  %7 = tail call double @llvm.copysign.f64(double 0x3FE921FB54442D18, double %0)
-  br label %c_atan2.exit.i
-
-if.else.i.i:                                      ; preds = %if.then6.i.i
-  %8 = tail call double @llvm.copysign.f64(double 0x4002D97C7F3321D2, double %0)
-  br label %c_atan2.exit.i
-
-if.end11.i.i:                                     ; preds = %if.then2.i.i
-  %9 = tail call double @llvm.copysign.f64(double 0x3FF921FB54442D18, double %0)
-  br label %c_atan2.exit.i
-
-if.end13.i.i:                                     ; preds = %if.end.i.i
-  %cmp19.i.i = fcmp oeq double %0, 0.000000e+00
-  %or.cond.i.i = select i1 %isinf4.i.i, i1 true, i1 %cmp19.i.i
-  br i1 %or.cond.i.i, label %if.then20.i.i, label %if.end27.i.i
-
-if.then20.i.i:                                    ; preds = %if.end13.i.i
-  %10 = tail call double @llvm.copysign.f64(double 1.000000e+00, double %1)
-  %cmp22.i.i = fcmp oeq double %10, 1.000000e+00
-  br i1 %cmp22.i.i, label %if.then23.i.i, label %if.else25.i.i
-
-if.then23.i.i:                                    ; preds = %if.then20.i.i
-  %11 = tail call double @llvm.copysign.f64(double 0.000000e+00, double %0)
-  br label %c_atan2.exit.i
-
-if.else25.i.i:                                    ; preds = %if.then20.i.i
-  %12 = tail call double @llvm.copysign.f64(double 0x400921FB54442D18, double %0)
-  br label %c_atan2.exit.i
-
-if.end27.i.i:                                     ; preds = %if.end13.i.i
-  %call.i.i = tail call double @atan2(double noundef %0, double noundef %1) #10
-  br label %c_atan2.exit.i
-
-c_atan2.exit.i:                                   ; preds = %if.end27.i.i, %if.else25.i.i, %if.then23.i.i, %if.end11.i.i, %if.else.i.i, %if.then8.i.i, %if.end
-  %retval.0.i.i = phi double [ %7, %if.then8.i.i ], [ %8, %if.else.i.i ], [ %9, %if.end11.i.i ], [ %11, %if.then23.i.i ], [ %12, %if.else25.i.i ], [ %call.i.i, %if.end27.i.i ], [ 0x7FF8000000000000, %if.end ]
-  %call2.i = tail call double @_Py_c_abs(double %1, double %0) #10
-  %13 = load i32, ptr %call.i, align 4
-  switch i32 %13, label %if.else4.i.i [
-    i32 0, label %if.else.i
-    i32 33, label %if.then.i.i
-    i32 34, label %if.then3.i.i
+5:                                                ; preds = %2
+  %6 = extractvalue { double, double } %3, 1
+  %7 = extractvalue { double, double } %3, 0
+  %8 = tail call ptr @__errno_location() #12
+  store i32 0, ptr %8, align 4, !tbaa !3
+  %9 = tail call double @atan2(double noundef %6, double noundef %7) #11, !tbaa !3
+  %10 = tail call double @_Py_c_abs(double %7, double %6) #11
+  %11 = load i32, ptr %8, align 4, !tbaa !3
+  switch i32 %11, label %16 [
+    i32 0, label %19
+    i32 33, label %12
+    i32 34, label %14
   ]
 
-if.then.i.i:                                      ; preds = %c_atan2.exit.i
-  %14 = load ptr, ptr @PyExc_ValueError, align 8
-  tail call void @PyErr_SetString(ptr noundef %14, ptr noundef nonnull @.str.24) #10
-  br label %exit
+12:                                               ; preds = %5
+  %13 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !9
+  tail call void @PyErr_SetString(ptr noundef %13, ptr noundef nonnull @.str.25) #11
+  br label %cmath_polar_impl.exit
 
-if.then3.i.i:                                     ; preds = %c_atan2.exit.i
-  %15 = load ptr, ptr @PyExc_OverflowError, align 8
-  tail call void @PyErr_SetString(ptr noundef %15, ptr noundef nonnull @.str.25) #10
-  br label %exit
+14:                                               ; preds = %5
+  %15 = load ptr, ptr @PyExc_OverflowError, align 8, !tbaa !9
+  tail call void @PyErr_SetString(ptr noundef %15, ptr noundef nonnull @.str.26) #11
+  br label %cmath_polar_impl.exit
 
-if.else4.i.i:                                     ; preds = %c_atan2.exit.i
-  %16 = load ptr, ptr @PyExc_ValueError, align 8
-  %call5.i.i = tail call ptr @PyErr_SetFromErrno(ptr noundef %16) #10
-  br label %exit
+16:                                               ; preds = %5
+  %17 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !9
+  %18 = tail call ptr @PyErr_SetFromErrno(ptr noundef %17) #11
+  br label %cmath_polar_impl.exit
 
-if.else.i:                                        ; preds = %c_atan2.exit.i
-  %call5.i = tail call ptr (ptr, ...) @Py_BuildValue(ptr noundef nonnull @.str.31, double noundef %call2.i, double noundef %retval.0.i.i) #10
-  br label %exit
+19:                                               ; preds = %5
+  %20 = tail call ptr (ptr, ...) @Py_BuildValue(ptr noundef nonnull @.str.32, double noundef %10, double noundef %9) #11
+  br label %cmath_polar_impl.exit
 
-exit:                                             ; preds = %if.else.i, %if.else4.i.i, %if.then3.i.i, %if.then.i.i, %entry
-  %return_value.0 = phi ptr [ null, %entry ], [ %call5.i, %if.else.i ], [ null, %if.then.i.i ], [ null, %if.then3.i.i ], [ null, %if.else4.i.i ]
-  ret ptr %return_value.0
+cmath_polar_impl.exit:                            ; preds = %19, %16, %14, %12, %2
+  %.0 = phi ptr [ null, %2 ], [ %20, %19 ], [ null, %12 ], [ null, %14 ], [ null, %16 ]
+  ret ptr %.0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @cmath_rect(ptr readnone captures(none) %module, ptr noundef readonly captures(none) %args, i64 noundef %nargs) #0 {
-entry:
-  %or.cond = icmp eq i64 %nargs, 2
-  br i1 %or.cond, label %if.end, label %lor.lhs.false
+define internal ptr @cmath_rect(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) #0 {
+  %or.cond = icmp eq i64 %2, 2
+  br i1 %or.cond, label %6, label %4
 
-lor.lhs.false:                                    ; preds = %entry
-  %call = tail call i32 @_PyArg_CheckPositional(ptr noundef nonnull @.str.18, i64 noundef %nargs, i64 noundef 2, i64 noundef 2) #10
-  %tobool.not = icmp eq i32 %call, 0
-  br i1 %tobool.not, label %exit, label %if.end
+4:                                                ; preds = %3
+  %5 = tail call i32 @_PyArg_CheckPositional(ptr noundef nonnull @.str.18, i64 noundef %2, i64 noundef 2, i64 noundef 2) #11
+  %.not = icmp eq i32 %5, 0
+  br i1 %.not, label %cmath_rect_impl.exit, label %6
 
-if.end:                                           ; preds = %entry, %lor.lhs.false
-  %0 = load ptr, ptr %args, align 8
-  %1 = getelementptr i8, ptr %0, i64 8
-  %.val = load ptr, ptr %1, align 8
-  %cmp.i.not = icmp eq ptr %.val, @PyFloat_Type
-  br i1 %cmp.i.not, label %if.then4, label %if.else
+6:                                                ; preds = %3, %4
+  %7 = load ptr, ptr %1, align 8, !tbaa !9
+  %8 = getelementptr i8, ptr %7, i64 8
+  %.val = load ptr, ptr %8, align 8, !tbaa !17
+  %.not27 = icmp eq ptr %.val, @PyFloat_Type
+  br i1 %.not27, label %9, label %11
 
-if.then4:                                         ; preds = %if.end
-  %2 = getelementptr i8, ptr %0, i64 16
-  %.val11 = load double, ptr %2, align 8
-  br label %if.end15
+9:                                                ; preds = %6
+  %10 = getelementptr i8, ptr %7, i64 16
+  %.val25 = load double, ptr %10, align 8, !tbaa !18
+  br label %16
 
-if.else:                                          ; preds = %if.end
-  %call8 = tail call double @PyFloat_AsDouble(ptr noundef nonnull %0) #10
-  %cmp9 = fcmp oeq double %call8, -1.000000e+00
-  br i1 %cmp9, label %land.lhs.true10, label %if.end15
+11:                                               ; preds = %6
+  %12 = tail call double @PyFloat_AsDouble(ptr noundef nonnull %7) #11
+  %13 = fcmp oeq double %12, -1.000000e+00
+  br i1 %13, label %14, label %16
 
-land.lhs.true10:                                  ; preds = %if.else
-  %call11 = tail call ptr @PyErr_Occurred() #10
-  %tobool12.not = icmp eq ptr %call11, null
-  br i1 %tobool12.not, label %if.end15, label %exit
+14:                                               ; preds = %11
+  %15 = tail call ptr @PyErr_Occurred() #11
+  %.not21 = icmp eq ptr %15, null
+  br i1 %.not21, label %16, label %cmath_rect_impl.exit
 
-if.end15:                                         ; preds = %if.else, %land.lhs.true10, %if.then4
-  %r.0 = phi double [ %.val11, %if.then4 ], [ -1.000000e+00, %land.lhs.true10 ], [ %call8, %if.else ]
-  %arrayidx16 = getelementptr i8, ptr %args, i64 8
-  %3 = load ptr, ptr %arrayidx16, align 8
-  %4 = getelementptr i8, ptr %3, i64 8
-  %.val10 = load ptr, ptr %4, align 8
-  %cmp.i13.not = icmp eq ptr %.val10, @PyFloat_Type
-  br i1 %cmp.i13.not, label %if.then19, label %if.else22
+16:                                               ; preds = %11, %14, %9
+  %.015 = phi double [ %.val25, %9 ], [ -1.000000e+00, %14 ], [ %12, %11 ]
+  %17 = getelementptr i8, ptr %1, i64 8
+  %18 = load ptr, ptr %17, align 8, !tbaa !9
+  %19 = getelementptr i8, ptr %18, i64 8
+  %.val24 = load ptr, ptr %19, align 8, !tbaa !17
+  %.not28 = icmp eq ptr %.val24, @PyFloat_Type
+  br i1 %.not28, label %20, label %22
 
-if.then19:                                        ; preds = %if.end15
-  %5 = getelementptr i8, ptr %3, i64 16
-  %.val12 = load double, ptr %5, align 8
-  br label %if.end31
+20:                                               ; preds = %16
+  %21 = getelementptr i8, ptr %18, i64 16
+  %.val26 = load double, ptr %21, align 8, !tbaa !18
+  br label %27
 
-if.else22:                                        ; preds = %if.end15
-  %call24 = tail call double @PyFloat_AsDouble(ptr noundef nonnull %3) #10
-  %cmp25 = fcmp oeq double %call24, -1.000000e+00
-  br i1 %cmp25, label %land.lhs.true26, label %if.end31
+22:                                               ; preds = %16
+  %23 = tail call double @PyFloat_AsDouble(ptr noundef nonnull %18) #11
+  %24 = fcmp oeq double %23, -1.000000e+00
+  br i1 %24, label %25, label %27
 
-land.lhs.true26:                                  ; preds = %if.else22
-  %call27 = tail call ptr @PyErr_Occurred() #10
-  %tobool28.not = icmp eq ptr %call27, null
-  br i1 %tobool28.not, label %if.end31, label %exit
+25:                                               ; preds = %22
+  %26 = tail call ptr @PyErr_Occurred() #11
+  %.not23 = icmp eq ptr %26, null
+  br i1 %.not23, label %27, label %cmath_rect_impl.exit
 
-if.end31:                                         ; preds = %if.else22, %land.lhs.true26, %if.then19
-  %phi.0 = phi double [ %.val12, %if.then19 ], [ -1.000000e+00, %land.lhs.true26 ], [ %call24, %if.else22 ]
-  %call.i = tail call ptr @__errno_location() #11
-  %6 = tail call double @llvm.fabs.f64(double %r.0)
-  %7 = fcmp ueq double %6, 0x7FF0000000000000
-  %8 = tail call double @llvm.fabs.f64(double %phi.0)
-  %9 = fcmp ueq double %8, 0x7FF0000000000000
-  %or.cond23.i = or i1 %7, %9
-  br i1 %or.cond23.i, label %if.then.i, label %if.else28.i
+27:                                               ; preds = %22, %25, %20
+  %.0 = phi double [ %.val26, %20 ], [ -1.000000e+00, %25 ], [ %23, %22 ]
+  %28 = tail call ptr @__errno_location() #12
+  %29 = tail call double @llvm.fabs.f64(double %.015)
+  %30 = fcmp ueq double %29, 0x7FF0000000000000
+  %31 = tail call double @llvm.fabs.f64(double %.0)
+  %32 = fcmp ueq double %31, 0x7FF0000000000000
+  %or.cond28.i = or i1 %30, %32
+  br i1 %or.cond28.i, label %33, label %75
 
-if.then.i:                                        ; preds = %if.end31
-  %isinf.i = fcmp oeq double %6, 0x7FF0000000000000
-  br i1 %isinf.i, label %land.lhs.true.i, label %if.else12.i
+33:                                               ; preds = %27
+  %34 = fcmp oeq double %29, 0x7FF0000000000000
+  br i1 %34, label %35, label %49
 
-land.lhs.true.i:                                  ; preds = %if.then.i
-  %or.cond.i = tail call i1 @llvm.is.fpclass.f64(double %phi.0, i32 408)
-  br i1 %or.cond.i, label %if.then2.i, label %if.else12.i
+35:                                               ; preds = %33
+  %or.cond.i = tail call i1 @llvm.is.fpclass.f64(double %.0, i32 408)
+  br i1 %or.cond.i, label %36, label %49
 
-if.then2.i:                                       ; preds = %land.lhs.true.i
-  %cmp3.i = fcmp ogt double %r.0, 0.000000e+00
-  %call5.i = tail call double @cos(double noundef %phi.0) #10
-  br i1 %cmp3.i, label %if.then4.i, label %if.else.i
+36:                                               ; preds = %35
+  %37 = fcmp ogt double %.015, 0.000000e+00
+  %38 = tail call double @cos(double noundef %.0) #11, !tbaa !3
+  br i1 %37, label %39, label %43
 
-if.then4.i:                                       ; preds = %if.then2.i
-  %10 = tail call double @llvm.copysign.f64(double 0x7FF0000000000000, double %call5.i)
-  %call6.i = tail call double @sin(double noundef %phi.0) #10
-  %11 = tail call double @llvm.copysign.f64(double 0x7FF0000000000000, double %call6.i)
-  br label %if.end17.i
+39:                                               ; preds = %36
+  %40 = tail call double @llvm.copysign.f64(double 0x7FF0000000000000, double %38)
+  %41 = tail call double @sin(double noundef %.0) #11, !tbaa !3
+  %42 = tail call double @llvm.copysign.f64(double 0x7FF0000000000000, double %41)
+  br label %73
 
-if.else.i:                                        ; preds = %if.then2.i
-  %12 = fneg double %call5.i
-  %fneg.i = tail call double @llvm.copysign.f64(double 0x7FF0000000000000, double %12)
-  %call9.i = tail call double @sin(double noundef %phi.0) #10
-  %13 = fneg double %call9.i
-  %fneg10.i = tail call double @llvm.copysign.f64(double 0x7FF0000000000000, double %13)
-  br label %if.end17.i
+43:                                               ; preds = %36
+  %44 = fneg double %38
+  %45 = tail call double @llvm.copysign.f64(double 0x7FF0000000000000, double %44)
+  %46 = tail call double @sin(double noundef %.0) #11, !tbaa !3
+  %47 = fneg double %46
+  %48 = tail call double @llvm.copysign.f64(double 0x7FF0000000000000, double %47)
+  br label %73
 
-if.else12.i:                                      ; preds = %land.lhs.true.i, %if.then.i
-  br i1 %7, label %if.end.i.i, label %if.then.i.i
+49:                                               ; preds = %35, %33
+  br i1 %30, label %56, label %50
 
-if.then.i.i:                                      ; preds = %if.else12.i
-  %cmp.i.i = fcmp une double %r.0, 0.000000e+00
-  %14 = tail call double @llvm.copysign.f64(double 1.000000e+00, double %r.0)
-  %cmp2.i.i = fcmp oeq double %14, 1.000000e+00
-  br i1 %cmp.i.i, label %if.then1.i.i, label %if.else4.i.i
+50:                                               ; preds = %49
+  %51 = fcmp une double %.015, 0.000000e+00
+  %52 = tail call double @llvm.copysign.f64(double 1.000000e+00, double %.015)
+  %53 = fcmp oeq double %52, 1.000000e+00
+  br i1 %51, label %54, label %55
 
-if.then1.i.i:                                     ; preds = %if.then.i.i
-  %..i.i = select i1 %cmp2.i.i, i64 4, i64 1
+54:                                               ; preds = %50
+  %..i.i = select i1 %53, i64 4, i64 1
   br label %special_type.exit.i
 
-if.else4.i.i:                                     ; preds = %if.then.i.i
-  %.6.i.i = select i1 %cmp2.i.i, i64 3, i64 2
+55:                                               ; preds = %50
+  %.7.i.i = select i1 %53, i64 3, i64 2
   br label %special_type.exit.i
 
-if.end.i.i:                                       ; preds = %if.else12.i
-  %15 = fcmp uno double %r.0, 0.000000e+00
-  br i1 %15, label %special_type.exit.i, label %if.end9.i.i
+56:                                               ; preds = %49
+  %57 = fcmp uno double %.015, 0.000000e+00
+  br i1 %57, label %special_type.exit.i, label %58
 
-if.end9.i.i:                                      ; preds = %if.end.i.i
-  %16 = tail call double @llvm.copysign.f64(double 1.000000e+00, double %r.0)
-  %cmp10.i.i = fcmp oeq double %16, 1.000000e+00
-  %.7.i.i = select i1 %cmp10.i.i, i64 5, i64 0
+58:                                               ; preds = %56
+  %59 = tail call double @llvm.copysign.f64(double 1.000000e+00, double %.015)
+  %60 = fcmp oeq double %59, 1.000000e+00
+  %.8.i.i = select i1 %60, i64 5, i64 0
   br label %special_type.exit.i
 
-special_type.exit.i:                              ; preds = %if.end9.i.i, %if.end.i.i, %if.else4.i.i, %if.then1.i.i
-  %retval.0.i.i = phi i64 [ %..i.i, %if.then1.i.i ], [ %.6.i.i, %if.else4.i.i ], [ 6, %if.end.i.i ], [ %.7.i.i, %if.end9.i.i ]
-  br i1 %9, label %if.end.i34.i, label %if.then.i26.i
+special_type.exit.i:                              ; preds = %58, %56, %55, %54
+  %.0.i.i = phi i64 [ %..i.i, %54 ], [ %.7.i.i, %55 ], [ 6, %56 ], [ %.8.i.i, %58 ]
+  br i1 %32, label %67, label %61
 
-if.then.i26.i:                                    ; preds = %special_type.exit.i
-  %cmp.i27.i = fcmp une double %phi.0, 0.000000e+00
-  %17 = tail call double @llvm.copysign.f64(double 1.000000e+00, double %phi.0)
-  %cmp2.i28.i = fcmp oeq double %17, 1.000000e+00
-  br i1 %cmp.i27.i, label %if.then1.i32.i, label %if.else4.i29.i
+61:                                               ; preds = %special_type.exit.i
+  %62 = fcmp une double %.0, 0.000000e+00
+  %63 = tail call double @llvm.copysign.f64(double 1.000000e+00, double %.0)
+  %64 = fcmp oeq double %63, 1.000000e+00
+  br i1 %62, label %65, label %66
 
-if.then1.i32.i:                                   ; preds = %if.then.i26.i
-  %..i33.i = select i1 %cmp2.i28.i, i64 4, i64 1
-  br label %special_type.exit38.i
+65:                                               ; preds = %61
+  %..i34.i = select i1 %64, i64 4, i64 1
+  br label %special_type.exit36.i
 
-if.else4.i29.i:                                   ; preds = %if.then.i26.i
-  %.6.i30.i = select i1 %cmp2.i28.i, i64 3, i64 2
-  br label %special_type.exit38.i
+66:                                               ; preds = %61
+  %.7.i32.i = select i1 %64, i64 3, i64 2
+  br label %special_type.exit36.i
 
-if.end.i34.i:                                     ; preds = %special_type.exit.i
-  %18 = fcmp uno double %phi.0, 0.000000e+00
-  br i1 %18, label %special_type.exit38.i, label %if.end9.i35.i
+67:                                               ; preds = %special_type.exit.i
+  %68 = fcmp uno double %.0, 0.000000e+00
+  br i1 %68, label %special_type.exit36.i, label %69
 
-if.end9.i35.i:                                    ; preds = %if.end.i34.i
-  %19 = tail call double @llvm.copysign.f64(double 1.000000e+00, double %phi.0)
-  %cmp10.i36.i = fcmp oeq double %19, 1.000000e+00
-  %.7.i37.i = select i1 %cmp10.i36.i, i64 5, i64 0
-  br label %special_type.exit38.i
+69:                                               ; preds = %67
+  %70 = tail call double @llvm.copysign.f64(double 1.000000e+00, double %.0)
+  %71 = fcmp oeq double %70, 1.000000e+00
+  %.8.i35.i = select i1 %71, i64 5, i64 0
+  br label %special_type.exit36.i
 
-special_type.exit38.i:                            ; preds = %if.end9.i35.i, %if.end.i34.i, %if.else4.i29.i, %if.then1.i32.i
-  %retval.0.i31.i = phi i64 [ %..i33.i, %if.then1.i32.i ], [ %.6.i30.i, %if.else4.i29.i ], [ 6, %if.end.i34.i ], [ %.7.i37.i, %if.end9.i35.i ]
-  %arrayidx16.i = getelementptr [7 x [7 x %struct.Py_complex]], ptr @rect_special_values, i64 0, i64 %retval.0.i.i, i64 %retval.0.i31.i
-  %z.sroa.0.0.copyload.i = load double, ptr %arrayidx16.i, align 16
-  %z.sroa.6.0.arrayidx16.sroa_idx.i = getelementptr inbounds nuw i8, ptr %arrayidx16.i, i64 8
-  %z.sroa.6.0.copyload.i = load double, ptr %z.sroa.6.0.arrayidx16.sroa_idx.i, align 8
-  br label %if.end17.i
+special_type.exit36.i:                            ; preds = %69, %67, %66, %65
+  %.0.i33.i = phi i64 [ %..i34.i, %65 ], [ %.7.i32.i, %66 ], [ 6, %67 ], [ %.8.i35.i, %69 ]
+  %72 = getelementptr [7 x [7 x %struct.Py_complex]], ptr @rect_special_values, i64 0, i64 %.0.i.i, i64 %.0.i33.i
+  %.sroa.0.0.copyload.i = load double, ptr %72, align 16, !tbaa !7
+  %.sroa.8.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %72, i64 8
+  %.sroa.8.0.copyload.i = load double, ptr %.sroa.8.0..sroa_idx.i, align 8, !tbaa !7
+  br label %73
 
-if.end17.i:                                       ; preds = %special_type.exit38.i, %if.else.i, %if.then4.i
-  %z.sroa.6.0.i = phi double [ %11, %if.then4.i ], [ %fneg10.i, %if.else.i ], [ %z.sroa.6.0.copyload.i, %special_type.exit38.i ]
-  %z.sroa.0.0.i = phi double [ %10, %if.then4.i ], [ %fneg.i, %if.else.i ], [ %z.sroa.0.0.copyload.i, %special_type.exit38.i ]
-  %or.cond24.i = fcmp one double %r.0, 0.000000e+00
-  %isinf21.i = fcmp oeq double %8, 0x7FF0000000000000
-  %or.cond25.i = and i1 %or.cond24.i, %isinf21.i
-  br i1 %or.cond25.i, label %math_error.exit.i, label %if.else48.i
+73:                                               ; preds = %special_type.exit36.i, %43, %39
+  %.sroa.8.0.i = phi double [ %42, %39 ], [ %48, %43 ], [ %.sroa.8.0.copyload.i, %special_type.exit36.i ]
+  %.sroa.0.0.i = phi double [ %40, %39 ], [ %45, %43 ], [ %.sroa.0.0.copyload.i, %special_type.exit36.i ]
+  %or.cond29.i = fcmp one double %.015, 0.000000e+00
+  %74 = fcmp oeq double %31, 0x7FF0000000000000
+  %or.cond31.i = and i1 %or.cond29.i, %74
+  br i1 %or.cond31.i, label %math_error.exit.i, label %85
 
-if.else28.i:                                      ; preds = %if.end31
-  %cmp29.i = fcmp oeq double %phi.0, 0.000000e+00
-  br i1 %cmp29.i, label %if.then30.i, label %if.else34.i
+75:                                               ; preds = %27
+  %76 = fcmp oeq double %.0, 0.000000e+00
+  br i1 %76, label %77, label %79
 
-if.then30.i:                                      ; preds = %if.else28.i
-  %mul.i = fmul double %r.0, %phi.0
-  br label %if.else48.i
+77:                                               ; preds = %75
+  %78 = fmul double %.015, %.0
+  br label %85
 
-if.else34.i:                                      ; preds = %if.else28.i
-  %call35.i = tail call double @cos(double noundef %phi.0) #10
-  %mul36.i = fmul double %r.0, %call35.i
-  %call38.i = tail call double @sin(double noundef %phi.0) #10
-  %mul39.i = fmul double %r.0, %call38.i
-  br label %if.else48.i
+79:                                               ; preds = %75
+  %80 = tail call double @cos(double noundef %.0) #11, !tbaa !3
+  %81 = fmul double %.015, %80
+  %82 = tail call double @sin(double noundef %.0) #11, !tbaa !3
+  %83 = fmul double %.015, %82
+  br label %85
 
-math_error.exit.i:                                ; preds = %if.end17.i
-  store i32 33, ptr %call.i, align 4
-  %20 = load ptr, ptr @PyExc_ValueError, align 8
-  tail call void @PyErr_SetString(ptr noundef %20, ptr noundef nonnull @.str.24) #10
-  br label %exit
+math_error.exit.i:                                ; preds = %73
+  store i32 33, ptr %28, align 4, !tbaa !3
+  %84 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !9
+  tail call void @PyErr_SetString(ptr noundef %84, ptr noundef nonnull @.str.25) #11
+  br label %cmath_rect_impl.exit
 
-if.else48.i:                                      ; preds = %if.else34.i, %if.then30.i, %if.end17.i
-  %z.sroa.6.1.ph.i = phi double [ %mul39.i, %if.else34.i ], [ %mul.i, %if.then30.i ], [ %z.sroa.6.0.i, %if.end17.i ]
-  %z.sroa.0.1.ph.i = phi double [ %mul36.i, %if.else34.i ], [ %r.0, %if.then30.i ], [ %z.sroa.0.0.i, %if.end17.i ]
-  store i32 0, ptr %call.i, align 4
-  %call49.i = tail call ptr @PyComplex_FromCComplex(double %z.sroa.0.1.ph.i, double %z.sroa.6.1.ph.i) #10
-  br label %exit
+85:                                               ; preds = %79, %77, %73
+  %.sroa.8.1.ph.i = phi double [ %83, %79 ], [ %78, %77 ], [ %.sroa.8.0.i, %73 ]
+  %.sroa.0.1.ph.i = phi double [ %81, %79 ], [ %.015, %77 ], [ %.sroa.0.0.i, %73 ]
+  store i32 0, ptr %28, align 4, !tbaa !3
+  %86 = tail call ptr @PyComplex_FromCComplex(double %.sroa.0.1.ph.i, double %.sroa.8.1.ph.i) #11
+  br label %cmath_rect_impl.exit
 
-exit:                                             ; preds = %if.else48.i, %math_error.exit.i, %land.lhs.true26, %land.lhs.true10, %lor.lhs.false
-  %return_value.0 = phi ptr [ null, %land.lhs.true26 ], [ null, %land.lhs.true10 ], [ null, %lor.lhs.false ], [ null, %math_error.exit.i ], [ %call49.i, %if.else48.i ]
-  ret ptr %return_value.0
+cmath_rect_impl.exit:                             ; preds = %85, %math_error.exit.i, %25, %14, %4
+  %.016 = phi ptr [ null, %25 ], [ null, %14 ], [ null, %4 ], [ null, %math_error.exit.i ], [ %86, %85 ]
+  ret ptr %.016
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @cmath_sin(ptr readnone captures(none) %module, ptr noundef %arg) #0 {
-entry:
-  %call = tail call { double, double } @PyComplex_AsCComplex(ptr noundef %arg) #10
-  %call1 = tail call ptr @PyErr_Occurred() #10
-  %tobool.not = icmp eq ptr %call1, null
-  br i1 %tobool.not, label %if.end, label %exit
+define internal ptr @cmath_sin(ptr readnone captures(none) %0, ptr noundef %1) #0 {
+  %3 = tail call { double, double } @PyComplex_AsCComplex(ptr noundef %1) #11
+  %4 = tail call ptr @PyErr_Occurred() #11
+  %.not = icmp eq ptr %4, null
+  br i1 %.not, label %5, label %21
 
-if.end:                                           ; preds = %entry
-  %0 = extractvalue { double, double } %call, 1
-  %1 = extractvalue { double, double } %call, 0
-  %call2 = tail call ptr @__errno_location() #11
-  store i32 0, ptr %call2, align 4
-  %fneg.i = fneg double %0
-  %call.i = tail call fastcc { double, double } @cmath_sinh_impl(double %fneg.i, double %1)
-  %2 = load i32, ptr %call2, align 4
-  switch i32 %2, label %if.else10 [
-    i32 33, label %if.then6
-    i32 34, label %if.then9
+5:                                                ; preds = %2
+  %6 = extractvalue { double, double } %3, 1
+  %7 = extractvalue { double, double } %3, 0
+  %8 = tail call ptr @__errno_location() #12
+  store i32 0, ptr %8, align 4, !tbaa !3
+  %9 = fneg double %6
+  %10 = tail call fastcc { double, double } @cmath_sinh_impl(double %9, double %7)
+  %11 = load i32, ptr %8, align 4, !tbaa !3
+  switch i32 %11, label %16 [
+    i32 33, label %12
+    i32 34, label %14
   ]
 
-if.then6:                                         ; preds = %if.end
-  %3 = load ptr, ptr @PyExc_ValueError, align 8
-  tail call void @PyErr_SetString(ptr noundef %3, ptr noundef nonnull @.str.24) #10
-  br label %exit
+12:                                               ; preds = %5
+  %13 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !9
+  tail call void @PyErr_SetString(ptr noundef %13, ptr noundef nonnull @.str.25) #11
+  br label %21
 
-if.then9:                                         ; preds = %if.end
-  %4 = load ptr, ptr @PyExc_OverflowError, align 8
-  tail call void @PyErr_SetString(ptr noundef %4, ptr noundef nonnull @.str.25) #10
-  br label %exit
+14:                                               ; preds = %5
+  %15 = load ptr, ptr @PyExc_OverflowError, align 8, !tbaa !9
+  tail call void @PyErr_SetString(ptr noundef %15, ptr noundef nonnull @.str.26) #11
+  br label %21
 
-if.else10:                                        ; preds = %if.end
-  %5 = extractvalue { double, double } %call.i, 0
-  %fneg6.i = fneg double %5
-  %6 = extractvalue { double, double } %call.i, 1
-  %call11 = tail call ptr @PyComplex_FromCComplex(double %6, double %fneg6.i) #10
-  br label %exit
+16:                                               ; preds = %5
+  %17 = extractvalue { double, double } %10, 0
+  %18 = fneg double %17
+  %19 = extractvalue { double, double } %10, 1
+  %20 = tail call ptr @PyComplex_FromCComplex(double %19, double %18) #11
+  br label %21
 
-exit:                                             ; preds = %entry, %if.else10, %if.then9, %if.then6
-  %return_value.0 = phi ptr [ null, %entry ], [ null, %if.then6 ], [ null, %if.then9 ], [ %call11, %if.else10 ]
-  ret ptr %return_value.0
+21:                                               ; preds = %2, %16, %14, %12
+  %.0 = phi ptr [ null, %2 ], [ null, %12 ], [ null, %14 ], [ %20, %16 ]
+  ret ptr %.0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @cmath_sinh(ptr readnone captures(none) %module, ptr noundef %arg) #0 {
-entry:
-  %call = tail call { double, double } @PyComplex_AsCComplex(ptr noundef %arg) #10
-  %call1 = tail call ptr @PyErr_Occurred() #10
-  %tobool.not = icmp eq ptr %call1, null
-  br i1 %tobool.not, label %if.end, label %exit
+define internal ptr @cmath_sinh(ptr readnone captures(none) %0, ptr noundef %1) #0 {
+  %3 = tail call { double, double } @PyComplex_AsCComplex(ptr noundef %1) #11
+  %4 = tail call ptr @PyErr_Occurred() #11
+  %.not = icmp eq ptr %4, null
+  br i1 %.not, label %5, label %19
 
-if.end:                                           ; preds = %entry
-  %0 = extractvalue { double, double } %call, 1
-  %1 = extractvalue { double, double } %call, 0
-  %call2 = tail call ptr @__errno_location() #11
-  store i32 0, ptr %call2, align 4
-  %call4 = tail call fastcc { double, double } @cmath_sinh_impl(double %1, double %0)
-  %2 = load i32, ptr %call2, align 4
-  switch i32 %2, label %if.else10 [
-    i32 33, label %if.then6
-    i32 34, label %if.then9
+5:                                                ; preds = %2
+  %6 = extractvalue { double, double } %3, 1
+  %7 = extractvalue { double, double } %3, 0
+  %8 = tail call ptr @__errno_location() #12
+  store i32 0, ptr %8, align 4, !tbaa !3
+  %9 = tail call fastcc { double, double } @cmath_sinh_impl(double %7, double %6)
+  %10 = load i32, ptr %8, align 4, !tbaa !3
+  switch i32 %10, label %15 [
+    i32 33, label %11
+    i32 34, label %13
   ]
 
-if.then6:                                         ; preds = %if.end
-  %3 = load ptr, ptr @PyExc_ValueError, align 8
-  tail call void @PyErr_SetString(ptr noundef %3, ptr noundef nonnull @.str.24) #10
-  br label %exit
+11:                                               ; preds = %5
+  %12 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !9
+  tail call void @PyErr_SetString(ptr noundef %12, ptr noundef nonnull @.str.25) #11
+  br label %19
 
-if.then9:                                         ; preds = %if.end
-  %4 = load ptr, ptr @PyExc_OverflowError, align 8
-  tail call void @PyErr_SetString(ptr noundef %4, ptr noundef nonnull @.str.25) #10
-  br label %exit
+13:                                               ; preds = %5
+  %14 = load ptr, ptr @PyExc_OverflowError, align 8, !tbaa !9
+  tail call void @PyErr_SetString(ptr noundef %14, ptr noundef nonnull @.str.26) #11
+  br label %19
 
-if.else10:                                        ; preds = %if.end
-  %5 = extractvalue { double, double } %call4, 1
-  %6 = extractvalue { double, double } %call4, 0
-  %call11 = tail call ptr @PyComplex_FromCComplex(double %6, double %5) #10
-  br label %exit
+15:                                               ; preds = %5
+  %16 = extractvalue { double, double } %9, 1
+  %17 = extractvalue { double, double } %9, 0
+  %18 = tail call ptr @PyComplex_FromCComplex(double %17, double %16) #11
+  br label %19
 
-exit:                                             ; preds = %entry, %if.else10, %if.then9, %if.then6
-  %return_value.0 = phi ptr [ null, %entry ], [ null, %if.then6 ], [ null, %if.then9 ], [ %call11, %if.else10 ]
-  ret ptr %return_value.0
+19:                                               ; preds = %2, %15, %13, %11
+  %.0 = phi ptr [ null, %2 ], [ null, %11 ], [ null, %13 ], [ %18, %15 ]
+  ret ptr %.0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @cmath_sqrt(ptr readnone captures(none) %module, ptr noundef %arg) #0 {
-entry:
-  %call = tail call { double, double } @PyComplex_AsCComplex(ptr noundef %arg) #10
-  %call1 = tail call ptr @PyErr_Occurred() #10
-  %tobool.not = icmp eq ptr %call1, null
-  br i1 %tobool.not, label %if.end, label %exit
+define internal ptr @cmath_sqrt(ptr readnone captures(none) %0, ptr noundef %1) #0 {
+  %3 = tail call { double, double } @PyComplex_AsCComplex(ptr noundef %1) #11
+  %4 = tail call ptr @PyErr_Occurred() #11
+  %.not = icmp eq ptr %4, null
+  br i1 %.not, label %5, label %19
 
-if.end:                                           ; preds = %entry
-  %0 = extractvalue { double, double } %call, 1
-  %1 = extractvalue { double, double } %call, 0
-  %call2 = tail call ptr @__errno_location() #11
-  store i32 0, ptr %call2, align 4
-  %call4 = tail call fastcc { double, double } @cmath_sqrt_impl(double %1, double %0)
-  %2 = load i32, ptr %call2, align 4
-  switch i32 %2, label %if.else10 [
-    i32 33, label %if.then6
-    i32 34, label %if.then9
+5:                                                ; preds = %2
+  %6 = extractvalue { double, double } %3, 1
+  %7 = extractvalue { double, double } %3, 0
+  %8 = tail call ptr @__errno_location() #12
+  store i32 0, ptr %8, align 4, !tbaa !3
+  %9 = tail call fastcc { double, double } @cmath_sqrt_impl(double %7, double %6)
+  %10 = load i32, ptr %8, align 4, !tbaa !3
+  switch i32 %10, label %15 [
+    i32 33, label %11
+    i32 34, label %13
   ]
 
-if.then6:                                         ; preds = %if.end
-  %3 = load ptr, ptr @PyExc_ValueError, align 8
-  tail call void @PyErr_SetString(ptr noundef %3, ptr noundef nonnull @.str.24) #10
-  br label %exit
+11:                                               ; preds = %5
+  %12 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !9
+  tail call void @PyErr_SetString(ptr noundef %12, ptr noundef nonnull @.str.25) #11
+  br label %19
 
-if.then9:                                         ; preds = %if.end
-  %4 = load ptr, ptr @PyExc_OverflowError, align 8
-  tail call void @PyErr_SetString(ptr noundef %4, ptr noundef nonnull @.str.25) #10
-  br label %exit
+13:                                               ; preds = %5
+  %14 = load ptr, ptr @PyExc_OverflowError, align 8, !tbaa !9
+  tail call void @PyErr_SetString(ptr noundef %14, ptr noundef nonnull @.str.26) #11
+  br label %19
 
-if.else10:                                        ; preds = %if.end
-  %5 = extractvalue { double, double } %call4, 1
-  %6 = extractvalue { double, double } %call4, 0
-  %call11 = tail call ptr @PyComplex_FromCComplex(double %6, double %5) #10
-  br label %exit
+15:                                               ; preds = %5
+  %16 = extractvalue { double, double } %9, 1
+  %17 = extractvalue { double, double } %9, 0
+  %18 = tail call ptr @PyComplex_FromCComplex(double %17, double %16) #11
+  br label %19
 
-exit:                                             ; preds = %entry, %if.else10, %if.then9, %if.then6
-  %return_value.0 = phi ptr [ null, %entry ], [ null, %if.then6 ], [ null, %if.then9 ], [ %call11, %if.else10 ]
-  ret ptr %return_value.0
+19:                                               ; preds = %2, %15, %13, %11
+  %.0 = phi ptr [ null, %2 ], [ null, %11 ], [ null, %13 ], [ %18, %15 ]
+  ret ptr %.0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @cmath_tan(ptr readnone captures(none) %module, ptr noundef %arg) #0 {
-entry:
-  %call = tail call { double, double } @PyComplex_AsCComplex(ptr noundef %arg) #10
-  %call1 = tail call ptr @PyErr_Occurred() #10
-  %tobool.not = icmp eq ptr %call1, null
-  br i1 %tobool.not, label %if.end, label %exit
+define internal ptr @cmath_tan(ptr readnone captures(none) %0, ptr noundef %1) #0 {
+  %3 = tail call { double, double } @PyComplex_AsCComplex(ptr noundef %1) #11
+  %4 = tail call ptr @PyErr_Occurred() #11
+  %.not = icmp eq ptr %4, null
+  br i1 %.not, label %5, label %21
 
-if.end:                                           ; preds = %entry
-  %0 = extractvalue { double, double } %call, 1
-  %1 = extractvalue { double, double } %call, 0
-  %call2 = tail call ptr @__errno_location() #11
-  store i32 0, ptr %call2, align 4
-  %fneg.i = fneg double %0
-  %call.i = tail call fastcc { double, double } @cmath_tanh_impl(double %fneg.i, double %1)
-  %2 = load i32, ptr %call2, align 4
-  switch i32 %2, label %if.else10 [
-    i32 33, label %if.then6
-    i32 34, label %if.then9
+5:                                                ; preds = %2
+  %6 = extractvalue { double, double } %3, 1
+  %7 = extractvalue { double, double } %3, 0
+  %8 = tail call ptr @__errno_location() #12
+  store i32 0, ptr %8, align 4, !tbaa !3
+  %9 = fneg double %6
+  %10 = tail call fastcc { double, double } @cmath_tanh_impl(double %9, double %7)
+  %11 = load i32, ptr %8, align 4, !tbaa !3
+  switch i32 %11, label %16 [
+    i32 33, label %12
+    i32 34, label %14
   ]
 
-if.then6:                                         ; preds = %if.end
-  %3 = load ptr, ptr @PyExc_ValueError, align 8
-  tail call void @PyErr_SetString(ptr noundef %3, ptr noundef nonnull @.str.24) #10
-  br label %exit
+12:                                               ; preds = %5
+  %13 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !9
+  tail call void @PyErr_SetString(ptr noundef %13, ptr noundef nonnull @.str.25) #11
+  br label %21
 
-if.then9:                                         ; preds = %if.end
-  %4 = load ptr, ptr @PyExc_OverflowError, align 8
-  tail call void @PyErr_SetString(ptr noundef %4, ptr noundef nonnull @.str.25) #10
-  br label %exit
+14:                                               ; preds = %5
+  %15 = load ptr, ptr @PyExc_OverflowError, align 8, !tbaa !9
+  tail call void @PyErr_SetString(ptr noundef %15, ptr noundef nonnull @.str.26) #11
+  br label %21
 
-if.else10:                                        ; preds = %if.end
-  %5 = extractvalue { double, double } %call.i, 0
-  %fneg6.i = fneg double %5
-  %6 = extractvalue { double, double } %call.i, 1
-  %call11 = tail call ptr @PyComplex_FromCComplex(double %6, double %fneg6.i) #10
-  br label %exit
+16:                                               ; preds = %5
+  %17 = extractvalue { double, double } %10, 0
+  %18 = fneg double %17
+  %19 = extractvalue { double, double } %10, 1
+  %20 = tail call ptr @PyComplex_FromCComplex(double %19, double %18) #11
+  br label %21
 
-exit:                                             ; preds = %entry, %if.else10, %if.then9, %if.then6
-  %return_value.0 = phi ptr [ null, %entry ], [ null, %if.then6 ], [ null, %if.then9 ], [ %call11, %if.else10 ]
-  ret ptr %return_value.0
+21:                                               ; preds = %2, %16, %14, %12
+  %.0 = phi ptr [ null, %2 ], [ null, %12 ], [ null, %14 ], [ %20, %16 ]
+  ret ptr %.0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @cmath_tanh(ptr readnone captures(none) %module, ptr noundef %arg) #0 {
-entry:
-  %call = tail call { double, double } @PyComplex_AsCComplex(ptr noundef %arg) #10
-  %call1 = tail call ptr @PyErr_Occurred() #10
-  %tobool.not = icmp eq ptr %call1, null
-  br i1 %tobool.not, label %if.end, label %exit
+define internal ptr @cmath_tanh(ptr readnone captures(none) %0, ptr noundef %1) #0 {
+  %3 = tail call { double, double } @PyComplex_AsCComplex(ptr noundef %1) #11
+  %4 = tail call ptr @PyErr_Occurred() #11
+  %.not = icmp eq ptr %4, null
+  br i1 %.not, label %5, label %19
 
-if.end:                                           ; preds = %entry
-  %0 = extractvalue { double, double } %call, 1
-  %1 = extractvalue { double, double } %call, 0
-  %call2 = tail call ptr @__errno_location() #11
-  store i32 0, ptr %call2, align 4
-  %call4 = tail call fastcc { double, double } @cmath_tanh_impl(double %1, double %0)
-  %2 = load i32, ptr %call2, align 4
-  switch i32 %2, label %if.else10 [
-    i32 33, label %if.then6
-    i32 34, label %if.then9
+5:                                                ; preds = %2
+  %6 = extractvalue { double, double } %3, 1
+  %7 = extractvalue { double, double } %3, 0
+  %8 = tail call ptr @__errno_location() #12
+  store i32 0, ptr %8, align 4, !tbaa !3
+  %9 = tail call fastcc { double, double } @cmath_tanh_impl(double %7, double %6)
+  %10 = load i32, ptr %8, align 4, !tbaa !3
+  switch i32 %10, label %15 [
+    i32 33, label %11
+    i32 34, label %13
   ]
 
-if.then6:                                         ; preds = %if.end
-  %3 = load ptr, ptr @PyExc_ValueError, align 8
-  tail call void @PyErr_SetString(ptr noundef %3, ptr noundef nonnull @.str.24) #10
-  br label %exit
+11:                                               ; preds = %5
+  %12 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !9
+  tail call void @PyErr_SetString(ptr noundef %12, ptr noundef nonnull @.str.25) #11
+  br label %19
 
-if.then9:                                         ; preds = %if.end
-  %4 = load ptr, ptr @PyExc_OverflowError, align 8
-  tail call void @PyErr_SetString(ptr noundef %4, ptr noundef nonnull @.str.25) #10
-  br label %exit
+13:                                               ; preds = %5
+  %14 = load ptr, ptr @PyExc_OverflowError, align 8, !tbaa !9
+  tail call void @PyErr_SetString(ptr noundef %14, ptr noundef nonnull @.str.26) #11
+  br label %19
 
-if.else10:                                        ; preds = %if.end
-  %5 = extractvalue { double, double } %call4, 1
-  %6 = extractvalue { double, double } %call4, 0
-  %call11 = tail call ptr @PyComplex_FromCComplex(double %6, double %5) #10
-  br label %exit
+15:                                               ; preds = %5
+  %16 = extractvalue { double, double } %9, 1
+  %17 = extractvalue { double, double } %9, 0
+  %18 = tail call ptr @PyComplex_FromCComplex(double %17, double %16) #11
+  br label %19
 
-exit:                                             ; preds = %entry, %if.else10, %if.then9, %if.then6
-  %return_value.0 = phi ptr [ null, %entry ], [ null, %if.then6 ], [ null, %if.then9 ], [ %call11, %if.else10 ]
-  ret ptr %return_value.0
+19:                                               ; preds = %2, %15, %13, %11
+  %.0 = phi ptr [ null, %2 ], [ null, %11 ], [ null, %13 ], [ %18, %15 ]
+  ret ptr %.0
 }
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
 declare { double, double } @PyComplex_AsCComplex(ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 declare ptr @PyErr_Occurred() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare ptr @__errno_location() local_unnamed_addr #2
+declare ptr @__errno_location() local_unnamed_addr #3
 
 declare void @PyErr_SetString(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 declare ptr @PyComplex_FromCComplex(double, double) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i1 @llvm.is.fpclass.f64(double, i32 immarg) #3
+declare i1 @llvm.is.fpclass.f64(double, i32 immarg) #4
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fabs.f64(double) #3
+declare double @llvm.fabs.f64(double) #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
-declare double @atan2(double noundef, double noundef) local_unnamed_addr #4
+declare double @atan2(double noundef, double noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
-declare double @log(double noundef) local_unnamed_addr #4
+declare double @log(double noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
-declare double @hypot(double noundef, double noundef) local_unnamed_addr #4
+declare double @hypot(double noundef, double noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.copysign.f64(double, double) #3
+declare double @llvm.copysign.f64(double, double) #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn uwtable
-define internal fastcc { double, double } @cmath_sqrt_impl(double %z.coerce0, double %z.coerce1) unnamed_addr #5 {
-entry:
-  %0 = tail call double @llvm.fabs.f64(double %z.coerce0)
-  %1 = fcmp ueq double %0, 0x7FF0000000000000
-  %2 = tail call double @llvm.fabs.f64(double %z.coerce1)
-  %3 = fcmp ueq double %2, 0x7FF0000000000000
-  %or.cond29 = select i1 %1, i1 true, i1 %3
-  br i1 %or.cond29, label %if.then, label %if.end
+define internal fastcc { double, double } @cmath_sqrt_impl(double %0, double %1) unnamed_addr #6 {
+  %3 = tail call double @llvm.fabs.f64(double %0)
+  %4 = fcmp ueq double %3, 0x7FF0000000000000
+  %5 = tail call double @llvm.fabs.f64(double %1)
+  %6 = fcmp ueq double %5, 0x7FF0000000000000
+  %or.cond39 = select i1 %4, i1 true, i1 %6
+  br i1 %or.cond39, label %7, label %32
 
-if.then:                                          ; preds = %entry
-  %call = tail call ptr @__errno_location() #11
-  store i32 0, ptr %call, align 4
-  br i1 %1, label %if.end.i, label %if.then.i
+7:                                                ; preds = %2
+  %8 = tail call ptr @__errno_location() #12
+  store i32 0, ptr %8, align 4, !tbaa !3
+  br i1 %4, label %15, label %9
 
-if.then.i:                                        ; preds = %if.then
-  %cmp.i = fcmp une double %z.coerce0, 0.000000e+00
-  %4 = tail call double @llvm.copysign.f64(double 1.000000e+00, double %z.coerce0)
-  %cmp2.i = fcmp oeq double %4, 1.000000e+00
-  br i1 %cmp.i, label %if.then1.i, label %if.else4.i
+9:                                                ; preds = %7
+  %10 = fcmp une double %0, 0.000000e+00
+  %11 = tail call double @llvm.copysign.f64(double 1.000000e+00, double %0)
+  %12 = fcmp oeq double %11, 1.000000e+00
+  br i1 %10, label %13, label %14
 
-if.then1.i:                                       ; preds = %if.then.i
-  %..i = select i1 %cmp2.i, i64 4, i64 1
+13:                                               ; preds = %9
+  %..i = select i1 %12, i64 4, i64 1
   br label %special_type.exit
 
-if.else4.i:                                       ; preds = %if.then.i
-  %.6.i = select i1 %cmp2.i, i64 3, i64 2
+14:                                               ; preds = %9
+  %.7.i = select i1 %12, i64 3, i64 2
   br label %special_type.exit
 
-if.end.i:                                         ; preds = %if.then
-  %5 = fcmp uno double %z.coerce0, 0.000000e+00
-  br i1 %5, label %special_type.exit, label %if.end9.i
+15:                                               ; preds = %7
+  %16 = fcmp uno double %0, 0.000000e+00
+  br i1 %16, label %special_type.exit, label %17
 
-if.end9.i:                                        ; preds = %if.end.i
-  %6 = tail call double @llvm.copysign.f64(double 1.000000e+00, double %z.coerce0)
-  %cmp10.i = fcmp oeq double %6, 1.000000e+00
-  %.7.i = select i1 %cmp10.i, i64 5, i64 0
+17:                                               ; preds = %15
+  %18 = tail call double @llvm.copysign.f64(double 1.000000e+00, double %0)
+  %19 = fcmp oeq double %18, 1.000000e+00
+  %.8.i = select i1 %19, i64 5, i64 0
   br label %special_type.exit
 
-special_type.exit:                                ; preds = %if.then1.i, %if.else4.i, %if.end.i, %if.end9.i
-  %retval.0.i = phi i64 [ %..i, %if.then1.i ], [ %.6.i, %if.else4.i ], [ 6, %if.end.i ], [ %.7.i, %if.end9.i ]
-  br i1 %3, label %if.end.i38, label %if.then.i30
+special_type.exit:                                ; preds = %13, %14, %15, %17
+  %.0.i = phi i64 [ %..i, %13 ], [ %.7.i, %14 ], [ 6, %15 ], [ %.8.i, %17 ]
+  br i1 %6, label %26, label %20
 
-if.then.i30:                                      ; preds = %special_type.exit
-  %cmp.i31 = fcmp une double %z.coerce1, 0.000000e+00
-  %7 = tail call double @llvm.copysign.f64(double 1.000000e+00, double %z.coerce1)
-  %cmp2.i32 = fcmp oeq double %7, 1.000000e+00
-  br i1 %cmp.i31, label %if.then1.i36, label %if.else4.i33
+20:                                               ; preds = %special_type.exit
+  %21 = fcmp une double %1, 0.000000e+00
+  %22 = tail call double @llvm.copysign.f64(double 1.000000e+00, double %1)
+  %23 = fcmp oeq double %22, 1.000000e+00
+  br i1 %21, label %24, label %25
 
-if.then1.i36:                                     ; preds = %if.then.i30
-  %..i37 = select i1 %cmp2.i32, i64 4, i64 1
-  br label %special_type.exit42
+24:                                               ; preds = %20
+  %..i42 = select i1 %23, i64 4, i64 1
+  br label %special_type.exit44
 
-if.else4.i33:                                     ; preds = %if.then.i30
-  %.6.i34 = select i1 %cmp2.i32, i64 3, i64 2
-  br label %special_type.exit42
+25:                                               ; preds = %20
+  %.7.i40 = select i1 %23, i64 3, i64 2
+  br label %special_type.exit44
 
-if.end.i38:                                       ; preds = %special_type.exit
-  %8 = fcmp uno double %z.coerce1, 0.000000e+00
-  br i1 %8, label %special_type.exit42, label %if.end9.i39
+26:                                               ; preds = %special_type.exit
+  %27 = fcmp uno double %1, 0.000000e+00
+  br i1 %27, label %special_type.exit44, label %28
 
-if.end9.i39:                                      ; preds = %if.end.i38
-  %9 = tail call double @llvm.copysign.f64(double 1.000000e+00, double %z.coerce1)
-  %cmp10.i40 = fcmp oeq double %9, 1.000000e+00
-  %.7.i41 = select i1 %cmp10.i40, i64 5, i64 0
-  br label %special_type.exit42
+28:                                               ; preds = %26
+  %29 = tail call double @llvm.copysign.f64(double 1.000000e+00, double %1)
+  %30 = fcmp oeq double %29, 1.000000e+00
+  %.8.i43 = select i1 %30, i64 5, i64 0
+  br label %special_type.exit44
 
-special_type.exit42:                              ; preds = %if.then1.i36, %if.else4.i33, %if.end.i38, %if.end9.i39
-  %retval.0.i35 = phi i64 [ %..i37, %if.then1.i36 ], [ %.6.i34, %if.else4.i33 ], [ 6, %if.end.i38 ], [ %.7.i41, %if.end9.i39 ]
-  %arrayidx6 = getelementptr [7 x [7 x %struct.Py_complex]], ptr @sqrt_special_values, i64 0, i64 %retval.0.i, i64 %retval.0.i35
-  %retval.sroa.0.0.copyload = load double, ptr %arrayidx6, align 16
-  %retval.sroa.4.0.arrayidx6.sroa_idx = getelementptr inbounds nuw i8, ptr %arrayidx6, i64 8
-  %retval.sroa.4.0.copyload = load double, ptr %retval.sroa.4.0.arrayidx6.sroa_idx, align 8
-  br label %return
+special_type.exit44:                              ; preds = %24, %25, %26, %28
+  %.0.i41 = phi i64 [ %..i42, %24 ], [ %.7.i40, %25 ], [ 6, %26 ], [ %.8.i43, %28 ]
+  %31 = getelementptr [7 x [7 x %struct.Py_complex]], ptr @sqrt_special_values, i64 0, i64 %.0.i, i64 %.0.i41
+  %.sroa.034.0.copyload = load double, ptr %31, align 16, !tbaa !7
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %31, i64 8
+  %.sroa.4.0.copyload = load double, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !7
+  br label %59
 
-if.end:                                           ; preds = %entry
-  %cmp = fcmp oeq double %z.coerce0, 0.000000e+00
-  %cmp9 = fcmp oeq double %z.coerce1, 0.000000e+00
-  %or.cond = select i1 %cmp, i1 %cmp9, i1 false
-  br i1 %or.cond, label %return, label %if.end14
+32:                                               ; preds = %2
+  %33 = fcmp oeq double %0, 0.000000e+00
+  %34 = fcmp oeq double %1, 0.000000e+00
+  %or.cond = select i1 %33, i1 %34, i1 false
+  br i1 %or.cond, label %59, label %35
 
-if.end14:                                         ; preds = %if.end
-  %cmp17 = fcmp olt double %0, 0x10000000000000
-  %cmp19 = fcmp olt double %2, 0x10000000000000
-  %or.cond1 = select i1 %cmp17, i1 %cmp19, i1 false
-  br i1 %or.cond1, label %if.then20, label %if.else
+35:                                               ; preds = %32
+  %36 = fcmp olt double %3, 0x10000000000000
+  %37 = fcmp olt double %5, 0x10000000000000
+  %or.cond4 = select i1 %36, i1 %37, i1 false
+  br i1 %or.cond4, label %38, label %45
 
-if.then20:                                        ; preds = %if.end14
-  %call21 = tail call double @ldexp(double noundef %0, i32 noundef 53) #10
-  %call22 = tail call double @ldexp(double noundef %2, i32 noundef 53) #10
-  %call23 = tail call double @hypot(double noundef %call21, double noundef %call22) #10
-  %add = fadd double %call21, %call23
-  %call24 = tail call double @sqrt(double noundef %add) #10
-  %call25 = tail call double @ldexp(double noundef %call24, i32 noundef -27) #10
-  br label %if.end30
+38:                                               ; preds = %35
+  %39 = tail call double @ldexp(double noundef %3, i32 noundef 53) #11, !tbaa !3
+  %40 = tail call double @ldexp(double noundef %5, i32 noundef 53) #11, !tbaa !3
+  %41 = tail call double @hypot(double noundef %39, double noundef %40) #11, !tbaa !3
+  %42 = fadd double %39, %41
+  %43 = tail call double @sqrt(double noundef %42) #11, !tbaa !3
+  %44 = tail call double @ldexp(double noundef %43, i32 noundef -27) #11, !tbaa !3
+  br label %52
 
-if.else:                                          ; preds = %if.end14
-  %div = fmul double %0, 1.250000e-01
-  %div26 = fmul double %2, 1.250000e-01
-  %call27 = tail call double @hypot(double noundef %div, double noundef %div26) #10
-  %add28 = fadd double %div, %call27
-  %call29 = tail call double @sqrt(double noundef %add28) #10
-  %mul = fmul double %call29, 2.000000e+00
-  br label %if.end30
+45:                                               ; preds = %35
+  %46 = fmul double %3, 1.250000e-01
+  %47 = fmul double %5, 1.250000e-01
+  %48 = tail call double @hypot(double noundef %46, double noundef %47) #11, !tbaa !3
+  %49 = fadd double %46, %48
+  %50 = tail call double @sqrt(double noundef %49) #11, !tbaa !3
+  %51 = fmul double %50, 2.000000e+00
+  br label %52
 
-if.end30:                                         ; preds = %if.else, %if.then20
-  %s.0 = phi double [ %call25, %if.then20 ], [ %mul, %if.else ]
-  %mul31 = fmul double %s.0, 2.000000e+00
-  %div32 = fdiv double %2, %mul31
-  %cmp34 = fcmp ult double %z.coerce0, 0.000000e+00
-  %10 = tail call double @llvm.copysign.f64(double %div32, double %z.coerce1)
-  %11 = tail call double @llvm.copysign.f64(double %s.0, double %z.coerce1)
-  %r.sroa.5.0 = select i1 %cmp34, double %11, double %10
-  %r.sroa.0.0 = select i1 %cmp34, double %div32, double %s.0
-  %call44 = tail call ptr @__errno_location() #11
-  store i32 0, ptr %call44, align 4
-  br label %return
+52:                                               ; preds = %45, %38
+  %.0 = phi double [ %44, %38 ], [ %51, %45 ]
+  %53 = fmul double %.0, 2.000000e+00
+  %54 = fdiv double %5, %53
+  %55 = fcmp ult double %0, 0.000000e+00
+  %56 = tail call double @llvm.copysign.f64(double %54, double %1)
+  %57 = tail call double @llvm.copysign.f64(double %.0, double %1)
+  %.sroa.7.0 = select i1 %55, double %57, double %56
+  %.sroa.0.0 = select i1 %55, double %54, double %.0
+  %58 = tail call ptr @__errno_location() #12
+  store i32 0, ptr %58, align 4, !tbaa !3
+  br label %59
 
-return:                                           ; preds = %if.end, %if.end30, %special_type.exit42
-  %retval.sroa.0.0 = phi double [ %r.sroa.0.0, %if.end30 ], [ %retval.sroa.0.0.copyload, %special_type.exit42 ], [ 0.000000e+00, %if.end ]
-  %retval.sroa.4.0 = phi double [ %r.sroa.5.0, %if.end30 ], [ %retval.sroa.4.0.copyload, %special_type.exit42 ], [ %z.coerce1, %if.end ]
-  %.fca.0.insert = insertvalue { double, double } poison, double %retval.sroa.0.0, 0
-  %.fca.1.insert = insertvalue { double, double } %.fca.0.insert, double %retval.sroa.4.0, 1
+59:                                               ; preds = %32, %52, %special_type.exit44
+  %.sroa.034.0 = phi double [ %.sroa.0.0, %52 ], [ %.sroa.034.0.copyload, %special_type.exit44 ], [ 0.000000e+00, %32 ]
+  %.sroa.4.0 = phi double [ %.sroa.7.0, %52 ], [ %.sroa.4.0.copyload, %special_type.exit44 ], [ %1, %32 ]
+  %.fca.0.insert = insertvalue { double, double } poison, double %.sroa.034.0, 0
+  %.fca.1.insert = insertvalue { double, double } %.fca.0.insert, double %.sroa.4.0, 1
   ret { double, double } %.fca.1.insert
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
-declare double @asinh(double noundef) local_unnamed_addr #4
+declare double @asinh(double noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fmuladd.f64(double, double, double) #3
+declare double @llvm.fmuladd.f64(double, double, double) #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare double @ldexp(double noundef, i32 noundef) local_unnamed_addr #6
+declare double @ldexp(double noundef, i32 noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
-declare double @sqrt(double noundef) local_unnamed_addr #4
+declare double @sqrt(double noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nounwind willreturn uwtable
-define internal fastcc { double, double } @cmath_asinh_impl(double %z.coerce0, double %z.coerce1) unnamed_addr #5 {
-entry:
-  %0 = tail call double @llvm.fabs.f64(double %z.coerce0)
-  %1 = fcmp ueq double %0, 0x7FF0000000000000
-  %2 = tail call double @llvm.fabs.f64(double %z.coerce1)
-  %3 = fcmp ueq double %2, 0x7FF0000000000000
-  %or.cond = select i1 %1, i1 true, i1 %3
-  br i1 %or.cond, label %if.then, label %if.end
+define internal fastcc { double, double } @cmath_asinh_impl(double %0, double %1) unnamed_addr #6 {
+  %3 = tail call double @llvm.fabs.f64(double %0)
+  %4 = fcmp ueq double %3, 0x7FF0000000000000
+  %5 = tail call double @llvm.fabs.f64(double %1)
+  %6 = fcmp ueq double %5, 0x7FF0000000000000
+  %or.cond = select i1 %4, i1 true, i1 %6
+  br i1 %or.cond, label %7, label %32
 
-if.then:                                          ; preds = %entry
-  %call = tail call ptr @__errno_location() #11
-  store i32 0, ptr %call, align 4
-  br i1 %1, label %if.end.i, label %if.then.i
+7:                                                ; preds = %2
+  %8 = tail call ptr @__errno_location() #12
+  store i32 0, ptr %8, align 4, !tbaa !3
+  br i1 %4, label %15, label %9
 
-if.then.i:                                        ; preds = %if.then
-  %cmp.i = fcmp une double %z.coerce0, 0.000000e+00
-  %4 = tail call double @llvm.copysign.f64(double 1.000000e+00, double %z.coerce0)
-  %cmp2.i = fcmp oeq double %4, 1.000000e+00
-  br i1 %cmp.i, label %if.then1.i, label %if.else4.i
+9:                                                ; preds = %7
+  %10 = fcmp une double %0, 0.000000e+00
+  %11 = tail call double @llvm.copysign.f64(double 1.000000e+00, double %0)
+  %12 = fcmp oeq double %11, 1.000000e+00
+  br i1 %10, label %13, label %14
 
-if.then1.i:                                       ; preds = %if.then.i
-  %..i = select i1 %cmp2.i, i64 4, i64 1
+13:                                               ; preds = %9
+  %..i = select i1 %12, i64 4, i64 1
   br label %special_type.exit
 
-if.else4.i:                                       ; preds = %if.then.i
-  %.6.i = select i1 %cmp2.i, i64 3, i64 2
+14:                                               ; preds = %9
+  %.7.i = select i1 %12, i64 3, i64 2
   br label %special_type.exit
 
-if.end.i:                                         ; preds = %if.then
-  %5 = fcmp uno double %z.coerce0, 0.000000e+00
-  br i1 %5, label %special_type.exit, label %if.end9.i
+15:                                               ; preds = %7
+  %16 = fcmp uno double %0, 0.000000e+00
+  br i1 %16, label %special_type.exit, label %17
 
-if.end9.i:                                        ; preds = %if.end.i
-  %6 = tail call double @llvm.copysign.f64(double 1.000000e+00, double %z.coerce0)
-  %cmp10.i = fcmp oeq double %6, 1.000000e+00
-  %.7.i = select i1 %cmp10.i, i64 5, i64 0
+17:                                               ; preds = %15
+  %18 = tail call double @llvm.copysign.f64(double 1.000000e+00, double %0)
+  %19 = fcmp oeq double %18, 1.000000e+00
+  %.8.i = select i1 %19, i64 5, i64 0
   br label %special_type.exit
 
-special_type.exit:                                ; preds = %if.then1.i, %if.else4.i, %if.end.i, %if.end9.i
-  %retval.0.i = phi i64 [ %..i, %if.then1.i ], [ %.6.i, %if.else4.i ], [ 6, %if.end.i ], [ %.7.i, %if.end9.i ]
-  br i1 %3, label %if.end.i38, label %if.then.i30
+special_type.exit:                                ; preds = %13, %14, %15, %17
+  %.0.i = phi i64 [ %..i, %13 ], [ %.7.i, %14 ], [ 6, %15 ], [ %.8.i, %17 ]
+  br i1 %6, label %26, label %20
 
-if.then.i30:                                      ; preds = %special_type.exit
-  %cmp.i31 = fcmp une double %z.coerce1, 0.000000e+00
-  %7 = tail call double @llvm.copysign.f64(double 1.000000e+00, double %z.coerce1)
-  %cmp2.i32 = fcmp oeq double %7, 1.000000e+00
-  br i1 %cmp.i31, label %if.then1.i36, label %if.else4.i33
+20:                                               ; preds = %special_type.exit
+  %21 = fcmp une double %1, 0.000000e+00
+  %22 = tail call double @llvm.copysign.f64(double 1.000000e+00, double %1)
+  %23 = fcmp oeq double %22, 1.000000e+00
+  br i1 %21, label %24, label %25
 
-if.then1.i36:                                     ; preds = %if.then.i30
-  %..i37 = select i1 %cmp2.i32, i64 4, i64 1
-  br label %special_type.exit42
+24:                                               ; preds = %20
+  %..i41 = select i1 %23, i64 4, i64 1
+  br label %special_type.exit43
 
-if.else4.i33:                                     ; preds = %if.then.i30
-  %.6.i34 = select i1 %cmp2.i32, i64 3, i64 2
-  br label %special_type.exit42
+25:                                               ; preds = %20
+  %.7.i39 = select i1 %23, i64 3, i64 2
+  br label %special_type.exit43
 
-if.end.i38:                                       ; preds = %special_type.exit
-  %8 = fcmp uno double %z.coerce1, 0.000000e+00
-  br i1 %8, label %special_type.exit42, label %if.end9.i39
+26:                                               ; preds = %special_type.exit
+  %27 = fcmp uno double %1, 0.000000e+00
+  br i1 %27, label %special_type.exit43, label %28
 
-if.end9.i39:                                      ; preds = %if.end.i38
-  %9 = tail call double @llvm.copysign.f64(double 1.000000e+00, double %z.coerce1)
-  %cmp10.i40 = fcmp oeq double %9, 1.000000e+00
-  %.7.i41 = select i1 %cmp10.i40, i64 5, i64 0
-  br label %special_type.exit42
+28:                                               ; preds = %26
+  %29 = tail call double @llvm.copysign.f64(double 1.000000e+00, double %1)
+  %30 = fcmp oeq double %29, 1.000000e+00
+  %.8.i42 = select i1 %30, i64 5, i64 0
+  br label %special_type.exit43
 
-special_type.exit42:                              ; preds = %if.then1.i36, %if.else4.i33, %if.end.i38, %if.end9.i39
-  %retval.0.i35 = phi i64 [ %..i37, %if.then1.i36 ], [ %.6.i34, %if.else4.i33 ], [ 6, %if.end.i38 ], [ %.7.i41, %if.end9.i39 ]
-  %arrayidx6 = getelementptr [7 x [7 x %struct.Py_complex]], ptr @asinh_special_values, i64 0, i64 %retval.0.i, i64 %retval.0.i35
-  %retval.sroa.0.0.copyload = load double, ptr %arrayidx6, align 16
-  %retval.sroa.3.0.arrayidx6.sroa_idx = getelementptr inbounds nuw i8, ptr %arrayidx6, i64 8
-  %retval.sroa.3.0.copyload = load double, ptr %retval.sroa.3.0.arrayidx6.sroa_idx, align 8
-  br label %return
+special_type.exit43:                              ; preds = %24, %25, %26, %28
+  %.0.i40 = phi i64 [ %..i41, %24 ], [ %.7.i39, %25 ], [ 6, %26 ], [ %.8.i42, %28 ]
+  %31 = getelementptr [7 x [7 x %struct.Py_complex]], ptr @asinh_special_values, i64 0, i64 %.0.i, i64 %.0.i40
+  %.sroa.035.0.copyload = load double, ptr %31, align 16, !tbaa !7
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %31, i64 8
+  %.sroa.3.0.copyload = load double, ptr %.sroa.3.0..sroa_idx, align 8, !tbaa !7
+  br label %62
 
-if.end:                                           ; preds = %entry
-  %cmp = fcmp ogt double %0, 0x7FCFFFFFFFFFFFFF
-  %cmp10 = fcmp ogt double %2, 0x7FCFFFFFFFFFFFFF
-  %or.cond29 = select i1 %cmp, i1 true, i1 %cmp10
-  br i1 %or.cond29, label %if.then11, label %if.else37
+32:                                               ; preds = %2
+  %33 = fcmp ogt double %3, 0x7FCFFFFFFFFFFFFF
+  %34 = fcmp ogt double %5, 0x7FCFFFFFFFFFFFFF
+  %or.cond38 = select i1 %33, i1 true, i1 %34
+  br i1 %or.cond38, label %35, label %42
 
-if.then11:                                        ; preds = %if.end
-  %div23 = fmul double %z.coerce0, 5.000000e-01
-  %div25 = fmul double %z.coerce1, 5.000000e-01
-  %call26 = tail call double @hypot(double noundef %div23, double noundef %div25) #10
-  %call27 = tail call double @log(double noundef %call26) #10
-  %add28 = fadd double %call27, 0x3FF62E42FEFA39EF
-  %fneg30 = tail call double @llvm.copysign.f64(double %add28, double %z.coerce0)
-  br label %if.end67
+35:                                               ; preds = %32
+  %36 = fmul double %0, 5.000000e-01
+  %37 = fmul double %1, 5.000000e-01
+  %38 = tail call double @hypot(double noundef %36, double noundef %37) #11, !tbaa !3
+  %39 = tail call double @log(double noundef %38) #11, !tbaa !3
+  %40 = fadd double %39, 0x3FF62E42FEFA39EF
+  %41 = tail call double @llvm.copysign.f64(double %40, double %0)
+  br label %59
 
-if.else37:                                        ; preds = %if.end
-  %add39 = fadd double %z.coerce1, 1.000000e+00
-  %fneg42 = fneg double %z.coerce0
-  %call44 = tail call fastcc { double, double } @cmath_sqrt_impl(double %add39, double %fneg42)
-  %10 = extractvalue { double, double } %call44, 0
-  %11 = extractvalue { double, double } %call44, 1
-  %sub = fsub double 1.000000e+00, %z.coerce1
-  %call50 = tail call fastcc { double, double } @cmath_sqrt_impl(double %sub, double %z.coerce0)
-  %12 = extractvalue { double, double } %call50, 0
-  %13 = extractvalue { double, double } %call50, 1
-  %14 = fneg double %11
-  %neg = fmul double %12, %14
-  %15 = tail call double @llvm.fmuladd.f64(double %10, double %13, double %neg)
-  %call56 = tail call double @asinh(double noundef %15) #10
-  %16 = fneg double %13
-  %neg64 = fmul double %11, %16
-  %17 = tail call double @llvm.fmuladd.f64(double %10, double %12, double %neg64)
-  br label %if.end67
+42:                                               ; preds = %32
+  %43 = fadd double %1, 1.000000e+00
+  %44 = fneg double %0
+  %45 = tail call fastcc { double, double } @cmath_sqrt_impl(double %43, double %44)
+  %46 = extractvalue { double, double } %45, 0
+  %47 = extractvalue { double, double } %45, 1
+  %48 = fsub double 1.000000e+00, %1
+  %49 = tail call fastcc { double, double } @cmath_sqrt_impl(double %48, double %0)
+  %50 = extractvalue { double, double } %49, 0
+  %51 = extractvalue { double, double } %49, 1
+  %52 = fneg double %47
+  %53 = fmul double %50, %52
+  %54 = tail call double @llvm.fmuladd.f64(double %46, double %51, double %53)
+  %55 = tail call double @asinh(double noundef %54) #11, !tbaa !3
+  %56 = fneg double %51
+  %57 = fmul double %47, %56
+  %58 = tail call double @llvm.fmuladd.f64(double %46, double %50, double %57)
+  br label %59
 
-if.end67:                                         ; preds = %if.else37, %if.then11
-  %.sink = phi double [ %17, %if.else37 ], [ %0, %if.then11 ]
-  %r.sroa.0.1 = phi double [ %call56, %if.else37 ], [ %fneg30, %if.then11 ]
-  %call65 = tail call double @atan2(double noundef %z.coerce1, double noundef %.sink) #10
-  %call68 = tail call ptr @__errno_location() #11
-  store i32 0, ptr %call68, align 4
-  br label %return
+59:                                               ; preds = %42, %35
+  %.sink = phi double [ %58, %42 ], [ %3, %35 ]
+  %.sroa.03.1 = phi double [ %55, %42 ], [ %41, %35 ]
+  %60 = tail call double @atan2(double noundef %1, double noundef %.sink) #11, !tbaa !3
+  %61 = tail call ptr @__errno_location() #12
+  store i32 0, ptr %61, align 4, !tbaa !3
+  br label %62
 
-return:                                           ; preds = %if.end67, %special_type.exit42
-  %retval.sroa.0.0 = phi double [ %r.sroa.0.1, %if.end67 ], [ %retval.sroa.0.0.copyload, %special_type.exit42 ]
-  %retval.sroa.3.0 = phi double [ %call65, %if.end67 ], [ %retval.sroa.3.0.copyload, %special_type.exit42 ]
-  %.fca.0.insert = insertvalue { double, double } poison, double %retval.sroa.0.0, 0
-  %.fca.1.insert = insertvalue { double, double } %.fca.0.insert, double %retval.sroa.3.0, 1
+62:                                               ; preds = %59, %special_type.exit43
+  %.sroa.035.0 = phi double [ %.sroa.03.1, %59 ], [ %.sroa.035.0.copyload, %special_type.exit43 ]
+  %.sroa.3.0 = phi double [ %60, %59 ], [ %.sroa.3.0.copyload, %special_type.exit43 ]
+  %.fca.0.insert = insertvalue { double, double } poison, double %.sroa.035.0, 0
+  %.fca.1.insert = insertvalue { double, double } %.fca.0.insert, double %.sroa.3.0, 1
   ret { double, double } %.fca.1.insert
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc { double, double } @cmath_atanh_impl(double %z.coerce0, double %z.coerce1) unnamed_addr #0 {
-entry:
-  %0 = tail call double @llvm.fabs.f64(double %z.coerce0)
-  %1 = fcmp ueq double %0, 0x7FF0000000000000
-  %2 = tail call double @llvm.fabs.f64(double %z.coerce1)
-  %3 = fcmp ueq double %2, 0x7FF0000000000000
-  %or.cond = select i1 %1, i1 true, i1 %3
-  br i1 %or.cond, label %if.then, label %if.end
+define internal fastcc { double, double } @cmath_atanh_impl(double %0, double %1) unnamed_addr #0 {
+  %3 = tail call double @llvm.fabs.f64(double %0)
+  %4 = fcmp ueq double %3, 0x7FF0000000000000
+  %5 = tail call double @llvm.fabs.f64(double %1)
+  %6 = fcmp ueq double %5, 0x7FF0000000000000
+  %or.cond = select i1 %4, i1 true, i1 %6
+  br i1 %or.cond, label %7, label %34
 
-if.then:                                          ; preds = %entry
-  %call = tail call ptr @__errno_location() #11
-  store i32 0, ptr %call, align 4
-  br i1 %1, label %if.end.i, label %if.then.i
+7:                                                ; preds = %2
+  %8 = tail call ptr @__errno_location() #12
+  store i32 0, ptr %8, align 4, !tbaa !3
+  br i1 %4, label %15, label %9
 
-if.then.i:                                        ; preds = %if.then
-  %cmp.i = fcmp une double %z.coerce0, 0.000000e+00
-  %4 = tail call double @llvm.copysign.f64(double 1.000000e+00, double %z.coerce0)
-  %cmp2.i = fcmp oeq double %4, 1.000000e+00
-  br i1 %cmp.i, label %if.then1.i, label %if.else4.i
+9:                                                ; preds = %7
+  %10 = fcmp une double %0, 0.000000e+00
+  %11 = tail call double @llvm.copysign.f64(double 1.000000e+00, double %0)
+  %12 = fcmp oeq double %11, 1.000000e+00
+  br i1 %10, label %13, label %14
 
-if.then1.i:                                       ; preds = %if.then.i
-  %..i = select i1 %cmp2.i, i64 4, i64 1
+13:                                               ; preds = %9
+  %..i = select i1 %12, i64 4, i64 1
   br label %special_type.exit
 
-if.else4.i:                                       ; preds = %if.then.i
-  %.6.i = select i1 %cmp2.i, i64 3, i64 2
+14:                                               ; preds = %9
+  %.7.i = select i1 %12, i64 3, i64 2
   br label %special_type.exit
 
-if.end.i:                                         ; preds = %if.then
-  %5 = fcmp uno double %z.coerce0, 0.000000e+00
-  br i1 %5, label %special_type.exit, label %if.end9.i
+15:                                               ; preds = %7
+  %16 = fcmp uno double %0, 0.000000e+00
+  br i1 %16, label %special_type.exit, label %17
 
-if.end9.i:                                        ; preds = %if.end.i
-  %6 = tail call double @llvm.copysign.f64(double 1.000000e+00, double %z.coerce0)
-  %cmp10.i = fcmp oeq double %6, 1.000000e+00
-  %.7.i = select i1 %cmp10.i, i64 5, i64 0
+17:                                               ; preds = %15
+  %18 = tail call double @llvm.copysign.f64(double 1.000000e+00, double %0)
+  %19 = fcmp oeq double %18, 1.000000e+00
+  %.8.i = select i1 %19, i64 5, i64 0
   br label %special_type.exit
 
-special_type.exit:                                ; preds = %if.then1.i, %if.else4.i, %if.end.i, %if.end9.i
-  %retval.0.i = phi i64 [ %..i, %if.then1.i ], [ %.6.i, %if.else4.i ], [ 6, %if.end.i ], [ %.7.i, %if.end9.i ]
-  br i1 %3, label %if.end.i42, label %if.then.i34
+special_type.exit:                                ; preds = %13, %14, %15, %17
+  %.0.i = phi i64 [ %..i, %13 ], [ %.7.i, %14 ], [ 6, %15 ], [ %.8.i, %17 ]
+  br i1 %6, label %26, label %20
 
-if.then.i34:                                      ; preds = %special_type.exit
-  %cmp.i35 = fcmp une double %z.coerce1, 0.000000e+00
-  %7 = tail call double @llvm.copysign.f64(double 1.000000e+00, double %z.coerce1)
-  %cmp2.i36 = fcmp oeq double %7, 1.000000e+00
-  br i1 %cmp.i35, label %if.then1.i40, label %if.else4.i37
+20:                                               ; preds = %special_type.exit
+  %21 = fcmp une double %1, 0.000000e+00
+  %22 = tail call double @llvm.copysign.f64(double 1.000000e+00, double %1)
+  %23 = fcmp oeq double %22, 1.000000e+00
+  br i1 %21, label %24, label %25
 
-if.then1.i40:                                     ; preds = %if.then.i34
-  %..i41 = select i1 %cmp2.i36, i64 4, i64 1
+24:                                               ; preds = %20
+  %..i44 = select i1 %23, i64 4, i64 1
   br label %special_type.exit46
 
-if.else4.i37:                                     ; preds = %if.then.i34
-  %.6.i38 = select i1 %cmp2.i36, i64 3, i64 2
+25:                                               ; preds = %20
+  %.7.i42 = select i1 %23, i64 3, i64 2
   br label %special_type.exit46
 
-if.end.i42:                                       ; preds = %special_type.exit
-  %8 = fcmp uno double %z.coerce1, 0.000000e+00
-  br i1 %8, label %special_type.exit46, label %if.end9.i43
+26:                                               ; preds = %special_type.exit
+  %27 = fcmp uno double %1, 0.000000e+00
+  br i1 %27, label %special_type.exit46, label %28
 
-if.end9.i43:                                      ; preds = %if.end.i42
-  %9 = tail call double @llvm.copysign.f64(double 1.000000e+00, double %z.coerce1)
-  %cmp10.i44 = fcmp oeq double %9, 1.000000e+00
-  %.7.i45 = select i1 %cmp10.i44, i64 5, i64 0
+28:                                               ; preds = %26
+  %29 = tail call double @llvm.copysign.f64(double 1.000000e+00, double %1)
+  %30 = fcmp oeq double %29, 1.000000e+00
+  %.8.i45 = select i1 %30, i64 5, i64 0
   br label %special_type.exit46
 
-special_type.exit46:                              ; preds = %if.then1.i40, %if.else4.i37, %if.end.i42, %if.end9.i43
-  %retval.0.i39 = phi i64 [ %..i41, %if.then1.i40 ], [ %.6.i38, %if.else4.i37 ], [ 6, %if.end.i42 ], [ %.7.i45, %if.end9.i43 ]
-  %arrayidx6 = getelementptr [7 x [7 x %struct.Py_complex]], ptr @atanh_special_values, i64 0, i64 %retval.0.i, i64 %retval.0.i39
-  %retval.sroa.0.0.copyload = load double, ptr %arrayidx6, align 16
-  %retval.sroa.4.0.arrayidx6.sroa_idx = getelementptr inbounds nuw i8, ptr %arrayidx6, i64 8
-  %retval.sroa.4.0.copyload = load double, ptr %retval.sroa.4.0.arrayidx6.sroa_idx, align 8
-  %10 = insertvalue { double, double } poison, double %retval.sroa.0.0.copyload, 0
-  %11 = insertvalue { double, double } %10, double %retval.sroa.4.0.copyload, 1
-  br label %common.ret1
+special_type.exit46:                              ; preds = %24, %25, %26, %28
+  %.0.i43 = phi i64 [ %..i44, %24 ], [ %.7.i42, %25 ], [ 6, %26 ], [ %.8.i45, %28 ]
+  %31 = getelementptr [7 x [7 x %struct.Py_complex]], ptr @atanh_special_values, i64 0, i64 %.0.i, i64 %.0.i43
+  %.sroa.037.0.copyload = load double, ptr %31, align 16, !tbaa !7
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %31, i64 8
+  %.sroa.4.0.copyload = load double, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !7
+  %32 = insertvalue { double, double } poison, double %.sroa.037.0.copyload, 0
+  %33 = insertvalue { double, double } %32, double %.sroa.4.0.copyload, 1
+  br label %common.ret2
 
-if.end:                                           ; preds = %entry
-  %cmp = fcmp olt double %z.coerce0, 0.000000e+00
-  br i1 %cmp, label %if.then8, label %if.end13
+34:                                               ; preds = %2
+  %35 = fcmp olt double %0, 0.000000e+00
+  br i1 %35, label %36, label %44
 
-common.ret1:                                      ; preds = %if.end85, %special_type.exit46, %if.then8
-  %common.ret1.op = phi { double, double } [ %call12, %if.then8 ], [ %20, %if.end85 ], [ %11, %special_type.exit46 ]
-  ret { double, double } %common.ret1.op
+common.ret2:                                      ; preds = %86, %special_type.exit46, %36
+  %common.ret2.op = phi { double, double } [ %43, %36 ], [ %89, %86 ], [ %33, %special_type.exit46 ]
+  ret { double, double } %common.ret2.op
 
-if.then8:                                         ; preds = %if.end
-  %call10 = tail call { double, double } @_Py_c_neg(double %z.coerce0, double %z.coerce1) #10
-  %12 = extractvalue { double, double } %call10, 0
-  %13 = extractvalue { double, double } %call10, 1
-  %call11 = tail call fastcc { double, double } @cmath_atanh_impl(double %12, double %13)
-  %14 = extractvalue { double, double } %call11, 0
-  %15 = extractvalue { double, double } %call11, 1
-  %call12 = tail call { double, double } @_Py_c_neg(double %14, double %15) #10
-  br label %common.ret1
+36:                                               ; preds = %34
+  %37 = tail call { double, double } @_Py_c_neg(double %0, double %1) #11
+  %38 = extractvalue { double, double } %37, 0
+  %39 = extractvalue { double, double } %37, 1
+  %40 = tail call fastcc { double, double } @cmath_atanh_impl(double %38, double %39)
+  %41 = extractvalue { double, double } %40, 0
+  %42 = extractvalue { double, double } %40, 1
+  %43 = tail call { double, double } @_Py_c_neg(double %41, double %42) #11
+  br label %common.ret2
 
-if.end13:                                         ; preds = %if.end
-  %cmp17 = fcmp ogt double %z.coerce0, 0x5FDFFFFFFFFFFFFF
-  %cmp20 = fcmp ogt double %2, 0x5FDFFFFFFFFFFFFF
-  %or.cond32 = select i1 %cmp17, i1 true, i1 %cmp20
-  br i1 %or.cond32, label %if.then21, label %if.else
+44:                                               ; preds = %34
+  %45 = fcmp ogt double %0, 0x5FDFFFFFFFFFFFFF
+  %46 = fcmp ogt double %5, 0x5FDFFFFFFFFFFFFF
+  %or.cond40 = select i1 %45, i1 true, i1 %46
+  br i1 %or.cond40, label %47, label %55
 
-if.then21:                                        ; preds = %if.end13
-  %div = fmul double %z.coerce0, 5.000000e-01
-  %div24 = fmul double %z.coerce1, 5.000000e-01
-  %call25 = tail call double @hypot(double noundef %div, double noundef %div24) #10
-  %div27 = fmul double %z.coerce0, 2.500000e-01
-  %div28 = fdiv double %div27, %call25
-  %div29 = fdiv double %div28, %call25
-  %fneg32 = tail call double @llvm.copysign.f64(double 0x3FF921FB54442D18, double %z.coerce1)
-  br label %if.end85
+47:                                               ; preds = %44
+  %48 = fmul double %0, 5.000000e-01
+  %49 = fmul double %1, 5.000000e-01
+  %50 = tail call double @hypot(double noundef %48, double noundef %49) #11, !tbaa !3
+  %51 = fmul double %0, 2.500000e-01
+  %52 = fdiv double %51, %50
+  %53 = fdiv double %52, %50
+  %54 = tail call double @llvm.copysign.f64(double 0x3FF921FB54442D18, double %1)
+  br label %86
 
-if.else:                                          ; preds = %if.end13
-  %cmp36 = fcmp oeq double %z.coerce0, 1.000000e+00
-  %cmp38 = fcmp olt double %2, 0x2000000000000000
-  %or.cond33 = select i1 %cmp36, i1 %cmp38, i1 false
-  br i1 %or.cond33, label %if.then39, label %if.else61
+55:                                               ; preds = %44
+  %56 = fcmp oeq double %0, 1.000000e+00
+  %57 = fcmp olt double %5, 0x2000000000000000
+  %or.cond41 = select i1 %56, i1 %57, i1 false
+  br i1 %or.cond41, label %58, label %70
 
-if.then39:                                        ; preds = %if.else
-  %cmp40 = fcmp oeq double %z.coerce1, 0.000000e+00
-  br i1 %cmp40, label %if.end85, label %if.else46
+58:                                               ; preds = %55
+  %59 = fcmp oeq double %1, 0.000000e+00
+  br i1 %59, label %86, label %60
 
-if.else46:                                        ; preds = %if.then39
-  %sqrt = tail call double @llvm.sqrt.f64(double %2)
-  %call48 = tail call double @hypot(double noundef %2, double noundef 2.000000e+00) #10
-  %call49 = tail call double @sqrt(double noundef %call48) #10
-  %div50 = fdiv double %sqrt, %call49
-  %call51 = tail call double @log(double noundef %div50) #10
-  %fneg52 = fneg double %call51
-  %fneg54 = fneg double %2
-  %call55 = tail call double @atan2(double noundef 2.000000e+00, double noundef %fneg54) #10
-  %div56 = fmul double %call55, 5.000000e-01
-  %16 = tail call double @llvm.copysign.f64(double %div56, double %z.coerce1)
-  br label %if.end85
+60:                                               ; preds = %58
+  %sqrt = tail call double @llvm.sqrt.f64(double %5)
+  %61 = tail call double @hypot(double noundef %5, double noundef 2.000000e+00) #11, !tbaa !3
+  %62 = tail call double @sqrt(double noundef %61) #11, !tbaa !3
+  %63 = fdiv double %sqrt, %62
+  %64 = tail call double @log(double noundef %63) #11, !tbaa !3
+  %65 = fneg double %64
+  %66 = fneg double %5
+  %67 = tail call double @atan2(double noundef 2.000000e+00, double noundef %66) #11, !tbaa !3
+  %68 = fmul double %67, 5.000000e-01
+  %69 = tail call double @llvm.copysign.f64(double %68, double %1)
+  br label %86
 
-if.else61:                                        ; preds = %if.else
-  %mul = fmul double %z.coerce0, 4.000000e+00
-  %sub = fsub double 1.000000e+00, %z.coerce0
-  %mul67 = fmul double %z.coerce1, %z.coerce1
-  %17 = tail call double @llvm.fmuladd.f64(double %sub, double %sub, double %mul67)
-  %div68 = fdiv double %mul, %17
-  %cmp.i47 = fcmp oeq double %div68, 0.000000e+00
-  br i1 %cmp.i47, label %_Py_log1p.exit, label %if.else.i
+70:                                               ; preds = %55
+  %71 = fmul double %0, 4.000000e+00
+  %72 = fsub double 1.000000e+00, %0
+  %73 = fmul double %1, %1
+  %74 = tail call double @llvm.fmuladd.f64(double %72, double %72, double %73)
+  %75 = fdiv double %71, %74
+  %76 = fcmp oeq double %75, 0.000000e+00
+  br i1 %76, label %_Py_log1p.exit, label %77
 
-if.else.i:                                        ; preds = %if.else61
-  %call.i = tail call double @log1p(double noundef %div68) #10
+77:                                               ; preds = %70
+  %78 = tail call double @log1p(double noundef %75) #11, !tbaa !3
   br label %_Py_log1p.exit
 
-_Py_log1p.exit:                                   ; preds = %if.else61, %if.else.i
-  %retval.0.i48 = phi double [ %call.i, %if.else.i ], [ %div68, %if.else61 ]
-  %div70 = fmul double %retval.0.i48, 2.500000e-01
-  %mul73 = fmul double %z.coerce1, -2.000000e+00
-  %add = fadd double %z.coerce0, 1.000000e+00
-  %neg = fneg double %mul67
-  %18 = tail call double @llvm.fmuladd.f64(double %sub, double %add, double %neg)
-  %call79 = tail call double @atan2(double noundef %mul73, double noundef %18) #10
-  %div81 = fmul double %call79, -5.000000e-01
-  br label %if.end85
+_Py_log1p.exit:                                   ; preds = %70, %77
+  %.0.i47 = phi double [ %78, %77 ], [ %75, %70 ]
+  %79 = fmul double %.0.i47, 2.500000e-01
+  %80 = fmul double %1, -2.000000e+00
+  %81 = fadd double %0, 1.000000e+00
+  %82 = fneg double %73
+  %83 = tail call double @llvm.fmuladd.f64(double %72, double %81, double %82)
+  %84 = tail call double @atan2(double noundef %80, double noundef %83) #11, !tbaa !3
+  %85 = fmul double %84, -5.000000e-01
+  br label %86
 
-if.end85:                                         ; preds = %if.then39, %_Py_log1p.exit, %if.else46, %if.then21
-  %.sink = phi i32 [ 0, %_Py_log1p.exit ], [ 0, %if.else46 ], [ 0, %if.then21 ], [ 33, %if.then39 ]
-  %r.sroa.0.0 = phi double [ %div70, %_Py_log1p.exit ], [ %fneg52, %if.else46 ], [ %div29, %if.then21 ], [ 0x7FF0000000000000, %if.then39 ]
-  %r.sroa.5.0 = phi double [ %div81, %_Py_log1p.exit ], [ %16, %if.else46 ], [ %fneg32, %if.then21 ], [ %z.coerce1, %if.then39 ]
-  %call83 = tail call ptr @__errno_location() #11
-  store i32 %.sink, ptr %call83, align 4
-  %19 = insertvalue { double, double } poison, double %r.sroa.0.0, 0
-  %20 = insertvalue { double, double } %19, double %r.sroa.5.0, 1
-  br label %common.ret1
+86:                                               ; preds = %58, %_Py_log1p.exit, %60, %47
+  %.sink = phi i32 [ 0, %_Py_log1p.exit ], [ 0, %60 ], [ 0, %47 ], [ 33, %58 ]
+  %.sroa.014.0 = phi double [ %79, %_Py_log1p.exit ], [ %65, %60 ], [ %53, %47 ], [ 0x7FF0000000000000, %58 ]
+  %.sroa.7.0 = phi double [ %85, %_Py_log1p.exit ], [ %69, %60 ], [ %54, %47 ], [ %1, %58 ]
+  %87 = tail call ptr @__errno_location() #12
+  store i32 %.sink, ptr %87, align 4, !tbaa !3
+  %88 = insertvalue { double, double } poison, double %.sroa.014.0, 0
+  %89 = insertvalue { double, double } %88, double %.sroa.7.0, 1
+  br label %common.ret2
 }
 
 declare { double, double } @_Py_c_neg(double, double) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
-declare double @log1p(double noundef) local_unnamed_addr #4
+declare double @log1p(double noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(readwrite, argmem: write, inaccessiblemem: write) uwtable
-define internal fastcc { double, double } @cmath_cosh_impl(double %z.coerce0, double %z.coerce1) unnamed_addr #7 {
-entry:
-  %0 = tail call double @llvm.fabs.f64(double %z.coerce0)
-  %1 = fcmp ueq double %0, 0x7FF0000000000000
-  %2 = tail call double @llvm.fabs.f64(double %z.coerce1)
-  %3 = fcmp ueq double %2, 0x7FF0000000000000
-  %or.cond24 = select i1 %1, i1 true, i1 %3
-  br i1 %or.cond24, label %if.then, label %if.end38
+define internal fastcc { double, double } @cmath_cosh_impl(double %0, double %1) unnamed_addr #8 {
+  %3 = tail call double @llvm.fabs.f64(double %0)
+  %4 = fcmp ueq double %3, 0x7FF0000000000000
+  %5 = tail call double @llvm.fabs.f64(double %1)
+  %6 = fcmp ueq double %5, 0x7FF0000000000000
+  %or.cond27 = select i1 %4, i1 true, i1 %6
+  br i1 %or.cond27, label %7, label %50
 
-if.then:                                          ; preds = %entry
-  %isinf = fcmp oeq double %0, 0x7FF0000000000000
-  br i1 %isinf, label %land.lhs.true, label %if.else20
+7:                                                ; preds = %2
+  %8 = fcmp oeq double %3, 0x7FF0000000000000
+  br i1 %8, label %9, label %20
 
-land.lhs.true:                                    ; preds = %if.then
-  %or.cond = tail call i1 @llvm.is.fpclass.f64(double %z.coerce1, i32 408)
-  br i1 %or.cond, label %if.then5, label %if.else20
+9:                                                ; preds = %7
+  %or.cond = tail call i1 @llvm.is.fpclass.f64(double %1, i32 408)
+  br i1 %or.cond, label %10, label %20
 
-if.then5:                                         ; preds = %land.lhs.true
-  %cmp7 = fcmp ogt double %z.coerce0, 0.000000e+00
-  %call = tail call double @cos(double noundef %z.coerce1) #10
-  %4 = tail call double @llvm.copysign.f64(double 0x7FF0000000000000, double %call)
-  %call12 = tail call double @sin(double noundef %z.coerce1) #10
-  br i1 %cmp7, label %if.then8, label %if.else
+10:                                               ; preds = %9
+  %11 = fcmp ogt double %0, 0.000000e+00
+  %12 = tail call double @cos(double noundef %1) #11, !tbaa !3
+  %13 = tail call double @llvm.copysign.f64(double 0x7FF0000000000000, double %12)
+  %14 = tail call double @sin(double noundef %1) #11, !tbaa !3
+  br i1 %11, label %15, label %17
 
-if.then8:                                         ; preds = %if.then5
-  %5 = tail call double @llvm.copysign.f64(double 0x7FF0000000000000, double %call12)
-  br label %if.end27
+15:                                               ; preds = %10
+  %16 = tail call double @llvm.copysign.f64(double 0x7FF0000000000000, double %14)
+  br label %44
 
-if.else:                                          ; preds = %if.then5
-  %6 = fneg double %call12
-  %fneg = tail call double @llvm.copysign.f64(double 0x7FF0000000000000, double %6)
-  br label %if.end27
+17:                                               ; preds = %10
+  %18 = fneg double %14
+  %19 = tail call double @llvm.copysign.f64(double 0x7FF0000000000000, double %18)
+  br label %44
 
-if.else20:                                        ; preds = %land.lhs.true, %if.then
-  br i1 %1, label %if.end.i, label %if.then.i
+20:                                               ; preds = %9, %7
+  br i1 %4, label %27, label %21
 
-if.then.i:                                        ; preds = %if.else20
-  %cmp.i = fcmp une double %z.coerce0, 0.000000e+00
-  %7 = tail call double @llvm.copysign.f64(double 1.000000e+00, double %z.coerce0)
-  %cmp2.i = fcmp oeq double %7, 1.000000e+00
-  br i1 %cmp.i, label %if.then1.i, label %if.else4.i
+21:                                               ; preds = %20
+  %22 = fcmp une double %0, 0.000000e+00
+  %23 = tail call double @llvm.copysign.f64(double 1.000000e+00, double %0)
+  %24 = fcmp oeq double %23, 1.000000e+00
+  br i1 %22, label %25, label %26
 
-if.then1.i:                                       ; preds = %if.then.i
-  %..i = select i1 %cmp2.i, i64 4, i64 1
+25:                                               ; preds = %21
+  %..i = select i1 %24, i64 4, i64 1
   br label %special_type.exit
 
-if.else4.i:                                       ; preds = %if.then.i
-  %.6.i = select i1 %cmp2.i, i64 3, i64 2
+26:                                               ; preds = %21
+  %.7.i = select i1 %24, i64 3, i64 2
   br label %special_type.exit
 
-if.end.i:                                         ; preds = %if.else20
-  %8 = fcmp uno double %z.coerce0, 0.000000e+00
-  br i1 %8, label %special_type.exit, label %if.end9.i
+27:                                               ; preds = %20
+  %28 = fcmp uno double %0, 0.000000e+00
+  br i1 %28, label %special_type.exit, label %29
 
-if.end9.i:                                        ; preds = %if.end.i
-  %9 = tail call double @llvm.copysign.f64(double 1.000000e+00, double %z.coerce0)
-  %cmp10.i = fcmp oeq double %9, 1.000000e+00
-  %.7.i = select i1 %cmp10.i, i64 5, i64 0
+29:                                               ; preds = %27
+  %30 = tail call double @llvm.copysign.f64(double 1.000000e+00, double %0)
+  %31 = fcmp oeq double %30, 1.000000e+00
+  %.8.i = select i1 %31, i64 5, i64 0
   br label %special_type.exit
 
-special_type.exit:                                ; preds = %if.then1.i, %if.else4.i, %if.end.i, %if.end9.i
-  %retval.0.i = phi i64 [ %..i, %if.then1.i ], [ %.6.i, %if.else4.i ], [ 6, %if.end.i ], [ %.7.i, %if.end9.i ]
-  br i1 %3, label %if.end.i35, label %if.then.i27
+special_type.exit:                                ; preds = %25, %26, %27, %29
+  %.0.i = phi i64 [ %..i, %25 ], [ %.7.i, %26 ], [ 6, %27 ], [ %.8.i, %29 ]
+  br i1 %6, label %38, label %32
 
-if.then.i27:                                      ; preds = %special_type.exit
-  %cmp.i28 = fcmp une double %z.coerce1, 0.000000e+00
-  %10 = tail call double @llvm.copysign.f64(double 1.000000e+00, double %z.coerce1)
-  %cmp2.i29 = fcmp oeq double %10, 1.000000e+00
-  br i1 %cmp.i28, label %if.then1.i33, label %if.else4.i30
+32:                                               ; preds = %special_type.exit
+  %33 = fcmp une double %1, 0.000000e+00
+  %34 = tail call double @llvm.copysign.f64(double 1.000000e+00, double %1)
+  %35 = fcmp oeq double %34, 1.000000e+00
+  br i1 %33, label %36, label %37
 
-if.then1.i33:                                     ; preds = %if.then.i27
-  %..i34 = select i1 %cmp2.i29, i64 4, i64 1
-  br label %special_type.exit39
+36:                                               ; preds = %32
+  %..i33 = select i1 %35, i64 4, i64 1
+  br label %special_type.exit35
 
-if.else4.i30:                                     ; preds = %if.then.i27
-  %.6.i31 = select i1 %cmp2.i29, i64 3, i64 2
-  br label %special_type.exit39
+37:                                               ; preds = %32
+  %.7.i31 = select i1 %35, i64 3, i64 2
+  br label %special_type.exit35
 
-if.end.i35:                                       ; preds = %special_type.exit
-  %11 = fcmp uno double %z.coerce1, 0.000000e+00
-  br i1 %11, label %special_type.exit39, label %if.end9.i36
+38:                                               ; preds = %special_type.exit
+  %39 = fcmp uno double %1, 0.000000e+00
+  br i1 %39, label %special_type.exit35, label %40
 
-if.end9.i36:                                      ; preds = %if.end.i35
-  %12 = tail call double @llvm.copysign.f64(double 1.000000e+00, double %z.coerce1)
-  %cmp10.i37 = fcmp oeq double %12, 1.000000e+00
-  %.7.i38 = select i1 %cmp10.i37, i64 5, i64 0
-  br label %special_type.exit39
+40:                                               ; preds = %38
+  %41 = tail call double @llvm.copysign.f64(double 1.000000e+00, double %1)
+  %42 = fcmp oeq double %41, 1.000000e+00
+  %.8.i34 = select i1 %42, i64 5, i64 0
+  br label %special_type.exit35
 
-special_type.exit39:                              ; preds = %if.then1.i33, %if.else4.i30, %if.end.i35, %if.end9.i36
-  %retval.0.i32 = phi i64 [ %..i34, %if.then1.i33 ], [ %.6.i31, %if.else4.i30 ], [ 6, %if.end.i35 ], [ %.7.i38, %if.end9.i36 ]
-  %arrayidx26 = getelementptr [7 x [7 x %struct.Py_complex]], ptr @cosh_special_values, i64 0, i64 %retval.0.i, i64 %retval.0.i32
-  %retval.sroa.0.0.copyload = load double, ptr %arrayidx26, align 16
-  %retval.sroa.7.0.arrayidx26.sroa_idx = getelementptr inbounds nuw i8, ptr %arrayidx26, i64 8
-  %retval.sroa.7.0.copyload = load double, ptr %retval.sroa.7.0.arrayidx26.sroa_idx, align 8
-  br label %if.end27
+special_type.exit35:                              ; preds = %36, %37, %38, %40
+  %.0.i32 = phi i64 [ %..i33, %36 ], [ %.7.i31, %37 ], [ 6, %38 ], [ %.8.i34, %40 ]
+  %43 = getelementptr [7 x [7 x %struct.Py_complex]], ptr @cosh_special_values, i64 0, i64 %.0.i, i64 %.0.i32
+  %.sroa.025.0.copyload = load double, ptr %43, align 16, !tbaa !7
+  %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %43, i64 8
+  %.sroa.7.0.copyload = load double, ptr %.sroa.7.0..sroa_idx, align 8, !tbaa !7
+  br label %44
 
-if.end27:                                         ; preds = %if.then8, %if.else, %special_type.exit39
-  %retval.sroa.0.0 = phi double [ %4, %if.then8 ], [ %4, %if.else ], [ %retval.sroa.0.0.copyload, %special_type.exit39 ]
-  %retval.sroa.7.0 = phi double [ %5, %if.then8 ], [ %fneg, %if.else ], [ %retval.sroa.7.0.copyload, %special_type.exit39 ]
-  %isinf29 = fcmp une double %2, 0x7FF0000000000000
-  %13 = fcmp uno double %z.coerce0, 0.000000e+00
-  %or.cond25 = select i1 %isinf29, i1 true, i1 %13
-  %call36 = tail call ptr @__errno_location() #11
-  br i1 %or.cond25, label %if.else35, label %if.then33
+44:                                               ; preds = %15, %17, %special_type.exit35
+  %.sroa.025.0 = phi double [ %13, %15 ], [ %13, %17 ], [ %.sroa.025.0.copyload, %special_type.exit35 ]
+  %.sroa.7.0 = phi double [ %16, %15 ], [ %19, %17 ], [ %.sroa.7.0.copyload, %special_type.exit35 ]
+  %45 = fcmp une double %5, 0x7FF0000000000000
+  %46 = fcmp uno double %0, 0.000000e+00
+  %or.cond28 = select i1 %45, i1 true, i1 %46
+  %47 = tail call ptr @__errno_location() #12
+  br i1 %or.cond28, label %49, label %48
 
-if.then33:                                        ; preds = %if.end27
-  store i32 33, ptr %call36, align 4
-  br label %return
+48:                                               ; preds = %44
+  store i32 33, ptr %47, align 4, !tbaa !3
+  br label %78
 
-if.else35:                                        ; preds = %if.end27
-  store i32 0, ptr %call36, align 4
-  br label %return
+49:                                               ; preds = %44
+  store i32 0, ptr %47, align 4, !tbaa !3
+  br label %78
 
-if.end38:                                         ; preds = %entry
-  %cmp41 = fcmp ogt double %0, 0x4086232BDD7ABCD2
-  br i1 %cmp41, label %if.then42, label %if.else56
+50:                                               ; preds = %2
+  %51 = fcmp ogt double %3, 0x4086232BDD7ABCD2
+  br i1 %51, label %52, label %63
 
-if.then42:                                        ; preds = %if.end38
-  %14 = tail call double @llvm.copysign.f64(double 1.000000e+00, double %z.coerce0)
-  %sub = fsub double %z.coerce0, %14
-  %call46 = tail call double @cos(double noundef %z.coerce1) #10
-  %call47 = tail call double @cosh(double noundef %sub) #10
-  %mul = fmul double %call46, %call47
-  %mul48 = fmul double %mul, 0x4005BF0A8B145769
-  %call51 = tail call double @sin(double noundef %z.coerce1) #10
-  %call52 = tail call double @sinh(double noundef %sub) #10
-  %mul53 = fmul double %call51, %call52
-  %mul54 = fmul double %mul53, 0x4005BF0A8B145769
-  br label %if.end69
+52:                                               ; preds = %50
+  %53 = tail call double @llvm.copysign.f64(double 1.000000e+00, double %0)
+  %54 = fsub double %0, %53
+  %55 = tail call double @cos(double noundef %1) #11, !tbaa !3
+  %56 = tail call double @cosh(double noundef %54) #11, !tbaa !3
+  %57 = fmul double %55, %56
+  %58 = fmul double %57, 0x4005BF0A8B145769
+  %59 = tail call double @sin(double noundef %1) #11, !tbaa !3
+  %60 = tail call double @sinh(double noundef %54) #11, !tbaa !3
+  %61 = fmul double %59, %60
+  %62 = fmul double %61, 0x4005BF0A8B145769
+  br label %70
 
-if.else56:                                        ; preds = %if.end38
-  %call58 = tail call double @cos(double noundef %z.coerce1) #10
-  %call60 = tail call double @cosh(double noundef %z.coerce0) #10
-  %mul61 = fmul double %call58, %call60
-  %call64 = tail call double @sin(double noundef %z.coerce1) #10
-  %call66 = tail call double @sinh(double noundef %z.coerce0) #10
-  %mul67 = fmul double %call64, %call66
-  br label %if.end69
+63:                                               ; preds = %50
+  %64 = tail call double @cos(double noundef %1) #11, !tbaa !3
+  %65 = tail call double @cosh(double noundef %0) #11, !tbaa !3
+  %66 = fmul double %64, %65
+  %67 = tail call double @sin(double noundef %1) #11, !tbaa !3
+  %68 = tail call double @sinh(double noundef %0) #11, !tbaa !3
+  %69 = fmul double %67, %68
+  br label %70
 
-if.end69:                                         ; preds = %if.else56, %if.then42
-  %retval.sroa.0.2 = phi double [ %mul48, %if.then42 ], [ %mul61, %if.else56 ]
-  %retval.sroa.7.2 = phi double [ %mul54, %if.then42 ], [ %mul67, %if.else56 ]
-  %15 = tail call double @llvm.fabs.f64(double %retval.sroa.0.2) #12
-  %isinf71 = fcmp oeq double %15, 0x7FF0000000000000
-  %16 = tail call double @llvm.fabs.f64(double %retval.sroa.7.2) #12
-  %isinf75 = fcmp oeq double %16, 0x7FF0000000000000
-  %or.cond26 = select i1 %isinf71, i1 true, i1 %isinf75
-  %call78 = tail call ptr @__errno_location() #11
-  br i1 %or.cond26, label %if.then77, label %if.else79
+70:                                               ; preds = %63, %52
+  %.sroa.025.2 = phi double [ %58, %52 ], [ %66, %63 ]
+  %.sroa.7.2 = phi double [ %62, %52 ], [ %69, %63 ]
+  %71 = tail call double @llvm.fabs.f64(double %.sroa.025.2) #13
+  %72 = fcmp oeq double %71, 0x7FF0000000000000
+  %73 = tail call double @llvm.fabs.f64(double %.sroa.7.2) #13
+  %74 = fcmp oeq double %73, 0x7FF0000000000000
+  %or.cond30 = select i1 %72, i1 true, i1 %74
+  %75 = tail call ptr @__errno_location() #12
+  br i1 %or.cond30, label %76, label %77
 
-if.then77:                                        ; preds = %if.end69
-  store i32 34, ptr %call78, align 4
-  br label %return
+76:                                               ; preds = %70
+  store i32 34, ptr %75, align 4, !tbaa !3
+  br label %78
 
-if.else79:                                        ; preds = %if.end69
-  store i32 0, ptr %call78, align 4
-  br label %return
+77:                                               ; preds = %70
+  store i32 0, ptr %75, align 4, !tbaa !3
+  br label %78
 
-return:                                           ; preds = %if.then77, %if.else79, %if.then33, %if.else35
-  %retval.sroa.0.1 = phi double [ %retval.sroa.0.2, %if.then77 ], [ %retval.sroa.0.2, %if.else79 ], [ %retval.sroa.0.0, %if.else35 ], [ %retval.sroa.0.0, %if.then33 ]
-  %retval.sroa.7.1 = phi double [ %retval.sroa.7.2, %if.then77 ], [ %retval.sroa.7.2, %if.else79 ], [ %retval.sroa.7.0, %if.else35 ], [ %retval.sroa.7.0, %if.then33 ]
-  %.fca.0.insert = insertvalue { double, double } poison, double %retval.sroa.0.1, 0
-  %.fca.1.insert = insertvalue { double, double } %.fca.0.insert, double %retval.sroa.7.1, 1
+78:                                               ; preds = %76, %77, %48, %49
+  %.sroa.025.1 = phi double [ %.sroa.025.0, %49 ], [ %.sroa.025.0, %48 ], [ %.sroa.025.2, %77 ], [ %.sroa.025.2, %76 ]
+  %.sroa.7.1 = phi double [ %.sroa.7.0, %49 ], [ %.sroa.7.0, %48 ], [ %.sroa.7.2, %77 ], [ %.sroa.7.2, %76 ]
+  %.fca.0.insert = insertvalue { double, double } poison, double %.sroa.025.1, 0
+  %.fca.1.insert = insertvalue { double, double } %.fca.0.insert, double %.sroa.7.1, 1
   ret { double, double } %.fca.1.insert
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
-declare double @cos(double noundef) local_unnamed_addr #4
+declare double @cos(double noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
-declare double @sin(double noundef) local_unnamed_addr #4
+declare double @sin(double noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
-declare double @cosh(double noundef) local_unnamed_addr #4
+declare double @cosh(double noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
-declare double @sinh(double noundef) local_unnamed_addr #4
+declare double @sinh(double noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
-declare double @exp(double noundef) local_unnamed_addr #4
+declare double @exp(double noundef) local_unnamed_addr #5
 
-declare ptr @_PyArg_UnpackKeywords(ptr noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
+declare ptr @_PyArg_UnpackKeywords(ptr noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 declare double @PyFloat_AsDouble(ptr noundef) local_unnamed_addr #1
 
@@ -2445,163 +2315,162 @@ declare { double, double } @_Py_c_diff(double, double, double, double) local_unn
 declare i32 @_PyArg_CheckPositional(ptr noundef, i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn uwtable
-define internal fastcc { double, double } @c_log(double %z.coerce0, double %z.coerce1) unnamed_addr #5 {
-entry:
-  %0 = tail call double @llvm.fabs.f64(double %z.coerce0)
-  %1 = fcmp ueq double %0, 0x7FF0000000000000
-  %2 = tail call double @llvm.fabs.f64(double %z.coerce1)
-  %3 = fcmp ueq double %2, 0x7FF0000000000000
-  %or.cond39 = select i1 %1, i1 true, i1 %3
-  br i1 %or.cond39, label %if.then, label %if.end
+define internal fastcc { double, double } @c_log(double %0, double %1) unnamed_addr #6 {
+  %3 = tail call double @llvm.fabs.f64(double %0)
+  %4 = fcmp ueq double %3, 0x7FF0000000000000
+  %5 = tail call double @llvm.fabs.f64(double %1)
+  %6 = fcmp ueq double %5, 0x7FF0000000000000
+  %or.cond49 = select i1 %4, i1 true, i1 %6
+  br i1 %or.cond49, label %7, label %32
 
-if.then:                                          ; preds = %entry
-  %call = tail call ptr @__errno_location() #11
-  store i32 0, ptr %call, align 4
-  br i1 %1, label %if.end.i, label %if.then.i
+7:                                                ; preds = %2
+  %8 = tail call ptr @__errno_location() #12
+  store i32 0, ptr %8, align 4, !tbaa !3
+  br i1 %4, label %15, label %9
 
-if.then.i:                                        ; preds = %if.then
-  %cmp.i = fcmp une double %z.coerce0, 0.000000e+00
-  %4 = tail call double @llvm.copysign.f64(double 1.000000e+00, double %z.coerce0)
-  %cmp2.i = fcmp oeq double %4, 1.000000e+00
-  br i1 %cmp.i, label %if.then1.i, label %if.else4.i
+9:                                                ; preds = %7
+  %10 = fcmp une double %0, 0.000000e+00
+  %11 = tail call double @llvm.copysign.f64(double 1.000000e+00, double %0)
+  %12 = fcmp oeq double %11, 1.000000e+00
+  br i1 %10, label %13, label %14
 
-if.then1.i:                                       ; preds = %if.then.i
-  %..i = select i1 %cmp2.i, i64 4, i64 1
+13:                                               ; preds = %9
+  %..i = select i1 %12, i64 4, i64 1
   br label %special_type.exit
 
-if.else4.i:                                       ; preds = %if.then.i
-  %.6.i = select i1 %cmp2.i, i64 3, i64 2
+14:                                               ; preds = %9
+  %.7.i = select i1 %12, i64 3, i64 2
   br label %special_type.exit
 
-if.end.i:                                         ; preds = %if.then
-  %5 = fcmp uno double %z.coerce0, 0.000000e+00
-  br i1 %5, label %special_type.exit, label %if.end9.i
+15:                                               ; preds = %7
+  %16 = fcmp uno double %0, 0.000000e+00
+  br i1 %16, label %special_type.exit, label %17
 
-if.end9.i:                                        ; preds = %if.end.i
-  %6 = tail call double @llvm.copysign.f64(double 1.000000e+00, double %z.coerce0)
-  %cmp10.i = fcmp oeq double %6, 1.000000e+00
-  %.7.i = select i1 %cmp10.i, i64 5, i64 0
+17:                                               ; preds = %15
+  %18 = tail call double @llvm.copysign.f64(double 1.000000e+00, double %0)
+  %19 = fcmp oeq double %18, 1.000000e+00
+  %.8.i = select i1 %19, i64 5, i64 0
   br label %special_type.exit
 
-special_type.exit:                                ; preds = %if.then1.i, %if.else4.i, %if.end.i, %if.end9.i
-  %retval.0.i = phi i64 [ %..i, %if.then1.i ], [ %.6.i, %if.else4.i ], [ 6, %if.end.i ], [ %.7.i, %if.end9.i ]
-  br i1 %3, label %if.end.i48, label %if.then.i40
+special_type.exit:                                ; preds = %13, %14, %15, %17
+  %.0.i = phi i64 [ %..i, %13 ], [ %.7.i, %14 ], [ 6, %15 ], [ %.8.i, %17 ]
+  br i1 %6, label %26, label %20
 
-if.then.i40:                                      ; preds = %special_type.exit
-  %cmp.i41 = fcmp une double %z.coerce1, 0.000000e+00
-  %7 = tail call double @llvm.copysign.f64(double 1.000000e+00, double %z.coerce1)
-  %cmp2.i42 = fcmp oeq double %7, 1.000000e+00
-  br i1 %cmp.i41, label %if.then1.i46, label %if.else4.i43
+20:                                               ; preds = %special_type.exit
+  %21 = fcmp une double %1, 0.000000e+00
+  %22 = tail call double @llvm.copysign.f64(double 1.000000e+00, double %1)
+  %23 = fcmp oeq double %22, 1.000000e+00
+  br i1 %21, label %24, label %25
 
-if.then1.i46:                                     ; preds = %if.then.i40
-  %..i47 = select i1 %cmp2.i42, i64 4, i64 1
-  br label %special_type.exit52
+24:                                               ; preds = %20
+  %..i52 = select i1 %23, i64 4, i64 1
+  br label %special_type.exit54
 
-if.else4.i43:                                     ; preds = %if.then.i40
-  %.6.i44 = select i1 %cmp2.i42, i64 3, i64 2
-  br label %special_type.exit52
+25:                                               ; preds = %20
+  %.7.i50 = select i1 %23, i64 3, i64 2
+  br label %special_type.exit54
 
-if.end.i48:                                       ; preds = %special_type.exit
-  %8 = fcmp uno double %z.coerce1, 0.000000e+00
-  br i1 %8, label %special_type.exit52, label %if.end9.i49
+26:                                               ; preds = %special_type.exit
+  %27 = fcmp uno double %1, 0.000000e+00
+  br i1 %27, label %special_type.exit54, label %28
 
-if.end9.i49:                                      ; preds = %if.end.i48
-  %9 = tail call double @llvm.copysign.f64(double 1.000000e+00, double %z.coerce1)
-  %cmp10.i50 = fcmp oeq double %9, 1.000000e+00
-  %.7.i51 = select i1 %cmp10.i50, i64 5, i64 0
-  br label %special_type.exit52
+28:                                               ; preds = %26
+  %29 = tail call double @llvm.copysign.f64(double 1.000000e+00, double %1)
+  %30 = fcmp oeq double %29, 1.000000e+00
+  %.8.i53 = select i1 %30, i64 5, i64 0
+  br label %special_type.exit54
 
-special_type.exit52:                              ; preds = %if.then1.i46, %if.else4.i43, %if.end.i48, %if.end9.i49
-  %retval.0.i45 = phi i64 [ %..i47, %if.then1.i46 ], [ %.6.i44, %if.else4.i43 ], [ 6, %if.end.i48 ], [ %.7.i51, %if.end9.i49 ]
-  %arrayidx6 = getelementptr [7 x [7 x %struct.Py_complex]], ptr @log_special_values, i64 0, i64 %retval.0.i, i64 %retval.0.i45
-  %retval.sroa.0.0.copyload = load double, ptr %arrayidx6, align 16
-  %retval.sroa.4.0.arrayidx6.sroa_idx = getelementptr inbounds nuw i8, ptr %arrayidx6, i64 8
-  %retval.sroa.4.0.copyload = load double, ptr %retval.sroa.4.0.arrayidx6.sroa_idx, align 8
-  br label %return
+special_type.exit54:                              ; preds = %24, %25, %26, %28
+  %.0.i51 = phi i64 [ %..i52, %24 ], [ %.7.i50, %25 ], [ 6, %26 ], [ %.8.i53, %28 ]
+  %31 = getelementptr [7 x [7 x %struct.Py_complex]], ptr @log_special_values, i64 0, i64 %.0.i, i64 %.0.i51
+  %.sroa.046.0.copyload = load double, ptr %31, align 16, !tbaa !7
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %31, i64 8
+  %.sroa.4.0.copyload = load double, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !7
+  br label %77
 
-if.end:                                           ; preds = %entry
-  %cmp = fcmp ogt double %0, 0x7FCFFFFFFFFFFFFF
-  %cmp10 = fcmp ogt double %2, 0x7FCFFFFFFFFFFFFF
-  %or.cond = select i1 %cmp, i1 true, i1 %cmp10
-  br i1 %or.cond, label %if.then11, label %if.else
+32:                                               ; preds = %2
+  %33 = fcmp ogt double %3, 0x7FCFFFFFFFFFFFFF
+  %34 = fcmp ogt double %5, 0x7FCFFFFFFFFFFFFF
+  %or.cond = select i1 %33, i1 true, i1 %34
+  br i1 %or.cond, label %35, label %41
 
-if.then11:                                        ; preds = %if.end
-  %div = fmul double %0, 5.000000e-01
-  %div12 = fmul double %2, 5.000000e-01
-  %call13 = tail call double @hypot(double noundef %div, double noundef %div12) #10
-  %call14 = tail call double @log(double noundef %call13) #10
-  %add = fadd double %call14, 0x3FE62E42FEFA39EF
-  br label %if.end59
+35:                                               ; preds = %32
+  %36 = fmul double %3, 5.000000e-01
+  %37 = fmul double %5, 5.000000e-01
+  %38 = tail call double @hypot(double noundef %36, double noundef %37) #11, !tbaa !3
+  %39 = tail call double @log(double noundef %38) #11, !tbaa !3
+  %40 = fadd double %39, 0x3FE62E42FEFA39EF
+  br label %74
 
-if.else:                                          ; preds = %if.end
-  %cmp16 = fcmp olt double %0, 0x10000000000000
-  %cmp17 = fcmp olt double %2, 0x10000000000000
-  %or.cond1 = select i1 %cmp16, i1 %cmp17, i1 false
-  br i1 %or.cond1, label %if.then18, label %if.else36
+41:                                               ; preds = %32
+  %42 = fcmp olt double %3, 0x10000000000000
+  %43 = fcmp olt double %5, 0x10000000000000
+  %or.cond3 = select i1 %42, i1 %43, i1 false
+  br i1 %or.cond3, label %44, label %56
 
-if.then18:                                        ; preds = %if.else
-  %cmp19 = fcmp one double %z.coerce0, 0.000000e+00
-  %cmp21 = fcmp one double %z.coerce1, 0.000000e+00
-  %or.cond2 = select i1 %cmp19, i1 true, i1 %cmp21
-  br i1 %or.cond2, label %if.then22, label %if.else28
+44:                                               ; preds = %41
+  %45 = fcmp one double %0, 0.000000e+00
+  %46 = fcmp one double %1, 0.000000e+00
+  %or.cond5 = select i1 %45, i1 true, i1 %46
+  br i1 %or.cond5, label %47, label %53
 
-if.then22:                                        ; preds = %if.then18
-  %call23 = tail call double @ldexp(double noundef %0, i32 noundef 53) #10
-  %call24 = tail call double @ldexp(double noundef %2, i32 noundef 53) #10
-  %call25 = tail call double @hypot(double noundef %call23, double noundef %call24) #10
-  %call26 = tail call double @log(double noundef %call25) #10
-  %sub = fadd double %call26, 0xC0425E4F7B2737FA
-  br label %if.end59
+47:                                               ; preds = %44
+  %48 = tail call double @ldexp(double noundef %3, i32 noundef 53) #11, !tbaa !3
+  %49 = tail call double @ldexp(double noundef %5, i32 noundef 53) #11, !tbaa !3
+  %50 = tail call double @hypot(double noundef %48, double noundef %49) #11, !tbaa !3
+  %51 = tail call double @log(double noundef %50) #11, !tbaa !3
+  %52 = fadd double %51, 0xC0425E4F7B2737FA
+  br label %74
 
-if.else28:                                        ; preds = %if.then18
-  %call32 = tail call double @atan2(double noundef %z.coerce1, double noundef %z.coerce0) #10
-  %call34 = tail call ptr @__errno_location() #11
-  store i32 33, ptr %call34, align 4
-  br label %return
+53:                                               ; preds = %44
+  %54 = tail call double @atan2(double noundef %1, double noundef %0) #11, !tbaa !3
+  %55 = tail call ptr @__errno_location() #12
+  store i32 33, ptr %55, align 4, !tbaa !3
+  br label %77
 
-if.else36:                                        ; preds = %if.else
-  %call37 = tail call double @hypot(double noundef %0, double noundef %2) #10
-  %cmp38 = fcmp oge double %call37, 7.100000e-01
-  %cmp40 = fcmp ole double %call37, 1.730000e+00
-  %or.cond3 = and i1 %cmp38, %cmp40
-  br i1 %or.cond3, label %if.then41, label %if.else54
+56:                                               ; preds = %41
+  %57 = tail call double @hypot(double noundef %3, double noundef %5) #11, !tbaa !3
+  %58 = fcmp oge double %57, 7.100000e-01
+  %59 = fcmp ole double %57, 1.730000e+00
+  %or.cond7 = and i1 %58, %59
+  br i1 %or.cond7, label %60, label %72
 
-if.then41:                                        ; preds = %if.else36
-  %cmp42 = fcmp ogt double %0, %2
-  %cond = select i1 %cmp42, double %0, double %2
-  %cond47 = select i1 %cmp42, double %2, double %0
-  %sub48 = fadd double %cond, -1.000000e+00
-  %add49 = fadd double %cond, 1.000000e+00
-  %mul50 = fmul double %cond47, %cond47
-  %10 = tail call double @llvm.fmuladd.f64(double %sub48, double %add49, double %mul50)
-  %cmp.i53 = fcmp oeq double %10, 0.000000e+00
-  br i1 %cmp.i53, label %_Py_log1p.exit, label %if.else.i
+60:                                               ; preds = %56
+  %61 = fcmp ogt double %3, %5
+  %62 = select i1 %61, double %3, double %5
+  %63 = select i1 %61, double %5, double %3
+  %64 = fadd double %62, -1.000000e+00
+  %65 = fadd double %62, 1.000000e+00
+  %66 = fmul double %63, %63
+  %67 = tail call double @llvm.fmuladd.f64(double %64, double %65, double %66)
+  %68 = fcmp oeq double %67, 0.000000e+00
+  br i1 %68, label %_Py_log1p.exit, label %69
 
-if.else.i:                                        ; preds = %if.then41
-  %call.i = tail call double @log1p(double noundef %10) #10
+69:                                               ; preds = %60
+  %70 = tail call double @log1p(double noundef %67) #11, !tbaa !3
   br label %_Py_log1p.exit
 
-_Py_log1p.exit:                                   ; preds = %if.then41, %if.else.i
-  %retval.0.i54 = phi double [ %call.i, %if.else.i ], [ %10, %if.then41 ]
-  %div52 = fmul double %retval.0.i54, 5.000000e-01
-  br label %if.end59
+_Py_log1p.exit:                                   ; preds = %60, %69
+  %.0.i55 = phi double [ %70, %69 ], [ %67, %60 ]
+  %71 = fmul double %.0.i55, 5.000000e-01
+  br label %74
 
-if.else54:                                        ; preds = %if.else36
-  %call55 = tail call double @log(double noundef %call37) #10
-  br label %if.end59
+72:                                               ; preds = %56
+  %73 = tail call double @log(double noundef %57) #11, !tbaa !3
+  br label %74
 
-if.end59:                                         ; preds = %if.then22, %if.else54, %_Py_log1p.exit, %if.then11
-  %r.sroa.0.0 = phi double [ %add, %if.then11 ], [ %sub, %if.then22 ], [ %div52, %_Py_log1p.exit ], [ %call55, %if.else54 ]
-  %call62 = tail call double @atan2(double noundef %z.coerce1, double noundef %z.coerce0) #10
-  %call64 = tail call ptr @__errno_location() #11
-  store i32 0, ptr %call64, align 4
-  br label %return
+74:                                               ; preds = %47, %72, %_Py_log1p.exit, %35
+  %.sroa.0.0 = phi double [ %40, %35 ], [ %52, %47 ], [ %71, %_Py_log1p.exit ], [ %73, %72 ]
+  %75 = tail call double @atan2(double noundef %1, double noundef %0) #11, !tbaa !3
+  %76 = tail call ptr @__errno_location() #12
+  store i32 0, ptr %76, align 4, !tbaa !3
+  br label %77
 
-return:                                           ; preds = %if.end59, %if.else28, %special_type.exit52
-  %retval.sroa.0.0 = phi double [ %r.sroa.0.0, %if.end59 ], [ 0xFFF0000000000000, %if.else28 ], [ %retval.sroa.0.0.copyload, %special_type.exit52 ]
-  %retval.sroa.4.0 = phi double [ %call62, %if.end59 ], [ %call32, %if.else28 ], [ %retval.sroa.4.0.copyload, %special_type.exit52 ]
-  %.fca.0.insert = insertvalue { double, double } poison, double %retval.sroa.0.0, 0
-  %.fca.1.insert = insertvalue { double, double } %.fca.0.insert, double %retval.sroa.4.0, 1
+77:                                               ; preds = %74, %53, %special_type.exit54
+  %.sroa.046.0 = phi double [ %.sroa.0.0, %74 ], [ 0xFFF0000000000000, %53 ], [ %.sroa.046.0.copyload, %special_type.exit54 ]
+  %.sroa.4.0 = phi double [ %75, %74 ], [ %54, %53 ], [ %.sroa.4.0.copyload, %special_type.exit54 ]
+  %.fca.0.insert = insertvalue { double, double } poison, double %.sroa.046.0, 0
+  %.fca.1.insert = insertvalue { double, double } %.fca.0.insert, double %.sroa.4.0, 1
   ret { double, double } %.fca.1.insert
 }
 
@@ -2614,1466 +2483,1483 @@ declare ptr @PyFloat_FromDouble(double noundef) local_unnamed_addr #1
 declare ptr @Py_BuildValue(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(readwrite, argmem: write, inaccessiblemem: write) uwtable
-define internal fastcc { double, double } @cmath_sinh_impl(double %z.coerce0, double %z.coerce1) unnamed_addr #7 {
-entry:
-  %0 = tail call double @llvm.fabs.f64(double %z.coerce0)
-  %1 = fcmp ueq double %0, 0x7FF0000000000000
-  %2 = tail call double @llvm.fabs.f64(double %z.coerce1)
-  %3 = fcmp ueq double %2, 0x7FF0000000000000
-  %or.cond24 = select i1 %1, i1 true, i1 %3
-  br i1 %or.cond24, label %if.then, label %if.end38
+define internal fastcc { double, double } @cmath_sinh_impl(double %0, double %1) unnamed_addr #8 {
+  %3 = tail call double @llvm.fabs.f64(double %0)
+  %4 = fcmp ueq double %3, 0x7FF0000000000000
+  %5 = tail call double @llvm.fabs.f64(double %1)
+  %6 = fcmp ueq double %5, 0x7FF0000000000000
+  %or.cond27 = select i1 %4, i1 true, i1 %6
+  br i1 %or.cond27, label %7, label %52
 
-if.then:                                          ; preds = %entry
-  %isinf = fcmp oeq double %0, 0x7FF0000000000000
-  br i1 %isinf, label %land.lhs.true, label %if.else20
+7:                                                ; preds = %2
+  %8 = fcmp oeq double %3, 0x7FF0000000000000
+  br i1 %8, label %9, label %22
 
-land.lhs.true:                                    ; preds = %if.then
-  %or.cond = tail call i1 @llvm.is.fpclass.f64(double %z.coerce1, i32 408)
-  br i1 %or.cond, label %if.then5, label %if.else20
+9:                                                ; preds = %7
+  %or.cond = tail call i1 @llvm.is.fpclass.f64(double %1, i32 408)
+  br i1 %or.cond, label %10, label %22
 
-if.then5:                                         ; preds = %land.lhs.true
-  %cmp7 = fcmp ogt double %z.coerce0, 0.000000e+00
-  %call = tail call double @cos(double noundef %z.coerce1) #10
-  br i1 %cmp7, label %if.then8, label %if.else
+10:                                               ; preds = %9
+  %11 = fcmp ogt double %0, 0.000000e+00
+  %12 = tail call double @cos(double noundef %1) #11, !tbaa !3
+  br i1 %11, label %13, label %17
 
-if.then8:                                         ; preds = %if.then5
-  %4 = tail call double @llvm.copysign.f64(double 0x7FF0000000000000, double %call)
-  %call12 = tail call double @sin(double noundef %z.coerce1) #10
-  %5 = tail call double @llvm.copysign.f64(double 0x7FF0000000000000, double %call12)
-  br label %if.end27
+13:                                               ; preds = %10
+  %14 = tail call double @llvm.copysign.f64(double 0x7FF0000000000000, double %12)
+  %15 = tail call double @sin(double noundef %1) #11, !tbaa !3
+  %16 = tail call double @llvm.copysign.f64(double 0x7FF0000000000000, double %15)
+  br label %46
 
-if.else:                                          ; preds = %if.then5
-  %6 = fneg double %call
-  %fneg = tail call double @llvm.copysign.f64(double 0x7FF0000000000000, double %6)
-  %call18 = tail call double @sin(double noundef %z.coerce1) #10
-  %7 = tail call double @llvm.copysign.f64(double 0x7FF0000000000000, double %call18)
-  br label %if.end27
+17:                                               ; preds = %10
+  %18 = fneg double %12
+  %19 = tail call double @llvm.copysign.f64(double 0x7FF0000000000000, double %18)
+  %20 = tail call double @sin(double noundef %1) #11, !tbaa !3
+  %21 = tail call double @llvm.copysign.f64(double 0x7FF0000000000000, double %20)
+  br label %46
 
-if.else20:                                        ; preds = %land.lhs.true, %if.then
-  br i1 %1, label %if.end.i, label %if.then.i
+22:                                               ; preds = %9, %7
+  br i1 %4, label %29, label %23
 
-if.then.i:                                        ; preds = %if.else20
-  %cmp.i = fcmp une double %z.coerce0, 0.000000e+00
-  %8 = tail call double @llvm.copysign.f64(double 1.000000e+00, double %z.coerce0)
-  %cmp2.i = fcmp oeq double %8, 1.000000e+00
-  br i1 %cmp.i, label %if.then1.i, label %if.else4.i
+23:                                               ; preds = %22
+  %24 = fcmp une double %0, 0.000000e+00
+  %25 = tail call double @llvm.copysign.f64(double 1.000000e+00, double %0)
+  %26 = fcmp oeq double %25, 1.000000e+00
+  br i1 %24, label %27, label %28
 
-if.then1.i:                                       ; preds = %if.then.i
-  %..i = select i1 %cmp2.i, i64 4, i64 1
+27:                                               ; preds = %23
+  %..i = select i1 %26, i64 4, i64 1
   br label %special_type.exit
 
-if.else4.i:                                       ; preds = %if.then.i
-  %.6.i = select i1 %cmp2.i, i64 3, i64 2
+28:                                               ; preds = %23
+  %.7.i = select i1 %26, i64 3, i64 2
   br label %special_type.exit
 
-if.end.i:                                         ; preds = %if.else20
-  %9 = fcmp uno double %z.coerce0, 0.000000e+00
-  br i1 %9, label %special_type.exit, label %if.end9.i
+29:                                               ; preds = %22
+  %30 = fcmp uno double %0, 0.000000e+00
+  br i1 %30, label %special_type.exit, label %31
 
-if.end9.i:                                        ; preds = %if.end.i
-  %10 = tail call double @llvm.copysign.f64(double 1.000000e+00, double %z.coerce0)
-  %cmp10.i = fcmp oeq double %10, 1.000000e+00
-  %.7.i = select i1 %cmp10.i, i64 5, i64 0
+31:                                               ; preds = %29
+  %32 = tail call double @llvm.copysign.f64(double 1.000000e+00, double %0)
+  %33 = fcmp oeq double %32, 1.000000e+00
+  %.8.i = select i1 %33, i64 5, i64 0
   br label %special_type.exit
 
-special_type.exit:                                ; preds = %if.then1.i, %if.else4.i, %if.end.i, %if.end9.i
-  %retval.0.i = phi i64 [ %..i, %if.then1.i ], [ %.6.i, %if.else4.i ], [ 6, %if.end.i ], [ %.7.i, %if.end9.i ]
-  br i1 %3, label %if.end.i35, label %if.then.i27
+special_type.exit:                                ; preds = %27, %28, %29, %31
+  %.0.i = phi i64 [ %..i, %27 ], [ %.7.i, %28 ], [ 6, %29 ], [ %.8.i, %31 ]
+  br i1 %6, label %40, label %34
 
-if.then.i27:                                      ; preds = %special_type.exit
-  %cmp.i28 = fcmp une double %z.coerce1, 0.000000e+00
-  %11 = tail call double @llvm.copysign.f64(double 1.000000e+00, double %z.coerce1)
-  %cmp2.i29 = fcmp oeq double %11, 1.000000e+00
-  br i1 %cmp.i28, label %if.then1.i33, label %if.else4.i30
+34:                                               ; preds = %special_type.exit
+  %35 = fcmp une double %1, 0.000000e+00
+  %36 = tail call double @llvm.copysign.f64(double 1.000000e+00, double %1)
+  %37 = fcmp oeq double %36, 1.000000e+00
+  br i1 %35, label %38, label %39
 
-if.then1.i33:                                     ; preds = %if.then.i27
-  %..i34 = select i1 %cmp2.i29, i64 4, i64 1
-  br label %special_type.exit39
+38:                                               ; preds = %34
+  %..i33 = select i1 %37, i64 4, i64 1
+  br label %special_type.exit35
 
-if.else4.i30:                                     ; preds = %if.then.i27
-  %.6.i31 = select i1 %cmp2.i29, i64 3, i64 2
-  br label %special_type.exit39
+39:                                               ; preds = %34
+  %.7.i31 = select i1 %37, i64 3, i64 2
+  br label %special_type.exit35
 
-if.end.i35:                                       ; preds = %special_type.exit
-  %12 = fcmp uno double %z.coerce1, 0.000000e+00
-  br i1 %12, label %special_type.exit39, label %if.end9.i36
+40:                                               ; preds = %special_type.exit
+  %41 = fcmp uno double %1, 0.000000e+00
+  br i1 %41, label %special_type.exit35, label %42
 
-if.end9.i36:                                      ; preds = %if.end.i35
-  %13 = tail call double @llvm.copysign.f64(double 1.000000e+00, double %z.coerce1)
-  %cmp10.i37 = fcmp oeq double %13, 1.000000e+00
-  %.7.i38 = select i1 %cmp10.i37, i64 5, i64 0
-  br label %special_type.exit39
+42:                                               ; preds = %40
+  %43 = tail call double @llvm.copysign.f64(double 1.000000e+00, double %1)
+  %44 = fcmp oeq double %43, 1.000000e+00
+  %.8.i34 = select i1 %44, i64 5, i64 0
+  br label %special_type.exit35
 
-special_type.exit39:                              ; preds = %if.then1.i33, %if.else4.i30, %if.end.i35, %if.end9.i36
-  %retval.0.i32 = phi i64 [ %..i34, %if.then1.i33 ], [ %.6.i31, %if.else4.i30 ], [ 6, %if.end.i35 ], [ %.7.i38, %if.end9.i36 ]
-  %arrayidx26 = getelementptr [7 x [7 x %struct.Py_complex]], ptr @sinh_special_values, i64 0, i64 %retval.0.i, i64 %retval.0.i32
-  %retval.sroa.0.0.copyload = load double, ptr %arrayidx26, align 16
-  %retval.sroa.7.0.arrayidx26.sroa_idx = getelementptr inbounds nuw i8, ptr %arrayidx26, i64 8
-  %retval.sroa.7.0.copyload = load double, ptr %retval.sroa.7.0.arrayidx26.sroa_idx, align 8
-  br label %if.end27
+special_type.exit35:                              ; preds = %38, %39, %40, %42
+  %.0.i32 = phi i64 [ %..i33, %38 ], [ %.7.i31, %39 ], [ 6, %40 ], [ %.8.i34, %42 ]
+  %45 = getelementptr [7 x [7 x %struct.Py_complex]], ptr @sinh_special_values, i64 0, i64 %.0.i, i64 %.0.i32
+  %.sroa.025.0.copyload = load double, ptr %45, align 16, !tbaa !7
+  %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %45, i64 8
+  %.sroa.7.0.copyload = load double, ptr %.sroa.7.0..sroa_idx, align 8, !tbaa !7
+  br label %46
 
-if.end27:                                         ; preds = %if.then8, %if.else, %special_type.exit39
-  %retval.sroa.0.0 = phi double [ %4, %if.then8 ], [ %fneg, %if.else ], [ %retval.sroa.0.0.copyload, %special_type.exit39 ]
-  %retval.sroa.7.0 = phi double [ %5, %if.then8 ], [ %7, %if.else ], [ %retval.sroa.7.0.copyload, %special_type.exit39 ]
-  %isinf29 = fcmp une double %2, 0x7FF0000000000000
-  %14 = fcmp uno double %z.coerce0, 0.000000e+00
-  %or.cond25 = select i1 %isinf29, i1 true, i1 %14
-  %call36 = tail call ptr @__errno_location() #11
-  br i1 %or.cond25, label %if.else35, label %if.then33
+46:                                               ; preds = %13, %17, %special_type.exit35
+  %.sroa.025.0 = phi double [ %14, %13 ], [ %19, %17 ], [ %.sroa.025.0.copyload, %special_type.exit35 ]
+  %.sroa.7.0 = phi double [ %16, %13 ], [ %21, %17 ], [ %.sroa.7.0.copyload, %special_type.exit35 ]
+  %47 = fcmp une double %5, 0x7FF0000000000000
+  %48 = fcmp uno double %0, 0.000000e+00
+  %or.cond28 = select i1 %47, i1 true, i1 %48
+  %49 = tail call ptr @__errno_location() #12
+  br i1 %or.cond28, label %51, label %50
 
-if.then33:                                        ; preds = %if.end27
-  store i32 33, ptr %call36, align 4
-  br label %return
+50:                                               ; preds = %46
+  store i32 33, ptr %49, align 4, !tbaa !3
+  br label %80
 
-if.else35:                                        ; preds = %if.end27
-  store i32 0, ptr %call36, align 4
-  br label %return
+51:                                               ; preds = %46
+  store i32 0, ptr %49, align 4, !tbaa !3
+  br label %80
 
-if.end38:                                         ; preds = %entry
-  %cmp41 = fcmp ogt double %0, 0x4086232BDD7ABCD2
-  br i1 %cmp41, label %if.then42, label %if.else56
+52:                                               ; preds = %2
+  %53 = fcmp ogt double %3, 0x4086232BDD7ABCD2
+  br i1 %53, label %54, label %65
 
-if.then42:                                        ; preds = %if.end38
-  %15 = tail call double @llvm.copysign.f64(double 1.000000e+00, double %z.coerce0)
-  %sub = fsub double %z.coerce0, %15
-  %call46 = tail call double @cos(double noundef %z.coerce1) #10
-  %call47 = tail call double @sinh(double noundef %sub) #10
-  %mul = fmul double %call46, %call47
-  %mul48 = fmul double %mul, 0x4005BF0A8B145769
-  %call51 = tail call double @sin(double noundef %z.coerce1) #10
-  %call52 = tail call double @cosh(double noundef %sub) #10
-  %mul53 = fmul double %call51, %call52
-  %mul54 = fmul double %mul53, 0x4005BF0A8B145769
-  br label %if.end69
+54:                                               ; preds = %52
+  %55 = tail call double @llvm.copysign.f64(double 1.000000e+00, double %0)
+  %56 = fsub double %0, %55
+  %57 = tail call double @cos(double noundef %1) #11, !tbaa !3
+  %58 = tail call double @sinh(double noundef %56) #11, !tbaa !3
+  %59 = fmul double %57, %58
+  %60 = fmul double %59, 0x4005BF0A8B145769
+  %61 = tail call double @sin(double noundef %1) #11, !tbaa !3
+  %62 = tail call double @cosh(double noundef %56) #11, !tbaa !3
+  %63 = fmul double %61, %62
+  %64 = fmul double %63, 0x4005BF0A8B145769
+  br label %72
 
-if.else56:                                        ; preds = %if.end38
-  %call58 = tail call double @cos(double noundef %z.coerce1) #10
-  %call60 = tail call double @sinh(double noundef %z.coerce0) #10
-  %mul61 = fmul double %call58, %call60
-  %call64 = tail call double @sin(double noundef %z.coerce1) #10
-  %call66 = tail call double @cosh(double noundef %z.coerce0) #10
-  %mul67 = fmul double %call64, %call66
-  br label %if.end69
+65:                                               ; preds = %52
+  %66 = tail call double @cos(double noundef %1) #11, !tbaa !3
+  %67 = tail call double @sinh(double noundef %0) #11, !tbaa !3
+  %68 = fmul double %66, %67
+  %69 = tail call double @sin(double noundef %1) #11, !tbaa !3
+  %70 = tail call double @cosh(double noundef %0) #11, !tbaa !3
+  %71 = fmul double %69, %70
+  br label %72
 
-if.end69:                                         ; preds = %if.else56, %if.then42
-  %retval.sroa.0.2 = phi double [ %mul48, %if.then42 ], [ %mul61, %if.else56 ]
-  %retval.sroa.7.2 = phi double [ %mul54, %if.then42 ], [ %mul67, %if.else56 ]
-  %16 = tail call double @llvm.fabs.f64(double %retval.sroa.0.2) #12
-  %isinf71 = fcmp oeq double %16, 0x7FF0000000000000
-  %17 = tail call double @llvm.fabs.f64(double %retval.sroa.7.2) #12
-  %isinf75 = fcmp oeq double %17, 0x7FF0000000000000
-  %or.cond26 = select i1 %isinf71, i1 true, i1 %isinf75
-  %call78 = tail call ptr @__errno_location() #11
-  br i1 %or.cond26, label %if.then77, label %if.else79
+72:                                               ; preds = %65, %54
+  %.sroa.025.2 = phi double [ %60, %54 ], [ %68, %65 ]
+  %.sroa.7.2 = phi double [ %64, %54 ], [ %71, %65 ]
+  %73 = tail call double @llvm.fabs.f64(double %.sroa.025.2) #13
+  %74 = fcmp oeq double %73, 0x7FF0000000000000
+  %75 = tail call double @llvm.fabs.f64(double %.sroa.7.2) #13
+  %76 = fcmp oeq double %75, 0x7FF0000000000000
+  %or.cond30 = select i1 %74, i1 true, i1 %76
+  %77 = tail call ptr @__errno_location() #12
+  br i1 %or.cond30, label %78, label %79
 
-if.then77:                                        ; preds = %if.end69
-  store i32 34, ptr %call78, align 4
-  br label %return
+78:                                               ; preds = %72
+  store i32 34, ptr %77, align 4, !tbaa !3
+  br label %80
 
-if.else79:                                        ; preds = %if.end69
-  store i32 0, ptr %call78, align 4
-  br label %return
+79:                                               ; preds = %72
+  store i32 0, ptr %77, align 4, !tbaa !3
+  br label %80
 
-return:                                           ; preds = %if.then77, %if.else79, %if.then33, %if.else35
-  %retval.sroa.0.1 = phi double [ %retval.sroa.0.2, %if.then77 ], [ %retval.sroa.0.2, %if.else79 ], [ %retval.sroa.0.0, %if.else35 ], [ %retval.sroa.0.0, %if.then33 ]
-  %retval.sroa.7.1 = phi double [ %retval.sroa.7.2, %if.then77 ], [ %retval.sroa.7.2, %if.else79 ], [ %retval.sroa.7.0, %if.else35 ], [ %retval.sroa.7.0, %if.then33 ]
-  %.fca.0.insert = insertvalue { double, double } poison, double %retval.sroa.0.1, 0
-  %.fca.1.insert = insertvalue { double, double } %.fca.0.insert, double %retval.sroa.7.1, 1
+80:                                               ; preds = %78, %79, %50, %51
+  %.sroa.025.1 = phi double [ %.sroa.025.0, %51 ], [ %.sroa.025.0, %50 ], [ %.sroa.025.2, %79 ], [ %.sroa.025.2, %78 ]
+  %.sroa.7.1 = phi double [ %.sroa.7.0, %51 ], [ %.sroa.7.0, %50 ], [ %.sroa.7.2, %79 ], [ %.sroa.7.2, %78 ]
+  %.fca.0.insert = insertvalue { double, double } poison, double %.sroa.025.1, 0
+  %.fca.1.insert = insertvalue { double, double } %.fca.0.insert, double %.sroa.7.1, 1
   ret { double, double } %.fca.1.insert
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(readwrite, argmem: write, inaccessiblemem: write) uwtable
-define internal fastcc { double, double } @cmath_tanh_impl(double %z.coerce0, double %z.coerce1) unnamed_addr #7 {
-entry:
-  %0 = tail call double @llvm.fabs.f64(double %z.coerce0)
-  %1 = fcmp ueq double %0, 0x7FF0000000000000
-  %2 = tail call double @llvm.fabs.f64(double %z.coerce1)
-  %3 = fcmp ueq double %2, 0x7FF0000000000000
-  %or.cond29 = select i1 %1, i1 true, i1 %3
-  br i1 %or.cond29, label %if.then, label %if.end41
+define internal fastcc { double, double } @cmath_tanh_impl(double %0, double %1) unnamed_addr #8 {
+  %3 = tail call double @llvm.fabs.f64(double %0)
+  %4 = fcmp ueq double %3, 0x7FF0000000000000
+  %5 = tail call double @llvm.fabs.f64(double %1)
+  %6 = fcmp ueq double %5, 0x7FF0000000000000
+  %or.cond37 = select i1 %4, i1 true, i1 %6
+  br i1 %or.cond37, label %7, label %46
 
-if.then:                                          ; preds = %entry
-  %isinf = fcmp oeq double %0, 0x7FF0000000000000
-  br i1 %isinf, label %land.lhs.true, label %if.else23
+7:                                                ; preds = %2
+  %8 = fcmp oeq double %3, 0x7FF0000000000000
+  br i1 %8, label %9, label %17
 
-land.lhs.true:                                    ; preds = %if.then
-  %or.cond = tail call i1 @llvm.is.fpclass.f64(double %z.coerce1, i32 408)
-  br i1 %or.cond, label %if.then5, label %if.else23
+9:                                                ; preds = %7
+  %or.cond = tail call i1 @llvm.is.fpclass.f64(double %1, i32 408)
+  br i1 %or.cond, label %10, label %17
 
-if.then5:                                         ; preds = %land.lhs.true
-  %cmp7 = fcmp ogt double %z.coerce0, 0.000000e+00
-  %call = tail call double @sin(double noundef %z.coerce1) #10
-  %mul = fmul double %call, 2.000000e+00
-  %call12 = tail call double @cos(double noundef %z.coerce1) #10
-  %mul13 = fmul double %mul, %call12
-  %4 = tail call double @llvm.copysign.f64(double 0.000000e+00, double %mul13)
-  %. = select i1 %cmp7, double 1.000000e+00, double -1.000000e+00
-  br label %if.end30
+10:                                               ; preds = %9
+  %11 = fcmp ogt double %0, 0.000000e+00
+  %12 = tail call double @sin(double noundef %1) #11, !tbaa !3
+  %13 = fmul double %12, 2.000000e+00
+  %14 = tail call double @cos(double noundef %1) #11, !tbaa !3
+  %15 = fmul double %13, %14
+  %16 = tail call double @llvm.copysign.f64(double 0.000000e+00, double %15)
+  %. = select i1 %11, double 1.000000e+00, double -1.000000e+00
+  br label %41
 
-if.else23:                                        ; preds = %land.lhs.true, %if.then
-  br i1 %1, label %if.end.i, label %if.then.i
+17:                                               ; preds = %9, %7
+  br i1 %4, label %24, label %18
 
-if.then.i:                                        ; preds = %if.else23
-  %cmp.i = fcmp une double %z.coerce0, 0.000000e+00
-  %5 = tail call double @llvm.copysign.f64(double 1.000000e+00, double %z.coerce0)
-  %cmp2.i = fcmp oeq double %5, 1.000000e+00
-  br i1 %cmp.i, label %if.then1.i, label %if.else4.i
+18:                                               ; preds = %17
+  %19 = fcmp une double %0, 0.000000e+00
+  %20 = tail call double @llvm.copysign.f64(double 1.000000e+00, double %0)
+  %21 = fcmp oeq double %20, 1.000000e+00
+  br i1 %19, label %22, label %23
 
-if.then1.i:                                       ; preds = %if.then.i
-  %..i = select i1 %cmp2.i, i64 4, i64 1
+22:                                               ; preds = %18
+  %..i = select i1 %21, i64 4, i64 1
   br label %special_type.exit
 
-if.else4.i:                                       ; preds = %if.then.i
-  %.6.i = select i1 %cmp2.i, i64 3, i64 2
+23:                                               ; preds = %18
+  %.7.i = select i1 %21, i64 3, i64 2
   br label %special_type.exit
 
-if.end.i:                                         ; preds = %if.else23
-  %6 = fcmp uno double %z.coerce0, 0.000000e+00
-  br i1 %6, label %special_type.exit, label %if.end9.i
+24:                                               ; preds = %17
+  %25 = fcmp uno double %0, 0.000000e+00
+  br i1 %25, label %special_type.exit, label %26
 
-if.end9.i:                                        ; preds = %if.end.i
-  %7 = tail call double @llvm.copysign.f64(double 1.000000e+00, double %z.coerce0)
-  %cmp10.i = fcmp oeq double %7, 1.000000e+00
-  %.7.i = select i1 %cmp10.i, i64 5, i64 0
+26:                                               ; preds = %24
+  %27 = tail call double @llvm.copysign.f64(double 1.000000e+00, double %0)
+  %28 = fcmp oeq double %27, 1.000000e+00
+  %.8.i = select i1 %28, i64 5, i64 0
   br label %special_type.exit
 
-special_type.exit:                                ; preds = %if.then1.i, %if.else4.i, %if.end.i, %if.end9.i
-  %retval.0.i = phi i64 [ %..i, %if.then1.i ], [ %.6.i, %if.else4.i ], [ 6, %if.end.i ], [ %.7.i, %if.end9.i ]
-  br i1 %3, label %if.end.i39, label %if.then.i31
+special_type.exit:                                ; preds = %22, %23, %24, %26
+  %.0.i = phi i64 [ %..i, %22 ], [ %.7.i, %23 ], [ 6, %24 ], [ %.8.i, %26 ]
+  br i1 %6, label %35, label %29
 
-if.then.i31:                                      ; preds = %special_type.exit
-  %cmp.i32 = fcmp une double %z.coerce1, 0.000000e+00
-  %8 = tail call double @llvm.copysign.f64(double 1.000000e+00, double %z.coerce1)
-  %cmp2.i33 = fcmp oeq double %8, 1.000000e+00
-  br i1 %cmp.i32, label %if.then1.i37, label %if.else4.i34
+29:                                               ; preds = %special_type.exit
+  %30 = fcmp une double %1, 0.000000e+00
+  %31 = tail call double @llvm.copysign.f64(double 1.000000e+00, double %1)
+  %32 = fcmp oeq double %31, 1.000000e+00
+  br i1 %30, label %33, label %34
 
-if.then1.i37:                                     ; preds = %if.then.i31
-  %..i38 = select i1 %cmp2.i33, i64 4, i64 1
-  br label %special_type.exit43
+33:                                               ; preds = %29
+  %..i42 = select i1 %32, i64 4, i64 1
+  br label %special_type.exit44
 
-if.else4.i34:                                     ; preds = %if.then.i31
-  %.6.i35 = select i1 %cmp2.i33, i64 3, i64 2
-  br label %special_type.exit43
+34:                                               ; preds = %29
+  %.7.i40 = select i1 %32, i64 3, i64 2
+  br label %special_type.exit44
 
-if.end.i39:                                       ; preds = %special_type.exit
-  %9 = fcmp uno double %z.coerce1, 0.000000e+00
-  br i1 %9, label %special_type.exit43, label %if.end9.i40
+35:                                               ; preds = %special_type.exit
+  %36 = fcmp uno double %1, 0.000000e+00
+  br i1 %36, label %special_type.exit44, label %37
 
-if.end9.i40:                                      ; preds = %if.end.i39
-  %10 = tail call double @llvm.copysign.f64(double 1.000000e+00, double %z.coerce1)
-  %cmp10.i41 = fcmp oeq double %10, 1.000000e+00
-  %.7.i42 = select i1 %cmp10.i41, i64 5, i64 0
-  br label %special_type.exit43
+37:                                               ; preds = %35
+  %38 = tail call double @llvm.copysign.f64(double 1.000000e+00, double %1)
+  %39 = fcmp oeq double %38, 1.000000e+00
+  %.8.i43 = select i1 %39, i64 5, i64 0
+  br label %special_type.exit44
 
-special_type.exit43:                              ; preds = %if.then1.i37, %if.else4.i34, %if.end.i39, %if.end9.i40
-  %retval.0.i36 = phi i64 [ %..i38, %if.then1.i37 ], [ %.6.i35, %if.else4.i34 ], [ 6, %if.end.i39 ], [ %.7.i42, %if.end9.i40 ]
-  %arrayidx29 = getelementptr [7 x [7 x %struct.Py_complex]], ptr @tanh_special_values, i64 0, i64 %retval.0.i, i64 %retval.0.i36
-  %retval.sroa.0.0.copyload = load double, ptr %arrayidx29, align 16
-  %retval.sroa.6.0.arrayidx29.sroa_idx = getelementptr inbounds nuw i8, ptr %arrayidx29, i64 8
-  %retval.sroa.6.0.copyload = load double, ptr %retval.sroa.6.0.arrayidx29.sroa_idx, align 8
-  br label %if.end30
+special_type.exit44:                              ; preds = %33, %34, %35, %37
+  %.0.i41 = phi i64 [ %..i42, %33 ], [ %.7.i40, %34 ], [ 6, %35 ], [ %.8.i43, %37 ]
+  %40 = getelementptr [7 x [7 x %struct.Py_complex]], ptr @tanh_special_values, i64 0, i64 %.0.i, i64 %.0.i41
+  %.sroa.034.0.copyload = load double, ptr %40, align 16, !tbaa !7
+  %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %40, i64 8
+  %.sroa.6.0.copyload = load double, ptr %.sroa.6.0..sroa_idx, align 8, !tbaa !7
+  br label %41
 
-if.end30:                                         ; preds = %if.then5, %special_type.exit43
-  %retval.sroa.0.0 = phi double [ %retval.sroa.0.0.copyload, %special_type.exit43 ], [ %., %if.then5 ]
-  %retval.sroa.6.0 = phi double [ %retval.sroa.6.0.copyload, %special_type.exit43 ], [ %4, %if.then5 ]
-  %isinf32 = fcmp une double %2, 0x7FF0000000000000
-  %brmerge = or i1 %1, %isinf32
-  %call39 = tail call ptr @__errno_location() #11
-  br i1 %brmerge, label %if.else38, label %if.then36
+41:                                               ; preds = %10, %special_type.exit44
+  %.sroa.034.0 = phi double [ %.sroa.034.0.copyload, %special_type.exit44 ], [ %., %10 ]
+  %.sroa.6.0 = phi double [ %.sroa.6.0.copyload, %special_type.exit44 ], [ %16, %10 ]
+  %42 = fcmp une double %5, 0x7FF0000000000000
+  %brmerge = or i1 %4, %42
+  %43 = tail call ptr @__errno_location() #12
+  br i1 %brmerge, label %45, label %44
 
-if.then36:                                        ; preds = %if.end30
-  store i32 33, ptr %call39, align 4
-  br label %return
+44:                                               ; preds = %41
+  store i32 33, ptr %43, align 4, !tbaa !3
+  br label %72
 
-if.else38:                                        ; preds = %if.end30
-  store i32 0, ptr %call39, align 4
-  br label %return
+45:                                               ; preds = %41
+  store i32 0, ptr %43, align 4, !tbaa !3
+  br label %72
 
-if.end41:                                         ; preds = %entry
-  %cmp44 = fcmp ogt double %0, 0x4086232BDD7ABCD2
-  br i1 %cmp44, label %if.then45, label %if.else59
+46:                                               ; preds = %2
+  %47 = fcmp ogt double %3, 0x4086232BDD7ABCD2
+  br i1 %47, label %48, label %57
 
-if.then45:                                        ; preds = %if.end41
-  %11 = tail call double @llvm.copysign.f64(double 1.000000e+00, double %z.coerce0)
-  %call49 = tail call double @sin(double noundef %z.coerce1) #10
-  %mul50 = fmul double %call49, 4.000000e+00
-  %call52 = tail call double @cos(double noundef %z.coerce1) #10
-  %mul53 = fmul double %mul50, %call52
-  %mul55 = fmul double %0, -2.000000e+00
-  %call56 = tail call double @exp(double noundef %mul55) #10
-  %mul57 = fmul double %mul53, %call56
-  br label %if.end76
+48:                                               ; preds = %46
+  %49 = tail call double @llvm.copysign.f64(double 1.000000e+00, double %0)
+  %50 = tail call double @sin(double noundef %1) #11, !tbaa !3
+  %51 = fmul double %50, 4.000000e+00
+  %52 = tail call double @cos(double noundef %1) #11, !tbaa !3
+  %53 = fmul double %51, %52
+  %54 = fmul double %3, -2.000000e+00
+  %55 = tail call double @exp(double noundef %54) #11, !tbaa !3
+  %56 = fmul double %53, %55
+  br label %70
 
-if.else59:                                        ; preds = %if.end41
-  %call61 = tail call double @tanh(double noundef %z.coerce0) #10
-  %call63 = tail call double @tan(double noundef %z.coerce1) #10
-  %call65 = tail call double @cosh(double noundef %z.coerce0) #10
-  %div = fdiv double 1.000000e+00, %call65
-  %mul66 = fmul double %call61, %call63
-  %12 = tail call double @llvm.fmuladd.f64(double %mul66, double %mul66, double 1.000000e+00)
-  %13 = tail call double @llvm.fmuladd.f64(double %call63, double %call63, double 1.000000e+00)
-  %mul69 = fmul double %call61, %13
-  %div70 = fdiv double %mul69, %12
-  %div72 = fdiv double %call63, %12
-  %mul73 = fmul double %div, %div72
-  %mul74 = fmul double %div, %mul73
-  br label %if.end76
+57:                                               ; preds = %46
+  %58 = tail call double @tanh(double noundef %0) #11, !tbaa !3
+  %59 = tail call double @tan(double noundef %1) #11, !tbaa !3
+  %60 = tail call double @cosh(double noundef %0) #11, !tbaa !3
+  %61 = fdiv double 1.000000e+00, %60
+  %62 = fmul double %58, %59
+  %63 = tail call double @llvm.fmuladd.f64(double %62, double %62, double 1.000000e+00)
+  %64 = tail call double @llvm.fmuladd.f64(double %59, double %59, double 1.000000e+00)
+  %65 = fmul double %58, %64
+  %66 = fdiv double %65, %63
+  %67 = fdiv double %59, %63
+  %68 = fmul double %61, %67
+  %69 = fmul double %61, %68
+  br label %70
 
-if.end76:                                         ; preds = %if.else59, %if.then45
-  %retval.sroa.0.2 = phi double [ %11, %if.then45 ], [ %div70, %if.else59 ]
-  %retval.sroa.6.2 = phi double [ %mul57, %if.then45 ], [ %mul74, %if.else59 ]
-  %call77 = tail call ptr @__errno_location() #11
-  store i32 0, ptr %call77, align 4
-  br label %return
+70:                                               ; preds = %57, %48
+  %.sroa.034.2 = phi double [ %49, %48 ], [ %66, %57 ]
+  %.sroa.6.2 = phi double [ %56, %48 ], [ %69, %57 ]
+  %71 = tail call ptr @__errno_location() #12
+  store i32 0, ptr %71, align 4, !tbaa !3
+  br label %72
 
-return:                                           ; preds = %if.then36, %if.else38, %if.end76
-  %retval.sroa.0.1 = phi double [ %retval.sroa.0.2, %if.end76 ], [ %retval.sroa.0.0, %if.then36 ], [ %retval.sroa.0.0, %if.else38 ]
-  %retval.sroa.6.1 = phi double [ %retval.sroa.6.2, %if.end76 ], [ %retval.sroa.6.0, %if.then36 ], [ %retval.sroa.6.0, %if.else38 ]
-  %.fca.0.insert = insertvalue { double, double } poison, double %retval.sroa.0.1, 0
-  %.fca.1.insert = insertvalue { double, double } %.fca.0.insert, double %retval.sroa.6.1, 1
+72:                                               ; preds = %44, %45, %70
+  %.sroa.034.1 = phi double [ %.sroa.034.2, %70 ], [ %.sroa.034.0, %45 ], [ %.sroa.034.0, %44 ]
+  %.sroa.6.1 = phi double [ %.sroa.6.2, %70 ], [ %.sroa.6.0, %45 ], [ %.sroa.6.0, %44 ]
+  %.fca.0.insert = insertvalue { double, double } poison, double %.sroa.034.1, 0
+  %.fca.1.insert = insertvalue { double, double } %.fca.0.insert, double %.sroa.6.1, 1
   ret { double, double } %.fca.1.insert
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
-declare double @tanh(double noundef) local_unnamed_addr #4
+declare double @tanh(double noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
-declare double @tan(double noundef) local_unnamed_addr #4
+declare double @tan(double noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @cmath_exec(ptr noundef %mod) #0 {
-entry:
-  %call = tail call ptr @PyFloat_FromDouble(double noundef 0x400921FB54442D18) #10
-  %call1 = tail call i32 @PyModule_Add(ptr noundef %mod, ptr noundef nonnull @.str.32, ptr noundef %call) #10
-  %cmp = icmp slt i32 %call1, 0
-  br i1 %cmp, label %return, label %if.end
+define internal range(i32 -1, 1) i32 @cmath_exec(ptr noundef %0) #0 {
+  %2 = tail call ptr @PyFloat_FromDouble(double noundef 0x400921FB54442D18) #11
+  %3 = tail call i32 @PyModule_Add(ptr noundef %0, ptr noundef nonnull @.str.34, ptr noundef %2) #11
+  %4 = icmp slt i32 %3, 0
+  br i1 %4, label %30, label %5
 
-if.end:                                           ; preds = %entry
-  %call2 = tail call ptr @PyFloat_FromDouble(double noundef 0x4005BF0A8B145769) #10
-  %call3 = tail call i32 @PyModule_Add(ptr noundef %mod, ptr noundef nonnull @.str.33, ptr noundef %call2) #10
-  %cmp4 = icmp slt i32 %call3, 0
-  br i1 %cmp4, label %return, label %if.end6
+5:                                                ; preds = %1
+  %6 = tail call ptr @PyFloat_FromDouble(double noundef 0x4005BF0A8B145769) #11
+  %7 = tail call i32 @PyModule_Add(ptr noundef %0, ptr noundef nonnull @.str.35, ptr noundef %6) #11
+  %8 = icmp slt i32 %7, 0
+  br i1 %8, label %30, label %9
 
-if.end6:                                          ; preds = %if.end
-  %call7 = tail call ptr @PyFloat_FromDouble(double noundef 0x401921FB54442D18) #10
-  %call8 = tail call i32 @PyModule_Add(ptr noundef %mod, ptr noundef nonnull @.str.34, ptr noundef %call7) #10
-  %cmp9 = icmp slt i32 %call8, 0
-  br i1 %cmp9, label %return, label %if.end11
+9:                                                ; preds = %5
+  %10 = tail call ptr @PyFloat_FromDouble(double noundef 0x401921FB54442D18) #11
+  %11 = tail call i32 @PyModule_Add(ptr noundef %0, ptr noundef nonnull @.str.36, ptr noundef %10) #11
+  %12 = icmp slt i32 %11, 0
+  br i1 %12, label %30, label %13
 
-if.end11:                                         ; preds = %if.end6
-  %call12 = tail call ptr @PyFloat_FromDouble(double noundef 0x7FF0000000000000) #10
-  %call13 = tail call i32 @PyModule_Add(ptr noundef %mod, ptr noundef nonnull @.str.35, ptr noundef %call12) #10
-  %cmp14 = icmp slt i32 %call13, 0
-  br i1 %cmp14, label %return, label %if.end16
+13:                                               ; preds = %9
+  %14 = tail call ptr @PyFloat_FromDouble(double noundef 0x7FF0000000000000) #11
+  %15 = tail call i32 @PyModule_Add(ptr noundef %0, ptr noundef nonnull @.str.37, ptr noundef %14) #11
+  %16 = icmp slt i32 %15, 0
+  br i1 %16, label %30, label %17
 
-if.end16:                                         ; preds = %if.end11
-  %call17 = tail call ptr @PyComplex_FromCComplex(double 0.000000e+00, double 0x7FF0000000000000) #10
-  %call18 = tail call i32 @PyModule_Add(ptr noundef %mod, ptr noundef nonnull @.str.36, ptr noundef %call17) #10
-  %cmp19 = icmp slt i32 %call18, 0
-  br i1 %cmp19, label %return, label %if.end21
+17:                                               ; preds = %13
+  %18 = tail call ptr @PyComplex_FromCComplex(double 0.000000e+00, double 0x7FF0000000000000) #11
+  %19 = tail call i32 @PyModule_Add(ptr noundef %0, ptr noundef nonnull @.str.38, ptr noundef %18) #11
+  %20 = icmp slt i32 %19, 0
+  br i1 %20, label %30, label %21
 
-if.end21:                                         ; preds = %if.end16
-  %call22 = tail call ptr @PyFloat_FromDouble(double noundef 0x7FF8000000000000) #10
-  %call23 = tail call i32 @PyModule_Add(ptr noundef %mod, ptr noundef nonnull @.str.37, ptr noundef %call22) #10
-  %cmp24 = icmp slt i32 %call23, 0
-  br i1 %cmp24, label %return, label %if.end26
+21:                                               ; preds = %17
+  %22 = tail call ptr @PyFloat_FromDouble(double noundef 0x7FF8000000000000) #11
+  %23 = tail call i32 @PyModule_Add(ptr noundef %0, ptr noundef nonnull @.str.39, ptr noundef %22) #11
+  %24 = icmp slt i32 %23, 0
+  br i1 %24, label %30, label %25
 
-if.end26:                                         ; preds = %if.end21
-  %call27 = tail call ptr @PyComplex_FromCComplex(double 0.000000e+00, double 0x7FF8000000000000) #10
-  %call28 = tail call i32 @PyModule_Add(ptr noundef %mod, ptr noundef nonnull @.str.38, ptr noundef %call27) #10
-  %cmp29 = icmp slt i32 %call28, 0
-  br i1 %cmp29, label %return, label %if.end31
+25:                                               ; preds = %21
+  %26 = tail call ptr @PyComplex_FromCComplex(double 0.000000e+00, double 0x7FF8000000000000) #11
+  %27 = tail call i32 @PyModule_Add(ptr noundef %0, ptr noundef nonnull @.str.40, ptr noundef %26) #11
+  %28 = icmp slt i32 %27, 0
+  br i1 %28, label %30, label %29
 
-if.end31:                                         ; preds = %if.end26
-  store double 0x4002D97C7F3321D2, ptr @acos_special_values, align 16
-  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @acos_special_values, i64 8), align 8
-  store double 0x400921FB54442D18, ptr getelementptr inbounds nuw (i8, ptr @acos_special_values, i64 16), align 16
-  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @acos_special_values, i64 24), align 8
-  store double 0x400921FB54442D18, ptr getelementptr inbounds nuw (i8, ptr @acos_special_values, i64 32), align 16
-  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @acos_special_values, i64 40), align 8
-  store double 0x400921FB54442D18, ptr getelementptr inbounds nuw (i8, ptr @acos_special_values, i64 48), align 16
-  store double 0xFFF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @acos_special_values, i64 56), align 8
-  store double 0x400921FB54442D18, ptr getelementptr inbounds nuw (i8, ptr @acos_special_values, i64 64), align 16
-  store double 0xFFF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @acos_special_values, i64 72), align 8
-  store double 0x4002D97C7F3321D2, ptr getelementptr inbounds nuw (i8, ptr @acos_special_values, i64 80), align 16
-  store double 0xFFF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @acos_special_values, i64 88), align 8
-  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @acos_special_values, i64 96), align 16
-  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @acos_special_values, i64 104), align 8
-  store double 0x3FF921FB54442D18, ptr getelementptr inbounds nuw (i8, ptr @acos_special_values, i64 112), align 16
-  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @acos_special_values, i64 120), align 8
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @acos_special_values, i64 128), align 16
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @acos_special_values, i64 136), align 8
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @acos_special_values, i64 144), align 16
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @acos_special_values, i64 152), align 8
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @acos_special_values, i64 160), align 16
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @acos_special_values, i64 168), align 8
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @acos_special_values, i64 176), align 16
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @acos_special_values, i64 184), align 8
-  store double 0x3FF921FB54442D18, ptr getelementptr inbounds nuw (i8, ptr @acos_special_values, i64 192), align 16
-  store double 0xFFF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @acos_special_values, i64 200), align 8
-  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @acos_special_values, i64 208), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @acos_special_values, i64 216), align 8
-  store double 0x3FF921FB54442D18, ptr getelementptr inbounds nuw (i8, ptr @acos_special_values, i64 224), align 16
-  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @acos_special_values, i64 232), align 8
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @acos_special_values, i64 240), align 16
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @acos_special_values, i64 248), align 8
-  store double 0x3FF921FB54442D18, ptr getelementptr inbounds nuw (i8, ptr @acos_special_values, i64 256), align 16
-  store double 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @acos_special_values, i64 264), align 8
-  store double 0x3FF921FB54442D18, ptr getelementptr inbounds nuw (i8, ptr @acos_special_values, i64 272), align 16
-  store double -0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @acos_special_values, i64 280), align 8
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @acos_special_values, i64 288), align 16
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @acos_special_values, i64 296), align 8
-  store double 0x3FF921FB54442D18, ptr getelementptr inbounds nuw (i8, ptr @acos_special_values, i64 304), align 16
-  store double 0xFFF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @acos_special_values, i64 312), align 8
-  store double 0x3FF921FB54442D18, ptr getelementptr inbounds nuw (i8, ptr @acos_special_values, i64 320), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @acos_special_values, i64 328), align 8
-  store double 0x3FF921FB54442D18, ptr getelementptr inbounds nuw (i8, ptr @acos_special_values, i64 336), align 16
-  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @acos_special_values, i64 344), align 8
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @acos_special_values, i64 352), align 16
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @acos_special_values, i64 360), align 8
-  store double 0x3FF921FB54442D18, ptr getelementptr inbounds nuw (i8, ptr @acos_special_values, i64 368), align 16
-  store double 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @acos_special_values, i64 376), align 8
-  store double 0x3FF921FB54442D18, ptr getelementptr inbounds nuw (i8, ptr @acos_special_values, i64 384), align 16
-  store double -0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @acos_special_values, i64 392), align 8
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @acos_special_values, i64 400), align 16
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @acos_special_values, i64 408), align 8
-  store double 0x3FF921FB54442D18, ptr getelementptr inbounds nuw (i8, ptr @acos_special_values, i64 416), align 16
-  store double 0xFFF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @acos_special_values, i64 424), align 8
-  store double 0x3FF921FB54442D18, ptr getelementptr inbounds nuw (i8, ptr @acos_special_values, i64 432), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @acos_special_values, i64 440), align 8
-  store double 0x3FF921FB54442D18, ptr getelementptr inbounds nuw (i8, ptr @acos_special_values, i64 448), align 16
-  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @acos_special_values, i64 456), align 8
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @acos_special_values, i64 464), align 16
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @acos_special_values, i64 472), align 8
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @acos_special_values, i64 480), align 16
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @acos_special_values, i64 488), align 8
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @acos_special_values, i64 496), align 16
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @acos_special_values, i64 504), align 8
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @acos_special_values, i64 512), align 16
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @acos_special_values, i64 520), align 8
-  store double 0x3FF921FB54442D18, ptr getelementptr inbounds nuw (i8, ptr @acos_special_values, i64 528), align 16
-  store double 0xFFF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @acos_special_values, i64 536), align 8
-  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @acos_special_values, i64 544), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @acos_special_values, i64 552), align 8
-  store double 0x3FE921FB54442D18, ptr getelementptr inbounds nuw (i8, ptr @acos_special_values, i64 560), align 16
-  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @acos_special_values, i64 568), align 8
-  store double 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @acos_special_values, i64 576), align 16
-  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @acos_special_values, i64 584), align 8
-  store double 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @acos_special_values, i64 592), align 16
-  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @acos_special_values, i64 600), align 8
-  store double 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @acos_special_values, i64 608), align 16
-  store double 0xFFF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @acos_special_values, i64 616), align 8
-  store double 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @acos_special_values, i64 624), align 16
-  store double 0xFFF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @acos_special_values, i64 632), align 8
-  store double 0x3FE921FB54442D18, ptr getelementptr inbounds nuw (i8, ptr @acos_special_values, i64 640), align 16
-  store double 0xFFF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @acos_special_values, i64 648), align 8
-  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @acos_special_values, i64 656), align 16
-  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @acos_special_values, i64 664), align 8
-  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @acos_special_values, i64 672), align 16
-  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @acos_special_values, i64 680), align 8
-  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @acos_special_values, i64 688), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @acos_special_values, i64 696), align 8
-  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @acos_special_values, i64 704), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @acos_special_values, i64 712), align 8
-  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @acos_special_values, i64 720), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @acos_special_values, i64 728), align 8
-  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @acos_special_values, i64 736), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @acos_special_values, i64 744), align 8
-  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @acos_special_values, i64 752), align 16
-  store double 0xFFF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @acos_special_values, i64 760), align 8
-  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @acos_special_values, i64 768), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @acos_special_values, i64 776), align 8
-  store double 0x7FF0000000000000, ptr @acosh_special_values, align 16
-  store double 0xC002D97C7F3321D2, ptr getelementptr inbounds nuw (i8, ptr @acosh_special_values, i64 8), align 8
-  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @acosh_special_values, i64 16), align 16
-  store double 0xC00921FB54442D18, ptr getelementptr inbounds nuw (i8, ptr @acosh_special_values, i64 24), align 8
-  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @acosh_special_values, i64 32), align 16
-  store double 0xC00921FB54442D18, ptr getelementptr inbounds nuw (i8, ptr @acosh_special_values, i64 40), align 8
-  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @acosh_special_values, i64 48), align 16
-  store double 0x400921FB54442D18, ptr getelementptr inbounds nuw (i8, ptr @acosh_special_values, i64 56), align 8
-  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @acosh_special_values, i64 64), align 16
-  store double 0x400921FB54442D18, ptr getelementptr inbounds nuw (i8, ptr @acosh_special_values, i64 72), align 8
-  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @acosh_special_values, i64 80), align 16
-  store double 0x4002D97C7F3321D2, ptr getelementptr inbounds nuw (i8, ptr @acosh_special_values, i64 88), align 8
-  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @acosh_special_values, i64 96), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @acosh_special_values, i64 104), align 8
-  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @acosh_special_values, i64 112), align 16
-  store double 0xBFF921FB54442D18, ptr getelementptr inbounds nuw (i8, ptr @acosh_special_values, i64 120), align 8
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @acosh_special_values, i64 128), align 16
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @acosh_special_values, i64 136), align 8
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @acosh_special_values, i64 144), align 16
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @acosh_special_values, i64 152), align 8
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @acosh_special_values, i64 160), align 16
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @acosh_special_values, i64 168), align 8
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @acosh_special_values, i64 176), align 16
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @acosh_special_values, i64 184), align 8
-  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @acosh_special_values, i64 192), align 16
-  store double 0x3FF921FB54442D18, ptr getelementptr inbounds nuw (i8, ptr @acosh_special_values, i64 200), align 8
-  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @acosh_special_values, i64 208), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @acosh_special_values, i64 216), align 8
-  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @acosh_special_values, i64 224), align 16
-  store double 0xBFF921FB54442D18, ptr getelementptr inbounds nuw (i8, ptr @acosh_special_values, i64 232), align 8
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @acosh_special_values, i64 240), align 16
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @acosh_special_values, i64 248), align 8
-  store double 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @acosh_special_values, i64 256), align 16
-  store double 0xBFF921FB54442D18, ptr getelementptr inbounds nuw (i8, ptr @acosh_special_values, i64 264), align 8
-  store double 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @acosh_special_values, i64 272), align 16
-  store double 0x3FF921FB54442D18, ptr getelementptr inbounds nuw (i8, ptr @acosh_special_values, i64 280), align 8
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @acosh_special_values, i64 288), align 16
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @acosh_special_values, i64 296), align 8
-  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @acosh_special_values, i64 304), align 16
-  store double 0x3FF921FB54442D18, ptr getelementptr inbounds nuw (i8, ptr @acosh_special_values, i64 312), align 8
-  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @acosh_special_values, i64 320), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @acosh_special_values, i64 328), align 8
-  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @acosh_special_values, i64 336), align 16
-  store double 0xBFF921FB54442D18, ptr getelementptr inbounds nuw (i8, ptr @acosh_special_values, i64 344), align 8
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @acosh_special_values, i64 352), align 16
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @acosh_special_values, i64 360), align 8
-  store double 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @acosh_special_values, i64 368), align 16
-  store double 0xBFF921FB54442D18, ptr getelementptr inbounds nuw (i8, ptr @acosh_special_values, i64 376), align 8
-  store double 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @acosh_special_values, i64 384), align 16
-  store double 0x3FF921FB54442D18, ptr getelementptr inbounds nuw (i8, ptr @acosh_special_values, i64 392), align 8
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @acosh_special_values, i64 400), align 16
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @acosh_special_values, i64 408), align 8
-  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @acosh_special_values, i64 416), align 16
-  store double 0x3FF921FB54442D18, ptr getelementptr inbounds nuw (i8, ptr @acosh_special_values, i64 424), align 8
-  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @acosh_special_values, i64 432), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @acosh_special_values, i64 440), align 8
-  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @acosh_special_values, i64 448), align 16
-  store double 0xBFF921FB54442D18, ptr getelementptr inbounds nuw (i8, ptr @acosh_special_values, i64 456), align 8
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @acosh_special_values, i64 464), align 16
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @acosh_special_values, i64 472), align 8
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @acosh_special_values, i64 480), align 16
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @acosh_special_values, i64 488), align 8
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @acosh_special_values, i64 496), align 16
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @acosh_special_values, i64 504), align 8
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @acosh_special_values, i64 512), align 16
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @acosh_special_values, i64 520), align 8
-  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @acosh_special_values, i64 528), align 16
-  store double 0x3FF921FB54442D18, ptr getelementptr inbounds nuw (i8, ptr @acosh_special_values, i64 536), align 8
-  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @acosh_special_values, i64 544), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @acosh_special_values, i64 552), align 8
-  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @acosh_special_values, i64 560), align 16
-  store double 0xBFE921FB54442D18, ptr getelementptr inbounds nuw (i8, ptr @acosh_special_values, i64 568), align 8
-  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @acosh_special_values, i64 576), align 16
-  store double -0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @acosh_special_values, i64 584), align 8
-  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @acosh_special_values, i64 592), align 16
-  store double -0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @acosh_special_values, i64 600), align 8
-  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @acosh_special_values, i64 608), align 16
-  store double 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @acosh_special_values, i64 616), align 8
-  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @acosh_special_values, i64 624), align 16
-  store double 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @acosh_special_values, i64 632), align 8
-  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @acosh_special_values, i64 640), align 16
-  store double 0x3FE921FB54442D18, ptr getelementptr inbounds nuw (i8, ptr @acosh_special_values, i64 648), align 8
-  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @acosh_special_values, i64 656), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @acosh_special_values, i64 664), align 8
-  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @acosh_special_values, i64 672), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @acosh_special_values, i64 680), align 8
-  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @acosh_special_values, i64 688), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @acosh_special_values, i64 696), align 8
-  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @acosh_special_values, i64 704), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @acosh_special_values, i64 712), align 8
-  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @acosh_special_values, i64 720), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @acosh_special_values, i64 728), align 8
-  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @acosh_special_values, i64 736), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @acosh_special_values, i64 744), align 8
-  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @acosh_special_values, i64 752), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @acosh_special_values, i64 760), align 8
-  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @acosh_special_values, i64 768), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @acosh_special_values, i64 776), align 8
-  store double 0xFFF0000000000000, ptr @asinh_special_values, align 16
-  store double 0xBFE921FB54442D18, ptr getelementptr inbounds nuw (i8, ptr @asinh_special_values, i64 8), align 8
-  store double 0xFFF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @asinh_special_values, i64 16), align 16
-  store double -0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @asinh_special_values, i64 24), align 8
-  store double 0xFFF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @asinh_special_values, i64 32), align 16
-  store double -0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @asinh_special_values, i64 40), align 8
-  store double 0xFFF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @asinh_special_values, i64 48), align 16
-  store double 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @asinh_special_values, i64 56), align 8
-  store double 0xFFF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @asinh_special_values, i64 64), align 16
-  store double 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @asinh_special_values, i64 72), align 8
-  store double 0xFFF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @asinh_special_values, i64 80), align 16
-  store double 0x3FE921FB54442D18, ptr getelementptr inbounds nuw (i8, ptr @asinh_special_values, i64 88), align 8
-  store double 0xFFF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @asinh_special_values, i64 96), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @asinh_special_values, i64 104), align 8
-  store double 0xFFF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @asinh_special_values, i64 112), align 16
-  store double 0xBFF921FB54442D18, ptr getelementptr inbounds nuw (i8, ptr @asinh_special_values, i64 120), align 8
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @asinh_special_values, i64 128), align 16
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @asinh_special_values, i64 136), align 8
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @asinh_special_values, i64 144), align 16
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @asinh_special_values, i64 152), align 8
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @asinh_special_values, i64 160), align 16
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @asinh_special_values, i64 168), align 8
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @asinh_special_values, i64 176), align 16
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @asinh_special_values, i64 184), align 8
-  store double 0xFFF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @asinh_special_values, i64 192), align 16
-  store double 0x3FF921FB54442D18, ptr getelementptr inbounds nuw (i8, ptr @asinh_special_values, i64 200), align 8
-  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @asinh_special_values, i64 208), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @asinh_special_values, i64 216), align 8
-  store double 0xFFF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @asinh_special_values, i64 224), align 16
-  store double 0xBFF921FB54442D18, ptr getelementptr inbounds nuw (i8, ptr @asinh_special_values, i64 232), align 8
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @asinh_special_values, i64 240), align 16
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @asinh_special_values, i64 248), align 8
-  store double -0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @asinh_special_values, i64 256), align 16
-  store double -0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @asinh_special_values, i64 264), align 8
-  store double -0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @asinh_special_values, i64 272), align 16
-  store double 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @asinh_special_values, i64 280), align 8
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @asinh_special_values, i64 288), align 16
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @asinh_special_values, i64 296), align 8
-  store double 0xFFF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @asinh_special_values, i64 304), align 16
-  store double 0x3FF921FB54442D18, ptr getelementptr inbounds nuw (i8, ptr @asinh_special_values, i64 312), align 8
-  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @asinh_special_values, i64 320), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @asinh_special_values, i64 328), align 8
-  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @asinh_special_values, i64 336), align 16
-  store double 0xBFF921FB54442D18, ptr getelementptr inbounds nuw (i8, ptr @asinh_special_values, i64 344), align 8
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @asinh_special_values, i64 352), align 16
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @asinh_special_values, i64 360), align 8
-  store double 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @asinh_special_values, i64 368), align 16
-  store double -0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @asinh_special_values, i64 376), align 8
+29:                                               ; preds = %25
+  store double 0x4002D97C7F3321D2, ptr @acos_special_values, align 16, !tbaa !20
+  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @acos_special_values, i64 8), align 8, !tbaa !22
+  store double 0x400921FB54442D18, ptr getelementptr inbounds nuw (i8, ptr @acos_special_values, i64 16), align 16, !tbaa !20
+  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @acos_special_values, i64 24), align 8, !tbaa !22
+  store double 0x400921FB54442D18, ptr getelementptr inbounds nuw (i8, ptr @acos_special_values, i64 32), align 16, !tbaa !20
+  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @acos_special_values, i64 40), align 8, !tbaa !22
+  store double 0x400921FB54442D18, ptr getelementptr inbounds nuw (i8, ptr @acos_special_values, i64 48), align 16, !tbaa !20
+  store double 0xFFF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @acos_special_values, i64 56), align 8, !tbaa !22
+  store double 0x400921FB54442D18, ptr getelementptr inbounds nuw (i8, ptr @acos_special_values, i64 64), align 16, !tbaa !20
+  store double 0xFFF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @acos_special_values, i64 72), align 8, !tbaa !22
+  store double 0x4002D97C7F3321D2, ptr getelementptr inbounds nuw (i8, ptr @acos_special_values, i64 80), align 16, !tbaa !20
+  store double 0xFFF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @acos_special_values, i64 88), align 8, !tbaa !22
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @acos_special_values, i64 96), align 16, !tbaa !20
+  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @acos_special_values, i64 104), align 8, !tbaa !22
+  store double 0x3FF921FB54442D18, ptr getelementptr inbounds nuw (i8, ptr @acos_special_values, i64 112), align 16, !tbaa !20
+  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @acos_special_values, i64 120), align 8, !tbaa !22
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @acos_special_values, i64 128), align 16, !tbaa !20
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @acos_special_values, i64 136), align 8, !tbaa !22
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @acos_special_values, i64 144), align 16, !tbaa !20
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @acos_special_values, i64 152), align 8, !tbaa !22
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @acos_special_values, i64 160), align 16, !tbaa !20
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @acos_special_values, i64 168), align 8, !tbaa !22
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @acos_special_values, i64 176), align 16, !tbaa !20
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @acos_special_values, i64 184), align 8, !tbaa !22
+  store double 0x3FF921FB54442D18, ptr getelementptr inbounds nuw (i8, ptr @acos_special_values, i64 192), align 16, !tbaa !20
+  store double 0xFFF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @acos_special_values, i64 200), align 8, !tbaa !22
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @acos_special_values, i64 208), align 16, !tbaa !20
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @acos_special_values, i64 216), align 8, !tbaa !22
+  store double 0x3FF921FB54442D18, ptr getelementptr inbounds nuw (i8, ptr @acos_special_values, i64 224), align 16, !tbaa !20
+  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @acos_special_values, i64 232), align 8, !tbaa !22
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @acos_special_values, i64 240), align 16, !tbaa !20
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @acos_special_values, i64 248), align 8, !tbaa !22
+  store double 0x3FF921FB54442D18, ptr getelementptr inbounds nuw (i8, ptr @acos_special_values, i64 256), align 16, !tbaa !20
+  store double 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @acos_special_values, i64 264), align 8, !tbaa !22
+  store double 0x3FF921FB54442D18, ptr getelementptr inbounds nuw (i8, ptr @acos_special_values, i64 272), align 16, !tbaa !20
+  store double -0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @acos_special_values, i64 280), align 8, !tbaa !22
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @acos_special_values, i64 288), align 16, !tbaa !20
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @acos_special_values, i64 296), align 8, !tbaa !22
+  store double 0x3FF921FB54442D18, ptr getelementptr inbounds nuw (i8, ptr @acos_special_values, i64 304), align 16, !tbaa !20
+  store double 0xFFF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @acos_special_values, i64 312), align 8, !tbaa !22
+  store double 0x3FF921FB54442D18, ptr getelementptr inbounds nuw (i8, ptr @acos_special_values, i64 320), align 16, !tbaa !20
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @acos_special_values, i64 328), align 8, !tbaa !22
+  store double 0x3FF921FB54442D18, ptr getelementptr inbounds nuw (i8, ptr @acos_special_values, i64 336), align 16, !tbaa !20
+  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @acos_special_values, i64 344), align 8, !tbaa !22
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @acos_special_values, i64 352), align 16, !tbaa !20
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @acos_special_values, i64 360), align 8, !tbaa !22
+  store double 0x3FF921FB54442D18, ptr getelementptr inbounds nuw (i8, ptr @acos_special_values, i64 368), align 16, !tbaa !20
+  store double 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @acos_special_values, i64 376), align 8, !tbaa !22
+  store double 0x3FF921FB54442D18, ptr getelementptr inbounds nuw (i8, ptr @acos_special_values, i64 384), align 16, !tbaa !20
+  store double -0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @acos_special_values, i64 392), align 8, !tbaa !22
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @acos_special_values, i64 400), align 16, !tbaa !20
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @acos_special_values, i64 408), align 8, !tbaa !22
+  store double 0x3FF921FB54442D18, ptr getelementptr inbounds nuw (i8, ptr @acos_special_values, i64 416), align 16, !tbaa !20
+  store double 0xFFF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @acos_special_values, i64 424), align 8, !tbaa !22
+  store double 0x3FF921FB54442D18, ptr getelementptr inbounds nuw (i8, ptr @acos_special_values, i64 432), align 16, !tbaa !20
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @acos_special_values, i64 440), align 8, !tbaa !22
+  store double 0x3FF921FB54442D18, ptr getelementptr inbounds nuw (i8, ptr @acos_special_values, i64 448), align 16, !tbaa !20
+  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @acos_special_values, i64 456), align 8, !tbaa !22
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @acos_special_values, i64 464), align 16, !tbaa !20
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @acos_special_values, i64 472), align 8, !tbaa !22
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @acos_special_values, i64 480), align 16, !tbaa !20
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @acos_special_values, i64 488), align 8, !tbaa !22
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @acos_special_values, i64 496), align 16, !tbaa !20
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @acos_special_values, i64 504), align 8, !tbaa !22
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @acos_special_values, i64 512), align 16, !tbaa !20
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @acos_special_values, i64 520), align 8, !tbaa !22
+  store double 0x3FF921FB54442D18, ptr getelementptr inbounds nuw (i8, ptr @acos_special_values, i64 528), align 16, !tbaa !20
+  store double 0xFFF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @acos_special_values, i64 536), align 8, !tbaa !22
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @acos_special_values, i64 544), align 16, !tbaa !20
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @acos_special_values, i64 552), align 8, !tbaa !22
+  store double 0x3FE921FB54442D18, ptr getelementptr inbounds nuw (i8, ptr @acos_special_values, i64 560), align 16, !tbaa !20
+  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @acos_special_values, i64 568), align 8, !tbaa !22
+  store double 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @acos_special_values, i64 576), align 16, !tbaa !20
+  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @acos_special_values, i64 584), align 8, !tbaa !22
+  store double 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @acos_special_values, i64 592), align 16, !tbaa !20
+  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @acos_special_values, i64 600), align 8, !tbaa !22
+  store double 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @acos_special_values, i64 608), align 16, !tbaa !20
+  store double 0xFFF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @acos_special_values, i64 616), align 8, !tbaa !22
+  store double 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @acos_special_values, i64 624), align 16, !tbaa !20
+  store double 0xFFF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @acos_special_values, i64 632), align 8, !tbaa !22
+  store double 0x3FE921FB54442D18, ptr getelementptr inbounds nuw (i8, ptr @acos_special_values, i64 640), align 16, !tbaa !20
+  store double 0xFFF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @acos_special_values, i64 648), align 8, !tbaa !22
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @acos_special_values, i64 656), align 16, !tbaa !20
+  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @acos_special_values, i64 664), align 8, !tbaa !22
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @acos_special_values, i64 672), align 16, !tbaa !20
+  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @acos_special_values, i64 680), align 8, !tbaa !22
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @acos_special_values, i64 688), align 16, !tbaa !20
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @acos_special_values, i64 696), align 8, !tbaa !22
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @acos_special_values, i64 704), align 16, !tbaa !20
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @acos_special_values, i64 712), align 8, !tbaa !22
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @acos_special_values, i64 720), align 16, !tbaa !20
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @acos_special_values, i64 728), align 8, !tbaa !22
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @acos_special_values, i64 736), align 16, !tbaa !20
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @acos_special_values, i64 744), align 8, !tbaa !22
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @acos_special_values, i64 752), align 16, !tbaa !20
+  store double 0xFFF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @acos_special_values, i64 760), align 8, !tbaa !22
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @acos_special_values, i64 768), align 16, !tbaa !20
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @acos_special_values, i64 776), align 8, !tbaa !22
+  store double 0x7FF0000000000000, ptr @acosh_special_values, align 16, !tbaa !20
+  store double 0xC002D97C7F3321D2, ptr getelementptr inbounds nuw (i8, ptr @acosh_special_values, i64 8), align 8, !tbaa !22
+  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @acosh_special_values, i64 16), align 16, !tbaa !20
+  store double 0xC00921FB54442D18, ptr getelementptr inbounds nuw (i8, ptr @acosh_special_values, i64 24), align 8, !tbaa !22
+  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @acosh_special_values, i64 32), align 16, !tbaa !20
+  store double 0xC00921FB54442D18, ptr getelementptr inbounds nuw (i8, ptr @acosh_special_values, i64 40), align 8, !tbaa !22
+  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @acosh_special_values, i64 48), align 16, !tbaa !20
+  store double 0x400921FB54442D18, ptr getelementptr inbounds nuw (i8, ptr @acosh_special_values, i64 56), align 8, !tbaa !22
+  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @acosh_special_values, i64 64), align 16, !tbaa !20
+  store double 0x400921FB54442D18, ptr getelementptr inbounds nuw (i8, ptr @acosh_special_values, i64 72), align 8, !tbaa !22
+  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @acosh_special_values, i64 80), align 16, !tbaa !20
+  store double 0x4002D97C7F3321D2, ptr getelementptr inbounds nuw (i8, ptr @acosh_special_values, i64 88), align 8, !tbaa !22
+  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @acosh_special_values, i64 96), align 16, !tbaa !20
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @acosh_special_values, i64 104), align 8, !tbaa !22
+  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @acosh_special_values, i64 112), align 16, !tbaa !20
+  store double 0xBFF921FB54442D18, ptr getelementptr inbounds nuw (i8, ptr @acosh_special_values, i64 120), align 8, !tbaa !22
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @acosh_special_values, i64 128), align 16, !tbaa !20
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @acosh_special_values, i64 136), align 8, !tbaa !22
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @acosh_special_values, i64 144), align 16, !tbaa !20
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @acosh_special_values, i64 152), align 8, !tbaa !22
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @acosh_special_values, i64 160), align 16, !tbaa !20
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @acosh_special_values, i64 168), align 8, !tbaa !22
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @acosh_special_values, i64 176), align 16, !tbaa !20
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @acosh_special_values, i64 184), align 8, !tbaa !22
+  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @acosh_special_values, i64 192), align 16, !tbaa !20
+  store double 0x3FF921FB54442D18, ptr getelementptr inbounds nuw (i8, ptr @acosh_special_values, i64 200), align 8, !tbaa !22
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @acosh_special_values, i64 208), align 16, !tbaa !20
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @acosh_special_values, i64 216), align 8, !tbaa !22
+  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @acosh_special_values, i64 224), align 16, !tbaa !20
+  store double 0xBFF921FB54442D18, ptr getelementptr inbounds nuw (i8, ptr @acosh_special_values, i64 232), align 8, !tbaa !22
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @acosh_special_values, i64 240), align 16, !tbaa !20
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @acosh_special_values, i64 248), align 8, !tbaa !22
+  store double 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @acosh_special_values, i64 256), align 16, !tbaa !20
+  store double 0xBFF921FB54442D18, ptr getelementptr inbounds nuw (i8, ptr @acosh_special_values, i64 264), align 8, !tbaa !22
+  store double 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @acosh_special_values, i64 272), align 16, !tbaa !20
+  store double 0x3FF921FB54442D18, ptr getelementptr inbounds nuw (i8, ptr @acosh_special_values, i64 280), align 8, !tbaa !22
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @acosh_special_values, i64 288), align 16, !tbaa !20
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @acosh_special_values, i64 296), align 8, !tbaa !22
+  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @acosh_special_values, i64 304), align 16, !tbaa !20
+  store double 0x3FF921FB54442D18, ptr getelementptr inbounds nuw (i8, ptr @acosh_special_values, i64 312), align 8, !tbaa !22
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @acosh_special_values, i64 320), align 16, !tbaa !20
+  store double 0x3FF921FB54442D18, ptr getelementptr inbounds nuw (i8, ptr @acosh_special_values, i64 328), align 8, !tbaa !22
+  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @acosh_special_values, i64 336), align 16, !tbaa !20
+  store double 0xBFF921FB54442D18, ptr getelementptr inbounds nuw (i8, ptr @acosh_special_values, i64 344), align 8, !tbaa !22
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @acosh_special_values, i64 352), align 16, !tbaa !20
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @acosh_special_values, i64 360), align 8, !tbaa !22
+  store double 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @acosh_special_values, i64 368), align 16, !tbaa !20
+  store double 0xBFF921FB54442D18, ptr getelementptr inbounds nuw (i8, ptr @acosh_special_values, i64 376), align 8, !tbaa !22
+  store double 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @acosh_special_values, i64 384), align 16, !tbaa !20
+  store double 0x3FF921FB54442D18, ptr getelementptr inbounds nuw (i8, ptr @acosh_special_values, i64 392), align 8, !tbaa !22
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @acosh_special_values, i64 400), align 16, !tbaa !20
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @acosh_special_values, i64 408), align 8, !tbaa !22
+  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @acosh_special_values, i64 416), align 16, !tbaa !20
+  store double 0x3FF921FB54442D18, ptr getelementptr inbounds nuw (i8, ptr @acosh_special_values, i64 424), align 8, !tbaa !22
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @acosh_special_values, i64 432), align 16, !tbaa !20
+  store double 0x3FF921FB54442D18, ptr getelementptr inbounds nuw (i8, ptr @acosh_special_values, i64 440), align 8, !tbaa !22
+  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @acosh_special_values, i64 448), align 16, !tbaa !20
+  store double 0xBFF921FB54442D18, ptr getelementptr inbounds nuw (i8, ptr @acosh_special_values, i64 456), align 8, !tbaa !22
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @acosh_special_values, i64 464), align 16, !tbaa !20
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @acosh_special_values, i64 472), align 8, !tbaa !22
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @acosh_special_values, i64 480), align 16, !tbaa !20
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @acosh_special_values, i64 488), align 8, !tbaa !22
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @acosh_special_values, i64 496), align 16, !tbaa !20
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @acosh_special_values, i64 504), align 8, !tbaa !22
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @acosh_special_values, i64 512), align 16, !tbaa !20
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @acosh_special_values, i64 520), align 8, !tbaa !22
+  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @acosh_special_values, i64 528), align 16, !tbaa !20
+  store double 0x3FF921FB54442D18, ptr getelementptr inbounds nuw (i8, ptr @acosh_special_values, i64 536), align 8, !tbaa !22
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @acosh_special_values, i64 544), align 16, !tbaa !20
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @acosh_special_values, i64 552), align 8, !tbaa !22
+  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @acosh_special_values, i64 560), align 16, !tbaa !20
+  store double 0xBFE921FB54442D18, ptr getelementptr inbounds nuw (i8, ptr @acosh_special_values, i64 568), align 8, !tbaa !22
+  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @acosh_special_values, i64 576), align 16, !tbaa !20
+  store double -0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @acosh_special_values, i64 584), align 8, !tbaa !22
+  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @acosh_special_values, i64 592), align 16, !tbaa !20
+  store double -0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @acosh_special_values, i64 600), align 8, !tbaa !22
+  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @acosh_special_values, i64 608), align 16, !tbaa !20
+  store double 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @acosh_special_values, i64 616), align 8, !tbaa !22
+  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @acosh_special_values, i64 624), align 16, !tbaa !20
+  store double 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @acosh_special_values, i64 632), align 8, !tbaa !22
+  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @acosh_special_values, i64 640), align 16, !tbaa !20
+  store double 0x3FE921FB54442D18, ptr getelementptr inbounds nuw (i8, ptr @acosh_special_values, i64 648), align 8, !tbaa !22
+  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @acosh_special_values, i64 656), align 16, !tbaa !20
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @acosh_special_values, i64 664), align 8, !tbaa !22
+  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @acosh_special_values, i64 672), align 16, !tbaa !20
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @acosh_special_values, i64 680), align 8, !tbaa !22
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @acosh_special_values, i64 688), align 16, !tbaa !20
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @acosh_special_values, i64 696), align 8, !tbaa !22
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @acosh_special_values, i64 704), align 16, !tbaa !20
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @acosh_special_values, i64 712), align 8, !tbaa !22
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @acosh_special_values, i64 720), align 16, !tbaa !20
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @acosh_special_values, i64 728), align 8, !tbaa !22
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @acosh_special_values, i64 736), align 16, !tbaa !20
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @acosh_special_values, i64 744), align 8, !tbaa !22
+  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @acosh_special_values, i64 752), align 16, !tbaa !20
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @acosh_special_values, i64 760), align 8, !tbaa !22
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @acosh_special_values, i64 768), align 16, !tbaa !20
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @acosh_special_values, i64 776), align 8, !tbaa !22
+  store double 0xFFF0000000000000, ptr @asinh_special_values, align 16, !tbaa !20
+  store double 0xBFE921FB54442D18, ptr getelementptr inbounds nuw (i8, ptr @asinh_special_values, i64 8), align 8, !tbaa !22
+  store double 0xFFF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @asinh_special_values, i64 16), align 16, !tbaa !20
+  store double -0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @asinh_special_values, i64 24), align 8, !tbaa !22
+  store double 0xFFF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @asinh_special_values, i64 32), align 16, !tbaa !20
+  store double -0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @asinh_special_values, i64 40), align 8, !tbaa !22
+  store double 0xFFF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @asinh_special_values, i64 48), align 16, !tbaa !20
+  store double 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @asinh_special_values, i64 56), align 8, !tbaa !22
+  store double 0xFFF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @asinh_special_values, i64 64), align 16, !tbaa !20
+  store double 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @asinh_special_values, i64 72), align 8, !tbaa !22
+  store double 0xFFF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @asinh_special_values, i64 80), align 16, !tbaa !20
+  store double 0x3FE921FB54442D18, ptr getelementptr inbounds nuw (i8, ptr @asinh_special_values, i64 88), align 8, !tbaa !22
+  store double 0xFFF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @asinh_special_values, i64 96), align 16, !tbaa !20
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @asinh_special_values, i64 104), align 8, !tbaa !22
+  store double 0xFFF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @asinh_special_values, i64 112), align 16, !tbaa !20
+  store double 0xBFF921FB54442D18, ptr getelementptr inbounds nuw (i8, ptr @asinh_special_values, i64 120), align 8, !tbaa !22
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @asinh_special_values, i64 128), align 16, !tbaa !20
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @asinh_special_values, i64 136), align 8, !tbaa !22
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @asinh_special_values, i64 144), align 16, !tbaa !20
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @asinh_special_values, i64 152), align 8, !tbaa !22
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @asinh_special_values, i64 160), align 16, !tbaa !20
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @asinh_special_values, i64 168), align 8, !tbaa !22
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @asinh_special_values, i64 176), align 16, !tbaa !20
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @asinh_special_values, i64 184), align 8, !tbaa !22
+  store double 0xFFF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @asinh_special_values, i64 192), align 16, !tbaa !20
+  store double 0x3FF921FB54442D18, ptr getelementptr inbounds nuw (i8, ptr @asinh_special_values, i64 200), align 8, !tbaa !22
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @asinh_special_values, i64 208), align 16, !tbaa !20
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @asinh_special_values, i64 216), align 8, !tbaa !22
+  store double 0xFFF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @asinh_special_values, i64 224), align 16, !tbaa !20
+  store double 0xBFF921FB54442D18, ptr getelementptr inbounds nuw (i8, ptr @asinh_special_values, i64 232), align 8, !tbaa !22
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @asinh_special_values, i64 240), align 16, !tbaa !20
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @asinh_special_values, i64 248), align 8, !tbaa !22
+  store double -0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @asinh_special_values, i64 256), align 16, !tbaa !20
+  store double -0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @asinh_special_values, i64 264), align 8, !tbaa !22
+  store double -0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @asinh_special_values, i64 272), align 16, !tbaa !20
+  store double 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @asinh_special_values, i64 280), align 8, !tbaa !22
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @asinh_special_values, i64 288), align 16, !tbaa !20
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @asinh_special_values, i64 296), align 8, !tbaa !22
+  store double 0xFFF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @asinh_special_values, i64 304), align 16, !tbaa !20
+  store double 0x3FF921FB54442D18, ptr getelementptr inbounds nuw (i8, ptr @asinh_special_values, i64 312), align 8, !tbaa !22
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @asinh_special_values, i64 320), align 16, !tbaa !20
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @asinh_special_values, i64 328), align 8, !tbaa !22
+  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @asinh_special_values, i64 336), align 16, !tbaa !20
+  store double 0xBFF921FB54442D18, ptr getelementptr inbounds nuw (i8, ptr @asinh_special_values, i64 344), align 8, !tbaa !22
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @asinh_special_values, i64 352), align 16, !tbaa !20
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @asinh_special_values, i64 360), align 8, !tbaa !22
+  store double 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @asinh_special_values, i64 368), align 16, !tbaa !20
+  store double -0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @asinh_special_values, i64 376), align 8, !tbaa !22
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @asinh_special_values, i64 384), i8 0, i64 16, i1 false)
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @asinh_special_values, i64 400), align 16
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @asinh_special_values, i64 408), align 8
-  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @asinh_special_values, i64 416), align 16
-  store double 0x3FF921FB54442D18, ptr getelementptr inbounds nuw (i8, ptr @asinh_special_values, i64 424), align 8
-  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @asinh_special_values, i64 432), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @asinh_special_values, i64 440), align 8
-  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @asinh_special_values, i64 448), align 16
-  store double 0xBFF921FB54442D18, ptr getelementptr inbounds nuw (i8, ptr @asinh_special_values, i64 456), align 8
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @asinh_special_values, i64 464), align 16
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @asinh_special_values, i64 472), align 8
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @asinh_special_values, i64 480), align 16
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @asinh_special_values, i64 488), align 8
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @asinh_special_values, i64 496), align 16
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @asinh_special_values, i64 504), align 8
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @asinh_special_values, i64 512), align 16
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @asinh_special_values, i64 520), align 8
-  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @asinh_special_values, i64 528), align 16
-  store double 0x3FF921FB54442D18, ptr getelementptr inbounds nuw (i8, ptr @asinh_special_values, i64 536), align 8
-  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @asinh_special_values, i64 544), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @asinh_special_values, i64 552), align 8
-  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @asinh_special_values, i64 560), align 16
-  store double 0xBFE921FB54442D18, ptr getelementptr inbounds nuw (i8, ptr @asinh_special_values, i64 568), align 8
-  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @asinh_special_values, i64 576), align 16
-  store double -0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @asinh_special_values, i64 584), align 8
-  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @asinh_special_values, i64 592), align 16
-  store double -0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @asinh_special_values, i64 600), align 8
-  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @asinh_special_values, i64 608), align 16
-  store double 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @asinh_special_values, i64 616), align 8
-  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @asinh_special_values, i64 624), align 16
-  store double 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @asinh_special_values, i64 632), align 8
-  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @asinh_special_values, i64 640), align 16
-  store double 0x3FE921FB54442D18, ptr getelementptr inbounds nuw (i8, ptr @asinh_special_values, i64 648), align 8
-  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @asinh_special_values, i64 656), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @asinh_special_values, i64 664), align 8
-  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @asinh_special_values, i64 672), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @asinh_special_values, i64 680), align 8
-  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @asinh_special_values, i64 688), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @asinh_special_values, i64 696), align 8
-  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @asinh_special_values, i64 704), align 16
-  store double -0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @asinh_special_values, i64 712), align 8
-  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @asinh_special_values, i64 720), align 16
-  store double 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @asinh_special_values, i64 728), align 8
-  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @asinh_special_values, i64 736), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @asinh_special_values, i64 744), align 8
-  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @asinh_special_values, i64 752), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @asinh_special_values, i64 760), align 8
-  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @asinh_special_values, i64 768), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @asinh_special_values, i64 776), align 8
-  store double -0.000000e+00, ptr @atanh_special_values, align 16
-  store double 0xBFF921FB54442D18, ptr getelementptr inbounds nuw (i8, ptr @atanh_special_values, i64 8), align 8
-  store double -0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @atanh_special_values, i64 16), align 16
-  store double 0xBFF921FB54442D18, ptr getelementptr inbounds nuw (i8, ptr @atanh_special_values, i64 24), align 8
-  store double -0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @atanh_special_values, i64 32), align 16
-  store double 0xBFF921FB54442D18, ptr getelementptr inbounds nuw (i8, ptr @atanh_special_values, i64 40), align 8
-  store double -0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @atanh_special_values, i64 48), align 16
-  store double 0x3FF921FB54442D18, ptr getelementptr inbounds nuw (i8, ptr @atanh_special_values, i64 56), align 8
-  store double -0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @atanh_special_values, i64 64), align 16
-  store double 0x3FF921FB54442D18, ptr getelementptr inbounds nuw (i8, ptr @atanh_special_values, i64 72), align 8
-  store double -0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @atanh_special_values, i64 80), align 16
-  store double 0x3FF921FB54442D18, ptr getelementptr inbounds nuw (i8, ptr @atanh_special_values, i64 88), align 8
-  store double -0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @atanh_special_values, i64 96), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @atanh_special_values, i64 104), align 8
-  store double -0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @atanh_special_values, i64 112), align 16
-  store double 0xBFF921FB54442D18, ptr getelementptr inbounds nuw (i8, ptr @atanh_special_values, i64 120), align 8
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @atanh_special_values, i64 128), align 16
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @atanh_special_values, i64 136), align 8
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @atanh_special_values, i64 144), align 16
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @atanh_special_values, i64 152), align 8
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @atanh_special_values, i64 160), align 16
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @atanh_special_values, i64 168), align 8
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @atanh_special_values, i64 176), align 16
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @atanh_special_values, i64 184), align 8
-  store double -0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @atanh_special_values, i64 192), align 16
-  store double 0x3FF921FB54442D18, ptr getelementptr inbounds nuw (i8, ptr @atanh_special_values, i64 200), align 8
-  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @atanh_special_values, i64 208), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @atanh_special_values, i64 216), align 8
-  store double -0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @atanh_special_values, i64 224), align 16
-  store double 0xBFF921FB54442D18, ptr getelementptr inbounds nuw (i8, ptr @atanh_special_values, i64 232), align 8
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @atanh_special_values, i64 240), align 16
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @atanh_special_values, i64 248), align 8
-  store double -0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @atanh_special_values, i64 256), align 16
-  store double -0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @atanh_special_values, i64 264), align 8
-  store double -0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @atanh_special_values, i64 272), align 16
-  store double 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @atanh_special_values, i64 280), align 8
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @atanh_special_values, i64 288), align 16
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @atanh_special_values, i64 296), align 8
-  store double -0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @atanh_special_values, i64 304), align 16
-  store double 0x3FF921FB54442D18, ptr getelementptr inbounds nuw (i8, ptr @atanh_special_values, i64 312), align 8
-  store double -0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @atanh_special_values, i64 320), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @atanh_special_values, i64 328), align 8
-  store double 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @atanh_special_values, i64 336), align 16
-  store double 0xBFF921FB54442D18, ptr getelementptr inbounds nuw (i8, ptr @atanh_special_values, i64 344), align 8
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @atanh_special_values, i64 352), align 16
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @atanh_special_values, i64 360), align 8
-  store double 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @atanh_special_values, i64 368), align 16
-  store double -0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @atanh_special_values, i64 376), align 8
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @asinh_special_values, i64 400), align 16, !tbaa !20
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @asinh_special_values, i64 408), align 8, !tbaa !22
+  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @asinh_special_values, i64 416), align 16, !tbaa !20
+  store double 0x3FF921FB54442D18, ptr getelementptr inbounds nuw (i8, ptr @asinh_special_values, i64 424), align 8, !tbaa !22
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @asinh_special_values, i64 432), align 16, !tbaa !20
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @asinh_special_values, i64 440), align 8, !tbaa !22
+  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @asinh_special_values, i64 448), align 16, !tbaa !20
+  store double 0xBFF921FB54442D18, ptr getelementptr inbounds nuw (i8, ptr @asinh_special_values, i64 456), align 8, !tbaa !22
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @asinh_special_values, i64 464), align 16, !tbaa !20
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @asinh_special_values, i64 472), align 8, !tbaa !22
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @asinh_special_values, i64 480), align 16, !tbaa !20
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @asinh_special_values, i64 488), align 8, !tbaa !22
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @asinh_special_values, i64 496), align 16, !tbaa !20
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @asinh_special_values, i64 504), align 8, !tbaa !22
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @asinh_special_values, i64 512), align 16, !tbaa !20
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @asinh_special_values, i64 520), align 8, !tbaa !22
+  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @asinh_special_values, i64 528), align 16, !tbaa !20
+  store double 0x3FF921FB54442D18, ptr getelementptr inbounds nuw (i8, ptr @asinh_special_values, i64 536), align 8, !tbaa !22
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @asinh_special_values, i64 544), align 16, !tbaa !20
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @asinh_special_values, i64 552), align 8, !tbaa !22
+  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @asinh_special_values, i64 560), align 16, !tbaa !20
+  store double 0xBFE921FB54442D18, ptr getelementptr inbounds nuw (i8, ptr @asinh_special_values, i64 568), align 8, !tbaa !22
+  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @asinh_special_values, i64 576), align 16, !tbaa !20
+  store double -0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @asinh_special_values, i64 584), align 8, !tbaa !22
+  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @asinh_special_values, i64 592), align 16, !tbaa !20
+  store double -0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @asinh_special_values, i64 600), align 8, !tbaa !22
+  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @asinh_special_values, i64 608), align 16, !tbaa !20
+  store double 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @asinh_special_values, i64 616), align 8, !tbaa !22
+  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @asinh_special_values, i64 624), align 16, !tbaa !20
+  store double 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @asinh_special_values, i64 632), align 8, !tbaa !22
+  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @asinh_special_values, i64 640), align 16, !tbaa !20
+  store double 0x3FE921FB54442D18, ptr getelementptr inbounds nuw (i8, ptr @asinh_special_values, i64 648), align 8, !tbaa !22
+  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @asinh_special_values, i64 656), align 16, !tbaa !20
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @asinh_special_values, i64 664), align 8, !tbaa !22
+  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @asinh_special_values, i64 672), align 16, !tbaa !20
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @asinh_special_values, i64 680), align 8, !tbaa !22
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @asinh_special_values, i64 688), align 16, !tbaa !20
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @asinh_special_values, i64 696), align 8, !tbaa !22
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @asinh_special_values, i64 704), align 16, !tbaa !20
+  store double -0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @asinh_special_values, i64 712), align 8, !tbaa !22
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @asinh_special_values, i64 720), align 16, !tbaa !20
+  store double 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @asinh_special_values, i64 728), align 8, !tbaa !22
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @asinh_special_values, i64 736), align 16, !tbaa !20
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @asinh_special_values, i64 744), align 8, !tbaa !22
+  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @asinh_special_values, i64 752), align 16, !tbaa !20
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @asinh_special_values, i64 760), align 8, !tbaa !22
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @asinh_special_values, i64 768), align 16, !tbaa !20
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @asinh_special_values, i64 776), align 8, !tbaa !22
+  store double -0.000000e+00, ptr @atanh_special_values, align 16, !tbaa !20
+  store double 0xBFF921FB54442D18, ptr getelementptr inbounds nuw (i8, ptr @atanh_special_values, i64 8), align 8, !tbaa !22
+  store double -0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @atanh_special_values, i64 16), align 16, !tbaa !20
+  store double 0xBFF921FB54442D18, ptr getelementptr inbounds nuw (i8, ptr @atanh_special_values, i64 24), align 8, !tbaa !22
+  store double -0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @atanh_special_values, i64 32), align 16, !tbaa !20
+  store double 0xBFF921FB54442D18, ptr getelementptr inbounds nuw (i8, ptr @atanh_special_values, i64 40), align 8, !tbaa !22
+  store double -0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @atanh_special_values, i64 48), align 16, !tbaa !20
+  store double 0x3FF921FB54442D18, ptr getelementptr inbounds nuw (i8, ptr @atanh_special_values, i64 56), align 8, !tbaa !22
+  store double -0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @atanh_special_values, i64 64), align 16, !tbaa !20
+  store double 0x3FF921FB54442D18, ptr getelementptr inbounds nuw (i8, ptr @atanh_special_values, i64 72), align 8, !tbaa !22
+  store double -0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @atanh_special_values, i64 80), align 16, !tbaa !20
+  store double 0x3FF921FB54442D18, ptr getelementptr inbounds nuw (i8, ptr @atanh_special_values, i64 88), align 8, !tbaa !22
+  store double -0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @atanh_special_values, i64 96), align 16, !tbaa !20
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @atanh_special_values, i64 104), align 8, !tbaa !22
+  store double -0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @atanh_special_values, i64 112), align 16, !tbaa !20
+  store double 0xBFF921FB54442D18, ptr getelementptr inbounds nuw (i8, ptr @atanh_special_values, i64 120), align 8, !tbaa !22
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @atanh_special_values, i64 128), align 16, !tbaa !20
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @atanh_special_values, i64 136), align 8, !tbaa !22
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @atanh_special_values, i64 144), align 16, !tbaa !20
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @atanh_special_values, i64 152), align 8, !tbaa !22
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @atanh_special_values, i64 160), align 16, !tbaa !20
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @atanh_special_values, i64 168), align 8, !tbaa !22
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @atanh_special_values, i64 176), align 16, !tbaa !20
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @atanh_special_values, i64 184), align 8, !tbaa !22
+  store double -0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @atanh_special_values, i64 192), align 16, !tbaa !20
+  store double 0x3FF921FB54442D18, ptr getelementptr inbounds nuw (i8, ptr @atanh_special_values, i64 200), align 8, !tbaa !22
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @atanh_special_values, i64 208), align 16, !tbaa !20
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @atanh_special_values, i64 216), align 8, !tbaa !22
+  store double -0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @atanh_special_values, i64 224), align 16, !tbaa !20
+  store double 0xBFF921FB54442D18, ptr getelementptr inbounds nuw (i8, ptr @atanh_special_values, i64 232), align 8, !tbaa !22
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @atanh_special_values, i64 240), align 16, !tbaa !20
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @atanh_special_values, i64 248), align 8, !tbaa !22
+  store double -0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @atanh_special_values, i64 256), align 16, !tbaa !20
+  store double -0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @atanh_special_values, i64 264), align 8, !tbaa !22
+  store double -0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @atanh_special_values, i64 272), align 16, !tbaa !20
+  store double 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @atanh_special_values, i64 280), align 8, !tbaa !22
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @atanh_special_values, i64 288), align 16, !tbaa !20
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @atanh_special_values, i64 296), align 8, !tbaa !22
+  store double -0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @atanh_special_values, i64 304), align 16, !tbaa !20
+  store double 0x3FF921FB54442D18, ptr getelementptr inbounds nuw (i8, ptr @atanh_special_values, i64 312), align 8, !tbaa !22
+  store double -0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @atanh_special_values, i64 320), align 16, !tbaa !20
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @atanh_special_values, i64 328), align 8, !tbaa !22
+  store double 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @atanh_special_values, i64 336), align 16, !tbaa !20
+  store double 0xBFF921FB54442D18, ptr getelementptr inbounds nuw (i8, ptr @atanh_special_values, i64 344), align 8, !tbaa !22
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @atanh_special_values, i64 352), align 16, !tbaa !20
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @atanh_special_values, i64 360), align 8, !tbaa !22
+  store double 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @atanh_special_values, i64 368), align 16, !tbaa !20
+  store double -0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @atanh_special_values, i64 376), align 8, !tbaa !22
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @atanh_special_values, i64 384), i8 0, i64 16, i1 false)
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @atanh_special_values, i64 400), align 16
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @atanh_special_values, i64 408), align 8
-  store double 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @atanh_special_values, i64 416), align 16
-  store double 0x3FF921FB54442D18, ptr getelementptr inbounds nuw (i8, ptr @atanh_special_values, i64 424), align 8
-  store double 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @atanh_special_values, i64 432), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @atanh_special_values, i64 440), align 8
-  store double 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @atanh_special_values, i64 448), align 16
-  store double 0xBFF921FB54442D18, ptr getelementptr inbounds nuw (i8, ptr @atanh_special_values, i64 456), align 8
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @atanh_special_values, i64 464), align 16
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @atanh_special_values, i64 472), align 8
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @atanh_special_values, i64 480), align 16
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @atanh_special_values, i64 488), align 8
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @atanh_special_values, i64 496), align 16
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @atanh_special_values, i64 504), align 8
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @atanh_special_values, i64 512), align 16
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @atanh_special_values, i64 520), align 8
-  store double 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @atanh_special_values, i64 528), align 16
-  store double 0x3FF921FB54442D18, ptr getelementptr inbounds nuw (i8, ptr @atanh_special_values, i64 536), align 8
-  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @atanh_special_values, i64 544), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @atanh_special_values, i64 552), align 8
-  store double 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @atanh_special_values, i64 560), align 16
-  store double 0xBFF921FB54442D18, ptr getelementptr inbounds nuw (i8, ptr @atanh_special_values, i64 568), align 8
-  store double 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @atanh_special_values, i64 576), align 16
-  store double 0xBFF921FB54442D18, ptr getelementptr inbounds nuw (i8, ptr @atanh_special_values, i64 584), align 8
-  store double 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @atanh_special_values, i64 592), align 16
-  store double 0xBFF921FB54442D18, ptr getelementptr inbounds nuw (i8, ptr @atanh_special_values, i64 600), align 8
-  store double 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @atanh_special_values, i64 608), align 16
-  store double 0x3FF921FB54442D18, ptr getelementptr inbounds nuw (i8, ptr @atanh_special_values, i64 616), align 8
-  store double 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @atanh_special_values, i64 624), align 16
-  store double 0x3FF921FB54442D18, ptr getelementptr inbounds nuw (i8, ptr @atanh_special_values, i64 632), align 8
-  store double 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @atanh_special_values, i64 640), align 16
-  store double 0x3FF921FB54442D18, ptr getelementptr inbounds nuw (i8, ptr @atanh_special_values, i64 648), align 8
-  store double 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @atanh_special_values, i64 656), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @atanh_special_values, i64 664), align 8
-  store double 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @atanh_special_values, i64 672), align 16
-  store double 0xBFF921FB54442D18, ptr getelementptr inbounds nuw (i8, ptr @atanh_special_values, i64 680), align 8
-  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @atanh_special_values, i64 688), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @atanh_special_values, i64 696), align 8
-  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @atanh_special_values, i64 704), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @atanh_special_values, i64 712), align 8
-  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @atanh_special_values, i64 720), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @atanh_special_values, i64 728), align 8
-  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @atanh_special_values, i64 736), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @atanh_special_values, i64 744), align 8
-  store double 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @atanh_special_values, i64 752), align 16
-  store double 0x3FF921FB54442D18, ptr getelementptr inbounds nuw (i8, ptr @atanh_special_values, i64 760), align 8
-  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @atanh_special_values, i64 768), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @atanh_special_values, i64 776), align 8
-  store double 0x7FF0000000000000, ptr @cosh_special_values, align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @cosh_special_values, i64 8), align 8
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @cosh_special_values, i64 16), align 16
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @cosh_special_values, i64 24), align 8
-  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @cosh_special_values, i64 32), align 16
-  store double 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @cosh_special_values, i64 40), align 8
-  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @cosh_special_values, i64 48), align 16
-  store double -0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @cosh_special_values, i64 56), align 8
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @cosh_special_values, i64 64), align 16
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @cosh_special_values, i64 72), align 8
-  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @cosh_special_values, i64 80), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @cosh_special_values, i64 88), align 8
-  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @cosh_special_values, i64 96), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @cosh_special_values, i64 104), align 8
-  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @cosh_special_values, i64 112), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @cosh_special_values, i64 120), align 8
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @cosh_special_values, i64 128), align 16
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @cosh_special_values, i64 136), align 8
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @cosh_special_values, i64 144), align 16
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @cosh_special_values, i64 152), align 8
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @cosh_special_values, i64 160), align 16
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @cosh_special_values, i64 168), align 8
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @cosh_special_values, i64 176), align 16
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @cosh_special_values, i64 184), align 8
-  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @cosh_special_values, i64 192), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @cosh_special_values, i64 200), align 8
-  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @cosh_special_values, i64 208), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @cosh_special_values, i64 216), align 8
-  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @cosh_special_values, i64 224), align 16
-  store double 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @cosh_special_values, i64 232), align 8
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @cosh_special_values, i64 240), align 16
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @cosh_special_values, i64 248), align 8
-  store double 1.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @cosh_special_values, i64 256), align 16
-  store double 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @cosh_special_values, i64 264), align 8
-  store double 1.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @cosh_special_values, i64 272), align 16
-  store double -0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @cosh_special_values, i64 280), align 8
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @cosh_special_values, i64 288), align 16
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @cosh_special_values, i64 296), align 8
-  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @cosh_special_values, i64 304), align 16
-  store double 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @cosh_special_values, i64 312), align 8
-  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @cosh_special_values, i64 320), align 16
-  store double 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @cosh_special_values, i64 328), align 8
-  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @cosh_special_values, i64 336), align 16
-  store double 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @cosh_special_values, i64 344), align 8
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @cosh_special_values, i64 352), align 16
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @cosh_special_values, i64 360), align 8
-  store double 1.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @cosh_special_values, i64 368), align 16
-  store double -0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @cosh_special_values, i64 376), align 8
-  store double 1.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @cosh_special_values, i64 384), align 16
-  store double 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @cosh_special_values, i64 392), align 8
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @cosh_special_values, i64 400), align 16
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @cosh_special_values, i64 408), align 8
-  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @cosh_special_values, i64 416), align 16
-  store double 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @cosh_special_values, i64 424), align 8
-  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @cosh_special_values, i64 432), align 16
-  store double 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @cosh_special_values, i64 440), align 8
-  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @cosh_special_values, i64 448), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @cosh_special_values, i64 456), align 8
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @cosh_special_values, i64 464), align 16
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @cosh_special_values, i64 472), align 8
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @cosh_special_values, i64 480), align 16
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @cosh_special_values, i64 488), align 8
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @cosh_special_values, i64 496), align 16
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @cosh_special_values, i64 504), align 8
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @cosh_special_values, i64 512), align 16
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @cosh_special_values, i64 520), align 8
-  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @cosh_special_values, i64 528), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @cosh_special_values, i64 536), align 8
-  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @cosh_special_values, i64 544), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @cosh_special_values, i64 552), align 8
-  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @cosh_special_values, i64 560), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @cosh_special_values, i64 568), align 8
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @cosh_special_values, i64 576), align 16
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @cosh_special_values, i64 584), align 8
-  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @cosh_special_values, i64 592), align 16
-  store double -0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @cosh_special_values, i64 600), align 8
-  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @cosh_special_values, i64 608), align 16
-  store double 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @cosh_special_values, i64 616), align 8
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @cosh_special_values, i64 624), align 16
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @cosh_special_values, i64 632), align 8
-  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @cosh_special_values, i64 640), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @cosh_special_values, i64 648), align 8
-  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @cosh_special_values, i64 656), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @cosh_special_values, i64 664), align 8
-  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @cosh_special_values, i64 672), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @cosh_special_values, i64 680), align 8
-  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @cosh_special_values, i64 688), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @cosh_special_values, i64 696), align 8
-  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @cosh_special_values, i64 704), align 16
-  store double 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @cosh_special_values, i64 712), align 8
-  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @cosh_special_values, i64 720), align 16
-  store double 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @cosh_special_values, i64 728), align 8
-  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @cosh_special_values, i64 736), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @cosh_special_values, i64 744), align 8
-  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @cosh_special_values, i64 752), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @cosh_special_values, i64 760), align 8
-  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @cosh_special_values, i64 768), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @cosh_special_values, i64 776), align 8
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @atanh_special_values, i64 400), align 16, !tbaa !20
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @atanh_special_values, i64 408), align 8, !tbaa !22
+  store double 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @atanh_special_values, i64 416), align 16, !tbaa !20
+  store double 0x3FF921FB54442D18, ptr getelementptr inbounds nuw (i8, ptr @atanh_special_values, i64 424), align 8, !tbaa !22
+  store double 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @atanh_special_values, i64 432), align 16, !tbaa !20
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @atanh_special_values, i64 440), align 8, !tbaa !22
+  store double 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @atanh_special_values, i64 448), align 16, !tbaa !20
+  store double 0xBFF921FB54442D18, ptr getelementptr inbounds nuw (i8, ptr @atanh_special_values, i64 456), align 8, !tbaa !22
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @atanh_special_values, i64 464), align 16, !tbaa !20
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @atanh_special_values, i64 472), align 8, !tbaa !22
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @atanh_special_values, i64 480), align 16, !tbaa !20
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @atanh_special_values, i64 488), align 8, !tbaa !22
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @atanh_special_values, i64 496), align 16, !tbaa !20
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @atanh_special_values, i64 504), align 8, !tbaa !22
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @atanh_special_values, i64 512), align 16, !tbaa !20
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @atanh_special_values, i64 520), align 8, !tbaa !22
+  store double 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @atanh_special_values, i64 528), align 16, !tbaa !20
+  store double 0x3FF921FB54442D18, ptr getelementptr inbounds nuw (i8, ptr @atanh_special_values, i64 536), align 8, !tbaa !22
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @atanh_special_values, i64 544), align 16, !tbaa !20
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @atanh_special_values, i64 552), align 8, !tbaa !22
+  store double 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @atanh_special_values, i64 560), align 16, !tbaa !20
+  store double 0xBFF921FB54442D18, ptr getelementptr inbounds nuw (i8, ptr @atanh_special_values, i64 568), align 8, !tbaa !22
+  store double 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @atanh_special_values, i64 576), align 16, !tbaa !20
+  store double 0xBFF921FB54442D18, ptr getelementptr inbounds nuw (i8, ptr @atanh_special_values, i64 584), align 8, !tbaa !22
+  store double 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @atanh_special_values, i64 592), align 16, !tbaa !20
+  store double 0xBFF921FB54442D18, ptr getelementptr inbounds nuw (i8, ptr @atanh_special_values, i64 600), align 8, !tbaa !22
+  store double 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @atanh_special_values, i64 608), align 16, !tbaa !20
+  store double 0x3FF921FB54442D18, ptr getelementptr inbounds nuw (i8, ptr @atanh_special_values, i64 616), align 8, !tbaa !22
+  store double 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @atanh_special_values, i64 624), align 16, !tbaa !20
+  store double 0x3FF921FB54442D18, ptr getelementptr inbounds nuw (i8, ptr @atanh_special_values, i64 632), align 8, !tbaa !22
+  store double 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @atanh_special_values, i64 640), align 16, !tbaa !20
+  store double 0x3FF921FB54442D18, ptr getelementptr inbounds nuw (i8, ptr @atanh_special_values, i64 648), align 8, !tbaa !22
+  store double 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @atanh_special_values, i64 656), align 16, !tbaa !20
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @atanh_special_values, i64 664), align 8, !tbaa !22
+  store double 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @atanh_special_values, i64 672), align 16, !tbaa !20
+  store double 0xBFF921FB54442D18, ptr getelementptr inbounds nuw (i8, ptr @atanh_special_values, i64 680), align 8, !tbaa !22
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @atanh_special_values, i64 688), align 16, !tbaa !20
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @atanh_special_values, i64 696), align 8, !tbaa !22
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @atanh_special_values, i64 704), align 16, !tbaa !20
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @atanh_special_values, i64 712), align 8, !tbaa !22
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @atanh_special_values, i64 720), align 16, !tbaa !20
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @atanh_special_values, i64 728), align 8, !tbaa !22
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @atanh_special_values, i64 736), align 16, !tbaa !20
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @atanh_special_values, i64 744), align 8, !tbaa !22
+  store double 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @atanh_special_values, i64 752), align 16, !tbaa !20
+  store double 0x3FF921FB54442D18, ptr getelementptr inbounds nuw (i8, ptr @atanh_special_values, i64 760), align 8, !tbaa !22
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @atanh_special_values, i64 768), align 16, !tbaa !20
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @atanh_special_values, i64 776), align 8, !tbaa !22
+  store double 0x7FF0000000000000, ptr @cosh_special_values, align 16, !tbaa !20
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @cosh_special_values, i64 8), align 8, !tbaa !22
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @cosh_special_values, i64 16), align 16, !tbaa !20
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @cosh_special_values, i64 24), align 8, !tbaa !22
+  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @cosh_special_values, i64 32), align 16, !tbaa !20
+  store double 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @cosh_special_values, i64 40), align 8, !tbaa !22
+  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @cosh_special_values, i64 48), align 16, !tbaa !20
+  store double -0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @cosh_special_values, i64 56), align 8, !tbaa !22
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @cosh_special_values, i64 64), align 16, !tbaa !20
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @cosh_special_values, i64 72), align 8, !tbaa !22
+  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @cosh_special_values, i64 80), align 16, !tbaa !20
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @cosh_special_values, i64 88), align 8, !tbaa !22
+  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @cosh_special_values, i64 96), align 16, !tbaa !20
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @cosh_special_values, i64 104), align 8, !tbaa !22
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @cosh_special_values, i64 112), align 16, !tbaa !20
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @cosh_special_values, i64 120), align 8, !tbaa !22
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @cosh_special_values, i64 128), align 16, !tbaa !20
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @cosh_special_values, i64 136), align 8, !tbaa !22
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @cosh_special_values, i64 144), align 16, !tbaa !20
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @cosh_special_values, i64 152), align 8, !tbaa !22
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @cosh_special_values, i64 160), align 16, !tbaa !20
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @cosh_special_values, i64 168), align 8, !tbaa !22
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @cosh_special_values, i64 176), align 16, !tbaa !20
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @cosh_special_values, i64 184), align 8, !tbaa !22
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @cosh_special_values, i64 192), align 16, !tbaa !20
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @cosh_special_values, i64 200), align 8, !tbaa !22
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @cosh_special_values, i64 208), align 16, !tbaa !20
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @cosh_special_values, i64 216), align 8, !tbaa !22
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @cosh_special_values, i64 224), align 16, !tbaa !20
+  store double 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @cosh_special_values, i64 232), align 8, !tbaa !22
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @cosh_special_values, i64 240), align 16, !tbaa !20
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @cosh_special_values, i64 248), align 8, !tbaa !22
+  store double 1.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @cosh_special_values, i64 256), align 16, !tbaa !20
+  store double 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @cosh_special_values, i64 264), align 8, !tbaa !22
+  store double 1.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @cosh_special_values, i64 272), align 16, !tbaa !20
+  store double -0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @cosh_special_values, i64 280), align 8, !tbaa !22
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @cosh_special_values, i64 288), align 16, !tbaa !20
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @cosh_special_values, i64 296), align 8, !tbaa !22
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @cosh_special_values, i64 304), align 16, !tbaa !20
+  store double 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @cosh_special_values, i64 312), align 8, !tbaa !22
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @cosh_special_values, i64 320), align 16, !tbaa !20
+  store double 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @cosh_special_values, i64 328), align 8, !tbaa !22
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @cosh_special_values, i64 336), align 16, !tbaa !20
+  store double 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @cosh_special_values, i64 344), align 8, !tbaa !22
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @cosh_special_values, i64 352), align 16, !tbaa !20
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @cosh_special_values, i64 360), align 8, !tbaa !22
+  store double 1.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @cosh_special_values, i64 368), align 16, !tbaa !20
+  store double -0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @cosh_special_values, i64 376), align 8, !tbaa !22
+  store double 1.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @cosh_special_values, i64 384), align 16, !tbaa !20
+  store double 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @cosh_special_values, i64 392), align 8, !tbaa !22
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @cosh_special_values, i64 400), align 16, !tbaa !20
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @cosh_special_values, i64 408), align 8, !tbaa !22
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @cosh_special_values, i64 416), align 16, !tbaa !20
+  store double 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @cosh_special_values, i64 424), align 8, !tbaa !22
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @cosh_special_values, i64 432), align 16, !tbaa !20
+  store double 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @cosh_special_values, i64 440), align 8, !tbaa !22
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @cosh_special_values, i64 448), align 16, !tbaa !20
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @cosh_special_values, i64 456), align 8, !tbaa !22
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @cosh_special_values, i64 464), align 16, !tbaa !20
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @cosh_special_values, i64 472), align 8, !tbaa !22
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @cosh_special_values, i64 480), align 16, !tbaa !20
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @cosh_special_values, i64 488), align 8, !tbaa !22
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @cosh_special_values, i64 496), align 16, !tbaa !20
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @cosh_special_values, i64 504), align 8, !tbaa !22
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @cosh_special_values, i64 512), align 16, !tbaa !20
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @cosh_special_values, i64 520), align 8, !tbaa !22
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @cosh_special_values, i64 528), align 16, !tbaa !20
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @cosh_special_values, i64 536), align 8, !tbaa !22
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @cosh_special_values, i64 544), align 16, !tbaa !20
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @cosh_special_values, i64 552), align 8, !tbaa !22
+  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @cosh_special_values, i64 560), align 16, !tbaa !20
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @cosh_special_values, i64 568), align 8, !tbaa !22
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @cosh_special_values, i64 576), align 16, !tbaa !20
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @cosh_special_values, i64 584), align 8, !tbaa !22
+  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @cosh_special_values, i64 592), align 16, !tbaa !20
+  store double -0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @cosh_special_values, i64 600), align 8, !tbaa !22
+  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @cosh_special_values, i64 608), align 16, !tbaa !20
+  store double 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @cosh_special_values, i64 616), align 8, !tbaa !22
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @cosh_special_values, i64 624), align 16, !tbaa !20
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @cosh_special_values, i64 632), align 8, !tbaa !22
+  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @cosh_special_values, i64 640), align 16, !tbaa !20
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @cosh_special_values, i64 648), align 8, !tbaa !22
+  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @cosh_special_values, i64 656), align 16, !tbaa !20
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @cosh_special_values, i64 664), align 8, !tbaa !22
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @cosh_special_values, i64 672), align 16, !tbaa !20
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @cosh_special_values, i64 680), align 8, !tbaa !22
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @cosh_special_values, i64 688), align 16, !tbaa !20
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @cosh_special_values, i64 696), align 8, !tbaa !22
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @cosh_special_values, i64 704), align 16, !tbaa !20
+  store double 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @cosh_special_values, i64 712), align 8, !tbaa !22
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @cosh_special_values, i64 720), align 16, !tbaa !20
+  store double 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @cosh_special_values, i64 728), align 8, !tbaa !22
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @cosh_special_values, i64 736), align 16, !tbaa !20
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @cosh_special_values, i64 744), align 8, !tbaa !22
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @cosh_special_values, i64 752), align 16, !tbaa !20
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @cosh_special_values, i64 760), align 8, !tbaa !22
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @cosh_special_values, i64 768), align 16, !tbaa !20
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @cosh_special_values, i64 776), align 8, !tbaa !22
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) @exp_special_values, i8 0, i64 16, i1 false)
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @exp_special_values, i64 16), align 16
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @exp_special_values, i64 24), align 8
-  store double 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @exp_special_values, i64 32), align 16
-  store double -0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @exp_special_values, i64 40), align 8
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @exp_special_values, i64 16), align 16, !tbaa !20
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @exp_special_values, i64 24), align 8, !tbaa !22
+  store double 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @exp_special_values, i64 32), align 16, !tbaa !20
+  store double -0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @exp_special_values, i64 40), align 8, !tbaa !22
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @exp_special_values, i64 48), i8 0, i64 16, i1 false)
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @exp_special_values, i64 64), align 16
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @exp_special_values, i64 72), align 8
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @exp_special_values, i64 64), align 16, !tbaa !20
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @exp_special_values, i64 72), align 8, !tbaa !22
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) getelementptr inbounds nuw (i8, ptr @exp_special_values, i64 80), i8 0, i64 32, i1 false)
-  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @exp_special_values, i64 112), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @exp_special_values, i64 120), align 8
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @exp_special_values, i64 128), align 16
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @exp_special_values, i64 136), align 8
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @exp_special_values, i64 144), align 16
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @exp_special_values, i64 152), align 8
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @exp_special_values, i64 160), align 16
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @exp_special_values, i64 168), align 8
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @exp_special_values, i64 176), align 16
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @exp_special_values, i64 184), align 8
-  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @exp_special_values, i64 192), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @exp_special_values, i64 200), align 8
-  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @exp_special_values, i64 208), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @exp_special_values, i64 216), align 8
-  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @exp_special_values, i64 224), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @exp_special_values, i64 232), align 8
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @exp_special_values, i64 240), align 16
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @exp_special_values, i64 248), align 8
-  store double 1.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @exp_special_values, i64 256), align 16
-  store double -0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @exp_special_values, i64 264), align 8
-  store double 1.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @exp_special_values, i64 272), align 16
-  store double 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @exp_special_values, i64 280), align 8
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @exp_special_values, i64 288), align 16
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @exp_special_values, i64 296), align 8
-  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @exp_special_values, i64 304), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @exp_special_values, i64 312), align 8
-  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @exp_special_values, i64 320), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @exp_special_values, i64 328), align 8
-  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @exp_special_values, i64 336), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @exp_special_values, i64 344), align 8
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @exp_special_values, i64 352), align 16
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @exp_special_values, i64 360), align 8
-  store double 1.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @exp_special_values, i64 368), align 16
-  store double -0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @exp_special_values, i64 376), align 8
-  store double 1.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @exp_special_values, i64 384), align 16
-  store double 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @exp_special_values, i64 392), align 8
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @exp_special_values, i64 400), align 16
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @exp_special_values, i64 408), align 8
-  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @exp_special_values, i64 416), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @exp_special_values, i64 424), align 8
-  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @exp_special_values, i64 432), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @exp_special_values, i64 440), align 8
-  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @exp_special_values, i64 448), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @exp_special_values, i64 456), align 8
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @exp_special_values, i64 464), align 16
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @exp_special_values, i64 472), align 8
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @exp_special_values, i64 480), align 16
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @exp_special_values, i64 488), align 8
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @exp_special_values, i64 496), align 16
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @exp_special_values, i64 504), align 8
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @exp_special_values, i64 512), align 16
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @exp_special_values, i64 520), align 8
-  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @exp_special_values, i64 528), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @exp_special_values, i64 536), align 8
-  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @exp_special_values, i64 544), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @exp_special_values, i64 552), align 8
-  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @exp_special_values, i64 560), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @exp_special_values, i64 568), align 8
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @exp_special_values, i64 576), align 16
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @exp_special_values, i64 584), align 8
-  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @exp_special_values, i64 592), align 16
-  store double -0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @exp_special_values, i64 600), align 8
-  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @exp_special_values, i64 608), align 16
-  store double 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @exp_special_values, i64 616), align 8
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @exp_special_values, i64 624), align 16
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @exp_special_values, i64 632), align 8
-  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @exp_special_values, i64 640), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @exp_special_values, i64 648), align 8
-  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @exp_special_values, i64 656), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @exp_special_values, i64 664), align 8
-  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @exp_special_values, i64 672), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @exp_special_values, i64 680), align 8
-  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @exp_special_values, i64 688), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @exp_special_values, i64 696), align 8
-  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @exp_special_values, i64 704), align 16
-  store double -0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @exp_special_values, i64 712), align 8
-  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @exp_special_values, i64 720), align 16
-  store double 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @exp_special_values, i64 728), align 8
-  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @exp_special_values, i64 736), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @exp_special_values, i64 744), align 8
-  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @exp_special_values, i64 752), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @exp_special_values, i64 760), align 8
-  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @exp_special_values, i64 768), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @exp_special_values, i64 776), align 8
-  store double 0x7FF0000000000000, ptr @log_special_values, align 16
-  store double 0xC002D97C7F3321D2, ptr getelementptr inbounds nuw (i8, ptr @log_special_values, i64 8), align 8
-  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @log_special_values, i64 16), align 16
-  store double 0xC00921FB54442D18, ptr getelementptr inbounds nuw (i8, ptr @log_special_values, i64 24), align 8
-  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @log_special_values, i64 32), align 16
-  store double 0xC00921FB54442D18, ptr getelementptr inbounds nuw (i8, ptr @log_special_values, i64 40), align 8
-  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @log_special_values, i64 48), align 16
-  store double 0x400921FB54442D18, ptr getelementptr inbounds nuw (i8, ptr @log_special_values, i64 56), align 8
-  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @log_special_values, i64 64), align 16
-  store double 0x400921FB54442D18, ptr getelementptr inbounds nuw (i8, ptr @log_special_values, i64 72), align 8
-  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @log_special_values, i64 80), align 16
-  store double 0x4002D97C7F3321D2, ptr getelementptr inbounds nuw (i8, ptr @log_special_values, i64 88), align 8
-  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @log_special_values, i64 96), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @log_special_values, i64 104), align 8
-  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @log_special_values, i64 112), align 16
-  store double 0xBFF921FB54442D18, ptr getelementptr inbounds nuw (i8, ptr @log_special_values, i64 120), align 8
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @log_special_values, i64 128), align 16
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @log_special_values, i64 136), align 8
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @log_special_values, i64 144), align 16
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @log_special_values, i64 152), align 8
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @log_special_values, i64 160), align 16
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @log_special_values, i64 168), align 8
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @log_special_values, i64 176), align 16
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @log_special_values, i64 184), align 8
-  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @log_special_values, i64 192), align 16
-  store double 0x3FF921FB54442D18, ptr getelementptr inbounds nuw (i8, ptr @log_special_values, i64 200), align 8
-  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @log_special_values, i64 208), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @log_special_values, i64 216), align 8
-  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @log_special_values, i64 224), align 16
-  store double 0xBFF921FB54442D18, ptr getelementptr inbounds nuw (i8, ptr @log_special_values, i64 232), align 8
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @log_special_values, i64 240), align 16
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @log_special_values, i64 248), align 8
-  store double 0xFFF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @log_special_values, i64 256), align 16
-  store double 0xC00921FB54442D18, ptr getelementptr inbounds nuw (i8, ptr @log_special_values, i64 264), align 8
-  store double 0xFFF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @log_special_values, i64 272), align 16
-  store double 0x400921FB54442D18, ptr getelementptr inbounds nuw (i8, ptr @log_special_values, i64 280), align 8
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @log_special_values, i64 288), align 16
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @log_special_values, i64 296), align 8
-  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @log_special_values, i64 304), align 16
-  store double 0x3FF921FB54442D18, ptr getelementptr inbounds nuw (i8, ptr @log_special_values, i64 312), align 8
-  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @log_special_values, i64 320), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @log_special_values, i64 328), align 8
-  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @log_special_values, i64 336), align 16
-  store double 0xBFF921FB54442D18, ptr getelementptr inbounds nuw (i8, ptr @log_special_values, i64 344), align 8
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @log_special_values, i64 352), align 16
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @log_special_values, i64 360), align 8
-  store double 0xFFF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @log_special_values, i64 368), align 16
-  store double -0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @log_special_values, i64 376), align 8
-  store double 0xFFF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @log_special_values, i64 384), align 16
-  store double 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @log_special_values, i64 392), align 8
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @log_special_values, i64 400), align 16
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @log_special_values, i64 408), align 8
-  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @log_special_values, i64 416), align 16
-  store double 0x3FF921FB54442D18, ptr getelementptr inbounds nuw (i8, ptr @log_special_values, i64 424), align 8
-  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @log_special_values, i64 432), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @log_special_values, i64 440), align 8
-  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @log_special_values, i64 448), align 16
-  store double 0xBFF921FB54442D18, ptr getelementptr inbounds nuw (i8, ptr @log_special_values, i64 456), align 8
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @log_special_values, i64 464), align 16
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @log_special_values, i64 472), align 8
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @log_special_values, i64 480), align 16
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @log_special_values, i64 488), align 8
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @log_special_values, i64 496), align 16
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @log_special_values, i64 504), align 8
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @log_special_values, i64 512), align 16
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @log_special_values, i64 520), align 8
-  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @log_special_values, i64 528), align 16
-  store double 0x3FF921FB54442D18, ptr getelementptr inbounds nuw (i8, ptr @log_special_values, i64 536), align 8
-  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @log_special_values, i64 544), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @log_special_values, i64 552), align 8
-  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @log_special_values, i64 560), align 16
-  store double 0xBFE921FB54442D18, ptr getelementptr inbounds nuw (i8, ptr @log_special_values, i64 568), align 8
-  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @log_special_values, i64 576), align 16
-  store double -0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @log_special_values, i64 584), align 8
-  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @log_special_values, i64 592), align 16
-  store double -0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @log_special_values, i64 600), align 8
-  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @log_special_values, i64 608), align 16
-  store double 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @log_special_values, i64 616), align 8
-  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @log_special_values, i64 624), align 16
-  store double 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @log_special_values, i64 632), align 8
-  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @log_special_values, i64 640), align 16
-  store double 0x3FE921FB54442D18, ptr getelementptr inbounds nuw (i8, ptr @log_special_values, i64 648), align 8
-  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @log_special_values, i64 656), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @log_special_values, i64 664), align 8
-  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @log_special_values, i64 672), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @log_special_values, i64 680), align 8
-  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @log_special_values, i64 688), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @log_special_values, i64 696), align 8
-  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @log_special_values, i64 704), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @log_special_values, i64 712), align 8
-  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @log_special_values, i64 720), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @log_special_values, i64 728), align 8
-  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @log_special_values, i64 736), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @log_special_values, i64 744), align 8
-  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @log_special_values, i64 752), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @log_special_values, i64 760), align 8
-  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @log_special_values, i64 768), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @log_special_values, i64 776), align 8
-  store double 0x7FF0000000000000, ptr @sinh_special_values, align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @sinh_special_values, i64 8), align 8
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @sinh_special_values, i64 16), align 16
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @sinh_special_values, i64 24), align 8
-  store double 0xFFF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @sinh_special_values, i64 32), align 16
-  store double -0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @sinh_special_values, i64 40), align 8
-  store double 0xFFF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @sinh_special_values, i64 48), align 16
-  store double 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @sinh_special_values, i64 56), align 8
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @sinh_special_values, i64 64), align 16
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @sinh_special_values, i64 72), align 8
-  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @sinh_special_values, i64 80), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @sinh_special_values, i64 88), align 8
-  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @sinh_special_values, i64 96), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @sinh_special_values, i64 104), align 8
-  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @sinh_special_values, i64 112), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @sinh_special_values, i64 120), align 8
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @sinh_special_values, i64 128), align 16
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @sinh_special_values, i64 136), align 8
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @sinh_special_values, i64 144), align 16
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @sinh_special_values, i64 152), align 8
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @sinh_special_values, i64 160), align 16
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @sinh_special_values, i64 168), align 8
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @sinh_special_values, i64 176), align 16
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @sinh_special_values, i64 184), align 8
-  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @sinh_special_values, i64 192), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @sinh_special_values, i64 200), align 8
-  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @sinh_special_values, i64 208), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @sinh_special_values, i64 216), align 8
-  store double 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @sinh_special_values, i64 224), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @sinh_special_values, i64 232), align 8
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @sinh_special_values, i64 240), align 16
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @sinh_special_values, i64 248), align 8
-  store double -0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @sinh_special_values, i64 256), align 16
-  store double -0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @sinh_special_values, i64 264), align 8
-  store double -0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @sinh_special_values, i64 272), align 16
-  store double 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @sinh_special_values, i64 280), align 8
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @sinh_special_values, i64 288), align 16
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @sinh_special_values, i64 296), align 8
-  store double 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @sinh_special_values, i64 304), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @sinh_special_values, i64 312), align 8
-  store double 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @sinh_special_values, i64 320), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @sinh_special_values, i64 328), align 8
-  store double 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @sinh_special_values, i64 336), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @sinh_special_values, i64 344), align 8
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @sinh_special_values, i64 352), align 16
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @sinh_special_values, i64 360), align 8
-  store double 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @sinh_special_values, i64 368), align 16
-  store double -0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @sinh_special_values, i64 376), align 8
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @exp_special_values, i64 112), align 16, !tbaa !20
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @exp_special_values, i64 120), align 8, !tbaa !22
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @exp_special_values, i64 128), align 16, !tbaa !20
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @exp_special_values, i64 136), align 8, !tbaa !22
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @exp_special_values, i64 144), align 16, !tbaa !20
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @exp_special_values, i64 152), align 8, !tbaa !22
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @exp_special_values, i64 160), align 16, !tbaa !20
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @exp_special_values, i64 168), align 8, !tbaa !22
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @exp_special_values, i64 176), align 16, !tbaa !20
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @exp_special_values, i64 184), align 8, !tbaa !22
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @exp_special_values, i64 192), align 16, !tbaa !20
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @exp_special_values, i64 200), align 8, !tbaa !22
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @exp_special_values, i64 208), align 16, !tbaa !20
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @exp_special_values, i64 216), align 8, !tbaa !22
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @exp_special_values, i64 224), align 16, !tbaa !20
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @exp_special_values, i64 232), align 8, !tbaa !22
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @exp_special_values, i64 240), align 16, !tbaa !20
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @exp_special_values, i64 248), align 8, !tbaa !22
+  store double 1.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @exp_special_values, i64 256), align 16, !tbaa !20
+  store double -0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @exp_special_values, i64 264), align 8, !tbaa !22
+  store double 1.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @exp_special_values, i64 272), align 16, !tbaa !20
+  store double 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @exp_special_values, i64 280), align 8, !tbaa !22
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @exp_special_values, i64 288), align 16, !tbaa !20
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @exp_special_values, i64 296), align 8, !tbaa !22
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @exp_special_values, i64 304), align 16, !tbaa !20
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @exp_special_values, i64 312), align 8, !tbaa !22
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @exp_special_values, i64 320), align 16, !tbaa !20
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @exp_special_values, i64 328), align 8, !tbaa !22
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @exp_special_values, i64 336), align 16, !tbaa !20
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @exp_special_values, i64 344), align 8, !tbaa !22
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @exp_special_values, i64 352), align 16, !tbaa !20
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @exp_special_values, i64 360), align 8, !tbaa !22
+  store double 1.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @exp_special_values, i64 368), align 16, !tbaa !20
+  store double -0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @exp_special_values, i64 376), align 8, !tbaa !22
+  store double 1.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @exp_special_values, i64 384), align 16, !tbaa !20
+  store double 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @exp_special_values, i64 392), align 8, !tbaa !22
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @exp_special_values, i64 400), align 16, !tbaa !20
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @exp_special_values, i64 408), align 8, !tbaa !22
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @exp_special_values, i64 416), align 16, !tbaa !20
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @exp_special_values, i64 424), align 8, !tbaa !22
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @exp_special_values, i64 432), align 16, !tbaa !20
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @exp_special_values, i64 440), align 8, !tbaa !22
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @exp_special_values, i64 448), align 16, !tbaa !20
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @exp_special_values, i64 456), align 8, !tbaa !22
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @exp_special_values, i64 464), align 16, !tbaa !20
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @exp_special_values, i64 472), align 8, !tbaa !22
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @exp_special_values, i64 480), align 16, !tbaa !20
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @exp_special_values, i64 488), align 8, !tbaa !22
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @exp_special_values, i64 496), align 16, !tbaa !20
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @exp_special_values, i64 504), align 8, !tbaa !22
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @exp_special_values, i64 512), align 16, !tbaa !20
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @exp_special_values, i64 520), align 8, !tbaa !22
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @exp_special_values, i64 528), align 16, !tbaa !20
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @exp_special_values, i64 536), align 8, !tbaa !22
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @exp_special_values, i64 544), align 16, !tbaa !20
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @exp_special_values, i64 552), align 8, !tbaa !22
+  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @exp_special_values, i64 560), align 16, !tbaa !20
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @exp_special_values, i64 568), align 8, !tbaa !22
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @exp_special_values, i64 576), align 16, !tbaa !20
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @exp_special_values, i64 584), align 8, !tbaa !22
+  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @exp_special_values, i64 592), align 16, !tbaa !20
+  store double -0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @exp_special_values, i64 600), align 8, !tbaa !22
+  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @exp_special_values, i64 608), align 16, !tbaa !20
+  store double 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @exp_special_values, i64 616), align 8, !tbaa !22
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @exp_special_values, i64 624), align 16, !tbaa !20
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @exp_special_values, i64 632), align 8, !tbaa !22
+  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @exp_special_values, i64 640), align 16, !tbaa !20
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @exp_special_values, i64 648), align 8, !tbaa !22
+  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @exp_special_values, i64 656), align 16, !tbaa !20
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @exp_special_values, i64 664), align 8, !tbaa !22
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @exp_special_values, i64 672), align 16, !tbaa !20
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @exp_special_values, i64 680), align 8, !tbaa !22
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @exp_special_values, i64 688), align 16, !tbaa !20
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @exp_special_values, i64 696), align 8, !tbaa !22
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @exp_special_values, i64 704), align 16, !tbaa !20
+  store double -0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @exp_special_values, i64 712), align 8, !tbaa !22
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @exp_special_values, i64 720), align 16, !tbaa !20
+  store double 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @exp_special_values, i64 728), align 8, !tbaa !22
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @exp_special_values, i64 736), align 16, !tbaa !20
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @exp_special_values, i64 744), align 8, !tbaa !22
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @exp_special_values, i64 752), align 16, !tbaa !20
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @exp_special_values, i64 760), align 8, !tbaa !22
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @exp_special_values, i64 768), align 16, !tbaa !20
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @exp_special_values, i64 776), align 8, !tbaa !22
+  store double 0x7FF0000000000000, ptr @log_special_values, align 16, !tbaa !20
+  store double 0xC002D97C7F3321D2, ptr getelementptr inbounds nuw (i8, ptr @log_special_values, i64 8), align 8, !tbaa !22
+  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @log_special_values, i64 16), align 16, !tbaa !20
+  store double 0xC00921FB54442D18, ptr getelementptr inbounds nuw (i8, ptr @log_special_values, i64 24), align 8, !tbaa !22
+  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @log_special_values, i64 32), align 16, !tbaa !20
+  store double 0xC00921FB54442D18, ptr getelementptr inbounds nuw (i8, ptr @log_special_values, i64 40), align 8, !tbaa !22
+  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @log_special_values, i64 48), align 16, !tbaa !20
+  store double 0x400921FB54442D18, ptr getelementptr inbounds nuw (i8, ptr @log_special_values, i64 56), align 8, !tbaa !22
+  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @log_special_values, i64 64), align 16, !tbaa !20
+  store double 0x400921FB54442D18, ptr getelementptr inbounds nuw (i8, ptr @log_special_values, i64 72), align 8, !tbaa !22
+  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @log_special_values, i64 80), align 16, !tbaa !20
+  store double 0x4002D97C7F3321D2, ptr getelementptr inbounds nuw (i8, ptr @log_special_values, i64 88), align 8, !tbaa !22
+  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @log_special_values, i64 96), align 16, !tbaa !20
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @log_special_values, i64 104), align 8, !tbaa !22
+  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @log_special_values, i64 112), align 16, !tbaa !20
+  store double 0xBFF921FB54442D18, ptr getelementptr inbounds nuw (i8, ptr @log_special_values, i64 120), align 8, !tbaa !22
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @log_special_values, i64 128), align 16, !tbaa !20
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @log_special_values, i64 136), align 8, !tbaa !22
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @log_special_values, i64 144), align 16, !tbaa !20
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @log_special_values, i64 152), align 8, !tbaa !22
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @log_special_values, i64 160), align 16, !tbaa !20
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @log_special_values, i64 168), align 8, !tbaa !22
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @log_special_values, i64 176), align 16, !tbaa !20
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @log_special_values, i64 184), align 8, !tbaa !22
+  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @log_special_values, i64 192), align 16, !tbaa !20
+  store double 0x3FF921FB54442D18, ptr getelementptr inbounds nuw (i8, ptr @log_special_values, i64 200), align 8, !tbaa !22
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @log_special_values, i64 208), align 16, !tbaa !20
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @log_special_values, i64 216), align 8, !tbaa !22
+  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @log_special_values, i64 224), align 16, !tbaa !20
+  store double 0xBFF921FB54442D18, ptr getelementptr inbounds nuw (i8, ptr @log_special_values, i64 232), align 8, !tbaa !22
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @log_special_values, i64 240), align 16, !tbaa !20
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @log_special_values, i64 248), align 8, !tbaa !22
+  store double 0xFFF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @log_special_values, i64 256), align 16, !tbaa !20
+  store double 0xC00921FB54442D18, ptr getelementptr inbounds nuw (i8, ptr @log_special_values, i64 264), align 8, !tbaa !22
+  store double 0xFFF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @log_special_values, i64 272), align 16, !tbaa !20
+  store double 0x400921FB54442D18, ptr getelementptr inbounds nuw (i8, ptr @log_special_values, i64 280), align 8, !tbaa !22
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @log_special_values, i64 288), align 16, !tbaa !20
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @log_special_values, i64 296), align 8, !tbaa !22
+  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @log_special_values, i64 304), align 16, !tbaa !20
+  store double 0x3FF921FB54442D18, ptr getelementptr inbounds nuw (i8, ptr @log_special_values, i64 312), align 8, !tbaa !22
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @log_special_values, i64 320), align 16, !tbaa !20
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @log_special_values, i64 328), align 8, !tbaa !22
+  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @log_special_values, i64 336), align 16, !tbaa !20
+  store double 0xBFF921FB54442D18, ptr getelementptr inbounds nuw (i8, ptr @log_special_values, i64 344), align 8, !tbaa !22
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @log_special_values, i64 352), align 16, !tbaa !20
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @log_special_values, i64 360), align 8, !tbaa !22
+  store double 0xFFF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @log_special_values, i64 368), align 16, !tbaa !20
+  store double -0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @log_special_values, i64 376), align 8, !tbaa !22
+  store double 0xFFF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @log_special_values, i64 384), align 16, !tbaa !20
+  store double 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @log_special_values, i64 392), align 8, !tbaa !22
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @log_special_values, i64 400), align 16, !tbaa !20
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @log_special_values, i64 408), align 8, !tbaa !22
+  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @log_special_values, i64 416), align 16, !tbaa !20
+  store double 0x3FF921FB54442D18, ptr getelementptr inbounds nuw (i8, ptr @log_special_values, i64 424), align 8, !tbaa !22
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @log_special_values, i64 432), align 16, !tbaa !20
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @log_special_values, i64 440), align 8, !tbaa !22
+  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @log_special_values, i64 448), align 16, !tbaa !20
+  store double 0xBFF921FB54442D18, ptr getelementptr inbounds nuw (i8, ptr @log_special_values, i64 456), align 8, !tbaa !22
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @log_special_values, i64 464), align 16, !tbaa !20
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @log_special_values, i64 472), align 8, !tbaa !22
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @log_special_values, i64 480), align 16, !tbaa !20
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @log_special_values, i64 488), align 8, !tbaa !22
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @log_special_values, i64 496), align 16, !tbaa !20
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @log_special_values, i64 504), align 8, !tbaa !22
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @log_special_values, i64 512), align 16, !tbaa !20
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @log_special_values, i64 520), align 8, !tbaa !22
+  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @log_special_values, i64 528), align 16, !tbaa !20
+  store double 0x3FF921FB54442D18, ptr getelementptr inbounds nuw (i8, ptr @log_special_values, i64 536), align 8, !tbaa !22
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @log_special_values, i64 544), align 16, !tbaa !20
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @log_special_values, i64 552), align 8, !tbaa !22
+  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @log_special_values, i64 560), align 16, !tbaa !20
+  store double 0xBFE921FB54442D18, ptr getelementptr inbounds nuw (i8, ptr @log_special_values, i64 568), align 8, !tbaa !22
+  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @log_special_values, i64 576), align 16, !tbaa !20
+  store double -0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @log_special_values, i64 584), align 8, !tbaa !22
+  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @log_special_values, i64 592), align 16, !tbaa !20
+  store double -0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @log_special_values, i64 600), align 8, !tbaa !22
+  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @log_special_values, i64 608), align 16, !tbaa !20
+  store double 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @log_special_values, i64 616), align 8, !tbaa !22
+  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @log_special_values, i64 624), align 16, !tbaa !20
+  store double 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @log_special_values, i64 632), align 8, !tbaa !22
+  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @log_special_values, i64 640), align 16, !tbaa !20
+  store double 0x3FE921FB54442D18, ptr getelementptr inbounds nuw (i8, ptr @log_special_values, i64 648), align 8, !tbaa !22
+  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @log_special_values, i64 656), align 16, !tbaa !20
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @log_special_values, i64 664), align 8, !tbaa !22
+  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @log_special_values, i64 672), align 16, !tbaa !20
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @log_special_values, i64 680), align 8, !tbaa !22
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @log_special_values, i64 688), align 16, !tbaa !20
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @log_special_values, i64 696), align 8, !tbaa !22
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @log_special_values, i64 704), align 16, !tbaa !20
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @log_special_values, i64 712), align 8, !tbaa !22
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @log_special_values, i64 720), align 16, !tbaa !20
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @log_special_values, i64 728), align 8, !tbaa !22
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @log_special_values, i64 736), align 16, !tbaa !20
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @log_special_values, i64 744), align 8, !tbaa !22
+  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @log_special_values, i64 752), align 16, !tbaa !20
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @log_special_values, i64 760), align 8, !tbaa !22
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @log_special_values, i64 768), align 16, !tbaa !20
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @log_special_values, i64 776), align 8, !tbaa !22
+  store double 0x7FF0000000000000, ptr @sinh_special_values, align 16, !tbaa !20
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @sinh_special_values, i64 8), align 8, !tbaa !22
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @sinh_special_values, i64 16), align 16, !tbaa !20
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @sinh_special_values, i64 24), align 8, !tbaa !22
+  store double 0xFFF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @sinh_special_values, i64 32), align 16, !tbaa !20
+  store double -0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @sinh_special_values, i64 40), align 8, !tbaa !22
+  store double 0xFFF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @sinh_special_values, i64 48), align 16, !tbaa !20
+  store double 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @sinh_special_values, i64 56), align 8, !tbaa !22
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @sinh_special_values, i64 64), align 16, !tbaa !20
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @sinh_special_values, i64 72), align 8, !tbaa !22
+  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @sinh_special_values, i64 80), align 16, !tbaa !20
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @sinh_special_values, i64 88), align 8, !tbaa !22
+  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @sinh_special_values, i64 96), align 16, !tbaa !20
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @sinh_special_values, i64 104), align 8, !tbaa !22
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @sinh_special_values, i64 112), align 16, !tbaa !20
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @sinh_special_values, i64 120), align 8, !tbaa !22
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @sinh_special_values, i64 128), align 16, !tbaa !20
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @sinh_special_values, i64 136), align 8, !tbaa !22
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @sinh_special_values, i64 144), align 16, !tbaa !20
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @sinh_special_values, i64 152), align 8, !tbaa !22
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @sinh_special_values, i64 160), align 16, !tbaa !20
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @sinh_special_values, i64 168), align 8, !tbaa !22
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @sinh_special_values, i64 176), align 16, !tbaa !20
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @sinh_special_values, i64 184), align 8, !tbaa !22
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @sinh_special_values, i64 192), align 16, !tbaa !20
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @sinh_special_values, i64 200), align 8, !tbaa !22
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @sinh_special_values, i64 208), align 16, !tbaa !20
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @sinh_special_values, i64 216), align 8, !tbaa !22
+  store double 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @sinh_special_values, i64 224), align 16, !tbaa !20
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @sinh_special_values, i64 232), align 8, !tbaa !22
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @sinh_special_values, i64 240), align 16, !tbaa !20
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @sinh_special_values, i64 248), align 8, !tbaa !22
+  store double -0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @sinh_special_values, i64 256), align 16, !tbaa !20
+  store double -0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @sinh_special_values, i64 264), align 8, !tbaa !22
+  store double -0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @sinh_special_values, i64 272), align 16, !tbaa !20
+  store double 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @sinh_special_values, i64 280), align 8, !tbaa !22
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @sinh_special_values, i64 288), align 16, !tbaa !20
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @sinh_special_values, i64 296), align 8, !tbaa !22
+  store double 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @sinh_special_values, i64 304), align 16, !tbaa !20
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @sinh_special_values, i64 312), align 8, !tbaa !22
+  store double 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @sinh_special_values, i64 320), align 16, !tbaa !20
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @sinh_special_values, i64 328), align 8, !tbaa !22
+  store double 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @sinh_special_values, i64 336), align 16, !tbaa !20
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @sinh_special_values, i64 344), align 8, !tbaa !22
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @sinh_special_values, i64 352), align 16, !tbaa !20
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @sinh_special_values, i64 360), align 8, !tbaa !22
+  store double 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @sinh_special_values, i64 368), align 16, !tbaa !20
+  store double -0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @sinh_special_values, i64 376), align 8, !tbaa !22
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @sinh_special_values, i64 384), i8 0, i64 16, i1 false)
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @sinh_special_values, i64 400), align 16
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @sinh_special_values, i64 408), align 8
-  store double 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @sinh_special_values, i64 416), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @sinh_special_values, i64 424), align 8
-  store double 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @sinh_special_values, i64 432), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @sinh_special_values, i64 440), align 8
-  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @sinh_special_values, i64 448), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @sinh_special_values, i64 456), align 8
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @sinh_special_values, i64 464), align 16
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @sinh_special_values, i64 472), align 8
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @sinh_special_values, i64 480), align 16
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @sinh_special_values, i64 488), align 8
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @sinh_special_values, i64 496), align 16
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @sinh_special_values, i64 504), align 8
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @sinh_special_values, i64 512), align 16
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @sinh_special_values, i64 520), align 8
-  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @sinh_special_values, i64 528), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @sinh_special_values, i64 536), align 8
-  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @sinh_special_values, i64 544), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @sinh_special_values, i64 552), align 8
-  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @sinh_special_values, i64 560), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @sinh_special_values, i64 568), align 8
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @sinh_special_values, i64 576), align 16
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @sinh_special_values, i64 584), align 8
-  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @sinh_special_values, i64 592), align 16
-  store double -0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @sinh_special_values, i64 600), align 8
-  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @sinh_special_values, i64 608), align 16
-  store double 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @sinh_special_values, i64 616), align 8
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @sinh_special_values, i64 624), align 16
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @sinh_special_values, i64 632), align 8
-  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @sinh_special_values, i64 640), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @sinh_special_values, i64 648), align 8
-  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @sinh_special_values, i64 656), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @sinh_special_values, i64 664), align 8
-  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @sinh_special_values, i64 672), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @sinh_special_values, i64 680), align 8
-  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @sinh_special_values, i64 688), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @sinh_special_values, i64 696), align 8
-  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @sinh_special_values, i64 704), align 16
-  store double -0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @sinh_special_values, i64 712), align 8
-  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @sinh_special_values, i64 720), align 16
-  store double 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @sinh_special_values, i64 728), align 8
-  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @sinh_special_values, i64 736), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @sinh_special_values, i64 744), align 8
-  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @sinh_special_values, i64 752), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @sinh_special_values, i64 760), align 8
-  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @sinh_special_values, i64 768), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @sinh_special_values, i64 776), align 8
-  store double 0x7FF0000000000000, ptr @sqrt_special_values, align 16
-  store double 0xFFF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @sqrt_special_values, i64 8), align 8
-  store double 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @sqrt_special_values, i64 16), align 16
-  store double 0xFFF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @sqrt_special_values, i64 24), align 8
-  store double 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @sqrt_special_values, i64 32), align 16
-  store double 0xFFF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @sqrt_special_values, i64 40), align 8
-  store double 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @sqrt_special_values, i64 48), align 16
-  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @sqrt_special_values, i64 56), align 8
-  store double 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @sqrt_special_values, i64 64), align 16
-  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @sqrt_special_values, i64 72), align 8
-  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @sqrt_special_values, i64 80), align 16
-  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @sqrt_special_values, i64 88), align 8
-  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @sqrt_special_values, i64 96), align 16
-  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @sqrt_special_values, i64 104), align 8
-  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @sqrt_special_values, i64 112), align 16
-  store double 0xFFF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @sqrt_special_values, i64 120), align 8
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @sqrt_special_values, i64 128), align 16
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @sqrt_special_values, i64 136), align 8
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @sqrt_special_values, i64 144), align 16
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @sqrt_special_values, i64 152), align 8
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @sqrt_special_values, i64 160), align 16
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @sqrt_special_values, i64 168), align 8
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @sqrt_special_values, i64 176), align 16
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @sqrt_special_values, i64 184), align 8
-  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @sqrt_special_values, i64 192), align 16
-  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @sqrt_special_values, i64 200), align 8
-  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @sqrt_special_values, i64 208), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @sqrt_special_values, i64 216), align 8
-  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @sqrt_special_values, i64 224), align 16
-  store double 0xFFF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @sqrt_special_values, i64 232), align 8
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @sqrt_special_values, i64 240), align 16
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @sqrt_special_values, i64 248), align 8
-  store double 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @sqrt_special_values, i64 256), align 16
-  store double -0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @sqrt_special_values, i64 264), align 8
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @sinh_special_values, i64 400), align 16, !tbaa !20
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @sinh_special_values, i64 408), align 8, !tbaa !22
+  store double 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @sinh_special_values, i64 416), align 16, !tbaa !20
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @sinh_special_values, i64 424), align 8, !tbaa !22
+  store double 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @sinh_special_values, i64 432), align 16, !tbaa !20
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @sinh_special_values, i64 440), align 8, !tbaa !22
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @sinh_special_values, i64 448), align 16, !tbaa !20
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @sinh_special_values, i64 456), align 8, !tbaa !22
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @sinh_special_values, i64 464), align 16, !tbaa !20
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @sinh_special_values, i64 472), align 8, !tbaa !22
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @sinh_special_values, i64 480), align 16, !tbaa !20
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @sinh_special_values, i64 488), align 8, !tbaa !22
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @sinh_special_values, i64 496), align 16, !tbaa !20
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @sinh_special_values, i64 504), align 8, !tbaa !22
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @sinh_special_values, i64 512), align 16, !tbaa !20
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @sinh_special_values, i64 520), align 8, !tbaa !22
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @sinh_special_values, i64 528), align 16, !tbaa !20
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @sinh_special_values, i64 536), align 8, !tbaa !22
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @sinh_special_values, i64 544), align 16, !tbaa !20
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @sinh_special_values, i64 552), align 8, !tbaa !22
+  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @sinh_special_values, i64 560), align 16, !tbaa !20
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @sinh_special_values, i64 568), align 8, !tbaa !22
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @sinh_special_values, i64 576), align 16, !tbaa !20
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @sinh_special_values, i64 584), align 8, !tbaa !22
+  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @sinh_special_values, i64 592), align 16, !tbaa !20
+  store double -0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @sinh_special_values, i64 600), align 8, !tbaa !22
+  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @sinh_special_values, i64 608), align 16, !tbaa !20
+  store double 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @sinh_special_values, i64 616), align 8, !tbaa !22
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @sinh_special_values, i64 624), align 16, !tbaa !20
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @sinh_special_values, i64 632), align 8, !tbaa !22
+  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @sinh_special_values, i64 640), align 16, !tbaa !20
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @sinh_special_values, i64 648), align 8, !tbaa !22
+  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @sinh_special_values, i64 656), align 16, !tbaa !20
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @sinh_special_values, i64 664), align 8, !tbaa !22
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @sinh_special_values, i64 672), align 16, !tbaa !20
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @sinh_special_values, i64 680), align 8, !tbaa !22
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @sinh_special_values, i64 688), align 16, !tbaa !20
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @sinh_special_values, i64 696), align 8, !tbaa !22
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @sinh_special_values, i64 704), align 16, !tbaa !20
+  store double -0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @sinh_special_values, i64 712), align 8, !tbaa !22
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @sinh_special_values, i64 720), align 16, !tbaa !20
+  store double 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @sinh_special_values, i64 728), align 8, !tbaa !22
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @sinh_special_values, i64 736), align 16, !tbaa !20
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @sinh_special_values, i64 744), align 8, !tbaa !22
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @sinh_special_values, i64 752), align 16, !tbaa !20
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @sinh_special_values, i64 760), align 8, !tbaa !22
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @sinh_special_values, i64 768), align 16, !tbaa !20
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @sinh_special_values, i64 776), align 8, !tbaa !22
+  store double 0x7FF0000000000000, ptr @sqrt_special_values, align 16, !tbaa !20
+  store double 0xFFF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @sqrt_special_values, i64 8), align 8, !tbaa !22
+  store double 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @sqrt_special_values, i64 16), align 16, !tbaa !20
+  store double 0xFFF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @sqrt_special_values, i64 24), align 8, !tbaa !22
+  store double 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @sqrt_special_values, i64 32), align 16, !tbaa !20
+  store double 0xFFF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @sqrt_special_values, i64 40), align 8, !tbaa !22
+  store double 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @sqrt_special_values, i64 48), align 16, !tbaa !20
+  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @sqrt_special_values, i64 56), align 8, !tbaa !22
+  store double 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @sqrt_special_values, i64 64), align 16, !tbaa !20
+  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @sqrt_special_values, i64 72), align 8, !tbaa !22
+  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @sqrt_special_values, i64 80), align 16, !tbaa !20
+  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @sqrt_special_values, i64 88), align 8, !tbaa !22
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @sqrt_special_values, i64 96), align 16, !tbaa !20
+  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @sqrt_special_values, i64 104), align 8, !tbaa !22
+  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @sqrt_special_values, i64 112), align 16, !tbaa !20
+  store double 0xFFF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @sqrt_special_values, i64 120), align 8, !tbaa !22
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @sqrt_special_values, i64 128), align 16, !tbaa !20
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @sqrt_special_values, i64 136), align 8, !tbaa !22
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @sqrt_special_values, i64 144), align 16, !tbaa !20
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @sqrt_special_values, i64 152), align 8, !tbaa !22
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @sqrt_special_values, i64 160), align 16, !tbaa !20
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @sqrt_special_values, i64 168), align 8, !tbaa !22
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @sqrt_special_values, i64 176), align 16, !tbaa !20
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @sqrt_special_values, i64 184), align 8, !tbaa !22
+  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @sqrt_special_values, i64 192), align 16, !tbaa !20
+  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @sqrt_special_values, i64 200), align 8, !tbaa !22
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @sqrt_special_values, i64 208), align 16, !tbaa !20
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @sqrt_special_values, i64 216), align 8, !tbaa !22
+  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @sqrt_special_values, i64 224), align 16, !tbaa !20
+  store double 0xFFF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @sqrt_special_values, i64 232), align 8, !tbaa !22
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @sqrt_special_values, i64 240), align 16, !tbaa !20
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @sqrt_special_values, i64 248), align 8, !tbaa !22
+  store double 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @sqrt_special_values, i64 256), align 16, !tbaa !20
+  store double -0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @sqrt_special_values, i64 264), align 8, !tbaa !22
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @sqrt_special_values, i64 272), i8 0, i64 16, i1 false)
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @sqrt_special_values, i64 288), align 16
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @sqrt_special_values, i64 296), align 8
-  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @sqrt_special_values, i64 304), align 16
-  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @sqrt_special_values, i64 312), align 8
-  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @sqrt_special_values, i64 320), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @sqrt_special_values, i64 328), align 8
-  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @sqrt_special_values, i64 336), align 16
-  store double 0xFFF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @sqrt_special_values, i64 344), align 8
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @sqrt_special_values, i64 352), align 16
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @sqrt_special_values, i64 360), align 8
-  store double 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @sqrt_special_values, i64 368), align 16
-  store double -0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @sqrt_special_values, i64 376), align 8
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @sqrt_special_values, i64 288), align 16, !tbaa !20
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @sqrt_special_values, i64 296), align 8, !tbaa !22
+  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @sqrt_special_values, i64 304), align 16, !tbaa !20
+  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @sqrt_special_values, i64 312), align 8, !tbaa !22
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @sqrt_special_values, i64 320), align 16, !tbaa !20
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @sqrt_special_values, i64 328), align 8, !tbaa !22
+  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @sqrt_special_values, i64 336), align 16, !tbaa !20
+  store double 0xFFF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @sqrt_special_values, i64 344), align 8, !tbaa !22
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @sqrt_special_values, i64 352), align 16, !tbaa !20
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @sqrt_special_values, i64 360), align 8, !tbaa !22
+  store double 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @sqrt_special_values, i64 368), align 16, !tbaa !20
+  store double -0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @sqrt_special_values, i64 376), align 8, !tbaa !22
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @sqrt_special_values, i64 384), i8 0, i64 16, i1 false)
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @sqrt_special_values, i64 400), align 16
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @sqrt_special_values, i64 408), align 8
-  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @sqrt_special_values, i64 416), align 16
-  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @sqrt_special_values, i64 424), align 8
-  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @sqrt_special_values, i64 432), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @sqrt_special_values, i64 440), align 8
-  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @sqrt_special_values, i64 448), align 16
-  store double 0xFFF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @sqrt_special_values, i64 456), align 8
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @sqrt_special_values, i64 464), align 16
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @sqrt_special_values, i64 472), align 8
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @sqrt_special_values, i64 480), align 16
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @sqrt_special_values, i64 488), align 8
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @sqrt_special_values, i64 496), align 16
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @sqrt_special_values, i64 504), align 8
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @sqrt_special_values, i64 512), align 16
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @sqrt_special_values, i64 520), align 8
-  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @sqrt_special_values, i64 528), align 16
-  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @sqrt_special_values, i64 536), align 8
-  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @sqrt_special_values, i64 544), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @sqrt_special_values, i64 552), align 8
-  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @sqrt_special_values, i64 560), align 16
-  store double 0xFFF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @sqrt_special_values, i64 568), align 8
-  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @sqrt_special_values, i64 576), align 16
-  store double -0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @sqrt_special_values, i64 584), align 8
-  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @sqrt_special_values, i64 592), align 16
-  store double -0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @sqrt_special_values, i64 600), align 8
-  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @sqrt_special_values, i64 608), align 16
-  store double 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @sqrt_special_values, i64 616), align 8
-  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @sqrt_special_values, i64 624), align 16
-  store double 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @sqrt_special_values, i64 632), align 8
-  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @sqrt_special_values, i64 640), align 16
-  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @sqrt_special_values, i64 648), align 8
-  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @sqrt_special_values, i64 656), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @sqrt_special_values, i64 664), align 8
-  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @sqrt_special_values, i64 672), align 16
-  store double 0xFFF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @sqrt_special_values, i64 680), align 8
-  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @sqrt_special_values, i64 688), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @sqrt_special_values, i64 696), align 8
-  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @sqrt_special_values, i64 704), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @sqrt_special_values, i64 712), align 8
-  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @sqrt_special_values, i64 720), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @sqrt_special_values, i64 728), align 8
-  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @sqrt_special_values, i64 736), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @sqrt_special_values, i64 744), align 8
-  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @sqrt_special_values, i64 752), align 16
-  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @sqrt_special_values, i64 760), align 8
-  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @sqrt_special_values, i64 768), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @sqrt_special_values, i64 776), align 8
-  store double -1.000000e+00, ptr @tanh_special_values, align 16
-  store double 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @tanh_special_values, i64 8), align 8
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @tanh_special_values, i64 16), align 16
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @tanh_special_values, i64 24), align 8
-  store double -1.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @tanh_special_values, i64 32), align 16
-  store double -0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @tanh_special_values, i64 40), align 8
-  store double -1.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @tanh_special_values, i64 48), align 16
-  store double 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @tanh_special_values, i64 56), align 8
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @tanh_special_values, i64 64), align 16
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @tanh_special_values, i64 72), align 8
-  store double -1.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @tanh_special_values, i64 80), align 16
-  store double 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @tanh_special_values, i64 88), align 8
-  store double -1.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @tanh_special_values, i64 96), align 16
-  store double 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @tanh_special_values, i64 104), align 8
-  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @tanh_special_values, i64 112), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @tanh_special_values, i64 120), align 8
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @tanh_special_values, i64 128), align 16
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @tanh_special_values, i64 136), align 8
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @tanh_special_values, i64 144), align 16
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @tanh_special_values, i64 152), align 8
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @tanh_special_values, i64 160), align 16
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @tanh_special_values, i64 168), align 8
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @tanh_special_values, i64 176), align 16
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @tanh_special_values, i64 184), align 8
-  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @tanh_special_values, i64 192), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @tanh_special_values, i64 200), align 8
-  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @tanh_special_values, i64 208), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @tanh_special_values, i64 216), align 8
-  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @tanh_special_values, i64 224), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @tanh_special_values, i64 232), align 8
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @tanh_special_values, i64 240), align 16
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @tanh_special_values, i64 248), align 8
-  store double -0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @tanh_special_values, i64 256), align 16
-  store double -0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @tanh_special_values, i64 264), align 8
-  store double -0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @tanh_special_values, i64 272), align 16
-  store double 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @tanh_special_values, i64 280), align 8
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @tanh_special_values, i64 288), align 16
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @tanh_special_values, i64 296), align 8
-  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @tanh_special_values, i64 304), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @tanh_special_values, i64 312), align 8
-  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @tanh_special_values, i64 320), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @tanh_special_values, i64 328), align 8
-  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @tanh_special_values, i64 336), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @tanh_special_values, i64 344), align 8
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @tanh_special_values, i64 352), align 16
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @tanh_special_values, i64 360), align 8
-  store double 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @tanh_special_values, i64 368), align 16
-  store double -0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @tanh_special_values, i64 376), align 8
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @sqrt_special_values, i64 400), align 16, !tbaa !20
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @sqrt_special_values, i64 408), align 8, !tbaa !22
+  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @sqrt_special_values, i64 416), align 16, !tbaa !20
+  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @sqrt_special_values, i64 424), align 8, !tbaa !22
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @sqrt_special_values, i64 432), align 16, !tbaa !20
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @sqrt_special_values, i64 440), align 8, !tbaa !22
+  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @sqrt_special_values, i64 448), align 16, !tbaa !20
+  store double 0xFFF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @sqrt_special_values, i64 456), align 8, !tbaa !22
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @sqrt_special_values, i64 464), align 16, !tbaa !20
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @sqrt_special_values, i64 472), align 8, !tbaa !22
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @sqrt_special_values, i64 480), align 16, !tbaa !20
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @sqrt_special_values, i64 488), align 8, !tbaa !22
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @sqrt_special_values, i64 496), align 16, !tbaa !20
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @sqrt_special_values, i64 504), align 8, !tbaa !22
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @sqrt_special_values, i64 512), align 16, !tbaa !20
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @sqrt_special_values, i64 520), align 8, !tbaa !22
+  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @sqrt_special_values, i64 528), align 16, !tbaa !20
+  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @sqrt_special_values, i64 536), align 8, !tbaa !22
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @sqrt_special_values, i64 544), align 16, !tbaa !20
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @sqrt_special_values, i64 552), align 8, !tbaa !22
+  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @sqrt_special_values, i64 560), align 16, !tbaa !20
+  store double 0xFFF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @sqrt_special_values, i64 568), align 8, !tbaa !22
+  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @sqrt_special_values, i64 576), align 16, !tbaa !20
+  store double -0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @sqrt_special_values, i64 584), align 8, !tbaa !22
+  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @sqrt_special_values, i64 592), align 16, !tbaa !20
+  store double -0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @sqrt_special_values, i64 600), align 8, !tbaa !22
+  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @sqrt_special_values, i64 608), align 16, !tbaa !20
+  store double 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @sqrt_special_values, i64 616), align 8, !tbaa !22
+  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @sqrt_special_values, i64 624), align 16, !tbaa !20
+  store double 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @sqrt_special_values, i64 632), align 8, !tbaa !22
+  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @sqrt_special_values, i64 640), align 16, !tbaa !20
+  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @sqrt_special_values, i64 648), align 8, !tbaa !22
+  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @sqrt_special_values, i64 656), align 16, !tbaa !20
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @sqrt_special_values, i64 664), align 8, !tbaa !22
+  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @sqrt_special_values, i64 672), align 16, !tbaa !20
+  store double 0xFFF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @sqrt_special_values, i64 680), align 8, !tbaa !22
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @sqrt_special_values, i64 688), align 16, !tbaa !20
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @sqrt_special_values, i64 696), align 8, !tbaa !22
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @sqrt_special_values, i64 704), align 16, !tbaa !20
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @sqrt_special_values, i64 712), align 8, !tbaa !22
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @sqrt_special_values, i64 720), align 16, !tbaa !20
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @sqrt_special_values, i64 728), align 8, !tbaa !22
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @sqrt_special_values, i64 736), align 16, !tbaa !20
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @sqrt_special_values, i64 744), align 8, !tbaa !22
+  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @sqrt_special_values, i64 752), align 16, !tbaa !20
+  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @sqrt_special_values, i64 760), align 8, !tbaa !22
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @sqrt_special_values, i64 768), align 16, !tbaa !20
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @sqrt_special_values, i64 776), align 8, !tbaa !22
+  store double -1.000000e+00, ptr @tanh_special_values, align 16, !tbaa !20
+  store double 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @tanh_special_values, i64 8), align 8, !tbaa !22
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @tanh_special_values, i64 16), align 16, !tbaa !20
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @tanh_special_values, i64 24), align 8, !tbaa !22
+  store double -1.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @tanh_special_values, i64 32), align 16, !tbaa !20
+  store double -0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @tanh_special_values, i64 40), align 8, !tbaa !22
+  store double -1.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @tanh_special_values, i64 48), align 16, !tbaa !20
+  store double 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @tanh_special_values, i64 56), align 8, !tbaa !22
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @tanh_special_values, i64 64), align 16, !tbaa !20
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @tanh_special_values, i64 72), align 8, !tbaa !22
+  store double -1.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @tanh_special_values, i64 80), align 16, !tbaa !20
+  store double 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @tanh_special_values, i64 88), align 8, !tbaa !22
+  store double -1.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @tanh_special_values, i64 96), align 16, !tbaa !20
+  store double 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @tanh_special_values, i64 104), align 8, !tbaa !22
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @tanh_special_values, i64 112), align 16, !tbaa !20
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @tanh_special_values, i64 120), align 8, !tbaa !22
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @tanh_special_values, i64 128), align 16, !tbaa !20
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @tanh_special_values, i64 136), align 8, !tbaa !22
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @tanh_special_values, i64 144), align 16, !tbaa !20
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @tanh_special_values, i64 152), align 8, !tbaa !22
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @tanh_special_values, i64 160), align 16, !tbaa !20
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @tanh_special_values, i64 168), align 8, !tbaa !22
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @tanh_special_values, i64 176), align 16, !tbaa !20
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @tanh_special_values, i64 184), align 8, !tbaa !22
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @tanh_special_values, i64 192), align 16, !tbaa !20
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @tanh_special_values, i64 200), align 8, !tbaa !22
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @tanh_special_values, i64 208), align 16, !tbaa !20
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @tanh_special_values, i64 216), align 8, !tbaa !22
+  store double -0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @tanh_special_values, i64 224), align 16, !tbaa !20
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @tanh_special_values, i64 232), align 8, !tbaa !22
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @tanh_special_values, i64 240), align 16, !tbaa !20
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @tanh_special_values, i64 248), align 8, !tbaa !22
+  store double -0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @tanh_special_values, i64 256), align 16, !tbaa !20
+  store double -0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @tanh_special_values, i64 264), align 8, !tbaa !22
+  store double -0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @tanh_special_values, i64 272), align 16, !tbaa !20
+  store double 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @tanh_special_values, i64 280), align 8, !tbaa !22
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @tanh_special_values, i64 288), align 16, !tbaa !20
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @tanh_special_values, i64 296), align 8, !tbaa !22
+  store double -0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @tanh_special_values, i64 304), align 16, !tbaa !20
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @tanh_special_values, i64 312), align 8, !tbaa !22
+  store double -0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @tanh_special_values, i64 320), align 16, !tbaa !20
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @tanh_special_values, i64 328), align 8, !tbaa !22
+  store double 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @tanh_special_values, i64 336), align 16, !tbaa !20
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @tanh_special_values, i64 344), align 8, !tbaa !22
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @tanh_special_values, i64 352), align 16, !tbaa !20
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @tanh_special_values, i64 360), align 8, !tbaa !22
+  store double 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @tanh_special_values, i64 368), align 16, !tbaa !20
+  store double -0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @tanh_special_values, i64 376), align 8, !tbaa !22
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @tanh_special_values, i64 384), i8 0, i64 16, i1 false)
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @tanh_special_values, i64 400), align 16
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @tanh_special_values, i64 408), align 8
-  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @tanh_special_values, i64 416), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @tanh_special_values, i64 424), align 8
-  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @tanh_special_values, i64 432), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @tanh_special_values, i64 440), align 8
-  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @tanh_special_values, i64 448), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @tanh_special_values, i64 456), align 8
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @tanh_special_values, i64 464), align 16
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @tanh_special_values, i64 472), align 8
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @tanh_special_values, i64 480), align 16
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @tanh_special_values, i64 488), align 8
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @tanh_special_values, i64 496), align 16
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @tanh_special_values, i64 504), align 8
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @tanh_special_values, i64 512), align 16
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @tanh_special_values, i64 520), align 8
-  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @tanh_special_values, i64 528), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @tanh_special_values, i64 536), align 8
-  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @tanh_special_values, i64 544), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @tanh_special_values, i64 552), align 8
-  store double 1.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @tanh_special_values, i64 560), align 16
-  store double 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @tanh_special_values, i64 568), align 8
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @tanh_special_values, i64 576), align 16
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @tanh_special_values, i64 584), align 8
-  store double 1.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @tanh_special_values, i64 592), align 16
-  store double -0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @tanh_special_values, i64 600), align 8
-  store double 1.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @tanh_special_values, i64 608), align 16
-  store double 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @tanh_special_values, i64 616), align 8
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @tanh_special_values, i64 624), align 16
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @tanh_special_values, i64 632), align 8
-  store double 1.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @tanh_special_values, i64 640), align 16
-  store double 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @tanh_special_values, i64 648), align 8
-  store double 1.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @tanh_special_values, i64 656), align 16
-  store double 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @tanh_special_values, i64 664), align 8
-  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @tanh_special_values, i64 672), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @tanh_special_values, i64 680), align 8
-  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @tanh_special_values, i64 688), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @tanh_special_values, i64 696), align 8
-  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @tanh_special_values, i64 704), align 16
-  store double -0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @tanh_special_values, i64 712), align 8
-  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @tanh_special_values, i64 720), align 16
-  store double 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @tanh_special_values, i64 728), align 8
-  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @tanh_special_values, i64 736), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @tanh_special_values, i64 744), align 8
-  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @tanh_special_values, i64 752), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @tanh_special_values, i64 760), align 8
-  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @tanh_special_values, i64 768), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @tanh_special_values, i64 776), align 8
-  store double 0x7FF0000000000000, ptr @rect_special_values, align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @rect_special_values, i64 8), align 8
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @rect_special_values, i64 16), align 16
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @rect_special_values, i64 24), align 8
-  store double 0xFFF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @rect_special_values, i64 32), align 16
-  store double 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @rect_special_values, i64 40), align 8
-  store double 0xFFF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @rect_special_values, i64 48), align 16
-  store double -0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @rect_special_values, i64 56), align 8
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @rect_special_values, i64 64), align 16
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @rect_special_values, i64 72), align 8
-  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @rect_special_values, i64 80), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @rect_special_values, i64 88), align 8
-  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @rect_special_values, i64 96), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @rect_special_values, i64 104), align 8
-  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @rect_special_values, i64 112), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @rect_special_values, i64 120), align 8
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @rect_special_values, i64 128), align 16
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @rect_special_values, i64 136), align 8
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @rect_special_values, i64 144), align 16
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @rect_special_values, i64 152), align 8
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @rect_special_values, i64 160), align 16
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @rect_special_values, i64 168), align 8
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @rect_special_values, i64 176), align 16
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @rect_special_values, i64 184), align 8
-  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @rect_special_values, i64 192), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @rect_special_values, i64 200), align 8
-  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @rect_special_values, i64 208), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @rect_special_values, i64 216), align 8
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @tanh_special_values, i64 400), align 16, !tbaa !20
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @tanh_special_values, i64 408), align 8, !tbaa !22
+  store double 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @tanh_special_values, i64 416), align 16, !tbaa !20
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @tanh_special_values, i64 424), align 8, !tbaa !22
+  store double 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @tanh_special_values, i64 432), align 16, !tbaa !20
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @tanh_special_values, i64 440), align 8, !tbaa !22
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @tanh_special_values, i64 448), align 16, !tbaa !20
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @tanh_special_values, i64 456), align 8, !tbaa !22
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @tanh_special_values, i64 464), align 16, !tbaa !20
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @tanh_special_values, i64 472), align 8, !tbaa !22
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @tanh_special_values, i64 480), align 16, !tbaa !20
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @tanh_special_values, i64 488), align 8, !tbaa !22
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @tanh_special_values, i64 496), align 16, !tbaa !20
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @tanh_special_values, i64 504), align 8, !tbaa !22
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @tanh_special_values, i64 512), align 16, !tbaa !20
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @tanh_special_values, i64 520), align 8, !tbaa !22
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @tanh_special_values, i64 528), align 16, !tbaa !20
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @tanh_special_values, i64 536), align 8, !tbaa !22
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @tanh_special_values, i64 544), align 16, !tbaa !20
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @tanh_special_values, i64 552), align 8, !tbaa !22
+  store double 1.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @tanh_special_values, i64 560), align 16, !tbaa !20
+  store double 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @tanh_special_values, i64 568), align 8, !tbaa !22
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @tanh_special_values, i64 576), align 16, !tbaa !20
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @tanh_special_values, i64 584), align 8, !tbaa !22
+  store double 1.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @tanh_special_values, i64 592), align 16, !tbaa !20
+  store double -0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @tanh_special_values, i64 600), align 8, !tbaa !22
+  store double 1.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @tanh_special_values, i64 608), align 16, !tbaa !20
+  store double 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @tanh_special_values, i64 616), align 8, !tbaa !22
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @tanh_special_values, i64 624), align 16, !tbaa !20
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @tanh_special_values, i64 632), align 8, !tbaa !22
+  store double 1.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @tanh_special_values, i64 640), align 16, !tbaa !20
+  store double 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @tanh_special_values, i64 648), align 8, !tbaa !22
+  store double 1.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @tanh_special_values, i64 656), align 16, !tbaa !20
+  store double 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @tanh_special_values, i64 664), align 8, !tbaa !22
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @tanh_special_values, i64 672), align 16, !tbaa !20
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @tanh_special_values, i64 680), align 8, !tbaa !22
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @tanh_special_values, i64 688), align 16, !tbaa !20
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @tanh_special_values, i64 696), align 8, !tbaa !22
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @tanh_special_values, i64 704), align 16, !tbaa !20
+  store double -0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @tanh_special_values, i64 712), align 8, !tbaa !22
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @tanh_special_values, i64 720), align 16, !tbaa !20
+  store double 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @tanh_special_values, i64 728), align 8, !tbaa !22
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @tanh_special_values, i64 736), align 16, !tbaa !20
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @tanh_special_values, i64 744), align 8, !tbaa !22
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @tanh_special_values, i64 752), align 16, !tbaa !20
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @tanh_special_values, i64 760), align 8, !tbaa !22
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @tanh_special_values, i64 768), align 16, !tbaa !20
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @tanh_special_values, i64 776), align 8, !tbaa !22
+  store double 0x7FF0000000000000, ptr @rect_special_values, align 16, !tbaa !20
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @rect_special_values, i64 8), align 8, !tbaa !22
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @rect_special_values, i64 16), align 16, !tbaa !20
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @rect_special_values, i64 24), align 8, !tbaa !22
+  store double 0xFFF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @rect_special_values, i64 32), align 16, !tbaa !20
+  store double 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @rect_special_values, i64 40), align 8, !tbaa !22
+  store double 0xFFF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @rect_special_values, i64 48), align 16, !tbaa !20
+  store double -0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @rect_special_values, i64 56), align 8, !tbaa !22
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @rect_special_values, i64 64), align 16, !tbaa !20
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @rect_special_values, i64 72), align 8, !tbaa !22
+  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @rect_special_values, i64 80), align 16, !tbaa !20
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @rect_special_values, i64 88), align 8, !tbaa !22
+  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @rect_special_values, i64 96), align 16, !tbaa !20
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @rect_special_values, i64 104), align 8, !tbaa !22
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @rect_special_values, i64 112), align 16, !tbaa !20
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @rect_special_values, i64 120), align 8, !tbaa !22
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @rect_special_values, i64 128), align 16, !tbaa !20
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @rect_special_values, i64 136), align 8, !tbaa !22
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @rect_special_values, i64 144), align 16, !tbaa !20
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @rect_special_values, i64 152), align 8, !tbaa !22
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @rect_special_values, i64 160), align 16, !tbaa !20
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @rect_special_values, i64 168), align 8, !tbaa !22
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @rect_special_values, i64 176), align 16, !tbaa !20
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @rect_special_values, i64 184), align 8, !tbaa !22
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @rect_special_values, i64 192), align 16, !tbaa !20
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @rect_special_values, i64 200), align 8, !tbaa !22
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @rect_special_values, i64 208), align 16, !tbaa !20
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @rect_special_values, i64 216), align 8, !tbaa !22
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @rect_special_values, i64 224), i8 0, i64 16, i1 false)
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @rect_special_values, i64 240), align 16
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @rect_special_values, i64 248), align 8
-  store double -0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @rect_special_values, i64 256), align 16
-  store double 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @rect_special_values, i64 264), align 8
-  store double -0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @rect_special_values, i64 272), align 16
-  store double -0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @rect_special_values, i64 280), align 8
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @rect_special_values, i64 288), align 16
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @rect_special_values, i64 296), align 8
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @rect_special_values, i64 240), align 16, !tbaa !20
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @rect_special_values, i64 248), align 8, !tbaa !22
+  store double -0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @rect_special_values, i64 256), align 16, !tbaa !20
+  store double 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @rect_special_values, i64 264), align 8, !tbaa !22
+  store double -0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @rect_special_values, i64 272), align 16, !tbaa !20
+  store double -0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @rect_special_values, i64 280), align 8, !tbaa !22
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @rect_special_values, i64 288), align 16, !tbaa !20
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @rect_special_values, i64 296), align 8, !tbaa !22
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) getelementptr inbounds nuw (i8, ptr @rect_special_values, i64 304), i8 0, i64 48, i1 false)
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @rect_special_values, i64 352), align 16
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @rect_special_values, i64 360), align 8
-  store double 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @rect_special_values, i64 368), align 16
-  store double -0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @rect_special_values, i64 376), align 8
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @rect_special_values, i64 352), align 16, !tbaa !20
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @rect_special_values, i64 360), align 8, !tbaa !22
+  store double 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @rect_special_values, i64 368), align 16, !tbaa !20
+  store double -0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @rect_special_values, i64 376), align 8, !tbaa !22
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @rect_special_values, i64 384), i8 0, i64 16, i1 false)
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @rect_special_values, i64 400), align 16
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @rect_special_values, i64 408), align 8
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @rect_special_values, i64 400), align 16, !tbaa !20
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @rect_special_values, i64 408), align 8, !tbaa !22
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) getelementptr inbounds nuw (i8, ptr @rect_special_values, i64 416), i8 0, i64 32, i1 false)
-  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @rect_special_values, i64 448), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @rect_special_values, i64 456), align 8
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @rect_special_values, i64 464), align 16
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @rect_special_values, i64 472), align 8
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @rect_special_values, i64 480), align 16
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @rect_special_values, i64 488), align 8
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @rect_special_values, i64 496), align 16
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @rect_special_values, i64 504), align 8
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @rect_special_values, i64 512), align 16
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @rect_special_values, i64 520), align 8
-  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @rect_special_values, i64 528), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @rect_special_values, i64 536), align 8
-  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @rect_special_values, i64 544), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @rect_special_values, i64 552), align 8
-  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @rect_special_values, i64 560), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @rect_special_values, i64 568), align 8
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @rect_special_values, i64 576), align 16
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @rect_special_values, i64 584), align 8
-  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @rect_special_values, i64 592), align 16
-  store double -0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @rect_special_values, i64 600), align 8
-  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @rect_special_values, i64 608), align 16
-  store double 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @rect_special_values, i64 616), align 8
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @rect_special_values, i64 624), align 16
-  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @rect_special_values, i64 632), align 8
-  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @rect_special_values, i64 640), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @rect_special_values, i64 648), align 8
-  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @rect_special_values, i64 656), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @rect_special_values, i64 664), align 8
-  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @rect_special_values, i64 672), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @rect_special_values, i64 680), align 8
-  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @rect_special_values, i64 688), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @rect_special_values, i64 696), align 8
-  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @rect_special_values, i64 704), align 16
-  store double 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @rect_special_values, i64 712), align 8
-  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @rect_special_values, i64 720), align 16
-  store double 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @rect_special_values, i64 728), align 8
-  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @rect_special_values, i64 736), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @rect_special_values, i64 744), align 8
-  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @rect_special_values, i64 752), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @rect_special_values, i64 760), align 8
-  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @rect_special_values, i64 768), align 16
-  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @rect_special_values, i64 776), align 8
-  br label %return
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @rect_special_values, i64 448), align 16, !tbaa !20
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @rect_special_values, i64 456), align 8, !tbaa !22
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @rect_special_values, i64 464), align 16, !tbaa !20
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @rect_special_values, i64 472), align 8, !tbaa !22
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @rect_special_values, i64 480), align 16, !tbaa !20
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @rect_special_values, i64 488), align 8, !tbaa !22
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @rect_special_values, i64 496), align 16, !tbaa !20
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @rect_special_values, i64 504), align 8, !tbaa !22
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @rect_special_values, i64 512), align 16, !tbaa !20
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @rect_special_values, i64 520), align 8, !tbaa !22
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @rect_special_values, i64 528), align 16, !tbaa !20
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @rect_special_values, i64 536), align 8, !tbaa !22
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @rect_special_values, i64 544), align 16, !tbaa !20
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @rect_special_values, i64 552), align 8, !tbaa !22
+  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @rect_special_values, i64 560), align 16, !tbaa !20
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @rect_special_values, i64 568), align 8, !tbaa !22
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @rect_special_values, i64 576), align 16, !tbaa !20
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @rect_special_values, i64 584), align 8, !tbaa !22
+  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @rect_special_values, i64 592), align 16, !tbaa !20
+  store double -0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @rect_special_values, i64 600), align 8, !tbaa !22
+  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @rect_special_values, i64 608), align 16, !tbaa !20
+  store double 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @rect_special_values, i64 616), align 8, !tbaa !22
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @rect_special_values, i64 624), align 16, !tbaa !20
+  store double 0xC6FD67CF2C62297C, ptr getelementptr inbounds nuw (i8, ptr @rect_special_values, i64 632), align 8, !tbaa !22
+  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @rect_special_values, i64 640), align 16, !tbaa !20
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @rect_special_values, i64 648), align 8, !tbaa !22
+  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @rect_special_values, i64 656), align 16, !tbaa !20
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @rect_special_values, i64 664), align 8, !tbaa !22
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @rect_special_values, i64 672), align 16, !tbaa !20
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @rect_special_values, i64 680), align 8, !tbaa !22
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @rect_special_values, i64 688), align 16, !tbaa !20
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @rect_special_values, i64 696), align 8, !tbaa !22
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @rect_special_values, i64 704), align 16, !tbaa !20
+  store double 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @rect_special_values, i64 712), align 8, !tbaa !22
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @rect_special_values, i64 720), align 16, !tbaa !20
+  store double 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @rect_special_values, i64 728), align 8, !tbaa !22
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @rect_special_values, i64 736), align 16, !tbaa !20
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @rect_special_values, i64 744), align 8, !tbaa !22
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @rect_special_values, i64 752), align 16, !tbaa !20
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @rect_special_values, i64 760), align 8, !tbaa !22
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @rect_special_values, i64 768), align 16, !tbaa !20
+  store double 0x7FF8000000000000, ptr getelementptr inbounds nuw (i8, ptr @rect_special_values, i64 776), align 8, !tbaa !22
+  br label %30
 
-return:                                           ; preds = %if.end26, %if.end21, %if.end16, %if.end11, %if.end6, %if.end, %entry, %if.end31
-  %retval.0 = phi i32 [ 0, %if.end31 ], [ -1, %entry ], [ -1, %if.end ], [ -1, %if.end6 ], [ -1, %if.end11 ], [ -1, %if.end16 ], [ -1, %if.end21 ], [ -1, %if.end26 ]
-  ret i32 %retval.0
+30:                                               ; preds = %17, %21, %25, %29, %13, %9, %5, %1
+  %.0 = phi i32 [ -1, %1 ], [ -1, %5 ], [ -1, %9 ], [ -1, %13 ], [ -1, %17 ], [ -1, %21 ], [ 0, %29 ], [ -1, %25 ]
+  ret i32 %.0
 }
 
 declare i32 @PyModule_Add(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.sqrt.f64(double) #9
+declare double @llvm.sqrt.f64(double) #10
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #4 = { mustprogress nofree nounwind willreturn memory(write) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nofree nounwind willreturn uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nofree nounwind willreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nofree nounwind willreturn memory(readwrite, argmem: write, inaccessiblemem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #9 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #10 = { nounwind }
-attributes #11 = { nounwind willreturn memory(none) }
-attributes #12 = { memory(none) }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #5 = { mustprogress nofree nounwind willreturn memory(write) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nofree nounwind willreturn uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nofree nounwind willreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nofree nounwind willreturn memory(readwrite, argmem: write, inaccessiblemem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #10 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #11 = { nounwind }
+attributes #12 = { nounwind willreturn memory(none) }
+attributes #13 = { memory(none) }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
+!3 = !{!4, !4, i64 0}
+!4 = !{!"int", !5, i64 0}
+!5 = !{!"omnipotent char", !6, i64 0}
+!6 = !{!"Simple C/C++ TBAA"}
+!7 = !{!8, !8, i64 0}
+!8 = !{!"double", !5, i64 0}
+!9 = !{!10, !10, i64 0}
+!10 = !{!"p1 _ZTS7_object", !11, i64 0}
+!11 = !{!"any pointer", !5, i64 0}
+!12 = !{!13, !16, i64 16}
+!13 = !{!"", !14, i64 0, !16, i64 16}
+!14 = !{!"_object", !5, i64 0, !15, i64 8}
+!15 = !{!"p1 _ZTS11_typeobject", !11, i64 0}
+!16 = !{!"long", !5, i64 0}
+!17 = !{!14, !15, i64 8}
+!18 = !{!19, !8, i64 16}
+!19 = !{!"", !14, i64 0, !8, i64 16}
+!20 = !{!21, !8, i64 0}
+!21 = !{!"", !8, i64 0, !8, i64 8}
+!22 = !{!21, !8, i64 8}

@@ -1,6001 +1,7338 @@
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
 %struct.Hacl_Streaming_MD_state_32_s = type { ptr, ptr, i64 }
 
 @_h0 = internal global [4 x i32] [i32 1732584193, i32 -271733879, i32 -1732584194, i32 271733878], align 16
-@__const.Hacl_Hash_MD5_legacy_hash.s = private unnamed_addr constant [4 x i32] [i32 1732584193, i32 -271733879, i32 -1732584194, i32 271733878], align 16
+@__const.python_hashlib_Hacl_Hash_MD5_hash_oneshot.s = private unnamed_addr constant [4 x i32] [i32 1732584193, i32 -271733879, i32 -1732584194, i32 271733878], align 16
 @_t = internal global [64 x i32] [i32 -680876936, i32 -389564586, i32 606105819, i32 -1044525330, i32 -176418897, i32 1200080426, i32 -1473231341, i32 -45705983, i32 1770035416, i32 -1958414417, i32 -42063, i32 -1990404162, i32 1804603682, i32 -40341101, i32 -1502002290, i32 1236535329, i32 -165796510, i32 -1069501632, i32 643717713, i32 -373897302, i32 -701558691, i32 38016083, i32 -660478335, i32 -405537848, i32 568446438, i32 -1019803690, i32 -187363961, i32 1163531501, i32 -1444681467, i32 -51403784, i32 1735328473, i32 -1926607734, i32 -378558, i32 -2022574463, i32 1839030562, i32 -35309556, i32 -1530992060, i32 1272893353, i32 -155497632, i32 -1094730640, i32 681279174, i32 -358537222, i32 -722521979, i32 76029189, i32 -640364487, i32 -421815835, i32 530742520, i32 -995338651, i32 -198630844, i32 1126891415, i32 -1416354905, i32 -57434055, i32 1700485571, i32 -1894986606, i32 -1051523, i32 -2054922799, i32 1873313359, i32 -30611744, i32 -1560198380, i32 1309151649, i32 -145523070, i32 -1120210379, i32 718787259, i32 -343485551], align 16
 
 ; Function Attrs: nounwind uwtable
-define hidden void @Hacl_Hash_Core_MD5_legacy_init(ptr noundef %s) #0 {
-entry:
-  %s.addr = alloca ptr, align 8
-  %i = alloca i32, align 4
-  store ptr %s, ptr %s.addr, align 8
-  br label %do.body
+define hidden void @python_hashlib_Hacl_Hash_MD5_init(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca i32, align 4
+  store ptr %0, ptr %2, align 8, !tbaa !3
+  br label %4
 
-do.body:                                          ; preds = %entry
-  store i32 0, ptr %i, align 4
-  %0 = load i32, ptr %i, align 4
-  %idxprom = zext i32 %0 to i64
-  %arrayidx = getelementptr [4 x i32], ptr @_h0, i64 0, i64 %idxprom
-  %1 = load i32, ptr %arrayidx, align 4
-  %2 = load ptr, ptr %s.addr, align 8
-  %3 = load i32, ptr %i, align 4
-  %idxprom1 = zext i32 %3 to i64
-  %arrayidx2 = getelementptr i32, ptr %2, i64 %idxprom1
-  store i32 %1, ptr %arrayidx2, align 4
-  %4 = load i32, ptr %i, align 4
-  %add = add i32 %4, 1
-  store i32 %add, ptr %i, align 4
-  %5 = load i32, ptr %i, align 4
-  %idxprom3 = zext i32 %5 to i64
-  %arrayidx4 = getelementptr [4 x i32], ptr @_h0, i64 0, i64 %idxprom3
-  %6 = load i32, ptr %arrayidx4, align 4
-  %7 = load ptr, ptr %s.addr, align 8
-  %8 = load i32, ptr %i, align 4
-  %idxprom5 = zext i32 %8 to i64
-  %arrayidx6 = getelementptr i32, ptr %7, i64 %idxprom5
-  store i32 %6, ptr %arrayidx6, align 4
-  %9 = load i32, ptr %i, align 4
-  %add7 = add i32 %9, 1
-  store i32 %add7, ptr %i, align 4
-  %10 = load i32, ptr %i, align 4
-  %idxprom8 = zext i32 %10 to i64
-  %arrayidx9 = getelementptr [4 x i32], ptr @_h0, i64 0, i64 %idxprom8
-  %11 = load i32, ptr %arrayidx9, align 4
-  %12 = load ptr, ptr %s.addr, align 8
-  %13 = load i32, ptr %i, align 4
-  %idxprom10 = zext i32 %13 to i64
-  %arrayidx11 = getelementptr i32, ptr %12, i64 %idxprom10
-  store i32 %11, ptr %arrayidx11, align 4
-  %14 = load i32, ptr %i, align 4
-  %add12 = add i32 %14, 1
-  store i32 %add12, ptr %i, align 4
-  %15 = load i32, ptr %i, align 4
-  %idxprom13 = zext i32 %15 to i64
-  %arrayidx14 = getelementptr [4 x i32], ptr @_h0, i64 0, i64 %idxprom13
-  %16 = load i32, ptr %arrayidx14, align 4
-  %17 = load ptr, ptr %s.addr, align 8
-  %18 = load i32, ptr %i, align 4
-  %idxprom15 = zext i32 %18 to i64
-  %arrayidx16 = getelementptr i32, ptr %17, i64 %idxprom15
-  store i32 %16, ptr %arrayidx16, align 4
-  %19 = load i32, ptr %i, align 4
-  %add17 = add i32 %19, 1
-  store i32 %add17, ptr %i, align 4
-  br label %do.end
+4:                                                ; preds = %1
+  call void @llvm.lifetime.start.p0(i64 4, ptr %3) #8
+  store i32 0, ptr %3, align 4, !tbaa !8
+  %5 = load i32, ptr %3, align 4, !tbaa !8
+  %6 = zext i32 %5 to i64
+  %7 = getelementptr [4 x i32], ptr @_h0, i64 0, i64 %6
+  %8 = load i32, ptr %7, align 4, !tbaa !8
+  %9 = load ptr, ptr %2, align 8, !tbaa !3
+  %10 = load i32, ptr %3, align 4, !tbaa !8
+  %11 = zext i32 %10 to i64
+  %12 = getelementptr i32, ptr %9, i64 %11
+  store i32 %8, ptr %12, align 4, !tbaa !8
+  %13 = load i32, ptr %3, align 4, !tbaa !8
+  %14 = add i32 %13, 1
+  store i32 %14, ptr %3, align 4, !tbaa !8
+  %15 = load i32, ptr %3, align 4, !tbaa !8
+  %16 = zext i32 %15 to i64
+  %17 = getelementptr [4 x i32], ptr @_h0, i64 0, i64 %16
+  %18 = load i32, ptr %17, align 4, !tbaa !8
+  %19 = load ptr, ptr %2, align 8, !tbaa !3
+  %20 = load i32, ptr %3, align 4, !tbaa !8
+  %21 = zext i32 %20 to i64
+  %22 = getelementptr i32, ptr %19, i64 %21
+  store i32 %18, ptr %22, align 4, !tbaa !8
+  %23 = load i32, ptr %3, align 4, !tbaa !8
+  %24 = add i32 %23, 1
+  store i32 %24, ptr %3, align 4, !tbaa !8
+  %25 = load i32, ptr %3, align 4, !tbaa !8
+  %26 = zext i32 %25 to i64
+  %27 = getelementptr [4 x i32], ptr @_h0, i64 0, i64 %26
+  %28 = load i32, ptr %27, align 4, !tbaa !8
+  %29 = load ptr, ptr %2, align 8, !tbaa !3
+  %30 = load i32, ptr %3, align 4, !tbaa !8
+  %31 = zext i32 %30 to i64
+  %32 = getelementptr i32, ptr %29, i64 %31
+  store i32 %28, ptr %32, align 4, !tbaa !8
+  %33 = load i32, ptr %3, align 4, !tbaa !8
+  %34 = add i32 %33, 1
+  store i32 %34, ptr %3, align 4, !tbaa !8
+  %35 = load i32, ptr %3, align 4, !tbaa !8
+  %36 = zext i32 %35 to i64
+  %37 = getelementptr [4 x i32], ptr @_h0, i64 0, i64 %36
+  %38 = load i32, ptr %37, align 4, !tbaa !8
+  %39 = load ptr, ptr %2, align 8, !tbaa !3
+  %40 = load i32, ptr %3, align 4, !tbaa !8
+  %41 = zext i32 %40 to i64
+  %42 = getelementptr i32, ptr %39, i64 %41
+  store i32 %38, ptr %42, align 4, !tbaa !8
+  %43 = load i32, ptr %3, align 4, !tbaa !8
+  %44 = add i32 %43, 1
+  store i32 %44, ptr %3, align 4, !tbaa !8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %3) #8
+  br label %45
 
-do.end:                                           ; preds = %do.body
+45:                                               ; preds = %4
+  ret void
+}
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+
+; Function Attrs: nounwind uwtable
+define hidden void @python_hashlib_Hacl_Hash_MD5_finish(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  store ptr %1, ptr %4, align 8, !tbaa !10
+  br label %6
+
+6:                                                ; preds = %2
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #8
+  store i32 0, ptr %5, align 4, !tbaa !8
+  %7 = load ptr, ptr %4, align 8, !tbaa !10
+  %8 = load i32, ptr %5, align 4, !tbaa !8
+  %9 = mul i32 %8, 4
+  %10 = zext i32 %9 to i64
+  %11 = getelementptr i8, ptr %7, i64 %10
+  %12 = load ptr, ptr %3, align 8, !tbaa !3
+  %13 = load i32, ptr %5, align 4, !tbaa !8
+  %14 = zext i32 %13 to i64
+  %15 = getelementptr i32, ptr %12, i64 %14
+  %16 = load i32, ptr %15, align 4, !tbaa !8
+  %17 = call i32 @__uint32_identity(i32 noundef %16)
+  call void @store32(ptr noundef %11, i32 noundef %17)
+  %18 = load i32, ptr %5, align 4, !tbaa !8
+  %19 = add i32 %18, 1
+  store i32 %19, ptr %5, align 4, !tbaa !8
+  %20 = load ptr, ptr %4, align 8, !tbaa !10
+  %21 = load i32, ptr %5, align 4, !tbaa !8
+  %22 = mul i32 %21, 4
+  %23 = zext i32 %22 to i64
+  %24 = getelementptr i8, ptr %20, i64 %23
+  %25 = load ptr, ptr %3, align 8, !tbaa !3
+  %26 = load i32, ptr %5, align 4, !tbaa !8
+  %27 = zext i32 %26 to i64
+  %28 = getelementptr i32, ptr %25, i64 %27
+  %29 = load i32, ptr %28, align 4, !tbaa !8
+  %30 = call i32 @__uint32_identity(i32 noundef %29)
+  call void @store32(ptr noundef %24, i32 noundef %30)
+  %31 = load i32, ptr %5, align 4, !tbaa !8
+  %32 = add i32 %31, 1
+  store i32 %32, ptr %5, align 4, !tbaa !8
+  %33 = load ptr, ptr %4, align 8, !tbaa !10
+  %34 = load i32, ptr %5, align 4, !tbaa !8
+  %35 = mul i32 %34, 4
+  %36 = zext i32 %35 to i64
+  %37 = getelementptr i8, ptr %33, i64 %36
+  %38 = load ptr, ptr %3, align 8, !tbaa !3
+  %39 = load i32, ptr %5, align 4, !tbaa !8
+  %40 = zext i32 %39 to i64
+  %41 = getelementptr i32, ptr %38, i64 %40
+  %42 = load i32, ptr %41, align 4, !tbaa !8
+  %43 = call i32 @__uint32_identity(i32 noundef %42)
+  call void @store32(ptr noundef %37, i32 noundef %43)
+  %44 = load i32, ptr %5, align 4, !tbaa !8
+  %45 = add i32 %44, 1
+  store i32 %45, ptr %5, align 4, !tbaa !8
+  %46 = load ptr, ptr %4, align 8, !tbaa !10
+  %47 = load i32, ptr %5, align 4, !tbaa !8
+  %48 = mul i32 %47, 4
+  %49 = zext i32 %48 to i64
+  %50 = getelementptr i8, ptr %46, i64 %49
+  %51 = load ptr, ptr %3, align 8, !tbaa !3
+  %52 = load i32, ptr %5, align 4, !tbaa !8
+  %53 = zext i32 %52 to i64
+  %54 = getelementptr i32, ptr %51, i64 %53
+  %55 = load i32, ptr %54, align 4, !tbaa !8
+  %56 = call i32 @__uint32_identity(i32 noundef %55)
+  call void @store32(ptr noundef %50, i32 noundef %56)
+  %57 = load i32, ptr %5, align 4, !tbaa !8
+  %58 = add i32 %57, 1
+  store i32 %58, ptr %5, align 4, !tbaa !8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #8
+  br label %59
+
+59:                                               ; preds = %6
+  ret void
+}
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal void @store32(ptr noundef %0, i32 noundef %1) #2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !10
+  store i32 %1, ptr %4, align 4, !tbaa !8
+  %5 = load ptr, ptr %3, align 8, !tbaa !10
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %5, ptr align 4 %4, i64 4, i1 false)
+  ret void
+}
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal i32 @__uint32_identity(i32 noundef %0) #2 {
+  %2 = alloca i32, align 4
+  store i32 %0, ptr %2, align 4, !tbaa !8
+  %3 = load i32, ptr %2, align 4, !tbaa !8
+  ret i32 %3
+}
+
+; Function Attrs: nounwind uwtable
+define hidden void @python_hashlib_Hacl_Hash_MD5_update_multi(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  %7 = alloca i32, align 4
+  %8 = alloca i32, align 4
+  %9 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !3
+  store ptr %1, ptr %5, align 8, !tbaa !10
+  store i32 %2, ptr %6, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #8
+  store i32 0, ptr %7, align 4, !tbaa !8
+  br label %10
+
+10:                                               ; preds = %24, %3
+  %11 = load i32, ptr %7, align 4, !tbaa !8
+  %12 = load i32, ptr %6, align 4, !tbaa !8
+  %13 = icmp ult i32 %11, %12
+  br i1 %13, label %15, label %14
+
+14:                                               ; preds = %10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #8
+  br label %27
+
+15:                                               ; preds = %10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #8
+  store i32 64, ptr %8, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #8
+  %16 = load ptr, ptr %5, align 8, !tbaa !10
+  %17 = load i32, ptr %8, align 4, !tbaa !8
+  %18 = load i32, ptr %7, align 4, !tbaa !8
+  %19 = mul i32 %17, %18
+  %20 = zext i32 %19 to i64
+  %21 = getelementptr i8, ptr %16, i64 %20
+  store ptr %21, ptr %9, align 8, !tbaa !10
+  %22 = load ptr, ptr %4, align 8, !tbaa !3
+  %23 = load ptr, ptr %9, align 8, !tbaa !10
+  call void @update(ptr noundef %22, ptr noundef %23)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #8
+  br label %24
+
+24:                                               ; preds = %15
+  %25 = load i32, ptr %7, align 4, !tbaa !8
+  %26 = add i32 %25, 1
+  store i32 %26, ptr %7, align 4, !tbaa !8
+  br label %10, !llvm.loop !12
+
+27:                                               ; preds = %14
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @Hacl_Hash_Core_MD5_legacy_finish(ptr noundef %s, ptr noundef %dst) #0 {
-entry:
-  %s.addr = alloca ptr, align 8
-  %dst.addr = alloca ptr, align 8
-  %i = alloca i32, align 4
-  store ptr %s, ptr %s.addr, align 8
-  store ptr %dst, ptr %dst.addr, align 8
-  br label %do.body
-
-do.body:                                          ; preds = %entry
-  store i32 0, ptr %i, align 4
-  %0 = load ptr, ptr %dst.addr, align 8
-  %1 = load i32, ptr %i, align 4
-  %mul = mul i32 %1, 4
-  %idx.ext = zext i32 %mul to i64
-  %add.ptr = getelementptr i8, ptr %0, i64 %idx.ext
-  %2 = load ptr, ptr %s.addr, align 8
-  %3 = load i32, ptr %i, align 4
-  %idxprom = zext i32 %3 to i64
-  %arrayidx = getelementptr i32, ptr %2, i64 %idxprom
-  %4 = load i32, ptr %arrayidx, align 4
-  %call = call i32 @__uint32_identity(i32 noundef %4)
-  call void @store32(ptr noundef %add.ptr, i32 noundef %call)
-  %5 = load i32, ptr %i, align 4
-  %add = add i32 %5, 1
-  store i32 %add, ptr %i, align 4
-  %6 = load ptr, ptr %dst.addr, align 8
-  %7 = load i32, ptr %i, align 4
-  %mul1 = mul i32 %7, 4
-  %idx.ext2 = zext i32 %mul1 to i64
-  %add.ptr3 = getelementptr i8, ptr %6, i64 %idx.ext2
-  %8 = load ptr, ptr %s.addr, align 8
-  %9 = load i32, ptr %i, align 4
-  %idxprom4 = zext i32 %9 to i64
-  %arrayidx5 = getelementptr i32, ptr %8, i64 %idxprom4
-  %10 = load i32, ptr %arrayidx5, align 4
-  %call6 = call i32 @__uint32_identity(i32 noundef %10)
-  call void @store32(ptr noundef %add.ptr3, i32 noundef %call6)
-  %11 = load i32, ptr %i, align 4
-  %add7 = add i32 %11, 1
-  store i32 %add7, ptr %i, align 4
-  %12 = load ptr, ptr %dst.addr, align 8
-  %13 = load i32, ptr %i, align 4
-  %mul8 = mul i32 %13, 4
-  %idx.ext9 = zext i32 %mul8 to i64
-  %add.ptr10 = getelementptr i8, ptr %12, i64 %idx.ext9
-  %14 = load ptr, ptr %s.addr, align 8
-  %15 = load i32, ptr %i, align 4
-  %idxprom11 = zext i32 %15 to i64
-  %arrayidx12 = getelementptr i32, ptr %14, i64 %idxprom11
-  %16 = load i32, ptr %arrayidx12, align 4
-  %call13 = call i32 @__uint32_identity(i32 noundef %16)
-  call void @store32(ptr noundef %add.ptr10, i32 noundef %call13)
-  %17 = load i32, ptr %i, align 4
-  %add14 = add i32 %17, 1
-  store i32 %add14, ptr %i, align 4
-  %18 = load ptr, ptr %dst.addr, align 8
-  %19 = load i32, ptr %i, align 4
-  %mul15 = mul i32 %19, 4
-  %idx.ext16 = zext i32 %mul15 to i64
-  %add.ptr17 = getelementptr i8, ptr %18, i64 %idx.ext16
-  %20 = load ptr, ptr %s.addr, align 8
-  %21 = load i32, ptr %i, align 4
-  %idxprom18 = zext i32 %21 to i64
-  %arrayidx19 = getelementptr i32, ptr %20, i64 %idxprom18
-  %22 = load i32, ptr %arrayidx19, align 4
-  %call20 = call i32 @__uint32_identity(i32 noundef %22)
-  call void @store32(ptr noundef %add.ptr17, i32 noundef %call20)
-  %23 = load i32, ptr %i, align 4
-  %add21 = add i32 %23, 1
-  store i32 %add21, ptr %i, align 4
-  br label %do.end
-
-do.end:                                           ; preds = %do.body
+define internal void @update(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca i32, align 4
+  %7 = alloca i32, align 4
+  %8 = alloca i32, align 4
+  %9 = alloca i32, align 4
+  %10 = alloca i32, align 4
+  %11 = alloca i32, align 4
+  %12 = alloca i32, align 4
+  %13 = alloca ptr, align 8
+  %14 = alloca i32, align 4
+  %15 = alloca i32, align 4
+  %16 = alloca i32, align 4
+  %17 = alloca i32, align 4
+  %18 = alloca i32, align 4
+  %19 = alloca i32, align 4
+  %20 = alloca i32, align 4
+  %21 = alloca i32, align 4
+  %22 = alloca ptr, align 8
+  %23 = alloca i32, align 4
+  %24 = alloca i32, align 4
+  %25 = alloca i32, align 4
+  %26 = alloca i32, align 4
+  %27 = alloca i32, align 4
+  %28 = alloca i32, align 4
+  %29 = alloca i32, align 4
+  %30 = alloca i32, align 4
+  %31 = alloca ptr, align 8
+  %32 = alloca i32, align 4
+  %33 = alloca i32, align 4
+  %34 = alloca i32, align 4
+  %35 = alloca i32, align 4
+  %36 = alloca i32, align 4
+  %37 = alloca i32, align 4
+  %38 = alloca i32, align 4
+  %39 = alloca i32, align 4
+  %40 = alloca ptr, align 8
+  %41 = alloca i32, align 4
+  %42 = alloca i32, align 4
+  %43 = alloca i32, align 4
+  %44 = alloca i32, align 4
+  %45 = alloca i32, align 4
+  %46 = alloca i32, align 4
+  %47 = alloca i32, align 4
+  %48 = alloca i32, align 4
+  %49 = alloca ptr, align 8
+  %50 = alloca i32, align 4
+  %51 = alloca i32, align 4
+  %52 = alloca i32, align 4
+  %53 = alloca i32, align 4
+  %54 = alloca i32, align 4
+  %55 = alloca i32, align 4
+  %56 = alloca i32, align 4
+  %57 = alloca i32, align 4
+  %58 = alloca ptr, align 8
+  %59 = alloca i32, align 4
+  %60 = alloca i32, align 4
+  %61 = alloca i32, align 4
+  %62 = alloca i32, align 4
+  %63 = alloca i32, align 4
+  %64 = alloca i32, align 4
+  %65 = alloca i32, align 4
+  %66 = alloca i32, align 4
+  %67 = alloca ptr, align 8
+  %68 = alloca i32, align 4
+  %69 = alloca i32, align 4
+  %70 = alloca i32, align 4
+  %71 = alloca i32, align 4
+  %72 = alloca i32, align 4
+  %73 = alloca i32, align 4
+  %74 = alloca i32, align 4
+  %75 = alloca i32, align 4
+  %76 = alloca ptr, align 8
+  %77 = alloca i32, align 4
+  %78 = alloca i32, align 4
+  %79 = alloca i32, align 4
+  %80 = alloca i32, align 4
+  %81 = alloca i32, align 4
+  %82 = alloca i32, align 4
+  %83 = alloca i32, align 4
+  %84 = alloca i32, align 4
+  %85 = alloca ptr, align 8
+  %86 = alloca i32, align 4
+  %87 = alloca i32, align 4
+  %88 = alloca i32, align 4
+  %89 = alloca i32, align 4
+  %90 = alloca i32, align 4
+  %91 = alloca i32, align 4
+  %92 = alloca i32, align 4
+  %93 = alloca i32, align 4
+  %94 = alloca ptr, align 8
+  %95 = alloca i32, align 4
+  %96 = alloca i32, align 4
+  %97 = alloca i32, align 4
+  %98 = alloca i32, align 4
+  %99 = alloca i32, align 4
+  %100 = alloca i32, align 4
+  %101 = alloca i32, align 4
+  %102 = alloca i32, align 4
+  %103 = alloca ptr, align 8
+  %104 = alloca i32, align 4
+  %105 = alloca i32, align 4
+  %106 = alloca i32, align 4
+  %107 = alloca i32, align 4
+  %108 = alloca i32, align 4
+  %109 = alloca i32, align 4
+  %110 = alloca i32, align 4
+  %111 = alloca i32, align 4
+  %112 = alloca ptr, align 8
+  %113 = alloca i32, align 4
+  %114 = alloca i32, align 4
+  %115 = alloca i32, align 4
+  %116 = alloca i32, align 4
+  %117 = alloca i32, align 4
+  %118 = alloca i32, align 4
+  %119 = alloca i32, align 4
+  %120 = alloca i32, align 4
+  %121 = alloca ptr, align 8
+  %122 = alloca i32, align 4
+  %123 = alloca i32, align 4
+  %124 = alloca i32, align 4
+  %125 = alloca i32, align 4
+  %126 = alloca i32, align 4
+  %127 = alloca i32, align 4
+  %128 = alloca i32, align 4
+  %129 = alloca i32, align 4
+  %130 = alloca ptr, align 8
+  %131 = alloca i32, align 4
+  %132 = alloca i32, align 4
+  %133 = alloca i32, align 4
+  %134 = alloca i32, align 4
+  %135 = alloca i32, align 4
+  %136 = alloca i32, align 4
+  %137 = alloca i32, align 4
+  %138 = alloca i32, align 4
+  %139 = alloca ptr, align 8
+  %140 = alloca i32, align 4
+  %141 = alloca i32, align 4
+  %142 = alloca i32, align 4
+  %143 = alloca i32, align 4
+  %144 = alloca i32, align 4
+  %145 = alloca i32, align 4
+  %146 = alloca i32, align 4
+  %147 = alloca i32, align 4
+  %148 = alloca ptr, align 8
+  %149 = alloca i32, align 4
+  %150 = alloca i32, align 4
+  %151 = alloca i32, align 4
+  %152 = alloca i32, align 4
+  %153 = alloca i32, align 4
+  %154 = alloca i32, align 4
+  %155 = alloca i32, align 4
+  %156 = alloca i32, align 4
+  %157 = alloca ptr, align 8
+  %158 = alloca i32, align 4
+  %159 = alloca i32, align 4
+  %160 = alloca i32, align 4
+  %161 = alloca i32, align 4
+  %162 = alloca i32, align 4
+  %163 = alloca i32, align 4
+  %164 = alloca i32, align 4
+  %165 = alloca i32, align 4
+  %166 = alloca ptr, align 8
+  %167 = alloca i32, align 4
+  %168 = alloca i32, align 4
+  %169 = alloca i32, align 4
+  %170 = alloca i32, align 4
+  %171 = alloca i32, align 4
+  %172 = alloca i32, align 4
+  %173 = alloca i32, align 4
+  %174 = alloca i32, align 4
+  %175 = alloca ptr, align 8
+  %176 = alloca i32, align 4
+  %177 = alloca i32, align 4
+  %178 = alloca i32, align 4
+  %179 = alloca i32, align 4
+  %180 = alloca i32, align 4
+  %181 = alloca i32, align 4
+  %182 = alloca i32, align 4
+  %183 = alloca i32, align 4
+  %184 = alloca ptr, align 8
+  %185 = alloca i32, align 4
+  %186 = alloca i32, align 4
+  %187 = alloca i32, align 4
+  %188 = alloca i32, align 4
+  %189 = alloca i32, align 4
+  %190 = alloca i32, align 4
+  %191 = alloca i32, align 4
+  %192 = alloca i32, align 4
+  %193 = alloca ptr, align 8
+  %194 = alloca i32, align 4
+  %195 = alloca i32, align 4
+  %196 = alloca i32, align 4
+  %197 = alloca i32, align 4
+  %198 = alloca i32, align 4
+  %199 = alloca i32, align 4
+  %200 = alloca i32, align 4
+  %201 = alloca i32, align 4
+  %202 = alloca ptr, align 8
+  %203 = alloca i32, align 4
+  %204 = alloca i32, align 4
+  %205 = alloca i32, align 4
+  %206 = alloca i32, align 4
+  %207 = alloca i32, align 4
+  %208 = alloca i32, align 4
+  %209 = alloca i32, align 4
+  %210 = alloca i32, align 4
+  %211 = alloca ptr, align 8
+  %212 = alloca i32, align 4
+  %213 = alloca i32, align 4
+  %214 = alloca i32, align 4
+  %215 = alloca i32, align 4
+  %216 = alloca i32, align 4
+  %217 = alloca i32, align 4
+  %218 = alloca i32, align 4
+  %219 = alloca i32, align 4
+  %220 = alloca ptr, align 8
+  %221 = alloca i32, align 4
+  %222 = alloca i32, align 4
+  %223 = alloca i32, align 4
+  %224 = alloca i32, align 4
+  %225 = alloca i32, align 4
+  %226 = alloca i32, align 4
+  %227 = alloca i32, align 4
+  %228 = alloca i32, align 4
+  %229 = alloca ptr, align 8
+  %230 = alloca i32, align 4
+  %231 = alloca i32, align 4
+  %232 = alloca i32, align 4
+  %233 = alloca i32, align 4
+  %234 = alloca i32, align 4
+  %235 = alloca i32, align 4
+  %236 = alloca i32, align 4
+  %237 = alloca i32, align 4
+  %238 = alloca ptr, align 8
+  %239 = alloca i32, align 4
+  %240 = alloca i32, align 4
+  %241 = alloca i32, align 4
+  %242 = alloca i32, align 4
+  %243 = alloca i32, align 4
+  %244 = alloca i32, align 4
+  %245 = alloca i32, align 4
+  %246 = alloca i32, align 4
+  %247 = alloca ptr, align 8
+  %248 = alloca i32, align 4
+  %249 = alloca i32, align 4
+  %250 = alloca i32, align 4
+  %251 = alloca i32, align 4
+  %252 = alloca i32, align 4
+  %253 = alloca i32, align 4
+  %254 = alloca i32, align 4
+  %255 = alloca i32, align 4
+  %256 = alloca ptr, align 8
+  %257 = alloca i32, align 4
+  %258 = alloca i32, align 4
+  %259 = alloca i32, align 4
+  %260 = alloca i32, align 4
+  %261 = alloca i32, align 4
+  %262 = alloca i32, align 4
+  %263 = alloca i32, align 4
+  %264 = alloca i32, align 4
+  %265 = alloca ptr, align 8
+  %266 = alloca i32, align 4
+  %267 = alloca i32, align 4
+  %268 = alloca i32, align 4
+  %269 = alloca i32, align 4
+  %270 = alloca i32, align 4
+  %271 = alloca i32, align 4
+  %272 = alloca i32, align 4
+  %273 = alloca i32, align 4
+  %274 = alloca ptr, align 8
+  %275 = alloca i32, align 4
+  %276 = alloca i32, align 4
+  %277 = alloca i32, align 4
+  %278 = alloca i32, align 4
+  %279 = alloca i32, align 4
+  %280 = alloca i32, align 4
+  %281 = alloca i32, align 4
+  %282 = alloca i32, align 4
+  %283 = alloca ptr, align 8
+  %284 = alloca i32, align 4
+  %285 = alloca i32, align 4
+  %286 = alloca i32, align 4
+  %287 = alloca i32, align 4
+  %288 = alloca i32, align 4
+  %289 = alloca i32, align 4
+  %290 = alloca i32, align 4
+  %291 = alloca i32, align 4
+  %292 = alloca ptr, align 8
+  %293 = alloca i32, align 4
+  %294 = alloca i32, align 4
+  %295 = alloca i32, align 4
+  %296 = alloca i32, align 4
+  %297 = alloca i32, align 4
+  %298 = alloca i32, align 4
+  %299 = alloca i32, align 4
+  %300 = alloca i32, align 4
+  %301 = alloca ptr, align 8
+  %302 = alloca i32, align 4
+  %303 = alloca i32, align 4
+  %304 = alloca i32, align 4
+  %305 = alloca i32, align 4
+  %306 = alloca i32, align 4
+  %307 = alloca i32, align 4
+  %308 = alloca i32, align 4
+  %309 = alloca i32, align 4
+  %310 = alloca ptr, align 8
+  %311 = alloca i32, align 4
+  %312 = alloca i32, align 4
+  %313 = alloca i32, align 4
+  %314 = alloca i32, align 4
+  %315 = alloca i32, align 4
+  %316 = alloca i32, align 4
+  %317 = alloca i32, align 4
+  %318 = alloca i32, align 4
+  %319 = alloca ptr, align 8
+  %320 = alloca i32, align 4
+  %321 = alloca i32, align 4
+  %322 = alloca i32, align 4
+  %323 = alloca i32, align 4
+  %324 = alloca i32, align 4
+  %325 = alloca i32, align 4
+  %326 = alloca i32, align 4
+  %327 = alloca i32, align 4
+  %328 = alloca ptr, align 8
+  %329 = alloca i32, align 4
+  %330 = alloca i32, align 4
+  %331 = alloca i32, align 4
+  %332 = alloca i32, align 4
+  %333 = alloca i32, align 4
+  %334 = alloca i32, align 4
+  %335 = alloca i32, align 4
+  %336 = alloca i32, align 4
+  %337 = alloca ptr, align 8
+  %338 = alloca i32, align 4
+  %339 = alloca i32, align 4
+  %340 = alloca i32, align 4
+  %341 = alloca i32, align 4
+  %342 = alloca i32, align 4
+  %343 = alloca i32, align 4
+  %344 = alloca i32, align 4
+  %345 = alloca i32, align 4
+  %346 = alloca ptr, align 8
+  %347 = alloca i32, align 4
+  %348 = alloca i32, align 4
+  %349 = alloca i32, align 4
+  %350 = alloca i32, align 4
+  %351 = alloca i32, align 4
+  %352 = alloca i32, align 4
+  %353 = alloca i32, align 4
+  %354 = alloca i32, align 4
+  %355 = alloca ptr, align 8
+  %356 = alloca i32, align 4
+  %357 = alloca i32, align 4
+  %358 = alloca i32, align 4
+  %359 = alloca i32, align 4
+  %360 = alloca i32, align 4
+  %361 = alloca i32, align 4
+  %362 = alloca i32, align 4
+  %363 = alloca i32, align 4
+  %364 = alloca ptr, align 8
+  %365 = alloca i32, align 4
+  %366 = alloca i32, align 4
+  %367 = alloca i32, align 4
+  %368 = alloca i32, align 4
+  %369 = alloca i32, align 4
+  %370 = alloca i32, align 4
+  %371 = alloca i32, align 4
+  %372 = alloca i32, align 4
+  %373 = alloca ptr, align 8
+  %374 = alloca i32, align 4
+  %375 = alloca i32, align 4
+  %376 = alloca i32, align 4
+  %377 = alloca i32, align 4
+  %378 = alloca i32, align 4
+  %379 = alloca i32, align 4
+  %380 = alloca i32, align 4
+  %381 = alloca i32, align 4
+  %382 = alloca ptr, align 8
+  %383 = alloca i32, align 4
+  %384 = alloca i32, align 4
+  %385 = alloca i32, align 4
+  %386 = alloca i32, align 4
+  %387 = alloca i32, align 4
+  %388 = alloca i32, align 4
+  %389 = alloca i32, align 4
+  %390 = alloca i32, align 4
+  %391 = alloca ptr, align 8
+  %392 = alloca i32, align 4
+  %393 = alloca i32, align 4
+  %394 = alloca i32, align 4
+  %395 = alloca i32, align 4
+  %396 = alloca i32, align 4
+  %397 = alloca i32, align 4
+  %398 = alloca i32, align 4
+  %399 = alloca i32, align 4
+  %400 = alloca ptr, align 8
+  %401 = alloca i32, align 4
+  %402 = alloca i32, align 4
+  %403 = alloca i32, align 4
+  %404 = alloca i32, align 4
+  %405 = alloca i32, align 4
+  %406 = alloca i32, align 4
+  %407 = alloca i32, align 4
+  %408 = alloca i32, align 4
+  %409 = alloca ptr, align 8
+  %410 = alloca i32, align 4
+  %411 = alloca i32, align 4
+  %412 = alloca i32, align 4
+  %413 = alloca i32, align 4
+  %414 = alloca i32, align 4
+  %415 = alloca i32, align 4
+  %416 = alloca i32, align 4
+  %417 = alloca i32, align 4
+  %418 = alloca ptr, align 8
+  %419 = alloca i32, align 4
+  %420 = alloca i32, align 4
+  %421 = alloca i32, align 4
+  %422 = alloca i32, align 4
+  %423 = alloca i32, align 4
+  %424 = alloca i32, align 4
+  %425 = alloca i32, align 4
+  %426 = alloca i32, align 4
+  %427 = alloca ptr, align 8
+  %428 = alloca i32, align 4
+  %429 = alloca i32, align 4
+  %430 = alloca i32, align 4
+  %431 = alloca i32, align 4
+  %432 = alloca i32, align 4
+  %433 = alloca i32, align 4
+  %434 = alloca i32, align 4
+  %435 = alloca i32, align 4
+  %436 = alloca ptr, align 8
+  %437 = alloca i32, align 4
+  %438 = alloca i32, align 4
+  %439 = alloca i32, align 4
+  %440 = alloca i32, align 4
+  %441 = alloca i32, align 4
+  %442 = alloca i32, align 4
+  %443 = alloca i32, align 4
+  %444 = alloca i32, align 4
+  %445 = alloca ptr, align 8
+  %446 = alloca i32, align 4
+  %447 = alloca i32, align 4
+  %448 = alloca i32, align 4
+  %449 = alloca i32, align 4
+  %450 = alloca i32, align 4
+  %451 = alloca i32, align 4
+  %452 = alloca i32, align 4
+  %453 = alloca i32, align 4
+  %454 = alloca ptr, align 8
+  %455 = alloca i32, align 4
+  %456 = alloca i32, align 4
+  %457 = alloca i32, align 4
+  %458 = alloca i32, align 4
+  %459 = alloca i32, align 4
+  %460 = alloca i32, align 4
+  %461 = alloca i32, align 4
+  %462 = alloca i32, align 4
+  %463 = alloca ptr, align 8
+  %464 = alloca i32, align 4
+  %465 = alloca i32, align 4
+  %466 = alloca i32, align 4
+  %467 = alloca i32, align 4
+  %468 = alloca i32, align 4
+  %469 = alloca i32, align 4
+  %470 = alloca i32, align 4
+  %471 = alloca i32, align 4
+  %472 = alloca ptr, align 8
+  %473 = alloca i32, align 4
+  %474 = alloca i32, align 4
+  %475 = alloca i32, align 4
+  %476 = alloca i32, align 4
+  %477 = alloca i32, align 4
+  %478 = alloca i32, align 4
+  %479 = alloca i32, align 4
+  %480 = alloca i32, align 4
+  %481 = alloca ptr, align 8
+  %482 = alloca i32, align 4
+  %483 = alloca i32, align 4
+  %484 = alloca i32, align 4
+  %485 = alloca i32, align 4
+  %486 = alloca i32, align 4
+  %487 = alloca i32, align 4
+  %488 = alloca i32, align 4
+  %489 = alloca i32, align 4
+  %490 = alloca ptr, align 8
+  %491 = alloca i32, align 4
+  %492 = alloca i32, align 4
+  %493 = alloca i32, align 4
+  %494 = alloca i32, align 4
+  %495 = alloca i32, align 4
+  %496 = alloca i32, align 4
+  %497 = alloca i32, align 4
+  %498 = alloca i32, align 4
+  %499 = alloca ptr, align 8
+  %500 = alloca i32, align 4
+  %501 = alloca i32, align 4
+  %502 = alloca i32, align 4
+  %503 = alloca i32, align 4
+  %504 = alloca i32, align 4
+  %505 = alloca i32, align 4
+  %506 = alloca i32, align 4
+  %507 = alloca i32, align 4
+  %508 = alloca ptr, align 8
+  %509 = alloca i32, align 4
+  %510 = alloca i32, align 4
+  %511 = alloca i32, align 4
+  %512 = alloca i32, align 4
+  %513 = alloca i32, align 4
+  %514 = alloca i32, align 4
+  %515 = alloca i32, align 4
+  %516 = alloca i32, align 4
+  %517 = alloca ptr, align 8
+  %518 = alloca i32, align 4
+  %519 = alloca i32, align 4
+  %520 = alloca i32, align 4
+  %521 = alloca i32, align 4
+  %522 = alloca i32, align 4
+  %523 = alloca i32, align 4
+  %524 = alloca i32, align 4
+  %525 = alloca i32, align 4
+  %526 = alloca ptr, align 8
+  %527 = alloca i32, align 4
+  %528 = alloca i32, align 4
+  %529 = alloca i32, align 4
+  %530 = alloca i32, align 4
+  %531 = alloca i32, align 4
+  %532 = alloca i32, align 4
+  %533 = alloca i32, align 4
+  %534 = alloca i32, align 4
+  %535 = alloca ptr, align 8
+  %536 = alloca i32, align 4
+  %537 = alloca i32, align 4
+  %538 = alloca i32, align 4
+  %539 = alloca i32, align 4
+  %540 = alloca i32, align 4
+  %541 = alloca i32, align 4
+  %542 = alloca i32, align 4
+  %543 = alloca i32, align 4
+  %544 = alloca ptr, align 8
+  %545 = alloca i32, align 4
+  %546 = alloca i32, align 4
+  %547 = alloca i32, align 4
+  %548 = alloca i32, align 4
+  %549 = alloca i32, align 4
+  %550 = alloca i32, align 4
+  %551 = alloca i32, align 4
+  %552 = alloca i32, align 4
+  %553 = alloca ptr, align 8
+  %554 = alloca i32, align 4
+  %555 = alloca i32, align 4
+  %556 = alloca i32, align 4
+  %557 = alloca i32, align 4
+  %558 = alloca i32, align 4
+  %559 = alloca i32, align 4
+  %560 = alloca i32, align 4
+  %561 = alloca i32, align 4
+  %562 = alloca ptr, align 8
+  %563 = alloca i32, align 4
+  %564 = alloca i32, align 4
+  %565 = alloca i32, align 4
+  %566 = alloca i32, align 4
+  %567 = alloca i32, align 4
+  %568 = alloca i32, align 4
+  %569 = alloca i32, align 4
+  %570 = alloca i32, align 4
+  %571 = alloca ptr, align 8
+  %572 = alloca i32, align 4
+  %573 = alloca i32, align 4
+  %574 = alloca i32, align 4
+  %575 = alloca i32, align 4
+  %576 = alloca i32, align 4
+  %577 = alloca i32, align 4
+  %578 = alloca i32, align 4
+  %579 = alloca i32, align 4
+  %580 = alloca ptr, align 8
+  %581 = alloca i32, align 4
+  %582 = alloca i32, align 4
+  %583 = alloca i32, align 4
+  %584 = alloca i32, align 4
+  %585 = alloca i32, align 4
+  %586 = alloca i32, align 4
+  %587 = alloca i32, align 4
+  %588 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  store ptr %1, ptr %4, align 8, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #8
+  %589 = load ptr, ptr %3, align 8, !tbaa !3
+  %590 = getelementptr i32, ptr %589, i64 0
+  %591 = load i32, ptr %590, align 4, !tbaa !8
+  store i32 %591, ptr %5, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #8
+  %592 = load ptr, ptr %3, align 8, !tbaa !3
+  %593 = getelementptr i32, ptr %592, i64 1
+  %594 = load i32, ptr %593, align 4, !tbaa !8
+  store i32 %594, ptr %6, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #8
+  %595 = load ptr, ptr %3, align 8, !tbaa !3
+  %596 = getelementptr i32, ptr %595, i64 2
+  %597 = load i32, ptr %596, align 4, !tbaa !8
+  store i32 %597, ptr %7, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #8
+  %598 = load ptr, ptr %3, align 8, !tbaa !3
+  %599 = getelementptr i32, ptr %598, i64 3
+  %600 = load i32, ptr %599, align 4, !tbaa !8
+  store i32 %600, ptr %8, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #8
+  %601 = load ptr, ptr %3, align 8, !tbaa !3
+  %602 = getelementptr i32, ptr %601, i64 0
+  %603 = load i32, ptr %602, align 4, !tbaa !8
+  store i32 %603, ptr %9, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #8
+  %604 = load ptr, ptr %3, align 8, !tbaa !3
+  %605 = getelementptr i32, ptr %604, i64 1
+  %606 = load i32, ptr %605, align 4, !tbaa !8
+  store i32 %606, ptr %10, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #8
+  %607 = load ptr, ptr %3, align 8, !tbaa !3
+  %608 = getelementptr i32, ptr %607, i64 2
+  %609 = load i32, ptr %608, align 4, !tbaa !8
+  store i32 %609, ptr %11, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #8
+  %610 = load ptr, ptr %3, align 8, !tbaa !3
+  %611 = getelementptr i32, ptr %610, i64 3
+  %612 = load i32, ptr %611, align 4, !tbaa !8
+  store i32 %612, ptr %12, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #8
+  %613 = load ptr, ptr %4, align 8, !tbaa !10
+  store ptr %613, ptr %13, align 8, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #8
+  %614 = load ptr, ptr %13, align 8, !tbaa !10
+  %615 = call i32 @load32(ptr noundef %614)
+  %616 = call i32 @__uint32_identity(i32 noundef %615)
+  store i32 %616, ptr %14, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %15) #8
+  %617 = load i32, ptr %14, align 4, !tbaa !8
+  store i32 %617, ptr %15, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %16) #8
+  %618 = load i32, ptr @_t, align 16, !tbaa !8
+  store i32 %618, ptr %16, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %17) #8
+  %619 = load i32, ptr %10, align 4, !tbaa !8
+  %620 = load i32, ptr %9, align 4, !tbaa !8
+  %621 = load i32, ptr %10, align 4, !tbaa !8
+  %622 = load i32, ptr %11, align 4, !tbaa !8
+  %623 = and i32 %621, %622
+  %624 = load i32, ptr %10, align 4, !tbaa !8
+  %625 = xor i32 %624, -1
+  %626 = load i32, ptr %12, align 4, !tbaa !8
+  %627 = and i32 %625, %626
+  %628 = or i32 %623, %627
+  %629 = add i32 %620, %628
+  %630 = load i32, ptr %15, align 4, !tbaa !8
+  %631 = add i32 %629, %630
+  %632 = load i32, ptr %16, align 4, !tbaa !8
+  %633 = add i32 %631, %632
+  %634 = shl i32 %633, 7
+  %635 = load i32, ptr %9, align 4, !tbaa !8
+  %636 = load i32, ptr %10, align 4, !tbaa !8
+  %637 = load i32, ptr %11, align 4, !tbaa !8
+  %638 = and i32 %636, %637
+  %639 = load i32, ptr %10, align 4, !tbaa !8
+  %640 = xor i32 %639, -1
+  %641 = load i32, ptr %12, align 4, !tbaa !8
+  %642 = and i32 %640, %641
+  %643 = or i32 %638, %642
+  %644 = add i32 %635, %643
+  %645 = load i32, ptr %15, align 4, !tbaa !8
+  %646 = add i32 %644, %645
+  %647 = load i32, ptr %16, align 4, !tbaa !8
+  %648 = add i32 %646, %647
+  %649 = lshr i32 %648, 25
+  %650 = or i32 %634, %649
+  %651 = add i32 %619, %650
+  store i32 %651, ptr %17, align 4, !tbaa !8
+  %652 = load i32, ptr %17, align 4, !tbaa !8
+  %653 = load ptr, ptr %3, align 8, !tbaa !3
+  %654 = getelementptr i32, ptr %653, i64 0
+  store i32 %652, ptr %654, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %18) #8
+  %655 = load ptr, ptr %3, align 8, !tbaa !3
+  %656 = getelementptr i32, ptr %655, i64 3
+  %657 = load i32, ptr %656, align 4, !tbaa !8
+  store i32 %657, ptr %18, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %19) #8
+  %658 = load ptr, ptr %3, align 8, !tbaa !3
+  %659 = getelementptr i32, ptr %658, i64 0
+  %660 = load i32, ptr %659, align 4, !tbaa !8
+  store i32 %660, ptr %19, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %20) #8
+  %661 = load ptr, ptr %3, align 8, !tbaa !3
+  %662 = getelementptr i32, ptr %661, i64 1
+  %663 = load i32, ptr %662, align 4, !tbaa !8
+  store i32 %663, ptr %20, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %21) #8
+  %664 = load ptr, ptr %3, align 8, !tbaa !3
+  %665 = getelementptr i32, ptr %664, i64 2
+  %666 = load i32, ptr %665, align 4, !tbaa !8
+  store i32 %666, ptr %21, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %22) #8
+  %667 = load ptr, ptr %4, align 8, !tbaa !10
+  %668 = getelementptr i8, ptr %667, i64 4
+  store ptr %668, ptr %22, align 8, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %23) #8
+  %669 = load ptr, ptr %22, align 8, !tbaa !10
+  %670 = call i32 @load32(ptr noundef %669)
+  %671 = call i32 @__uint32_identity(i32 noundef %670)
+  store i32 %671, ptr %23, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %24) #8
+  %672 = load i32, ptr %23, align 4, !tbaa !8
+  store i32 %672, ptr %24, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %25) #8
+  %673 = load i32, ptr getelementptr ([64 x i32], ptr @_t, i64 0, i64 1), align 4, !tbaa !8
+  store i32 %673, ptr %25, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %26) #8
+  %674 = load i32, ptr %19, align 4, !tbaa !8
+  %675 = load i32, ptr %18, align 4, !tbaa !8
+  %676 = load i32, ptr %19, align 4, !tbaa !8
+  %677 = load i32, ptr %20, align 4, !tbaa !8
+  %678 = and i32 %676, %677
+  %679 = load i32, ptr %19, align 4, !tbaa !8
+  %680 = xor i32 %679, -1
+  %681 = load i32, ptr %21, align 4, !tbaa !8
+  %682 = and i32 %680, %681
+  %683 = or i32 %678, %682
+  %684 = add i32 %675, %683
+  %685 = load i32, ptr %24, align 4, !tbaa !8
+  %686 = add i32 %684, %685
+  %687 = load i32, ptr %25, align 4, !tbaa !8
+  %688 = add i32 %686, %687
+  %689 = shl i32 %688, 12
+  %690 = load i32, ptr %18, align 4, !tbaa !8
+  %691 = load i32, ptr %19, align 4, !tbaa !8
+  %692 = load i32, ptr %20, align 4, !tbaa !8
+  %693 = and i32 %691, %692
+  %694 = load i32, ptr %19, align 4, !tbaa !8
+  %695 = xor i32 %694, -1
+  %696 = load i32, ptr %21, align 4, !tbaa !8
+  %697 = and i32 %695, %696
+  %698 = or i32 %693, %697
+  %699 = add i32 %690, %698
+  %700 = load i32, ptr %24, align 4, !tbaa !8
+  %701 = add i32 %699, %700
+  %702 = load i32, ptr %25, align 4, !tbaa !8
+  %703 = add i32 %701, %702
+  %704 = lshr i32 %703, 20
+  %705 = or i32 %689, %704
+  %706 = add i32 %674, %705
+  store i32 %706, ptr %26, align 4, !tbaa !8
+  %707 = load i32, ptr %26, align 4, !tbaa !8
+  %708 = load ptr, ptr %3, align 8, !tbaa !3
+  %709 = getelementptr i32, ptr %708, i64 3
+  store i32 %707, ptr %709, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %27) #8
+  %710 = load ptr, ptr %3, align 8, !tbaa !3
+  %711 = getelementptr i32, ptr %710, i64 2
+  %712 = load i32, ptr %711, align 4, !tbaa !8
+  store i32 %712, ptr %27, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %28) #8
+  %713 = load ptr, ptr %3, align 8, !tbaa !3
+  %714 = getelementptr i32, ptr %713, i64 3
+  %715 = load i32, ptr %714, align 4, !tbaa !8
+  store i32 %715, ptr %28, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %29) #8
+  %716 = load ptr, ptr %3, align 8, !tbaa !3
+  %717 = getelementptr i32, ptr %716, i64 0
+  %718 = load i32, ptr %717, align 4, !tbaa !8
+  store i32 %718, ptr %29, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %30) #8
+  %719 = load ptr, ptr %3, align 8, !tbaa !3
+  %720 = getelementptr i32, ptr %719, i64 1
+  %721 = load i32, ptr %720, align 4, !tbaa !8
+  store i32 %721, ptr %30, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %31) #8
+  %722 = load ptr, ptr %4, align 8, !tbaa !10
+  %723 = getelementptr i8, ptr %722, i64 8
+  store ptr %723, ptr %31, align 8, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %32) #8
+  %724 = load ptr, ptr %31, align 8, !tbaa !10
+  %725 = call i32 @load32(ptr noundef %724)
+  %726 = call i32 @__uint32_identity(i32 noundef %725)
+  store i32 %726, ptr %32, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %33) #8
+  %727 = load i32, ptr %32, align 4, !tbaa !8
+  store i32 %727, ptr %33, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %34) #8
+  %728 = load i32, ptr getelementptr ([64 x i32], ptr @_t, i64 0, i64 2), align 8, !tbaa !8
+  store i32 %728, ptr %34, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %35) #8
+  %729 = load i32, ptr %28, align 4, !tbaa !8
+  %730 = load i32, ptr %27, align 4, !tbaa !8
+  %731 = load i32, ptr %28, align 4, !tbaa !8
+  %732 = load i32, ptr %29, align 4, !tbaa !8
+  %733 = and i32 %731, %732
+  %734 = load i32, ptr %28, align 4, !tbaa !8
+  %735 = xor i32 %734, -1
+  %736 = load i32, ptr %30, align 4, !tbaa !8
+  %737 = and i32 %735, %736
+  %738 = or i32 %733, %737
+  %739 = add i32 %730, %738
+  %740 = load i32, ptr %33, align 4, !tbaa !8
+  %741 = add i32 %739, %740
+  %742 = load i32, ptr %34, align 4, !tbaa !8
+  %743 = add i32 %741, %742
+  %744 = shl i32 %743, 17
+  %745 = load i32, ptr %27, align 4, !tbaa !8
+  %746 = load i32, ptr %28, align 4, !tbaa !8
+  %747 = load i32, ptr %29, align 4, !tbaa !8
+  %748 = and i32 %746, %747
+  %749 = load i32, ptr %28, align 4, !tbaa !8
+  %750 = xor i32 %749, -1
+  %751 = load i32, ptr %30, align 4, !tbaa !8
+  %752 = and i32 %750, %751
+  %753 = or i32 %748, %752
+  %754 = add i32 %745, %753
+  %755 = load i32, ptr %33, align 4, !tbaa !8
+  %756 = add i32 %754, %755
+  %757 = load i32, ptr %34, align 4, !tbaa !8
+  %758 = add i32 %756, %757
+  %759 = lshr i32 %758, 15
+  %760 = or i32 %744, %759
+  %761 = add i32 %729, %760
+  store i32 %761, ptr %35, align 4, !tbaa !8
+  %762 = load i32, ptr %35, align 4, !tbaa !8
+  %763 = load ptr, ptr %3, align 8, !tbaa !3
+  %764 = getelementptr i32, ptr %763, i64 2
+  store i32 %762, ptr %764, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %36) #8
+  %765 = load ptr, ptr %3, align 8, !tbaa !3
+  %766 = getelementptr i32, ptr %765, i64 1
+  %767 = load i32, ptr %766, align 4, !tbaa !8
+  store i32 %767, ptr %36, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %37) #8
+  %768 = load ptr, ptr %3, align 8, !tbaa !3
+  %769 = getelementptr i32, ptr %768, i64 2
+  %770 = load i32, ptr %769, align 4, !tbaa !8
+  store i32 %770, ptr %37, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %38) #8
+  %771 = load ptr, ptr %3, align 8, !tbaa !3
+  %772 = getelementptr i32, ptr %771, i64 3
+  %773 = load i32, ptr %772, align 4, !tbaa !8
+  store i32 %773, ptr %38, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %39) #8
+  %774 = load ptr, ptr %3, align 8, !tbaa !3
+  %775 = getelementptr i32, ptr %774, i64 0
+  %776 = load i32, ptr %775, align 4, !tbaa !8
+  store i32 %776, ptr %39, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %40) #8
+  %777 = load ptr, ptr %4, align 8, !tbaa !10
+  %778 = getelementptr i8, ptr %777, i64 12
+  store ptr %778, ptr %40, align 8, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %41) #8
+  %779 = load ptr, ptr %40, align 8, !tbaa !10
+  %780 = call i32 @load32(ptr noundef %779)
+  %781 = call i32 @__uint32_identity(i32 noundef %780)
+  store i32 %781, ptr %41, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %42) #8
+  %782 = load i32, ptr %41, align 4, !tbaa !8
+  store i32 %782, ptr %42, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %43) #8
+  %783 = load i32, ptr getelementptr ([64 x i32], ptr @_t, i64 0, i64 3), align 4, !tbaa !8
+  store i32 %783, ptr %43, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %44) #8
+  %784 = load i32, ptr %37, align 4, !tbaa !8
+  %785 = load i32, ptr %36, align 4, !tbaa !8
+  %786 = load i32, ptr %37, align 4, !tbaa !8
+  %787 = load i32, ptr %38, align 4, !tbaa !8
+  %788 = and i32 %786, %787
+  %789 = load i32, ptr %37, align 4, !tbaa !8
+  %790 = xor i32 %789, -1
+  %791 = load i32, ptr %39, align 4, !tbaa !8
+  %792 = and i32 %790, %791
+  %793 = or i32 %788, %792
+  %794 = add i32 %785, %793
+  %795 = load i32, ptr %42, align 4, !tbaa !8
+  %796 = add i32 %794, %795
+  %797 = load i32, ptr %43, align 4, !tbaa !8
+  %798 = add i32 %796, %797
+  %799 = shl i32 %798, 22
+  %800 = load i32, ptr %36, align 4, !tbaa !8
+  %801 = load i32, ptr %37, align 4, !tbaa !8
+  %802 = load i32, ptr %38, align 4, !tbaa !8
+  %803 = and i32 %801, %802
+  %804 = load i32, ptr %37, align 4, !tbaa !8
+  %805 = xor i32 %804, -1
+  %806 = load i32, ptr %39, align 4, !tbaa !8
+  %807 = and i32 %805, %806
+  %808 = or i32 %803, %807
+  %809 = add i32 %800, %808
+  %810 = load i32, ptr %42, align 4, !tbaa !8
+  %811 = add i32 %809, %810
+  %812 = load i32, ptr %43, align 4, !tbaa !8
+  %813 = add i32 %811, %812
+  %814 = lshr i32 %813, 10
+  %815 = or i32 %799, %814
+  %816 = add i32 %784, %815
+  store i32 %816, ptr %44, align 4, !tbaa !8
+  %817 = load i32, ptr %44, align 4, !tbaa !8
+  %818 = load ptr, ptr %3, align 8, !tbaa !3
+  %819 = getelementptr i32, ptr %818, i64 1
+  store i32 %817, ptr %819, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %45) #8
+  %820 = load ptr, ptr %3, align 8, !tbaa !3
+  %821 = getelementptr i32, ptr %820, i64 0
+  %822 = load i32, ptr %821, align 4, !tbaa !8
+  store i32 %822, ptr %45, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %46) #8
+  %823 = load ptr, ptr %3, align 8, !tbaa !3
+  %824 = getelementptr i32, ptr %823, i64 1
+  %825 = load i32, ptr %824, align 4, !tbaa !8
+  store i32 %825, ptr %46, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %47) #8
+  %826 = load ptr, ptr %3, align 8, !tbaa !3
+  %827 = getelementptr i32, ptr %826, i64 2
+  %828 = load i32, ptr %827, align 4, !tbaa !8
+  store i32 %828, ptr %47, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %48) #8
+  %829 = load ptr, ptr %3, align 8, !tbaa !3
+  %830 = getelementptr i32, ptr %829, i64 3
+  %831 = load i32, ptr %830, align 4, !tbaa !8
+  store i32 %831, ptr %48, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %49) #8
+  %832 = load ptr, ptr %4, align 8, !tbaa !10
+  %833 = getelementptr i8, ptr %832, i64 16
+  store ptr %833, ptr %49, align 8, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %50) #8
+  %834 = load ptr, ptr %49, align 8, !tbaa !10
+  %835 = call i32 @load32(ptr noundef %834)
+  %836 = call i32 @__uint32_identity(i32 noundef %835)
+  store i32 %836, ptr %50, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %51) #8
+  %837 = load i32, ptr %50, align 4, !tbaa !8
+  store i32 %837, ptr %51, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %52) #8
+  %838 = load i32, ptr getelementptr ([64 x i32], ptr @_t, i64 0, i64 4), align 16, !tbaa !8
+  store i32 %838, ptr %52, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %53) #8
+  %839 = load i32, ptr %46, align 4, !tbaa !8
+  %840 = load i32, ptr %45, align 4, !tbaa !8
+  %841 = load i32, ptr %46, align 4, !tbaa !8
+  %842 = load i32, ptr %47, align 4, !tbaa !8
+  %843 = and i32 %841, %842
+  %844 = load i32, ptr %46, align 4, !tbaa !8
+  %845 = xor i32 %844, -1
+  %846 = load i32, ptr %48, align 4, !tbaa !8
+  %847 = and i32 %845, %846
+  %848 = or i32 %843, %847
+  %849 = add i32 %840, %848
+  %850 = load i32, ptr %51, align 4, !tbaa !8
+  %851 = add i32 %849, %850
+  %852 = load i32, ptr %52, align 4, !tbaa !8
+  %853 = add i32 %851, %852
+  %854 = shl i32 %853, 7
+  %855 = load i32, ptr %45, align 4, !tbaa !8
+  %856 = load i32, ptr %46, align 4, !tbaa !8
+  %857 = load i32, ptr %47, align 4, !tbaa !8
+  %858 = and i32 %856, %857
+  %859 = load i32, ptr %46, align 4, !tbaa !8
+  %860 = xor i32 %859, -1
+  %861 = load i32, ptr %48, align 4, !tbaa !8
+  %862 = and i32 %860, %861
+  %863 = or i32 %858, %862
+  %864 = add i32 %855, %863
+  %865 = load i32, ptr %51, align 4, !tbaa !8
+  %866 = add i32 %864, %865
+  %867 = load i32, ptr %52, align 4, !tbaa !8
+  %868 = add i32 %866, %867
+  %869 = lshr i32 %868, 25
+  %870 = or i32 %854, %869
+  %871 = add i32 %839, %870
+  store i32 %871, ptr %53, align 4, !tbaa !8
+  %872 = load i32, ptr %53, align 4, !tbaa !8
+  %873 = load ptr, ptr %3, align 8, !tbaa !3
+  %874 = getelementptr i32, ptr %873, i64 0
+  store i32 %872, ptr %874, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %54) #8
+  %875 = load ptr, ptr %3, align 8, !tbaa !3
+  %876 = getelementptr i32, ptr %875, i64 3
+  %877 = load i32, ptr %876, align 4, !tbaa !8
+  store i32 %877, ptr %54, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %55) #8
+  %878 = load ptr, ptr %3, align 8, !tbaa !3
+  %879 = getelementptr i32, ptr %878, i64 0
+  %880 = load i32, ptr %879, align 4, !tbaa !8
+  store i32 %880, ptr %55, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %56) #8
+  %881 = load ptr, ptr %3, align 8, !tbaa !3
+  %882 = getelementptr i32, ptr %881, i64 1
+  %883 = load i32, ptr %882, align 4, !tbaa !8
+  store i32 %883, ptr %56, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %57) #8
+  %884 = load ptr, ptr %3, align 8, !tbaa !3
+  %885 = getelementptr i32, ptr %884, i64 2
+  %886 = load i32, ptr %885, align 4, !tbaa !8
+  store i32 %886, ptr %57, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %58) #8
+  %887 = load ptr, ptr %4, align 8, !tbaa !10
+  %888 = getelementptr i8, ptr %887, i64 20
+  store ptr %888, ptr %58, align 8, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %59) #8
+  %889 = load ptr, ptr %58, align 8, !tbaa !10
+  %890 = call i32 @load32(ptr noundef %889)
+  %891 = call i32 @__uint32_identity(i32 noundef %890)
+  store i32 %891, ptr %59, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %60) #8
+  %892 = load i32, ptr %59, align 4, !tbaa !8
+  store i32 %892, ptr %60, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %61) #8
+  %893 = load i32, ptr getelementptr ([64 x i32], ptr @_t, i64 0, i64 5), align 4, !tbaa !8
+  store i32 %893, ptr %61, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %62) #8
+  %894 = load i32, ptr %55, align 4, !tbaa !8
+  %895 = load i32, ptr %54, align 4, !tbaa !8
+  %896 = load i32, ptr %55, align 4, !tbaa !8
+  %897 = load i32, ptr %56, align 4, !tbaa !8
+  %898 = and i32 %896, %897
+  %899 = load i32, ptr %55, align 4, !tbaa !8
+  %900 = xor i32 %899, -1
+  %901 = load i32, ptr %57, align 4, !tbaa !8
+  %902 = and i32 %900, %901
+  %903 = or i32 %898, %902
+  %904 = add i32 %895, %903
+  %905 = load i32, ptr %60, align 4, !tbaa !8
+  %906 = add i32 %904, %905
+  %907 = load i32, ptr %61, align 4, !tbaa !8
+  %908 = add i32 %906, %907
+  %909 = shl i32 %908, 12
+  %910 = load i32, ptr %54, align 4, !tbaa !8
+  %911 = load i32, ptr %55, align 4, !tbaa !8
+  %912 = load i32, ptr %56, align 4, !tbaa !8
+  %913 = and i32 %911, %912
+  %914 = load i32, ptr %55, align 4, !tbaa !8
+  %915 = xor i32 %914, -1
+  %916 = load i32, ptr %57, align 4, !tbaa !8
+  %917 = and i32 %915, %916
+  %918 = or i32 %913, %917
+  %919 = add i32 %910, %918
+  %920 = load i32, ptr %60, align 4, !tbaa !8
+  %921 = add i32 %919, %920
+  %922 = load i32, ptr %61, align 4, !tbaa !8
+  %923 = add i32 %921, %922
+  %924 = lshr i32 %923, 20
+  %925 = or i32 %909, %924
+  %926 = add i32 %894, %925
+  store i32 %926, ptr %62, align 4, !tbaa !8
+  %927 = load i32, ptr %62, align 4, !tbaa !8
+  %928 = load ptr, ptr %3, align 8, !tbaa !3
+  %929 = getelementptr i32, ptr %928, i64 3
+  store i32 %927, ptr %929, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %63) #8
+  %930 = load ptr, ptr %3, align 8, !tbaa !3
+  %931 = getelementptr i32, ptr %930, i64 2
+  %932 = load i32, ptr %931, align 4, !tbaa !8
+  store i32 %932, ptr %63, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %64) #8
+  %933 = load ptr, ptr %3, align 8, !tbaa !3
+  %934 = getelementptr i32, ptr %933, i64 3
+  %935 = load i32, ptr %934, align 4, !tbaa !8
+  store i32 %935, ptr %64, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %65) #8
+  %936 = load ptr, ptr %3, align 8, !tbaa !3
+  %937 = getelementptr i32, ptr %936, i64 0
+  %938 = load i32, ptr %937, align 4, !tbaa !8
+  store i32 %938, ptr %65, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %66) #8
+  %939 = load ptr, ptr %3, align 8, !tbaa !3
+  %940 = getelementptr i32, ptr %939, i64 1
+  %941 = load i32, ptr %940, align 4, !tbaa !8
+  store i32 %941, ptr %66, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %67) #8
+  %942 = load ptr, ptr %4, align 8, !tbaa !10
+  %943 = getelementptr i8, ptr %942, i64 24
+  store ptr %943, ptr %67, align 8, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %68) #8
+  %944 = load ptr, ptr %67, align 8, !tbaa !10
+  %945 = call i32 @load32(ptr noundef %944)
+  %946 = call i32 @__uint32_identity(i32 noundef %945)
+  store i32 %946, ptr %68, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %69) #8
+  %947 = load i32, ptr %68, align 4, !tbaa !8
+  store i32 %947, ptr %69, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %70) #8
+  %948 = load i32, ptr getelementptr ([64 x i32], ptr @_t, i64 0, i64 6), align 8, !tbaa !8
+  store i32 %948, ptr %70, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %71) #8
+  %949 = load i32, ptr %64, align 4, !tbaa !8
+  %950 = load i32, ptr %63, align 4, !tbaa !8
+  %951 = load i32, ptr %64, align 4, !tbaa !8
+  %952 = load i32, ptr %65, align 4, !tbaa !8
+  %953 = and i32 %951, %952
+  %954 = load i32, ptr %64, align 4, !tbaa !8
+  %955 = xor i32 %954, -1
+  %956 = load i32, ptr %66, align 4, !tbaa !8
+  %957 = and i32 %955, %956
+  %958 = or i32 %953, %957
+  %959 = add i32 %950, %958
+  %960 = load i32, ptr %69, align 4, !tbaa !8
+  %961 = add i32 %959, %960
+  %962 = load i32, ptr %70, align 4, !tbaa !8
+  %963 = add i32 %961, %962
+  %964 = shl i32 %963, 17
+  %965 = load i32, ptr %63, align 4, !tbaa !8
+  %966 = load i32, ptr %64, align 4, !tbaa !8
+  %967 = load i32, ptr %65, align 4, !tbaa !8
+  %968 = and i32 %966, %967
+  %969 = load i32, ptr %64, align 4, !tbaa !8
+  %970 = xor i32 %969, -1
+  %971 = load i32, ptr %66, align 4, !tbaa !8
+  %972 = and i32 %970, %971
+  %973 = or i32 %968, %972
+  %974 = add i32 %965, %973
+  %975 = load i32, ptr %69, align 4, !tbaa !8
+  %976 = add i32 %974, %975
+  %977 = load i32, ptr %70, align 4, !tbaa !8
+  %978 = add i32 %976, %977
+  %979 = lshr i32 %978, 15
+  %980 = or i32 %964, %979
+  %981 = add i32 %949, %980
+  store i32 %981, ptr %71, align 4, !tbaa !8
+  %982 = load i32, ptr %71, align 4, !tbaa !8
+  %983 = load ptr, ptr %3, align 8, !tbaa !3
+  %984 = getelementptr i32, ptr %983, i64 2
+  store i32 %982, ptr %984, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %72) #8
+  %985 = load ptr, ptr %3, align 8, !tbaa !3
+  %986 = getelementptr i32, ptr %985, i64 1
+  %987 = load i32, ptr %986, align 4, !tbaa !8
+  store i32 %987, ptr %72, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %73) #8
+  %988 = load ptr, ptr %3, align 8, !tbaa !3
+  %989 = getelementptr i32, ptr %988, i64 2
+  %990 = load i32, ptr %989, align 4, !tbaa !8
+  store i32 %990, ptr %73, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %74) #8
+  %991 = load ptr, ptr %3, align 8, !tbaa !3
+  %992 = getelementptr i32, ptr %991, i64 3
+  %993 = load i32, ptr %992, align 4, !tbaa !8
+  store i32 %993, ptr %74, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %75) #8
+  %994 = load ptr, ptr %3, align 8, !tbaa !3
+  %995 = getelementptr i32, ptr %994, i64 0
+  %996 = load i32, ptr %995, align 4, !tbaa !8
+  store i32 %996, ptr %75, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %76) #8
+  %997 = load ptr, ptr %4, align 8, !tbaa !10
+  %998 = getelementptr i8, ptr %997, i64 28
+  store ptr %998, ptr %76, align 8, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %77) #8
+  %999 = load ptr, ptr %76, align 8, !tbaa !10
+  %1000 = call i32 @load32(ptr noundef %999)
+  %1001 = call i32 @__uint32_identity(i32 noundef %1000)
+  store i32 %1001, ptr %77, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %78) #8
+  %1002 = load i32, ptr %77, align 4, !tbaa !8
+  store i32 %1002, ptr %78, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %79) #8
+  %1003 = load i32, ptr getelementptr ([64 x i32], ptr @_t, i64 0, i64 7), align 4, !tbaa !8
+  store i32 %1003, ptr %79, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %80) #8
+  %1004 = load i32, ptr %73, align 4, !tbaa !8
+  %1005 = load i32, ptr %72, align 4, !tbaa !8
+  %1006 = load i32, ptr %73, align 4, !tbaa !8
+  %1007 = load i32, ptr %74, align 4, !tbaa !8
+  %1008 = and i32 %1006, %1007
+  %1009 = load i32, ptr %73, align 4, !tbaa !8
+  %1010 = xor i32 %1009, -1
+  %1011 = load i32, ptr %75, align 4, !tbaa !8
+  %1012 = and i32 %1010, %1011
+  %1013 = or i32 %1008, %1012
+  %1014 = add i32 %1005, %1013
+  %1015 = load i32, ptr %78, align 4, !tbaa !8
+  %1016 = add i32 %1014, %1015
+  %1017 = load i32, ptr %79, align 4, !tbaa !8
+  %1018 = add i32 %1016, %1017
+  %1019 = shl i32 %1018, 22
+  %1020 = load i32, ptr %72, align 4, !tbaa !8
+  %1021 = load i32, ptr %73, align 4, !tbaa !8
+  %1022 = load i32, ptr %74, align 4, !tbaa !8
+  %1023 = and i32 %1021, %1022
+  %1024 = load i32, ptr %73, align 4, !tbaa !8
+  %1025 = xor i32 %1024, -1
+  %1026 = load i32, ptr %75, align 4, !tbaa !8
+  %1027 = and i32 %1025, %1026
+  %1028 = or i32 %1023, %1027
+  %1029 = add i32 %1020, %1028
+  %1030 = load i32, ptr %78, align 4, !tbaa !8
+  %1031 = add i32 %1029, %1030
+  %1032 = load i32, ptr %79, align 4, !tbaa !8
+  %1033 = add i32 %1031, %1032
+  %1034 = lshr i32 %1033, 10
+  %1035 = or i32 %1019, %1034
+  %1036 = add i32 %1004, %1035
+  store i32 %1036, ptr %80, align 4, !tbaa !8
+  %1037 = load i32, ptr %80, align 4, !tbaa !8
+  %1038 = load ptr, ptr %3, align 8, !tbaa !3
+  %1039 = getelementptr i32, ptr %1038, i64 1
+  store i32 %1037, ptr %1039, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %81) #8
+  %1040 = load ptr, ptr %3, align 8, !tbaa !3
+  %1041 = getelementptr i32, ptr %1040, i64 0
+  %1042 = load i32, ptr %1041, align 4, !tbaa !8
+  store i32 %1042, ptr %81, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %82) #8
+  %1043 = load ptr, ptr %3, align 8, !tbaa !3
+  %1044 = getelementptr i32, ptr %1043, i64 1
+  %1045 = load i32, ptr %1044, align 4, !tbaa !8
+  store i32 %1045, ptr %82, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %83) #8
+  %1046 = load ptr, ptr %3, align 8, !tbaa !3
+  %1047 = getelementptr i32, ptr %1046, i64 2
+  %1048 = load i32, ptr %1047, align 4, !tbaa !8
+  store i32 %1048, ptr %83, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %84) #8
+  %1049 = load ptr, ptr %3, align 8, !tbaa !3
+  %1050 = getelementptr i32, ptr %1049, i64 3
+  %1051 = load i32, ptr %1050, align 4, !tbaa !8
+  store i32 %1051, ptr %84, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %85) #8
+  %1052 = load ptr, ptr %4, align 8, !tbaa !10
+  %1053 = getelementptr i8, ptr %1052, i64 32
+  store ptr %1053, ptr %85, align 8, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %86) #8
+  %1054 = load ptr, ptr %85, align 8, !tbaa !10
+  %1055 = call i32 @load32(ptr noundef %1054)
+  %1056 = call i32 @__uint32_identity(i32 noundef %1055)
+  store i32 %1056, ptr %86, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %87) #8
+  %1057 = load i32, ptr %86, align 4, !tbaa !8
+  store i32 %1057, ptr %87, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %88) #8
+  %1058 = load i32, ptr getelementptr ([64 x i32], ptr @_t, i64 0, i64 8), align 16, !tbaa !8
+  store i32 %1058, ptr %88, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %89) #8
+  %1059 = load i32, ptr %82, align 4, !tbaa !8
+  %1060 = load i32, ptr %81, align 4, !tbaa !8
+  %1061 = load i32, ptr %82, align 4, !tbaa !8
+  %1062 = load i32, ptr %83, align 4, !tbaa !8
+  %1063 = and i32 %1061, %1062
+  %1064 = load i32, ptr %82, align 4, !tbaa !8
+  %1065 = xor i32 %1064, -1
+  %1066 = load i32, ptr %84, align 4, !tbaa !8
+  %1067 = and i32 %1065, %1066
+  %1068 = or i32 %1063, %1067
+  %1069 = add i32 %1060, %1068
+  %1070 = load i32, ptr %87, align 4, !tbaa !8
+  %1071 = add i32 %1069, %1070
+  %1072 = load i32, ptr %88, align 4, !tbaa !8
+  %1073 = add i32 %1071, %1072
+  %1074 = shl i32 %1073, 7
+  %1075 = load i32, ptr %81, align 4, !tbaa !8
+  %1076 = load i32, ptr %82, align 4, !tbaa !8
+  %1077 = load i32, ptr %83, align 4, !tbaa !8
+  %1078 = and i32 %1076, %1077
+  %1079 = load i32, ptr %82, align 4, !tbaa !8
+  %1080 = xor i32 %1079, -1
+  %1081 = load i32, ptr %84, align 4, !tbaa !8
+  %1082 = and i32 %1080, %1081
+  %1083 = or i32 %1078, %1082
+  %1084 = add i32 %1075, %1083
+  %1085 = load i32, ptr %87, align 4, !tbaa !8
+  %1086 = add i32 %1084, %1085
+  %1087 = load i32, ptr %88, align 4, !tbaa !8
+  %1088 = add i32 %1086, %1087
+  %1089 = lshr i32 %1088, 25
+  %1090 = or i32 %1074, %1089
+  %1091 = add i32 %1059, %1090
+  store i32 %1091, ptr %89, align 4, !tbaa !8
+  %1092 = load i32, ptr %89, align 4, !tbaa !8
+  %1093 = load ptr, ptr %3, align 8, !tbaa !3
+  %1094 = getelementptr i32, ptr %1093, i64 0
+  store i32 %1092, ptr %1094, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %90) #8
+  %1095 = load ptr, ptr %3, align 8, !tbaa !3
+  %1096 = getelementptr i32, ptr %1095, i64 3
+  %1097 = load i32, ptr %1096, align 4, !tbaa !8
+  store i32 %1097, ptr %90, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %91) #8
+  %1098 = load ptr, ptr %3, align 8, !tbaa !3
+  %1099 = getelementptr i32, ptr %1098, i64 0
+  %1100 = load i32, ptr %1099, align 4, !tbaa !8
+  store i32 %1100, ptr %91, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %92) #8
+  %1101 = load ptr, ptr %3, align 8, !tbaa !3
+  %1102 = getelementptr i32, ptr %1101, i64 1
+  %1103 = load i32, ptr %1102, align 4, !tbaa !8
+  store i32 %1103, ptr %92, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %93) #8
+  %1104 = load ptr, ptr %3, align 8, !tbaa !3
+  %1105 = getelementptr i32, ptr %1104, i64 2
+  %1106 = load i32, ptr %1105, align 4, !tbaa !8
+  store i32 %1106, ptr %93, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %94) #8
+  %1107 = load ptr, ptr %4, align 8, !tbaa !10
+  %1108 = getelementptr i8, ptr %1107, i64 36
+  store ptr %1108, ptr %94, align 8, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %95) #8
+  %1109 = load ptr, ptr %94, align 8, !tbaa !10
+  %1110 = call i32 @load32(ptr noundef %1109)
+  %1111 = call i32 @__uint32_identity(i32 noundef %1110)
+  store i32 %1111, ptr %95, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %96) #8
+  %1112 = load i32, ptr %95, align 4, !tbaa !8
+  store i32 %1112, ptr %96, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %97) #8
+  %1113 = load i32, ptr getelementptr ([64 x i32], ptr @_t, i64 0, i64 9), align 4, !tbaa !8
+  store i32 %1113, ptr %97, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %98) #8
+  %1114 = load i32, ptr %91, align 4, !tbaa !8
+  %1115 = load i32, ptr %90, align 4, !tbaa !8
+  %1116 = load i32, ptr %91, align 4, !tbaa !8
+  %1117 = load i32, ptr %92, align 4, !tbaa !8
+  %1118 = and i32 %1116, %1117
+  %1119 = load i32, ptr %91, align 4, !tbaa !8
+  %1120 = xor i32 %1119, -1
+  %1121 = load i32, ptr %93, align 4, !tbaa !8
+  %1122 = and i32 %1120, %1121
+  %1123 = or i32 %1118, %1122
+  %1124 = add i32 %1115, %1123
+  %1125 = load i32, ptr %96, align 4, !tbaa !8
+  %1126 = add i32 %1124, %1125
+  %1127 = load i32, ptr %97, align 4, !tbaa !8
+  %1128 = add i32 %1126, %1127
+  %1129 = shl i32 %1128, 12
+  %1130 = load i32, ptr %90, align 4, !tbaa !8
+  %1131 = load i32, ptr %91, align 4, !tbaa !8
+  %1132 = load i32, ptr %92, align 4, !tbaa !8
+  %1133 = and i32 %1131, %1132
+  %1134 = load i32, ptr %91, align 4, !tbaa !8
+  %1135 = xor i32 %1134, -1
+  %1136 = load i32, ptr %93, align 4, !tbaa !8
+  %1137 = and i32 %1135, %1136
+  %1138 = or i32 %1133, %1137
+  %1139 = add i32 %1130, %1138
+  %1140 = load i32, ptr %96, align 4, !tbaa !8
+  %1141 = add i32 %1139, %1140
+  %1142 = load i32, ptr %97, align 4, !tbaa !8
+  %1143 = add i32 %1141, %1142
+  %1144 = lshr i32 %1143, 20
+  %1145 = or i32 %1129, %1144
+  %1146 = add i32 %1114, %1145
+  store i32 %1146, ptr %98, align 4, !tbaa !8
+  %1147 = load i32, ptr %98, align 4, !tbaa !8
+  %1148 = load ptr, ptr %3, align 8, !tbaa !3
+  %1149 = getelementptr i32, ptr %1148, i64 3
+  store i32 %1147, ptr %1149, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %99) #8
+  %1150 = load ptr, ptr %3, align 8, !tbaa !3
+  %1151 = getelementptr i32, ptr %1150, i64 2
+  %1152 = load i32, ptr %1151, align 4, !tbaa !8
+  store i32 %1152, ptr %99, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %100) #8
+  %1153 = load ptr, ptr %3, align 8, !tbaa !3
+  %1154 = getelementptr i32, ptr %1153, i64 3
+  %1155 = load i32, ptr %1154, align 4, !tbaa !8
+  store i32 %1155, ptr %100, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %101) #8
+  %1156 = load ptr, ptr %3, align 8, !tbaa !3
+  %1157 = getelementptr i32, ptr %1156, i64 0
+  %1158 = load i32, ptr %1157, align 4, !tbaa !8
+  store i32 %1158, ptr %101, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %102) #8
+  %1159 = load ptr, ptr %3, align 8, !tbaa !3
+  %1160 = getelementptr i32, ptr %1159, i64 1
+  %1161 = load i32, ptr %1160, align 4, !tbaa !8
+  store i32 %1161, ptr %102, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %103) #8
+  %1162 = load ptr, ptr %4, align 8, !tbaa !10
+  %1163 = getelementptr i8, ptr %1162, i64 40
+  store ptr %1163, ptr %103, align 8, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %104) #8
+  %1164 = load ptr, ptr %103, align 8, !tbaa !10
+  %1165 = call i32 @load32(ptr noundef %1164)
+  %1166 = call i32 @__uint32_identity(i32 noundef %1165)
+  store i32 %1166, ptr %104, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %105) #8
+  %1167 = load i32, ptr %104, align 4, !tbaa !8
+  store i32 %1167, ptr %105, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %106) #8
+  %1168 = load i32, ptr getelementptr ([64 x i32], ptr @_t, i64 0, i64 10), align 8, !tbaa !8
+  store i32 %1168, ptr %106, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %107) #8
+  %1169 = load i32, ptr %100, align 4, !tbaa !8
+  %1170 = load i32, ptr %99, align 4, !tbaa !8
+  %1171 = load i32, ptr %100, align 4, !tbaa !8
+  %1172 = load i32, ptr %101, align 4, !tbaa !8
+  %1173 = and i32 %1171, %1172
+  %1174 = load i32, ptr %100, align 4, !tbaa !8
+  %1175 = xor i32 %1174, -1
+  %1176 = load i32, ptr %102, align 4, !tbaa !8
+  %1177 = and i32 %1175, %1176
+  %1178 = or i32 %1173, %1177
+  %1179 = add i32 %1170, %1178
+  %1180 = load i32, ptr %105, align 4, !tbaa !8
+  %1181 = add i32 %1179, %1180
+  %1182 = load i32, ptr %106, align 4, !tbaa !8
+  %1183 = add i32 %1181, %1182
+  %1184 = shl i32 %1183, 17
+  %1185 = load i32, ptr %99, align 4, !tbaa !8
+  %1186 = load i32, ptr %100, align 4, !tbaa !8
+  %1187 = load i32, ptr %101, align 4, !tbaa !8
+  %1188 = and i32 %1186, %1187
+  %1189 = load i32, ptr %100, align 4, !tbaa !8
+  %1190 = xor i32 %1189, -1
+  %1191 = load i32, ptr %102, align 4, !tbaa !8
+  %1192 = and i32 %1190, %1191
+  %1193 = or i32 %1188, %1192
+  %1194 = add i32 %1185, %1193
+  %1195 = load i32, ptr %105, align 4, !tbaa !8
+  %1196 = add i32 %1194, %1195
+  %1197 = load i32, ptr %106, align 4, !tbaa !8
+  %1198 = add i32 %1196, %1197
+  %1199 = lshr i32 %1198, 15
+  %1200 = or i32 %1184, %1199
+  %1201 = add i32 %1169, %1200
+  store i32 %1201, ptr %107, align 4, !tbaa !8
+  %1202 = load i32, ptr %107, align 4, !tbaa !8
+  %1203 = load ptr, ptr %3, align 8, !tbaa !3
+  %1204 = getelementptr i32, ptr %1203, i64 2
+  store i32 %1202, ptr %1204, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %108) #8
+  %1205 = load ptr, ptr %3, align 8, !tbaa !3
+  %1206 = getelementptr i32, ptr %1205, i64 1
+  %1207 = load i32, ptr %1206, align 4, !tbaa !8
+  store i32 %1207, ptr %108, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %109) #8
+  %1208 = load ptr, ptr %3, align 8, !tbaa !3
+  %1209 = getelementptr i32, ptr %1208, i64 2
+  %1210 = load i32, ptr %1209, align 4, !tbaa !8
+  store i32 %1210, ptr %109, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %110) #8
+  %1211 = load ptr, ptr %3, align 8, !tbaa !3
+  %1212 = getelementptr i32, ptr %1211, i64 3
+  %1213 = load i32, ptr %1212, align 4, !tbaa !8
+  store i32 %1213, ptr %110, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %111) #8
+  %1214 = load ptr, ptr %3, align 8, !tbaa !3
+  %1215 = getelementptr i32, ptr %1214, i64 0
+  %1216 = load i32, ptr %1215, align 4, !tbaa !8
+  store i32 %1216, ptr %111, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %112) #8
+  %1217 = load ptr, ptr %4, align 8, !tbaa !10
+  %1218 = getelementptr i8, ptr %1217, i64 44
+  store ptr %1218, ptr %112, align 8, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %113) #8
+  %1219 = load ptr, ptr %112, align 8, !tbaa !10
+  %1220 = call i32 @load32(ptr noundef %1219)
+  %1221 = call i32 @__uint32_identity(i32 noundef %1220)
+  store i32 %1221, ptr %113, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %114) #8
+  %1222 = load i32, ptr %113, align 4, !tbaa !8
+  store i32 %1222, ptr %114, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %115) #8
+  %1223 = load i32, ptr getelementptr ([64 x i32], ptr @_t, i64 0, i64 11), align 4, !tbaa !8
+  store i32 %1223, ptr %115, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %116) #8
+  %1224 = load i32, ptr %109, align 4, !tbaa !8
+  %1225 = load i32, ptr %108, align 4, !tbaa !8
+  %1226 = load i32, ptr %109, align 4, !tbaa !8
+  %1227 = load i32, ptr %110, align 4, !tbaa !8
+  %1228 = and i32 %1226, %1227
+  %1229 = load i32, ptr %109, align 4, !tbaa !8
+  %1230 = xor i32 %1229, -1
+  %1231 = load i32, ptr %111, align 4, !tbaa !8
+  %1232 = and i32 %1230, %1231
+  %1233 = or i32 %1228, %1232
+  %1234 = add i32 %1225, %1233
+  %1235 = load i32, ptr %114, align 4, !tbaa !8
+  %1236 = add i32 %1234, %1235
+  %1237 = load i32, ptr %115, align 4, !tbaa !8
+  %1238 = add i32 %1236, %1237
+  %1239 = shl i32 %1238, 22
+  %1240 = load i32, ptr %108, align 4, !tbaa !8
+  %1241 = load i32, ptr %109, align 4, !tbaa !8
+  %1242 = load i32, ptr %110, align 4, !tbaa !8
+  %1243 = and i32 %1241, %1242
+  %1244 = load i32, ptr %109, align 4, !tbaa !8
+  %1245 = xor i32 %1244, -1
+  %1246 = load i32, ptr %111, align 4, !tbaa !8
+  %1247 = and i32 %1245, %1246
+  %1248 = or i32 %1243, %1247
+  %1249 = add i32 %1240, %1248
+  %1250 = load i32, ptr %114, align 4, !tbaa !8
+  %1251 = add i32 %1249, %1250
+  %1252 = load i32, ptr %115, align 4, !tbaa !8
+  %1253 = add i32 %1251, %1252
+  %1254 = lshr i32 %1253, 10
+  %1255 = or i32 %1239, %1254
+  %1256 = add i32 %1224, %1255
+  store i32 %1256, ptr %116, align 4, !tbaa !8
+  %1257 = load i32, ptr %116, align 4, !tbaa !8
+  %1258 = load ptr, ptr %3, align 8, !tbaa !3
+  %1259 = getelementptr i32, ptr %1258, i64 1
+  store i32 %1257, ptr %1259, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %117) #8
+  %1260 = load ptr, ptr %3, align 8, !tbaa !3
+  %1261 = getelementptr i32, ptr %1260, i64 0
+  %1262 = load i32, ptr %1261, align 4, !tbaa !8
+  store i32 %1262, ptr %117, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %118) #8
+  %1263 = load ptr, ptr %3, align 8, !tbaa !3
+  %1264 = getelementptr i32, ptr %1263, i64 1
+  %1265 = load i32, ptr %1264, align 4, !tbaa !8
+  store i32 %1265, ptr %118, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %119) #8
+  %1266 = load ptr, ptr %3, align 8, !tbaa !3
+  %1267 = getelementptr i32, ptr %1266, i64 2
+  %1268 = load i32, ptr %1267, align 4, !tbaa !8
+  store i32 %1268, ptr %119, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %120) #8
+  %1269 = load ptr, ptr %3, align 8, !tbaa !3
+  %1270 = getelementptr i32, ptr %1269, i64 3
+  %1271 = load i32, ptr %1270, align 4, !tbaa !8
+  store i32 %1271, ptr %120, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %121) #8
+  %1272 = load ptr, ptr %4, align 8, !tbaa !10
+  %1273 = getelementptr i8, ptr %1272, i64 48
+  store ptr %1273, ptr %121, align 8, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %122) #8
+  %1274 = load ptr, ptr %121, align 8, !tbaa !10
+  %1275 = call i32 @load32(ptr noundef %1274)
+  %1276 = call i32 @__uint32_identity(i32 noundef %1275)
+  store i32 %1276, ptr %122, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %123) #8
+  %1277 = load i32, ptr %122, align 4, !tbaa !8
+  store i32 %1277, ptr %123, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %124) #8
+  %1278 = load i32, ptr getelementptr ([64 x i32], ptr @_t, i64 0, i64 12), align 16, !tbaa !8
+  store i32 %1278, ptr %124, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %125) #8
+  %1279 = load i32, ptr %118, align 4, !tbaa !8
+  %1280 = load i32, ptr %117, align 4, !tbaa !8
+  %1281 = load i32, ptr %118, align 4, !tbaa !8
+  %1282 = load i32, ptr %119, align 4, !tbaa !8
+  %1283 = and i32 %1281, %1282
+  %1284 = load i32, ptr %118, align 4, !tbaa !8
+  %1285 = xor i32 %1284, -1
+  %1286 = load i32, ptr %120, align 4, !tbaa !8
+  %1287 = and i32 %1285, %1286
+  %1288 = or i32 %1283, %1287
+  %1289 = add i32 %1280, %1288
+  %1290 = load i32, ptr %123, align 4, !tbaa !8
+  %1291 = add i32 %1289, %1290
+  %1292 = load i32, ptr %124, align 4, !tbaa !8
+  %1293 = add i32 %1291, %1292
+  %1294 = shl i32 %1293, 7
+  %1295 = load i32, ptr %117, align 4, !tbaa !8
+  %1296 = load i32, ptr %118, align 4, !tbaa !8
+  %1297 = load i32, ptr %119, align 4, !tbaa !8
+  %1298 = and i32 %1296, %1297
+  %1299 = load i32, ptr %118, align 4, !tbaa !8
+  %1300 = xor i32 %1299, -1
+  %1301 = load i32, ptr %120, align 4, !tbaa !8
+  %1302 = and i32 %1300, %1301
+  %1303 = or i32 %1298, %1302
+  %1304 = add i32 %1295, %1303
+  %1305 = load i32, ptr %123, align 4, !tbaa !8
+  %1306 = add i32 %1304, %1305
+  %1307 = load i32, ptr %124, align 4, !tbaa !8
+  %1308 = add i32 %1306, %1307
+  %1309 = lshr i32 %1308, 25
+  %1310 = or i32 %1294, %1309
+  %1311 = add i32 %1279, %1310
+  store i32 %1311, ptr %125, align 4, !tbaa !8
+  %1312 = load i32, ptr %125, align 4, !tbaa !8
+  %1313 = load ptr, ptr %3, align 8, !tbaa !3
+  %1314 = getelementptr i32, ptr %1313, i64 0
+  store i32 %1312, ptr %1314, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %126) #8
+  %1315 = load ptr, ptr %3, align 8, !tbaa !3
+  %1316 = getelementptr i32, ptr %1315, i64 3
+  %1317 = load i32, ptr %1316, align 4, !tbaa !8
+  store i32 %1317, ptr %126, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %127) #8
+  %1318 = load ptr, ptr %3, align 8, !tbaa !3
+  %1319 = getelementptr i32, ptr %1318, i64 0
+  %1320 = load i32, ptr %1319, align 4, !tbaa !8
+  store i32 %1320, ptr %127, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %128) #8
+  %1321 = load ptr, ptr %3, align 8, !tbaa !3
+  %1322 = getelementptr i32, ptr %1321, i64 1
+  %1323 = load i32, ptr %1322, align 4, !tbaa !8
+  store i32 %1323, ptr %128, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %129) #8
+  %1324 = load ptr, ptr %3, align 8, !tbaa !3
+  %1325 = getelementptr i32, ptr %1324, i64 2
+  %1326 = load i32, ptr %1325, align 4, !tbaa !8
+  store i32 %1326, ptr %129, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %130) #8
+  %1327 = load ptr, ptr %4, align 8, !tbaa !10
+  %1328 = getelementptr i8, ptr %1327, i64 52
+  store ptr %1328, ptr %130, align 8, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %131) #8
+  %1329 = load ptr, ptr %130, align 8, !tbaa !10
+  %1330 = call i32 @load32(ptr noundef %1329)
+  %1331 = call i32 @__uint32_identity(i32 noundef %1330)
+  store i32 %1331, ptr %131, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %132) #8
+  %1332 = load i32, ptr %131, align 4, !tbaa !8
+  store i32 %1332, ptr %132, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %133) #8
+  %1333 = load i32, ptr getelementptr ([64 x i32], ptr @_t, i64 0, i64 13), align 4, !tbaa !8
+  store i32 %1333, ptr %133, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %134) #8
+  %1334 = load i32, ptr %127, align 4, !tbaa !8
+  %1335 = load i32, ptr %126, align 4, !tbaa !8
+  %1336 = load i32, ptr %127, align 4, !tbaa !8
+  %1337 = load i32, ptr %128, align 4, !tbaa !8
+  %1338 = and i32 %1336, %1337
+  %1339 = load i32, ptr %127, align 4, !tbaa !8
+  %1340 = xor i32 %1339, -1
+  %1341 = load i32, ptr %129, align 4, !tbaa !8
+  %1342 = and i32 %1340, %1341
+  %1343 = or i32 %1338, %1342
+  %1344 = add i32 %1335, %1343
+  %1345 = load i32, ptr %132, align 4, !tbaa !8
+  %1346 = add i32 %1344, %1345
+  %1347 = load i32, ptr %133, align 4, !tbaa !8
+  %1348 = add i32 %1346, %1347
+  %1349 = shl i32 %1348, 12
+  %1350 = load i32, ptr %126, align 4, !tbaa !8
+  %1351 = load i32, ptr %127, align 4, !tbaa !8
+  %1352 = load i32, ptr %128, align 4, !tbaa !8
+  %1353 = and i32 %1351, %1352
+  %1354 = load i32, ptr %127, align 4, !tbaa !8
+  %1355 = xor i32 %1354, -1
+  %1356 = load i32, ptr %129, align 4, !tbaa !8
+  %1357 = and i32 %1355, %1356
+  %1358 = or i32 %1353, %1357
+  %1359 = add i32 %1350, %1358
+  %1360 = load i32, ptr %132, align 4, !tbaa !8
+  %1361 = add i32 %1359, %1360
+  %1362 = load i32, ptr %133, align 4, !tbaa !8
+  %1363 = add i32 %1361, %1362
+  %1364 = lshr i32 %1363, 20
+  %1365 = or i32 %1349, %1364
+  %1366 = add i32 %1334, %1365
+  store i32 %1366, ptr %134, align 4, !tbaa !8
+  %1367 = load i32, ptr %134, align 4, !tbaa !8
+  %1368 = load ptr, ptr %3, align 8, !tbaa !3
+  %1369 = getelementptr i32, ptr %1368, i64 3
+  store i32 %1367, ptr %1369, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %135) #8
+  %1370 = load ptr, ptr %3, align 8, !tbaa !3
+  %1371 = getelementptr i32, ptr %1370, i64 2
+  %1372 = load i32, ptr %1371, align 4, !tbaa !8
+  store i32 %1372, ptr %135, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %136) #8
+  %1373 = load ptr, ptr %3, align 8, !tbaa !3
+  %1374 = getelementptr i32, ptr %1373, i64 3
+  %1375 = load i32, ptr %1374, align 4, !tbaa !8
+  store i32 %1375, ptr %136, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %137) #8
+  %1376 = load ptr, ptr %3, align 8, !tbaa !3
+  %1377 = getelementptr i32, ptr %1376, i64 0
+  %1378 = load i32, ptr %1377, align 4, !tbaa !8
+  store i32 %1378, ptr %137, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %138) #8
+  %1379 = load ptr, ptr %3, align 8, !tbaa !3
+  %1380 = getelementptr i32, ptr %1379, i64 1
+  %1381 = load i32, ptr %1380, align 4, !tbaa !8
+  store i32 %1381, ptr %138, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %139) #8
+  %1382 = load ptr, ptr %4, align 8, !tbaa !10
+  %1383 = getelementptr i8, ptr %1382, i64 56
+  store ptr %1383, ptr %139, align 8, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %140) #8
+  %1384 = load ptr, ptr %139, align 8, !tbaa !10
+  %1385 = call i32 @load32(ptr noundef %1384)
+  %1386 = call i32 @__uint32_identity(i32 noundef %1385)
+  store i32 %1386, ptr %140, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %141) #8
+  %1387 = load i32, ptr %140, align 4, !tbaa !8
+  store i32 %1387, ptr %141, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %142) #8
+  %1388 = load i32, ptr getelementptr ([64 x i32], ptr @_t, i64 0, i64 14), align 8, !tbaa !8
+  store i32 %1388, ptr %142, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %143) #8
+  %1389 = load i32, ptr %136, align 4, !tbaa !8
+  %1390 = load i32, ptr %135, align 4, !tbaa !8
+  %1391 = load i32, ptr %136, align 4, !tbaa !8
+  %1392 = load i32, ptr %137, align 4, !tbaa !8
+  %1393 = and i32 %1391, %1392
+  %1394 = load i32, ptr %136, align 4, !tbaa !8
+  %1395 = xor i32 %1394, -1
+  %1396 = load i32, ptr %138, align 4, !tbaa !8
+  %1397 = and i32 %1395, %1396
+  %1398 = or i32 %1393, %1397
+  %1399 = add i32 %1390, %1398
+  %1400 = load i32, ptr %141, align 4, !tbaa !8
+  %1401 = add i32 %1399, %1400
+  %1402 = load i32, ptr %142, align 4, !tbaa !8
+  %1403 = add i32 %1401, %1402
+  %1404 = shl i32 %1403, 17
+  %1405 = load i32, ptr %135, align 4, !tbaa !8
+  %1406 = load i32, ptr %136, align 4, !tbaa !8
+  %1407 = load i32, ptr %137, align 4, !tbaa !8
+  %1408 = and i32 %1406, %1407
+  %1409 = load i32, ptr %136, align 4, !tbaa !8
+  %1410 = xor i32 %1409, -1
+  %1411 = load i32, ptr %138, align 4, !tbaa !8
+  %1412 = and i32 %1410, %1411
+  %1413 = or i32 %1408, %1412
+  %1414 = add i32 %1405, %1413
+  %1415 = load i32, ptr %141, align 4, !tbaa !8
+  %1416 = add i32 %1414, %1415
+  %1417 = load i32, ptr %142, align 4, !tbaa !8
+  %1418 = add i32 %1416, %1417
+  %1419 = lshr i32 %1418, 15
+  %1420 = or i32 %1404, %1419
+  %1421 = add i32 %1389, %1420
+  store i32 %1421, ptr %143, align 4, !tbaa !8
+  %1422 = load i32, ptr %143, align 4, !tbaa !8
+  %1423 = load ptr, ptr %3, align 8, !tbaa !3
+  %1424 = getelementptr i32, ptr %1423, i64 2
+  store i32 %1422, ptr %1424, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %144) #8
+  %1425 = load ptr, ptr %3, align 8, !tbaa !3
+  %1426 = getelementptr i32, ptr %1425, i64 1
+  %1427 = load i32, ptr %1426, align 4, !tbaa !8
+  store i32 %1427, ptr %144, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %145) #8
+  %1428 = load ptr, ptr %3, align 8, !tbaa !3
+  %1429 = getelementptr i32, ptr %1428, i64 2
+  %1430 = load i32, ptr %1429, align 4, !tbaa !8
+  store i32 %1430, ptr %145, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %146) #8
+  %1431 = load ptr, ptr %3, align 8, !tbaa !3
+  %1432 = getelementptr i32, ptr %1431, i64 3
+  %1433 = load i32, ptr %1432, align 4, !tbaa !8
+  store i32 %1433, ptr %146, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %147) #8
+  %1434 = load ptr, ptr %3, align 8, !tbaa !3
+  %1435 = getelementptr i32, ptr %1434, i64 0
+  %1436 = load i32, ptr %1435, align 4, !tbaa !8
+  store i32 %1436, ptr %147, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %148) #8
+  %1437 = load ptr, ptr %4, align 8, !tbaa !10
+  %1438 = getelementptr i8, ptr %1437, i64 60
+  store ptr %1438, ptr %148, align 8, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %149) #8
+  %1439 = load ptr, ptr %148, align 8, !tbaa !10
+  %1440 = call i32 @load32(ptr noundef %1439)
+  %1441 = call i32 @__uint32_identity(i32 noundef %1440)
+  store i32 %1441, ptr %149, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %150) #8
+  %1442 = load i32, ptr %149, align 4, !tbaa !8
+  store i32 %1442, ptr %150, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %151) #8
+  %1443 = load i32, ptr getelementptr ([64 x i32], ptr @_t, i64 0, i64 15), align 4, !tbaa !8
+  store i32 %1443, ptr %151, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %152) #8
+  %1444 = load i32, ptr %145, align 4, !tbaa !8
+  %1445 = load i32, ptr %144, align 4, !tbaa !8
+  %1446 = load i32, ptr %145, align 4, !tbaa !8
+  %1447 = load i32, ptr %146, align 4, !tbaa !8
+  %1448 = and i32 %1446, %1447
+  %1449 = load i32, ptr %145, align 4, !tbaa !8
+  %1450 = xor i32 %1449, -1
+  %1451 = load i32, ptr %147, align 4, !tbaa !8
+  %1452 = and i32 %1450, %1451
+  %1453 = or i32 %1448, %1452
+  %1454 = add i32 %1445, %1453
+  %1455 = load i32, ptr %150, align 4, !tbaa !8
+  %1456 = add i32 %1454, %1455
+  %1457 = load i32, ptr %151, align 4, !tbaa !8
+  %1458 = add i32 %1456, %1457
+  %1459 = shl i32 %1458, 22
+  %1460 = load i32, ptr %144, align 4, !tbaa !8
+  %1461 = load i32, ptr %145, align 4, !tbaa !8
+  %1462 = load i32, ptr %146, align 4, !tbaa !8
+  %1463 = and i32 %1461, %1462
+  %1464 = load i32, ptr %145, align 4, !tbaa !8
+  %1465 = xor i32 %1464, -1
+  %1466 = load i32, ptr %147, align 4, !tbaa !8
+  %1467 = and i32 %1465, %1466
+  %1468 = or i32 %1463, %1467
+  %1469 = add i32 %1460, %1468
+  %1470 = load i32, ptr %150, align 4, !tbaa !8
+  %1471 = add i32 %1469, %1470
+  %1472 = load i32, ptr %151, align 4, !tbaa !8
+  %1473 = add i32 %1471, %1472
+  %1474 = lshr i32 %1473, 10
+  %1475 = or i32 %1459, %1474
+  %1476 = add i32 %1444, %1475
+  store i32 %1476, ptr %152, align 4, !tbaa !8
+  %1477 = load i32, ptr %152, align 4, !tbaa !8
+  %1478 = load ptr, ptr %3, align 8, !tbaa !3
+  %1479 = getelementptr i32, ptr %1478, i64 1
+  store i32 %1477, ptr %1479, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %153) #8
+  %1480 = load ptr, ptr %3, align 8, !tbaa !3
+  %1481 = getelementptr i32, ptr %1480, i64 0
+  %1482 = load i32, ptr %1481, align 4, !tbaa !8
+  store i32 %1482, ptr %153, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %154) #8
+  %1483 = load ptr, ptr %3, align 8, !tbaa !3
+  %1484 = getelementptr i32, ptr %1483, i64 1
+  %1485 = load i32, ptr %1484, align 4, !tbaa !8
+  store i32 %1485, ptr %154, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %155) #8
+  %1486 = load ptr, ptr %3, align 8, !tbaa !3
+  %1487 = getelementptr i32, ptr %1486, i64 2
+  %1488 = load i32, ptr %1487, align 4, !tbaa !8
+  store i32 %1488, ptr %155, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %156) #8
+  %1489 = load ptr, ptr %3, align 8, !tbaa !3
+  %1490 = getelementptr i32, ptr %1489, i64 3
+  %1491 = load i32, ptr %1490, align 4, !tbaa !8
+  store i32 %1491, ptr %156, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %157) #8
+  %1492 = load ptr, ptr %4, align 8, !tbaa !10
+  %1493 = getelementptr i8, ptr %1492, i64 4
+  store ptr %1493, ptr %157, align 8, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %158) #8
+  %1494 = load ptr, ptr %157, align 8, !tbaa !10
+  %1495 = call i32 @load32(ptr noundef %1494)
+  %1496 = call i32 @__uint32_identity(i32 noundef %1495)
+  store i32 %1496, ptr %158, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %159) #8
+  %1497 = load i32, ptr %158, align 4, !tbaa !8
+  store i32 %1497, ptr %159, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %160) #8
+  %1498 = load i32, ptr getelementptr ([64 x i32], ptr @_t, i64 0, i64 16), align 16, !tbaa !8
+  store i32 %1498, ptr %160, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %161) #8
+  %1499 = load i32, ptr %154, align 4, !tbaa !8
+  %1500 = load i32, ptr %153, align 4, !tbaa !8
+  %1501 = load i32, ptr %154, align 4, !tbaa !8
+  %1502 = load i32, ptr %156, align 4, !tbaa !8
+  %1503 = and i32 %1501, %1502
+  %1504 = load i32, ptr %155, align 4, !tbaa !8
+  %1505 = load i32, ptr %156, align 4, !tbaa !8
+  %1506 = xor i32 %1505, -1
+  %1507 = and i32 %1504, %1506
+  %1508 = or i32 %1503, %1507
+  %1509 = add i32 %1500, %1508
+  %1510 = load i32, ptr %159, align 4, !tbaa !8
+  %1511 = add i32 %1509, %1510
+  %1512 = load i32, ptr %160, align 4, !tbaa !8
+  %1513 = add i32 %1511, %1512
+  %1514 = shl i32 %1513, 5
+  %1515 = load i32, ptr %153, align 4, !tbaa !8
+  %1516 = load i32, ptr %154, align 4, !tbaa !8
+  %1517 = load i32, ptr %156, align 4, !tbaa !8
+  %1518 = and i32 %1516, %1517
+  %1519 = load i32, ptr %155, align 4, !tbaa !8
+  %1520 = load i32, ptr %156, align 4, !tbaa !8
+  %1521 = xor i32 %1520, -1
+  %1522 = and i32 %1519, %1521
+  %1523 = or i32 %1518, %1522
+  %1524 = add i32 %1515, %1523
+  %1525 = load i32, ptr %159, align 4, !tbaa !8
+  %1526 = add i32 %1524, %1525
+  %1527 = load i32, ptr %160, align 4, !tbaa !8
+  %1528 = add i32 %1526, %1527
+  %1529 = lshr i32 %1528, 27
+  %1530 = or i32 %1514, %1529
+  %1531 = add i32 %1499, %1530
+  store i32 %1531, ptr %161, align 4, !tbaa !8
+  %1532 = load i32, ptr %161, align 4, !tbaa !8
+  %1533 = load ptr, ptr %3, align 8, !tbaa !3
+  %1534 = getelementptr i32, ptr %1533, i64 0
+  store i32 %1532, ptr %1534, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %162) #8
+  %1535 = load ptr, ptr %3, align 8, !tbaa !3
+  %1536 = getelementptr i32, ptr %1535, i64 3
+  %1537 = load i32, ptr %1536, align 4, !tbaa !8
+  store i32 %1537, ptr %162, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %163) #8
+  %1538 = load ptr, ptr %3, align 8, !tbaa !3
+  %1539 = getelementptr i32, ptr %1538, i64 0
+  %1540 = load i32, ptr %1539, align 4, !tbaa !8
+  store i32 %1540, ptr %163, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %164) #8
+  %1541 = load ptr, ptr %3, align 8, !tbaa !3
+  %1542 = getelementptr i32, ptr %1541, i64 1
+  %1543 = load i32, ptr %1542, align 4, !tbaa !8
+  store i32 %1543, ptr %164, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %165) #8
+  %1544 = load ptr, ptr %3, align 8, !tbaa !3
+  %1545 = getelementptr i32, ptr %1544, i64 2
+  %1546 = load i32, ptr %1545, align 4, !tbaa !8
+  store i32 %1546, ptr %165, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %166) #8
+  %1547 = load ptr, ptr %4, align 8, !tbaa !10
+  %1548 = getelementptr i8, ptr %1547, i64 24
+  store ptr %1548, ptr %166, align 8, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %167) #8
+  %1549 = load ptr, ptr %166, align 8, !tbaa !10
+  %1550 = call i32 @load32(ptr noundef %1549)
+  %1551 = call i32 @__uint32_identity(i32 noundef %1550)
+  store i32 %1551, ptr %167, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %168) #8
+  %1552 = load i32, ptr %167, align 4, !tbaa !8
+  store i32 %1552, ptr %168, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %169) #8
+  %1553 = load i32, ptr getelementptr ([64 x i32], ptr @_t, i64 0, i64 17), align 4, !tbaa !8
+  store i32 %1553, ptr %169, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %170) #8
+  %1554 = load i32, ptr %163, align 4, !tbaa !8
+  %1555 = load i32, ptr %162, align 4, !tbaa !8
+  %1556 = load i32, ptr %163, align 4, !tbaa !8
+  %1557 = load i32, ptr %165, align 4, !tbaa !8
+  %1558 = and i32 %1556, %1557
+  %1559 = load i32, ptr %164, align 4, !tbaa !8
+  %1560 = load i32, ptr %165, align 4, !tbaa !8
+  %1561 = xor i32 %1560, -1
+  %1562 = and i32 %1559, %1561
+  %1563 = or i32 %1558, %1562
+  %1564 = add i32 %1555, %1563
+  %1565 = load i32, ptr %168, align 4, !tbaa !8
+  %1566 = add i32 %1564, %1565
+  %1567 = load i32, ptr %169, align 4, !tbaa !8
+  %1568 = add i32 %1566, %1567
+  %1569 = shl i32 %1568, 9
+  %1570 = load i32, ptr %162, align 4, !tbaa !8
+  %1571 = load i32, ptr %163, align 4, !tbaa !8
+  %1572 = load i32, ptr %165, align 4, !tbaa !8
+  %1573 = and i32 %1571, %1572
+  %1574 = load i32, ptr %164, align 4, !tbaa !8
+  %1575 = load i32, ptr %165, align 4, !tbaa !8
+  %1576 = xor i32 %1575, -1
+  %1577 = and i32 %1574, %1576
+  %1578 = or i32 %1573, %1577
+  %1579 = add i32 %1570, %1578
+  %1580 = load i32, ptr %168, align 4, !tbaa !8
+  %1581 = add i32 %1579, %1580
+  %1582 = load i32, ptr %169, align 4, !tbaa !8
+  %1583 = add i32 %1581, %1582
+  %1584 = lshr i32 %1583, 23
+  %1585 = or i32 %1569, %1584
+  %1586 = add i32 %1554, %1585
+  store i32 %1586, ptr %170, align 4, !tbaa !8
+  %1587 = load i32, ptr %170, align 4, !tbaa !8
+  %1588 = load ptr, ptr %3, align 8, !tbaa !3
+  %1589 = getelementptr i32, ptr %1588, i64 3
+  store i32 %1587, ptr %1589, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %171) #8
+  %1590 = load ptr, ptr %3, align 8, !tbaa !3
+  %1591 = getelementptr i32, ptr %1590, i64 2
+  %1592 = load i32, ptr %1591, align 4, !tbaa !8
+  store i32 %1592, ptr %171, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %172) #8
+  %1593 = load ptr, ptr %3, align 8, !tbaa !3
+  %1594 = getelementptr i32, ptr %1593, i64 3
+  %1595 = load i32, ptr %1594, align 4, !tbaa !8
+  store i32 %1595, ptr %172, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %173) #8
+  %1596 = load ptr, ptr %3, align 8, !tbaa !3
+  %1597 = getelementptr i32, ptr %1596, i64 0
+  %1598 = load i32, ptr %1597, align 4, !tbaa !8
+  store i32 %1598, ptr %173, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %174) #8
+  %1599 = load ptr, ptr %3, align 8, !tbaa !3
+  %1600 = getelementptr i32, ptr %1599, i64 1
+  %1601 = load i32, ptr %1600, align 4, !tbaa !8
+  store i32 %1601, ptr %174, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %175) #8
+  %1602 = load ptr, ptr %4, align 8, !tbaa !10
+  %1603 = getelementptr i8, ptr %1602, i64 44
+  store ptr %1603, ptr %175, align 8, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %176) #8
+  %1604 = load ptr, ptr %175, align 8, !tbaa !10
+  %1605 = call i32 @load32(ptr noundef %1604)
+  %1606 = call i32 @__uint32_identity(i32 noundef %1605)
+  store i32 %1606, ptr %176, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %177) #8
+  %1607 = load i32, ptr %176, align 4, !tbaa !8
+  store i32 %1607, ptr %177, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %178) #8
+  %1608 = load i32, ptr getelementptr ([64 x i32], ptr @_t, i64 0, i64 18), align 8, !tbaa !8
+  store i32 %1608, ptr %178, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %179) #8
+  %1609 = load i32, ptr %172, align 4, !tbaa !8
+  %1610 = load i32, ptr %171, align 4, !tbaa !8
+  %1611 = load i32, ptr %172, align 4, !tbaa !8
+  %1612 = load i32, ptr %174, align 4, !tbaa !8
+  %1613 = and i32 %1611, %1612
+  %1614 = load i32, ptr %173, align 4, !tbaa !8
+  %1615 = load i32, ptr %174, align 4, !tbaa !8
+  %1616 = xor i32 %1615, -1
+  %1617 = and i32 %1614, %1616
+  %1618 = or i32 %1613, %1617
+  %1619 = add i32 %1610, %1618
+  %1620 = load i32, ptr %177, align 4, !tbaa !8
+  %1621 = add i32 %1619, %1620
+  %1622 = load i32, ptr %178, align 4, !tbaa !8
+  %1623 = add i32 %1621, %1622
+  %1624 = shl i32 %1623, 14
+  %1625 = load i32, ptr %171, align 4, !tbaa !8
+  %1626 = load i32, ptr %172, align 4, !tbaa !8
+  %1627 = load i32, ptr %174, align 4, !tbaa !8
+  %1628 = and i32 %1626, %1627
+  %1629 = load i32, ptr %173, align 4, !tbaa !8
+  %1630 = load i32, ptr %174, align 4, !tbaa !8
+  %1631 = xor i32 %1630, -1
+  %1632 = and i32 %1629, %1631
+  %1633 = or i32 %1628, %1632
+  %1634 = add i32 %1625, %1633
+  %1635 = load i32, ptr %177, align 4, !tbaa !8
+  %1636 = add i32 %1634, %1635
+  %1637 = load i32, ptr %178, align 4, !tbaa !8
+  %1638 = add i32 %1636, %1637
+  %1639 = lshr i32 %1638, 18
+  %1640 = or i32 %1624, %1639
+  %1641 = add i32 %1609, %1640
+  store i32 %1641, ptr %179, align 4, !tbaa !8
+  %1642 = load i32, ptr %179, align 4, !tbaa !8
+  %1643 = load ptr, ptr %3, align 8, !tbaa !3
+  %1644 = getelementptr i32, ptr %1643, i64 2
+  store i32 %1642, ptr %1644, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %180) #8
+  %1645 = load ptr, ptr %3, align 8, !tbaa !3
+  %1646 = getelementptr i32, ptr %1645, i64 1
+  %1647 = load i32, ptr %1646, align 4, !tbaa !8
+  store i32 %1647, ptr %180, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %181) #8
+  %1648 = load ptr, ptr %3, align 8, !tbaa !3
+  %1649 = getelementptr i32, ptr %1648, i64 2
+  %1650 = load i32, ptr %1649, align 4, !tbaa !8
+  store i32 %1650, ptr %181, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %182) #8
+  %1651 = load ptr, ptr %3, align 8, !tbaa !3
+  %1652 = getelementptr i32, ptr %1651, i64 3
+  %1653 = load i32, ptr %1652, align 4, !tbaa !8
+  store i32 %1653, ptr %182, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %183) #8
+  %1654 = load ptr, ptr %3, align 8, !tbaa !3
+  %1655 = getelementptr i32, ptr %1654, i64 0
+  %1656 = load i32, ptr %1655, align 4, !tbaa !8
+  store i32 %1656, ptr %183, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %184) #8
+  %1657 = load ptr, ptr %4, align 8, !tbaa !10
+  store ptr %1657, ptr %184, align 8, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %185) #8
+  %1658 = load ptr, ptr %184, align 8, !tbaa !10
+  %1659 = call i32 @load32(ptr noundef %1658)
+  %1660 = call i32 @__uint32_identity(i32 noundef %1659)
+  store i32 %1660, ptr %185, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %186) #8
+  %1661 = load i32, ptr %185, align 4, !tbaa !8
+  store i32 %1661, ptr %186, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %187) #8
+  %1662 = load i32, ptr getelementptr ([64 x i32], ptr @_t, i64 0, i64 19), align 4, !tbaa !8
+  store i32 %1662, ptr %187, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %188) #8
+  %1663 = load i32, ptr %181, align 4, !tbaa !8
+  %1664 = load i32, ptr %180, align 4, !tbaa !8
+  %1665 = load i32, ptr %181, align 4, !tbaa !8
+  %1666 = load i32, ptr %183, align 4, !tbaa !8
+  %1667 = and i32 %1665, %1666
+  %1668 = load i32, ptr %182, align 4, !tbaa !8
+  %1669 = load i32, ptr %183, align 4, !tbaa !8
+  %1670 = xor i32 %1669, -1
+  %1671 = and i32 %1668, %1670
+  %1672 = or i32 %1667, %1671
+  %1673 = add i32 %1664, %1672
+  %1674 = load i32, ptr %186, align 4, !tbaa !8
+  %1675 = add i32 %1673, %1674
+  %1676 = load i32, ptr %187, align 4, !tbaa !8
+  %1677 = add i32 %1675, %1676
+  %1678 = shl i32 %1677, 20
+  %1679 = load i32, ptr %180, align 4, !tbaa !8
+  %1680 = load i32, ptr %181, align 4, !tbaa !8
+  %1681 = load i32, ptr %183, align 4, !tbaa !8
+  %1682 = and i32 %1680, %1681
+  %1683 = load i32, ptr %182, align 4, !tbaa !8
+  %1684 = load i32, ptr %183, align 4, !tbaa !8
+  %1685 = xor i32 %1684, -1
+  %1686 = and i32 %1683, %1685
+  %1687 = or i32 %1682, %1686
+  %1688 = add i32 %1679, %1687
+  %1689 = load i32, ptr %186, align 4, !tbaa !8
+  %1690 = add i32 %1688, %1689
+  %1691 = load i32, ptr %187, align 4, !tbaa !8
+  %1692 = add i32 %1690, %1691
+  %1693 = lshr i32 %1692, 12
+  %1694 = or i32 %1678, %1693
+  %1695 = add i32 %1663, %1694
+  store i32 %1695, ptr %188, align 4, !tbaa !8
+  %1696 = load i32, ptr %188, align 4, !tbaa !8
+  %1697 = load ptr, ptr %3, align 8, !tbaa !3
+  %1698 = getelementptr i32, ptr %1697, i64 1
+  store i32 %1696, ptr %1698, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %189) #8
+  %1699 = load ptr, ptr %3, align 8, !tbaa !3
+  %1700 = getelementptr i32, ptr %1699, i64 0
+  %1701 = load i32, ptr %1700, align 4, !tbaa !8
+  store i32 %1701, ptr %189, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %190) #8
+  %1702 = load ptr, ptr %3, align 8, !tbaa !3
+  %1703 = getelementptr i32, ptr %1702, i64 1
+  %1704 = load i32, ptr %1703, align 4, !tbaa !8
+  store i32 %1704, ptr %190, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %191) #8
+  %1705 = load ptr, ptr %3, align 8, !tbaa !3
+  %1706 = getelementptr i32, ptr %1705, i64 2
+  %1707 = load i32, ptr %1706, align 4, !tbaa !8
+  store i32 %1707, ptr %191, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %192) #8
+  %1708 = load ptr, ptr %3, align 8, !tbaa !3
+  %1709 = getelementptr i32, ptr %1708, i64 3
+  %1710 = load i32, ptr %1709, align 4, !tbaa !8
+  store i32 %1710, ptr %192, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %193) #8
+  %1711 = load ptr, ptr %4, align 8, !tbaa !10
+  %1712 = getelementptr i8, ptr %1711, i64 20
+  store ptr %1712, ptr %193, align 8, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %194) #8
+  %1713 = load ptr, ptr %193, align 8, !tbaa !10
+  %1714 = call i32 @load32(ptr noundef %1713)
+  %1715 = call i32 @__uint32_identity(i32 noundef %1714)
+  store i32 %1715, ptr %194, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %195) #8
+  %1716 = load i32, ptr %194, align 4, !tbaa !8
+  store i32 %1716, ptr %195, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %196) #8
+  %1717 = load i32, ptr getelementptr ([64 x i32], ptr @_t, i64 0, i64 20), align 16, !tbaa !8
+  store i32 %1717, ptr %196, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %197) #8
+  %1718 = load i32, ptr %190, align 4, !tbaa !8
+  %1719 = load i32, ptr %189, align 4, !tbaa !8
+  %1720 = load i32, ptr %190, align 4, !tbaa !8
+  %1721 = load i32, ptr %192, align 4, !tbaa !8
+  %1722 = and i32 %1720, %1721
+  %1723 = load i32, ptr %191, align 4, !tbaa !8
+  %1724 = load i32, ptr %192, align 4, !tbaa !8
+  %1725 = xor i32 %1724, -1
+  %1726 = and i32 %1723, %1725
+  %1727 = or i32 %1722, %1726
+  %1728 = add i32 %1719, %1727
+  %1729 = load i32, ptr %195, align 4, !tbaa !8
+  %1730 = add i32 %1728, %1729
+  %1731 = load i32, ptr %196, align 4, !tbaa !8
+  %1732 = add i32 %1730, %1731
+  %1733 = shl i32 %1732, 5
+  %1734 = load i32, ptr %189, align 4, !tbaa !8
+  %1735 = load i32, ptr %190, align 4, !tbaa !8
+  %1736 = load i32, ptr %192, align 4, !tbaa !8
+  %1737 = and i32 %1735, %1736
+  %1738 = load i32, ptr %191, align 4, !tbaa !8
+  %1739 = load i32, ptr %192, align 4, !tbaa !8
+  %1740 = xor i32 %1739, -1
+  %1741 = and i32 %1738, %1740
+  %1742 = or i32 %1737, %1741
+  %1743 = add i32 %1734, %1742
+  %1744 = load i32, ptr %195, align 4, !tbaa !8
+  %1745 = add i32 %1743, %1744
+  %1746 = load i32, ptr %196, align 4, !tbaa !8
+  %1747 = add i32 %1745, %1746
+  %1748 = lshr i32 %1747, 27
+  %1749 = or i32 %1733, %1748
+  %1750 = add i32 %1718, %1749
+  store i32 %1750, ptr %197, align 4, !tbaa !8
+  %1751 = load i32, ptr %197, align 4, !tbaa !8
+  %1752 = load ptr, ptr %3, align 8, !tbaa !3
+  %1753 = getelementptr i32, ptr %1752, i64 0
+  store i32 %1751, ptr %1753, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %198) #8
+  %1754 = load ptr, ptr %3, align 8, !tbaa !3
+  %1755 = getelementptr i32, ptr %1754, i64 3
+  %1756 = load i32, ptr %1755, align 4, !tbaa !8
+  store i32 %1756, ptr %198, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %199) #8
+  %1757 = load ptr, ptr %3, align 8, !tbaa !3
+  %1758 = getelementptr i32, ptr %1757, i64 0
+  %1759 = load i32, ptr %1758, align 4, !tbaa !8
+  store i32 %1759, ptr %199, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %200) #8
+  %1760 = load ptr, ptr %3, align 8, !tbaa !3
+  %1761 = getelementptr i32, ptr %1760, i64 1
+  %1762 = load i32, ptr %1761, align 4, !tbaa !8
+  store i32 %1762, ptr %200, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %201) #8
+  %1763 = load ptr, ptr %3, align 8, !tbaa !3
+  %1764 = getelementptr i32, ptr %1763, i64 2
+  %1765 = load i32, ptr %1764, align 4, !tbaa !8
+  store i32 %1765, ptr %201, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %202) #8
+  %1766 = load ptr, ptr %4, align 8, !tbaa !10
+  %1767 = getelementptr i8, ptr %1766, i64 40
+  store ptr %1767, ptr %202, align 8, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %203) #8
+  %1768 = load ptr, ptr %202, align 8, !tbaa !10
+  %1769 = call i32 @load32(ptr noundef %1768)
+  %1770 = call i32 @__uint32_identity(i32 noundef %1769)
+  store i32 %1770, ptr %203, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %204) #8
+  %1771 = load i32, ptr %203, align 4, !tbaa !8
+  store i32 %1771, ptr %204, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %205) #8
+  %1772 = load i32, ptr getelementptr ([64 x i32], ptr @_t, i64 0, i64 21), align 4, !tbaa !8
+  store i32 %1772, ptr %205, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %206) #8
+  %1773 = load i32, ptr %199, align 4, !tbaa !8
+  %1774 = load i32, ptr %198, align 4, !tbaa !8
+  %1775 = load i32, ptr %199, align 4, !tbaa !8
+  %1776 = load i32, ptr %201, align 4, !tbaa !8
+  %1777 = and i32 %1775, %1776
+  %1778 = load i32, ptr %200, align 4, !tbaa !8
+  %1779 = load i32, ptr %201, align 4, !tbaa !8
+  %1780 = xor i32 %1779, -1
+  %1781 = and i32 %1778, %1780
+  %1782 = or i32 %1777, %1781
+  %1783 = add i32 %1774, %1782
+  %1784 = load i32, ptr %204, align 4, !tbaa !8
+  %1785 = add i32 %1783, %1784
+  %1786 = load i32, ptr %205, align 4, !tbaa !8
+  %1787 = add i32 %1785, %1786
+  %1788 = shl i32 %1787, 9
+  %1789 = load i32, ptr %198, align 4, !tbaa !8
+  %1790 = load i32, ptr %199, align 4, !tbaa !8
+  %1791 = load i32, ptr %201, align 4, !tbaa !8
+  %1792 = and i32 %1790, %1791
+  %1793 = load i32, ptr %200, align 4, !tbaa !8
+  %1794 = load i32, ptr %201, align 4, !tbaa !8
+  %1795 = xor i32 %1794, -1
+  %1796 = and i32 %1793, %1795
+  %1797 = or i32 %1792, %1796
+  %1798 = add i32 %1789, %1797
+  %1799 = load i32, ptr %204, align 4, !tbaa !8
+  %1800 = add i32 %1798, %1799
+  %1801 = load i32, ptr %205, align 4, !tbaa !8
+  %1802 = add i32 %1800, %1801
+  %1803 = lshr i32 %1802, 23
+  %1804 = or i32 %1788, %1803
+  %1805 = add i32 %1773, %1804
+  store i32 %1805, ptr %206, align 4, !tbaa !8
+  %1806 = load i32, ptr %206, align 4, !tbaa !8
+  %1807 = load ptr, ptr %3, align 8, !tbaa !3
+  %1808 = getelementptr i32, ptr %1807, i64 3
+  store i32 %1806, ptr %1808, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %207) #8
+  %1809 = load ptr, ptr %3, align 8, !tbaa !3
+  %1810 = getelementptr i32, ptr %1809, i64 2
+  %1811 = load i32, ptr %1810, align 4, !tbaa !8
+  store i32 %1811, ptr %207, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %208) #8
+  %1812 = load ptr, ptr %3, align 8, !tbaa !3
+  %1813 = getelementptr i32, ptr %1812, i64 3
+  %1814 = load i32, ptr %1813, align 4, !tbaa !8
+  store i32 %1814, ptr %208, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %209) #8
+  %1815 = load ptr, ptr %3, align 8, !tbaa !3
+  %1816 = getelementptr i32, ptr %1815, i64 0
+  %1817 = load i32, ptr %1816, align 4, !tbaa !8
+  store i32 %1817, ptr %209, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %210) #8
+  %1818 = load ptr, ptr %3, align 8, !tbaa !3
+  %1819 = getelementptr i32, ptr %1818, i64 1
+  %1820 = load i32, ptr %1819, align 4, !tbaa !8
+  store i32 %1820, ptr %210, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %211) #8
+  %1821 = load ptr, ptr %4, align 8, !tbaa !10
+  %1822 = getelementptr i8, ptr %1821, i64 60
+  store ptr %1822, ptr %211, align 8, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %212) #8
+  %1823 = load ptr, ptr %211, align 8, !tbaa !10
+  %1824 = call i32 @load32(ptr noundef %1823)
+  %1825 = call i32 @__uint32_identity(i32 noundef %1824)
+  store i32 %1825, ptr %212, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %213) #8
+  %1826 = load i32, ptr %212, align 4, !tbaa !8
+  store i32 %1826, ptr %213, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %214) #8
+  %1827 = load i32, ptr getelementptr ([64 x i32], ptr @_t, i64 0, i64 22), align 8, !tbaa !8
+  store i32 %1827, ptr %214, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %215) #8
+  %1828 = load i32, ptr %208, align 4, !tbaa !8
+  %1829 = load i32, ptr %207, align 4, !tbaa !8
+  %1830 = load i32, ptr %208, align 4, !tbaa !8
+  %1831 = load i32, ptr %210, align 4, !tbaa !8
+  %1832 = and i32 %1830, %1831
+  %1833 = load i32, ptr %209, align 4, !tbaa !8
+  %1834 = load i32, ptr %210, align 4, !tbaa !8
+  %1835 = xor i32 %1834, -1
+  %1836 = and i32 %1833, %1835
+  %1837 = or i32 %1832, %1836
+  %1838 = add i32 %1829, %1837
+  %1839 = load i32, ptr %213, align 4, !tbaa !8
+  %1840 = add i32 %1838, %1839
+  %1841 = load i32, ptr %214, align 4, !tbaa !8
+  %1842 = add i32 %1840, %1841
+  %1843 = shl i32 %1842, 14
+  %1844 = load i32, ptr %207, align 4, !tbaa !8
+  %1845 = load i32, ptr %208, align 4, !tbaa !8
+  %1846 = load i32, ptr %210, align 4, !tbaa !8
+  %1847 = and i32 %1845, %1846
+  %1848 = load i32, ptr %209, align 4, !tbaa !8
+  %1849 = load i32, ptr %210, align 4, !tbaa !8
+  %1850 = xor i32 %1849, -1
+  %1851 = and i32 %1848, %1850
+  %1852 = or i32 %1847, %1851
+  %1853 = add i32 %1844, %1852
+  %1854 = load i32, ptr %213, align 4, !tbaa !8
+  %1855 = add i32 %1853, %1854
+  %1856 = load i32, ptr %214, align 4, !tbaa !8
+  %1857 = add i32 %1855, %1856
+  %1858 = lshr i32 %1857, 18
+  %1859 = or i32 %1843, %1858
+  %1860 = add i32 %1828, %1859
+  store i32 %1860, ptr %215, align 4, !tbaa !8
+  %1861 = load i32, ptr %215, align 4, !tbaa !8
+  %1862 = load ptr, ptr %3, align 8, !tbaa !3
+  %1863 = getelementptr i32, ptr %1862, i64 2
+  store i32 %1861, ptr %1863, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %216) #8
+  %1864 = load ptr, ptr %3, align 8, !tbaa !3
+  %1865 = getelementptr i32, ptr %1864, i64 1
+  %1866 = load i32, ptr %1865, align 4, !tbaa !8
+  store i32 %1866, ptr %216, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %217) #8
+  %1867 = load ptr, ptr %3, align 8, !tbaa !3
+  %1868 = getelementptr i32, ptr %1867, i64 2
+  %1869 = load i32, ptr %1868, align 4, !tbaa !8
+  store i32 %1869, ptr %217, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %218) #8
+  %1870 = load ptr, ptr %3, align 8, !tbaa !3
+  %1871 = getelementptr i32, ptr %1870, i64 3
+  %1872 = load i32, ptr %1871, align 4, !tbaa !8
+  store i32 %1872, ptr %218, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %219) #8
+  %1873 = load ptr, ptr %3, align 8, !tbaa !3
+  %1874 = getelementptr i32, ptr %1873, i64 0
+  %1875 = load i32, ptr %1874, align 4, !tbaa !8
+  store i32 %1875, ptr %219, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %220) #8
+  %1876 = load ptr, ptr %4, align 8, !tbaa !10
+  %1877 = getelementptr i8, ptr %1876, i64 16
+  store ptr %1877, ptr %220, align 8, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %221) #8
+  %1878 = load ptr, ptr %220, align 8, !tbaa !10
+  %1879 = call i32 @load32(ptr noundef %1878)
+  %1880 = call i32 @__uint32_identity(i32 noundef %1879)
+  store i32 %1880, ptr %221, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %222) #8
+  %1881 = load i32, ptr %221, align 4, !tbaa !8
+  store i32 %1881, ptr %222, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %223) #8
+  %1882 = load i32, ptr getelementptr ([64 x i32], ptr @_t, i64 0, i64 23), align 4, !tbaa !8
+  store i32 %1882, ptr %223, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %224) #8
+  %1883 = load i32, ptr %217, align 4, !tbaa !8
+  %1884 = load i32, ptr %216, align 4, !tbaa !8
+  %1885 = load i32, ptr %217, align 4, !tbaa !8
+  %1886 = load i32, ptr %219, align 4, !tbaa !8
+  %1887 = and i32 %1885, %1886
+  %1888 = load i32, ptr %218, align 4, !tbaa !8
+  %1889 = load i32, ptr %219, align 4, !tbaa !8
+  %1890 = xor i32 %1889, -1
+  %1891 = and i32 %1888, %1890
+  %1892 = or i32 %1887, %1891
+  %1893 = add i32 %1884, %1892
+  %1894 = load i32, ptr %222, align 4, !tbaa !8
+  %1895 = add i32 %1893, %1894
+  %1896 = load i32, ptr %223, align 4, !tbaa !8
+  %1897 = add i32 %1895, %1896
+  %1898 = shl i32 %1897, 20
+  %1899 = load i32, ptr %216, align 4, !tbaa !8
+  %1900 = load i32, ptr %217, align 4, !tbaa !8
+  %1901 = load i32, ptr %219, align 4, !tbaa !8
+  %1902 = and i32 %1900, %1901
+  %1903 = load i32, ptr %218, align 4, !tbaa !8
+  %1904 = load i32, ptr %219, align 4, !tbaa !8
+  %1905 = xor i32 %1904, -1
+  %1906 = and i32 %1903, %1905
+  %1907 = or i32 %1902, %1906
+  %1908 = add i32 %1899, %1907
+  %1909 = load i32, ptr %222, align 4, !tbaa !8
+  %1910 = add i32 %1908, %1909
+  %1911 = load i32, ptr %223, align 4, !tbaa !8
+  %1912 = add i32 %1910, %1911
+  %1913 = lshr i32 %1912, 12
+  %1914 = or i32 %1898, %1913
+  %1915 = add i32 %1883, %1914
+  store i32 %1915, ptr %224, align 4, !tbaa !8
+  %1916 = load i32, ptr %224, align 4, !tbaa !8
+  %1917 = load ptr, ptr %3, align 8, !tbaa !3
+  %1918 = getelementptr i32, ptr %1917, i64 1
+  store i32 %1916, ptr %1918, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %225) #8
+  %1919 = load ptr, ptr %3, align 8, !tbaa !3
+  %1920 = getelementptr i32, ptr %1919, i64 0
+  %1921 = load i32, ptr %1920, align 4, !tbaa !8
+  store i32 %1921, ptr %225, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %226) #8
+  %1922 = load ptr, ptr %3, align 8, !tbaa !3
+  %1923 = getelementptr i32, ptr %1922, i64 1
+  %1924 = load i32, ptr %1923, align 4, !tbaa !8
+  store i32 %1924, ptr %226, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %227) #8
+  %1925 = load ptr, ptr %3, align 8, !tbaa !3
+  %1926 = getelementptr i32, ptr %1925, i64 2
+  %1927 = load i32, ptr %1926, align 4, !tbaa !8
+  store i32 %1927, ptr %227, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %228) #8
+  %1928 = load ptr, ptr %3, align 8, !tbaa !3
+  %1929 = getelementptr i32, ptr %1928, i64 3
+  %1930 = load i32, ptr %1929, align 4, !tbaa !8
+  store i32 %1930, ptr %228, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %229) #8
+  %1931 = load ptr, ptr %4, align 8, !tbaa !10
+  %1932 = getelementptr i8, ptr %1931, i64 36
+  store ptr %1932, ptr %229, align 8, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %230) #8
+  %1933 = load ptr, ptr %229, align 8, !tbaa !10
+  %1934 = call i32 @load32(ptr noundef %1933)
+  %1935 = call i32 @__uint32_identity(i32 noundef %1934)
+  store i32 %1935, ptr %230, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %231) #8
+  %1936 = load i32, ptr %230, align 4, !tbaa !8
+  store i32 %1936, ptr %231, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %232) #8
+  %1937 = load i32, ptr getelementptr ([64 x i32], ptr @_t, i64 0, i64 24), align 16, !tbaa !8
+  store i32 %1937, ptr %232, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %233) #8
+  %1938 = load i32, ptr %226, align 4, !tbaa !8
+  %1939 = load i32, ptr %225, align 4, !tbaa !8
+  %1940 = load i32, ptr %226, align 4, !tbaa !8
+  %1941 = load i32, ptr %228, align 4, !tbaa !8
+  %1942 = and i32 %1940, %1941
+  %1943 = load i32, ptr %227, align 4, !tbaa !8
+  %1944 = load i32, ptr %228, align 4, !tbaa !8
+  %1945 = xor i32 %1944, -1
+  %1946 = and i32 %1943, %1945
+  %1947 = or i32 %1942, %1946
+  %1948 = add i32 %1939, %1947
+  %1949 = load i32, ptr %231, align 4, !tbaa !8
+  %1950 = add i32 %1948, %1949
+  %1951 = load i32, ptr %232, align 4, !tbaa !8
+  %1952 = add i32 %1950, %1951
+  %1953 = shl i32 %1952, 5
+  %1954 = load i32, ptr %225, align 4, !tbaa !8
+  %1955 = load i32, ptr %226, align 4, !tbaa !8
+  %1956 = load i32, ptr %228, align 4, !tbaa !8
+  %1957 = and i32 %1955, %1956
+  %1958 = load i32, ptr %227, align 4, !tbaa !8
+  %1959 = load i32, ptr %228, align 4, !tbaa !8
+  %1960 = xor i32 %1959, -1
+  %1961 = and i32 %1958, %1960
+  %1962 = or i32 %1957, %1961
+  %1963 = add i32 %1954, %1962
+  %1964 = load i32, ptr %231, align 4, !tbaa !8
+  %1965 = add i32 %1963, %1964
+  %1966 = load i32, ptr %232, align 4, !tbaa !8
+  %1967 = add i32 %1965, %1966
+  %1968 = lshr i32 %1967, 27
+  %1969 = or i32 %1953, %1968
+  %1970 = add i32 %1938, %1969
+  store i32 %1970, ptr %233, align 4, !tbaa !8
+  %1971 = load i32, ptr %233, align 4, !tbaa !8
+  %1972 = load ptr, ptr %3, align 8, !tbaa !3
+  %1973 = getelementptr i32, ptr %1972, i64 0
+  store i32 %1971, ptr %1973, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %234) #8
+  %1974 = load ptr, ptr %3, align 8, !tbaa !3
+  %1975 = getelementptr i32, ptr %1974, i64 3
+  %1976 = load i32, ptr %1975, align 4, !tbaa !8
+  store i32 %1976, ptr %234, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %235) #8
+  %1977 = load ptr, ptr %3, align 8, !tbaa !3
+  %1978 = getelementptr i32, ptr %1977, i64 0
+  %1979 = load i32, ptr %1978, align 4, !tbaa !8
+  store i32 %1979, ptr %235, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %236) #8
+  %1980 = load ptr, ptr %3, align 8, !tbaa !3
+  %1981 = getelementptr i32, ptr %1980, i64 1
+  %1982 = load i32, ptr %1981, align 4, !tbaa !8
+  store i32 %1982, ptr %236, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %237) #8
+  %1983 = load ptr, ptr %3, align 8, !tbaa !3
+  %1984 = getelementptr i32, ptr %1983, i64 2
+  %1985 = load i32, ptr %1984, align 4, !tbaa !8
+  store i32 %1985, ptr %237, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %238) #8
+  %1986 = load ptr, ptr %4, align 8, !tbaa !10
+  %1987 = getelementptr i8, ptr %1986, i64 56
+  store ptr %1987, ptr %238, align 8, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %239) #8
+  %1988 = load ptr, ptr %238, align 8, !tbaa !10
+  %1989 = call i32 @load32(ptr noundef %1988)
+  %1990 = call i32 @__uint32_identity(i32 noundef %1989)
+  store i32 %1990, ptr %239, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %240) #8
+  %1991 = load i32, ptr %239, align 4, !tbaa !8
+  store i32 %1991, ptr %240, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %241) #8
+  %1992 = load i32, ptr getelementptr ([64 x i32], ptr @_t, i64 0, i64 25), align 4, !tbaa !8
+  store i32 %1992, ptr %241, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %242) #8
+  %1993 = load i32, ptr %235, align 4, !tbaa !8
+  %1994 = load i32, ptr %234, align 4, !tbaa !8
+  %1995 = load i32, ptr %235, align 4, !tbaa !8
+  %1996 = load i32, ptr %237, align 4, !tbaa !8
+  %1997 = and i32 %1995, %1996
+  %1998 = load i32, ptr %236, align 4, !tbaa !8
+  %1999 = load i32, ptr %237, align 4, !tbaa !8
+  %2000 = xor i32 %1999, -1
+  %2001 = and i32 %1998, %2000
+  %2002 = or i32 %1997, %2001
+  %2003 = add i32 %1994, %2002
+  %2004 = load i32, ptr %240, align 4, !tbaa !8
+  %2005 = add i32 %2003, %2004
+  %2006 = load i32, ptr %241, align 4, !tbaa !8
+  %2007 = add i32 %2005, %2006
+  %2008 = shl i32 %2007, 9
+  %2009 = load i32, ptr %234, align 4, !tbaa !8
+  %2010 = load i32, ptr %235, align 4, !tbaa !8
+  %2011 = load i32, ptr %237, align 4, !tbaa !8
+  %2012 = and i32 %2010, %2011
+  %2013 = load i32, ptr %236, align 4, !tbaa !8
+  %2014 = load i32, ptr %237, align 4, !tbaa !8
+  %2015 = xor i32 %2014, -1
+  %2016 = and i32 %2013, %2015
+  %2017 = or i32 %2012, %2016
+  %2018 = add i32 %2009, %2017
+  %2019 = load i32, ptr %240, align 4, !tbaa !8
+  %2020 = add i32 %2018, %2019
+  %2021 = load i32, ptr %241, align 4, !tbaa !8
+  %2022 = add i32 %2020, %2021
+  %2023 = lshr i32 %2022, 23
+  %2024 = or i32 %2008, %2023
+  %2025 = add i32 %1993, %2024
+  store i32 %2025, ptr %242, align 4, !tbaa !8
+  %2026 = load i32, ptr %242, align 4, !tbaa !8
+  %2027 = load ptr, ptr %3, align 8, !tbaa !3
+  %2028 = getelementptr i32, ptr %2027, i64 3
+  store i32 %2026, ptr %2028, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %243) #8
+  %2029 = load ptr, ptr %3, align 8, !tbaa !3
+  %2030 = getelementptr i32, ptr %2029, i64 2
+  %2031 = load i32, ptr %2030, align 4, !tbaa !8
+  store i32 %2031, ptr %243, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %244) #8
+  %2032 = load ptr, ptr %3, align 8, !tbaa !3
+  %2033 = getelementptr i32, ptr %2032, i64 3
+  %2034 = load i32, ptr %2033, align 4, !tbaa !8
+  store i32 %2034, ptr %244, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %245) #8
+  %2035 = load ptr, ptr %3, align 8, !tbaa !3
+  %2036 = getelementptr i32, ptr %2035, i64 0
+  %2037 = load i32, ptr %2036, align 4, !tbaa !8
+  store i32 %2037, ptr %245, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %246) #8
+  %2038 = load ptr, ptr %3, align 8, !tbaa !3
+  %2039 = getelementptr i32, ptr %2038, i64 1
+  %2040 = load i32, ptr %2039, align 4, !tbaa !8
+  store i32 %2040, ptr %246, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %247) #8
+  %2041 = load ptr, ptr %4, align 8, !tbaa !10
+  %2042 = getelementptr i8, ptr %2041, i64 12
+  store ptr %2042, ptr %247, align 8, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %248) #8
+  %2043 = load ptr, ptr %247, align 8, !tbaa !10
+  %2044 = call i32 @load32(ptr noundef %2043)
+  %2045 = call i32 @__uint32_identity(i32 noundef %2044)
+  store i32 %2045, ptr %248, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %249) #8
+  %2046 = load i32, ptr %248, align 4, !tbaa !8
+  store i32 %2046, ptr %249, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %250) #8
+  %2047 = load i32, ptr getelementptr ([64 x i32], ptr @_t, i64 0, i64 26), align 8, !tbaa !8
+  store i32 %2047, ptr %250, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %251) #8
+  %2048 = load i32, ptr %244, align 4, !tbaa !8
+  %2049 = load i32, ptr %243, align 4, !tbaa !8
+  %2050 = load i32, ptr %244, align 4, !tbaa !8
+  %2051 = load i32, ptr %246, align 4, !tbaa !8
+  %2052 = and i32 %2050, %2051
+  %2053 = load i32, ptr %245, align 4, !tbaa !8
+  %2054 = load i32, ptr %246, align 4, !tbaa !8
+  %2055 = xor i32 %2054, -1
+  %2056 = and i32 %2053, %2055
+  %2057 = or i32 %2052, %2056
+  %2058 = add i32 %2049, %2057
+  %2059 = load i32, ptr %249, align 4, !tbaa !8
+  %2060 = add i32 %2058, %2059
+  %2061 = load i32, ptr %250, align 4, !tbaa !8
+  %2062 = add i32 %2060, %2061
+  %2063 = shl i32 %2062, 14
+  %2064 = load i32, ptr %243, align 4, !tbaa !8
+  %2065 = load i32, ptr %244, align 4, !tbaa !8
+  %2066 = load i32, ptr %246, align 4, !tbaa !8
+  %2067 = and i32 %2065, %2066
+  %2068 = load i32, ptr %245, align 4, !tbaa !8
+  %2069 = load i32, ptr %246, align 4, !tbaa !8
+  %2070 = xor i32 %2069, -1
+  %2071 = and i32 %2068, %2070
+  %2072 = or i32 %2067, %2071
+  %2073 = add i32 %2064, %2072
+  %2074 = load i32, ptr %249, align 4, !tbaa !8
+  %2075 = add i32 %2073, %2074
+  %2076 = load i32, ptr %250, align 4, !tbaa !8
+  %2077 = add i32 %2075, %2076
+  %2078 = lshr i32 %2077, 18
+  %2079 = or i32 %2063, %2078
+  %2080 = add i32 %2048, %2079
+  store i32 %2080, ptr %251, align 4, !tbaa !8
+  %2081 = load i32, ptr %251, align 4, !tbaa !8
+  %2082 = load ptr, ptr %3, align 8, !tbaa !3
+  %2083 = getelementptr i32, ptr %2082, i64 2
+  store i32 %2081, ptr %2083, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %252) #8
+  %2084 = load ptr, ptr %3, align 8, !tbaa !3
+  %2085 = getelementptr i32, ptr %2084, i64 1
+  %2086 = load i32, ptr %2085, align 4, !tbaa !8
+  store i32 %2086, ptr %252, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %253) #8
+  %2087 = load ptr, ptr %3, align 8, !tbaa !3
+  %2088 = getelementptr i32, ptr %2087, i64 2
+  %2089 = load i32, ptr %2088, align 4, !tbaa !8
+  store i32 %2089, ptr %253, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %254) #8
+  %2090 = load ptr, ptr %3, align 8, !tbaa !3
+  %2091 = getelementptr i32, ptr %2090, i64 3
+  %2092 = load i32, ptr %2091, align 4, !tbaa !8
+  store i32 %2092, ptr %254, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %255) #8
+  %2093 = load ptr, ptr %3, align 8, !tbaa !3
+  %2094 = getelementptr i32, ptr %2093, i64 0
+  %2095 = load i32, ptr %2094, align 4, !tbaa !8
+  store i32 %2095, ptr %255, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %256) #8
+  %2096 = load ptr, ptr %4, align 8, !tbaa !10
+  %2097 = getelementptr i8, ptr %2096, i64 32
+  store ptr %2097, ptr %256, align 8, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %257) #8
+  %2098 = load ptr, ptr %256, align 8, !tbaa !10
+  %2099 = call i32 @load32(ptr noundef %2098)
+  %2100 = call i32 @__uint32_identity(i32 noundef %2099)
+  store i32 %2100, ptr %257, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %258) #8
+  %2101 = load i32, ptr %257, align 4, !tbaa !8
+  store i32 %2101, ptr %258, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %259) #8
+  %2102 = load i32, ptr getelementptr ([64 x i32], ptr @_t, i64 0, i64 27), align 4, !tbaa !8
+  store i32 %2102, ptr %259, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %260) #8
+  %2103 = load i32, ptr %253, align 4, !tbaa !8
+  %2104 = load i32, ptr %252, align 4, !tbaa !8
+  %2105 = load i32, ptr %253, align 4, !tbaa !8
+  %2106 = load i32, ptr %255, align 4, !tbaa !8
+  %2107 = and i32 %2105, %2106
+  %2108 = load i32, ptr %254, align 4, !tbaa !8
+  %2109 = load i32, ptr %255, align 4, !tbaa !8
+  %2110 = xor i32 %2109, -1
+  %2111 = and i32 %2108, %2110
+  %2112 = or i32 %2107, %2111
+  %2113 = add i32 %2104, %2112
+  %2114 = load i32, ptr %258, align 4, !tbaa !8
+  %2115 = add i32 %2113, %2114
+  %2116 = load i32, ptr %259, align 4, !tbaa !8
+  %2117 = add i32 %2115, %2116
+  %2118 = shl i32 %2117, 20
+  %2119 = load i32, ptr %252, align 4, !tbaa !8
+  %2120 = load i32, ptr %253, align 4, !tbaa !8
+  %2121 = load i32, ptr %255, align 4, !tbaa !8
+  %2122 = and i32 %2120, %2121
+  %2123 = load i32, ptr %254, align 4, !tbaa !8
+  %2124 = load i32, ptr %255, align 4, !tbaa !8
+  %2125 = xor i32 %2124, -1
+  %2126 = and i32 %2123, %2125
+  %2127 = or i32 %2122, %2126
+  %2128 = add i32 %2119, %2127
+  %2129 = load i32, ptr %258, align 4, !tbaa !8
+  %2130 = add i32 %2128, %2129
+  %2131 = load i32, ptr %259, align 4, !tbaa !8
+  %2132 = add i32 %2130, %2131
+  %2133 = lshr i32 %2132, 12
+  %2134 = or i32 %2118, %2133
+  %2135 = add i32 %2103, %2134
+  store i32 %2135, ptr %260, align 4, !tbaa !8
+  %2136 = load i32, ptr %260, align 4, !tbaa !8
+  %2137 = load ptr, ptr %3, align 8, !tbaa !3
+  %2138 = getelementptr i32, ptr %2137, i64 1
+  store i32 %2136, ptr %2138, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %261) #8
+  %2139 = load ptr, ptr %3, align 8, !tbaa !3
+  %2140 = getelementptr i32, ptr %2139, i64 0
+  %2141 = load i32, ptr %2140, align 4, !tbaa !8
+  store i32 %2141, ptr %261, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %262) #8
+  %2142 = load ptr, ptr %3, align 8, !tbaa !3
+  %2143 = getelementptr i32, ptr %2142, i64 1
+  %2144 = load i32, ptr %2143, align 4, !tbaa !8
+  store i32 %2144, ptr %262, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %263) #8
+  %2145 = load ptr, ptr %3, align 8, !tbaa !3
+  %2146 = getelementptr i32, ptr %2145, i64 2
+  %2147 = load i32, ptr %2146, align 4, !tbaa !8
+  store i32 %2147, ptr %263, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %264) #8
+  %2148 = load ptr, ptr %3, align 8, !tbaa !3
+  %2149 = getelementptr i32, ptr %2148, i64 3
+  %2150 = load i32, ptr %2149, align 4, !tbaa !8
+  store i32 %2150, ptr %264, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %265) #8
+  %2151 = load ptr, ptr %4, align 8, !tbaa !10
+  %2152 = getelementptr i8, ptr %2151, i64 52
+  store ptr %2152, ptr %265, align 8, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %266) #8
+  %2153 = load ptr, ptr %265, align 8, !tbaa !10
+  %2154 = call i32 @load32(ptr noundef %2153)
+  %2155 = call i32 @__uint32_identity(i32 noundef %2154)
+  store i32 %2155, ptr %266, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %267) #8
+  %2156 = load i32, ptr %266, align 4, !tbaa !8
+  store i32 %2156, ptr %267, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %268) #8
+  %2157 = load i32, ptr getelementptr ([64 x i32], ptr @_t, i64 0, i64 28), align 16, !tbaa !8
+  store i32 %2157, ptr %268, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %269) #8
+  %2158 = load i32, ptr %262, align 4, !tbaa !8
+  %2159 = load i32, ptr %261, align 4, !tbaa !8
+  %2160 = load i32, ptr %262, align 4, !tbaa !8
+  %2161 = load i32, ptr %264, align 4, !tbaa !8
+  %2162 = and i32 %2160, %2161
+  %2163 = load i32, ptr %263, align 4, !tbaa !8
+  %2164 = load i32, ptr %264, align 4, !tbaa !8
+  %2165 = xor i32 %2164, -1
+  %2166 = and i32 %2163, %2165
+  %2167 = or i32 %2162, %2166
+  %2168 = add i32 %2159, %2167
+  %2169 = load i32, ptr %267, align 4, !tbaa !8
+  %2170 = add i32 %2168, %2169
+  %2171 = load i32, ptr %268, align 4, !tbaa !8
+  %2172 = add i32 %2170, %2171
+  %2173 = shl i32 %2172, 5
+  %2174 = load i32, ptr %261, align 4, !tbaa !8
+  %2175 = load i32, ptr %262, align 4, !tbaa !8
+  %2176 = load i32, ptr %264, align 4, !tbaa !8
+  %2177 = and i32 %2175, %2176
+  %2178 = load i32, ptr %263, align 4, !tbaa !8
+  %2179 = load i32, ptr %264, align 4, !tbaa !8
+  %2180 = xor i32 %2179, -1
+  %2181 = and i32 %2178, %2180
+  %2182 = or i32 %2177, %2181
+  %2183 = add i32 %2174, %2182
+  %2184 = load i32, ptr %267, align 4, !tbaa !8
+  %2185 = add i32 %2183, %2184
+  %2186 = load i32, ptr %268, align 4, !tbaa !8
+  %2187 = add i32 %2185, %2186
+  %2188 = lshr i32 %2187, 27
+  %2189 = or i32 %2173, %2188
+  %2190 = add i32 %2158, %2189
+  store i32 %2190, ptr %269, align 4, !tbaa !8
+  %2191 = load i32, ptr %269, align 4, !tbaa !8
+  %2192 = load ptr, ptr %3, align 8, !tbaa !3
+  %2193 = getelementptr i32, ptr %2192, i64 0
+  store i32 %2191, ptr %2193, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %270) #8
+  %2194 = load ptr, ptr %3, align 8, !tbaa !3
+  %2195 = getelementptr i32, ptr %2194, i64 3
+  %2196 = load i32, ptr %2195, align 4, !tbaa !8
+  store i32 %2196, ptr %270, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %271) #8
+  %2197 = load ptr, ptr %3, align 8, !tbaa !3
+  %2198 = getelementptr i32, ptr %2197, i64 0
+  %2199 = load i32, ptr %2198, align 4, !tbaa !8
+  store i32 %2199, ptr %271, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %272) #8
+  %2200 = load ptr, ptr %3, align 8, !tbaa !3
+  %2201 = getelementptr i32, ptr %2200, i64 1
+  %2202 = load i32, ptr %2201, align 4, !tbaa !8
+  store i32 %2202, ptr %272, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %273) #8
+  %2203 = load ptr, ptr %3, align 8, !tbaa !3
+  %2204 = getelementptr i32, ptr %2203, i64 2
+  %2205 = load i32, ptr %2204, align 4, !tbaa !8
+  store i32 %2205, ptr %273, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %274) #8
+  %2206 = load ptr, ptr %4, align 8, !tbaa !10
+  %2207 = getelementptr i8, ptr %2206, i64 8
+  store ptr %2207, ptr %274, align 8, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %275) #8
+  %2208 = load ptr, ptr %274, align 8, !tbaa !10
+  %2209 = call i32 @load32(ptr noundef %2208)
+  %2210 = call i32 @__uint32_identity(i32 noundef %2209)
+  store i32 %2210, ptr %275, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %276) #8
+  %2211 = load i32, ptr %275, align 4, !tbaa !8
+  store i32 %2211, ptr %276, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %277) #8
+  %2212 = load i32, ptr getelementptr ([64 x i32], ptr @_t, i64 0, i64 29), align 4, !tbaa !8
+  store i32 %2212, ptr %277, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %278) #8
+  %2213 = load i32, ptr %271, align 4, !tbaa !8
+  %2214 = load i32, ptr %270, align 4, !tbaa !8
+  %2215 = load i32, ptr %271, align 4, !tbaa !8
+  %2216 = load i32, ptr %273, align 4, !tbaa !8
+  %2217 = and i32 %2215, %2216
+  %2218 = load i32, ptr %272, align 4, !tbaa !8
+  %2219 = load i32, ptr %273, align 4, !tbaa !8
+  %2220 = xor i32 %2219, -1
+  %2221 = and i32 %2218, %2220
+  %2222 = or i32 %2217, %2221
+  %2223 = add i32 %2214, %2222
+  %2224 = load i32, ptr %276, align 4, !tbaa !8
+  %2225 = add i32 %2223, %2224
+  %2226 = load i32, ptr %277, align 4, !tbaa !8
+  %2227 = add i32 %2225, %2226
+  %2228 = shl i32 %2227, 9
+  %2229 = load i32, ptr %270, align 4, !tbaa !8
+  %2230 = load i32, ptr %271, align 4, !tbaa !8
+  %2231 = load i32, ptr %273, align 4, !tbaa !8
+  %2232 = and i32 %2230, %2231
+  %2233 = load i32, ptr %272, align 4, !tbaa !8
+  %2234 = load i32, ptr %273, align 4, !tbaa !8
+  %2235 = xor i32 %2234, -1
+  %2236 = and i32 %2233, %2235
+  %2237 = or i32 %2232, %2236
+  %2238 = add i32 %2229, %2237
+  %2239 = load i32, ptr %276, align 4, !tbaa !8
+  %2240 = add i32 %2238, %2239
+  %2241 = load i32, ptr %277, align 4, !tbaa !8
+  %2242 = add i32 %2240, %2241
+  %2243 = lshr i32 %2242, 23
+  %2244 = or i32 %2228, %2243
+  %2245 = add i32 %2213, %2244
+  store i32 %2245, ptr %278, align 4, !tbaa !8
+  %2246 = load i32, ptr %278, align 4, !tbaa !8
+  %2247 = load ptr, ptr %3, align 8, !tbaa !3
+  %2248 = getelementptr i32, ptr %2247, i64 3
+  store i32 %2246, ptr %2248, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %279) #8
+  %2249 = load ptr, ptr %3, align 8, !tbaa !3
+  %2250 = getelementptr i32, ptr %2249, i64 2
+  %2251 = load i32, ptr %2250, align 4, !tbaa !8
+  store i32 %2251, ptr %279, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %280) #8
+  %2252 = load ptr, ptr %3, align 8, !tbaa !3
+  %2253 = getelementptr i32, ptr %2252, i64 3
+  %2254 = load i32, ptr %2253, align 4, !tbaa !8
+  store i32 %2254, ptr %280, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %281) #8
+  %2255 = load ptr, ptr %3, align 8, !tbaa !3
+  %2256 = getelementptr i32, ptr %2255, i64 0
+  %2257 = load i32, ptr %2256, align 4, !tbaa !8
+  store i32 %2257, ptr %281, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %282) #8
+  %2258 = load ptr, ptr %3, align 8, !tbaa !3
+  %2259 = getelementptr i32, ptr %2258, i64 1
+  %2260 = load i32, ptr %2259, align 4, !tbaa !8
+  store i32 %2260, ptr %282, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %283) #8
+  %2261 = load ptr, ptr %4, align 8, !tbaa !10
+  %2262 = getelementptr i8, ptr %2261, i64 28
+  store ptr %2262, ptr %283, align 8, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %284) #8
+  %2263 = load ptr, ptr %283, align 8, !tbaa !10
+  %2264 = call i32 @load32(ptr noundef %2263)
+  %2265 = call i32 @__uint32_identity(i32 noundef %2264)
+  store i32 %2265, ptr %284, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %285) #8
+  %2266 = load i32, ptr %284, align 4, !tbaa !8
+  store i32 %2266, ptr %285, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %286) #8
+  %2267 = load i32, ptr getelementptr ([64 x i32], ptr @_t, i64 0, i64 30), align 8, !tbaa !8
+  store i32 %2267, ptr %286, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %287) #8
+  %2268 = load i32, ptr %280, align 4, !tbaa !8
+  %2269 = load i32, ptr %279, align 4, !tbaa !8
+  %2270 = load i32, ptr %280, align 4, !tbaa !8
+  %2271 = load i32, ptr %282, align 4, !tbaa !8
+  %2272 = and i32 %2270, %2271
+  %2273 = load i32, ptr %281, align 4, !tbaa !8
+  %2274 = load i32, ptr %282, align 4, !tbaa !8
+  %2275 = xor i32 %2274, -1
+  %2276 = and i32 %2273, %2275
+  %2277 = or i32 %2272, %2276
+  %2278 = add i32 %2269, %2277
+  %2279 = load i32, ptr %285, align 4, !tbaa !8
+  %2280 = add i32 %2278, %2279
+  %2281 = load i32, ptr %286, align 4, !tbaa !8
+  %2282 = add i32 %2280, %2281
+  %2283 = shl i32 %2282, 14
+  %2284 = load i32, ptr %279, align 4, !tbaa !8
+  %2285 = load i32, ptr %280, align 4, !tbaa !8
+  %2286 = load i32, ptr %282, align 4, !tbaa !8
+  %2287 = and i32 %2285, %2286
+  %2288 = load i32, ptr %281, align 4, !tbaa !8
+  %2289 = load i32, ptr %282, align 4, !tbaa !8
+  %2290 = xor i32 %2289, -1
+  %2291 = and i32 %2288, %2290
+  %2292 = or i32 %2287, %2291
+  %2293 = add i32 %2284, %2292
+  %2294 = load i32, ptr %285, align 4, !tbaa !8
+  %2295 = add i32 %2293, %2294
+  %2296 = load i32, ptr %286, align 4, !tbaa !8
+  %2297 = add i32 %2295, %2296
+  %2298 = lshr i32 %2297, 18
+  %2299 = or i32 %2283, %2298
+  %2300 = add i32 %2268, %2299
+  store i32 %2300, ptr %287, align 4, !tbaa !8
+  %2301 = load i32, ptr %287, align 4, !tbaa !8
+  %2302 = load ptr, ptr %3, align 8, !tbaa !3
+  %2303 = getelementptr i32, ptr %2302, i64 2
+  store i32 %2301, ptr %2303, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %288) #8
+  %2304 = load ptr, ptr %3, align 8, !tbaa !3
+  %2305 = getelementptr i32, ptr %2304, i64 1
+  %2306 = load i32, ptr %2305, align 4, !tbaa !8
+  store i32 %2306, ptr %288, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %289) #8
+  %2307 = load ptr, ptr %3, align 8, !tbaa !3
+  %2308 = getelementptr i32, ptr %2307, i64 2
+  %2309 = load i32, ptr %2308, align 4, !tbaa !8
+  store i32 %2309, ptr %289, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %290) #8
+  %2310 = load ptr, ptr %3, align 8, !tbaa !3
+  %2311 = getelementptr i32, ptr %2310, i64 3
+  %2312 = load i32, ptr %2311, align 4, !tbaa !8
+  store i32 %2312, ptr %290, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %291) #8
+  %2313 = load ptr, ptr %3, align 8, !tbaa !3
+  %2314 = getelementptr i32, ptr %2313, i64 0
+  %2315 = load i32, ptr %2314, align 4, !tbaa !8
+  store i32 %2315, ptr %291, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %292) #8
+  %2316 = load ptr, ptr %4, align 8, !tbaa !10
+  %2317 = getelementptr i8, ptr %2316, i64 48
+  store ptr %2317, ptr %292, align 8, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %293) #8
+  %2318 = load ptr, ptr %292, align 8, !tbaa !10
+  %2319 = call i32 @load32(ptr noundef %2318)
+  %2320 = call i32 @__uint32_identity(i32 noundef %2319)
+  store i32 %2320, ptr %293, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %294) #8
+  %2321 = load i32, ptr %293, align 4, !tbaa !8
+  store i32 %2321, ptr %294, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %295) #8
+  %2322 = load i32, ptr getelementptr ([64 x i32], ptr @_t, i64 0, i64 31), align 4, !tbaa !8
+  store i32 %2322, ptr %295, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %296) #8
+  %2323 = load i32, ptr %289, align 4, !tbaa !8
+  %2324 = load i32, ptr %288, align 4, !tbaa !8
+  %2325 = load i32, ptr %289, align 4, !tbaa !8
+  %2326 = load i32, ptr %291, align 4, !tbaa !8
+  %2327 = and i32 %2325, %2326
+  %2328 = load i32, ptr %290, align 4, !tbaa !8
+  %2329 = load i32, ptr %291, align 4, !tbaa !8
+  %2330 = xor i32 %2329, -1
+  %2331 = and i32 %2328, %2330
+  %2332 = or i32 %2327, %2331
+  %2333 = add i32 %2324, %2332
+  %2334 = load i32, ptr %294, align 4, !tbaa !8
+  %2335 = add i32 %2333, %2334
+  %2336 = load i32, ptr %295, align 4, !tbaa !8
+  %2337 = add i32 %2335, %2336
+  %2338 = shl i32 %2337, 20
+  %2339 = load i32, ptr %288, align 4, !tbaa !8
+  %2340 = load i32, ptr %289, align 4, !tbaa !8
+  %2341 = load i32, ptr %291, align 4, !tbaa !8
+  %2342 = and i32 %2340, %2341
+  %2343 = load i32, ptr %290, align 4, !tbaa !8
+  %2344 = load i32, ptr %291, align 4, !tbaa !8
+  %2345 = xor i32 %2344, -1
+  %2346 = and i32 %2343, %2345
+  %2347 = or i32 %2342, %2346
+  %2348 = add i32 %2339, %2347
+  %2349 = load i32, ptr %294, align 4, !tbaa !8
+  %2350 = add i32 %2348, %2349
+  %2351 = load i32, ptr %295, align 4, !tbaa !8
+  %2352 = add i32 %2350, %2351
+  %2353 = lshr i32 %2352, 12
+  %2354 = or i32 %2338, %2353
+  %2355 = add i32 %2323, %2354
+  store i32 %2355, ptr %296, align 4, !tbaa !8
+  %2356 = load i32, ptr %296, align 4, !tbaa !8
+  %2357 = load ptr, ptr %3, align 8, !tbaa !3
+  %2358 = getelementptr i32, ptr %2357, i64 1
+  store i32 %2356, ptr %2358, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %297) #8
+  %2359 = load ptr, ptr %3, align 8, !tbaa !3
+  %2360 = getelementptr i32, ptr %2359, i64 0
+  %2361 = load i32, ptr %2360, align 4, !tbaa !8
+  store i32 %2361, ptr %297, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %298) #8
+  %2362 = load ptr, ptr %3, align 8, !tbaa !3
+  %2363 = getelementptr i32, ptr %2362, i64 1
+  %2364 = load i32, ptr %2363, align 4, !tbaa !8
+  store i32 %2364, ptr %298, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %299) #8
+  %2365 = load ptr, ptr %3, align 8, !tbaa !3
+  %2366 = getelementptr i32, ptr %2365, i64 2
+  %2367 = load i32, ptr %2366, align 4, !tbaa !8
+  store i32 %2367, ptr %299, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %300) #8
+  %2368 = load ptr, ptr %3, align 8, !tbaa !3
+  %2369 = getelementptr i32, ptr %2368, i64 3
+  %2370 = load i32, ptr %2369, align 4, !tbaa !8
+  store i32 %2370, ptr %300, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %301) #8
+  %2371 = load ptr, ptr %4, align 8, !tbaa !10
+  %2372 = getelementptr i8, ptr %2371, i64 20
+  store ptr %2372, ptr %301, align 8, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %302) #8
+  %2373 = load ptr, ptr %301, align 8, !tbaa !10
+  %2374 = call i32 @load32(ptr noundef %2373)
+  %2375 = call i32 @__uint32_identity(i32 noundef %2374)
+  store i32 %2375, ptr %302, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %303) #8
+  %2376 = load i32, ptr %302, align 4, !tbaa !8
+  store i32 %2376, ptr %303, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %304) #8
+  %2377 = load i32, ptr getelementptr ([64 x i32], ptr @_t, i64 0, i64 32), align 16, !tbaa !8
+  store i32 %2377, ptr %304, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %305) #8
+  %2378 = load i32, ptr %298, align 4, !tbaa !8
+  %2379 = load i32, ptr %297, align 4, !tbaa !8
+  %2380 = load i32, ptr %298, align 4, !tbaa !8
+  %2381 = load i32, ptr %299, align 4, !tbaa !8
+  %2382 = load i32, ptr %300, align 4, !tbaa !8
+  %2383 = xor i32 %2381, %2382
+  %2384 = xor i32 %2380, %2383
+  %2385 = add i32 %2379, %2384
+  %2386 = load i32, ptr %303, align 4, !tbaa !8
+  %2387 = add i32 %2385, %2386
+  %2388 = load i32, ptr %304, align 4, !tbaa !8
+  %2389 = add i32 %2387, %2388
+  %2390 = shl i32 %2389, 4
+  %2391 = load i32, ptr %297, align 4, !tbaa !8
+  %2392 = load i32, ptr %298, align 4, !tbaa !8
+  %2393 = load i32, ptr %299, align 4, !tbaa !8
+  %2394 = load i32, ptr %300, align 4, !tbaa !8
+  %2395 = xor i32 %2393, %2394
+  %2396 = xor i32 %2392, %2395
+  %2397 = add i32 %2391, %2396
+  %2398 = load i32, ptr %303, align 4, !tbaa !8
+  %2399 = add i32 %2397, %2398
+  %2400 = load i32, ptr %304, align 4, !tbaa !8
+  %2401 = add i32 %2399, %2400
+  %2402 = lshr i32 %2401, 28
+  %2403 = or i32 %2390, %2402
+  %2404 = add i32 %2378, %2403
+  store i32 %2404, ptr %305, align 4, !tbaa !8
+  %2405 = load i32, ptr %305, align 4, !tbaa !8
+  %2406 = load ptr, ptr %3, align 8, !tbaa !3
+  %2407 = getelementptr i32, ptr %2406, i64 0
+  store i32 %2405, ptr %2407, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %306) #8
+  %2408 = load ptr, ptr %3, align 8, !tbaa !3
+  %2409 = getelementptr i32, ptr %2408, i64 3
+  %2410 = load i32, ptr %2409, align 4, !tbaa !8
+  store i32 %2410, ptr %306, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %307) #8
+  %2411 = load ptr, ptr %3, align 8, !tbaa !3
+  %2412 = getelementptr i32, ptr %2411, i64 0
+  %2413 = load i32, ptr %2412, align 4, !tbaa !8
+  store i32 %2413, ptr %307, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %308) #8
+  %2414 = load ptr, ptr %3, align 8, !tbaa !3
+  %2415 = getelementptr i32, ptr %2414, i64 1
+  %2416 = load i32, ptr %2415, align 4, !tbaa !8
+  store i32 %2416, ptr %308, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %309) #8
+  %2417 = load ptr, ptr %3, align 8, !tbaa !3
+  %2418 = getelementptr i32, ptr %2417, i64 2
+  %2419 = load i32, ptr %2418, align 4, !tbaa !8
+  store i32 %2419, ptr %309, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %310) #8
+  %2420 = load ptr, ptr %4, align 8, !tbaa !10
+  %2421 = getelementptr i8, ptr %2420, i64 32
+  store ptr %2421, ptr %310, align 8, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %311) #8
+  %2422 = load ptr, ptr %310, align 8, !tbaa !10
+  %2423 = call i32 @load32(ptr noundef %2422)
+  %2424 = call i32 @__uint32_identity(i32 noundef %2423)
+  store i32 %2424, ptr %311, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %312) #8
+  %2425 = load i32, ptr %311, align 4, !tbaa !8
+  store i32 %2425, ptr %312, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %313) #8
+  %2426 = load i32, ptr getelementptr ([64 x i32], ptr @_t, i64 0, i64 33), align 4, !tbaa !8
+  store i32 %2426, ptr %313, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %314) #8
+  %2427 = load i32, ptr %307, align 4, !tbaa !8
+  %2428 = load i32, ptr %306, align 4, !tbaa !8
+  %2429 = load i32, ptr %307, align 4, !tbaa !8
+  %2430 = load i32, ptr %308, align 4, !tbaa !8
+  %2431 = load i32, ptr %309, align 4, !tbaa !8
+  %2432 = xor i32 %2430, %2431
+  %2433 = xor i32 %2429, %2432
+  %2434 = add i32 %2428, %2433
+  %2435 = load i32, ptr %312, align 4, !tbaa !8
+  %2436 = add i32 %2434, %2435
+  %2437 = load i32, ptr %313, align 4, !tbaa !8
+  %2438 = add i32 %2436, %2437
+  %2439 = shl i32 %2438, 11
+  %2440 = load i32, ptr %306, align 4, !tbaa !8
+  %2441 = load i32, ptr %307, align 4, !tbaa !8
+  %2442 = load i32, ptr %308, align 4, !tbaa !8
+  %2443 = load i32, ptr %309, align 4, !tbaa !8
+  %2444 = xor i32 %2442, %2443
+  %2445 = xor i32 %2441, %2444
+  %2446 = add i32 %2440, %2445
+  %2447 = load i32, ptr %312, align 4, !tbaa !8
+  %2448 = add i32 %2446, %2447
+  %2449 = load i32, ptr %313, align 4, !tbaa !8
+  %2450 = add i32 %2448, %2449
+  %2451 = lshr i32 %2450, 21
+  %2452 = or i32 %2439, %2451
+  %2453 = add i32 %2427, %2452
+  store i32 %2453, ptr %314, align 4, !tbaa !8
+  %2454 = load i32, ptr %314, align 4, !tbaa !8
+  %2455 = load ptr, ptr %3, align 8, !tbaa !3
+  %2456 = getelementptr i32, ptr %2455, i64 3
+  store i32 %2454, ptr %2456, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %315) #8
+  %2457 = load ptr, ptr %3, align 8, !tbaa !3
+  %2458 = getelementptr i32, ptr %2457, i64 2
+  %2459 = load i32, ptr %2458, align 4, !tbaa !8
+  store i32 %2459, ptr %315, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %316) #8
+  %2460 = load ptr, ptr %3, align 8, !tbaa !3
+  %2461 = getelementptr i32, ptr %2460, i64 3
+  %2462 = load i32, ptr %2461, align 4, !tbaa !8
+  store i32 %2462, ptr %316, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %317) #8
+  %2463 = load ptr, ptr %3, align 8, !tbaa !3
+  %2464 = getelementptr i32, ptr %2463, i64 0
+  %2465 = load i32, ptr %2464, align 4, !tbaa !8
+  store i32 %2465, ptr %317, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %318) #8
+  %2466 = load ptr, ptr %3, align 8, !tbaa !3
+  %2467 = getelementptr i32, ptr %2466, i64 1
+  %2468 = load i32, ptr %2467, align 4, !tbaa !8
+  store i32 %2468, ptr %318, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %319) #8
+  %2469 = load ptr, ptr %4, align 8, !tbaa !10
+  %2470 = getelementptr i8, ptr %2469, i64 44
+  store ptr %2470, ptr %319, align 8, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %320) #8
+  %2471 = load ptr, ptr %319, align 8, !tbaa !10
+  %2472 = call i32 @load32(ptr noundef %2471)
+  %2473 = call i32 @__uint32_identity(i32 noundef %2472)
+  store i32 %2473, ptr %320, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %321) #8
+  %2474 = load i32, ptr %320, align 4, !tbaa !8
+  store i32 %2474, ptr %321, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %322) #8
+  %2475 = load i32, ptr getelementptr ([64 x i32], ptr @_t, i64 0, i64 34), align 8, !tbaa !8
+  store i32 %2475, ptr %322, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %323) #8
+  %2476 = load i32, ptr %316, align 4, !tbaa !8
+  %2477 = load i32, ptr %315, align 4, !tbaa !8
+  %2478 = load i32, ptr %316, align 4, !tbaa !8
+  %2479 = load i32, ptr %317, align 4, !tbaa !8
+  %2480 = load i32, ptr %318, align 4, !tbaa !8
+  %2481 = xor i32 %2479, %2480
+  %2482 = xor i32 %2478, %2481
+  %2483 = add i32 %2477, %2482
+  %2484 = load i32, ptr %321, align 4, !tbaa !8
+  %2485 = add i32 %2483, %2484
+  %2486 = load i32, ptr %322, align 4, !tbaa !8
+  %2487 = add i32 %2485, %2486
+  %2488 = shl i32 %2487, 16
+  %2489 = load i32, ptr %315, align 4, !tbaa !8
+  %2490 = load i32, ptr %316, align 4, !tbaa !8
+  %2491 = load i32, ptr %317, align 4, !tbaa !8
+  %2492 = load i32, ptr %318, align 4, !tbaa !8
+  %2493 = xor i32 %2491, %2492
+  %2494 = xor i32 %2490, %2493
+  %2495 = add i32 %2489, %2494
+  %2496 = load i32, ptr %321, align 4, !tbaa !8
+  %2497 = add i32 %2495, %2496
+  %2498 = load i32, ptr %322, align 4, !tbaa !8
+  %2499 = add i32 %2497, %2498
+  %2500 = lshr i32 %2499, 16
+  %2501 = or i32 %2488, %2500
+  %2502 = add i32 %2476, %2501
+  store i32 %2502, ptr %323, align 4, !tbaa !8
+  %2503 = load i32, ptr %323, align 4, !tbaa !8
+  %2504 = load ptr, ptr %3, align 8, !tbaa !3
+  %2505 = getelementptr i32, ptr %2504, i64 2
+  store i32 %2503, ptr %2505, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %324) #8
+  %2506 = load ptr, ptr %3, align 8, !tbaa !3
+  %2507 = getelementptr i32, ptr %2506, i64 1
+  %2508 = load i32, ptr %2507, align 4, !tbaa !8
+  store i32 %2508, ptr %324, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %325) #8
+  %2509 = load ptr, ptr %3, align 8, !tbaa !3
+  %2510 = getelementptr i32, ptr %2509, i64 2
+  %2511 = load i32, ptr %2510, align 4, !tbaa !8
+  store i32 %2511, ptr %325, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %326) #8
+  %2512 = load ptr, ptr %3, align 8, !tbaa !3
+  %2513 = getelementptr i32, ptr %2512, i64 3
+  %2514 = load i32, ptr %2513, align 4, !tbaa !8
+  store i32 %2514, ptr %326, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %327) #8
+  %2515 = load ptr, ptr %3, align 8, !tbaa !3
+  %2516 = getelementptr i32, ptr %2515, i64 0
+  %2517 = load i32, ptr %2516, align 4, !tbaa !8
+  store i32 %2517, ptr %327, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %328) #8
+  %2518 = load ptr, ptr %4, align 8, !tbaa !10
+  %2519 = getelementptr i8, ptr %2518, i64 56
+  store ptr %2519, ptr %328, align 8, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %329) #8
+  %2520 = load ptr, ptr %328, align 8, !tbaa !10
+  %2521 = call i32 @load32(ptr noundef %2520)
+  %2522 = call i32 @__uint32_identity(i32 noundef %2521)
+  store i32 %2522, ptr %329, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %330) #8
+  %2523 = load i32, ptr %329, align 4, !tbaa !8
+  store i32 %2523, ptr %330, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %331) #8
+  %2524 = load i32, ptr getelementptr ([64 x i32], ptr @_t, i64 0, i64 35), align 4, !tbaa !8
+  store i32 %2524, ptr %331, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %332) #8
+  %2525 = load i32, ptr %325, align 4, !tbaa !8
+  %2526 = load i32, ptr %324, align 4, !tbaa !8
+  %2527 = load i32, ptr %325, align 4, !tbaa !8
+  %2528 = load i32, ptr %326, align 4, !tbaa !8
+  %2529 = load i32, ptr %327, align 4, !tbaa !8
+  %2530 = xor i32 %2528, %2529
+  %2531 = xor i32 %2527, %2530
+  %2532 = add i32 %2526, %2531
+  %2533 = load i32, ptr %330, align 4, !tbaa !8
+  %2534 = add i32 %2532, %2533
+  %2535 = load i32, ptr %331, align 4, !tbaa !8
+  %2536 = add i32 %2534, %2535
+  %2537 = shl i32 %2536, 23
+  %2538 = load i32, ptr %324, align 4, !tbaa !8
+  %2539 = load i32, ptr %325, align 4, !tbaa !8
+  %2540 = load i32, ptr %326, align 4, !tbaa !8
+  %2541 = load i32, ptr %327, align 4, !tbaa !8
+  %2542 = xor i32 %2540, %2541
+  %2543 = xor i32 %2539, %2542
+  %2544 = add i32 %2538, %2543
+  %2545 = load i32, ptr %330, align 4, !tbaa !8
+  %2546 = add i32 %2544, %2545
+  %2547 = load i32, ptr %331, align 4, !tbaa !8
+  %2548 = add i32 %2546, %2547
+  %2549 = lshr i32 %2548, 9
+  %2550 = or i32 %2537, %2549
+  %2551 = add i32 %2525, %2550
+  store i32 %2551, ptr %332, align 4, !tbaa !8
+  %2552 = load i32, ptr %332, align 4, !tbaa !8
+  %2553 = load ptr, ptr %3, align 8, !tbaa !3
+  %2554 = getelementptr i32, ptr %2553, i64 1
+  store i32 %2552, ptr %2554, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %333) #8
+  %2555 = load ptr, ptr %3, align 8, !tbaa !3
+  %2556 = getelementptr i32, ptr %2555, i64 0
+  %2557 = load i32, ptr %2556, align 4, !tbaa !8
+  store i32 %2557, ptr %333, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %334) #8
+  %2558 = load ptr, ptr %3, align 8, !tbaa !3
+  %2559 = getelementptr i32, ptr %2558, i64 1
+  %2560 = load i32, ptr %2559, align 4, !tbaa !8
+  store i32 %2560, ptr %334, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %335) #8
+  %2561 = load ptr, ptr %3, align 8, !tbaa !3
+  %2562 = getelementptr i32, ptr %2561, i64 2
+  %2563 = load i32, ptr %2562, align 4, !tbaa !8
+  store i32 %2563, ptr %335, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %336) #8
+  %2564 = load ptr, ptr %3, align 8, !tbaa !3
+  %2565 = getelementptr i32, ptr %2564, i64 3
+  %2566 = load i32, ptr %2565, align 4, !tbaa !8
+  store i32 %2566, ptr %336, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %337) #8
+  %2567 = load ptr, ptr %4, align 8, !tbaa !10
+  %2568 = getelementptr i8, ptr %2567, i64 4
+  store ptr %2568, ptr %337, align 8, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %338) #8
+  %2569 = load ptr, ptr %337, align 8, !tbaa !10
+  %2570 = call i32 @load32(ptr noundef %2569)
+  %2571 = call i32 @__uint32_identity(i32 noundef %2570)
+  store i32 %2571, ptr %338, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %339) #8
+  %2572 = load i32, ptr %338, align 4, !tbaa !8
+  store i32 %2572, ptr %339, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %340) #8
+  %2573 = load i32, ptr getelementptr ([64 x i32], ptr @_t, i64 0, i64 36), align 16, !tbaa !8
+  store i32 %2573, ptr %340, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %341) #8
+  %2574 = load i32, ptr %334, align 4, !tbaa !8
+  %2575 = load i32, ptr %333, align 4, !tbaa !8
+  %2576 = load i32, ptr %334, align 4, !tbaa !8
+  %2577 = load i32, ptr %335, align 4, !tbaa !8
+  %2578 = load i32, ptr %336, align 4, !tbaa !8
+  %2579 = xor i32 %2577, %2578
+  %2580 = xor i32 %2576, %2579
+  %2581 = add i32 %2575, %2580
+  %2582 = load i32, ptr %339, align 4, !tbaa !8
+  %2583 = add i32 %2581, %2582
+  %2584 = load i32, ptr %340, align 4, !tbaa !8
+  %2585 = add i32 %2583, %2584
+  %2586 = shl i32 %2585, 4
+  %2587 = load i32, ptr %333, align 4, !tbaa !8
+  %2588 = load i32, ptr %334, align 4, !tbaa !8
+  %2589 = load i32, ptr %335, align 4, !tbaa !8
+  %2590 = load i32, ptr %336, align 4, !tbaa !8
+  %2591 = xor i32 %2589, %2590
+  %2592 = xor i32 %2588, %2591
+  %2593 = add i32 %2587, %2592
+  %2594 = load i32, ptr %339, align 4, !tbaa !8
+  %2595 = add i32 %2593, %2594
+  %2596 = load i32, ptr %340, align 4, !tbaa !8
+  %2597 = add i32 %2595, %2596
+  %2598 = lshr i32 %2597, 28
+  %2599 = or i32 %2586, %2598
+  %2600 = add i32 %2574, %2599
+  store i32 %2600, ptr %341, align 4, !tbaa !8
+  %2601 = load i32, ptr %341, align 4, !tbaa !8
+  %2602 = load ptr, ptr %3, align 8, !tbaa !3
+  %2603 = getelementptr i32, ptr %2602, i64 0
+  store i32 %2601, ptr %2603, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %342) #8
+  %2604 = load ptr, ptr %3, align 8, !tbaa !3
+  %2605 = getelementptr i32, ptr %2604, i64 3
+  %2606 = load i32, ptr %2605, align 4, !tbaa !8
+  store i32 %2606, ptr %342, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %343) #8
+  %2607 = load ptr, ptr %3, align 8, !tbaa !3
+  %2608 = getelementptr i32, ptr %2607, i64 0
+  %2609 = load i32, ptr %2608, align 4, !tbaa !8
+  store i32 %2609, ptr %343, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %344) #8
+  %2610 = load ptr, ptr %3, align 8, !tbaa !3
+  %2611 = getelementptr i32, ptr %2610, i64 1
+  %2612 = load i32, ptr %2611, align 4, !tbaa !8
+  store i32 %2612, ptr %344, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %345) #8
+  %2613 = load ptr, ptr %3, align 8, !tbaa !3
+  %2614 = getelementptr i32, ptr %2613, i64 2
+  %2615 = load i32, ptr %2614, align 4, !tbaa !8
+  store i32 %2615, ptr %345, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %346) #8
+  %2616 = load ptr, ptr %4, align 8, !tbaa !10
+  %2617 = getelementptr i8, ptr %2616, i64 16
+  store ptr %2617, ptr %346, align 8, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %347) #8
+  %2618 = load ptr, ptr %346, align 8, !tbaa !10
+  %2619 = call i32 @load32(ptr noundef %2618)
+  %2620 = call i32 @__uint32_identity(i32 noundef %2619)
+  store i32 %2620, ptr %347, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %348) #8
+  %2621 = load i32, ptr %347, align 4, !tbaa !8
+  store i32 %2621, ptr %348, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %349) #8
+  %2622 = load i32, ptr getelementptr ([64 x i32], ptr @_t, i64 0, i64 37), align 4, !tbaa !8
+  store i32 %2622, ptr %349, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %350) #8
+  %2623 = load i32, ptr %343, align 4, !tbaa !8
+  %2624 = load i32, ptr %342, align 4, !tbaa !8
+  %2625 = load i32, ptr %343, align 4, !tbaa !8
+  %2626 = load i32, ptr %344, align 4, !tbaa !8
+  %2627 = load i32, ptr %345, align 4, !tbaa !8
+  %2628 = xor i32 %2626, %2627
+  %2629 = xor i32 %2625, %2628
+  %2630 = add i32 %2624, %2629
+  %2631 = load i32, ptr %348, align 4, !tbaa !8
+  %2632 = add i32 %2630, %2631
+  %2633 = load i32, ptr %349, align 4, !tbaa !8
+  %2634 = add i32 %2632, %2633
+  %2635 = shl i32 %2634, 11
+  %2636 = load i32, ptr %342, align 4, !tbaa !8
+  %2637 = load i32, ptr %343, align 4, !tbaa !8
+  %2638 = load i32, ptr %344, align 4, !tbaa !8
+  %2639 = load i32, ptr %345, align 4, !tbaa !8
+  %2640 = xor i32 %2638, %2639
+  %2641 = xor i32 %2637, %2640
+  %2642 = add i32 %2636, %2641
+  %2643 = load i32, ptr %348, align 4, !tbaa !8
+  %2644 = add i32 %2642, %2643
+  %2645 = load i32, ptr %349, align 4, !tbaa !8
+  %2646 = add i32 %2644, %2645
+  %2647 = lshr i32 %2646, 21
+  %2648 = or i32 %2635, %2647
+  %2649 = add i32 %2623, %2648
+  store i32 %2649, ptr %350, align 4, !tbaa !8
+  %2650 = load i32, ptr %350, align 4, !tbaa !8
+  %2651 = load ptr, ptr %3, align 8, !tbaa !3
+  %2652 = getelementptr i32, ptr %2651, i64 3
+  store i32 %2650, ptr %2652, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %351) #8
+  %2653 = load ptr, ptr %3, align 8, !tbaa !3
+  %2654 = getelementptr i32, ptr %2653, i64 2
+  %2655 = load i32, ptr %2654, align 4, !tbaa !8
+  store i32 %2655, ptr %351, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %352) #8
+  %2656 = load ptr, ptr %3, align 8, !tbaa !3
+  %2657 = getelementptr i32, ptr %2656, i64 3
+  %2658 = load i32, ptr %2657, align 4, !tbaa !8
+  store i32 %2658, ptr %352, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %353) #8
+  %2659 = load ptr, ptr %3, align 8, !tbaa !3
+  %2660 = getelementptr i32, ptr %2659, i64 0
+  %2661 = load i32, ptr %2660, align 4, !tbaa !8
+  store i32 %2661, ptr %353, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %354) #8
+  %2662 = load ptr, ptr %3, align 8, !tbaa !3
+  %2663 = getelementptr i32, ptr %2662, i64 1
+  %2664 = load i32, ptr %2663, align 4, !tbaa !8
+  store i32 %2664, ptr %354, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %355) #8
+  %2665 = load ptr, ptr %4, align 8, !tbaa !10
+  %2666 = getelementptr i8, ptr %2665, i64 28
+  store ptr %2666, ptr %355, align 8, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %356) #8
+  %2667 = load ptr, ptr %355, align 8, !tbaa !10
+  %2668 = call i32 @load32(ptr noundef %2667)
+  %2669 = call i32 @__uint32_identity(i32 noundef %2668)
+  store i32 %2669, ptr %356, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %357) #8
+  %2670 = load i32, ptr %356, align 4, !tbaa !8
+  store i32 %2670, ptr %357, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %358) #8
+  %2671 = load i32, ptr getelementptr ([64 x i32], ptr @_t, i64 0, i64 38), align 8, !tbaa !8
+  store i32 %2671, ptr %358, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %359) #8
+  %2672 = load i32, ptr %352, align 4, !tbaa !8
+  %2673 = load i32, ptr %351, align 4, !tbaa !8
+  %2674 = load i32, ptr %352, align 4, !tbaa !8
+  %2675 = load i32, ptr %353, align 4, !tbaa !8
+  %2676 = load i32, ptr %354, align 4, !tbaa !8
+  %2677 = xor i32 %2675, %2676
+  %2678 = xor i32 %2674, %2677
+  %2679 = add i32 %2673, %2678
+  %2680 = load i32, ptr %357, align 4, !tbaa !8
+  %2681 = add i32 %2679, %2680
+  %2682 = load i32, ptr %358, align 4, !tbaa !8
+  %2683 = add i32 %2681, %2682
+  %2684 = shl i32 %2683, 16
+  %2685 = load i32, ptr %351, align 4, !tbaa !8
+  %2686 = load i32, ptr %352, align 4, !tbaa !8
+  %2687 = load i32, ptr %353, align 4, !tbaa !8
+  %2688 = load i32, ptr %354, align 4, !tbaa !8
+  %2689 = xor i32 %2687, %2688
+  %2690 = xor i32 %2686, %2689
+  %2691 = add i32 %2685, %2690
+  %2692 = load i32, ptr %357, align 4, !tbaa !8
+  %2693 = add i32 %2691, %2692
+  %2694 = load i32, ptr %358, align 4, !tbaa !8
+  %2695 = add i32 %2693, %2694
+  %2696 = lshr i32 %2695, 16
+  %2697 = or i32 %2684, %2696
+  %2698 = add i32 %2672, %2697
+  store i32 %2698, ptr %359, align 4, !tbaa !8
+  %2699 = load i32, ptr %359, align 4, !tbaa !8
+  %2700 = load ptr, ptr %3, align 8, !tbaa !3
+  %2701 = getelementptr i32, ptr %2700, i64 2
+  store i32 %2699, ptr %2701, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %360) #8
+  %2702 = load ptr, ptr %3, align 8, !tbaa !3
+  %2703 = getelementptr i32, ptr %2702, i64 1
+  %2704 = load i32, ptr %2703, align 4, !tbaa !8
+  store i32 %2704, ptr %360, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %361) #8
+  %2705 = load ptr, ptr %3, align 8, !tbaa !3
+  %2706 = getelementptr i32, ptr %2705, i64 2
+  %2707 = load i32, ptr %2706, align 4, !tbaa !8
+  store i32 %2707, ptr %361, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %362) #8
+  %2708 = load ptr, ptr %3, align 8, !tbaa !3
+  %2709 = getelementptr i32, ptr %2708, i64 3
+  %2710 = load i32, ptr %2709, align 4, !tbaa !8
+  store i32 %2710, ptr %362, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %363) #8
+  %2711 = load ptr, ptr %3, align 8, !tbaa !3
+  %2712 = getelementptr i32, ptr %2711, i64 0
+  %2713 = load i32, ptr %2712, align 4, !tbaa !8
+  store i32 %2713, ptr %363, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %364) #8
+  %2714 = load ptr, ptr %4, align 8, !tbaa !10
+  %2715 = getelementptr i8, ptr %2714, i64 40
+  store ptr %2715, ptr %364, align 8, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %365) #8
+  %2716 = load ptr, ptr %364, align 8, !tbaa !10
+  %2717 = call i32 @load32(ptr noundef %2716)
+  %2718 = call i32 @__uint32_identity(i32 noundef %2717)
+  store i32 %2718, ptr %365, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %366) #8
+  %2719 = load i32, ptr %365, align 4, !tbaa !8
+  store i32 %2719, ptr %366, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %367) #8
+  %2720 = load i32, ptr getelementptr ([64 x i32], ptr @_t, i64 0, i64 39), align 4, !tbaa !8
+  store i32 %2720, ptr %367, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %368) #8
+  %2721 = load i32, ptr %361, align 4, !tbaa !8
+  %2722 = load i32, ptr %360, align 4, !tbaa !8
+  %2723 = load i32, ptr %361, align 4, !tbaa !8
+  %2724 = load i32, ptr %362, align 4, !tbaa !8
+  %2725 = load i32, ptr %363, align 4, !tbaa !8
+  %2726 = xor i32 %2724, %2725
+  %2727 = xor i32 %2723, %2726
+  %2728 = add i32 %2722, %2727
+  %2729 = load i32, ptr %366, align 4, !tbaa !8
+  %2730 = add i32 %2728, %2729
+  %2731 = load i32, ptr %367, align 4, !tbaa !8
+  %2732 = add i32 %2730, %2731
+  %2733 = shl i32 %2732, 23
+  %2734 = load i32, ptr %360, align 4, !tbaa !8
+  %2735 = load i32, ptr %361, align 4, !tbaa !8
+  %2736 = load i32, ptr %362, align 4, !tbaa !8
+  %2737 = load i32, ptr %363, align 4, !tbaa !8
+  %2738 = xor i32 %2736, %2737
+  %2739 = xor i32 %2735, %2738
+  %2740 = add i32 %2734, %2739
+  %2741 = load i32, ptr %366, align 4, !tbaa !8
+  %2742 = add i32 %2740, %2741
+  %2743 = load i32, ptr %367, align 4, !tbaa !8
+  %2744 = add i32 %2742, %2743
+  %2745 = lshr i32 %2744, 9
+  %2746 = or i32 %2733, %2745
+  %2747 = add i32 %2721, %2746
+  store i32 %2747, ptr %368, align 4, !tbaa !8
+  %2748 = load i32, ptr %368, align 4, !tbaa !8
+  %2749 = load ptr, ptr %3, align 8, !tbaa !3
+  %2750 = getelementptr i32, ptr %2749, i64 1
+  store i32 %2748, ptr %2750, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %369) #8
+  %2751 = load ptr, ptr %3, align 8, !tbaa !3
+  %2752 = getelementptr i32, ptr %2751, i64 0
+  %2753 = load i32, ptr %2752, align 4, !tbaa !8
+  store i32 %2753, ptr %369, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %370) #8
+  %2754 = load ptr, ptr %3, align 8, !tbaa !3
+  %2755 = getelementptr i32, ptr %2754, i64 1
+  %2756 = load i32, ptr %2755, align 4, !tbaa !8
+  store i32 %2756, ptr %370, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %371) #8
+  %2757 = load ptr, ptr %3, align 8, !tbaa !3
+  %2758 = getelementptr i32, ptr %2757, i64 2
+  %2759 = load i32, ptr %2758, align 4, !tbaa !8
+  store i32 %2759, ptr %371, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %372) #8
+  %2760 = load ptr, ptr %3, align 8, !tbaa !3
+  %2761 = getelementptr i32, ptr %2760, i64 3
+  %2762 = load i32, ptr %2761, align 4, !tbaa !8
+  store i32 %2762, ptr %372, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %373) #8
+  %2763 = load ptr, ptr %4, align 8, !tbaa !10
+  %2764 = getelementptr i8, ptr %2763, i64 52
+  store ptr %2764, ptr %373, align 8, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %374) #8
+  %2765 = load ptr, ptr %373, align 8, !tbaa !10
+  %2766 = call i32 @load32(ptr noundef %2765)
+  %2767 = call i32 @__uint32_identity(i32 noundef %2766)
+  store i32 %2767, ptr %374, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %375) #8
+  %2768 = load i32, ptr %374, align 4, !tbaa !8
+  store i32 %2768, ptr %375, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %376) #8
+  %2769 = load i32, ptr getelementptr ([64 x i32], ptr @_t, i64 0, i64 40), align 16, !tbaa !8
+  store i32 %2769, ptr %376, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %377) #8
+  %2770 = load i32, ptr %370, align 4, !tbaa !8
+  %2771 = load i32, ptr %369, align 4, !tbaa !8
+  %2772 = load i32, ptr %370, align 4, !tbaa !8
+  %2773 = load i32, ptr %371, align 4, !tbaa !8
+  %2774 = load i32, ptr %372, align 4, !tbaa !8
+  %2775 = xor i32 %2773, %2774
+  %2776 = xor i32 %2772, %2775
+  %2777 = add i32 %2771, %2776
+  %2778 = load i32, ptr %375, align 4, !tbaa !8
+  %2779 = add i32 %2777, %2778
+  %2780 = load i32, ptr %376, align 4, !tbaa !8
+  %2781 = add i32 %2779, %2780
+  %2782 = shl i32 %2781, 4
+  %2783 = load i32, ptr %369, align 4, !tbaa !8
+  %2784 = load i32, ptr %370, align 4, !tbaa !8
+  %2785 = load i32, ptr %371, align 4, !tbaa !8
+  %2786 = load i32, ptr %372, align 4, !tbaa !8
+  %2787 = xor i32 %2785, %2786
+  %2788 = xor i32 %2784, %2787
+  %2789 = add i32 %2783, %2788
+  %2790 = load i32, ptr %375, align 4, !tbaa !8
+  %2791 = add i32 %2789, %2790
+  %2792 = load i32, ptr %376, align 4, !tbaa !8
+  %2793 = add i32 %2791, %2792
+  %2794 = lshr i32 %2793, 28
+  %2795 = or i32 %2782, %2794
+  %2796 = add i32 %2770, %2795
+  store i32 %2796, ptr %377, align 4, !tbaa !8
+  %2797 = load i32, ptr %377, align 4, !tbaa !8
+  %2798 = load ptr, ptr %3, align 8, !tbaa !3
+  %2799 = getelementptr i32, ptr %2798, i64 0
+  store i32 %2797, ptr %2799, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %378) #8
+  %2800 = load ptr, ptr %3, align 8, !tbaa !3
+  %2801 = getelementptr i32, ptr %2800, i64 3
+  %2802 = load i32, ptr %2801, align 4, !tbaa !8
+  store i32 %2802, ptr %378, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %379) #8
+  %2803 = load ptr, ptr %3, align 8, !tbaa !3
+  %2804 = getelementptr i32, ptr %2803, i64 0
+  %2805 = load i32, ptr %2804, align 4, !tbaa !8
+  store i32 %2805, ptr %379, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %380) #8
+  %2806 = load ptr, ptr %3, align 8, !tbaa !3
+  %2807 = getelementptr i32, ptr %2806, i64 1
+  %2808 = load i32, ptr %2807, align 4, !tbaa !8
+  store i32 %2808, ptr %380, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %381) #8
+  %2809 = load ptr, ptr %3, align 8, !tbaa !3
+  %2810 = getelementptr i32, ptr %2809, i64 2
+  %2811 = load i32, ptr %2810, align 4, !tbaa !8
+  store i32 %2811, ptr %381, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %382) #8
+  %2812 = load ptr, ptr %4, align 8, !tbaa !10
+  store ptr %2812, ptr %382, align 8, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %383) #8
+  %2813 = load ptr, ptr %382, align 8, !tbaa !10
+  %2814 = call i32 @load32(ptr noundef %2813)
+  %2815 = call i32 @__uint32_identity(i32 noundef %2814)
+  store i32 %2815, ptr %383, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %384) #8
+  %2816 = load i32, ptr %383, align 4, !tbaa !8
+  store i32 %2816, ptr %384, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %385) #8
+  %2817 = load i32, ptr getelementptr ([64 x i32], ptr @_t, i64 0, i64 41), align 4, !tbaa !8
+  store i32 %2817, ptr %385, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %386) #8
+  %2818 = load i32, ptr %379, align 4, !tbaa !8
+  %2819 = load i32, ptr %378, align 4, !tbaa !8
+  %2820 = load i32, ptr %379, align 4, !tbaa !8
+  %2821 = load i32, ptr %380, align 4, !tbaa !8
+  %2822 = load i32, ptr %381, align 4, !tbaa !8
+  %2823 = xor i32 %2821, %2822
+  %2824 = xor i32 %2820, %2823
+  %2825 = add i32 %2819, %2824
+  %2826 = load i32, ptr %384, align 4, !tbaa !8
+  %2827 = add i32 %2825, %2826
+  %2828 = load i32, ptr %385, align 4, !tbaa !8
+  %2829 = add i32 %2827, %2828
+  %2830 = shl i32 %2829, 11
+  %2831 = load i32, ptr %378, align 4, !tbaa !8
+  %2832 = load i32, ptr %379, align 4, !tbaa !8
+  %2833 = load i32, ptr %380, align 4, !tbaa !8
+  %2834 = load i32, ptr %381, align 4, !tbaa !8
+  %2835 = xor i32 %2833, %2834
+  %2836 = xor i32 %2832, %2835
+  %2837 = add i32 %2831, %2836
+  %2838 = load i32, ptr %384, align 4, !tbaa !8
+  %2839 = add i32 %2837, %2838
+  %2840 = load i32, ptr %385, align 4, !tbaa !8
+  %2841 = add i32 %2839, %2840
+  %2842 = lshr i32 %2841, 21
+  %2843 = or i32 %2830, %2842
+  %2844 = add i32 %2818, %2843
+  store i32 %2844, ptr %386, align 4, !tbaa !8
+  %2845 = load i32, ptr %386, align 4, !tbaa !8
+  %2846 = load ptr, ptr %3, align 8, !tbaa !3
+  %2847 = getelementptr i32, ptr %2846, i64 3
+  store i32 %2845, ptr %2847, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %387) #8
+  %2848 = load ptr, ptr %3, align 8, !tbaa !3
+  %2849 = getelementptr i32, ptr %2848, i64 2
+  %2850 = load i32, ptr %2849, align 4, !tbaa !8
+  store i32 %2850, ptr %387, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %388) #8
+  %2851 = load ptr, ptr %3, align 8, !tbaa !3
+  %2852 = getelementptr i32, ptr %2851, i64 3
+  %2853 = load i32, ptr %2852, align 4, !tbaa !8
+  store i32 %2853, ptr %388, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %389) #8
+  %2854 = load ptr, ptr %3, align 8, !tbaa !3
+  %2855 = getelementptr i32, ptr %2854, i64 0
+  %2856 = load i32, ptr %2855, align 4, !tbaa !8
+  store i32 %2856, ptr %389, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %390) #8
+  %2857 = load ptr, ptr %3, align 8, !tbaa !3
+  %2858 = getelementptr i32, ptr %2857, i64 1
+  %2859 = load i32, ptr %2858, align 4, !tbaa !8
+  store i32 %2859, ptr %390, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %391) #8
+  %2860 = load ptr, ptr %4, align 8, !tbaa !10
+  %2861 = getelementptr i8, ptr %2860, i64 12
+  store ptr %2861, ptr %391, align 8, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %392) #8
+  %2862 = load ptr, ptr %391, align 8, !tbaa !10
+  %2863 = call i32 @load32(ptr noundef %2862)
+  %2864 = call i32 @__uint32_identity(i32 noundef %2863)
+  store i32 %2864, ptr %392, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %393) #8
+  %2865 = load i32, ptr %392, align 4, !tbaa !8
+  store i32 %2865, ptr %393, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %394) #8
+  %2866 = load i32, ptr getelementptr ([64 x i32], ptr @_t, i64 0, i64 42), align 8, !tbaa !8
+  store i32 %2866, ptr %394, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %395) #8
+  %2867 = load i32, ptr %388, align 4, !tbaa !8
+  %2868 = load i32, ptr %387, align 4, !tbaa !8
+  %2869 = load i32, ptr %388, align 4, !tbaa !8
+  %2870 = load i32, ptr %389, align 4, !tbaa !8
+  %2871 = load i32, ptr %390, align 4, !tbaa !8
+  %2872 = xor i32 %2870, %2871
+  %2873 = xor i32 %2869, %2872
+  %2874 = add i32 %2868, %2873
+  %2875 = load i32, ptr %393, align 4, !tbaa !8
+  %2876 = add i32 %2874, %2875
+  %2877 = load i32, ptr %394, align 4, !tbaa !8
+  %2878 = add i32 %2876, %2877
+  %2879 = shl i32 %2878, 16
+  %2880 = load i32, ptr %387, align 4, !tbaa !8
+  %2881 = load i32, ptr %388, align 4, !tbaa !8
+  %2882 = load i32, ptr %389, align 4, !tbaa !8
+  %2883 = load i32, ptr %390, align 4, !tbaa !8
+  %2884 = xor i32 %2882, %2883
+  %2885 = xor i32 %2881, %2884
+  %2886 = add i32 %2880, %2885
+  %2887 = load i32, ptr %393, align 4, !tbaa !8
+  %2888 = add i32 %2886, %2887
+  %2889 = load i32, ptr %394, align 4, !tbaa !8
+  %2890 = add i32 %2888, %2889
+  %2891 = lshr i32 %2890, 16
+  %2892 = or i32 %2879, %2891
+  %2893 = add i32 %2867, %2892
+  store i32 %2893, ptr %395, align 4, !tbaa !8
+  %2894 = load i32, ptr %395, align 4, !tbaa !8
+  %2895 = load ptr, ptr %3, align 8, !tbaa !3
+  %2896 = getelementptr i32, ptr %2895, i64 2
+  store i32 %2894, ptr %2896, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %396) #8
+  %2897 = load ptr, ptr %3, align 8, !tbaa !3
+  %2898 = getelementptr i32, ptr %2897, i64 1
+  %2899 = load i32, ptr %2898, align 4, !tbaa !8
+  store i32 %2899, ptr %396, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %397) #8
+  %2900 = load ptr, ptr %3, align 8, !tbaa !3
+  %2901 = getelementptr i32, ptr %2900, i64 2
+  %2902 = load i32, ptr %2901, align 4, !tbaa !8
+  store i32 %2902, ptr %397, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %398) #8
+  %2903 = load ptr, ptr %3, align 8, !tbaa !3
+  %2904 = getelementptr i32, ptr %2903, i64 3
+  %2905 = load i32, ptr %2904, align 4, !tbaa !8
+  store i32 %2905, ptr %398, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %399) #8
+  %2906 = load ptr, ptr %3, align 8, !tbaa !3
+  %2907 = getelementptr i32, ptr %2906, i64 0
+  %2908 = load i32, ptr %2907, align 4, !tbaa !8
+  store i32 %2908, ptr %399, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %400) #8
+  %2909 = load ptr, ptr %4, align 8, !tbaa !10
+  %2910 = getelementptr i8, ptr %2909, i64 24
+  store ptr %2910, ptr %400, align 8, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %401) #8
+  %2911 = load ptr, ptr %400, align 8, !tbaa !10
+  %2912 = call i32 @load32(ptr noundef %2911)
+  %2913 = call i32 @__uint32_identity(i32 noundef %2912)
+  store i32 %2913, ptr %401, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %402) #8
+  %2914 = load i32, ptr %401, align 4, !tbaa !8
+  store i32 %2914, ptr %402, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %403) #8
+  %2915 = load i32, ptr getelementptr ([64 x i32], ptr @_t, i64 0, i64 43), align 4, !tbaa !8
+  store i32 %2915, ptr %403, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %404) #8
+  %2916 = load i32, ptr %397, align 4, !tbaa !8
+  %2917 = load i32, ptr %396, align 4, !tbaa !8
+  %2918 = load i32, ptr %397, align 4, !tbaa !8
+  %2919 = load i32, ptr %398, align 4, !tbaa !8
+  %2920 = load i32, ptr %399, align 4, !tbaa !8
+  %2921 = xor i32 %2919, %2920
+  %2922 = xor i32 %2918, %2921
+  %2923 = add i32 %2917, %2922
+  %2924 = load i32, ptr %402, align 4, !tbaa !8
+  %2925 = add i32 %2923, %2924
+  %2926 = load i32, ptr %403, align 4, !tbaa !8
+  %2927 = add i32 %2925, %2926
+  %2928 = shl i32 %2927, 23
+  %2929 = load i32, ptr %396, align 4, !tbaa !8
+  %2930 = load i32, ptr %397, align 4, !tbaa !8
+  %2931 = load i32, ptr %398, align 4, !tbaa !8
+  %2932 = load i32, ptr %399, align 4, !tbaa !8
+  %2933 = xor i32 %2931, %2932
+  %2934 = xor i32 %2930, %2933
+  %2935 = add i32 %2929, %2934
+  %2936 = load i32, ptr %402, align 4, !tbaa !8
+  %2937 = add i32 %2935, %2936
+  %2938 = load i32, ptr %403, align 4, !tbaa !8
+  %2939 = add i32 %2937, %2938
+  %2940 = lshr i32 %2939, 9
+  %2941 = or i32 %2928, %2940
+  %2942 = add i32 %2916, %2941
+  store i32 %2942, ptr %404, align 4, !tbaa !8
+  %2943 = load i32, ptr %404, align 4, !tbaa !8
+  %2944 = load ptr, ptr %3, align 8, !tbaa !3
+  %2945 = getelementptr i32, ptr %2944, i64 1
+  store i32 %2943, ptr %2945, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %405) #8
+  %2946 = load ptr, ptr %3, align 8, !tbaa !3
+  %2947 = getelementptr i32, ptr %2946, i64 0
+  %2948 = load i32, ptr %2947, align 4, !tbaa !8
+  store i32 %2948, ptr %405, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %406) #8
+  %2949 = load ptr, ptr %3, align 8, !tbaa !3
+  %2950 = getelementptr i32, ptr %2949, i64 1
+  %2951 = load i32, ptr %2950, align 4, !tbaa !8
+  store i32 %2951, ptr %406, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %407) #8
+  %2952 = load ptr, ptr %3, align 8, !tbaa !3
+  %2953 = getelementptr i32, ptr %2952, i64 2
+  %2954 = load i32, ptr %2953, align 4, !tbaa !8
+  store i32 %2954, ptr %407, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %408) #8
+  %2955 = load ptr, ptr %3, align 8, !tbaa !3
+  %2956 = getelementptr i32, ptr %2955, i64 3
+  %2957 = load i32, ptr %2956, align 4, !tbaa !8
+  store i32 %2957, ptr %408, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %409) #8
+  %2958 = load ptr, ptr %4, align 8, !tbaa !10
+  %2959 = getelementptr i8, ptr %2958, i64 36
+  store ptr %2959, ptr %409, align 8, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %410) #8
+  %2960 = load ptr, ptr %409, align 8, !tbaa !10
+  %2961 = call i32 @load32(ptr noundef %2960)
+  %2962 = call i32 @__uint32_identity(i32 noundef %2961)
+  store i32 %2962, ptr %410, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %411) #8
+  %2963 = load i32, ptr %410, align 4, !tbaa !8
+  store i32 %2963, ptr %411, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %412) #8
+  %2964 = load i32, ptr getelementptr ([64 x i32], ptr @_t, i64 0, i64 44), align 16, !tbaa !8
+  store i32 %2964, ptr %412, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %413) #8
+  %2965 = load i32, ptr %406, align 4, !tbaa !8
+  %2966 = load i32, ptr %405, align 4, !tbaa !8
+  %2967 = load i32, ptr %406, align 4, !tbaa !8
+  %2968 = load i32, ptr %407, align 4, !tbaa !8
+  %2969 = load i32, ptr %408, align 4, !tbaa !8
+  %2970 = xor i32 %2968, %2969
+  %2971 = xor i32 %2967, %2970
+  %2972 = add i32 %2966, %2971
+  %2973 = load i32, ptr %411, align 4, !tbaa !8
+  %2974 = add i32 %2972, %2973
+  %2975 = load i32, ptr %412, align 4, !tbaa !8
+  %2976 = add i32 %2974, %2975
+  %2977 = shl i32 %2976, 4
+  %2978 = load i32, ptr %405, align 4, !tbaa !8
+  %2979 = load i32, ptr %406, align 4, !tbaa !8
+  %2980 = load i32, ptr %407, align 4, !tbaa !8
+  %2981 = load i32, ptr %408, align 4, !tbaa !8
+  %2982 = xor i32 %2980, %2981
+  %2983 = xor i32 %2979, %2982
+  %2984 = add i32 %2978, %2983
+  %2985 = load i32, ptr %411, align 4, !tbaa !8
+  %2986 = add i32 %2984, %2985
+  %2987 = load i32, ptr %412, align 4, !tbaa !8
+  %2988 = add i32 %2986, %2987
+  %2989 = lshr i32 %2988, 28
+  %2990 = or i32 %2977, %2989
+  %2991 = add i32 %2965, %2990
+  store i32 %2991, ptr %413, align 4, !tbaa !8
+  %2992 = load i32, ptr %413, align 4, !tbaa !8
+  %2993 = load ptr, ptr %3, align 8, !tbaa !3
+  %2994 = getelementptr i32, ptr %2993, i64 0
+  store i32 %2992, ptr %2994, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %414) #8
+  %2995 = load ptr, ptr %3, align 8, !tbaa !3
+  %2996 = getelementptr i32, ptr %2995, i64 3
+  %2997 = load i32, ptr %2996, align 4, !tbaa !8
+  store i32 %2997, ptr %414, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %415) #8
+  %2998 = load ptr, ptr %3, align 8, !tbaa !3
+  %2999 = getelementptr i32, ptr %2998, i64 0
+  %3000 = load i32, ptr %2999, align 4, !tbaa !8
+  store i32 %3000, ptr %415, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %416) #8
+  %3001 = load ptr, ptr %3, align 8, !tbaa !3
+  %3002 = getelementptr i32, ptr %3001, i64 1
+  %3003 = load i32, ptr %3002, align 4, !tbaa !8
+  store i32 %3003, ptr %416, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %417) #8
+  %3004 = load ptr, ptr %3, align 8, !tbaa !3
+  %3005 = getelementptr i32, ptr %3004, i64 2
+  %3006 = load i32, ptr %3005, align 4, !tbaa !8
+  store i32 %3006, ptr %417, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %418) #8
+  %3007 = load ptr, ptr %4, align 8, !tbaa !10
+  %3008 = getelementptr i8, ptr %3007, i64 48
+  store ptr %3008, ptr %418, align 8, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %419) #8
+  %3009 = load ptr, ptr %418, align 8, !tbaa !10
+  %3010 = call i32 @load32(ptr noundef %3009)
+  %3011 = call i32 @__uint32_identity(i32 noundef %3010)
+  store i32 %3011, ptr %419, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %420) #8
+  %3012 = load i32, ptr %419, align 4, !tbaa !8
+  store i32 %3012, ptr %420, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %421) #8
+  %3013 = load i32, ptr getelementptr ([64 x i32], ptr @_t, i64 0, i64 45), align 4, !tbaa !8
+  store i32 %3013, ptr %421, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %422) #8
+  %3014 = load i32, ptr %415, align 4, !tbaa !8
+  %3015 = load i32, ptr %414, align 4, !tbaa !8
+  %3016 = load i32, ptr %415, align 4, !tbaa !8
+  %3017 = load i32, ptr %416, align 4, !tbaa !8
+  %3018 = load i32, ptr %417, align 4, !tbaa !8
+  %3019 = xor i32 %3017, %3018
+  %3020 = xor i32 %3016, %3019
+  %3021 = add i32 %3015, %3020
+  %3022 = load i32, ptr %420, align 4, !tbaa !8
+  %3023 = add i32 %3021, %3022
+  %3024 = load i32, ptr %421, align 4, !tbaa !8
+  %3025 = add i32 %3023, %3024
+  %3026 = shl i32 %3025, 11
+  %3027 = load i32, ptr %414, align 4, !tbaa !8
+  %3028 = load i32, ptr %415, align 4, !tbaa !8
+  %3029 = load i32, ptr %416, align 4, !tbaa !8
+  %3030 = load i32, ptr %417, align 4, !tbaa !8
+  %3031 = xor i32 %3029, %3030
+  %3032 = xor i32 %3028, %3031
+  %3033 = add i32 %3027, %3032
+  %3034 = load i32, ptr %420, align 4, !tbaa !8
+  %3035 = add i32 %3033, %3034
+  %3036 = load i32, ptr %421, align 4, !tbaa !8
+  %3037 = add i32 %3035, %3036
+  %3038 = lshr i32 %3037, 21
+  %3039 = or i32 %3026, %3038
+  %3040 = add i32 %3014, %3039
+  store i32 %3040, ptr %422, align 4, !tbaa !8
+  %3041 = load i32, ptr %422, align 4, !tbaa !8
+  %3042 = load ptr, ptr %3, align 8, !tbaa !3
+  %3043 = getelementptr i32, ptr %3042, i64 3
+  store i32 %3041, ptr %3043, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %423) #8
+  %3044 = load ptr, ptr %3, align 8, !tbaa !3
+  %3045 = getelementptr i32, ptr %3044, i64 2
+  %3046 = load i32, ptr %3045, align 4, !tbaa !8
+  store i32 %3046, ptr %423, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %424) #8
+  %3047 = load ptr, ptr %3, align 8, !tbaa !3
+  %3048 = getelementptr i32, ptr %3047, i64 3
+  %3049 = load i32, ptr %3048, align 4, !tbaa !8
+  store i32 %3049, ptr %424, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %425) #8
+  %3050 = load ptr, ptr %3, align 8, !tbaa !3
+  %3051 = getelementptr i32, ptr %3050, i64 0
+  %3052 = load i32, ptr %3051, align 4, !tbaa !8
+  store i32 %3052, ptr %425, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %426) #8
+  %3053 = load ptr, ptr %3, align 8, !tbaa !3
+  %3054 = getelementptr i32, ptr %3053, i64 1
+  %3055 = load i32, ptr %3054, align 4, !tbaa !8
+  store i32 %3055, ptr %426, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %427) #8
+  %3056 = load ptr, ptr %4, align 8, !tbaa !10
+  %3057 = getelementptr i8, ptr %3056, i64 60
+  store ptr %3057, ptr %427, align 8, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %428) #8
+  %3058 = load ptr, ptr %427, align 8, !tbaa !10
+  %3059 = call i32 @load32(ptr noundef %3058)
+  %3060 = call i32 @__uint32_identity(i32 noundef %3059)
+  store i32 %3060, ptr %428, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %429) #8
+  %3061 = load i32, ptr %428, align 4, !tbaa !8
+  store i32 %3061, ptr %429, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %430) #8
+  %3062 = load i32, ptr getelementptr ([64 x i32], ptr @_t, i64 0, i64 46), align 8, !tbaa !8
+  store i32 %3062, ptr %430, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %431) #8
+  %3063 = load i32, ptr %424, align 4, !tbaa !8
+  %3064 = load i32, ptr %423, align 4, !tbaa !8
+  %3065 = load i32, ptr %424, align 4, !tbaa !8
+  %3066 = load i32, ptr %425, align 4, !tbaa !8
+  %3067 = load i32, ptr %426, align 4, !tbaa !8
+  %3068 = xor i32 %3066, %3067
+  %3069 = xor i32 %3065, %3068
+  %3070 = add i32 %3064, %3069
+  %3071 = load i32, ptr %429, align 4, !tbaa !8
+  %3072 = add i32 %3070, %3071
+  %3073 = load i32, ptr %430, align 4, !tbaa !8
+  %3074 = add i32 %3072, %3073
+  %3075 = shl i32 %3074, 16
+  %3076 = load i32, ptr %423, align 4, !tbaa !8
+  %3077 = load i32, ptr %424, align 4, !tbaa !8
+  %3078 = load i32, ptr %425, align 4, !tbaa !8
+  %3079 = load i32, ptr %426, align 4, !tbaa !8
+  %3080 = xor i32 %3078, %3079
+  %3081 = xor i32 %3077, %3080
+  %3082 = add i32 %3076, %3081
+  %3083 = load i32, ptr %429, align 4, !tbaa !8
+  %3084 = add i32 %3082, %3083
+  %3085 = load i32, ptr %430, align 4, !tbaa !8
+  %3086 = add i32 %3084, %3085
+  %3087 = lshr i32 %3086, 16
+  %3088 = or i32 %3075, %3087
+  %3089 = add i32 %3063, %3088
+  store i32 %3089, ptr %431, align 4, !tbaa !8
+  %3090 = load i32, ptr %431, align 4, !tbaa !8
+  %3091 = load ptr, ptr %3, align 8, !tbaa !3
+  %3092 = getelementptr i32, ptr %3091, i64 2
+  store i32 %3090, ptr %3092, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %432) #8
+  %3093 = load ptr, ptr %3, align 8, !tbaa !3
+  %3094 = getelementptr i32, ptr %3093, i64 1
+  %3095 = load i32, ptr %3094, align 4, !tbaa !8
+  store i32 %3095, ptr %432, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %433) #8
+  %3096 = load ptr, ptr %3, align 8, !tbaa !3
+  %3097 = getelementptr i32, ptr %3096, i64 2
+  %3098 = load i32, ptr %3097, align 4, !tbaa !8
+  store i32 %3098, ptr %433, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %434) #8
+  %3099 = load ptr, ptr %3, align 8, !tbaa !3
+  %3100 = getelementptr i32, ptr %3099, i64 3
+  %3101 = load i32, ptr %3100, align 4, !tbaa !8
+  store i32 %3101, ptr %434, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %435) #8
+  %3102 = load ptr, ptr %3, align 8, !tbaa !3
+  %3103 = getelementptr i32, ptr %3102, i64 0
+  %3104 = load i32, ptr %3103, align 4, !tbaa !8
+  store i32 %3104, ptr %435, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %436) #8
+  %3105 = load ptr, ptr %4, align 8, !tbaa !10
+  %3106 = getelementptr i8, ptr %3105, i64 8
+  store ptr %3106, ptr %436, align 8, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %437) #8
+  %3107 = load ptr, ptr %436, align 8, !tbaa !10
+  %3108 = call i32 @load32(ptr noundef %3107)
+  %3109 = call i32 @__uint32_identity(i32 noundef %3108)
+  store i32 %3109, ptr %437, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %438) #8
+  %3110 = load i32, ptr %437, align 4, !tbaa !8
+  store i32 %3110, ptr %438, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %439) #8
+  %3111 = load i32, ptr getelementptr ([64 x i32], ptr @_t, i64 0, i64 47), align 4, !tbaa !8
+  store i32 %3111, ptr %439, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %440) #8
+  %3112 = load i32, ptr %433, align 4, !tbaa !8
+  %3113 = load i32, ptr %432, align 4, !tbaa !8
+  %3114 = load i32, ptr %433, align 4, !tbaa !8
+  %3115 = load i32, ptr %434, align 4, !tbaa !8
+  %3116 = load i32, ptr %435, align 4, !tbaa !8
+  %3117 = xor i32 %3115, %3116
+  %3118 = xor i32 %3114, %3117
+  %3119 = add i32 %3113, %3118
+  %3120 = load i32, ptr %438, align 4, !tbaa !8
+  %3121 = add i32 %3119, %3120
+  %3122 = load i32, ptr %439, align 4, !tbaa !8
+  %3123 = add i32 %3121, %3122
+  %3124 = shl i32 %3123, 23
+  %3125 = load i32, ptr %432, align 4, !tbaa !8
+  %3126 = load i32, ptr %433, align 4, !tbaa !8
+  %3127 = load i32, ptr %434, align 4, !tbaa !8
+  %3128 = load i32, ptr %435, align 4, !tbaa !8
+  %3129 = xor i32 %3127, %3128
+  %3130 = xor i32 %3126, %3129
+  %3131 = add i32 %3125, %3130
+  %3132 = load i32, ptr %438, align 4, !tbaa !8
+  %3133 = add i32 %3131, %3132
+  %3134 = load i32, ptr %439, align 4, !tbaa !8
+  %3135 = add i32 %3133, %3134
+  %3136 = lshr i32 %3135, 9
+  %3137 = or i32 %3124, %3136
+  %3138 = add i32 %3112, %3137
+  store i32 %3138, ptr %440, align 4, !tbaa !8
+  %3139 = load i32, ptr %440, align 4, !tbaa !8
+  %3140 = load ptr, ptr %3, align 8, !tbaa !3
+  %3141 = getelementptr i32, ptr %3140, i64 1
+  store i32 %3139, ptr %3141, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %441) #8
+  %3142 = load ptr, ptr %3, align 8, !tbaa !3
+  %3143 = getelementptr i32, ptr %3142, i64 0
+  %3144 = load i32, ptr %3143, align 4, !tbaa !8
+  store i32 %3144, ptr %441, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %442) #8
+  %3145 = load ptr, ptr %3, align 8, !tbaa !3
+  %3146 = getelementptr i32, ptr %3145, i64 1
+  %3147 = load i32, ptr %3146, align 4, !tbaa !8
+  store i32 %3147, ptr %442, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %443) #8
+  %3148 = load ptr, ptr %3, align 8, !tbaa !3
+  %3149 = getelementptr i32, ptr %3148, i64 2
+  %3150 = load i32, ptr %3149, align 4, !tbaa !8
+  store i32 %3150, ptr %443, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %444) #8
+  %3151 = load ptr, ptr %3, align 8, !tbaa !3
+  %3152 = getelementptr i32, ptr %3151, i64 3
+  %3153 = load i32, ptr %3152, align 4, !tbaa !8
+  store i32 %3153, ptr %444, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %445) #8
+  %3154 = load ptr, ptr %4, align 8, !tbaa !10
+  store ptr %3154, ptr %445, align 8, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %446) #8
+  %3155 = load ptr, ptr %445, align 8, !tbaa !10
+  %3156 = call i32 @load32(ptr noundef %3155)
+  %3157 = call i32 @__uint32_identity(i32 noundef %3156)
+  store i32 %3157, ptr %446, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %447) #8
+  %3158 = load i32, ptr %446, align 4, !tbaa !8
+  store i32 %3158, ptr %447, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %448) #8
+  %3159 = load i32, ptr getelementptr ([64 x i32], ptr @_t, i64 0, i64 48), align 16, !tbaa !8
+  store i32 %3159, ptr %448, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %449) #8
+  %3160 = load i32, ptr %442, align 4, !tbaa !8
+  %3161 = load i32, ptr %441, align 4, !tbaa !8
+  %3162 = load i32, ptr %443, align 4, !tbaa !8
+  %3163 = load i32, ptr %442, align 4, !tbaa !8
+  %3164 = load i32, ptr %444, align 4, !tbaa !8
+  %3165 = xor i32 %3164, -1
+  %3166 = or i32 %3163, %3165
+  %3167 = xor i32 %3162, %3166
+  %3168 = add i32 %3161, %3167
+  %3169 = load i32, ptr %447, align 4, !tbaa !8
+  %3170 = add i32 %3168, %3169
+  %3171 = load i32, ptr %448, align 4, !tbaa !8
+  %3172 = add i32 %3170, %3171
+  %3173 = shl i32 %3172, 6
+  %3174 = load i32, ptr %441, align 4, !tbaa !8
+  %3175 = load i32, ptr %443, align 4, !tbaa !8
+  %3176 = load i32, ptr %442, align 4, !tbaa !8
+  %3177 = load i32, ptr %444, align 4, !tbaa !8
+  %3178 = xor i32 %3177, -1
+  %3179 = or i32 %3176, %3178
+  %3180 = xor i32 %3175, %3179
+  %3181 = add i32 %3174, %3180
+  %3182 = load i32, ptr %447, align 4, !tbaa !8
+  %3183 = add i32 %3181, %3182
+  %3184 = load i32, ptr %448, align 4, !tbaa !8
+  %3185 = add i32 %3183, %3184
+  %3186 = lshr i32 %3185, 26
+  %3187 = or i32 %3173, %3186
+  %3188 = add i32 %3160, %3187
+  store i32 %3188, ptr %449, align 4, !tbaa !8
+  %3189 = load i32, ptr %449, align 4, !tbaa !8
+  %3190 = load ptr, ptr %3, align 8, !tbaa !3
+  %3191 = getelementptr i32, ptr %3190, i64 0
+  store i32 %3189, ptr %3191, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %450) #8
+  %3192 = load ptr, ptr %3, align 8, !tbaa !3
+  %3193 = getelementptr i32, ptr %3192, i64 3
+  %3194 = load i32, ptr %3193, align 4, !tbaa !8
+  store i32 %3194, ptr %450, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %451) #8
+  %3195 = load ptr, ptr %3, align 8, !tbaa !3
+  %3196 = getelementptr i32, ptr %3195, i64 0
+  %3197 = load i32, ptr %3196, align 4, !tbaa !8
+  store i32 %3197, ptr %451, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %452) #8
+  %3198 = load ptr, ptr %3, align 8, !tbaa !3
+  %3199 = getelementptr i32, ptr %3198, i64 1
+  %3200 = load i32, ptr %3199, align 4, !tbaa !8
+  store i32 %3200, ptr %452, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %453) #8
+  %3201 = load ptr, ptr %3, align 8, !tbaa !3
+  %3202 = getelementptr i32, ptr %3201, i64 2
+  %3203 = load i32, ptr %3202, align 4, !tbaa !8
+  store i32 %3203, ptr %453, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %454) #8
+  %3204 = load ptr, ptr %4, align 8, !tbaa !10
+  %3205 = getelementptr i8, ptr %3204, i64 28
+  store ptr %3205, ptr %454, align 8, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %455) #8
+  %3206 = load ptr, ptr %454, align 8, !tbaa !10
+  %3207 = call i32 @load32(ptr noundef %3206)
+  %3208 = call i32 @__uint32_identity(i32 noundef %3207)
+  store i32 %3208, ptr %455, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %456) #8
+  %3209 = load i32, ptr %455, align 4, !tbaa !8
+  store i32 %3209, ptr %456, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %457) #8
+  %3210 = load i32, ptr getelementptr ([64 x i32], ptr @_t, i64 0, i64 49), align 4, !tbaa !8
+  store i32 %3210, ptr %457, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %458) #8
+  %3211 = load i32, ptr %451, align 4, !tbaa !8
+  %3212 = load i32, ptr %450, align 4, !tbaa !8
+  %3213 = load i32, ptr %452, align 4, !tbaa !8
+  %3214 = load i32, ptr %451, align 4, !tbaa !8
+  %3215 = load i32, ptr %453, align 4, !tbaa !8
+  %3216 = xor i32 %3215, -1
+  %3217 = or i32 %3214, %3216
+  %3218 = xor i32 %3213, %3217
+  %3219 = add i32 %3212, %3218
+  %3220 = load i32, ptr %456, align 4, !tbaa !8
+  %3221 = add i32 %3219, %3220
+  %3222 = load i32, ptr %457, align 4, !tbaa !8
+  %3223 = add i32 %3221, %3222
+  %3224 = shl i32 %3223, 10
+  %3225 = load i32, ptr %450, align 4, !tbaa !8
+  %3226 = load i32, ptr %452, align 4, !tbaa !8
+  %3227 = load i32, ptr %451, align 4, !tbaa !8
+  %3228 = load i32, ptr %453, align 4, !tbaa !8
+  %3229 = xor i32 %3228, -1
+  %3230 = or i32 %3227, %3229
+  %3231 = xor i32 %3226, %3230
+  %3232 = add i32 %3225, %3231
+  %3233 = load i32, ptr %456, align 4, !tbaa !8
+  %3234 = add i32 %3232, %3233
+  %3235 = load i32, ptr %457, align 4, !tbaa !8
+  %3236 = add i32 %3234, %3235
+  %3237 = lshr i32 %3236, 22
+  %3238 = or i32 %3224, %3237
+  %3239 = add i32 %3211, %3238
+  store i32 %3239, ptr %458, align 4, !tbaa !8
+  %3240 = load i32, ptr %458, align 4, !tbaa !8
+  %3241 = load ptr, ptr %3, align 8, !tbaa !3
+  %3242 = getelementptr i32, ptr %3241, i64 3
+  store i32 %3240, ptr %3242, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %459) #8
+  %3243 = load ptr, ptr %3, align 8, !tbaa !3
+  %3244 = getelementptr i32, ptr %3243, i64 2
+  %3245 = load i32, ptr %3244, align 4, !tbaa !8
+  store i32 %3245, ptr %459, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %460) #8
+  %3246 = load ptr, ptr %3, align 8, !tbaa !3
+  %3247 = getelementptr i32, ptr %3246, i64 3
+  %3248 = load i32, ptr %3247, align 4, !tbaa !8
+  store i32 %3248, ptr %460, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %461) #8
+  %3249 = load ptr, ptr %3, align 8, !tbaa !3
+  %3250 = getelementptr i32, ptr %3249, i64 0
+  %3251 = load i32, ptr %3250, align 4, !tbaa !8
+  store i32 %3251, ptr %461, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %462) #8
+  %3252 = load ptr, ptr %3, align 8, !tbaa !3
+  %3253 = getelementptr i32, ptr %3252, i64 1
+  %3254 = load i32, ptr %3253, align 4, !tbaa !8
+  store i32 %3254, ptr %462, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %463) #8
+  %3255 = load ptr, ptr %4, align 8, !tbaa !10
+  %3256 = getelementptr i8, ptr %3255, i64 56
+  store ptr %3256, ptr %463, align 8, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %464) #8
+  %3257 = load ptr, ptr %463, align 8, !tbaa !10
+  %3258 = call i32 @load32(ptr noundef %3257)
+  %3259 = call i32 @__uint32_identity(i32 noundef %3258)
+  store i32 %3259, ptr %464, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %465) #8
+  %3260 = load i32, ptr %464, align 4, !tbaa !8
+  store i32 %3260, ptr %465, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %466) #8
+  %3261 = load i32, ptr getelementptr ([64 x i32], ptr @_t, i64 0, i64 50), align 8, !tbaa !8
+  store i32 %3261, ptr %466, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %467) #8
+  %3262 = load i32, ptr %460, align 4, !tbaa !8
+  %3263 = load i32, ptr %459, align 4, !tbaa !8
+  %3264 = load i32, ptr %461, align 4, !tbaa !8
+  %3265 = load i32, ptr %460, align 4, !tbaa !8
+  %3266 = load i32, ptr %462, align 4, !tbaa !8
+  %3267 = xor i32 %3266, -1
+  %3268 = or i32 %3265, %3267
+  %3269 = xor i32 %3264, %3268
+  %3270 = add i32 %3263, %3269
+  %3271 = load i32, ptr %465, align 4, !tbaa !8
+  %3272 = add i32 %3270, %3271
+  %3273 = load i32, ptr %466, align 4, !tbaa !8
+  %3274 = add i32 %3272, %3273
+  %3275 = shl i32 %3274, 15
+  %3276 = load i32, ptr %459, align 4, !tbaa !8
+  %3277 = load i32, ptr %461, align 4, !tbaa !8
+  %3278 = load i32, ptr %460, align 4, !tbaa !8
+  %3279 = load i32, ptr %462, align 4, !tbaa !8
+  %3280 = xor i32 %3279, -1
+  %3281 = or i32 %3278, %3280
+  %3282 = xor i32 %3277, %3281
+  %3283 = add i32 %3276, %3282
+  %3284 = load i32, ptr %465, align 4, !tbaa !8
+  %3285 = add i32 %3283, %3284
+  %3286 = load i32, ptr %466, align 4, !tbaa !8
+  %3287 = add i32 %3285, %3286
+  %3288 = lshr i32 %3287, 17
+  %3289 = or i32 %3275, %3288
+  %3290 = add i32 %3262, %3289
+  store i32 %3290, ptr %467, align 4, !tbaa !8
+  %3291 = load i32, ptr %467, align 4, !tbaa !8
+  %3292 = load ptr, ptr %3, align 8, !tbaa !3
+  %3293 = getelementptr i32, ptr %3292, i64 2
+  store i32 %3291, ptr %3293, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %468) #8
+  %3294 = load ptr, ptr %3, align 8, !tbaa !3
+  %3295 = getelementptr i32, ptr %3294, i64 1
+  %3296 = load i32, ptr %3295, align 4, !tbaa !8
+  store i32 %3296, ptr %468, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %469) #8
+  %3297 = load ptr, ptr %3, align 8, !tbaa !3
+  %3298 = getelementptr i32, ptr %3297, i64 2
+  %3299 = load i32, ptr %3298, align 4, !tbaa !8
+  store i32 %3299, ptr %469, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %470) #8
+  %3300 = load ptr, ptr %3, align 8, !tbaa !3
+  %3301 = getelementptr i32, ptr %3300, i64 3
+  %3302 = load i32, ptr %3301, align 4, !tbaa !8
+  store i32 %3302, ptr %470, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %471) #8
+  %3303 = load ptr, ptr %3, align 8, !tbaa !3
+  %3304 = getelementptr i32, ptr %3303, i64 0
+  %3305 = load i32, ptr %3304, align 4, !tbaa !8
+  store i32 %3305, ptr %471, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %472) #8
+  %3306 = load ptr, ptr %4, align 8, !tbaa !10
+  %3307 = getelementptr i8, ptr %3306, i64 20
+  store ptr %3307, ptr %472, align 8, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %473) #8
+  %3308 = load ptr, ptr %472, align 8, !tbaa !10
+  %3309 = call i32 @load32(ptr noundef %3308)
+  %3310 = call i32 @__uint32_identity(i32 noundef %3309)
+  store i32 %3310, ptr %473, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %474) #8
+  %3311 = load i32, ptr %473, align 4, !tbaa !8
+  store i32 %3311, ptr %474, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %475) #8
+  %3312 = load i32, ptr getelementptr ([64 x i32], ptr @_t, i64 0, i64 51), align 4, !tbaa !8
+  store i32 %3312, ptr %475, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %476) #8
+  %3313 = load i32, ptr %469, align 4, !tbaa !8
+  %3314 = load i32, ptr %468, align 4, !tbaa !8
+  %3315 = load i32, ptr %470, align 4, !tbaa !8
+  %3316 = load i32, ptr %469, align 4, !tbaa !8
+  %3317 = load i32, ptr %471, align 4, !tbaa !8
+  %3318 = xor i32 %3317, -1
+  %3319 = or i32 %3316, %3318
+  %3320 = xor i32 %3315, %3319
+  %3321 = add i32 %3314, %3320
+  %3322 = load i32, ptr %474, align 4, !tbaa !8
+  %3323 = add i32 %3321, %3322
+  %3324 = load i32, ptr %475, align 4, !tbaa !8
+  %3325 = add i32 %3323, %3324
+  %3326 = shl i32 %3325, 21
+  %3327 = load i32, ptr %468, align 4, !tbaa !8
+  %3328 = load i32, ptr %470, align 4, !tbaa !8
+  %3329 = load i32, ptr %469, align 4, !tbaa !8
+  %3330 = load i32, ptr %471, align 4, !tbaa !8
+  %3331 = xor i32 %3330, -1
+  %3332 = or i32 %3329, %3331
+  %3333 = xor i32 %3328, %3332
+  %3334 = add i32 %3327, %3333
+  %3335 = load i32, ptr %474, align 4, !tbaa !8
+  %3336 = add i32 %3334, %3335
+  %3337 = load i32, ptr %475, align 4, !tbaa !8
+  %3338 = add i32 %3336, %3337
+  %3339 = lshr i32 %3338, 11
+  %3340 = or i32 %3326, %3339
+  %3341 = add i32 %3313, %3340
+  store i32 %3341, ptr %476, align 4, !tbaa !8
+  %3342 = load i32, ptr %476, align 4, !tbaa !8
+  %3343 = load ptr, ptr %3, align 8, !tbaa !3
+  %3344 = getelementptr i32, ptr %3343, i64 1
+  store i32 %3342, ptr %3344, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %477) #8
+  %3345 = load ptr, ptr %3, align 8, !tbaa !3
+  %3346 = getelementptr i32, ptr %3345, i64 0
+  %3347 = load i32, ptr %3346, align 4, !tbaa !8
+  store i32 %3347, ptr %477, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %478) #8
+  %3348 = load ptr, ptr %3, align 8, !tbaa !3
+  %3349 = getelementptr i32, ptr %3348, i64 1
+  %3350 = load i32, ptr %3349, align 4, !tbaa !8
+  store i32 %3350, ptr %478, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %479) #8
+  %3351 = load ptr, ptr %3, align 8, !tbaa !3
+  %3352 = getelementptr i32, ptr %3351, i64 2
+  %3353 = load i32, ptr %3352, align 4, !tbaa !8
+  store i32 %3353, ptr %479, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %480) #8
+  %3354 = load ptr, ptr %3, align 8, !tbaa !3
+  %3355 = getelementptr i32, ptr %3354, i64 3
+  %3356 = load i32, ptr %3355, align 4, !tbaa !8
+  store i32 %3356, ptr %480, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %481) #8
+  %3357 = load ptr, ptr %4, align 8, !tbaa !10
+  %3358 = getelementptr i8, ptr %3357, i64 48
+  store ptr %3358, ptr %481, align 8, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %482) #8
+  %3359 = load ptr, ptr %481, align 8, !tbaa !10
+  %3360 = call i32 @load32(ptr noundef %3359)
+  %3361 = call i32 @__uint32_identity(i32 noundef %3360)
+  store i32 %3361, ptr %482, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %483) #8
+  %3362 = load i32, ptr %482, align 4, !tbaa !8
+  store i32 %3362, ptr %483, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %484) #8
+  %3363 = load i32, ptr getelementptr ([64 x i32], ptr @_t, i64 0, i64 52), align 16, !tbaa !8
+  store i32 %3363, ptr %484, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %485) #8
+  %3364 = load i32, ptr %478, align 4, !tbaa !8
+  %3365 = load i32, ptr %477, align 4, !tbaa !8
+  %3366 = load i32, ptr %479, align 4, !tbaa !8
+  %3367 = load i32, ptr %478, align 4, !tbaa !8
+  %3368 = load i32, ptr %480, align 4, !tbaa !8
+  %3369 = xor i32 %3368, -1
+  %3370 = or i32 %3367, %3369
+  %3371 = xor i32 %3366, %3370
+  %3372 = add i32 %3365, %3371
+  %3373 = load i32, ptr %483, align 4, !tbaa !8
+  %3374 = add i32 %3372, %3373
+  %3375 = load i32, ptr %484, align 4, !tbaa !8
+  %3376 = add i32 %3374, %3375
+  %3377 = shl i32 %3376, 6
+  %3378 = load i32, ptr %477, align 4, !tbaa !8
+  %3379 = load i32, ptr %479, align 4, !tbaa !8
+  %3380 = load i32, ptr %478, align 4, !tbaa !8
+  %3381 = load i32, ptr %480, align 4, !tbaa !8
+  %3382 = xor i32 %3381, -1
+  %3383 = or i32 %3380, %3382
+  %3384 = xor i32 %3379, %3383
+  %3385 = add i32 %3378, %3384
+  %3386 = load i32, ptr %483, align 4, !tbaa !8
+  %3387 = add i32 %3385, %3386
+  %3388 = load i32, ptr %484, align 4, !tbaa !8
+  %3389 = add i32 %3387, %3388
+  %3390 = lshr i32 %3389, 26
+  %3391 = or i32 %3377, %3390
+  %3392 = add i32 %3364, %3391
+  store i32 %3392, ptr %485, align 4, !tbaa !8
+  %3393 = load i32, ptr %485, align 4, !tbaa !8
+  %3394 = load ptr, ptr %3, align 8, !tbaa !3
+  %3395 = getelementptr i32, ptr %3394, i64 0
+  store i32 %3393, ptr %3395, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %486) #8
+  %3396 = load ptr, ptr %3, align 8, !tbaa !3
+  %3397 = getelementptr i32, ptr %3396, i64 3
+  %3398 = load i32, ptr %3397, align 4, !tbaa !8
+  store i32 %3398, ptr %486, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %487) #8
+  %3399 = load ptr, ptr %3, align 8, !tbaa !3
+  %3400 = getelementptr i32, ptr %3399, i64 0
+  %3401 = load i32, ptr %3400, align 4, !tbaa !8
+  store i32 %3401, ptr %487, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %488) #8
+  %3402 = load ptr, ptr %3, align 8, !tbaa !3
+  %3403 = getelementptr i32, ptr %3402, i64 1
+  %3404 = load i32, ptr %3403, align 4, !tbaa !8
+  store i32 %3404, ptr %488, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %489) #8
+  %3405 = load ptr, ptr %3, align 8, !tbaa !3
+  %3406 = getelementptr i32, ptr %3405, i64 2
+  %3407 = load i32, ptr %3406, align 4, !tbaa !8
+  store i32 %3407, ptr %489, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %490) #8
+  %3408 = load ptr, ptr %4, align 8, !tbaa !10
+  %3409 = getelementptr i8, ptr %3408, i64 12
+  store ptr %3409, ptr %490, align 8, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %491) #8
+  %3410 = load ptr, ptr %490, align 8, !tbaa !10
+  %3411 = call i32 @load32(ptr noundef %3410)
+  %3412 = call i32 @__uint32_identity(i32 noundef %3411)
+  store i32 %3412, ptr %491, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %492) #8
+  %3413 = load i32, ptr %491, align 4, !tbaa !8
+  store i32 %3413, ptr %492, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %493) #8
+  %3414 = load i32, ptr getelementptr ([64 x i32], ptr @_t, i64 0, i64 53), align 4, !tbaa !8
+  store i32 %3414, ptr %493, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %494) #8
+  %3415 = load i32, ptr %487, align 4, !tbaa !8
+  %3416 = load i32, ptr %486, align 4, !tbaa !8
+  %3417 = load i32, ptr %488, align 4, !tbaa !8
+  %3418 = load i32, ptr %487, align 4, !tbaa !8
+  %3419 = load i32, ptr %489, align 4, !tbaa !8
+  %3420 = xor i32 %3419, -1
+  %3421 = or i32 %3418, %3420
+  %3422 = xor i32 %3417, %3421
+  %3423 = add i32 %3416, %3422
+  %3424 = load i32, ptr %492, align 4, !tbaa !8
+  %3425 = add i32 %3423, %3424
+  %3426 = load i32, ptr %493, align 4, !tbaa !8
+  %3427 = add i32 %3425, %3426
+  %3428 = shl i32 %3427, 10
+  %3429 = load i32, ptr %486, align 4, !tbaa !8
+  %3430 = load i32, ptr %488, align 4, !tbaa !8
+  %3431 = load i32, ptr %487, align 4, !tbaa !8
+  %3432 = load i32, ptr %489, align 4, !tbaa !8
+  %3433 = xor i32 %3432, -1
+  %3434 = or i32 %3431, %3433
+  %3435 = xor i32 %3430, %3434
+  %3436 = add i32 %3429, %3435
+  %3437 = load i32, ptr %492, align 4, !tbaa !8
+  %3438 = add i32 %3436, %3437
+  %3439 = load i32, ptr %493, align 4, !tbaa !8
+  %3440 = add i32 %3438, %3439
+  %3441 = lshr i32 %3440, 22
+  %3442 = or i32 %3428, %3441
+  %3443 = add i32 %3415, %3442
+  store i32 %3443, ptr %494, align 4, !tbaa !8
+  %3444 = load i32, ptr %494, align 4, !tbaa !8
+  %3445 = load ptr, ptr %3, align 8, !tbaa !3
+  %3446 = getelementptr i32, ptr %3445, i64 3
+  store i32 %3444, ptr %3446, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %495) #8
+  %3447 = load ptr, ptr %3, align 8, !tbaa !3
+  %3448 = getelementptr i32, ptr %3447, i64 2
+  %3449 = load i32, ptr %3448, align 4, !tbaa !8
+  store i32 %3449, ptr %495, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %496) #8
+  %3450 = load ptr, ptr %3, align 8, !tbaa !3
+  %3451 = getelementptr i32, ptr %3450, i64 3
+  %3452 = load i32, ptr %3451, align 4, !tbaa !8
+  store i32 %3452, ptr %496, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %497) #8
+  %3453 = load ptr, ptr %3, align 8, !tbaa !3
+  %3454 = getelementptr i32, ptr %3453, i64 0
+  %3455 = load i32, ptr %3454, align 4, !tbaa !8
+  store i32 %3455, ptr %497, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %498) #8
+  %3456 = load ptr, ptr %3, align 8, !tbaa !3
+  %3457 = getelementptr i32, ptr %3456, i64 1
+  %3458 = load i32, ptr %3457, align 4, !tbaa !8
+  store i32 %3458, ptr %498, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %499) #8
+  %3459 = load ptr, ptr %4, align 8, !tbaa !10
+  %3460 = getelementptr i8, ptr %3459, i64 40
+  store ptr %3460, ptr %499, align 8, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %500) #8
+  %3461 = load ptr, ptr %499, align 8, !tbaa !10
+  %3462 = call i32 @load32(ptr noundef %3461)
+  %3463 = call i32 @__uint32_identity(i32 noundef %3462)
+  store i32 %3463, ptr %500, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %501) #8
+  %3464 = load i32, ptr %500, align 4, !tbaa !8
+  store i32 %3464, ptr %501, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %502) #8
+  %3465 = load i32, ptr getelementptr ([64 x i32], ptr @_t, i64 0, i64 54), align 8, !tbaa !8
+  store i32 %3465, ptr %502, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %503) #8
+  %3466 = load i32, ptr %496, align 4, !tbaa !8
+  %3467 = load i32, ptr %495, align 4, !tbaa !8
+  %3468 = load i32, ptr %497, align 4, !tbaa !8
+  %3469 = load i32, ptr %496, align 4, !tbaa !8
+  %3470 = load i32, ptr %498, align 4, !tbaa !8
+  %3471 = xor i32 %3470, -1
+  %3472 = or i32 %3469, %3471
+  %3473 = xor i32 %3468, %3472
+  %3474 = add i32 %3467, %3473
+  %3475 = load i32, ptr %501, align 4, !tbaa !8
+  %3476 = add i32 %3474, %3475
+  %3477 = load i32, ptr %502, align 4, !tbaa !8
+  %3478 = add i32 %3476, %3477
+  %3479 = shl i32 %3478, 15
+  %3480 = load i32, ptr %495, align 4, !tbaa !8
+  %3481 = load i32, ptr %497, align 4, !tbaa !8
+  %3482 = load i32, ptr %496, align 4, !tbaa !8
+  %3483 = load i32, ptr %498, align 4, !tbaa !8
+  %3484 = xor i32 %3483, -1
+  %3485 = or i32 %3482, %3484
+  %3486 = xor i32 %3481, %3485
+  %3487 = add i32 %3480, %3486
+  %3488 = load i32, ptr %501, align 4, !tbaa !8
+  %3489 = add i32 %3487, %3488
+  %3490 = load i32, ptr %502, align 4, !tbaa !8
+  %3491 = add i32 %3489, %3490
+  %3492 = lshr i32 %3491, 17
+  %3493 = or i32 %3479, %3492
+  %3494 = add i32 %3466, %3493
+  store i32 %3494, ptr %503, align 4, !tbaa !8
+  %3495 = load i32, ptr %503, align 4, !tbaa !8
+  %3496 = load ptr, ptr %3, align 8, !tbaa !3
+  %3497 = getelementptr i32, ptr %3496, i64 2
+  store i32 %3495, ptr %3497, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %504) #8
+  %3498 = load ptr, ptr %3, align 8, !tbaa !3
+  %3499 = getelementptr i32, ptr %3498, i64 1
+  %3500 = load i32, ptr %3499, align 4, !tbaa !8
+  store i32 %3500, ptr %504, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %505) #8
+  %3501 = load ptr, ptr %3, align 8, !tbaa !3
+  %3502 = getelementptr i32, ptr %3501, i64 2
+  %3503 = load i32, ptr %3502, align 4, !tbaa !8
+  store i32 %3503, ptr %505, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %506) #8
+  %3504 = load ptr, ptr %3, align 8, !tbaa !3
+  %3505 = getelementptr i32, ptr %3504, i64 3
+  %3506 = load i32, ptr %3505, align 4, !tbaa !8
+  store i32 %3506, ptr %506, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %507) #8
+  %3507 = load ptr, ptr %3, align 8, !tbaa !3
+  %3508 = getelementptr i32, ptr %3507, i64 0
+  %3509 = load i32, ptr %3508, align 4, !tbaa !8
+  store i32 %3509, ptr %507, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %508) #8
+  %3510 = load ptr, ptr %4, align 8, !tbaa !10
+  %3511 = getelementptr i8, ptr %3510, i64 4
+  store ptr %3511, ptr %508, align 8, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %509) #8
+  %3512 = load ptr, ptr %508, align 8, !tbaa !10
+  %3513 = call i32 @load32(ptr noundef %3512)
+  %3514 = call i32 @__uint32_identity(i32 noundef %3513)
+  store i32 %3514, ptr %509, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %510) #8
+  %3515 = load i32, ptr %509, align 4, !tbaa !8
+  store i32 %3515, ptr %510, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %511) #8
+  %3516 = load i32, ptr getelementptr ([64 x i32], ptr @_t, i64 0, i64 55), align 4, !tbaa !8
+  store i32 %3516, ptr %511, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %512) #8
+  %3517 = load i32, ptr %505, align 4, !tbaa !8
+  %3518 = load i32, ptr %504, align 4, !tbaa !8
+  %3519 = load i32, ptr %506, align 4, !tbaa !8
+  %3520 = load i32, ptr %505, align 4, !tbaa !8
+  %3521 = load i32, ptr %507, align 4, !tbaa !8
+  %3522 = xor i32 %3521, -1
+  %3523 = or i32 %3520, %3522
+  %3524 = xor i32 %3519, %3523
+  %3525 = add i32 %3518, %3524
+  %3526 = load i32, ptr %510, align 4, !tbaa !8
+  %3527 = add i32 %3525, %3526
+  %3528 = load i32, ptr %511, align 4, !tbaa !8
+  %3529 = add i32 %3527, %3528
+  %3530 = shl i32 %3529, 21
+  %3531 = load i32, ptr %504, align 4, !tbaa !8
+  %3532 = load i32, ptr %506, align 4, !tbaa !8
+  %3533 = load i32, ptr %505, align 4, !tbaa !8
+  %3534 = load i32, ptr %507, align 4, !tbaa !8
+  %3535 = xor i32 %3534, -1
+  %3536 = or i32 %3533, %3535
+  %3537 = xor i32 %3532, %3536
+  %3538 = add i32 %3531, %3537
+  %3539 = load i32, ptr %510, align 4, !tbaa !8
+  %3540 = add i32 %3538, %3539
+  %3541 = load i32, ptr %511, align 4, !tbaa !8
+  %3542 = add i32 %3540, %3541
+  %3543 = lshr i32 %3542, 11
+  %3544 = or i32 %3530, %3543
+  %3545 = add i32 %3517, %3544
+  store i32 %3545, ptr %512, align 4, !tbaa !8
+  %3546 = load i32, ptr %512, align 4, !tbaa !8
+  %3547 = load ptr, ptr %3, align 8, !tbaa !3
+  %3548 = getelementptr i32, ptr %3547, i64 1
+  store i32 %3546, ptr %3548, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %513) #8
+  %3549 = load ptr, ptr %3, align 8, !tbaa !3
+  %3550 = getelementptr i32, ptr %3549, i64 0
+  %3551 = load i32, ptr %3550, align 4, !tbaa !8
+  store i32 %3551, ptr %513, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %514) #8
+  %3552 = load ptr, ptr %3, align 8, !tbaa !3
+  %3553 = getelementptr i32, ptr %3552, i64 1
+  %3554 = load i32, ptr %3553, align 4, !tbaa !8
+  store i32 %3554, ptr %514, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %515) #8
+  %3555 = load ptr, ptr %3, align 8, !tbaa !3
+  %3556 = getelementptr i32, ptr %3555, i64 2
+  %3557 = load i32, ptr %3556, align 4, !tbaa !8
+  store i32 %3557, ptr %515, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %516) #8
+  %3558 = load ptr, ptr %3, align 8, !tbaa !3
+  %3559 = getelementptr i32, ptr %3558, i64 3
+  %3560 = load i32, ptr %3559, align 4, !tbaa !8
+  store i32 %3560, ptr %516, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %517) #8
+  %3561 = load ptr, ptr %4, align 8, !tbaa !10
+  %3562 = getelementptr i8, ptr %3561, i64 32
+  store ptr %3562, ptr %517, align 8, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %518) #8
+  %3563 = load ptr, ptr %517, align 8, !tbaa !10
+  %3564 = call i32 @load32(ptr noundef %3563)
+  %3565 = call i32 @__uint32_identity(i32 noundef %3564)
+  store i32 %3565, ptr %518, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %519) #8
+  %3566 = load i32, ptr %518, align 4, !tbaa !8
+  store i32 %3566, ptr %519, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %520) #8
+  %3567 = load i32, ptr getelementptr ([64 x i32], ptr @_t, i64 0, i64 56), align 16, !tbaa !8
+  store i32 %3567, ptr %520, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %521) #8
+  %3568 = load i32, ptr %514, align 4, !tbaa !8
+  %3569 = load i32, ptr %513, align 4, !tbaa !8
+  %3570 = load i32, ptr %515, align 4, !tbaa !8
+  %3571 = load i32, ptr %514, align 4, !tbaa !8
+  %3572 = load i32, ptr %516, align 4, !tbaa !8
+  %3573 = xor i32 %3572, -1
+  %3574 = or i32 %3571, %3573
+  %3575 = xor i32 %3570, %3574
+  %3576 = add i32 %3569, %3575
+  %3577 = load i32, ptr %519, align 4, !tbaa !8
+  %3578 = add i32 %3576, %3577
+  %3579 = load i32, ptr %520, align 4, !tbaa !8
+  %3580 = add i32 %3578, %3579
+  %3581 = shl i32 %3580, 6
+  %3582 = load i32, ptr %513, align 4, !tbaa !8
+  %3583 = load i32, ptr %515, align 4, !tbaa !8
+  %3584 = load i32, ptr %514, align 4, !tbaa !8
+  %3585 = load i32, ptr %516, align 4, !tbaa !8
+  %3586 = xor i32 %3585, -1
+  %3587 = or i32 %3584, %3586
+  %3588 = xor i32 %3583, %3587
+  %3589 = add i32 %3582, %3588
+  %3590 = load i32, ptr %519, align 4, !tbaa !8
+  %3591 = add i32 %3589, %3590
+  %3592 = load i32, ptr %520, align 4, !tbaa !8
+  %3593 = add i32 %3591, %3592
+  %3594 = lshr i32 %3593, 26
+  %3595 = or i32 %3581, %3594
+  %3596 = add i32 %3568, %3595
+  store i32 %3596, ptr %521, align 4, !tbaa !8
+  %3597 = load i32, ptr %521, align 4, !tbaa !8
+  %3598 = load ptr, ptr %3, align 8, !tbaa !3
+  %3599 = getelementptr i32, ptr %3598, i64 0
+  store i32 %3597, ptr %3599, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %522) #8
+  %3600 = load ptr, ptr %3, align 8, !tbaa !3
+  %3601 = getelementptr i32, ptr %3600, i64 3
+  %3602 = load i32, ptr %3601, align 4, !tbaa !8
+  store i32 %3602, ptr %522, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %523) #8
+  %3603 = load ptr, ptr %3, align 8, !tbaa !3
+  %3604 = getelementptr i32, ptr %3603, i64 0
+  %3605 = load i32, ptr %3604, align 4, !tbaa !8
+  store i32 %3605, ptr %523, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %524) #8
+  %3606 = load ptr, ptr %3, align 8, !tbaa !3
+  %3607 = getelementptr i32, ptr %3606, i64 1
+  %3608 = load i32, ptr %3607, align 4, !tbaa !8
+  store i32 %3608, ptr %524, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %525) #8
+  %3609 = load ptr, ptr %3, align 8, !tbaa !3
+  %3610 = getelementptr i32, ptr %3609, i64 2
+  %3611 = load i32, ptr %3610, align 4, !tbaa !8
+  store i32 %3611, ptr %525, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %526) #8
+  %3612 = load ptr, ptr %4, align 8, !tbaa !10
+  %3613 = getelementptr i8, ptr %3612, i64 60
+  store ptr %3613, ptr %526, align 8, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %527) #8
+  %3614 = load ptr, ptr %526, align 8, !tbaa !10
+  %3615 = call i32 @load32(ptr noundef %3614)
+  %3616 = call i32 @__uint32_identity(i32 noundef %3615)
+  store i32 %3616, ptr %527, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %528) #8
+  %3617 = load i32, ptr %527, align 4, !tbaa !8
+  store i32 %3617, ptr %528, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %529) #8
+  %3618 = load i32, ptr getelementptr ([64 x i32], ptr @_t, i64 0, i64 57), align 4, !tbaa !8
+  store i32 %3618, ptr %529, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %530) #8
+  %3619 = load i32, ptr %523, align 4, !tbaa !8
+  %3620 = load i32, ptr %522, align 4, !tbaa !8
+  %3621 = load i32, ptr %524, align 4, !tbaa !8
+  %3622 = load i32, ptr %523, align 4, !tbaa !8
+  %3623 = load i32, ptr %525, align 4, !tbaa !8
+  %3624 = xor i32 %3623, -1
+  %3625 = or i32 %3622, %3624
+  %3626 = xor i32 %3621, %3625
+  %3627 = add i32 %3620, %3626
+  %3628 = load i32, ptr %528, align 4, !tbaa !8
+  %3629 = add i32 %3627, %3628
+  %3630 = load i32, ptr %529, align 4, !tbaa !8
+  %3631 = add i32 %3629, %3630
+  %3632 = shl i32 %3631, 10
+  %3633 = load i32, ptr %522, align 4, !tbaa !8
+  %3634 = load i32, ptr %524, align 4, !tbaa !8
+  %3635 = load i32, ptr %523, align 4, !tbaa !8
+  %3636 = load i32, ptr %525, align 4, !tbaa !8
+  %3637 = xor i32 %3636, -1
+  %3638 = or i32 %3635, %3637
+  %3639 = xor i32 %3634, %3638
+  %3640 = add i32 %3633, %3639
+  %3641 = load i32, ptr %528, align 4, !tbaa !8
+  %3642 = add i32 %3640, %3641
+  %3643 = load i32, ptr %529, align 4, !tbaa !8
+  %3644 = add i32 %3642, %3643
+  %3645 = lshr i32 %3644, 22
+  %3646 = or i32 %3632, %3645
+  %3647 = add i32 %3619, %3646
+  store i32 %3647, ptr %530, align 4, !tbaa !8
+  %3648 = load i32, ptr %530, align 4, !tbaa !8
+  %3649 = load ptr, ptr %3, align 8, !tbaa !3
+  %3650 = getelementptr i32, ptr %3649, i64 3
+  store i32 %3648, ptr %3650, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %531) #8
+  %3651 = load ptr, ptr %3, align 8, !tbaa !3
+  %3652 = getelementptr i32, ptr %3651, i64 2
+  %3653 = load i32, ptr %3652, align 4, !tbaa !8
+  store i32 %3653, ptr %531, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %532) #8
+  %3654 = load ptr, ptr %3, align 8, !tbaa !3
+  %3655 = getelementptr i32, ptr %3654, i64 3
+  %3656 = load i32, ptr %3655, align 4, !tbaa !8
+  store i32 %3656, ptr %532, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %533) #8
+  %3657 = load ptr, ptr %3, align 8, !tbaa !3
+  %3658 = getelementptr i32, ptr %3657, i64 0
+  %3659 = load i32, ptr %3658, align 4, !tbaa !8
+  store i32 %3659, ptr %533, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %534) #8
+  %3660 = load ptr, ptr %3, align 8, !tbaa !3
+  %3661 = getelementptr i32, ptr %3660, i64 1
+  %3662 = load i32, ptr %3661, align 4, !tbaa !8
+  store i32 %3662, ptr %534, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %535) #8
+  %3663 = load ptr, ptr %4, align 8, !tbaa !10
+  %3664 = getelementptr i8, ptr %3663, i64 24
+  store ptr %3664, ptr %535, align 8, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %536) #8
+  %3665 = load ptr, ptr %535, align 8, !tbaa !10
+  %3666 = call i32 @load32(ptr noundef %3665)
+  %3667 = call i32 @__uint32_identity(i32 noundef %3666)
+  store i32 %3667, ptr %536, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %537) #8
+  %3668 = load i32, ptr %536, align 4, !tbaa !8
+  store i32 %3668, ptr %537, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %538) #8
+  %3669 = load i32, ptr getelementptr ([64 x i32], ptr @_t, i64 0, i64 58), align 8, !tbaa !8
+  store i32 %3669, ptr %538, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %539) #8
+  %3670 = load i32, ptr %532, align 4, !tbaa !8
+  %3671 = load i32, ptr %531, align 4, !tbaa !8
+  %3672 = load i32, ptr %533, align 4, !tbaa !8
+  %3673 = load i32, ptr %532, align 4, !tbaa !8
+  %3674 = load i32, ptr %534, align 4, !tbaa !8
+  %3675 = xor i32 %3674, -1
+  %3676 = or i32 %3673, %3675
+  %3677 = xor i32 %3672, %3676
+  %3678 = add i32 %3671, %3677
+  %3679 = load i32, ptr %537, align 4, !tbaa !8
+  %3680 = add i32 %3678, %3679
+  %3681 = load i32, ptr %538, align 4, !tbaa !8
+  %3682 = add i32 %3680, %3681
+  %3683 = shl i32 %3682, 15
+  %3684 = load i32, ptr %531, align 4, !tbaa !8
+  %3685 = load i32, ptr %533, align 4, !tbaa !8
+  %3686 = load i32, ptr %532, align 4, !tbaa !8
+  %3687 = load i32, ptr %534, align 4, !tbaa !8
+  %3688 = xor i32 %3687, -1
+  %3689 = or i32 %3686, %3688
+  %3690 = xor i32 %3685, %3689
+  %3691 = add i32 %3684, %3690
+  %3692 = load i32, ptr %537, align 4, !tbaa !8
+  %3693 = add i32 %3691, %3692
+  %3694 = load i32, ptr %538, align 4, !tbaa !8
+  %3695 = add i32 %3693, %3694
+  %3696 = lshr i32 %3695, 17
+  %3697 = or i32 %3683, %3696
+  %3698 = add i32 %3670, %3697
+  store i32 %3698, ptr %539, align 4, !tbaa !8
+  %3699 = load i32, ptr %539, align 4, !tbaa !8
+  %3700 = load ptr, ptr %3, align 8, !tbaa !3
+  %3701 = getelementptr i32, ptr %3700, i64 2
+  store i32 %3699, ptr %3701, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %540) #8
+  %3702 = load ptr, ptr %3, align 8, !tbaa !3
+  %3703 = getelementptr i32, ptr %3702, i64 1
+  %3704 = load i32, ptr %3703, align 4, !tbaa !8
+  store i32 %3704, ptr %540, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %541) #8
+  %3705 = load ptr, ptr %3, align 8, !tbaa !3
+  %3706 = getelementptr i32, ptr %3705, i64 2
+  %3707 = load i32, ptr %3706, align 4, !tbaa !8
+  store i32 %3707, ptr %541, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %542) #8
+  %3708 = load ptr, ptr %3, align 8, !tbaa !3
+  %3709 = getelementptr i32, ptr %3708, i64 3
+  %3710 = load i32, ptr %3709, align 4, !tbaa !8
+  store i32 %3710, ptr %542, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %543) #8
+  %3711 = load ptr, ptr %3, align 8, !tbaa !3
+  %3712 = getelementptr i32, ptr %3711, i64 0
+  %3713 = load i32, ptr %3712, align 4, !tbaa !8
+  store i32 %3713, ptr %543, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %544) #8
+  %3714 = load ptr, ptr %4, align 8, !tbaa !10
+  %3715 = getelementptr i8, ptr %3714, i64 52
+  store ptr %3715, ptr %544, align 8, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %545) #8
+  %3716 = load ptr, ptr %544, align 8, !tbaa !10
+  %3717 = call i32 @load32(ptr noundef %3716)
+  %3718 = call i32 @__uint32_identity(i32 noundef %3717)
+  store i32 %3718, ptr %545, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %546) #8
+  %3719 = load i32, ptr %545, align 4, !tbaa !8
+  store i32 %3719, ptr %546, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %547) #8
+  %3720 = load i32, ptr getelementptr ([64 x i32], ptr @_t, i64 0, i64 59), align 4, !tbaa !8
+  store i32 %3720, ptr %547, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %548) #8
+  %3721 = load i32, ptr %541, align 4, !tbaa !8
+  %3722 = load i32, ptr %540, align 4, !tbaa !8
+  %3723 = load i32, ptr %542, align 4, !tbaa !8
+  %3724 = load i32, ptr %541, align 4, !tbaa !8
+  %3725 = load i32, ptr %543, align 4, !tbaa !8
+  %3726 = xor i32 %3725, -1
+  %3727 = or i32 %3724, %3726
+  %3728 = xor i32 %3723, %3727
+  %3729 = add i32 %3722, %3728
+  %3730 = load i32, ptr %546, align 4, !tbaa !8
+  %3731 = add i32 %3729, %3730
+  %3732 = load i32, ptr %547, align 4, !tbaa !8
+  %3733 = add i32 %3731, %3732
+  %3734 = shl i32 %3733, 21
+  %3735 = load i32, ptr %540, align 4, !tbaa !8
+  %3736 = load i32, ptr %542, align 4, !tbaa !8
+  %3737 = load i32, ptr %541, align 4, !tbaa !8
+  %3738 = load i32, ptr %543, align 4, !tbaa !8
+  %3739 = xor i32 %3738, -1
+  %3740 = or i32 %3737, %3739
+  %3741 = xor i32 %3736, %3740
+  %3742 = add i32 %3735, %3741
+  %3743 = load i32, ptr %546, align 4, !tbaa !8
+  %3744 = add i32 %3742, %3743
+  %3745 = load i32, ptr %547, align 4, !tbaa !8
+  %3746 = add i32 %3744, %3745
+  %3747 = lshr i32 %3746, 11
+  %3748 = or i32 %3734, %3747
+  %3749 = add i32 %3721, %3748
+  store i32 %3749, ptr %548, align 4, !tbaa !8
+  %3750 = load i32, ptr %548, align 4, !tbaa !8
+  %3751 = load ptr, ptr %3, align 8, !tbaa !3
+  %3752 = getelementptr i32, ptr %3751, i64 1
+  store i32 %3750, ptr %3752, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %549) #8
+  %3753 = load ptr, ptr %3, align 8, !tbaa !3
+  %3754 = getelementptr i32, ptr %3753, i64 0
+  %3755 = load i32, ptr %3754, align 4, !tbaa !8
+  store i32 %3755, ptr %549, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %550) #8
+  %3756 = load ptr, ptr %3, align 8, !tbaa !3
+  %3757 = getelementptr i32, ptr %3756, i64 1
+  %3758 = load i32, ptr %3757, align 4, !tbaa !8
+  store i32 %3758, ptr %550, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %551) #8
+  %3759 = load ptr, ptr %3, align 8, !tbaa !3
+  %3760 = getelementptr i32, ptr %3759, i64 2
+  %3761 = load i32, ptr %3760, align 4, !tbaa !8
+  store i32 %3761, ptr %551, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %552) #8
+  %3762 = load ptr, ptr %3, align 8, !tbaa !3
+  %3763 = getelementptr i32, ptr %3762, i64 3
+  %3764 = load i32, ptr %3763, align 4, !tbaa !8
+  store i32 %3764, ptr %552, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %553) #8
+  %3765 = load ptr, ptr %4, align 8, !tbaa !10
+  %3766 = getelementptr i8, ptr %3765, i64 16
+  store ptr %3766, ptr %553, align 8, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %554) #8
+  %3767 = load ptr, ptr %553, align 8, !tbaa !10
+  %3768 = call i32 @load32(ptr noundef %3767)
+  %3769 = call i32 @__uint32_identity(i32 noundef %3768)
+  store i32 %3769, ptr %554, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %555) #8
+  %3770 = load i32, ptr %554, align 4, !tbaa !8
+  store i32 %3770, ptr %555, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %556) #8
+  %3771 = load i32, ptr getelementptr ([64 x i32], ptr @_t, i64 0, i64 60), align 16, !tbaa !8
+  store i32 %3771, ptr %556, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %557) #8
+  %3772 = load i32, ptr %550, align 4, !tbaa !8
+  %3773 = load i32, ptr %549, align 4, !tbaa !8
+  %3774 = load i32, ptr %551, align 4, !tbaa !8
+  %3775 = load i32, ptr %550, align 4, !tbaa !8
+  %3776 = load i32, ptr %552, align 4, !tbaa !8
+  %3777 = xor i32 %3776, -1
+  %3778 = or i32 %3775, %3777
+  %3779 = xor i32 %3774, %3778
+  %3780 = add i32 %3773, %3779
+  %3781 = load i32, ptr %555, align 4, !tbaa !8
+  %3782 = add i32 %3780, %3781
+  %3783 = load i32, ptr %556, align 4, !tbaa !8
+  %3784 = add i32 %3782, %3783
+  %3785 = shl i32 %3784, 6
+  %3786 = load i32, ptr %549, align 4, !tbaa !8
+  %3787 = load i32, ptr %551, align 4, !tbaa !8
+  %3788 = load i32, ptr %550, align 4, !tbaa !8
+  %3789 = load i32, ptr %552, align 4, !tbaa !8
+  %3790 = xor i32 %3789, -1
+  %3791 = or i32 %3788, %3790
+  %3792 = xor i32 %3787, %3791
+  %3793 = add i32 %3786, %3792
+  %3794 = load i32, ptr %555, align 4, !tbaa !8
+  %3795 = add i32 %3793, %3794
+  %3796 = load i32, ptr %556, align 4, !tbaa !8
+  %3797 = add i32 %3795, %3796
+  %3798 = lshr i32 %3797, 26
+  %3799 = or i32 %3785, %3798
+  %3800 = add i32 %3772, %3799
+  store i32 %3800, ptr %557, align 4, !tbaa !8
+  %3801 = load i32, ptr %557, align 4, !tbaa !8
+  %3802 = load ptr, ptr %3, align 8, !tbaa !3
+  %3803 = getelementptr i32, ptr %3802, i64 0
+  store i32 %3801, ptr %3803, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %558) #8
+  %3804 = load ptr, ptr %3, align 8, !tbaa !3
+  %3805 = getelementptr i32, ptr %3804, i64 3
+  %3806 = load i32, ptr %3805, align 4, !tbaa !8
+  store i32 %3806, ptr %558, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %559) #8
+  %3807 = load ptr, ptr %3, align 8, !tbaa !3
+  %3808 = getelementptr i32, ptr %3807, i64 0
+  %3809 = load i32, ptr %3808, align 4, !tbaa !8
+  store i32 %3809, ptr %559, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %560) #8
+  %3810 = load ptr, ptr %3, align 8, !tbaa !3
+  %3811 = getelementptr i32, ptr %3810, i64 1
+  %3812 = load i32, ptr %3811, align 4, !tbaa !8
+  store i32 %3812, ptr %560, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %561) #8
+  %3813 = load ptr, ptr %3, align 8, !tbaa !3
+  %3814 = getelementptr i32, ptr %3813, i64 2
+  %3815 = load i32, ptr %3814, align 4, !tbaa !8
+  store i32 %3815, ptr %561, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %562) #8
+  %3816 = load ptr, ptr %4, align 8, !tbaa !10
+  %3817 = getelementptr i8, ptr %3816, i64 44
+  store ptr %3817, ptr %562, align 8, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %563) #8
+  %3818 = load ptr, ptr %562, align 8, !tbaa !10
+  %3819 = call i32 @load32(ptr noundef %3818)
+  %3820 = call i32 @__uint32_identity(i32 noundef %3819)
+  store i32 %3820, ptr %563, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %564) #8
+  %3821 = load i32, ptr %563, align 4, !tbaa !8
+  store i32 %3821, ptr %564, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %565) #8
+  %3822 = load i32, ptr getelementptr ([64 x i32], ptr @_t, i64 0, i64 61), align 4, !tbaa !8
+  store i32 %3822, ptr %565, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %566) #8
+  %3823 = load i32, ptr %559, align 4, !tbaa !8
+  %3824 = load i32, ptr %558, align 4, !tbaa !8
+  %3825 = load i32, ptr %560, align 4, !tbaa !8
+  %3826 = load i32, ptr %559, align 4, !tbaa !8
+  %3827 = load i32, ptr %561, align 4, !tbaa !8
+  %3828 = xor i32 %3827, -1
+  %3829 = or i32 %3826, %3828
+  %3830 = xor i32 %3825, %3829
+  %3831 = add i32 %3824, %3830
+  %3832 = load i32, ptr %564, align 4, !tbaa !8
+  %3833 = add i32 %3831, %3832
+  %3834 = load i32, ptr %565, align 4, !tbaa !8
+  %3835 = add i32 %3833, %3834
+  %3836 = shl i32 %3835, 10
+  %3837 = load i32, ptr %558, align 4, !tbaa !8
+  %3838 = load i32, ptr %560, align 4, !tbaa !8
+  %3839 = load i32, ptr %559, align 4, !tbaa !8
+  %3840 = load i32, ptr %561, align 4, !tbaa !8
+  %3841 = xor i32 %3840, -1
+  %3842 = or i32 %3839, %3841
+  %3843 = xor i32 %3838, %3842
+  %3844 = add i32 %3837, %3843
+  %3845 = load i32, ptr %564, align 4, !tbaa !8
+  %3846 = add i32 %3844, %3845
+  %3847 = load i32, ptr %565, align 4, !tbaa !8
+  %3848 = add i32 %3846, %3847
+  %3849 = lshr i32 %3848, 22
+  %3850 = or i32 %3836, %3849
+  %3851 = add i32 %3823, %3850
+  store i32 %3851, ptr %566, align 4, !tbaa !8
+  %3852 = load i32, ptr %566, align 4, !tbaa !8
+  %3853 = load ptr, ptr %3, align 8, !tbaa !3
+  %3854 = getelementptr i32, ptr %3853, i64 3
+  store i32 %3852, ptr %3854, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %567) #8
+  %3855 = load ptr, ptr %3, align 8, !tbaa !3
+  %3856 = getelementptr i32, ptr %3855, i64 2
+  %3857 = load i32, ptr %3856, align 4, !tbaa !8
+  store i32 %3857, ptr %567, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %568) #8
+  %3858 = load ptr, ptr %3, align 8, !tbaa !3
+  %3859 = getelementptr i32, ptr %3858, i64 3
+  %3860 = load i32, ptr %3859, align 4, !tbaa !8
+  store i32 %3860, ptr %568, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %569) #8
+  %3861 = load ptr, ptr %3, align 8, !tbaa !3
+  %3862 = getelementptr i32, ptr %3861, i64 0
+  %3863 = load i32, ptr %3862, align 4, !tbaa !8
+  store i32 %3863, ptr %569, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %570) #8
+  %3864 = load ptr, ptr %3, align 8, !tbaa !3
+  %3865 = getelementptr i32, ptr %3864, i64 1
+  %3866 = load i32, ptr %3865, align 4, !tbaa !8
+  store i32 %3866, ptr %570, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %571) #8
+  %3867 = load ptr, ptr %4, align 8, !tbaa !10
+  %3868 = getelementptr i8, ptr %3867, i64 8
+  store ptr %3868, ptr %571, align 8, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %572) #8
+  %3869 = load ptr, ptr %571, align 8, !tbaa !10
+  %3870 = call i32 @load32(ptr noundef %3869)
+  %3871 = call i32 @__uint32_identity(i32 noundef %3870)
+  store i32 %3871, ptr %572, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %573) #8
+  %3872 = load i32, ptr %572, align 4, !tbaa !8
+  store i32 %3872, ptr %573, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %574) #8
+  %3873 = load i32, ptr getelementptr ([64 x i32], ptr @_t, i64 0, i64 62), align 8, !tbaa !8
+  store i32 %3873, ptr %574, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %575) #8
+  %3874 = load i32, ptr %568, align 4, !tbaa !8
+  %3875 = load i32, ptr %567, align 4, !tbaa !8
+  %3876 = load i32, ptr %569, align 4, !tbaa !8
+  %3877 = load i32, ptr %568, align 4, !tbaa !8
+  %3878 = load i32, ptr %570, align 4, !tbaa !8
+  %3879 = xor i32 %3878, -1
+  %3880 = or i32 %3877, %3879
+  %3881 = xor i32 %3876, %3880
+  %3882 = add i32 %3875, %3881
+  %3883 = load i32, ptr %573, align 4, !tbaa !8
+  %3884 = add i32 %3882, %3883
+  %3885 = load i32, ptr %574, align 4, !tbaa !8
+  %3886 = add i32 %3884, %3885
+  %3887 = shl i32 %3886, 15
+  %3888 = load i32, ptr %567, align 4, !tbaa !8
+  %3889 = load i32, ptr %569, align 4, !tbaa !8
+  %3890 = load i32, ptr %568, align 4, !tbaa !8
+  %3891 = load i32, ptr %570, align 4, !tbaa !8
+  %3892 = xor i32 %3891, -1
+  %3893 = or i32 %3890, %3892
+  %3894 = xor i32 %3889, %3893
+  %3895 = add i32 %3888, %3894
+  %3896 = load i32, ptr %573, align 4, !tbaa !8
+  %3897 = add i32 %3895, %3896
+  %3898 = load i32, ptr %574, align 4, !tbaa !8
+  %3899 = add i32 %3897, %3898
+  %3900 = lshr i32 %3899, 17
+  %3901 = or i32 %3887, %3900
+  %3902 = add i32 %3874, %3901
+  store i32 %3902, ptr %575, align 4, !tbaa !8
+  %3903 = load i32, ptr %575, align 4, !tbaa !8
+  %3904 = load ptr, ptr %3, align 8, !tbaa !3
+  %3905 = getelementptr i32, ptr %3904, i64 2
+  store i32 %3903, ptr %3905, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %576) #8
+  %3906 = load ptr, ptr %3, align 8, !tbaa !3
+  %3907 = getelementptr i32, ptr %3906, i64 1
+  %3908 = load i32, ptr %3907, align 4, !tbaa !8
+  store i32 %3908, ptr %576, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %577) #8
+  %3909 = load ptr, ptr %3, align 8, !tbaa !3
+  %3910 = getelementptr i32, ptr %3909, i64 2
+  %3911 = load i32, ptr %3910, align 4, !tbaa !8
+  store i32 %3911, ptr %577, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %578) #8
+  %3912 = load ptr, ptr %3, align 8, !tbaa !3
+  %3913 = getelementptr i32, ptr %3912, i64 3
+  %3914 = load i32, ptr %3913, align 4, !tbaa !8
+  store i32 %3914, ptr %578, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %579) #8
+  %3915 = load ptr, ptr %3, align 8, !tbaa !3
+  %3916 = getelementptr i32, ptr %3915, i64 0
+  %3917 = load i32, ptr %3916, align 4, !tbaa !8
+  store i32 %3917, ptr %579, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %580) #8
+  %3918 = load ptr, ptr %4, align 8, !tbaa !10
+  %3919 = getelementptr i8, ptr %3918, i64 36
+  store ptr %3919, ptr %580, align 8, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %581) #8
+  %3920 = load ptr, ptr %580, align 8, !tbaa !10
+  %3921 = call i32 @load32(ptr noundef %3920)
+  %3922 = call i32 @__uint32_identity(i32 noundef %3921)
+  store i32 %3922, ptr %581, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %582) #8
+  %3923 = load i32, ptr %581, align 4, !tbaa !8
+  store i32 %3923, ptr %582, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %583) #8
+  %3924 = load i32, ptr getelementptr ([64 x i32], ptr @_t, i64 0, i64 63), align 4, !tbaa !8
+  store i32 %3924, ptr %583, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %584) #8
+  %3925 = load i32, ptr %577, align 4, !tbaa !8
+  %3926 = load i32, ptr %576, align 4, !tbaa !8
+  %3927 = load i32, ptr %578, align 4, !tbaa !8
+  %3928 = load i32, ptr %577, align 4, !tbaa !8
+  %3929 = load i32, ptr %579, align 4, !tbaa !8
+  %3930 = xor i32 %3929, -1
+  %3931 = or i32 %3928, %3930
+  %3932 = xor i32 %3927, %3931
+  %3933 = add i32 %3926, %3932
+  %3934 = load i32, ptr %582, align 4, !tbaa !8
+  %3935 = add i32 %3933, %3934
+  %3936 = load i32, ptr %583, align 4, !tbaa !8
+  %3937 = add i32 %3935, %3936
+  %3938 = shl i32 %3937, 21
+  %3939 = load i32, ptr %576, align 4, !tbaa !8
+  %3940 = load i32, ptr %578, align 4, !tbaa !8
+  %3941 = load i32, ptr %577, align 4, !tbaa !8
+  %3942 = load i32, ptr %579, align 4, !tbaa !8
+  %3943 = xor i32 %3942, -1
+  %3944 = or i32 %3941, %3943
+  %3945 = xor i32 %3940, %3944
+  %3946 = add i32 %3939, %3945
+  %3947 = load i32, ptr %582, align 4, !tbaa !8
+  %3948 = add i32 %3946, %3947
+  %3949 = load i32, ptr %583, align 4, !tbaa !8
+  %3950 = add i32 %3948, %3949
+  %3951 = lshr i32 %3950, 11
+  %3952 = or i32 %3938, %3951
+  %3953 = add i32 %3925, %3952
+  store i32 %3953, ptr %584, align 4, !tbaa !8
+  %3954 = load i32, ptr %584, align 4, !tbaa !8
+  %3955 = load ptr, ptr %3, align 8, !tbaa !3
+  %3956 = getelementptr i32, ptr %3955, i64 1
+  store i32 %3954, ptr %3956, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %585) #8
+  %3957 = load ptr, ptr %3, align 8, !tbaa !3
+  %3958 = getelementptr i32, ptr %3957, i64 0
+  %3959 = load i32, ptr %3958, align 4, !tbaa !8
+  store i32 %3959, ptr %585, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %586) #8
+  %3960 = load ptr, ptr %3, align 8, !tbaa !3
+  %3961 = getelementptr i32, ptr %3960, i64 1
+  %3962 = load i32, ptr %3961, align 4, !tbaa !8
+  store i32 %3962, ptr %586, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %587) #8
+  %3963 = load ptr, ptr %3, align 8, !tbaa !3
+  %3964 = getelementptr i32, ptr %3963, i64 2
+  %3965 = load i32, ptr %3964, align 4, !tbaa !8
+  store i32 %3965, ptr %587, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %588) #8
+  %3966 = load ptr, ptr %3, align 8, !tbaa !3
+  %3967 = getelementptr i32, ptr %3966, i64 3
+  %3968 = load i32, ptr %3967, align 4, !tbaa !8
+  store i32 %3968, ptr %588, align 4, !tbaa !8
+  %3969 = load i32, ptr %585, align 4, !tbaa !8
+  %3970 = load i32, ptr %5, align 4, !tbaa !8
+  %3971 = add i32 %3969, %3970
+  %3972 = load ptr, ptr %3, align 8, !tbaa !3
+  %3973 = getelementptr i32, ptr %3972, i64 0
+  store i32 %3971, ptr %3973, align 4, !tbaa !8
+  %3974 = load i32, ptr %586, align 4, !tbaa !8
+  %3975 = load i32, ptr %6, align 4, !tbaa !8
+  %3976 = add i32 %3974, %3975
+  %3977 = load ptr, ptr %3, align 8, !tbaa !3
+  %3978 = getelementptr i32, ptr %3977, i64 1
+  store i32 %3976, ptr %3978, align 4, !tbaa !8
+  %3979 = load i32, ptr %587, align 4, !tbaa !8
+  %3980 = load i32, ptr %7, align 4, !tbaa !8
+  %3981 = add i32 %3979, %3980
+  %3982 = load ptr, ptr %3, align 8, !tbaa !3
+  %3983 = getelementptr i32, ptr %3982, i64 2
+  store i32 %3981, ptr %3983, align 4, !tbaa !8
+  %3984 = load i32, ptr %588, align 4, !tbaa !8
+  %3985 = load i32, ptr %8, align 4, !tbaa !8
+  %3986 = add i32 %3984, %3985
+  %3987 = load ptr, ptr %3, align 8, !tbaa !3
+  %3988 = getelementptr i32, ptr %3987, i64 3
+  store i32 %3986, ptr %3988, align 4, !tbaa !8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %588) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %587) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %586) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %585) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %584) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %583) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %582) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %581) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %580) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %579) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %578) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %577) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %576) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %575) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %574) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %573) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %572) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %571) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %570) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %569) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %568) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %567) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %566) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %565) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %564) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %563) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %562) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %561) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %560) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %559) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %558) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %557) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %556) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %555) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %554) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %553) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %552) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %551) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %550) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %549) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %548) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %547) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %546) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %545) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %544) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %543) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %542) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %541) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %540) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %539) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %538) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %537) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %536) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %535) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %534) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %533) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %532) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %531) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %530) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %529) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %528) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %527) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %526) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %525) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %524) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %523) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %522) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %521) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %520) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %519) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %518) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %517) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %516) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %515) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %514) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %513) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %512) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %511) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %510) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %509) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %508) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %507) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %506) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %505) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %504) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %503) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %502) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %501) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %500) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %499) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %498) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %497) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %496) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %495) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %494) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %493) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %492) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %491) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %490) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %489) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %488) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %487) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %486) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %485) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %484) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %483) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %482) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %481) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %480) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %479) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %478) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %477) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %476) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %475) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %474) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %473) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %472) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %471) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %470) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %469) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %468) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %467) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %466) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %465) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %464) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %463) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %462) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %461) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %460) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %459) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %458) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %457) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %456) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %455) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %454) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %453) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %452) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %451) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %450) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %449) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %448) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %447) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %446) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %445) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %444) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %443) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %442) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %441) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %440) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %439) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %438) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %437) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %436) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %435) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %434) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %433) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %432) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %431) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %430) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %429) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %428) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %427) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %426) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %425) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %424) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %423) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %422) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %421) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %420) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %419) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %418) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %417) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %416) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %415) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %414) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %413) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %412) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %411) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %410) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %409) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %408) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %407) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %406) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %405) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %404) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %403) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %402) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %401) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %400) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %399) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %398) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %397) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %396) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %395) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %394) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %393) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %392) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %391) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %390) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %389) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %388) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %387) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %386) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %385) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %384) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %383) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %382) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %381) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %380) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %379) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %378) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %377) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %376) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %375) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %374) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %373) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %372) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %371) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %370) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %369) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %368) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %367) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %366) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %365) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %364) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %363) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %362) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %361) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %360) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %359) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %358) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %357) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %356) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %355) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %354) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %353) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %352) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %351) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %350) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %349) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %348) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %347) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %346) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %345) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %344) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %343) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %342) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %341) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %340) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %339) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %338) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %337) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %336) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %335) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %334) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %333) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %332) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %331) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %330) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %329) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %328) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %327) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %326) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %325) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %324) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %323) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %322) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %321) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %320) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %319) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %318) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %317) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %316) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %315) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %314) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %313) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %312) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %311) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %310) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %309) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %308) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %307) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %306) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %305) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %304) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %303) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %302) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %301) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %300) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %299) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %298) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %297) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %296) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %295) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %294) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %293) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %292) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %291) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %290) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %289) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %288) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %287) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %286) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %285) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %284) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %283) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %282) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %281) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %280) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %279) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %278) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %277) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %276) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %275) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %274) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %273) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %272) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %271) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %270) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %269) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %268) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %267) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %266) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %265) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %264) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %263) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %262) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %261) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %260) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %259) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %258) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %257) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %256) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %255) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %254) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %253) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %252) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %251) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %250) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %249) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %248) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %247) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %246) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %245) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %244) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %243) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %242) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %241) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %240) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %239) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %238) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %237) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %236) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %235) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %234) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %233) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %232) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %231) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %230) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %229) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %228) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %227) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %226) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %225) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %224) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %223) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %222) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %221) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %220) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %219) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %218) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %217) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %216) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %215) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %214) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %213) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %212) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %211) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %210) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %209) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %208) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %207) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %206) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %205) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %204) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %203) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %202) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %201) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %200) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %199) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %198) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %197) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %196) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %195) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %194) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %193) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %192) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %191) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %190) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %189) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %188) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %187) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %186) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %185) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %184) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %183) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %182) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %181) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %180) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %179) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %178) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %177) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %176) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %175) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %174) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %173) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %172) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %171) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %170) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %169) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %168) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %167) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %166) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %165) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %164) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %163) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %162) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %161) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %160) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %159) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %158) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %157) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %156) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %155) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %154) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %153) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %152) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %151) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %150) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %149) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %148) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %147) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %146) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %145) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %144) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %143) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %142) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %141) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %140) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %139) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %138) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %137) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %136) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %135) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %134) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %133) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %132) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %131) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %130) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %129) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %128) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %127) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %126) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %125) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %124) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %123) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %122) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %121) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %120) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %119) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %118) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %117) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %116) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %115) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %114) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %113) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %112) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %111) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %110) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %109) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %108) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %107) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %106) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %105) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %104) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %103) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %102) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %101) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %100) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %99) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %98) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %97) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %96) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %95) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %94) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %93) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %92) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %91) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %90) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %89) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %88) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %87) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %86) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %85) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %84) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %83) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %82) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %81) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %80) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %79) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %78) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %77) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %76) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %75) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %74) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %73) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %72) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %71) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %70) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %69) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %68) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %67) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %66) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %65) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %64) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %63) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %62) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %61) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %60) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %59) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %58) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %57) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %56) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %55) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %54) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %53) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %52) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %51) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %50) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %49) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %48) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %47) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %46) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %45) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %44) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %43) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %42) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %41) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %40) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %39) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %38) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %37) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %36) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %35) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %34) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %33) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %32) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %31) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %30) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %29) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %28) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %27) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %26) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %25) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %24) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %23) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %22) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %21) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %20) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %19) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %18) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %17) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %16) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %15) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #8
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @store32(ptr noundef %b, i32 noundef %i) #0 {
-entry:
-  %b.addr = alloca ptr, align 8
-  %i.addr = alloca i32, align 4
-  store ptr %b, ptr %b.addr, align 8
-  store i32 %i, ptr %i.addr, align 4
-  %0 = load ptr, ptr %b.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %0, ptr align 4 %i.addr, i64 4, i1 false)
-  ret void
-}
-
-; Function Attrs: nounwind uwtable
-define internal i32 @__uint32_identity(i32 noundef %__x) #0 {
-entry:
-  %__x.addr = alloca i32, align 4
-  store i32 %__x, ptr %__x.addr, align 4
-  %0 = load i32, ptr %__x.addr, align 4
-  ret i32 %0
-}
-
-; Function Attrs: nounwind uwtable
-define hidden void @Hacl_Hash_MD5_legacy_update_multi(ptr noundef %s, ptr noundef %blocks, i32 noundef %n_blocks) #0 {
-entry:
-  %s.addr = alloca ptr, align 8
-  %blocks.addr = alloca ptr, align 8
-  %n_blocks.addr = alloca i32, align 4
-  %i = alloca i32, align 4
-  %sz = alloca i32, align 4
-  %block = alloca ptr, align 8
-  store ptr %s, ptr %s.addr, align 8
-  store ptr %blocks, ptr %blocks.addr, align 8
-  store i32 %n_blocks, ptr %n_blocks.addr, align 4
-  store i32 0, ptr %i, align 4
-  br label %for.cond
-
-for.cond:                                         ; preds = %for.inc, %entry
-  %0 = load i32, ptr %i, align 4
-  %1 = load i32, ptr %n_blocks.addr, align 4
-  %cmp = icmp ult i32 %0, %1
-  br i1 %cmp, label %for.body, label %for.end
-
-for.body:                                         ; preds = %for.cond
-  store i32 64, ptr %sz, align 4
-  %2 = load ptr, ptr %blocks.addr, align 8
-  %3 = load i32, ptr %sz, align 4
-  %4 = load i32, ptr %i, align 4
-  %mul = mul i32 %3, %4
-  %idx.ext = zext i32 %mul to i64
-  %add.ptr = getelementptr i8, ptr %2, i64 %idx.ext
-  store ptr %add.ptr, ptr %block, align 8
-  %5 = load ptr, ptr %s.addr, align 8
-  %6 = load ptr, ptr %block, align 8
-  call void @legacy_update(ptr noundef %5, ptr noundef %6)
-  br label %for.inc
-
-for.inc:                                          ; preds = %for.body
-  %7 = load i32, ptr %i, align 4
-  %inc = add i32 %7, 1
-  store i32 %inc, ptr %i, align 4
-  br label %for.cond, !llvm.loop !4
-
-for.end:                                          ; preds = %for.cond
-  ret void
-}
-
-; Function Attrs: nounwind uwtable
-define internal void @legacy_update(ptr noundef %abcd, ptr noundef %x) #0 {
-entry:
-  %abcd.addr = alloca ptr, align 8
-  %x.addr = alloca ptr, align 8
-  %aa = alloca i32, align 4
-  %bb = alloca i32, align 4
-  %cc = alloca i32, align 4
-  %dd = alloca i32, align 4
-  %va = alloca i32, align 4
-  %vb0 = alloca i32, align 4
-  %vc0 = alloca i32, align 4
-  %vd0 = alloca i32, align 4
-  %b0 = alloca ptr, align 8
-  %u = alloca i32, align 4
-  %xk = alloca i32, align 4
-  %ti0 = alloca i32, align 4
-  %v = alloca i32, align 4
-  %va0 = alloca i32, align 4
-  %vb1 = alloca i32, align 4
-  %vc1 = alloca i32, align 4
-  %vd1 = alloca i32, align 4
-  %b1 = alloca ptr, align 8
-  %u0 = alloca i32, align 4
-  %xk0 = alloca i32, align 4
-  %ti1 = alloca i32, align 4
-  %v0 = alloca i32, align 4
-  %va1 = alloca i32, align 4
-  %vb2 = alloca i32, align 4
-  %vc2 = alloca i32, align 4
-  %vd2 = alloca i32, align 4
-  %b2 = alloca ptr, align 8
-  %u1 = alloca i32, align 4
-  %xk1 = alloca i32, align 4
-  %ti2 = alloca i32, align 4
-  %v1 = alloca i32, align 4
-  %va2 = alloca i32, align 4
-  %vb3 = alloca i32, align 4
-  %vc3 = alloca i32, align 4
-  %vd3 = alloca i32, align 4
-  %b3 = alloca ptr, align 8
-  %u2 = alloca i32, align 4
-  %xk2 = alloca i32, align 4
-  %ti3 = alloca i32, align 4
-  %v2 = alloca i32, align 4
-  %va3 = alloca i32, align 4
-  %vb4 = alloca i32, align 4
-  %vc4 = alloca i32, align 4
-  %vd4 = alloca i32, align 4
-  %b4 = alloca ptr, align 8
-  %u3 = alloca i32, align 4
-  %xk3 = alloca i32, align 4
-  %ti4 = alloca i32, align 4
-  %v3 = alloca i32, align 4
-  %va4 = alloca i32, align 4
-  %vb5 = alloca i32, align 4
-  %vc5 = alloca i32, align 4
-  %vd5 = alloca i32, align 4
-  %b5 = alloca ptr, align 8
-  %u4 = alloca i32, align 4
-  %xk4 = alloca i32, align 4
-  %ti5 = alloca i32, align 4
-  %v4 = alloca i32, align 4
-  %va5 = alloca i32, align 4
-  %vb6 = alloca i32, align 4
-  %vc6 = alloca i32, align 4
-  %vd6 = alloca i32, align 4
-  %b6 = alloca ptr, align 8
-  %u5 = alloca i32, align 4
-  %xk5 = alloca i32, align 4
-  %ti6 = alloca i32, align 4
-  %v5 = alloca i32, align 4
-  %va6 = alloca i32, align 4
-  %vb7 = alloca i32, align 4
-  %vc7 = alloca i32, align 4
-  %vd7 = alloca i32, align 4
-  %b7 = alloca ptr, align 8
-  %u6 = alloca i32, align 4
-  %xk6 = alloca i32, align 4
-  %ti7 = alloca i32, align 4
-  %v6 = alloca i32, align 4
-  %va7 = alloca i32, align 4
-  %vb8 = alloca i32, align 4
-  %vc8 = alloca i32, align 4
-  %vd8 = alloca i32, align 4
-  %b8 = alloca ptr, align 8
-  %u7 = alloca i32, align 4
-  %xk7 = alloca i32, align 4
-  %ti8 = alloca i32, align 4
-  %v7 = alloca i32, align 4
-  %va8 = alloca i32, align 4
-  %vb9 = alloca i32, align 4
-  %vc9 = alloca i32, align 4
-  %vd9 = alloca i32, align 4
-  %b9 = alloca ptr, align 8
-  %u8 = alloca i32, align 4
-  %xk8 = alloca i32, align 4
-  %ti9 = alloca i32, align 4
-  %v8 = alloca i32, align 4
-  %va9 = alloca i32, align 4
-  %vb10 = alloca i32, align 4
-  %vc10 = alloca i32, align 4
-  %vd10 = alloca i32, align 4
-  %b10 = alloca ptr, align 8
-  %u9 = alloca i32, align 4
-  %xk9 = alloca i32, align 4
-  %ti10 = alloca i32, align 4
-  %v9 = alloca i32, align 4
-  %va10 = alloca i32, align 4
-  %vb11 = alloca i32, align 4
-  %vc11 = alloca i32, align 4
-  %vd11 = alloca i32, align 4
-  %b11 = alloca ptr, align 8
-  %u10 = alloca i32, align 4
-  %xk10 = alloca i32, align 4
-  %ti11 = alloca i32, align 4
-  %v10 = alloca i32, align 4
-  %va11 = alloca i32, align 4
-  %vb12 = alloca i32, align 4
-  %vc12 = alloca i32, align 4
-  %vd12 = alloca i32, align 4
-  %b12 = alloca ptr, align 8
-  %u11 = alloca i32, align 4
-  %xk11 = alloca i32, align 4
-  %ti12 = alloca i32, align 4
-  %v11 = alloca i32, align 4
-  %va12 = alloca i32, align 4
-  %vb13 = alloca i32, align 4
-  %vc13 = alloca i32, align 4
-  %vd13 = alloca i32, align 4
-  %b13 = alloca ptr, align 8
-  %u12 = alloca i32, align 4
-  %xk12 = alloca i32, align 4
-  %ti13 = alloca i32, align 4
-  %v12 = alloca i32, align 4
-  %va13 = alloca i32, align 4
-  %vb14 = alloca i32, align 4
-  %vc14 = alloca i32, align 4
-  %vd14 = alloca i32, align 4
-  %b14 = alloca ptr, align 8
-  %u13 = alloca i32, align 4
-  %xk13 = alloca i32, align 4
-  %ti14 = alloca i32, align 4
-  %v13 = alloca i32, align 4
-  %va14 = alloca i32, align 4
-  %vb15 = alloca i32, align 4
-  %vc15 = alloca i32, align 4
-  %vd15 = alloca i32, align 4
-  %b15 = alloca ptr, align 8
-  %u14 = alloca i32, align 4
-  %xk14 = alloca i32, align 4
-  %ti15 = alloca i32, align 4
-  %v14 = alloca i32, align 4
-  %va15 = alloca i32, align 4
-  %vb16 = alloca i32, align 4
-  %vc16 = alloca i32, align 4
-  %vd16 = alloca i32, align 4
-  %b16 = alloca ptr, align 8
-  %u15 = alloca i32, align 4
-  %xk15 = alloca i32, align 4
-  %ti16 = alloca i32, align 4
-  %v15 = alloca i32, align 4
-  %va16 = alloca i32, align 4
-  %vb17 = alloca i32, align 4
-  %vc17 = alloca i32, align 4
-  %vd17 = alloca i32, align 4
-  %b17 = alloca ptr, align 8
-  %u16 = alloca i32, align 4
-  %xk16 = alloca i32, align 4
-  %ti17 = alloca i32, align 4
-  %v16 = alloca i32, align 4
-  %va17 = alloca i32, align 4
-  %vb18 = alloca i32, align 4
-  %vc18 = alloca i32, align 4
-  %vd18 = alloca i32, align 4
-  %b18 = alloca ptr, align 8
-  %u17 = alloca i32, align 4
-  %xk17 = alloca i32, align 4
-  %ti18 = alloca i32, align 4
-  %v17 = alloca i32, align 4
-  %va18 = alloca i32, align 4
-  %vb19 = alloca i32, align 4
-  %vc19 = alloca i32, align 4
-  %vd19 = alloca i32, align 4
-  %b19 = alloca ptr, align 8
-  %u18 = alloca i32, align 4
-  %xk18 = alloca i32, align 4
-  %ti19 = alloca i32, align 4
-  %v18 = alloca i32, align 4
-  %va19 = alloca i32, align 4
-  %vb20 = alloca i32, align 4
-  %vc20 = alloca i32, align 4
-  %vd20 = alloca i32, align 4
-  %b20 = alloca ptr, align 8
-  %u19 = alloca i32, align 4
-  %xk19 = alloca i32, align 4
-  %ti20 = alloca i32, align 4
-  %v19 = alloca i32, align 4
-  %va20 = alloca i32, align 4
-  %vb21 = alloca i32, align 4
-  %vc21 = alloca i32, align 4
-  %vd21 = alloca i32, align 4
-  %b21 = alloca ptr, align 8
-  %u20 = alloca i32, align 4
-  %xk20 = alloca i32, align 4
-  %ti21 = alloca i32, align 4
-  %v20 = alloca i32, align 4
-  %va21 = alloca i32, align 4
-  %vb22 = alloca i32, align 4
-  %vc22 = alloca i32, align 4
-  %vd22 = alloca i32, align 4
-  %b22 = alloca ptr, align 8
-  %u21 = alloca i32, align 4
-  %xk21 = alloca i32, align 4
-  %ti22 = alloca i32, align 4
-  %v21 = alloca i32, align 4
-  %va22 = alloca i32, align 4
-  %vb23 = alloca i32, align 4
-  %vc23 = alloca i32, align 4
-  %vd23 = alloca i32, align 4
-  %b23 = alloca ptr, align 8
-  %u22 = alloca i32, align 4
-  %xk22 = alloca i32, align 4
-  %ti23 = alloca i32, align 4
-  %v22 = alloca i32, align 4
-  %va23 = alloca i32, align 4
-  %vb24 = alloca i32, align 4
-  %vc24 = alloca i32, align 4
-  %vd24 = alloca i32, align 4
-  %b24 = alloca ptr, align 8
-  %u23 = alloca i32, align 4
-  %xk23 = alloca i32, align 4
-  %ti24 = alloca i32, align 4
-  %v23 = alloca i32, align 4
-  %va24 = alloca i32, align 4
-  %vb25 = alloca i32, align 4
-  %vc25 = alloca i32, align 4
-  %vd25 = alloca i32, align 4
-  %b25 = alloca ptr, align 8
-  %u24 = alloca i32, align 4
-  %xk24 = alloca i32, align 4
-  %ti25 = alloca i32, align 4
-  %v24 = alloca i32, align 4
-  %va25 = alloca i32, align 4
-  %vb26 = alloca i32, align 4
-  %vc26 = alloca i32, align 4
-  %vd26 = alloca i32, align 4
-  %b26 = alloca ptr, align 8
-  %u25 = alloca i32, align 4
-  %xk25 = alloca i32, align 4
-  %ti26 = alloca i32, align 4
-  %v25 = alloca i32, align 4
-  %va26 = alloca i32, align 4
-  %vb27 = alloca i32, align 4
-  %vc27 = alloca i32, align 4
-  %vd27 = alloca i32, align 4
-  %b27 = alloca ptr, align 8
-  %u26 = alloca i32, align 4
-  %xk26 = alloca i32, align 4
-  %ti27 = alloca i32, align 4
-  %v26 = alloca i32, align 4
-  %va27 = alloca i32, align 4
-  %vb28 = alloca i32, align 4
-  %vc28 = alloca i32, align 4
-  %vd28 = alloca i32, align 4
-  %b28 = alloca ptr, align 8
-  %u27 = alloca i32, align 4
-  %xk27 = alloca i32, align 4
-  %ti28 = alloca i32, align 4
-  %v27 = alloca i32, align 4
-  %va28 = alloca i32, align 4
-  %vb29 = alloca i32, align 4
-  %vc29 = alloca i32, align 4
-  %vd29 = alloca i32, align 4
-  %b29 = alloca ptr, align 8
-  %u28 = alloca i32, align 4
-  %xk28 = alloca i32, align 4
-  %ti29 = alloca i32, align 4
-  %v28 = alloca i32, align 4
-  %va29 = alloca i32, align 4
-  %vb30 = alloca i32, align 4
-  %vc30 = alloca i32, align 4
-  %vd30 = alloca i32, align 4
-  %b30 = alloca ptr, align 8
-  %u29 = alloca i32, align 4
-  %xk29 = alloca i32, align 4
-  %ti30 = alloca i32, align 4
-  %v29 = alloca i32, align 4
-  %va30 = alloca i32, align 4
-  %vb31 = alloca i32, align 4
-  %vc31 = alloca i32, align 4
-  %vd31 = alloca i32, align 4
-  %b31 = alloca ptr, align 8
-  %u30 = alloca i32, align 4
-  %xk30 = alloca i32, align 4
-  %ti31 = alloca i32, align 4
-  %v30 = alloca i32, align 4
-  %va31 = alloca i32, align 4
-  %vb32 = alloca i32, align 4
-  %vc32 = alloca i32, align 4
-  %vd32 = alloca i32, align 4
-  %b32 = alloca ptr, align 8
-  %u31 = alloca i32, align 4
-  %xk31 = alloca i32, align 4
-  %ti32 = alloca i32, align 4
-  %v31 = alloca i32, align 4
-  %va32 = alloca i32, align 4
-  %vb33 = alloca i32, align 4
-  %vc33 = alloca i32, align 4
-  %vd33 = alloca i32, align 4
-  %b33 = alloca ptr, align 8
-  %u32 = alloca i32, align 4
-  %xk32 = alloca i32, align 4
-  %ti33 = alloca i32, align 4
-  %v32 = alloca i32, align 4
-  %va33 = alloca i32, align 4
-  %vb34 = alloca i32, align 4
-  %vc34 = alloca i32, align 4
-  %vd34 = alloca i32, align 4
-  %b34 = alloca ptr, align 8
-  %u33 = alloca i32, align 4
-  %xk33 = alloca i32, align 4
-  %ti34 = alloca i32, align 4
-  %v33 = alloca i32, align 4
-  %va34 = alloca i32, align 4
-  %vb35 = alloca i32, align 4
-  %vc35 = alloca i32, align 4
-  %vd35 = alloca i32, align 4
-  %b35 = alloca ptr, align 8
-  %u34 = alloca i32, align 4
-  %xk34 = alloca i32, align 4
-  %ti35 = alloca i32, align 4
-  %v34 = alloca i32, align 4
-  %va35 = alloca i32, align 4
-  %vb36 = alloca i32, align 4
-  %vc36 = alloca i32, align 4
-  %vd36 = alloca i32, align 4
-  %b36 = alloca ptr, align 8
-  %u35 = alloca i32, align 4
-  %xk35 = alloca i32, align 4
-  %ti36 = alloca i32, align 4
-  %v35 = alloca i32, align 4
-  %va36 = alloca i32, align 4
-  %vb37 = alloca i32, align 4
-  %vc37 = alloca i32, align 4
-  %vd37 = alloca i32, align 4
-  %b37 = alloca ptr, align 8
-  %u36 = alloca i32, align 4
-  %xk36 = alloca i32, align 4
-  %ti37 = alloca i32, align 4
-  %v36 = alloca i32, align 4
-  %va37 = alloca i32, align 4
-  %vb38 = alloca i32, align 4
-  %vc38 = alloca i32, align 4
-  %vd38 = alloca i32, align 4
-  %b38 = alloca ptr, align 8
-  %u37 = alloca i32, align 4
-  %xk37 = alloca i32, align 4
-  %ti38 = alloca i32, align 4
-  %v37 = alloca i32, align 4
-  %va38 = alloca i32, align 4
-  %vb39 = alloca i32, align 4
-  %vc39 = alloca i32, align 4
-  %vd39 = alloca i32, align 4
-  %b39 = alloca ptr, align 8
-  %u38 = alloca i32, align 4
-  %xk38 = alloca i32, align 4
-  %ti39 = alloca i32, align 4
-  %v38 = alloca i32, align 4
-  %va39 = alloca i32, align 4
-  %vb40 = alloca i32, align 4
-  %vc40 = alloca i32, align 4
-  %vd40 = alloca i32, align 4
-  %b40 = alloca ptr, align 8
-  %u39 = alloca i32, align 4
-  %xk39 = alloca i32, align 4
-  %ti40 = alloca i32, align 4
-  %v39 = alloca i32, align 4
-  %va40 = alloca i32, align 4
-  %vb41 = alloca i32, align 4
-  %vc41 = alloca i32, align 4
-  %vd41 = alloca i32, align 4
-  %b41 = alloca ptr, align 8
-  %u40 = alloca i32, align 4
-  %xk40 = alloca i32, align 4
-  %ti41 = alloca i32, align 4
-  %v40 = alloca i32, align 4
-  %va41 = alloca i32, align 4
-  %vb42 = alloca i32, align 4
-  %vc42 = alloca i32, align 4
-  %vd42 = alloca i32, align 4
-  %b42 = alloca ptr, align 8
-  %u41 = alloca i32, align 4
-  %xk41 = alloca i32, align 4
-  %ti42 = alloca i32, align 4
-  %v41 = alloca i32, align 4
-  %va42 = alloca i32, align 4
-  %vb43 = alloca i32, align 4
-  %vc43 = alloca i32, align 4
-  %vd43 = alloca i32, align 4
-  %b43 = alloca ptr, align 8
-  %u42 = alloca i32, align 4
-  %xk42 = alloca i32, align 4
-  %ti43 = alloca i32, align 4
-  %v42 = alloca i32, align 4
-  %va43 = alloca i32, align 4
-  %vb44 = alloca i32, align 4
-  %vc44 = alloca i32, align 4
-  %vd44 = alloca i32, align 4
-  %b44 = alloca ptr, align 8
-  %u43 = alloca i32, align 4
-  %xk43 = alloca i32, align 4
-  %ti44 = alloca i32, align 4
-  %v43 = alloca i32, align 4
-  %va44 = alloca i32, align 4
-  %vb45 = alloca i32, align 4
-  %vc45 = alloca i32, align 4
-  %vd45 = alloca i32, align 4
-  %b45 = alloca ptr, align 8
-  %u44 = alloca i32, align 4
-  %xk44 = alloca i32, align 4
-  %ti45 = alloca i32, align 4
-  %v44 = alloca i32, align 4
-  %va45 = alloca i32, align 4
-  %vb46 = alloca i32, align 4
-  %vc46 = alloca i32, align 4
-  %vd46 = alloca i32, align 4
-  %b46 = alloca ptr, align 8
-  %u45 = alloca i32, align 4
-  %xk45 = alloca i32, align 4
-  %ti46 = alloca i32, align 4
-  %v45 = alloca i32, align 4
-  %va46 = alloca i32, align 4
-  %vb47 = alloca i32, align 4
-  %vc47 = alloca i32, align 4
-  %vd47 = alloca i32, align 4
-  %b47 = alloca ptr, align 8
-  %u46 = alloca i32, align 4
-  %xk46 = alloca i32, align 4
-  %ti47 = alloca i32, align 4
-  %v46 = alloca i32, align 4
-  %va47 = alloca i32, align 4
-  %vb48 = alloca i32, align 4
-  %vc48 = alloca i32, align 4
-  %vd48 = alloca i32, align 4
-  %b48 = alloca ptr, align 8
-  %u47 = alloca i32, align 4
-  %xk47 = alloca i32, align 4
-  %ti48 = alloca i32, align 4
-  %v47 = alloca i32, align 4
-  %va48 = alloca i32, align 4
-  %vb49 = alloca i32, align 4
-  %vc49 = alloca i32, align 4
-  %vd49 = alloca i32, align 4
-  %b49 = alloca ptr, align 8
-  %u48 = alloca i32, align 4
-  %xk48 = alloca i32, align 4
-  %ti49 = alloca i32, align 4
-  %v48 = alloca i32, align 4
-  %va49 = alloca i32, align 4
-  %vb50 = alloca i32, align 4
-  %vc50 = alloca i32, align 4
-  %vd50 = alloca i32, align 4
-  %b50 = alloca ptr, align 8
-  %u49 = alloca i32, align 4
-  %xk49 = alloca i32, align 4
-  %ti50 = alloca i32, align 4
-  %v49 = alloca i32, align 4
-  %va50 = alloca i32, align 4
-  %vb51 = alloca i32, align 4
-  %vc51 = alloca i32, align 4
-  %vd51 = alloca i32, align 4
-  %b51 = alloca ptr, align 8
-  %u50 = alloca i32, align 4
-  %xk50 = alloca i32, align 4
-  %ti51 = alloca i32, align 4
-  %v50 = alloca i32, align 4
-  %va51 = alloca i32, align 4
-  %vb52 = alloca i32, align 4
-  %vc52 = alloca i32, align 4
-  %vd52 = alloca i32, align 4
-  %b52 = alloca ptr, align 8
-  %u51 = alloca i32, align 4
-  %xk51 = alloca i32, align 4
-  %ti52 = alloca i32, align 4
-  %v51 = alloca i32, align 4
-  %va52 = alloca i32, align 4
-  %vb53 = alloca i32, align 4
-  %vc53 = alloca i32, align 4
-  %vd53 = alloca i32, align 4
-  %b53 = alloca ptr, align 8
-  %u52 = alloca i32, align 4
-  %xk52 = alloca i32, align 4
-  %ti53 = alloca i32, align 4
-  %v52 = alloca i32, align 4
-  %va53 = alloca i32, align 4
-  %vb54 = alloca i32, align 4
-  %vc54 = alloca i32, align 4
-  %vd54 = alloca i32, align 4
-  %b54 = alloca ptr, align 8
-  %u53 = alloca i32, align 4
-  %xk53 = alloca i32, align 4
-  %ti54 = alloca i32, align 4
-  %v53 = alloca i32, align 4
-  %va54 = alloca i32, align 4
-  %vb55 = alloca i32, align 4
-  %vc55 = alloca i32, align 4
-  %vd55 = alloca i32, align 4
-  %b55 = alloca ptr, align 8
-  %u54 = alloca i32, align 4
-  %xk54 = alloca i32, align 4
-  %ti55 = alloca i32, align 4
-  %v54 = alloca i32, align 4
-  %va55 = alloca i32, align 4
-  %vb56 = alloca i32, align 4
-  %vc56 = alloca i32, align 4
-  %vd56 = alloca i32, align 4
-  %b56 = alloca ptr, align 8
-  %u55 = alloca i32, align 4
-  %xk55 = alloca i32, align 4
-  %ti56 = alloca i32, align 4
-  %v55 = alloca i32, align 4
-  %va56 = alloca i32, align 4
-  %vb57 = alloca i32, align 4
-  %vc57 = alloca i32, align 4
-  %vd57 = alloca i32, align 4
-  %b57 = alloca ptr, align 8
-  %u56 = alloca i32, align 4
-  %xk56 = alloca i32, align 4
-  %ti57 = alloca i32, align 4
-  %v56 = alloca i32, align 4
-  %va57 = alloca i32, align 4
-  %vb58 = alloca i32, align 4
-  %vc58 = alloca i32, align 4
-  %vd58 = alloca i32, align 4
-  %b58 = alloca ptr, align 8
-  %u57 = alloca i32, align 4
-  %xk57 = alloca i32, align 4
-  %ti58 = alloca i32, align 4
-  %v57 = alloca i32, align 4
-  %va58 = alloca i32, align 4
-  %vb59 = alloca i32, align 4
-  %vc59 = alloca i32, align 4
-  %vd59 = alloca i32, align 4
-  %b59 = alloca ptr, align 8
-  %u58 = alloca i32, align 4
-  %xk58 = alloca i32, align 4
-  %ti59 = alloca i32, align 4
-  %v58 = alloca i32, align 4
-  %va59 = alloca i32, align 4
-  %vb60 = alloca i32, align 4
-  %vc60 = alloca i32, align 4
-  %vd60 = alloca i32, align 4
-  %b60 = alloca ptr, align 8
-  %u59 = alloca i32, align 4
-  %xk59 = alloca i32, align 4
-  %ti60 = alloca i32, align 4
-  %v59 = alloca i32, align 4
-  %va60 = alloca i32, align 4
-  %vb61 = alloca i32, align 4
-  %vc61 = alloca i32, align 4
-  %vd61 = alloca i32, align 4
-  %b61 = alloca ptr, align 8
-  %u60 = alloca i32, align 4
-  %xk60 = alloca i32, align 4
-  %ti61 = alloca i32, align 4
-  %v60 = alloca i32, align 4
-  %va61 = alloca i32, align 4
-  %vb62 = alloca i32, align 4
-  %vc62 = alloca i32, align 4
-  %vd62 = alloca i32, align 4
-  %b62 = alloca ptr, align 8
-  %u61 = alloca i32, align 4
-  %xk61 = alloca i32, align 4
-  %ti62 = alloca i32, align 4
-  %v61 = alloca i32, align 4
-  %va62 = alloca i32, align 4
-  %vb = alloca i32, align 4
-  %vc = alloca i32, align 4
-  %vd = alloca i32, align 4
-  %b63 = alloca ptr, align 8
-  %u62 = alloca i32, align 4
-  %xk62 = alloca i32, align 4
-  %ti = alloca i32, align 4
-  %v62 = alloca i32, align 4
-  %a = alloca i32, align 4
-  %b = alloca i32, align 4
-  %c = alloca i32, align 4
-  %d = alloca i32, align 4
-  store ptr %abcd, ptr %abcd.addr, align 8
-  store ptr %x, ptr %x.addr, align 8
-  %0 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx = getelementptr i32, ptr %0, i64 0
-  %1 = load i32, ptr %arrayidx, align 4
-  store i32 %1, ptr %aa, align 4
-  %2 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx1 = getelementptr i32, ptr %2, i64 1
-  %3 = load i32, ptr %arrayidx1, align 4
-  store i32 %3, ptr %bb, align 4
-  %4 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx2 = getelementptr i32, ptr %4, i64 2
-  %5 = load i32, ptr %arrayidx2, align 4
-  store i32 %5, ptr %cc, align 4
-  %6 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx3 = getelementptr i32, ptr %6, i64 3
-  %7 = load i32, ptr %arrayidx3, align 4
-  store i32 %7, ptr %dd, align 4
-  %8 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx4 = getelementptr i32, ptr %8, i64 0
-  %9 = load i32, ptr %arrayidx4, align 4
-  store i32 %9, ptr %va, align 4
-  %10 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx5 = getelementptr i32, ptr %10, i64 1
-  %11 = load i32, ptr %arrayidx5, align 4
-  store i32 %11, ptr %vb0, align 4
-  %12 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx6 = getelementptr i32, ptr %12, i64 2
-  %13 = load i32, ptr %arrayidx6, align 4
-  store i32 %13, ptr %vc0, align 4
-  %14 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx7 = getelementptr i32, ptr %14, i64 3
-  %15 = load i32, ptr %arrayidx7, align 4
-  store i32 %15, ptr %vd0, align 4
-  %16 = load ptr, ptr %x.addr, align 8
-  store ptr %16, ptr %b0, align 8
-  %17 = load ptr, ptr %b0, align 8
-  %call = call i32 @load32(ptr noundef %17)
-  %call8 = call i32 @__uint32_identity(i32 noundef %call)
-  store i32 %call8, ptr %u, align 4
-  %18 = load i32, ptr %u, align 4
-  store i32 %18, ptr %xk, align 4
-  %19 = load i32, ptr @_t, align 16
-  store i32 %19, ptr %ti0, align 4
-  %20 = load i32, ptr %vb0, align 4
-  %21 = load i32, ptr %va, align 4
-  %22 = load i32, ptr %vb0, align 4
-  %23 = load i32, ptr %vc0, align 4
-  %and = and i32 %22, %23
-  %24 = load i32, ptr %vb0, align 4
-  %not = xor i32 %24, -1
-  %25 = load i32, ptr %vd0, align 4
-  %and9 = and i32 %not, %25
-  %or = or i32 %and, %and9
-  %add = add i32 %21, %or
-  %26 = load i32, ptr %xk, align 4
-  %add10 = add i32 %add, %26
-  %27 = load i32, ptr %ti0, align 4
-  %add11 = add i32 %add10, %27
-  %shl = shl i32 %add11, 7
-  %28 = load i32, ptr %va, align 4
-  %29 = load i32, ptr %vb0, align 4
-  %30 = load i32, ptr %vc0, align 4
-  %and12 = and i32 %29, %30
-  %31 = load i32, ptr %vb0, align 4
-  %not13 = xor i32 %31, -1
-  %32 = load i32, ptr %vd0, align 4
-  %and14 = and i32 %not13, %32
-  %or15 = or i32 %and12, %and14
-  %add16 = add i32 %28, %or15
-  %33 = load i32, ptr %xk, align 4
-  %add17 = add i32 %add16, %33
-  %34 = load i32, ptr %ti0, align 4
-  %add18 = add i32 %add17, %34
-  %shr = lshr i32 %add18, 25
-  %or19 = or i32 %shl, %shr
-  %add20 = add i32 %20, %or19
-  store i32 %add20, ptr %v, align 4
-  %35 = load i32, ptr %v, align 4
-  %36 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx21 = getelementptr i32, ptr %36, i64 0
-  store i32 %35, ptr %arrayidx21, align 4
-  %37 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx22 = getelementptr i32, ptr %37, i64 3
-  %38 = load i32, ptr %arrayidx22, align 4
-  store i32 %38, ptr %va0, align 4
-  %39 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx23 = getelementptr i32, ptr %39, i64 0
-  %40 = load i32, ptr %arrayidx23, align 4
-  store i32 %40, ptr %vb1, align 4
-  %41 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx24 = getelementptr i32, ptr %41, i64 1
-  %42 = load i32, ptr %arrayidx24, align 4
-  store i32 %42, ptr %vc1, align 4
-  %43 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx25 = getelementptr i32, ptr %43, i64 2
-  %44 = load i32, ptr %arrayidx25, align 4
-  store i32 %44, ptr %vd1, align 4
-  %45 = load ptr, ptr %x.addr, align 8
-  %add.ptr = getelementptr i8, ptr %45, i64 4
-  store ptr %add.ptr, ptr %b1, align 8
-  %46 = load ptr, ptr %b1, align 8
-  %call26 = call i32 @load32(ptr noundef %46)
-  %call27 = call i32 @__uint32_identity(i32 noundef %call26)
-  store i32 %call27, ptr %u0, align 4
-  %47 = load i32, ptr %u0, align 4
-  store i32 %47, ptr %xk0, align 4
-  %48 = getelementptr inbounds [64 x i32], ptr @_t, i64 0, i64 1
-  %49 = load i32, ptr %48, align 4
-  store i32 %49, ptr %ti1, align 4
-  %50 = load i32, ptr %vb1, align 4
-  %51 = load i32, ptr %va0, align 4
-  %52 = load i32, ptr %vb1, align 4
-  %53 = load i32, ptr %vc1, align 4
-  %and28 = and i32 %52, %53
-  %54 = load i32, ptr %vb1, align 4
-  %not29 = xor i32 %54, -1
-  %55 = load i32, ptr %vd1, align 4
-  %and30 = and i32 %not29, %55
-  %or31 = or i32 %and28, %and30
-  %add32 = add i32 %51, %or31
-  %56 = load i32, ptr %xk0, align 4
-  %add33 = add i32 %add32, %56
-  %57 = load i32, ptr %ti1, align 4
-  %add34 = add i32 %add33, %57
-  %shl35 = shl i32 %add34, 12
-  %58 = load i32, ptr %va0, align 4
-  %59 = load i32, ptr %vb1, align 4
-  %60 = load i32, ptr %vc1, align 4
-  %and36 = and i32 %59, %60
-  %61 = load i32, ptr %vb1, align 4
-  %not37 = xor i32 %61, -1
-  %62 = load i32, ptr %vd1, align 4
-  %and38 = and i32 %not37, %62
-  %or39 = or i32 %and36, %and38
-  %add40 = add i32 %58, %or39
-  %63 = load i32, ptr %xk0, align 4
-  %add41 = add i32 %add40, %63
-  %64 = load i32, ptr %ti1, align 4
-  %add42 = add i32 %add41, %64
-  %shr43 = lshr i32 %add42, 20
-  %or44 = or i32 %shl35, %shr43
-  %add45 = add i32 %50, %or44
-  store i32 %add45, ptr %v0, align 4
-  %65 = load i32, ptr %v0, align 4
-  %66 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx46 = getelementptr i32, ptr %66, i64 3
-  store i32 %65, ptr %arrayidx46, align 4
-  %67 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx47 = getelementptr i32, ptr %67, i64 2
-  %68 = load i32, ptr %arrayidx47, align 4
-  store i32 %68, ptr %va1, align 4
-  %69 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx48 = getelementptr i32, ptr %69, i64 3
-  %70 = load i32, ptr %arrayidx48, align 4
-  store i32 %70, ptr %vb2, align 4
-  %71 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx49 = getelementptr i32, ptr %71, i64 0
-  %72 = load i32, ptr %arrayidx49, align 4
-  store i32 %72, ptr %vc2, align 4
-  %73 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx50 = getelementptr i32, ptr %73, i64 1
-  %74 = load i32, ptr %arrayidx50, align 4
-  store i32 %74, ptr %vd2, align 4
-  %75 = load ptr, ptr %x.addr, align 8
-  %add.ptr51 = getelementptr i8, ptr %75, i64 8
-  store ptr %add.ptr51, ptr %b2, align 8
-  %76 = load ptr, ptr %b2, align 8
-  %call52 = call i32 @load32(ptr noundef %76)
-  %call53 = call i32 @__uint32_identity(i32 noundef %call52)
-  store i32 %call53, ptr %u1, align 4
-  %77 = load i32, ptr %u1, align 4
-  store i32 %77, ptr %xk1, align 4
-  %78 = getelementptr inbounds [64 x i32], ptr @_t, i64 0, i64 2
-  %79 = load i32, ptr %78, align 8
-  store i32 %79, ptr %ti2, align 4
-  %80 = load i32, ptr %vb2, align 4
-  %81 = load i32, ptr %va1, align 4
-  %82 = load i32, ptr %vb2, align 4
-  %83 = load i32, ptr %vc2, align 4
-  %and54 = and i32 %82, %83
-  %84 = load i32, ptr %vb2, align 4
-  %not55 = xor i32 %84, -1
-  %85 = load i32, ptr %vd2, align 4
-  %and56 = and i32 %not55, %85
-  %or57 = or i32 %and54, %and56
-  %add58 = add i32 %81, %or57
-  %86 = load i32, ptr %xk1, align 4
-  %add59 = add i32 %add58, %86
-  %87 = load i32, ptr %ti2, align 4
-  %add60 = add i32 %add59, %87
-  %shl61 = shl i32 %add60, 17
-  %88 = load i32, ptr %va1, align 4
-  %89 = load i32, ptr %vb2, align 4
-  %90 = load i32, ptr %vc2, align 4
-  %and62 = and i32 %89, %90
-  %91 = load i32, ptr %vb2, align 4
-  %not63 = xor i32 %91, -1
-  %92 = load i32, ptr %vd2, align 4
-  %and64 = and i32 %not63, %92
-  %or65 = or i32 %and62, %and64
-  %add66 = add i32 %88, %or65
-  %93 = load i32, ptr %xk1, align 4
-  %add67 = add i32 %add66, %93
-  %94 = load i32, ptr %ti2, align 4
-  %add68 = add i32 %add67, %94
-  %shr69 = lshr i32 %add68, 15
-  %or70 = or i32 %shl61, %shr69
-  %add71 = add i32 %80, %or70
-  store i32 %add71, ptr %v1, align 4
-  %95 = load i32, ptr %v1, align 4
-  %96 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx72 = getelementptr i32, ptr %96, i64 2
-  store i32 %95, ptr %arrayidx72, align 4
-  %97 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx73 = getelementptr i32, ptr %97, i64 1
-  %98 = load i32, ptr %arrayidx73, align 4
-  store i32 %98, ptr %va2, align 4
-  %99 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx74 = getelementptr i32, ptr %99, i64 2
-  %100 = load i32, ptr %arrayidx74, align 4
-  store i32 %100, ptr %vb3, align 4
-  %101 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx75 = getelementptr i32, ptr %101, i64 3
-  %102 = load i32, ptr %arrayidx75, align 4
-  store i32 %102, ptr %vc3, align 4
-  %103 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx76 = getelementptr i32, ptr %103, i64 0
-  %104 = load i32, ptr %arrayidx76, align 4
-  store i32 %104, ptr %vd3, align 4
-  %105 = load ptr, ptr %x.addr, align 8
-  %add.ptr77 = getelementptr i8, ptr %105, i64 12
-  store ptr %add.ptr77, ptr %b3, align 8
-  %106 = load ptr, ptr %b3, align 8
-  %call78 = call i32 @load32(ptr noundef %106)
-  %call79 = call i32 @__uint32_identity(i32 noundef %call78)
-  store i32 %call79, ptr %u2, align 4
-  %107 = load i32, ptr %u2, align 4
-  store i32 %107, ptr %xk2, align 4
-  %108 = getelementptr inbounds [64 x i32], ptr @_t, i64 0, i64 3
-  %109 = load i32, ptr %108, align 4
-  store i32 %109, ptr %ti3, align 4
-  %110 = load i32, ptr %vb3, align 4
-  %111 = load i32, ptr %va2, align 4
-  %112 = load i32, ptr %vb3, align 4
-  %113 = load i32, ptr %vc3, align 4
-  %and80 = and i32 %112, %113
-  %114 = load i32, ptr %vb3, align 4
-  %not81 = xor i32 %114, -1
-  %115 = load i32, ptr %vd3, align 4
-  %and82 = and i32 %not81, %115
-  %or83 = or i32 %and80, %and82
-  %add84 = add i32 %111, %or83
-  %116 = load i32, ptr %xk2, align 4
-  %add85 = add i32 %add84, %116
-  %117 = load i32, ptr %ti3, align 4
-  %add86 = add i32 %add85, %117
-  %shl87 = shl i32 %add86, 22
-  %118 = load i32, ptr %va2, align 4
-  %119 = load i32, ptr %vb3, align 4
-  %120 = load i32, ptr %vc3, align 4
-  %and88 = and i32 %119, %120
-  %121 = load i32, ptr %vb3, align 4
-  %not89 = xor i32 %121, -1
-  %122 = load i32, ptr %vd3, align 4
-  %and90 = and i32 %not89, %122
-  %or91 = or i32 %and88, %and90
-  %add92 = add i32 %118, %or91
-  %123 = load i32, ptr %xk2, align 4
-  %add93 = add i32 %add92, %123
-  %124 = load i32, ptr %ti3, align 4
-  %add94 = add i32 %add93, %124
-  %shr95 = lshr i32 %add94, 10
-  %or96 = or i32 %shl87, %shr95
-  %add97 = add i32 %110, %or96
-  store i32 %add97, ptr %v2, align 4
-  %125 = load i32, ptr %v2, align 4
-  %126 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx98 = getelementptr i32, ptr %126, i64 1
-  store i32 %125, ptr %arrayidx98, align 4
-  %127 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx99 = getelementptr i32, ptr %127, i64 0
-  %128 = load i32, ptr %arrayidx99, align 4
-  store i32 %128, ptr %va3, align 4
-  %129 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx100 = getelementptr i32, ptr %129, i64 1
-  %130 = load i32, ptr %arrayidx100, align 4
-  store i32 %130, ptr %vb4, align 4
-  %131 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx101 = getelementptr i32, ptr %131, i64 2
-  %132 = load i32, ptr %arrayidx101, align 4
-  store i32 %132, ptr %vc4, align 4
-  %133 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx102 = getelementptr i32, ptr %133, i64 3
-  %134 = load i32, ptr %arrayidx102, align 4
-  store i32 %134, ptr %vd4, align 4
-  %135 = load ptr, ptr %x.addr, align 8
-  %add.ptr103 = getelementptr i8, ptr %135, i64 16
-  store ptr %add.ptr103, ptr %b4, align 8
-  %136 = load ptr, ptr %b4, align 8
-  %call104 = call i32 @load32(ptr noundef %136)
-  %call105 = call i32 @__uint32_identity(i32 noundef %call104)
-  store i32 %call105, ptr %u3, align 4
-  %137 = load i32, ptr %u3, align 4
-  store i32 %137, ptr %xk3, align 4
-  %138 = getelementptr inbounds [64 x i32], ptr @_t, i64 0, i64 4
-  %139 = load i32, ptr %138, align 16
-  store i32 %139, ptr %ti4, align 4
-  %140 = load i32, ptr %vb4, align 4
-  %141 = load i32, ptr %va3, align 4
-  %142 = load i32, ptr %vb4, align 4
-  %143 = load i32, ptr %vc4, align 4
-  %and106 = and i32 %142, %143
-  %144 = load i32, ptr %vb4, align 4
-  %not107 = xor i32 %144, -1
-  %145 = load i32, ptr %vd4, align 4
-  %and108 = and i32 %not107, %145
-  %or109 = or i32 %and106, %and108
-  %add110 = add i32 %141, %or109
-  %146 = load i32, ptr %xk3, align 4
-  %add111 = add i32 %add110, %146
-  %147 = load i32, ptr %ti4, align 4
-  %add112 = add i32 %add111, %147
-  %shl113 = shl i32 %add112, 7
-  %148 = load i32, ptr %va3, align 4
-  %149 = load i32, ptr %vb4, align 4
-  %150 = load i32, ptr %vc4, align 4
-  %and114 = and i32 %149, %150
-  %151 = load i32, ptr %vb4, align 4
-  %not115 = xor i32 %151, -1
-  %152 = load i32, ptr %vd4, align 4
-  %and116 = and i32 %not115, %152
-  %or117 = or i32 %and114, %and116
-  %add118 = add i32 %148, %or117
-  %153 = load i32, ptr %xk3, align 4
-  %add119 = add i32 %add118, %153
-  %154 = load i32, ptr %ti4, align 4
-  %add120 = add i32 %add119, %154
-  %shr121 = lshr i32 %add120, 25
-  %or122 = or i32 %shl113, %shr121
-  %add123 = add i32 %140, %or122
-  store i32 %add123, ptr %v3, align 4
-  %155 = load i32, ptr %v3, align 4
-  %156 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx124 = getelementptr i32, ptr %156, i64 0
-  store i32 %155, ptr %arrayidx124, align 4
-  %157 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx125 = getelementptr i32, ptr %157, i64 3
-  %158 = load i32, ptr %arrayidx125, align 4
-  store i32 %158, ptr %va4, align 4
-  %159 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx126 = getelementptr i32, ptr %159, i64 0
-  %160 = load i32, ptr %arrayidx126, align 4
-  store i32 %160, ptr %vb5, align 4
-  %161 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx127 = getelementptr i32, ptr %161, i64 1
-  %162 = load i32, ptr %arrayidx127, align 4
-  store i32 %162, ptr %vc5, align 4
-  %163 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx128 = getelementptr i32, ptr %163, i64 2
-  %164 = load i32, ptr %arrayidx128, align 4
-  store i32 %164, ptr %vd5, align 4
-  %165 = load ptr, ptr %x.addr, align 8
-  %add.ptr129 = getelementptr i8, ptr %165, i64 20
-  store ptr %add.ptr129, ptr %b5, align 8
-  %166 = load ptr, ptr %b5, align 8
-  %call130 = call i32 @load32(ptr noundef %166)
-  %call131 = call i32 @__uint32_identity(i32 noundef %call130)
-  store i32 %call131, ptr %u4, align 4
-  %167 = load i32, ptr %u4, align 4
-  store i32 %167, ptr %xk4, align 4
-  %168 = getelementptr inbounds [64 x i32], ptr @_t, i64 0, i64 5
-  %169 = load i32, ptr %168, align 4
-  store i32 %169, ptr %ti5, align 4
-  %170 = load i32, ptr %vb5, align 4
-  %171 = load i32, ptr %va4, align 4
-  %172 = load i32, ptr %vb5, align 4
-  %173 = load i32, ptr %vc5, align 4
-  %and132 = and i32 %172, %173
-  %174 = load i32, ptr %vb5, align 4
-  %not133 = xor i32 %174, -1
-  %175 = load i32, ptr %vd5, align 4
-  %and134 = and i32 %not133, %175
-  %or135 = or i32 %and132, %and134
-  %add136 = add i32 %171, %or135
-  %176 = load i32, ptr %xk4, align 4
-  %add137 = add i32 %add136, %176
-  %177 = load i32, ptr %ti5, align 4
-  %add138 = add i32 %add137, %177
-  %shl139 = shl i32 %add138, 12
-  %178 = load i32, ptr %va4, align 4
-  %179 = load i32, ptr %vb5, align 4
-  %180 = load i32, ptr %vc5, align 4
-  %and140 = and i32 %179, %180
-  %181 = load i32, ptr %vb5, align 4
-  %not141 = xor i32 %181, -1
-  %182 = load i32, ptr %vd5, align 4
-  %and142 = and i32 %not141, %182
-  %or143 = or i32 %and140, %and142
-  %add144 = add i32 %178, %or143
-  %183 = load i32, ptr %xk4, align 4
-  %add145 = add i32 %add144, %183
-  %184 = load i32, ptr %ti5, align 4
-  %add146 = add i32 %add145, %184
-  %shr147 = lshr i32 %add146, 20
-  %or148 = or i32 %shl139, %shr147
-  %add149 = add i32 %170, %or148
-  store i32 %add149, ptr %v4, align 4
-  %185 = load i32, ptr %v4, align 4
-  %186 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx150 = getelementptr i32, ptr %186, i64 3
-  store i32 %185, ptr %arrayidx150, align 4
-  %187 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx151 = getelementptr i32, ptr %187, i64 2
-  %188 = load i32, ptr %arrayidx151, align 4
-  store i32 %188, ptr %va5, align 4
-  %189 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx152 = getelementptr i32, ptr %189, i64 3
-  %190 = load i32, ptr %arrayidx152, align 4
-  store i32 %190, ptr %vb6, align 4
-  %191 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx153 = getelementptr i32, ptr %191, i64 0
-  %192 = load i32, ptr %arrayidx153, align 4
-  store i32 %192, ptr %vc6, align 4
-  %193 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx154 = getelementptr i32, ptr %193, i64 1
-  %194 = load i32, ptr %arrayidx154, align 4
-  store i32 %194, ptr %vd6, align 4
-  %195 = load ptr, ptr %x.addr, align 8
-  %add.ptr155 = getelementptr i8, ptr %195, i64 24
-  store ptr %add.ptr155, ptr %b6, align 8
-  %196 = load ptr, ptr %b6, align 8
-  %call156 = call i32 @load32(ptr noundef %196)
-  %call157 = call i32 @__uint32_identity(i32 noundef %call156)
-  store i32 %call157, ptr %u5, align 4
-  %197 = load i32, ptr %u5, align 4
-  store i32 %197, ptr %xk5, align 4
-  %198 = getelementptr inbounds [64 x i32], ptr @_t, i64 0, i64 6
-  %199 = load i32, ptr %198, align 8
-  store i32 %199, ptr %ti6, align 4
-  %200 = load i32, ptr %vb6, align 4
-  %201 = load i32, ptr %va5, align 4
-  %202 = load i32, ptr %vb6, align 4
-  %203 = load i32, ptr %vc6, align 4
-  %and158 = and i32 %202, %203
-  %204 = load i32, ptr %vb6, align 4
-  %not159 = xor i32 %204, -1
-  %205 = load i32, ptr %vd6, align 4
-  %and160 = and i32 %not159, %205
-  %or161 = or i32 %and158, %and160
-  %add162 = add i32 %201, %or161
-  %206 = load i32, ptr %xk5, align 4
-  %add163 = add i32 %add162, %206
-  %207 = load i32, ptr %ti6, align 4
-  %add164 = add i32 %add163, %207
-  %shl165 = shl i32 %add164, 17
-  %208 = load i32, ptr %va5, align 4
-  %209 = load i32, ptr %vb6, align 4
-  %210 = load i32, ptr %vc6, align 4
-  %and166 = and i32 %209, %210
-  %211 = load i32, ptr %vb6, align 4
-  %not167 = xor i32 %211, -1
-  %212 = load i32, ptr %vd6, align 4
-  %and168 = and i32 %not167, %212
-  %or169 = or i32 %and166, %and168
-  %add170 = add i32 %208, %or169
-  %213 = load i32, ptr %xk5, align 4
-  %add171 = add i32 %add170, %213
-  %214 = load i32, ptr %ti6, align 4
-  %add172 = add i32 %add171, %214
-  %shr173 = lshr i32 %add172, 15
-  %or174 = or i32 %shl165, %shr173
-  %add175 = add i32 %200, %or174
-  store i32 %add175, ptr %v5, align 4
-  %215 = load i32, ptr %v5, align 4
-  %216 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx176 = getelementptr i32, ptr %216, i64 2
-  store i32 %215, ptr %arrayidx176, align 4
-  %217 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx177 = getelementptr i32, ptr %217, i64 1
-  %218 = load i32, ptr %arrayidx177, align 4
-  store i32 %218, ptr %va6, align 4
-  %219 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx178 = getelementptr i32, ptr %219, i64 2
-  %220 = load i32, ptr %arrayidx178, align 4
-  store i32 %220, ptr %vb7, align 4
-  %221 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx179 = getelementptr i32, ptr %221, i64 3
-  %222 = load i32, ptr %arrayidx179, align 4
-  store i32 %222, ptr %vc7, align 4
-  %223 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx180 = getelementptr i32, ptr %223, i64 0
-  %224 = load i32, ptr %arrayidx180, align 4
-  store i32 %224, ptr %vd7, align 4
-  %225 = load ptr, ptr %x.addr, align 8
-  %add.ptr181 = getelementptr i8, ptr %225, i64 28
-  store ptr %add.ptr181, ptr %b7, align 8
-  %226 = load ptr, ptr %b7, align 8
-  %call182 = call i32 @load32(ptr noundef %226)
-  %call183 = call i32 @__uint32_identity(i32 noundef %call182)
-  store i32 %call183, ptr %u6, align 4
-  %227 = load i32, ptr %u6, align 4
-  store i32 %227, ptr %xk6, align 4
-  %228 = getelementptr inbounds [64 x i32], ptr @_t, i64 0, i64 7
-  %229 = load i32, ptr %228, align 4
-  store i32 %229, ptr %ti7, align 4
-  %230 = load i32, ptr %vb7, align 4
-  %231 = load i32, ptr %va6, align 4
-  %232 = load i32, ptr %vb7, align 4
-  %233 = load i32, ptr %vc7, align 4
-  %and184 = and i32 %232, %233
-  %234 = load i32, ptr %vb7, align 4
-  %not185 = xor i32 %234, -1
-  %235 = load i32, ptr %vd7, align 4
-  %and186 = and i32 %not185, %235
-  %or187 = or i32 %and184, %and186
-  %add188 = add i32 %231, %or187
-  %236 = load i32, ptr %xk6, align 4
-  %add189 = add i32 %add188, %236
-  %237 = load i32, ptr %ti7, align 4
-  %add190 = add i32 %add189, %237
-  %shl191 = shl i32 %add190, 22
-  %238 = load i32, ptr %va6, align 4
-  %239 = load i32, ptr %vb7, align 4
-  %240 = load i32, ptr %vc7, align 4
-  %and192 = and i32 %239, %240
-  %241 = load i32, ptr %vb7, align 4
-  %not193 = xor i32 %241, -1
-  %242 = load i32, ptr %vd7, align 4
-  %and194 = and i32 %not193, %242
-  %or195 = or i32 %and192, %and194
-  %add196 = add i32 %238, %or195
-  %243 = load i32, ptr %xk6, align 4
-  %add197 = add i32 %add196, %243
-  %244 = load i32, ptr %ti7, align 4
-  %add198 = add i32 %add197, %244
-  %shr199 = lshr i32 %add198, 10
-  %or200 = or i32 %shl191, %shr199
-  %add201 = add i32 %230, %or200
-  store i32 %add201, ptr %v6, align 4
-  %245 = load i32, ptr %v6, align 4
-  %246 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx202 = getelementptr i32, ptr %246, i64 1
-  store i32 %245, ptr %arrayidx202, align 4
-  %247 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx203 = getelementptr i32, ptr %247, i64 0
-  %248 = load i32, ptr %arrayidx203, align 4
-  store i32 %248, ptr %va7, align 4
-  %249 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx204 = getelementptr i32, ptr %249, i64 1
-  %250 = load i32, ptr %arrayidx204, align 4
-  store i32 %250, ptr %vb8, align 4
-  %251 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx205 = getelementptr i32, ptr %251, i64 2
-  %252 = load i32, ptr %arrayidx205, align 4
-  store i32 %252, ptr %vc8, align 4
-  %253 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx206 = getelementptr i32, ptr %253, i64 3
-  %254 = load i32, ptr %arrayidx206, align 4
-  store i32 %254, ptr %vd8, align 4
-  %255 = load ptr, ptr %x.addr, align 8
-  %add.ptr207 = getelementptr i8, ptr %255, i64 32
-  store ptr %add.ptr207, ptr %b8, align 8
-  %256 = load ptr, ptr %b8, align 8
-  %call208 = call i32 @load32(ptr noundef %256)
-  %call209 = call i32 @__uint32_identity(i32 noundef %call208)
-  store i32 %call209, ptr %u7, align 4
-  %257 = load i32, ptr %u7, align 4
-  store i32 %257, ptr %xk7, align 4
-  %258 = getelementptr inbounds [64 x i32], ptr @_t, i64 0, i64 8
-  %259 = load i32, ptr %258, align 16
-  store i32 %259, ptr %ti8, align 4
-  %260 = load i32, ptr %vb8, align 4
-  %261 = load i32, ptr %va7, align 4
-  %262 = load i32, ptr %vb8, align 4
-  %263 = load i32, ptr %vc8, align 4
-  %and210 = and i32 %262, %263
-  %264 = load i32, ptr %vb8, align 4
-  %not211 = xor i32 %264, -1
-  %265 = load i32, ptr %vd8, align 4
-  %and212 = and i32 %not211, %265
-  %or213 = or i32 %and210, %and212
-  %add214 = add i32 %261, %or213
-  %266 = load i32, ptr %xk7, align 4
-  %add215 = add i32 %add214, %266
-  %267 = load i32, ptr %ti8, align 4
-  %add216 = add i32 %add215, %267
-  %shl217 = shl i32 %add216, 7
-  %268 = load i32, ptr %va7, align 4
-  %269 = load i32, ptr %vb8, align 4
-  %270 = load i32, ptr %vc8, align 4
-  %and218 = and i32 %269, %270
-  %271 = load i32, ptr %vb8, align 4
-  %not219 = xor i32 %271, -1
-  %272 = load i32, ptr %vd8, align 4
-  %and220 = and i32 %not219, %272
-  %or221 = or i32 %and218, %and220
-  %add222 = add i32 %268, %or221
-  %273 = load i32, ptr %xk7, align 4
-  %add223 = add i32 %add222, %273
-  %274 = load i32, ptr %ti8, align 4
-  %add224 = add i32 %add223, %274
-  %shr225 = lshr i32 %add224, 25
-  %or226 = or i32 %shl217, %shr225
-  %add227 = add i32 %260, %or226
-  store i32 %add227, ptr %v7, align 4
-  %275 = load i32, ptr %v7, align 4
-  %276 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx228 = getelementptr i32, ptr %276, i64 0
-  store i32 %275, ptr %arrayidx228, align 4
-  %277 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx229 = getelementptr i32, ptr %277, i64 3
-  %278 = load i32, ptr %arrayidx229, align 4
-  store i32 %278, ptr %va8, align 4
-  %279 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx230 = getelementptr i32, ptr %279, i64 0
-  %280 = load i32, ptr %arrayidx230, align 4
-  store i32 %280, ptr %vb9, align 4
-  %281 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx231 = getelementptr i32, ptr %281, i64 1
-  %282 = load i32, ptr %arrayidx231, align 4
-  store i32 %282, ptr %vc9, align 4
-  %283 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx232 = getelementptr i32, ptr %283, i64 2
-  %284 = load i32, ptr %arrayidx232, align 4
-  store i32 %284, ptr %vd9, align 4
-  %285 = load ptr, ptr %x.addr, align 8
-  %add.ptr233 = getelementptr i8, ptr %285, i64 36
-  store ptr %add.ptr233, ptr %b9, align 8
-  %286 = load ptr, ptr %b9, align 8
-  %call234 = call i32 @load32(ptr noundef %286)
-  %call235 = call i32 @__uint32_identity(i32 noundef %call234)
-  store i32 %call235, ptr %u8, align 4
-  %287 = load i32, ptr %u8, align 4
-  store i32 %287, ptr %xk8, align 4
-  %288 = getelementptr inbounds [64 x i32], ptr @_t, i64 0, i64 9
-  %289 = load i32, ptr %288, align 4
-  store i32 %289, ptr %ti9, align 4
-  %290 = load i32, ptr %vb9, align 4
-  %291 = load i32, ptr %va8, align 4
-  %292 = load i32, ptr %vb9, align 4
-  %293 = load i32, ptr %vc9, align 4
-  %and236 = and i32 %292, %293
-  %294 = load i32, ptr %vb9, align 4
-  %not237 = xor i32 %294, -1
-  %295 = load i32, ptr %vd9, align 4
-  %and238 = and i32 %not237, %295
-  %or239 = or i32 %and236, %and238
-  %add240 = add i32 %291, %or239
-  %296 = load i32, ptr %xk8, align 4
-  %add241 = add i32 %add240, %296
-  %297 = load i32, ptr %ti9, align 4
-  %add242 = add i32 %add241, %297
-  %shl243 = shl i32 %add242, 12
-  %298 = load i32, ptr %va8, align 4
-  %299 = load i32, ptr %vb9, align 4
-  %300 = load i32, ptr %vc9, align 4
-  %and244 = and i32 %299, %300
-  %301 = load i32, ptr %vb9, align 4
-  %not245 = xor i32 %301, -1
-  %302 = load i32, ptr %vd9, align 4
-  %and246 = and i32 %not245, %302
-  %or247 = or i32 %and244, %and246
-  %add248 = add i32 %298, %or247
-  %303 = load i32, ptr %xk8, align 4
-  %add249 = add i32 %add248, %303
-  %304 = load i32, ptr %ti9, align 4
-  %add250 = add i32 %add249, %304
-  %shr251 = lshr i32 %add250, 20
-  %or252 = or i32 %shl243, %shr251
-  %add253 = add i32 %290, %or252
-  store i32 %add253, ptr %v8, align 4
-  %305 = load i32, ptr %v8, align 4
-  %306 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx254 = getelementptr i32, ptr %306, i64 3
-  store i32 %305, ptr %arrayidx254, align 4
-  %307 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx255 = getelementptr i32, ptr %307, i64 2
-  %308 = load i32, ptr %arrayidx255, align 4
-  store i32 %308, ptr %va9, align 4
-  %309 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx256 = getelementptr i32, ptr %309, i64 3
-  %310 = load i32, ptr %arrayidx256, align 4
-  store i32 %310, ptr %vb10, align 4
-  %311 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx257 = getelementptr i32, ptr %311, i64 0
-  %312 = load i32, ptr %arrayidx257, align 4
-  store i32 %312, ptr %vc10, align 4
-  %313 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx258 = getelementptr i32, ptr %313, i64 1
-  %314 = load i32, ptr %arrayidx258, align 4
-  store i32 %314, ptr %vd10, align 4
-  %315 = load ptr, ptr %x.addr, align 8
-  %add.ptr259 = getelementptr i8, ptr %315, i64 40
-  store ptr %add.ptr259, ptr %b10, align 8
-  %316 = load ptr, ptr %b10, align 8
-  %call260 = call i32 @load32(ptr noundef %316)
-  %call261 = call i32 @__uint32_identity(i32 noundef %call260)
-  store i32 %call261, ptr %u9, align 4
-  %317 = load i32, ptr %u9, align 4
-  store i32 %317, ptr %xk9, align 4
-  %318 = getelementptr inbounds [64 x i32], ptr @_t, i64 0, i64 10
-  %319 = load i32, ptr %318, align 8
-  store i32 %319, ptr %ti10, align 4
-  %320 = load i32, ptr %vb10, align 4
-  %321 = load i32, ptr %va9, align 4
-  %322 = load i32, ptr %vb10, align 4
-  %323 = load i32, ptr %vc10, align 4
-  %and262 = and i32 %322, %323
-  %324 = load i32, ptr %vb10, align 4
-  %not263 = xor i32 %324, -1
-  %325 = load i32, ptr %vd10, align 4
-  %and264 = and i32 %not263, %325
-  %or265 = or i32 %and262, %and264
-  %add266 = add i32 %321, %or265
-  %326 = load i32, ptr %xk9, align 4
-  %add267 = add i32 %add266, %326
-  %327 = load i32, ptr %ti10, align 4
-  %add268 = add i32 %add267, %327
-  %shl269 = shl i32 %add268, 17
-  %328 = load i32, ptr %va9, align 4
-  %329 = load i32, ptr %vb10, align 4
-  %330 = load i32, ptr %vc10, align 4
-  %and270 = and i32 %329, %330
-  %331 = load i32, ptr %vb10, align 4
-  %not271 = xor i32 %331, -1
-  %332 = load i32, ptr %vd10, align 4
-  %and272 = and i32 %not271, %332
-  %or273 = or i32 %and270, %and272
-  %add274 = add i32 %328, %or273
-  %333 = load i32, ptr %xk9, align 4
-  %add275 = add i32 %add274, %333
-  %334 = load i32, ptr %ti10, align 4
-  %add276 = add i32 %add275, %334
-  %shr277 = lshr i32 %add276, 15
-  %or278 = or i32 %shl269, %shr277
-  %add279 = add i32 %320, %or278
-  store i32 %add279, ptr %v9, align 4
-  %335 = load i32, ptr %v9, align 4
-  %336 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx280 = getelementptr i32, ptr %336, i64 2
-  store i32 %335, ptr %arrayidx280, align 4
-  %337 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx281 = getelementptr i32, ptr %337, i64 1
-  %338 = load i32, ptr %arrayidx281, align 4
-  store i32 %338, ptr %va10, align 4
-  %339 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx282 = getelementptr i32, ptr %339, i64 2
-  %340 = load i32, ptr %arrayidx282, align 4
-  store i32 %340, ptr %vb11, align 4
-  %341 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx283 = getelementptr i32, ptr %341, i64 3
-  %342 = load i32, ptr %arrayidx283, align 4
-  store i32 %342, ptr %vc11, align 4
-  %343 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx284 = getelementptr i32, ptr %343, i64 0
-  %344 = load i32, ptr %arrayidx284, align 4
-  store i32 %344, ptr %vd11, align 4
-  %345 = load ptr, ptr %x.addr, align 8
-  %add.ptr285 = getelementptr i8, ptr %345, i64 44
-  store ptr %add.ptr285, ptr %b11, align 8
-  %346 = load ptr, ptr %b11, align 8
-  %call286 = call i32 @load32(ptr noundef %346)
-  %call287 = call i32 @__uint32_identity(i32 noundef %call286)
-  store i32 %call287, ptr %u10, align 4
-  %347 = load i32, ptr %u10, align 4
-  store i32 %347, ptr %xk10, align 4
-  %348 = getelementptr inbounds [64 x i32], ptr @_t, i64 0, i64 11
-  %349 = load i32, ptr %348, align 4
-  store i32 %349, ptr %ti11, align 4
-  %350 = load i32, ptr %vb11, align 4
-  %351 = load i32, ptr %va10, align 4
-  %352 = load i32, ptr %vb11, align 4
-  %353 = load i32, ptr %vc11, align 4
-  %and288 = and i32 %352, %353
-  %354 = load i32, ptr %vb11, align 4
-  %not289 = xor i32 %354, -1
-  %355 = load i32, ptr %vd11, align 4
-  %and290 = and i32 %not289, %355
-  %or291 = or i32 %and288, %and290
-  %add292 = add i32 %351, %or291
-  %356 = load i32, ptr %xk10, align 4
-  %add293 = add i32 %add292, %356
-  %357 = load i32, ptr %ti11, align 4
-  %add294 = add i32 %add293, %357
-  %shl295 = shl i32 %add294, 22
-  %358 = load i32, ptr %va10, align 4
-  %359 = load i32, ptr %vb11, align 4
-  %360 = load i32, ptr %vc11, align 4
-  %and296 = and i32 %359, %360
-  %361 = load i32, ptr %vb11, align 4
-  %not297 = xor i32 %361, -1
-  %362 = load i32, ptr %vd11, align 4
-  %and298 = and i32 %not297, %362
-  %or299 = or i32 %and296, %and298
-  %add300 = add i32 %358, %or299
-  %363 = load i32, ptr %xk10, align 4
-  %add301 = add i32 %add300, %363
-  %364 = load i32, ptr %ti11, align 4
-  %add302 = add i32 %add301, %364
-  %shr303 = lshr i32 %add302, 10
-  %or304 = or i32 %shl295, %shr303
-  %add305 = add i32 %350, %or304
-  store i32 %add305, ptr %v10, align 4
-  %365 = load i32, ptr %v10, align 4
-  %366 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx306 = getelementptr i32, ptr %366, i64 1
-  store i32 %365, ptr %arrayidx306, align 4
-  %367 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx307 = getelementptr i32, ptr %367, i64 0
-  %368 = load i32, ptr %arrayidx307, align 4
-  store i32 %368, ptr %va11, align 4
-  %369 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx308 = getelementptr i32, ptr %369, i64 1
-  %370 = load i32, ptr %arrayidx308, align 4
-  store i32 %370, ptr %vb12, align 4
-  %371 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx309 = getelementptr i32, ptr %371, i64 2
-  %372 = load i32, ptr %arrayidx309, align 4
-  store i32 %372, ptr %vc12, align 4
-  %373 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx310 = getelementptr i32, ptr %373, i64 3
-  %374 = load i32, ptr %arrayidx310, align 4
-  store i32 %374, ptr %vd12, align 4
-  %375 = load ptr, ptr %x.addr, align 8
-  %add.ptr311 = getelementptr i8, ptr %375, i64 48
-  store ptr %add.ptr311, ptr %b12, align 8
-  %376 = load ptr, ptr %b12, align 8
-  %call312 = call i32 @load32(ptr noundef %376)
-  %call313 = call i32 @__uint32_identity(i32 noundef %call312)
-  store i32 %call313, ptr %u11, align 4
-  %377 = load i32, ptr %u11, align 4
-  store i32 %377, ptr %xk11, align 4
-  %378 = getelementptr inbounds [64 x i32], ptr @_t, i64 0, i64 12
-  %379 = load i32, ptr %378, align 16
-  store i32 %379, ptr %ti12, align 4
-  %380 = load i32, ptr %vb12, align 4
-  %381 = load i32, ptr %va11, align 4
-  %382 = load i32, ptr %vb12, align 4
-  %383 = load i32, ptr %vc12, align 4
-  %and314 = and i32 %382, %383
-  %384 = load i32, ptr %vb12, align 4
-  %not315 = xor i32 %384, -1
-  %385 = load i32, ptr %vd12, align 4
-  %and316 = and i32 %not315, %385
-  %or317 = or i32 %and314, %and316
-  %add318 = add i32 %381, %or317
-  %386 = load i32, ptr %xk11, align 4
-  %add319 = add i32 %add318, %386
-  %387 = load i32, ptr %ti12, align 4
-  %add320 = add i32 %add319, %387
-  %shl321 = shl i32 %add320, 7
-  %388 = load i32, ptr %va11, align 4
-  %389 = load i32, ptr %vb12, align 4
-  %390 = load i32, ptr %vc12, align 4
-  %and322 = and i32 %389, %390
-  %391 = load i32, ptr %vb12, align 4
-  %not323 = xor i32 %391, -1
-  %392 = load i32, ptr %vd12, align 4
-  %and324 = and i32 %not323, %392
-  %or325 = or i32 %and322, %and324
-  %add326 = add i32 %388, %or325
-  %393 = load i32, ptr %xk11, align 4
-  %add327 = add i32 %add326, %393
-  %394 = load i32, ptr %ti12, align 4
-  %add328 = add i32 %add327, %394
-  %shr329 = lshr i32 %add328, 25
-  %or330 = or i32 %shl321, %shr329
-  %add331 = add i32 %380, %or330
-  store i32 %add331, ptr %v11, align 4
-  %395 = load i32, ptr %v11, align 4
-  %396 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx332 = getelementptr i32, ptr %396, i64 0
-  store i32 %395, ptr %arrayidx332, align 4
-  %397 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx333 = getelementptr i32, ptr %397, i64 3
-  %398 = load i32, ptr %arrayidx333, align 4
-  store i32 %398, ptr %va12, align 4
-  %399 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx334 = getelementptr i32, ptr %399, i64 0
-  %400 = load i32, ptr %arrayidx334, align 4
-  store i32 %400, ptr %vb13, align 4
-  %401 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx335 = getelementptr i32, ptr %401, i64 1
-  %402 = load i32, ptr %arrayidx335, align 4
-  store i32 %402, ptr %vc13, align 4
-  %403 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx336 = getelementptr i32, ptr %403, i64 2
-  %404 = load i32, ptr %arrayidx336, align 4
-  store i32 %404, ptr %vd13, align 4
-  %405 = load ptr, ptr %x.addr, align 8
-  %add.ptr337 = getelementptr i8, ptr %405, i64 52
-  store ptr %add.ptr337, ptr %b13, align 8
-  %406 = load ptr, ptr %b13, align 8
-  %call338 = call i32 @load32(ptr noundef %406)
-  %call339 = call i32 @__uint32_identity(i32 noundef %call338)
-  store i32 %call339, ptr %u12, align 4
-  %407 = load i32, ptr %u12, align 4
-  store i32 %407, ptr %xk12, align 4
-  %408 = getelementptr inbounds [64 x i32], ptr @_t, i64 0, i64 13
-  %409 = load i32, ptr %408, align 4
-  store i32 %409, ptr %ti13, align 4
-  %410 = load i32, ptr %vb13, align 4
-  %411 = load i32, ptr %va12, align 4
-  %412 = load i32, ptr %vb13, align 4
-  %413 = load i32, ptr %vc13, align 4
-  %and340 = and i32 %412, %413
-  %414 = load i32, ptr %vb13, align 4
-  %not341 = xor i32 %414, -1
-  %415 = load i32, ptr %vd13, align 4
-  %and342 = and i32 %not341, %415
-  %or343 = or i32 %and340, %and342
-  %add344 = add i32 %411, %or343
-  %416 = load i32, ptr %xk12, align 4
-  %add345 = add i32 %add344, %416
-  %417 = load i32, ptr %ti13, align 4
-  %add346 = add i32 %add345, %417
-  %shl347 = shl i32 %add346, 12
-  %418 = load i32, ptr %va12, align 4
-  %419 = load i32, ptr %vb13, align 4
-  %420 = load i32, ptr %vc13, align 4
-  %and348 = and i32 %419, %420
-  %421 = load i32, ptr %vb13, align 4
-  %not349 = xor i32 %421, -1
-  %422 = load i32, ptr %vd13, align 4
-  %and350 = and i32 %not349, %422
-  %or351 = or i32 %and348, %and350
-  %add352 = add i32 %418, %or351
-  %423 = load i32, ptr %xk12, align 4
-  %add353 = add i32 %add352, %423
-  %424 = load i32, ptr %ti13, align 4
-  %add354 = add i32 %add353, %424
-  %shr355 = lshr i32 %add354, 20
-  %or356 = or i32 %shl347, %shr355
-  %add357 = add i32 %410, %or356
-  store i32 %add357, ptr %v12, align 4
-  %425 = load i32, ptr %v12, align 4
-  %426 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx358 = getelementptr i32, ptr %426, i64 3
-  store i32 %425, ptr %arrayidx358, align 4
-  %427 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx359 = getelementptr i32, ptr %427, i64 2
-  %428 = load i32, ptr %arrayidx359, align 4
-  store i32 %428, ptr %va13, align 4
-  %429 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx360 = getelementptr i32, ptr %429, i64 3
-  %430 = load i32, ptr %arrayidx360, align 4
-  store i32 %430, ptr %vb14, align 4
-  %431 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx361 = getelementptr i32, ptr %431, i64 0
-  %432 = load i32, ptr %arrayidx361, align 4
-  store i32 %432, ptr %vc14, align 4
-  %433 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx362 = getelementptr i32, ptr %433, i64 1
-  %434 = load i32, ptr %arrayidx362, align 4
-  store i32 %434, ptr %vd14, align 4
-  %435 = load ptr, ptr %x.addr, align 8
-  %add.ptr363 = getelementptr i8, ptr %435, i64 56
-  store ptr %add.ptr363, ptr %b14, align 8
-  %436 = load ptr, ptr %b14, align 8
-  %call364 = call i32 @load32(ptr noundef %436)
-  %call365 = call i32 @__uint32_identity(i32 noundef %call364)
-  store i32 %call365, ptr %u13, align 4
-  %437 = load i32, ptr %u13, align 4
-  store i32 %437, ptr %xk13, align 4
-  %438 = getelementptr inbounds [64 x i32], ptr @_t, i64 0, i64 14
-  %439 = load i32, ptr %438, align 8
-  store i32 %439, ptr %ti14, align 4
-  %440 = load i32, ptr %vb14, align 4
-  %441 = load i32, ptr %va13, align 4
-  %442 = load i32, ptr %vb14, align 4
-  %443 = load i32, ptr %vc14, align 4
-  %and366 = and i32 %442, %443
-  %444 = load i32, ptr %vb14, align 4
-  %not367 = xor i32 %444, -1
-  %445 = load i32, ptr %vd14, align 4
-  %and368 = and i32 %not367, %445
-  %or369 = or i32 %and366, %and368
-  %add370 = add i32 %441, %or369
-  %446 = load i32, ptr %xk13, align 4
-  %add371 = add i32 %add370, %446
-  %447 = load i32, ptr %ti14, align 4
-  %add372 = add i32 %add371, %447
-  %shl373 = shl i32 %add372, 17
-  %448 = load i32, ptr %va13, align 4
-  %449 = load i32, ptr %vb14, align 4
-  %450 = load i32, ptr %vc14, align 4
-  %and374 = and i32 %449, %450
-  %451 = load i32, ptr %vb14, align 4
-  %not375 = xor i32 %451, -1
-  %452 = load i32, ptr %vd14, align 4
-  %and376 = and i32 %not375, %452
-  %or377 = or i32 %and374, %and376
-  %add378 = add i32 %448, %or377
-  %453 = load i32, ptr %xk13, align 4
-  %add379 = add i32 %add378, %453
-  %454 = load i32, ptr %ti14, align 4
-  %add380 = add i32 %add379, %454
-  %shr381 = lshr i32 %add380, 15
-  %or382 = or i32 %shl373, %shr381
-  %add383 = add i32 %440, %or382
-  store i32 %add383, ptr %v13, align 4
-  %455 = load i32, ptr %v13, align 4
-  %456 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx384 = getelementptr i32, ptr %456, i64 2
-  store i32 %455, ptr %arrayidx384, align 4
-  %457 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx385 = getelementptr i32, ptr %457, i64 1
-  %458 = load i32, ptr %arrayidx385, align 4
-  store i32 %458, ptr %va14, align 4
-  %459 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx386 = getelementptr i32, ptr %459, i64 2
-  %460 = load i32, ptr %arrayidx386, align 4
-  store i32 %460, ptr %vb15, align 4
-  %461 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx387 = getelementptr i32, ptr %461, i64 3
-  %462 = load i32, ptr %arrayidx387, align 4
-  store i32 %462, ptr %vc15, align 4
-  %463 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx388 = getelementptr i32, ptr %463, i64 0
-  %464 = load i32, ptr %arrayidx388, align 4
-  store i32 %464, ptr %vd15, align 4
-  %465 = load ptr, ptr %x.addr, align 8
-  %add.ptr389 = getelementptr i8, ptr %465, i64 60
-  store ptr %add.ptr389, ptr %b15, align 8
-  %466 = load ptr, ptr %b15, align 8
-  %call390 = call i32 @load32(ptr noundef %466)
-  %call391 = call i32 @__uint32_identity(i32 noundef %call390)
-  store i32 %call391, ptr %u14, align 4
-  %467 = load i32, ptr %u14, align 4
-  store i32 %467, ptr %xk14, align 4
-  %468 = getelementptr inbounds [64 x i32], ptr @_t, i64 0, i64 15
-  %469 = load i32, ptr %468, align 4
-  store i32 %469, ptr %ti15, align 4
-  %470 = load i32, ptr %vb15, align 4
-  %471 = load i32, ptr %va14, align 4
-  %472 = load i32, ptr %vb15, align 4
-  %473 = load i32, ptr %vc15, align 4
-  %and392 = and i32 %472, %473
-  %474 = load i32, ptr %vb15, align 4
-  %not393 = xor i32 %474, -1
-  %475 = load i32, ptr %vd15, align 4
-  %and394 = and i32 %not393, %475
-  %or395 = or i32 %and392, %and394
-  %add396 = add i32 %471, %or395
-  %476 = load i32, ptr %xk14, align 4
-  %add397 = add i32 %add396, %476
-  %477 = load i32, ptr %ti15, align 4
-  %add398 = add i32 %add397, %477
-  %shl399 = shl i32 %add398, 22
-  %478 = load i32, ptr %va14, align 4
-  %479 = load i32, ptr %vb15, align 4
-  %480 = load i32, ptr %vc15, align 4
-  %and400 = and i32 %479, %480
-  %481 = load i32, ptr %vb15, align 4
-  %not401 = xor i32 %481, -1
-  %482 = load i32, ptr %vd15, align 4
-  %and402 = and i32 %not401, %482
-  %or403 = or i32 %and400, %and402
-  %add404 = add i32 %478, %or403
-  %483 = load i32, ptr %xk14, align 4
-  %add405 = add i32 %add404, %483
-  %484 = load i32, ptr %ti15, align 4
-  %add406 = add i32 %add405, %484
-  %shr407 = lshr i32 %add406, 10
-  %or408 = or i32 %shl399, %shr407
-  %add409 = add i32 %470, %or408
-  store i32 %add409, ptr %v14, align 4
-  %485 = load i32, ptr %v14, align 4
-  %486 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx410 = getelementptr i32, ptr %486, i64 1
-  store i32 %485, ptr %arrayidx410, align 4
-  %487 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx411 = getelementptr i32, ptr %487, i64 0
-  %488 = load i32, ptr %arrayidx411, align 4
-  store i32 %488, ptr %va15, align 4
-  %489 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx412 = getelementptr i32, ptr %489, i64 1
-  %490 = load i32, ptr %arrayidx412, align 4
-  store i32 %490, ptr %vb16, align 4
-  %491 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx413 = getelementptr i32, ptr %491, i64 2
-  %492 = load i32, ptr %arrayidx413, align 4
-  store i32 %492, ptr %vc16, align 4
-  %493 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx414 = getelementptr i32, ptr %493, i64 3
-  %494 = load i32, ptr %arrayidx414, align 4
-  store i32 %494, ptr %vd16, align 4
-  %495 = load ptr, ptr %x.addr, align 8
-  %add.ptr415 = getelementptr i8, ptr %495, i64 4
-  store ptr %add.ptr415, ptr %b16, align 8
-  %496 = load ptr, ptr %b16, align 8
-  %call416 = call i32 @load32(ptr noundef %496)
-  %call417 = call i32 @__uint32_identity(i32 noundef %call416)
-  store i32 %call417, ptr %u15, align 4
-  %497 = load i32, ptr %u15, align 4
-  store i32 %497, ptr %xk15, align 4
-  %498 = getelementptr inbounds [64 x i32], ptr @_t, i64 0, i64 16
-  %499 = load i32, ptr %498, align 16
-  store i32 %499, ptr %ti16, align 4
-  %500 = load i32, ptr %vb16, align 4
-  %501 = load i32, ptr %va15, align 4
-  %502 = load i32, ptr %vb16, align 4
-  %503 = load i32, ptr %vd16, align 4
-  %and418 = and i32 %502, %503
-  %504 = load i32, ptr %vc16, align 4
-  %505 = load i32, ptr %vd16, align 4
-  %not419 = xor i32 %505, -1
-  %and420 = and i32 %504, %not419
-  %or421 = or i32 %and418, %and420
-  %add422 = add i32 %501, %or421
-  %506 = load i32, ptr %xk15, align 4
-  %add423 = add i32 %add422, %506
-  %507 = load i32, ptr %ti16, align 4
-  %add424 = add i32 %add423, %507
-  %shl425 = shl i32 %add424, 5
-  %508 = load i32, ptr %va15, align 4
-  %509 = load i32, ptr %vb16, align 4
-  %510 = load i32, ptr %vd16, align 4
-  %and426 = and i32 %509, %510
-  %511 = load i32, ptr %vc16, align 4
-  %512 = load i32, ptr %vd16, align 4
-  %not427 = xor i32 %512, -1
-  %and428 = and i32 %511, %not427
-  %or429 = or i32 %and426, %and428
-  %add430 = add i32 %508, %or429
-  %513 = load i32, ptr %xk15, align 4
-  %add431 = add i32 %add430, %513
-  %514 = load i32, ptr %ti16, align 4
-  %add432 = add i32 %add431, %514
-  %shr433 = lshr i32 %add432, 27
-  %or434 = or i32 %shl425, %shr433
-  %add435 = add i32 %500, %or434
-  store i32 %add435, ptr %v15, align 4
-  %515 = load i32, ptr %v15, align 4
-  %516 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx436 = getelementptr i32, ptr %516, i64 0
-  store i32 %515, ptr %arrayidx436, align 4
-  %517 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx437 = getelementptr i32, ptr %517, i64 3
-  %518 = load i32, ptr %arrayidx437, align 4
-  store i32 %518, ptr %va16, align 4
-  %519 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx438 = getelementptr i32, ptr %519, i64 0
-  %520 = load i32, ptr %arrayidx438, align 4
-  store i32 %520, ptr %vb17, align 4
-  %521 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx439 = getelementptr i32, ptr %521, i64 1
-  %522 = load i32, ptr %arrayidx439, align 4
-  store i32 %522, ptr %vc17, align 4
-  %523 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx440 = getelementptr i32, ptr %523, i64 2
-  %524 = load i32, ptr %arrayidx440, align 4
-  store i32 %524, ptr %vd17, align 4
-  %525 = load ptr, ptr %x.addr, align 8
-  %add.ptr441 = getelementptr i8, ptr %525, i64 24
-  store ptr %add.ptr441, ptr %b17, align 8
-  %526 = load ptr, ptr %b17, align 8
-  %call442 = call i32 @load32(ptr noundef %526)
-  %call443 = call i32 @__uint32_identity(i32 noundef %call442)
-  store i32 %call443, ptr %u16, align 4
-  %527 = load i32, ptr %u16, align 4
-  store i32 %527, ptr %xk16, align 4
-  %528 = getelementptr inbounds [64 x i32], ptr @_t, i64 0, i64 17
-  %529 = load i32, ptr %528, align 4
-  store i32 %529, ptr %ti17, align 4
-  %530 = load i32, ptr %vb17, align 4
-  %531 = load i32, ptr %va16, align 4
-  %532 = load i32, ptr %vb17, align 4
-  %533 = load i32, ptr %vd17, align 4
-  %and444 = and i32 %532, %533
-  %534 = load i32, ptr %vc17, align 4
-  %535 = load i32, ptr %vd17, align 4
-  %not445 = xor i32 %535, -1
-  %and446 = and i32 %534, %not445
-  %or447 = or i32 %and444, %and446
-  %add448 = add i32 %531, %or447
-  %536 = load i32, ptr %xk16, align 4
-  %add449 = add i32 %add448, %536
-  %537 = load i32, ptr %ti17, align 4
-  %add450 = add i32 %add449, %537
-  %shl451 = shl i32 %add450, 9
-  %538 = load i32, ptr %va16, align 4
-  %539 = load i32, ptr %vb17, align 4
-  %540 = load i32, ptr %vd17, align 4
-  %and452 = and i32 %539, %540
-  %541 = load i32, ptr %vc17, align 4
-  %542 = load i32, ptr %vd17, align 4
-  %not453 = xor i32 %542, -1
-  %and454 = and i32 %541, %not453
-  %or455 = or i32 %and452, %and454
-  %add456 = add i32 %538, %or455
-  %543 = load i32, ptr %xk16, align 4
-  %add457 = add i32 %add456, %543
-  %544 = load i32, ptr %ti17, align 4
-  %add458 = add i32 %add457, %544
-  %shr459 = lshr i32 %add458, 23
-  %or460 = or i32 %shl451, %shr459
-  %add461 = add i32 %530, %or460
-  store i32 %add461, ptr %v16, align 4
-  %545 = load i32, ptr %v16, align 4
-  %546 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx462 = getelementptr i32, ptr %546, i64 3
-  store i32 %545, ptr %arrayidx462, align 4
-  %547 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx463 = getelementptr i32, ptr %547, i64 2
-  %548 = load i32, ptr %arrayidx463, align 4
-  store i32 %548, ptr %va17, align 4
-  %549 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx464 = getelementptr i32, ptr %549, i64 3
-  %550 = load i32, ptr %arrayidx464, align 4
-  store i32 %550, ptr %vb18, align 4
-  %551 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx465 = getelementptr i32, ptr %551, i64 0
-  %552 = load i32, ptr %arrayidx465, align 4
-  store i32 %552, ptr %vc18, align 4
-  %553 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx466 = getelementptr i32, ptr %553, i64 1
-  %554 = load i32, ptr %arrayidx466, align 4
-  store i32 %554, ptr %vd18, align 4
-  %555 = load ptr, ptr %x.addr, align 8
-  %add.ptr467 = getelementptr i8, ptr %555, i64 44
-  store ptr %add.ptr467, ptr %b18, align 8
-  %556 = load ptr, ptr %b18, align 8
-  %call468 = call i32 @load32(ptr noundef %556)
-  %call469 = call i32 @__uint32_identity(i32 noundef %call468)
-  store i32 %call469, ptr %u17, align 4
-  %557 = load i32, ptr %u17, align 4
-  store i32 %557, ptr %xk17, align 4
-  %558 = getelementptr inbounds [64 x i32], ptr @_t, i64 0, i64 18
-  %559 = load i32, ptr %558, align 8
-  store i32 %559, ptr %ti18, align 4
-  %560 = load i32, ptr %vb18, align 4
-  %561 = load i32, ptr %va17, align 4
-  %562 = load i32, ptr %vb18, align 4
-  %563 = load i32, ptr %vd18, align 4
-  %and470 = and i32 %562, %563
-  %564 = load i32, ptr %vc18, align 4
-  %565 = load i32, ptr %vd18, align 4
-  %not471 = xor i32 %565, -1
-  %and472 = and i32 %564, %not471
-  %or473 = or i32 %and470, %and472
-  %add474 = add i32 %561, %or473
-  %566 = load i32, ptr %xk17, align 4
-  %add475 = add i32 %add474, %566
-  %567 = load i32, ptr %ti18, align 4
-  %add476 = add i32 %add475, %567
-  %shl477 = shl i32 %add476, 14
-  %568 = load i32, ptr %va17, align 4
-  %569 = load i32, ptr %vb18, align 4
-  %570 = load i32, ptr %vd18, align 4
-  %and478 = and i32 %569, %570
-  %571 = load i32, ptr %vc18, align 4
-  %572 = load i32, ptr %vd18, align 4
-  %not479 = xor i32 %572, -1
-  %and480 = and i32 %571, %not479
-  %or481 = or i32 %and478, %and480
-  %add482 = add i32 %568, %or481
-  %573 = load i32, ptr %xk17, align 4
-  %add483 = add i32 %add482, %573
-  %574 = load i32, ptr %ti18, align 4
-  %add484 = add i32 %add483, %574
-  %shr485 = lshr i32 %add484, 18
-  %or486 = or i32 %shl477, %shr485
-  %add487 = add i32 %560, %or486
-  store i32 %add487, ptr %v17, align 4
-  %575 = load i32, ptr %v17, align 4
-  %576 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx488 = getelementptr i32, ptr %576, i64 2
-  store i32 %575, ptr %arrayidx488, align 4
-  %577 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx489 = getelementptr i32, ptr %577, i64 1
-  %578 = load i32, ptr %arrayidx489, align 4
-  store i32 %578, ptr %va18, align 4
-  %579 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx490 = getelementptr i32, ptr %579, i64 2
-  %580 = load i32, ptr %arrayidx490, align 4
-  store i32 %580, ptr %vb19, align 4
-  %581 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx491 = getelementptr i32, ptr %581, i64 3
-  %582 = load i32, ptr %arrayidx491, align 4
-  store i32 %582, ptr %vc19, align 4
-  %583 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx492 = getelementptr i32, ptr %583, i64 0
-  %584 = load i32, ptr %arrayidx492, align 4
-  store i32 %584, ptr %vd19, align 4
-  %585 = load ptr, ptr %x.addr, align 8
-  store ptr %585, ptr %b19, align 8
-  %586 = load ptr, ptr %b19, align 8
-  %call493 = call i32 @load32(ptr noundef %586)
-  %call494 = call i32 @__uint32_identity(i32 noundef %call493)
-  store i32 %call494, ptr %u18, align 4
-  %587 = load i32, ptr %u18, align 4
-  store i32 %587, ptr %xk18, align 4
-  %588 = getelementptr inbounds [64 x i32], ptr @_t, i64 0, i64 19
-  %589 = load i32, ptr %588, align 4
-  store i32 %589, ptr %ti19, align 4
-  %590 = load i32, ptr %vb19, align 4
-  %591 = load i32, ptr %va18, align 4
-  %592 = load i32, ptr %vb19, align 4
-  %593 = load i32, ptr %vd19, align 4
-  %and495 = and i32 %592, %593
-  %594 = load i32, ptr %vc19, align 4
-  %595 = load i32, ptr %vd19, align 4
-  %not496 = xor i32 %595, -1
-  %and497 = and i32 %594, %not496
-  %or498 = or i32 %and495, %and497
-  %add499 = add i32 %591, %or498
-  %596 = load i32, ptr %xk18, align 4
-  %add500 = add i32 %add499, %596
-  %597 = load i32, ptr %ti19, align 4
-  %add501 = add i32 %add500, %597
-  %shl502 = shl i32 %add501, 20
-  %598 = load i32, ptr %va18, align 4
-  %599 = load i32, ptr %vb19, align 4
-  %600 = load i32, ptr %vd19, align 4
-  %and503 = and i32 %599, %600
-  %601 = load i32, ptr %vc19, align 4
-  %602 = load i32, ptr %vd19, align 4
-  %not504 = xor i32 %602, -1
-  %and505 = and i32 %601, %not504
-  %or506 = or i32 %and503, %and505
-  %add507 = add i32 %598, %or506
-  %603 = load i32, ptr %xk18, align 4
-  %add508 = add i32 %add507, %603
-  %604 = load i32, ptr %ti19, align 4
-  %add509 = add i32 %add508, %604
-  %shr510 = lshr i32 %add509, 12
-  %or511 = or i32 %shl502, %shr510
-  %add512 = add i32 %590, %or511
-  store i32 %add512, ptr %v18, align 4
-  %605 = load i32, ptr %v18, align 4
-  %606 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx513 = getelementptr i32, ptr %606, i64 1
-  store i32 %605, ptr %arrayidx513, align 4
-  %607 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx514 = getelementptr i32, ptr %607, i64 0
-  %608 = load i32, ptr %arrayidx514, align 4
-  store i32 %608, ptr %va19, align 4
-  %609 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx515 = getelementptr i32, ptr %609, i64 1
-  %610 = load i32, ptr %arrayidx515, align 4
-  store i32 %610, ptr %vb20, align 4
-  %611 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx516 = getelementptr i32, ptr %611, i64 2
-  %612 = load i32, ptr %arrayidx516, align 4
-  store i32 %612, ptr %vc20, align 4
-  %613 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx517 = getelementptr i32, ptr %613, i64 3
-  %614 = load i32, ptr %arrayidx517, align 4
-  store i32 %614, ptr %vd20, align 4
-  %615 = load ptr, ptr %x.addr, align 8
-  %add.ptr518 = getelementptr i8, ptr %615, i64 20
-  store ptr %add.ptr518, ptr %b20, align 8
-  %616 = load ptr, ptr %b20, align 8
-  %call519 = call i32 @load32(ptr noundef %616)
-  %call520 = call i32 @__uint32_identity(i32 noundef %call519)
-  store i32 %call520, ptr %u19, align 4
-  %617 = load i32, ptr %u19, align 4
-  store i32 %617, ptr %xk19, align 4
-  %618 = getelementptr inbounds [64 x i32], ptr @_t, i64 0, i64 20
-  %619 = load i32, ptr %618, align 16
-  store i32 %619, ptr %ti20, align 4
-  %620 = load i32, ptr %vb20, align 4
-  %621 = load i32, ptr %va19, align 4
-  %622 = load i32, ptr %vb20, align 4
-  %623 = load i32, ptr %vd20, align 4
-  %and521 = and i32 %622, %623
-  %624 = load i32, ptr %vc20, align 4
-  %625 = load i32, ptr %vd20, align 4
-  %not522 = xor i32 %625, -1
-  %and523 = and i32 %624, %not522
-  %or524 = or i32 %and521, %and523
-  %add525 = add i32 %621, %or524
-  %626 = load i32, ptr %xk19, align 4
-  %add526 = add i32 %add525, %626
-  %627 = load i32, ptr %ti20, align 4
-  %add527 = add i32 %add526, %627
-  %shl528 = shl i32 %add527, 5
-  %628 = load i32, ptr %va19, align 4
-  %629 = load i32, ptr %vb20, align 4
-  %630 = load i32, ptr %vd20, align 4
-  %and529 = and i32 %629, %630
-  %631 = load i32, ptr %vc20, align 4
-  %632 = load i32, ptr %vd20, align 4
-  %not530 = xor i32 %632, -1
-  %and531 = and i32 %631, %not530
-  %or532 = or i32 %and529, %and531
-  %add533 = add i32 %628, %or532
-  %633 = load i32, ptr %xk19, align 4
-  %add534 = add i32 %add533, %633
-  %634 = load i32, ptr %ti20, align 4
-  %add535 = add i32 %add534, %634
-  %shr536 = lshr i32 %add535, 27
-  %or537 = or i32 %shl528, %shr536
-  %add538 = add i32 %620, %or537
-  store i32 %add538, ptr %v19, align 4
-  %635 = load i32, ptr %v19, align 4
-  %636 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx539 = getelementptr i32, ptr %636, i64 0
-  store i32 %635, ptr %arrayidx539, align 4
-  %637 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx540 = getelementptr i32, ptr %637, i64 3
-  %638 = load i32, ptr %arrayidx540, align 4
-  store i32 %638, ptr %va20, align 4
-  %639 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx541 = getelementptr i32, ptr %639, i64 0
-  %640 = load i32, ptr %arrayidx541, align 4
-  store i32 %640, ptr %vb21, align 4
-  %641 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx542 = getelementptr i32, ptr %641, i64 1
-  %642 = load i32, ptr %arrayidx542, align 4
-  store i32 %642, ptr %vc21, align 4
-  %643 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx543 = getelementptr i32, ptr %643, i64 2
-  %644 = load i32, ptr %arrayidx543, align 4
-  store i32 %644, ptr %vd21, align 4
-  %645 = load ptr, ptr %x.addr, align 8
-  %add.ptr544 = getelementptr i8, ptr %645, i64 40
-  store ptr %add.ptr544, ptr %b21, align 8
-  %646 = load ptr, ptr %b21, align 8
-  %call545 = call i32 @load32(ptr noundef %646)
-  %call546 = call i32 @__uint32_identity(i32 noundef %call545)
-  store i32 %call546, ptr %u20, align 4
-  %647 = load i32, ptr %u20, align 4
-  store i32 %647, ptr %xk20, align 4
-  %648 = getelementptr inbounds [64 x i32], ptr @_t, i64 0, i64 21
-  %649 = load i32, ptr %648, align 4
-  store i32 %649, ptr %ti21, align 4
-  %650 = load i32, ptr %vb21, align 4
-  %651 = load i32, ptr %va20, align 4
-  %652 = load i32, ptr %vb21, align 4
-  %653 = load i32, ptr %vd21, align 4
-  %and547 = and i32 %652, %653
-  %654 = load i32, ptr %vc21, align 4
-  %655 = load i32, ptr %vd21, align 4
-  %not548 = xor i32 %655, -1
-  %and549 = and i32 %654, %not548
-  %or550 = or i32 %and547, %and549
-  %add551 = add i32 %651, %or550
-  %656 = load i32, ptr %xk20, align 4
-  %add552 = add i32 %add551, %656
-  %657 = load i32, ptr %ti21, align 4
-  %add553 = add i32 %add552, %657
-  %shl554 = shl i32 %add553, 9
-  %658 = load i32, ptr %va20, align 4
-  %659 = load i32, ptr %vb21, align 4
-  %660 = load i32, ptr %vd21, align 4
-  %and555 = and i32 %659, %660
-  %661 = load i32, ptr %vc21, align 4
-  %662 = load i32, ptr %vd21, align 4
-  %not556 = xor i32 %662, -1
-  %and557 = and i32 %661, %not556
-  %or558 = or i32 %and555, %and557
-  %add559 = add i32 %658, %or558
-  %663 = load i32, ptr %xk20, align 4
-  %add560 = add i32 %add559, %663
-  %664 = load i32, ptr %ti21, align 4
-  %add561 = add i32 %add560, %664
-  %shr562 = lshr i32 %add561, 23
-  %or563 = or i32 %shl554, %shr562
-  %add564 = add i32 %650, %or563
-  store i32 %add564, ptr %v20, align 4
-  %665 = load i32, ptr %v20, align 4
-  %666 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx565 = getelementptr i32, ptr %666, i64 3
-  store i32 %665, ptr %arrayidx565, align 4
-  %667 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx566 = getelementptr i32, ptr %667, i64 2
-  %668 = load i32, ptr %arrayidx566, align 4
-  store i32 %668, ptr %va21, align 4
-  %669 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx567 = getelementptr i32, ptr %669, i64 3
-  %670 = load i32, ptr %arrayidx567, align 4
-  store i32 %670, ptr %vb22, align 4
-  %671 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx568 = getelementptr i32, ptr %671, i64 0
-  %672 = load i32, ptr %arrayidx568, align 4
-  store i32 %672, ptr %vc22, align 4
-  %673 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx569 = getelementptr i32, ptr %673, i64 1
-  %674 = load i32, ptr %arrayidx569, align 4
-  store i32 %674, ptr %vd22, align 4
-  %675 = load ptr, ptr %x.addr, align 8
-  %add.ptr570 = getelementptr i8, ptr %675, i64 60
-  store ptr %add.ptr570, ptr %b22, align 8
-  %676 = load ptr, ptr %b22, align 8
-  %call571 = call i32 @load32(ptr noundef %676)
-  %call572 = call i32 @__uint32_identity(i32 noundef %call571)
-  store i32 %call572, ptr %u21, align 4
-  %677 = load i32, ptr %u21, align 4
-  store i32 %677, ptr %xk21, align 4
-  %678 = getelementptr inbounds [64 x i32], ptr @_t, i64 0, i64 22
-  %679 = load i32, ptr %678, align 8
-  store i32 %679, ptr %ti22, align 4
-  %680 = load i32, ptr %vb22, align 4
-  %681 = load i32, ptr %va21, align 4
-  %682 = load i32, ptr %vb22, align 4
-  %683 = load i32, ptr %vd22, align 4
-  %and573 = and i32 %682, %683
-  %684 = load i32, ptr %vc22, align 4
-  %685 = load i32, ptr %vd22, align 4
-  %not574 = xor i32 %685, -1
-  %and575 = and i32 %684, %not574
-  %or576 = or i32 %and573, %and575
-  %add577 = add i32 %681, %or576
-  %686 = load i32, ptr %xk21, align 4
-  %add578 = add i32 %add577, %686
-  %687 = load i32, ptr %ti22, align 4
-  %add579 = add i32 %add578, %687
-  %shl580 = shl i32 %add579, 14
-  %688 = load i32, ptr %va21, align 4
-  %689 = load i32, ptr %vb22, align 4
-  %690 = load i32, ptr %vd22, align 4
-  %and581 = and i32 %689, %690
-  %691 = load i32, ptr %vc22, align 4
-  %692 = load i32, ptr %vd22, align 4
-  %not582 = xor i32 %692, -1
-  %and583 = and i32 %691, %not582
-  %or584 = or i32 %and581, %and583
-  %add585 = add i32 %688, %or584
-  %693 = load i32, ptr %xk21, align 4
-  %add586 = add i32 %add585, %693
-  %694 = load i32, ptr %ti22, align 4
-  %add587 = add i32 %add586, %694
-  %shr588 = lshr i32 %add587, 18
-  %or589 = or i32 %shl580, %shr588
-  %add590 = add i32 %680, %or589
-  store i32 %add590, ptr %v21, align 4
-  %695 = load i32, ptr %v21, align 4
-  %696 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx591 = getelementptr i32, ptr %696, i64 2
-  store i32 %695, ptr %arrayidx591, align 4
-  %697 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx592 = getelementptr i32, ptr %697, i64 1
-  %698 = load i32, ptr %arrayidx592, align 4
-  store i32 %698, ptr %va22, align 4
-  %699 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx593 = getelementptr i32, ptr %699, i64 2
-  %700 = load i32, ptr %arrayidx593, align 4
-  store i32 %700, ptr %vb23, align 4
-  %701 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx594 = getelementptr i32, ptr %701, i64 3
-  %702 = load i32, ptr %arrayidx594, align 4
-  store i32 %702, ptr %vc23, align 4
-  %703 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx595 = getelementptr i32, ptr %703, i64 0
-  %704 = load i32, ptr %arrayidx595, align 4
-  store i32 %704, ptr %vd23, align 4
-  %705 = load ptr, ptr %x.addr, align 8
-  %add.ptr596 = getelementptr i8, ptr %705, i64 16
-  store ptr %add.ptr596, ptr %b23, align 8
-  %706 = load ptr, ptr %b23, align 8
-  %call597 = call i32 @load32(ptr noundef %706)
-  %call598 = call i32 @__uint32_identity(i32 noundef %call597)
-  store i32 %call598, ptr %u22, align 4
-  %707 = load i32, ptr %u22, align 4
-  store i32 %707, ptr %xk22, align 4
-  %708 = getelementptr inbounds [64 x i32], ptr @_t, i64 0, i64 23
-  %709 = load i32, ptr %708, align 4
-  store i32 %709, ptr %ti23, align 4
-  %710 = load i32, ptr %vb23, align 4
-  %711 = load i32, ptr %va22, align 4
-  %712 = load i32, ptr %vb23, align 4
-  %713 = load i32, ptr %vd23, align 4
-  %and599 = and i32 %712, %713
-  %714 = load i32, ptr %vc23, align 4
-  %715 = load i32, ptr %vd23, align 4
-  %not600 = xor i32 %715, -1
-  %and601 = and i32 %714, %not600
-  %or602 = or i32 %and599, %and601
-  %add603 = add i32 %711, %or602
-  %716 = load i32, ptr %xk22, align 4
-  %add604 = add i32 %add603, %716
-  %717 = load i32, ptr %ti23, align 4
-  %add605 = add i32 %add604, %717
-  %shl606 = shl i32 %add605, 20
-  %718 = load i32, ptr %va22, align 4
-  %719 = load i32, ptr %vb23, align 4
-  %720 = load i32, ptr %vd23, align 4
-  %and607 = and i32 %719, %720
-  %721 = load i32, ptr %vc23, align 4
-  %722 = load i32, ptr %vd23, align 4
-  %not608 = xor i32 %722, -1
-  %and609 = and i32 %721, %not608
-  %or610 = or i32 %and607, %and609
-  %add611 = add i32 %718, %or610
-  %723 = load i32, ptr %xk22, align 4
-  %add612 = add i32 %add611, %723
-  %724 = load i32, ptr %ti23, align 4
-  %add613 = add i32 %add612, %724
-  %shr614 = lshr i32 %add613, 12
-  %or615 = or i32 %shl606, %shr614
-  %add616 = add i32 %710, %or615
-  store i32 %add616, ptr %v22, align 4
-  %725 = load i32, ptr %v22, align 4
-  %726 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx617 = getelementptr i32, ptr %726, i64 1
-  store i32 %725, ptr %arrayidx617, align 4
-  %727 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx618 = getelementptr i32, ptr %727, i64 0
-  %728 = load i32, ptr %arrayidx618, align 4
-  store i32 %728, ptr %va23, align 4
-  %729 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx619 = getelementptr i32, ptr %729, i64 1
-  %730 = load i32, ptr %arrayidx619, align 4
-  store i32 %730, ptr %vb24, align 4
-  %731 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx620 = getelementptr i32, ptr %731, i64 2
-  %732 = load i32, ptr %arrayidx620, align 4
-  store i32 %732, ptr %vc24, align 4
-  %733 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx621 = getelementptr i32, ptr %733, i64 3
-  %734 = load i32, ptr %arrayidx621, align 4
-  store i32 %734, ptr %vd24, align 4
-  %735 = load ptr, ptr %x.addr, align 8
-  %add.ptr622 = getelementptr i8, ptr %735, i64 36
-  store ptr %add.ptr622, ptr %b24, align 8
-  %736 = load ptr, ptr %b24, align 8
-  %call623 = call i32 @load32(ptr noundef %736)
-  %call624 = call i32 @__uint32_identity(i32 noundef %call623)
-  store i32 %call624, ptr %u23, align 4
-  %737 = load i32, ptr %u23, align 4
-  store i32 %737, ptr %xk23, align 4
-  %738 = getelementptr inbounds [64 x i32], ptr @_t, i64 0, i64 24
-  %739 = load i32, ptr %738, align 16
-  store i32 %739, ptr %ti24, align 4
-  %740 = load i32, ptr %vb24, align 4
-  %741 = load i32, ptr %va23, align 4
-  %742 = load i32, ptr %vb24, align 4
-  %743 = load i32, ptr %vd24, align 4
-  %and625 = and i32 %742, %743
-  %744 = load i32, ptr %vc24, align 4
-  %745 = load i32, ptr %vd24, align 4
-  %not626 = xor i32 %745, -1
-  %and627 = and i32 %744, %not626
-  %or628 = or i32 %and625, %and627
-  %add629 = add i32 %741, %or628
-  %746 = load i32, ptr %xk23, align 4
-  %add630 = add i32 %add629, %746
-  %747 = load i32, ptr %ti24, align 4
-  %add631 = add i32 %add630, %747
-  %shl632 = shl i32 %add631, 5
-  %748 = load i32, ptr %va23, align 4
-  %749 = load i32, ptr %vb24, align 4
-  %750 = load i32, ptr %vd24, align 4
-  %and633 = and i32 %749, %750
-  %751 = load i32, ptr %vc24, align 4
-  %752 = load i32, ptr %vd24, align 4
-  %not634 = xor i32 %752, -1
-  %and635 = and i32 %751, %not634
-  %or636 = or i32 %and633, %and635
-  %add637 = add i32 %748, %or636
-  %753 = load i32, ptr %xk23, align 4
-  %add638 = add i32 %add637, %753
-  %754 = load i32, ptr %ti24, align 4
-  %add639 = add i32 %add638, %754
-  %shr640 = lshr i32 %add639, 27
-  %or641 = or i32 %shl632, %shr640
-  %add642 = add i32 %740, %or641
-  store i32 %add642, ptr %v23, align 4
-  %755 = load i32, ptr %v23, align 4
-  %756 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx643 = getelementptr i32, ptr %756, i64 0
-  store i32 %755, ptr %arrayidx643, align 4
-  %757 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx644 = getelementptr i32, ptr %757, i64 3
-  %758 = load i32, ptr %arrayidx644, align 4
-  store i32 %758, ptr %va24, align 4
-  %759 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx645 = getelementptr i32, ptr %759, i64 0
-  %760 = load i32, ptr %arrayidx645, align 4
-  store i32 %760, ptr %vb25, align 4
-  %761 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx646 = getelementptr i32, ptr %761, i64 1
-  %762 = load i32, ptr %arrayidx646, align 4
-  store i32 %762, ptr %vc25, align 4
-  %763 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx647 = getelementptr i32, ptr %763, i64 2
-  %764 = load i32, ptr %arrayidx647, align 4
-  store i32 %764, ptr %vd25, align 4
-  %765 = load ptr, ptr %x.addr, align 8
-  %add.ptr648 = getelementptr i8, ptr %765, i64 56
-  store ptr %add.ptr648, ptr %b25, align 8
-  %766 = load ptr, ptr %b25, align 8
-  %call649 = call i32 @load32(ptr noundef %766)
-  %call650 = call i32 @__uint32_identity(i32 noundef %call649)
-  store i32 %call650, ptr %u24, align 4
-  %767 = load i32, ptr %u24, align 4
-  store i32 %767, ptr %xk24, align 4
-  %768 = getelementptr inbounds [64 x i32], ptr @_t, i64 0, i64 25
-  %769 = load i32, ptr %768, align 4
-  store i32 %769, ptr %ti25, align 4
-  %770 = load i32, ptr %vb25, align 4
-  %771 = load i32, ptr %va24, align 4
-  %772 = load i32, ptr %vb25, align 4
-  %773 = load i32, ptr %vd25, align 4
-  %and651 = and i32 %772, %773
-  %774 = load i32, ptr %vc25, align 4
-  %775 = load i32, ptr %vd25, align 4
-  %not652 = xor i32 %775, -1
-  %and653 = and i32 %774, %not652
-  %or654 = or i32 %and651, %and653
-  %add655 = add i32 %771, %or654
-  %776 = load i32, ptr %xk24, align 4
-  %add656 = add i32 %add655, %776
-  %777 = load i32, ptr %ti25, align 4
-  %add657 = add i32 %add656, %777
-  %shl658 = shl i32 %add657, 9
-  %778 = load i32, ptr %va24, align 4
-  %779 = load i32, ptr %vb25, align 4
-  %780 = load i32, ptr %vd25, align 4
-  %and659 = and i32 %779, %780
-  %781 = load i32, ptr %vc25, align 4
-  %782 = load i32, ptr %vd25, align 4
-  %not660 = xor i32 %782, -1
-  %and661 = and i32 %781, %not660
-  %or662 = or i32 %and659, %and661
-  %add663 = add i32 %778, %or662
-  %783 = load i32, ptr %xk24, align 4
-  %add664 = add i32 %add663, %783
-  %784 = load i32, ptr %ti25, align 4
-  %add665 = add i32 %add664, %784
-  %shr666 = lshr i32 %add665, 23
-  %or667 = or i32 %shl658, %shr666
-  %add668 = add i32 %770, %or667
-  store i32 %add668, ptr %v24, align 4
-  %785 = load i32, ptr %v24, align 4
-  %786 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx669 = getelementptr i32, ptr %786, i64 3
-  store i32 %785, ptr %arrayidx669, align 4
-  %787 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx670 = getelementptr i32, ptr %787, i64 2
-  %788 = load i32, ptr %arrayidx670, align 4
-  store i32 %788, ptr %va25, align 4
-  %789 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx671 = getelementptr i32, ptr %789, i64 3
-  %790 = load i32, ptr %arrayidx671, align 4
-  store i32 %790, ptr %vb26, align 4
-  %791 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx672 = getelementptr i32, ptr %791, i64 0
-  %792 = load i32, ptr %arrayidx672, align 4
-  store i32 %792, ptr %vc26, align 4
-  %793 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx673 = getelementptr i32, ptr %793, i64 1
-  %794 = load i32, ptr %arrayidx673, align 4
-  store i32 %794, ptr %vd26, align 4
-  %795 = load ptr, ptr %x.addr, align 8
-  %add.ptr674 = getelementptr i8, ptr %795, i64 12
-  store ptr %add.ptr674, ptr %b26, align 8
-  %796 = load ptr, ptr %b26, align 8
-  %call675 = call i32 @load32(ptr noundef %796)
-  %call676 = call i32 @__uint32_identity(i32 noundef %call675)
-  store i32 %call676, ptr %u25, align 4
-  %797 = load i32, ptr %u25, align 4
-  store i32 %797, ptr %xk25, align 4
-  %798 = getelementptr inbounds [64 x i32], ptr @_t, i64 0, i64 26
-  %799 = load i32, ptr %798, align 8
-  store i32 %799, ptr %ti26, align 4
-  %800 = load i32, ptr %vb26, align 4
-  %801 = load i32, ptr %va25, align 4
-  %802 = load i32, ptr %vb26, align 4
-  %803 = load i32, ptr %vd26, align 4
-  %and677 = and i32 %802, %803
-  %804 = load i32, ptr %vc26, align 4
-  %805 = load i32, ptr %vd26, align 4
-  %not678 = xor i32 %805, -1
-  %and679 = and i32 %804, %not678
-  %or680 = or i32 %and677, %and679
-  %add681 = add i32 %801, %or680
-  %806 = load i32, ptr %xk25, align 4
-  %add682 = add i32 %add681, %806
-  %807 = load i32, ptr %ti26, align 4
-  %add683 = add i32 %add682, %807
-  %shl684 = shl i32 %add683, 14
-  %808 = load i32, ptr %va25, align 4
-  %809 = load i32, ptr %vb26, align 4
-  %810 = load i32, ptr %vd26, align 4
-  %and685 = and i32 %809, %810
-  %811 = load i32, ptr %vc26, align 4
-  %812 = load i32, ptr %vd26, align 4
-  %not686 = xor i32 %812, -1
-  %and687 = and i32 %811, %not686
-  %or688 = or i32 %and685, %and687
-  %add689 = add i32 %808, %or688
-  %813 = load i32, ptr %xk25, align 4
-  %add690 = add i32 %add689, %813
-  %814 = load i32, ptr %ti26, align 4
-  %add691 = add i32 %add690, %814
-  %shr692 = lshr i32 %add691, 18
-  %or693 = or i32 %shl684, %shr692
-  %add694 = add i32 %800, %or693
-  store i32 %add694, ptr %v25, align 4
-  %815 = load i32, ptr %v25, align 4
-  %816 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx695 = getelementptr i32, ptr %816, i64 2
-  store i32 %815, ptr %arrayidx695, align 4
-  %817 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx696 = getelementptr i32, ptr %817, i64 1
-  %818 = load i32, ptr %arrayidx696, align 4
-  store i32 %818, ptr %va26, align 4
-  %819 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx697 = getelementptr i32, ptr %819, i64 2
-  %820 = load i32, ptr %arrayidx697, align 4
-  store i32 %820, ptr %vb27, align 4
-  %821 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx698 = getelementptr i32, ptr %821, i64 3
-  %822 = load i32, ptr %arrayidx698, align 4
-  store i32 %822, ptr %vc27, align 4
-  %823 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx699 = getelementptr i32, ptr %823, i64 0
-  %824 = load i32, ptr %arrayidx699, align 4
-  store i32 %824, ptr %vd27, align 4
-  %825 = load ptr, ptr %x.addr, align 8
-  %add.ptr700 = getelementptr i8, ptr %825, i64 32
-  store ptr %add.ptr700, ptr %b27, align 8
-  %826 = load ptr, ptr %b27, align 8
-  %call701 = call i32 @load32(ptr noundef %826)
-  %call702 = call i32 @__uint32_identity(i32 noundef %call701)
-  store i32 %call702, ptr %u26, align 4
-  %827 = load i32, ptr %u26, align 4
-  store i32 %827, ptr %xk26, align 4
-  %828 = getelementptr inbounds [64 x i32], ptr @_t, i64 0, i64 27
-  %829 = load i32, ptr %828, align 4
-  store i32 %829, ptr %ti27, align 4
-  %830 = load i32, ptr %vb27, align 4
-  %831 = load i32, ptr %va26, align 4
-  %832 = load i32, ptr %vb27, align 4
-  %833 = load i32, ptr %vd27, align 4
-  %and703 = and i32 %832, %833
-  %834 = load i32, ptr %vc27, align 4
-  %835 = load i32, ptr %vd27, align 4
-  %not704 = xor i32 %835, -1
-  %and705 = and i32 %834, %not704
-  %or706 = or i32 %and703, %and705
-  %add707 = add i32 %831, %or706
-  %836 = load i32, ptr %xk26, align 4
-  %add708 = add i32 %add707, %836
-  %837 = load i32, ptr %ti27, align 4
-  %add709 = add i32 %add708, %837
-  %shl710 = shl i32 %add709, 20
-  %838 = load i32, ptr %va26, align 4
-  %839 = load i32, ptr %vb27, align 4
-  %840 = load i32, ptr %vd27, align 4
-  %and711 = and i32 %839, %840
-  %841 = load i32, ptr %vc27, align 4
-  %842 = load i32, ptr %vd27, align 4
-  %not712 = xor i32 %842, -1
-  %and713 = and i32 %841, %not712
-  %or714 = or i32 %and711, %and713
-  %add715 = add i32 %838, %or714
-  %843 = load i32, ptr %xk26, align 4
-  %add716 = add i32 %add715, %843
-  %844 = load i32, ptr %ti27, align 4
-  %add717 = add i32 %add716, %844
-  %shr718 = lshr i32 %add717, 12
-  %or719 = or i32 %shl710, %shr718
-  %add720 = add i32 %830, %or719
-  store i32 %add720, ptr %v26, align 4
-  %845 = load i32, ptr %v26, align 4
-  %846 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx721 = getelementptr i32, ptr %846, i64 1
-  store i32 %845, ptr %arrayidx721, align 4
-  %847 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx722 = getelementptr i32, ptr %847, i64 0
-  %848 = load i32, ptr %arrayidx722, align 4
-  store i32 %848, ptr %va27, align 4
-  %849 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx723 = getelementptr i32, ptr %849, i64 1
-  %850 = load i32, ptr %arrayidx723, align 4
-  store i32 %850, ptr %vb28, align 4
-  %851 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx724 = getelementptr i32, ptr %851, i64 2
-  %852 = load i32, ptr %arrayidx724, align 4
-  store i32 %852, ptr %vc28, align 4
-  %853 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx725 = getelementptr i32, ptr %853, i64 3
-  %854 = load i32, ptr %arrayidx725, align 4
-  store i32 %854, ptr %vd28, align 4
-  %855 = load ptr, ptr %x.addr, align 8
-  %add.ptr726 = getelementptr i8, ptr %855, i64 52
-  store ptr %add.ptr726, ptr %b28, align 8
-  %856 = load ptr, ptr %b28, align 8
-  %call727 = call i32 @load32(ptr noundef %856)
-  %call728 = call i32 @__uint32_identity(i32 noundef %call727)
-  store i32 %call728, ptr %u27, align 4
-  %857 = load i32, ptr %u27, align 4
-  store i32 %857, ptr %xk27, align 4
-  %858 = getelementptr inbounds [64 x i32], ptr @_t, i64 0, i64 28
-  %859 = load i32, ptr %858, align 16
-  store i32 %859, ptr %ti28, align 4
-  %860 = load i32, ptr %vb28, align 4
-  %861 = load i32, ptr %va27, align 4
-  %862 = load i32, ptr %vb28, align 4
-  %863 = load i32, ptr %vd28, align 4
-  %and729 = and i32 %862, %863
-  %864 = load i32, ptr %vc28, align 4
-  %865 = load i32, ptr %vd28, align 4
-  %not730 = xor i32 %865, -1
-  %and731 = and i32 %864, %not730
-  %or732 = or i32 %and729, %and731
-  %add733 = add i32 %861, %or732
-  %866 = load i32, ptr %xk27, align 4
-  %add734 = add i32 %add733, %866
-  %867 = load i32, ptr %ti28, align 4
-  %add735 = add i32 %add734, %867
-  %shl736 = shl i32 %add735, 5
-  %868 = load i32, ptr %va27, align 4
-  %869 = load i32, ptr %vb28, align 4
-  %870 = load i32, ptr %vd28, align 4
-  %and737 = and i32 %869, %870
-  %871 = load i32, ptr %vc28, align 4
-  %872 = load i32, ptr %vd28, align 4
-  %not738 = xor i32 %872, -1
-  %and739 = and i32 %871, %not738
-  %or740 = or i32 %and737, %and739
-  %add741 = add i32 %868, %or740
-  %873 = load i32, ptr %xk27, align 4
-  %add742 = add i32 %add741, %873
-  %874 = load i32, ptr %ti28, align 4
-  %add743 = add i32 %add742, %874
-  %shr744 = lshr i32 %add743, 27
-  %or745 = or i32 %shl736, %shr744
-  %add746 = add i32 %860, %or745
-  store i32 %add746, ptr %v27, align 4
-  %875 = load i32, ptr %v27, align 4
-  %876 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx747 = getelementptr i32, ptr %876, i64 0
-  store i32 %875, ptr %arrayidx747, align 4
-  %877 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx748 = getelementptr i32, ptr %877, i64 3
-  %878 = load i32, ptr %arrayidx748, align 4
-  store i32 %878, ptr %va28, align 4
-  %879 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx749 = getelementptr i32, ptr %879, i64 0
-  %880 = load i32, ptr %arrayidx749, align 4
-  store i32 %880, ptr %vb29, align 4
-  %881 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx750 = getelementptr i32, ptr %881, i64 1
-  %882 = load i32, ptr %arrayidx750, align 4
-  store i32 %882, ptr %vc29, align 4
-  %883 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx751 = getelementptr i32, ptr %883, i64 2
-  %884 = load i32, ptr %arrayidx751, align 4
-  store i32 %884, ptr %vd29, align 4
-  %885 = load ptr, ptr %x.addr, align 8
-  %add.ptr752 = getelementptr i8, ptr %885, i64 8
-  store ptr %add.ptr752, ptr %b29, align 8
-  %886 = load ptr, ptr %b29, align 8
-  %call753 = call i32 @load32(ptr noundef %886)
-  %call754 = call i32 @__uint32_identity(i32 noundef %call753)
-  store i32 %call754, ptr %u28, align 4
-  %887 = load i32, ptr %u28, align 4
-  store i32 %887, ptr %xk28, align 4
-  %888 = getelementptr inbounds [64 x i32], ptr @_t, i64 0, i64 29
-  %889 = load i32, ptr %888, align 4
-  store i32 %889, ptr %ti29, align 4
-  %890 = load i32, ptr %vb29, align 4
-  %891 = load i32, ptr %va28, align 4
-  %892 = load i32, ptr %vb29, align 4
-  %893 = load i32, ptr %vd29, align 4
-  %and755 = and i32 %892, %893
-  %894 = load i32, ptr %vc29, align 4
-  %895 = load i32, ptr %vd29, align 4
-  %not756 = xor i32 %895, -1
-  %and757 = and i32 %894, %not756
-  %or758 = or i32 %and755, %and757
-  %add759 = add i32 %891, %or758
-  %896 = load i32, ptr %xk28, align 4
-  %add760 = add i32 %add759, %896
-  %897 = load i32, ptr %ti29, align 4
-  %add761 = add i32 %add760, %897
-  %shl762 = shl i32 %add761, 9
-  %898 = load i32, ptr %va28, align 4
-  %899 = load i32, ptr %vb29, align 4
-  %900 = load i32, ptr %vd29, align 4
-  %and763 = and i32 %899, %900
-  %901 = load i32, ptr %vc29, align 4
-  %902 = load i32, ptr %vd29, align 4
-  %not764 = xor i32 %902, -1
-  %and765 = and i32 %901, %not764
-  %or766 = or i32 %and763, %and765
-  %add767 = add i32 %898, %or766
-  %903 = load i32, ptr %xk28, align 4
-  %add768 = add i32 %add767, %903
-  %904 = load i32, ptr %ti29, align 4
-  %add769 = add i32 %add768, %904
-  %shr770 = lshr i32 %add769, 23
-  %or771 = or i32 %shl762, %shr770
-  %add772 = add i32 %890, %or771
-  store i32 %add772, ptr %v28, align 4
-  %905 = load i32, ptr %v28, align 4
-  %906 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx773 = getelementptr i32, ptr %906, i64 3
-  store i32 %905, ptr %arrayidx773, align 4
-  %907 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx774 = getelementptr i32, ptr %907, i64 2
-  %908 = load i32, ptr %arrayidx774, align 4
-  store i32 %908, ptr %va29, align 4
-  %909 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx775 = getelementptr i32, ptr %909, i64 3
-  %910 = load i32, ptr %arrayidx775, align 4
-  store i32 %910, ptr %vb30, align 4
-  %911 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx776 = getelementptr i32, ptr %911, i64 0
-  %912 = load i32, ptr %arrayidx776, align 4
-  store i32 %912, ptr %vc30, align 4
-  %913 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx777 = getelementptr i32, ptr %913, i64 1
-  %914 = load i32, ptr %arrayidx777, align 4
-  store i32 %914, ptr %vd30, align 4
-  %915 = load ptr, ptr %x.addr, align 8
-  %add.ptr778 = getelementptr i8, ptr %915, i64 28
-  store ptr %add.ptr778, ptr %b30, align 8
-  %916 = load ptr, ptr %b30, align 8
-  %call779 = call i32 @load32(ptr noundef %916)
-  %call780 = call i32 @__uint32_identity(i32 noundef %call779)
-  store i32 %call780, ptr %u29, align 4
-  %917 = load i32, ptr %u29, align 4
-  store i32 %917, ptr %xk29, align 4
-  %918 = getelementptr inbounds [64 x i32], ptr @_t, i64 0, i64 30
-  %919 = load i32, ptr %918, align 8
-  store i32 %919, ptr %ti30, align 4
-  %920 = load i32, ptr %vb30, align 4
-  %921 = load i32, ptr %va29, align 4
-  %922 = load i32, ptr %vb30, align 4
-  %923 = load i32, ptr %vd30, align 4
-  %and781 = and i32 %922, %923
-  %924 = load i32, ptr %vc30, align 4
-  %925 = load i32, ptr %vd30, align 4
-  %not782 = xor i32 %925, -1
-  %and783 = and i32 %924, %not782
-  %or784 = or i32 %and781, %and783
-  %add785 = add i32 %921, %or784
-  %926 = load i32, ptr %xk29, align 4
-  %add786 = add i32 %add785, %926
-  %927 = load i32, ptr %ti30, align 4
-  %add787 = add i32 %add786, %927
-  %shl788 = shl i32 %add787, 14
-  %928 = load i32, ptr %va29, align 4
-  %929 = load i32, ptr %vb30, align 4
-  %930 = load i32, ptr %vd30, align 4
-  %and789 = and i32 %929, %930
-  %931 = load i32, ptr %vc30, align 4
-  %932 = load i32, ptr %vd30, align 4
-  %not790 = xor i32 %932, -1
-  %and791 = and i32 %931, %not790
-  %or792 = or i32 %and789, %and791
-  %add793 = add i32 %928, %or792
-  %933 = load i32, ptr %xk29, align 4
-  %add794 = add i32 %add793, %933
-  %934 = load i32, ptr %ti30, align 4
-  %add795 = add i32 %add794, %934
-  %shr796 = lshr i32 %add795, 18
-  %or797 = or i32 %shl788, %shr796
-  %add798 = add i32 %920, %or797
-  store i32 %add798, ptr %v29, align 4
-  %935 = load i32, ptr %v29, align 4
-  %936 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx799 = getelementptr i32, ptr %936, i64 2
-  store i32 %935, ptr %arrayidx799, align 4
-  %937 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx800 = getelementptr i32, ptr %937, i64 1
-  %938 = load i32, ptr %arrayidx800, align 4
-  store i32 %938, ptr %va30, align 4
-  %939 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx801 = getelementptr i32, ptr %939, i64 2
-  %940 = load i32, ptr %arrayidx801, align 4
-  store i32 %940, ptr %vb31, align 4
-  %941 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx802 = getelementptr i32, ptr %941, i64 3
-  %942 = load i32, ptr %arrayidx802, align 4
-  store i32 %942, ptr %vc31, align 4
-  %943 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx803 = getelementptr i32, ptr %943, i64 0
-  %944 = load i32, ptr %arrayidx803, align 4
-  store i32 %944, ptr %vd31, align 4
-  %945 = load ptr, ptr %x.addr, align 8
-  %add.ptr804 = getelementptr i8, ptr %945, i64 48
-  store ptr %add.ptr804, ptr %b31, align 8
-  %946 = load ptr, ptr %b31, align 8
-  %call805 = call i32 @load32(ptr noundef %946)
-  %call806 = call i32 @__uint32_identity(i32 noundef %call805)
-  store i32 %call806, ptr %u30, align 4
-  %947 = load i32, ptr %u30, align 4
-  store i32 %947, ptr %xk30, align 4
-  %948 = getelementptr inbounds [64 x i32], ptr @_t, i64 0, i64 31
-  %949 = load i32, ptr %948, align 4
-  store i32 %949, ptr %ti31, align 4
-  %950 = load i32, ptr %vb31, align 4
-  %951 = load i32, ptr %va30, align 4
-  %952 = load i32, ptr %vb31, align 4
-  %953 = load i32, ptr %vd31, align 4
-  %and807 = and i32 %952, %953
-  %954 = load i32, ptr %vc31, align 4
-  %955 = load i32, ptr %vd31, align 4
-  %not808 = xor i32 %955, -1
-  %and809 = and i32 %954, %not808
-  %or810 = or i32 %and807, %and809
-  %add811 = add i32 %951, %or810
-  %956 = load i32, ptr %xk30, align 4
-  %add812 = add i32 %add811, %956
-  %957 = load i32, ptr %ti31, align 4
-  %add813 = add i32 %add812, %957
-  %shl814 = shl i32 %add813, 20
-  %958 = load i32, ptr %va30, align 4
-  %959 = load i32, ptr %vb31, align 4
-  %960 = load i32, ptr %vd31, align 4
-  %and815 = and i32 %959, %960
-  %961 = load i32, ptr %vc31, align 4
-  %962 = load i32, ptr %vd31, align 4
-  %not816 = xor i32 %962, -1
-  %and817 = and i32 %961, %not816
-  %or818 = or i32 %and815, %and817
-  %add819 = add i32 %958, %or818
-  %963 = load i32, ptr %xk30, align 4
-  %add820 = add i32 %add819, %963
-  %964 = load i32, ptr %ti31, align 4
-  %add821 = add i32 %add820, %964
-  %shr822 = lshr i32 %add821, 12
-  %or823 = or i32 %shl814, %shr822
-  %add824 = add i32 %950, %or823
-  store i32 %add824, ptr %v30, align 4
-  %965 = load i32, ptr %v30, align 4
-  %966 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx825 = getelementptr i32, ptr %966, i64 1
-  store i32 %965, ptr %arrayidx825, align 4
-  %967 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx826 = getelementptr i32, ptr %967, i64 0
-  %968 = load i32, ptr %arrayidx826, align 4
-  store i32 %968, ptr %va31, align 4
-  %969 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx827 = getelementptr i32, ptr %969, i64 1
-  %970 = load i32, ptr %arrayidx827, align 4
-  store i32 %970, ptr %vb32, align 4
-  %971 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx828 = getelementptr i32, ptr %971, i64 2
-  %972 = load i32, ptr %arrayidx828, align 4
-  store i32 %972, ptr %vc32, align 4
-  %973 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx829 = getelementptr i32, ptr %973, i64 3
-  %974 = load i32, ptr %arrayidx829, align 4
-  store i32 %974, ptr %vd32, align 4
-  %975 = load ptr, ptr %x.addr, align 8
-  %add.ptr830 = getelementptr i8, ptr %975, i64 20
-  store ptr %add.ptr830, ptr %b32, align 8
-  %976 = load ptr, ptr %b32, align 8
-  %call831 = call i32 @load32(ptr noundef %976)
-  %call832 = call i32 @__uint32_identity(i32 noundef %call831)
-  store i32 %call832, ptr %u31, align 4
-  %977 = load i32, ptr %u31, align 4
-  store i32 %977, ptr %xk31, align 4
-  %978 = getelementptr inbounds [64 x i32], ptr @_t, i64 0, i64 32
-  %979 = load i32, ptr %978, align 16
-  store i32 %979, ptr %ti32, align 4
-  %980 = load i32, ptr %vb32, align 4
-  %981 = load i32, ptr %va31, align 4
-  %982 = load i32, ptr %vb32, align 4
-  %983 = load i32, ptr %vc32, align 4
-  %984 = load i32, ptr %vd32, align 4
-  %xor = xor i32 %983, %984
-  %xor833 = xor i32 %982, %xor
-  %add834 = add i32 %981, %xor833
-  %985 = load i32, ptr %xk31, align 4
-  %add835 = add i32 %add834, %985
-  %986 = load i32, ptr %ti32, align 4
-  %add836 = add i32 %add835, %986
-  %shl837 = shl i32 %add836, 4
-  %987 = load i32, ptr %va31, align 4
-  %988 = load i32, ptr %vb32, align 4
-  %989 = load i32, ptr %vc32, align 4
-  %990 = load i32, ptr %vd32, align 4
-  %xor838 = xor i32 %989, %990
-  %xor839 = xor i32 %988, %xor838
-  %add840 = add i32 %987, %xor839
-  %991 = load i32, ptr %xk31, align 4
-  %add841 = add i32 %add840, %991
-  %992 = load i32, ptr %ti32, align 4
-  %add842 = add i32 %add841, %992
-  %shr843 = lshr i32 %add842, 28
-  %or844 = or i32 %shl837, %shr843
-  %add845 = add i32 %980, %or844
-  store i32 %add845, ptr %v31, align 4
-  %993 = load i32, ptr %v31, align 4
-  %994 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx846 = getelementptr i32, ptr %994, i64 0
-  store i32 %993, ptr %arrayidx846, align 4
-  %995 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx847 = getelementptr i32, ptr %995, i64 3
-  %996 = load i32, ptr %arrayidx847, align 4
-  store i32 %996, ptr %va32, align 4
-  %997 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx848 = getelementptr i32, ptr %997, i64 0
-  %998 = load i32, ptr %arrayidx848, align 4
-  store i32 %998, ptr %vb33, align 4
-  %999 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx849 = getelementptr i32, ptr %999, i64 1
-  %1000 = load i32, ptr %arrayidx849, align 4
-  store i32 %1000, ptr %vc33, align 4
-  %1001 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx850 = getelementptr i32, ptr %1001, i64 2
-  %1002 = load i32, ptr %arrayidx850, align 4
-  store i32 %1002, ptr %vd33, align 4
-  %1003 = load ptr, ptr %x.addr, align 8
-  %add.ptr851 = getelementptr i8, ptr %1003, i64 32
-  store ptr %add.ptr851, ptr %b33, align 8
-  %1004 = load ptr, ptr %b33, align 8
-  %call852 = call i32 @load32(ptr noundef %1004)
-  %call853 = call i32 @__uint32_identity(i32 noundef %call852)
-  store i32 %call853, ptr %u32, align 4
-  %1005 = load i32, ptr %u32, align 4
-  store i32 %1005, ptr %xk32, align 4
-  %1006 = getelementptr inbounds [64 x i32], ptr @_t, i64 0, i64 33
-  %1007 = load i32, ptr %1006, align 4
-  store i32 %1007, ptr %ti33, align 4
-  %1008 = load i32, ptr %vb33, align 4
-  %1009 = load i32, ptr %va32, align 4
-  %1010 = load i32, ptr %vb33, align 4
-  %1011 = load i32, ptr %vc33, align 4
-  %1012 = load i32, ptr %vd33, align 4
-  %xor854 = xor i32 %1011, %1012
-  %xor855 = xor i32 %1010, %xor854
-  %add856 = add i32 %1009, %xor855
-  %1013 = load i32, ptr %xk32, align 4
-  %add857 = add i32 %add856, %1013
-  %1014 = load i32, ptr %ti33, align 4
-  %add858 = add i32 %add857, %1014
-  %shl859 = shl i32 %add858, 11
-  %1015 = load i32, ptr %va32, align 4
-  %1016 = load i32, ptr %vb33, align 4
-  %1017 = load i32, ptr %vc33, align 4
-  %1018 = load i32, ptr %vd33, align 4
-  %xor860 = xor i32 %1017, %1018
-  %xor861 = xor i32 %1016, %xor860
-  %add862 = add i32 %1015, %xor861
-  %1019 = load i32, ptr %xk32, align 4
-  %add863 = add i32 %add862, %1019
-  %1020 = load i32, ptr %ti33, align 4
-  %add864 = add i32 %add863, %1020
-  %shr865 = lshr i32 %add864, 21
-  %or866 = or i32 %shl859, %shr865
-  %add867 = add i32 %1008, %or866
-  store i32 %add867, ptr %v32, align 4
-  %1021 = load i32, ptr %v32, align 4
-  %1022 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx868 = getelementptr i32, ptr %1022, i64 3
-  store i32 %1021, ptr %arrayidx868, align 4
-  %1023 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx869 = getelementptr i32, ptr %1023, i64 2
-  %1024 = load i32, ptr %arrayidx869, align 4
-  store i32 %1024, ptr %va33, align 4
-  %1025 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx870 = getelementptr i32, ptr %1025, i64 3
-  %1026 = load i32, ptr %arrayidx870, align 4
-  store i32 %1026, ptr %vb34, align 4
-  %1027 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx871 = getelementptr i32, ptr %1027, i64 0
-  %1028 = load i32, ptr %arrayidx871, align 4
-  store i32 %1028, ptr %vc34, align 4
-  %1029 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx872 = getelementptr i32, ptr %1029, i64 1
-  %1030 = load i32, ptr %arrayidx872, align 4
-  store i32 %1030, ptr %vd34, align 4
-  %1031 = load ptr, ptr %x.addr, align 8
-  %add.ptr873 = getelementptr i8, ptr %1031, i64 44
-  store ptr %add.ptr873, ptr %b34, align 8
-  %1032 = load ptr, ptr %b34, align 8
-  %call874 = call i32 @load32(ptr noundef %1032)
-  %call875 = call i32 @__uint32_identity(i32 noundef %call874)
-  store i32 %call875, ptr %u33, align 4
-  %1033 = load i32, ptr %u33, align 4
-  store i32 %1033, ptr %xk33, align 4
-  %1034 = getelementptr inbounds [64 x i32], ptr @_t, i64 0, i64 34
-  %1035 = load i32, ptr %1034, align 8
-  store i32 %1035, ptr %ti34, align 4
-  %1036 = load i32, ptr %vb34, align 4
-  %1037 = load i32, ptr %va33, align 4
-  %1038 = load i32, ptr %vb34, align 4
-  %1039 = load i32, ptr %vc34, align 4
-  %1040 = load i32, ptr %vd34, align 4
-  %xor876 = xor i32 %1039, %1040
-  %xor877 = xor i32 %1038, %xor876
-  %add878 = add i32 %1037, %xor877
-  %1041 = load i32, ptr %xk33, align 4
-  %add879 = add i32 %add878, %1041
-  %1042 = load i32, ptr %ti34, align 4
-  %add880 = add i32 %add879, %1042
-  %shl881 = shl i32 %add880, 16
-  %1043 = load i32, ptr %va33, align 4
-  %1044 = load i32, ptr %vb34, align 4
-  %1045 = load i32, ptr %vc34, align 4
-  %1046 = load i32, ptr %vd34, align 4
-  %xor882 = xor i32 %1045, %1046
-  %xor883 = xor i32 %1044, %xor882
-  %add884 = add i32 %1043, %xor883
-  %1047 = load i32, ptr %xk33, align 4
-  %add885 = add i32 %add884, %1047
-  %1048 = load i32, ptr %ti34, align 4
-  %add886 = add i32 %add885, %1048
-  %shr887 = lshr i32 %add886, 16
-  %or888 = or i32 %shl881, %shr887
-  %add889 = add i32 %1036, %or888
-  store i32 %add889, ptr %v33, align 4
-  %1049 = load i32, ptr %v33, align 4
-  %1050 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx890 = getelementptr i32, ptr %1050, i64 2
-  store i32 %1049, ptr %arrayidx890, align 4
-  %1051 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx891 = getelementptr i32, ptr %1051, i64 1
-  %1052 = load i32, ptr %arrayidx891, align 4
-  store i32 %1052, ptr %va34, align 4
-  %1053 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx892 = getelementptr i32, ptr %1053, i64 2
-  %1054 = load i32, ptr %arrayidx892, align 4
-  store i32 %1054, ptr %vb35, align 4
-  %1055 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx893 = getelementptr i32, ptr %1055, i64 3
-  %1056 = load i32, ptr %arrayidx893, align 4
-  store i32 %1056, ptr %vc35, align 4
-  %1057 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx894 = getelementptr i32, ptr %1057, i64 0
-  %1058 = load i32, ptr %arrayidx894, align 4
-  store i32 %1058, ptr %vd35, align 4
-  %1059 = load ptr, ptr %x.addr, align 8
-  %add.ptr895 = getelementptr i8, ptr %1059, i64 56
-  store ptr %add.ptr895, ptr %b35, align 8
-  %1060 = load ptr, ptr %b35, align 8
-  %call896 = call i32 @load32(ptr noundef %1060)
-  %call897 = call i32 @__uint32_identity(i32 noundef %call896)
-  store i32 %call897, ptr %u34, align 4
-  %1061 = load i32, ptr %u34, align 4
-  store i32 %1061, ptr %xk34, align 4
-  %1062 = getelementptr inbounds [64 x i32], ptr @_t, i64 0, i64 35
-  %1063 = load i32, ptr %1062, align 4
-  store i32 %1063, ptr %ti35, align 4
-  %1064 = load i32, ptr %vb35, align 4
-  %1065 = load i32, ptr %va34, align 4
-  %1066 = load i32, ptr %vb35, align 4
-  %1067 = load i32, ptr %vc35, align 4
-  %1068 = load i32, ptr %vd35, align 4
-  %xor898 = xor i32 %1067, %1068
-  %xor899 = xor i32 %1066, %xor898
-  %add900 = add i32 %1065, %xor899
-  %1069 = load i32, ptr %xk34, align 4
-  %add901 = add i32 %add900, %1069
-  %1070 = load i32, ptr %ti35, align 4
-  %add902 = add i32 %add901, %1070
-  %shl903 = shl i32 %add902, 23
-  %1071 = load i32, ptr %va34, align 4
-  %1072 = load i32, ptr %vb35, align 4
-  %1073 = load i32, ptr %vc35, align 4
-  %1074 = load i32, ptr %vd35, align 4
-  %xor904 = xor i32 %1073, %1074
-  %xor905 = xor i32 %1072, %xor904
-  %add906 = add i32 %1071, %xor905
-  %1075 = load i32, ptr %xk34, align 4
-  %add907 = add i32 %add906, %1075
-  %1076 = load i32, ptr %ti35, align 4
-  %add908 = add i32 %add907, %1076
-  %shr909 = lshr i32 %add908, 9
-  %or910 = or i32 %shl903, %shr909
-  %add911 = add i32 %1064, %or910
-  store i32 %add911, ptr %v34, align 4
-  %1077 = load i32, ptr %v34, align 4
-  %1078 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx912 = getelementptr i32, ptr %1078, i64 1
-  store i32 %1077, ptr %arrayidx912, align 4
-  %1079 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx913 = getelementptr i32, ptr %1079, i64 0
-  %1080 = load i32, ptr %arrayidx913, align 4
-  store i32 %1080, ptr %va35, align 4
-  %1081 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx914 = getelementptr i32, ptr %1081, i64 1
-  %1082 = load i32, ptr %arrayidx914, align 4
-  store i32 %1082, ptr %vb36, align 4
-  %1083 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx915 = getelementptr i32, ptr %1083, i64 2
-  %1084 = load i32, ptr %arrayidx915, align 4
-  store i32 %1084, ptr %vc36, align 4
-  %1085 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx916 = getelementptr i32, ptr %1085, i64 3
-  %1086 = load i32, ptr %arrayidx916, align 4
-  store i32 %1086, ptr %vd36, align 4
-  %1087 = load ptr, ptr %x.addr, align 8
-  %add.ptr917 = getelementptr i8, ptr %1087, i64 4
-  store ptr %add.ptr917, ptr %b36, align 8
-  %1088 = load ptr, ptr %b36, align 8
-  %call918 = call i32 @load32(ptr noundef %1088)
-  %call919 = call i32 @__uint32_identity(i32 noundef %call918)
-  store i32 %call919, ptr %u35, align 4
-  %1089 = load i32, ptr %u35, align 4
-  store i32 %1089, ptr %xk35, align 4
-  %1090 = getelementptr inbounds [64 x i32], ptr @_t, i64 0, i64 36
-  %1091 = load i32, ptr %1090, align 16
-  store i32 %1091, ptr %ti36, align 4
-  %1092 = load i32, ptr %vb36, align 4
-  %1093 = load i32, ptr %va35, align 4
-  %1094 = load i32, ptr %vb36, align 4
-  %1095 = load i32, ptr %vc36, align 4
-  %1096 = load i32, ptr %vd36, align 4
-  %xor920 = xor i32 %1095, %1096
-  %xor921 = xor i32 %1094, %xor920
-  %add922 = add i32 %1093, %xor921
-  %1097 = load i32, ptr %xk35, align 4
-  %add923 = add i32 %add922, %1097
-  %1098 = load i32, ptr %ti36, align 4
-  %add924 = add i32 %add923, %1098
-  %shl925 = shl i32 %add924, 4
-  %1099 = load i32, ptr %va35, align 4
-  %1100 = load i32, ptr %vb36, align 4
-  %1101 = load i32, ptr %vc36, align 4
-  %1102 = load i32, ptr %vd36, align 4
-  %xor926 = xor i32 %1101, %1102
-  %xor927 = xor i32 %1100, %xor926
-  %add928 = add i32 %1099, %xor927
-  %1103 = load i32, ptr %xk35, align 4
-  %add929 = add i32 %add928, %1103
-  %1104 = load i32, ptr %ti36, align 4
-  %add930 = add i32 %add929, %1104
-  %shr931 = lshr i32 %add930, 28
-  %or932 = or i32 %shl925, %shr931
-  %add933 = add i32 %1092, %or932
-  store i32 %add933, ptr %v35, align 4
-  %1105 = load i32, ptr %v35, align 4
-  %1106 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx934 = getelementptr i32, ptr %1106, i64 0
-  store i32 %1105, ptr %arrayidx934, align 4
-  %1107 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx935 = getelementptr i32, ptr %1107, i64 3
-  %1108 = load i32, ptr %arrayidx935, align 4
-  store i32 %1108, ptr %va36, align 4
-  %1109 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx936 = getelementptr i32, ptr %1109, i64 0
-  %1110 = load i32, ptr %arrayidx936, align 4
-  store i32 %1110, ptr %vb37, align 4
-  %1111 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx937 = getelementptr i32, ptr %1111, i64 1
-  %1112 = load i32, ptr %arrayidx937, align 4
-  store i32 %1112, ptr %vc37, align 4
-  %1113 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx938 = getelementptr i32, ptr %1113, i64 2
-  %1114 = load i32, ptr %arrayidx938, align 4
-  store i32 %1114, ptr %vd37, align 4
-  %1115 = load ptr, ptr %x.addr, align 8
-  %add.ptr939 = getelementptr i8, ptr %1115, i64 16
-  store ptr %add.ptr939, ptr %b37, align 8
-  %1116 = load ptr, ptr %b37, align 8
-  %call940 = call i32 @load32(ptr noundef %1116)
-  %call941 = call i32 @__uint32_identity(i32 noundef %call940)
-  store i32 %call941, ptr %u36, align 4
-  %1117 = load i32, ptr %u36, align 4
-  store i32 %1117, ptr %xk36, align 4
-  %1118 = getelementptr inbounds [64 x i32], ptr @_t, i64 0, i64 37
-  %1119 = load i32, ptr %1118, align 4
-  store i32 %1119, ptr %ti37, align 4
-  %1120 = load i32, ptr %vb37, align 4
-  %1121 = load i32, ptr %va36, align 4
-  %1122 = load i32, ptr %vb37, align 4
-  %1123 = load i32, ptr %vc37, align 4
-  %1124 = load i32, ptr %vd37, align 4
-  %xor942 = xor i32 %1123, %1124
-  %xor943 = xor i32 %1122, %xor942
-  %add944 = add i32 %1121, %xor943
-  %1125 = load i32, ptr %xk36, align 4
-  %add945 = add i32 %add944, %1125
-  %1126 = load i32, ptr %ti37, align 4
-  %add946 = add i32 %add945, %1126
-  %shl947 = shl i32 %add946, 11
-  %1127 = load i32, ptr %va36, align 4
-  %1128 = load i32, ptr %vb37, align 4
-  %1129 = load i32, ptr %vc37, align 4
-  %1130 = load i32, ptr %vd37, align 4
-  %xor948 = xor i32 %1129, %1130
-  %xor949 = xor i32 %1128, %xor948
-  %add950 = add i32 %1127, %xor949
-  %1131 = load i32, ptr %xk36, align 4
-  %add951 = add i32 %add950, %1131
-  %1132 = load i32, ptr %ti37, align 4
-  %add952 = add i32 %add951, %1132
-  %shr953 = lshr i32 %add952, 21
-  %or954 = or i32 %shl947, %shr953
-  %add955 = add i32 %1120, %or954
-  store i32 %add955, ptr %v36, align 4
-  %1133 = load i32, ptr %v36, align 4
-  %1134 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx956 = getelementptr i32, ptr %1134, i64 3
-  store i32 %1133, ptr %arrayidx956, align 4
-  %1135 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx957 = getelementptr i32, ptr %1135, i64 2
-  %1136 = load i32, ptr %arrayidx957, align 4
-  store i32 %1136, ptr %va37, align 4
-  %1137 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx958 = getelementptr i32, ptr %1137, i64 3
-  %1138 = load i32, ptr %arrayidx958, align 4
-  store i32 %1138, ptr %vb38, align 4
-  %1139 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx959 = getelementptr i32, ptr %1139, i64 0
-  %1140 = load i32, ptr %arrayidx959, align 4
-  store i32 %1140, ptr %vc38, align 4
-  %1141 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx960 = getelementptr i32, ptr %1141, i64 1
-  %1142 = load i32, ptr %arrayidx960, align 4
-  store i32 %1142, ptr %vd38, align 4
-  %1143 = load ptr, ptr %x.addr, align 8
-  %add.ptr961 = getelementptr i8, ptr %1143, i64 28
-  store ptr %add.ptr961, ptr %b38, align 8
-  %1144 = load ptr, ptr %b38, align 8
-  %call962 = call i32 @load32(ptr noundef %1144)
-  %call963 = call i32 @__uint32_identity(i32 noundef %call962)
-  store i32 %call963, ptr %u37, align 4
-  %1145 = load i32, ptr %u37, align 4
-  store i32 %1145, ptr %xk37, align 4
-  %1146 = getelementptr inbounds [64 x i32], ptr @_t, i64 0, i64 38
-  %1147 = load i32, ptr %1146, align 8
-  store i32 %1147, ptr %ti38, align 4
-  %1148 = load i32, ptr %vb38, align 4
-  %1149 = load i32, ptr %va37, align 4
-  %1150 = load i32, ptr %vb38, align 4
-  %1151 = load i32, ptr %vc38, align 4
-  %1152 = load i32, ptr %vd38, align 4
-  %xor964 = xor i32 %1151, %1152
-  %xor965 = xor i32 %1150, %xor964
-  %add966 = add i32 %1149, %xor965
-  %1153 = load i32, ptr %xk37, align 4
-  %add967 = add i32 %add966, %1153
-  %1154 = load i32, ptr %ti38, align 4
-  %add968 = add i32 %add967, %1154
-  %shl969 = shl i32 %add968, 16
-  %1155 = load i32, ptr %va37, align 4
-  %1156 = load i32, ptr %vb38, align 4
-  %1157 = load i32, ptr %vc38, align 4
-  %1158 = load i32, ptr %vd38, align 4
-  %xor970 = xor i32 %1157, %1158
-  %xor971 = xor i32 %1156, %xor970
-  %add972 = add i32 %1155, %xor971
-  %1159 = load i32, ptr %xk37, align 4
-  %add973 = add i32 %add972, %1159
-  %1160 = load i32, ptr %ti38, align 4
-  %add974 = add i32 %add973, %1160
-  %shr975 = lshr i32 %add974, 16
-  %or976 = or i32 %shl969, %shr975
-  %add977 = add i32 %1148, %or976
-  store i32 %add977, ptr %v37, align 4
-  %1161 = load i32, ptr %v37, align 4
-  %1162 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx978 = getelementptr i32, ptr %1162, i64 2
-  store i32 %1161, ptr %arrayidx978, align 4
-  %1163 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx979 = getelementptr i32, ptr %1163, i64 1
-  %1164 = load i32, ptr %arrayidx979, align 4
-  store i32 %1164, ptr %va38, align 4
-  %1165 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx980 = getelementptr i32, ptr %1165, i64 2
-  %1166 = load i32, ptr %arrayidx980, align 4
-  store i32 %1166, ptr %vb39, align 4
-  %1167 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx981 = getelementptr i32, ptr %1167, i64 3
-  %1168 = load i32, ptr %arrayidx981, align 4
-  store i32 %1168, ptr %vc39, align 4
-  %1169 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx982 = getelementptr i32, ptr %1169, i64 0
-  %1170 = load i32, ptr %arrayidx982, align 4
-  store i32 %1170, ptr %vd39, align 4
-  %1171 = load ptr, ptr %x.addr, align 8
-  %add.ptr983 = getelementptr i8, ptr %1171, i64 40
-  store ptr %add.ptr983, ptr %b39, align 8
-  %1172 = load ptr, ptr %b39, align 8
-  %call984 = call i32 @load32(ptr noundef %1172)
-  %call985 = call i32 @__uint32_identity(i32 noundef %call984)
-  store i32 %call985, ptr %u38, align 4
-  %1173 = load i32, ptr %u38, align 4
-  store i32 %1173, ptr %xk38, align 4
-  %1174 = getelementptr inbounds [64 x i32], ptr @_t, i64 0, i64 39
-  %1175 = load i32, ptr %1174, align 4
-  store i32 %1175, ptr %ti39, align 4
-  %1176 = load i32, ptr %vb39, align 4
-  %1177 = load i32, ptr %va38, align 4
-  %1178 = load i32, ptr %vb39, align 4
-  %1179 = load i32, ptr %vc39, align 4
-  %1180 = load i32, ptr %vd39, align 4
-  %xor986 = xor i32 %1179, %1180
-  %xor987 = xor i32 %1178, %xor986
-  %add988 = add i32 %1177, %xor987
-  %1181 = load i32, ptr %xk38, align 4
-  %add989 = add i32 %add988, %1181
-  %1182 = load i32, ptr %ti39, align 4
-  %add990 = add i32 %add989, %1182
-  %shl991 = shl i32 %add990, 23
-  %1183 = load i32, ptr %va38, align 4
-  %1184 = load i32, ptr %vb39, align 4
-  %1185 = load i32, ptr %vc39, align 4
-  %1186 = load i32, ptr %vd39, align 4
-  %xor992 = xor i32 %1185, %1186
-  %xor993 = xor i32 %1184, %xor992
-  %add994 = add i32 %1183, %xor993
-  %1187 = load i32, ptr %xk38, align 4
-  %add995 = add i32 %add994, %1187
-  %1188 = load i32, ptr %ti39, align 4
-  %add996 = add i32 %add995, %1188
-  %shr997 = lshr i32 %add996, 9
-  %or998 = or i32 %shl991, %shr997
-  %add999 = add i32 %1176, %or998
-  store i32 %add999, ptr %v38, align 4
-  %1189 = load i32, ptr %v38, align 4
-  %1190 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx1000 = getelementptr i32, ptr %1190, i64 1
-  store i32 %1189, ptr %arrayidx1000, align 4
-  %1191 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx1001 = getelementptr i32, ptr %1191, i64 0
-  %1192 = load i32, ptr %arrayidx1001, align 4
-  store i32 %1192, ptr %va39, align 4
-  %1193 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx1002 = getelementptr i32, ptr %1193, i64 1
-  %1194 = load i32, ptr %arrayidx1002, align 4
-  store i32 %1194, ptr %vb40, align 4
-  %1195 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx1003 = getelementptr i32, ptr %1195, i64 2
-  %1196 = load i32, ptr %arrayidx1003, align 4
-  store i32 %1196, ptr %vc40, align 4
-  %1197 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx1004 = getelementptr i32, ptr %1197, i64 3
-  %1198 = load i32, ptr %arrayidx1004, align 4
-  store i32 %1198, ptr %vd40, align 4
-  %1199 = load ptr, ptr %x.addr, align 8
-  %add.ptr1005 = getelementptr i8, ptr %1199, i64 52
-  store ptr %add.ptr1005, ptr %b40, align 8
-  %1200 = load ptr, ptr %b40, align 8
-  %call1006 = call i32 @load32(ptr noundef %1200)
-  %call1007 = call i32 @__uint32_identity(i32 noundef %call1006)
-  store i32 %call1007, ptr %u39, align 4
-  %1201 = load i32, ptr %u39, align 4
-  store i32 %1201, ptr %xk39, align 4
-  %1202 = getelementptr inbounds [64 x i32], ptr @_t, i64 0, i64 40
-  %1203 = load i32, ptr %1202, align 16
-  store i32 %1203, ptr %ti40, align 4
-  %1204 = load i32, ptr %vb40, align 4
-  %1205 = load i32, ptr %va39, align 4
-  %1206 = load i32, ptr %vb40, align 4
-  %1207 = load i32, ptr %vc40, align 4
-  %1208 = load i32, ptr %vd40, align 4
-  %xor1008 = xor i32 %1207, %1208
-  %xor1009 = xor i32 %1206, %xor1008
-  %add1010 = add i32 %1205, %xor1009
-  %1209 = load i32, ptr %xk39, align 4
-  %add1011 = add i32 %add1010, %1209
-  %1210 = load i32, ptr %ti40, align 4
-  %add1012 = add i32 %add1011, %1210
-  %shl1013 = shl i32 %add1012, 4
-  %1211 = load i32, ptr %va39, align 4
-  %1212 = load i32, ptr %vb40, align 4
-  %1213 = load i32, ptr %vc40, align 4
-  %1214 = load i32, ptr %vd40, align 4
-  %xor1014 = xor i32 %1213, %1214
-  %xor1015 = xor i32 %1212, %xor1014
-  %add1016 = add i32 %1211, %xor1015
-  %1215 = load i32, ptr %xk39, align 4
-  %add1017 = add i32 %add1016, %1215
-  %1216 = load i32, ptr %ti40, align 4
-  %add1018 = add i32 %add1017, %1216
-  %shr1019 = lshr i32 %add1018, 28
-  %or1020 = or i32 %shl1013, %shr1019
-  %add1021 = add i32 %1204, %or1020
-  store i32 %add1021, ptr %v39, align 4
-  %1217 = load i32, ptr %v39, align 4
-  %1218 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx1022 = getelementptr i32, ptr %1218, i64 0
-  store i32 %1217, ptr %arrayidx1022, align 4
-  %1219 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx1023 = getelementptr i32, ptr %1219, i64 3
-  %1220 = load i32, ptr %arrayidx1023, align 4
-  store i32 %1220, ptr %va40, align 4
-  %1221 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx1024 = getelementptr i32, ptr %1221, i64 0
-  %1222 = load i32, ptr %arrayidx1024, align 4
-  store i32 %1222, ptr %vb41, align 4
-  %1223 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx1025 = getelementptr i32, ptr %1223, i64 1
-  %1224 = load i32, ptr %arrayidx1025, align 4
-  store i32 %1224, ptr %vc41, align 4
-  %1225 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx1026 = getelementptr i32, ptr %1225, i64 2
-  %1226 = load i32, ptr %arrayidx1026, align 4
-  store i32 %1226, ptr %vd41, align 4
-  %1227 = load ptr, ptr %x.addr, align 8
-  store ptr %1227, ptr %b41, align 8
-  %1228 = load ptr, ptr %b41, align 8
-  %call1027 = call i32 @load32(ptr noundef %1228)
-  %call1028 = call i32 @__uint32_identity(i32 noundef %call1027)
-  store i32 %call1028, ptr %u40, align 4
-  %1229 = load i32, ptr %u40, align 4
-  store i32 %1229, ptr %xk40, align 4
-  %1230 = getelementptr inbounds [64 x i32], ptr @_t, i64 0, i64 41
-  %1231 = load i32, ptr %1230, align 4
-  store i32 %1231, ptr %ti41, align 4
-  %1232 = load i32, ptr %vb41, align 4
-  %1233 = load i32, ptr %va40, align 4
-  %1234 = load i32, ptr %vb41, align 4
-  %1235 = load i32, ptr %vc41, align 4
-  %1236 = load i32, ptr %vd41, align 4
-  %xor1029 = xor i32 %1235, %1236
-  %xor1030 = xor i32 %1234, %xor1029
-  %add1031 = add i32 %1233, %xor1030
-  %1237 = load i32, ptr %xk40, align 4
-  %add1032 = add i32 %add1031, %1237
-  %1238 = load i32, ptr %ti41, align 4
-  %add1033 = add i32 %add1032, %1238
-  %shl1034 = shl i32 %add1033, 11
-  %1239 = load i32, ptr %va40, align 4
-  %1240 = load i32, ptr %vb41, align 4
-  %1241 = load i32, ptr %vc41, align 4
-  %1242 = load i32, ptr %vd41, align 4
-  %xor1035 = xor i32 %1241, %1242
-  %xor1036 = xor i32 %1240, %xor1035
-  %add1037 = add i32 %1239, %xor1036
-  %1243 = load i32, ptr %xk40, align 4
-  %add1038 = add i32 %add1037, %1243
-  %1244 = load i32, ptr %ti41, align 4
-  %add1039 = add i32 %add1038, %1244
-  %shr1040 = lshr i32 %add1039, 21
-  %or1041 = or i32 %shl1034, %shr1040
-  %add1042 = add i32 %1232, %or1041
-  store i32 %add1042, ptr %v40, align 4
-  %1245 = load i32, ptr %v40, align 4
-  %1246 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx1043 = getelementptr i32, ptr %1246, i64 3
-  store i32 %1245, ptr %arrayidx1043, align 4
-  %1247 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx1044 = getelementptr i32, ptr %1247, i64 2
-  %1248 = load i32, ptr %arrayidx1044, align 4
-  store i32 %1248, ptr %va41, align 4
-  %1249 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx1045 = getelementptr i32, ptr %1249, i64 3
-  %1250 = load i32, ptr %arrayidx1045, align 4
-  store i32 %1250, ptr %vb42, align 4
-  %1251 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx1046 = getelementptr i32, ptr %1251, i64 0
-  %1252 = load i32, ptr %arrayidx1046, align 4
-  store i32 %1252, ptr %vc42, align 4
-  %1253 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx1047 = getelementptr i32, ptr %1253, i64 1
-  %1254 = load i32, ptr %arrayidx1047, align 4
-  store i32 %1254, ptr %vd42, align 4
-  %1255 = load ptr, ptr %x.addr, align 8
-  %add.ptr1048 = getelementptr i8, ptr %1255, i64 12
-  store ptr %add.ptr1048, ptr %b42, align 8
-  %1256 = load ptr, ptr %b42, align 8
-  %call1049 = call i32 @load32(ptr noundef %1256)
-  %call1050 = call i32 @__uint32_identity(i32 noundef %call1049)
-  store i32 %call1050, ptr %u41, align 4
-  %1257 = load i32, ptr %u41, align 4
-  store i32 %1257, ptr %xk41, align 4
-  %1258 = getelementptr inbounds [64 x i32], ptr @_t, i64 0, i64 42
-  %1259 = load i32, ptr %1258, align 8
-  store i32 %1259, ptr %ti42, align 4
-  %1260 = load i32, ptr %vb42, align 4
-  %1261 = load i32, ptr %va41, align 4
-  %1262 = load i32, ptr %vb42, align 4
-  %1263 = load i32, ptr %vc42, align 4
-  %1264 = load i32, ptr %vd42, align 4
-  %xor1051 = xor i32 %1263, %1264
-  %xor1052 = xor i32 %1262, %xor1051
-  %add1053 = add i32 %1261, %xor1052
-  %1265 = load i32, ptr %xk41, align 4
-  %add1054 = add i32 %add1053, %1265
-  %1266 = load i32, ptr %ti42, align 4
-  %add1055 = add i32 %add1054, %1266
-  %shl1056 = shl i32 %add1055, 16
-  %1267 = load i32, ptr %va41, align 4
-  %1268 = load i32, ptr %vb42, align 4
-  %1269 = load i32, ptr %vc42, align 4
-  %1270 = load i32, ptr %vd42, align 4
-  %xor1057 = xor i32 %1269, %1270
-  %xor1058 = xor i32 %1268, %xor1057
-  %add1059 = add i32 %1267, %xor1058
-  %1271 = load i32, ptr %xk41, align 4
-  %add1060 = add i32 %add1059, %1271
-  %1272 = load i32, ptr %ti42, align 4
-  %add1061 = add i32 %add1060, %1272
-  %shr1062 = lshr i32 %add1061, 16
-  %or1063 = or i32 %shl1056, %shr1062
-  %add1064 = add i32 %1260, %or1063
-  store i32 %add1064, ptr %v41, align 4
-  %1273 = load i32, ptr %v41, align 4
-  %1274 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx1065 = getelementptr i32, ptr %1274, i64 2
-  store i32 %1273, ptr %arrayidx1065, align 4
-  %1275 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx1066 = getelementptr i32, ptr %1275, i64 1
-  %1276 = load i32, ptr %arrayidx1066, align 4
-  store i32 %1276, ptr %va42, align 4
-  %1277 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx1067 = getelementptr i32, ptr %1277, i64 2
-  %1278 = load i32, ptr %arrayidx1067, align 4
-  store i32 %1278, ptr %vb43, align 4
-  %1279 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx1068 = getelementptr i32, ptr %1279, i64 3
-  %1280 = load i32, ptr %arrayidx1068, align 4
-  store i32 %1280, ptr %vc43, align 4
-  %1281 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx1069 = getelementptr i32, ptr %1281, i64 0
-  %1282 = load i32, ptr %arrayidx1069, align 4
-  store i32 %1282, ptr %vd43, align 4
-  %1283 = load ptr, ptr %x.addr, align 8
-  %add.ptr1070 = getelementptr i8, ptr %1283, i64 24
-  store ptr %add.ptr1070, ptr %b43, align 8
-  %1284 = load ptr, ptr %b43, align 8
-  %call1071 = call i32 @load32(ptr noundef %1284)
-  %call1072 = call i32 @__uint32_identity(i32 noundef %call1071)
-  store i32 %call1072, ptr %u42, align 4
-  %1285 = load i32, ptr %u42, align 4
-  store i32 %1285, ptr %xk42, align 4
-  %1286 = getelementptr inbounds [64 x i32], ptr @_t, i64 0, i64 43
-  %1287 = load i32, ptr %1286, align 4
-  store i32 %1287, ptr %ti43, align 4
-  %1288 = load i32, ptr %vb43, align 4
-  %1289 = load i32, ptr %va42, align 4
-  %1290 = load i32, ptr %vb43, align 4
-  %1291 = load i32, ptr %vc43, align 4
-  %1292 = load i32, ptr %vd43, align 4
-  %xor1073 = xor i32 %1291, %1292
-  %xor1074 = xor i32 %1290, %xor1073
-  %add1075 = add i32 %1289, %xor1074
-  %1293 = load i32, ptr %xk42, align 4
-  %add1076 = add i32 %add1075, %1293
-  %1294 = load i32, ptr %ti43, align 4
-  %add1077 = add i32 %add1076, %1294
-  %shl1078 = shl i32 %add1077, 23
-  %1295 = load i32, ptr %va42, align 4
-  %1296 = load i32, ptr %vb43, align 4
-  %1297 = load i32, ptr %vc43, align 4
-  %1298 = load i32, ptr %vd43, align 4
-  %xor1079 = xor i32 %1297, %1298
-  %xor1080 = xor i32 %1296, %xor1079
-  %add1081 = add i32 %1295, %xor1080
-  %1299 = load i32, ptr %xk42, align 4
-  %add1082 = add i32 %add1081, %1299
-  %1300 = load i32, ptr %ti43, align 4
-  %add1083 = add i32 %add1082, %1300
-  %shr1084 = lshr i32 %add1083, 9
-  %or1085 = or i32 %shl1078, %shr1084
-  %add1086 = add i32 %1288, %or1085
-  store i32 %add1086, ptr %v42, align 4
-  %1301 = load i32, ptr %v42, align 4
-  %1302 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx1087 = getelementptr i32, ptr %1302, i64 1
-  store i32 %1301, ptr %arrayidx1087, align 4
-  %1303 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx1088 = getelementptr i32, ptr %1303, i64 0
-  %1304 = load i32, ptr %arrayidx1088, align 4
-  store i32 %1304, ptr %va43, align 4
-  %1305 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx1089 = getelementptr i32, ptr %1305, i64 1
-  %1306 = load i32, ptr %arrayidx1089, align 4
-  store i32 %1306, ptr %vb44, align 4
-  %1307 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx1090 = getelementptr i32, ptr %1307, i64 2
-  %1308 = load i32, ptr %arrayidx1090, align 4
-  store i32 %1308, ptr %vc44, align 4
-  %1309 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx1091 = getelementptr i32, ptr %1309, i64 3
-  %1310 = load i32, ptr %arrayidx1091, align 4
-  store i32 %1310, ptr %vd44, align 4
-  %1311 = load ptr, ptr %x.addr, align 8
-  %add.ptr1092 = getelementptr i8, ptr %1311, i64 36
-  store ptr %add.ptr1092, ptr %b44, align 8
-  %1312 = load ptr, ptr %b44, align 8
-  %call1093 = call i32 @load32(ptr noundef %1312)
-  %call1094 = call i32 @__uint32_identity(i32 noundef %call1093)
-  store i32 %call1094, ptr %u43, align 4
-  %1313 = load i32, ptr %u43, align 4
-  store i32 %1313, ptr %xk43, align 4
-  %1314 = getelementptr inbounds [64 x i32], ptr @_t, i64 0, i64 44
-  %1315 = load i32, ptr %1314, align 16
-  store i32 %1315, ptr %ti44, align 4
-  %1316 = load i32, ptr %vb44, align 4
-  %1317 = load i32, ptr %va43, align 4
-  %1318 = load i32, ptr %vb44, align 4
-  %1319 = load i32, ptr %vc44, align 4
-  %1320 = load i32, ptr %vd44, align 4
-  %xor1095 = xor i32 %1319, %1320
-  %xor1096 = xor i32 %1318, %xor1095
-  %add1097 = add i32 %1317, %xor1096
-  %1321 = load i32, ptr %xk43, align 4
-  %add1098 = add i32 %add1097, %1321
-  %1322 = load i32, ptr %ti44, align 4
-  %add1099 = add i32 %add1098, %1322
-  %shl1100 = shl i32 %add1099, 4
-  %1323 = load i32, ptr %va43, align 4
-  %1324 = load i32, ptr %vb44, align 4
-  %1325 = load i32, ptr %vc44, align 4
-  %1326 = load i32, ptr %vd44, align 4
-  %xor1101 = xor i32 %1325, %1326
-  %xor1102 = xor i32 %1324, %xor1101
-  %add1103 = add i32 %1323, %xor1102
-  %1327 = load i32, ptr %xk43, align 4
-  %add1104 = add i32 %add1103, %1327
-  %1328 = load i32, ptr %ti44, align 4
-  %add1105 = add i32 %add1104, %1328
-  %shr1106 = lshr i32 %add1105, 28
-  %or1107 = or i32 %shl1100, %shr1106
-  %add1108 = add i32 %1316, %or1107
-  store i32 %add1108, ptr %v43, align 4
-  %1329 = load i32, ptr %v43, align 4
-  %1330 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx1109 = getelementptr i32, ptr %1330, i64 0
-  store i32 %1329, ptr %arrayidx1109, align 4
-  %1331 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx1110 = getelementptr i32, ptr %1331, i64 3
-  %1332 = load i32, ptr %arrayidx1110, align 4
-  store i32 %1332, ptr %va44, align 4
-  %1333 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx1111 = getelementptr i32, ptr %1333, i64 0
-  %1334 = load i32, ptr %arrayidx1111, align 4
-  store i32 %1334, ptr %vb45, align 4
-  %1335 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx1112 = getelementptr i32, ptr %1335, i64 1
-  %1336 = load i32, ptr %arrayidx1112, align 4
-  store i32 %1336, ptr %vc45, align 4
-  %1337 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx1113 = getelementptr i32, ptr %1337, i64 2
-  %1338 = load i32, ptr %arrayidx1113, align 4
-  store i32 %1338, ptr %vd45, align 4
-  %1339 = load ptr, ptr %x.addr, align 8
-  %add.ptr1114 = getelementptr i8, ptr %1339, i64 48
-  store ptr %add.ptr1114, ptr %b45, align 8
-  %1340 = load ptr, ptr %b45, align 8
-  %call1115 = call i32 @load32(ptr noundef %1340)
-  %call1116 = call i32 @__uint32_identity(i32 noundef %call1115)
-  store i32 %call1116, ptr %u44, align 4
-  %1341 = load i32, ptr %u44, align 4
-  store i32 %1341, ptr %xk44, align 4
-  %1342 = getelementptr inbounds [64 x i32], ptr @_t, i64 0, i64 45
-  %1343 = load i32, ptr %1342, align 4
-  store i32 %1343, ptr %ti45, align 4
-  %1344 = load i32, ptr %vb45, align 4
-  %1345 = load i32, ptr %va44, align 4
-  %1346 = load i32, ptr %vb45, align 4
-  %1347 = load i32, ptr %vc45, align 4
-  %1348 = load i32, ptr %vd45, align 4
-  %xor1117 = xor i32 %1347, %1348
-  %xor1118 = xor i32 %1346, %xor1117
-  %add1119 = add i32 %1345, %xor1118
-  %1349 = load i32, ptr %xk44, align 4
-  %add1120 = add i32 %add1119, %1349
-  %1350 = load i32, ptr %ti45, align 4
-  %add1121 = add i32 %add1120, %1350
-  %shl1122 = shl i32 %add1121, 11
-  %1351 = load i32, ptr %va44, align 4
-  %1352 = load i32, ptr %vb45, align 4
-  %1353 = load i32, ptr %vc45, align 4
-  %1354 = load i32, ptr %vd45, align 4
-  %xor1123 = xor i32 %1353, %1354
-  %xor1124 = xor i32 %1352, %xor1123
-  %add1125 = add i32 %1351, %xor1124
-  %1355 = load i32, ptr %xk44, align 4
-  %add1126 = add i32 %add1125, %1355
-  %1356 = load i32, ptr %ti45, align 4
-  %add1127 = add i32 %add1126, %1356
-  %shr1128 = lshr i32 %add1127, 21
-  %or1129 = or i32 %shl1122, %shr1128
-  %add1130 = add i32 %1344, %or1129
-  store i32 %add1130, ptr %v44, align 4
-  %1357 = load i32, ptr %v44, align 4
-  %1358 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx1131 = getelementptr i32, ptr %1358, i64 3
-  store i32 %1357, ptr %arrayidx1131, align 4
-  %1359 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx1132 = getelementptr i32, ptr %1359, i64 2
-  %1360 = load i32, ptr %arrayidx1132, align 4
-  store i32 %1360, ptr %va45, align 4
-  %1361 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx1133 = getelementptr i32, ptr %1361, i64 3
-  %1362 = load i32, ptr %arrayidx1133, align 4
-  store i32 %1362, ptr %vb46, align 4
-  %1363 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx1134 = getelementptr i32, ptr %1363, i64 0
-  %1364 = load i32, ptr %arrayidx1134, align 4
-  store i32 %1364, ptr %vc46, align 4
-  %1365 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx1135 = getelementptr i32, ptr %1365, i64 1
-  %1366 = load i32, ptr %arrayidx1135, align 4
-  store i32 %1366, ptr %vd46, align 4
-  %1367 = load ptr, ptr %x.addr, align 8
-  %add.ptr1136 = getelementptr i8, ptr %1367, i64 60
-  store ptr %add.ptr1136, ptr %b46, align 8
-  %1368 = load ptr, ptr %b46, align 8
-  %call1137 = call i32 @load32(ptr noundef %1368)
-  %call1138 = call i32 @__uint32_identity(i32 noundef %call1137)
-  store i32 %call1138, ptr %u45, align 4
-  %1369 = load i32, ptr %u45, align 4
-  store i32 %1369, ptr %xk45, align 4
-  %1370 = getelementptr inbounds [64 x i32], ptr @_t, i64 0, i64 46
-  %1371 = load i32, ptr %1370, align 8
-  store i32 %1371, ptr %ti46, align 4
-  %1372 = load i32, ptr %vb46, align 4
-  %1373 = load i32, ptr %va45, align 4
-  %1374 = load i32, ptr %vb46, align 4
-  %1375 = load i32, ptr %vc46, align 4
-  %1376 = load i32, ptr %vd46, align 4
-  %xor1139 = xor i32 %1375, %1376
-  %xor1140 = xor i32 %1374, %xor1139
-  %add1141 = add i32 %1373, %xor1140
-  %1377 = load i32, ptr %xk45, align 4
-  %add1142 = add i32 %add1141, %1377
-  %1378 = load i32, ptr %ti46, align 4
-  %add1143 = add i32 %add1142, %1378
-  %shl1144 = shl i32 %add1143, 16
-  %1379 = load i32, ptr %va45, align 4
-  %1380 = load i32, ptr %vb46, align 4
-  %1381 = load i32, ptr %vc46, align 4
-  %1382 = load i32, ptr %vd46, align 4
-  %xor1145 = xor i32 %1381, %1382
-  %xor1146 = xor i32 %1380, %xor1145
-  %add1147 = add i32 %1379, %xor1146
-  %1383 = load i32, ptr %xk45, align 4
-  %add1148 = add i32 %add1147, %1383
-  %1384 = load i32, ptr %ti46, align 4
-  %add1149 = add i32 %add1148, %1384
-  %shr1150 = lshr i32 %add1149, 16
-  %or1151 = or i32 %shl1144, %shr1150
-  %add1152 = add i32 %1372, %or1151
-  store i32 %add1152, ptr %v45, align 4
-  %1385 = load i32, ptr %v45, align 4
-  %1386 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx1153 = getelementptr i32, ptr %1386, i64 2
-  store i32 %1385, ptr %arrayidx1153, align 4
-  %1387 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx1154 = getelementptr i32, ptr %1387, i64 1
-  %1388 = load i32, ptr %arrayidx1154, align 4
-  store i32 %1388, ptr %va46, align 4
-  %1389 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx1155 = getelementptr i32, ptr %1389, i64 2
-  %1390 = load i32, ptr %arrayidx1155, align 4
-  store i32 %1390, ptr %vb47, align 4
-  %1391 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx1156 = getelementptr i32, ptr %1391, i64 3
-  %1392 = load i32, ptr %arrayidx1156, align 4
-  store i32 %1392, ptr %vc47, align 4
-  %1393 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx1157 = getelementptr i32, ptr %1393, i64 0
-  %1394 = load i32, ptr %arrayidx1157, align 4
-  store i32 %1394, ptr %vd47, align 4
-  %1395 = load ptr, ptr %x.addr, align 8
-  %add.ptr1158 = getelementptr i8, ptr %1395, i64 8
-  store ptr %add.ptr1158, ptr %b47, align 8
-  %1396 = load ptr, ptr %b47, align 8
-  %call1159 = call i32 @load32(ptr noundef %1396)
-  %call1160 = call i32 @__uint32_identity(i32 noundef %call1159)
-  store i32 %call1160, ptr %u46, align 4
-  %1397 = load i32, ptr %u46, align 4
-  store i32 %1397, ptr %xk46, align 4
-  %1398 = getelementptr inbounds [64 x i32], ptr @_t, i64 0, i64 47
-  %1399 = load i32, ptr %1398, align 4
-  store i32 %1399, ptr %ti47, align 4
-  %1400 = load i32, ptr %vb47, align 4
-  %1401 = load i32, ptr %va46, align 4
-  %1402 = load i32, ptr %vb47, align 4
-  %1403 = load i32, ptr %vc47, align 4
-  %1404 = load i32, ptr %vd47, align 4
-  %xor1161 = xor i32 %1403, %1404
-  %xor1162 = xor i32 %1402, %xor1161
-  %add1163 = add i32 %1401, %xor1162
-  %1405 = load i32, ptr %xk46, align 4
-  %add1164 = add i32 %add1163, %1405
-  %1406 = load i32, ptr %ti47, align 4
-  %add1165 = add i32 %add1164, %1406
-  %shl1166 = shl i32 %add1165, 23
-  %1407 = load i32, ptr %va46, align 4
-  %1408 = load i32, ptr %vb47, align 4
-  %1409 = load i32, ptr %vc47, align 4
-  %1410 = load i32, ptr %vd47, align 4
-  %xor1167 = xor i32 %1409, %1410
-  %xor1168 = xor i32 %1408, %xor1167
-  %add1169 = add i32 %1407, %xor1168
-  %1411 = load i32, ptr %xk46, align 4
-  %add1170 = add i32 %add1169, %1411
-  %1412 = load i32, ptr %ti47, align 4
-  %add1171 = add i32 %add1170, %1412
-  %shr1172 = lshr i32 %add1171, 9
-  %or1173 = or i32 %shl1166, %shr1172
-  %add1174 = add i32 %1400, %or1173
-  store i32 %add1174, ptr %v46, align 4
-  %1413 = load i32, ptr %v46, align 4
-  %1414 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx1175 = getelementptr i32, ptr %1414, i64 1
-  store i32 %1413, ptr %arrayidx1175, align 4
-  %1415 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx1176 = getelementptr i32, ptr %1415, i64 0
-  %1416 = load i32, ptr %arrayidx1176, align 4
-  store i32 %1416, ptr %va47, align 4
-  %1417 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx1177 = getelementptr i32, ptr %1417, i64 1
-  %1418 = load i32, ptr %arrayidx1177, align 4
-  store i32 %1418, ptr %vb48, align 4
-  %1419 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx1178 = getelementptr i32, ptr %1419, i64 2
-  %1420 = load i32, ptr %arrayidx1178, align 4
-  store i32 %1420, ptr %vc48, align 4
-  %1421 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx1179 = getelementptr i32, ptr %1421, i64 3
-  %1422 = load i32, ptr %arrayidx1179, align 4
-  store i32 %1422, ptr %vd48, align 4
-  %1423 = load ptr, ptr %x.addr, align 8
-  store ptr %1423, ptr %b48, align 8
-  %1424 = load ptr, ptr %b48, align 8
-  %call1180 = call i32 @load32(ptr noundef %1424)
-  %call1181 = call i32 @__uint32_identity(i32 noundef %call1180)
-  store i32 %call1181, ptr %u47, align 4
-  %1425 = load i32, ptr %u47, align 4
-  store i32 %1425, ptr %xk47, align 4
-  %1426 = getelementptr inbounds [64 x i32], ptr @_t, i64 0, i64 48
-  %1427 = load i32, ptr %1426, align 16
-  store i32 %1427, ptr %ti48, align 4
-  %1428 = load i32, ptr %vb48, align 4
-  %1429 = load i32, ptr %va47, align 4
-  %1430 = load i32, ptr %vc48, align 4
-  %1431 = load i32, ptr %vb48, align 4
-  %1432 = load i32, ptr %vd48, align 4
-  %not1182 = xor i32 %1432, -1
-  %or1183 = or i32 %1431, %not1182
-  %xor1184 = xor i32 %1430, %or1183
-  %add1185 = add i32 %1429, %xor1184
-  %1433 = load i32, ptr %xk47, align 4
-  %add1186 = add i32 %add1185, %1433
-  %1434 = load i32, ptr %ti48, align 4
-  %add1187 = add i32 %add1186, %1434
-  %shl1188 = shl i32 %add1187, 6
-  %1435 = load i32, ptr %va47, align 4
-  %1436 = load i32, ptr %vc48, align 4
-  %1437 = load i32, ptr %vb48, align 4
-  %1438 = load i32, ptr %vd48, align 4
-  %not1189 = xor i32 %1438, -1
-  %or1190 = or i32 %1437, %not1189
-  %xor1191 = xor i32 %1436, %or1190
-  %add1192 = add i32 %1435, %xor1191
-  %1439 = load i32, ptr %xk47, align 4
-  %add1193 = add i32 %add1192, %1439
-  %1440 = load i32, ptr %ti48, align 4
-  %add1194 = add i32 %add1193, %1440
-  %shr1195 = lshr i32 %add1194, 26
-  %or1196 = or i32 %shl1188, %shr1195
-  %add1197 = add i32 %1428, %or1196
-  store i32 %add1197, ptr %v47, align 4
-  %1441 = load i32, ptr %v47, align 4
-  %1442 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx1198 = getelementptr i32, ptr %1442, i64 0
-  store i32 %1441, ptr %arrayidx1198, align 4
-  %1443 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx1199 = getelementptr i32, ptr %1443, i64 3
-  %1444 = load i32, ptr %arrayidx1199, align 4
-  store i32 %1444, ptr %va48, align 4
-  %1445 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx1200 = getelementptr i32, ptr %1445, i64 0
-  %1446 = load i32, ptr %arrayidx1200, align 4
-  store i32 %1446, ptr %vb49, align 4
-  %1447 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx1201 = getelementptr i32, ptr %1447, i64 1
-  %1448 = load i32, ptr %arrayidx1201, align 4
-  store i32 %1448, ptr %vc49, align 4
-  %1449 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx1202 = getelementptr i32, ptr %1449, i64 2
-  %1450 = load i32, ptr %arrayidx1202, align 4
-  store i32 %1450, ptr %vd49, align 4
-  %1451 = load ptr, ptr %x.addr, align 8
-  %add.ptr1203 = getelementptr i8, ptr %1451, i64 28
-  store ptr %add.ptr1203, ptr %b49, align 8
-  %1452 = load ptr, ptr %b49, align 8
-  %call1204 = call i32 @load32(ptr noundef %1452)
-  %call1205 = call i32 @__uint32_identity(i32 noundef %call1204)
-  store i32 %call1205, ptr %u48, align 4
-  %1453 = load i32, ptr %u48, align 4
-  store i32 %1453, ptr %xk48, align 4
-  %1454 = getelementptr inbounds [64 x i32], ptr @_t, i64 0, i64 49
-  %1455 = load i32, ptr %1454, align 4
-  store i32 %1455, ptr %ti49, align 4
-  %1456 = load i32, ptr %vb49, align 4
-  %1457 = load i32, ptr %va48, align 4
-  %1458 = load i32, ptr %vc49, align 4
-  %1459 = load i32, ptr %vb49, align 4
-  %1460 = load i32, ptr %vd49, align 4
-  %not1206 = xor i32 %1460, -1
-  %or1207 = or i32 %1459, %not1206
-  %xor1208 = xor i32 %1458, %or1207
-  %add1209 = add i32 %1457, %xor1208
-  %1461 = load i32, ptr %xk48, align 4
-  %add1210 = add i32 %add1209, %1461
-  %1462 = load i32, ptr %ti49, align 4
-  %add1211 = add i32 %add1210, %1462
-  %shl1212 = shl i32 %add1211, 10
-  %1463 = load i32, ptr %va48, align 4
-  %1464 = load i32, ptr %vc49, align 4
-  %1465 = load i32, ptr %vb49, align 4
-  %1466 = load i32, ptr %vd49, align 4
-  %not1213 = xor i32 %1466, -1
-  %or1214 = or i32 %1465, %not1213
-  %xor1215 = xor i32 %1464, %or1214
-  %add1216 = add i32 %1463, %xor1215
-  %1467 = load i32, ptr %xk48, align 4
-  %add1217 = add i32 %add1216, %1467
-  %1468 = load i32, ptr %ti49, align 4
-  %add1218 = add i32 %add1217, %1468
-  %shr1219 = lshr i32 %add1218, 22
-  %or1220 = or i32 %shl1212, %shr1219
-  %add1221 = add i32 %1456, %or1220
-  store i32 %add1221, ptr %v48, align 4
-  %1469 = load i32, ptr %v48, align 4
-  %1470 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx1222 = getelementptr i32, ptr %1470, i64 3
-  store i32 %1469, ptr %arrayidx1222, align 4
-  %1471 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx1223 = getelementptr i32, ptr %1471, i64 2
-  %1472 = load i32, ptr %arrayidx1223, align 4
-  store i32 %1472, ptr %va49, align 4
-  %1473 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx1224 = getelementptr i32, ptr %1473, i64 3
-  %1474 = load i32, ptr %arrayidx1224, align 4
-  store i32 %1474, ptr %vb50, align 4
-  %1475 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx1225 = getelementptr i32, ptr %1475, i64 0
-  %1476 = load i32, ptr %arrayidx1225, align 4
-  store i32 %1476, ptr %vc50, align 4
-  %1477 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx1226 = getelementptr i32, ptr %1477, i64 1
-  %1478 = load i32, ptr %arrayidx1226, align 4
-  store i32 %1478, ptr %vd50, align 4
-  %1479 = load ptr, ptr %x.addr, align 8
-  %add.ptr1227 = getelementptr i8, ptr %1479, i64 56
-  store ptr %add.ptr1227, ptr %b50, align 8
-  %1480 = load ptr, ptr %b50, align 8
-  %call1228 = call i32 @load32(ptr noundef %1480)
-  %call1229 = call i32 @__uint32_identity(i32 noundef %call1228)
-  store i32 %call1229, ptr %u49, align 4
-  %1481 = load i32, ptr %u49, align 4
-  store i32 %1481, ptr %xk49, align 4
-  %1482 = getelementptr inbounds [64 x i32], ptr @_t, i64 0, i64 50
-  %1483 = load i32, ptr %1482, align 8
-  store i32 %1483, ptr %ti50, align 4
-  %1484 = load i32, ptr %vb50, align 4
-  %1485 = load i32, ptr %va49, align 4
-  %1486 = load i32, ptr %vc50, align 4
-  %1487 = load i32, ptr %vb50, align 4
-  %1488 = load i32, ptr %vd50, align 4
-  %not1230 = xor i32 %1488, -1
-  %or1231 = or i32 %1487, %not1230
-  %xor1232 = xor i32 %1486, %or1231
-  %add1233 = add i32 %1485, %xor1232
-  %1489 = load i32, ptr %xk49, align 4
-  %add1234 = add i32 %add1233, %1489
-  %1490 = load i32, ptr %ti50, align 4
-  %add1235 = add i32 %add1234, %1490
-  %shl1236 = shl i32 %add1235, 15
-  %1491 = load i32, ptr %va49, align 4
-  %1492 = load i32, ptr %vc50, align 4
-  %1493 = load i32, ptr %vb50, align 4
-  %1494 = load i32, ptr %vd50, align 4
-  %not1237 = xor i32 %1494, -1
-  %or1238 = or i32 %1493, %not1237
-  %xor1239 = xor i32 %1492, %or1238
-  %add1240 = add i32 %1491, %xor1239
-  %1495 = load i32, ptr %xk49, align 4
-  %add1241 = add i32 %add1240, %1495
-  %1496 = load i32, ptr %ti50, align 4
-  %add1242 = add i32 %add1241, %1496
-  %shr1243 = lshr i32 %add1242, 17
-  %or1244 = or i32 %shl1236, %shr1243
-  %add1245 = add i32 %1484, %or1244
-  store i32 %add1245, ptr %v49, align 4
-  %1497 = load i32, ptr %v49, align 4
-  %1498 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx1246 = getelementptr i32, ptr %1498, i64 2
-  store i32 %1497, ptr %arrayidx1246, align 4
-  %1499 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx1247 = getelementptr i32, ptr %1499, i64 1
-  %1500 = load i32, ptr %arrayidx1247, align 4
-  store i32 %1500, ptr %va50, align 4
-  %1501 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx1248 = getelementptr i32, ptr %1501, i64 2
-  %1502 = load i32, ptr %arrayidx1248, align 4
-  store i32 %1502, ptr %vb51, align 4
-  %1503 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx1249 = getelementptr i32, ptr %1503, i64 3
-  %1504 = load i32, ptr %arrayidx1249, align 4
-  store i32 %1504, ptr %vc51, align 4
-  %1505 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx1250 = getelementptr i32, ptr %1505, i64 0
-  %1506 = load i32, ptr %arrayidx1250, align 4
-  store i32 %1506, ptr %vd51, align 4
-  %1507 = load ptr, ptr %x.addr, align 8
-  %add.ptr1251 = getelementptr i8, ptr %1507, i64 20
-  store ptr %add.ptr1251, ptr %b51, align 8
-  %1508 = load ptr, ptr %b51, align 8
-  %call1252 = call i32 @load32(ptr noundef %1508)
-  %call1253 = call i32 @__uint32_identity(i32 noundef %call1252)
-  store i32 %call1253, ptr %u50, align 4
-  %1509 = load i32, ptr %u50, align 4
-  store i32 %1509, ptr %xk50, align 4
-  %1510 = getelementptr inbounds [64 x i32], ptr @_t, i64 0, i64 51
-  %1511 = load i32, ptr %1510, align 4
-  store i32 %1511, ptr %ti51, align 4
-  %1512 = load i32, ptr %vb51, align 4
-  %1513 = load i32, ptr %va50, align 4
-  %1514 = load i32, ptr %vc51, align 4
-  %1515 = load i32, ptr %vb51, align 4
-  %1516 = load i32, ptr %vd51, align 4
-  %not1254 = xor i32 %1516, -1
-  %or1255 = or i32 %1515, %not1254
-  %xor1256 = xor i32 %1514, %or1255
-  %add1257 = add i32 %1513, %xor1256
-  %1517 = load i32, ptr %xk50, align 4
-  %add1258 = add i32 %add1257, %1517
-  %1518 = load i32, ptr %ti51, align 4
-  %add1259 = add i32 %add1258, %1518
-  %shl1260 = shl i32 %add1259, 21
-  %1519 = load i32, ptr %va50, align 4
-  %1520 = load i32, ptr %vc51, align 4
-  %1521 = load i32, ptr %vb51, align 4
-  %1522 = load i32, ptr %vd51, align 4
-  %not1261 = xor i32 %1522, -1
-  %or1262 = or i32 %1521, %not1261
-  %xor1263 = xor i32 %1520, %or1262
-  %add1264 = add i32 %1519, %xor1263
-  %1523 = load i32, ptr %xk50, align 4
-  %add1265 = add i32 %add1264, %1523
-  %1524 = load i32, ptr %ti51, align 4
-  %add1266 = add i32 %add1265, %1524
-  %shr1267 = lshr i32 %add1266, 11
-  %or1268 = or i32 %shl1260, %shr1267
-  %add1269 = add i32 %1512, %or1268
-  store i32 %add1269, ptr %v50, align 4
-  %1525 = load i32, ptr %v50, align 4
-  %1526 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx1270 = getelementptr i32, ptr %1526, i64 1
-  store i32 %1525, ptr %arrayidx1270, align 4
-  %1527 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx1271 = getelementptr i32, ptr %1527, i64 0
-  %1528 = load i32, ptr %arrayidx1271, align 4
-  store i32 %1528, ptr %va51, align 4
-  %1529 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx1272 = getelementptr i32, ptr %1529, i64 1
-  %1530 = load i32, ptr %arrayidx1272, align 4
-  store i32 %1530, ptr %vb52, align 4
-  %1531 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx1273 = getelementptr i32, ptr %1531, i64 2
-  %1532 = load i32, ptr %arrayidx1273, align 4
-  store i32 %1532, ptr %vc52, align 4
-  %1533 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx1274 = getelementptr i32, ptr %1533, i64 3
-  %1534 = load i32, ptr %arrayidx1274, align 4
-  store i32 %1534, ptr %vd52, align 4
-  %1535 = load ptr, ptr %x.addr, align 8
-  %add.ptr1275 = getelementptr i8, ptr %1535, i64 48
-  store ptr %add.ptr1275, ptr %b52, align 8
-  %1536 = load ptr, ptr %b52, align 8
-  %call1276 = call i32 @load32(ptr noundef %1536)
-  %call1277 = call i32 @__uint32_identity(i32 noundef %call1276)
-  store i32 %call1277, ptr %u51, align 4
-  %1537 = load i32, ptr %u51, align 4
-  store i32 %1537, ptr %xk51, align 4
-  %1538 = getelementptr inbounds [64 x i32], ptr @_t, i64 0, i64 52
-  %1539 = load i32, ptr %1538, align 16
-  store i32 %1539, ptr %ti52, align 4
-  %1540 = load i32, ptr %vb52, align 4
-  %1541 = load i32, ptr %va51, align 4
-  %1542 = load i32, ptr %vc52, align 4
-  %1543 = load i32, ptr %vb52, align 4
-  %1544 = load i32, ptr %vd52, align 4
-  %not1278 = xor i32 %1544, -1
-  %or1279 = or i32 %1543, %not1278
-  %xor1280 = xor i32 %1542, %or1279
-  %add1281 = add i32 %1541, %xor1280
-  %1545 = load i32, ptr %xk51, align 4
-  %add1282 = add i32 %add1281, %1545
-  %1546 = load i32, ptr %ti52, align 4
-  %add1283 = add i32 %add1282, %1546
-  %shl1284 = shl i32 %add1283, 6
-  %1547 = load i32, ptr %va51, align 4
-  %1548 = load i32, ptr %vc52, align 4
-  %1549 = load i32, ptr %vb52, align 4
-  %1550 = load i32, ptr %vd52, align 4
-  %not1285 = xor i32 %1550, -1
-  %or1286 = or i32 %1549, %not1285
-  %xor1287 = xor i32 %1548, %or1286
-  %add1288 = add i32 %1547, %xor1287
-  %1551 = load i32, ptr %xk51, align 4
-  %add1289 = add i32 %add1288, %1551
-  %1552 = load i32, ptr %ti52, align 4
-  %add1290 = add i32 %add1289, %1552
-  %shr1291 = lshr i32 %add1290, 26
-  %or1292 = or i32 %shl1284, %shr1291
-  %add1293 = add i32 %1540, %or1292
-  store i32 %add1293, ptr %v51, align 4
-  %1553 = load i32, ptr %v51, align 4
-  %1554 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx1294 = getelementptr i32, ptr %1554, i64 0
-  store i32 %1553, ptr %arrayidx1294, align 4
-  %1555 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx1295 = getelementptr i32, ptr %1555, i64 3
-  %1556 = load i32, ptr %arrayidx1295, align 4
-  store i32 %1556, ptr %va52, align 4
-  %1557 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx1296 = getelementptr i32, ptr %1557, i64 0
-  %1558 = load i32, ptr %arrayidx1296, align 4
-  store i32 %1558, ptr %vb53, align 4
-  %1559 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx1297 = getelementptr i32, ptr %1559, i64 1
-  %1560 = load i32, ptr %arrayidx1297, align 4
-  store i32 %1560, ptr %vc53, align 4
-  %1561 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx1298 = getelementptr i32, ptr %1561, i64 2
-  %1562 = load i32, ptr %arrayidx1298, align 4
-  store i32 %1562, ptr %vd53, align 4
-  %1563 = load ptr, ptr %x.addr, align 8
-  %add.ptr1299 = getelementptr i8, ptr %1563, i64 12
-  store ptr %add.ptr1299, ptr %b53, align 8
-  %1564 = load ptr, ptr %b53, align 8
-  %call1300 = call i32 @load32(ptr noundef %1564)
-  %call1301 = call i32 @__uint32_identity(i32 noundef %call1300)
-  store i32 %call1301, ptr %u52, align 4
-  %1565 = load i32, ptr %u52, align 4
-  store i32 %1565, ptr %xk52, align 4
-  %1566 = getelementptr inbounds [64 x i32], ptr @_t, i64 0, i64 53
-  %1567 = load i32, ptr %1566, align 4
-  store i32 %1567, ptr %ti53, align 4
-  %1568 = load i32, ptr %vb53, align 4
-  %1569 = load i32, ptr %va52, align 4
-  %1570 = load i32, ptr %vc53, align 4
-  %1571 = load i32, ptr %vb53, align 4
-  %1572 = load i32, ptr %vd53, align 4
-  %not1302 = xor i32 %1572, -1
-  %or1303 = or i32 %1571, %not1302
-  %xor1304 = xor i32 %1570, %or1303
-  %add1305 = add i32 %1569, %xor1304
-  %1573 = load i32, ptr %xk52, align 4
-  %add1306 = add i32 %add1305, %1573
-  %1574 = load i32, ptr %ti53, align 4
-  %add1307 = add i32 %add1306, %1574
-  %shl1308 = shl i32 %add1307, 10
-  %1575 = load i32, ptr %va52, align 4
-  %1576 = load i32, ptr %vc53, align 4
-  %1577 = load i32, ptr %vb53, align 4
-  %1578 = load i32, ptr %vd53, align 4
-  %not1309 = xor i32 %1578, -1
-  %or1310 = or i32 %1577, %not1309
-  %xor1311 = xor i32 %1576, %or1310
-  %add1312 = add i32 %1575, %xor1311
-  %1579 = load i32, ptr %xk52, align 4
-  %add1313 = add i32 %add1312, %1579
-  %1580 = load i32, ptr %ti53, align 4
-  %add1314 = add i32 %add1313, %1580
-  %shr1315 = lshr i32 %add1314, 22
-  %or1316 = or i32 %shl1308, %shr1315
-  %add1317 = add i32 %1568, %or1316
-  store i32 %add1317, ptr %v52, align 4
-  %1581 = load i32, ptr %v52, align 4
-  %1582 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx1318 = getelementptr i32, ptr %1582, i64 3
-  store i32 %1581, ptr %arrayidx1318, align 4
-  %1583 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx1319 = getelementptr i32, ptr %1583, i64 2
-  %1584 = load i32, ptr %arrayidx1319, align 4
-  store i32 %1584, ptr %va53, align 4
-  %1585 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx1320 = getelementptr i32, ptr %1585, i64 3
-  %1586 = load i32, ptr %arrayidx1320, align 4
-  store i32 %1586, ptr %vb54, align 4
-  %1587 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx1321 = getelementptr i32, ptr %1587, i64 0
-  %1588 = load i32, ptr %arrayidx1321, align 4
-  store i32 %1588, ptr %vc54, align 4
-  %1589 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx1322 = getelementptr i32, ptr %1589, i64 1
-  %1590 = load i32, ptr %arrayidx1322, align 4
-  store i32 %1590, ptr %vd54, align 4
-  %1591 = load ptr, ptr %x.addr, align 8
-  %add.ptr1323 = getelementptr i8, ptr %1591, i64 40
-  store ptr %add.ptr1323, ptr %b54, align 8
-  %1592 = load ptr, ptr %b54, align 8
-  %call1324 = call i32 @load32(ptr noundef %1592)
-  %call1325 = call i32 @__uint32_identity(i32 noundef %call1324)
-  store i32 %call1325, ptr %u53, align 4
-  %1593 = load i32, ptr %u53, align 4
-  store i32 %1593, ptr %xk53, align 4
-  %1594 = getelementptr inbounds [64 x i32], ptr @_t, i64 0, i64 54
-  %1595 = load i32, ptr %1594, align 8
-  store i32 %1595, ptr %ti54, align 4
-  %1596 = load i32, ptr %vb54, align 4
-  %1597 = load i32, ptr %va53, align 4
-  %1598 = load i32, ptr %vc54, align 4
-  %1599 = load i32, ptr %vb54, align 4
-  %1600 = load i32, ptr %vd54, align 4
-  %not1326 = xor i32 %1600, -1
-  %or1327 = or i32 %1599, %not1326
-  %xor1328 = xor i32 %1598, %or1327
-  %add1329 = add i32 %1597, %xor1328
-  %1601 = load i32, ptr %xk53, align 4
-  %add1330 = add i32 %add1329, %1601
-  %1602 = load i32, ptr %ti54, align 4
-  %add1331 = add i32 %add1330, %1602
-  %shl1332 = shl i32 %add1331, 15
-  %1603 = load i32, ptr %va53, align 4
-  %1604 = load i32, ptr %vc54, align 4
-  %1605 = load i32, ptr %vb54, align 4
-  %1606 = load i32, ptr %vd54, align 4
-  %not1333 = xor i32 %1606, -1
-  %or1334 = or i32 %1605, %not1333
-  %xor1335 = xor i32 %1604, %or1334
-  %add1336 = add i32 %1603, %xor1335
-  %1607 = load i32, ptr %xk53, align 4
-  %add1337 = add i32 %add1336, %1607
-  %1608 = load i32, ptr %ti54, align 4
-  %add1338 = add i32 %add1337, %1608
-  %shr1339 = lshr i32 %add1338, 17
-  %or1340 = or i32 %shl1332, %shr1339
-  %add1341 = add i32 %1596, %or1340
-  store i32 %add1341, ptr %v53, align 4
-  %1609 = load i32, ptr %v53, align 4
-  %1610 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx1342 = getelementptr i32, ptr %1610, i64 2
-  store i32 %1609, ptr %arrayidx1342, align 4
-  %1611 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx1343 = getelementptr i32, ptr %1611, i64 1
-  %1612 = load i32, ptr %arrayidx1343, align 4
-  store i32 %1612, ptr %va54, align 4
-  %1613 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx1344 = getelementptr i32, ptr %1613, i64 2
-  %1614 = load i32, ptr %arrayidx1344, align 4
-  store i32 %1614, ptr %vb55, align 4
-  %1615 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx1345 = getelementptr i32, ptr %1615, i64 3
-  %1616 = load i32, ptr %arrayidx1345, align 4
-  store i32 %1616, ptr %vc55, align 4
-  %1617 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx1346 = getelementptr i32, ptr %1617, i64 0
-  %1618 = load i32, ptr %arrayidx1346, align 4
-  store i32 %1618, ptr %vd55, align 4
-  %1619 = load ptr, ptr %x.addr, align 8
-  %add.ptr1347 = getelementptr i8, ptr %1619, i64 4
-  store ptr %add.ptr1347, ptr %b55, align 8
-  %1620 = load ptr, ptr %b55, align 8
-  %call1348 = call i32 @load32(ptr noundef %1620)
-  %call1349 = call i32 @__uint32_identity(i32 noundef %call1348)
-  store i32 %call1349, ptr %u54, align 4
-  %1621 = load i32, ptr %u54, align 4
-  store i32 %1621, ptr %xk54, align 4
-  %1622 = getelementptr inbounds [64 x i32], ptr @_t, i64 0, i64 55
-  %1623 = load i32, ptr %1622, align 4
-  store i32 %1623, ptr %ti55, align 4
-  %1624 = load i32, ptr %vb55, align 4
-  %1625 = load i32, ptr %va54, align 4
-  %1626 = load i32, ptr %vc55, align 4
-  %1627 = load i32, ptr %vb55, align 4
-  %1628 = load i32, ptr %vd55, align 4
-  %not1350 = xor i32 %1628, -1
-  %or1351 = or i32 %1627, %not1350
-  %xor1352 = xor i32 %1626, %or1351
-  %add1353 = add i32 %1625, %xor1352
-  %1629 = load i32, ptr %xk54, align 4
-  %add1354 = add i32 %add1353, %1629
-  %1630 = load i32, ptr %ti55, align 4
-  %add1355 = add i32 %add1354, %1630
-  %shl1356 = shl i32 %add1355, 21
-  %1631 = load i32, ptr %va54, align 4
-  %1632 = load i32, ptr %vc55, align 4
-  %1633 = load i32, ptr %vb55, align 4
-  %1634 = load i32, ptr %vd55, align 4
-  %not1357 = xor i32 %1634, -1
-  %or1358 = or i32 %1633, %not1357
-  %xor1359 = xor i32 %1632, %or1358
-  %add1360 = add i32 %1631, %xor1359
-  %1635 = load i32, ptr %xk54, align 4
-  %add1361 = add i32 %add1360, %1635
-  %1636 = load i32, ptr %ti55, align 4
-  %add1362 = add i32 %add1361, %1636
-  %shr1363 = lshr i32 %add1362, 11
-  %or1364 = or i32 %shl1356, %shr1363
-  %add1365 = add i32 %1624, %or1364
-  store i32 %add1365, ptr %v54, align 4
-  %1637 = load i32, ptr %v54, align 4
-  %1638 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx1366 = getelementptr i32, ptr %1638, i64 1
-  store i32 %1637, ptr %arrayidx1366, align 4
-  %1639 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx1367 = getelementptr i32, ptr %1639, i64 0
-  %1640 = load i32, ptr %arrayidx1367, align 4
-  store i32 %1640, ptr %va55, align 4
-  %1641 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx1368 = getelementptr i32, ptr %1641, i64 1
-  %1642 = load i32, ptr %arrayidx1368, align 4
-  store i32 %1642, ptr %vb56, align 4
-  %1643 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx1369 = getelementptr i32, ptr %1643, i64 2
-  %1644 = load i32, ptr %arrayidx1369, align 4
-  store i32 %1644, ptr %vc56, align 4
-  %1645 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx1370 = getelementptr i32, ptr %1645, i64 3
-  %1646 = load i32, ptr %arrayidx1370, align 4
-  store i32 %1646, ptr %vd56, align 4
-  %1647 = load ptr, ptr %x.addr, align 8
-  %add.ptr1371 = getelementptr i8, ptr %1647, i64 32
-  store ptr %add.ptr1371, ptr %b56, align 8
-  %1648 = load ptr, ptr %b56, align 8
-  %call1372 = call i32 @load32(ptr noundef %1648)
-  %call1373 = call i32 @__uint32_identity(i32 noundef %call1372)
-  store i32 %call1373, ptr %u55, align 4
-  %1649 = load i32, ptr %u55, align 4
-  store i32 %1649, ptr %xk55, align 4
-  %1650 = getelementptr inbounds [64 x i32], ptr @_t, i64 0, i64 56
-  %1651 = load i32, ptr %1650, align 16
-  store i32 %1651, ptr %ti56, align 4
-  %1652 = load i32, ptr %vb56, align 4
-  %1653 = load i32, ptr %va55, align 4
-  %1654 = load i32, ptr %vc56, align 4
-  %1655 = load i32, ptr %vb56, align 4
-  %1656 = load i32, ptr %vd56, align 4
-  %not1374 = xor i32 %1656, -1
-  %or1375 = or i32 %1655, %not1374
-  %xor1376 = xor i32 %1654, %or1375
-  %add1377 = add i32 %1653, %xor1376
-  %1657 = load i32, ptr %xk55, align 4
-  %add1378 = add i32 %add1377, %1657
-  %1658 = load i32, ptr %ti56, align 4
-  %add1379 = add i32 %add1378, %1658
-  %shl1380 = shl i32 %add1379, 6
-  %1659 = load i32, ptr %va55, align 4
-  %1660 = load i32, ptr %vc56, align 4
-  %1661 = load i32, ptr %vb56, align 4
-  %1662 = load i32, ptr %vd56, align 4
-  %not1381 = xor i32 %1662, -1
-  %or1382 = or i32 %1661, %not1381
-  %xor1383 = xor i32 %1660, %or1382
-  %add1384 = add i32 %1659, %xor1383
-  %1663 = load i32, ptr %xk55, align 4
-  %add1385 = add i32 %add1384, %1663
-  %1664 = load i32, ptr %ti56, align 4
-  %add1386 = add i32 %add1385, %1664
-  %shr1387 = lshr i32 %add1386, 26
-  %or1388 = or i32 %shl1380, %shr1387
-  %add1389 = add i32 %1652, %or1388
-  store i32 %add1389, ptr %v55, align 4
-  %1665 = load i32, ptr %v55, align 4
-  %1666 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx1390 = getelementptr i32, ptr %1666, i64 0
-  store i32 %1665, ptr %arrayidx1390, align 4
-  %1667 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx1391 = getelementptr i32, ptr %1667, i64 3
-  %1668 = load i32, ptr %arrayidx1391, align 4
-  store i32 %1668, ptr %va56, align 4
-  %1669 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx1392 = getelementptr i32, ptr %1669, i64 0
-  %1670 = load i32, ptr %arrayidx1392, align 4
-  store i32 %1670, ptr %vb57, align 4
-  %1671 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx1393 = getelementptr i32, ptr %1671, i64 1
-  %1672 = load i32, ptr %arrayidx1393, align 4
-  store i32 %1672, ptr %vc57, align 4
-  %1673 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx1394 = getelementptr i32, ptr %1673, i64 2
-  %1674 = load i32, ptr %arrayidx1394, align 4
-  store i32 %1674, ptr %vd57, align 4
-  %1675 = load ptr, ptr %x.addr, align 8
-  %add.ptr1395 = getelementptr i8, ptr %1675, i64 60
-  store ptr %add.ptr1395, ptr %b57, align 8
-  %1676 = load ptr, ptr %b57, align 8
-  %call1396 = call i32 @load32(ptr noundef %1676)
-  %call1397 = call i32 @__uint32_identity(i32 noundef %call1396)
-  store i32 %call1397, ptr %u56, align 4
-  %1677 = load i32, ptr %u56, align 4
-  store i32 %1677, ptr %xk56, align 4
-  %1678 = getelementptr inbounds [64 x i32], ptr @_t, i64 0, i64 57
-  %1679 = load i32, ptr %1678, align 4
-  store i32 %1679, ptr %ti57, align 4
-  %1680 = load i32, ptr %vb57, align 4
-  %1681 = load i32, ptr %va56, align 4
-  %1682 = load i32, ptr %vc57, align 4
-  %1683 = load i32, ptr %vb57, align 4
-  %1684 = load i32, ptr %vd57, align 4
-  %not1398 = xor i32 %1684, -1
-  %or1399 = or i32 %1683, %not1398
-  %xor1400 = xor i32 %1682, %or1399
-  %add1401 = add i32 %1681, %xor1400
-  %1685 = load i32, ptr %xk56, align 4
-  %add1402 = add i32 %add1401, %1685
-  %1686 = load i32, ptr %ti57, align 4
-  %add1403 = add i32 %add1402, %1686
-  %shl1404 = shl i32 %add1403, 10
-  %1687 = load i32, ptr %va56, align 4
-  %1688 = load i32, ptr %vc57, align 4
-  %1689 = load i32, ptr %vb57, align 4
-  %1690 = load i32, ptr %vd57, align 4
-  %not1405 = xor i32 %1690, -1
-  %or1406 = or i32 %1689, %not1405
-  %xor1407 = xor i32 %1688, %or1406
-  %add1408 = add i32 %1687, %xor1407
-  %1691 = load i32, ptr %xk56, align 4
-  %add1409 = add i32 %add1408, %1691
-  %1692 = load i32, ptr %ti57, align 4
-  %add1410 = add i32 %add1409, %1692
-  %shr1411 = lshr i32 %add1410, 22
-  %or1412 = or i32 %shl1404, %shr1411
-  %add1413 = add i32 %1680, %or1412
-  store i32 %add1413, ptr %v56, align 4
-  %1693 = load i32, ptr %v56, align 4
-  %1694 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx1414 = getelementptr i32, ptr %1694, i64 3
-  store i32 %1693, ptr %arrayidx1414, align 4
-  %1695 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx1415 = getelementptr i32, ptr %1695, i64 2
-  %1696 = load i32, ptr %arrayidx1415, align 4
-  store i32 %1696, ptr %va57, align 4
-  %1697 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx1416 = getelementptr i32, ptr %1697, i64 3
-  %1698 = load i32, ptr %arrayidx1416, align 4
-  store i32 %1698, ptr %vb58, align 4
-  %1699 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx1417 = getelementptr i32, ptr %1699, i64 0
-  %1700 = load i32, ptr %arrayidx1417, align 4
-  store i32 %1700, ptr %vc58, align 4
-  %1701 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx1418 = getelementptr i32, ptr %1701, i64 1
-  %1702 = load i32, ptr %arrayidx1418, align 4
-  store i32 %1702, ptr %vd58, align 4
-  %1703 = load ptr, ptr %x.addr, align 8
-  %add.ptr1419 = getelementptr i8, ptr %1703, i64 24
-  store ptr %add.ptr1419, ptr %b58, align 8
-  %1704 = load ptr, ptr %b58, align 8
-  %call1420 = call i32 @load32(ptr noundef %1704)
-  %call1421 = call i32 @__uint32_identity(i32 noundef %call1420)
-  store i32 %call1421, ptr %u57, align 4
-  %1705 = load i32, ptr %u57, align 4
-  store i32 %1705, ptr %xk57, align 4
-  %1706 = getelementptr inbounds [64 x i32], ptr @_t, i64 0, i64 58
-  %1707 = load i32, ptr %1706, align 8
-  store i32 %1707, ptr %ti58, align 4
-  %1708 = load i32, ptr %vb58, align 4
-  %1709 = load i32, ptr %va57, align 4
-  %1710 = load i32, ptr %vc58, align 4
-  %1711 = load i32, ptr %vb58, align 4
-  %1712 = load i32, ptr %vd58, align 4
-  %not1422 = xor i32 %1712, -1
-  %or1423 = or i32 %1711, %not1422
-  %xor1424 = xor i32 %1710, %or1423
-  %add1425 = add i32 %1709, %xor1424
-  %1713 = load i32, ptr %xk57, align 4
-  %add1426 = add i32 %add1425, %1713
-  %1714 = load i32, ptr %ti58, align 4
-  %add1427 = add i32 %add1426, %1714
-  %shl1428 = shl i32 %add1427, 15
-  %1715 = load i32, ptr %va57, align 4
-  %1716 = load i32, ptr %vc58, align 4
-  %1717 = load i32, ptr %vb58, align 4
-  %1718 = load i32, ptr %vd58, align 4
-  %not1429 = xor i32 %1718, -1
-  %or1430 = or i32 %1717, %not1429
-  %xor1431 = xor i32 %1716, %or1430
-  %add1432 = add i32 %1715, %xor1431
-  %1719 = load i32, ptr %xk57, align 4
-  %add1433 = add i32 %add1432, %1719
-  %1720 = load i32, ptr %ti58, align 4
-  %add1434 = add i32 %add1433, %1720
-  %shr1435 = lshr i32 %add1434, 17
-  %or1436 = or i32 %shl1428, %shr1435
-  %add1437 = add i32 %1708, %or1436
-  store i32 %add1437, ptr %v57, align 4
-  %1721 = load i32, ptr %v57, align 4
-  %1722 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx1438 = getelementptr i32, ptr %1722, i64 2
-  store i32 %1721, ptr %arrayidx1438, align 4
-  %1723 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx1439 = getelementptr i32, ptr %1723, i64 1
-  %1724 = load i32, ptr %arrayidx1439, align 4
-  store i32 %1724, ptr %va58, align 4
-  %1725 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx1440 = getelementptr i32, ptr %1725, i64 2
-  %1726 = load i32, ptr %arrayidx1440, align 4
-  store i32 %1726, ptr %vb59, align 4
-  %1727 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx1441 = getelementptr i32, ptr %1727, i64 3
-  %1728 = load i32, ptr %arrayidx1441, align 4
-  store i32 %1728, ptr %vc59, align 4
-  %1729 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx1442 = getelementptr i32, ptr %1729, i64 0
-  %1730 = load i32, ptr %arrayidx1442, align 4
-  store i32 %1730, ptr %vd59, align 4
-  %1731 = load ptr, ptr %x.addr, align 8
-  %add.ptr1443 = getelementptr i8, ptr %1731, i64 52
-  store ptr %add.ptr1443, ptr %b59, align 8
-  %1732 = load ptr, ptr %b59, align 8
-  %call1444 = call i32 @load32(ptr noundef %1732)
-  %call1445 = call i32 @__uint32_identity(i32 noundef %call1444)
-  store i32 %call1445, ptr %u58, align 4
-  %1733 = load i32, ptr %u58, align 4
-  store i32 %1733, ptr %xk58, align 4
-  %1734 = getelementptr inbounds [64 x i32], ptr @_t, i64 0, i64 59
-  %1735 = load i32, ptr %1734, align 4
-  store i32 %1735, ptr %ti59, align 4
-  %1736 = load i32, ptr %vb59, align 4
-  %1737 = load i32, ptr %va58, align 4
-  %1738 = load i32, ptr %vc59, align 4
-  %1739 = load i32, ptr %vb59, align 4
-  %1740 = load i32, ptr %vd59, align 4
-  %not1446 = xor i32 %1740, -1
-  %or1447 = or i32 %1739, %not1446
-  %xor1448 = xor i32 %1738, %or1447
-  %add1449 = add i32 %1737, %xor1448
-  %1741 = load i32, ptr %xk58, align 4
-  %add1450 = add i32 %add1449, %1741
-  %1742 = load i32, ptr %ti59, align 4
-  %add1451 = add i32 %add1450, %1742
-  %shl1452 = shl i32 %add1451, 21
-  %1743 = load i32, ptr %va58, align 4
-  %1744 = load i32, ptr %vc59, align 4
-  %1745 = load i32, ptr %vb59, align 4
-  %1746 = load i32, ptr %vd59, align 4
-  %not1453 = xor i32 %1746, -1
-  %or1454 = or i32 %1745, %not1453
-  %xor1455 = xor i32 %1744, %or1454
-  %add1456 = add i32 %1743, %xor1455
-  %1747 = load i32, ptr %xk58, align 4
-  %add1457 = add i32 %add1456, %1747
-  %1748 = load i32, ptr %ti59, align 4
-  %add1458 = add i32 %add1457, %1748
-  %shr1459 = lshr i32 %add1458, 11
-  %or1460 = or i32 %shl1452, %shr1459
-  %add1461 = add i32 %1736, %or1460
-  store i32 %add1461, ptr %v58, align 4
-  %1749 = load i32, ptr %v58, align 4
-  %1750 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx1462 = getelementptr i32, ptr %1750, i64 1
-  store i32 %1749, ptr %arrayidx1462, align 4
-  %1751 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx1463 = getelementptr i32, ptr %1751, i64 0
-  %1752 = load i32, ptr %arrayidx1463, align 4
-  store i32 %1752, ptr %va59, align 4
-  %1753 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx1464 = getelementptr i32, ptr %1753, i64 1
-  %1754 = load i32, ptr %arrayidx1464, align 4
-  store i32 %1754, ptr %vb60, align 4
-  %1755 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx1465 = getelementptr i32, ptr %1755, i64 2
-  %1756 = load i32, ptr %arrayidx1465, align 4
-  store i32 %1756, ptr %vc60, align 4
-  %1757 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx1466 = getelementptr i32, ptr %1757, i64 3
-  %1758 = load i32, ptr %arrayidx1466, align 4
-  store i32 %1758, ptr %vd60, align 4
-  %1759 = load ptr, ptr %x.addr, align 8
-  %add.ptr1467 = getelementptr i8, ptr %1759, i64 16
-  store ptr %add.ptr1467, ptr %b60, align 8
-  %1760 = load ptr, ptr %b60, align 8
-  %call1468 = call i32 @load32(ptr noundef %1760)
-  %call1469 = call i32 @__uint32_identity(i32 noundef %call1468)
-  store i32 %call1469, ptr %u59, align 4
-  %1761 = load i32, ptr %u59, align 4
-  store i32 %1761, ptr %xk59, align 4
-  %1762 = getelementptr inbounds [64 x i32], ptr @_t, i64 0, i64 60
-  %1763 = load i32, ptr %1762, align 16
-  store i32 %1763, ptr %ti60, align 4
-  %1764 = load i32, ptr %vb60, align 4
-  %1765 = load i32, ptr %va59, align 4
-  %1766 = load i32, ptr %vc60, align 4
-  %1767 = load i32, ptr %vb60, align 4
-  %1768 = load i32, ptr %vd60, align 4
-  %not1470 = xor i32 %1768, -1
-  %or1471 = or i32 %1767, %not1470
-  %xor1472 = xor i32 %1766, %or1471
-  %add1473 = add i32 %1765, %xor1472
-  %1769 = load i32, ptr %xk59, align 4
-  %add1474 = add i32 %add1473, %1769
-  %1770 = load i32, ptr %ti60, align 4
-  %add1475 = add i32 %add1474, %1770
-  %shl1476 = shl i32 %add1475, 6
-  %1771 = load i32, ptr %va59, align 4
-  %1772 = load i32, ptr %vc60, align 4
-  %1773 = load i32, ptr %vb60, align 4
-  %1774 = load i32, ptr %vd60, align 4
-  %not1477 = xor i32 %1774, -1
-  %or1478 = or i32 %1773, %not1477
-  %xor1479 = xor i32 %1772, %or1478
-  %add1480 = add i32 %1771, %xor1479
-  %1775 = load i32, ptr %xk59, align 4
-  %add1481 = add i32 %add1480, %1775
-  %1776 = load i32, ptr %ti60, align 4
-  %add1482 = add i32 %add1481, %1776
-  %shr1483 = lshr i32 %add1482, 26
-  %or1484 = or i32 %shl1476, %shr1483
-  %add1485 = add i32 %1764, %or1484
-  store i32 %add1485, ptr %v59, align 4
-  %1777 = load i32, ptr %v59, align 4
-  %1778 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx1486 = getelementptr i32, ptr %1778, i64 0
-  store i32 %1777, ptr %arrayidx1486, align 4
-  %1779 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx1487 = getelementptr i32, ptr %1779, i64 3
-  %1780 = load i32, ptr %arrayidx1487, align 4
-  store i32 %1780, ptr %va60, align 4
-  %1781 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx1488 = getelementptr i32, ptr %1781, i64 0
-  %1782 = load i32, ptr %arrayidx1488, align 4
-  store i32 %1782, ptr %vb61, align 4
-  %1783 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx1489 = getelementptr i32, ptr %1783, i64 1
-  %1784 = load i32, ptr %arrayidx1489, align 4
-  store i32 %1784, ptr %vc61, align 4
-  %1785 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx1490 = getelementptr i32, ptr %1785, i64 2
-  %1786 = load i32, ptr %arrayidx1490, align 4
-  store i32 %1786, ptr %vd61, align 4
-  %1787 = load ptr, ptr %x.addr, align 8
-  %add.ptr1491 = getelementptr i8, ptr %1787, i64 44
-  store ptr %add.ptr1491, ptr %b61, align 8
-  %1788 = load ptr, ptr %b61, align 8
-  %call1492 = call i32 @load32(ptr noundef %1788)
-  %call1493 = call i32 @__uint32_identity(i32 noundef %call1492)
-  store i32 %call1493, ptr %u60, align 4
-  %1789 = load i32, ptr %u60, align 4
-  store i32 %1789, ptr %xk60, align 4
-  %1790 = getelementptr inbounds [64 x i32], ptr @_t, i64 0, i64 61
-  %1791 = load i32, ptr %1790, align 4
-  store i32 %1791, ptr %ti61, align 4
-  %1792 = load i32, ptr %vb61, align 4
-  %1793 = load i32, ptr %va60, align 4
-  %1794 = load i32, ptr %vc61, align 4
-  %1795 = load i32, ptr %vb61, align 4
-  %1796 = load i32, ptr %vd61, align 4
-  %not1494 = xor i32 %1796, -1
-  %or1495 = or i32 %1795, %not1494
-  %xor1496 = xor i32 %1794, %or1495
-  %add1497 = add i32 %1793, %xor1496
-  %1797 = load i32, ptr %xk60, align 4
-  %add1498 = add i32 %add1497, %1797
-  %1798 = load i32, ptr %ti61, align 4
-  %add1499 = add i32 %add1498, %1798
-  %shl1500 = shl i32 %add1499, 10
-  %1799 = load i32, ptr %va60, align 4
-  %1800 = load i32, ptr %vc61, align 4
-  %1801 = load i32, ptr %vb61, align 4
-  %1802 = load i32, ptr %vd61, align 4
-  %not1501 = xor i32 %1802, -1
-  %or1502 = or i32 %1801, %not1501
-  %xor1503 = xor i32 %1800, %or1502
-  %add1504 = add i32 %1799, %xor1503
-  %1803 = load i32, ptr %xk60, align 4
-  %add1505 = add i32 %add1504, %1803
-  %1804 = load i32, ptr %ti61, align 4
-  %add1506 = add i32 %add1505, %1804
-  %shr1507 = lshr i32 %add1506, 22
-  %or1508 = or i32 %shl1500, %shr1507
-  %add1509 = add i32 %1792, %or1508
-  store i32 %add1509, ptr %v60, align 4
-  %1805 = load i32, ptr %v60, align 4
-  %1806 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx1510 = getelementptr i32, ptr %1806, i64 3
-  store i32 %1805, ptr %arrayidx1510, align 4
-  %1807 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx1511 = getelementptr i32, ptr %1807, i64 2
-  %1808 = load i32, ptr %arrayidx1511, align 4
-  store i32 %1808, ptr %va61, align 4
-  %1809 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx1512 = getelementptr i32, ptr %1809, i64 3
-  %1810 = load i32, ptr %arrayidx1512, align 4
-  store i32 %1810, ptr %vb62, align 4
-  %1811 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx1513 = getelementptr i32, ptr %1811, i64 0
-  %1812 = load i32, ptr %arrayidx1513, align 4
-  store i32 %1812, ptr %vc62, align 4
-  %1813 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx1514 = getelementptr i32, ptr %1813, i64 1
-  %1814 = load i32, ptr %arrayidx1514, align 4
-  store i32 %1814, ptr %vd62, align 4
-  %1815 = load ptr, ptr %x.addr, align 8
-  %add.ptr1515 = getelementptr i8, ptr %1815, i64 8
-  store ptr %add.ptr1515, ptr %b62, align 8
-  %1816 = load ptr, ptr %b62, align 8
-  %call1516 = call i32 @load32(ptr noundef %1816)
-  %call1517 = call i32 @__uint32_identity(i32 noundef %call1516)
-  store i32 %call1517, ptr %u61, align 4
-  %1817 = load i32, ptr %u61, align 4
-  store i32 %1817, ptr %xk61, align 4
-  %1818 = getelementptr inbounds [64 x i32], ptr @_t, i64 0, i64 62
-  %1819 = load i32, ptr %1818, align 8
-  store i32 %1819, ptr %ti62, align 4
-  %1820 = load i32, ptr %vb62, align 4
-  %1821 = load i32, ptr %va61, align 4
-  %1822 = load i32, ptr %vc62, align 4
-  %1823 = load i32, ptr %vb62, align 4
-  %1824 = load i32, ptr %vd62, align 4
-  %not1518 = xor i32 %1824, -1
-  %or1519 = or i32 %1823, %not1518
-  %xor1520 = xor i32 %1822, %or1519
-  %add1521 = add i32 %1821, %xor1520
-  %1825 = load i32, ptr %xk61, align 4
-  %add1522 = add i32 %add1521, %1825
-  %1826 = load i32, ptr %ti62, align 4
-  %add1523 = add i32 %add1522, %1826
-  %shl1524 = shl i32 %add1523, 15
-  %1827 = load i32, ptr %va61, align 4
-  %1828 = load i32, ptr %vc62, align 4
-  %1829 = load i32, ptr %vb62, align 4
-  %1830 = load i32, ptr %vd62, align 4
-  %not1525 = xor i32 %1830, -1
-  %or1526 = or i32 %1829, %not1525
-  %xor1527 = xor i32 %1828, %or1526
-  %add1528 = add i32 %1827, %xor1527
-  %1831 = load i32, ptr %xk61, align 4
-  %add1529 = add i32 %add1528, %1831
-  %1832 = load i32, ptr %ti62, align 4
-  %add1530 = add i32 %add1529, %1832
-  %shr1531 = lshr i32 %add1530, 17
-  %or1532 = or i32 %shl1524, %shr1531
-  %add1533 = add i32 %1820, %or1532
-  store i32 %add1533, ptr %v61, align 4
-  %1833 = load i32, ptr %v61, align 4
-  %1834 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx1534 = getelementptr i32, ptr %1834, i64 2
-  store i32 %1833, ptr %arrayidx1534, align 4
-  %1835 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx1535 = getelementptr i32, ptr %1835, i64 1
-  %1836 = load i32, ptr %arrayidx1535, align 4
-  store i32 %1836, ptr %va62, align 4
-  %1837 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx1536 = getelementptr i32, ptr %1837, i64 2
-  %1838 = load i32, ptr %arrayidx1536, align 4
-  store i32 %1838, ptr %vb, align 4
-  %1839 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx1537 = getelementptr i32, ptr %1839, i64 3
-  %1840 = load i32, ptr %arrayidx1537, align 4
-  store i32 %1840, ptr %vc, align 4
-  %1841 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx1538 = getelementptr i32, ptr %1841, i64 0
-  %1842 = load i32, ptr %arrayidx1538, align 4
-  store i32 %1842, ptr %vd, align 4
-  %1843 = load ptr, ptr %x.addr, align 8
-  %add.ptr1539 = getelementptr i8, ptr %1843, i64 36
-  store ptr %add.ptr1539, ptr %b63, align 8
-  %1844 = load ptr, ptr %b63, align 8
-  %call1540 = call i32 @load32(ptr noundef %1844)
-  %call1541 = call i32 @__uint32_identity(i32 noundef %call1540)
-  store i32 %call1541, ptr %u62, align 4
-  %1845 = load i32, ptr %u62, align 4
-  store i32 %1845, ptr %xk62, align 4
-  %1846 = getelementptr inbounds [64 x i32], ptr @_t, i64 0, i64 63
-  %1847 = load i32, ptr %1846, align 4
-  store i32 %1847, ptr %ti, align 4
-  %1848 = load i32, ptr %vb, align 4
-  %1849 = load i32, ptr %va62, align 4
-  %1850 = load i32, ptr %vc, align 4
-  %1851 = load i32, ptr %vb, align 4
-  %1852 = load i32, ptr %vd, align 4
-  %not1542 = xor i32 %1852, -1
-  %or1543 = or i32 %1851, %not1542
-  %xor1544 = xor i32 %1850, %or1543
-  %add1545 = add i32 %1849, %xor1544
-  %1853 = load i32, ptr %xk62, align 4
-  %add1546 = add i32 %add1545, %1853
-  %1854 = load i32, ptr %ti, align 4
-  %add1547 = add i32 %add1546, %1854
-  %shl1548 = shl i32 %add1547, 21
-  %1855 = load i32, ptr %va62, align 4
-  %1856 = load i32, ptr %vc, align 4
-  %1857 = load i32, ptr %vb, align 4
-  %1858 = load i32, ptr %vd, align 4
-  %not1549 = xor i32 %1858, -1
-  %or1550 = or i32 %1857, %not1549
-  %xor1551 = xor i32 %1856, %or1550
-  %add1552 = add i32 %1855, %xor1551
-  %1859 = load i32, ptr %xk62, align 4
-  %add1553 = add i32 %add1552, %1859
-  %1860 = load i32, ptr %ti, align 4
-  %add1554 = add i32 %add1553, %1860
-  %shr1555 = lshr i32 %add1554, 11
-  %or1556 = or i32 %shl1548, %shr1555
-  %add1557 = add i32 %1848, %or1556
-  store i32 %add1557, ptr %v62, align 4
-  %1861 = load i32, ptr %v62, align 4
-  %1862 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx1558 = getelementptr i32, ptr %1862, i64 1
-  store i32 %1861, ptr %arrayidx1558, align 4
-  %1863 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx1559 = getelementptr i32, ptr %1863, i64 0
-  %1864 = load i32, ptr %arrayidx1559, align 4
-  store i32 %1864, ptr %a, align 4
-  %1865 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx1560 = getelementptr i32, ptr %1865, i64 1
-  %1866 = load i32, ptr %arrayidx1560, align 4
-  store i32 %1866, ptr %b, align 4
-  %1867 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx1561 = getelementptr i32, ptr %1867, i64 2
-  %1868 = load i32, ptr %arrayidx1561, align 4
-  store i32 %1868, ptr %c, align 4
-  %1869 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx1562 = getelementptr i32, ptr %1869, i64 3
-  %1870 = load i32, ptr %arrayidx1562, align 4
-  store i32 %1870, ptr %d, align 4
-  %1871 = load i32, ptr %a, align 4
-  %1872 = load i32, ptr %aa, align 4
-  %add1563 = add i32 %1871, %1872
-  %1873 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx1564 = getelementptr i32, ptr %1873, i64 0
-  store i32 %add1563, ptr %arrayidx1564, align 4
-  %1874 = load i32, ptr %b, align 4
-  %1875 = load i32, ptr %bb, align 4
-  %add1565 = add i32 %1874, %1875
-  %1876 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx1566 = getelementptr i32, ptr %1876, i64 1
-  store i32 %add1565, ptr %arrayidx1566, align 4
-  %1877 = load i32, ptr %c, align 4
-  %1878 = load i32, ptr %cc, align 4
-  %add1567 = add i32 %1877, %1878
-  %1879 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx1568 = getelementptr i32, ptr %1879, i64 2
-  store i32 %add1567, ptr %arrayidx1568, align 4
-  %1880 = load i32, ptr %d, align 4
-  %1881 = load i32, ptr %dd, align 4
-  %add1569 = add i32 %1880, %1881
-  %1882 = load ptr, ptr %abcd.addr, align 8
-  %arrayidx1570 = getelementptr i32, ptr %1882, i64 3
-  store i32 %add1569, ptr %arrayidx1570, align 4
-  ret void
-}
-
-; Function Attrs: nounwind uwtable
-define hidden void @Hacl_Hash_MD5_legacy_update_last(ptr noundef %s, i64 noundef %prev_len, ptr noundef %input, i32 noundef %input_len) #0 {
-entry:
-  %s.addr = alloca ptr, align 8
-  %prev_len.addr = alloca i64, align 8
-  %input.addr = alloca ptr, align 8
-  %input_len.addr = alloca i32, align 4
-  %blocks_n = alloca i32, align 4
-  %blocks_len = alloca i32, align 4
-  %blocks = alloca ptr, align 8
-  %rest_len = alloca i32, align 4
-  %rest = alloca ptr, align 8
-  %total_input_len = alloca i64, align 8
-  %pad_len = alloca i32, align 4
-  %tmp_len = alloca i32, align 4
-  %tmp_twoblocks = alloca [128 x i8], align 16
-  %tmp = alloca ptr, align 8
-  %tmp_rest = alloca ptr, align 8
-  %tmp_pad = alloca ptr, align 8
-  store ptr %s, ptr %s.addr, align 8
-  store i64 %prev_len, ptr %prev_len.addr, align 8
-  store ptr %input, ptr %input.addr, align 8
-  store i32 %input_len, ptr %input_len.addr, align 4
-  %0 = load i32, ptr %input_len.addr, align 4
-  %div = udiv i32 %0, 64
-  store i32 %div, ptr %blocks_n, align 4
-  %1 = load i32, ptr %blocks_n, align 4
-  %mul = mul i32 %1, 64
-  store i32 %mul, ptr %blocks_len, align 4
-  %2 = load ptr, ptr %input.addr, align 8
-  store ptr %2, ptr %blocks, align 8
-  %3 = load i32, ptr %input_len.addr, align 4
-  %4 = load i32, ptr %blocks_len, align 4
-  %sub = sub i32 %3, %4
-  store i32 %sub, ptr %rest_len, align 4
-  %5 = load ptr, ptr %input.addr, align 8
-  %6 = load i32, ptr %blocks_len, align 4
-  %idx.ext = zext i32 %6 to i64
-  %add.ptr = getelementptr i8, ptr %5, i64 %idx.ext
-  store ptr %add.ptr, ptr %rest, align 8
-  %7 = load ptr, ptr %s.addr, align 8
-  %8 = load ptr, ptr %blocks, align 8
-  %9 = load i32, ptr %blocks_n, align 4
-  call void @Hacl_Hash_MD5_legacy_update_multi(ptr noundef %7, ptr noundef %8, i32 noundef %9)
-  %10 = load i64, ptr %prev_len.addr, align 8
-  %11 = load i32, ptr %input_len.addr, align 4
-  %conv = zext i32 %11 to i64
-  %add = add i64 %10, %conv
-  store i64 %add, ptr %total_input_len, align 8
-  %12 = load i64, ptr %total_input_len, align 8
-  %rem = urem i64 %12, 64
-  %conv1 = trunc i64 %rem to i32
-  %add2 = add i32 9, %conv1
-  %sub3 = sub i32 128, %add2
-  %rem4 = urem i32 %sub3, 64
-  %add5 = add i32 1, %rem4
-  %add6 = add i32 %add5, 8
-  store i32 %add6, ptr %pad_len, align 4
-  %13 = load i32, ptr %rest_len, align 4
-  %14 = load i32, ptr %pad_len, align 4
-  %add7 = add i32 %13, %14
-  store i32 %add7, ptr %tmp_len, align 4
-  call void @llvm.memset.p0.i64(ptr align 16 %tmp_twoblocks, i8 0, i64 128, i1 false)
-  %arraydecay = getelementptr inbounds [128 x i8], ptr %tmp_twoblocks, i64 0, i64 0
-  store ptr %arraydecay, ptr %tmp, align 8
-  %15 = load ptr, ptr %tmp, align 8
-  store ptr %15, ptr %tmp_rest, align 8
-  %16 = load ptr, ptr %tmp, align 8
-  %17 = load i32, ptr %rest_len, align 4
-  %idx.ext8 = zext i32 %17 to i64
-  %add.ptr9 = getelementptr i8, ptr %16, i64 %idx.ext8
-  store ptr %add.ptr9, ptr %tmp_pad, align 8
-  %18 = load ptr, ptr %tmp_rest, align 8
-  %19 = load ptr, ptr %rest, align 8
-  %20 = load i32, ptr %rest_len, align 4
-  %conv10 = zext i32 %20 to i64
-  %mul11 = mul i64 %conv10, 1
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %18, ptr align 1 %19, i64 %mul11, i1 false)
-  %21 = load i64, ptr %total_input_len, align 8
-  %22 = load ptr, ptr %tmp_pad, align 8
-  call void @legacy_pad(i64 noundef %21, ptr noundef %22)
-  %23 = load ptr, ptr %s.addr, align 8
-  %24 = load ptr, ptr %tmp, align 8
-  %25 = load i32, ptr %tmp_len, align 4
-  %div12 = udiv i32 %25, 64
-  call void @Hacl_Hash_MD5_legacy_update_multi(ptr noundef %23, ptr noundef %24, i32 noundef %div12)
+define hidden void @python_hashlib_Hacl_Hash_MD5_update_last(ptr noundef %0, i64 noundef %1, ptr noundef %2, i32 noundef %3) #0 {
+  %5 = alloca ptr, align 8
+  %6 = alloca i64, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca i32, align 4
+  %10 = alloca i32, align 4
+  %11 = alloca ptr, align 8
+  %12 = alloca i32, align 4
+  %13 = alloca ptr, align 8
+  %14 = alloca i64, align 8
+  %15 = alloca i32, align 4
+  %16 = alloca i32, align 4
+  %17 = alloca [128 x i8], align 16
+  %18 = alloca ptr, align 8
+  %19 = alloca ptr, align 8
+  %20 = alloca ptr, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !3
+  store i64 %1, ptr %6, align 8, !tbaa !14
+  store ptr %2, ptr %7, align 8, !tbaa !10
+  store i32 %3, ptr %8, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #8
+  %21 = load i32, ptr %8, align 4, !tbaa !8
+  %22 = udiv i32 %21, 64
+  store i32 %22, ptr %9, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #8
+  %23 = load i32, ptr %9, align 4, !tbaa !8
+  %24 = mul i32 %23, 64
+  store i32 %24, ptr %10, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #8
+  %25 = load ptr, ptr %7, align 8, !tbaa !10
+  store ptr %25, ptr %11, align 8, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #8
+  %26 = load i32, ptr %8, align 4, !tbaa !8
+  %27 = load i32, ptr %10, align 4, !tbaa !8
+  %28 = sub i32 %26, %27
+  store i32 %28, ptr %12, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #8
+  %29 = load ptr, ptr %7, align 8, !tbaa !10
+  %30 = load i32, ptr %10, align 4, !tbaa !8
+  %31 = zext i32 %30 to i64
+  %32 = getelementptr i8, ptr %29, i64 %31
+  store ptr %32, ptr %13, align 8, !tbaa !10
+  %33 = load ptr, ptr %5, align 8, !tbaa !3
+  %34 = load ptr, ptr %11, align 8, !tbaa !10
+  %35 = load i32, ptr %9, align 4, !tbaa !8
+  call void @python_hashlib_Hacl_Hash_MD5_update_multi(ptr noundef %33, ptr noundef %34, i32 noundef %35)
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #8
+  %36 = load i64, ptr %6, align 8, !tbaa !14
+  %37 = load i32, ptr %8, align 4, !tbaa !8
+  %38 = zext i32 %37 to i64
+  %39 = add i64 %36, %38
+  store i64 %39, ptr %14, align 8, !tbaa !14
+  call void @llvm.lifetime.start.p0(i64 4, ptr %15) #8
+  %40 = load i64, ptr %14, align 8, !tbaa !14
+  %41 = urem i64 %40, 64
+  %42 = trunc i64 %41 to i32
+  %43 = add i32 9, %42
+  %44 = sub i32 128, %43
+  %45 = urem i32 %44, 64
+  %46 = add i32 1, %45
+  %47 = add i32 %46, 8
+  store i32 %47, ptr %15, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %16) #8
+  %48 = load i32, ptr %12, align 4, !tbaa !8
+  %49 = load i32, ptr %15, align 4, !tbaa !8
+  %50 = add i32 %48, %49
+  store i32 %50, ptr %16, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 128, ptr %17) #8
+  call void @llvm.memset.p0.i64(ptr align 16 %17, i8 0, i64 128, i1 false)
+  call void @llvm.lifetime.start.p0(i64 8, ptr %18) #8
+  %51 = getelementptr inbounds [128 x i8], ptr %17, i64 0, i64 0
+  store ptr %51, ptr %18, align 8, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %19) #8
+  %52 = load ptr, ptr %18, align 8, !tbaa !10
+  store ptr %52, ptr %19, align 8, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %20) #8
+  %53 = load ptr, ptr %18, align 8, !tbaa !10
+  %54 = load i32, ptr %12, align 4, !tbaa !8
+  %55 = zext i32 %54 to i64
+  %56 = getelementptr i8, ptr %53, i64 %55
+  store ptr %56, ptr %20, align 8, !tbaa !10
+  %57 = load ptr, ptr %19, align 8, !tbaa !10
+  %58 = load ptr, ptr %13, align 8, !tbaa !10
+  %59 = load i32, ptr %12, align 4, !tbaa !8
+  %60 = zext i32 %59 to i64
+  %61 = mul i64 %60, 1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %57, ptr align 1 %58, i64 %61, i1 false)
+  %62 = load i64, ptr %14, align 8, !tbaa !14
+  %63 = load ptr, ptr %20, align 8, !tbaa !10
+  call void @pad(i64 noundef %62, ptr noundef %63)
+  %64 = load ptr, ptr %5, align 8, !tbaa !3
+  %65 = load ptr, ptr %18, align 8, !tbaa !10
+  %66 = load i32, ptr %16, align 4, !tbaa !8
+  %67 = udiv i32 %66, 64
+  call void @python_hashlib_Hacl_Hash_MD5_update_multi(ptr noundef %64, ptr noundef %65, i32 noundef %67)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %20) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %19) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %18) #8
+  call void @llvm.lifetime.end.p0(i64 128, ptr %17) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %16) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %15) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #8
   ret void
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: nounwind uwtable
-define internal void @legacy_pad(i64 noundef %len, ptr noundef %dst) #0 {
-entry:
-  %len.addr = alloca i64, align 8
-  %dst.addr = alloca ptr, align 8
-  %dst1 = alloca ptr, align 8
-  %dst2 = alloca ptr, align 8
-  %i = alloca i32, align 4
-  %dst3 = alloca ptr, align 8
-  store i64 %len, ptr %len.addr, align 8
-  store ptr %dst, ptr %dst.addr, align 8
-  %0 = load ptr, ptr %dst.addr, align 8
-  store ptr %0, ptr %dst1, align 8
-  %1 = load ptr, ptr %dst1, align 8
-  %arrayidx = getelementptr i8, ptr %1, i64 0
-  store i8 -128, ptr %arrayidx, align 1
-  %2 = load ptr, ptr %dst.addr, align 8
-  %add.ptr = getelementptr i8, ptr %2, i64 1
-  store ptr %add.ptr, ptr %dst2, align 8
-  store i32 0, ptr %i, align 4
-  br label %for.cond
+define internal void @pad(i64 noundef %0, ptr noundef %1) #0 {
+  %3 = alloca i64, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i32, align 4
+  %8 = alloca ptr, align 8
+  store i64 %0, ptr %3, align 8, !tbaa !14
+  store ptr %1, ptr %4, align 8, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #8
+  %9 = load ptr, ptr %4, align 8, !tbaa !10
+  store ptr %9, ptr %5, align 8, !tbaa !10
+  %10 = load ptr, ptr %5, align 8, !tbaa !10
+  %11 = getelementptr i8, ptr %10, i64 0
+  store i8 -128, ptr %11, align 1, !tbaa !16
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #8
+  %12 = load ptr, ptr %4, align 8, !tbaa !10
+  %13 = getelementptr i8, ptr %12, i64 1
+  store ptr %13, ptr %6, align 8, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #8
+  store i32 0, ptr %7, align 4, !tbaa !8
+  br label %14
 
-for.cond:                                         ; preds = %for.inc, %entry
-  %3 = load i32, ptr %i, align 4
-  %4 = load i64, ptr %len.addr, align 8
-  %rem = urem i64 %4, 64
-  %conv = trunc i64 %rem to i32
-  %add = add i32 9, %conv
-  %sub = sub i32 128, %add
-  %rem1 = urem i32 %sub, 64
-  %cmp = icmp ult i32 %3, %rem1
-  br i1 %cmp, label %for.body, label %for.end
+14:                                               ; preds = %29, %2
+  %15 = load i32, ptr %7, align 4, !tbaa !8
+  %16 = load i64, ptr %3, align 8, !tbaa !14
+  %17 = urem i64 %16, 64
+  %18 = trunc i64 %17 to i32
+  %19 = add i32 9, %18
+  %20 = sub i32 128, %19
+  %21 = urem i32 %20, 64
+  %22 = icmp ult i32 %15, %21
+  br i1 %22, label %24, label %23
 
-for.body:                                         ; preds = %for.cond
-  %5 = load ptr, ptr %dst2, align 8
-  %6 = load i32, ptr %i, align 4
-  %idxprom = zext i32 %6 to i64
-  %arrayidx3 = getelementptr i8, ptr %5, i64 %idxprom
-  store i8 0, ptr %arrayidx3, align 1
-  br label %for.inc
+23:                                               ; preds = %14
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #8
+  br label %32
 
-for.inc:                                          ; preds = %for.body
-  %7 = load i32, ptr %i, align 4
-  %inc = add i32 %7, 1
-  store i32 %inc, ptr %i, align 4
-  br label %for.cond, !llvm.loop !6
+24:                                               ; preds = %14
+  %25 = load ptr, ptr %6, align 8, !tbaa !10
+  %26 = load i32, ptr %7, align 4, !tbaa !8
+  %27 = zext i32 %26 to i64
+  %28 = getelementptr i8, ptr %25, i64 %27
+  store i8 0, ptr %28, align 1, !tbaa !16
+  br label %29
 
-for.end:                                          ; preds = %for.cond
-  %8 = load ptr, ptr %dst.addr, align 8
-  %add.ptr4 = getelementptr i8, ptr %8, i64 1
-  %9 = load i64, ptr %len.addr, align 8
-  %rem5 = urem i64 %9, 64
-  %conv6 = trunc i64 %rem5 to i32
-  %add7 = add i32 9, %conv6
-  %sub8 = sub i32 128, %add7
-  %rem9 = urem i32 %sub8, 64
-  %idx.ext = zext i32 %rem9 to i64
-  %add.ptr10 = getelementptr i8, ptr %add.ptr4, i64 %idx.ext
-  store ptr %add.ptr10, ptr %dst3, align 8
-  %10 = load ptr, ptr %dst3, align 8
-  %11 = load i64, ptr %len.addr, align 8
-  %shl = shl i64 %11, 3
-  %call = call i64 @__uint64_identity(i64 noundef %shl)
-  call void @store64(ptr noundef %10, i64 noundef %call)
+29:                                               ; preds = %24
+  %30 = load i32, ptr %7, align 4, !tbaa !8
+  %31 = add i32 %30, 1
+  store i32 %31, ptr %7, align 4, !tbaa !8
+  br label %14, !llvm.loop !17
+
+32:                                               ; preds = %23
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #8
+  %33 = load ptr, ptr %4, align 8, !tbaa !10
+  %34 = getelementptr i8, ptr %33, i64 1
+  %35 = load i64, ptr %3, align 8, !tbaa !14
+  %36 = urem i64 %35, 64
+  %37 = trunc i64 %36 to i32
+  %38 = add i32 9, %37
+  %39 = sub i32 128, %38
+  %40 = urem i32 %39, 64
+  %41 = zext i32 %40 to i64
+  %42 = getelementptr i8, ptr %34, i64 %41
+  store ptr %42, ptr %8, align 8, !tbaa !10
+  %43 = load ptr, ptr %8, align 8, !tbaa !10
+  %44 = load i64, ptr %3, align 8, !tbaa !14
+  %45 = shl i64 %44, 3
+  %46 = call i64 @__uint64_identity(i64 noundef %45)
+  call void @store64(ptr noundef %43, i64 noundef %46)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #8
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @Hacl_Hash_MD5_legacy_hash(ptr noundef %input, i32 noundef %input_len, ptr noundef %dst) #0 {
-entry:
-  %input.addr = alloca ptr, align 8
-  %input_len.addr = alloca i32, align 4
-  %dst.addr = alloca ptr, align 8
-  %s = alloca [4 x i32], align 16
-  %blocks_n0 = alloca i32, align 4
-  %blocks_n1 = alloca i32, align 4
-  %blocks_len0 = alloca i32, align 4
-  %blocks0 = alloca ptr, align 8
-  %rest_len0 = alloca i32, align 4
-  %rest0 = alloca ptr, align 8
-  %blocks_n = alloca i32, align 4
-  %blocks_len = alloca i32, align 4
-  %blocks = alloca ptr, align 8
-  %rest_len = alloca i32, align 4
-  %rest = alloca ptr, align 8
-  store ptr %input, ptr %input.addr, align 8
-  store i32 %input_len, ptr %input_len.addr, align 4
-  store ptr %dst, ptr %dst.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 16 %s, ptr align 16 @__const.Hacl_Hash_MD5_legacy_hash.s, i64 16, i1 false)
-  %0 = load i32, ptr %input_len.addr, align 4
-  %div = udiv i32 %0, 64
-  store i32 %div, ptr %blocks_n0, align 4
-  %1 = load i32, ptr %input_len.addr, align 4
-  %rem = urem i32 %1, 64
-  %cmp = icmp eq i32 %rem, 0
-  br i1 %cmp, label %land.lhs.true, label %if.else
+define hidden void @python_hashlib_Hacl_Hash_MD5_hash_oneshot(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  %7 = alloca [4 x i32], align 16
+  %8 = alloca i32, align 4
+  %9 = alloca i32, align 4
+  %10 = alloca i32, align 4
+  %11 = alloca ptr, align 8
+  %12 = alloca i32, align 4
+  %13 = alloca ptr, align 8
+  %14 = alloca i32, align 4
+  %15 = alloca i32, align 4
+  %16 = alloca ptr, align 8
+  %17 = alloca i32, align 4
+  %18 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !10
+  store ptr %1, ptr %5, align 8, !tbaa !10
+  store i32 %2, ptr %6, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 16, ptr %7) #8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 16 %7, ptr align 16 @__const.python_hashlib_Hacl_Hash_MD5_hash_oneshot.s, i64 16, i1 false)
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #8
+  %19 = load i32, ptr %6, align 4, !tbaa !8
+  %20 = udiv i32 %19, 64
+  store i32 %20, ptr %8, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #8
+  %21 = load i32, ptr %6, align 4, !tbaa !8
+  %22 = urem i32 %21, 64
+  %23 = icmp eq i32 %22, 0
+  br i1 %23, label %24, label %30
 
-land.lhs.true:                                    ; preds = %entry
-  %2 = load i32, ptr %blocks_n0, align 4
-  %cmp1 = icmp ugt i32 %2, 0
-  br i1 %cmp1, label %if.then, label %if.else
+24:                                               ; preds = %3
+  %25 = load i32, ptr %8, align 4, !tbaa !8
+  %26 = icmp ugt i32 %25, 0
+  br i1 %26, label %27, label %30
 
-if.then:                                          ; preds = %land.lhs.true
-  %3 = load i32, ptr %blocks_n0, align 4
-  %sub = sub i32 %3, 1
-  store i32 %sub, ptr %blocks_n1, align 4
-  br label %if.end
+27:                                               ; preds = %24
+  %28 = load i32, ptr %8, align 4, !tbaa !8
+  %29 = sub i32 %28, 1
+  store i32 %29, ptr %9, align 4, !tbaa !8
+  br label %32
 
-if.else:                                          ; preds = %land.lhs.true, %entry
-  %4 = load i32, ptr %blocks_n0, align 4
-  store i32 %4, ptr %blocks_n1, align 4
-  br label %if.end
+30:                                               ; preds = %24, %3
+  %31 = load i32, ptr %8, align 4, !tbaa !8
+  store i32 %31, ptr %9, align 4, !tbaa !8
+  br label %32
 
-if.end:                                           ; preds = %if.else, %if.then
-  %5 = load i32, ptr %blocks_n1, align 4
-  %mul = mul i32 %5, 64
-  store i32 %mul, ptr %blocks_len0, align 4
-  %6 = load ptr, ptr %input.addr, align 8
-  store ptr %6, ptr %blocks0, align 8
-  %7 = load i32, ptr %input_len.addr, align 4
-  %8 = load i32, ptr %blocks_len0, align 4
-  %sub2 = sub i32 %7, %8
-  store i32 %sub2, ptr %rest_len0, align 4
-  %9 = load ptr, ptr %input.addr, align 8
-  %10 = load i32, ptr %blocks_len0, align 4
-  %idx.ext = zext i32 %10 to i64
-  %add.ptr = getelementptr i8, ptr %9, i64 %idx.ext
-  store ptr %add.ptr, ptr %rest0, align 8
-  %11 = load i32, ptr %blocks_n1, align 4
-  store i32 %11, ptr %blocks_n, align 4
-  %12 = load i32, ptr %blocks_len0, align 4
-  store i32 %12, ptr %blocks_len, align 4
-  %13 = load ptr, ptr %blocks0, align 8
-  store ptr %13, ptr %blocks, align 8
-  %14 = load i32, ptr %rest_len0, align 4
-  store i32 %14, ptr %rest_len, align 4
-  %15 = load ptr, ptr %rest0, align 8
-  store ptr %15, ptr %rest, align 8
-  %arraydecay = getelementptr inbounds [4 x i32], ptr %s, i64 0, i64 0
-  %16 = load ptr, ptr %blocks, align 8
-  %17 = load i32, ptr %blocks_n, align 4
-  call void @Hacl_Hash_MD5_legacy_update_multi(ptr noundef %arraydecay, ptr noundef %16, i32 noundef %17)
-  %arraydecay3 = getelementptr inbounds [4 x i32], ptr %s, i64 0, i64 0
-  %18 = load i32, ptr %blocks_len, align 4
-  %conv = zext i32 %18 to i64
-  %19 = load ptr, ptr %rest, align 8
-  %20 = load i32, ptr %rest_len, align 4
-  call void @Hacl_Hash_MD5_legacy_update_last(ptr noundef %arraydecay3, i64 noundef %conv, ptr noundef %19, i32 noundef %20)
-  %arraydecay4 = getelementptr inbounds [4 x i32], ptr %s, i64 0, i64 0
-  %21 = load ptr, ptr %dst.addr, align 8
-  call void @Hacl_Hash_Core_MD5_legacy_finish(ptr noundef %arraydecay4, ptr noundef %21)
+32:                                               ; preds = %30, %27
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #8
+  %33 = load i32, ptr %9, align 4, !tbaa !8
+  %34 = mul i32 %33, 64
+  store i32 %34, ptr %10, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #8
+  %35 = load ptr, ptr %5, align 8, !tbaa !10
+  store ptr %35, ptr %11, align 8, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #8
+  %36 = load i32, ptr %6, align 4, !tbaa !8
+  %37 = load i32, ptr %10, align 4, !tbaa !8
+  %38 = sub i32 %36, %37
+  store i32 %38, ptr %12, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #8
+  %39 = load ptr, ptr %5, align 8, !tbaa !10
+  %40 = load i32, ptr %10, align 4, !tbaa !8
+  %41 = zext i32 %40 to i64
+  %42 = getelementptr i8, ptr %39, i64 %41
+  store ptr %42, ptr %13, align 8, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #8
+  %43 = load i32, ptr %9, align 4, !tbaa !8
+  store i32 %43, ptr %14, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %15) #8
+  %44 = load i32, ptr %10, align 4, !tbaa !8
+  store i32 %44, ptr %15, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %16) #8
+  %45 = load ptr, ptr %11, align 8, !tbaa !10
+  store ptr %45, ptr %16, align 8, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %17) #8
+  %46 = load i32, ptr %12, align 4, !tbaa !8
+  store i32 %46, ptr %17, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %18) #8
+  %47 = load ptr, ptr %13, align 8, !tbaa !10
+  store ptr %47, ptr %18, align 8, !tbaa !10
+  %48 = getelementptr inbounds [4 x i32], ptr %7, i64 0, i64 0
+  %49 = load ptr, ptr %16, align 8, !tbaa !10
+  %50 = load i32, ptr %14, align 4, !tbaa !8
+  call void @python_hashlib_Hacl_Hash_MD5_update_multi(ptr noundef %48, ptr noundef %49, i32 noundef %50)
+  %51 = getelementptr inbounds [4 x i32], ptr %7, i64 0, i64 0
+  %52 = load i32, ptr %15, align 4, !tbaa !8
+  %53 = zext i32 %52 to i64
+  %54 = load ptr, ptr %18, align 8, !tbaa !10
+  %55 = load i32, ptr %17, align 4, !tbaa !8
+  call void @python_hashlib_Hacl_Hash_MD5_update_last(ptr noundef %51, i64 noundef %53, ptr noundef %54, i32 noundef %55)
+  %56 = getelementptr inbounds [4 x i32], ptr %7, i64 0, i64 0
+  %57 = load ptr, ptr %4, align 8, !tbaa !10
+  call void @python_hashlib_Hacl_Hash_MD5_finish(ptr noundef %56, ptr noundef %57)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %18) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %17) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %15) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #8
+  call void @llvm.lifetime.end.p0(i64 16, ptr %7) #8
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @Hacl_Streaming_MD5_legacy_create_in() #0 {
-entry:
-  %buf = alloca ptr, align 8
-  %block_state = alloca ptr, align 8
-  %s = alloca %struct.Hacl_Streaming_MD_state_32_s, align 8
-  %p = alloca ptr, align 8
-  %call = call noalias ptr @calloc(i64 noundef 64, i64 noundef 1) #6
-  store ptr %call, ptr %buf, align 8
-  %call1 = call noalias ptr @calloc(i64 noundef 4, i64 noundef 4) #6
-  store ptr %call1, ptr %block_state, align 8
-  %block_state2 = getelementptr inbounds %struct.Hacl_Streaming_MD_state_32_s, ptr %s, i32 0, i32 0
-  %0 = load ptr, ptr %block_state, align 8
-  store ptr %0, ptr %block_state2, align 8
-  %buf3 = getelementptr inbounds %struct.Hacl_Streaming_MD_state_32_s, ptr %s, i32 0, i32 1
-  %1 = load ptr, ptr %buf, align 8
-  store ptr %1, ptr %buf3, align 8
-  %total_len = getelementptr inbounds %struct.Hacl_Streaming_MD_state_32_s, ptr %s, i32 0, i32 2
-  store i64 0, ptr %total_len, align 8
-  %call4 = call noalias ptr @malloc(i64 noundef 24) #7
-  store ptr %call4, ptr %p, align 8
-  %2 = load ptr, ptr %p, align 8
-  %arrayidx = getelementptr %struct.Hacl_Streaming_MD_state_32_s, ptr %2, i64 0
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %arrayidx, ptr align 8 %s, i64 24, i1 false)
-  %3 = load ptr, ptr %block_state, align 8
-  call void @Hacl_Hash_Core_MD5_legacy_init(ptr noundef %3)
-  %4 = load ptr, ptr %p, align 8
-  ret ptr %4
+define hidden ptr @python_hashlib_Hacl_Hash_MD5_malloc() #0 {
+  %1 = alloca ptr, align 8
+  %2 = alloca ptr, align 8
+  %3 = alloca %struct.Hacl_Streaming_MD_state_32_s, align 8
+  %4 = alloca ptr, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %1) #8
+  %5 = call noalias ptr @calloc(i64 noundef 64, i64 noundef 1) #9
+  store ptr %5, ptr %1, align 8, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %2) #8
+  %6 = call noalias ptr @calloc(i64 noundef 4, i64 noundef 4) #9
+  store ptr %6, ptr %2, align 8, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 24, ptr %3) #8
+  %7 = getelementptr inbounds nuw %struct.Hacl_Streaming_MD_state_32_s, ptr %3, i32 0, i32 0
+  %8 = load ptr, ptr %2, align 8, !tbaa !3
+  store ptr %8, ptr %7, align 8, !tbaa !18
+  %9 = getelementptr inbounds nuw %struct.Hacl_Streaming_MD_state_32_s, ptr %3, i32 0, i32 1
+  %10 = load ptr, ptr %1, align 8, !tbaa !10
+  store ptr %10, ptr %9, align 8, !tbaa !20
+  %11 = getelementptr inbounds nuw %struct.Hacl_Streaming_MD_state_32_s, ptr %3, i32 0, i32 2
+  store i64 0, ptr %11, align 8, !tbaa !21
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #8
+  %12 = call noalias ptr @malloc(i64 noundef 24) #10
+  store ptr %12, ptr %4, align 8, !tbaa !22
+  %13 = load ptr, ptr %4, align 8, !tbaa !22
+  %14 = getelementptr %struct.Hacl_Streaming_MD_state_32_s, ptr %13, i64 0
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %14, ptr align 8 %3, i64 24, i1 false), !tbaa.struct !24
+  %15 = load ptr, ptr %2, align 8, !tbaa !3
+  call void @python_hashlib_Hacl_Hash_MD5_init(ptr noundef %15)
+  %16 = load ptr, ptr %4, align 8, !tbaa !22
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #8
+  call void @llvm.lifetime.end.p0(i64 24, ptr %3) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %2) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %1) #8
+  ret ptr %16
 }
 
 ; Function Attrs: nounwind allocsize(0,1)
-declare noalias ptr @calloc(i64 noundef, i64 noundef) #3
+declare noalias ptr @calloc(i64 noundef, i64 noundef) #5
 
 ; Function Attrs: nounwind allocsize(0)
-declare noalias ptr @malloc(i64 noundef) #4
+declare noalias ptr @malloc(i64 noundef) #6
 
 ; Function Attrs: nounwind uwtable
-define hidden void @Hacl_Streaming_MD5_legacy_init(ptr noundef %s) #0 {
-entry:
-  %s.addr = alloca ptr, align 8
-  %scrut = alloca %struct.Hacl_Streaming_MD_state_32_s, align 8
-  %buf = alloca ptr, align 8
-  %block_state = alloca ptr, align 8
-  %tmp = alloca %struct.Hacl_Streaming_MD_state_32_s, align 8
-  store ptr %s, ptr %s.addr, align 8
-  %0 = load ptr, ptr %s.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %scrut, ptr align 8 %0, i64 24, i1 false)
-  %buf1 = getelementptr inbounds %struct.Hacl_Streaming_MD_state_32_s, ptr %scrut, i32 0, i32 1
-  %1 = load ptr, ptr %buf1, align 8
-  store ptr %1, ptr %buf, align 8
-  %block_state2 = getelementptr inbounds %struct.Hacl_Streaming_MD_state_32_s, ptr %scrut, i32 0, i32 0
-  %2 = load ptr, ptr %block_state2, align 8
-  store ptr %2, ptr %block_state, align 8
-  %3 = load ptr, ptr %block_state, align 8
-  call void @Hacl_Hash_Core_MD5_legacy_init(ptr noundef %3)
-  %block_state3 = getelementptr inbounds %struct.Hacl_Streaming_MD_state_32_s, ptr %tmp, i32 0, i32 0
-  %4 = load ptr, ptr %block_state, align 8
-  store ptr %4, ptr %block_state3, align 8
-  %buf4 = getelementptr inbounds %struct.Hacl_Streaming_MD_state_32_s, ptr %tmp, i32 0, i32 1
-  %5 = load ptr, ptr %buf, align 8
-  store ptr %5, ptr %buf4, align 8
-  %total_len = getelementptr inbounds %struct.Hacl_Streaming_MD_state_32_s, ptr %tmp, i32 0, i32 2
-  store i64 0, ptr %total_len, align 8
-  %6 = load ptr, ptr %s.addr, align 8
-  %arrayidx = getelementptr %struct.Hacl_Streaming_MD_state_32_s, ptr %6, i64 0
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %arrayidx, ptr align 8 %tmp, i64 24, i1 false)
+define hidden void @python_hashlib_Hacl_Hash_MD5_reset(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca %struct.Hacl_Streaming_MD_state_32_s, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca %struct.Hacl_Streaming_MD_state_32_s, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !22
+  call void @llvm.lifetime.start.p0(i64 24, ptr %3) #8
+  %7 = load ptr, ptr %2, align 8, !tbaa !22
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %3, ptr align 8 %7, i64 24, i1 false), !tbaa.struct !24
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #8
+  %8 = getelementptr inbounds nuw %struct.Hacl_Streaming_MD_state_32_s, ptr %3, i32 0, i32 1
+  %9 = load ptr, ptr %8, align 8, !tbaa !20
+  store ptr %9, ptr %4, align 8, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #8
+  %10 = getelementptr inbounds nuw %struct.Hacl_Streaming_MD_state_32_s, ptr %3, i32 0, i32 0
+  %11 = load ptr, ptr %10, align 8, !tbaa !18
+  store ptr %11, ptr %5, align 8, !tbaa !3
+  %12 = load ptr, ptr %5, align 8, !tbaa !3
+  call void @python_hashlib_Hacl_Hash_MD5_init(ptr noundef %12)
+  call void @llvm.lifetime.start.p0(i64 24, ptr %6) #8
+  %13 = getelementptr inbounds nuw %struct.Hacl_Streaming_MD_state_32_s, ptr %6, i32 0, i32 0
+  %14 = load ptr, ptr %5, align 8, !tbaa !3
+  store ptr %14, ptr %13, align 8, !tbaa !18
+  %15 = getelementptr inbounds nuw %struct.Hacl_Streaming_MD_state_32_s, ptr %6, i32 0, i32 1
+  %16 = load ptr, ptr %4, align 8, !tbaa !10
+  store ptr %16, ptr %15, align 8, !tbaa !20
+  %17 = getelementptr inbounds nuw %struct.Hacl_Streaming_MD_state_32_s, ptr %6, i32 0, i32 2
+  store i64 0, ptr %17, align 8, !tbaa !21
+  %18 = load ptr, ptr %2, align 8, !tbaa !22
+  %19 = getelementptr %struct.Hacl_Streaming_MD_state_32_s, ptr %18, i64 0
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %19, ptr align 8 %6, i64 24, i1 false), !tbaa.struct !24
+  call void @llvm.lifetime.end.p0(i64 24, ptr %6) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #8
+  call void @llvm.lifetime.end.p0(i64 24, ptr %3) #8
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden zeroext i8 @Hacl_Streaming_MD5_legacy_update(ptr noundef %p, ptr noundef %data, i32 noundef %len) #0 {
-entry:
-  %retval = alloca i8, align 1
-  %p.addr = alloca ptr, align 8
-  %data.addr = alloca ptr, align 8
-  %len.addr = alloca i32, align 4
-  %s = alloca %struct.Hacl_Streaming_MD_state_32_s, align 8
-  %total_len = alloca i64, align 8
-  %sz = alloca i32, align 4
-  %s1 = alloca %struct.Hacl_Streaming_MD_state_32_s, align 8
-  %block_state1 = alloca ptr, align 8
-  %buf = alloca ptr, align 8
-  %total_len116 = alloca i64, align 8
-  %sz1 = alloca i32, align 4
-  %buf2 = alloca ptr, align 8
-  %total_len2 = alloca i64, align 8
-  %.compoundliteral = alloca %struct.Hacl_Streaming_MD_state_32_s, align 8
-  %s138 = alloca %struct.Hacl_Streaming_MD_state_32_s, align 8
-  %block_state139 = alloca ptr, align 8
-  %buf41 = alloca ptr, align 8
-  %total_len143 = alloca i64, align 8
-  %sz145 = alloca i32, align 4
-  %ite = alloca i32, align 4
-  %n_blocks = alloca i32, align 4
-  %data1_len = alloca i32, align 4
-  %data2_len = alloca i32, align 4
-  %data1 = alloca ptr, align 8
-  %data2 = alloca ptr, align 8
-  %dst = alloca ptr, align 8
-  %.compoundliteral83 = alloca %struct.Hacl_Streaming_MD_state_32_s, align 8
-  %diff = alloca i32, align 4
-  %data191 = alloca ptr, align 8
-  %data292 = alloca ptr, align 8
-  %s195 = alloca %struct.Hacl_Streaming_MD_state_32_s, align 8
-  %block_state10 = alloca ptr, align 8
-  %buf0 = alloca ptr, align 8
-  %total_len10 = alloca i64, align 8
-  %sz10 = alloca i32, align 4
-  %buf2110 = alloca ptr, align 8
-  %total_len2115 = alloca i64, align 8
-  %.compoundliteral118 = alloca %struct.Hacl_Streaming_MD_state_32_s, align 8
-  %s10 = alloca %struct.Hacl_Streaming_MD_state_32_s, align 8
-  %block_state1122 = alloca ptr, align 8
-  %buf124 = alloca ptr, align 8
-  %total_len1126 = alloca i64, align 8
-  %sz1128 = alloca i32, align 4
-  %ite144 = alloca i32, align 4
-  %n_blocks162 = alloca i32, align 4
-  %data1_len166 = alloca i32, align 4
-  %data2_len168 = alloca i32, align 4
-  %data11 = alloca ptr, align 8
-  %data21 = alloca ptr, align 8
-  %dst174 = alloca ptr, align 8
-  %.compoundliteral177 = alloca %struct.Hacl_Streaming_MD_state_32_s, align 8
-  store ptr %p, ptr %p.addr, align 8
-  store ptr %data, ptr %data.addr, align 8
-  store i32 %len, ptr %len.addr, align 4
-  %0 = load ptr, ptr %p.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %s, ptr align 8 %0, i64 24, i1 false)
-  %total_len1 = getelementptr inbounds %struct.Hacl_Streaming_MD_state_32_s, ptr %s, i32 0, i32 2
-  %1 = load i64, ptr %total_len1, align 8
-  store i64 %1, ptr %total_len, align 8
-  %2 = load i32, ptr %len.addr, align 4
-  %conv = zext i32 %2 to i64
-  %3 = load i64, ptr %total_len, align 8
-  %sub = sub i64 2305843009213693951, %3
-  %cmp = icmp ugt i64 %conv, %sub
-  br i1 %cmp, label %if.then, label %if.end
+define hidden zeroext i8 @python_hashlib_Hacl_Hash_MD5_update(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 {
+  %4 = alloca i8, align 1
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i32, align 4
+  %8 = alloca %struct.Hacl_Streaming_MD_state_32_s, align 8
+  %9 = alloca i64, align 8
+  %10 = alloca i32, align 4
+  %11 = alloca i32, align 4
+  %12 = alloca %struct.Hacl_Streaming_MD_state_32_s, align 8
+  %13 = alloca ptr, align 8
+  %14 = alloca ptr, align 8
+  %15 = alloca i64, align 8
+  %16 = alloca i32, align 4
+  %17 = alloca ptr, align 8
+  %18 = alloca i64, align 8
+  %19 = alloca %struct.Hacl_Streaming_MD_state_32_s, align 8
+  %20 = alloca %struct.Hacl_Streaming_MD_state_32_s, align 8
+  %21 = alloca ptr, align 8
+  %22 = alloca ptr, align 8
+  %23 = alloca i64, align 8
+  %24 = alloca i32, align 4
+  %25 = alloca i32, align 4
+  %26 = alloca i32, align 4
+  %27 = alloca i32, align 4
+  %28 = alloca i32, align 4
+  %29 = alloca ptr, align 8
+  %30 = alloca ptr, align 8
+  %31 = alloca ptr, align 8
+  %32 = alloca %struct.Hacl_Streaming_MD_state_32_s, align 8
+  %33 = alloca i32, align 4
+  %34 = alloca ptr, align 8
+  %35 = alloca ptr, align 8
+  %36 = alloca %struct.Hacl_Streaming_MD_state_32_s, align 8
+  %37 = alloca ptr, align 8
+  %38 = alloca ptr, align 8
+  %39 = alloca i64, align 8
+  %40 = alloca i32, align 4
+  %41 = alloca ptr, align 8
+  %42 = alloca i64, align 8
+  %43 = alloca %struct.Hacl_Streaming_MD_state_32_s, align 8
+  %44 = alloca %struct.Hacl_Streaming_MD_state_32_s, align 8
+  %45 = alloca ptr, align 8
+  %46 = alloca ptr, align 8
+  %47 = alloca i64, align 8
+  %48 = alloca i32, align 4
+  %49 = alloca i32, align 4
+  %50 = alloca i32, align 4
+  %51 = alloca i32, align 4
+  %52 = alloca i32, align 4
+  %53 = alloca ptr, align 8
+  %54 = alloca ptr, align 8
+  %55 = alloca ptr, align 8
+  %56 = alloca %struct.Hacl_Streaming_MD_state_32_s, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !22
+  store ptr %1, ptr %6, align 8, !tbaa !10
+  store i32 %2, ptr %7, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 24, ptr %8) #8
+  %57 = load ptr, ptr %5, align 8, !tbaa !22
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %8, ptr align 8 %57, i64 24, i1 false), !tbaa.struct !24
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #8
+  %58 = getelementptr inbounds nuw %struct.Hacl_Streaming_MD_state_32_s, ptr %8, i32 0, i32 2
+  %59 = load i64, ptr %58, align 8, !tbaa !21
+  store i64 %59, ptr %9, align 8, !tbaa !14
+  %60 = load i32, ptr %7, align 4, !tbaa !8
+  %61 = zext i32 %60 to i64
+  %62 = load i64, ptr %9, align 8, !tbaa !14
+  %63 = sub i64 2305843009213693951, %62
+  %64 = icmp ugt i64 %61, %63
+  br i1 %64, label %65, label %66
 
-if.then:                                          ; preds = %entry
-  store i8 3, ptr %retval, align 1
-  br label %return
+65:                                               ; preds = %3
+  store i8 3, ptr %4, align 1
+  store i32 1, ptr %10, align 4
+  br label %336
 
-if.end:                                           ; preds = %entry
-  %4 = load i64, ptr %total_len, align 8
-  %rem = urem i64 %4, 64
-  %cmp3 = icmp eq i64 %rem, 0
-  br i1 %cmp3, label %land.lhs.true, label %if.else
+66:                                               ; preds = %3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #8
+  %67 = load i64, ptr %9, align 8, !tbaa !14
+  %68 = urem i64 %67, 64
+  %69 = icmp eq i64 %68, 0
+  br i1 %69, label %70, label %74
 
-land.lhs.true:                                    ; preds = %if.end
-  %5 = load i64, ptr %total_len, align 8
-  %cmp5 = icmp ugt i64 %5, 0
-  br i1 %cmp5, label %if.then7, label %if.else
+70:                                               ; preds = %66
+  %71 = load i64, ptr %9, align 8, !tbaa !14
+  %72 = icmp ugt i64 %71, 0
+  br i1 %72, label %73, label %74
 
-if.then7:                                         ; preds = %land.lhs.true
-  store i32 64, ptr %sz, align 4
-  br label %if.end10
+73:                                               ; preds = %70
+  store i32 64, ptr %11, align 4, !tbaa !8
+  br label %78
 
-if.else:                                          ; preds = %land.lhs.true, %if.end
-  %6 = load i64, ptr %total_len, align 8
-  %rem8 = urem i64 %6, 64
-  %conv9 = trunc i64 %rem8 to i32
-  store i32 %conv9, ptr %sz, align 4
-  br label %if.end10
+74:                                               ; preds = %70, %66
+  %75 = load i64, ptr %9, align 8, !tbaa !14
+  %76 = urem i64 %75, 64
+  %77 = trunc i64 %76 to i32
+  store i32 %77, ptr %11, align 4, !tbaa !8
+  br label %78
 
-if.end10:                                         ; preds = %if.else, %if.then7
-  %7 = load i32, ptr %len.addr, align 4
-  %8 = load i32, ptr %sz, align 4
-  %sub11 = sub i32 64, %8
-  %cmp12 = icmp ule i32 %7, %sub11
-  br i1 %cmp12, label %if.then14, label %if.else34
+78:                                               ; preds = %74, %73
+  %79 = load i32, ptr %7, align 4, !tbaa !8
+  %80 = load i32, ptr %11, align 4, !tbaa !8
+  %81 = sub i32 64, %80
+  %82 = icmp ule i32 %79, %81
+  br i1 %82, label %83, label %123
 
-if.then14:                                        ; preds = %if.end10
-  %9 = load ptr, ptr %p.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %s1, ptr align 8 %9, i64 24, i1 false)
-  %block_state = getelementptr inbounds %struct.Hacl_Streaming_MD_state_32_s, ptr %s1, i32 0, i32 0
-  %10 = load ptr, ptr %block_state, align 8
-  store ptr %10, ptr %block_state1, align 8
-  %buf15 = getelementptr inbounds %struct.Hacl_Streaming_MD_state_32_s, ptr %s1, i32 0, i32 1
-  %11 = load ptr, ptr %buf15, align 8
-  store ptr %11, ptr %buf, align 8
-  %total_len17 = getelementptr inbounds %struct.Hacl_Streaming_MD_state_32_s, ptr %s1, i32 0, i32 2
-  %12 = load i64, ptr %total_len17, align 8
-  store i64 %12, ptr %total_len116, align 8
-  %13 = load i64, ptr %total_len116, align 8
-  %rem18 = urem i64 %13, 64
-  %cmp19 = icmp eq i64 %rem18, 0
-  br i1 %cmp19, label %land.lhs.true21, label %if.else25
+83:                                               ; preds = %78
+  call void @llvm.lifetime.start.p0(i64 24, ptr %12) #8
+  %84 = load ptr, ptr %5, align 8, !tbaa !22
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %12, ptr align 8 %84, i64 24, i1 false), !tbaa.struct !24
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #8
+  %85 = getelementptr inbounds nuw %struct.Hacl_Streaming_MD_state_32_s, ptr %12, i32 0, i32 0
+  %86 = load ptr, ptr %85, align 8, !tbaa !18
+  store ptr %86, ptr %13, align 8, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #8
+  %87 = getelementptr inbounds nuw %struct.Hacl_Streaming_MD_state_32_s, ptr %12, i32 0, i32 1
+  %88 = load ptr, ptr %87, align 8, !tbaa !20
+  store ptr %88, ptr %14, align 8, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #8
+  %89 = getelementptr inbounds nuw %struct.Hacl_Streaming_MD_state_32_s, ptr %12, i32 0, i32 2
+  %90 = load i64, ptr %89, align 8, !tbaa !21
+  store i64 %90, ptr %15, align 8, !tbaa !14
+  call void @llvm.lifetime.start.p0(i64 4, ptr %16) #8
+  %91 = load i64, ptr %15, align 8, !tbaa !14
+  %92 = urem i64 %91, 64
+  %93 = icmp eq i64 %92, 0
+  br i1 %93, label %94, label %98
 
-land.lhs.true21:                                  ; preds = %if.then14
-  %14 = load i64, ptr %total_len116, align 8
-  %cmp22 = icmp ugt i64 %14, 0
-  br i1 %cmp22, label %if.then24, label %if.else25
+94:                                               ; preds = %83
+  %95 = load i64, ptr %15, align 8, !tbaa !14
+  %96 = icmp ugt i64 %95, 0
+  br i1 %96, label %97, label %98
 
-if.then24:                                        ; preds = %land.lhs.true21
-  store i32 64, ptr %sz1, align 4
-  br label %if.end28
+97:                                               ; preds = %94
+  store i32 64, ptr %16, align 4, !tbaa !8
+  br label %102
 
-if.else25:                                        ; preds = %land.lhs.true21, %if.then14
-  %15 = load i64, ptr %total_len116, align 8
-  %rem26 = urem i64 %15, 64
-  %conv27 = trunc i64 %rem26 to i32
-  store i32 %conv27, ptr %sz1, align 4
-  br label %if.end28
+98:                                               ; preds = %94, %83
+  %99 = load i64, ptr %15, align 8, !tbaa !14
+  %100 = urem i64 %99, 64
+  %101 = trunc i64 %100 to i32
+  store i32 %101, ptr %16, align 4, !tbaa !8
+  br label %102
 
-if.end28:                                         ; preds = %if.else25, %if.then24
-  %16 = load ptr, ptr %buf, align 8
-  %17 = load i32, ptr %sz1, align 4
-  %idx.ext = zext i32 %17 to i64
-  %add.ptr = getelementptr i8, ptr %16, i64 %idx.ext
-  store ptr %add.ptr, ptr %buf2, align 8
-  %18 = load ptr, ptr %buf2, align 8
-  %19 = load ptr, ptr %data.addr, align 8
-  %20 = load i32, ptr %len.addr, align 4
-  %conv29 = zext i32 %20 to i64
-  %mul = mul i64 %conv29, 1
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %18, ptr align 1 %19, i64 %mul, i1 false)
-  %21 = load i64, ptr %total_len116, align 8
-  %22 = load i32, ptr %len.addr, align 4
-  %conv30 = zext i32 %22 to i64
-  %add = add i64 %21, %conv30
-  store i64 %add, ptr %total_len2, align 8
-  %23 = load ptr, ptr %p.addr, align 8
-  %block_state31 = getelementptr inbounds %struct.Hacl_Streaming_MD_state_32_s, ptr %.compoundliteral, i32 0, i32 0
-  %24 = load ptr, ptr %block_state1, align 8
-  store ptr %24, ptr %block_state31, align 8
-  %buf32 = getelementptr inbounds %struct.Hacl_Streaming_MD_state_32_s, ptr %.compoundliteral, i32 0, i32 1
-  %25 = load ptr, ptr %buf, align 8
-  store ptr %25, ptr %buf32, align 8
-  %total_len33 = getelementptr inbounds %struct.Hacl_Streaming_MD_state_32_s, ptr %.compoundliteral, i32 0, i32 2
-  %26 = load i64, ptr %total_len2, align 8
-  store i64 %26, ptr %total_len33, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %23, ptr align 8 %.compoundliteral, i64 24, i1 false)
-  br label %if.end185
+102:                                              ; preds = %98, %97
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #8
+  %103 = load ptr, ptr %14, align 8, !tbaa !10
+  %104 = load i32, ptr %16, align 4, !tbaa !8
+  %105 = zext i32 %104 to i64
+  %106 = getelementptr i8, ptr %103, i64 %105
+  store ptr %106, ptr %17, align 8, !tbaa !10
+  %107 = load ptr, ptr %17, align 8, !tbaa !10
+  %108 = load ptr, ptr %6, align 8, !tbaa !10
+  %109 = load i32, ptr %7, align 4, !tbaa !8
+  %110 = zext i32 %109 to i64
+  %111 = mul i64 %110, 1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %107, ptr align 1 %108, i64 %111, i1 false)
+  call void @llvm.lifetime.start.p0(i64 8, ptr %18) #8
+  %112 = load i64, ptr %15, align 8, !tbaa !14
+  %113 = load i32, ptr %7, align 4, !tbaa !8
+  %114 = zext i32 %113 to i64
+  %115 = add i64 %112, %114
+  store i64 %115, ptr %18, align 8, !tbaa !14
+  %116 = load ptr, ptr %5, align 8, !tbaa !22
+  %117 = getelementptr inbounds nuw %struct.Hacl_Streaming_MD_state_32_s, ptr %19, i32 0, i32 0
+  %118 = load ptr, ptr %13, align 8, !tbaa !3
+  store ptr %118, ptr %117, align 8, !tbaa !18
+  %119 = getelementptr inbounds nuw %struct.Hacl_Streaming_MD_state_32_s, ptr %19, i32 0, i32 1
+  %120 = load ptr, ptr %14, align 8, !tbaa !10
+  store ptr %120, ptr %119, align 8, !tbaa !20
+  %121 = getelementptr inbounds nuw %struct.Hacl_Streaming_MD_state_32_s, ptr %19, i32 0, i32 2
+  %122 = load i64, ptr %18, align 8, !tbaa !14
+  store i64 %122, ptr %121, align 8, !tbaa !21
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %116, ptr align 8 %19, i64 24, i1 false), !tbaa.struct !24
+  call void @llvm.lifetime.end.p0(i64 8, ptr %18) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %16) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #8
+  call void @llvm.lifetime.end.p0(i64 24, ptr %12) #8
+  br label %335
 
-if.else34:                                        ; preds = %if.end10
-  %27 = load i32, ptr %sz, align 4
-  %cmp35 = icmp eq i32 %27, 0
-  br i1 %cmp35, label %if.then37, label %if.else89
+123:                                              ; preds = %78
+  %124 = load i32, ptr %11, align 4, !tbaa !8
+  %125 = icmp eq i32 %124, 0
+  br i1 %125, label %126, label %201
 
-if.then37:                                        ; preds = %if.else34
-  %28 = load ptr, ptr %p.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %s138, ptr align 8 %28, i64 24, i1 false)
-  %block_state40 = getelementptr inbounds %struct.Hacl_Streaming_MD_state_32_s, ptr %s138, i32 0, i32 0
-  %29 = load ptr, ptr %block_state40, align 8
-  store ptr %29, ptr %block_state139, align 8
-  %buf42 = getelementptr inbounds %struct.Hacl_Streaming_MD_state_32_s, ptr %s138, i32 0, i32 1
-  %30 = load ptr, ptr %buf42, align 8
-  store ptr %30, ptr %buf41, align 8
-  %total_len44 = getelementptr inbounds %struct.Hacl_Streaming_MD_state_32_s, ptr %s138, i32 0, i32 2
-  %31 = load i64, ptr %total_len44, align 8
-  store i64 %31, ptr %total_len143, align 8
-  %32 = load i64, ptr %total_len143, align 8
-  %rem46 = urem i64 %32, 64
-  %cmp47 = icmp eq i64 %rem46, 0
-  br i1 %cmp47, label %land.lhs.true49, label %if.else53
+126:                                              ; preds = %123
+  call void @llvm.lifetime.start.p0(i64 24, ptr %20) #8
+  %127 = load ptr, ptr %5, align 8, !tbaa !22
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %20, ptr align 8 %127, i64 24, i1 false), !tbaa.struct !24
+  call void @llvm.lifetime.start.p0(i64 8, ptr %21) #8
+  %128 = getelementptr inbounds nuw %struct.Hacl_Streaming_MD_state_32_s, ptr %20, i32 0, i32 0
+  %129 = load ptr, ptr %128, align 8, !tbaa !18
+  store ptr %129, ptr %21, align 8, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %22) #8
+  %130 = getelementptr inbounds nuw %struct.Hacl_Streaming_MD_state_32_s, ptr %20, i32 0, i32 1
+  %131 = load ptr, ptr %130, align 8, !tbaa !20
+  store ptr %131, ptr %22, align 8, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %23) #8
+  %132 = getelementptr inbounds nuw %struct.Hacl_Streaming_MD_state_32_s, ptr %20, i32 0, i32 2
+  %133 = load i64, ptr %132, align 8, !tbaa !21
+  store i64 %133, ptr %23, align 8, !tbaa !14
+  call void @llvm.lifetime.start.p0(i64 4, ptr %24) #8
+  %134 = load i64, ptr %23, align 8, !tbaa !14
+  %135 = urem i64 %134, 64
+  %136 = icmp eq i64 %135, 0
+  br i1 %136, label %137, label %141
 
-land.lhs.true49:                                  ; preds = %if.then37
-  %33 = load i64, ptr %total_len143, align 8
-  %cmp50 = icmp ugt i64 %33, 0
-  br i1 %cmp50, label %if.then52, label %if.else53
+137:                                              ; preds = %126
+  %138 = load i64, ptr %23, align 8, !tbaa !14
+  %139 = icmp ugt i64 %138, 0
+  br i1 %139, label %140, label %141
 
-if.then52:                                        ; preds = %land.lhs.true49
-  store i32 64, ptr %sz145, align 4
-  br label %if.end56
+140:                                              ; preds = %137
+  store i32 64, ptr %24, align 4, !tbaa !8
+  br label %145
 
-if.else53:                                        ; preds = %land.lhs.true49, %if.then37
-  %34 = load i64, ptr %total_len143, align 8
-  %rem54 = urem i64 %34, 64
-  %conv55 = trunc i64 %rem54 to i32
-  store i32 %conv55, ptr %sz145, align 4
-  br label %if.end56
+141:                                              ; preds = %137, %126
+  %142 = load i64, ptr %23, align 8, !tbaa !14
+  %143 = urem i64 %142, 64
+  %144 = trunc i64 %143 to i32
+  store i32 %144, ptr %24, align 4, !tbaa !8
+  br label %145
 
-if.end56:                                         ; preds = %if.else53, %if.then52
-  %35 = load i32, ptr %sz145, align 4
-  %cmp57 = icmp eq i32 %35, 0
-  br i1 %cmp57, label %if.end60, label %if.then59
+145:                                              ; preds = %141, %140
+  %146 = load i32, ptr %24, align 4, !tbaa !8
+  %147 = icmp eq i32 %146, 0
+  br i1 %147, label %151, label %148
 
-if.then59:                                        ; preds = %if.end56
-  %36 = load ptr, ptr %block_state139, align 8
-  %37 = load ptr, ptr %buf41, align 8
-  call void @Hacl_Hash_MD5_legacy_update_multi(ptr noundef %36, ptr noundef %37, i32 noundef 1)
-  br label %if.end60
+148:                                              ; preds = %145
+  %149 = load ptr, ptr %21, align 8, !tbaa !3
+  %150 = load ptr, ptr %22, align 8, !tbaa !10
+  call void @python_hashlib_Hacl_Hash_MD5_update_multi(ptr noundef %149, ptr noundef %150, i32 noundef 1)
+  br label %151
 
-if.end60:                                         ; preds = %if.then59, %if.end56
-  %38 = load i32, ptr %len.addr, align 4
-  %conv61 = zext i32 %38 to i64
-  %rem62 = urem i64 %conv61, 64
-  %cmp63 = icmp eq i64 %rem62, 0
-  br i1 %cmp63, label %land.lhs.true65, label %if.else70
+151:                                              ; preds = %148, %145
+  call void @llvm.lifetime.start.p0(i64 4, ptr %25) #8
+  %152 = load i32, ptr %7, align 4, !tbaa !8
+  %153 = zext i32 %152 to i64
+  %154 = urem i64 %153, 64
+  %155 = icmp eq i64 %154, 0
+  br i1 %155, label %156, label %161
 
-land.lhs.true65:                                  ; preds = %if.end60
-  %39 = load i32, ptr %len.addr, align 4
-  %conv66 = zext i32 %39 to i64
-  %cmp67 = icmp ugt i64 %conv66, 0
-  br i1 %cmp67, label %if.then69, label %if.else70
+156:                                              ; preds = %151
+  %157 = load i32, ptr %7, align 4, !tbaa !8
+  %158 = zext i32 %157 to i64
+  %159 = icmp ugt i64 %158, 0
+  br i1 %159, label %160, label %161
 
-if.then69:                                        ; preds = %land.lhs.true65
-  store i32 64, ptr %ite, align 4
-  br label %if.end74
+160:                                              ; preds = %156
+  store i32 64, ptr %25, align 4, !tbaa !8
+  br label %166
 
-if.else70:                                        ; preds = %land.lhs.true65, %if.end60
-  %40 = load i32, ptr %len.addr, align 4
-  %conv71 = zext i32 %40 to i64
-  %rem72 = urem i64 %conv71, 64
-  %conv73 = trunc i64 %rem72 to i32
-  store i32 %conv73, ptr %ite, align 4
-  br label %if.end74
+161:                                              ; preds = %156, %151
+  %162 = load i32, ptr %7, align 4, !tbaa !8
+  %163 = zext i32 %162 to i64
+  %164 = urem i64 %163, 64
+  %165 = trunc i64 %164 to i32
+  store i32 %165, ptr %25, align 4, !tbaa !8
+  br label %166
 
-if.end74:                                         ; preds = %if.else70, %if.then69
-  %41 = load i32, ptr %len.addr, align 4
-  %42 = load i32, ptr %ite, align 4
-  %sub75 = sub i32 %41, %42
-  %div = udiv i32 %sub75, 64
-  store i32 %div, ptr %n_blocks, align 4
-  %43 = load i32, ptr %n_blocks, align 4
-  %mul76 = mul i32 %43, 64
-  store i32 %mul76, ptr %data1_len, align 4
-  %44 = load i32, ptr %len.addr, align 4
-  %45 = load i32, ptr %data1_len, align 4
-  %sub77 = sub i32 %44, %45
-  store i32 %sub77, ptr %data2_len, align 4
-  %46 = load ptr, ptr %data.addr, align 8
-  store ptr %46, ptr %data1, align 8
-  %47 = load ptr, ptr %data.addr, align 8
-  %48 = load i32, ptr %data1_len, align 4
-  %idx.ext78 = zext i32 %48 to i64
-  %add.ptr79 = getelementptr i8, ptr %47, i64 %idx.ext78
-  store ptr %add.ptr79, ptr %data2, align 8
-  %49 = load ptr, ptr %block_state139, align 8
-  %50 = load ptr, ptr %data1, align 8
-  %51 = load i32, ptr %data1_len, align 4
-  %div80 = udiv i32 %51, 64
-  call void @Hacl_Hash_MD5_legacy_update_multi(ptr noundef %49, ptr noundef %50, i32 noundef %div80)
-  %52 = load ptr, ptr %buf41, align 8
-  store ptr %52, ptr %dst, align 8
-  %53 = load ptr, ptr %dst, align 8
-  %54 = load ptr, ptr %data2, align 8
-  %55 = load i32, ptr %data2_len, align 4
-  %conv81 = zext i32 %55 to i64
-  %mul82 = mul i64 %conv81, 1
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %53, ptr align 1 %54, i64 %mul82, i1 false)
-  %56 = load ptr, ptr %p.addr, align 8
-  %block_state84 = getelementptr inbounds %struct.Hacl_Streaming_MD_state_32_s, ptr %.compoundliteral83, i32 0, i32 0
-  %57 = load ptr, ptr %block_state139, align 8
-  store ptr %57, ptr %block_state84, align 8
-  %buf85 = getelementptr inbounds %struct.Hacl_Streaming_MD_state_32_s, ptr %.compoundliteral83, i32 0, i32 1
-  %58 = load ptr, ptr %buf41, align 8
-  store ptr %58, ptr %buf85, align 8
-  %total_len86 = getelementptr inbounds %struct.Hacl_Streaming_MD_state_32_s, ptr %.compoundliteral83, i32 0, i32 2
-  %59 = load i64, ptr %total_len143, align 8
-  %60 = load i32, ptr %len.addr, align 4
-  %conv87 = zext i32 %60 to i64
-  %add88 = add i64 %59, %conv87
-  store i64 %add88, ptr %total_len86, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %56, ptr align 8 %.compoundliteral83, i64 24, i1 false)
-  br label %if.end184
+166:                                              ; preds = %161, %160
+  call void @llvm.lifetime.start.p0(i64 4, ptr %26) #8
+  %167 = load i32, ptr %7, align 4, !tbaa !8
+  %168 = load i32, ptr %25, align 4, !tbaa !8
+  %169 = sub i32 %167, %168
+  %170 = udiv i32 %169, 64
+  store i32 %170, ptr %26, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %27) #8
+  %171 = load i32, ptr %26, align 4, !tbaa !8
+  %172 = mul i32 %171, 64
+  store i32 %172, ptr %27, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %28) #8
+  %173 = load i32, ptr %7, align 4, !tbaa !8
+  %174 = load i32, ptr %27, align 4, !tbaa !8
+  %175 = sub i32 %173, %174
+  store i32 %175, ptr %28, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %29) #8
+  %176 = load ptr, ptr %6, align 8, !tbaa !10
+  store ptr %176, ptr %29, align 8, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %30) #8
+  %177 = load ptr, ptr %6, align 8, !tbaa !10
+  %178 = load i32, ptr %27, align 4, !tbaa !8
+  %179 = zext i32 %178 to i64
+  %180 = getelementptr i8, ptr %177, i64 %179
+  store ptr %180, ptr %30, align 8, !tbaa !10
+  %181 = load ptr, ptr %21, align 8, !tbaa !3
+  %182 = load ptr, ptr %29, align 8, !tbaa !10
+  %183 = load i32, ptr %27, align 4, !tbaa !8
+  %184 = udiv i32 %183, 64
+  call void @python_hashlib_Hacl_Hash_MD5_update_multi(ptr noundef %181, ptr noundef %182, i32 noundef %184)
+  call void @llvm.lifetime.start.p0(i64 8, ptr %31) #8
+  %185 = load ptr, ptr %22, align 8, !tbaa !10
+  store ptr %185, ptr %31, align 8, !tbaa !10
+  %186 = load ptr, ptr %31, align 8, !tbaa !10
+  %187 = load ptr, ptr %30, align 8, !tbaa !10
+  %188 = load i32, ptr %28, align 4, !tbaa !8
+  %189 = zext i32 %188 to i64
+  %190 = mul i64 %189, 1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %186, ptr align 1 %187, i64 %190, i1 false)
+  %191 = load ptr, ptr %5, align 8, !tbaa !22
+  %192 = getelementptr inbounds nuw %struct.Hacl_Streaming_MD_state_32_s, ptr %32, i32 0, i32 0
+  %193 = load ptr, ptr %21, align 8, !tbaa !3
+  store ptr %193, ptr %192, align 8, !tbaa !18
+  %194 = getelementptr inbounds nuw %struct.Hacl_Streaming_MD_state_32_s, ptr %32, i32 0, i32 1
+  %195 = load ptr, ptr %22, align 8, !tbaa !10
+  store ptr %195, ptr %194, align 8, !tbaa !20
+  %196 = getelementptr inbounds nuw %struct.Hacl_Streaming_MD_state_32_s, ptr %32, i32 0, i32 2
+  %197 = load i64, ptr %23, align 8, !tbaa !14
+  %198 = load i32, ptr %7, align 4, !tbaa !8
+  %199 = zext i32 %198 to i64
+  %200 = add i64 %197, %199
+  store i64 %200, ptr %196, align 8, !tbaa !21
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %191, ptr align 8 %32, i64 24, i1 false), !tbaa.struct !24
+  call void @llvm.lifetime.end.p0(i64 8, ptr %31) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %30) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %29) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %28) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %27) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %26) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %25) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %24) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %23) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %22) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %21) #8
+  call void @llvm.lifetime.end.p0(i64 24, ptr %20) #8
+  br label %334
 
-if.else89:                                        ; preds = %if.else34
-  %61 = load i32, ptr %sz, align 4
-  %sub90 = sub i32 64, %61
-  store i32 %sub90, ptr %diff, align 4
-  %62 = load ptr, ptr %data.addr, align 8
-  store ptr %62, ptr %data191, align 8
-  %63 = load ptr, ptr %data.addr, align 8
-  %64 = load i32, ptr %diff, align 4
-  %idx.ext93 = zext i32 %64 to i64
-  %add.ptr94 = getelementptr i8, ptr %63, i64 %idx.ext93
-  store ptr %add.ptr94, ptr %data292, align 8
-  %65 = load ptr, ptr %p.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %s195, ptr align 8 %65, i64 24, i1 false)
-  %block_state96 = getelementptr inbounds %struct.Hacl_Streaming_MD_state_32_s, ptr %s195, i32 0, i32 0
-  %66 = load ptr, ptr %block_state96, align 8
-  store ptr %66, ptr %block_state10, align 8
-  %buf97 = getelementptr inbounds %struct.Hacl_Streaming_MD_state_32_s, ptr %s195, i32 0, i32 1
-  %67 = load ptr, ptr %buf97, align 8
-  store ptr %67, ptr %buf0, align 8
-  %total_len98 = getelementptr inbounds %struct.Hacl_Streaming_MD_state_32_s, ptr %s195, i32 0, i32 2
-  %68 = load i64, ptr %total_len98, align 8
-  store i64 %68, ptr %total_len10, align 8
-  %69 = load i64, ptr %total_len10, align 8
-  %rem99 = urem i64 %69, 64
-  %cmp100 = icmp eq i64 %rem99, 0
-  br i1 %cmp100, label %land.lhs.true102, label %if.else106
+201:                                              ; preds = %123
+  call void @llvm.lifetime.start.p0(i64 4, ptr %33) #8
+  %202 = load i32, ptr %11, align 4, !tbaa !8
+  %203 = sub i32 64, %202
+  store i32 %203, ptr %33, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %34) #8
+  %204 = load ptr, ptr %6, align 8, !tbaa !10
+  store ptr %204, ptr %34, align 8, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %35) #8
+  %205 = load ptr, ptr %6, align 8, !tbaa !10
+  %206 = load i32, ptr %33, align 4, !tbaa !8
+  %207 = zext i32 %206 to i64
+  %208 = getelementptr i8, ptr %205, i64 %207
+  store ptr %208, ptr %35, align 8, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 24, ptr %36) #8
+  %209 = load ptr, ptr %5, align 8, !tbaa !22
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %36, ptr align 8 %209, i64 24, i1 false), !tbaa.struct !24
+  call void @llvm.lifetime.start.p0(i64 8, ptr %37) #8
+  %210 = getelementptr inbounds nuw %struct.Hacl_Streaming_MD_state_32_s, ptr %36, i32 0, i32 0
+  %211 = load ptr, ptr %210, align 8, !tbaa !18
+  store ptr %211, ptr %37, align 8, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %38) #8
+  %212 = getelementptr inbounds nuw %struct.Hacl_Streaming_MD_state_32_s, ptr %36, i32 0, i32 1
+  %213 = load ptr, ptr %212, align 8, !tbaa !20
+  store ptr %213, ptr %38, align 8, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %39) #8
+  %214 = getelementptr inbounds nuw %struct.Hacl_Streaming_MD_state_32_s, ptr %36, i32 0, i32 2
+  %215 = load i64, ptr %214, align 8, !tbaa !21
+  store i64 %215, ptr %39, align 8, !tbaa !14
+  call void @llvm.lifetime.start.p0(i64 4, ptr %40) #8
+  %216 = load i64, ptr %39, align 8, !tbaa !14
+  %217 = urem i64 %216, 64
+  %218 = icmp eq i64 %217, 0
+  br i1 %218, label %219, label %223
 
-land.lhs.true102:                                 ; preds = %if.else89
-  %70 = load i64, ptr %total_len10, align 8
-  %cmp103 = icmp ugt i64 %70, 0
-  br i1 %cmp103, label %if.then105, label %if.else106
+219:                                              ; preds = %201
+  %220 = load i64, ptr %39, align 8, !tbaa !14
+  %221 = icmp ugt i64 %220, 0
+  br i1 %221, label %222, label %223
 
-if.then105:                                       ; preds = %land.lhs.true102
-  store i32 64, ptr %sz10, align 4
-  br label %if.end109
+222:                                              ; preds = %219
+  store i32 64, ptr %40, align 4, !tbaa !8
+  br label %227
 
-if.else106:                                       ; preds = %land.lhs.true102, %if.else89
-  %71 = load i64, ptr %total_len10, align 8
-  %rem107 = urem i64 %71, 64
-  %conv108 = trunc i64 %rem107 to i32
-  store i32 %conv108, ptr %sz10, align 4
-  br label %if.end109
+223:                                              ; preds = %219, %201
+  %224 = load i64, ptr %39, align 8, !tbaa !14
+  %225 = urem i64 %224, 64
+  %226 = trunc i64 %225 to i32
+  store i32 %226, ptr %40, align 4, !tbaa !8
+  br label %227
 
-if.end109:                                        ; preds = %if.else106, %if.then105
-  %72 = load ptr, ptr %buf0, align 8
-  %73 = load i32, ptr %sz10, align 4
-  %idx.ext111 = zext i32 %73 to i64
-  %add.ptr112 = getelementptr i8, ptr %72, i64 %idx.ext111
-  store ptr %add.ptr112, ptr %buf2110, align 8
-  %74 = load ptr, ptr %buf2110, align 8
-  %75 = load ptr, ptr %data191, align 8
-  %76 = load i32, ptr %diff, align 4
-  %conv113 = zext i32 %76 to i64
-  %mul114 = mul i64 %conv113, 1
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %74, ptr align 1 %75, i64 %mul114, i1 false)
-  %77 = load i64, ptr %total_len10, align 8
-  %78 = load i32, ptr %diff, align 4
-  %conv116 = zext i32 %78 to i64
-  %add117 = add i64 %77, %conv116
-  store i64 %add117, ptr %total_len2115, align 8
-  %79 = load ptr, ptr %p.addr, align 8
-  %block_state119 = getelementptr inbounds %struct.Hacl_Streaming_MD_state_32_s, ptr %.compoundliteral118, i32 0, i32 0
-  %80 = load ptr, ptr %block_state10, align 8
-  store ptr %80, ptr %block_state119, align 8
-  %buf120 = getelementptr inbounds %struct.Hacl_Streaming_MD_state_32_s, ptr %.compoundliteral118, i32 0, i32 1
-  %81 = load ptr, ptr %buf0, align 8
-  store ptr %81, ptr %buf120, align 8
-  %total_len121 = getelementptr inbounds %struct.Hacl_Streaming_MD_state_32_s, ptr %.compoundliteral118, i32 0, i32 2
-  %82 = load i64, ptr %total_len2115, align 8
-  store i64 %82, ptr %total_len121, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %79, ptr align 8 %.compoundliteral118, i64 24, i1 false)
-  %83 = load ptr, ptr %p.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %s10, ptr align 8 %83, i64 24, i1 false)
-  %block_state123 = getelementptr inbounds %struct.Hacl_Streaming_MD_state_32_s, ptr %s10, i32 0, i32 0
-  %84 = load ptr, ptr %block_state123, align 8
-  store ptr %84, ptr %block_state1122, align 8
-  %buf125 = getelementptr inbounds %struct.Hacl_Streaming_MD_state_32_s, ptr %s10, i32 0, i32 1
-  %85 = load ptr, ptr %buf125, align 8
-  store ptr %85, ptr %buf124, align 8
-  %total_len127 = getelementptr inbounds %struct.Hacl_Streaming_MD_state_32_s, ptr %s10, i32 0, i32 2
-  %86 = load i64, ptr %total_len127, align 8
-  store i64 %86, ptr %total_len1126, align 8
-  %87 = load i64, ptr %total_len1126, align 8
-  %rem129 = urem i64 %87, 64
-  %cmp130 = icmp eq i64 %rem129, 0
-  br i1 %cmp130, label %land.lhs.true132, label %if.else136
+227:                                              ; preds = %223, %222
+  call void @llvm.lifetime.start.p0(i64 8, ptr %41) #8
+  %228 = load ptr, ptr %38, align 8, !tbaa !10
+  %229 = load i32, ptr %40, align 4, !tbaa !8
+  %230 = zext i32 %229 to i64
+  %231 = getelementptr i8, ptr %228, i64 %230
+  store ptr %231, ptr %41, align 8, !tbaa !10
+  %232 = load ptr, ptr %41, align 8, !tbaa !10
+  %233 = load ptr, ptr %34, align 8, !tbaa !10
+  %234 = load i32, ptr %33, align 4, !tbaa !8
+  %235 = zext i32 %234 to i64
+  %236 = mul i64 %235, 1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %232, ptr align 1 %233, i64 %236, i1 false)
+  call void @llvm.lifetime.start.p0(i64 8, ptr %42) #8
+  %237 = load i64, ptr %39, align 8, !tbaa !14
+  %238 = load i32, ptr %33, align 4, !tbaa !8
+  %239 = zext i32 %238 to i64
+  %240 = add i64 %237, %239
+  store i64 %240, ptr %42, align 8, !tbaa !14
+  %241 = load ptr, ptr %5, align 8, !tbaa !22
+  %242 = getelementptr inbounds nuw %struct.Hacl_Streaming_MD_state_32_s, ptr %43, i32 0, i32 0
+  %243 = load ptr, ptr %37, align 8, !tbaa !3
+  store ptr %243, ptr %242, align 8, !tbaa !18
+  %244 = getelementptr inbounds nuw %struct.Hacl_Streaming_MD_state_32_s, ptr %43, i32 0, i32 1
+  %245 = load ptr, ptr %38, align 8, !tbaa !10
+  store ptr %245, ptr %244, align 8, !tbaa !20
+  %246 = getelementptr inbounds nuw %struct.Hacl_Streaming_MD_state_32_s, ptr %43, i32 0, i32 2
+  %247 = load i64, ptr %42, align 8, !tbaa !14
+  store i64 %247, ptr %246, align 8, !tbaa !21
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %241, ptr align 8 %43, i64 24, i1 false), !tbaa.struct !24
+  call void @llvm.lifetime.start.p0(i64 24, ptr %44) #8
+  %248 = load ptr, ptr %5, align 8, !tbaa !22
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %44, ptr align 8 %248, i64 24, i1 false), !tbaa.struct !24
+  call void @llvm.lifetime.start.p0(i64 8, ptr %45) #8
+  %249 = getelementptr inbounds nuw %struct.Hacl_Streaming_MD_state_32_s, ptr %44, i32 0, i32 0
+  %250 = load ptr, ptr %249, align 8, !tbaa !18
+  store ptr %250, ptr %45, align 8, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %46) #8
+  %251 = getelementptr inbounds nuw %struct.Hacl_Streaming_MD_state_32_s, ptr %44, i32 0, i32 1
+  %252 = load ptr, ptr %251, align 8, !tbaa !20
+  store ptr %252, ptr %46, align 8, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %47) #8
+  %253 = getelementptr inbounds nuw %struct.Hacl_Streaming_MD_state_32_s, ptr %44, i32 0, i32 2
+  %254 = load i64, ptr %253, align 8, !tbaa !21
+  store i64 %254, ptr %47, align 8, !tbaa !14
+  call void @llvm.lifetime.start.p0(i64 4, ptr %48) #8
+  %255 = load i64, ptr %47, align 8, !tbaa !14
+  %256 = urem i64 %255, 64
+  %257 = icmp eq i64 %256, 0
+  br i1 %257, label %258, label %262
 
-land.lhs.true132:                                 ; preds = %if.end109
-  %88 = load i64, ptr %total_len1126, align 8
-  %cmp133 = icmp ugt i64 %88, 0
-  br i1 %cmp133, label %if.then135, label %if.else136
+258:                                              ; preds = %227
+  %259 = load i64, ptr %47, align 8, !tbaa !14
+  %260 = icmp ugt i64 %259, 0
+  br i1 %260, label %261, label %262
 
-if.then135:                                       ; preds = %land.lhs.true132
-  store i32 64, ptr %sz1128, align 4
-  br label %if.end139
+261:                                              ; preds = %258
+  store i32 64, ptr %48, align 4, !tbaa !8
+  br label %266
 
-if.else136:                                       ; preds = %land.lhs.true132, %if.end109
-  %89 = load i64, ptr %total_len1126, align 8
-  %rem137 = urem i64 %89, 64
-  %conv138 = trunc i64 %rem137 to i32
-  store i32 %conv138, ptr %sz1128, align 4
-  br label %if.end139
+262:                                              ; preds = %258, %227
+  %263 = load i64, ptr %47, align 8, !tbaa !14
+  %264 = urem i64 %263, 64
+  %265 = trunc i64 %264 to i32
+  store i32 %265, ptr %48, align 4, !tbaa !8
+  br label %266
 
-if.end139:                                        ; preds = %if.else136, %if.then135
-  %90 = load i32, ptr %sz1128, align 4
-  %cmp140 = icmp eq i32 %90, 0
-  br i1 %cmp140, label %if.end143, label %if.then142
+266:                                              ; preds = %262, %261
+  %267 = load i32, ptr %48, align 4, !tbaa !8
+  %268 = icmp eq i32 %267, 0
+  br i1 %268, label %272, label %269
 
-if.then142:                                       ; preds = %if.end139
-  %91 = load ptr, ptr %block_state1122, align 8
-  %92 = load ptr, ptr %buf124, align 8
-  call void @Hacl_Hash_MD5_legacy_update_multi(ptr noundef %91, ptr noundef %92, i32 noundef 1)
-  br label %if.end143
+269:                                              ; preds = %266
+  %270 = load ptr, ptr %45, align 8, !tbaa !3
+  %271 = load ptr, ptr %46, align 8, !tbaa !10
+  call void @python_hashlib_Hacl_Hash_MD5_update_multi(ptr noundef %270, ptr noundef %271, i32 noundef 1)
+  br label %272
 
-if.end143:                                        ; preds = %if.then142, %if.end139
-  %93 = load i32, ptr %len.addr, align 4
-  %94 = load i32, ptr %diff, align 4
-  %sub145 = sub i32 %93, %94
-  %conv146 = zext i32 %sub145 to i64
-  %rem147 = urem i64 %conv146, 64
-  %cmp148 = icmp eq i64 %rem147, 0
-  br i1 %cmp148, label %land.lhs.true150, label %if.else156
+272:                                              ; preds = %269, %266
+  call void @llvm.lifetime.start.p0(i64 4, ptr %49) #8
+  %273 = load i32, ptr %7, align 4, !tbaa !8
+  %274 = load i32, ptr %33, align 4, !tbaa !8
+  %275 = sub i32 %273, %274
+  %276 = zext i32 %275 to i64
+  %277 = urem i64 %276, 64
+  %278 = icmp eq i64 %277, 0
+  br i1 %278, label %279, label %286
 
-land.lhs.true150:                                 ; preds = %if.end143
-  %95 = load i32, ptr %len.addr, align 4
-  %96 = load i32, ptr %diff, align 4
-  %sub151 = sub i32 %95, %96
-  %conv152 = zext i32 %sub151 to i64
-  %cmp153 = icmp ugt i64 %conv152, 0
-  br i1 %cmp153, label %if.then155, label %if.else156
+279:                                              ; preds = %272
+  %280 = load i32, ptr %7, align 4, !tbaa !8
+  %281 = load i32, ptr %33, align 4, !tbaa !8
+  %282 = sub i32 %280, %281
+  %283 = zext i32 %282 to i64
+  %284 = icmp ugt i64 %283, 0
+  br i1 %284, label %285, label %286
 
-if.then155:                                       ; preds = %land.lhs.true150
-  store i32 64, ptr %ite144, align 4
-  br label %if.end161
+285:                                              ; preds = %279
+  store i32 64, ptr %49, align 4, !tbaa !8
+  br label %293
 
-if.else156:                                       ; preds = %land.lhs.true150, %if.end143
-  %97 = load i32, ptr %len.addr, align 4
-  %98 = load i32, ptr %diff, align 4
-  %sub157 = sub i32 %97, %98
-  %conv158 = zext i32 %sub157 to i64
-  %rem159 = urem i64 %conv158, 64
-  %conv160 = trunc i64 %rem159 to i32
-  store i32 %conv160, ptr %ite144, align 4
-  br label %if.end161
+286:                                              ; preds = %279, %272
+  %287 = load i32, ptr %7, align 4, !tbaa !8
+  %288 = load i32, ptr %33, align 4, !tbaa !8
+  %289 = sub i32 %287, %288
+  %290 = zext i32 %289 to i64
+  %291 = urem i64 %290, 64
+  %292 = trunc i64 %291 to i32
+  store i32 %292, ptr %49, align 4, !tbaa !8
+  br label %293
 
-if.end161:                                        ; preds = %if.else156, %if.then155
-  %99 = load i32, ptr %len.addr, align 4
-  %100 = load i32, ptr %diff, align 4
-  %sub163 = sub i32 %99, %100
-  %101 = load i32, ptr %ite144, align 4
-  %sub164 = sub i32 %sub163, %101
-  %div165 = udiv i32 %sub164, 64
-  store i32 %div165, ptr %n_blocks162, align 4
-  %102 = load i32, ptr %n_blocks162, align 4
-  %mul167 = mul i32 %102, 64
-  store i32 %mul167, ptr %data1_len166, align 4
-  %103 = load i32, ptr %len.addr, align 4
-  %104 = load i32, ptr %diff, align 4
-  %sub169 = sub i32 %103, %104
-  %105 = load i32, ptr %data1_len166, align 4
-  %sub170 = sub i32 %sub169, %105
-  store i32 %sub170, ptr %data2_len168, align 4
-  %106 = load ptr, ptr %data292, align 8
-  store ptr %106, ptr %data11, align 8
-  %107 = load ptr, ptr %data292, align 8
-  %108 = load i32, ptr %data1_len166, align 4
-  %idx.ext171 = zext i32 %108 to i64
-  %add.ptr172 = getelementptr i8, ptr %107, i64 %idx.ext171
-  store ptr %add.ptr172, ptr %data21, align 8
-  %109 = load ptr, ptr %block_state1122, align 8
-  %110 = load ptr, ptr %data11, align 8
-  %111 = load i32, ptr %data1_len166, align 4
-  %div173 = udiv i32 %111, 64
-  call void @Hacl_Hash_MD5_legacy_update_multi(ptr noundef %109, ptr noundef %110, i32 noundef %div173)
-  %112 = load ptr, ptr %buf124, align 8
-  store ptr %112, ptr %dst174, align 8
-  %113 = load ptr, ptr %dst174, align 8
-  %114 = load ptr, ptr %data21, align 8
-  %115 = load i32, ptr %data2_len168, align 4
-  %conv175 = zext i32 %115 to i64
-  %mul176 = mul i64 %conv175, 1
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %113, ptr align 1 %114, i64 %mul176, i1 false)
-  %116 = load ptr, ptr %p.addr, align 8
-  %block_state178 = getelementptr inbounds %struct.Hacl_Streaming_MD_state_32_s, ptr %.compoundliteral177, i32 0, i32 0
-  %117 = load ptr, ptr %block_state1122, align 8
-  store ptr %117, ptr %block_state178, align 8
-  %buf179 = getelementptr inbounds %struct.Hacl_Streaming_MD_state_32_s, ptr %.compoundliteral177, i32 0, i32 1
-  %118 = load ptr, ptr %buf124, align 8
-  store ptr %118, ptr %buf179, align 8
-  %total_len180 = getelementptr inbounds %struct.Hacl_Streaming_MD_state_32_s, ptr %.compoundliteral177, i32 0, i32 2
-  %119 = load i64, ptr %total_len1126, align 8
-  %120 = load i32, ptr %len.addr, align 4
-  %121 = load i32, ptr %diff, align 4
-  %sub181 = sub i32 %120, %121
-  %conv182 = zext i32 %sub181 to i64
-  %add183 = add i64 %119, %conv182
-  store i64 %add183, ptr %total_len180, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %116, ptr align 8 %.compoundliteral177, i64 24, i1 false)
-  br label %if.end184
+293:                                              ; preds = %286, %285
+  call void @llvm.lifetime.start.p0(i64 4, ptr %50) #8
+  %294 = load i32, ptr %7, align 4, !tbaa !8
+  %295 = load i32, ptr %33, align 4, !tbaa !8
+  %296 = sub i32 %294, %295
+  %297 = load i32, ptr %49, align 4, !tbaa !8
+  %298 = sub i32 %296, %297
+  %299 = udiv i32 %298, 64
+  store i32 %299, ptr %50, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %51) #8
+  %300 = load i32, ptr %50, align 4, !tbaa !8
+  %301 = mul i32 %300, 64
+  store i32 %301, ptr %51, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %52) #8
+  %302 = load i32, ptr %7, align 4, !tbaa !8
+  %303 = load i32, ptr %33, align 4, !tbaa !8
+  %304 = sub i32 %302, %303
+  %305 = load i32, ptr %51, align 4, !tbaa !8
+  %306 = sub i32 %304, %305
+  store i32 %306, ptr %52, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %53) #8
+  %307 = load ptr, ptr %35, align 8, !tbaa !10
+  store ptr %307, ptr %53, align 8, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %54) #8
+  %308 = load ptr, ptr %35, align 8, !tbaa !10
+  %309 = load i32, ptr %51, align 4, !tbaa !8
+  %310 = zext i32 %309 to i64
+  %311 = getelementptr i8, ptr %308, i64 %310
+  store ptr %311, ptr %54, align 8, !tbaa !10
+  %312 = load ptr, ptr %45, align 8, !tbaa !3
+  %313 = load ptr, ptr %53, align 8, !tbaa !10
+  %314 = load i32, ptr %51, align 4, !tbaa !8
+  %315 = udiv i32 %314, 64
+  call void @python_hashlib_Hacl_Hash_MD5_update_multi(ptr noundef %312, ptr noundef %313, i32 noundef %315)
+  call void @llvm.lifetime.start.p0(i64 8, ptr %55) #8
+  %316 = load ptr, ptr %46, align 8, !tbaa !10
+  store ptr %316, ptr %55, align 8, !tbaa !10
+  %317 = load ptr, ptr %55, align 8, !tbaa !10
+  %318 = load ptr, ptr %54, align 8, !tbaa !10
+  %319 = load i32, ptr %52, align 4, !tbaa !8
+  %320 = zext i32 %319 to i64
+  %321 = mul i64 %320, 1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %317, ptr align 1 %318, i64 %321, i1 false)
+  %322 = load ptr, ptr %5, align 8, !tbaa !22
+  %323 = getelementptr inbounds nuw %struct.Hacl_Streaming_MD_state_32_s, ptr %56, i32 0, i32 0
+  %324 = load ptr, ptr %45, align 8, !tbaa !3
+  store ptr %324, ptr %323, align 8, !tbaa !18
+  %325 = getelementptr inbounds nuw %struct.Hacl_Streaming_MD_state_32_s, ptr %56, i32 0, i32 1
+  %326 = load ptr, ptr %46, align 8, !tbaa !10
+  store ptr %326, ptr %325, align 8, !tbaa !20
+  %327 = getelementptr inbounds nuw %struct.Hacl_Streaming_MD_state_32_s, ptr %56, i32 0, i32 2
+  %328 = load i64, ptr %47, align 8, !tbaa !14
+  %329 = load i32, ptr %7, align 4, !tbaa !8
+  %330 = load i32, ptr %33, align 4, !tbaa !8
+  %331 = sub i32 %329, %330
+  %332 = zext i32 %331 to i64
+  %333 = add i64 %328, %332
+  store i64 %333, ptr %327, align 8, !tbaa !21
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %322, ptr align 8 %56, i64 24, i1 false), !tbaa.struct !24
+  call void @llvm.lifetime.end.p0(i64 8, ptr %55) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %54) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %53) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %52) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %51) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %50) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %49) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %48) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %47) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %46) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %45) #8
+  call void @llvm.lifetime.end.p0(i64 24, ptr %44) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %42) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %41) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %40) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %39) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %38) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %37) #8
+  call void @llvm.lifetime.end.p0(i64 24, ptr %36) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %35) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %34) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %33) #8
+  br label %334
 
-if.end184:                                        ; preds = %if.end161, %if.end74
-  br label %if.end185
+334:                                              ; preds = %293, %166
+  br label %335
 
-if.end185:                                        ; preds = %if.end184, %if.end28
-  store i8 0, ptr %retval, align 1
-  br label %return
+335:                                              ; preds = %334, %102
+  store i8 0, ptr %4, align 1
+  store i32 1, ptr %10, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #8
+  br label %336
 
-return:                                           ; preds = %if.end185, %if.then
-  %122 = load i8, ptr %retval, align 1
-  ret i8 %122
+336:                                              ; preds = %335, %65
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #8
+  call void @llvm.lifetime.end.p0(i64 24, ptr %8) #8
+  %337 = load i8, ptr %4, align 1
+  ret i8 %337
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @Hacl_Streaming_MD5_legacy_finish(ptr noundef %p, ptr noundef %dst) #0 {
-entry:
-  %p.addr = alloca ptr, align 8
-  %dst.addr = alloca ptr, align 8
-  %scrut = alloca %struct.Hacl_Streaming_MD_state_32_s, align 8
-  %block_state = alloca ptr, align 8
-  %buf_ = alloca ptr, align 8
-  %total_len = alloca i64, align 8
-  %r = alloca i32, align 4
-  %buf_1 = alloca ptr, align 8
-  %tmp_block_state = alloca [4 x i32], align 16
-  %ite = alloca i32, align 4
-  %buf_last = alloca ptr, align 8
-  %buf_multi = alloca ptr, align 8
-  %prev_len_last = alloca i64, align 8
-  store ptr %p, ptr %p.addr, align 8
-  store ptr %dst, ptr %dst.addr, align 8
-  %0 = load ptr, ptr %p.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %scrut, ptr align 8 %0, i64 24, i1 false)
-  %block_state1 = getelementptr inbounds %struct.Hacl_Streaming_MD_state_32_s, ptr %scrut, i32 0, i32 0
-  %1 = load ptr, ptr %block_state1, align 8
-  store ptr %1, ptr %block_state, align 8
-  %buf = getelementptr inbounds %struct.Hacl_Streaming_MD_state_32_s, ptr %scrut, i32 0, i32 1
-  %2 = load ptr, ptr %buf, align 8
-  store ptr %2, ptr %buf_, align 8
-  %total_len2 = getelementptr inbounds %struct.Hacl_Streaming_MD_state_32_s, ptr %scrut, i32 0, i32 2
-  %3 = load i64, ptr %total_len2, align 8
-  store i64 %3, ptr %total_len, align 8
-  %4 = load i64, ptr %total_len, align 8
-  %rem = urem i64 %4, 64
-  %cmp = icmp eq i64 %rem, 0
-  br i1 %cmp, label %land.lhs.true, label %if.else
+define hidden void @python_hashlib_Hacl_Hash_MD5_digest(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca %struct.Hacl_Streaming_MD_state_32_s, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca i64, align 8
+  %9 = alloca i32, align 4
+  %10 = alloca ptr, align 8
+  %11 = alloca [4 x i32], align 16
+  %12 = alloca i32, align 4
+  %13 = alloca ptr, align 8
+  %14 = alloca ptr, align 8
+  %15 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !22
+  store ptr %1, ptr %4, align 8, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 24, ptr %5) #8
+  %16 = load ptr, ptr %3, align 8, !tbaa !22
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %5, ptr align 8 %16, i64 24, i1 false), !tbaa.struct !24
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #8
+  %17 = getelementptr inbounds nuw %struct.Hacl_Streaming_MD_state_32_s, ptr %5, i32 0, i32 0
+  %18 = load ptr, ptr %17, align 8, !tbaa !18
+  store ptr %18, ptr %6, align 8, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #8
+  %19 = getelementptr inbounds nuw %struct.Hacl_Streaming_MD_state_32_s, ptr %5, i32 0, i32 1
+  %20 = load ptr, ptr %19, align 8, !tbaa !20
+  store ptr %20, ptr %7, align 8, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #8
+  %21 = getelementptr inbounds nuw %struct.Hacl_Streaming_MD_state_32_s, ptr %5, i32 0, i32 2
+  %22 = load i64, ptr %21, align 8, !tbaa !21
+  store i64 %22, ptr %8, align 8, !tbaa !14
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #8
+  %23 = load i64, ptr %8, align 8, !tbaa !14
+  %24 = urem i64 %23, 64
+  %25 = icmp eq i64 %24, 0
+  br i1 %25, label %26, label %30
 
-land.lhs.true:                                    ; preds = %entry
-  %5 = load i64, ptr %total_len, align 8
-  %cmp3 = icmp ugt i64 %5, 0
-  br i1 %cmp3, label %if.then, label %if.else
+26:                                               ; preds = %2
+  %27 = load i64, ptr %8, align 8, !tbaa !14
+  %28 = icmp ugt i64 %27, 0
+  br i1 %28, label %29, label %30
 
-if.then:                                          ; preds = %land.lhs.true
-  store i32 64, ptr %r, align 4
-  br label %if.end
+29:                                               ; preds = %26
+  store i32 64, ptr %9, align 4, !tbaa !8
+  br label %34
 
-if.else:                                          ; preds = %land.lhs.true, %entry
-  %6 = load i64, ptr %total_len, align 8
-  %rem4 = urem i64 %6, 64
-  %conv = trunc i64 %rem4 to i32
-  store i32 %conv, ptr %r, align 4
-  br label %if.end
+30:                                               ; preds = %26, %2
+  %31 = load i64, ptr %8, align 8, !tbaa !14
+  %32 = urem i64 %31, 64
+  %33 = trunc i64 %32 to i32
+  store i32 %33, ptr %9, align 4, !tbaa !8
+  br label %34
 
-if.end:                                           ; preds = %if.else, %if.then
-  %7 = load ptr, ptr %buf_, align 8
-  store ptr %7, ptr %buf_1, align 8
-  call void @llvm.memset.p0.i64(ptr align 16 %tmp_block_state, i8 0, i64 16, i1 false)
-  %arraydecay = getelementptr inbounds [4 x i32], ptr %tmp_block_state, i64 0, i64 0
-  %8 = load ptr, ptr %block_state, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 16 %arraydecay, ptr align 4 %8, i64 16, i1 false)
-  %9 = load i32, ptr %r, align 4
-  %rem5 = urem i32 %9, 64
-  %cmp6 = icmp eq i32 %rem5, 0
-  br i1 %cmp6, label %land.lhs.true8, label %if.else12
+34:                                               ; preds = %30, %29
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #8
+  %35 = load ptr, ptr %7, align 8, !tbaa !10
+  store ptr %35, ptr %10, align 8, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 16, ptr %11) #8
+  call void @llvm.memset.p0.i64(ptr align 16 %11, i8 0, i64 16, i1 false)
+  %36 = getelementptr inbounds [4 x i32], ptr %11, i64 0, i64 0
+  %37 = load ptr, ptr %6, align 8, !tbaa !3
+  call void @llvm.memcpy.p0.p0.i64(ptr align 16 %36, ptr align 4 %37, i64 16, i1 false)
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #8
+  %38 = load i32, ptr %9, align 4, !tbaa !8
+  %39 = urem i32 %38, 64
+  %40 = icmp eq i32 %39, 0
+  br i1 %40, label %41, label %45
 
-land.lhs.true8:                                   ; preds = %if.end
-  %10 = load i32, ptr %r, align 4
-  %cmp9 = icmp ugt i32 %10, 0
-  br i1 %cmp9, label %if.then11, label %if.else12
+41:                                               ; preds = %34
+  %42 = load i32, ptr %9, align 4, !tbaa !8
+  %43 = icmp ugt i32 %42, 0
+  br i1 %43, label %44, label %45
 
-if.then11:                                        ; preds = %land.lhs.true8
-  store i32 64, ptr %ite, align 4
-  br label %if.end14
+44:                                               ; preds = %41
+  store i32 64, ptr %12, align 4, !tbaa !8
+  br label %48
 
-if.else12:                                        ; preds = %land.lhs.true8, %if.end
-  %11 = load i32, ptr %r, align 4
-  %rem13 = urem i32 %11, 64
-  store i32 %rem13, ptr %ite, align 4
-  br label %if.end14
+45:                                               ; preds = %41, %34
+  %46 = load i32, ptr %9, align 4, !tbaa !8
+  %47 = urem i32 %46, 64
+  store i32 %47, ptr %12, align 4, !tbaa !8
+  br label %48
 
-if.end14:                                         ; preds = %if.else12, %if.then11
-  %12 = load ptr, ptr %buf_1, align 8
-  %13 = load i32, ptr %r, align 4
-  %idx.ext = zext i32 %13 to i64
-  %add.ptr = getelementptr i8, ptr %12, i64 %idx.ext
-  %14 = load i32, ptr %ite, align 4
-  %idx.ext15 = zext i32 %14 to i64
-  %idx.neg = sub i64 0, %idx.ext15
-  %add.ptr16 = getelementptr i8, ptr %add.ptr, i64 %idx.neg
-  store ptr %add.ptr16, ptr %buf_last, align 8
-  %15 = load ptr, ptr %buf_1, align 8
-  store ptr %15, ptr %buf_multi, align 8
-  %arraydecay17 = getelementptr inbounds [4 x i32], ptr %tmp_block_state, i64 0, i64 0
-  %16 = load ptr, ptr %buf_multi, align 8
-  call void @Hacl_Hash_MD5_legacy_update_multi(ptr noundef %arraydecay17, ptr noundef %16, i32 noundef 0)
-  %17 = load i64, ptr %total_len, align 8
-  %18 = load i32, ptr %r, align 4
-  %conv18 = zext i32 %18 to i64
-  %sub = sub i64 %17, %conv18
-  store i64 %sub, ptr %prev_len_last, align 8
-  %arraydecay19 = getelementptr inbounds [4 x i32], ptr %tmp_block_state, i64 0, i64 0
-  %19 = load i64, ptr %prev_len_last, align 8
-  %20 = load ptr, ptr %buf_last, align 8
-  %21 = load i32, ptr %r, align 4
-  call void @Hacl_Hash_MD5_legacy_update_last(ptr noundef %arraydecay19, i64 noundef %19, ptr noundef %20, i32 noundef %21)
-  %arraydecay20 = getelementptr inbounds [4 x i32], ptr %tmp_block_state, i64 0, i64 0
-  %22 = load ptr, ptr %dst.addr, align 8
-  call void @Hacl_Hash_Core_MD5_legacy_finish(ptr noundef %arraydecay20, ptr noundef %22)
+48:                                               ; preds = %45, %44
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #8
+  %49 = load ptr, ptr %10, align 8, !tbaa !10
+  %50 = load i32, ptr %9, align 4, !tbaa !8
+  %51 = zext i32 %50 to i64
+  %52 = getelementptr i8, ptr %49, i64 %51
+  %53 = load i32, ptr %12, align 4, !tbaa !8
+  %54 = zext i32 %53 to i64
+  %55 = sub i64 0, %54
+  %56 = getelementptr i8, ptr %52, i64 %55
+  store ptr %56, ptr %13, align 8, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #8
+  %57 = load ptr, ptr %10, align 8, !tbaa !10
+  store ptr %57, ptr %14, align 8, !tbaa !10
+  %58 = getelementptr inbounds [4 x i32], ptr %11, i64 0, i64 0
+  %59 = load ptr, ptr %14, align 8, !tbaa !10
+  call void @python_hashlib_Hacl_Hash_MD5_update_multi(ptr noundef %58, ptr noundef %59, i32 noundef 0)
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #8
+  %60 = load i64, ptr %8, align 8, !tbaa !14
+  %61 = load i32, ptr %9, align 4, !tbaa !8
+  %62 = zext i32 %61 to i64
+  %63 = sub i64 %60, %62
+  store i64 %63, ptr %15, align 8, !tbaa !14
+  %64 = getelementptr inbounds [4 x i32], ptr %11, i64 0, i64 0
+  %65 = load i64, ptr %15, align 8, !tbaa !14
+  %66 = load ptr, ptr %13, align 8, !tbaa !10
+  %67 = load i32, ptr %9, align 4, !tbaa !8
+  call void @python_hashlib_Hacl_Hash_MD5_update_last(ptr noundef %64, i64 noundef %65, ptr noundef %66, i32 noundef %67)
+  %68 = getelementptr inbounds [4 x i32], ptr %11, i64 0, i64 0
+  %69 = load ptr, ptr %4, align 8, !tbaa !10
+  call void @python_hashlib_Hacl_Hash_MD5_finish(ptr noundef %68, ptr noundef %69)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #8
+  call void @llvm.lifetime.end.p0(i64 16, ptr %11) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #8
+  call void @llvm.lifetime.end.p0(i64 24, ptr %5) #8
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @Hacl_Streaming_MD5_legacy_free(ptr noundef %s) #0 {
-entry:
-  %s.addr = alloca ptr, align 8
-  %scrut = alloca %struct.Hacl_Streaming_MD_state_32_s, align 8
-  %buf = alloca ptr, align 8
-  %block_state = alloca ptr, align 8
-  store ptr %s, ptr %s.addr, align 8
-  %0 = load ptr, ptr %s.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %scrut, ptr align 8 %0, i64 24, i1 false)
-  %buf1 = getelementptr inbounds %struct.Hacl_Streaming_MD_state_32_s, ptr %scrut, i32 0, i32 1
-  %1 = load ptr, ptr %buf1, align 8
-  store ptr %1, ptr %buf, align 8
-  %block_state2 = getelementptr inbounds %struct.Hacl_Streaming_MD_state_32_s, ptr %scrut, i32 0, i32 0
-  %2 = load ptr, ptr %block_state2, align 8
-  store ptr %2, ptr %block_state, align 8
-  %3 = load ptr, ptr %block_state, align 8
-  call void @free(ptr noundef %3) #8
-  %4 = load ptr, ptr %buf, align 8
-  call void @free(ptr noundef %4) #8
-  %5 = load ptr, ptr %s.addr, align 8
-  call void @free(ptr noundef %5) #8
+define hidden void @python_hashlib_Hacl_Hash_MD5_free(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca %struct.Hacl_Streaming_MD_state_32_s, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !22
+  call void @llvm.lifetime.start.p0(i64 24, ptr %3) #8
+  %6 = load ptr, ptr %2, align 8, !tbaa !22
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %3, ptr align 8 %6, i64 24, i1 false), !tbaa.struct !24
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #8
+  %7 = getelementptr inbounds nuw %struct.Hacl_Streaming_MD_state_32_s, ptr %3, i32 0, i32 1
+  %8 = load ptr, ptr %7, align 8, !tbaa !20
+  store ptr %8, ptr %4, align 8, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #8
+  %9 = getelementptr inbounds nuw %struct.Hacl_Streaming_MD_state_32_s, ptr %3, i32 0, i32 0
+  %10 = load ptr, ptr %9, align 8, !tbaa !18
+  store ptr %10, ptr %5, align 8, !tbaa !3
+  %11 = load ptr, ptr %5, align 8, !tbaa !3
+  call void @free(ptr noundef %11) #8
+  %12 = load ptr, ptr %4, align 8, !tbaa !10
+  call void @free(ptr noundef %12) #8
+  %13 = load ptr, ptr %2, align 8, !tbaa !22
+  call void @free(ptr noundef %13) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #8
+  call void @llvm.lifetime.end.p0(i64 24, ptr %3) #8
   ret void
 }
 
 ; Function Attrs: nounwind
-declare void @free(ptr noundef) #5
+declare void @free(ptr noundef) #7
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @Hacl_Streaming_MD5_legacy_copy(ptr noundef %s0) #0 {
-entry:
-  %s0.addr = alloca ptr, align 8
-  %scrut = alloca %struct.Hacl_Streaming_MD_state_32_s, align 8
-  %block_state0 = alloca ptr, align 8
-  %buf0 = alloca ptr, align 8
-  %total_len0 = alloca i64, align 8
-  %buf1 = alloca ptr, align 8
-  %block_state2 = alloca ptr, align 8
-  %s = alloca %struct.Hacl_Streaming_MD_state_32_s, align 8
-  %p = alloca ptr, align 8
-  store ptr %s0, ptr %s0.addr, align 8
-  %0 = load ptr, ptr %s0.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %scrut, ptr align 8 %0, i64 24, i1 false)
-  %block_state = getelementptr inbounds %struct.Hacl_Streaming_MD_state_32_s, ptr %scrut, i32 0, i32 0
-  %1 = load ptr, ptr %block_state, align 8
-  store ptr %1, ptr %block_state0, align 8
-  %buf = getelementptr inbounds %struct.Hacl_Streaming_MD_state_32_s, ptr %scrut, i32 0, i32 1
-  %2 = load ptr, ptr %buf, align 8
-  store ptr %2, ptr %buf0, align 8
-  %total_len = getelementptr inbounds %struct.Hacl_Streaming_MD_state_32_s, ptr %scrut, i32 0, i32 2
-  %3 = load i64, ptr %total_len, align 8
-  store i64 %3, ptr %total_len0, align 8
-  %call = call noalias ptr @calloc(i64 noundef 64, i64 noundef 1) #6
-  store ptr %call, ptr %buf1, align 8
-  %4 = load ptr, ptr %buf1, align 8
-  %5 = load ptr, ptr %buf0, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %4, ptr align 1 %5, i64 64, i1 false)
-  %call3 = call noalias ptr @calloc(i64 noundef 4, i64 noundef 4) #6
-  store ptr %call3, ptr %block_state2, align 8
-  %6 = load ptr, ptr %block_state2, align 8
-  %7 = load ptr, ptr %block_state0, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %6, ptr align 4 %7, i64 16, i1 false)
-  %block_state4 = getelementptr inbounds %struct.Hacl_Streaming_MD_state_32_s, ptr %s, i32 0, i32 0
-  %8 = load ptr, ptr %block_state2, align 8
-  store ptr %8, ptr %block_state4, align 8
-  %buf5 = getelementptr inbounds %struct.Hacl_Streaming_MD_state_32_s, ptr %s, i32 0, i32 1
-  %9 = load ptr, ptr %buf1, align 8
-  store ptr %9, ptr %buf5, align 8
-  %total_len6 = getelementptr inbounds %struct.Hacl_Streaming_MD_state_32_s, ptr %s, i32 0, i32 2
-  %10 = load i64, ptr %total_len0, align 8
-  store i64 %10, ptr %total_len6, align 8
-  %call7 = call noalias ptr @malloc(i64 noundef 24) #7
-  store ptr %call7, ptr %p, align 8
-  %11 = load ptr, ptr %p, align 8
-  %arrayidx = getelementptr %struct.Hacl_Streaming_MD_state_32_s, ptr %11, i64 0
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %arrayidx, ptr align 8 %s, i64 24, i1 false)
-  %12 = load ptr, ptr %p, align 8
-  ret ptr %12
+define hidden ptr @python_hashlib_Hacl_Hash_MD5_copy(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca %struct.Hacl_Streaming_MD_state_32_s, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i64, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca %struct.Hacl_Streaming_MD_state_32_s, align 8
+  %10 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !22
+  call void @llvm.lifetime.start.p0(i64 24, ptr %3) #8
+  %11 = load ptr, ptr %2, align 8, !tbaa !22
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %3, ptr align 8 %11, i64 24, i1 false), !tbaa.struct !24
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #8
+  %12 = getelementptr inbounds nuw %struct.Hacl_Streaming_MD_state_32_s, ptr %3, i32 0, i32 0
+  %13 = load ptr, ptr %12, align 8, !tbaa !18
+  store ptr %13, ptr %4, align 8, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #8
+  %14 = getelementptr inbounds nuw %struct.Hacl_Streaming_MD_state_32_s, ptr %3, i32 0, i32 1
+  %15 = load ptr, ptr %14, align 8, !tbaa !20
+  store ptr %15, ptr %5, align 8, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #8
+  %16 = getelementptr inbounds nuw %struct.Hacl_Streaming_MD_state_32_s, ptr %3, i32 0, i32 2
+  %17 = load i64, ptr %16, align 8, !tbaa !21
+  store i64 %17, ptr %6, align 8, !tbaa !14
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #8
+  %18 = call noalias ptr @calloc(i64 noundef 64, i64 noundef 1) #9
+  store ptr %18, ptr %7, align 8, !tbaa !10
+  %19 = load ptr, ptr %7, align 8, !tbaa !10
+  %20 = load ptr, ptr %5, align 8, !tbaa !10
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %19, ptr align 1 %20, i64 64, i1 false)
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #8
+  %21 = call noalias ptr @calloc(i64 noundef 4, i64 noundef 4) #9
+  store ptr %21, ptr %8, align 8, !tbaa !3
+  %22 = load ptr, ptr %8, align 8, !tbaa !3
+  %23 = load ptr, ptr %4, align 8, !tbaa !3
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %22, ptr align 4 %23, i64 16, i1 false)
+  call void @llvm.lifetime.start.p0(i64 24, ptr %9) #8
+  %24 = getelementptr inbounds nuw %struct.Hacl_Streaming_MD_state_32_s, ptr %9, i32 0, i32 0
+  %25 = load ptr, ptr %8, align 8, !tbaa !3
+  store ptr %25, ptr %24, align 8, !tbaa !18
+  %26 = getelementptr inbounds nuw %struct.Hacl_Streaming_MD_state_32_s, ptr %9, i32 0, i32 1
+  %27 = load ptr, ptr %7, align 8, !tbaa !10
+  store ptr %27, ptr %26, align 8, !tbaa !20
+  %28 = getelementptr inbounds nuw %struct.Hacl_Streaming_MD_state_32_s, ptr %9, i32 0, i32 2
+  %29 = load i64, ptr %6, align 8, !tbaa !14
+  store i64 %29, ptr %28, align 8, !tbaa !21
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #8
+  %30 = call noalias ptr @malloc(i64 noundef 24) #10
+  store ptr %30, ptr %10, align 8, !tbaa !22
+  %31 = load ptr, ptr %10, align 8, !tbaa !22
+  %32 = getelementptr %struct.Hacl_Streaming_MD_state_32_s, ptr %31, i64 0
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %32, ptr align 8 %9, i64 24, i1 false), !tbaa.struct !24
+  %33 = load ptr, ptr %10, align 8, !tbaa !22
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #8
+  call void @llvm.lifetime.end.p0(i64 24, ptr %9) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #8
+  call void @llvm.lifetime.end.p0(i64 24, ptr %3) #8
+  ret ptr %33
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @Hacl_Streaming_MD5_legacy_hash(ptr noundef %input, i32 noundef %input_len, ptr noundef %dst) #0 {
-entry:
-  %input.addr = alloca ptr, align 8
-  %input_len.addr = alloca i32, align 4
-  %dst.addr = alloca ptr, align 8
-  store ptr %input, ptr %input.addr, align 8
-  store i32 %input_len, ptr %input_len.addr, align 4
-  store ptr %dst, ptr %dst.addr, align 8
-  %0 = load ptr, ptr %input.addr, align 8
-  %1 = load i32, ptr %input_len.addr, align 4
-  %2 = load ptr, ptr %dst.addr, align 8
-  call void @Hacl_Hash_MD5_legacy_hash(ptr noundef %0, i32 noundef %1, ptr noundef %2)
+define hidden void @python_hashlib_Hacl_Hash_MD5_hash(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !10
+  store ptr %1, ptr %5, align 8, !tbaa !10
+  store i32 %2, ptr %6, align 4, !tbaa !8
+  %7 = load ptr, ptr %4, align 8, !tbaa !10
+  %8 = load ptr, ptr %5, align 8, !tbaa !10
+  %9 = load i32, ptr %6, align 4, !tbaa !8
+  call void @python_hashlib_Hacl_Hash_MD5_hash_oneshot(ptr noundef %7, ptr noundef %8, i32 noundef %9)
   ret void
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @load32(ptr noundef %b) #0 {
-entry:
-  %b.addr = alloca ptr, align 8
-  %x = alloca i32, align 4
-  store ptr %b, ptr %b.addr, align 8
-  %0 = load ptr, ptr %b.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %x, ptr align 1 %0, i64 4, i1 false)
-  %1 = load i32, ptr %x, align 4
-  ret i32 %1
+; Function Attrs: inlinehint nounwind uwtable
+define internal i32 @load32(ptr noundef %0) #2 {
+  %2 = alloca ptr, align 8
+  %3 = alloca i32, align 4
+  store ptr %0, ptr %2, align 8, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %3) #8
+  %4 = load ptr, ptr %2, align 8, !tbaa !10
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %3, ptr align 1 %4, i64 4, i1 false)
+  %5 = load i32, ptr %3, align 4, !tbaa !8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %3) #8
+  ret i32 %5
 }
 
-; Function Attrs: nounwind uwtable
-define internal void @store64(ptr noundef %b, i64 noundef %i) #0 {
-entry:
-  %b.addr = alloca ptr, align 8
-  %i.addr = alloca i64, align 8
-  store ptr %b, ptr %b.addr, align 8
-  store i64 %i, ptr %i.addr, align 8
-  %0 = load ptr, ptr %b.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %0, ptr align 8 %i.addr, i64 8, i1 false)
+; Function Attrs: inlinehint nounwind uwtable
+define internal void @store64(ptr noundef %0, i64 noundef %1) #2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !10
+  store i64 %1, ptr %4, align 8, !tbaa !14
+  %5 = load ptr, ptr %3, align 8, !tbaa !10
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %5, ptr align 8 %4, i64 8, i1 false)
   ret void
 }
 
-; Function Attrs: nounwind uwtable
-define internal i64 @__uint64_identity(i64 noundef %__x) #0 {
-entry:
-  %__x.addr = alloca i64, align 8
-  store i64 %__x, ptr %__x.addr, align 8
-  %0 = load i64, ptr %__x.addr, align 8
-  ret i64 %0
+; Function Attrs: inlinehint nounwind uwtable
+define internal i64 @__uint64_identity(i64 noundef %0) #2 {
+  %2 = alloca i64, align 8
+  store i64 %0, ptr %2, align 8, !tbaa !14
+  %3 = load i64, ptr %2, align 8, !tbaa !14
+  ret i64 %3
 }
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #2 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { nounwind allocsize(0,1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nounwind allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nounwind allocsize(0,1) }
-attributes #7 = { nounwind allocsize(0) }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { inlinehint nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #4 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #5 = { nounwind allocsize(0,1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nounwind allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { nounwind }
+attributes #9 = { nounwind allocsize(0,1) }
+attributes #10 = { nounwind allocsize(0) }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
+!3 = !{!4, !4, i64 0}
+!4 = !{!"p1 int", !5, i64 0}
+!5 = !{!"any pointer", !6, i64 0}
+!6 = !{!"omnipotent char", !7, i64 0}
+!7 = !{!"Simple C/C++ TBAA"}
+!8 = !{!9, !9, i64 0}
+!9 = !{!"int", !6, i64 0}
+!10 = !{!11, !11, i64 0}
+!11 = !{!"p1 omnipotent char", !5, i64 0}
+!12 = distinct !{!12, !13}
+!13 = !{!"llvm.loop.mustprogress"}
+!14 = !{!15, !15, i64 0}
+!15 = !{!"long", !6, i64 0}
+!16 = !{!6, !6, i64 0}
+!17 = distinct !{!17, !13}
+!18 = !{!19, !4, i64 0}
+!19 = !{!"Hacl_Streaming_MD_state_32_s", !4, i64 0, !11, i64 8, !15, i64 16}
+!20 = !{!19, !11, i64 8}
+!21 = !{!19, !15, i64 16}
+!22 = !{!23, !23, i64 0}
+!23 = !{!"p1 _ZTS28Hacl_Streaming_MD_state_32_s", !5, i64 0}
+!24 = !{i64 0, i64 8, !3, i64 8, i64 8, !10, i64 16, i64 8, !14}

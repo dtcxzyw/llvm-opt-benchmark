@@ -1,7137 +1,7134 @@
 ; ModuleID = 'bench/cpython/original/Hacl_Hash_SHA2.ll'
 source_filename = "bench/cpython/original/Hacl_Hash_SHA2.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @Hacl_SHA2_Scalar32_sha256_init(ptr noundef writeonly captures(none) initializes((0, 32)) %hash) local_unnamed_addr #0 {
-entry:
-  store i32 1779033703, ptr %hash, align 4
-  %arrayidx8 = getelementptr i8, ptr %hash, i64 4
-  store i32 -1150833019, ptr %arrayidx8, align 4
-  %arrayidx15 = getelementptr i8, ptr %hash, i64 8
-  store i32 1013904242, ptr %arrayidx15, align 4
-  %arrayidx22 = getelementptr i8, ptr %hash, i64 12
-  store i32 -1521486534, ptr %arrayidx22, align 4
-  %arrayidx29 = getelementptr i8, ptr %hash, i64 16
-  store i32 1359893119, ptr %arrayidx29, align 4
-  %arrayidx36 = getelementptr i8, ptr %hash, i64 20
-  store i32 -1694144372, ptr %arrayidx36, align 4
-  %arrayidx43 = getelementptr i8, ptr %hash, i64 24
-  store i32 528734635, ptr %arrayidx43, align 4
-  %arrayidx50 = getelementptr i8, ptr %hash, i64 28
-  store i32 1541459225, ptr %arrayidx50, align 4
+define hidden void @python_hashlib_Hacl_Hash_SHA2_sha256_init(ptr noundef writeonly captures(none) initializes((0, 32)) %0) local_unnamed_addr #0 {
+  store i32 1779033703, ptr %0, align 4, !tbaa !3
+  %2 = getelementptr i8, ptr %0, i64 4
+  store i32 -1150833019, ptr %2, align 4, !tbaa !3
+  %3 = getelementptr i8, ptr %0, i64 8
+  store i32 1013904242, ptr %3, align 4, !tbaa !3
+  %4 = getelementptr i8, ptr %0, i64 12
+  store i32 -1521486534, ptr %4, align 4, !tbaa !3
+  %5 = getelementptr i8, ptr %0, i64 16
+  store i32 1359893119, ptr %5, align 4, !tbaa !3
+  %6 = getelementptr i8, ptr %0, i64 20
+  store i32 -1694144372, ptr %6, align 4, !tbaa !3
+  %7 = getelementptr i8, ptr %0, i64 24
+  store i32 528734635, ptr %7, align 4, !tbaa !3
+  %8 = getelementptr i8, ptr %0, i64 28
+  store i32 1541459225, ptr %8, align 4, !tbaa !3
   ret void
 }
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @Hacl_SHA2_Scalar32_sha256_update_nblocks(i32 noundef %len, ptr noundef readonly captures(none) %b, ptr noundef captures(none) %st) local_unnamed_addr #1 {
-entry:
-  %cmp4.not = icmp ult i32 %len, 64
-  br i1 %cmp4.not, label %for.end, label %for.body.preheader
+define hidden void @python_hashlib_Hacl_Hash_SHA2_sha256_update_nblocks(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2) local_unnamed_addr #2 {
+  %.not = icmp ult i32 %0, 64
+  br i1 %.not, label %._crit_edge, label %.lr.ph.preheader
 
-for.body.preheader:                               ; preds = %entry
-  %div3 = lshr i32 %len, 6
-  %wide.trip.count = zext nneg i32 %div3 to i64
-  br label %for.body
+.lr.ph.preheader:                                 ; preds = %3
+  %4 = lshr i32 %0, 6
+  %wide.trip.count = zext nneg i32 %4 to i64
+  br label %.lr.ph
 
-for.body:                                         ; preds = %for.body.preheader, %for.body
-  %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %for.body ]
-  %0 = shl nuw i64 %indvars.iv, 6
-  %add.ptr = getelementptr i8, ptr %b, i64 %0
-  tail call fastcc void @sha256_update(ptr noundef %add.ptr, ptr noundef %st)
+._crit_edge:                                      ; preds = %.lr.ph, %3
+  ret void
+
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
+  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
+  %5 = shl nuw i64 %indvars.iv, 6
+  %6 = getelementptr i8, ptr %1, i64 %5
+  tail call fastcc void @sha256_update(ptr noundef %6, ptr noundef %2)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !4
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !7
+}
 
-for.end:                                          ; preds = %for.body, %entry
+; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
+define internal fastcc void @sha256_update(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) unnamed_addr #3 {
+  %.sroa.05961.0.copyload = load i32, ptr %1, align 4
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %.sroa.5.0.copyload = load i32, ptr %.sroa.5.0..sroa_idx, align 4
+  %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %.sroa.6.0.copyload = load i32, ptr %.sroa.6.0..sroa_idx, align 4
+  %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 12
+  %.sroa.7.0.copyload = load i32, ptr %.sroa.7.0..sroa_idx, align 4
+  %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %.sroa.8.0.copyload = load i32, ptr %.sroa.8.0..sroa_idx, align 4
+  %.sroa.9.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 20
+  %.sroa.9.0.copyload = load i32, ptr %.sroa.9.0..sroa_idx, align 4
+  %.sroa.10.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %.sroa.10.0.copyload = load i32, ptr %.sroa.10.0..sroa_idx, align 4
+  %.sroa.11.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 28
+  %.sroa.11.0.copyload = load i32, ptr %.sroa.11.0..sroa_idx, align 4
+  %.val = load i32, ptr %0, align 1
+  %3 = tail call noundef i32 @llvm.bswap.i32(i32 %.val)
+  %4 = getelementptr i8, ptr %0, i64 4
+  %.val5481 = load i32, ptr %4, align 1
+  %5 = tail call noundef i32 @llvm.bswap.i32(i32 %.val5481)
+  %6 = getelementptr i8, ptr %0, i64 8
+  %.val5482 = load i32, ptr %6, align 1
+  %7 = tail call noundef i32 @llvm.bswap.i32(i32 %.val5482)
+  %8 = getelementptr i8, ptr %0, i64 12
+  %.val5483 = load i32, ptr %8, align 1
+  %9 = tail call noundef i32 @llvm.bswap.i32(i32 %.val5483)
+  %10 = getelementptr i8, ptr %0, i64 16
+  %.val5484 = load i32, ptr %10, align 1
+  %11 = tail call noundef i32 @llvm.bswap.i32(i32 %.val5484)
+  %12 = getelementptr i8, ptr %0, i64 20
+  %.val5485 = load i32, ptr %12, align 1
+  %13 = tail call noundef i32 @llvm.bswap.i32(i32 %.val5485)
+  %14 = getelementptr i8, ptr %0, i64 24
+  %.val5486 = load i32, ptr %14, align 1
+  %15 = tail call noundef i32 @llvm.bswap.i32(i32 %.val5486)
+  %16 = getelementptr i8, ptr %0, i64 28
+  %.val5487 = load i32, ptr %16, align 1
+  %17 = tail call noundef i32 @llvm.bswap.i32(i32 %.val5487)
+  %18 = getelementptr i8, ptr %0, i64 32
+  %.val5488 = load i32, ptr %18, align 1
+  %19 = tail call noundef i32 @llvm.bswap.i32(i32 %.val5488)
+  %20 = getelementptr i8, ptr %0, i64 36
+  %.val5489 = load i32, ptr %20, align 1
+  %21 = tail call noundef i32 @llvm.bswap.i32(i32 %.val5489)
+  %22 = getelementptr i8, ptr %0, i64 40
+  %.val5490 = load i32, ptr %22, align 1
+  %23 = tail call noundef i32 @llvm.bswap.i32(i32 %.val5490)
+  %24 = getelementptr i8, ptr %0, i64 44
+  %.val5491 = load i32, ptr %24, align 1
+  %25 = tail call noundef i32 @llvm.bswap.i32(i32 %.val5491)
+  %26 = getelementptr i8, ptr %0, i64 48
+  %.val5492 = load i32, ptr %26, align 1
+  %27 = tail call noundef i32 @llvm.bswap.i32(i32 %.val5492)
+  %28 = getelementptr i8, ptr %0, i64 52
+  %.val5493 = load i32, ptr %28, align 1
+  %29 = tail call noundef i32 @llvm.bswap.i32(i32 %.val5493)
+  %30 = getelementptr i8, ptr %0, i64 56
+  %.val5494 = load i32, ptr %30, align 1
+  %31 = tail call noundef i32 @llvm.bswap.i32(i32 %.val5494)
+  %32 = getelementptr i8, ptr %0, i64 60
+  %.val5495 = load i32, ptr %32, align 1
+  %33 = tail call noundef i32 @llvm.bswap.i32(i32 %.val5495)
+  %34 = tail call i32 @llvm.fshl.i32(i32 %.sroa.8.0.copyload, i32 %.sroa.8.0.copyload, i32 26)
+  %35 = tail call i32 @llvm.fshl.i32(i32 %.sroa.8.0.copyload, i32 %.sroa.8.0.copyload, i32 21)
+  %36 = tail call i32 @llvm.fshl.i32(i32 %.sroa.8.0.copyload, i32 %.sroa.8.0.copyload, i32 7)
+  %37 = xor i32 %35, %36
+  %38 = xor i32 %37, %34
+  %39 = and i32 %.sroa.9.0.copyload, %.sroa.8.0.copyload
+  %40 = xor i32 %.sroa.8.0.copyload, -1
+  %41 = and i32 %.sroa.10.0.copyload, %40
+  %42 = or i32 %41, %39
+  %43 = add i32 %38, 1116352408
+  %44 = add i32 %43, %.sroa.11.0.copyload
+  %45 = add i32 %44, %42
+  %46 = add i32 %45, %3
+  %47 = tail call i32 @llvm.fshl.i32(i32 %.sroa.05961.0.copyload, i32 %.sroa.05961.0.copyload, i32 30)
+  %48 = tail call i32 @llvm.fshl.i32(i32 %.sroa.05961.0.copyload, i32 %.sroa.05961.0.copyload, i32 19)
+  %49 = tail call i32 @llvm.fshl.i32(i32 %.sroa.05961.0.copyload, i32 %.sroa.05961.0.copyload, i32 10)
+  %50 = xor i32 %48, %49
+  %51 = xor i32 %50, %47
+  %52 = and i32 %.sroa.5.0.copyload, %.sroa.05961.0.copyload
+  %53 = xor i32 %.sroa.5.0.copyload, %.sroa.05961.0.copyload
+  %54 = and i32 %53, %.sroa.6.0.copyload
+  %55 = xor i32 %54, %52
+  %56 = add i32 %55, %51
+  %57 = add i32 %56, %46
+  %58 = add i32 %46, %.sroa.7.0.copyload
+  %59 = tail call i32 @llvm.fshl.i32(i32 %58, i32 %58, i32 26)
+  %60 = tail call i32 @llvm.fshl.i32(i32 %58, i32 %58, i32 21)
+  %61 = tail call i32 @llvm.fshl.i32(i32 %58, i32 %58, i32 7)
+  %62 = xor i32 %60, %61
+  %63 = xor i32 %62, %59
+  %64 = and i32 %58, %.sroa.8.0.copyload
+  %65 = xor i32 %58, -1
+  %66 = and i32 %.sroa.9.0.copyload, %65
+  %67 = or i32 %64, %66
+  %68 = add i32 %.sroa.10.0.copyload, 1899447441
+  %69 = add i32 %68, %5
+  %70 = add i32 %69, %67
+  %71 = add i32 %70, %63
+  %72 = tail call i32 @llvm.fshl.i32(i32 %57, i32 %57, i32 30)
+  %73 = tail call i32 @llvm.fshl.i32(i32 %57, i32 %57, i32 19)
+  %74 = tail call i32 @llvm.fshl.i32(i32 %57, i32 %57, i32 10)
+  %75 = xor i32 %73, %74
+  %76 = xor i32 %75, %72
+  %77 = and i32 %57, %.sroa.05961.0.copyload
+  %78 = xor i32 %57, %.sroa.05961.0.copyload
+  %79 = and i32 %78, %.sroa.5.0.copyload
+  %80 = xor i32 %79, %77
+  %81 = add i32 %76, %80
+  %82 = add i32 %81, %71
+  %83 = add i32 %71, %.sroa.6.0.copyload
+  %84 = tail call i32 @llvm.fshl.i32(i32 %83, i32 %83, i32 26)
+  %85 = tail call i32 @llvm.fshl.i32(i32 %83, i32 %83, i32 21)
+  %86 = tail call i32 @llvm.fshl.i32(i32 %83, i32 %83, i32 7)
+  %87 = xor i32 %85, %86
+  %88 = xor i32 %87, %84
+  %89 = and i32 %83, %58
+  %90 = xor i32 %83, -1
+  %91 = and i32 %.sroa.8.0.copyload, %90
+  %92 = or i32 %89, %91
+  %93 = add i32 %.sroa.9.0.copyload, -1245643825
+  %94 = add i32 %93, %7
+  %95 = add i32 %94, %92
+  %96 = add i32 %95, %88
+  %97 = tail call i32 @llvm.fshl.i32(i32 %82, i32 %82, i32 30)
+  %98 = tail call i32 @llvm.fshl.i32(i32 %82, i32 %82, i32 19)
+  %99 = tail call i32 @llvm.fshl.i32(i32 %82, i32 %82, i32 10)
+  %100 = xor i32 %98, %99
+  %101 = xor i32 %100, %97
+  %102 = and i32 %82, %57
+  %103 = xor i32 %82, %57
+  %104 = and i32 %103, %.sroa.05961.0.copyload
+  %105 = xor i32 %104, %102
+  %106 = add i32 %101, %105
+  %107 = add i32 %106, %96
+  %108 = add i32 %96, %.sroa.5.0.copyload
+  %109 = tail call i32 @llvm.fshl.i32(i32 %108, i32 %108, i32 26)
+  %110 = tail call i32 @llvm.fshl.i32(i32 %108, i32 %108, i32 21)
+  %111 = tail call i32 @llvm.fshl.i32(i32 %108, i32 %108, i32 7)
+  %112 = xor i32 %110, %111
+  %113 = xor i32 %112, %109
+  %114 = and i32 %108, %83
+  %115 = xor i32 %108, -1
+  %116 = and i32 %58, %115
+  %117 = or i32 %114, %116
+  %118 = add i32 %.sroa.8.0.copyload, -373957723
+  %119 = add i32 %118, %9
+  %120 = add i32 %119, %117
+  %121 = add i32 %120, %113
+  %122 = tail call i32 @llvm.fshl.i32(i32 %107, i32 %107, i32 30)
+  %123 = tail call i32 @llvm.fshl.i32(i32 %107, i32 %107, i32 19)
+  %124 = tail call i32 @llvm.fshl.i32(i32 %107, i32 %107, i32 10)
+  %125 = xor i32 %123, %124
+  %126 = xor i32 %125, %122
+  %127 = and i32 %107, %82
+  %128 = xor i32 %107, %82
+  %129 = and i32 %128, %57
+  %130 = xor i32 %129, %127
+  %131 = add i32 %126, %130
+  %132 = add i32 %131, %121
+  %133 = add i32 %121, %.sroa.05961.0.copyload
+  %134 = tail call i32 @llvm.fshl.i32(i32 %133, i32 %133, i32 26)
+  %135 = tail call i32 @llvm.fshl.i32(i32 %133, i32 %133, i32 21)
+  %136 = tail call i32 @llvm.fshl.i32(i32 %133, i32 %133, i32 7)
+  %137 = xor i32 %135, %136
+  %138 = xor i32 %137, %134
+  %139 = and i32 %133, %108
+  %140 = xor i32 %133, -1
+  %141 = and i32 %83, %140
+  %142 = or i32 %139, %141
+  %143 = add i32 %58, 961987163
+  %144 = add i32 %143, %11
+  %145 = add i32 %144, %142
+  %146 = add i32 %145, %138
+  %147 = tail call i32 @llvm.fshl.i32(i32 %132, i32 %132, i32 30)
+  %148 = tail call i32 @llvm.fshl.i32(i32 %132, i32 %132, i32 19)
+  %149 = tail call i32 @llvm.fshl.i32(i32 %132, i32 %132, i32 10)
+  %150 = xor i32 %148, %149
+  %151 = xor i32 %150, %147
+  %152 = and i32 %132, %107
+  %153 = xor i32 %132, %107
+  %154 = and i32 %153, %82
+  %155 = xor i32 %154, %152
+  %156 = add i32 %151, %155
+  %157 = add i32 %156, %146
+  %158 = add i32 %146, %57
+  %159 = tail call i32 @llvm.fshl.i32(i32 %158, i32 %158, i32 26)
+  %160 = tail call i32 @llvm.fshl.i32(i32 %158, i32 %158, i32 21)
+  %161 = tail call i32 @llvm.fshl.i32(i32 %158, i32 %158, i32 7)
+  %162 = xor i32 %160, %161
+  %163 = xor i32 %162, %159
+  %164 = and i32 %158, %133
+  %165 = xor i32 %158, -1
+  %166 = and i32 %108, %165
+  %167 = or i32 %164, %166
+  %168 = add i32 %13, 1508970993
+  %169 = add i32 %168, %83
+  %170 = add i32 %169, %167
+  %171 = add i32 %170, %163
+  %172 = tail call i32 @llvm.fshl.i32(i32 %157, i32 %157, i32 30)
+  %173 = tail call i32 @llvm.fshl.i32(i32 %157, i32 %157, i32 19)
+  %174 = tail call i32 @llvm.fshl.i32(i32 %157, i32 %157, i32 10)
+  %175 = xor i32 %173, %174
+  %176 = xor i32 %175, %172
+  %177 = and i32 %157, %132
+  %178 = xor i32 %157, %132
+  %179 = and i32 %178, %107
+  %180 = xor i32 %179, %177
+  %181 = add i32 %176, %180
+  %182 = add i32 %181, %171
+  %183 = add i32 %171, %82
+  %184 = tail call i32 @llvm.fshl.i32(i32 %183, i32 %183, i32 26)
+  %185 = tail call i32 @llvm.fshl.i32(i32 %183, i32 %183, i32 21)
+  %186 = tail call i32 @llvm.fshl.i32(i32 %183, i32 %183, i32 7)
+  %187 = xor i32 %185, %186
+  %188 = xor i32 %187, %184
+  %189 = and i32 %183, %158
+  %190 = xor i32 %183, -1
+  %191 = and i32 %133, %190
+  %192 = or i32 %189, %191
+  %193 = add i32 %15, -1841331548
+  %194 = add i32 %193, %108
+  %195 = add i32 %194, %192
+  %196 = add i32 %195, %188
+  %197 = tail call i32 @llvm.fshl.i32(i32 %182, i32 %182, i32 30)
+  %198 = tail call i32 @llvm.fshl.i32(i32 %182, i32 %182, i32 19)
+  %199 = tail call i32 @llvm.fshl.i32(i32 %182, i32 %182, i32 10)
+  %200 = xor i32 %198, %199
+  %201 = xor i32 %200, %197
+  %202 = and i32 %182, %157
+  %203 = xor i32 %182, %157
+  %204 = and i32 %203, %132
+  %205 = xor i32 %204, %202
+  %206 = add i32 %201, %205
+  %207 = add i32 %206, %196
+  %208 = add i32 %196, %107
+  %209 = tail call i32 @llvm.fshl.i32(i32 %208, i32 %208, i32 26)
+  %210 = tail call i32 @llvm.fshl.i32(i32 %208, i32 %208, i32 21)
+  %211 = tail call i32 @llvm.fshl.i32(i32 %208, i32 %208, i32 7)
+  %212 = xor i32 %210, %211
+  %213 = xor i32 %212, %209
+  %214 = and i32 %208, %183
+  %215 = xor i32 %208, -1
+  %216 = and i32 %158, %215
+  %217 = or i32 %214, %216
+  %218 = add i32 %17, -1424204075
+  %219 = add i32 %218, %133
+  %220 = add i32 %219, %217
+  %221 = add i32 %220, %213
+  %222 = tail call i32 @llvm.fshl.i32(i32 %207, i32 %207, i32 30)
+  %223 = tail call i32 @llvm.fshl.i32(i32 %207, i32 %207, i32 19)
+  %224 = tail call i32 @llvm.fshl.i32(i32 %207, i32 %207, i32 10)
+  %225 = xor i32 %223, %224
+  %226 = xor i32 %225, %222
+  %227 = and i32 %207, %182
+  %228 = xor i32 %207, %182
+  %229 = and i32 %228, %157
+  %230 = xor i32 %229, %227
+  %231 = add i32 %226, %230
+  %232 = add i32 %231, %221
+  %233 = add i32 %221, %132
+  %234 = tail call i32 @llvm.fshl.i32(i32 %233, i32 %233, i32 26)
+  %235 = tail call i32 @llvm.fshl.i32(i32 %233, i32 %233, i32 21)
+  %236 = tail call i32 @llvm.fshl.i32(i32 %233, i32 %233, i32 7)
+  %237 = xor i32 %235, %236
+  %238 = xor i32 %237, %234
+  %239 = and i32 %233, %208
+  %240 = xor i32 %233, -1
+  %241 = and i32 %183, %240
+  %242 = or i32 %239, %241
+  %243 = add i32 %19, -670586216
+  %244 = add i32 %243, %158
+  %245 = add i32 %244, %242
+  %246 = add i32 %245, %238
+  %247 = tail call i32 @llvm.fshl.i32(i32 %232, i32 %232, i32 30)
+  %248 = tail call i32 @llvm.fshl.i32(i32 %232, i32 %232, i32 19)
+  %249 = tail call i32 @llvm.fshl.i32(i32 %232, i32 %232, i32 10)
+  %250 = xor i32 %248, %249
+  %251 = xor i32 %250, %247
+  %252 = and i32 %232, %207
+  %253 = xor i32 %232, %207
+  %254 = and i32 %253, %182
+  %255 = xor i32 %254, %252
+  %256 = add i32 %251, %255
+  %257 = add i32 %256, %246
+  %258 = add i32 %246, %157
+  %259 = tail call i32 @llvm.fshl.i32(i32 %258, i32 %258, i32 26)
+  %260 = tail call i32 @llvm.fshl.i32(i32 %258, i32 %258, i32 21)
+  %261 = tail call i32 @llvm.fshl.i32(i32 %258, i32 %258, i32 7)
+  %262 = xor i32 %260, %261
+  %263 = xor i32 %262, %259
+  %264 = and i32 %258, %233
+  %265 = xor i32 %258, -1
+  %266 = and i32 %208, %265
+  %267 = or i32 %264, %266
+  %268 = add i32 %21, 310598401
+  %269 = add i32 %268, %183
+  %270 = add i32 %269, %267
+  %271 = add i32 %270, %263
+  %272 = tail call i32 @llvm.fshl.i32(i32 %257, i32 %257, i32 30)
+  %273 = tail call i32 @llvm.fshl.i32(i32 %257, i32 %257, i32 19)
+  %274 = tail call i32 @llvm.fshl.i32(i32 %257, i32 %257, i32 10)
+  %275 = xor i32 %273, %274
+  %276 = xor i32 %275, %272
+  %277 = and i32 %257, %232
+  %278 = xor i32 %257, %232
+  %279 = and i32 %278, %207
+  %280 = xor i32 %279, %277
+  %281 = add i32 %276, %280
+  %282 = add i32 %281, %271
+  %283 = add i32 %271, %182
+  %284 = tail call i32 @llvm.fshl.i32(i32 %283, i32 %283, i32 26)
+  %285 = tail call i32 @llvm.fshl.i32(i32 %283, i32 %283, i32 21)
+  %286 = tail call i32 @llvm.fshl.i32(i32 %283, i32 %283, i32 7)
+  %287 = xor i32 %285, %286
+  %288 = xor i32 %287, %284
+  %289 = and i32 %283, %258
+  %290 = xor i32 %283, -1
+  %291 = and i32 %233, %290
+  %292 = or i32 %289, %291
+  %293 = add i32 %23, 607225278
+  %294 = add i32 %293, %208
+  %295 = add i32 %294, %292
+  %296 = add i32 %295, %288
+  %297 = tail call i32 @llvm.fshl.i32(i32 %282, i32 %282, i32 30)
+  %298 = tail call i32 @llvm.fshl.i32(i32 %282, i32 %282, i32 19)
+  %299 = tail call i32 @llvm.fshl.i32(i32 %282, i32 %282, i32 10)
+  %300 = xor i32 %298, %299
+  %301 = xor i32 %300, %297
+  %302 = and i32 %282, %257
+  %303 = xor i32 %282, %257
+  %304 = and i32 %303, %232
+  %305 = xor i32 %304, %302
+  %306 = add i32 %301, %305
+  %307 = add i32 %306, %296
+  %308 = add i32 %296, %207
+  %309 = tail call i32 @llvm.fshl.i32(i32 %308, i32 %308, i32 26)
+  %310 = tail call i32 @llvm.fshl.i32(i32 %308, i32 %308, i32 21)
+  %311 = tail call i32 @llvm.fshl.i32(i32 %308, i32 %308, i32 7)
+  %312 = xor i32 %310, %311
+  %313 = xor i32 %312, %309
+  %314 = and i32 %308, %283
+  %315 = xor i32 %308, -1
+  %316 = and i32 %258, %315
+  %317 = or i32 %314, %316
+  %318 = add i32 %25, 1426881987
+  %319 = add i32 %318, %233
+  %320 = add i32 %319, %317
+  %321 = add i32 %320, %313
+  %322 = tail call i32 @llvm.fshl.i32(i32 %307, i32 %307, i32 30)
+  %323 = tail call i32 @llvm.fshl.i32(i32 %307, i32 %307, i32 19)
+  %324 = tail call i32 @llvm.fshl.i32(i32 %307, i32 %307, i32 10)
+  %325 = xor i32 %323, %324
+  %326 = xor i32 %325, %322
+  %327 = and i32 %307, %282
+  %328 = xor i32 %307, %282
+  %329 = and i32 %328, %257
+  %330 = xor i32 %329, %327
+  %331 = add i32 %326, %330
+  %332 = add i32 %331, %321
+  %333 = add i32 %321, %232
+  %334 = tail call i32 @llvm.fshl.i32(i32 %333, i32 %333, i32 26)
+  %335 = tail call i32 @llvm.fshl.i32(i32 %333, i32 %333, i32 21)
+  %336 = tail call i32 @llvm.fshl.i32(i32 %333, i32 %333, i32 7)
+  %337 = xor i32 %335, %336
+  %338 = xor i32 %337, %334
+  %339 = and i32 %333, %308
+  %340 = xor i32 %333, -1
+  %341 = and i32 %283, %340
+  %342 = or i32 %339, %341
+  %343 = add i32 %27, 1925078388
+  %344 = add i32 %343, %258
+  %345 = add i32 %344, %342
+  %346 = add i32 %345, %338
+  %347 = tail call i32 @llvm.fshl.i32(i32 %332, i32 %332, i32 30)
+  %348 = tail call i32 @llvm.fshl.i32(i32 %332, i32 %332, i32 19)
+  %349 = tail call i32 @llvm.fshl.i32(i32 %332, i32 %332, i32 10)
+  %350 = xor i32 %348, %349
+  %351 = xor i32 %350, %347
+  %352 = and i32 %332, %307
+  %353 = xor i32 %332, %307
+  %354 = and i32 %353, %282
+  %355 = xor i32 %354, %352
+  %356 = add i32 %351, %355
+  %357 = add i32 %356, %346
+  %358 = add i32 %346, %257
+  %359 = tail call i32 @llvm.fshl.i32(i32 %358, i32 %358, i32 26)
+  %360 = tail call i32 @llvm.fshl.i32(i32 %358, i32 %358, i32 21)
+  %361 = tail call i32 @llvm.fshl.i32(i32 %358, i32 %358, i32 7)
+  %362 = xor i32 %360, %361
+  %363 = xor i32 %362, %359
+  %364 = and i32 %358, %333
+  %365 = xor i32 %358, -1
+  %366 = and i32 %308, %365
+  %367 = or i32 %364, %366
+  %368 = add i32 %29, -2132889090
+  %369 = add i32 %368, %283
+  %370 = add i32 %369, %367
+  %371 = add i32 %370, %363
+  %372 = tail call i32 @llvm.fshl.i32(i32 %357, i32 %357, i32 30)
+  %373 = tail call i32 @llvm.fshl.i32(i32 %357, i32 %357, i32 19)
+  %374 = tail call i32 @llvm.fshl.i32(i32 %357, i32 %357, i32 10)
+  %375 = xor i32 %373, %374
+  %376 = xor i32 %375, %372
+  %377 = and i32 %357, %332
+  %378 = xor i32 %357, %332
+  %379 = and i32 %378, %307
+  %380 = xor i32 %379, %377
+  %381 = add i32 %376, %380
+  %382 = add i32 %381, %371
+  %383 = add i32 %371, %282
+  %384 = tail call i32 @llvm.fshl.i32(i32 %383, i32 %383, i32 26)
+  %385 = tail call i32 @llvm.fshl.i32(i32 %383, i32 %383, i32 21)
+  %386 = tail call i32 @llvm.fshl.i32(i32 %383, i32 %383, i32 7)
+  %387 = xor i32 %385, %386
+  %388 = xor i32 %387, %384
+  %389 = and i32 %383, %358
+  %390 = xor i32 %383, -1
+  %391 = and i32 %333, %390
+  %392 = or i32 %389, %391
+  %393 = add i32 %31, -1680079193
+  %394 = add i32 %393, %308
+  %395 = add i32 %394, %392
+  %396 = add i32 %395, %388
+  %397 = tail call i32 @llvm.fshl.i32(i32 %382, i32 %382, i32 30)
+  %398 = tail call i32 @llvm.fshl.i32(i32 %382, i32 %382, i32 19)
+  %399 = tail call i32 @llvm.fshl.i32(i32 %382, i32 %382, i32 10)
+  %400 = xor i32 %398, %399
+  %401 = xor i32 %400, %397
+  %402 = and i32 %382, %357
+  %403 = xor i32 %382, %357
+  %404 = and i32 %403, %332
+  %405 = xor i32 %404, %402
+  %406 = add i32 %401, %405
+  %407 = add i32 %406, %396
+  %408 = add i32 %396, %307
+  %409 = tail call i32 @llvm.fshl.i32(i32 %408, i32 %408, i32 26)
+  %410 = tail call i32 @llvm.fshl.i32(i32 %408, i32 %408, i32 21)
+  %411 = tail call i32 @llvm.fshl.i32(i32 %408, i32 %408, i32 7)
+  %412 = xor i32 %410, %411
+  %413 = xor i32 %412, %409
+  %414 = and i32 %408, %383
+  %415 = xor i32 %408, -1
+  %416 = and i32 %358, %415
+  %417 = or i32 %414, %416
+  %418 = add i32 %33, -1046744716
+  %419 = add i32 %418, %333
+  %420 = add i32 %419, %417
+  %421 = add i32 %420, %413
+  %422 = tail call i32 @llvm.fshl.i32(i32 %407, i32 %407, i32 30)
+  %423 = tail call i32 @llvm.fshl.i32(i32 %407, i32 %407, i32 19)
+  %424 = tail call i32 @llvm.fshl.i32(i32 %407, i32 %407, i32 10)
+  %425 = xor i32 %423, %424
+  %426 = xor i32 %425, %422
+  %427 = and i32 %407, %382
+  %428 = xor i32 %407, %382
+  %429 = and i32 %428, %357
+  %430 = xor i32 %429, %427
+  %431 = add i32 %426, %430
+  %432 = add i32 %431, %421
+  %433 = add i32 %421, %332
+  %434 = tail call i32 @llvm.fshl.i32(i32 %31, i32 %31, i32 15)
+  %435 = tail call i32 @llvm.fshl.i32(i32 %31, i32 %31, i32 13)
+  %436 = lshr i32 %31, 10
+  %437 = xor i32 %435, %436
+  %438 = xor i32 %437, %434
+  %439 = tail call i32 @llvm.fshl.i32(i32 %5, i32 %5, i32 25)
+  %440 = tail call i32 @llvm.fshl.i32(i32 %5, i32 %5, i32 14)
+  %441 = lshr i32 %5, 3
+  %442 = xor i32 %440, %441
+  %443 = xor i32 %442, %439
+  %444 = add i32 %443, %3
+  %445 = add i32 %444, %21
+  %446 = add i32 %445, %438
+  %447 = tail call i32 @llvm.fshl.i32(i32 %33, i32 %33, i32 15)
+  %448 = tail call i32 @llvm.fshl.i32(i32 %33, i32 %33, i32 13)
+  %449 = lshr i32 %33, 10
+  %450 = xor i32 %448, %449
+  %451 = xor i32 %450, %447
+  %452 = tail call i32 @llvm.fshl.i32(i32 %7, i32 %7, i32 25)
+  %453 = tail call i32 @llvm.fshl.i32(i32 %7, i32 %7, i32 14)
+  %454 = lshr i32 %7, 3
+  %455 = xor i32 %453, %454
+  %456 = xor i32 %455, %452
+  %457 = add i32 %456, %5
+  %458 = add i32 %457, %23
+  %459 = add i32 %458, %451
+  %460 = tail call i32 @llvm.fshl.i32(i32 %446, i32 %446, i32 15)
+  %461 = tail call i32 @llvm.fshl.i32(i32 %446, i32 %446, i32 13)
+  %462 = lshr i32 %446, 10
+  %463 = xor i32 %461, %462
+  %464 = xor i32 %463, %460
+  %465 = tail call i32 @llvm.fshl.i32(i32 %9, i32 %9, i32 25)
+  %466 = tail call i32 @llvm.fshl.i32(i32 %9, i32 %9, i32 14)
+  %467 = lshr i32 %9, 3
+  %468 = xor i32 %466, %467
+  %469 = xor i32 %468, %465
+  %470 = add i32 %469, %7
+  %471 = add i32 %470, %25
+  %472 = add i32 %471, %464
+  %473 = tail call i32 @llvm.fshl.i32(i32 %459, i32 %459, i32 15)
+  %474 = tail call i32 @llvm.fshl.i32(i32 %459, i32 %459, i32 13)
+  %475 = lshr i32 %459, 10
+  %476 = xor i32 %474, %475
+  %477 = xor i32 %476, %473
+  %478 = tail call i32 @llvm.fshl.i32(i32 %11, i32 %11, i32 25)
+  %479 = tail call i32 @llvm.fshl.i32(i32 %11, i32 %11, i32 14)
+  %480 = lshr i32 %11, 3
+  %481 = xor i32 %479, %480
+  %482 = xor i32 %481, %478
+  %483 = add i32 %482, %9
+  %484 = add i32 %483, %27
+  %485 = add i32 %484, %477
+  %486 = tail call i32 @llvm.fshl.i32(i32 %472, i32 %472, i32 15)
+  %487 = tail call i32 @llvm.fshl.i32(i32 %472, i32 %472, i32 13)
+  %488 = lshr i32 %472, 10
+  %489 = xor i32 %487, %488
+  %490 = xor i32 %489, %486
+  %491 = tail call i32 @llvm.fshl.i32(i32 %13, i32 %13, i32 25)
+  %492 = tail call i32 @llvm.fshl.i32(i32 %13, i32 %13, i32 14)
+  %493 = lshr i32 %13, 3
+  %494 = xor i32 %492, %493
+  %495 = xor i32 %494, %491
+  %496 = add i32 %495, %11
+  %497 = add i32 %496, %29
+  %498 = add i32 %497, %490
+  %499 = tail call i32 @llvm.fshl.i32(i32 %485, i32 %485, i32 15)
+  %500 = tail call i32 @llvm.fshl.i32(i32 %485, i32 %485, i32 13)
+  %501 = lshr i32 %485, 10
+  %502 = xor i32 %500, %501
+  %503 = xor i32 %502, %499
+  %504 = tail call i32 @llvm.fshl.i32(i32 %15, i32 %15, i32 25)
+  %505 = tail call i32 @llvm.fshl.i32(i32 %15, i32 %15, i32 14)
+  %506 = lshr i32 %15, 3
+  %507 = xor i32 %505, %506
+  %508 = xor i32 %507, %504
+  %509 = add i32 %508, %13
+  %510 = add i32 %509, %31
+  %511 = add i32 %510, %503
+  %512 = tail call i32 @llvm.fshl.i32(i32 %498, i32 %498, i32 15)
+  %513 = tail call i32 @llvm.fshl.i32(i32 %498, i32 %498, i32 13)
+  %514 = lshr i32 %498, 10
+  %515 = xor i32 %513, %514
+  %516 = xor i32 %515, %512
+  %517 = tail call i32 @llvm.fshl.i32(i32 %17, i32 %17, i32 25)
+  %518 = tail call i32 @llvm.fshl.i32(i32 %17, i32 %17, i32 14)
+  %519 = lshr i32 %17, 3
+  %520 = xor i32 %518, %519
+  %521 = xor i32 %520, %517
+  %522 = add i32 %521, %15
+  %523 = add i32 %522, %33
+  %524 = add i32 %523, %516
+  %525 = tail call i32 @llvm.fshl.i32(i32 %511, i32 %511, i32 15)
+  %526 = tail call i32 @llvm.fshl.i32(i32 %511, i32 %511, i32 13)
+  %527 = lshr i32 %511, 10
+  %528 = xor i32 %526, %527
+  %529 = xor i32 %528, %525
+  %530 = tail call i32 @llvm.fshl.i32(i32 %19, i32 %19, i32 25)
+  %531 = tail call i32 @llvm.fshl.i32(i32 %19, i32 %19, i32 14)
+  %532 = lshr i32 %19, 3
+  %533 = xor i32 %531, %532
+  %534 = xor i32 %533, %530
+  %535 = add i32 %534, %17
+  %536 = add i32 %535, %446
+  %537 = add i32 %536, %529
+  %538 = tail call i32 @llvm.fshl.i32(i32 %524, i32 %524, i32 15)
+  %539 = tail call i32 @llvm.fshl.i32(i32 %524, i32 %524, i32 13)
+  %540 = lshr i32 %524, 10
+  %541 = xor i32 %539, %540
+  %542 = xor i32 %541, %538
+  %543 = tail call i32 @llvm.fshl.i32(i32 %21, i32 %21, i32 25)
+  %544 = tail call i32 @llvm.fshl.i32(i32 %21, i32 %21, i32 14)
+  %545 = lshr i32 %21, 3
+  %546 = xor i32 %544, %545
+  %547 = xor i32 %546, %543
+  %548 = add i32 %547, %19
+  %549 = add i32 %548, %459
+  %550 = add i32 %549, %542
+  %551 = tail call i32 @llvm.fshl.i32(i32 %537, i32 %537, i32 15)
+  %552 = tail call i32 @llvm.fshl.i32(i32 %537, i32 %537, i32 13)
+  %553 = lshr i32 %537, 10
+  %554 = xor i32 %552, %553
+  %555 = xor i32 %554, %551
+  %556 = tail call i32 @llvm.fshl.i32(i32 %23, i32 %23, i32 25)
+  %557 = tail call i32 @llvm.fshl.i32(i32 %23, i32 %23, i32 14)
+  %558 = lshr i32 %23, 3
+  %559 = xor i32 %557, %558
+  %560 = xor i32 %559, %556
+  %561 = add i32 %560, %21
+  %562 = add i32 %561, %472
+  %563 = add i32 %562, %555
+  %564 = tail call i32 @llvm.fshl.i32(i32 %550, i32 %550, i32 15)
+  %565 = tail call i32 @llvm.fshl.i32(i32 %550, i32 %550, i32 13)
+  %566 = lshr i32 %550, 10
+  %567 = xor i32 %565, %566
+  %568 = xor i32 %567, %564
+  %569 = tail call i32 @llvm.fshl.i32(i32 %25, i32 %25, i32 25)
+  %570 = tail call i32 @llvm.fshl.i32(i32 %25, i32 %25, i32 14)
+  %571 = lshr i32 %25, 3
+  %572 = xor i32 %570, %571
+  %573 = xor i32 %572, %569
+  %574 = add i32 %573, %23
+  %575 = add i32 %574, %485
+  %576 = add i32 %575, %568
+  %577 = tail call i32 @llvm.fshl.i32(i32 %563, i32 %563, i32 15)
+  %578 = tail call i32 @llvm.fshl.i32(i32 %563, i32 %563, i32 13)
+  %579 = lshr i32 %563, 10
+  %580 = xor i32 %578, %579
+  %581 = xor i32 %580, %577
+  %582 = tail call i32 @llvm.fshl.i32(i32 %27, i32 %27, i32 25)
+  %583 = tail call i32 @llvm.fshl.i32(i32 %27, i32 %27, i32 14)
+  %584 = lshr i32 %27, 3
+  %585 = xor i32 %583, %584
+  %586 = xor i32 %585, %582
+  %587 = add i32 %586, %25
+  %588 = add i32 %587, %498
+  %589 = add i32 %588, %581
+  %590 = tail call i32 @llvm.fshl.i32(i32 %576, i32 %576, i32 15)
+  %591 = tail call i32 @llvm.fshl.i32(i32 %576, i32 %576, i32 13)
+  %592 = lshr i32 %576, 10
+  %593 = xor i32 %591, %592
+  %594 = xor i32 %593, %590
+  %595 = tail call i32 @llvm.fshl.i32(i32 %29, i32 %29, i32 25)
+  %596 = tail call i32 @llvm.fshl.i32(i32 %29, i32 %29, i32 14)
+  %597 = lshr i32 %29, 3
+  %598 = xor i32 %596, %597
+  %599 = xor i32 %598, %595
+  %600 = add i32 %599, %27
+  %601 = add i32 %600, %511
+  %602 = add i32 %601, %594
+  %603 = tail call i32 @llvm.fshl.i32(i32 %589, i32 %589, i32 15)
+  %604 = tail call i32 @llvm.fshl.i32(i32 %589, i32 %589, i32 13)
+  %605 = lshr i32 %589, 10
+  %606 = xor i32 %604, %605
+  %607 = xor i32 %606, %603
+  %608 = tail call i32 @llvm.fshl.i32(i32 %31, i32 %31, i32 25)
+  %609 = tail call i32 @llvm.fshl.i32(i32 %31, i32 %31, i32 14)
+  %610 = lshr i32 %31, 3
+  %611 = xor i32 %609, %610
+  %612 = xor i32 %611, %608
+  %613 = add i32 %612, %29
+  %614 = add i32 %613, %524
+  %615 = add i32 %614, %607
+  %616 = tail call i32 @llvm.fshl.i32(i32 %602, i32 %602, i32 15)
+  %617 = tail call i32 @llvm.fshl.i32(i32 %602, i32 %602, i32 13)
+  %618 = lshr i32 %602, 10
+  %619 = xor i32 %617, %618
+  %620 = xor i32 %619, %616
+  %621 = tail call i32 @llvm.fshl.i32(i32 %33, i32 %33, i32 25)
+  %622 = tail call i32 @llvm.fshl.i32(i32 %33, i32 %33, i32 14)
+  %623 = lshr i32 %33, 3
+  %624 = xor i32 %622, %623
+  %625 = xor i32 %624, %621
+  %626 = add i32 %625, %31
+  %627 = add i32 %626, %537
+  %628 = add i32 %627, %620
+  %629 = tail call i32 @llvm.fshl.i32(i32 %615, i32 %615, i32 15)
+  %630 = tail call i32 @llvm.fshl.i32(i32 %615, i32 %615, i32 13)
+  %631 = lshr i32 %615, 10
+  %632 = xor i32 %630, %631
+  %633 = xor i32 %632, %629
+  %634 = tail call i32 @llvm.fshl.i32(i32 %446, i32 %446, i32 25)
+  %635 = tail call i32 @llvm.fshl.i32(i32 %446, i32 %446, i32 14)
+  %636 = lshr i32 %446, 3
+  %637 = xor i32 %635, %636
+  %638 = xor i32 %637, %634
+  %639 = add i32 %638, %33
+  %640 = add i32 %639, %550
+  %641 = add i32 %640, %633
+  %642 = tail call i32 @llvm.fshl.i32(i32 %433, i32 %433, i32 26)
+  %643 = tail call i32 @llvm.fshl.i32(i32 %433, i32 %433, i32 21)
+  %644 = tail call i32 @llvm.fshl.i32(i32 %433, i32 %433, i32 7)
+  %645 = xor i32 %643, %644
+  %646 = xor i32 %645, %642
+  %647 = and i32 %433, %408
+  %648 = xor i32 %433, -1
+  %649 = and i32 %383, %648
+  %650 = or i32 %647, %649
+  %651 = add i32 %446, -459576895
+  %652 = add i32 %651, %358
+  %653 = add i32 %652, %650
+  %654 = add i32 %653, %646
+  %655 = tail call i32 @llvm.fshl.i32(i32 %432, i32 %432, i32 30)
+  %656 = tail call i32 @llvm.fshl.i32(i32 %432, i32 %432, i32 19)
+  %657 = tail call i32 @llvm.fshl.i32(i32 %432, i32 %432, i32 10)
+  %658 = xor i32 %656, %657
+  %659 = xor i32 %658, %655
+  %660 = and i32 %432, %407
+  %661 = xor i32 %432, %407
+  %662 = and i32 %661, %382
+  %663 = xor i32 %662, %660
+  %664 = add i32 %659, %663
+  %665 = add i32 %664, %654
+  %666 = add i32 %654, %357
+  %667 = tail call i32 @llvm.fshl.i32(i32 %666, i32 %666, i32 26)
+  %668 = tail call i32 @llvm.fshl.i32(i32 %666, i32 %666, i32 21)
+  %669 = tail call i32 @llvm.fshl.i32(i32 %666, i32 %666, i32 7)
+  %670 = xor i32 %668, %669
+  %671 = xor i32 %670, %667
+  %672 = and i32 %666, %433
+  %673 = xor i32 %666, -1
+  %674 = and i32 %408, %673
+  %675 = or i32 %672, %674
+  %676 = add i32 %459, -272742522
+  %677 = add i32 %676, %383
+  %678 = add i32 %677, %675
+  %679 = add i32 %678, %671
+  %680 = tail call i32 @llvm.fshl.i32(i32 %665, i32 %665, i32 30)
+  %681 = tail call i32 @llvm.fshl.i32(i32 %665, i32 %665, i32 19)
+  %682 = tail call i32 @llvm.fshl.i32(i32 %665, i32 %665, i32 10)
+  %683 = xor i32 %681, %682
+  %684 = xor i32 %683, %680
+  %685 = and i32 %665, %432
+  %686 = xor i32 %665, %432
+  %687 = and i32 %686, %407
+  %688 = xor i32 %687, %685
+  %689 = add i32 %684, %688
+  %690 = add i32 %689, %679
+  %691 = add i32 %679, %382
+  %692 = tail call i32 @llvm.fshl.i32(i32 %691, i32 %691, i32 26)
+  %693 = tail call i32 @llvm.fshl.i32(i32 %691, i32 %691, i32 21)
+  %694 = tail call i32 @llvm.fshl.i32(i32 %691, i32 %691, i32 7)
+  %695 = xor i32 %693, %694
+  %696 = xor i32 %695, %692
+  %697 = and i32 %691, %666
+  %698 = xor i32 %691, -1
+  %699 = and i32 %433, %698
+  %700 = or i32 %697, %699
+  %701 = add i32 %472, 264347078
+  %702 = add i32 %701, %408
+  %703 = add i32 %702, %700
+  %704 = add i32 %703, %696
+  %705 = tail call i32 @llvm.fshl.i32(i32 %690, i32 %690, i32 30)
+  %706 = tail call i32 @llvm.fshl.i32(i32 %690, i32 %690, i32 19)
+  %707 = tail call i32 @llvm.fshl.i32(i32 %690, i32 %690, i32 10)
+  %708 = xor i32 %706, %707
+  %709 = xor i32 %708, %705
+  %710 = and i32 %690, %665
+  %711 = xor i32 %690, %665
+  %712 = and i32 %711, %432
+  %713 = xor i32 %712, %710
+  %714 = add i32 %709, %713
+  %715 = add i32 %714, %704
+  %716 = add i32 %704, %407
+  %717 = tail call i32 @llvm.fshl.i32(i32 %716, i32 %716, i32 26)
+  %718 = tail call i32 @llvm.fshl.i32(i32 %716, i32 %716, i32 21)
+  %719 = tail call i32 @llvm.fshl.i32(i32 %716, i32 %716, i32 7)
+  %720 = xor i32 %718, %719
+  %721 = xor i32 %720, %717
+  %722 = and i32 %716, %691
+  %723 = xor i32 %716, -1
+  %724 = and i32 %666, %723
+  %725 = or i32 %722, %724
+  %726 = add i32 %485, 604807628
+  %727 = add i32 %726, %433
+  %728 = add i32 %727, %725
+  %729 = add i32 %728, %721
+  %730 = tail call i32 @llvm.fshl.i32(i32 %715, i32 %715, i32 30)
+  %731 = tail call i32 @llvm.fshl.i32(i32 %715, i32 %715, i32 19)
+  %732 = tail call i32 @llvm.fshl.i32(i32 %715, i32 %715, i32 10)
+  %733 = xor i32 %731, %732
+  %734 = xor i32 %733, %730
+  %735 = and i32 %715, %690
+  %736 = xor i32 %715, %690
+  %737 = and i32 %736, %665
+  %738 = xor i32 %737, %735
+  %739 = add i32 %734, %738
+  %740 = add i32 %739, %729
+  %741 = add i32 %729, %432
+  %742 = tail call i32 @llvm.fshl.i32(i32 %741, i32 %741, i32 26)
+  %743 = tail call i32 @llvm.fshl.i32(i32 %741, i32 %741, i32 21)
+  %744 = tail call i32 @llvm.fshl.i32(i32 %741, i32 %741, i32 7)
+  %745 = xor i32 %743, %744
+  %746 = xor i32 %745, %742
+  %747 = and i32 %741, %716
+  %748 = xor i32 %741, -1
+  %749 = and i32 %691, %748
+  %750 = or i32 %747, %749
+  %751 = add i32 %498, 770255983
+  %752 = add i32 %751, %666
+  %753 = add i32 %752, %750
+  %754 = add i32 %753, %746
+  %755 = tail call i32 @llvm.fshl.i32(i32 %740, i32 %740, i32 30)
+  %756 = tail call i32 @llvm.fshl.i32(i32 %740, i32 %740, i32 19)
+  %757 = tail call i32 @llvm.fshl.i32(i32 %740, i32 %740, i32 10)
+  %758 = xor i32 %756, %757
+  %759 = xor i32 %758, %755
+  %760 = and i32 %740, %715
+  %761 = xor i32 %740, %715
+  %762 = and i32 %761, %690
+  %763 = xor i32 %762, %760
+  %764 = add i32 %759, %763
+  %765 = add i32 %764, %754
+  %766 = add i32 %754, %665
+  %767 = tail call i32 @llvm.fshl.i32(i32 %766, i32 %766, i32 26)
+  %768 = tail call i32 @llvm.fshl.i32(i32 %766, i32 %766, i32 21)
+  %769 = tail call i32 @llvm.fshl.i32(i32 %766, i32 %766, i32 7)
+  %770 = xor i32 %768, %769
+  %771 = xor i32 %770, %767
+  %772 = and i32 %766, %741
+  %773 = xor i32 %766, -1
+  %774 = and i32 %716, %773
+  %775 = or i32 %772, %774
+  %776 = add i32 %511, 1249150122
+  %777 = add i32 %776, %691
+  %778 = add i32 %777, %775
+  %779 = add i32 %778, %771
+  %780 = tail call i32 @llvm.fshl.i32(i32 %765, i32 %765, i32 30)
+  %781 = tail call i32 @llvm.fshl.i32(i32 %765, i32 %765, i32 19)
+  %782 = tail call i32 @llvm.fshl.i32(i32 %765, i32 %765, i32 10)
+  %783 = xor i32 %781, %782
+  %784 = xor i32 %783, %780
+  %785 = and i32 %765, %740
+  %786 = xor i32 %765, %740
+  %787 = and i32 %786, %715
+  %788 = xor i32 %787, %785
+  %789 = add i32 %784, %788
+  %790 = add i32 %789, %779
+  %791 = add i32 %779, %690
+  %792 = tail call i32 @llvm.fshl.i32(i32 %791, i32 %791, i32 26)
+  %793 = tail call i32 @llvm.fshl.i32(i32 %791, i32 %791, i32 21)
+  %794 = tail call i32 @llvm.fshl.i32(i32 %791, i32 %791, i32 7)
+  %795 = xor i32 %793, %794
+  %796 = xor i32 %795, %792
+  %797 = and i32 %791, %766
+  %798 = xor i32 %791, -1
+  %799 = and i32 %741, %798
+  %800 = or i32 %797, %799
+  %801 = add i32 %524, 1555081692
+  %802 = add i32 %801, %716
+  %803 = add i32 %802, %800
+  %804 = add i32 %803, %796
+  %805 = tail call i32 @llvm.fshl.i32(i32 %790, i32 %790, i32 30)
+  %806 = tail call i32 @llvm.fshl.i32(i32 %790, i32 %790, i32 19)
+  %807 = tail call i32 @llvm.fshl.i32(i32 %790, i32 %790, i32 10)
+  %808 = xor i32 %806, %807
+  %809 = xor i32 %808, %805
+  %810 = and i32 %790, %765
+  %811 = xor i32 %790, %765
+  %812 = and i32 %811, %740
+  %813 = xor i32 %812, %810
+  %814 = add i32 %809, %813
+  %815 = add i32 %814, %804
+  %816 = add i32 %804, %715
+  %817 = tail call i32 @llvm.fshl.i32(i32 %816, i32 %816, i32 26)
+  %818 = tail call i32 @llvm.fshl.i32(i32 %816, i32 %816, i32 21)
+  %819 = tail call i32 @llvm.fshl.i32(i32 %816, i32 %816, i32 7)
+  %820 = xor i32 %818, %819
+  %821 = xor i32 %820, %817
+  %822 = and i32 %816, %791
+  %823 = xor i32 %816, -1
+  %824 = and i32 %766, %823
+  %825 = or i32 %822, %824
+  %826 = add i32 %537, 1996064986
+  %827 = add i32 %826, %741
+  %828 = add i32 %827, %825
+  %829 = add i32 %828, %821
+  %830 = tail call i32 @llvm.fshl.i32(i32 %815, i32 %815, i32 30)
+  %831 = tail call i32 @llvm.fshl.i32(i32 %815, i32 %815, i32 19)
+  %832 = tail call i32 @llvm.fshl.i32(i32 %815, i32 %815, i32 10)
+  %833 = xor i32 %831, %832
+  %834 = xor i32 %833, %830
+  %835 = and i32 %815, %790
+  %836 = xor i32 %815, %790
+  %837 = and i32 %836, %765
+  %838 = xor i32 %837, %835
+  %839 = add i32 %834, %838
+  %840 = add i32 %839, %829
+  %841 = add i32 %829, %740
+  %842 = tail call i32 @llvm.fshl.i32(i32 %841, i32 %841, i32 26)
+  %843 = tail call i32 @llvm.fshl.i32(i32 %841, i32 %841, i32 21)
+  %844 = tail call i32 @llvm.fshl.i32(i32 %841, i32 %841, i32 7)
+  %845 = xor i32 %843, %844
+  %846 = xor i32 %845, %842
+  %847 = and i32 %841, %816
+  %848 = xor i32 %841, -1
+  %849 = and i32 %791, %848
+  %850 = or i32 %847, %849
+  %851 = add i32 %550, -1740746414
+  %852 = add i32 %851, %766
+  %853 = add i32 %852, %850
+  %854 = add i32 %853, %846
+  %855 = tail call i32 @llvm.fshl.i32(i32 %840, i32 %840, i32 30)
+  %856 = tail call i32 @llvm.fshl.i32(i32 %840, i32 %840, i32 19)
+  %857 = tail call i32 @llvm.fshl.i32(i32 %840, i32 %840, i32 10)
+  %858 = xor i32 %856, %857
+  %859 = xor i32 %858, %855
+  %860 = and i32 %840, %815
+  %861 = xor i32 %840, %815
+  %862 = and i32 %861, %790
+  %863 = xor i32 %862, %860
+  %864 = add i32 %859, %863
+  %865 = add i32 %864, %854
+  %866 = add i32 %854, %765
+  %867 = tail call i32 @llvm.fshl.i32(i32 %866, i32 %866, i32 26)
+  %868 = tail call i32 @llvm.fshl.i32(i32 %866, i32 %866, i32 21)
+  %869 = tail call i32 @llvm.fshl.i32(i32 %866, i32 %866, i32 7)
+  %870 = xor i32 %868, %869
+  %871 = xor i32 %870, %867
+  %872 = and i32 %866, %841
+  %873 = xor i32 %866, -1
+  %874 = and i32 %816, %873
+  %875 = or i32 %872, %874
+  %876 = add i32 %563, -1473132947
+  %877 = add i32 %876, %791
+  %878 = add i32 %877, %875
+  %879 = add i32 %878, %871
+  %880 = tail call i32 @llvm.fshl.i32(i32 %865, i32 %865, i32 30)
+  %881 = tail call i32 @llvm.fshl.i32(i32 %865, i32 %865, i32 19)
+  %882 = tail call i32 @llvm.fshl.i32(i32 %865, i32 %865, i32 10)
+  %883 = xor i32 %881, %882
+  %884 = xor i32 %883, %880
+  %885 = and i32 %865, %840
+  %886 = xor i32 %865, %840
+  %887 = and i32 %886, %815
+  %888 = xor i32 %887, %885
+  %889 = add i32 %884, %888
+  %890 = add i32 %889, %879
+  %891 = add i32 %879, %790
+  %892 = tail call i32 @llvm.fshl.i32(i32 %891, i32 %891, i32 26)
+  %893 = tail call i32 @llvm.fshl.i32(i32 %891, i32 %891, i32 21)
+  %894 = tail call i32 @llvm.fshl.i32(i32 %891, i32 %891, i32 7)
+  %895 = xor i32 %893, %894
+  %896 = xor i32 %895, %892
+  %897 = and i32 %891, %866
+  %898 = xor i32 %891, -1
+  %899 = and i32 %841, %898
+  %900 = or i32 %897, %899
+  %901 = add i32 %576, -1341970488
+  %902 = add i32 %901, %816
+  %903 = add i32 %902, %900
+  %904 = add i32 %903, %896
+  %905 = tail call i32 @llvm.fshl.i32(i32 %890, i32 %890, i32 30)
+  %906 = tail call i32 @llvm.fshl.i32(i32 %890, i32 %890, i32 19)
+  %907 = tail call i32 @llvm.fshl.i32(i32 %890, i32 %890, i32 10)
+  %908 = xor i32 %906, %907
+  %909 = xor i32 %908, %905
+  %910 = and i32 %890, %865
+  %911 = xor i32 %890, %865
+  %912 = and i32 %911, %840
+  %913 = xor i32 %912, %910
+  %914 = add i32 %909, %913
+  %915 = add i32 %914, %904
+  %916 = add i32 %904, %815
+  %917 = tail call i32 @llvm.fshl.i32(i32 %916, i32 %916, i32 26)
+  %918 = tail call i32 @llvm.fshl.i32(i32 %916, i32 %916, i32 21)
+  %919 = tail call i32 @llvm.fshl.i32(i32 %916, i32 %916, i32 7)
+  %920 = xor i32 %918, %919
+  %921 = xor i32 %920, %917
+  %922 = and i32 %916, %891
+  %923 = xor i32 %916, -1
+  %924 = and i32 %866, %923
+  %925 = or i32 %922, %924
+  %926 = add i32 %589, -1084653625
+  %927 = add i32 %926, %841
+  %928 = add i32 %927, %925
+  %929 = add i32 %928, %921
+  %930 = tail call i32 @llvm.fshl.i32(i32 %915, i32 %915, i32 30)
+  %931 = tail call i32 @llvm.fshl.i32(i32 %915, i32 %915, i32 19)
+  %932 = tail call i32 @llvm.fshl.i32(i32 %915, i32 %915, i32 10)
+  %933 = xor i32 %931, %932
+  %934 = xor i32 %933, %930
+  %935 = and i32 %915, %890
+  %936 = xor i32 %915, %890
+  %937 = and i32 %936, %865
+  %938 = xor i32 %937, %935
+  %939 = add i32 %934, %938
+  %940 = add i32 %939, %929
+  %941 = add i32 %929, %840
+  %942 = tail call i32 @llvm.fshl.i32(i32 %941, i32 %941, i32 26)
+  %943 = tail call i32 @llvm.fshl.i32(i32 %941, i32 %941, i32 21)
+  %944 = tail call i32 @llvm.fshl.i32(i32 %941, i32 %941, i32 7)
+  %945 = xor i32 %943, %944
+  %946 = xor i32 %945, %942
+  %947 = and i32 %941, %916
+  %948 = xor i32 %941, -1
+  %949 = and i32 %891, %948
+  %950 = or i32 %947, %949
+  %951 = add i32 %602, -958395405
+  %952 = add i32 %951, %866
+  %953 = add i32 %952, %950
+  %954 = add i32 %953, %946
+  %955 = tail call i32 @llvm.fshl.i32(i32 %940, i32 %940, i32 30)
+  %956 = tail call i32 @llvm.fshl.i32(i32 %940, i32 %940, i32 19)
+  %957 = tail call i32 @llvm.fshl.i32(i32 %940, i32 %940, i32 10)
+  %958 = xor i32 %956, %957
+  %959 = xor i32 %958, %955
+  %960 = and i32 %940, %915
+  %961 = xor i32 %940, %915
+  %962 = and i32 %961, %890
+  %963 = xor i32 %962, %960
+  %964 = add i32 %959, %963
+  %965 = add i32 %964, %954
+  %966 = add i32 %954, %865
+  %967 = tail call i32 @llvm.fshl.i32(i32 %966, i32 %966, i32 26)
+  %968 = tail call i32 @llvm.fshl.i32(i32 %966, i32 %966, i32 21)
+  %969 = tail call i32 @llvm.fshl.i32(i32 %966, i32 %966, i32 7)
+  %970 = xor i32 %968, %969
+  %971 = xor i32 %970, %967
+  %972 = and i32 %966, %941
+  %973 = xor i32 %966, -1
+  %974 = and i32 %916, %973
+  %975 = or i32 %972, %974
+  %976 = add i32 %615, -710438585
+  %977 = add i32 %976, %891
+  %978 = add i32 %977, %975
+  %979 = add i32 %978, %971
+  %980 = tail call i32 @llvm.fshl.i32(i32 %965, i32 %965, i32 30)
+  %981 = tail call i32 @llvm.fshl.i32(i32 %965, i32 %965, i32 19)
+  %982 = tail call i32 @llvm.fshl.i32(i32 %965, i32 %965, i32 10)
+  %983 = xor i32 %981, %982
+  %984 = xor i32 %983, %980
+  %985 = and i32 %965, %940
+  %986 = xor i32 %965, %940
+  %987 = and i32 %986, %915
+  %988 = xor i32 %987, %985
+  %989 = add i32 %984, %988
+  %990 = add i32 %989, %979
+  %991 = add i32 %979, %890
+  %992 = tail call i32 @llvm.fshl.i32(i32 %991, i32 %991, i32 26)
+  %993 = tail call i32 @llvm.fshl.i32(i32 %991, i32 %991, i32 21)
+  %994 = tail call i32 @llvm.fshl.i32(i32 %991, i32 %991, i32 7)
+  %995 = xor i32 %993, %994
+  %996 = xor i32 %995, %992
+  %997 = and i32 %991, %966
+  %998 = xor i32 %991, -1
+  %999 = and i32 %941, %998
+  %1000 = or i32 %997, %999
+  %1001 = add i32 %628, 113926993
+  %1002 = add i32 %1001, %916
+  %1003 = add i32 %1002, %1000
+  %1004 = add i32 %1003, %996
+  %1005 = tail call i32 @llvm.fshl.i32(i32 %990, i32 %990, i32 30)
+  %1006 = tail call i32 @llvm.fshl.i32(i32 %990, i32 %990, i32 19)
+  %1007 = tail call i32 @llvm.fshl.i32(i32 %990, i32 %990, i32 10)
+  %1008 = xor i32 %1006, %1007
+  %1009 = xor i32 %1008, %1005
+  %1010 = and i32 %990, %965
+  %1011 = xor i32 %990, %965
+  %1012 = and i32 %1011, %940
+  %1013 = xor i32 %1012, %1010
+  %1014 = add i32 %1009, %1013
+  %1015 = add i32 %1014, %1004
+  %1016 = add i32 %1004, %915
+  %1017 = tail call i32 @llvm.fshl.i32(i32 %1016, i32 %1016, i32 26)
+  %1018 = tail call i32 @llvm.fshl.i32(i32 %1016, i32 %1016, i32 21)
+  %1019 = tail call i32 @llvm.fshl.i32(i32 %1016, i32 %1016, i32 7)
+  %1020 = xor i32 %1018, %1019
+  %1021 = xor i32 %1020, %1017
+  %1022 = and i32 %1016, %991
+  %1023 = xor i32 %1016, -1
+  %1024 = and i32 %966, %1023
+  %1025 = or i32 %1022, %1024
+  %1026 = add i32 %641, 338241895
+  %1027 = add i32 %1026, %941
+  %1028 = add i32 %1027, %1025
+  %1029 = add i32 %1028, %1021
+  %1030 = tail call i32 @llvm.fshl.i32(i32 %1015, i32 %1015, i32 30)
+  %1031 = tail call i32 @llvm.fshl.i32(i32 %1015, i32 %1015, i32 19)
+  %1032 = tail call i32 @llvm.fshl.i32(i32 %1015, i32 %1015, i32 10)
+  %1033 = xor i32 %1031, %1032
+  %1034 = xor i32 %1033, %1030
+  %1035 = and i32 %1015, %990
+  %1036 = xor i32 %1015, %990
+  %1037 = and i32 %1036, %965
+  %1038 = xor i32 %1037, %1035
+  %1039 = add i32 %1034, %1038
+  %1040 = add i32 %1039, %1029
+  %1041 = add i32 %1029, %940
+  %1042 = tail call i32 @llvm.fshl.i32(i32 %628, i32 %628, i32 15)
+  %1043 = tail call i32 @llvm.fshl.i32(i32 %628, i32 %628, i32 13)
+  %1044 = lshr i32 %628, 10
+  %1045 = xor i32 %1043, %1044
+  %1046 = xor i32 %1045, %1042
+  %1047 = tail call i32 @llvm.fshl.i32(i32 %459, i32 %459, i32 25)
+  %1048 = tail call i32 @llvm.fshl.i32(i32 %459, i32 %459, i32 14)
+  %1049 = lshr i32 %459, 3
+  %1050 = xor i32 %1048, %1049
+  %1051 = xor i32 %1050, %1047
+  %1052 = add i32 %1051, %446
+  %1053 = add i32 %1052, %563
+  %1054 = add i32 %1053, %1046
+  %1055 = tail call i32 @llvm.fshl.i32(i32 %641, i32 %641, i32 15)
+  %1056 = tail call i32 @llvm.fshl.i32(i32 %641, i32 %641, i32 13)
+  %1057 = lshr i32 %641, 10
+  %1058 = xor i32 %1056, %1057
+  %1059 = xor i32 %1058, %1055
+  %1060 = tail call i32 @llvm.fshl.i32(i32 %472, i32 %472, i32 25)
+  %1061 = tail call i32 @llvm.fshl.i32(i32 %472, i32 %472, i32 14)
+  %1062 = lshr i32 %472, 3
+  %1063 = xor i32 %1061, %1062
+  %1064 = xor i32 %1063, %1060
+  %1065 = add i32 %1064, %459
+  %1066 = add i32 %1065, %576
+  %1067 = add i32 %1066, %1059
+  %1068 = tail call i32 @llvm.fshl.i32(i32 %1054, i32 %1054, i32 15)
+  %1069 = tail call i32 @llvm.fshl.i32(i32 %1054, i32 %1054, i32 13)
+  %1070 = lshr i32 %1054, 10
+  %1071 = xor i32 %1069, %1070
+  %1072 = xor i32 %1071, %1068
+  %1073 = tail call i32 @llvm.fshl.i32(i32 %485, i32 %485, i32 25)
+  %1074 = tail call i32 @llvm.fshl.i32(i32 %485, i32 %485, i32 14)
+  %1075 = lshr i32 %485, 3
+  %1076 = xor i32 %1074, %1075
+  %1077 = xor i32 %1076, %1073
+  %1078 = add i32 %1077, %472
+  %1079 = add i32 %1078, %589
+  %1080 = add i32 %1079, %1072
+  %1081 = tail call i32 @llvm.fshl.i32(i32 %1067, i32 %1067, i32 15)
+  %1082 = tail call i32 @llvm.fshl.i32(i32 %1067, i32 %1067, i32 13)
+  %1083 = lshr i32 %1067, 10
+  %1084 = xor i32 %1082, %1083
+  %1085 = xor i32 %1084, %1081
+  %1086 = tail call i32 @llvm.fshl.i32(i32 %498, i32 %498, i32 25)
+  %1087 = tail call i32 @llvm.fshl.i32(i32 %498, i32 %498, i32 14)
+  %1088 = lshr i32 %498, 3
+  %1089 = xor i32 %1087, %1088
+  %1090 = xor i32 %1089, %1086
+  %1091 = add i32 %1090, %485
+  %1092 = add i32 %1091, %602
+  %1093 = add i32 %1092, %1085
+  %1094 = tail call i32 @llvm.fshl.i32(i32 %1080, i32 %1080, i32 15)
+  %1095 = tail call i32 @llvm.fshl.i32(i32 %1080, i32 %1080, i32 13)
+  %1096 = lshr i32 %1080, 10
+  %1097 = xor i32 %1095, %1096
+  %1098 = xor i32 %1097, %1094
+  %1099 = tail call i32 @llvm.fshl.i32(i32 %511, i32 %511, i32 25)
+  %1100 = tail call i32 @llvm.fshl.i32(i32 %511, i32 %511, i32 14)
+  %1101 = lshr i32 %511, 3
+  %1102 = xor i32 %1100, %1101
+  %1103 = xor i32 %1102, %1099
+  %1104 = add i32 %1103, %498
+  %1105 = add i32 %1104, %615
+  %1106 = add i32 %1105, %1098
+  %1107 = tail call i32 @llvm.fshl.i32(i32 %1093, i32 %1093, i32 15)
+  %1108 = tail call i32 @llvm.fshl.i32(i32 %1093, i32 %1093, i32 13)
+  %1109 = lshr i32 %1093, 10
+  %1110 = xor i32 %1108, %1109
+  %1111 = xor i32 %1110, %1107
+  %1112 = tail call i32 @llvm.fshl.i32(i32 %524, i32 %524, i32 25)
+  %1113 = tail call i32 @llvm.fshl.i32(i32 %524, i32 %524, i32 14)
+  %1114 = lshr i32 %524, 3
+  %1115 = xor i32 %1113, %1114
+  %1116 = xor i32 %1115, %1112
+  %1117 = add i32 %1116, %511
+  %1118 = add i32 %1117, %628
+  %1119 = add i32 %1118, %1111
+  %1120 = tail call i32 @llvm.fshl.i32(i32 %1106, i32 %1106, i32 15)
+  %1121 = tail call i32 @llvm.fshl.i32(i32 %1106, i32 %1106, i32 13)
+  %1122 = lshr i32 %1106, 10
+  %1123 = xor i32 %1121, %1122
+  %1124 = xor i32 %1123, %1120
+  %1125 = tail call i32 @llvm.fshl.i32(i32 %537, i32 %537, i32 25)
+  %1126 = tail call i32 @llvm.fshl.i32(i32 %537, i32 %537, i32 14)
+  %1127 = lshr i32 %537, 3
+  %1128 = xor i32 %1126, %1127
+  %1129 = xor i32 %1128, %1125
+  %1130 = add i32 %1129, %524
+  %1131 = add i32 %1130, %641
+  %1132 = add i32 %1131, %1124
+  %1133 = tail call i32 @llvm.fshl.i32(i32 %1119, i32 %1119, i32 15)
+  %1134 = tail call i32 @llvm.fshl.i32(i32 %1119, i32 %1119, i32 13)
+  %1135 = lshr i32 %1119, 10
+  %1136 = xor i32 %1134, %1135
+  %1137 = xor i32 %1136, %1133
+  %1138 = tail call i32 @llvm.fshl.i32(i32 %550, i32 %550, i32 25)
+  %1139 = tail call i32 @llvm.fshl.i32(i32 %550, i32 %550, i32 14)
+  %1140 = lshr i32 %550, 3
+  %1141 = xor i32 %1139, %1140
+  %1142 = xor i32 %1141, %1138
+  %1143 = add i32 %1142, %537
+  %1144 = add i32 %1143, %1054
+  %1145 = add i32 %1144, %1137
+  %1146 = tail call i32 @llvm.fshl.i32(i32 %1132, i32 %1132, i32 15)
+  %1147 = tail call i32 @llvm.fshl.i32(i32 %1132, i32 %1132, i32 13)
+  %1148 = lshr i32 %1132, 10
+  %1149 = xor i32 %1147, %1148
+  %1150 = xor i32 %1149, %1146
+  %1151 = tail call i32 @llvm.fshl.i32(i32 %563, i32 %563, i32 25)
+  %1152 = tail call i32 @llvm.fshl.i32(i32 %563, i32 %563, i32 14)
+  %1153 = lshr i32 %563, 3
+  %1154 = xor i32 %1152, %1153
+  %1155 = xor i32 %1154, %1151
+  %1156 = add i32 %1155, %550
+  %1157 = add i32 %1156, %1067
+  %1158 = add i32 %1157, %1150
+  %1159 = tail call i32 @llvm.fshl.i32(i32 %1145, i32 %1145, i32 15)
+  %1160 = tail call i32 @llvm.fshl.i32(i32 %1145, i32 %1145, i32 13)
+  %1161 = lshr i32 %1145, 10
+  %1162 = xor i32 %1160, %1161
+  %1163 = xor i32 %1162, %1159
+  %1164 = tail call i32 @llvm.fshl.i32(i32 %576, i32 %576, i32 25)
+  %1165 = tail call i32 @llvm.fshl.i32(i32 %576, i32 %576, i32 14)
+  %1166 = lshr i32 %576, 3
+  %1167 = xor i32 %1165, %1166
+  %1168 = xor i32 %1167, %1164
+  %1169 = add i32 %1168, %563
+  %1170 = add i32 %1169, %1080
+  %1171 = add i32 %1170, %1163
+  %1172 = tail call i32 @llvm.fshl.i32(i32 %1158, i32 %1158, i32 15)
+  %1173 = tail call i32 @llvm.fshl.i32(i32 %1158, i32 %1158, i32 13)
+  %1174 = lshr i32 %1158, 10
+  %1175 = xor i32 %1173, %1174
+  %1176 = xor i32 %1175, %1172
+  %1177 = tail call i32 @llvm.fshl.i32(i32 %589, i32 %589, i32 25)
+  %1178 = tail call i32 @llvm.fshl.i32(i32 %589, i32 %589, i32 14)
+  %1179 = lshr i32 %589, 3
+  %1180 = xor i32 %1178, %1179
+  %1181 = xor i32 %1180, %1177
+  %1182 = add i32 %1181, %576
+  %1183 = add i32 %1182, %1093
+  %1184 = add i32 %1183, %1176
+  %1185 = tail call i32 @llvm.fshl.i32(i32 %1171, i32 %1171, i32 15)
+  %1186 = tail call i32 @llvm.fshl.i32(i32 %1171, i32 %1171, i32 13)
+  %1187 = lshr i32 %1171, 10
+  %1188 = xor i32 %1186, %1187
+  %1189 = xor i32 %1188, %1185
+  %1190 = tail call i32 @llvm.fshl.i32(i32 %602, i32 %602, i32 25)
+  %1191 = tail call i32 @llvm.fshl.i32(i32 %602, i32 %602, i32 14)
+  %1192 = lshr i32 %602, 3
+  %1193 = xor i32 %1191, %1192
+  %1194 = xor i32 %1193, %1190
+  %1195 = add i32 %1194, %589
+  %1196 = add i32 %1195, %1106
+  %1197 = add i32 %1196, %1189
+  %1198 = tail call i32 @llvm.fshl.i32(i32 %1184, i32 %1184, i32 15)
+  %1199 = tail call i32 @llvm.fshl.i32(i32 %1184, i32 %1184, i32 13)
+  %1200 = lshr i32 %1184, 10
+  %1201 = xor i32 %1199, %1200
+  %1202 = xor i32 %1201, %1198
+  %1203 = tail call i32 @llvm.fshl.i32(i32 %615, i32 %615, i32 25)
+  %1204 = tail call i32 @llvm.fshl.i32(i32 %615, i32 %615, i32 14)
+  %1205 = lshr i32 %615, 3
+  %1206 = xor i32 %1204, %1205
+  %1207 = xor i32 %1206, %1203
+  %1208 = add i32 %1207, %602
+  %1209 = add i32 %1208, %1119
+  %1210 = add i32 %1209, %1202
+  %1211 = tail call i32 @llvm.fshl.i32(i32 %1197, i32 %1197, i32 15)
+  %1212 = tail call i32 @llvm.fshl.i32(i32 %1197, i32 %1197, i32 13)
+  %1213 = lshr i32 %1197, 10
+  %1214 = xor i32 %1212, %1213
+  %1215 = xor i32 %1214, %1211
+  %1216 = tail call i32 @llvm.fshl.i32(i32 %628, i32 %628, i32 25)
+  %1217 = tail call i32 @llvm.fshl.i32(i32 %628, i32 %628, i32 14)
+  %1218 = lshr i32 %628, 3
+  %1219 = xor i32 %1217, %1218
+  %1220 = xor i32 %1219, %1216
+  %1221 = add i32 %1220, %615
+  %1222 = add i32 %1221, %1132
+  %1223 = add i32 %1222, %1215
+  %1224 = tail call i32 @llvm.fshl.i32(i32 %1210, i32 %1210, i32 15)
+  %1225 = tail call i32 @llvm.fshl.i32(i32 %1210, i32 %1210, i32 13)
+  %1226 = lshr i32 %1210, 10
+  %1227 = xor i32 %1225, %1226
+  %1228 = xor i32 %1227, %1224
+  %1229 = tail call i32 @llvm.fshl.i32(i32 %641, i32 %641, i32 25)
+  %1230 = tail call i32 @llvm.fshl.i32(i32 %641, i32 %641, i32 14)
+  %1231 = lshr i32 %641, 3
+  %1232 = xor i32 %1230, %1231
+  %1233 = xor i32 %1232, %1229
+  %1234 = add i32 %1233, %628
+  %1235 = add i32 %1234, %1145
+  %1236 = add i32 %1235, %1228
+  %1237 = tail call i32 @llvm.fshl.i32(i32 %1223, i32 %1223, i32 15)
+  %1238 = tail call i32 @llvm.fshl.i32(i32 %1223, i32 %1223, i32 13)
+  %1239 = lshr i32 %1223, 10
+  %1240 = xor i32 %1238, %1239
+  %1241 = xor i32 %1240, %1237
+  %1242 = tail call i32 @llvm.fshl.i32(i32 %1054, i32 %1054, i32 25)
+  %1243 = tail call i32 @llvm.fshl.i32(i32 %1054, i32 %1054, i32 14)
+  %1244 = lshr i32 %1054, 3
+  %1245 = xor i32 %1243, %1244
+  %1246 = xor i32 %1245, %1242
+  %1247 = add i32 %1246, %641
+  %1248 = add i32 %1247, %1158
+  %1249 = add i32 %1248, %1241
+  %1250 = tail call i32 @llvm.fshl.i32(i32 %1041, i32 %1041, i32 26)
+  %1251 = tail call i32 @llvm.fshl.i32(i32 %1041, i32 %1041, i32 21)
+  %1252 = tail call i32 @llvm.fshl.i32(i32 %1041, i32 %1041, i32 7)
+  %1253 = xor i32 %1251, %1252
+  %1254 = xor i32 %1253, %1250
+  %1255 = and i32 %1041, %1016
+  %1256 = xor i32 %1041, -1
+  %1257 = and i32 %991, %1256
+  %1258 = or i32 %1255, %1257
+  %1259 = add i32 %1054, 666307205
+  %1260 = add i32 %1259, %966
+  %1261 = add i32 %1260, %1258
+  %1262 = add i32 %1261, %1254
+  %1263 = tail call i32 @llvm.fshl.i32(i32 %1040, i32 %1040, i32 30)
+  %1264 = tail call i32 @llvm.fshl.i32(i32 %1040, i32 %1040, i32 19)
+  %1265 = tail call i32 @llvm.fshl.i32(i32 %1040, i32 %1040, i32 10)
+  %1266 = xor i32 %1264, %1265
+  %1267 = xor i32 %1266, %1263
+  %1268 = and i32 %1040, %1015
+  %1269 = xor i32 %1040, %1015
+  %1270 = and i32 %1269, %990
+  %1271 = xor i32 %1270, %1268
+  %1272 = add i32 %1267, %1271
+  %1273 = add i32 %1272, %1262
+  %1274 = add i32 %1262, %965
+  %1275 = tail call i32 @llvm.fshl.i32(i32 %1274, i32 %1274, i32 26)
+  %1276 = tail call i32 @llvm.fshl.i32(i32 %1274, i32 %1274, i32 21)
+  %1277 = tail call i32 @llvm.fshl.i32(i32 %1274, i32 %1274, i32 7)
+  %1278 = xor i32 %1276, %1277
+  %1279 = xor i32 %1278, %1275
+  %1280 = and i32 %1274, %1041
+  %1281 = xor i32 %1274, -1
+  %1282 = and i32 %1016, %1281
+  %1283 = or i32 %1280, %1282
+  %1284 = add i32 %1067, 773529912
+  %1285 = add i32 %1284, %991
+  %1286 = add i32 %1285, %1283
+  %1287 = add i32 %1286, %1279
+  %1288 = tail call i32 @llvm.fshl.i32(i32 %1273, i32 %1273, i32 30)
+  %1289 = tail call i32 @llvm.fshl.i32(i32 %1273, i32 %1273, i32 19)
+  %1290 = tail call i32 @llvm.fshl.i32(i32 %1273, i32 %1273, i32 10)
+  %1291 = xor i32 %1289, %1290
+  %1292 = xor i32 %1291, %1288
+  %1293 = and i32 %1273, %1040
+  %1294 = xor i32 %1273, %1040
+  %1295 = and i32 %1294, %1015
+  %1296 = xor i32 %1295, %1293
+  %1297 = add i32 %1292, %1296
+  %1298 = add i32 %1297, %1287
+  %1299 = add i32 %1287, %990
+  %1300 = tail call i32 @llvm.fshl.i32(i32 %1299, i32 %1299, i32 26)
+  %1301 = tail call i32 @llvm.fshl.i32(i32 %1299, i32 %1299, i32 21)
+  %1302 = tail call i32 @llvm.fshl.i32(i32 %1299, i32 %1299, i32 7)
+  %1303 = xor i32 %1301, %1302
+  %1304 = xor i32 %1303, %1300
+  %1305 = and i32 %1299, %1274
+  %1306 = xor i32 %1299, -1
+  %1307 = and i32 %1041, %1306
+  %1308 = or i32 %1305, %1307
+  %1309 = add i32 %1080, 1294757372
+  %1310 = add i32 %1309, %1016
+  %1311 = add i32 %1310, %1308
+  %1312 = add i32 %1311, %1304
+  %1313 = tail call i32 @llvm.fshl.i32(i32 %1298, i32 %1298, i32 30)
+  %1314 = tail call i32 @llvm.fshl.i32(i32 %1298, i32 %1298, i32 19)
+  %1315 = tail call i32 @llvm.fshl.i32(i32 %1298, i32 %1298, i32 10)
+  %1316 = xor i32 %1314, %1315
+  %1317 = xor i32 %1316, %1313
+  %1318 = and i32 %1298, %1273
+  %1319 = xor i32 %1298, %1273
+  %1320 = and i32 %1319, %1040
+  %1321 = xor i32 %1320, %1318
+  %1322 = add i32 %1317, %1321
+  %1323 = add i32 %1322, %1312
+  %1324 = add i32 %1312, %1015
+  %1325 = tail call i32 @llvm.fshl.i32(i32 %1324, i32 %1324, i32 26)
+  %1326 = tail call i32 @llvm.fshl.i32(i32 %1324, i32 %1324, i32 21)
+  %1327 = tail call i32 @llvm.fshl.i32(i32 %1324, i32 %1324, i32 7)
+  %1328 = xor i32 %1326, %1327
+  %1329 = xor i32 %1328, %1325
+  %1330 = and i32 %1324, %1299
+  %1331 = xor i32 %1324, -1
+  %1332 = and i32 %1274, %1331
+  %1333 = or i32 %1330, %1332
+  %1334 = add i32 %1093, 1396182291
+  %1335 = add i32 %1334, %1041
+  %1336 = add i32 %1335, %1333
+  %1337 = add i32 %1336, %1329
+  %1338 = tail call i32 @llvm.fshl.i32(i32 %1323, i32 %1323, i32 30)
+  %1339 = tail call i32 @llvm.fshl.i32(i32 %1323, i32 %1323, i32 19)
+  %1340 = tail call i32 @llvm.fshl.i32(i32 %1323, i32 %1323, i32 10)
+  %1341 = xor i32 %1339, %1340
+  %1342 = xor i32 %1341, %1338
+  %1343 = and i32 %1323, %1298
+  %1344 = xor i32 %1323, %1298
+  %1345 = and i32 %1344, %1273
+  %1346 = xor i32 %1345, %1343
+  %1347 = add i32 %1342, %1346
+  %1348 = add i32 %1347, %1337
+  %1349 = add i32 %1337, %1040
+  %1350 = tail call i32 @llvm.fshl.i32(i32 %1349, i32 %1349, i32 26)
+  %1351 = tail call i32 @llvm.fshl.i32(i32 %1349, i32 %1349, i32 21)
+  %1352 = tail call i32 @llvm.fshl.i32(i32 %1349, i32 %1349, i32 7)
+  %1353 = xor i32 %1351, %1352
+  %1354 = xor i32 %1353, %1350
+  %1355 = and i32 %1349, %1324
+  %1356 = xor i32 %1349, -1
+  %1357 = and i32 %1299, %1356
+  %1358 = or i32 %1355, %1357
+  %1359 = add i32 %1106, 1695183700
+  %1360 = add i32 %1359, %1274
+  %1361 = add i32 %1360, %1358
+  %1362 = add i32 %1361, %1354
+  %1363 = tail call i32 @llvm.fshl.i32(i32 %1348, i32 %1348, i32 30)
+  %1364 = tail call i32 @llvm.fshl.i32(i32 %1348, i32 %1348, i32 19)
+  %1365 = tail call i32 @llvm.fshl.i32(i32 %1348, i32 %1348, i32 10)
+  %1366 = xor i32 %1364, %1365
+  %1367 = xor i32 %1366, %1363
+  %1368 = and i32 %1348, %1323
+  %1369 = xor i32 %1348, %1323
+  %1370 = and i32 %1369, %1298
+  %1371 = xor i32 %1370, %1368
+  %1372 = add i32 %1367, %1371
+  %1373 = add i32 %1372, %1362
+  %1374 = add i32 %1362, %1273
+  %1375 = tail call i32 @llvm.fshl.i32(i32 %1374, i32 %1374, i32 26)
+  %1376 = tail call i32 @llvm.fshl.i32(i32 %1374, i32 %1374, i32 21)
+  %1377 = tail call i32 @llvm.fshl.i32(i32 %1374, i32 %1374, i32 7)
+  %1378 = xor i32 %1376, %1377
+  %1379 = xor i32 %1378, %1375
+  %1380 = and i32 %1374, %1349
+  %1381 = xor i32 %1374, -1
+  %1382 = and i32 %1324, %1381
+  %1383 = or i32 %1380, %1382
+  %1384 = add i32 %1119, 1986661051
+  %1385 = add i32 %1384, %1299
+  %1386 = add i32 %1385, %1383
+  %1387 = add i32 %1386, %1379
+  %1388 = tail call i32 @llvm.fshl.i32(i32 %1373, i32 %1373, i32 30)
+  %1389 = tail call i32 @llvm.fshl.i32(i32 %1373, i32 %1373, i32 19)
+  %1390 = tail call i32 @llvm.fshl.i32(i32 %1373, i32 %1373, i32 10)
+  %1391 = xor i32 %1389, %1390
+  %1392 = xor i32 %1391, %1388
+  %1393 = and i32 %1373, %1348
+  %1394 = xor i32 %1373, %1348
+  %1395 = and i32 %1394, %1323
+  %1396 = xor i32 %1395, %1393
+  %1397 = add i32 %1392, %1396
+  %1398 = add i32 %1397, %1387
+  %1399 = add i32 %1387, %1298
+  %1400 = tail call i32 @llvm.fshl.i32(i32 %1399, i32 %1399, i32 26)
+  %1401 = tail call i32 @llvm.fshl.i32(i32 %1399, i32 %1399, i32 21)
+  %1402 = tail call i32 @llvm.fshl.i32(i32 %1399, i32 %1399, i32 7)
+  %1403 = xor i32 %1401, %1402
+  %1404 = xor i32 %1403, %1400
+  %1405 = and i32 %1399, %1374
+  %1406 = xor i32 %1399, -1
+  %1407 = and i32 %1349, %1406
+  %1408 = or i32 %1405, %1407
+  %1409 = add i32 %1132, -2117940946
+  %1410 = add i32 %1409, %1324
+  %1411 = add i32 %1410, %1408
+  %1412 = add i32 %1411, %1404
+  %1413 = tail call i32 @llvm.fshl.i32(i32 %1398, i32 %1398, i32 30)
+  %1414 = tail call i32 @llvm.fshl.i32(i32 %1398, i32 %1398, i32 19)
+  %1415 = tail call i32 @llvm.fshl.i32(i32 %1398, i32 %1398, i32 10)
+  %1416 = xor i32 %1414, %1415
+  %1417 = xor i32 %1416, %1413
+  %1418 = and i32 %1398, %1373
+  %1419 = xor i32 %1398, %1373
+  %1420 = and i32 %1419, %1348
+  %1421 = xor i32 %1420, %1418
+  %1422 = add i32 %1417, %1421
+  %1423 = add i32 %1422, %1412
+  %1424 = add i32 %1412, %1323
+  %1425 = tail call i32 @llvm.fshl.i32(i32 %1424, i32 %1424, i32 26)
+  %1426 = tail call i32 @llvm.fshl.i32(i32 %1424, i32 %1424, i32 21)
+  %1427 = tail call i32 @llvm.fshl.i32(i32 %1424, i32 %1424, i32 7)
+  %1428 = xor i32 %1426, %1427
+  %1429 = xor i32 %1428, %1425
+  %1430 = and i32 %1424, %1399
+  %1431 = xor i32 %1424, -1
+  %1432 = and i32 %1374, %1431
+  %1433 = or i32 %1430, %1432
+  %1434 = add i32 %1145, -1838011259
+  %1435 = add i32 %1434, %1349
+  %1436 = add i32 %1435, %1433
+  %1437 = add i32 %1436, %1429
+  %1438 = tail call i32 @llvm.fshl.i32(i32 %1423, i32 %1423, i32 30)
+  %1439 = tail call i32 @llvm.fshl.i32(i32 %1423, i32 %1423, i32 19)
+  %1440 = tail call i32 @llvm.fshl.i32(i32 %1423, i32 %1423, i32 10)
+  %1441 = xor i32 %1439, %1440
+  %1442 = xor i32 %1441, %1438
+  %1443 = and i32 %1423, %1398
+  %1444 = xor i32 %1423, %1398
+  %1445 = and i32 %1444, %1373
+  %1446 = xor i32 %1445, %1443
+  %1447 = add i32 %1442, %1446
+  %1448 = add i32 %1447, %1437
+  %1449 = add i32 %1437, %1348
+  %1450 = tail call i32 @llvm.fshl.i32(i32 %1449, i32 %1449, i32 26)
+  %1451 = tail call i32 @llvm.fshl.i32(i32 %1449, i32 %1449, i32 21)
+  %1452 = tail call i32 @llvm.fshl.i32(i32 %1449, i32 %1449, i32 7)
+  %1453 = xor i32 %1451, %1452
+  %1454 = xor i32 %1453, %1450
+  %1455 = and i32 %1449, %1424
+  %1456 = xor i32 %1449, -1
+  %1457 = and i32 %1399, %1456
+  %1458 = or i32 %1455, %1457
+  %1459 = add i32 %1158, -1564481375
+  %1460 = add i32 %1459, %1374
+  %1461 = add i32 %1460, %1458
+  %1462 = add i32 %1461, %1454
+  %1463 = tail call i32 @llvm.fshl.i32(i32 %1448, i32 %1448, i32 30)
+  %1464 = tail call i32 @llvm.fshl.i32(i32 %1448, i32 %1448, i32 19)
+  %1465 = tail call i32 @llvm.fshl.i32(i32 %1448, i32 %1448, i32 10)
+  %1466 = xor i32 %1464, %1465
+  %1467 = xor i32 %1466, %1463
+  %1468 = and i32 %1448, %1423
+  %1469 = xor i32 %1448, %1423
+  %1470 = and i32 %1469, %1398
+  %1471 = xor i32 %1470, %1468
+  %1472 = add i32 %1467, %1471
+  %1473 = add i32 %1472, %1462
+  %1474 = add i32 %1462, %1373
+  %1475 = tail call i32 @llvm.fshl.i32(i32 %1474, i32 %1474, i32 26)
+  %1476 = tail call i32 @llvm.fshl.i32(i32 %1474, i32 %1474, i32 21)
+  %1477 = tail call i32 @llvm.fshl.i32(i32 %1474, i32 %1474, i32 7)
+  %1478 = xor i32 %1476, %1477
+  %1479 = xor i32 %1478, %1475
+  %1480 = and i32 %1474, %1449
+  %1481 = xor i32 %1474, -1
+  %1482 = and i32 %1424, %1481
+  %1483 = or i32 %1480, %1482
+  %1484 = add i32 %1171, -1474664885
+  %1485 = add i32 %1484, %1399
+  %1486 = add i32 %1485, %1483
+  %1487 = add i32 %1486, %1479
+  %1488 = tail call i32 @llvm.fshl.i32(i32 %1473, i32 %1473, i32 30)
+  %1489 = tail call i32 @llvm.fshl.i32(i32 %1473, i32 %1473, i32 19)
+  %1490 = tail call i32 @llvm.fshl.i32(i32 %1473, i32 %1473, i32 10)
+  %1491 = xor i32 %1489, %1490
+  %1492 = xor i32 %1491, %1488
+  %1493 = and i32 %1473, %1448
+  %1494 = xor i32 %1473, %1448
+  %1495 = and i32 %1494, %1423
+  %1496 = xor i32 %1495, %1493
+  %1497 = add i32 %1492, %1496
+  %1498 = add i32 %1497, %1487
+  %1499 = add i32 %1487, %1398
+  %1500 = tail call i32 @llvm.fshl.i32(i32 %1499, i32 %1499, i32 26)
+  %1501 = tail call i32 @llvm.fshl.i32(i32 %1499, i32 %1499, i32 21)
+  %1502 = tail call i32 @llvm.fshl.i32(i32 %1499, i32 %1499, i32 7)
+  %1503 = xor i32 %1501, %1502
+  %1504 = xor i32 %1503, %1500
+  %1505 = and i32 %1499, %1474
+  %1506 = xor i32 %1499, -1
+  %1507 = and i32 %1449, %1506
+  %1508 = or i32 %1505, %1507
+  %1509 = add i32 %1184, -1035236496
+  %1510 = add i32 %1509, %1424
+  %1511 = add i32 %1510, %1508
+  %1512 = add i32 %1511, %1504
+  %1513 = tail call i32 @llvm.fshl.i32(i32 %1498, i32 %1498, i32 30)
+  %1514 = tail call i32 @llvm.fshl.i32(i32 %1498, i32 %1498, i32 19)
+  %1515 = tail call i32 @llvm.fshl.i32(i32 %1498, i32 %1498, i32 10)
+  %1516 = xor i32 %1514, %1515
+  %1517 = xor i32 %1516, %1513
+  %1518 = and i32 %1498, %1473
+  %1519 = xor i32 %1498, %1473
+  %1520 = and i32 %1519, %1448
+  %1521 = xor i32 %1520, %1518
+  %1522 = add i32 %1517, %1521
+  %1523 = add i32 %1522, %1512
+  %1524 = add i32 %1512, %1423
+  %1525 = tail call i32 @llvm.fshl.i32(i32 %1524, i32 %1524, i32 26)
+  %1526 = tail call i32 @llvm.fshl.i32(i32 %1524, i32 %1524, i32 21)
+  %1527 = tail call i32 @llvm.fshl.i32(i32 %1524, i32 %1524, i32 7)
+  %1528 = xor i32 %1526, %1527
+  %1529 = xor i32 %1528, %1525
+  %1530 = and i32 %1524, %1499
+  %1531 = xor i32 %1524, -1
+  %1532 = and i32 %1474, %1531
+  %1533 = or i32 %1530, %1532
+  %1534 = add i32 %1197, -949202525
+  %1535 = add i32 %1534, %1449
+  %1536 = add i32 %1535, %1533
+  %1537 = add i32 %1536, %1529
+  %1538 = tail call i32 @llvm.fshl.i32(i32 %1523, i32 %1523, i32 30)
+  %1539 = tail call i32 @llvm.fshl.i32(i32 %1523, i32 %1523, i32 19)
+  %1540 = tail call i32 @llvm.fshl.i32(i32 %1523, i32 %1523, i32 10)
+  %1541 = xor i32 %1539, %1540
+  %1542 = xor i32 %1541, %1538
+  %1543 = and i32 %1523, %1498
+  %1544 = xor i32 %1523, %1498
+  %1545 = and i32 %1544, %1473
+  %1546 = xor i32 %1545, %1543
+  %1547 = add i32 %1542, %1546
+  %1548 = add i32 %1547, %1537
+  %1549 = add i32 %1537, %1448
+  %1550 = tail call i32 @llvm.fshl.i32(i32 %1549, i32 %1549, i32 26)
+  %1551 = tail call i32 @llvm.fshl.i32(i32 %1549, i32 %1549, i32 21)
+  %1552 = tail call i32 @llvm.fshl.i32(i32 %1549, i32 %1549, i32 7)
+  %1553 = xor i32 %1551, %1552
+  %1554 = xor i32 %1553, %1550
+  %1555 = and i32 %1549, %1524
+  %1556 = xor i32 %1549, -1
+  %1557 = and i32 %1499, %1556
+  %1558 = or i32 %1555, %1557
+  %1559 = add i32 %1210, -778901479
+  %1560 = add i32 %1559, %1474
+  %1561 = add i32 %1560, %1558
+  %1562 = add i32 %1561, %1554
+  %1563 = tail call i32 @llvm.fshl.i32(i32 %1548, i32 %1548, i32 30)
+  %1564 = tail call i32 @llvm.fshl.i32(i32 %1548, i32 %1548, i32 19)
+  %1565 = tail call i32 @llvm.fshl.i32(i32 %1548, i32 %1548, i32 10)
+  %1566 = xor i32 %1564, %1565
+  %1567 = xor i32 %1566, %1563
+  %1568 = and i32 %1548, %1523
+  %1569 = xor i32 %1548, %1523
+  %1570 = and i32 %1569, %1498
+  %1571 = xor i32 %1570, %1568
+  %1572 = add i32 %1567, %1571
+  %1573 = add i32 %1572, %1562
+  %1574 = add i32 %1562, %1473
+  %1575 = tail call i32 @llvm.fshl.i32(i32 %1574, i32 %1574, i32 26)
+  %1576 = tail call i32 @llvm.fshl.i32(i32 %1574, i32 %1574, i32 21)
+  %1577 = tail call i32 @llvm.fshl.i32(i32 %1574, i32 %1574, i32 7)
+  %1578 = xor i32 %1576, %1577
+  %1579 = xor i32 %1578, %1575
+  %1580 = and i32 %1574, %1549
+  %1581 = xor i32 %1574, -1
+  %1582 = and i32 %1524, %1581
+  %1583 = or i32 %1580, %1582
+  %1584 = add i32 %1223, -694614492
+  %1585 = add i32 %1584, %1499
+  %1586 = add i32 %1585, %1583
+  %1587 = add i32 %1586, %1579
+  %1588 = tail call i32 @llvm.fshl.i32(i32 %1573, i32 %1573, i32 30)
+  %1589 = tail call i32 @llvm.fshl.i32(i32 %1573, i32 %1573, i32 19)
+  %1590 = tail call i32 @llvm.fshl.i32(i32 %1573, i32 %1573, i32 10)
+  %1591 = xor i32 %1589, %1590
+  %1592 = xor i32 %1591, %1588
+  %1593 = and i32 %1573, %1548
+  %1594 = xor i32 %1573, %1548
+  %1595 = and i32 %1594, %1523
+  %1596 = xor i32 %1595, %1593
+  %1597 = add i32 %1592, %1596
+  %1598 = add i32 %1597, %1587
+  %1599 = add i32 %1587, %1498
+  %1600 = tail call i32 @llvm.fshl.i32(i32 %1599, i32 %1599, i32 26)
+  %1601 = tail call i32 @llvm.fshl.i32(i32 %1599, i32 %1599, i32 21)
+  %1602 = tail call i32 @llvm.fshl.i32(i32 %1599, i32 %1599, i32 7)
+  %1603 = xor i32 %1601, %1602
+  %1604 = xor i32 %1603, %1600
+  %1605 = and i32 %1599, %1574
+  %1606 = xor i32 %1599, -1
+  %1607 = and i32 %1549, %1606
+  %1608 = or i32 %1605, %1607
+  %1609 = add i32 %1236, -200395387
+  %1610 = add i32 %1609, %1524
+  %1611 = add i32 %1610, %1608
+  %1612 = add i32 %1611, %1604
+  %1613 = tail call i32 @llvm.fshl.i32(i32 %1598, i32 %1598, i32 30)
+  %1614 = tail call i32 @llvm.fshl.i32(i32 %1598, i32 %1598, i32 19)
+  %1615 = tail call i32 @llvm.fshl.i32(i32 %1598, i32 %1598, i32 10)
+  %1616 = xor i32 %1614, %1615
+  %1617 = xor i32 %1616, %1613
+  %1618 = and i32 %1598, %1573
+  %1619 = xor i32 %1598, %1573
+  %1620 = and i32 %1619, %1548
+  %1621 = xor i32 %1620, %1618
+  %1622 = add i32 %1617, %1621
+  %1623 = add i32 %1622, %1612
+  %1624 = add i32 %1612, %1523
+  %1625 = tail call i32 @llvm.fshl.i32(i32 %1624, i32 %1624, i32 26)
+  %1626 = tail call i32 @llvm.fshl.i32(i32 %1624, i32 %1624, i32 21)
+  %1627 = tail call i32 @llvm.fshl.i32(i32 %1624, i32 %1624, i32 7)
+  %1628 = xor i32 %1626, %1627
+  %1629 = xor i32 %1628, %1625
+  %1630 = and i32 %1624, %1599
+  %1631 = xor i32 %1624, -1
+  %1632 = and i32 %1574, %1631
+  %1633 = or i32 %1630, %1632
+  %1634 = add i32 %1249, 275423344
+  %1635 = add i32 %1634, %1549
+  %1636 = add i32 %1635, %1633
+  %1637 = add i32 %1636, %1629
+  %1638 = tail call i32 @llvm.fshl.i32(i32 %1623, i32 %1623, i32 30)
+  %1639 = tail call i32 @llvm.fshl.i32(i32 %1623, i32 %1623, i32 19)
+  %1640 = tail call i32 @llvm.fshl.i32(i32 %1623, i32 %1623, i32 10)
+  %1641 = xor i32 %1639, %1640
+  %1642 = xor i32 %1641, %1638
+  %1643 = and i32 %1623, %1598
+  %1644 = xor i32 %1623, %1598
+  %1645 = and i32 %1644, %1573
+  %1646 = xor i32 %1645, %1643
+  %1647 = add i32 %1642, %1646
+  %1648 = add i32 %1647, %1637
+  %1649 = add i32 %1637, %1548
+  %1650 = tail call i32 @llvm.fshl.i32(i32 %1236, i32 %1236, i32 15)
+  %1651 = tail call i32 @llvm.fshl.i32(i32 %1236, i32 %1236, i32 13)
+  %1652 = lshr i32 %1236, 10
+  %1653 = xor i32 %1651, %1652
+  %1654 = xor i32 %1653, %1650
+  %1655 = tail call i32 @llvm.fshl.i32(i32 %1067, i32 %1067, i32 25)
+  %1656 = tail call i32 @llvm.fshl.i32(i32 %1067, i32 %1067, i32 14)
+  %1657 = lshr i32 %1067, 3
+  %1658 = xor i32 %1656, %1657
+  %1659 = xor i32 %1658, %1655
+  %1660 = add i32 %1659, %1054
+  %1661 = add i32 %1660, %1171
+  %1662 = add i32 %1661, %1654
+  %1663 = tail call i32 @llvm.fshl.i32(i32 %1249, i32 %1249, i32 15)
+  %1664 = tail call i32 @llvm.fshl.i32(i32 %1249, i32 %1249, i32 13)
+  %1665 = lshr i32 %1249, 10
+  %1666 = xor i32 %1664, %1665
+  %1667 = xor i32 %1666, %1663
+  %1668 = tail call i32 @llvm.fshl.i32(i32 %1080, i32 %1080, i32 25)
+  %1669 = tail call i32 @llvm.fshl.i32(i32 %1080, i32 %1080, i32 14)
+  %1670 = lshr i32 %1080, 3
+  %1671 = xor i32 %1669, %1670
+  %1672 = xor i32 %1671, %1668
+  %1673 = add i32 %1672, %1067
+  %1674 = add i32 %1673, %1184
+  %1675 = add i32 %1674, %1667
+  %1676 = tail call i32 @llvm.fshl.i32(i32 %1662, i32 %1662, i32 15)
+  %1677 = tail call i32 @llvm.fshl.i32(i32 %1662, i32 %1662, i32 13)
+  %1678 = lshr i32 %1662, 10
+  %1679 = xor i32 %1677, %1678
+  %1680 = xor i32 %1679, %1676
+  %1681 = tail call i32 @llvm.fshl.i32(i32 %1093, i32 %1093, i32 25)
+  %1682 = tail call i32 @llvm.fshl.i32(i32 %1093, i32 %1093, i32 14)
+  %1683 = lshr i32 %1093, 3
+  %1684 = xor i32 %1682, %1683
+  %1685 = xor i32 %1684, %1681
+  %1686 = add i32 %1685, %1080
+  %1687 = add i32 %1686, %1197
+  %1688 = add i32 %1687, %1680
+  %1689 = tail call i32 @llvm.fshl.i32(i32 %1675, i32 %1675, i32 15)
+  %1690 = tail call i32 @llvm.fshl.i32(i32 %1675, i32 %1675, i32 13)
+  %1691 = lshr i32 %1675, 10
+  %1692 = xor i32 %1690, %1691
+  %1693 = xor i32 %1692, %1689
+  %1694 = tail call i32 @llvm.fshl.i32(i32 %1106, i32 %1106, i32 25)
+  %1695 = tail call i32 @llvm.fshl.i32(i32 %1106, i32 %1106, i32 14)
+  %1696 = lshr i32 %1106, 3
+  %1697 = xor i32 %1695, %1696
+  %1698 = xor i32 %1697, %1694
+  %1699 = add i32 %1698, %1093
+  %1700 = add i32 %1699, %1210
+  %1701 = add i32 %1700, %1693
+  %1702 = tail call i32 @llvm.fshl.i32(i32 %1688, i32 %1688, i32 15)
+  %1703 = tail call i32 @llvm.fshl.i32(i32 %1688, i32 %1688, i32 13)
+  %1704 = lshr i32 %1688, 10
+  %1705 = xor i32 %1703, %1704
+  %1706 = xor i32 %1705, %1702
+  %1707 = tail call i32 @llvm.fshl.i32(i32 %1119, i32 %1119, i32 25)
+  %1708 = tail call i32 @llvm.fshl.i32(i32 %1119, i32 %1119, i32 14)
+  %1709 = lshr i32 %1119, 3
+  %1710 = xor i32 %1708, %1709
+  %1711 = xor i32 %1710, %1707
+  %1712 = add i32 %1711, %1106
+  %1713 = add i32 %1712, %1223
+  %1714 = add i32 %1713, %1706
+  %1715 = tail call i32 @llvm.fshl.i32(i32 %1701, i32 %1701, i32 15)
+  %1716 = tail call i32 @llvm.fshl.i32(i32 %1701, i32 %1701, i32 13)
+  %1717 = lshr i32 %1701, 10
+  %1718 = xor i32 %1716, %1717
+  %1719 = xor i32 %1718, %1715
+  %1720 = tail call i32 @llvm.fshl.i32(i32 %1132, i32 %1132, i32 25)
+  %1721 = tail call i32 @llvm.fshl.i32(i32 %1132, i32 %1132, i32 14)
+  %1722 = lshr i32 %1132, 3
+  %1723 = xor i32 %1721, %1722
+  %1724 = xor i32 %1723, %1720
+  %1725 = add i32 %1724, %1119
+  %1726 = add i32 %1725, %1236
+  %1727 = add i32 %1726, %1719
+  %1728 = tail call i32 @llvm.fshl.i32(i32 %1714, i32 %1714, i32 15)
+  %1729 = tail call i32 @llvm.fshl.i32(i32 %1714, i32 %1714, i32 13)
+  %1730 = lshr i32 %1714, 10
+  %1731 = xor i32 %1729, %1730
+  %1732 = xor i32 %1731, %1728
+  %1733 = tail call i32 @llvm.fshl.i32(i32 %1145, i32 %1145, i32 25)
+  %1734 = tail call i32 @llvm.fshl.i32(i32 %1145, i32 %1145, i32 14)
+  %1735 = lshr i32 %1145, 3
+  %1736 = xor i32 %1734, %1735
+  %1737 = xor i32 %1736, %1733
+  %1738 = add i32 %1737, %1132
+  %1739 = add i32 %1738, %1249
+  %1740 = add i32 %1739, %1732
+  %1741 = tail call i32 @llvm.fshl.i32(i32 %1727, i32 %1727, i32 15)
+  %1742 = tail call i32 @llvm.fshl.i32(i32 %1727, i32 %1727, i32 13)
+  %1743 = lshr i32 %1727, 10
+  %1744 = xor i32 %1742, %1743
+  %1745 = xor i32 %1744, %1741
+  %1746 = tail call i32 @llvm.fshl.i32(i32 %1158, i32 %1158, i32 25)
+  %1747 = tail call i32 @llvm.fshl.i32(i32 %1158, i32 %1158, i32 14)
+  %1748 = lshr i32 %1158, 3
+  %1749 = xor i32 %1747, %1748
+  %1750 = xor i32 %1749, %1746
+  %1751 = add i32 %1750, %1145
+  %1752 = add i32 %1751, %1662
+  %1753 = add i32 %1752, %1745
+  %1754 = tail call i32 @llvm.fshl.i32(i32 %1740, i32 %1740, i32 15)
+  %1755 = tail call i32 @llvm.fshl.i32(i32 %1740, i32 %1740, i32 13)
+  %1756 = lshr i32 %1740, 10
+  %1757 = xor i32 %1755, %1756
+  %1758 = xor i32 %1757, %1754
+  %1759 = tail call i32 @llvm.fshl.i32(i32 %1171, i32 %1171, i32 25)
+  %1760 = tail call i32 @llvm.fshl.i32(i32 %1171, i32 %1171, i32 14)
+  %1761 = lshr i32 %1171, 3
+  %1762 = xor i32 %1760, %1761
+  %1763 = xor i32 %1762, %1759
+  %1764 = add i32 %1763, %1158
+  %1765 = add i32 %1764, %1675
+  %1766 = add i32 %1765, %1758
+  %1767 = tail call i32 @llvm.fshl.i32(i32 %1753, i32 %1753, i32 15)
+  %1768 = tail call i32 @llvm.fshl.i32(i32 %1753, i32 %1753, i32 13)
+  %1769 = lshr i32 %1753, 10
+  %1770 = xor i32 %1768, %1769
+  %1771 = xor i32 %1770, %1767
+  %1772 = tail call i32 @llvm.fshl.i32(i32 %1184, i32 %1184, i32 25)
+  %1773 = tail call i32 @llvm.fshl.i32(i32 %1184, i32 %1184, i32 14)
+  %1774 = lshr i32 %1184, 3
+  %1775 = xor i32 %1773, %1774
+  %1776 = xor i32 %1775, %1772
+  %1777 = add i32 %1776, %1171
+  %1778 = add i32 %1777, %1688
+  %1779 = add i32 %1778, %1771
+  %1780 = tail call i32 @llvm.fshl.i32(i32 %1766, i32 %1766, i32 15)
+  %1781 = tail call i32 @llvm.fshl.i32(i32 %1766, i32 %1766, i32 13)
+  %1782 = lshr i32 %1766, 10
+  %1783 = xor i32 %1781, %1782
+  %1784 = xor i32 %1783, %1780
+  %1785 = tail call i32 @llvm.fshl.i32(i32 %1197, i32 %1197, i32 25)
+  %1786 = tail call i32 @llvm.fshl.i32(i32 %1197, i32 %1197, i32 14)
+  %1787 = lshr i32 %1197, 3
+  %1788 = xor i32 %1786, %1787
+  %1789 = xor i32 %1788, %1785
+  %1790 = add i32 %1789, %1184
+  %1791 = add i32 %1790, %1701
+  %1792 = add i32 %1791, %1784
+  %1793 = tail call i32 @llvm.fshl.i32(i32 %1779, i32 %1779, i32 15)
+  %1794 = tail call i32 @llvm.fshl.i32(i32 %1779, i32 %1779, i32 13)
+  %1795 = lshr i32 %1779, 10
+  %1796 = xor i32 %1794, %1795
+  %1797 = xor i32 %1796, %1793
+  %1798 = tail call i32 @llvm.fshl.i32(i32 %1210, i32 %1210, i32 25)
+  %1799 = tail call i32 @llvm.fshl.i32(i32 %1210, i32 %1210, i32 14)
+  %1800 = lshr i32 %1210, 3
+  %1801 = xor i32 %1799, %1800
+  %1802 = xor i32 %1801, %1798
+  %1803 = add i32 %1802, %1197
+  %1804 = add i32 %1803, %1714
+  %1805 = add i32 %1804, %1797
+  %1806 = tail call i32 @llvm.fshl.i32(i32 %1792, i32 %1792, i32 15)
+  %1807 = tail call i32 @llvm.fshl.i32(i32 %1792, i32 %1792, i32 13)
+  %1808 = lshr i32 %1792, 10
+  %1809 = xor i32 %1807, %1808
+  %1810 = xor i32 %1809, %1806
+  %1811 = tail call i32 @llvm.fshl.i32(i32 %1223, i32 %1223, i32 25)
+  %1812 = tail call i32 @llvm.fshl.i32(i32 %1223, i32 %1223, i32 14)
+  %1813 = lshr i32 %1223, 3
+  %1814 = xor i32 %1812, %1813
+  %1815 = xor i32 %1814, %1811
+  %1816 = add i32 %1815, %1210
+  %1817 = add i32 %1816, %1727
+  %1818 = add i32 %1817, %1810
+  %1819 = tail call i32 @llvm.fshl.i32(i32 %1805, i32 %1805, i32 15)
+  %1820 = tail call i32 @llvm.fshl.i32(i32 %1805, i32 %1805, i32 13)
+  %1821 = lshr i32 %1805, 10
+  %1822 = xor i32 %1820, %1821
+  %1823 = xor i32 %1822, %1819
+  %1824 = tail call i32 @llvm.fshl.i32(i32 %1236, i32 %1236, i32 25)
+  %1825 = tail call i32 @llvm.fshl.i32(i32 %1236, i32 %1236, i32 14)
+  %1826 = lshr i32 %1236, 3
+  %1827 = xor i32 %1825, %1826
+  %1828 = xor i32 %1827, %1824
+  %1829 = add i32 %1828, %1223
+  %1830 = add i32 %1829, %1740
+  %1831 = add i32 %1830, %1823
+  %1832 = tail call i32 @llvm.fshl.i32(i32 %1818, i32 %1818, i32 15)
+  %1833 = tail call i32 @llvm.fshl.i32(i32 %1818, i32 %1818, i32 13)
+  %1834 = lshr i32 %1818, 10
+  %1835 = xor i32 %1833, %1834
+  %1836 = xor i32 %1835, %1832
+  %1837 = tail call i32 @llvm.fshl.i32(i32 %1249, i32 %1249, i32 25)
+  %1838 = tail call i32 @llvm.fshl.i32(i32 %1249, i32 %1249, i32 14)
+  %1839 = lshr i32 %1249, 3
+  %1840 = xor i32 %1838, %1839
+  %1841 = xor i32 %1840, %1837
+  %1842 = tail call i32 @llvm.fshl.i32(i32 %1831, i32 %1831, i32 15)
+  %1843 = tail call i32 @llvm.fshl.i32(i32 %1831, i32 %1831, i32 13)
+  %1844 = lshr i32 %1831, 10
+  %1845 = xor i32 %1843, %1844
+  %1846 = xor i32 %1845, %1842
+  %1847 = tail call i32 @llvm.fshl.i32(i32 %1662, i32 %1662, i32 25)
+  %1848 = tail call i32 @llvm.fshl.i32(i32 %1662, i32 %1662, i32 14)
+  %1849 = lshr i32 %1662, 3
+  %1850 = xor i32 %1848, %1849
+  %1851 = xor i32 %1850, %1847
+  %1852 = tail call i32 @llvm.fshl.i32(i32 %1649, i32 %1649, i32 26)
+  %1853 = tail call i32 @llvm.fshl.i32(i32 %1649, i32 %1649, i32 21)
+  %1854 = tail call i32 @llvm.fshl.i32(i32 %1649, i32 %1649, i32 7)
+  %1855 = xor i32 %1853, %1854
+  %1856 = xor i32 %1855, %1852
+  %1857 = and i32 %1649, %1624
+  %1858 = xor i32 %1649, -1
+  %1859 = and i32 %1599, %1858
+  %1860 = or i32 %1857, %1859
+  %1861 = add i32 %1662, 430227734
+  %1862 = add i32 %1861, %1574
+  %1863 = add i32 %1862, %1860
+  %1864 = add i32 %1863, %1856
+  %1865 = tail call i32 @llvm.fshl.i32(i32 %1648, i32 %1648, i32 30)
+  %1866 = tail call i32 @llvm.fshl.i32(i32 %1648, i32 %1648, i32 19)
+  %1867 = tail call i32 @llvm.fshl.i32(i32 %1648, i32 %1648, i32 10)
+  %1868 = xor i32 %1866, %1867
+  %1869 = xor i32 %1868, %1865
+  %1870 = and i32 %1648, %1623
+  %1871 = xor i32 %1648, %1623
+  %1872 = and i32 %1871, %1598
+  %1873 = xor i32 %1872, %1870
+  %1874 = add i32 %1869, %1873
+  %1875 = add i32 %1874, %1864
+  %1876 = add i32 %1864, %1573
+  %1877 = tail call i32 @llvm.fshl.i32(i32 %1876, i32 %1876, i32 26)
+  %1878 = tail call i32 @llvm.fshl.i32(i32 %1876, i32 %1876, i32 21)
+  %1879 = tail call i32 @llvm.fshl.i32(i32 %1876, i32 %1876, i32 7)
+  %1880 = xor i32 %1878, %1879
+  %1881 = xor i32 %1880, %1877
+  %1882 = and i32 %1876, %1649
+  %1883 = xor i32 %1876, -1
+  %1884 = and i32 %1624, %1883
+  %1885 = or i32 %1882, %1884
+  %1886 = add i32 %1675, 506948616
+  %1887 = add i32 %1886, %1599
+  %1888 = add i32 %1887, %1885
+  %1889 = add i32 %1888, %1881
+  %1890 = tail call i32 @llvm.fshl.i32(i32 %1875, i32 %1875, i32 30)
+  %1891 = tail call i32 @llvm.fshl.i32(i32 %1875, i32 %1875, i32 19)
+  %1892 = tail call i32 @llvm.fshl.i32(i32 %1875, i32 %1875, i32 10)
+  %1893 = xor i32 %1891, %1892
+  %1894 = xor i32 %1893, %1890
+  %1895 = and i32 %1875, %1648
+  %1896 = xor i32 %1875, %1648
+  %1897 = and i32 %1896, %1623
+  %1898 = xor i32 %1897, %1895
+  %1899 = add i32 %1894, %1898
+  %1900 = add i32 %1899, %1889
+  %1901 = add i32 %1889, %1598
+  %1902 = tail call i32 @llvm.fshl.i32(i32 %1901, i32 %1901, i32 26)
+  %1903 = tail call i32 @llvm.fshl.i32(i32 %1901, i32 %1901, i32 21)
+  %1904 = tail call i32 @llvm.fshl.i32(i32 %1901, i32 %1901, i32 7)
+  %1905 = xor i32 %1903, %1904
+  %1906 = xor i32 %1905, %1902
+  %1907 = and i32 %1901, %1876
+  %1908 = xor i32 %1901, -1
+  %1909 = and i32 %1649, %1908
+  %1910 = or i32 %1907, %1909
+  %1911 = add i32 %1688, 659060556
+  %1912 = add i32 %1911, %1624
+  %1913 = add i32 %1912, %1910
+  %1914 = add i32 %1913, %1906
+  %1915 = tail call i32 @llvm.fshl.i32(i32 %1900, i32 %1900, i32 30)
+  %1916 = tail call i32 @llvm.fshl.i32(i32 %1900, i32 %1900, i32 19)
+  %1917 = tail call i32 @llvm.fshl.i32(i32 %1900, i32 %1900, i32 10)
+  %1918 = xor i32 %1916, %1917
+  %1919 = xor i32 %1918, %1915
+  %1920 = and i32 %1900, %1875
+  %1921 = xor i32 %1900, %1875
+  %1922 = and i32 %1921, %1648
+  %1923 = xor i32 %1922, %1920
+  %1924 = add i32 %1919, %1923
+  %1925 = add i32 %1924, %1914
+  %1926 = add i32 %1914, %1623
+  %1927 = tail call i32 @llvm.fshl.i32(i32 %1926, i32 %1926, i32 26)
+  %1928 = tail call i32 @llvm.fshl.i32(i32 %1926, i32 %1926, i32 21)
+  %1929 = tail call i32 @llvm.fshl.i32(i32 %1926, i32 %1926, i32 7)
+  %1930 = xor i32 %1928, %1929
+  %1931 = xor i32 %1930, %1927
+  %1932 = and i32 %1926, %1901
+  %1933 = xor i32 %1926, -1
+  %1934 = and i32 %1876, %1933
+  %1935 = or i32 %1932, %1934
+  %1936 = add i32 %1701, 883997877
+  %1937 = add i32 %1936, %1649
+  %1938 = add i32 %1937, %1935
+  %1939 = add i32 %1938, %1931
+  %1940 = tail call i32 @llvm.fshl.i32(i32 %1925, i32 %1925, i32 30)
+  %1941 = tail call i32 @llvm.fshl.i32(i32 %1925, i32 %1925, i32 19)
+  %1942 = tail call i32 @llvm.fshl.i32(i32 %1925, i32 %1925, i32 10)
+  %1943 = xor i32 %1941, %1942
+  %1944 = xor i32 %1943, %1940
+  %1945 = and i32 %1925, %1900
+  %1946 = xor i32 %1925, %1900
+  %1947 = and i32 %1946, %1875
+  %1948 = xor i32 %1947, %1945
+  %1949 = add i32 %1944, %1948
+  %1950 = add i32 %1949, %1939
+  %1951 = add i32 %1939, %1648
+  %1952 = tail call i32 @llvm.fshl.i32(i32 %1951, i32 %1951, i32 26)
+  %1953 = tail call i32 @llvm.fshl.i32(i32 %1951, i32 %1951, i32 21)
+  %1954 = tail call i32 @llvm.fshl.i32(i32 %1951, i32 %1951, i32 7)
+  %1955 = xor i32 %1953, %1954
+  %1956 = xor i32 %1955, %1952
+  %1957 = and i32 %1951, %1926
+  %1958 = xor i32 %1951, -1
+  %1959 = and i32 %1901, %1958
+  %1960 = or i32 %1957, %1959
+  %1961 = add i32 %1714, 958139571
+  %1962 = add i32 %1961, %1876
+  %1963 = add i32 %1962, %1960
+  %1964 = add i32 %1963, %1956
+  %1965 = tail call i32 @llvm.fshl.i32(i32 %1950, i32 %1950, i32 30)
+  %1966 = tail call i32 @llvm.fshl.i32(i32 %1950, i32 %1950, i32 19)
+  %1967 = tail call i32 @llvm.fshl.i32(i32 %1950, i32 %1950, i32 10)
+  %1968 = xor i32 %1966, %1967
+  %1969 = xor i32 %1968, %1965
+  %1970 = and i32 %1950, %1925
+  %1971 = xor i32 %1950, %1925
+  %1972 = and i32 %1971, %1900
+  %1973 = xor i32 %1972, %1970
+  %1974 = add i32 %1969, %1973
+  %1975 = add i32 %1974, %1964
+  %1976 = add i32 %1964, %1875
+  %1977 = tail call i32 @llvm.fshl.i32(i32 %1976, i32 %1976, i32 26)
+  %1978 = tail call i32 @llvm.fshl.i32(i32 %1976, i32 %1976, i32 21)
+  %1979 = tail call i32 @llvm.fshl.i32(i32 %1976, i32 %1976, i32 7)
+  %1980 = xor i32 %1978, %1979
+  %1981 = xor i32 %1980, %1977
+  %1982 = and i32 %1976, %1951
+  %1983 = xor i32 %1976, -1
+  %1984 = and i32 %1926, %1983
+  %1985 = or i32 %1982, %1984
+  %1986 = add i32 %1727, 1322822218
+  %1987 = add i32 %1986, %1901
+  %1988 = add i32 %1987, %1985
+  %1989 = add i32 %1988, %1981
+  %1990 = tail call i32 @llvm.fshl.i32(i32 %1975, i32 %1975, i32 30)
+  %1991 = tail call i32 @llvm.fshl.i32(i32 %1975, i32 %1975, i32 19)
+  %1992 = tail call i32 @llvm.fshl.i32(i32 %1975, i32 %1975, i32 10)
+  %1993 = xor i32 %1991, %1992
+  %1994 = xor i32 %1993, %1990
+  %1995 = and i32 %1975, %1950
+  %1996 = xor i32 %1975, %1950
+  %1997 = and i32 %1996, %1925
+  %1998 = xor i32 %1997, %1995
+  %1999 = add i32 %1994, %1998
+  %2000 = add i32 %1999, %1989
+  %2001 = add i32 %1989, %1900
+  %2002 = tail call i32 @llvm.fshl.i32(i32 %2001, i32 %2001, i32 26)
+  %2003 = tail call i32 @llvm.fshl.i32(i32 %2001, i32 %2001, i32 21)
+  %2004 = tail call i32 @llvm.fshl.i32(i32 %2001, i32 %2001, i32 7)
+  %2005 = xor i32 %2003, %2004
+  %2006 = xor i32 %2005, %2002
+  %2007 = and i32 %2001, %1976
+  %2008 = xor i32 %2001, -1
+  %2009 = and i32 %1951, %2008
+  %2010 = or i32 %2007, %2009
+  %2011 = add i32 %1740, 1537002063
+  %2012 = add i32 %2011, %1926
+  %2013 = add i32 %2012, %2010
+  %2014 = add i32 %2013, %2006
+  %2015 = tail call i32 @llvm.fshl.i32(i32 %2000, i32 %2000, i32 30)
+  %2016 = tail call i32 @llvm.fshl.i32(i32 %2000, i32 %2000, i32 19)
+  %2017 = tail call i32 @llvm.fshl.i32(i32 %2000, i32 %2000, i32 10)
+  %2018 = xor i32 %2016, %2017
+  %2019 = xor i32 %2018, %2015
+  %2020 = and i32 %2000, %1975
+  %2021 = xor i32 %2000, %1975
+  %2022 = and i32 %2021, %1950
+  %2023 = xor i32 %2022, %2020
+  %2024 = add i32 %2019, %2023
+  %2025 = add i32 %2024, %2014
+  %2026 = add i32 %2014, %1925
+  %2027 = tail call i32 @llvm.fshl.i32(i32 %2026, i32 %2026, i32 26)
+  %2028 = tail call i32 @llvm.fshl.i32(i32 %2026, i32 %2026, i32 21)
+  %2029 = tail call i32 @llvm.fshl.i32(i32 %2026, i32 %2026, i32 7)
+  %2030 = xor i32 %2028, %2029
+  %2031 = xor i32 %2030, %2027
+  %2032 = and i32 %2026, %2001
+  %2033 = xor i32 %2026, -1
+  %2034 = and i32 %1976, %2033
+  %2035 = or i32 %2032, %2034
+  %2036 = add i32 %1753, 1747873779
+  %2037 = add i32 %2036, %1951
+  %2038 = add i32 %2037, %2035
+  %2039 = add i32 %2038, %2031
+  %2040 = tail call i32 @llvm.fshl.i32(i32 %2025, i32 %2025, i32 30)
+  %2041 = tail call i32 @llvm.fshl.i32(i32 %2025, i32 %2025, i32 19)
+  %2042 = tail call i32 @llvm.fshl.i32(i32 %2025, i32 %2025, i32 10)
+  %2043 = xor i32 %2041, %2042
+  %2044 = xor i32 %2043, %2040
+  %2045 = and i32 %2025, %2000
+  %2046 = xor i32 %2025, %2000
+  %2047 = and i32 %2046, %1975
+  %2048 = xor i32 %2047, %2045
+  %2049 = add i32 %2044, %2048
+  %2050 = add i32 %2049, %2039
+  %2051 = add i32 %2039, %1950
+  %2052 = tail call i32 @llvm.fshl.i32(i32 %2051, i32 %2051, i32 26)
+  %2053 = tail call i32 @llvm.fshl.i32(i32 %2051, i32 %2051, i32 21)
+  %2054 = tail call i32 @llvm.fshl.i32(i32 %2051, i32 %2051, i32 7)
+  %2055 = xor i32 %2053, %2054
+  %2056 = xor i32 %2055, %2052
+  %2057 = and i32 %2051, %2026
+  %2058 = xor i32 %2051, -1
+  %2059 = and i32 %2001, %2058
+  %2060 = or i32 %2057, %2059
+  %2061 = add i32 %1766, 1955562222
+  %2062 = add i32 %2061, %1976
+  %2063 = add i32 %2062, %2060
+  %2064 = add i32 %2063, %2056
+  %2065 = tail call i32 @llvm.fshl.i32(i32 %2050, i32 %2050, i32 30)
+  %2066 = tail call i32 @llvm.fshl.i32(i32 %2050, i32 %2050, i32 19)
+  %2067 = tail call i32 @llvm.fshl.i32(i32 %2050, i32 %2050, i32 10)
+  %2068 = xor i32 %2066, %2067
+  %2069 = xor i32 %2068, %2065
+  %2070 = and i32 %2050, %2025
+  %2071 = xor i32 %2050, %2025
+  %2072 = and i32 %2071, %2000
+  %2073 = xor i32 %2072, %2070
+  %2074 = add i32 %2069, %2073
+  %2075 = add i32 %2074, %2064
+  %2076 = add i32 %2064, %1975
+  %2077 = tail call i32 @llvm.fshl.i32(i32 %2076, i32 %2076, i32 26)
+  %2078 = tail call i32 @llvm.fshl.i32(i32 %2076, i32 %2076, i32 21)
+  %2079 = tail call i32 @llvm.fshl.i32(i32 %2076, i32 %2076, i32 7)
+  %2080 = xor i32 %2078, %2079
+  %2081 = xor i32 %2080, %2077
+  %2082 = and i32 %2076, %2051
+  %2083 = xor i32 %2076, -1
+  %2084 = and i32 %2026, %2083
+  %2085 = or i32 %2082, %2084
+  %2086 = add i32 %1779, 2024104815
+  %2087 = add i32 %2086, %2001
+  %2088 = add i32 %2087, %2085
+  %2089 = add i32 %2088, %2081
+  %2090 = tail call i32 @llvm.fshl.i32(i32 %2075, i32 %2075, i32 30)
+  %2091 = tail call i32 @llvm.fshl.i32(i32 %2075, i32 %2075, i32 19)
+  %2092 = tail call i32 @llvm.fshl.i32(i32 %2075, i32 %2075, i32 10)
+  %2093 = xor i32 %2091, %2092
+  %2094 = xor i32 %2093, %2090
+  %2095 = and i32 %2075, %2050
+  %2096 = xor i32 %2075, %2050
+  %2097 = and i32 %2096, %2025
+  %2098 = xor i32 %2097, %2095
+  %2099 = add i32 %2094, %2098
+  %2100 = add i32 %2099, %2089
+  %2101 = add i32 %2089, %2000
+  %2102 = tail call i32 @llvm.fshl.i32(i32 %2101, i32 %2101, i32 26)
+  %2103 = tail call i32 @llvm.fshl.i32(i32 %2101, i32 %2101, i32 21)
+  %2104 = tail call i32 @llvm.fshl.i32(i32 %2101, i32 %2101, i32 7)
+  %2105 = xor i32 %2103, %2104
+  %2106 = xor i32 %2105, %2102
+  %2107 = and i32 %2101, %2076
+  %2108 = xor i32 %2101, -1
+  %2109 = and i32 %2051, %2108
+  %2110 = or i32 %2107, %2109
+  %2111 = add i32 %1792, -2067236844
+  %2112 = add i32 %2111, %2026
+  %2113 = add i32 %2112, %2110
+  %2114 = add i32 %2113, %2106
+  %2115 = tail call i32 @llvm.fshl.i32(i32 %2100, i32 %2100, i32 30)
+  %2116 = tail call i32 @llvm.fshl.i32(i32 %2100, i32 %2100, i32 19)
+  %2117 = tail call i32 @llvm.fshl.i32(i32 %2100, i32 %2100, i32 10)
+  %2118 = xor i32 %2116, %2117
+  %2119 = xor i32 %2118, %2115
+  %2120 = and i32 %2100, %2075
+  %2121 = xor i32 %2100, %2075
+  %2122 = and i32 %2121, %2050
+  %2123 = xor i32 %2122, %2120
+  %2124 = add i32 %2119, %2123
+  %2125 = add i32 %2124, %2114
+  %2126 = add i32 %2114, %2025
+  %2127 = tail call i32 @llvm.fshl.i32(i32 %2126, i32 %2126, i32 26)
+  %2128 = tail call i32 @llvm.fshl.i32(i32 %2126, i32 %2126, i32 21)
+  %2129 = tail call i32 @llvm.fshl.i32(i32 %2126, i32 %2126, i32 7)
+  %2130 = xor i32 %2128, %2129
+  %2131 = xor i32 %2130, %2127
+  %2132 = and i32 %2126, %2101
+  %2133 = xor i32 %2126, -1
+  %2134 = and i32 %2076, %2133
+  %2135 = or i32 %2132, %2134
+  %2136 = add i32 %1805, -1933114872
+  %2137 = add i32 %2136, %2051
+  %2138 = add i32 %2137, %2135
+  %2139 = add i32 %2138, %2131
+  %2140 = tail call i32 @llvm.fshl.i32(i32 %2125, i32 %2125, i32 30)
+  %2141 = tail call i32 @llvm.fshl.i32(i32 %2125, i32 %2125, i32 19)
+  %2142 = tail call i32 @llvm.fshl.i32(i32 %2125, i32 %2125, i32 10)
+  %2143 = xor i32 %2141, %2142
+  %2144 = xor i32 %2143, %2140
+  %2145 = and i32 %2125, %2100
+  %2146 = xor i32 %2125, %2100
+  %2147 = and i32 %2146, %2075
+  %2148 = xor i32 %2147, %2145
+  %2149 = add i32 %2144, %2148
+  %2150 = add i32 %2149, %2139
+  %2151 = add i32 %2139, %2050
+  %2152 = tail call i32 @llvm.fshl.i32(i32 %2151, i32 %2151, i32 26)
+  %2153 = tail call i32 @llvm.fshl.i32(i32 %2151, i32 %2151, i32 21)
+  %2154 = tail call i32 @llvm.fshl.i32(i32 %2151, i32 %2151, i32 7)
+  %2155 = xor i32 %2153, %2154
+  %2156 = xor i32 %2155, %2152
+  %2157 = and i32 %2151, %2126
+  %2158 = xor i32 %2151, -1
+  %2159 = and i32 %2101, %2158
+  %2160 = or i32 %2157, %2159
+  %2161 = add i32 %1818, -1866530822
+  %2162 = add i32 %2161, %2076
+  %2163 = add i32 %2162, %2160
+  %2164 = add i32 %2163, %2156
+  %2165 = tail call i32 @llvm.fshl.i32(i32 %2150, i32 %2150, i32 30)
+  %2166 = tail call i32 @llvm.fshl.i32(i32 %2150, i32 %2150, i32 19)
+  %2167 = tail call i32 @llvm.fshl.i32(i32 %2150, i32 %2150, i32 10)
+  %2168 = xor i32 %2166, %2167
+  %2169 = xor i32 %2168, %2165
+  %2170 = and i32 %2150, %2125
+  %2171 = xor i32 %2150, %2125
+  %2172 = and i32 %2171, %2100
+  %2173 = xor i32 %2172, %2170
+  %2174 = add i32 %2169, %2173
+  %2175 = add i32 %2174, %2164
+  %2176 = add i32 %2164, %2075
+  %2177 = tail call i32 @llvm.fshl.i32(i32 %2176, i32 %2176, i32 26)
+  %2178 = tail call i32 @llvm.fshl.i32(i32 %2176, i32 %2176, i32 21)
+  %2179 = tail call i32 @llvm.fshl.i32(i32 %2176, i32 %2176, i32 7)
+  %2180 = xor i32 %2178, %2179
+  %2181 = xor i32 %2180, %2177
+  %2182 = and i32 %2176, %2151
+  %2183 = xor i32 %2176, -1
+  %2184 = and i32 %2126, %2183
+  %2185 = or i32 %2182, %2184
+  %2186 = add i32 %1831, -1538233109
+  %2187 = add i32 %2186, %2101
+  %2188 = add i32 %2187, %2185
+  %2189 = add i32 %2188, %2181
+  %2190 = tail call i32 @llvm.fshl.i32(i32 %2175, i32 %2175, i32 30)
+  %2191 = tail call i32 @llvm.fshl.i32(i32 %2175, i32 %2175, i32 19)
+  %2192 = tail call i32 @llvm.fshl.i32(i32 %2175, i32 %2175, i32 10)
+  %2193 = xor i32 %2191, %2192
+  %2194 = xor i32 %2193, %2190
+  %2195 = and i32 %2175, %2150
+  %2196 = xor i32 %2175, %2150
+  %2197 = and i32 %2196, %2125
+  %2198 = xor i32 %2197, %2195
+  %2199 = add i32 %2194, %2198
+  %2200 = add i32 %2199, %2189
+  %2201 = add i32 %2189, %2100
+  %2202 = tail call i32 @llvm.fshl.i32(i32 %2201, i32 %2201, i32 26)
+  %2203 = tail call i32 @llvm.fshl.i32(i32 %2201, i32 %2201, i32 21)
+  %2204 = tail call i32 @llvm.fshl.i32(i32 %2201, i32 %2201, i32 7)
+  %2205 = xor i32 %2203, %2204
+  %2206 = xor i32 %2205, %2202
+  %2207 = and i32 %2201, %2176
+  %2208 = xor i32 %2201, -1
+  %2209 = and i32 %2151, %2208
+  %2210 = or i32 %2207, %2209
+  %2211 = add i32 %1236, -1090935817
+  %2212 = add i32 %2211, %1841
+  %2213 = add i32 %2212, %1753
+  %2214 = add i32 %2213, %1836
+  %2215 = add i32 %2214, %2126
+  %2216 = add i32 %2215, %2210
+  %2217 = add i32 %2216, %2206
+  %2218 = tail call i32 @llvm.fshl.i32(i32 %2200, i32 %2200, i32 30)
+  %2219 = tail call i32 @llvm.fshl.i32(i32 %2200, i32 %2200, i32 19)
+  %2220 = tail call i32 @llvm.fshl.i32(i32 %2200, i32 %2200, i32 10)
+  %2221 = xor i32 %2219, %2220
+  %2222 = xor i32 %2221, %2218
+  %2223 = and i32 %2200, %2175
+  %2224 = xor i32 %2200, %2175
+  %2225 = and i32 %2224, %2150
+  %2226 = xor i32 %2225, %2223
+  %2227 = add i32 %2222, %2226
+  %2228 = add i32 %2227, %2217
+  %2229 = add i32 %2217, %2125
+  %2230 = tail call i32 @llvm.fshl.i32(i32 %2229, i32 %2229, i32 26)
+  %2231 = tail call i32 @llvm.fshl.i32(i32 %2229, i32 %2229, i32 21)
+  %2232 = tail call i32 @llvm.fshl.i32(i32 %2229, i32 %2229, i32 7)
+  %2233 = xor i32 %2231, %2232
+  %2234 = xor i32 %2233, %2230
+  %2235 = and i32 %2229, %2201
+  %2236 = xor i32 %2229, -1
+  %2237 = and i32 %2176, %2236
+  %2238 = or i32 %2235, %2237
+  %2239 = add i32 %1249, -965641998
+  %2240 = add i32 %2239, %1851
+  %2241 = add i32 %2240, %1766
+  %2242 = add i32 %2241, %1846
+  %2243 = add i32 %2242, %2151
+  %2244 = add i32 %2243, %2238
+  %2245 = add i32 %2244, %2234
+  %2246 = tail call i32 @llvm.fshl.i32(i32 %2228, i32 %2228, i32 30)
+  %2247 = tail call i32 @llvm.fshl.i32(i32 %2228, i32 %2228, i32 19)
+  %2248 = tail call i32 @llvm.fshl.i32(i32 %2228, i32 %2228, i32 10)
+  %2249 = xor i32 %2247, %2248
+  %2250 = xor i32 %2249, %2246
+  %2251 = and i32 %2228, %2200
+  %2252 = xor i32 %2228, %2200
+  %2253 = and i32 %2252, %2175
+  %2254 = xor i32 %2253, %2251
+  %2255 = add i32 %2250, %2254
+  %2256 = add i32 %2255, %2245
+  %2257 = add i32 %2245, %2150
+  %2258 = add i32 %2256, %.sroa.05961.0.copyload
+  store i32 %2258, ptr %1, align 4, !tbaa !3
+  %2259 = add i32 %2228, %.sroa.5.0.copyload
+  store i32 %2259, ptr %.sroa.5.0..sroa_idx, align 4, !tbaa !3
+  %2260 = add i32 %2200, %.sroa.6.0.copyload
+  store i32 %2260, ptr %.sroa.6.0..sroa_idx, align 4, !tbaa !3
+  %2261 = add i32 %2175, %.sroa.7.0.copyload
+  store i32 %2261, ptr %.sroa.7.0..sroa_idx, align 4, !tbaa !3
+  %2262 = add i32 %2257, %.sroa.8.0.copyload
+  store i32 %2262, ptr %.sroa.8.0..sroa_idx, align 4, !tbaa !3
+  %2263 = add i32 %2229, %.sroa.9.0.copyload
+  store i32 %2263, ptr %.sroa.9.0..sroa_idx, align 4, !tbaa !3
+  %2264 = add i32 %2201, %.sroa.10.0.copyload
+  store i32 %2264, ptr %.sroa.10.0..sroa_idx, align 4, !tbaa !3
+  %2265 = add i32 %2176, %.sroa.11.0.copyload
+  store i32 %2265, ptr %.sroa.11.0..sroa_idx, align 4, !tbaa !3
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc void @sha256_update(ptr noundef readonly captures(none) %b, ptr noundef captures(none) %hash) unnamed_addr #2 {
-entry:
-  %hash_old.sroa.0.0.copyload = load i32, ptr %hash, align 4
-  %hash_old.sroa.3.0.hash.sroa_idx = getelementptr inbounds nuw i8, ptr %hash, i64 4
-  %hash_old.sroa.3.0.copyload = load i32, ptr %hash_old.sroa.3.0.hash.sroa_idx, align 4
-  %hash_old.sroa.4.0.hash.sroa_idx = getelementptr inbounds nuw i8, ptr %hash, i64 8
-  %hash_old.sroa.4.0.copyload = load i32, ptr %hash_old.sroa.4.0.hash.sroa_idx, align 4
-  %hash_old.sroa.5.0.hash.sroa_idx = getelementptr inbounds nuw i8, ptr %hash, i64 12
-  %hash_old.sroa.5.0.copyload = load i32, ptr %hash_old.sroa.5.0.hash.sroa_idx, align 4
-  %hash_old.sroa.6.0.hash.sroa_idx = getelementptr inbounds nuw i8, ptr %hash, i64 16
-  %hash_old.sroa.6.0.copyload = load i32, ptr %hash_old.sroa.6.0.hash.sroa_idx, align 4
-  %hash_old.sroa.7.0.hash.sroa_idx = getelementptr inbounds nuw i8, ptr %hash, i64 20
-  %hash_old.sroa.7.0.copyload = load i32, ptr %hash_old.sroa.7.0.hash.sroa_idx, align 4
-  %hash_old.sroa.8.0.hash.sroa_idx = getelementptr inbounds nuw i8, ptr %hash, i64 24
-  %hash_old.sroa.8.0.copyload = load i32, ptr %hash_old.sroa.8.0.hash.sroa_idx, align 4
-  %hash_old.sroa.9.0.hash.sroa_idx = getelementptr inbounds nuw i8, ptr %hash, i64 28
-  %hash_old.sroa.9.0.copyload = load i32, ptr %hash_old.sroa.9.0.hash.sroa_idx, align 4
-  %b.val = load i32, ptr %b, align 1
-  %or7.i = tail call noundef i32 @llvm.bswap.i32(i32 %b.val)
-  %add.ptr = getelementptr i8, ptr %b, i64 4
-  %add.ptr.val = load i32, ptr %add.ptr, align 1
-  %or7.i3774 = tail call noundef i32 @llvm.bswap.i32(i32 %add.ptr.val)
-  %add.ptr5 = getelementptr i8, ptr %b, i64 8
-  %add.ptr5.val = load i32, ptr %add.ptr5, align 1
-  %or7.i3775 = tail call noundef i32 @llvm.bswap.i32(i32 %add.ptr5.val)
-  %add.ptr9 = getelementptr i8, ptr %b, i64 12
-  %add.ptr9.val = load i32, ptr %add.ptr9, align 1
-  %or7.i3776 = tail call noundef i32 @llvm.bswap.i32(i32 %add.ptr9.val)
-  %add.ptr13 = getelementptr i8, ptr %b, i64 16
-  %add.ptr13.val = load i32, ptr %add.ptr13, align 1
-  %or7.i3777 = tail call noundef i32 @llvm.bswap.i32(i32 %add.ptr13.val)
-  %add.ptr17 = getelementptr i8, ptr %b, i64 20
-  %add.ptr17.val = load i32, ptr %add.ptr17, align 1
-  %or7.i3778 = tail call noundef i32 @llvm.bswap.i32(i32 %add.ptr17.val)
-  %add.ptr21 = getelementptr i8, ptr %b, i64 24
-  %add.ptr21.val = load i32, ptr %add.ptr21, align 1
-  %or7.i3779 = tail call noundef i32 @llvm.bswap.i32(i32 %add.ptr21.val)
-  %add.ptr25 = getelementptr i8, ptr %b, i64 28
-  %add.ptr25.val = load i32, ptr %add.ptr25, align 1
-  %or7.i3780 = tail call noundef i32 @llvm.bswap.i32(i32 %add.ptr25.val)
-  %add.ptr29 = getelementptr i8, ptr %b, i64 32
-  %add.ptr29.val = load i32, ptr %add.ptr29, align 1
-  %or7.i3781 = tail call noundef i32 @llvm.bswap.i32(i32 %add.ptr29.val)
-  %add.ptr33 = getelementptr i8, ptr %b, i64 36
-  %add.ptr33.val = load i32, ptr %add.ptr33, align 1
-  %or7.i3782 = tail call noundef i32 @llvm.bswap.i32(i32 %add.ptr33.val)
-  %add.ptr37 = getelementptr i8, ptr %b, i64 40
-  %add.ptr37.val = load i32, ptr %add.ptr37, align 1
-  %or7.i3783 = tail call noundef i32 @llvm.bswap.i32(i32 %add.ptr37.val)
-  %add.ptr41 = getelementptr i8, ptr %b, i64 44
-  %add.ptr41.val = load i32, ptr %add.ptr41, align 1
-  %or7.i3784 = tail call noundef i32 @llvm.bswap.i32(i32 %add.ptr41.val)
-  %add.ptr45 = getelementptr i8, ptr %b, i64 48
-  %add.ptr45.val = load i32, ptr %add.ptr45, align 1
-  %or7.i3785 = tail call noundef i32 @llvm.bswap.i32(i32 %add.ptr45.val)
-  %add.ptr49 = getelementptr i8, ptr %b, i64 52
-  %add.ptr49.val = load i32, ptr %add.ptr49, align 1
-  %or7.i3786 = tail call noundef i32 @llvm.bswap.i32(i32 %add.ptr49.val)
-  %add.ptr53 = getelementptr i8, ptr %b, i64 56
-  %add.ptr53.val = load i32, ptr %add.ptr53, align 1
-  %or7.i3787 = tail call noundef i32 @llvm.bswap.i32(i32 %add.ptr53.val)
-  %add.ptr57 = getelementptr i8, ptr %b, i64 60
-  %add.ptr57.val = load i32, ptr %add.ptr57, align 1
-  %or7.i3788 = tail call noundef i32 @llvm.bswap.i32(i32 %add.ptr57.val)
-  %or = tail call i32 @llvm.fshl.i32(i32 %hash_old.sroa.6.0.copyload, i32 %hash_old.sroa.6.0.copyload, i32 26)
-  %or75 = tail call i32 @llvm.fshl.i32(i32 %hash_old.sroa.6.0.copyload, i32 %hash_old.sroa.6.0.copyload, i32 21)
-  %or78 = tail call i32 @llvm.fshl.i32(i32 %hash_old.sroa.6.0.copyload, i32 %hash_old.sroa.6.0.copyload, i32 7)
-  %xor = xor i32 %or75, %or78
-  %xor79 = xor i32 %xor, %or
-  %and = and i32 %hash_old.sroa.7.0.copyload, %hash_old.sroa.6.0.copyload
-  %not = xor i32 %hash_old.sroa.6.0.copyload, -1
-  %and81 = and i32 %hash_old.sroa.8.0.copyload, %not
-  %xor82 = or i32 %and81, %and
-  %add80 = add i32 %xor79, 1116352408
-  %add83 = add i32 %add80, %hash_old.sroa.9.0.copyload
-  %add84 = add i32 %add83, %xor82
-  %add85 = add i32 %add84, %or7.i
-  %or88 = tail call i32 @llvm.fshl.i32(i32 %hash_old.sroa.0.0.copyload, i32 %hash_old.sroa.0.0.copyload, i32 30)
-  %or91 = tail call i32 @llvm.fshl.i32(i32 %hash_old.sroa.0.0.copyload, i32 %hash_old.sroa.0.0.copyload, i32 19)
-  %or94 = tail call i32 @llvm.fshl.i32(i32 %hash_old.sroa.0.0.copyload, i32 %hash_old.sroa.0.0.copyload, i32 10)
-  %xor95 = xor i32 %or91, %or94
-  %xor96 = xor i32 %xor95, %or88
-  %and97 = and i32 %hash_old.sroa.3.0.copyload, %hash_old.sroa.0.0.copyload
-  %and983710 = xor i32 %hash_old.sroa.3.0.copyload, %hash_old.sroa.0.0.copyload
-  %xor100 = and i32 %and983710, %hash_old.sroa.4.0.copyload
-  %xor101 = xor i32 %xor100, %and97
-  %add102 = add i32 %xor101, %xor96
-  %add103 = add i32 %add102, %add85
-  %add104 = add i32 %add85, %hash_old.sroa.5.0.copyload
-  %or142 = tail call i32 @llvm.fshl.i32(i32 %add104, i32 %add104, i32 26)
-  %or145 = tail call i32 @llvm.fshl.i32(i32 %add104, i32 %add104, i32 21)
-  %or148 = tail call i32 @llvm.fshl.i32(i32 %add104, i32 %add104, i32 7)
-  %xor149 = xor i32 %or145, %or148
-  %xor150 = xor i32 %xor149, %or142
-  %and152 = and i32 %add104, %hash_old.sroa.6.0.copyload
-  %not153 = xor i32 %add104, -1
-  %and154 = and i32 %hash_old.sroa.7.0.copyload, %not153
-  %xor155 = or i32 %and152, %and154
-  %add151 = add i32 %hash_old.sroa.8.0.copyload, 1899447441
-  %add156 = add i32 %add151, %or7.i3774
-  %add157 = add i32 %add156, %xor155
-  %add158 = add i32 %add157, %xor150
-  %or162 = tail call i32 @llvm.fshl.i32(i32 %add103, i32 %add103, i32 30)
-  %or165 = tail call i32 @llvm.fshl.i32(i32 %add103, i32 %add103, i32 19)
-  %or168 = tail call i32 @llvm.fshl.i32(i32 %add103, i32 %add103, i32 10)
-  %xor169 = xor i32 %or165, %or168
-  %xor170 = xor i32 %xor169, %or162
-  %and171 = and i32 %add103, %hash_old.sroa.0.0.copyload
-  %and1723711 = xor i32 %add103, %hash_old.sroa.0.0.copyload
-  %xor174 = and i32 %and1723711, %hash_old.sroa.3.0.copyload
-  %xor175 = xor i32 %xor174, %and171
-  %add176 = add i32 %xor170, %xor175
-  %add178 = add i32 %add176, %add158
-  %add183 = add i32 %add158, %hash_old.sroa.4.0.copyload
-  %or224 = tail call i32 @llvm.fshl.i32(i32 %add183, i32 %add183, i32 26)
-  %or227 = tail call i32 @llvm.fshl.i32(i32 %add183, i32 %add183, i32 21)
-  %or230 = tail call i32 @llvm.fshl.i32(i32 %add183, i32 %add183, i32 7)
-  %xor231 = xor i32 %or227, %or230
-  %xor232 = xor i32 %xor231, %or224
-  %and234 = and i32 %add183, %add104
-  %not235 = xor i32 %add183, -1
-  %and236 = and i32 %hash_old.sroa.6.0.copyload, %not235
-  %xor237 = or i32 %and234, %and236
-  %add233 = add i32 %hash_old.sroa.7.0.copyload, -1245643825
-  %add238 = add i32 %add233, %or7.i3775
-  %add239 = add i32 %add238, %xor237
-  %add240 = add i32 %add239, %xor232
-  %or244 = tail call i32 @llvm.fshl.i32(i32 %add178, i32 %add178, i32 30)
-  %or247 = tail call i32 @llvm.fshl.i32(i32 %add178, i32 %add178, i32 19)
-  %or250 = tail call i32 @llvm.fshl.i32(i32 %add178, i32 %add178, i32 10)
-  %xor251 = xor i32 %or247, %or250
-  %xor252 = xor i32 %xor251, %or244
-  %and253 = and i32 %add178, %add103
-  %and2543712 = xor i32 %add178, %add103
-  %xor256 = and i32 %and2543712, %hash_old.sroa.0.0.copyload
-  %xor257 = xor i32 %xor256, %and253
-  %add258 = add i32 %xor252, %xor257
-  %add260 = add i32 %add258, %add240
-  %add265 = add i32 %add240, %hash_old.sroa.3.0.copyload
-  %or306 = tail call i32 @llvm.fshl.i32(i32 %add265, i32 %add265, i32 26)
-  %or309 = tail call i32 @llvm.fshl.i32(i32 %add265, i32 %add265, i32 21)
-  %or312 = tail call i32 @llvm.fshl.i32(i32 %add265, i32 %add265, i32 7)
-  %xor313 = xor i32 %or309, %or312
-  %xor314 = xor i32 %xor313, %or306
-  %and316 = and i32 %add265, %add183
-  %not317 = xor i32 %add265, -1
-  %and318 = and i32 %add104, %not317
-  %xor319 = or i32 %and316, %and318
-  %add315 = add i32 %hash_old.sroa.6.0.copyload, -373957723
-  %add320 = add i32 %add315, %or7.i3776
-  %add321 = add i32 %add320, %xor319
-  %add322 = add i32 %add321, %xor314
-  %or326 = tail call i32 @llvm.fshl.i32(i32 %add260, i32 %add260, i32 30)
-  %or329 = tail call i32 @llvm.fshl.i32(i32 %add260, i32 %add260, i32 19)
-  %or332 = tail call i32 @llvm.fshl.i32(i32 %add260, i32 %add260, i32 10)
-  %xor333 = xor i32 %or329, %or332
-  %xor334 = xor i32 %xor333, %or326
-  %and335 = and i32 %add260, %add178
-  %and3363713 = xor i32 %add260, %add178
-  %xor338 = and i32 %and3363713, %add103
-  %xor339 = xor i32 %xor338, %and335
-  %add340 = add i32 %xor334, %xor339
-  %add342 = add i32 %add340, %add322
-  %add347 = add i32 %add322, %hash_old.sroa.0.0.copyload
-  %or388 = tail call i32 @llvm.fshl.i32(i32 %add347, i32 %add347, i32 26)
-  %or391 = tail call i32 @llvm.fshl.i32(i32 %add347, i32 %add347, i32 21)
-  %or394 = tail call i32 @llvm.fshl.i32(i32 %add347, i32 %add347, i32 7)
-  %xor395 = xor i32 %or391, %or394
-  %xor396 = xor i32 %xor395, %or388
-  %and398 = and i32 %add347, %add265
-  %not399 = xor i32 %add347, -1
-  %and400 = and i32 %add183, %not399
-  %xor401 = or i32 %and398, %and400
-  %add397 = add i32 %add104, 961987163
-  %add402 = add i32 %add397, %or7.i3777
-  %add403 = add i32 %add402, %xor401
-  %add404 = add i32 %add403, %xor396
-  %or408 = tail call i32 @llvm.fshl.i32(i32 %add342, i32 %add342, i32 30)
-  %or411 = tail call i32 @llvm.fshl.i32(i32 %add342, i32 %add342, i32 19)
-  %or414 = tail call i32 @llvm.fshl.i32(i32 %add342, i32 %add342, i32 10)
-  %xor415 = xor i32 %or411, %or414
-  %xor416 = xor i32 %xor415, %or408
-  %and417 = and i32 %add342, %add260
-  %and4183714 = xor i32 %add342, %add260
-  %xor420 = and i32 %and4183714, %add178
-  %xor421 = xor i32 %xor420, %and417
-  %add422 = add i32 %xor416, %xor421
-  %add424 = add i32 %add422, %add404
-  %add429 = add i32 %add404, %add103
-  %or470 = tail call i32 @llvm.fshl.i32(i32 %add429, i32 %add429, i32 26)
-  %or473 = tail call i32 @llvm.fshl.i32(i32 %add429, i32 %add429, i32 21)
-  %or476 = tail call i32 @llvm.fshl.i32(i32 %add429, i32 %add429, i32 7)
-  %xor477 = xor i32 %or473, %or476
-  %xor478 = xor i32 %xor477, %or470
-  %and480 = and i32 %add429, %add347
-  %not481 = xor i32 %add429, -1
-  %and482 = and i32 %add265, %not481
-  %xor483 = or i32 %and480, %and482
-  %add479 = add i32 %or7.i3778, 1508970993
-  %add484 = add i32 %add479, %add183
-  %add485 = add i32 %add484, %xor483
-  %add486 = add i32 %add485, %xor478
-  %or490 = tail call i32 @llvm.fshl.i32(i32 %add424, i32 %add424, i32 30)
-  %or493 = tail call i32 @llvm.fshl.i32(i32 %add424, i32 %add424, i32 19)
-  %or496 = tail call i32 @llvm.fshl.i32(i32 %add424, i32 %add424, i32 10)
-  %xor497 = xor i32 %or493, %or496
-  %xor498 = xor i32 %xor497, %or490
-  %and499 = and i32 %add424, %add342
-  %and5003715 = xor i32 %add424, %add342
-  %xor502 = and i32 %and5003715, %add260
-  %xor503 = xor i32 %xor502, %and499
-  %add504 = add i32 %xor498, %xor503
-  %add506 = add i32 %add504, %add486
-  %add511 = add i32 %add486, %add178
-  %or552 = tail call i32 @llvm.fshl.i32(i32 %add511, i32 %add511, i32 26)
-  %or555 = tail call i32 @llvm.fshl.i32(i32 %add511, i32 %add511, i32 21)
-  %or558 = tail call i32 @llvm.fshl.i32(i32 %add511, i32 %add511, i32 7)
-  %xor559 = xor i32 %or555, %or558
-  %xor560 = xor i32 %xor559, %or552
-  %and562 = and i32 %add511, %add429
-  %not563 = xor i32 %add511, -1
-  %and564 = and i32 %add347, %not563
-  %xor565 = or i32 %and562, %and564
-  %add561 = add i32 %or7.i3779, -1841331548
-  %add566 = add i32 %add561, %add265
-  %add567 = add i32 %add566, %xor565
-  %add568 = add i32 %add567, %xor560
-  %or572 = tail call i32 @llvm.fshl.i32(i32 %add506, i32 %add506, i32 30)
-  %or575 = tail call i32 @llvm.fshl.i32(i32 %add506, i32 %add506, i32 19)
-  %or578 = tail call i32 @llvm.fshl.i32(i32 %add506, i32 %add506, i32 10)
-  %xor579 = xor i32 %or575, %or578
-  %xor580 = xor i32 %xor579, %or572
-  %and581 = and i32 %add506, %add424
-  %and5823716 = xor i32 %add506, %add424
-  %xor584 = and i32 %and5823716, %add342
-  %xor585 = xor i32 %xor584, %and581
-  %add586 = add i32 %xor580, %xor585
-  %add588 = add i32 %add586, %add568
-  %add593 = add i32 %add568, %add260
-  %or634 = tail call i32 @llvm.fshl.i32(i32 %add593, i32 %add593, i32 26)
-  %or637 = tail call i32 @llvm.fshl.i32(i32 %add593, i32 %add593, i32 21)
-  %or640 = tail call i32 @llvm.fshl.i32(i32 %add593, i32 %add593, i32 7)
-  %xor641 = xor i32 %or637, %or640
-  %xor642 = xor i32 %xor641, %or634
-  %and644 = and i32 %add593, %add511
-  %not645 = xor i32 %add593, -1
-  %and646 = and i32 %add429, %not645
-  %xor647 = or i32 %and644, %and646
-  %add643 = add i32 %or7.i3780, -1424204075
-  %add648 = add i32 %add643, %add347
-  %add649 = add i32 %add648, %xor647
-  %add650 = add i32 %add649, %xor642
-  %or654 = tail call i32 @llvm.fshl.i32(i32 %add588, i32 %add588, i32 30)
-  %or657 = tail call i32 @llvm.fshl.i32(i32 %add588, i32 %add588, i32 19)
-  %or660 = tail call i32 @llvm.fshl.i32(i32 %add588, i32 %add588, i32 10)
-  %xor661 = xor i32 %or657, %or660
-  %xor662 = xor i32 %xor661, %or654
-  %and663 = and i32 %add588, %add506
-  %and6643717 = xor i32 %add588, %add506
-  %xor666 = and i32 %and6643717, %add424
-  %xor667 = xor i32 %xor666, %and663
-  %add668 = add i32 %xor662, %xor667
-  %add670 = add i32 %add668, %add650
-  %add675 = add i32 %add650, %add342
-  %or716 = tail call i32 @llvm.fshl.i32(i32 %add675, i32 %add675, i32 26)
-  %or719 = tail call i32 @llvm.fshl.i32(i32 %add675, i32 %add675, i32 21)
-  %or722 = tail call i32 @llvm.fshl.i32(i32 %add675, i32 %add675, i32 7)
-  %xor723 = xor i32 %or719, %or722
-  %xor724 = xor i32 %xor723, %or716
-  %and726 = and i32 %add675, %add593
-  %not727 = xor i32 %add675, -1
-  %and728 = and i32 %add511, %not727
-  %xor729 = or i32 %and726, %and728
-  %add725 = add i32 %or7.i3781, -670586216
-  %add730 = add i32 %add725, %add429
-  %add731 = add i32 %add730, %xor729
-  %add732 = add i32 %add731, %xor724
-  %or736 = tail call i32 @llvm.fshl.i32(i32 %add670, i32 %add670, i32 30)
-  %or739 = tail call i32 @llvm.fshl.i32(i32 %add670, i32 %add670, i32 19)
-  %or742 = tail call i32 @llvm.fshl.i32(i32 %add670, i32 %add670, i32 10)
-  %xor743 = xor i32 %or739, %or742
-  %xor744 = xor i32 %xor743, %or736
-  %and745 = and i32 %add670, %add588
-  %and7463718 = xor i32 %add670, %add588
-  %xor748 = and i32 %and7463718, %add506
-  %xor749 = xor i32 %xor748, %and745
-  %add750 = add i32 %xor744, %xor749
-  %add752 = add i32 %add750, %add732
-  %add757 = add i32 %add732, %add424
-  %or798 = tail call i32 @llvm.fshl.i32(i32 %add757, i32 %add757, i32 26)
-  %or801 = tail call i32 @llvm.fshl.i32(i32 %add757, i32 %add757, i32 21)
-  %or804 = tail call i32 @llvm.fshl.i32(i32 %add757, i32 %add757, i32 7)
-  %xor805 = xor i32 %or801, %or804
-  %xor806 = xor i32 %xor805, %or798
-  %and808 = and i32 %add757, %add675
-  %not809 = xor i32 %add757, -1
-  %and810 = and i32 %add593, %not809
-  %xor811 = or i32 %and808, %and810
-  %add807 = add i32 %or7.i3782, 310598401
-  %add812 = add i32 %add807, %add511
-  %add813 = add i32 %add812, %xor811
-  %add814 = add i32 %add813, %xor806
-  %or818 = tail call i32 @llvm.fshl.i32(i32 %add752, i32 %add752, i32 30)
-  %or821 = tail call i32 @llvm.fshl.i32(i32 %add752, i32 %add752, i32 19)
-  %or824 = tail call i32 @llvm.fshl.i32(i32 %add752, i32 %add752, i32 10)
-  %xor825 = xor i32 %or821, %or824
-  %xor826 = xor i32 %xor825, %or818
-  %and827 = and i32 %add752, %add670
-  %and8283719 = xor i32 %add752, %add670
-  %xor830 = and i32 %and8283719, %add588
-  %xor831 = xor i32 %xor830, %and827
-  %add832 = add i32 %xor826, %xor831
-  %add834 = add i32 %add832, %add814
-  %add839 = add i32 %add814, %add506
-  %or880 = tail call i32 @llvm.fshl.i32(i32 %add839, i32 %add839, i32 26)
-  %or883 = tail call i32 @llvm.fshl.i32(i32 %add839, i32 %add839, i32 21)
-  %or886 = tail call i32 @llvm.fshl.i32(i32 %add839, i32 %add839, i32 7)
-  %xor887 = xor i32 %or883, %or886
-  %xor888 = xor i32 %xor887, %or880
-  %and890 = and i32 %add839, %add757
-  %not891 = xor i32 %add839, -1
-  %and892 = and i32 %add675, %not891
-  %xor893 = or i32 %and890, %and892
-  %add889 = add i32 %or7.i3783, 607225278
-  %add894 = add i32 %add889, %add593
-  %add895 = add i32 %add894, %xor893
-  %add896 = add i32 %add895, %xor888
-  %or900 = tail call i32 @llvm.fshl.i32(i32 %add834, i32 %add834, i32 30)
-  %or903 = tail call i32 @llvm.fshl.i32(i32 %add834, i32 %add834, i32 19)
-  %or906 = tail call i32 @llvm.fshl.i32(i32 %add834, i32 %add834, i32 10)
-  %xor907 = xor i32 %or903, %or906
-  %xor908 = xor i32 %xor907, %or900
-  %and909 = and i32 %add834, %add752
-  %and9103720 = xor i32 %add834, %add752
-  %xor912 = and i32 %and9103720, %add670
-  %xor913 = xor i32 %xor912, %and909
-  %add914 = add i32 %xor908, %xor913
-  %add916 = add i32 %add914, %add896
-  %add921 = add i32 %add896, %add588
-  %or962 = tail call i32 @llvm.fshl.i32(i32 %add921, i32 %add921, i32 26)
-  %or965 = tail call i32 @llvm.fshl.i32(i32 %add921, i32 %add921, i32 21)
-  %or968 = tail call i32 @llvm.fshl.i32(i32 %add921, i32 %add921, i32 7)
-  %xor969 = xor i32 %or965, %or968
-  %xor970 = xor i32 %xor969, %or962
-  %and972 = and i32 %add921, %add839
-  %not973 = xor i32 %add921, -1
-  %and974 = and i32 %add757, %not973
-  %xor975 = or i32 %and972, %and974
-  %add971 = add i32 %or7.i3784, 1426881987
-  %add976 = add i32 %add971, %add675
-  %add977 = add i32 %add976, %xor975
-  %add978 = add i32 %add977, %xor970
-  %or982 = tail call i32 @llvm.fshl.i32(i32 %add916, i32 %add916, i32 30)
-  %or985 = tail call i32 @llvm.fshl.i32(i32 %add916, i32 %add916, i32 19)
-  %or988 = tail call i32 @llvm.fshl.i32(i32 %add916, i32 %add916, i32 10)
-  %xor989 = xor i32 %or985, %or988
-  %xor990 = xor i32 %xor989, %or982
-  %and991 = and i32 %add916, %add834
-  %and9923721 = xor i32 %add916, %add834
-  %xor994 = and i32 %and9923721, %add752
-  %xor995 = xor i32 %xor994, %and991
-  %add996 = add i32 %xor990, %xor995
-  %add998 = add i32 %add996, %add978
-  %add1003 = add i32 %add978, %add670
-  %or1044 = tail call i32 @llvm.fshl.i32(i32 %add1003, i32 %add1003, i32 26)
-  %or1047 = tail call i32 @llvm.fshl.i32(i32 %add1003, i32 %add1003, i32 21)
-  %or1050 = tail call i32 @llvm.fshl.i32(i32 %add1003, i32 %add1003, i32 7)
-  %xor1051 = xor i32 %or1047, %or1050
-  %xor1052 = xor i32 %xor1051, %or1044
-  %and1054 = and i32 %add1003, %add921
-  %not1055 = xor i32 %add1003, -1
-  %and1056 = and i32 %add839, %not1055
-  %xor1057 = or i32 %and1054, %and1056
-  %add1053 = add i32 %or7.i3785, 1925078388
-  %add1058 = add i32 %add1053, %add757
-  %add1059 = add i32 %add1058, %xor1057
-  %add1060 = add i32 %add1059, %xor1052
-  %or1064 = tail call i32 @llvm.fshl.i32(i32 %add998, i32 %add998, i32 30)
-  %or1067 = tail call i32 @llvm.fshl.i32(i32 %add998, i32 %add998, i32 19)
-  %or1070 = tail call i32 @llvm.fshl.i32(i32 %add998, i32 %add998, i32 10)
-  %xor1071 = xor i32 %or1067, %or1070
-  %xor1072 = xor i32 %xor1071, %or1064
-  %and1073 = and i32 %add998, %add916
-  %and10743722 = xor i32 %add998, %add916
-  %xor1076 = and i32 %and10743722, %add834
-  %xor1077 = xor i32 %xor1076, %and1073
-  %add1078 = add i32 %xor1072, %xor1077
-  %add1080 = add i32 %add1078, %add1060
-  %add1085 = add i32 %add1060, %add752
-  %or1126 = tail call i32 @llvm.fshl.i32(i32 %add1085, i32 %add1085, i32 26)
-  %or1129 = tail call i32 @llvm.fshl.i32(i32 %add1085, i32 %add1085, i32 21)
-  %or1132 = tail call i32 @llvm.fshl.i32(i32 %add1085, i32 %add1085, i32 7)
-  %xor1133 = xor i32 %or1129, %or1132
-  %xor1134 = xor i32 %xor1133, %or1126
-  %and1136 = and i32 %add1085, %add1003
-  %not1137 = xor i32 %add1085, -1
-  %and1138 = and i32 %add921, %not1137
-  %xor1139 = or i32 %and1136, %and1138
-  %add1135 = add i32 %or7.i3786, -2132889090
-  %add1140 = add i32 %add1135, %add839
-  %add1141 = add i32 %add1140, %xor1139
-  %add1142 = add i32 %add1141, %xor1134
-  %or1146 = tail call i32 @llvm.fshl.i32(i32 %add1080, i32 %add1080, i32 30)
-  %or1149 = tail call i32 @llvm.fshl.i32(i32 %add1080, i32 %add1080, i32 19)
-  %or1152 = tail call i32 @llvm.fshl.i32(i32 %add1080, i32 %add1080, i32 10)
-  %xor1153 = xor i32 %or1149, %or1152
-  %xor1154 = xor i32 %xor1153, %or1146
-  %and1155 = and i32 %add1080, %add998
-  %and11563723 = xor i32 %add1080, %add998
-  %xor1158 = and i32 %and11563723, %add916
-  %xor1159 = xor i32 %xor1158, %and1155
-  %add1160 = add i32 %xor1154, %xor1159
-  %add1162 = add i32 %add1160, %add1142
-  %add1167 = add i32 %add1142, %add834
-  %or1208 = tail call i32 @llvm.fshl.i32(i32 %add1167, i32 %add1167, i32 26)
-  %or1211 = tail call i32 @llvm.fshl.i32(i32 %add1167, i32 %add1167, i32 21)
-  %or1214 = tail call i32 @llvm.fshl.i32(i32 %add1167, i32 %add1167, i32 7)
-  %xor1215 = xor i32 %or1211, %or1214
-  %xor1216 = xor i32 %xor1215, %or1208
-  %and1218 = and i32 %add1167, %add1085
-  %not1219 = xor i32 %add1167, -1
-  %and1220 = and i32 %add1003, %not1219
-  %xor1221 = or i32 %and1218, %and1220
-  %add1217 = add i32 %or7.i3787, -1680079193
-  %add1222 = add i32 %add1217, %add921
-  %add1223 = add i32 %add1222, %xor1221
-  %add1224 = add i32 %add1223, %xor1216
-  %or1228 = tail call i32 @llvm.fshl.i32(i32 %add1162, i32 %add1162, i32 30)
-  %or1231 = tail call i32 @llvm.fshl.i32(i32 %add1162, i32 %add1162, i32 19)
-  %or1234 = tail call i32 @llvm.fshl.i32(i32 %add1162, i32 %add1162, i32 10)
-  %xor1235 = xor i32 %or1231, %or1234
-  %xor1236 = xor i32 %xor1235, %or1228
-  %and1237 = and i32 %add1162, %add1080
-  %and12383724 = xor i32 %add1162, %add1080
-  %xor1240 = and i32 %and12383724, %add998
-  %xor1241 = xor i32 %xor1240, %and1237
-  %add1242 = add i32 %xor1236, %xor1241
-  %add1244 = add i32 %add1242, %add1224
-  %add1249 = add i32 %add1224, %add916
-  %or1290 = tail call i32 @llvm.fshl.i32(i32 %add1249, i32 %add1249, i32 26)
-  %or1293 = tail call i32 @llvm.fshl.i32(i32 %add1249, i32 %add1249, i32 21)
-  %or1296 = tail call i32 @llvm.fshl.i32(i32 %add1249, i32 %add1249, i32 7)
-  %xor1297 = xor i32 %or1293, %or1296
-  %xor1298 = xor i32 %xor1297, %or1290
-  %and1300 = and i32 %add1249, %add1167
-  %not1301 = xor i32 %add1249, -1
-  %and1302 = and i32 %add1085, %not1301
-  %xor1303 = or i32 %and1300, %and1302
-  %add1299 = add i32 %or7.i3788, -1046744716
-  %add1304 = add i32 %add1299, %add1003
-  %add1305 = add i32 %add1304, %xor1303
-  %add1306 = add i32 %add1305, %xor1298
-  %or1310 = tail call i32 @llvm.fshl.i32(i32 %add1244, i32 %add1244, i32 30)
-  %or1313 = tail call i32 @llvm.fshl.i32(i32 %add1244, i32 %add1244, i32 19)
-  %or1316 = tail call i32 @llvm.fshl.i32(i32 %add1244, i32 %add1244, i32 10)
-  %xor1317 = xor i32 %or1313, %or1316
-  %xor1318 = xor i32 %xor1317, %or1310
-  %and1319 = and i32 %add1244, %add1162
-  %and13203725 = xor i32 %add1244, %add1162
-  %xor1322 = and i32 %and13203725, %add1080
-  %xor1323 = xor i32 %xor1322, %and1319
-  %add1324 = add i32 %xor1318, %xor1323
-  %add1326 = add i32 %add1324, %add1306
-  %add1331 = add i32 %add1306, %add998
-  %or1362 = tail call i32 @llvm.fshl.i32(i32 %or7.i3787, i32 %or7.i3787, i32 15)
-  %or1365 = tail call i32 @llvm.fshl.i32(i32 %or7.i3787, i32 %or7.i3787, i32 13)
-  %shr1366 = lshr i32 %or7.i3787, 10
-  %xor1367 = xor i32 %or1365, %shr1366
-  %xor1368 = xor i32 %xor1367, %or1362
-  %or1371 = tail call i32 @llvm.fshl.i32(i32 %or7.i3774, i32 %or7.i3774, i32 25)
-  %or1374 = tail call i32 @llvm.fshl.i32(i32 %or7.i3774, i32 %or7.i3774, i32 14)
-  %shr1375 = lshr i32 %or7.i3774, 3
-  %xor1376 = xor i32 %or1374, %shr1375
-  %xor1377 = xor i32 %xor1376, %or1371
-  %add1378 = add i32 %xor1377, %or7.i
-  %add1379 = add i32 %add1378, %or7.i3782
-  %add1380 = add i32 %add1379, %xor1368
-  %or1405 = tail call i32 @llvm.fshl.i32(i32 %or7.i3788, i32 %or7.i3788, i32 15)
-  %or1408 = tail call i32 @llvm.fshl.i32(i32 %or7.i3788, i32 %or7.i3788, i32 13)
-  %shr1409 = lshr i32 %or7.i3788, 10
-  %xor1410 = xor i32 %or1408, %shr1409
-  %xor1411 = xor i32 %xor1410, %or1405
-  %or1415 = tail call i32 @llvm.fshl.i32(i32 %or7.i3775, i32 %or7.i3775, i32 25)
-  %or1418 = tail call i32 @llvm.fshl.i32(i32 %or7.i3775, i32 %or7.i3775, i32 14)
-  %shr1419 = lshr i32 %or7.i3775, 3
-  %xor1420 = xor i32 %or1418, %shr1419
-  %xor1421 = xor i32 %xor1420, %or1415
-  %add1422 = add i32 %xor1421, %or7.i3774
-  %add1423 = add i32 %add1422, %or7.i3783
-  %add1424 = add i32 %add1423, %xor1411
-  %or1449 = tail call i32 @llvm.fshl.i32(i32 %add1380, i32 %add1380, i32 15)
-  %or1452 = tail call i32 @llvm.fshl.i32(i32 %add1380, i32 %add1380, i32 13)
-  %shr1453 = lshr i32 %add1380, 10
-  %xor1454 = xor i32 %or1452, %shr1453
-  %xor1455 = xor i32 %xor1454, %or1449
-  %or1459 = tail call i32 @llvm.fshl.i32(i32 %or7.i3776, i32 %or7.i3776, i32 25)
-  %or1462 = tail call i32 @llvm.fshl.i32(i32 %or7.i3776, i32 %or7.i3776, i32 14)
-  %shr1463 = lshr i32 %or7.i3776, 3
-  %xor1464 = xor i32 %or1462, %shr1463
-  %xor1465 = xor i32 %xor1464, %or1459
-  %add1466 = add i32 %xor1465, %or7.i3775
-  %add1467 = add i32 %add1466, %or7.i3784
-  %add1468 = add i32 %add1467, %xor1455
-  %or1493 = tail call i32 @llvm.fshl.i32(i32 %add1424, i32 %add1424, i32 15)
-  %or1496 = tail call i32 @llvm.fshl.i32(i32 %add1424, i32 %add1424, i32 13)
-  %shr1497 = lshr i32 %add1424, 10
-  %xor1498 = xor i32 %or1496, %shr1497
-  %xor1499 = xor i32 %xor1498, %or1493
-  %or1503 = tail call i32 @llvm.fshl.i32(i32 %or7.i3777, i32 %or7.i3777, i32 25)
-  %or1506 = tail call i32 @llvm.fshl.i32(i32 %or7.i3777, i32 %or7.i3777, i32 14)
-  %shr1507 = lshr i32 %or7.i3777, 3
-  %xor1508 = xor i32 %or1506, %shr1507
-  %xor1509 = xor i32 %xor1508, %or1503
-  %add1510 = add i32 %xor1509, %or7.i3776
-  %add1511 = add i32 %add1510, %or7.i3785
-  %add1512 = add i32 %add1511, %xor1499
-  %or1537 = tail call i32 @llvm.fshl.i32(i32 %add1468, i32 %add1468, i32 15)
-  %or1540 = tail call i32 @llvm.fshl.i32(i32 %add1468, i32 %add1468, i32 13)
-  %shr1541 = lshr i32 %add1468, 10
-  %xor1542 = xor i32 %or1540, %shr1541
-  %xor1543 = xor i32 %xor1542, %or1537
-  %or1547 = tail call i32 @llvm.fshl.i32(i32 %or7.i3778, i32 %or7.i3778, i32 25)
-  %or1550 = tail call i32 @llvm.fshl.i32(i32 %or7.i3778, i32 %or7.i3778, i32 14)
-  %shr1551 = lshr i32 %or7.i3778, 3
-  %xor1552 = xor i32 %or1550, %shr1551
-  %xor1553 = xor i32 %xor1552, %or1547
-  %add1554 = add i32 %xor1553, %or7.i3777
-  %add1555 = add i32 %add1554, %or7.i3786
-  %add1556 = add i32 %add1555, %xor1543
-  %or1581 = tail call i32 @llvm.fshl.i32(i32 %add1512, i32 %add1512, i32 15)
-  %or1584 = tail call i32 @llvm.fshl.i32(i32 %add1512, i32 %add1512, i32 13)
-  %shr1585 = lshr i32 %add1512, 10
-  %xor1586 = xor i32 %or1584, %shr1585
-  %xor1587 = xor i32 %xor1586, %or1581
-  %or1591 = tail call i32 @llvm.fshl.i32(i32 %or7.i3779, i32 %or7.i3779, i32 25)
-  %or1594 = tail call i32 @llvm.fshl.i32(i32 %or7.i3779, i32 %or7.i3779, i32 14)
-  %shr1595 = lshr i32 %or7.i3779, 3
-  %xor1596 = xor i32 %or1594, %shr1595
-  %xor1597 = xor i32 %xor1596, %or1591
-  %add1598 = add i32 %xor1597, %or7.i3778
-  %add1599 = add i32 %add1598, %or7.i3787
-  %add1600 = add i32 %add1599, %xor1587
-  %or1625 = tail call i32 @llvm.fshl.i32(i32 %add1556, i32 %add1556, i32 15)
-  %or1628 = tail call i32 @llvm.fshl.i32(i32 %add1556, i32 %add1556, i32 13)
-  %shr1629 = lshr i32 %add1556, 10
-  %xor1630 = xor i32 %or1628, %shr1629
-  %xor1631 = xor i32 %xor1630, %or1625
-  %or1635 = tail call i32 @llvm.fshl.i32(i32 %or7.i3780, i32 %or7.i3780, i32 25)
-  %or1638 = tail call i32 @llvm.fshl.i32(i32 %or7.i3780, i32 %or7.i3780, i32 14)
-  %shr1639 = lshr i32 %or7.i3780, 3
-  %xor1640 = xor i32 %or1638, %shr1639
-  %xor1641 = xor i32 %xor1640, %or1635
-  %add1642 = add i32 %xor1641, %or7.i3779
-  %add1643 = add i32 %add1642, %or7.i3788
-  %add1644 = add i32 %add1643, %xor1631
-  %or1669 = tail call i32 @llvm.fshl.i32(i32 %add1600, i32 %add1600, i32 15)
-  %or1672 = tail call i32 @llvm.fshl.i32(i32 %add1600, i32 %add1600, i32 13)
-  %shr1673 = lshr i32 %add1600, 10
-  %xor1674 = xor i32 %or1672, %shr1673
-  %xor1675 = xor i32 %xor1674, %or1669
-  %or1679 = tail call i32 @llvm.fshl.i32(i32 %or7.i3781, i32 %or7.i3781, i32 25)
-  %or1682 = tail call i32 @llvm.fshl.i32(i32 %or7.i3781, i32 %or7.i3781, i32 14)
-  %shr1683 = lshr i32 %or7.i3781, 3
-  %xor1684 = xor i32 %or1682, %shr1683
-  %xor1685 = xor i32 %xor1684, %or1679
-  %add1686 = add i32 %xor1685, %or7.i3780
-  %add1687 = add i32 %add1686, %add1380
-  %add1688 = add i32 %add1687, %xor1675
-  %or1713 = tail call i32 @llvm.fshl.i32(i32 %add1644, i32 %add1644, i32 15)
-  %or1716 = tail call i32 @llvm.fshl.i32(i32 %add1644, i32 %add1644, i32 13)
-  %shr1717 = lshr i32 %add1644, 10
-  %xor1718 = xor i32 %or1716, %shr1717
-  %xor1719 = xor i32 %xor1718, %or1713
-  %or1723 = tail call i32 @llvm.fshl.i32(i32 %or7.i3782, i32 %or7.i3782, i32 25)
-  %or1726 = tail call i32 @llvm.fshl.i32(i32 %or7.i3782, i32 %or7.i3782, i32 14)
-  %shr1727 = lshr i32 %or7.i3782, 3
-  %xor1728 = xor i32 %or1726, %shr1727
-  %xor1729 = xor i32 %xor1728, %or1723
-  %add1730 = add i32 %xor1729, %or7.i3781
-  %add1731 = add i32 %add1730, %add1424
-  %add1732 = add i32 %add1731, %xor1719
-  %or1757 = tail call i32 @llvm.fshl.i32(i32 %add1688, i32 %add1688, i32 15)
-  %or1760 = tail call i32 @llvm.fshl.i32(i32 %add1688, i32 %add1688, i32 13)
-  %shr1761 = lshr i32 %add1688, 10
-  %xor1762 = xor i32 %or1760, %shr1761
-  %xor1763 = xor i32 %xor1762, %or1757
-  %or1767 = tail call i32 @llvm.fshl.i32(i32 %or7.i3783, i32 %or7.i3783, i32 25)
-  %or1770 = tail call i32 @llvm.fshl.i32(i32 %or7.i3783, i32 %or7.i3783, i32 14)
-  %shr1771 = lshr i32 %or7.i3783, 3
-  %xor1772 = xor i32 %or1770, %shr1771
-  %xor1773 = xor i32 %xor1772, %or1767
-  %add1774 = add i32 %xor1773, %or7.i3782
-  %add1775 = add i32 %add1774, %add1468
-  %add1776 = add i32 %add1775, %xor1763
-  %or1801 = tail call i32 @llvm.fshl.i32(i32 %add1732, i32 %add1732, i32 15)
-  %or1804 = tail call i32 @llvm.fshl.i32(i32 %add1732, i32 %add1732, i32 13)
-  %shr1805 = lshr i32 %add1732, 10
-  %xor1806 = xor i32 %or1804, %shr1805
-  %xor1807 = xor i32 %xor1806, %or1801
-  %or1811 = tail call i32 @llvm.fshl.i32(i32 %or7.i3784, i32 %or7.i3784, i32 25)
-  %or1814 = tail call i32 @llvm.fshl.i32(i32 %or7.i3784, i32 %or7.i3784, i32 14)
-  %shr1815 = lshr i32 %or7.i3784, 3
-  %xor1816 = xor i32 %or1814, %shr1815
-  %xor1817 = xor i32 %xor1816, %or1811
-  %add1818 = add i32 %xor1817, %or7.i3783
-  %add1819 = add i32 %add1818, %add1512
-  %add1820 = add i32 %add1819, %xor1807
-  %or1845 = tail call i32 @llvm.fshl.i32(i32 %add1776, i32 %add1776, i32 15)
-  %or1848 = tail call i32 @llvm.fshl.i32(i32 %add1776, i32 %add1776, i32 13)
-  %shr1849 = lshr i32 %add1776, 10
-  %xor1850 = xor i32 %or1848, %shr1849
-  %xor1851 = xor i32 %xor1850, %or1845
-  %or1855 = tail call i32 @llvm.fshl.i32(i32 %or7.i3785, i32 %or7.i3785, i32 25)
-  %or1858 = tail call i32 @llvm.fshl.i32(i32 %or7.i3785, i32 %or7.i3785, i32 14)
-  %shr1859 = lshr i32 %or7.i3785, 3
-  %xor1860 = xor i32 %or1858, %shr1859
-  %xor1861 = xor i32 %xor1860, %or1855
-  %add1862 = add i32 %xor1861, %or7.i3784
-  %add1863 = add i32 %add1862, %add1556
-  %add1864 = add i32 %add1863, %xor1851
-  %or1889 = tail call i32 @llvm.fshl.i32(i32 %add1820, i32 %add1820, i32 15)
-  %or1892 = tail call i32 @llvm.fshl.i32(i32 %add1820, i32 %add1820, i32 13)
-  %shr1893 = lshr i32 %add1820, 10
-  %xor1894 = xor i32 %or1892, %shr1893
-  %xor1895 = xor i32 %xor1894, %or1889
-  %or1899 = tail call i32 @llvm.fshl.i32(i32 %or7.i3786, i32 %or7.i3786, i32 25)
-  %or1902 = tail call i32 @llvm.fshl.i32(i32 %or7.i3786, i32 %or7.i3786, i32 14)
-  %shr1903 = lshr i32 %or7.i3786, 3
-  %xor1904 = xor i32 %or1902, %shr1903
-  %xor1905 = xor i32 %xor1904, %or1899
-  %add1906 = add i32 %xor1905, %or7.i3785
-  %add1907 = add i32 %add1906, %add1600
-  %add1908 = add i32 %add1907, %xor1895
-  %or1933 = tail call i32 @llvm.fshl.i32(i32 %add1864, i32 %add1864, i32 15)
-  %or1936 = tail call i32 @llvm.fshl.i32(i32 %add1864, i32 %add1864, i32 13)
-  %shr1937 = lshr i32 %add1864, 10
-  %xor1938 = xor i32 %or1936, %shr1937
-  %xor1939 = xor i32 %xor1938, %or1933
-  %or1943 = tail call i32 @llvm.fshl.i32(i32 %or7.i3787, i32 %or7.i3787, i32 25)
-  %or1946 = tail call i32 @llvm.fshl.i32(i32 %or7.i3787, i32 %or7.i3787, i32 14)
-  %shr1947 = lshr i32 %or7.i3787, 3
-  %xor1948 = xor i32 %or1946, %shr1947
-  %xor1949 = xor i32 %xor1948, %or1943
-  %add1950 = add i32 %xor1949, %or7.i3786
-  %add1951 = add i32 %add1950, %add1644
-  %add1952 = add i32 %add1951, %xor1939
-  %or1977 = tail call i32 @llvm.fshl.i32(i32 %add1908, i32 %add1908, i32 15)
-  %or1980 = tail call i32 @llvm.fshl.i32(i32 %add1908, i32 %add1908, i32 13)
-  %shr1981 = lshr i32 %add1908, 10
-  %xor1982 = xor i32 %or1980, %shr1981
-  %xor1983 = xor i32 %xor1982, %or1977
-  %or1987 = tail call i32 @llvm.fshl.i32(i32 %or7.i3788, i32 %or7.i3788, i32 25)
-  %or1990 = tail call i32 @llvm.fshl.i32(i32 %or7.i3788, i32 %or7.i3788, i32 14)
-  %shr1991 = lshr i32 %or7.i3788, 3
-  %xor1992 = xor i32 %or1990, %shr1991
-  %xor1993 = xor i32 %xor1992, %or1987
-  %add1994 = add i32 %xor1993, %or7.i3787
-  %add1995 = add i32 %add1994, %add1688
-  %add1996 = add i32 %add1995, %xor1983
-  %or2021 = tail call i32 @llvm.fshl.i32(i32 %add1952, i32 %add1952, i32 15)
-  %or2024 = tail call i32 @llvm.fshl.i32(i32 %add1952, i32 %add1952, i32 13)
-  %shr2025 = lshr i32 %add1952, 10
-  %xor2026 = xor i32 %or2024, %shr2025
-  %xor2027 = xor i32 %xor2026, %or2021
-  %or2031 = tail call i32 @llvm.fshl.i32(i32 %add1380, i32 %add1380, i32 25)
-  %or2034 = tail call i32 @llvm.fshl.i32(i32 %add1380, i32 %add1380, i32 14)
-  %shr2035 = lshr i32 %add1380, 3
-  %xor2036 = xor i32 %or2034, %shr2035
-  %xor2037 = xor i32 %xor2036, %or2031
-  %add2038 = add i32 %xor2037, %or7.i3788
-  %add2039 = add i32 %add2038, %add1732
-  %add2040 = add i32 %add2039, %xor2027
-  %or2076 = tail call i32 @llvm.fshl.i32(i32 %add1331, i32 %add1331, i32 26)
-  %or2079 = tail call i32 @llvm.fshl.i32(i32 %add1331, i32 %add1331, i32 21)
-  %or2082 = tail call i32 @llvm.fshl.i32(i32 %add1331, i32 %add1331, i32 7)
-  %xor2083 = xor i32 %or2079, %or2082
-  %xor2084 = xor i32 %xor2083, %or2076
-  %and2086 = and i32 %add1331, %add1249
-  %not2087 = xor i32 %add1331, -1
-  %and2088 = and i32 %add1167, %not2087
-  %xor2089 = or i32 %and2086, %and2088
-  %add2085 = add i32 %add1380, -459576895
-  %add2090 = add i32 %add2085, %add1085
-  %add2091 = add i32 %add2090, %xor2089
-  %add2092 = add i32 %add2091, %xor2084
-  %or2096 = tail call i32 @llvm.fshl.i32(i32 %add1326, i32 %add1326, i32 30)
-  %or2099 = tail call i32 @llvm.fshl.i32(i32 %add1326, i32 %add1326, i32 19)
-  %or2102 = tail call i32 @llvm.fshl.i32(i32 %add1326, i32 %add1326, i32 10)
-  %xor2103 = xor i32 %or2099, %or2102
-  %xor2104 = xor i32 %xor2103, %or2096
-  %and2105 = and i32 %add1326, %add1244
-  %and21063726 = xor i32 %add1326, %add1244
-  %xor2108 = and i32 %and21063726, %add1162
-  %xor2109 = xor i32 %xor2108, %and2105
-  %add2110 = add i32 %xor2104, %xor2109
-  %add2112 = add i32 %add2110, %add2092
-  %add2117 = add i32 %add2092, %add1080
-  %or2158 = tail call i32 @llvm.fshl.i32(i32 %add2117, i32 %add2117, i32 26)
-  %or2161 = tail call i32 @llvm.fshl.i32(i32 %add2117, i32 %add2117, i32 21)
-  %or2164 = tail call i32 @llvm.fshl.i32(i32 %add2117, i32 %add2117, i32 7)
-  %xor2165 = xor i32 %or2161, %or2164
-  %xor2166 = xor i32 %xor2165, %or2158
-  %and2168 = and i32 %add2117, %add1331
-  %not2169 = xor i32 %add2117, -1
-  %and2170 = and i32 %add1249, %not2169
-  %xor2171 = or i32 %and2168, %and2170
-  %add2167 = add i32 %add1424, -272742522
-  %add2172 = add i32 %add2167, %add1167
-  %add2173 = add i32 %add2172, %xor2171
-  %add2174 = add i32 %add2173, %xor2166
-  %or2178 = tail call i32 @llvm.fshl.i32(i32 %add2112, i32 %add2112, i32 30)
-  %or2181 = tail call i32 @llvm.fshl.i32(i32 %add2112, i32 %add2112, i32 19)
-  %or2184 = tail call i32 @llvm.fshl.i32(i32 %add2112, i32 %add2112, i32 10)
-  %xor2185 = xor i32 %or2181, %or2184
-  %xor2186 = xor i32 %xor2185, %or2178
-  %and2187 = and i32 %add2112, %add1326
-  %and21883727 = xor i32 %add2112, %add1326
-  %xor2190 = and i32 %and21883727, %add1244
-  %xor2191 = xor i32 %xor2190, %and2187
-  %add2192 = add i32 %xor2186, %xor2191
-  %add2194 = add i32 %add2192, %add2174
-  %add2199 = add i32 %add2174, %add1162
-  %or2240 = tail call i32 @llvm.fshl.i32(i32 %add2199, i32 %add2199, i32 26)
-  %or2243 = tail call i32 @llvm.fshl.i32(i32 %add2199, i32 %add2199, i32 21)
-  %or2246 = tail call i32 @llvm.fshl.i32(i32 %add2199, i32 %add2199, i32 7)
-  %xor2247 = xor i32 %or2243, %or2246
-  %xor2248 = xor i32 %xor2247, %or2240
-  %and2250 = and i32 %add2199, %add2117
-  %not2251 = xor i32 %add2199, -1
-  %and2252 = and i32 %add1331, %not2251
-  %xor2253 = or i32 %and2250, %and2252
-  %add2249 = add i32 %add1468, 264347078
-  %add2254 = add i32 %add2249, %add1249
-  %add2255 = add i32 %add2254, %xor2253
-  %add2256 = add i32 %add2255, %xor2248
-  %or2260 = tail call i32 @llvm.fshl.i32(i32 %add2194, i32 %add2194, i32 30)
-  %or2263 = tail call i32 @llvm.fshl.i32(i32 %add2194, i32 %add2194, i32 19)
-  %or2266 = tail call i32 @llvm.fshl.i32(i32 %add2194, i32 %add2194, i32 10)
-  %xor2267 = xor i32 %or2263, %or2266
-  %xor2268 = xor i32 %xor2267, %or2260
-  %and2269 = and i32 %add2194, %add2112
-  %and22703728 = xor i32 %add2194, %add2112
-  %xor2272 = and i32 %and22703728, %add1326
-  %xor2273 = xor i32 %xor2272, %and2269
-  %add2274 = add i32 %xor2268, %xor2273
-  %add2276 = add i32 %add2274, %add2256
-  %add2281 = add i32 %add2256, %add1244
-  %or2322 = tail call i32 @llvm.fshl.i32(i32 %add2281, i32 %add2281, i32 26)
-  %or2325 = tail call i32 @llvm.fshl.i32(i32 %add2281, i32 %add2281, i32 21)
-  %or2328 = tail call i32 @llvm.fshl.i32(i32 %add2281, i32 %add2281, i32 7)
-  %xor2329 = xor i32 %or2325, %or2328
-  %xor2330 = xor i32 %xor2329, %or2322
-  %and2332 = and i32 %add2281, %add2199
-  %not2333 = xor i32 %add2281, -1
-  %and2334 = and i32 %add2117, %not2333
-  %xor2335 = or i32 %and2332, %and2334
-  %add2331 = add i32 %add1512, 604807628
-  %add2336 = add i32 %add2331, %add1331
-  %add2337 = add i32 %add2336, %xor2335
-  %add2338 = add i32 %add2337, %xor2330
-  %or2342 = tail call i32 @llvm.fshl.i32(i32 %add2276, i32 %add2276, i32 30)
-  %or2345 = tail call i32 @llvm.fshl.i32(i32 %add2276, i32 %add2276, i32 19)
-  %or2348 = tail call i32 @llvm.fshl.i32(i32 %add2276, i32 %add2276, i32 10)
-  %xor2349 = xor i32 %or2345, %or2348
-  %xor2350 = xor i32 %xor2349, %or2342
-  %and2351 = and i32 %add2276, %add2194
-  %and23523729 = xor i32 %add2276, %add2194
-  %xor2354 = and i32 %and23523729, %add2112
-  %xor2355 = xor i32 %xor2354, %and2351
-  %add2356 = add i32 %xor2350, %xor2355
-  %add2358 = add i32 %add2356, %add2338
-  %add2363 = add i32 %add2338, %add1326
-  %or2404 = tail call i32 @llvm.fshl.i32(i32 %add2363, i32 %add2363, i32 26)
-  %or2407 = tail call i32 @llvm.fshl.i32(i32 %add2363, i32 %add2363, i32 21)
-  %or2410 = tail call i32 @llvm.fshl.i32(i32 %add2363, i32 %add2363, i32 7)
-  %xor2411 = xor i32 %or2407, %or2410
-  %xor2412 = xor i32 %xor2411, %or2404
-  %and2414 = and i32 %add2363, %add2281
-  %not2415 = xor i32 %add2363, -1
-  %and2416 = and i32 %add2199, %not2415
-  %xor2417 = or i32 %and2414, %and2416
-  %add2413 = add i32 %add1556, 770255983
-  %add2418 = add i32 %add2413, %add2117
-  %add2419 = add i32 %add2418, %xor2417
-  %add2420 = add i32 %add2419, %xor2412
-  %or2424 = tail call i32 @llvm.fshl.i32(i32 %add2358, i32 %add2358, i32 30)
-  %or2427 = tail call i32 @llvm.fshl.i32(i32 %add2358, i32 %add2358, i32 19)
-  %or2430 = tail call i32 @llvm.fshl.i32(i32 %add2358, i32 %add2358, i32 10)
-  %xor2431 = xor i32 %or2427, %or2430
-  %xor2432 = xor i32 %xor2431, %or2424
-  %and2433 = and i32 %add2358, %add2276
-  %and24343730 = xor i32 %add2358, %add2276
-  %xor2436 = and i32 %and24343730, %add2194
-  %xor2437 = xor i32 %xor2436, %and2433
-  %add2438 = add i32 %xor2432, %xor2437
-  %add2440 = add i32 %add2438, %add2420
-  %add2445 = add i32 %add2420, %add2112
-  %or2486 = tail call i32 @llvm.fshl.i32(i32 %add2445, i32 %add2445, i32 26)
-  %or2489 = tail call i32 @llvm.fshl.i32(i32 %add2445, i32 %add2445, i32 21)
-  %or2492 = tail call i32 @llvm.fshl.i32(i32 %add2445, i32 %add2445, i32 7)
-  %xor2493 = xor i32 %or2489, %or2492
-  %xor2494 = xor i32 %xor2493, %or2486
-  %and2496 = and i32 %add2445, %add2363
-  %not2497 = xor i32 %add2445, -1
-  %and2498 = and i32 %add2281, %not2497
-  %xor2499 = or i32 %and2496, %and2498
-  %add2495 = add i32 %add1600, 1249150122
-  %add2500 = add i32 %add2495, %add2199
-  %add2501 = add i32 %add2500, %xor2499
-  %add2502 = add i32 %add2501, %xor2494
-  %or2506 = tail call i32 @llvm.fshl.i32(i32 %add2440, i32 %add2440, i32 30)
-  %or2509 = tail call i32 @llvm.fshl.i32(i32 %add2440, i32 %add2440, i32 19)
-  %or2512 = tail call i32 @llvm.fshl.i32(i32 %add2440, i32 %add2440, i32 10)
-  %xor2513 = xor i32 %or2509, %or2512
-  %xor2514 = xor i32 %xor2513, %or2506
-  %and2515 = and i32 %add2440, %add2358
-  %and25163731 = xor i32 %add2440, %add2358
-  %xor2518 = and i32 %and25163731, %add2276
-  %xor2519 = xor i32 %xor2518, %and2515
-  %add2520 = add i32 %xor2514, %xor2519
-  %add2522 = add i32 %add2520, %add2502
-  %add2527 = add i32 %add2502, %add2194
-  %or2568 = tail call i32 @llvm.fshl.i32(i32 %add2527, i32 %add2527, i32 26)
-  %or2571 = tail call i32 @llvm.fshl.i32(i32 %add2527, i32 %add2527, i32 21)
-  %or2574 = tail call i32 @llvm.fshl.i32(i32 %add2527, i32 %add2527, i32 7)
-  %xor2575 = xor i32 %or2571, %or2574
-  %xor2576 = xor i32 %xor2575, %or2568
-  %and2578 = and i32 %add2527, %add2445
-  %not2579 = xor i32 %add2527, -1
-  %and2580 = and i32 %add2363, %not2579
-  %xor2581 = or i32 %and2578, %and2580
-  %add2577 = add i32 %add1644, 1555081692
-  %add2582 = add i32 %add2577, %add2281
-  %add2583 = add i32 %add2582, %xor2581
-  %add2584 = add i32 %add2583, %xor2576
-  %or2588 = tail call i32 @llvm.fshl.i32(i32 %add2522, i32 %add2522, i32 30)
-  %or2591 = tail call i32 @llvm.fshl.i32(i32 %add2522, i32 %add2522, i32 19)
-  %or2594 = tail call i32 @llvm.fshl.i32(i32 %add2522, i32 %add2522, i32 10)
-  %xor2595 = xor i32 %or2591, %or2594
-  %xor2596 = xor i32 %xor2595, %or2588
-  %and2597 = and i32 %add2522, %add2440
-  %and25983732 = xor i32 %add2522, %add2440
-  %xor2600 = and i32 %and25983732, %add2358
-  %xor2601 = xor i32 %xor2600, %and2597
-  %add2602 = add i32 %xor2596, %xor2601
-  %add2604 = add i32 %add2602, %add2584
-  %add2609 = add i32 %add2584, %add2276
-  %or2650 = tail call i32 @llvm.fshl.i32(i32 %add2609, i32 %add2609, i32 26)
-  %or2653 = tail call i32 @llvm.fshl.i32(i32 %add2609, i32 %add2609, i32 21)
-  %or2656 = tail call i32 @llvm.fshl.i32(i32 %add2609, i32 %add2609, i32 7)
-  %xor2657 = xor i32 %or2653, %or2656
-  %xor2658 = xor i32 %xor2657, %or2650
-  %and2660 = and i32 %add2609, %add2527
-  %not2661 = xor i32 %add2609, -1
-  %and2662 = and i32 %add2445, %not2661
-  %xor2663 = or i32 %and2660, %and2662
-  %add2659 = add i32 %add1688, 1996064986
-  %add2664 = add i32 %add2659, %add2363
-  %add2665 = add i32 %add2664, %xor2663
-  %add2666 = add i32 %add2665, %xor2658
-  %or2670 = tail call i32 @llvm.fshl.i32(i32 %add2604, i32 %add2604, i32 30)
-  %or2673 = tail call i32 @llvm.fshl.i32(i32 %add2604, i32 %add2604, i32 19)
-  %or2676 = tail call i32 @llvm.fshl.i32(i32 %add2604, i32 %add2604, i32 10)
-  %xor2677 = xor i32 %or2673, %or2676
-  %xor2678 = xor i32 %xor2677, %or2670
-  %and2679 = and i32 %add2604, %add2522
-  %and26803733 = xor i32 %add2604, %add2522
-  %xor2682 = and i32 %and26803733, %add2440
-  %xor2683 = xor i32 %xor2682, %and2679
-  %add2684 = add i32 %xor2678, %xor2683
-  %add2686 = add i32 %add2684, %add2666
-  %add2691 = add i32 %add2666, %add2358
-  %or2732 = tail call i32 @llvm.fshl.i32(i32 %add2691, i32 %add2691, i32 26)
-  %or2735 = tail call i32 @llvm.fshl.i32(i32 %add2691, i32 %add2691, i32 21)
-  %or2738 = tail call i32 @llvm.fshl.i32(i32 %add2691, i32 %add2691, i32 7)
-  %xor2739 = xor i32 %or2735, %or2738
-  %xor2740 = xor i32 %xor2739, %or2732
-  %and2742 = and i32 %add2691, %add2609
-  %not2743 = xor i32 %add2691, -1
-  %and2744 = and i32 %add2527, %not2743
-  %xor2745 = or i32 %and2742, %and2744
-  %add2741 = add i32 %add1732, -1740746414
-  %add2746 = add i32 %add2741, %add2445
-  %add2747 = add i32 %add2746, %xor2745
-  %add2748 = add i32 %add2747, %xor2740
-  %or2752 = tail call i32 @llvm.fshl.i32(i32 %add2686, i32 %add2686, i32 30)
-  %or2755 = tail call i32 @llvm.fshl.i32(i32 %add2686, i32 %add2686, i32 19)
-  %or2758 = tail call i32 @llvm.fshl.i32(i32 %add2686, i32 %add2686, i32 10)
-  %xor2759 = xor i32 %or2755, %or2758
-  %xor2760 = xor i32 %xor2759, %or2752
-  %and2761 = and i32 %add2686, %add2604
-  %and27623734 = xor i32 %add2686, %add2604
-  %xor2764 = and i32 %and27623734, %add2522
-  %xor2765 = xor i32 %xor2764, %and2761
-  %add2766 = add i32 %xor2760, %xor2765
-  %add2768 = add i32 %add2766, %add2748
-  %add2773 = add i32 %add2748, %add2440
-  %or2814 = tail call i32 @llvm.fshl.i32(i32 %add2773, i32 %add2773, i32 26)
-  %or2817 = tail call i32 @llvm.fshl.i32(i32 %add2773, i32 %add2773, i32 21)
-  %or2820 = tail call i32 @llvm.fshl.i32(i32 %add2773, i32 %add2773, i32 7)
-  %xor2821 = xor i32 %or2817, %or2820
-  %xor2822 = xor i32 %xor2821, %or2814
-  %and2824 = and i32 %add2773, %add2691
-  %not2825 = xor i32 %add2773, -1
-  %and2826 = and i32 %add2609, %not2825
-  %xor2827 = or i32 %and2824, %and2826
-  %add2823 = add i32 %add1776, -1473132947
-  %add2828 = add i32 %add2823, %add2527
-  %add2829 = add i32 %add2828, %xor2827
-  %add2830 = add i32 %add2829, %xor2822
-  %or2834 = tail call i32 @llvm.fshl.i32(i32 %add2768, i32 %add2768, i32 30)
-  %or2837 = tail call i32 @llvm.fshl.i32(i32 %add2768, i32 %add2768, i32 19)
-  %or2840 = tail call i32 @llvm.fshl.i32(i32 %add2768, i32 %add2768, i32 10)
-  %xor2841 = xor i32 %or2837, %or2840
-  %xor2842 = xor i32 %xor2841, %or2834
-  %and2843 = and i32 %add2768, %add2686
-  %and28443735 = xor i32 %add2768, %add2686
-  %xor2846 = and i32 %and28443735, %add2604
-  %xor2847 = xor i32 %xor2846, %and2843
-  %add2848 = add i32 %xor2842, %xor2847
-  %add2850 = add i32 %add2848, %add2830
-  %add2855 = add i32 %add2830, %add2522
-  %or2896 = tail call i32 @llvm.fshl.i32(i32 %add2855, i32 %add2855, i32 26)
-  %or2899 = tail call i32 @llvm.fshl.i32(i32 %add2855, i32 %add2855, i32 21)
-  %or2902 = tail call i32 @llvm.fshl.i32(i32 %add2855, i32 %add2855, i32 7)
-  %xor2903 = xor i32 %or2899, %or2902
-  %xor2904 = xor i32 %xor2903, %or2896
-  %and2906 = and i32 %add2855, %add2773
-  %not2907 = xor i32 %add2855, -1
-  %and2908 = and i32 %add2691, %not2907
-  %xor2909 = or i32 %and2906, %and2908
-  %add2905 = add i32 %add1820, -1341970488
-  %add2910 = add i32 %add2905, %add2609
-  %add2911 = add i32 %add2910, %xor2909
-  %add2912 = add i32 %add2911, %xor2904
-  %or2916 = tail call i32 @llvm.fshl.i32(i32 %add2850, i32 %add2850, i32 30)
-  %or2919 = tail call i32 @llvm.fshl.i32(i32 %add2850, i32 %add2850, i32 19)
-  %or2922 = tail call i32 @llvm.fshl.i32(i32 %add2850, i32 %add2850, i32 10)
-  %xor2923 = xor i32 %or2919, %or2922
-  %xor2924 = xor i32 %xor2923, %or2916
-  %and2925 = and i32 %add2850, %add2768
-  %and29263736 = xor i32 %add2850, %add2768
-  %xor2928 = and i32 %and29263736, %add2686
-  %xor2929 = xor i32 %xor2928, %and2925
-  %add2930 = add i32 %xor2924, %xor2929
-  %add2932 = add i32 %add2930, %add2912
-  %add2937 = add i32 %add2912, %add2604
-  %or2978 = tail call i32 @llvm.fshl.i32(i32 %add2937, i32 %add2937, i32 26)
-  %or2981 = tail call i32 @llvm.fshl.i32(i32 %add2937, i32 %add2937, i32 21)
-  %or2984 = tail call i32 @llvm.fshl.i32(i32 %add2937, i32 %add2937, i32 7)
-  %xor2985 = xor i32 %or2981, %or2984
-  %xor2986 = xor i32 %xor2985, %or2978
-  %and2988 = and i32 %add2937, %add2855
-  %not2989 = xor i32 %add2937, -1
-  %and2990 = and i32 %add2773, %not2989
-  %xor2991 = or i32 %and2988, %and2990
-  %add2987 = add i32 %add1864, -1084653625
-  %add2992 = add i32 %add2987, %add2691
-  %add2993 = add i32 %add2992, %xor2991
-  %add2994 = add i32 %add2993, %xor2986
-  %or2998 = tail call i32 @llvm.fshl.i32(i32 %add2932, i32 %add2932, i32 30)
-  %or3001 = tail call i32 @llvm.fshl.i32(i32 %add2932, i32 %add2932, i32 19)
-  %or3004 = tail call i32 @llvm.fshl.i32(i32 %add2932, i32 %add2932, i32 10)
-  %xor3005 = xor i32 %or3001, %or3004
-  %xor3006 = xor i32 %xor3005, %or2998
-  %and3007 = and i32 %add2932, %add2850
-  %and30083737 = xor i32 %add2932, %add2850
-  %xor3010 = and i32 %and30083737, %add2768
-  %xor3011 = xor i32 %xor3010, %and3007
-  %add3012 = add i32 %xor3006, %xor3011
-  %add3014 = add i32 %add3012, %add2994
-  %add3019 = add i32 %add2994, %add2686
-  %or3060 = tail call i32 @llvm.fshl.i32(i32 %add3019, i32 %add3019, i32 26)
-  %or3063 = tail call i32 @llvm.fshl.i32(i32 %add3019, i32 %add3019, i32 21)
-  %or3066 = tail call i32 @llvm.fshl.i32(i32 %add3019, i32 %add3019, i32 7)
-  %xor3067 = xor i32 %or3063, %or3066
-  %xor3068 = xor i32 %xor3067, %or3060
-  %and3070 = and i32 %add3019, %add2937
-  %not3071 = xor i32 %add3019, -1
-  %and3072 = and i32 %add2855, %not3071
-  %xor3073 = or i32 %and3070, %and3072
-  %add3069 = add i32 %add1908, -958395405
-  %add3074 = add i32 %add3069, %add2773
-  %add3075 = add i32 %add3074, %xor3073
-  %add3076 = add i32 %add3075, %xor3068
-  %or3080 = tail call i32 @llvm.fshl.i32(i32 %add3014, i32 %add3014, i32 30)
-  %or3083 = tail call i32 @llvm.fshl.i32(i32 %add3014, i32 %add3014, i32 19)
-  %or3086 = tail call i32 @llvm.fshl.i32(i32 %add3014, i32 %add3014, i32 10)
-  %xor3087 = xor i32 %or3083, %or3086
-  %xor3088 = xor i32 %xor3087, %or3080
-  %and3089 = and i32 %add3014, %add2932
-  %and30903738 = xor i32 %add3014, %add2932
-  %xor3092 = and i32 %and30903738, %add2850
-  %xor3093 = xor i32 %xor3092, %and3089
-  %add3094 = add i32 %xor3088, %xor3093
-  %add3096 = add i32 %add3094, %add3076
-  %add3101 = add i32 %add3076, %add2768
-  %or3142 = tail call i32 @llvm.fshl.i32(i32 %add3101, i32 %add3101, i32 26)
-  %or3145 = tail call i32 @llvm.fshl.i32(i32 %add3101, i32 %add3101, i32 21)
-  %or3148 = tail call i32 @llvm.fshl.i32(i32 %add3101, i32 %add3101, i32 7)
-  %xor3149 = xor i32 %or3145, %or3148
-  %xor3150 = xor i32 %xor3149, %or3142
-  %and3152 = and i32 %add3101, %add3019
-  %not3153 = xor i32 %add3101, -1
-  %and3154 = and i32 %add2937, %not3153
-  %xor3155 = or i32 %and3152, %and3154
-  %add3151 = add i32 %add1952, -710438585
-  %add3156 = add i32 %add3151, %add2855
-  %add3157 = add i32 %add3156, %xor3155
-  %add3158 = add i32 %add3157, %xor3150
-  %or3162 = tail call i32 @llvm.fshl.i32(i32 %add3096, i32 %add3096, i32 30)
-  %or3165 = tail call i32 @llvm.fshl.i32(i32 %add3096, i32 %add3096, i32 19)
-  %or3168 = tail call i32 @llvm.fshl.i32(i32 %add3096, i32 %add3096, i32 10)
-  %xor3169 = xor i32 %or3165, %or3168
-  %xor3170 = xor i32 %xor3169, %or3162
-  %and3171 = and i32 %add3096, %add3014
-  %and31723739 = xor i32 %add3096, %add3014
-  %xor3174 = and i32 %and31723739, %add2932
-  %xor3175 = xor i32 %xor3174, %and3171
-  %add3176 = add i32 %xor3170, %xor3175
-  %add3178 = add i32 %add3176, %add3158
-  %add3183 = add i32 %add3158, %add2850
-  %or3224 = tail call i32 @llvm.fshl.i32(i32 %add3183, i32 %add3183, i32 26)
-  %or3227 = tail call i32 @llvm.fshl.i32(i32 %add3183, i32 %add3183, i32 21)
-  %or3230 = tail call i32 @llvm.fshl.i32(i32 %add3183, i32 %add3183, i32 7)
-  %xor3231 = xor i32 %or3227, %or3230
-  %xor3232 = xor i32 %xor3231, %or3224
-  %and3234 = and i32 %add3183, %add3101
-  %not3235 = xor i32 %add3183, -1
-  %and3236 = and i32 %add3019, %not3235
-  %xor3237 = or i32 %and3234, %and3236
-  %add3233 = add i32 %add1996, 113926993
-  %add3238 = add i32 %add3233, %add2937
-  %add3239 = add i32 %add3238, %xor3237
-  %add3240 = add i32 %add3239, %xor3232
-  %or3244 = tail call i32 @llvm.fshl.i32(i32 %add3178, i32 %add3178, i32 30)
-  %or3247 = tail call i32 @llvm.fshl.i32(i32 %add3178, i32 %add3178, i32 19)
-  %or3250 = tail call i32 @llvm.fshl.i32(i32 %add3178, i32 %add3178, i32 10)
-  %xor3251 = xor i32 %or3247, %or3250
-  %xor3252 = xor i32 %xor3251, %or3244
-  %and3253 = and i32 %add3178, %add3096
-  %and32543740 = xor i32 %add3178, %add3096
-  %xor3256 = and i32 %and32543740, %add3014
-  %xor3257 = xor i32 %xor3256, %and3253
-  %add3258 = add i32 %xor3252, %xor3257
-  %add3260 = add i32 %add3258, %add3240
-  %add3265 = add i32 %add3240, %add2932
-  %or3306 = tail call i32 @llvm.fshl.i32(i32 %add3265, i32 %add3265, i32 26)
-  %or3309 = tail call i32 @llvm.fshl.i32(i32 %add3265, i32 %add3265, i32 21)
-  %or3312 = tail call i32 @llvm.fshl.i32(i32 %add3265, i32 %add3265, i32 7)
-  %xor3313 = xor i32 %or3309, %or3312
-  %xor3314 = xor i32 %xor3313, %or3306
-  %and3316 = and i32 %add3265, %add3183
-  %not3317 = xor i32 %add3265, -1
-  %and3318 = and i32 %add3101, %not3317
-  %xor3319 = or i32 %and3316, %and3318
-  %add3315 = add i32 %add2040, 338241895
-  %add3320 = add i32 %add3315, %add3019
-  %add3321 = add i32 %add3320, %xor3319
-  %add3322 = add i32 %add3321, %xor3314
-  %or3326 = tail call i32 @llvm.fshl.i32(i32 %add3260, i32 %add3260, i32 30)
-  %or3329 = tail call i32 @llvm.fshl.i32(i32 %add3260, i32 %add3260, i32 19)
-  %or3332 = tail call i32 @llvm.fshl.i32(i32 %add3260, i32 %add3260, i32 10)
-  %xor3333 = xor i32 %or3329, %or3332
-  %xor3334 = xor i32 %xor3333, %or3326
-  %and3335 = and i32 %add3260, %add3178
-  %and33363741 = xor i32 %add3260, %add3178
-  %xor3338 = and i32 %and33363741, %add3096
-  %xor3339 = xor i32 %xor3338, %and3335
-  %add3340 = add i32 %xor3334, %xor3339
-  %add3342 = add i32 %add3340, %add3322
-  %add3347 = add i32 %add3322, %add3014
-  %or3386 = tail call i32 @llvm.fshl.i32(i32 %add1996, i32 %add1996, i32 15)
-  %or3389 = tail call i32 @llvm.fshl.i32(i32 %add1996, i32 %add1996, i32 13)
-  %shr3390 = lshr i32 %add1996, 10
-  %xor3391 = xor i32 %or3389, %shr3390
-  %xor3392 = xor i32 %xor3391, %or3386
-  %or3396 = tail call i32 @llvm.fshl.i32(i32 %add1424, i32 %add1424, i32 25)
-  %or3399 = tail call i32 @llvm.fshl.i32(i32 %add1424, i32 %add1424, i32 14)
-  %shr3400 = lshr i32 %add1424, 3
-  %xor3401 = xor i32 %or3399, %shr3400
-  %xor3402 = xor i32 %xor3401, %or3396
-  %add3403 = add i32 %xor3402, %add1380
-  %add3404 = add i32 %add3403, %add1776
-  %add3405 = add i32 %add3404, %xor3392
-  %or3430 = tail call i32 @llvm.fshl.i32(i32 %add2040, i32 %add2040, i32 15)
-  %or3433 = tail call i32 @llvm.fshl.i32(i32 %add2040, i32 %add2040, i32 13)
-  %shr3434 = lshr i32 %add2040, 10
-  %xor3435 = xor i32 %or3433, %shr3434
-  %xor3436 = xor i32 %xor3435, %or3430
-  %or3440 = tail call i32 @llvm.fshl.i32(i32 %add1468, i32 %add1468, i32 25)
-  %or3443 = tail call i32 @llvm.fshl.i32(i32 %add1468, i32 %add1468, i32 14)
-  %shr3444 = lshr i32 %add1468, 3
-  %xor3445 = xor i32 %or3443, %shr3444
-  %xor3446 = xor i32 %xor3445, %or3440
-  %add3447 = add i32 %xor3446, %add1424
-  %add3448 = add i32 %add3447, %add1820
-  %add3449 = add i32 %add3448, %xor3436
-  %or3474 = tail call i32 @llvm.fshl.i32(i32 %add3405, i32 %add3405, i32 15)
-  %or3477 = tail call i32 @llvm.fshl.i32(i32 %add3405, i32 %add3405, i32 13)
-  %shr3478 = lshr i32 %add3405, 10
-  %xor3479 = xor i32 %or3477, %shr3478
-  %xor3480 = xor i32 %xor3479, %or3474
-  %or3484 = tail call i32 @llvm.fshl.i32(i32 %add1512, i32 %add1512, i32 25)
-  %or3487 = tail call i32 @llvm.fshl.i32(i32 %add1512, i32 %add1512, i32 14)
-  %shr3488 = lshr i32 %add1512, 3
-  %xor3489 = xor i32 %or3487, %shr3488
-  %xor3490 = xor i32 %xor3489, %or3484
-  %add3491 = add i32 %xor3490, %add1468
-  %add3492 = add i32 %add3491, %add1864
-  %add3493 = add i32 %add3492, %xor3480
-  %or3518 = tail call i32 @llvm.fshl.i32(i32 %add3449, i32 %add3449, i32 15)
-  %or3521 = tail call i32 @llvm.fshl.i32(i32 %add3449, i32 %add3449, i32 13)
-  %shr3522 = lshr i32 %add3449, 10
-  %xor3523 = xor i32 %or3521, %shr3522
-  %xor3524 = xor i32 %xor3523, %or3518
-  %or3528 = tail call i32 @llvm.fshl.i32(i32 %add1556, i32 %add1556, i32 25)
-  %or3531 = tail call i32 @llvm.fshl.i32(i32 %add1556, i32 %add1556, i32 14)
-  %shr3532 = lshr i32 %add1556, 3
-  %xor3533 = xor i32 %or3531, %shr3532
-  %xor3534 = xor i32 %xor3533, %or3528
-  %add3535 = add i32 %xor3534, %add1512
-  %add3536 = add i32 %add3535, %add1908
-  %add3537 = add i32 %add3536, %xor3524
-  %or3562 = tail call i32 @llvm.fshl.i32(i32 %add3493, i32 %add3493, i32 15)
-  %or3565 = tail call i32 @llvm.fshl.i32(i32 %add3493, i32 %add3493, i32 13)
-  %shr3566 = lshr i32 %add3493, 10
-  %xor3567 = xor i32 %or3565, %shr3566
-  %xor3568 = xor i32 %xor3567, %or3562
-  %or3572 = tail call i32 @llvm.fshl.i32(i32 %add1600, i32 %add1600, i32 25)
-  %or3575 = tail call i32 @llvm.fshl.i32(i32 %add1600, i32 %add1600, i32 14)
-  %shr3576 = lshr i32 %add1600, 3
-  %xor3577 = xor i32 %or3575, %shr3576
-  %xor3578 = xor i32 %xor3577, %or3572
-  %add3579 = add i32 %xor3578, %add1556
-  %add3580 = add i32 %add3579, %add1952
-  %add3581 = add i32 %add3580, %xor3568
-  %or3606 = tail call i32 @llvm.fshl.i32(i32 %add3537, i32 %add3537, i32 15)
-  %or3609 = tail call i32 @llvm.fshl.i32(i32 %add3537, i32 %add3537, i32 13)
-  %shr3610 = lshr i32 %add3537, 10
-  %xor3611 = xor i32 %or3609, %shr3610
-  %xor3612 = xor i32 %xor3611, %or3606
-  %or3616 = tail call i32 @llvm.fshl.i32(i32 %add1644, i32 %add1644, i32 25)
-  %or3619 = tail call i32 @llvm.fshl.i32(i32 %add1644, i32 %add1644, i32 14)
-  %shr3620 = lshr i32 %add1644, 3
-  %xor3621 = xor i32 %or3619, %shr3620
-  %xor3622 = xor i32 %xor3621, %or3616
-  %add3623 = add i32 %xor3622, %add1600
-  %add3624 = add i32 %add3623, %add1996
-  %add3625 = add i32 %add3624, %xor3612
-  %or3650 = tail call i32 @llvm.fshl.i32(i32 %add3581, i32 %add3581, i32 15)
-  %or3653 = tail call i32 @llvm.fshl.i32(i32 %add3581, i32 %add3581, i32 13)
-  %shr3654 = lshr i32 %add3581, 10
-  %xor3655 = xor i32 %or3653, %shr3654
-  %xor3656 = xor i32 %xor3655, %or3650
-  %or3660 = tail call i32 @llvm.fshl.i32(i32 %add1688, i32 %add1688, i32 25)
-  %or3663 = tail call i32 @llvm.fshl.i32(i32 %add1688, i32 %add1688, i32 14)
-  %shr3664 = lshr i32 %add1688, 3
-  %xor3665 = xor i32 %or3663, %shr3664
-  %xor3666 = xor i32 %xor3665, %or3660
-  %add3667 = add i32 %xor3666, %add1644
-  %add3668 = add i32 %add3667, %add2040
-  %add3669 = add i32 %add3668, %xor3656
-  %or3694 = tail call i32 @llvm.fshl.i32(i32 %add3625, i32 %add3625, i32 15)
-  %or3697 = tail call i32 @llvm.fshl.i32(i32 %add3625, i32 %add3625, i32 13)
-  %shr3698 = lshr i32 %add3625, 10
-  %xor3699 = xor i32 %or3697, %shr3698
-  %xor3700 = xor i32 %xor3699, %or3694
-  %or3704 = tail call i32 @llvm.fshl.i32(i32 %add1732, i32 %add1732, i32 25)
-  %or3707 = tail call i32 @llvm.fshl.i32(i32 %add1732, i32 %add1732, i32 14)
-  %shr3708 = lshr i32 %add1732, 3
-  %xor3709 = xor i32 %or3707, %shr3708
-  %xor3710 = xor i32 %xor3709, %or3704
-  %add3711 = add i32 %xor3710, %add1688
-  %add3712 = add i32 %add3711, %add3405
-  %add3713 = add i32 %add3712, %xor3700
-  %or3738 = tail call i32 @llvm.fshl.i32(i32 %add3669, i32 %add3669, i32 15)
-  %or3741 = tail call i32 @llvm.fshl.i32(i32 %add3669, i32 %add3669, i32 13)
-  %shr3742 = lshr i32 %add3669, 10
-  %xor3743 = xor i32 %or3741, %shr3742
-  %xor3744 = xor i32 %xor3743, %or3738
-  %or3748 = tail call i32 @llvm.fshl.i32(i32 %add1776, i32 %add1776, i32 25)
-  %or3751 = tail call i32 @llvm.fshl.i32(i32 %add1776, i32 %add1776, i32 14)
-  %shr3752 = lshr i32 %add1776, 3
-  %xor3753 = xor i32 %or3751, %shr3752
-  %xor3754 = xor i32 %xor3753, %or3748
-  %add3755 = add i32 %xor3754, %add1732
-  %add3756 = add i32 %add3755, %add3449
-  %add3757 = add i32 %add3756, %xor3744
-  %or3782 = tail call i32 @llvm.fshl.i32(i32 %add3713, i32 %add3713, i32 15)
-  %or3785 = tail call i32 @llvm.fshl.i32(i32 %add3713, i32 %add3713, i32 13)
-  %shr3786 = lshr i32 %add3713, 10
-  %xor3787 = xor i32 %or3785, %shr3786
-  %xor3788 = xor i32 %xor3787, %or3782
-  %or3792 = tail call i32 @llvm.fshl.i32(i32 %add1820, i32 %add1820, i32 25)
-  %or3795 = tail call i32 @llvm.fshl.i32(i32 %add1820, i32 %add1820, i32 14)
-  %shr3796 = lshr i32 %add1820, 3
-  %xor3797 = xor i32 %or3795, %shr3796
-  %xor3798 = xor i32 %xor3797, %or3792
-  %add3799 = add i32 %xor3798, %add1776
-  %add3800 = add i32 %add3799, %add3493
-  %add3801 = add i32 %add3800, %xor3788
-  %or3826 = tail call i32 @llvm.fshl.i32(i32 %add3757, i32 %add3757, i32 15)
-  %or3829 = tail call i32 @llvm.fshl.i32(i32 %add3757, i32 %add3757, i32 13)
-  %shr3830 = lshr i32 %add3757, 10
-  %xor3831 = xor i32 %or3829, %shr3830
-  %xor3832 = xor i32 %xor3831, %or3826
-  %or3836 = tail call i32 @llvm.fshl.i32(i32 %add1864, i32 %add1864, i32 25)
-  %or3839 = tail call i32 @llvm.fshl.i32(i32 %add1864, i32 %add1864, i32 14)
-  %shr3840 = lshr i32 %add1864, 3
-  %xor3841 = xor i32 %or3839, %shr3840
-  %xor3842 = xor i32 %xor3841, %or3836
-  %add3843 = add i32 %xor3842, %add1820
-  %add3844 = add i32 %add3843, %add3537
-  %add3845 = add i32 %add3844, %xor3832
-  %or3870 = tail call i32 @llvm.fshl.i32(i32 %add3801, i32 %add3801, i32 15)
-  %or3873 = tail call i32 @llvm.fshl.i32(i32 %add3801, i32 %add3801, i32 13)
-  %shr3874 = lshr i32 %add3801, 10
-  %xor3875 = xor i32 %or3873, %shr3874
-  %xor3876 = xor i32 %xor3875, %or3870
-  %or3880 = tail call i32 @llvm.fshl.i32(i32 %add1908, i32 %add1908, i32 25)
-  %or3883 = tail call i32 @llvm.fshl.i32(i32 %add1908, i32 %add1908, i32 14)
-  %shr3884 = lshr i32 %add1908, 3
-  %xor3885 = xor i32 %or3883, %shr3884
-  %xor3886 = xor i32 %xor3885, %or3880
-  %add3887 = add i32 %xor3886, %add1864
-  %add3888 = add i32 %add3887, %add3581
-  %add3889 = add i32 %add3888, %xor3876
-  %or3914 = tail call i32 @llvm.fshl.i32(i32 %add3845, i32 %add3845, i32 15)
-  %or3917 = tail call i32 @llvm.fshl.i32(i32 %add3845, i32 %add3845, i32 13)
-  %shr3918 = lshr i32 %add3845, 10
-  %xor3919 = xor i32 %or3917, %shr3918
-  %xor3920 = xor i32 %xor3919, %or3914
-  %or3924 = tail call i32 @llvm.fshl.i32(i32 %add1952, i32 %add1952, i32 25)
-  %or3927 = tail call i32 @llvm.fshl.i32(i32 %add1952, i32 %add1952, i32 14)
-  %shr3928 = lshr i32 %add1952, 3
-  %xor3929 = xor i32 %or3927, %shr3928
-  %xor3930 = xor i32 %xor3929, %or3924
-  %add3931 = add i32 %xor3930, %add1908
-  %add3932 = add i32 %add3931, %add3625
-  %add3933 = add i32 %add3932, %xor3920
-  %or3958 = tail call i32 @llvm.fshl.i32(i32 %add3889, i32 %add3889, i32 15)
-  %or3961 = tail call i32 @llvm.fshl.i32(i32 %add3889, i32 %add3889, i32 13)
-  %shr3962 = lshr i32 %add3889, 10
-  %xor3963 = xor i32 %or3961, %shr3962
-  %xor3964 = xor i32 %xor3963, %or3958
-  %or3968 = tail call i32 @llvm.fshl.i32(i32 %add1996, i32 %add1996, i32 25)
-  %or3971 = tail call i32 @llvm.fshl.i32(i32 %add1996, i32 %add1996, i32 14)
-  %shr3972 = lshr i32 %add1996, 3
-  %xor3973 = xor i32 %or3971, %shr3972
-  %xor3974 = xor i32 %xor3973, %or3968
-  %add3975 = add i32 %xor3974, %add1952
-  %add3976 = add i32 %add3975, %add3669
-  %add3977 = add i32 %add3976, %xor3964
-  %or4002 = tail call i32 @llvm.fshl.i32(i32 %add3933, i32 %add3933, i32 15)
-  %or4005 = tail call i32 @llvm.fshl.i32(i32 %add3933, i32 %add3933, i32 13)
-  %shr4006 = lshr i32 %add3933, 10
-  %xor4007 = xor i32 %or4005, %shr4006
-  %xor4008 = xor i32 %xor4007, %or4002
-  %or4012 = tail call i32 @llvm.fshl.i32(i32 %add2040, i32 %add2040, i32 25)
-  %or4015 = tail call i32 @llvm.fshl.i32(i32 %add2040, i32 %add2040, i32 14)
-  %shr4016 = lshr i32 %add2040, 3
-  %xor4017 = xor i32 %or4015, %shr4016
-  %xor4018 = xor i32 %xor4017, %or4012
-  %add4019 = add i32 %xor4018, %add1996
-  %add4020 = add i32 %add4019, %add3713
-  %add4021 = add i32 %add4020, %xor4008
-  %or4046 = tail call i32 @llvm.fshl.i32(i32 %add3977, i32 %add3977, i32 15)
-  %or4049 = tail call i32 @llvm.fshl.i32(i32 %add3977, i32 %add3977, i32 13)
-  %shr4050 = lshr i32 %add3977, 10
-  %xor4051 = xor i32 %or4049, %shr4050
-  %xor4052 = xor i32 %xor4051, %or4046
-  %or4056 = tail call i32 @llvm.fshl.i32(i32 %add3405, i32 %add3405, i32 25)
-  %or4059 = tail call i32 @llvm.fshl.i32(i32 %add3405, i32 %add3405, i32 14)
-  %shr4060 = lshr i32 %add3405, 3
-  %xor4061 = xor i32 %or4059, %shr4060
-  %xor4062 = xor i32 %xor4061, %or4056
-  %add4063 = add i32 %xor4062, %add2040
-  %add4064 = add i32 %add4063, %add3757
-  %add4065 = add i32 %add4064, %xor4052
-  %or4102 = tail call i32 @llvm.fshl.i32(i32 %add3347, i32 %add3347, i32 26)
-  %or4105 = tail call i32 @llvm.fshl.i32(i32 %add3347, i32 %add3347, i32 21)
-  %or4108 = tail call i32 @llvm.fshl.i32(i32 %add3347, i32 %add3347, i32 7)
-  %xor4109 = xor i32 %or4105, %or4108
-  %xor4110 = xor i32 %xor4109, %or4102
-  %and4112 = and i32 %add3347, %add3265
-  %not4113 = xor i32 %add3347, -1
-  %and4114 = and i32 %add3183, %not4113
-  %xor4115 = or i32 %and4112, %and4114
-  %add4111 = add i32 %add3405, 666307205
-  %add4116 = add i32 %add4111, %add3101
-  %add4117 = add i32 %add4116, %xor4115
-  %add4118 = add i32 %add4117, %xor4110
-  %or4122 = tail call i32 @llvm.fshl.i32(i32 %add3342, i32 %add3342, i32 30)
-  %or4125 = tail call i32 @llvm.fshl.i32(i32 %add3342, i32 %add3342, i32 19)
-  %or4128 = tail call i32 @llvm.fshl.i32(i32 %add3342, i32 %add3342, i32 10)
-  %xor4129 = xor i32 %or4125, %or4128
-  %xor4130 = xor i32 %xor4129, %or4122
-  %and4131 = and i32 %add3342, %add3260
-  %and41323742 = xor i32 %add3342, %add3260
-  %xor4134 = and i32 %and41323742, %add3178
-  %xor4135 = xor i32 %xor4134, %and4131
-  %add4136 = add i32 %xor4130, %xor4135
-  %add4138 = add i32 %add4136, %add4118
-  %add4143 = add i32 %add4118, %add3096
-  %or4184 = tail call i32 @llvm.fshl.i32(i32 %add4143, i32 %add4143, i32 26)
-  %or4187 = tail call i32 @llvm.fshl.i32(i32 %add4143, i32 %add4143, i32 21)
-  %or4190 = tail call i32 @llvm.fshl.i32(i32 %add4143, i32 %add4143, i32 7)
-  %xor4191 = xor i32 %or4187, %or4190
-  %xor4192 = xor i32 %xor4191, %or4184
-  %and4194 = and i32 %add4143, %add3347
-  %not4195 = xor i32 %add4143, -1
-  %and4196 = and i32 %add3265, %not4195
-  %xor4197 = or i32 %and4194, %and4196
-  %add4193 = add i32 %add3449, 773529912
-  %add4198 = add i32 %add4193, %add3183
-  %add4199 = add i32 %add4198, %xor4197
-  %add4200 = add i32 %add4199, %xor4192
-  %or4204 = tail call i32 @llvm.fshl.i32(i32 %add4138, i32 %add4138, i32 30)
-  %or4207 = tail call i32 @llvm.fshl.i32(i32 %add4138, i32 %add4138, i32 19)
-  %or4210 = tail call i32 @llvm.fshl.i32(i32 %add4138, i32 %add4138, i32 10)
-  %xor4211 = xor i32 %or4207, %or4210
-  %xor4212 = xor i32 %xor4211, %or4204
-  %and4213 = and i32 %add4138, %add3342
-  %and42143743 = xor i32 %add4138, %add3342
-  %xor4216 = and i32 %and42143743, %add3260
-  %xor4217 = xor i32 %xor4216, %and4213
-  %add4218 = add i32 %xor4212, %xor4217
-  %add4220 = add i32 %add4218, %add4200
-  %add4225 = add i32 %add4200, %add3178
-  %or4266 = tail call i32 @llvm.fshl.i32(i32 %add4225, i32 %add4225, i32 26)
-  %or4269 = tail call i32 @llvm.fshl.i32(i32 %add4225, i32 %add4225, i32 21)
-  %or4272 = tail call i32 @llvm.fshl.i32(i32 %add4225, i32 %add4225, i32 7)
-  %xor4273 = xor i32 %or4269, %or4272
-  %xor4274 = xor i32 %xor4273, %or4266
-  %and4276 = and i32 %add4225, %add4143
-  %not4277 = xor i32 %add4225, -1
-  %and4278 = and i32 %add3347, %not4277
-  %xor4279 = or i32 %and4276, %and4278
-  %add4275 = add i32 %add3493, 1294757372
-  %add4280 = add i32 %add4275, %add3265
-  %add4281 = add i32 %add4280, %xor4279
-  %add4282 = add i32 %add4281, %xor4274
-  %or4286 = tail call i32 @llvm.fshl.i32(i32 %add4220, i32 %add4220, i32 30)
-  %or4289 = tail call i32 @llvm.fshl.i32(i32 %add4220, i32 %add4220, i32 19)
-  %or4292 = tail call i32 @llvm.fshl.i32(i32 %add4220, i32 %add4220, i32 10)
-  %xor4293 = xor i32 %or4289, %or4292
-  %xor4294 = xor i32 %xor4293, %or4286
-  %and4295 = and i32 %add4220, %add4138
-  %and42963744 = xor i32 %add4220, %add4138
-  %xor4298 = and i32 %and42963744, %add3342
-  %xor4299 = xor i32 %xor4298, %and4295
-  %add4300 = add i32 %xor4294, %xor4299
-  %add4302 = add i32 %add4300, %add4282
-  %add4307 = add i32 %add4282, %add3260
-  %or4348 = tail call i32 @llvm.fshl.i32(i32 %add4307, i32 %add4307, i32 26)
-  %or4351 = tail call i32 @llvm.fshl.i32(i32 %add4307, i32 %add4307, i32 21)
-  %or4354 = tail call i32 @llvm.fshl.i32(i32 %add4307, i32 %add4307, i32 7)
-  %xor4355 = xor i32 %or4351, %or4354
-  %xor4356 = xor i32 %xor4355, %or4348
-  %and4358 = and i32 %add4307, %add4225
-  %not4359 = xor i32 %add4307, -1
-  %and4360 = and i32 %add4143, %not4359
-  %xor4361 = or i32 %and4358, %and4360
-  %add4357 = add i32 %add3537, 1396182291
-  %add4362 = add i32 %add4357, %add3347
-  %add4363 = add i32 %add4362, %xor4361
-  %add4364 = add i32 %add4363, %xor4356
-  %or4368 = tail call i32 @llvm.fshl.i32(i32 %add4302, i32 %add4302, i32 30)
-  %or4371 = tail call i32 @llvm.fshl.i32(i32 %add4302, i32 %add4302, i32 19)
-  %or4374 = tail call i32 @llvm.fshl.i32(i32 %add4302, i32 %add4302, i32 10)
-  %xor4375 = xor i32 %or4371, %or4374
-  %xor4376 = xor i32 %xor4375, %or4368
-  %and4377 = and i32 %add4302, %add4220
-  %and43783745 = xor i32 %add4302, %add4220
-  %xor4380 = and i32 %and43783745, %add4138
-  %xor4381 = xor i32 %xor4380, %and4377
-  %add4382 = add i32 %xor4376, %xor4381
-  %add4384 = add i32 %add4382, %add4364
-  %add4389 = add i32 %add4364, %add3342
-  %or4430 = tail call i32 @llvm.fshl.i32(i32 %add4389, i32 %add4389, i32 26)
-  %or4433 = tail call i32 @llvm.fshl.i32(i32 %add4389, i32 %add4389, i32 21)
-  %or4436 = tail call i32 @llvm.fshl.i32(i32 %add4389, i32 %add4389, i32 7)
-  %xor4437 = xor i32 %or4433, %or4436
-  %xor4438 = xor i32 %xor4437, %or4430
-  %and4440 = and i32 %add4389, %add4307
-  %not4441 = xor i32 %add4389, -1
-  %and4442 = and i32 %add4225, %not4441
-  %xor4443 = or i32 %and4440, %and4442
-  %add4439 = add i32 %add3581, 1695183700
-  %add4444 = add i32 %add4439, %add4143
-  %add4445 = add i32 %add4444, %xor4443
-  %add4446 = add i32 %add4445, %xor4438
-  %or4450 = tail call i32 @llvm.fshl.i32(i32 %add4384, i32 %add4384, i32 30)
-  %or4453 = tail call i32 @llvm.fshl.i32(i32 %add4384, i32 %add4384, i32 19)
-  %or4456 = tail call i32 @llvm.fshl.i32(i32 %add4384, i32 %add4384, i32 10)
-  %xor4457 = xor i32 %or4453, %or4456
-  %xor4458 = xor i32 %xor4457, %or4450
-  %and4459 = and i32 %add4384, %add4302
-  %and44603746 = xor i32 %add4384, %add4302
-  %xor4462 = and i32 %and44603746, %add4220
-  %xor4463 = xor i32 %xor4462, %and4459
-  %add4464 = add i32 %xor4458, %xor4463
-  %add4466 = add i32 %add4464, %add4446
-  %add4471 = add i32 %add4446, %add4138
-  %or4512 = tail call i32 @llvm.fshl.i32(i32 %add4471, i32 %add4471, i32 26)
-  %or4515 = tail call i32 @llvm.fshl.i32(i32 %add4471, i32 %add4471, i32 21)
-  %or4518 = tail call i32 @llvm.fshl.i32(i32 %add4471, i32 %add4471, i32 7)
-  %xor4519 = xor i32 %or4515, %or4518
-  %xor4520 = xor i32 %xor4519, %or4512
-  %and4522 = and i32 %add4471, %add4389
-  %not4523 = xor i32 %add4471, -1
-  %and4524 = and i32 %add4307, %not4523
-  %xor4525 = or i32 %and4522, %and4524
-  %add4521 = add i32 %add3625, 1986661051
-  %add4526 = add i32 %add4521, %add4225
-  %add4527 = add i32 %add4526, %xor4525
-  %add4528 = add i32 %add4527, %xor4520
-  %or4532 = tail call i32 @llvm.fshl.i32(i32 %add4466, i32 %add4466, i32 30)
-  %or4535 = tail call i32 @llvm.fshl.i32(i32 %add4466, i32 %add4466, i32 19)
-  %or4538 = tail call i32 @llvm.fshl.i32(i32 %add4466, i32 %add4466, i32 10)
-  %xor4539 = xor i32 %or4535, %or4538
-  %xor4540 = xor i32 %xor4539, %or4532
-  %and4541 = and i32 %add4466, %add4384
-  %and45423747 = xor i32 %add4466, %add4384
-  %xor4544 = and i32 %and45423747, %add4302
-  %xor4545 = xor i32 %xor4544, %and4541
-  %add4546 = add i32 %xor4540, %xor4545
-  %add4548 = add i32 %add4546, %add4528
-  %add4553 = add i32 %add4528, %add4220
-  %or4594 = tail call i32 @llvm.fshl.i32(i32 %add4553, i32 %add4553, i32 26)
-  %or4597 = tail call i32 @llvm.fshl.i32(i32 %add4553, i32 %add4553, i32 21)
-  %or4600 = tail call i32 @llvm.fshl.i32(i32 %add4553, i32 %add4553, i32 7)
-  %xor4601 = xor i32 %or4597, %or4600
-  %xor4602 = xor i32 %xor4601, %or4594
-  %and4604 = and i32 %add4553, %add4471
-  %not4605 = xor i32 %add4553, -1
-  %and4606 = and i32 %add4389, %not4605
-  %xor4607 = or i32 %and4604, %and4606
-  %add4603 = add i32 %add3669, -2117940946
-  %add4608 = add i32 %add4603, %add4307
-  %add4609 = add i32 %add4608, %xor4607
-  %add4610 = add i32 %add4609, %xor4602
-  %or4614 = tail call i32 @llvm.fshl.i32(i32 %add4548, i32 %add4548, i32 30)
-  %or4617 = tail call i32 @llvm.fshl.i32(i32 %add4548, i32 %add4548, i32 19)
-  %or4620 = tail call i32 @llvm.fshl.i32(i32 %add4548, i32 %add4548, i32 10)
-  %xor4621 = xor i32 %or4617, %or4620
-  %xor4622 = xor i32 %xor4621, %or4614
-  %and4623 = and i32 %add4548, %add4466
-  %and46243748 = xor i32 %add4548, %add4466
-  %xor4626 = and i32 %and46243748, %add4384
-  %xor4627 = xor i32 %xor4626, %and4623
-  %add4628 = add i32 %xor4622, %xor4627
-  %add4630 = add i32 %add4628, %add4610
-  %add4635 = add i32 %add4610, %add4302
-  %or4676 = tail call i32 @llvm.fshl.i32(i32 %add4635, i32 %add4635, i32 26)
-  %or4679 = tail call i32 @llvm.fshl.i32(i32 %add4635, i32 %add4635, i32 21)
-  %or4682 = tail call i32 @llvm.fshl.i32(i32 %add4635, i32 %add4635, i32 7)
-  %xor4683 = xor i32 %or4679, %or4682
-  %xor4684 = xor i32 %xor4683, %or4676
-  %and4686 = and i32 %add4635, %add4553
-  %not4687 = xor i32 %add4635, -1
-  %and4688 = and i32 %add4471, %not4687
-  %xor4689 = or i32 %and4686, %and4688
-  %add4685 = add i32 %add3713, -1838011259
-  %add4690 = add i32 %add4685, %add4389
-  %add4691 = add i32 %add4690, %xor4689
-  %add4692 = add i32 %add4691, %xor4684
-  %or4696 = tail call i32 @llvm.fshl.i32(i32 %add4630, i32 %add4630, i32 30)
-  %or4699 = tail call i32 @llvm.fshl.i32(i32 %add4630, i32 %add4630, i32 19)
-  %or4702 = tail call i32 @llvm.fshl.i32(i32 %add4630, i32 %add4630, i32 10)
-  %xor4703 = xor i32 %or4699, %or4702
-  %xor4704 = xor i32 %xor4703, %or4696
-  %and4705 = and i32 %add4630, %add4548
-  %and47063749 = xor i32 %add4630, %add4548
-  %xor4708 = and i32 %and47063749, %add4466
-  %xor4709 = xor i32 %xor4708, %and4705
-  %add4710 = add i32 %xor4704, %xor4709
-  %add4712 = add i32 %add4710, %add4692
-  %add4717 = add i32 %add4692, %add4384
-  %or4758 = tail call i32 @llvm.fshl.i32(i32 %add4717, i32 %add4717, i32 26)
-  %or4761 = tail call i32 @llvm.fshl.i32(i32 %add4717, i32 %add4717, i32 21)
-  %or4764 = tail call i32 @llvm.fshl.i32(i32 %add4717, i32 %add4717, i32 7)
-  %xor4765 = xor i32 %or4761, %or4764
-  %xor4766 = xor i32 %xor4765, %or4758
-  %and4768 = and i32 %add4717, %add4635
-  %not4769 = xor i32 %add4717, -1
-  %and4770 = and i32 %add4553, %not4769
-  %xor4771 = or i32 %and4768, %and4770
-  %add4767 = add i32 %add3757, -1564481375
-  %add4772 = add i32 %add4767, %add4471
-  %add4773 = add i32 %add4772, %xor4771
-  %add4774 = add i32 %add4773, %xor4766
-  %or4778 = tail call i32 @llvm.fshl.i32(i32 %add4712, i32 %add4712, i32 30)
-  %or4781 = tail call i32 @llvm.fshl.i32(i32 %add4712, i32 %add4712, i32 19)
-  %or4784 = tail call i32 @llvm.fshl.i32(i32 %add4712, i32 %add4712, i32 10)
-  %xor4785 = xor i32 %or4781, %or4784
-  %xor4786 = xor i32 %xor4785, %or4778
-  %and4787 = and i32 %add4712, %add4630
-  %and47883750 = xor i32 %add4712, %add4630
-  %xor4790 = and i32 %and47883750, %add4548
-  %xor4791 = xor i32 %xor4790, %and4787
-  %add4792 = add i32 %xor4786, %xor4791
-  %add4794 = add i32 %add4792, %add4774
-  %add4799 = add i32 %add4774, %add4466
-  %or4840 = tail call i32 @llvm.fshl.i32(i32 %add4799, i32 %add4799, i32 26)
-  %or4843 = tail call i32 @llvm.fshl.i32(i32 %add4799, i32 %add4799, i32 21)
-  %or4846 = tail call i32 @llvm.fshl.i32(i32 %add4799, i32 %add4799, i32 7)
-  %xor4847 = xor i32 %or4843, %or4846
-  %xor4848 = xor i32 %xor4847, %or4840
-  %and4850 = and i32 %add4799, %add4717
-  %not4851 = xor i32 %add4799, -1
-  %and4852 = and i32 %add4635, %not4851
-  %xor4853 = or i32 %and4850, %and4852
-  %add4849 = add i32 %add3801, -1474664885
-  %add4854 = add i32 %add4849, %add4553
-  %add4855 = add i32 %add4854, %xor4853
-  %add4856 = add i32 %add4855, %xor4848
-  %or4860 = tail call i32 @llvm.fshl.i32(i32 %add4794, i32 %add4794, i32 30)
-  %or4863 = tail call i32 @llvm.fshl.i32(i32 %add4794, i32 %add4794, i32 19)
-  %or4866 = tail call i32 @llvm.fshl.i32(i32 %add4794, i32 %add4794, i32 10)
-  %xor4867 = xor i32 %or4863, %or4866
-  %xor4868 = xor i32 %xor4867, %or4860
-  %and4869 = and i32 %add4794, %add4712
-  %and48703751 = xor i32 %add4794, %add4712
-  %xor4872 = and i32 %and48703751, %add4630
-  %xor4873 = xor i32 %xor4872, %and4869
-  %add4874 = add i32 %xor4868, %xor4873
-  %add4876 = add i32 %add4874, %add4856
-  %add4881 = add i32 %add4856, %add4548
-  %or4922 = tail call i32 @llvm.fshl.i32(i32 %add4881, i32 %add4881, i32 26)
-  %or4925 = tail call i32 @llvm.fshl.i32(i32 %add4881, i32 %add4881, i32 21)
-  %or4928 = tail call i32 @llvm.fshl.i32(i32 %add4881, i32 %add4881, i32 7)
-  %xor4929 = xor i32 %or4925, %or4928
-  %xor4930 = xor i32 %xor4929, %or4922
-  %and4932 = and i32 %add4881, %add4799
-  %not4933 = xor i32 %add4881, -1
-  %and4934 = and i32 %add4717, %not4933
-  %xor4935 = or i32 %and4932, %and4934
-  %add4931 = add i32 %add3845, -1035236496
-  %add4936 = add i32 %add4931, %add4635
-  %add4937 = add i32 %add4936, %xor4935
-  %add4938 = add i32 %add4937, %xor4930
-  %or4942 = tail call i32 @llvm.fshl.i32(i32 %add4876, i32 %add4876, i32 30)
-  %or4945 = tail call i32 @llvm.fshl.i32(i32 %add4876, i32 %add4876, i32 19)
-  %or4948 = tail call i32 @llvm.fshl.i32(i32 %add4876, i32 %add4876, i32 10)
-  %xor4949 = xor i32 %or4945, %or4948
-  %xor4950 = xor i32 %xor4949, %or4942
-  %and4951 = and i32 %add4876, %add4794
-  %and49523752 = xor i32 %add4876, %add4794
-  %xor4954 = and i32 %and49523752, %add4712
-  %xor4955 = xor i32 %xor4954, %and4951
-  %add4956 = add i32 %xor4950, %xor4955
-  %add4958 = add i32 %add4956, %add4938
-  %add4963 = add i32 %add4938, %add4630
-  %or5004 = tail call i32 @llvm.fshl.i32(i32 %add4963, i32 %add4963, i32 26)
-  %or5007 = tail call i32 @llvm.fshl.i32(i32 %add4963, i32 %add4963, i32 21)
-  %or5010 = tail call i32 @llvm.fshl.i32(i32 %add4963, i32 %add4963, i32 7)
-  %xor5011 = xor i32 %or5007, %or5010
-  %xor5012 = xor i32 %xor5011, %or5004
-  %and5014 = and i32 %add4963, %add4881
-  %not5015 = xor i32 %add4963, -1
-  %and5016 = and i32 %add4799, %not5015
-  %xor5017 = or i32 %and5014, %and5016
-  %add5013 = add i32 %add3889, -949202525
-  %add5018 = add i32 %add5013, %add4717
-  %add5019 = add i32 %add5018, %xor5017
-  %add5020 = add i32 %add5019, %xor5012
-  %or5024 = tail call i32 @llvm.fshl.i32(i32 %add4958, i32 %add4958, i32 30)
-  %or5027 = tail call i32 @llvm.fshl.i32(i32 %add4958, i32 %add4958, i32 19)
-  %or5030 = tail call i32 @llvm.fshl.i32(i32 %add4958, i32 %add4958, i32 10)
-  %xor5031 = xor i32 %or5027, %or5030
-  %xor5032 = xor i32 %xor5031, %or5024
-  %and5033 = and i32 %add4958, %add4876
-  %and50343753 = xor i32 %add4958, %add4876
-  %xor5036 = and i32 %and50343753, %add4794
-  %xor5037 = xor i32 %xor5036, %and5033
-  %add5038 = add i32 %xor5032, %xor5037
-  %add5040 = add i32 %add5038, %add5020
-  %add5045 = add i32 %add5020, %add4712
-  %or5086 = tail call i32 @llvm.fshl.i32(i32 %add5045, i32 %add5045, i32 26)
-  %or5089 = tail call i32 @llvm.fshl.i32(i32 %add5045, i32 %add5045, i32 21)
-  %or5092 = tail call i32 @llvm.fshl.i32(i32 %add5045, i32 %add5045, i32 7)
-  %xor5093 = xor i32 %or5089, %or5092
-  %xor5094 = xor i32 %xor5093, %or5086
-  %and5096 = and i32 %add5045, %add4963
-  %not5097 = xor i32 %add5045, -1
-  %and5098 = and i32 %add4881, %not5097
-  %xor5099 = or i32 %and5096, %and5098
-  %add5095 = add i32 %add3933, -778901479
-  %add5100 = add i32 %add5095, %add4799
-  %add5101 = add i32 %add5100, %xor5099
-  %add5102 = add i32 %add5101, %xor5094
-  %or5106 = tail call i32 @llvm.fshl.i32(i32 %add5040, i32 %add5040, i32 30)
-  %or5109 = tail call i32 @llvm.fshl.i32(i32 %add5040, i32 %add5040, i32 19)
-  %or5112 = tail call i32 @llvm.fshl.i32(i32 %add5040, i32 %add5040, i32 10)
-  %xor5113 = xor i32 %or5109, %or5112
-  %xor5114 = xor i32 %xor5113, %or5106
-  %and5115 = and i32 %add5040, %add4958
-  %and51163754 = xor i32 %add5040, %add4958
-  %xor5118 = and i32 %and51163754, %add4876
-  %xor5119 = xor i32 %xor5118, %and5115
-  %add5120 = add i32 %xor5114, %xor5119
-  %add5122 = add i32 %add5120, %add5102
-  %add5127 = add i32 %add5102, %add4794
-  %or5168 = tail call i32 @llvm.fshl.i32(i32 %add5127, i32 %add5127, i32 26)
-  %or5171 = tail call i32 @llvm.fshl.i32(i32 %add5127, i32 %add5127, i32 21)
-  %or5174 = tail call i32 @llvm.fshl.i32(i32 %add5127, i32 %add5127, i32 7)
-  %xor5175 = xor i32 %or5171, %or5174
-  %xor5176 = xor i32 %xor5175, %or5168
-  %and5178 = and i32 %add5127, %add5045
-  %not5179 = xor i32 %add5127, -1
-  %and5180 = and i32 %add4963, %not5179
-  %xor5181 = or i32 %and5178, %and5180
-  %add5177 = add i32 %add3977, -694614492
-  %add5182 = add i32 %add5177, %add4881
-  %add5183 = add i32 %add5182, %xor5181
-  %add5184 = add i32 %add5183, %xor5176
-  %or5188 = tail call i32 @llvm.fshl.i32(i32 %add5122, i32 %add5122, i32 30)
-  %or5191 = tail call i32 @llvm.fshl.i32(i32 %add5122, i32 %add5122, i32 19)
-  %or5194 = tail call i32 @llvm.fshl.i32(i32 %add5122, i32 %add5122, i32 10)
-  %xor5195 = xor i32 %or5191, %or5194
-  %xor5196 = xor i32 %xor5195, %or5188
-  %and5197 = and i32 %add5122, %add5040
-  %and51983755 = xor i32 %add5122, %add5040
-  %xor5200 = and i32 %and51983755, %add4958
-  %xor5201 = xor i32 %xor5200, %and5197
-  %add5202 = add i32 %xor5196, %xor5201
-  %add5204 = add i32 %add5202, %add5184
-  %add5209 = add i32 %add5184, %add4876
-  %or5250 = tail call i32 @llvm.fshl.i32(i32 %add5209, i32 %add5209, i32 26)
-  %or5253 = tail call i32 @llvm.fshl.i32(i32 %add5209, i32 %add5209, i32 21)
-  %or5256 = tail call i32 @llvm.fshl.i32(i32 %add5209, i32 %add5209, i32 7)
-  %xor5257 = xor i32 %or5253, %or5256
-  %xor5258 = xor i32 %xor5257, %or5250
-  %and5260 = and i32 %add5209, %add5127
-  %not5261 = xor i32 %add5209, -1
-  %and5262 = and i32 %add5045, %not5261
-  %xor5263 = or i32 %and5260, %and5262
-  %add5259 = add i32 %add4021, -200395387
-  %add5264 = add i32 %add5259, %add4963
-  %add5265 = add i32 %add5264, %xor5263
-  %add5266 = add i32 %add5265, %xor5258
-  %or5270 = tail call i32 @llvm.fshl.i32(i32 %add5204, i32 %add5204, i32 30)
-  %or5273 = tail call i32 @llvm.fshl.i32(i32 %add5204, i32 %add5204, i32 19)
-  %or5276 = tail call i32 @llvm.fshl.i32(i32 %add5204, i32 %add5204, i32 10)
-  %xor5277 = xor i32 %or5273, %or5276
-  %xor5278 = xor i32 %xor5277, %or5270
-  %and5279 = and i32 %add5204, %add5122
-  %and52803756 = xor i32 %add5204, %add5122
-  %xor5282 = and i32 %and52803756, %add5040
-  %xor5283 = xor i32 %xor5282, %and5279
-  %add5284 = add i32 %xor5278, %xor5283
-  %add5286 = add i32 %add5284, %add5266
-  %add5291 = add i32 %add5266, %add4958
-  %or5332 = tail call i32 @llvm.fshl.i32(i32 %add5291, i32 %add5291, i32 26)
-  %or5335 = tail call i32 @llvm.fshl.i32(i32 %add5291, i32 %add5291, i32 21)
-  %or5338 = tail call i32 @llvm.fshl.i32(i32 %add5291, i32 %add5291, i32 7)
-  %xor5339 = xor i32 %or5335, %or5338
-  %xor5340 = xor i32 %xor5339, %or5332
-  %and5342 = and i32 %add5291, %add5209
-  %not5343 = xor i32 %add5291, -1
-  %and5344 = and i32 %add5127, %not5343
-  %xor5345 = or i32 %and5342, %and5344
-  %add5341 = add i32 %add4065, 275423344
-  %add5346 = add i32 %add5341, %add5045
-  %add5347 = add i32 %add5346, %xor5345
-  %add5348 = add i32 %add5347, %xor5340
-  %or5352 = tail call i32 @llvm.fshl.i32(i32 %add5286, i32 %add5286, i32 30)
-  %or5355 = tail call i32 @llvm.fshl.i32(i32 %add5286, i32 %add5286, i32 19)
-  %or5358 = tail call i32 @llvm.fshl.i32(i32 %add5286, i32 %add5286, i32 10)
-  %xor5359 = xor i32 %or5355, %or5358
-  %xor5360 = xor i32 %xor5359, %or5352
-  %and5361 = and i32 %add5286, %add5204
-  %and53623757 = xor i32 %add5286, %add5204
-  %xor5364 = and i32 %and53623757, %add5122
-  %xor5365 = xor i32 %xor5364, %and5361
-  %add5366 = add i32 %xor5360, %xor5365
-  %add5368 = add i32 %add5366, %add5348
-  %add5373 = add i32 %add5348, %add5040
-  %or5412 = tail call i32 @llvm.fshl.i32(i32 %add4021, i32 %add4021, i32 15)
-  %or5415 = tail call i32 @llvm.fshl.i32(i32 %add4021, i32 %add4021, i32 13)
-  %shr5416 = lshr i32 %add4021, 10
-  %xor5417 = xor i32 %or5415, %shr5416
-  %xor5418 = xor i32 %xor5417, %or5412
-  %or5422 = tail call i32 @llvm.fshl.i32(i32 %add3449, i32 %add3449, i32 25)
-  %or5425 = tail call i32 @llvm.fshl.i32(i32 %add3449, i32 %add3449, i32 14)
-  %shr5426 = lshr i32 %add3449, 3
-  %xor5427 = xor i32 %or5425, %shr5426
-  %xor5428 = xor i32 %xor5427, %or5422
-  %add5429 = add i32 %xor5428, %add3405
-  %add5430 = add i32 %add5429, %add3801
-  %add5431 = add i32 %add5430, %xor5418
-  %or5456 = tail call i32 @llvm.fshl.i32(i32 %add4065, i32 %add4065, i32 15)
-  %or5459 = tail call i32 @llvm.fshl.i32(i32 %add4065, i32 %add4065, i32 13)
-  %shr5460 = lshr i32 %add4065, 10
-  %xor5461 = xor i32 %or5459, %shr5460
-  %xor5462 = xor i32 %xor5461, %or5456
-  %or5466 = tail call i32 @llvm.fshl.i32(i32 %add3493, i32 %add3493, i32 25)
-  %or5469 = tail call i32 @llvm.fshl.i32(i32 %add3493, i32 %add3493, i32 14)
-  %shr5470 = lshr i32 %add3493, 3
-  %xor5471 = xor i32 %or5469, %shr5470
-  %xor5472 = xor i32 %xor5471, %or5466
-  %add5473 = add i32 %xor5472, %add3449
-  %add5474 = add i32 %add5473, %add3845
-  %add5475 = add i32 %add5474, %xor5462
-  %or5500 = tail call i32 @llvm.fshl.i32(i32 %add5431, i32 %add5431, i32 15)
-  %or5503 = tail call i32 @llvm.fshl.i32(i32 %add5431, i32 %add5431, i32 13)
-  %shr5504 = lshr i32 %add5431, 10
-  %xor5505 = xor i32 %or5503, %shr5504
-  %xor5506 = xor i32 %xor5505, %or5500
-  %or5510 = tail call i32 @llvm.fshl.i32(i32 %add3537, i32 %add3537, i32 25)
-  %or5513 = tail call i32 @llvm.fshl.i32(i32 %add3537, i32 %add3537, i32 14)
-  %shr5514 = lshr i32 %add3537, 3
-  %xor5515 = xor i32 %or5513, %shr5514
-  %xor5516 = xor i32 %xor5515, %or5510
-  %add5517 = add i32 %xor5516, %add3493
-  %add5518 = add i32 %add5517, %add3889
-  %add5519 = add i32 %add5518, %xor5506
-  %or5544 = tail call i32 @llvm.fshl.i32(i32 %add5475, i32 %add5475, i32 15)
-  %or5547 = tail call i32 @llvm.fshl.i32(i32 %add5475, i32 %add5475, i32 13)
-  %shr5548 = lshr i32 %add5475, 10
-  %xor5549 = xor i32 %or5547, %shr5548
-  %xor5550 = xor i32 %xor5549, %or5544
-  %or5554 = tail call i32 @llvm.fshl.i32(i32 %add3581, i32 %add3581, i32 25)
-  %or5557 = tail call i32 @llvm.fshl.i32(i32 %add3581, i32 %add3581, i32 14)
-  %shr5558 = lshr i32 %add3581, 3
-  %xor5559 = xor i32 %or5557, %shr5558
-  %xor5560 = xor i32 %xor5559, %or5554
-  %add5561 = add i32 %xor5560, %add3537
-  %add5562 = add i32 %add5561, %add3933
-  %add5563 = add i32 %add5562, %xor5550
-  %or5588 = tail call i32 @llvm.fshl.i32(i32 %add5519, i32 %add5519, i32 15)
-  %or5591 = tail call i32 @llvm.fshl.i32(i32 %add5519, i32 %add5519, i32 13)
-  %shr5592 = lshr i32 %add5519, 10
-  %xor5593 = xor i32 %or5591, %shr5592
-  %xor5594 = xor i32 %xor5593, %or5588
-  %or5598 = tail call i32 @llvm.fshl.i32(i32 %add3625, i32 %add3625, i32 25)
-  %or5601 = tail call i32 @llvm.fshl.i32(i32 %add3625, i32 %add3625, i32 14)
-  %shr5602 = lshr i32 %add3625, 3
-  %xor5603 = xor i32 %or5601, %shr5602
-  %xor5604 = xor i32 %xor5603, %or5598
-  %add5605 = add i32 %xor5604, %add3581
-  %add5606 = add i32 %add5605, %add3977
-  %add5607 = add i32 %add5606, %xor5594
-  %or5632 = tail call i32 @llvm.fshl.i32(i32 %add5563, i32 %add5563, i32 15)
-  %or5635 = tail call i32 @llvm.fshl.i32(i32 %add5563, i32 %add5563, i32 13)
-  %shr5636 = lshr i32 %add5563, 10
-  %xor5637 = xor i32 %or5635, %shr5636
-  %xor5638 = xor i32 %xor5637, %or5632
-  %or5642 = tail call i32 @llvm.fshl.i32(i32 %add3669, i32 %add3669, i32 25)
-  %or5645 = tail call i32 @llvm.fshl.i32(i32 %add3669, i32 %add3669, i32 14)
-  %shr5646 = lshr i32 %add3669, 3
-  %xor5647 = xor i32 %or5645, %shr5646
-  %xor5648 = xor i32 %xor5647, %or5642
-  %add5649 = add i32 %xor5648, %add3625
-  %add5650 = add i32 %add5649, %add4021
-  %add5651 = add i32 %add5650, %xor5638
-  %or5676 = tail call i32 @llvm.fshl.i32(i32 %add5607, i32 %add5607, i32 15)
-  %or5679 = tail call i32 @llvm.fshl.i32(i32 %add5607, i32 %add5607, i32 13)
-  %shr5680 = lshr i32 %add5607, 10
-  %xor5681 = xor i32 %or5679, %shr5680
-  %xor5682 = xor i32 %xor5681, %or5676
-  %or5686 = tail call i32 @llvm.fshl.i32(i32 %add3713, i32 %add3713, i32 25)
-  %or5689 = tail call i32 @llvm.fshl.i32(i32 %add3713, i32 %add3713, i32 14)
-  %shr5690 = lshr i32 %add3713, 3
-  %xor5691 = xor i32 %or5689, %shr5690
-  %xor5692 = xor i32 %xor5691, %or5686
-  %add5693 = add i32 %xor5692, %add3669
-  %add5694 = add i32 %add5693, %add4065
-  %add5695 = add i32 %add5694, %xor5682
-  %or5720 = tail call i32 @llvm.fshl.i32(i32 %add5651, i32 %add5651, i32 15)
-  %or5723 = tail call i32 @llvm.fshl.i32(i32 %add5651, i32 %add5651, i32 13)
-  %shr5724 = lshr i32 %add5651, 10
-  %xor5725 = xor i32 %or5723, %shr5724
-  %xor5726 = xor i32 %xor5725, %or5720
-  %or5730 = tail call i32 @llvm.fshl.i32(i32 %add3757, i32 %add3757, i32 25)
-  %or5733 = tail call i32 @llvm.fshl.i32(i32 %add3757, i32 %add3757, i32 14)
-  %shr5734 = lshr i32 %add3757, 3
-  %xor5735 = xor i32 %or5733, %shr5734
-  %xor5736 = xor i32 %xor5735, %or5730
-  %add5737 = add i32 %xor5736, %add3713
-  %add5738 = add i32 %add5737, %add5431
-  %add5739 = add i32 %add5738, %xor5726
-  %or5764 = tail call i32 @llvm.fshl.i32(i32 %add5695, i32 %add5695, i32 15)
-  %or5767 = tail call i32 @llvm.fshl.i32(i32 %add5695, i32 %add5695, i32 13)
-  %shr5768 = lshr i32 %add5695, 10
-  %xor5769 = xor i32 %or5767, %shr5768
-  %xor5770 = xor i32 %xor5769, %or5764
-  %or5774 = tail call i32 @llvm.fshl.i32(i32 %add3801, i32 %add3801, i32 25)
-  %or5777 = tail call i32 @llvm.fshl.i32(i32 %add3801, i32 %add3801, i32 14)
-  %shr5778 = lshr i32 %add3801, 3
-  %xor5779 = xor i32 %or5777, %shr5778
-  %xor5780 = xor i32 %xor5779, %or5774
-  %add5781 = add i32 %xor5780, %add3757
-  %add5782 = add i32 %add5781, %add5475
-  %add5783 = add i32 %add5782, %xor5770
-  %or5808 = tail call i32 @llvm.fshl.i32(i32 %add5739, i32 %add5739, i32 15)
-  %or5811 = tail call i32 @llvm.fshl.i32(i32 %add5739, i32 %add5739, i32 13)
-  %shr5812 = lshr i32 %add5739, 10
-  %xor5813 = xor i32 %or5811, %shr5812
-  %xor5814 = xor i32 %xor5813, %or5808
-  %or5818 = tail call i32 @llvm.fshl.i32(i32 %add3845, i32 %add3845, i32 25)
-  %or5821 = tail call i32 @llvm.fshl.i32(i32 %add3845, i32 %add3845, i32 14)
-  %shr5822 = lshr i32 %add3845, 3
-  %xor5823 = xor i32 %or5821, %shr5822
-  %xor5824 = xor i32 %xor5823, %or5818
-  %add5825 = add i32 %xor5824, %add3801
-  %add5826 = add i32 %add5825, %add5519
-  %add5827 = add i32 %add5826, %xor5814
-  %or5852 = tail call i32 @llvm.fshl.i32(i32 %add5783, i32 %add5783, i32 15)
-  %or5855 = tail call i32 @llvm.fshl.i32(i32 %add5783, i32 %add5783, i32 13)
-  %shr5856 = lshr i32 %add5783, 10
-  %xor5857 = xor i32 %or5855, %shr5856
-  %xor5858 = xor i32 %xor5857, %or5852
-  %or5862 = tail call i32 @llvm.fshl.i32(i32 %add3889, i32 %add3889, i32 25)
-  %or5865 = tail call i32 @llvm.fshl.i32(i32 %add3889, i32 %add3889, i32 14)
-  %shr5866 = lshr i32 %add3889, 3
-  %xor5867 = xor i32 %or5865, %shr5866
-  %xor5868 = xor i32 %xor5867, %or5862
-  %add5869 = add i32 %xor5868, %add3845
-  %add5870 = add i32 %add5869, %add5563
-  %add5871 = add i32 %add5870, %xor5858
-  %or5896 = tail call i32 @llvm.fshl.i32(i32 %add5827, i32 %add5827, i32 15)
-  %or5899 = tail call i32 @llvm.fshl.i32(i32 %add5827, i32 %add5827, i32 13)
-  %shr5900 = lshr i32 %add5827, 10
-  %xor5901 = xor i32 %or5899, %shr5900
-  %xor5902 = xor i32 %xor5901, %or5896
-  %or5906 = tail call i32 @llvm.fshl.i32(i32 %add3933, i32 %add3933, i32 25)
-  %or5909 = tail call i32 @llvm.fshl.i32(i32 %add3933, i32 %add3933, i32 14)
-  %shr5910 = lshr i32 %add3933, 3
-  %xor5911 = xor i32 %or5909, %shr5910
-  %xor5912 = xor i32 %xor5911, %or5906
-  %add5913 = add i32 %xor5912, %add3889
-  %add5914 = add i32 %add5913, %add5607
-  %add5915 = add i32 %add5914, %xor5902
-  %or5940 = tail call i32 @llvm.fshl.i32(i32 %add5871, i32 %add5871, i32 15)
-  %or5943 = tail call i32 @llvm.fshl.i32(i32 %add5871, i32 %add5871, i32 13)
-  %shr5944 = lshr i32 %add5871, 10
-  %xor5945 = xor i32 %or5943, %shr5944
-  %xor5946 = xor i32 %xor5945, %or5940
-  %or5950 = tail call i32 @llvm.fshl.i32(i32 %add3977, i32 %add3977, i32 25)
-  %or5953 = tail call i32 @llvm.fshl.i32(i32 %add3977, i32 %add3977, i32 14)
-  %shr5954 = lshr i32 %add3977, 3
-  %xor5955 = xor i32 %or5953, %shr5954
-  %xor5956 = xor i32 %xor5955, %or5950
-  %add5957 = add i32 %xor5956, %add3933
-  %add5958 = add i32 %add5957, %add5651
-  %add5959 = add i32 %add5958, %xor5946
-  %or5984 = tail call i32 @llvm.fshl.i32(i32 %add5915, i32 %add5915, i32 15)
-  %or5987 = tail call i32 @llvm.fshl.i32(i32 %add5915, i32 %add5915, i32 13)
-  %shr5988 = lshr i32 %add5915, 10
-  %xor5989 = xor i32 %or5987, %shr5988
-  %xor5990 = xor i32 %xor5989, %or5984
-  %or5994 = tail call i32 @llvm.fshl.i32(i32 %add4021, i32 %add4021, i32 25)
-  %or5997 = tail call i32 @llvm.fshl.i32(i32 %add4021, i32 %add4021, i32 14)
-  %shr5998 = lshr i32 %add4021, 3
-  %xor5999 = xor i32 %or5997, %shr5998
-  %xor6000 = xor i32 %xor5999, %or5994
-  %add6001 = add i32 %xor6000, %add3977
-  %add6002 = add i32 %add6001, %add5695
-  %add6003 = add i32 %add6002, %xor5990
-  %or6028 = tail call i32 @llvm.fshl.i32(i32 %add5959, i32 %add5959, i32 15)
-  %or6031 = tail call i32 @llvm.fshl.i32(i32 %add5959, i32 %add5959, i32 13)
-  %shr6032 = lshr i32 %add5959, 10
-  %xor6033 = xor i32 %or6031, %shr6032
-  %xor6034 = xor i32 %xor6033, %or6028
-  %or6038 = tail call i32 @llvm.fshl.i32(i32 %add4065, i32 %add4065, i32 25)
-  %or6041 = tail call i32 @llvm.fshl.i32(i32 %add4065, i32 %add4065, i32 14)
-  %shr6042 = lshr i32 %add4065, 3
-  %xor6043 = xor i32 %or6041, %shr6042
-  %xor6044 = xor i32 %xor6043, %or6038
-  %or6072 = tail call i32 @llvm.fshl.i32(i32 %add6003, i32 %add6003, i32 15)
-  %or6075 = tail call i32 @llvm.fshl.i32(i32 %add6003, i32 %add6003, i32 13)
-  %shr6076 = lshr i32 %add6003, 10
-  %xor6077 = xor i32 %or6075, %shr6076
-  %xor6078 = xor i32 %xor6077, %or6072
-  %or6082 = tail call i32 @llvm.fshl.i32(i32 %add5431, i32 %add5431, i32 25)
-  %or6085 = tail call i32 @llvm.fshl.i32(i32 %add5431, i32 %add5431, i32 14)
-  %shr6086 = lshr i32 %add5431, 3
-  %xor6087 = xor i32 %or6085, %shr6086
-  %xor6088 = xor i32 %xor6087, %or6082
-  %or6128 = tail call i32 @llvm.fshl.i32(i32 %add5373, i32 %add5373, i32 26)
-  %or6131 = tail call i32 @llvm.fshl.i32(i32 %add5373, i32 %add5373, i32 21)
-  %or6134 = tail call i32 @llvm.fshl.i32(i32 %add5373, i32 %add5373, i32 7)
-  %xor6135 = xor i32 %or6131, %or6134
-  %xor6136 = xor i32 %xor6135, %or6128
-  %and6138 = and i32 %add5373, %add5291
-  %not6139 = xor i32 %add5373, -1
-  %and6140 = and i32 %add5209, %not6139
-  %xor6141 = or i32 %and6138, %and6140
-  %add6137 = add i32 %add5431, 430227734
-  %add6142 = add i32 %add6137, %add5127
-  %add6143 = add i32 %add6142, %xor6141
-  %add6144 = add i32 %add6143, %xor6136
-  %or6148 = tail call i32 @llvm.fshl.i32(i32 %add5368, i32 %add5368, i32 30)
-  %or6151 = tail call i32 @llvm.fshl.i32(i32 %add5368, i32 %add5368, i32 19)
-  %or6154 = tail call i32 @llvm.fshl.i32(i32 %add5368, i32 %add5368, i32 10)
-  %xor6155 = xor i32 %or6151, %or6154
-  %xor6156 = xor i32 %xor6155, %or6148
-  %and6157 = and i32 %add5368, %add5286
-  %and61583758 = xor i32 %add5368, %add5286
-  %xor6160 = and i32 %and61583758, %add5204
-  %xor6161 = xor i32 %xor6160, %and6157
-  %add6162 = add i32 %xor6156, %xor6161
-  %add6164 = add i32 %add6162, %add6144
-  %add6169 = add i32 %add6144, %add5122
-  %or6210 = tail call i32 @llvm.fshl.i32(i32 %add6169, i32 %add6169, i32 26)
-  %or6213 = tail call i32 @llvm.fshl.i32(i32 %add6169, i32 %add6169, i32 21)
-  %or6216 = tail call i32 @llvm.fshl.i32(i32 %add6169, i32 %add6169, i32 7)
-  %xor6217 = xor i32 %or6213, %or6216
-  %xor6218 = xor i32 %xor6217, %or6210
-  %and6220 = and i32 %add6169, %add5373
-  %not6221 = xor i32 %add6169, -1
-  %and6222 = and i32 %add5291, %not6221
-  %xor6223 = or i32 %and6220, %and6222
-  %add6219 = add i32 %add5475, 506948616
-  %add6224 = add i32 %add6219, %add5209
-  %add6225 = add i32 %add6224, %xor6223
-  %add6226 = add i32 %add6225, %xor6218
-  %or6230 = tail call i32 @llvm.fshl.i32(i32 %add6164, i32 %add6164, i32 30)
-  %or6233 = tail call i32 @llvm.fshl.i32(i32 %add6164, i32 %add6164, i32 19)
-  %or6236 = tail call i32 @llvm.fshl.i32(i32 %add6164, i32 %add6164, i32 10)
-  %xor6237 = xor i32 %or6233, %or6236
-  %xor6238 = xor i32 %xor6237, %or6230
-  %and6239 = and i32 %add6164, %add5368
-  %and62403759 = xor i32 %add6164, %add5368
-  %xor6242 = and i32 %and62403759, %add5286
-  %xor6243 = xor i32 %xor6242, %and6239
-  %add6244 = add i32 %xor6238, %xor6243
-  %add6246 = add i32 %add6244, %add6226
-  %add6251 = add i32 %add6226, %add5204
-  %or6292 = tail call i32 @llvm.fshl.i32(i32 %add6251, i32 %add6251, i32 26)
-  %or6295 = tail call i32 @llvm.fshl.i32(i32 %add6251, i32 %add6251, i32 21)
-  %or6298 = tail call i32 @llvm.fshl.i32(i32 %add6251, i32 %add6251, i32 7)
-  %xor6299 = xor i32 %or6295, %or6298
-  %xor6300 = xor i32 %xor6299, %or6292
-  %and6302 = and i32 %add6251, %add6169
-  %not6303 = xor i32 %add6251, -1
-  %and6304 = and i32 %add5373, %not6303
-  %xor6305 = or i32 %and6302, %and6304
-  %add6301 = add i32 %add5519, 659060556
-  %add6306 = add i32 %add6301, %add5291
-  %add6307 = add i32 %add6306, %xor6305
-  %add6308 = add i32 %add6307, %xor6300
-  %or6312 = tail call i32 @llvm.fshl.i32(i32 %add6246, i32 %add6246, i32 30)
-  %or6315 = tail call i32 @llvm.fshl.i32(i32 %add6246, i32 %add6246, i32 19)
-  %or6318 = tail call i32 @llvm.fshl.i32(i32 %add6246, i32 %add6246, i32 10)
-  %xor6319 = xor i32 %or6315, %or6318
-  %xor6320 = xor i32 %xor6319, %or6312
-  %and6321 = and i32 %add6246, %add6164
-  %and63223760 = xor i32 %add6246, %add6164
-  %xor6324 = and i32 %and63223760, %add5368
-  %xor6325 = xor i32 %xor6324, %and6321
-  %add6326 = add i32 %xor6320, %xor6325
-  %add6328 = add i32 %add6326, %add6308
-  %add6333 = add i32 %add6308, %add5286
-  %or6374 = tail call i32 @llvm.fshl.i32(i32 %add6333, i32 %add6333, i32 26)
-  %or6377 = tail call i32 @llvm.fshl.i32(i32 %add6333, i32 %add6333, i32 21)
-  %or6380 = tail call i32 @llvm.fshl.i32(i32 %add6333, i32 %add6333, i32 7)
-  %xor6381 = xor i32 %or6377, %or6380
-  %xor6382 = xor i32 %xor6381, %or6374
-  %and6384 = and i32 %add6333, %add6251
-  %not6385 = xor i32 %add6333, -1
-  %and6386 = and i32 %add6169, %not6385
-  %xor6387 = or i32 %and6384, %and6386
-  %add6383 = add i32 %add5563, 883997877
-  %add6388 = add i32 %add6383, %add5373
-  %add6389 = add i32 %add6388, %xor6387
-  %add6390 = add i32 %add6389, %xor6382
-  %or6394 = tail call i32 @llvm.fshl.i32(i32 %add6328, i32 %add6328, i32 30)
-  %or6397 = tail call i32 @llvm.fshl.i32(i32 %add6328, i32 %add6328, i32 19)
-  %or6400 = tail call i32 @llvm.fshl.i32(i32 %add6328, i32 %add6328, i32 10)
-  %xor6401 = xor i32 %or6397, %or6400
-  %xor6402 = xor i32 %xor6401, %or6394
-  %and6403 = and i32 %add6328, %add6246
-  %and64043761 = xor i32 %add6328, %add6246
-  %xor6406 = and i32 %and64043761, %add6164
-  %xor6407 = xor i32 %xor6406, %and6403
-  %add6408 = add i32 %xor6402, %xor6407
-  %add6410 = add i32 %add6408, %add6390
-  %add6415 = add i32 %add6390, %add5368
-  %or6456 = tail call i32 @llvm.fshl.i32(i32 %add6415, i32 %add6415, i32 26)
-  %or6459 = tail call i32 @llvm.fshl.i32(i32 %add6415, i32 %add6415, i32 21)
-  %or6462 = tail call i32 @llvm.fshl.i32(i32 %add6415, i32 %add6415, i32 7)
-  %xor6463 = xor i32 %or6459, %or6462
-  %xor6464 = xor i32 %xor6463, %or6456
-  %and6466 = and i32 %add6415, %add6333
-  %not6467 = xor i32 %add6415, -1
-  %and6468 = and i32 %add6251, %not6467
-  %xor6469 = or i32 %and6466, %and6468
-  %add6465 = add i32 %add5607, 958139571
-  %add6470 = add i32 %add6465, %add6169
-  %add6471 = add i32 %add6470, %xor6469
-  %add6472 = add i32 %add6471, %xor6464
-  %or6476 = tail call i32 @llvm.fshl.i32(i32 %add6410, i32 %add6410, i32 30)
-  %or6479 = tail call i32 @llvm.fshl.i32(i32 %add6410, i32 %add6410, i32 19)
-  %or6482 = tail call i32 @llvm.fshl.i32(i32 %add6410, i32 %add6410, i32 10)
-  %xor6483 = xor i32 %or6479, %or6482
-  %xor6484 = xor i32 %xor6483, %or6476
-  %and6485 = and i32 %add6410, %add6328
-  %and64863762 = xor i32 %add6410, %add6328
-  %xor6488 = and i32 %and64863762, %add6246
-  %xor6489 = xor i32 %xor6488, %and6485
-  %add6490 = add i32 %xor6484, %xor6489
-  %add6492 = add i32 %add6490, %add6472
-  %add6497 = add i32 %add6472, %add6164
-  %or6538 = tail call i32 @llvm.fshl.i32(i32 %add6497, i32 %add6497, i32 26)
-  %or6541 = tail call i32 @llvm.fshl.i32(i32 %add6497, i32 %add6497, i32 21)
-  %or6544 = tail call i32 @llvm.fshl.i32(i32 %add6497, i32 %add6497, i32 7)
-  %xor6545 = xor i32 %or6541, %or6544
-  %xor6546 = xor i32 %xor6545, %or6538
-  %and6548 = and i32 %add6497, %add6415
-  %not6549 = xor i32 %add6497, -1
-  %and6550 = and i32 %add6333, %not6549
-  %xor6551 = or i32 %and6548, %and6550
-  %add6547 = add i32 %add5651, 1322822218
-  %add6552 = add i32 %add6547, %add6251
-  %add6553 = add i32 %add6552, %xor6551
-  %add6554 = add i32 %add6553, %xor6546
-  %or6558 = tail call i32 @llvm.fshl.i32(i32 %add6492, i32 %add6492, i32 30)
-  %or6561 = tail call i32 @llvm.fshl.i32(i32 %add6492, i32 %add6492, i32 19)
-  %or6564 = tail call i32 @llvm.fshl.i32(i32 %add6492, i32 %add6492, i32 10)
-  %xor6565 = xor i32 %or6561, %or6564
-  %xor6566 = xor i32 %xor6565, %or6558
-  %and6567 = and i32 %add6492, %add6410
-  %and65683763 = xor i32 %add6492, %add6410
-  %xor6570 = and i32 %and65683763, %add6328
-  %xor6571 = xor i32 %xor6570, %and6567
-  %add6572 = add i32 %xor6566, %xor6571
-  %add6574 = add i32 %add6572, %add6554
-  %add6579 = add i32 %add6554, %add6246
-  %or6620 = tail call i32 @llvm.fshl.i32(i32 %add6579, i32 %add6579, i32 26)
-  %or6623 = tail call i32 @llvm.fshl.i32(i32 %add6579, i32 %add6579, i32 21)
-  %or6626 = tail call i32 @llvm.fshl.i32(i32 %add6579, i32 %add6579, i32 7)
-  %xor6627 = xor i32 %or6623, %or6626
-  %xor6628 = xor i32 %xor6627, %or6620
-  %and6630 = and i32 %add6579, %add6497
-  %not6631 = xor i32 %add6579, -1
-  %and6632 = and i32 %add6415, %not6631
-  %xor6633 = or i32 %and6630, %and6632
-  %add6629 = add i32 %add5695, 1537002063
-  %add6634 = add i32 %add6629, %add6333
-  %add6635 = add i32 %add6634, %xor6633
-  %add6636 = add i32 %add6635, %xor6628
-  %or6640 = tail call i32 @llvm.fshl.i32(i32 %add6574, i32 %add6574, i32 30)
-  %or6643 = tail call i32 @llvm.fshl.i32(i32 %add6574, i32 %add6574, i32 19)
-  %or6646 = tail call i32 @llvm.fshl.i32(i32 %add6574, i32 %add6574, i32 10)
-  %xor6647 = xor i32 %or6643, %or6646
-  %xor6648 = xor i32 %xor6647, %or6640
-  %and6649 = and i32 %add6574, %add6492
-  %and66503764 = xor i32 %add6574, %add6492
-  %xor6652 = and i32 %and66503764, %add6410
-  %xor6653 = xor i32 %xor6652, %and6649
-  %add6654 = add i32 %xor6648, %xor6653
-  %add6656 = add i32 %add6654, %add6636
-  %add6661 = add i32 %add6636, %add6328
-  %or6702 = tail call i32 @llvm.fshl.i32(i32 %add6661, i32 %add6661, i32 26)
-  %or6705 = tail call i32 @llvm.fshl.i32(i32 %add6661, i32 %add6661, i32 21)
-  %or6708 = tail call i32 @llvm.fshl.i32(i32 %add6661, i32 %add6661, i32 7)
-  %xor6709 = xor i32 %or6705, %or6708
-  %xor6710 = xor i32 %xor6709, %or6702
-  %and6712 = and i32 %add6661, %add6579
-  %not6713 = xor i32 %add6661, -1
-  %and6714 = and i32 %add6497, %not6713
-  %xor6715 = or i32 %and6712, %and6714
-  %add6711 = add i32 %add5739, 1747873779
-  %add6716 = add i32 %add6711, %add6415
-  %add6717 = add i32 %add6716, %xor6715
-  %add6718 = add i32 %add6717, %xor6710
-  %or6722 = tail call i32 @llvm.fshl.i32(i32 %add6656, i32 %add6656, i32 30)
-  %or6725 = tail call i32 @llvm.fshl.i32(i32 %add6656, i32 %add6656, i32 19)
-  %or6728 = tail call i32 @llvm.fshl.i32(i32 %add6656, i32 %add6656, i32 10)
-  %xor6729 = xor i32 %or6725, %or6728
-  %xor6730 = xor i32 %xor6729, %or6722
-  %and6731 = and i32 %add6656, %add6574
-  %and67323765 = xor i32 %add6656, %add6574
-  %xor6734 = and i32 %and67323765, %add6492
-  %xor6735 = xor i32 %xor6734, %and6731
-  %add6736 = add i32 %xor6730, %xor6735
-  %add6738 = add i32 %add6736, %add6718
-  %add6743 = add i32 %add6718, %add6410
-  %or6784 = tail call i32 @llvm.fshl.i32(i32 %add6743, i32 %add6743, i32 26)
-  %or6787 = tail call i32 @llvm.fshl.i32(i32 %add6743, i32 %add6743, i32 21)
-  %or6790 = tail call i32 @llvm.fshl.i32(i32 %add6743, i32 %add6743, i32 7)
-  %xor6791 = xor i32 %or6787, %or6790
-  %xor6792 = xor i32 %xor6791, %or6784
-  %and6794 = and i32 %add6743, %add6661
-  %not6795 = xor i32 %add6743, -1
-  %and6796 = and i32 %add6579, %not6795
-  %xor6797 = or i32 %and6794, %and6796
-  %add6793 = add i32 %add5783, 1955562222
-  %add6798 = add i32 %add6793, %add6497
-  %add6799 = add i32 %add6798, %xor6797
-  %add6800 = add i32 %add6799, %xor6792
-  %or6804 = tail call i32 @llvm.fshl.i32(i32 %add6738, i32 %add6738, i32 30)
-  %or6807 = tail call i32 @llvm.fshl.i32(i32 %add6738, i32 %add6738, i32 19)
-  %or6810 = tail call i32 @llvm.fshl.i32(i32 %add6738, i32 %add6738, i32 10)
-  %xor6811 = xor i32 %or6807, %or6810
-  %xor6812 = xor i32 %xor6811, %or6804
-  %and6813 = and i32 %add6738, %add6656
-  %and68143766 = xor i32 %add6738, %add6656
-  %xor6816 = and i32 %and68143766, %add6574
-  %xor6817 = xor i32 %xor6816, %and6813
-  %add6818 = add i32 %xor6812, %xor6817
-  %add6820 = add i32 %add6818, %add6800
-  %add6825 = add i32 %add6800, %add6492
-  %or6866 = tail call i32 @llvm.fshl.i32(i32 %add6825, i32 %add6825, i32 26)
-  %or6869 = tail call i32 @llvm.fshl.i32(i32 %add6825, i32 %add6825, i32 21)
-  %or6872 = tail call i32 @llvm.fshl.i32(i32 %add6825, i32 %add6825, i32 7)
-  %xor6873 = xor i32 %or6869, %or6872
-  %xor6874 = xor i32 %xor6873, %or6866
-  %and6876 = and i32 %add6825, %add6743
-  %not6877 = xor i32 %add6825, -1
-  %and6878 = and i32 %add6661, %not6877
-  %xor6879 = or i32 %and6876, %and6878
-  %add6875 = add i32 %add5827, 2024104815
-  %add6880 = add i32 %add6875, %add6579
-  %add6881 = add i32 %add6880, %xor6879
-  %add6882 = add i32 %add6881, %xor6874
-  %or6886 = tail call i32 @llvm.fshl.i32(i32 %add6820, i32 %add6820, i32 30)
-  %or6889 = tail call i32 @llvm.fshl.i32(i32 %add6820, i32 %add6820, i32 19)
-  %or6892 = tail call i32 @llvm.fshl.i32(i32 %add6820, i32 %add6820, i32 10)
-  %xor6893 = xor i32 %or6889, %or6892
-  %xor6894 = xor i32 %xor6893, %or6886
-  %and6895 = and i32 %add6820, %add6738
-  %and68963767 = xor i32 %add6820, %add6738
-  %xor6898 = and i32 %and68963767, %add6656
-  %xor6899 = xor i32 %xor6898, %and6895
-  %add6900 = add i32 %xor6894, %xor6899
-  %add6902 = add i32 %add6900, %add6882
-  %add6907 = add i32 %add6882, %add6574
-  %or6948 = tail call i32 @llvm.fshl.i32(i32 %add6907, i32 %add6907, i32 26)
-  %or6951 = tail call i32 @llvm.fshl.i32(i32 %add6907, i32 %add6907, i32 21)
-  %or6954 = tail call i32 @llvm.fshl.i32(i32 %add6907, i32 %add6907, i32 7)
-  %xor6955 = xor i32 %or6951, %or6954
-  %xor6956 = xor i32 %xor6955, %or6948
-  %and6958 = and i32 %add6907, %add6825
-  %not6959 = xor i32 %add6907, -1
-  %and6960 = and i32 %add6743, %not6959
-  %xor6961 = or i32 %and6958, %and6960
-  %add6957 = add i32 %add5871, -2067236844
-  %add6962 = add i32 %add6957, %add6661
-  %add6963 = add i32 %add6962, %xor6961
-  %add6964 = add i32 %add6963, %xor6956
-  %or6968 = tail call i32 @llvm.fshl.i32(i32 %add6902, i32 %add6902, i32 30)
-  %or6971 = tail call i32 @llvm.fshl.i32(i32 %add6902, i32 %add6902, i32 19)
-  %or6974 = tail call i32 @llvm.fshl.i32(i32 %add6902, i32 %add6902, i32 10)
-  %xor6975 = xor i32 %or6971, %or6974
-  %xor6976 = xor i32 %xor6975, %or6968
-  %and6977 = and i32 %add6902, %add6820
-  %and69783768 = xor i32 %add6902, %add6820
-  %xor6980 = and i32 %and69783768, %add6738
-  %xor6981 = xor i32 %xor6980, %and6977
-  %add6982 = add i32 %xor6976, %xor6981
-  %add6984 = add i32 %add6982, %add6964
-  %add6989 = add i32 %add6964, %add6656
-  %or7030 = tail call i32 @llvm.fshl.i32(i32 %add6989, i32 %add6989, i32 26)
-  %or7033 = tail call i32 @llvm.fshl.i32(i32 %add6989, i32 %add6989, i32 21)
-  %or7036 = tail call i32 @llvm.fshl.i32(i32 %add6989, i32 %add6989, i32 7)
-  %xor7037 = xor i32 %or7033, %or7036
-  %xor7038 = xor i32 %xor7037, %or7030
-  %and7040 = and i32 %add6989, %add6907
-  %not7041 = xor i32 %add6989, -1
-  %and7042 = and i32 %add6825, %not7041
-  %xor7043 = or i32 %and7040, %and7042
-  %add7039 = add i32 %add5915, -1933114872
-  %add7044 = add i32 %add7039, %add6743
-  %add7045 = add i32 %add7044, %xor7043
-  %add7046 = add i32 %add7045, %xor7038
-  %or7050 = tail call i32 @llvm.fshl.i32(i32 %add6984, i32 %add6984, i32 30)
-  %or7053 = tail call i32 @llvm.fshl.i32(i32 %add6984, i32 %add6984, i32 19)
-  %or7056 = tail call i32 @llvm.fshl.i32(i32 %add6984, i32 %add6984, i32 10)
-  %xor7057 = xor i32 %or7053, %or7056
-  %xor7058 = xor i32 %xor7057, %or7050
-  %and7059 = and i32 %add6984, %add6902
-  %and70603769 = xor i32 %add6984, %add6902
-  %xor7062 = and i32 %and70603769, %add6820
-  %xor7063 = xor i32 %xor7062, %and7059
-  %add7064 = add i32 %xor7058, %xor7063
-  %add7066 = add i32 %add7064, %add7046
-  %add7071 = add i32 %add7046, %add6738
-  %or7112 = tail call i32 @llvm.fshl.i32(i32 %add7071, i32 %add7071, i32 26)
-  %or7115 = tail call i32 @llvm.fshl.i32(i32 %add7071, i32 %add7071, i32 21)
-  %or7118 = tail call i32 @llvm.fshl.i32(i32 %add7071, i32 %add7071, i32 7)
-  %xor7119 = xor i32 %or7115, %or7118
-  %xor7120 = xor i32 %xor7119, %or7112
-  %and7122 = and i32 %add7071, %add6989
-  %not7123 = xor i32 %add7071, -1
-  %and7124 = and i32 %add6907, %not7123
-  %xor7125 = or i32 %and7122, %and7124
-  %add7121 = add i32 %add5959, -1866530822
-  %add7126 = add i32 %add7121, %add6825
-  %add7127 = add i32 %add7126, %xor7125
-  %add7128 = add i32 %add7127, %xor7120
-  %or7132 = tail call i32 @llvm.fshl.i32(i32 %add7066, i32 %add7066, i32 30)
-  %or7135 = tail call i32 @llvm.fshl.i32(i32 %add7066, i32 %add7066, i32 19)
-  %or7138 = tail call i32 @llvm.fshl.i32(i32 %add7066, i32 %add7066, i32 10)
-  %xor7139 = xor i32 %or7135, %or7138
-  %xor7140 = xor i32 %xor7139, %or7132
-  %and7141 = and i32 %add7066, %add6984
-  %and71423770 = xor i32 %add7066, %add6984
-  %xor7144 = and i32 %and71423770, %add6902
-  %xor7145 = xor i32 %xor7144, %and7141
-  %add7146 = add i32 %xor7140, %xor7145
-  %add7148 = add i32 %add7146, %add7128
-  %add7153 = add i32 %add7128, %add6820
-  %or7194 = tail call i32 @llvm.fshl.i32(i32 %add7153, i32 %add7153, i32 26)
-  %or7197 = tail call i32 @llvm.fshl.i32(i32 %add7153, i32 %add7153, i32 21)
-  %or7200 = tail call i32 @llvm.fshl.i32(i32 %add7153, i32 %add7153, i32 7)
-  %xor7201 = xor i32 %or7197, %or7200
-  %xor7202 = xor i32 %xor7201, %or7194
-  %and7204 = and i32 %add7153, %add7071
-  %not7205 = xor i32 %add7153, -1
-  %and7206 = and i32 %add6989, %not7205
-  %xor7207 = or i32 %and7204, %and7206
-  %add7203 = add i32 %add6003, -1538233109
-  %add7208 = add i32 %add7203, %add6907
-  %add7209 = add i32 %add7208, %xor7207
-  %add7210 = add i32 %add7209, %xor7202
-  %or7214 = tail call i32 @llvm.fshl.i32(i32 %add7148, i32 %add7148, i32 30)
-  %or7217 = tail call i32 @llvm.fshl.i32(i32 %add7148, i32 %add7148, i32 19)
-  %or7220 = tail call i32 @llvm.fshl.i32(i32 %add7148, i32 %add7148, i32 10)
-  %xor7221 = xor i32 %or7217, %or7220
-  %xor7222 = xor i32 %xor7221, %or7214
-  %and7223 = and i32 %add7148, %add7066
-  %and72243771 = xor i32 %add7148, %add7066
-  %xor7226 = and i32 %and72243771, %add6984
-  %xor7227 = xor i32 %xor7226, %and7223
-  %add7228 = add i32 %xor7222, %xor7227
-  %add7230 = add i32 %add7228, %add7210
-  %add7235 = add i32 %add7210, %add6902
-  %or7276 = tail call i32 @llvm.fshl.i32(i32 %add7235, i32 %add7235, i32 26)
-  %or7279 = tail call i32 @llvm.fshl.i32(i32 %add7235, i32 %add7235, i32 21)
-  %or7282 = tail call i32 @llvm.fshl.i32(i32 %add7235, i32 %add7235, i32 7)
-  %xor7283 = xor i32 %or7279, %or7282
-  %xor7284 = xor i32 %xor7283, %or7276
-  %and7286 = and i32 %add7235, %add7153
-  %not7287 = xor i32 %add7235, -1
-  %and7288 = and i32 %add7071, %not7287
-  %xor7289 = or i32 %and7286, %and7288
-  %add7285 = add i32 %add4021, -1090935817
-  %add7290 = add i32 %add7285, %xor6044
-  %add7291 = add i32 %add7290, %add5739
-  %add6045 = add i32 %add7291, %xor6034
-  %add6046 = add i32 %add6045, %add6989
-  %add6047 = add i32 %add6046, %xor7289
-  %add7292 = add i32 %add6047, %xor7284
-  %or7296 = tail call i32 @llvm.fshl.i32(i32 %add7230, i32 %add7230, i32 30)
-  %or7299 = tail call i32 @llvm.fshl.i32(i32 %add7230, i32 %add7230, i32 19)
-  %or7302 = tail call i32 @llvm.fshl.i32(i32 %add7230, i32 %add7230, i32 10)
-  %xor7303 = xor i32 %or7299, %or7302
-  %xor7304 = xor i32 %xor7303, %or7296
-  %and7305 = and i32 %add7230, %add7148
-  %and73063772 = xor i32 %add7230, %add7148
-  %xor7308 = and i32 %and73063772, %add7066
-  %xor7309 = xor i32 %xor7308, %and7305
-  %add7310 = add i32 %xor7304, %xor7309
-  %add7312 = add i32 %add7310, %add7292
-  %add7317 = add i32 %add7292, %add6984
-  %or7358 = tail call i32 @llvm.fshl.i32(i32 %add7317, i32 %add7317, i32 26)
-  %or7361 = tail call i32 @llvm.fshl.i32(i32 %add7317, i32 %add7317, i32 21)
-  %or7364 = tail call i32 @llvm.fshl.i32(i32 %add7317, i32 %add7317, i32 7)
-  %xor7365 = xor i32 %or7361, %or7364
-  %xor7366 = xor i32 %xor7365, %or7358
-  %and7368 = and i32 %add7317, %add7235
-  %not7369 = xor i32 %add7317, -1
-  %and7370 = and i32 %add7153, %not7369
-  %xor7371 = or i32 %and7368, %and7370
-  %add7367 = add i32 %add4065, -965641998
-  %add7372 = add i32 %add7367, %xor6088
-  %add7373 = add i32 %add7372, %add5783
-  %add6089 = add i32 %add7373, %xor6078
-  %add6090 = add i32 %add6089, %add7071
-  %add6091 = add i32 %add6090, %xor7371
-  %add7374 = add i32 %add6091, %xor7366
-  %or7378 = tail call i32 @llvm.fshl.i32(i32 %add7312, i32 %add7312, i32 30)
-  %or7381 = tail call i32 @llvm.fshl.i32(i32 %add7312, i32 %add7312, i32 19)
-  %or7384 = tail call i32 @llvm.fshl.i32(i32 %add7312, i32 %add7312, i32 10)
-  %xor7385 = xor i32 %or7381, %or7384
-  %xor7386 = xor i32 %xor7385, %or7378
-  %and7387 = and i32 %add7312, %add7230
-  %and73883773 = xor i32 %add7312, %add7230
-  %xor7390 = and i32 %and73883773, %add7148
-  %xor7391 = xor i32 %xor7390, %and7387
-  %add7392 = add i32 %xor7386, %xor7391
-  %add7394 = add i32 %add7392, %add7374
-  %add7399 = add i32 %add7374, %add7066
-  %add8131 = add i32 %add7394, %hash_old.sroa.0.0.copyload
-  store i32 %add8131, ptr %hash, align 4
-  %add8141 = add i32 %add7312, %hash_old.sroa.3.0.copyload
-  store i32 %add8141, ptr %hash_old.sroa.3.0.hash.sroa_idx, align 4
-  %add8151 = add i32 %add7230, %hash_old.sroa.4.0.copyload
-  store i32 %add8151, ptr %hash_old.sroa.4.0.hash.sroa_idx, align 4
-  %add8161 = add i32 %add7148, %hash_old.sroa.5.0.copyload
-  store i32 %add8161, ptr %hash_old.sroa.5.0.hash.sroa_idx, align 4
-  %add8171 = add i32 %add7399, %hash_old.sroa.6.0.copyload
-  store i32 %add8171, ptr %hash_old.sroa.6.0.hash.sroa_idx, align 4
-  %add8181 = add i32 %add7317, %hash_old.sroa.7.0.copyload
-  store i32 %add8181, ptr %hash_old.sroa.7.0.hash.sroa_idx, align 4
-  %add8191 = add i32 %add7235, %hash_old.sroa.8.0.copyload
-  store i32 %add8191, ptr %hash_old.sroa.8.0.hash.sroa_idx, align 4
-  %add8201 = add i32 %add7153, %hash_old.sroa.9.0.copyload
-  store i32 %add8201, ptr %hash_old.sroa.9.0.hash.sroa_idx, align 4
-  ret void
-}
+define hidden void @python_hashlib_Hacl_Hash_SHA2_sha256_update_last(i64 noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef captures(none) %3) local_unnamed_addr #4 {
+  %5 = alloca [128 x i8], align 16
+  %6 = add i32 %1, -56
+  %7 = icmp ult i32 %6, -65
+  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %5) #18
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %5, i8 0, i64 128, i1 false)
+  %8 = shl i64 %0, 3
+  %9 = tail call noundef i64 @llvm.bswap.i64(i64 %8)
+  %10 = zext i32 %1 to i64
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %5, ptr align 1 %2, i64 %10, i1 false)
+  %11 = getelementptr [128 x i8], ptr %5, i64 0, i64 %10
+  store i8 -128, ptr %11, align 1, !tbaa !9
+  %..sroa.sel.sroa.sel.v.sroa.sel.v.sroa.sel.v = select i1 %7, i64 120, i64 56
+  %..sroa.sel.sroa.sel.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %5, i64 %..sroa.sel.sroa.sel.v.sroa.sel.v.sroa.sel.v
+  store i64 %9, ptr %..sroa.sel.sroa.sel.v.sroa.sel.v.sroa.sel, align 8
+  call fastcc void @sha256_update(ptr noundef nonnull %5, ptr noundef %3)
+  br i1 %7, label %12, label %13
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @Hacl_SHA2_Scalar32_sha256_update_last(i64 noundef %totlen, i32 noundef %len, ptr noundef readonly captures(none) %b, ptr noundef captures(none) %hash) local_unnamed_addr #2 {
-entry:
-  %last = alloca [128 x i8], align 16
-  %0 = add i32 %len, -56
-  %cmp = icmp ult i32 %0, -65
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %last, i8 0, i64 128, i1 false)
-  %shl = shl i64 %totlen, 3
-  %or19.i = tail call noundef i64 @llvm.bswap.i64(i64 %shl)
-  %conv = zext i32 %len to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %last, ptr align 1 %b, i64 %conv, i1 false)
-  %arrayidx = getelementptr [128 x i8], ptr %last, i64 0, i64 %conv
-  store i8 -128, ptr %arrayidx, align 1
-  %..sroa.sel.sroa.sel.v.sroa.sel.v.sroa.sel.v = select i1 %cmp, i64 120, i64 56
-  %..sroa.sel.sroa.sel.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %last, i64 %..sroa.sel.sroa.sel.v.sroa.sel.v.sroa.sel.v
-  store i64 %or19.i, ptr %..sroa.sel.sroa.sel.v.sroa.sel.v.sroa.sel, align 8
-  call fastcc void @sha256_update(ptr noundef nonnull %last, ptr noundef %hash)
-  br i1 %cmp, label %if.then12, label %if.end13
+12:                                               ; preds = %4
+  %.sroa.gep19 = getelementptr inbounds nuw i8, ptr %5, i64 64
+  call fastcc void @sha256_update(ptr noundef nonnull %.sroa.gep19, ptr noundef %3)
+  br label %13
 
-if.then12:                                        ; preds = %entry
-  %.sroa.gep5 = getelementptr inbounds nuw i8, ptr %last, i64 64
-  call fastcc void @sha256_update(ptr noundef nonnull %.sroa.gep5, ptr noundef %hash)
-  br label %if.end13
-
-if.end13:                                         ; preds = %if.then12, %entry
+13:                                               ; preds = %4, %12
+  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %5) #18
   ret void
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @Hacl_SHA2_Scalar32_sha256_finish(ptr noundef readonly captures(none) %st, ptr noundef writeonly captures(none) initializes((0, 32)) %h) local_unnamed_addr #2 {
-entry:
-  %0 = load i32, ptr %st, align 4
-  %or7.i = tail call noundef i32 @llvm.bswap.i32(i32 %0)
-  %arrayidx6 = getelementptr i8, ptr %st, i64 4
-  %1 = load i32, ptr %arrayidx6, align 4
-  %or7.i31 = tail call noundef i32 @llvm.bswap.i32(i32 %1)
-  %arrayidx14 = getelementptr i8, ptr %st, i64 8
-  %2 = load i32, ptr %arrayidx14, align 4
-  %or7.i32 = tail call noundef i32 @llvm.bswap.i32(i32 %2)
-  %arrayidx22 = getelementptr i8, ptr %st, i64 12
-  %3 = load i32, ptr %arrayidx22, align 4
-  %or7.i33 = tail call noundef i32 @llvm.bswap.i32(i32 %3)
-  %arrayidx30 = getelementptr i8, ptr %st, i64 16
-  %4 = load i32, ptr %arrayidx30, align 4
-  %or7.i34 = tail call noundef i32 @llvm.bswap.i32(i32 %4)
-  %arrayidx38 = getelementptr i8, ptr %st, i64 20
-  %5 = load i32, ptr %arrayidx38, align 4
-  %or7.i35 = tail call noundef i32 @llvm.bswap.i32(i32 %5)
-  %arrayidx46 = getelementptr i8, ptr %st, i64 24
-  %6 = load i32, ptr %arrayidx46, align 4
-  %or7.i36 = tail call noundef i32 @llvm.bswap.i32(i32 %6)
-  %arrayidx54 = getelementptr i8, ptr %st, i64 28
-  %7 = load i32, ptr %arrayidx54, align 4
-  %or7.i37 = tail call noundef i32 @llvm.bswap.i32(i32 %7)
-  store i32 %or7.i, ptr %h, align 1
-  %hbuf.sroa.3.0.h.sroa_idx = getelementptr inbounds nuw i8, ptr %h, i64 4
-  store i32 %or7.i31, ptr %hbuf.sroa.3.0.h.sroa_idx, align 1
-  %hbuf.sroa.4.0.h.sroa_idx = getelementptr inbounds nuw i8, ptr %h, i64 8
-  store i32 %or7.i32, ptr %hbuf.sroa.4.0.h.sroa_idx, align 1
-  %hbuf.sroa.5.0.h.sroa_idx = getelementptr inbounds nuw i8, ptr %h, i64 12
-  store i32 %or7.i33, ptr %hbuf.sroa.5.0.h.sroa_idx, align 1
-  %hbuf.sroa.6.0.h.sroa_idx = getelementptr inbounds nuw i8, ptr %h, i64 16
-  store i32 %or7.i34, ptr %hbuf.sroa.6.0.h.sroa_idx, align 1
-  %hbuf.sroa.7.0.h.sroa_idx = getelementptr inbounds nuw i8, ptr %h, i64 20
-  store i32 %or7.i35, ptr %hbuf.sroa.7.0.h.sroa_idx, align 1
-  %hbuf.sroa.8.0.h.sroa_idx = getelementptr inbounds nuw i8, ptr %h, i64 24
-  store i32 %or7.i36, ptr %hbuf.sroa.8.0.h.sroa_idx, align 1
-  %hbuf.sroa.9.0.h.sroa_idx = getelementptr inbounds nuw i8, ptr %h, i64 28
-  store i32 %or7.i37, ptr %hbuf.sroa.9.0.h.sroa_idx, align 1
+define hidden void @python_hashlib_Hacl_Hash_SHA2_sha256_finish(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 32)) %1) local_unnamed_addr #4 {
+  %3 = load i32, ptr %0, align 4, !tbaa !3
+  %4 = tail call noundef i32 @llvm.bswap.i32(i32 %3)
+  %5 = getelementptr i8, ptr %0, i64 4
+  %6 = load i32, ptr %5, align 4, !tbaa !3
+  %7 = tail call noundef i32 @llvm.bswap.i32(i32 %6)
+  %8 = getelementptr i8, ptr %0, i64 8
+  %9 = load i32, ptr %8, align 4, !tbaa !3
+  %10 = tail call noundef i32 @llvm.bswap.i32(i32 %9)
+  %11 = getelementptr i8, ptr %0, i64 12
+  %12 = load i32, ptr %11, align 4, !tbaa !3
+  %13 = tail call noundef i32 @llvm.bswap.i32(i32 %12)
+  %14 = getelementptr i8, ptr %0, i64 16
+  %15 = load i32, ptr %14, align 4, !tbaa !3
+  %16 = tail call noundef i32 @llvm.bswap.i32(i32 %15)
+  %17 = getelementptr i8, ptr %0, i64 20
+  %18 = load i32, ptr %17, align 4, !tbaa !3
+  %19 = tail call noundef i32 @llvm.bswap.i32(i32 %18)
+  %20 = getelementptr i8, ptr %0, i64 24
+  %21 = load i32, ptr %20, align 4, !tbaa !3
+  %22 = tail call noundef i32 @llvm.bswap.i32(i32 %21)
+  %23 = getelementptr i8, ptr %0, i64 28
+  %24 = load i32, ptr %23, align 4, !tbaa !3
+  %25 = tail call noundef i32 @llvm.bswap.i32(i32 %24)
+  store i32 %4, ptr %1, align 1
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 4
+  store i32 %7, ptr %.sroa.5.0..sroa_idx, align 1
+  %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 8
+  store i32 %10, ptr %.sroa.6.0..sroa_idx, align 1
+  %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 12
+  store i32 %13, ptr %.sroa.7.0..sroa_idx, align 1
+  %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 16
+  store i32 %16, ptr %.sroa.8.0..sroa_idx, align 1
+  %.sroa.9.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 20
+  store i32 %19, ptr %.sroa.9.0..sroa_idx, align 1
+  %.sroa.10.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 24
+  store i32 %22, ptr %.sroa.10.0..sroa_idx, align 1
+  %.sroa.11.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 28
+  store i32 %25, ptr %.sroa.11.0..sroa_idx, align 1
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @Hacl_SHA2_Scalar32_sha224_init(ptr noundef writeonly captures(none) initializes((0, 32)) %hash) local_unnamed_addr #0 {
-entry:
-  store i32 -1056596264, ptr %hash, align 4
-  %arrayidx8 = getelementptr i8, ptr %hash, i64 4
-  store i32 914150663, ptr %arrayidx8, align 4
-  %arrayidx15 = getelementptr i8, ptr %hash, i64 8
-  store i32 812702999, ptr %arrayidx15, align 4
-  %arrayidx22 = getelementptr i8, ptr %hash, i64 12
-  store i32 -150054599, ptr %arrayidx22, align 4
-  %arrayidx29 = getelementptr i8, ptr %hash, i64 16
-  store i32 -4191439, ptr %arrayidx29, align 4
-  %arrayidx36 = getelementptr i8, ptr %hash, i64 20
-  store i32 1750603025, ptr %arrayidx36, align 4
-  %arrayidx43 = getelementptr i8, ptr %hash, i64 24
-  store i32 1694076839, ptr %arrayidx43, align 4
-  %arrayidx50 = getelementptr i8, ptr %hash, i64 28
-  store i32 -1090891868, ptr %arrayidx50, align 4
-  ret void
-}
-
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @Hacl_SHA2_Scalar32_sha224_update_last(i64 noundef %totlen, i32 noundef %len, ptr noundef readonly captures(none) %b, ptr noundef captures(none) %st) local_unnamed_addr #2 {
-entry:
-  %last.i = alloca [128 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %last.i)
-  %0 = add i32 %len, -56
-  %cmp.i = icmp ult i32 %0, -65
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %last.i, i8 0, i64 128, i1 false)
-  %shl.i = shl i64 %totlen, 3
-  %or19.i.i = tail call noundef i64 @llvm.bswap.i64(i64 %shl.i)
-  %conv.i = zext i32 %len to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %last.i, ptr readonly align 1 %b, i64 %conv.i, i1 false)
-  %arrayidx.i = getelementptr [128 x i8], ptr %last.i, i64 0, i64 %conv.i
-  store i8 -128, ptr %arrayidx.i, align 1
-  %..sroa.sel.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel.v = select i1 %cmp.i, i64 120, i64 56
-  %..sroa.sel.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %last.i, i64 %..sroa.sel.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel.v
-  store i64 %or19.i.i, ptr %..sroa.sel.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel, align 8
-  call fastcc void @sha256_update(ptr noundef nonnull %last.i, ptr noundef %st)
-  br i1 %cmp.i, label %if.then12.i, label %Hacl_SHA2_Scalar32_sha256_update_last.exit
-
-if.then12.i:                                      ; preds = %entry
-  %.sroa.gep5.i = getelementptr inbounds nuw i8, ptr %last.i, i64 64
-  call fastcc void @sha256_update(ptr noundef nonnull %.sroa.gep5.i, ptr noundef %st)
-  br label %Hacl_SHA2_Scalar32_sha256_update_last.exit
-
-Hacl_SHA2_Scalar32_sha256_update_last.exit:       ; preds = %entry, %if.then12.i
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %last.i)
-  ret void
-}
-
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @Hacl_SHA2_Scalar32_sha224_finish(ptr noundef readonly captures(none) %st, ptr noundef writeonly captures(none) initializes((0, 28)) %h) local_unnamed_addr #2 {
-entry:
-  %0 = load i32, ptr %st, align 4
-  %or7.i = tail call noundef i32 @llvm.bswap.i32(i32 %0)
-  %arrayidx6 = getelementptr i8, ptr %st, i64 4
-  %1 = load i32, ptr %arrayidx6, align 4
-  %or7.i31 = tail call noundef i32 @llvm.bswap.i32(i32 %1)
-  %arrayidx14 = getelementptr i8, ptr %st, i64 8
-  %2 = load i32, ptr %arrayidx14, align 4
-  %or7.i32 = tail call noundef i32 @llvm.bswap.i32(i32 %2)
-  %arrayidx22 = getelementptr i8, ptr %st, i64 12
-  %3 = load i32, ptr %arrayidx22, align 4
-  %or7.i33 = tail call noundef i32 @llvm.bswap.i32(i32 %3)
-  %arrayidx30 = getelementptr i8, ptr %st, i64 16
-  %4 = load i32, ptr %arrayidx30, align 4
-  %or7.i34 = tail call noundef i32 @llvm.bswap.i32(i32 %4)
-  %arrayidx38 = getelementptr i8, ptr %st, i64 20
-  %5 = load i32, ptr %arrayidx38, align 4
-  %or7.i35 = tail call noundef i32 @llvm.bswap.i32(i32 %5)
-  %arrayidx46 = getelementptr i8, ptr %st, i64 24
-  %6 = load i32, ptr %arrayidx46, align 4
-  %or7.i36 = tail call noundef i32 @llvm.bswap.i32(i32 %6)
-  store i32 %or7.i, ptr %h, align 1
-  %hbuf.sroa.3.0.h.sroa_idx = getelementptr inbounds nuw i8, ptr %h, i64 4
-  store i32 %or7.i31, ptr %hbuf.sroa.3.0.h.sroa_idx, align 1
-  %hbuf.sroa.4.0.h.sroa_idx = getelementptr inbounds nuw i8, ptr %h, i64 8
-  store i32 %or7.i32, ptr %hbuf.sroa.4.0.h.sroa_idx, align 1
-  %hbuf.sroa.5.0.h.sroa_idx = getelementptr inbounds nuw i8, ptr %h, i64 12
-  store i32 %or7.i33, ptr %hbuf.sroa.5.0.h.sroa_idx, align 1
-  %hbuf.sroa.6.0.h.sroa_idx = getelementptr inbounds nuw i8, ptr %h, i64 16
-  store i32 %or7.i34, ptr %hbuf.sroa.6.0.h.sroa_idx, align 1
-  %hbuf.sroa.7.0.h.sroa_idx = getelementptr inbounds nuw i8, ptr %h, i64 20
-  store i32 %or7.i35, ptr %hbuf.sroa.7.0.h.sroa_idx, align 1
-  %hbuf.sroa.8.0.h.sroa_idx = getelementptr inbounds nuw i8, ptr %h, i64 24
-  store i32 %or7.i36, ptr %hbuf.sroa.8.0.h.sroa_idx, align 1
-  ret void
-}
-
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @python_hashlib_Hacl_SHA2_Scalar32_sha512_init(ptr noundef writeonly captures(none) initializes((0, 64)) %hash) local_unnamed_addr #0 {
-entry:
-  store i64 7640891576956012808, ptr %hash, align 8
-  %arrayidx8 = getelementptr i8, ptr %hash, i64 8
-  store i64 -4942790177534073029, ptr %arrayidx8, align 8
-  %arrayidx15 = getelementptr i8, ptr %hash, i64 16
-  store i64 4354685564936845355, ptr %arrayidx15, align 8
-  %arrayidx22 = getelementptr i8, ptr %hash, i64 24
-  store i64 -6534734903238641935, ptr %arrayidx22, align 8
-  %arrayidx29 = getelementptr i8, ptr %hash, i64 32
-  store i64 5840696475078001361, ptr %arrayidx29, align 8
-  %arrayidx36 = getelementptr i8, ptr %hash, i64 40
-  store i64 -7276294671716946913, ptr %arrayidx36, align 8
-  %arrayidx43 = getelementptr i8, ptr %hash, i64 48
-  store i64 2270897969802886507, ptr %arrayidx43, align 8
-  %arrayidx50 = getelementptr i8, ptr %hash, i64 56
-  store i64 6620516959819538809, ptr %arrayidx50, align 8
+define hidden void @python_hashlib_Hacl_Hash_SHA2_sha224_init(ptr noundef writeonly captures(none) initializes((0, 32)) %0) local_unnamed_addr #0 {
+  store i32 -1056596264, ptr %0, align 4, !tbaa !3
+  %2 = getelementptr i8, ptr %0, i64 4
+  store i32 914150663, ptr %2, align 4, !tbaa !3
+  %3 = getelementptr i8, ptr %0, i64 8
+  store i32 812702999, ptr %3, align 4, !tbaa !3
+  %4 = getelementptr i8, ptr %0, i64 12
+  store i32 -150054599, ptr %4, align 4, !tbaa !3
+  %5 = getelementptr i8, ptr %0, i64 16
+  store i32 -4191439, ptr %5, align 4, !tbaa !3
+  %6 = getelementptr i8, ptr %0, i64 20
+  store i32 1750603025, ptr %6, align 4, !tbaa !3
+  %7 = getelementptr i8, ptr %0, i64 24
+  store i32 1694076839, ptr %7, align 4, !tbaa !3
+  %8 = getelementptr i8, ptr %0, i64 28
+  store i32 -1090891868, ptr %8, align 4, !tbaa !3
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @Hacl_SHA2_Scalar32_sha512_update_nblocks(i32 noundef %len, ptr noundef readonly captures(none) %b, ptr noundef captures(none) %st) local_unnamed_addr #1 {
-entry:
-  %cmp4.not = icmp ult i32 %len, 128
-  br i1 %cmp4.not, label %for.end, label %for.body.preheader
+define hidden void @Hacl_Hash_SHA2_sha224_update_nblocks(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2) local_unnamed_addr #2 {
+  %.not.i = icmp ult i32 %0, 64
+  br i1 %.not.i, label %python_hashlib_Hacl_Hash_SHA2_sha256_update_nblocks.exit, label %.lr.ph.preheader.i
 
-for.body.preheader:                               ; preds = %entry
-  %div3 = lshr i32 %len, 7
-  %wide.trip.count = zext nneg i32 %div3 to i64
-  br label %for.body
+.lr.ph.preheader.i:                               ; preds = %3
+  %4 = lshr i32 %0, 6
+  %wide.trip.count.i = zext nneg i32 %4 to i64
+  br label %.lr.ph.i
 
-for.body:                                         ; preds = %for.body.preheader, %for.body
-  %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %for.body ]
-  %0 = shl nuw i64 %indvars.iv, 7
-  %add.ptr = getelementptr i8, ptr %b, i64 %0
-  tail call fastcc void @sha512_update(ptr noundef %add.ptr, ptr noundef %st)
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !6
-
-for.end:                                          ; preds = %for.body, %entry
-  ret void
-}
-
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc void @sha512_update(ptr noundef readonly captures(none) %b, ptr noundef captures(none) %hash) unnamed_addr #2 {
-entry:
-  %hash_old.sroa.0.0.copyload = load i64, ptr %hash, align 8
-  %hash_old.sroa.3.0.hash.sroa_idx = getelementptr inbounds nuw i8, ptr %hash, i64 8
-  %hash_old.sroa.3.0.copyload = load i64, ptr %hash_old.sroa.3.0.hash.sroa_idx, align 8
-  %hash_old.sroa.4.0.hash.sroa_idx = getelementptr inbounds nuw i8, ptr %hash, i64 16
-  %hash_old.sroa.4.0.copyload = load i64, ptr %hash_old.sroa.4.0.hash.sroa_idx, align 8
-  %hash_old.sroa.5.0.hash.sroa_idx = getelementptr inbounds nuw i8, ptr %hash, i64 24
-  %hash_old.sroa.5.0.copyload = load i64, ptr %hash_old.sroa.5.0.hash.sroa_idx, align 8
-  %hash_old.sroa.6.0.hash.sroa_idx = getelementptr inbounds nuw i8, ptr %hash, i64 32
-  %hash_old.sroa.6.0.copyload = load i64, ptr %hash_old.sroa.6.0.hash.sroa_idx, align 8
-  %hash_old.sroa.7.0.hash.sroa_idx = getelementptr inbounds nuw i8, ptr %hash, i64 40
-  %hash_old.sroa.7.0.copyload = load i64, ptr %hash_old.sroa.7.0.hash.sroa_idx, align 8
-  %hash_old.sroa.8.0.hash.sroa_idx = getelementptr inbounds nuw i8, ptr %hash, i64 48
-  %hash_old.sroa.8.0.copyload = load i64, ptr %hash_old.sroa.8.0.hash.sroa_idx, align 8
-  %hash_old.sroa.9.0.hash.sroa_idx = getelementptr inbounds nuw i8, ptr %hash, i64 56
-  %hash_old.sroa.9.0.copyload = load i64, ptr %hash_old.sroa.9.0.hash.sroa_idx, align 8
-  %b.val = load i64, ptr %b, align 1
-  %or19.i = tail call noundef i64 @llvm.bswap.i64(i64 %b.val)
-  %add.ptr = getelementptr i8, ptr %b, i64 8
-  %add.ptr.val = load i64, ptr %add.ptr, align 1
-  %or19.i4702 = tail call noundef i64 @llvm.bswap.i64(i64 %add.ptr.val)
-  %add.ptr5 = getelementptr i8, ptr %b, i64 16
-  %add.ptr5.val = load i64, ptr %add.ptr5, align 1
-  %or19.i4703 = tail call noundef i64 @llvm.bswap.i64(i64 %add.ptr5.val)
-  %add.ptr9 = getelementptr i8, ptr %b, i64 24
-  %add.ptr9.val = load i64, ptr %add.ptr9, align 1
-  %or19.i4704 = tail call noundef i64 @llvm.bswap.i64(i64 %add.ptr9.val)
-  %add.ptr13 = getelementptr i8, ptr %b, i64 32
-  %add.ptr13.val = load i64, ptr %add.ptr13, align 1
-  %or19.i4705 = tail call noundef i64 @llvm.bswap.i64(i64 %add.ptr13.val)
-  %add.ptr17 = getelementptr i8, ptr %b, i64 40
-  %add.ptr17.val = load i64, ptr %add.ptr17, align 1
-  %or19.i4706 = tail call noundef i64 @llvm.bswap.i64(i64 %add.ptr17.val)
-  %add.ptr21 = getelementptr i8, ptr %b, i64 48
-  %add.ptr21.val = load i64, ptr %add.ptr21, align 1
-  %or19.i4707 = tail call noundef i64 @llvm.bswap.i64(i64 %add.ptr21.val)
-  %add.ptr25 = getelementptr i8, ptr %b, i64 56
-  %add.ptr25.val = load i64, ptr %add.ptr25, align 1
-  %or19.i4708 = tail call noundef i64 @llvm.bswap.i64(i64 %add.ptr25.val)
-  %add.ptr29 = getelementptr i8, ptr %b, i64 64
-  %add.ptr29.val = load i64, ptr %add.ptr29, align 1
-  %or19.i4709 = tail call noundef i64 @llvm.bswap.i64(i64 %add.ptr29.val)
-  %add.ptr33 = getelementptr i8, ptr %b, i64 72
-  %add.ptr33.val = load i64, ptr %add.ptr33, align 1
-  %or19.i4710 = tail call noundef i64 @llvm.bswap.i64(i64 %add.ptr33.val)
-  %add.ptr37 = getelementptr i8, ptr %b, i64 80
-  %add.ptr37.val = load i64, ptr %add.ptr37, align 1
-  %or19.i4711 = tail call noundef i64 @llvm.bswap.i64(i64 %add.ptr37.val)
-  %add.ptr41 = getelementptr i8, ptr %b, i64 88
-  %add.ptr41.val = load i64, ptr %add.ptr41, align 1
-  %or19.i4712 = tail call noundef i64 @llvm.bswap.i64(i64 %add.ptr41.val)
-  %add.ptr45 = getelementptr i8, ptr %b, i64 96
-  %add.ptr45.val = load i64, ptr %add.ptr45, align 1
-  %or19.i4713 = tail call noundef i64 @llvm.bswap.i64(i64 %add.ptr45.val)
-  %add.ptr49 = getelementptr i8, ptr %b, i64 104
-  %add.ptr49.val = load i64, ptr %add.ptr49, align 1
-  %or19.i4714 = tail call noundef i64 @llvm.bswap.i64(i64 %add.ptr49.val)
-  %add.ptr53 = getelementptr i8, ptr %b, i64 112
-  %add.ptr53.val = load i64, ptr %add.ptr53, align 1
-  %or19.i4715 = tail call noundef i64 @llvm.bswap.i64(i64 %add.ptr53.val)
-  %add.ptr57 = getelementptr i8, ptr %b, i64 120
-  %add.ptr57.val = load i64, ptr %add.ptr57, align 1
-  %or19.i4716 = tail call noundef i64 @llvm.bswap.i64(i64 %add.ptr57.val)
-  %or = tail call i64 @llvm.fshl.i64(i64 %hash_old.sroa.6.0.copyload, i64 %hash_old.sroa.6.0.copyload, i64 50)
-  %or75 = tail call i64 @llvm.fshl.i64(i64 %hash_old.sroa.6.0.copyload, i64 %hash_old.sroa.6.0.copyload, i64 46)
-  %or78 = tail call i64 @llvm.fshl.i64(i64 %hash_old.sroa.6.0.copyload, i64 %hash_old.sroa.6.0.copyload, i64 23)
-  %xor = xor i64 %or75, %or78
-  %xor79 = xor i64 %xor, %or
-  %and = and i64 %hash_old.sroa.7.0.copyload, %hash_old.sroa.6.0.copyload
-  %not = xor i64 %hash_old.sroa.6.0.copyload, -1
-  %and81 = and i64 %hash_old.sroa.8.0.copyload, %not
-  %xor82 = or i64 %and81, %and
-  %add80 = add i64 %xor79, 4794697086780616226
-  %add83 = add i64 %add80, %hash_old.sroa.9.0.copyload
-  %add84 = add i64 %add83, %xor82
-  %add85 = add i64 %add84, %or19.i
-  %or88 = tail call i64 @llvm.fshl.i64(i64 %hash_old.sroa.0.0.copyload, i64 %hash_old.sroa.0.0.copyload, i64 36)
-  %or91 = tail call i64 @llvm.fshl.i64(i64 %hash_old.sroa.0.0.copyload, i64 %hash_old.sroa.0.0.copyload, i64 30)
-  %or94 = tail call i64 @llvm.fshl.i64(i64 %hash_old.sroa.0.0.copyload, i64 %hash_old.sroa.0.0.copyload, i64 25)
-  %xor95 = xor i64 %or91, %or94
-  %xor96 = xor i64 %xor95, %or88
-  %and97 = and i64 %hash_old.sroa.3.0.copyload, %hash_old.sroa.0.0.copyload
-  %and984622 = xor i64 %hash_old.sroa.3.0.copyload, %hash_old.sroa.0.0.copyload
-  %xor100 = and i64 %and984622, %hash_old.sroa.4.0.copyload
-  %xor101 = xor i64 %xor100, %and97
-  %add102 = add i64 %xor101, %xor96
-  %add103 = add i64 %add102, %add85
-  %add104 = add i64 %add85, %hash_old.sroa.5.0.copyload
-  %or142 = tail call i64 @llvm.fshl.i64(i64 %add104, i64 %add104, i64 50)
-  %or145 = tail call i64 @llvm.fshl.i64(i64 %add104, i64 %add104, i64 46)
-  %or148 = tail call i64 @llvm.fshl.i64(i64 %add104, i64 %add104, i64 23)
-  %xor149 = xor i64 %or145, %or148
-  %xor150 = xor i64 %xor149, %or142
-  %and152 = and i64 %add104, %hash_old.sroa.6.0.copyload
-  %not153 = xor i64 %add104, -1
-  %and154 = and i64 %hash_old.sroa.7.0.copyload, %not153
-  %xor155 = or i64 %and152, %and154
-  %add151 = add i64 %hash_old.sroa.8.0.copyload, 8158064640168781261
-  %add156 = add i64 %add151, %or19.i4702
-  %add157 = add i64 %add156, %xor155
-  %add158 = add i64 %add157, %xor150
-  %or162 = tail call i64 @llvm.fshl.i64(i64 %add103, i64 %add103, i64 36)
-  %or165 = tail call i64 @llvm.fshl.i64(i64 %add103, i64 %add103, i64 30)
-  %or168 = tail call i64 @llvm.fshl.i64(i64 %add103, i64 %add103, i64 25)
-  %xor169 = xor i64 %or165, %or168
-  %xor170 = xor i64 %xor169, %or162
-  %and171 = and i64 %add103, %hash_old.sroa.0.0.copyload
-  %and1724623 = xor i64 %add103, %hash_old.sroa.0.0.copyload
-  %xor174 = and i64 %and1724623, %hash_old.sroa.3.0.copyload
-  %xor175 = xor i64 %xor174, %and171
-  %add176 = add i64 %xor170, %xor175
-  %add178 = add i64 %add176, %add158
-  %add183 = add i64 %add158, %hash_old.sroa.4.0.copyload
-  %or224 = tail call i64 @llvm.fshl.i64(i64 %add183, i64 %add183, i64 50)
-  %or227 = tail call i64 @llvm.fshl.i64(i64 %add183, i64 %add183, i64 46)
-  %or230 = tail call i64 @llvm.fshl.i64(i64 %add183, i64 %add183, i64 23)
-  %xor231 = xor i64 %or227, %or230
-  %xor232 = xor i64 %xor231, %or224
-  %and234 = and i64 %add183, %add104
-  %not235 = xor i64 %add183, -1
-  %and236 = and i64 %hash_old.sroa.6.0.copyload, %not235
-  %xor237 = or i64 %and234, %and236
-  %add233 = add i64 %hash_old.sroa.7.0.copyload, -5349999486874862801
-  %add238 = add i64 %add233, %or19.i4703
-  %add239 = add i64 %add238, %xor237
-  %add240 = add i64 %add239, %xor232
-  %or244 = tail call i64 @llvm.fshl.i64(i64 %add178, i64 %add178, i64 36)
-  %or247 = tail call i64 @llvm.fshl.i64(i64 %add178, i64 %add178, i64 30)
-  %or250 = tail call i64 @llvm.fshl.i64(i64 %add178, i64 %add178, i64 25)
-  %xor251 = xor i64 %or247, %or250
-  %xor252 = xor i64 %xor251, %or244
-  %and253 = and i64 %add178, %add103
-  %and2544624 = xor i64 %add178, %add103
-  %xor256 = and i64 %and2544624, %hash_old.sroa.0.0.copyload
-  %xor257 = xor i64 %xor256, %and253
-  %add258 = add i64 %xor252, %xor257
-  %add260 = add i64 %add258, %add240
-  %add265 = add i64 %add240, %hash_old.sroa.3.0.copyload
-  %or306 = tail call i64 @llvm.fshl.i64(i64 %add265, i64 %add265, i64 50)
-  %or309 = tail call i64 @llvm.fshl.i64(i64 %add265, i64 %add265, i64 46)
-  %or312 = tail call i64 @llvm.fshl.i64(i64 %add265, i64 %add265, i64 23)
-  %xor313 = xor i64 %or309, %or312
-  %xor314 = xor i64 %xor313, %or306
-  %and316 = and i64 %add265, %add183
-  %not317 = xor i64 %add265, -1
-  %and318 = and i64 %add104, %not317
-  %xor319 = or i64 %and316, %and318
-  %add315 = add i64 %hash_old.sroa.6.0.copyload, -1606136188198331460
-  %add320 = add i64 %add315, %or19.i4704
-  %add321 = add i64 %add320, %xor319
-  %add322 = add i64 %add321, %xor314
-  %or326 = tail call i64 @llvm.fshl.i64(i64 %add260, i64 %add260, i64 36)
-  %or329 = tail call i64 @llvm.fshl.i64(i64 %add260, i64 %add260, i64 30)
-  %or332 = tail call i64 @llvm.fshl.i64(i64 %add260, i64 %add260, i64 25)
-  %xor333 = xor i64 %or329, %or332
-  %xor334 = xor i64 %xor333, %or326
-  %and335 = and i64 %add260, %add178
-  %and3364625 = xor i64 %add260, %add178
-  %xor338 = and i64 %and3364625, %add103
-  %xor339 = xor i64 %xor338, %and335
-  %add340 = add i64 %xor334, %xor339
-  %add342 = add i64 %add340, %add322
-  %add347 = add i64 %add322, %hash_old.sroa.0.0.copyload
-  %or388 = tail call i64 @llvm.fshl.i64(i64 %add347, i64 %add347, i64 50)
-  %or391 = tail call i64 @llvm.fshl.i64(i64 %add347, i64 %add347, i64 46)
-  %or394 = tail call i64 @llvm.fshl.i64(i64 %add347, i64 %add347, i64 23)
-  %xor395 = xor i64 %or391, %or394
-  %xor396 = xor i64 %xor395, %or388
-  %and398 = and i64 %add347, %add265
-  %not399 = xor i64 %add347, -1
-  %and400 = and i64 %add183, %not399
-  %xor401 = or i64 %and398, %and400
-  %add397 = add i64 %add104, 4131703408338449720
-  %add402 = add i64 %add397, %or19.i4705
-  %add403 = add i64 %add402, %xor401
-  %add404 = add i64 %add403, %xor396
-  %or408 = tail call i64 @llvm.fshl.i64(i64 %add342, i64 %add342, i64 36)
-  %or411 = tail call i64 @llvm.fshl.i64(i64 %add342, i64 %add342, i64 30)
-  %or414 = tail call i64 @llvm.fshl.i64(i64 %add342, i64 %add342, i64 25)
-  %xor415 = xor i64 %or411, %or414
-  %xor416 = xor i64 %xor415, %or408
-  %and417 = and i64 %add342, %add260
-  %and4184626 = xor i64 %add342, %add260
-  %xor420 = and i64 %and4184626, %add178
-  %xor421 = xor i64 %xor420, %and417
-  %add422 = add i64 %xor416, %xor421
-  %add424 = add i64 %add422, %add404
-  %add429 = add i64 %add404, %add103
-  %or470 = tail call i64 @llvm.fshl.i64(i64 %add429, i64 %add429, i64 50)
-  %or473 = tail call i64 @llvm.fshl.i64(i64 %add429, i64 %add429, i64 46)
-  %or476 = tail call i64 @llvm.fshl.i64(i64 %add429, i64 %add429, i64 23)
-  %xor477 = xor i64 %or473, %or476
-  %xor478 = xor i64 %xor477, %or470
-  %and480 = and i64 %add429, %add347
-  %not481 = xor i64 %add429, -1
-  %and482 = and i64 %add265, %not481
-  %xor483 = or i64 %and480, %and482
-  %add479 = add i64 %or19.i4706, 6480981068601479193
-  %add484 = add i64 %add479, %add183
-  %add485 = add i64 %add484, %xor483
-  %add486 = add i64 %add485, %xor478
-  %or490 = tail call i64 @llvm.fshl.i64(i64 %add424, i64 %add424, i64 36)
-  %or493 = tail call i64 @llvm.fshl.i64(i64 %add424, i64 %add424, i64 30)
-  %or496 = tail call i64 @llvm.fshl.i64(i64 %add424, i64 %add424, i64 25)
-  %xor497 = xor i64 %or493, %or496
-  %xor498 = xor i64 %xor497, %or490
-  %and499 = and i64 %add424, %add342
-  %and5004627 = xor i64 %add424, %add342
-  %xor502 = and i64 %and5004627, %add260
-  %xor503 = xor i64 %xor502, %and499
-  %add504 = add i64 %xor498, %xor503
-  %add506 = add i64 %add504, %add486
-  %add511 = add i64 %add486, %add178
-  %or552 = tail call i64 @llvm.fshl.i64(i64 %add511, i64 %add511, i64 50)
-  %or555 = tail call i64 @llvm.fshl.i64(i64 %add511, i64 %add511, i64 46)
-  %or558 = tail call i64 @llvm.fshl.i64(i64 %add511, i64 %add511, i64 23)
-  %xor559 = xor i64 %or555, %or558
-  %xor560 = xor i64 %xor559, %or552
-  %and562 = and i64 %add511, %add429
-  %not563 = xor i64 %add511, -1
-  %and564 = and i64 %add347, %not563
-  %xor565 = or i64 %and562, %and564
-  %add561 = add i64 %or19.i4707, -7908458776815382629
-  %add566 = add i64 %add561, %add265
-  %add567 = add i64 %add566, %xor565
-  %add568 = add i64 %add567, %xor560
-  %or572 = tail call i64 @llvm.fshl.i64(i64 %add506, i64 %add506, i64 36)
-  %or575 = tail call i64 @llvm.fshl.i64(i64 %add506, i64 %add506, i64 30)
-  %or578 = tail call i64 @llvm.fshl.i64(i64 %add506, i64 %add506, i64 25)
-  %xor579 = xor i64 %or575, %or578
-  %xor580 = xor i64 %xor579, %or572
-  %and581 = and i64 %add506, %add424
-  %and5824628 = xor i64 %add506, %add424
-  %xor584 = and i64 %and5824628, %add342
-  %xor585 = xor i64 %xor584, %and581
-  %add586 = add i64 %xor580, %xor585
-  %add588 = add i64 %add586, %add568
-  %add593 = add i64 %add568, %add260
-  %or634 = tail call i64 @llvm.fshl.i64(i64 %add593, i64 %add593, i64 50)
-  %or637 = tail call i64 @llvm.fshl.i64(i64 %add593, i64 %add593, i64 46)
-  %or640 = tail call i64 @llvm.fshl.i64(i64 %add593, i64 %add593, i64 23)
-  %xor641 = xor i64 %or637, %or640
-  %xor642 = xor i64 %xor641, %or634
-  %and644 = and i64 %add593, %add511
-  %not645 = xor i64 %add593, -1
-  %and646 = and i64 %add429, %not645
-  %xor647 = or i64 %and644, %and646
-  %add643 = add i64 %or19.i4708, -6116909921290321640
-  %add648 = add i64 %add643, %add347
-  %add649 = add i64 %add648, %xor647
-  %add650 = add i64 %add649, %xor642
-  %or654 = tail call i64 @llvm.fshl.i64(i64 %add588, i64 %add588, i64 36)
-  %or657 = tail call i64 @llvm.fshl.i64(i64 %add588, i64 %add588, i64 30)
-  %or660 = tail call i64 @llvm.fshl.i64(i64 %add588, i64 %add588, i64 25)
-  %xor661 = xor i64 %or657, %or660
-  %xor662 = xor i64 %xor661, %or654
-  %and663 = and i64 %add588, %add506
-  %and6644629 = xor i64 %add588, %add506
-  %xor666 = and i64 %and6644629, %add424
-  %xor667 = xor i64 %xor666, %and663
-  %add668 = add i64 %xor662, %xor667
-  %add670 = add i64 %add668, %add650
-  %add675 = add i64 %add650, %add342
-  %or716 = tail call i64 @llvm.fshl.i64(i64 %add675, i64 %add675, i64 50)
-  %or719 = tail call i64 @llvm.fshl.i64(i64 %add675, i64 %add675, i64 46)
-  %or722 = tail call i64 @llvm.fshl.i64(i64 %add675, i64 %add675, i64 23)
-  %xor723 = xor i64 %or719, %or722
-  %xor724 = xor i64 %xor723, %or716
-  %and726 = and i64 %add675, %add593
-  %not727 = xor i64 %add675, -1
-  %and728 = and i64 %add511, %not727
-  %xor729 = or i64 %and726, %and728
-  %add725 = add i64 %or19.i4709, -2880145864133508542
-  %add730 = add i64 %add725, %add429
-  %add731 = add i64 %add730, %xor729
-  %add732 = add i64 %add731, %xor724
-  %or736 = tail call i64 @llvm.fshl.i64(i64 %add670, i64 %add670, i64 36)
-  %or739 = tail call i64 @llvm.fshl.i64(i64 %add670, i64 %add670, i64 30)
-  %or742 = tail call i64 @llvm.fshl.i64(i64 %add670, i64 %add670, i64 25)
-  %xor743 = xor i64 %or739, %or742
-  %xor744 = xor i64 %xor743, %or736
-  %and745 = and i64 %add670, %add588
-  %and7464630 = xor i64 %add670, %add588
-  %xor748 = and i64 %and7464630, %add506
-  %xor749 = xor i64 %xor748, %and745
-  %add750 = add i64 %xor744, %xor749
-  %add752 = add i64 %add750, %add732
-  %add757 = add i64 %add732, %add424
-  %or798 = tail call i64 @llvm.fshl.i64(i64 %add757, i64 %add757, i64 50)
-  %or801 = tail call i64 @llvm.fshl.i64(i64 %add757, i64 %add757, i64 46)
-  %or804 = tail call i64 @llvm.fshl.i64(i64 %add757, i64 %add757, i64 23)
-  %xor805 = xor i64 %or801, %or804
-  %xor806 = xor i64 %xor805, %or798
-  %and808 = and i64 %add757, %add675
-  %not809 = xor i64 %add757, -1
-  %and810 = and i64 %add593, %not809
-  %xor811 = or i64 %and808, %and810
-  %add807 = add i64 %or19.i4710, 1334009975649890238
-  %add812 = add i64 %add807, %add511
-  %add813 = add i64 %add812, %xor811
-  %add814 = add i64 %add813, %xor806
-  %or818 = tail call i64 @llvm.fshl.i64(i64 %add752, i64 %add752, i64 36)
-  %or821 = tail call i64 @llvm.fshl.i64(i64 %add752, i64 %add752, i64 30)
-  %or824 = tail call i64 @llvm.fshl.i64(i64 %add752, i64 %add752, i64 25)
-  %xor825 = xor i64 %or821, %or824
-  %xor826 = xor i64 %xor825, %or818
-  %and827 = and i64 %add752, %add670
-  %and8284631 = xor i64 %add752, %add670
-  %xor830 = and i64 %and8284631, %add588
-  %xor831 = xor i64 %xor830, %and827
-  %add832 = add i64 %xor826, %xor831
-  %add834 = add i64 %add832, %add814
-  %add839 = add i64 %add814, %add506
-  %or880 = tail call i64 @llvm.fshl.i64(i64 %add839, i64 %add839, i64 50)
-  %or883 = tail call i64 @llvm.fshl.i64(i64 %add839, i64 %add839, i64 46)
-  %or886 = tail call i64 @llvm.fshl.i64(i64 %add839, i64 %add839, i64 23)
-  %xor887 = xor i64 %or883, %or886
-  %xor888 = xor i64 %xor887, %or880
-  %and890 = and i64 %add839, %add757
-  %not891 = xor i64 %add839, -1
-  %and892 = and i64 %add675, %not891
-  %xor893 = or i64 %and890, %and892
-  %add889 = add i64 %or19.i4711, 2608012711638119052
-  %add894 = add i64 %add889, %add593
-  %add895 = add i64 %add894, %xor893
-  %add896 = add i64 %add895, %xor888
-  %or900 = tail call i64 @llvm.fshl.i64(i64 %add834, i64 %add834, i64 36)
-  %or903 = tail call i64 @llvm.fshl.i64(i64 %add834, i64 %add834, i64 30)
-  %or906 = tail call i64 @llvm.fshl.i64(i64 %add834, i64 %add834, i64 25)
-  %xor907 = xor i64 %or903, %or906
-  %xor908 = xor i64 %xor907, %or900
-  %and909 = and i64 %add834, %add752
-  %and9104632 = xor i64 %add834, %add752
-  %xor912 = and i64 %and9104632, %add670
-  %xor913 = xor i64 %xor912, %and909
-  %add914 = add i64 %xor908, %xor913
-  %add916 = add i64 %add914, %add896
-  %add921 = add i64 %add896, %add588
-  %or962 = tail call i64 @llvm.fshl.i64(i64 %add921, i64 %add921, i64 50)
-  %or965 = tail call i64 @llvm.fshl.i64(i64 %add921, i64 %add921, i64 46)
-  %or968 = tail call i64 @llvm.fshl.i64(i64 %add921, i64 %add921, i64 23)
-  %xor969 = xor i64 %or965, %or968
-  %xor970 = xor i64 %xor969, %or962
-  %and972 = and i64 %add921, %add839
-  %not973 = xor i64 %add921, -1
-  %and974 = and i64 %add757, %not973
-  %xor975 = or i64 %and972, %and974
-  %add971 = add i64 %or19.i4712, 6128411473006802146
-  %add976 = add i64 %add971, %add675
-  %add977 = add i64 %add976, %xor975
-  %add978 = add i64 %add977, %xor970
-  %or982 = tail call i64 @llvm.fshl.i64(i64 %add916, i64 %add916, i64 36)
-  %or985 = tail call i64 @llvm.fshl.i64(i64 %add916, i64 %add916, i64 30)
-  %or988 = tail call i64 @llvm.fshl.i64(i64 %add916, i64 %add916, i64 25)
-  %xor989 = xor i64 %or985, %or988
-  %xor990 = xor i64 %xor989, %or982
-  %and991 = and i64 %add916, %add834
-  %and9924633 = xor i64 %add916, %add834
-  %xor994 = and i64 %and9924633, %add752
-  %xor995 = xor i64 %xor994, %and991
-  %add996 = add i64 %xor990, %xor995
-  %add998 = add i64 %add996, %add978
-  %add1003 = add i64 %add978, %add670
-  %or1044 = tail call i64 @llvm.fshl.i64(i64 %add1003, i64 %add1003, i64 50)
-  %or1047 = tail call i64 @llvm.fshl.i64(i64 %add1003, i64 %add1003, i64 46)
-  %or1050 = tail call i64 @llvm.fshl.i64(i64 %add1003, i64 %add1003, i64 23)
-  %xor1051 = xor i64 %or1047, %or1050
-  %xor1052 = xor i64 %xor1051, %or1044
-  %and1054 = and i64 %add1003, %add921
-  %not1055 = xor i64 %add1003, -1
-  %and1056 = and i64 %add839, %not1055
-  %xor1057 = or i64 %and1054, %and1056
-  %add1053 = add i64 %or19.i4713, 8268148722764581231
-  %add1058 = add i64 %add1053, %add757
-  %add1059 = add i64 %add1058, %xor1057
-  %add1060 = add i64 %add1059, %xor1052
-  %or1064 = tail call i64 @llvm.fshl.i64(i64 %add998, i64 %add998, i64 36)
-  %or1067 = tail call i64 @llvm.fshl.i64(i64 %add998, i64 %add998, i64 30)
-  %or1070 = tail call i64 @llvm.fshl.i64(i64 %add998, i64 %add998, i64 25)
-  %xor1071 = xor i64 %or1067, %or1070
-  %xor1072 = xor i64 %xor1071, %or1064
-  %and1073 = and i64 %add998, %add916
-  %and10744634 = xor i64 %add998, %add916
-  %xor1076 = and i64 %and10744634, %add834
-  %xor1077 = xor i64 %xor1076, %and1073
-  %add1078 = add i64 %xor1072, %xor1077
-  %add1080 = add i64 %add1078, %add1060
-  %add1085 = add i64 %add1060, %add752
-  %or1126 = tail call i64 @llvm.fshl.i64(i64 %add1085, i64 %add1085, i64 50)
-  %or1129 = tail call i64 @llvm.fshl.i64(i64 %add1085, i64 %add1085, i64 46)
-  %or1132 = tail call i64 @llvm.fshl.i64(i64 %add1085, i64 %add1085, i64 23)
-  %xor1133 = xor i64 %or1129, %or1132
-  %xor1134 = xor i64 %xor1133, %or1126
-  %and1136 = and i64 %add1085, %add1003
-  %not1137 = xor i64 %add1085, -1
-  %and1138 = and i64 %add921, %not1137
-  %xor1139 = or i64 %and1136, %and1138
-  %add1135 = add i64 %or19.i4714, -9160688886553864527
-  %add1140 = add i64 %add1135, %add839
-  %add1141 = add i64 %add1140, %xor1139
-  %add1142 = add i64 %add1141, %xor1134
-  %or1146 = tail call i64 @llvm.fshl.i64(i64 %add1080, i64 %add1080, i64 36)
-  %or1149 = tail call i64 @llvm.fshl.i64(i64 %add1080, i64 %add1080, i64 30)
-  %or1152 = tail call i64 @llvm.fshl.i64(i64 %add1080, i64 %add1080, i64 25)
-  %xor1153 = xor i64 %or1149, %or1152
-  %xor1154 = xor i64 %xor1153, %or1146
-  %and1155 = and i64 %add1080, %add998
-  %and11564635 = xor i64 %add1080, %add998
-  %xor1158 = and i64 %and11564635, %add916
-  %xor1159 = xor i64 %xor1158, %and1155
-  %add1160 = add i64 %xor1154, %xor1159
-  %add1162 = add i64 %add1160, %add1142
-  %add1167 = add i64 %add1142, %add834
-  %or1208 = tail call i64 @llvm.fshl.i64(i64 %add1167, i64 %add1167, i64 50)
-  %or1211 = tail call i64 @llvm.fshl.i64(i64 %add1167, i64 %add1167, i64 46)
-  %or1214 = tail call i64 @llvm.fshl.i64(i64 %add1167, i64 %add1167, i64 23)
-  %xor1215 = xor i64 %or1211, %or1214
-  %xor1216 = xor i64 %xor1215, %or1208
-  %and1218 = and i64 %add1167, %add1085
-  %not1219 = xor i64 %add1167, -1
-  %and1220 = and i64 %add1003, %not1219
-  %xor1221 = or i64 %and1218, %and1220
-  %add1217 = add i64 %or19.i4715, -7215885187991268811
-  %add1222 = add i64 %add1217, %add921
-  %add1223 = add i64 %add1222, %xor1221
-  %add1224 = add i64 %add1223, %xor1216
-  %or1228 = tail call i64 @llvm.fshl.i64(i64 %add1162, i64 %add1162, i64 36)
-  %or1231 = tail call i64 @llvm.fshl.i64(i64 %add1162, i64 %add1162, i64 30)
-  %or1234 = tail call i64 @llvm.fshl.i64(i64 %add1162, i64 %add1162, i64 25)
-  %xor1235 = xor i64 %or1231, %or1234
-  %xor1236 = xor i64 %xor1235, %or1228
-  %and1237 = and i64 %add1162, %add1080
-  %and12384636 = xor i64 %add1162, %add1080
-  %xor1240 = and i64 %and12384636, %add998
-  %xor1241 = xor i64 %xor1240, %and1237
-  %add1242 = add i64 %xor1236, %xor1241
-  %add1244 = add i64 %add1242, %add1224
-  %add1249 = add i64 %add1224, %add916
-  %or1290 = tail call i64 @llvm.fshl.i64(i64 %add1249, i64 %add1249, i64 50)
-  %or1293 = tail call i64 @llvm.fshl.i64(i64 %add1249, i64 %add1249, i64 46)
-  %or1296 = tail call i64 @llvm.fshl.i64(i64 %add1249, i64 %add1249, i64 23)
-  %xor1297 = xor i64 %or1293, %or1296
-  %xor1298 = xor i64 %xor1297, %or1290
-  %and1300 = and i64 %add1249, %add1167
-  %not1301 = xor i64 %add1249, -1
-  %and1302 = and i64 %add1085, %not1301
-  %xor1303 = or i64 %and1300, %and1302
-  %add1299 = add i64 %or19.i4716, -4495734319001033068
-  %add1304 = add i64 %add1299, %add1003
-  %add1305 = add i64 %add1304, %xor1303
-  %add1306 = add i64 %add1305, %xor1298
-  %or1310 = tail call i64 @llvm.fshl.i64(i64 %add1244, i64 %add1244, i64 36)
-  %or1313 = tail call i64 @llvm.fshl.i64(i64 %add1244, i64 %add1244, i64 30)
-  %or1316 = tail call i64 @llvm.fshl.i64(i64 %add1244, i64 %add1244, i64 25)
-  %xor1317 = xor i64 %or1313, %or1316
-  %xor1318 = xor i64 %xor1317, %or1310
-  %and1319 = and i64 %add1244, %add1162
-  %and13204637 = xor i64 %add1244, %add1162
-  %xor1322 = and i64 %and13204637, %add1080
-  %xor1323 = xor i64 %xor1322, %and1319
-  %add1324 = add i64 %xor1318, %xor1323
-  %add1326 = add i64 %add1324, %add1306
-  %add1331 = add i64 %add1306, %add998
-  %or1362 = tail call i64 @llvm.fshl.i64(i64 %or19.i4715, i64 %or19.i4715, i64 45)
-  %or1365 = tail call i64 @llvm.fshl.i64(i64 %or19.i4715, i64 %or19.i4715, i64 3)
-  %shr1366 = lshr i64 %or19.i4715, 6
-  %xor1367 = xor i64 %or1365, %shr1366
-  %xor1368 = xor i64 %xor1367, %or1362
-  %or1371 = tail call i64 @llvm.fshl.i64(i64 %or19.i4702, i64 %or19.i4702, i64 63)
-  %or1374 = tail call i64 @llvm.fshl.i64(i64 %or19.i4702, i64 %or19.i4702, i64 56)
-  %shr1375 = lshr i64 %or19.i4702, 7
-  %xor1376 = xor i64 %or1374, %shr1375
-  %xor1377 = xor i64 %xor1376, %or1371
-  %add1378 = add i64 %xor1377, %or19.i
-  %add1379 = add i64 %add1378, %or19.i4710
-  %add1380 = add i64 %add1379, %xor1368
-  %or1405 = tail call i64 @llvm.fshl.i64(i64 %or19.i4716, i64 %or19.i4716, i64 45)
-  %or1408 = tail call i64 @llvm.fshl.i64(i64 %or19.i4716, i64 %or19.i4716, i64 3)
-  %shr1409 = lshr i64 %or19.i4716, 6
-  %xor1410 = xor i64 %or1408, %shr1409
-  %xor1411 = xor i64 %xor1410, %or1405
-  %or1415 = tail call i64 @llvm.fshl.i64(i64 %or19.i4703, i64 %or19.i4703, i64 63)
-  %or1418 = tail call i64 @llvm.fshl.i64(i64 %or19.i4703, i64 %or19.i4703, i64 56)
-  %shr1419 = lshr i64 %or19.i4703, 7
-  %xor1420 = xor i64 %or1418, %shr1419
-  %xor1421 = xor i64 %xor1420, %or1415
-  %add1422 = add i64 %xor1421, %or19.i4702
-  %add1423 = add i64 %add1422, %or19.i4711
-  %add1424 = add i64 %add1423, %xor1411
-  %or1449 = tail call i64 @llvm.fshl.i64(i64 %add1380, i64 %add1380, i64 45)
-  %or1452 = tail call i64 @llvm.fshl.i64(i64 %add1380, i64 %add1380, i64 3)
-  %shr1453 = lshr i64 %add1380, 6
-  %xor1454 = xor i64 %or1452, %shr1453
-  %xor1455 = xor i64 %xor1454, %or1449
-  %or1459 = tail call i64 @llvm.fshl.i64(i64 %or19.i4704, i64 %or19.i4704, i64 63)
-  %or1462 = tail call i64 @llvm.fshl.i64(i64 %or19.i4704, i64 %or19.i4704, i64 56)
-  %shr1463 = lshr i64 %or19.i4704, 7
-  %xor1464 = xor i64 %or1462, %shr1463
-  %xor1465 = xor i64 %xor1464, %or1459
-  %add1466 = add i64 %xor1465, %or19.i4703
-  %add1467 = add i64 %add1466, %or19.i4712
-  %add1468 = add i64 %add1467, %xor1455
-  %or1493 = tail call i64 @llvm.fshl.i64(i64 %add1424, i64 %add1424, i64 45)
-  %or1496 = tail call i64 @llvm.fshl.i64(i64 %add1424, i64 %add1424, i64 3)
-  %shr1497 = lshr i64 %add1424, 6
-  %xor1498 = xor i64 %or1496, %shr1497
-  %xor1499 = xor i64 %xor1498, %or1493
-  %or1503 = tail call i64 @llvm.fshl.i64(i64 %or19.i4705, i64 %or19.i4705, i64 63)
-  %or1506 = tail call i64 @llvm.fshl.i64(i64 %or19.i4705, i64 %or19.i4705, i64 56)
-  %shr1507 = lshr i64 %or19.i4705, 7
-  %xor1508 = xor i64 %or1506, %shr1507
-  %xor1509 = xor i64 %xor1508, %or1503
-  %add1510 = add i64 %xor1509, %or19.i4704
-  %add1511 = add i64 %add1510, %or19.i4713
-  %add1512 = add i64 %add1511, %xor1499
-  %or1537 = tail call i64 @llvm.fshl.i64(i64 %add1468, i64 %add1468, i64 45)
-  %or1540 = tail call i64 @llvm.fshl.i64(i64 %add1468, i64 %add1468, i64 3)
-  %shr1541 = lshr i64 %add1468, 6
-  %xor1542 = xor i64 %or1540, %shr1541
-  %xor1543 = xor i64 %xor1542, %or1537
-  %or1547 = tail call i64 @llvm.fshl.i64(i64 %or19.i4706, i64 %or19.i4706, i64 63)
-  %or1550 = tail call i64 @llvm.fshl.i64(i64 %or19.i4706, i64 %or19.i4706, i64 56)
-  %shr1551 = lshr i64 %or19.i4706, 7
-  %xor1552 = xor i64 %or1550, %shr1551
-  %xor1553 = xor i64 %xor1552, %or1547
-  %add1554 = add i64 %xor1553, %or19.i4705
-  %add1555 = add i64 %add1554, %or19.i4714
-  %add1556 = add i64 %add1555, %xor1543
-  %or1581 = tail call i64 @llvm.fshl.i64(i64 %add1512, i64 %add1512, i64 45)
-  %or1584 = tail call i64 @llvm.fshl.i64(i64 %add1512, i64 %add1512, i64 3)
-  %shr1585 = lshr i64 %add1512, 6
-  %xor1586 = xor i64 %or1584, %shr1585
-  %xor1587 = xor i64 %xor1586, %or1581
-  %or1591 = tail call i64 @llvm.fshl.i64(i64 %or19.i4707, i64 %or19.i4707, i64 63)
-  %or1594 = tail call i64 @llvm.fshl.i64(i64 %or19.i4707, i64 %or19.i4707, i64 56)
-  %shr1595 = lshr i64 %or19.i4707, 7
-  %xor1596 = xor i64 %or1594, %shr1595
-  %xor1597 = xor i64 %xor1596, %or1591
-  %add1598 = add i64 %xor1597, %or19.i4706
-  %add1599 = add i64 %add1598, %or19.i4715
-  %add1600 = add i64 %add1599, %xor1587
-  %or1625 = tail call i64 @llvm.fshl.i64(i64 %add1556, i64 %add1556, i64 45)
-  %or1628 = tail call i64 @llvm.fshl.i64(i64 %add1556, i64 %add1556, i64 3)
-  %shr1629 = lshr i64 %add1556, 6
-  %xor1630 = xor i64 %or1628, %shr1629
-  %xor1631 = xor i64 %xor1630, %or1625
-  %or1635 = tail call i64 @llvm.fshl.i64(i64 %or19.i4708, i64 %or19.i4708, i64 63)
-  %or1638 = tail call i64 @llvm.fshl.i64(i64 %or19.i4708, i64 %or19.i4708, i64 56)
-  %shr1639 = lshr i64 %or19.i4708, 7
-  %xor1640 = xor i64 %or1638, %shr1639
-  %xor1641 = xor i64 %xor1640, %or1635
-  %add1642 = add i64 %xor1641, %or19.i4707
-  %add1643 = add i64 %add1642, %or19.i4716
-  %add1644 = add i64 %add1643, %xor1631
-  %or1669 = tail call i64 @llvm.fshl.i64(i64 %add1600, i64 %add1600, i64 45)
-  %or1672 = tail call i64 @llvm.fshl.i64(i64 %add1600, i64 %add1600, i64 3)
-  %shr1673 = lshr i64 %add1600, 6
-  %xor1674 = xor i64 %or1672, %shr1673
-  %xor1675 = xor i64 %xor1674, %or1669
-  %or1679 = tail call i64 @llvm.fshl.i64(i64 %or19.i4709, i64 %or19.i4709, i64 63)
-  %or1682 = tail call i64 @llvm.fshl.i64(i64 %or19.i4709, i64 %or19.i4709, i64 56)
-  %shr1683 = lshr i64 %or19.i4709, 7
-  %xor1684 = xor i64 %or1682, %shr1683
-  %xor1685 = xor i64 %xor1684, %or1679
-  %add1686 = add i64 %xor1685, %or19.i4708
-  %add1687 = add i64 %add1686, %add1380
-  %add1688 = add i64 %add1687, %xor1675
-  %or1713 = tail call i64 @llvm.fshl.i64(i64 %add1644, i64 %add1644, i64 45)
-  %or1716 = tail call i64 @llvm.fshl.i64(i64 %add1644, i64 %add1644, i64 3)
-  %shr1717 = lshr i64 %add1644, 6
-  %xor1718 = xor i64 %or1716, %shr1717
-  %xor1719 = xor i64 %xor1718, %or1713
-  %or1723 = tail call i64 @llvm.fshl.i64(i64 %or19.i4710, i64 %or19.i4710, i64 63)
-  %or1726 = tail call i64 @llvm.fshl.i64(i64 %or19.i4710, i64 %or19.i4710, i64 56)
-  %shr1727 = lshr i64 %or19.i4710, 7
-  %xor1728 = xor i64 %or1726, %shr1727
-  %xor1729 = xor i64 %xor1728, %or1723
-  %add1730 = add i64 %xor1729, %or19.i4709
-  %add1731 = add i64 %add1730, %add1424
-  %add1732 = add i64 %add1731, %xor1719
-  %or1757 = tail call i64 @llvm.fshl.i64(i64 %add1688, i64 %add1688, i64 45)
-  %or1760 = tail call i64 @llvm.fshl.i64(i64 %add1688, i64 %add1688, i64 3)
-  %shr1761 = lshr i64 %add1688, 6
-  %xor1762 = xor i64 %or1760, %shr1761
-  %xor1763 = xor i64 %xor1762, %or1757
-  %or1767 = tail call i64 @llvm.fshl.i64(i64 %or19.i4711, i64 %or19.i4711, i64 63)
-  %or1770 = tail call i64 @llvm.fshl.i64(i64 %or19.i4711, i64 %or19.i4711, i64 56)
-  %shr1771 = lshr i64 %or19.i4711, 7
-  %xor1772 = xor i64 %or1770, %shr1771
-  %xor1773 = xor i64 %xor1772, %or1767
-  %add1774 = add i64 %xor1773, %or19.i4710
-  %add1775 = add i64 %add1774, %add1468
-  %add1776 = add i64 %add1775, %xor1763
-  %or1801 = tail call i64 @llvm.fshl.i64(i64 %add1732, i64 %add1732, i64 45)
-  %or1804 = tail call i64 @llvm.fshl.i64(i64 %add1732, i64 %add1732, i64 3)
-  %shr1805 = lshr i64 %add1732, 6
-  %xor1806 = xor i64 %or1804, %shr1805
-  %xor1807 = xor i64 %xor1806, %or1801
-  %or1811 = tail call i64 @llvm.fshl.i64(i64 %or19.i4712, i64 %or19.i4712, i64 63)
-  %or1814 = tail call i64 @llvm.fshl.i64(i64 %or19.i4712, i64 %or19.i4712, i64 56)
-  %shr1815 = lshr i64 %or19.i4712, 7
-  %xor1816 = xor i64 %or1814, %shr1815
-  %xor1817 = xor i64 %xor1816, %or1811
-  %add1818 = add i64 %xor1817, %or19.i4711
-  %add1819 = add i64 %add1818, %add1512
-  %add1820 = add i64 %add1819, %xor1807
-  %or1845 = tail call i64 @llvm.fshl.i64(i64 %add1776, i64 %add1776, i64 45)
-  %or1848 = tail call i64 @llvm.fshl.i64(i64 %add1776, i64 %add1776, i64 3)
-  %shr1849 = lshr i64 %add1776, 6
-  %xor1850 = xor i64 %or1848, %shr1849
-  %xor1851 = xor i64 %xor1850, %or1845
-  %or1855 = tail call i64 @llvm.fshl.i64(i64 %or19.i4713, i64 %or19.i4713, i64 63)
-  %or1858 = tail call i64 @llvm.fshl.i64(i64 %or19.i4713, i64 %or19.i4713, i64 56)
-  %shr1859 = lshr i64 %or19.i4713, 7
-  %xor1860 = xor i64 %or1858, %shr1859
-  %xor1861 = xor i64 %xor1860, %or1855
-  %add1862 = add i64 %xor1861, %or19.i4712
-  %add1863 = add i64 %add1862, %add1556
-  %add1864 = add i64 %add1863, %xor1851
-  %or1889 = tail call i64 @llvm.fshl.i64(i64 %add1820, i64 %add1820, i64 45)
-  %or1892 = tail call i64 @llvm.fshl.i64(i64 %add1820, i64 %add1820, i64 3)
-  %shr1893 = lshr i64 %add1820, 6
-  %xor1894 = xor i64 %or1892, %shr1893
-  %xor1895 = xor i64 %xor1894, %or1889
-  %or1899 = tail call i64 @llvm.fshl.i64(i64 %or19.i4714, i64 %or19.i4714, i64 63)
-  %or1902 = tail call i64 @llvm.fshl.i64(i64 %or19.i4714, i64 %or19.i4714, i64 56)
-  %shr1903 = lshr i64 %or19.i4714, 7
-  %xor1904 = xor i64 %or1902, %shr1903
-  %xor1905 = xor i64 %xor1904, %or1899
-  %add1906 = add i64 %xor1905, %or19.i4713
-  %add1907 = add i64 %add1906, %add1600
-  %add1908 = add i64 %add1907, %xor1895
-  %or1933 = tail call i64 @llvm.fshl.i64(i64 %add1864, i64 %add1864, i64 45)
-  %or1936 = tail call i64 @llvm.fshl.i64(i64 %add1864, i64 %add1864, i64 3)
-  %shr1937 = lshr i64 %add1864, 6
-  %xor1938 = xor i64 %or1936, %shr1937
-  %xor1939 = xor i64 %xor1938, %or1933
-  %or1943 = tail call i64 @llvm.fshl.i64(i64 %or19.i4715, i64 %or19.i4715, i64 63)
-  %or1946 = tail call i64 @llvm.fshl.i64(i64 %or19.i4715, i64 %or19.i4715, i64 56)
-  %shr1947 = lshr i64 %or19.i4715, 7
-  %xor1948 = xor i64 %or1946, %shr1947
-  %xor1949 = xor i64 %xor1948, %or1943
-  %add1950 = add i64 %xor1949, %or19.i4714
-  %add1951 = add i64 %add1950, %add1644
-  %add1952 = add i64 %add1951, %xor1939
-  %or1977 = tail call i64 @llvm.fshl.i64(i64 %add1908, i64 %add1908, i64 45)
-  %or1980 = tail call i64 @llvm.fshl.i64(i64 %add1908, i64 %add1908, i64 3)
-  %shr1981 = lshr i64 %add1908, 6
-  %xor1982 = xor i64 %or1980, %shr1981
-  %xor1983 = xor i64 %xor1982, %or1977
-  %or1987 = tail call i64 @llvm.fshl.i64(i64 %or19.i4716, i64 %or19.i4716, i64 63)
-  %or1990 = tail call i64 @llvm.fshl.i64(i64 %or19.i4716, i64 %or19.i4716, i64 56)
-  %shr1991 = lshr i64 %or19.i4716, 7
-  %xor1992 = xor i64 %or1990, %shr1991
-  %xor1993 = xor i64 %xor1992, %or1987
-  %add1994 = add i64 %xor1993, %or19.i4715
-  %add1995 = add i64 %add1994, %add1688
-  %add1996 = add i64 %add1995, %xor1983
-  %or2021 = tail call i64 @llvm.fshl.i64(i64 %add1952, i64 %add1952, i64 45)
-  %or2024 = tail call i64 @llvm.fshl.i64(i64 %add1952, i64 %add1952, i64 3)
-  %shr2025 = lshr i64 %add1952, 6
-  %xor2026 = xor i64 %or2024, %shr2025
-  %xor2027 = xor i64 %xor2026, %or2021
-  %or2031 = tail call i64 @llvm.fshl.i64(i64 %add1380, i64 %add1380, i64 63)
-  %or2034 = tail call i64 @llvm.fshl.i64(i64 %add1380, i64 %add1380, i64 56)
-  %shr2035 = lshr i64 %add1380, 7
-  %xor2036 = xor i64 %or2034, %shr2035
-  %xor2037 = xor i64 %xor2036, %or2031
-  %add2038 = add i64 %xor2037, %or19.i4716
-  %add2039 = add i64 %add2038, %add1732
-  %add2040 = add i64 %add2039, %xor2027
-  %or2076 = tail call i64 @llvm.fshl.i64(i64 %add1331, i64 %add1331, i64 50)
-  %or2079 = tail call i64 @llvm.fshl.i64(i64 %add1331, i64 %add1331, i64 46)
-  %or2082 = tail call i64 @llvm.fshl.i64(i64 %add1331, i64 %add1331, i64 23)
-  %xor2083 = xor i64 %or2079, %or2082
-  %xor2084 = xor i64 %xor2083, %or2076
-  %and2086 = and i64 %add1331, %add1249
-  %not2087 = xor i64 %add1331, -1
-  %and2088 = and i64 %add1167, %not2087
-  %xor2089 = or i64 %and2086, %and2088
-  %add2085 = add i64 %add1380, -1973867731355612462
-  %add2090 = add i64 %add2085, %add1085
-  %add2091 = add i64 %add2090, %xor2089
-  %add2092 = add i64 %add2091, %xor2084
-  %or2096 = tail call i64 @llvm.fshl.i64(i64 %add1326, i64 %add1326, i64 36)
-  %or2099 = tail call i64 @llvm.fshl.i64(i64 %add1326, i64 %add1326, i64 30)
-  %or2102 = tail call i64 @llvm.fshl.i64(i64 %add1326, i64 %add1326, i64 25)
-  %xor2103 = xor i64 %or2099, %or2102
-  %xor2104 = xor i64 %xor2103, %or2096
-  %and2105 = and i64 %add1326, %add1244
-  %and21064638 = xor i64 %add1326, %add1244
-  %xor2108 = and i64 %and21064638, %add1162
-  %xor2109 = xor i64 %xor2108, %and2105
-  %add2110 = add i64 %xor2104, %xor2109
-  %add2112 = add i64 %add2110, %add2092
-  %add2117 = add i64 %add2092, %add1080
-  %or2158 = tail call i64 @llvm.fshl.i64(i64 %add2117, i64 %add2117, i64 50)
-  %or2161 = tail call i64 @llvm.fshl.i64(i64 %add2117, i64 %add2117, i64 46)
-  %or2164 = tail call i64 @llvm.fshl.i64(i64 %add2117, i64 %add2117, i64 23)
-  %xor2165 = xor i64 %or2161, %or2164
-  %xor2166 = xor i64 %xor2165, %or2158
-  %and2168 = and i64 %add2117, %add1331
-  %not2169 = xor i64 %add2117, -1
-  %and2170 = and i64 %add1249, %not2169
-  %xor2171 = or i64 %and2168, %and2170
-  %add2167 = add i64 %add1424, -1171420211273849373
-  %add2172 = add i64 %add2167, %add1167
-  %add2173 = add i64 %add2172, %xor2171
-  %add2174 = add i64 %add2173, %xor2166
-  %or2178 = tail call i64 @llvm.fshl.i64(i64 %add2112, i64 %add2112, i64 36)
-  %or2181 = tail call i64 @llvm.fshl.i64(i64 %add2112, i64 %add2112, i64 30)
-  %or2184 = tail call i64 @llvm.fshl.i64(i64 %add2112, i64 %add2112, i64 25)
-  %xor2185 = xor i64 %or2181, %or2184
-  %xor2186 = xor i64 %xor2185, %or2178
-  %and2187 = and i64 %add2112, %add1326
-  %and21884639 = xor i64 %add2112, %add1326
-  %xor2190 = and i64 %and21884639, %add1244
-  %xor2191 = xor i64 %xor2190, %and2187
-  %add2192 = add i64 %xor2186, %xor2191
-  %add2194 = add i64 %add2192, %add2174
-  %add2199 = add i64 %add2174, %add1162
-  %or2240 = tail call i64 @llvm.fshl.i64(i64 %add2199, i64 %add2199, i64 50)
-  %or2243 = tail call i64 @llvm.fshl.i64(i64 %add2199, i64 %add2199, i64 46)
-  %or2246 = tail call i64 @llvm.fshl.i64(i64 %add2199, i64 %add2199, i64 23)
-  %xor2247 = xor i64 %or2243, %or2246
-  %xor2248 = xor i64 %xor2247, %or2240
-  %and2250 = and i64 %add2199, %add2117
-  %not2251 = xor i64 %add2199, -1
-  %and2252 = and i64 %add1331, %not2251
-  %xor2253 = or i64 %and2250, %and2252
-  %add2249 = add i64 %add1468, 1135362057144423861
-  %add2254 = add i64 %add2249, %add1249
-  %add2255 = add i64 %add2254, %xor2253
-  %add2256 = add i64 %add2255, %xor2248
-  %or2260 = tail call i64 @llvm.fshl.i64(i64 %add2194, i64 %add2194, i64 36)
-  %or2263 = tail call i64 @llvm.fshl.i64(i64 %add2194, i64 %add2194, i64 30)
-  %or2266 = tail call i64 @llvm.fshl.i64(i64 %add2194, i64 %add2194, i64 25)
-  %xor2267 = xor i64 %or2263, %or2266
-  %xor2268 = xor i64 %xor2267, %or2260
-  %and2269 = and i64 %add2194, %add2112
-  %and22704640 = xor i64 %add2194, %add2112
-  %xor2272 = and i64 %and22704640, %add1326
-  %xor2273 = xor i64 %xor2272, %and2269
-  %add2274 = add i64 %xor2268, %xor2273
-  %add2276 = add i64 %add2274, %add2256
-  %add2281 = add i64 %add2256, %add1244
-  %or2322 = tail call i64 @llvm.fshl.i64(i64 %add2281, i64 %add2281, i64 50)
-  %or2325 = tail call i64 @llvm.fshl.i64(i64 %add2281, i64 %add2281, i64 46)
-  %or2328 = tail call i64 @llvm.fshl.i64(i64 %add2281, i64 %add2281, i64 23)
-  %xor2329 = xor i64 %or2325, %or2328
-  %xor2330 = xor i64 %xor2329, %or2322
-  %and2332 = and i64 %add2281, %add2199
-  %not2333 = xor i64 %add2281, -1
-  %and2334 = and i64 %add2117, %not2333
-  %xor2335 = or i64 %and2332, %and2334
-  %add2331 = add i64 %add1512, 2597628984639134821
-  %add2336 = add i64 %add2331, %add1331
-  %add2337 = add i64 %add2336, %xor2335
-  %add2338 = add i64 %add2337, %xor2330
-  %or2342 = tail call i64 @llvm.fshl.i64(i64 %add2276, i64 %add2276, i64 36)
-  %or2345 = tail call i64 @llvm.fshl.i64(i64 %add2276, i64 %add2276, i64 30)
-  %or2348 = tail call i64 @llvm.fshl.i64(i64 %add2276, i64 %add2276, i64 25)
-  %xor2349 = xor i64 %or2345, %or2348
-  %xor2350 = xor i64 %xor2349, %or2342
-  %and2351 = and i64 %add2276, %add2194
-  %and23524641 = xor i64 %add2276, %add2194
-  %xor2354 = and i64 %and23524641, %add2112
-  %xor2355 = xor i64 %xor2354, %and2351
-  %add2356 = add i64 %xor2350, %xor2355
-  %add2358 = add i64 %add2356, %add2338
-  %add2363 = add i64 %add2338, %add1326
-  %or2404 = tail call i64 @llvm.fshl.i64(i64 %add2363, i64 %add2363, i64 50)
-  %or2407 = tail call i64 @llvm.fshl.i64(i64 %add2363, i64 %add2363, i64 46)
-  %or2410 = tail call i64 @llvm.fshl.i64(i64 %add2363, i64 %add2363, i64 23)
-  %xor2411 = xor i64 %or2407, %or2410
-  %xor2412 = xor i64 %xor2411, %or2404
-  %and2414 = and i64 %add2363, %add2281
-  %not2415 = xor i64 %add2363, -1
-  %and2416 = and i64 %add2199, %not2415
-  %xor2417 = or i64 %and2414, %and2416
-  %add2413 = add i64 %add1556, 3308224258029322869
-  %add2418 = add i64 %add2413, %add2117
-  %add2419 = add i64 %add2418, %xor2417
-  %add2420 = add i64 %add2419, %xor2412
-  %or2424 = tail call i64 @llvm.fshl.i64(i64 %add2358, i64 %add2358, i64 36)
-  %or2427 = tail call i64 @llvm.fshl.i64(i64 %add2358, i64 %add2358, i64 30)
-  %or2430 = tail call i64 @llvm.fshl.i64(i64 %add2358, i64 %add2358, i64 25)
-  %xor2431 = xor i64 %or2427, %or2430
-  %xor2432 = xor i64 %xor2431, %or2424
-  %and2433 = and i64 %add2358, %add2276
-  %and24344642 = xor i64 %add2358, %add2276
-  %xor2436 = and i64 %and24344642, %add2194
-  %xor2437 = xor i64 %xor2436, %and2433
-  %add2438 = add i64 %xor2432, %xor2437
-  %add2440 = add i64 %add2438, %add2420
-  %add2445 = add i64 %add2420, %add2112
-  %or2486 = tail call i64 @llvm.fshl.i64(i64 %add2445, i64 %add2445, i64 50)
-  %or2489 = tail call i64 @llvm.fshl.i64(i64 %add2445, i64 %add2445, i64 46)
-  %or2492 = tail call i64 @llvm.fshl.i64(i64 %add2445, i64 %add2445, i64 23)
-  %xor2493 = xor i64 %or2489, %or2492
-  %xor2494 = xor i64 %xor2493, %or2486
-  %and2496 = and i64 %add2445, %add2363
-  %not2497 = xor i64 %add2445, -1
-  %and2498 = and i64 %add2281, %not2497
-  %xor2499 = or i64 %and2496, %and2498
-  %add2495 = add i64 %add1600, 5365058923640841347
-  %add2500 = add i64 %add2495, %add2199
-  %add2501 = add i64 %add2500, %xor2499
-  %add2502 = add i64 %add2501, %xor2494
-  %or2506 = tail call i64 @llvm.fshl.i64(i64 %add2440, i64 %add2440, i64 36)
-  %or2509 = tail call i64 @llvm.fshl.i64(i64 %add2440, i64 %add2440, i64 30)
-  %or2512 = tail call i64 @llvm.fshl.i64(i64 %add2440, i64 %add2440, i64 25)
-  %xor2513 = xor i64 %or2509, %or2512
-  %xor2514 = xor i64 %xor2513, %or2506
-  %and2515 = and i64 %add2440, %add2358
-  %and25164643 = xor i64 %add2440, %add2358
-  %xor2518 = and i64 %and25164643, %add2276
-  %xor2519 = xor i64 %xor2518, %and2515
-  %add2520 = add i64 %xor2514, %xor2519
-  %add2522 = add i64 %add2520, %add2502
-  %add2527 = add i64 %add2502, %add2194
-  %or2568 = tail call i64 @llvm.fshl.i64(i64 %add2527, i64 %add2527, i64 50)
-  %or2571 = tail call i64 @llvm.fshl.i64(i64 %add2527, i64 %add2527, i64 46)
-  %or2574 = tail call i64 @llvm.fshl.i64(i64 %add2527, i64 %add2527, i64 23)
-  %xor2575 = xor i64 %or2571, %or2574
-  %xor2576 = xor i64 %xor2575, %or2568
-  %and2578 = and i64 %add2527, %add2445
-  %not2579 = xor i64 %add2527, -1
-  %and2580 = and i64 %add2363, %not2579
-  %xor2581 = or i64 %and2578, %and2580
-  %add2577 = add i64 %add1644, 6679025012923562964
-  %add2582 = add i64 %add2577, %add2281
-  %add2583 = add i64 %add2582, %xor2581
-  %add2584 = add i64 %add2583, %xor2576
-  %or2588 = tail call i64 @llvm.fshl.i64(i64 %add2522, i64 %add2522, i64 36)
-  %or2591 = tail call i64 @llvm.fshl.i64(i64 %add2522, i64 %add2522, i64 30)
-  %or2594 = tail call i64 @llvm.fshl.i64(i64 %add2522, i64 %add2522, i64 25)
-  %xor2595 = xor i64 %or2591, %or2594
-  %xor2596 = xor i64 %xor2595, %or2588
-  %and2597 = and i64 %add2522, %add2440
-  %and25984644 = xor i64 %add2522, %add2440
-  %xor2600 = and i64 %and25984644, %add2358
-  %xor2601 = xor i64 %xor2600, %and2597
-  %add2602 = add i64 %xor2596, %xor2601
-  %add2604 = add i64 %add2602, %add2584
-  %add2609 = add i64 %add2584, %add2276
-  %or2650 = tail call i64 @llvm.fshl.i64(i64 %add2609, i64 %add2609, i64 50)
-  %or2653 = tail call i64 @llvm.fshl.i64(i64 %add2609, i64 %add2609, i64 46)
-  %or2656 = tail call i64 @llvm.fshl.i64(i64 %add2609, i64 %add2609, i64 23)
-  %xor2657 = xor i64 %or2653, %or2656
-  %xor2658 = xor i64 %xor2657, %or2650
-  %and2660 = and i64 %add2609, %add2527
-  %not2661 = xor i64 %add2609, -1
-  %and2662 = and i64 %add2445, %not2661
-  %xor2663 = or i64 %and2660, %and2662
-  %add2659 = add i64 %add1688, 8573033837759648693
-  %add2664 = add i64 %add2659, %add2363
-  %add2665 = add i64 %add2664, %xor2663
-  %add2666 = add i64 %add2665, %xor2658
-  %or2670 = tail call i64 @llvm.fshl.i64(i64 %add2604, i64 %add2604, i64 36)
-  %or2673 = tail call i64 @llvm.fshl.i64(i64 %add2604, i64 %add2604, i64 30)
-  %or2676 = tail call i64 @llvm.fshl.i64(i64 %add2604, i64 %add2604, i64 25)
-  %xor2677 = xor i64 %or2673, %or2676
-  %xor2678 = xor i64 %xor2677, %or2670
-  %and2679 = and i64 %add2604, %add2522
-  %and26804645 = xor i64 %add2604, %add2522
-  %xor2682 = and i64 %and26804645, %add2440
-  %xor2683 = xor i64 %xor2682, %and2679
-  %add2684 = add i64 %xor2678, %xor2683
-  %add2686 = add i64 %add2684, %add2666
-  %add2691 = add i64 %add2666, %add2358
-  %or2732 = tail call i64 @llvm.fshl.i64(i64 %add2691, i64 %add2691, i64 50)
-  %or2735 = tail call i64 @llvm.fshl.i64(i64 %add2691, i64 %add2691, i64 46)
-  %or2738 = tail call i64 @llvm.fshl.i64(i64 %add2691, i64 %add2691, i64 23)
-  %xor2739 = xor i64 %or2735, %or2738
-  %xor2740 = xor i64 %xor2739, %or2732
-  %and2742 = and i64 %add2691, %add2609
-  %not2743 = xor i64 %add2691, -1
-  %and2744 = and i64 %add2527, %not2743
-  %xor2745 = or i64 %and2742, %and2744
-  %add2741 = add i64 %add1732, -7476448914759557205
-  %add2746 = add i64 %add2741, %add2445
-  %add2747 = add i64 %add2746, %xor2745
-  %add2748 = add i64 %add2747, %xor2740
-  %or2752 = tail call i64 @llvm.fshl.i64(i64 %add2686, i64 %add2686, i64 36)
-  %or2755 = tail call i64 @llvm.fshl.i64(i64 %add2686, i64 %add2686, i64 30)
-  %or2758 = tail call i64 @llvm.fshl.i64(i64 %add2686, i64 %add2686, i64 25)
-  %xor2759 = xor i64 %or2755, %or2758
-  %xor2760 = xor i64 %xor2759, %or2752
-  %and2761 = and i64 %add2686, %add2604
-  %and27624646 = xor i64 %add2686, %add2604
-  %xor2764 = and i64 %and27624646, %add2522
-  %xor2765 = xor i64 %xor2764, %and2761
-  %add2766 = add i64 %xor2760, %xor2765
-  %add2768 = add i64 %add2766, %add2748
-  %add2773 = add i64 %add2748, %add2440
-  %or2814 = tail call i64 @llvm.fshl.i64(i64 %add2773, i64 %add2773, i64 50)
-  %or2817 = tail call i64 @llvm.fshl.i64(i64 %add2773, i64 %add2773, i64 46)
-  %or2820 = tail call i64 @llvm.fshl.i64(i64 %add2773, i64 %add2773, i64 23)
-  %xor2821 = xor i64 %or2817, %or2820
-  %xor2822 = xor i64 %xor2821, %or2814
-  %and2824 = and i64 %add2773, %add2691
-  %not2825 = xor i64 %add2773, -1
-  %and2826 = and i64 %add2609, %not2825
-  %xor2827 = or i64 %and2824, %and2826
-  %add2823 = add i64 %add1776, -6327057829258317296
-  %add2828 = add i64 %add2823, %add2527
-  %add2829 = add i64 %add2828, %xor2827
-  %add2830 = add i64 %add2829, %xor2822
-  %or2834 = tail call i64 @llvm.fshl.i64(i64 %add2768, i64 %add2768, i64 36)
-  %or2837 = tail call i64 @llvm.fshl.i64(i64 %add2768, i64 %add2768, i64 30)
-  %or2840 = tail call i64 @llvm.fshl.i64(i64 %add2768, i64 %add2768, i64 25)
-  %xor2841 = xor i64 %or2837, %or2840
-  %xor2842 = xor i64 %xor2841, %or2834
-  %and2843 = and i64 %add2768, %add2686
-  %and28444647 = xor i64 %add2768, %add2686
-  %xor2846 = and i64 %and28444647, %add2604
-  %xor2847 = xor i64 %xor2846, %and2843
-  %add2848 = add i64 %xor2842, %xor2847
-  %add2850 = add i64 %add2848, %add2830
-  %add2855 = add i64 %add2830, %add2522
-  %or2896 = tail call i64 @llvm.fshl.i64(i64 %add2855, i64 %add2855, i64 50)
-  %or2899 = tail call i64 @llvm.fshl.i64(i64 %add2855, i64 %add2855, i64 46)
-  %or2902 = tail call i64 @llvm.fshl.i64(i64 %add2855, i64 %add2855, i64 23)
-  %xor2903 = xor i64 %or2899, %or2902
-  %xor2904 = xor i64 %xor2903, %or2896
-  %and2906 = and i64 %add2855, %add2773
-  %not2907 = xor i64 %add2855, -1
-  %and2908 = and i64 %add2691, %not2907
-  %xor2909 = or i64 %and2906, %and2908
-  %add2905 = add i64 %add1820, -5763719355590565569
-  %add2910 = add i64 %add2905, %add2609
-  %add2911 = add i64 %add2910, %xor2909
-  %add2912 = add i64 %add2911, %xor2904
-  %or2916 = tail call i64 @llvm.fshl.i64(i64 %add2850, i64 %add2850, i64 36)
-  %or2919 = tail call i64 @llvm.fshl.i64(i64 %add2850, i64 %add2850, i64 30)
-  %or2922 = tail call i64 @llvm.fshl.i64(i64 %add2850, i64 %add2850, i64 25)
-  %xor2923 = xor i64 %or2919, %or2922
-  %xor2924 = xor i64 %xor2923, %or2916
-  %and2925 = and i64 %add2850, %add2768
-  %and29264648 = xor i64 %add2850, %add2768
-  %xor2928 = and i64 %and29264648, %add2686
-  %xor2929 = xor i64 %xor2928, %and2925
-  %add2930 = add i64 %xor2924, %xor2929
-  %add2932 = add i64 %add2930, %add2912
-  %add2937 = add i64 %add2912, %add2604
-  %or2978 = tail call i64 @llvm.fshl.i64(i64 %add2937, i64 %add2937, i64 50)
-  %or2981 = tail call i64 @llvm.fshl.i64(i64 %add2937, i64 %add2937, i64 46)
-  %or2984 = tail call i64 @llvm.fshl.i64(i64 %add2937, i64 %add2937, i64 23)
-  %xor2985 = xor i64 %or2981, %or2984
-  %xor2986 = xor i64 %xor2985, %or2978
-  %and2988 = and i64 %add2937, %add2855
-  %not2989 = xor i64 %add2937, -1
-  %and2990 = and i64 %add2773, %not2989
-  %xor2991 = or i64 %and2988, %and2990
-  %add2987 = add i64 %add1864, -4658551843659510044
-  %add2992 = add i64 %add2987, %add2691
-  %add2993 = add i64 %add2992, %xor2991
-  %add2994 = add i64 %add2993, %xor2986
-  %or2998 = tail call i64 @llvm.fshl.i64(i64 %add2932, i64 %add2932, i64 36)
-  %or3001 = tail call i64 @llvm.fshl.i64(i64 %add2932, i64 %add2932, i64 30)
-  %or3004 = tail call i64 @llvm.fshl.i64(i64 %add2932, i64 %add2932, i64 25)
-  %xor3005 = xor i64 %or3001, %or3004
-  %xor3006 = xor i64 %xor3005, %or2998
-  %and3007 = and i64 %add2932, %add2850
-  %and30084649 = xor i64 %add2932, %add2850
-  %xor3010 = and i64 %and30084649, %add2768
-  %xor3011 = xor i64 %xor3010, %and3007
-  %add3012 = add i64 %xor3006, %xor3011
-  %add3014 = add i64 %add3012, %add2994
-  %add3019 = add i64 %add2994, %add2686
-  %or3060 = tail call i64 @llvm.fshl.i64(i64 %add3019, i64 %add3019, i64 50)
-  %or3063 = tail call i64 @llvm.fshl.i64(i64 %add3019, i64 %add3019, i64 46)
-  %or3066 = tail call i64 @llvm.fshl.i64(i64 %add3019, i64 %add3019, i64 23)
-  %xor3067 = xor i64 %or3063, %or3066
-  %xor3068 = xor i64 %xor3067, %or3060
-  %and3070 = and i64 %add3019, %add2937
-  %not3071 = xor i64 %add3019, -1
-  %and3072 = and i64 %add2855, %not3071
-  %xor3073 = or i64 %and3070, %and3072
-  %add3069 = add i64 %add1908, -4116276920077217854
-  %add3074 = add i64 %add3069, %add2773
-  %add3075 = add i64 %add3074, %xor3073
-  %add3076 = add i64 %add3075, %xor3068
-  %or3080 = tail call i64 @llvm.fshl.i64(i64 %add3014, i64 %add3014, i64 36)
-  %or3083 = tail call i64 @llvm.fshl.i64(i64 %add3014, i64 %add3014, i64 30)
-  %or3086 = tail call i64 @llvm.fshl.i64(i64 %add3014, i64 %add3014, i64 25)
-  %xor3087 = xor i64 %or3083, %or3086
-  %xor3088 = xor i64 %xor3087, %or3080
-  %and3089 = and i64 %add3014, %add2932
-  %and30904650 = xor i64 %add3014, %add2932
-  %xor3092 = and i64 %and30904650, %add2850
-  %xor3093 = xor i64 %xor3092, %and3089
-  %add3094 = add i64 %xor3088, %xor3093
-  %add3096 = add i64 %add3094, %add3076
-  %add3101 = add i64 %add3076, %add2768
-  %or3142 = tail call i64 @llvm.fshl.i64(i64 %add3101, i64 %add3101, i64 50)
-  %or3145 = tail call i64 @llvm.fshl.i64(i64 %add3101, i64 %add3101, i64 46)
-  %or3148 = tail call i64 @llvm.fshl.i64(i64 %add3101, i64 %add3101, i64 23)
-  %xor3149 = xor i64 %or3145, %or3148
-  %xor3150 = xor i64 %xor3149, %or3142
-  %and3152 = and i64 %add3101, %add3019
-  %not3153 = xor i64 %add3101, -1
-  %and3154 = and i64 %add2937, %not3153
-  %xor3155 = or i64 %and3152, %and3154
-  %add3151 = add i64 %add1952, -3051310485924567259
-  %add3156 = add i64 %add3151, %add2855
-  %add3157 = add i64 %add3156, %xor3155
-  %add3158 = add i64 %add3157, %xor3150
-  %or3162 = tail call i64 @llvm.fshl.i64(i64 %add3096, i64 %add3096, i64 36)
-  %or3165 = tail call i64 @llvm.fshl.i64(i64 %add3096, i64 %add3096, i64 30)
-  %or3168 = tail call i64 @llvm.fshl.i64(i64 %add3096, i64 %add3096, i64 25)
-  %xor3169 = xor i64 %or3165, %or3168
-  %xor3170 = xor i64 %xor3169, %or3162
-  %and3171 = and i64 %add3096, %add3014
-  %and31724651 = xor i64 %add3096, %add3014
-  %xor3174 = and i64 %and31724651, %add2932
-  %xor3175 = xor i64 %xor3174, %and3171
-  %add3176 = add i64 %xor3170, %xor3175
-  %add3178 = add i64 %add3176, %add3158
-  %add3183 = add i64 %add3158, %add2850
-  %or3224 = tail call i64 @llvm.fshl.i64(i64 %add3183, i64 %add3183, i64 50)
-  %or3227 = tail call i64 @llvm.fshl.i64(i64 %add3183, i64 %add3183, i64 46)
-  %or3230 = tail call i64 @llvm.fshl.i64(i64 %add3183, i64 %add3183, i64 23)
-  %xor3231 = xor i64 %or3227, %or3230
-  %xor3232 = xor i64 %xor3231, %or3224
-  %and3234 = and i64 %add3183, %add3101
-  %not3235 = xor i64 %add3183, -1
-  %and3236 = and i64 %add3019, %not3235
-  %xor3237 = or i64 %and3234, %and3236
-  %add3233 = add i64 %add1996, 489312712824947311
-  %add3238 = add i64 %add3233, %add2937
-  %add3239 = add i64 %add3238, %xor3237
-  %add3240 = add i64 %add3239, %xor3232
-  %or3244 = tail call i64 @llvm.fshl.i64(i64 %add3178, i64 %add3178, i64 36)
-  %or3247 = tail call i64 @llvm.fshl.i64(i64 %add3178, i64 %add3178, i64 30)
-  %or3250 = tail call i64 @llvm.fshl.i64(i64 %add3178, i64 %add3178, i64 25)
-  %xor3251 = xor i64 %or3247, %or3250
-  %xor3252 = xor i64 %xor3251, %or3244
-  %and3253 = and i64 %add3178, %add3096
-  %and32544652 = xor i64 %add3178, %add3096
-  %xor3256 = and i64 %and32544652, %add3014
-  %xor3257 = xor i64 %xor3256, %and3253
-  %add3258 = add i64 %xor3252, %xor3257
-  %add3260 = add i64 %add3258, %add3240
-  %add3265 = add i64 %add3240, %add2932
-  %or3306 = tail call i64 @llvm.fshl.i64(i64 %add3265, i64 %add3265, i64 50)
-  %or3309 = tail call i64 @llvm.fshl.i64(i64 %add3265, i64 %add3265, i64 46)
-  %or3312 = tail call i64 @llvm.fshl.i64(i64 %add3265, i64 %add3265, i64 23)
-  %xor3313 = xor i64 %or3309, %or3312
-  %xor3314 = xor i64 %xor3313, %or3306
-  %and3316 = and i64 %add3265, %add3183
-  %not3317 = xor i64 %add3265, -1
-  %and3318 = and i64 %add3101, %not3317
-  %xor3319 = or i64 %and3316, %and3318
-  %add3315 = add i64 %add2040, 1452737877330783856
-  %add3320 = add i64 %add3315, %add3019
-  %add3321 = add i64 %add3320, %xor3319
-  %add3322 = add i64 %add3321, %xor3314
-  %or3326 = tail call i64 @llvm.fshl.i64(i64 %add3260, i64 %add3260, i64 36)
-  %or3329 = tail call i64 @llvm.fshl.i64(i64 %add3260, i64 %add3260, i64 30)
-  %or3332 = tail call i64 @llvm.fshl.i64(i64 %add3260, i64 %add3260, i64 25)
-  %xor3333 = xor i64 %or3329, %or3332
-  %xor3334 = xor i64 %xor3333, %or3326
-  %and3335 = and i64 %add3260, %add3178
-  %and33364653 = xor i64 %add3260, %add3178
-  %xor3338 = and i64 %and33364653, %add3096
-  %xor3339 = xor i64 %xor3338, %and3335
-  %add3340 = add i64 %xor3334, %xor3339
-  %add3342 = add i64 %add3340, %add3322
-  %add3347 = add i64 %add3322, %add3014
-  %or3386 = tail call i64 @llvm.fshl.i64(i64 %add1996, i64 %add1996, i64 45)
-  %or3389 = tail call i64 @llvm.fshl.i64(i64 %add1996, i64 %add1996, i64 3)
-  %shr3390 = lshr i64 %add1996, 6
-  %xor3391 = xor i64 %or3389, %shr3390
-  %xor3392 = xor i64 %xor3391, %or3386
-  %or3396 = tail call i64 @llvm.fshl.i64(i64 %add1424, i64 %add1424, i64 63)
-  %or3399 = tail call i64 @llvm.fshl.i64(i64 %add1424, i64 %add1424, i64 56)
-  %shr3400 = lshr i64 %add1424, 7
-  %xor3401 = xor i64 %or3399, %shr3400
-  %xor3402 = xor i64 %xor3401, %or3396
-  %add3403 = add i64 %xor3402, %add1380
-  %add3404 = add i64 %add3403, %add1776
-  %add3405 = add i64 %add3404, %xor3392
-  %or3430 = tail call i64 @llvm.fshl.i64(i64 %add2040, i64 %add2040, i64 45)
-  %or3433 = tail call i64 @llvm.fshl.i64(i64 %add2040, i64 %add2040, i64 3)
-  %shr3434 = lshr i64 %add2040, 6
-  %xor3435 = xor i64 %or3433, %shr3434
-  %xor3436 = xor i64 %xor3435, %or3430
-  %or3440 = tail call i64 @llvm.fshl.i64(i64 %add1468, i64 %add1468, i64 63)
-  %or3443 = tail call i64 @llvm.fshl.i64(i64 %add1468, i64 %add1468, i64 56)
-  %shr3444 = lshr i64 %add1468, 7
-  %xor3445 = xor i64 %or3443, %shr3444
-  %xor3446 = xor i64 %xor3445, %or3440
-  %add3447 = add i64 %xor3446, %add1424
-  %add3448 = add i64 %add3447, %add1820
-  %add3449 = add i64 %add3448, %xor3436
-  %or3474 = tail call i64 @llvm.fshl.i64(i64 %add3405, i64 %add3405, i64 45)
-  %or3477 = tail call i64 @llvm.fshl.i64(i64 %add3405, i64 %add3405, i64 3)
-  %shr3478 = lshr i64 %add3405, 6
-  %xor3479 = xor i64 %or3477, %shr3478
-  %xor3480 = xor i64 %xor3479, %or3474
-  %or3484 = tail call i64 @llvm.fshl.i64(i64 %add1512, i64 %add1512, i64 63)
-  %or3487 = tail call i64 @llvm.fshl.i64(i64 %add1512, i64 %add1512, i64 56)
-  %shr3488 = lshr i64 %add1512, 7
-  %xor3489 = xor i64 %or3487, %shr3488
-  %xor3490 = xor i64 %xor3489, %or3484
-  %add3491 = add i64 %xor3490, %add1468
-  %add3492 = add i64 %add3491, %add1864
-  %add3493 = add i64 %add3492, %xor3480
-  %or3518 = tail call i64 @llvm.fshl.i64(i64 %add3449, i64 %add3449, i64 45)
-  %or3521 = tail call i64 @llvm.fshl.i64(i64 %add3449, i64 %add3449, i64 3)
-  %shr3522 = lshr i64 %add3449, 6
-  %xor3523 = xor i64 %or3521, %shr3522
-  %xor3524 = xor i64 %xor3523, %or3518
-  %or3528 = tail call i64 @llvm.fshl.i64(i64 %add1556, i64 %add1556, i64 63)
-  %or3531 = tail call i64 @llvm.fshl.i64(i64 %add1556, i64 %add1556, i64 56)
-  %shr3532 = lshr i64 %add1556, 7
-  %xor3533 = xor i64 %or3531, %shr3532
-  %xor3534 = xor i64 %xor3533, %or3528
-  %add3535 = add i64 %xor3534, %add1512
-  %add3536 = add i64 %add3535, %add1908
-  %add3537 = add i64 %add3536, %xor3524
-  %or3562 = tail call i64 @llvm.fshl.i64(i64 %add3493, i64 %add3493, i64 45)
-  %or3565 = tail call i64 @llvm.fshl.i64(i64 %add3493, i64 %add3493, i64 3)
-  %shr3566 = lshr i64 %add3493, 6
-  %xor3567 = xor i64 %or3565, %shr3566
-  %xor3568 = xor i64 %xor3567, %or3562
-  %or3572 = tail call i64 @llvm.fshl.i64(i64 %add1600, i64 %add1600, i64 63)
-  %or3575 = tail call i64 @llvm.fshl.i64(i64 %add1600, i64 %add1600, i64 56)
-  %shr3576 = lshr i64 %add1600, 7
-  %xor3577 = xor i64 %or3575, %shr3576
-  %xor3578 = xor i64 %xor3577, %or3572
-  %add3579 = add i64 %xor3578, %add1556
-  %add3580 = add i64 %add3579, %add1952
-  %add3581 = add i64 %add3580, %xor3568
-  %or3606 = tail call i64 @llvm.fshl.i64(i64 %add3537, i64 %add3537, i64 45)
-  %or3609 = tail call i64 @llvm.fshl.i64(i64 %add3537, i64 %add3537, i64 3)
-  %shr3610 = lshr i64 %add3537, 6
-  %xor3611 = xor i64 %or3609, %shr3610
-  %xor3612 = xor i64 %xor3611, %or3606
-  %or3616 = tail call i64 @llvm.fshl.i64(i64 %add1644, i64 %add1644, i64 63)
-  %or3619 = tail call i64 @llvm.fshl.i64(i64 %add1644, i64 %add1644, i64 56)
-  %shr3620 = lshr i64 %add1644, 7
-  %xor3621 = xor i64 %or3619, %shr3620
-  %xor3622 = xor i64 %xor3621, %or3616
-  %add3623 = add i64 %xor3622, %add1600
-  %add3624 = add i64 %add3623, %add1996
-  %add3625 = add i64 %add3624, %xor3612
-  %or3650 = tail call i64 @llvm.fshl.i64(i64 %add3581, i64 %add3581, i64 45)
-  %or3653 = tail call i64 @llvm.fshl.i64(i64 %add3581, i64 %add3581, i64 3)
-  %shr3654 = lshr i64 %add3581, 6
-  %xor3655 = xor i64 %or3653, %shr3654
-  %xor3656 = xor i64 %xor3655, %or3650
-  %or3660 = tail call i64 @llvm.fshl.i64(i64 %add1688, i64 %add1688, i64 63)
-  %or3663 = tail call i64 @llvm.fshl.i64(i64 %add1688, i64 %add1688, i64 56)
-  %shr3664 = lshr i64 %add1688, 7
-  %xor3665 = xor i64 %or3663, %shr3664
-  %xor3666 = xor i64 %xor3665, %or3660
-  %add3667 = add i64 %xor3666, %add1644
-  %add3668 = add i64 %add3667, %add2040
-  %add3669 = add i64 %add3668, %xor3656
-  %or3694 = tail call i64 @llvm.fshl.i64(i64 %add3625, i64 %add3625, i64 45)
-  %or3697 = tail call i64 @llvm.fshl.i64(i64 %add3625, i64 %add3625, i64 3)
-  %shr3698 = lshr i64 %add3625, 6
-  %xor3699 = xor i64 %or3697, %shr3698
-  %xor3700 = xor i64 %xor3699, %or3694
-  %or3704 = tail call i64 @llvm.fshl.i64(i64 %add1732, i64 %add1732, i64 63)
-  %or3707 = tail call i64 @llvm.fshl.i64(i64 %add1732, i64 %add1732, i64 56)
-  %shr3708 = lshr i64 %add1732, 7
-  %xor3709 = xor i64 %or3707, %shr3708
-  %xor3710 = xor i64 %xor3709, %or3704
-  %add3711 = add i64 %xor3710, %add1688
-  %add3712 = add i64 %add3711, %add3405
-  %add3713 = add i64 %add3712, %xor3700
-  %or3738 = tail call i64 @llvm.fshl.i64(i64 %add3669, i64 %add3669, i64 45)
-  %or3741 = tail call i64 @llvm.fshl.i64(i64 %add3669, i64 %add3669, i64 3)
-  %shr3742 = lshr i64 %add3669, 6
-  %xor3743 = xor i64 %or3741, %shr3742
-  %xor3744 = xor i64 %xor3743, %or3738
-  %or3748 = tail call i64 @llvm.fshl.i64(i64 %add1776, i64 %add1776, i64 63)
-  %or3751 = tail call i64 @llvm.fshl.i64(i64 %add1776, i64 %add1776, i64 56)
-  %shr3752 = lshr i64 %add1776, 7
-  %xor3753 = xor i64 %or3751, %shr3752
-  %xor3754 = xor i64 %xor3753, %or3748
-  %add3755 = add i64 %xor3754, %add1732
-  %add3756 = add i64 %add3755, %add3449
-  %add3757 = add i64 %add3756, %xor3744
-  %or3782 = tail call i64 @llvm.fshl.i64(i64 %add3713, i64 %add3713, i64 45)
-  %or3785 = tail call i64 @llvm.fshl.i64(i64 %add3713, i64 %add3713, i64 3)
-  %shr3786 = lshr i64 %add3713, 6
-  %xor3787 = xor i64 %or3785, %shr3786
-  %xor3788 = xor i64 %xor3787, %or3782
-  %or3792 = tail call i64 @llvm.fshl.i64(i64 %add1820, i64 %add1820, i64 63)
-  %or3795 = tail call i64 @llvm.fshl.i64(i64 %add1820, i64 %add1820, i64 56)
-  %shr3796 = lshr i64 %add1820, 7
-  %xor3797 = xor i64 %or3795, %shr3796
-  %xor3798 = xor i64 %xor3797, %or3792
-  %add3799 = add i64 %xor3798, %add1776
-  %add3800 = add i64 %add3799, %add3493
-  %add3801 = add i64 %add3800, %xor3788
-  %or3826 = tail call i64 @llvm.fshl.i64(i64 %add3757, i64 %add3757, i64 45)
-  %or3829 = tail call i64 @llvm.fshl.i64(i64 %add3757, i64 %add3757, i64 3)
-  %shr3830 = lshr i64 %add3757, 6
-  %xor3831 = xor i64 %or3829, %shr3830
-  %xor3832 = xor i64 %xor3831, %or3826
-  %or3836 = tail call i64 @llvm.fshl.i64(i64 %add1864, i64 %add1864, i64 63)
-  %or3839 = tail call i64 @llvm.fshl.i64(i64 %add1864, i64 %add1864, i64 56)
-  %shr3840 = lshr i64 %add1864, 7
-  %xor3841 = xor i64 %or3839, %shr3840
-  %xor3842 = xor i64 %xor3841, %or3836
-  %add3843 = add i64 %xor3842, %add1820
-  %add3844 = add i64 %add3843, %add3537
-  %add3845 = add i64 %add3844, %xor3832
-  %or3870 = tail call i64 @llvm.fshl.i64(i64 %add3801, i64 %add3801, i64 45)
-  %or3873 = tail call i64 @llvm.fshl.i64(i64 %add3801, i64 %add3801, i64 3)
-  %shr3874 = lshr i64 %add3801, 6
-  %xor3875 = xor i64 %or3873, %shr3874
-  %xor3876 = xor i64 %xor3875, %or3870
-  %or3880 = tail call i64 @llvm.fshl.i64(i64 %add1908, i64 %add1908, i64 63)
-  %or3883 = tail call i64 @llvm.fshl.i64(i64 %add1908, i64 %add1908, i64 56)
-  %shr3884 = lshr i64 %add1908, 7
-  %xor3885 = xor i64 %or3883, %shr3884
-  %xor3886 = xor i64 %xor3885, %or3880
-  %add3887 = add i64 %xor3886, %add1864
-  %add3888 = add i64 %add3887, %add3581
-  %add3889 = add i64 %add3888, %xor3876
-  %or3914 = tail call i64 @llvm.fshl.i64(i64 %add3845, i64 %add3845, i64 45)
-  %or3917 = tail call i64 @llvm.fshl.i64(i64 %add3845, i64 %add3845, i64 3)
-  %shr3918 = lshr i64 %add3845, 6
-  %xor3919 = xor i64 %or3917, %shr3918
-  %xor3920 = xor i64 %xor3919, %or3914
-  %or3924 = tail call i64 @llvm.fshl.i64(i64 %add1952, i64 %add1952, i64 63)
-  %or3927 = tail call i64 @llvm.fshl.i64(i64 %add1952, i64 %add1952, i64 56)
-  %shr3928 = lshr i64 %add1952, 7
-  %xor3929 = xor i64 %or3927, %shr3928
-  %xor3930 = xor i64 %xor3929, %or3924
-  %add3931 = add i64 %xor3930, %add1908
-  %add3932 = add i64 %add3931, %add3625
-  %add3933 = add i64 %add3932, %xor3920
-  %or3958 = tail call i64 @llvm.fshl.i64(i64 %add3889, i64 %add3889, i64 45)
-  %or3961 = tail call i64 @llvm.fshl.i64(i64 %add3889, i64 %add3889, i64 3)
-  %shr3962 = lshr i64 %add3889, 6
-  %xor3963 = xor i64 %or3961, %shr3962
-  %xor3964 = xor i64 %xor3963, %or3958
-  %or3968 = tail call i64 @llvm.fshl.i64(i64 %add1996, i64 %add1996, i64 63)
-  %or3971 = tail call i64 @llvm.fshl.i64(i64 %add1996, i64 %add1996, i64 56)
-  %shr3972 = lshr i64 %add1996, 7
-  %xor3973 = xor i64 %or3971, %shr3972
-  %xor3974 = xor i64 %xor3973, %or3968
-  %add3975 = add i64 %xor3974, %add1952
-  %add3976 = add i64 %add3975, %add3669
-  %add3977 = add i64 %add3976, %xor3964
-  %or4002 = tail call i64 @llvm.fshl.i64(i64 %add3933, i64 %add3933, i64 45)
-  %or4005 = tail call i64 @llvm.fshl.i64(i64 %add3933, i64 %add3933, i64 3)
-  %shr4006 = lshr i64 %add3933, 6
-  %xor4007 = xor i64 %or4005, %shr4006
-  %xor4008 = xor i64 %xor4007, %or4002
-  %or4012 = tail call i64 @llvm.fshl.i64(i64 %add2040, i64 %add2040, i64 63)
-  %or4015 = tail call i64 @llvm.fshl.i64(i64 %add2040, i64 %add2040, i64 56)
-  %shr4016 = lshr i64 %add2040, 7
-  %xor4017 = xor i64 %or4015, %shr4016
-  %xor4018 = xor i64 %xor4017, %or4012
-  %add4019 = add i64 %xor4018, %add1996
-  %add4020 = add i64 %add4019, %add3713
-  %add4021 = add i64 %add4020, %xor4008
-  %or4046 = tail call i64 @llvm.fshl.i64(i64 %add3977, i64 %add3977, i64 45)
-  %or4049 = tail call i64 @llvm.fshl.i64(i64 %add3977, i64 %add3977, i64 3)
-  %shr4050 = lshr i64 %add3977, 6
-  %xor4051 = xor i64 %or4049, %shr4050
-  %xor4052 = xor i64 %xor4051, %or4046
-  %or4056 = tail call i64 @llvm.fshl.i64(i64 %add3405, i64 %add3405, i64 63)
-  %or4059 = tail call i64 @llvm.fshl.i64(i64 %add3405, i64 %add3405, i64 56)
-  %shr4060 = lshr i64 %add3405, 7
-  %xor4061 = xor i64 %or4059, %shr4060
-  %xor4062 = xor i64 %xor4061, %or4056
-  %add4063 = add i64 %xor4062, %add2040
-  %add4064 = add i64 %add4063, %add3757
-  %add4065 = add i64 %add4064, %xor4052
-  %or4102 = tail call i64 @llvm.fshl.i64(i64 %add3347, i64 %add3347, i64 50)
-  %or4105 = tail call i64 @llvm.fshl.i64(i64 %add3347, i64 %add3347, i64 46)
-  %or4108 = tail call i64 @llvm.fshl.i64(i64 %add3347, i64 %add3347, i64 23)
-  %xor4109 = xor i64 %or4105, %or4108
-  %xor4110 = xor i64 %xor4109, %or4102
-  %and4112 = and i64 %add3347, %add3265
-  %not4113 = xor i64 %add3347, -1
-  %and4114 = and i64 %add3183, %not4113
-  %xor4115 = or i64 %and4112, %and4114
-  %add4111 = add i64 %add3405, 2861767655752347644
-  %add4116 = add i64 %add4111, %add3101
-  %add4117 = add i64 %add4116, %xor4115
-  %add4118 = add i64 %add4117, %xor4110
-  %or4122 = tail call i64 @llvm.fshl.i64(i64 %add3342, i64 %add3342, i64 36)
-  %or4125 = tail call i64 @llvm.fshl.i64(i64 %add3342, i64 %add3342, i64 30)
-  %or4128 = tail call i64 @llvm.fshl.i64(i64 %add3342, i64 %add3342, i64 25)
-  %xor4129 = xor i64 %or4125, %or4128
-  %xor4130 = xor i64 %xor4129, %or4122
-  %and4131 = and i64 %add3342, %add3260
-  %and41324654 = xor i64 %add3342, %add3260
-  %xor4134 = and i64 %and41324654, %add3178
-  %xor4135 = xor i64 %xor4134, %and4131
-  %add4136 = add i64 %xor4130, %xor4135
-  %add4138 = add i64 %add4136, %add4118
-  %add4143 = add i64 %add4118, %add3096
-  %or4184 = tail call i64 @llvm.fshl.i64(i64 %add4143, i64 %add4143, i64 50)
-  %or4187 = tail call i64 @llvm.fshl.i64(i64 %add4143, i64 %add4143, i64 46)
-  %or4190 = tail call i64 @llvm.fshl.i64(i64 %add4143, i64 %add4143, i64 23)
-  %xor4191 = xor i64 %or4187, %or4190
-  %xor4192 = xor i64 %xor4191, %or4184
-  %and4194 = and i64 %add4143, %add3347
-  %not4195 = xor i64 %add4143, -1
-  %and4196 = and i64 %add3265, %not4195
-  %xor4197 = or i64 %and4194, %and4196
-  %add4193 = add i64 %add3449, 3322285676063803686
-  %add4198 = add i64 %add4193, %add3183
-  %add4199 = add i64 %add4198, %xor4197
-  %add4200 = add i64 %add4199, %xor4192
-  %or4204 = tail call i64 @llvm.fshl.i64(i64 %add4138, i64 %add4138, i64 36)
-  %or4207 = tail call i64 @llvm.fshl.i64(i64 %add4138, i64 %add4138, i64 30)
-  %or4210 = tail call i64 @llvm.fshl.i64(i64 %add4138, i64 %add4138, i64 25)
-  %xor4211 = xor i64 %or4207, %or4210
-  %xor4212 = xor i64 %xor4211, %or4204
-  %and4213 = and i64 %add4138, %add3342
-  %and42144655 = xor i64 %add4138, %add3342
-  %xor4216 = and i64 %and42144655, %add3260
-  %xor4217 = xor i64 %xor4216, %and4213
-  %add4218 = add i64 %xor4212, %xor4217
-  %add4220 = add i64 %add4218, %add4200
-  %add4225 = add i64 %add4200, %add3178
-  %or4266 = tail call i64 @llvm.fshl.i64(i64 %add4225, i64 %add4225, i64 50)
-  %or4269 = tail call i64 @llvm.fshl.i64(i64 %add4225, i64 %add4225, i64 46)
-  %or4272 = tail call i64 @llvm.fshl.i64(i64 %add4225, i64 %add4225, i64 23)
-  %xor4273 = xor i64 %or4269, %or4272
-  %xor4274 = xor i64 %xor4273, %or4266
-  %and4276 = and i64 %add4225, %add4143
-  %not4277 = xor i64 %add4225, -1
-  %and4278 = and i64 %add3347, %not4277
-  %xor4279 = or i64 %and4276, %and4278
-  %add4275 = add i64 %add3493, 5560940570517711597
-  %add4280 = add i64 %add4275, %add3265
-  %add4281 = add i64 %add4280, %xor4279
-  %add4282 = add i64 %add4281, %xor4274
-  %or4286 = tail call i64 @llvm.fshl.i64(i64 %add4220, i64 %add4220, i64 36)
-  %or4289 = tail call i64 @llvm.fshl.i64(i64 %add4220, i64 %add4220, i64 30)
-  %or4292 = tail call i64 @llvm.fshl.i64(i64 %add4220, i64 %add4220, i64 25)
-  %xor4293 = xor i64 %or4289, %or4292
-  %xor4294 = xor i64 %xor4293, %or4286
-  %and4295 = and i64 %add4220, %add4138
-  %and42964656 = xor i64 %add4220, %add4138
-  %xor4298 = and i64 %and42964656, %add3342
-  %xor4299 = xor i64 %xor4298, %and4295
-  %add4300 = add i64 %xor4294, %xor4299
-  %add4302 = add i64 %add4300, %add4282
-  %add4307 = add i64 %add4282, %add3260
-  %or4348 = tail call i64 @llvm.fshl.i64(i64 %add4307, i64 %add4307, i64 50)
-  %or4351 = tail call i64 @llvm.fshl.i64(i64 %add4307, i64 %add4307, i64 46)
-  %or4354 = tail call i64 @llvm.fshl.i64(i64 %add4307, i64 %add4307, i64 23)
-  %xor4355 = xor i64 %or4351, %or4354
-  %xor4356 = xor i64 %xor4355, %or4348
-  %and4358 = and i64 %add4307, %add4225
-  %not4359 = xor i64 %add4307, -1
-  %and4360 = and i64 %add4143, %not4359
-  %xor4361 = or i64 %and4358, %and4360
-  %add4357 = add i64 %add3537, 5996557281743188959
-  %add4362 = add i64 %add4357, %add3347
-  %add4363 = add i64 %add4362, %xor4361
-  %add4364 = add i64 %add4363, %xor4356
-  %or4368 = tail call i64 @llvm.fshl.i64(i64 %add4302, i64 %add4302, i64 36)
-  %or4371 = tail call i64 @llvm.fshl.i64(i64 %add4302, i64 %add4302, i64 30)
-  %or4374 = tail call i64 @llvm.fshl.i64(i64 %add4302, i64 %add4302, i64 25)
-  %xor4375 = xor i64 %or4371, %or4374
-  %xor4376 = xor i64 %xor4375, %or4368
-  %and4377 = and i64 %add4302, %add4220
-  %and43784657 = xor i64 %add4302, %add4220
-  %xor4380 = and i64 %and43784657, %add4138
-  %xor4381 = xor i64 %xor4380, %and4377
-  %add4382 = add i64 %xor4376, %xor4381
-  %add4384 = add i64 %add4382, %add4364
-  %add4389 = add i64 %add4364, %add3342
-  %or4430 = tail call i64 @llvm.fshl.i64(i64 %add4389, i64 %add4389, i64 50)
-  %or4433 = tail call i64 @llvm.fshl.i64(i64 %add4389, i64 %add4389, i64 46)
-  %or4436 = tail call i64 @llvm.fshl.i64(i64 %add4389, i64 %add4389, i64 23)
-  %xor4437 = xor i64 %or4433, %or4436
-  %xor4438 = xor i64 %xor4437, %or4430
-  %and4440 = and i64 %add4389, %add4307
-  %not4441 = xor i64 %add4389, -1
-  %and4442 = and i64 %add4225, %not4441
-  %xor4443 = or i64 %and4440, %and4442
-  %add4439 = add i64 %add3581, 7280758554555802590
-  %add4444 = add i64 %add4439, %add4143
-  %add4445 = add i64 %add4444, %xor4443
-  %add4446 = add i64 %add4445, %xor4438
-  %or4450 = tail call i64 @llvm.fshl.i64(i64 %add4384, i64 %add4384, i64 36)
-  %or4453 = tail call i64 @llvm.fshl.i64(i64 %add4384, i64 %add4384, i64 30)
-  %or4456 = tail call i64 @llvm.fshl.i64(i64 %add4384, i64 %add4384, i64 25)
-  %xor4457 = xor i64 %or4453, %or4456
-  %xor4458 = xor i64 %xor4457, %or4450
-  %and4459 = and i64 %add4384, %add4302
-  %and44604658 = xor i64 %add4384, %add4302
-  %xor4462 = and i64 %and44604658, %add4220
-  %xor4463 = xor i64 %xor4462, %and4459
-  %add4464 = add i64 %xor4458, %xor4463
-  %add4466 = add i64 %add4464, %add4446
-  %add4471 = add i64 %add4446, %add4138
-  %or4512 = tail call i64 @llvm.fshl.i64(i64 %add4471, i64 %add4471, i64 50)
-  %or4515 = tail call i64 @llvm.fshl.i64(i64 %add4471, i64 %add4471, i64 46)
-  %or4518 = tail call i64 @llvm.fshl.i64(i64 %add4471, i64 %add4471, i64 23)
-  %xor4519 = xor i64 %or4515, %or4518
-  %xor4520 = xor i64 %xor4519, %or4512
-  %and4522 = and i64 %add4471, %add4389
-  %not4523 = xor i64 %add4471, -1
-  %and4524 = and i64 %add4307, %not4523
-  %xor4525 = or i64 %and4522, %and4524
-  %add4521 = add i64 %add3625, 8532644243296465576
-  %add4526 = add i64 %add4521, %add4225
-  %add4527 = add i64 %add4526, %xor4525
-  %add4528 = add i64 %add4527, %xor4520
-  %or4532 = tail call i64 @llvm.fshl.i64(i64 %add4466, i64 %add4466, i64 36)
-  %or4535 = tail call i64 @llvm.fshl.i64(i64 %add4466, i64 %add4466, i64 30)
-  %or4538 = tail call i64 @llvm.fshl.i64(i64 %add4466, i64 %add4466, i64 25)
-  %xor4539 = xor i64 %or4535, %or4538
-  %xor4540 = xor i64 %xor4539, %or4532
-  %and4541 = and i64 %add4466, %add4384
-  %and45424659 = xor i64 %add4466, %add4384
-  %xor4544 = and i64 %and45424659, %add4302
-  %xor4545 = xor i64 %xor4544, %and4541
-  %add4546 = add i64 %xor4540, %xor4545
-  %add4548 = add i64 %add4546, %add4528
-  %add4553 = add i64 %add4528, %add4220
-  %or4594 = tail call i64 @llvm.fshl.i64(i64 %add4553, i64 %add4553, i64 50)
-  %or4597 = tail call i64 @llvm.fshl.i64(i64 %add4553, i64 %add4553, i64 46)
-  %or4600 = tail call i64 @llvm.fshl.i64(i64 %add4553, i64 %add4553, i64 23)
-  %xor4601 = xor i64 %or4597, %or4600
-  %xor4602 = xor i64 %xor4601, %or4594
-  %and4604 = and i64 %add4553, %add4471
-  %not4605 = xor i64 %add4553, -1
-  %and4606 = and i64 %add4389, %not4605
-  %xor4607 = or i64 %and4604, %and4606
-  %add4603 = add i64 %add3669, -9096487096722542874
-  %add4608 = add i64 %add4603, %add4307
-  %add4609 = add i64 %add4608, %xor4607
-  %add4610 = add i64 %add4609, %xor4602
-  %or4614 = tail call i64 @llvm.fshl.i64(i64 %add4548, i64 %add4548, i64 36)
-  %or4617 = tail call i64 @llvm.fshl.i64(i64 %add4548, i64 %add4548, i64 30)
-  %or4620 = tail call i64 @llvm.fshl.i64(i64 %add4548, i64 %add4548, i64 25)
-  %xor4621 = xor i64 %or4617, %or4620
-  %xor4622 = xor i64 %xor4621, %or4614
-  %and4623 = and i64 %add4548, %add4466
-  %and46244660 = xor i64 %add4548, %add4466
-  %xor4626 = and i64 %and46244660, %add4384
-  %xor4627 = xor i64 %xor4626, %and4623
-  %add4628 = add i64 %xor4622, %xor4627
-  %add4630 = add i64 %add4628, %add4610
-  %add4635 = add i64 %add4610, %add4302
-  %or4676 = tail call i64 @llvm.fshl.i64(i64 %add4635, i64 %add4635, i64 50)
-  %or4679 = tail call i64 @llvm.fshl.i64(i64 %add4635, i64 %add4635, i64 46)
-  %or4682 = tail call i64 @llvm.fshl.i64(i64 %add4635, i64 %add4635, i64 23)
-  %xor4683 = xor i64 %or4679, %or4682
-  %xor4684 = xor i64 %xor4683, %or4676
-  %and4686 = and i64 %add4635, %add4553
-  %not4687 = xor i64 %add4635, -1
-  %and4688 = and i64 %add4471, %not4687
-  %xor4689 = or i64 %and4686, %and4688
-  %add4685 = add i64 %add3713, -7894198246740708037
-  %add4690 = add i64 %add4685, %add4389
-  %add4691 = add i64 %add4690, %xor4689
-  %add4692 = add i64 %add4691, %xor4684
-  %or4696 = tail call i64 @llvm.fshl.i64(i64 %add4630, i64 %add4630, i64 36)
-  %or4699 = tail call i64 @llvm.fshl.i64(i64 %add4630, i64 %add4630, i64 30)
-  %or4702 = tail call i64 @llvm.fshl.i64(i64 %add4630, i64 %add4630, i64 25)
-  %xor4703 = xor i64 %or4699, %or4702
-  %xor4704 = xor i64 %xor4703, %or4696
-  %and4705 = and i64 %add4630, %add4548
-  %and47064661 = xor i64 %add4630, %add4548
-  %xor4708 = and i64 %and47064661, %add4466
-  %xor4709 = xor i64 %xor4708, %and4705
-  %add4710 = add i64 %xor4704, %xor4709
-  %add4712 = add i64 %add4710, %add4692
-  %add4717 = add i64 %add4692, %add4384
-  %or4758 = tail call i64 @llvm.fshl.i64(i64 %add4717, i64 %add4717, i64 50)
-  %or4761 = tail call i64 @llvm.fshl.i64(i64 %add4717, i64 %add4717, i64 46)
-  %or4764 = tail call i64 @llvm.fshl.i64(i64 %add4717, i64 %add4717, i64 23)
-  %xor4765 = xor i64 %or4761, %or4764
-  %xor4766 = xor i64 %xor4765, %or4758
-  %and4768 = and i64 %add4717, %add4635
-  %not4769 = xor i64 %add4717, -1
-  %and4770 = and i64 %add4553, %not4769
-  %xor4771 = or i64 %and4768, %and4770
-  %add4767 = add i64 %add3757, -6719396339535248540
-  %add4772 = add i64 %add4767, %add4471
-  %add4773 = add i64 %add4772, %xor4771
-  %add4774 = add i64 %add4773, %xor4766
-  %or4778 = tail call i64 @llvm.fshl.i64(i64 %add4712, i64 %add4712, i64 36)
-  %or4781 = tail call i64 @llvm.fshl.i64(i64 %add4712, i64 %add4712, i64 30)
-  %or4784 = tail call i64 @llvm.fshl.i64(i64 %add4712, i64 %add4712, i64 25)
-  %xor4785 = xor i64 %or4781, %or4784
-  %xor4786 = xor i64 %xor4785, %or4778
-  %and4787 = and i64 %add4712, %add4630
-  %and47884662 = xor i64 %add4712, %add4630
-  %xor4790 = and i64 %and47884662, %add4548
-  %xor4791 = xor i64 %xor4790, %and4787
-  %add4792 = add i64 %xor4786, %xor4791
-  %add4794 = add i64 %add4792, %add4774
-  %add4799 = add i64 %add4774, %add4466
-  %or4840 = tail call i64 @llvm.fshl.i64(i64 %add4799, i64 %add4799, i64 50)
-  %or4843 = tail call i64 @llvm.fshl.i64(i64 %add4799, i64 %add4799, i64 46)
-  %or4846 = tail call i64 @llvm.fshl.i64(i64 %add4799, i64 %add4799, i64 23)
-  %xor4847 = xor i64 %or4843, %or4846
-  %xor4848 = xor i64 %xor4847, %or4840
-  %and4850 = and i64 %add4799, %add4717
-  %not4851 = xor i64 %add4799, -1
-  %and4852 = and i64 %add4635, %not4851
-  %xor4853 = or i64 %and4850, %and4852
-  %add4849 = add i64 %add3801, -6333637450476146687
-  %add4854 = add i64 %add4849, %add4553
-  %add4855 = add i64 %add4854, %xor4853
-  %add4856 = add i64 %add4855, %xor4848
-  %or4860 = tail call i64 @llvm.fshl.i64(i64 %add4794, i64 %add4794, i64 36)
-  %or4863 = tail call i64 @llvm.fshl.i64(i64 %add4794, i64 %add4794, i64 30)
-  %or4866 = tail call i64 @llvm.fshl.i64(i64 %add4794, i64 %add4794, i64 25)
-  %xor4867 = xor i64 %or4863, %or4866
-  %xor4868 = xor i64 %xor4867, %or4860
-  %and4869 = and i64 %add4794, %add4712
-  %and48704663 = xor i64 %add4794, %add4712
-  %xor4872 = and i64 %and48704663, %add4630
-  %xor4873 = xor i64 %xor4872, %and4869
-  %add4874 = add i64 %xor4868, %xor4873
-  %add4876 = add i64 %add4874, %add4856
-  %add4881 = add i64 %add4856, %add4548
-  %or4922 = tail call i64 @llvm.fshl.i64(i64 %add4881, i64 %add4881, i64 50)
-  %or4925 = tail call i64 @llvm.fshl.i64(i64 %add4881, i64 %add4881, i64 46)
-  %or4928 = tail call i64 @llvm.fshl.i64(i64 %add4881, i64 %add4881, i64 23)
-  %xor4929 = xor i64 %or4925, %or4928
-  %xor4930 = xor i64 %xor4929, %or4922
-  %and4932 = and i64 %add4881, %add4799
-  %not4933 = xor i64 %add4881, -1
-  %and4934 = and i64 %add4717, %not4933
-  %xor4935 = or i64 %and4932, %and4934
-  %add4931 = add i64 %add3845, -4446306890439682159
-  %add4936 = add i64 %add4931, %add4635
-  %add4937 = add i64 %add4936, %xor4935
-  %add4938 = add i64 %add4937, %xor4930
-  %or4942 = tail call i64 @llvm.fshl.i64(i64 %add4876, i64 %add4876, i64 36)
-  %or4945 = tail call i64 @llvm.fshl.i64(i64 %add4876, i64 %add4876, i64 30)
-  %or4948 = tail call i64 @llvm.fshl.i64(i64 %add4876, i64 %add4876, i64 25)
-  %xor4949 = xor i64 %or4945, %or4948
-  %xor4950 = xor i64 %xor4949, %or4942
-  %and4951 = and i64 %add4876, %add4794
-  %and49524664 = xor i64 %add4876, %add4794
-  %xor4954 = and i64 %and49524664, %add4712
-  %xor4955 = xor i64 %xor4954, %and4951
-  %add4956 = add i64 %xor4950, %xor4955
-  %add4958 = add i64 %add4956, %add4938
-  %add4963 = add i64 %add4938, %add4630
-  %or5004 = tail call i64 @llvm.fshl.i64(i64 %add4963, i64 %add4963, i64 50)
-  %or5007 = tail call i64 @llvm.fshl.i64(i64 %add4963, i64 %add4963, i64 46)
-  %or5010 = tail call i64 @llvm.fshl.i64(i64 %add4963, i64 %add4963, i64 23)
-  %xor5011 = xor i64 %or5007, %or5010
-  %xor5012 = xor i64 %xor5011, %or5004
-  %and5014 = and i64 %add4963, %add4881
-  %not5015 = xor i64 %add4963, -1
-  %and5016 = and i64 %add4799, %not5015
-  %xor5017 = or i64 %and5014, %and5016
-  %add5013 = add i64 %add3889, -4076793802049405392
-  %add5018 = add i64 %add5013, %add4717
-  %add5019 = add i64 %add5018, %xor5017
-  %add5020 = add i64 %add5019, %xor5012
-  %or5024 = tail call i64 @llvm.fshl.i64(i64 %add4958, i64 %add4958, i64 36)
-  %or5027 = tail call i64 @llvm.fshl.i64(i64 %add4958, i64 %add4958, i64 30)
-  %or5030 = tail call i64 @llvm.fshl.i64(i64 %add4958, i64 %add4958, i64 25)
-  %xor5031 = xor i64 %or5027, %or5030
-  %xor5032 = xor i64 %xor5031, %or5024
-  %and5033 = and i64 %add4958, %add4876
-  %and50344665 = xor i64 %add4958, %add4876
-  %xor5036 = and i64 %and50344665, %add4794
-  %xor5037 = xor i64 %xor5036, %and5033
-  %add5038 = add i64 %xor5032, %xor5037
-  %add5040 = add i64 %add5038, %add5020
-  %add5045 = add i64 %add5020, %add4712
-  %or5086 = tail call i64 @llvm.fshl.i64(i64 %add5045, i64 %add5045, i64 50)
-  %or5089 = tail call i64 @llvm.fshl.i64(i64 %add5045, i64 %add5045, i64 46)
-  %or5092 = tail call i64 @llvm.fshl.i64(i64 %add5045, i64 %add5045, i64 23)
-  %xor5093 = xor i64 %or5089, %or5092
-  %xor5094 = xor i64 %xor5093, %or5086
-  %and5096 = and i64 %add5045, %add4963
-  %not5097 = xor i64 %add5045, -1
-  %and5098 = and i64 %add4881, %not5097
-  %xor5099 = or i64 %and5096, %and5098
-  %add5095 = add i64 %add3933, -3345356375505022440
-  %add5100 = add i64 %add5095, %add4799
-  %add5101 = add i64 %add5100, %xor5099
-  %add5102 = add i64 %add5101, %xor5094
-  %or5106 = tail call i64 @llvm.fshl.i64(i64 %add5040, i64 %add5040, i64 36)
-  %or5109 = tail call i64 @llvm.fshl.i64(i64 %add5040, i64 %add5040, i64 30)
-  %or5112 = tail call i64 @llvm.fshl.i64(i64 %add5040, i64 %add5040, i64 25)
-  %xor5113 = xor i64 %or5109, %or5112
-  %xor5114 = xor i64 %xor5113, %or5106
-  %and5115 = and i64 %add5040, %add4958
-  %and51164666 = xor i64 %add5040, %add4958
-  %xor5118 = and i64 %and51164666, %add4876
-  %xor5119 = xor i64 %xor5118, %and5115
-  %add5120 = add i64 %xor5114, %xor5119
-  %add5122 = add i64 %add5120, %add5102
-  %add5127 = add i64 %add5102, %add4794
-  %or5168 = tail call i64 @llvm.fshl.i64(i64 %add5127, i64 %add5127, i64 50)
-  %or5171 = tail call i64 @llvm.fshl.i64(i64 %add5127, i64 %add5127, i64 46)
-  %or5174 = tail call i64 @llvm.fshl.i64(i64 %add5127, i64 %add5127, i64 23)
-  %xor5175 = xor i64 %or5171, %or5174
-  %xor5176 = xor i64 %xor5175, %or5168
-  %and5178 = and i64 %add5127, %add5045
-  %not5179 = xor i64 %add5127, -1
-  %and5180 = and i64 %add4963, %not5179
-  %xor5181 = or i64 %and5178, %and5180
-  %add5177 = add i64 %add3977, -2983346525034927856
-  %add5182 = add i64 %add5177, %add4881
-  %add5183 = add i64 %add5182, %xor5181
-  %add5184 = add i64 %add5183, %xor5176
-  %or5188 = tail call i64 @llvm.fshl.i64(i64 %add5122, i64 %add5122, i64 36)
-  %or5191 = tail call i64 @llvm.fshl.i64(i64 %add5122, i64 %add5122, i64 30)
-  %or5194 = tail call i64 @llvm.fshl.i64(i64 %add5122, i64 %add5122, i64 25)
-  %xor5195 = xor i64 %or5191, %or5194
-  %xor5196 = xor i64 %xor5195, %or5188
-  %and5197 = and i64 %add5122, %add5040
-  %and51984667 = xor i64 %add5122, %add5040
-  %xor5200 = and i64 %and51984667, %add4958
-  %xor5201 = xor i64 %xor5200, %and5197
-  %add5202 = add i64 %xor5196, %xor5201
-  %add5204 = add i64 %add5202, %add5184
-  %add5209 = add i64 %add5184, %add4876
-  %or5250 = tail call i64 @llvm.fshl.i64(i64 %add5209, i64 %add5209, i64 50)
-  %or5253 = tail call i64 @llvm.fshl.i64(i64 %add5209, i64 %add5209, i64 46)
-  %or5256 = tail call i64 @llvm.fshl.i64(i64 %add5209, i64 %add5209, i64 23)
-  %xor5257 = xor i64 %or5253, %or5256
-  %xor5258 = xor i64 %xor5257, %or5250
-  %and5260 = and i64 %add5209, %add5127
-  %not5261 = xor i64 %add5209, -1
-  %and5262 = and i64 %add5045, %not5261
-  %xor5263 = or i64 %and5260, %and5262
-  %add5259 = add i64 %add4021, -860691631967231958
-  %add5264 = add i64 %add5259, %add4963
-  %add5265 = add i64 %add5264, %xor5263
-  %add5266 = add i64 %add5265, %xor5258
-  %or5270 = tail call i64 @llvm.fshl.i64(i64 %add5204, i64 %add5204, i64 36)
-  %or5273 = tail call i64 @llvm.fshl.i64(i64 %add5204, i64 %add5204, i64 30)
-  %or5276 = tail call i64 @llvm.fshl.i64(i64 %add5204, i64 %add5204, i64 25)
-  %xor5277 = xor i64 %or5273, %or5276
-  %xor5278 = xor i64 %xor5277, %or5270
-  %and5279 = and i64 %add5204, %add5122
-  %and52804668 = xor i64 %add5204, %add5122
-  %xor5282 = and i64 %and52804668, %add5040
-  %xor5283 = xor i64 %xor5282, %and5279
-  %add5284 = add i64 %xor5278, %xor5283
-  %add5286 = add i64 %add5284, %add5266
-  %add5291 = add i64 %add5266, %add4958
-  %or5332 = tail call i64 @llvm.fshl.i64(i64 %add5291, i64 %add5291, i64 50)
-  %or5335 = tail call i64 @llvm.fshl.i64(i64 %add5291, i64 %add5291, i64 46)
-  %or5338 = tail call i64 @llvm.fshl.i64(i64 %add5291, i64 %add5291, i64 23)
-  %xor5339 = xor i64 %or5335, %or5338
-  %xor5340 = xor i64 %xor5339, %or5332
-  %and5342 = and i64 %add5291, %add5209
-  %not5343 = xor i64 %add5291, -1
-  %and5344 = and i64 %add5127, %not5343
-  %xor5345 = or i64 %and5342, %and5344
-  %add5341 = add i64 %add4065, 1182934255886127544
-  %add5346 = add i64 %add5341, %add5045
-  %add5347 = add i64 %add5346, %xor5345
-  %add5348 = add i64 %add5347, %xor5340
-  %or5352 = tail call i64 @llvm.fshl.i64(i64 %add5286, i64 %add5286, i64 36)
-  %or5355 = tail call i64 @llvm.fshl.i64(i64 %add5286, i64 %add5286, i64 30)
-  %or5358 = tail call i64 @llvm.fshl.i64(i64 %add5286, i64 %add5286, i64 25)
-  %xor5359 = xor i64 %or5355, %or5358
-  %xor5360 = xor i64 %xor5359, %or5352
-  %and5361 = and i64 %add5286, %add5204
-  %and53624669 = xor i64 %add5286, %add5204
-  %xor5364 = and i64 %and53624669, %add5122
-  %xor5365 = xor i64 %xor5364, %and5361
-  %add5366 = add i64 %xor5360, %xor5365
-  %add5368 = add i64 %add5366, %add5348
-  %add5373 = add i64 %add5348, %add5040
-  %or5412 = tail call i64 @llvm.fshl.i64(i64 %add4021, i64 %add4021, i64 45)
-  %or5415 = tail call i64 @llvm.fshl.i64(i64 %add4021, i64 %add4021, i64 3)
-  %shr5416 = lshr i64 %add4021, 6
-  %xor5417 = xor i64 %or5415, %shr5416
-  %xor5418 = xor i64 %xor5417, %or5412
-  %or5422 = tail call i64 @llvm.fshl.i64(i64 %add3449, i64 %add3449, i64 63)
-  %or5425 = tail call i64 @llvm.fshl.i64(i64 %add3449, i64 %add3449, i64 56)
-  %shr5426 = lshr i64 %add3449, 7
-  %xor5427 = xor i64 %or5425, %shr5426
-  %xor5428 = xor i64 %xor5427, %or5422
-  %add5429 = add i64 %xor5428, %add3405
-  %add5430 = add i64 %add5429, %add3801
-  %add5431 = add i64 %add5430, %xor5418
-  %or5456 = tail call i64 @llvm.fshl.i64(i64 %add4065, i64 %add4065, i64 45)
-  %or5459 = tail call i64 @llvm.fshl.i64(i64 %add4065, i64 %add4065, i64 3)
-  %shr5460 = lshr i64 %add4065, 6
-  %xor5461 = xor i64 %or5459, %shr5460
-  %xor5462 = xor i64 %xor5461, %or5456
-  %or5466 = tail call i64 @llvm.fshl.i64(i64 %add3493, i64 %add3493, i64 63)
-  %or5469 = tail call i64 @llvm.fshl.i64(i64 %add3493, i64 %add3493, i64 56)
-  %shr5470 = lshr i64 %add3493, 7
-  %xor5471 = xor i64 %or5469, %shr5470
-  %xor5472 = xor i64 %xor5471, %or5466
-  %add5473 = add i64 %xor5472, %add3449
-  %add5474 = add i64 %add5473, %add3845
-  %add5475 = add i64 %add5474, %xor5462
-  %or5500 = tail call i64 @llvm.fshl.i64(i64 %add5431, i64 %add5431, i64 45)
-  %or5503 = tail call i64 @llvm.fshl.i64(i64 %add5431, i64 %add5431, i64 3)
-  %shr5504 = lshr i64 %add5431, 6
-  %xor5505 = xor i64 %or5503, %shr5504
-  %xor5506 = xor i64 %xor5505, %or5500
-  %or5510 = tail call i64 @llvm.fshl.i64(i64 %add3537, i64 %add3537, i64 63)
-  %or5513 = tail call i64 @llvm.fshl.i64(i64 %add3537, i64 %add3537, i64 56)
-  %shr5514 = lshr i64 %add3537, 7
-  %xor5515 = xor i64 %or5513, %shr5514
-  %xor5516 = xor i64 %xor5515, %or5510
-  %add5517 = add i64 %xor5516, %add3493
-  %add5518 = add i64 %add5517, %add3889
-  %add5519 = add i64 %add5518, %xor5506
-  %or5544 = tail call i64 @llvm.fshl.i64(i64 %add5475, i64 %add5475, i64 45)
-  %or5547 = tail call i64 @llvm.fshl.i64(i64 %add5475, i64 %add5475, i64 3)
-  %shr5548 = lshr i64 %add5475, 6
-  %xor5549 = xor i64 %or5547, %shr5548
-  %xor5550 = xor i64 %xor5549, %or5544
-  %or5554 = tail call i64 @llvm.fshl.i64(i64 %add3581, i64 %add3581, i64 63)
-  %or5557 = tail call i64 @llvm.fshl.i64(i64 %add3581, i64 %add3581, i64 56)
-  %shr5558 = lshr i64 %add3581, 7
-  %xor5559 = xor i64 %or5557, %shr5558
-  %xor5560 = xor i64 %xor5559, %or5554
-  %add5561 = add i64 %xor5560, %add3537
-  %add5562 = add i64 %add5561, %add3933
-  %add5563 = add i64 %add5562, %xor5550
-  %or5588 = tail call i64 @llvm.fshl.i64(i64 %add5519, i64 %add5519, i64 45)
-  %or5591 = tail call i64 @llvm.fshl.i64(i64 %add5519, i64 %add5519, i64 3)
-  %shr5592 = lshr i64 %add5519, 6
-  %xor5593 = xor i64 %or5591, %shr5592
-  %xor5594 = xor i64 %xor5593, %or5588
-  %or5598 = tail call i64 @llvm.fshl.i64(i64 %add3625, i64 %add3625, i64 63)
-  %or5601 = tail call i64 @llvm.fshl.i64(i64 %add3625, i64 %add3625, i64 56)
-  %shr5602 = lshr i64 %add3625, 7
-  %xor5603 = xor i64 %or5601, %shr5602
-  %xor5604 = xor i64 %xor5603, %or5598
-  %add5605 = add i64 %xor5604, %add3581
-  %add5606 = add i64 %add5605, %add3977
-  %add5607 = add i64 %add5606, %xor5594
-  %or5632 = tail call i64 @llvm.fshl.i64(i64 %add5563, i64 %add5563, i64 45)
-  %or5635 = tail call i64 @llvm.fshl.i64(i64 %add5563, i64 %add5563, i64 3)
-  %shr5636 = lshr i64 %add5563, 6
-  %xor5637 = xor i64 %or5635, %shr5636
-  %xor5638 = xor i64 %xor5637, %or5632
-  %or5642 = tail call i64 @llvm.fshl.i64(i64 %add3669, i64 %add3669, i64 63)
-  %or5645 = tail call i64 @llvm.fshl.i64(i64 %add3669, i64 %add3669, i64 56)
-  %shr5646 = lshr i64 %add3669, 7
-  %xor5647 = xor i64 %or5645, %shr5646
-  %xor5648 = xor i64 %xor5647, %or5642
-  %add5649 = add i64 %xor5648, %add3625
-  %add5650 = add i64 %add5649, %add4021
-  %add5651 = add i64 %add5650, %xor5638
-  %or5676 = tail call i64 @llvm.fshl.i64(i64 %add5607, i64 %add5607, i64 45)
-  %or5679 = tail call i64 @llvm.fshl.i64(i64 %add5607, i64 %add5607, i64 3)
-  %shr5680 = lshr i64 %add5607, 6
-  %xor5681 = xor i64 %or5679, %shr5680
-  %xor5682 = xor i64 %xor5681, %or5676
-  %or5686 = tail call i64 @llvm.fshl.i64(i64 %add3713, i64 %add3713, i64 63)
-  %or5689 = tail call i64 @llvm.fshl.i64(i64 %add3713, i64 %add3713, i64 56)
-  %shr5690 = lshr i64 %add3713, 7
-  %xor5691 = xor i64 %or5689, %shr5690
-  %xor5692 = xor i64 %xor5691, %or5686
-  %add5693 = add i64 %xor5692, %add3669
-  %add5694 = add i64 %add5693, %add4065
-  %add5695 = add i64 %add5694, %xor5682
-  %or5720 = tail call i64 @llvm.fshl.i64(i64 %add5651, i64 %add5651, i64 45)
-  %or5723 = tail call i64 @llvm.fshl.i64(i64 %add5651, i64 %add5651, i64 3)
-  %shr5724 = lshr i64 %add5651, 6
-  %xor5725 = xor i64 %or5723, %shr5724
-  %xor5726 = xor i64 %xor5725, %or5720
-  %or5730 = tail call i64 @llvm.fshl.i64(i64 %add3757, i64 %add3757, i64 63)
-  %or5733 = tail call i64 @llvm.fshl.i64(i64 %add3757, i64 %add3757, i64 56)
-  %shr5734 = lshr i64 %add3757, 7
-  %xor5735 = xor i64 %or5733, %shr5734
-  %xor5736 = xor i64 %xor5735, %or5730
-  %add5737 = add i64 %xor5736, %add3713
-  %add5738 = add i64 %add5737, %add5431
-  %add5739 = add i64 %add5738, %xor5726
-  %or5764 = tail call i64 @llvm.fshl.i64(i64 %add5695, i64 %add5695, i64 45)
-  %or5767 = tail call i64 @llvm.fshl.i64(i64 %add5695, i64 %add5695, i64 3)
-  %shr5768 = lshr i64 %add5695, 6
-  %xor5769 = xor i64 %or5767, %shr5768
-  %xor5770 = xor i64 %xor5769, %or5764
-  %or5774 = tail call i64 @llvm.fshl.i64(i64 %add3801, i64 %add3801, i64 63)
-  %or5777 = tail call i64 @llvm.fshl.i64(i64 %add3801, i64 %add3801, i64 56)
-  %shr5778 = lshr i64 %add3801, 7
-  %xor5779 = xor i64 %or5777, %shr5778
-  %xor5780 = xor i64 %xor5779, %or5774
-  %add5781 = add i64 %xor5780, %add3757
-  %add5782 = add i64 %add5781, %add5475
-  %add5783 = add i64 %add5782, %xor5770
-  %or5808 = tail call i64 @llvm.fshl.i64(i64 %add5739, i64 %add5739, i64 45)
-  %or5811 = tail call i64 @llvm.fshl.i64(i64 %add5739, i64 %add5739, i64 3)
-  %shr5812 = lshr i64 %add5739, 6
-  %xor5813 = xor i64 %or5811, %shr5812
-  %xor5814 = xor i64 %xor5813, %or5808
-  %or5818 = tail call i64 @llvm.fshl.i64(i64 %add3845, i64 %add3845, i64 63)
-  %or5821 = tail call i64 @llvm.fshl.i64(i64 %add3845, i64 %add3845, i64 56)
-  %shr5822 = lshr i64 %add3845, 7
-  %xor5823 = xor i64 %or5821, %shr5822
-  %xor5824 = xor i64 %xor5823, %or5818
-  %add5825 = add i64 %xor5824, %add3801
-  %add5826 = add i64 %add5825, %add5519
-  %add5827 = add i64 %add5826, %xor5814
-  %or5852 = tail call i64 @llvm.fshl.i64(i64 %add5783, i64 %add5783, i64 45)
-  %or5855 = tail call i64 @llvm.fshl.i64(i64 %add5783, i64 %add5783, i64 3)
-  %shr5856 = lshr i64 %add5783, 6
-  %xor5857 = xor i64 %or5855, %shr5856
-  %xor5858 = xor i64 %xor5857, %or5852
-  %or5862 = tail call i64 @llvm.fshl.i64(i64 %add3889, i64 %add3889, i64 63)
-  %or5865 = tail call i64 @llvm.fshl.i64(i64 %add3889, i64 %add3889, i64 56)
-  %shr5866 = lshr i64 %add3889, 7
-  %xor5867 = xor i64 %or5865, %shr5866
-  %xor5868 = xor i64 %xor5867, %or5862
-  %add5869 = add i64 %xor5868, %add3845
-  %add5870 = add i64 %add5869, %add5563
-  %add5871 = add i64 %add5870, %xor5858
-  %or5896 = tail call i64 @llvm.fshl.i64(i64 %add5827, i64 %add5827, i64 45)
-  %or5899 = tail call i64 @llvm.fshl.i64(i64 %add5827, i64 %add5827, i64 3)
-  %shr5900 = lshr i64 %add5827, 6
-  %xor5901 = xor i64 %or5899, %shr5900
-  %xor5902 = xor i64 %xor5901, %or5896
-  %or5906 = tail call i64 @llvm.fshl.i64(i64 %add3933, i64 %add3933, i64 63)
-  %or5909 = tail call i64 @llvm.fshl.i64(i64 %add3933, i64 %add3933, i64 56)
-  %shr5910 = lshr i64 %add3933, 7
-  %xor5911 = xor i64 %or5909, %shr5910
-  %xor5912 = xor i64 %xor5911, %or5906
-  %add5913 = add i64 %xor5912, %add3889
-  %add5914 = add i64 %add5913, %add5607
-  %add5915 = add i64 %add5914, %xor5902
-  %or5940 = tail call i64 @llvm.fshl.i64(i64 %add5871, i64 %add5871, i64 45)
-  %or5943 = tail call i64 @llvm.fshl.i64(i64 %add5871, i64 %add5871, i64 3)
-  %shr5944 = lshr i64 %add5871, 6
-  %xor5945 = xor i64 %or5943, %shr5944
-  %xor5946 = xor i64 %xor5945, %or5940
-  %or5950 = tail call i64 @llvm.fshl.i64(i64 %add3977, i64 %add3977, i64 63)
-  %or5953 = tail call i64 @llvm.fshl.i64(i64 %add3977, i64 %add3977, i64 56)
-  %shr5954 = lshr i64 %add3977, 7
-  %xor5955 = xor i64 %or5953, %shr5954
-  %xor5956 = xor i64 %xor5955, %or5950
-  %add5957 = add i64 %xor5956, %add3933
-  %add5958 = add i64 %add5957, %add5651
-  %add5959 = add i64 %add5958, %xor5946
-  %or5984 = tail call i64 @llvm.fshl.i64(i64 %add5915, i64 %add5915, i64 45)
-  %or5987 = tail call i64 @llvm.fshl.i64(i64 %add5915, i64 %add5915, i64 3)
-  %shr5988 = lshr i64 %add5915, 6
-  %xor5989 = xor i64 %or5987, %shr5988
-  %xor5990 = xor i64 %xor5989, %or5984
-  %or5994 = tail call i64 @llvm.fshl.i64(i64 %add4021, i64 %add4021, i64 63)
-  %or5997 = tail call i64 @llvm.fshl.i64(i64 %add4021, i64 %add4021, i64 56)
-  %shr5998 = lshr i64 %add4021, 7
-  %xor5999 = xor i64 %or5997, %shr5998
-  %xor6000 = xor i64 %xor5999, %or5994
-  %add6001 = add i64 %xor6000, %add3977
-  %add6002 = add i64 %add6001, %add5695
-  %add6003 = add i64 %add6002, %xor5990
-  %or6028 = tail call i64 @llvm.fshl.i64(i64 %add5959, i64 %add5959, i64 45)
-  %or6031 = tail call i64 @llvm.fshl.i64(i64 %add5959, i64 %add5959, i64 3)
-  %shr6032 = lshr i64 %add5959, 6
-  %xor6033 = xor i64 %or6031, %shr6032
-  %xor6034 = xor i64 %xor6033, %or6028
-  %or6038 = tail call i64 @llvm.fshl.i64(i64 %add4065, i64 %add4065, i64 63)
-  %or6041 = tail call i64 @llvm.fshl.i64(i64 %add4065, i64 %add4065, i64 56)
-  %shr6042 = lshr i64 %add4065, 7
-  %xor6043 = xor i64 %or6041, %shr6042
-  %xor6044 = xor i64 %xor6043, %or6038
-  %add6045 = add i64 %xor6044, %add4021
-  %add6046 = add i64 %add6045, %add5739
-  %add6047 = add i64 %add6046, %xor6034
-  %or6072 = tail call i64 @llvm.fshl.i64(i64 %add6003, i64 %add6003, i64 45)
-  %or6075 = tail call i64 @llvm.fshl.i64(i64 %add6003, i64 %add6003, i64 3)
-  %shr6076 = lshr i64 %add6003, 6
-  %xor6077 = xor i64 %or6075, %shr6076
-  %xor6078 = xor i64 %xor6077, %or6072
-  %or6082 = tail call i64 @llvm.fshl.i64(i64 %add5431, i64 %add5431, i64 63)
-  %or6085 = tail call i64 @llvm.fshl.i64(i64 %add5431, i64 %add5431, i64 56)
-  %shr6086 = lshr i64 %add5431, 7
-  %xor6087 = xor i64 %or6085, %shr6086
-  %xor6088 = xor i64 %xor6087, %or6082
-  %add6089 = add i64 %xor6088, %add4065
-  %add6090 = add i64 %add6089, %add5783
-  %add6091 = add i64 %add6090, %xor6078
-  %or6128 = tail call i64 @llvm.fshl.i64(i64 %add5373, i64 %add5373, i64 50)
-  %or6131 = tail call i64 @llvm.fshl.i64(i64 %add5373, i64 %add5373, i64 46)
-  %or6134 = tail call i64 @llvm.fshl.i64(i64 %add5373, i64 %add5373, i64 23)
-  %xor6135 = xor i64 %or6131, %or6134
-  %xor6136 = xor i64 %xor6135, %or6128
-  %and6138 = and i64 %add5373, %add5291
-  %not6139 = xor i64 %add5373, -1
-  %and6140 = and i64 %add5209, %not6139
-  %xor6141 = or i64 %and6138, %and6140
-  %add6137 = add i64 %add5431, 1847814050463011016
-  %add6142 = add i64 %add6137, %add5127
-  %add6143 = add i64 %add6142, %xor6141
-  %add6144 = add i64 %add6143, %xor6136
-  %or6148 = tail call i64 @llvm.fshl.i64(i64 %add5368, i64 %add5368, i64 36)
-  %or6151 = tail call i64 @llvm.fshl.i64(i64 %add5368, i64 %add5368, i64 30)
-  %or6154 = tail call i64 @llvm.fshl.i64(i64 %add5368, i64 %add5368, i64 25)
-  %xor6155 = xor i64 %or6151, %or6154
-  %xor6156 = xor i64 %xor6155, %or6148
-  %and6157 = and i64 %add5368, %add5286
-  %and61584670 = xor i64 %add5368, %add5286
-  %xor6160 = and i64 %and61584670, %add5204
-  %xor6161 = xor i64 %xor6160, %and6157
-  %add6162 = add i64 %xor6156, %xor6161
-  %add6164 = add i64 %add6162, %add6144
-  %add6169 = add i64 %add6144, %add5122
-  %or6210 = tail call i64 @llvm.fshl.i64(i64 %add6169, i64 %add6169, i64 50)
-  %or6213 = tail call i64 @llvm.fshl.i64(i64 %add6169, i64 %add6169, i64 46)
-  %or6216 = tail call i64 @llvm.fshl.i64(i64 %add6169, i64 %add6169, i64 23)
-  %xor6217 = xor i64 %or6213, %or6216
-  %xor6218 = xor i64 %xor6217, %or6210
-  %and6220 = and i64 %add6169, %add5373
-  %not6221 = xor i64 %add6169, -1
-  %and6222 = and i64 %add5291, %not6221
-  %xor6223 = or i64 %and6220, %and6222
-  %add6219 = add i64 %add5475, 2177327727835720531
-  %add6224 = add i64 %add6219, %add5209
-  %add6225 = add i64 %add6224, %xor6223
-  %add6226 = add i64 %add6225, %xor6218
-  %or6230 = tail call i64 @llvm.fshl.i64(i64 %add6164, i64 %add6164, i64 36)
-  %or6233 = tail call i64 @llvm.fshl.i64(i64 %add6164, i64 %add6164, i64 30)
-  %or6236 = tail call i64 @llvm.fshl.i64(i64 %add6164, i64 %add6164, i64 25)
-  %xor6237 = xor i64 %or6233, %or6236
-  %xor6238 = xor i64 %xor6237, %or6230
-  %and6239 = and i64 %add6164, %add5368
-  %and62404671 = xor i64 %add6164, %add5368
-  %xor6242 = and i64 %and62404671, %add5286
-  %xor6243 = xor i64 %xor6242, %and6239
-  %add6244 = add i64 %xor6238, %xor6243
-  %add6246 = add i64 %add6244, %add6226
-  %add6251 = add i64 %add6226, %add5204
-  %or6292 = tail call i64 @llvm.fshl.i64(i64 %add6251, i64 %add6251, i64 50)
-  %or6295 = tail call i64 @llvm.fshl.i64(i64 %add6251, i64 %add6251, i64 46)
-  %or6298 = tail call i64 @llvm.fshl.i64(i64 %add6251, i64 %add6251, i64 23)
-  %xor6299 = xor i64 %or6295, %or6298
-  %xor6300 = xor i64 %xor6299, %or6292
-  %and6302 = and i64 %add6251, %add6169
-  %not6303 = xor i64 %add6251, -1
-  %and6304 = and i64 %add5373, %not6303
-  %xor6305 = or i64 %and6302, %and6304
-  %add6301 = add i64 %add5519, 2830643537854262169
-  %add6306 = add i64 %add6301, %add5291
-  %add6307 = add i64 %add6306, %xor6305
-  %add6308 = add i64 %add6307, %xor6300
-  %or6312 = tail call i64 @llvm.fshl.i64(i64 %add6246, i64 %add6246, i64 36)
-  %or6315 = tail call i64 @llvm.fshl.i64(i64 %add6246, i64 %add6246, i64 30)
-  %or6318 = tail call i64 @llvm.fshl.i64(i64 %add6246, i64 %add6246, i64 25)
-  %xor6319 = xor i64 %or6315, %or6318
-  %xor6320 = xor i64 %xor6319, %or6312
-  %and6321 = and i64 %add6246, %add6164
-  %and63224672 = xor i64 %add6246, %add6164
-  %xor6324 = and i64 %and63224672, %add5368
-  %xor6325 = xor i64 %xor6324, %and6321
-  %add6326 = add i64 %xor6320, %xor6325
-  %add6328 = add i64 %add6326, %add6308
-  %add6333 = add i64 %add6308, %add5286
-  %or6374 = tail call i64 @llvm.fshl.i64(i64 %add6333, i64 %add6333, i64 50)
-  %or6377 = tail call i64 @llvm.fshl.i64(i64 %add6333, i64 %add6333, i64 46)
-  %or6380 = tail call i64 @llvm.fshl.i64(i64 %add6333, i64 %add6333, i64 23)
-  %xor6381 = xor i64 %or6377, %or6380
-  %xor6382 = xor i64 %xor6381, %or6374
-  %and6384 = and i64 %add6333, %add6251
-  %not6385 = xor i64 %add6333, -1
-  %and6386 = and i64 %add6169, %not6385
-  %xor6387 = or i64 %and6384, %and6386
-  %add6383 = add i64 %add5563, 3796741975233480872
-  %add6388 = add i64 %add6383, %add5373
-  %add6389 = add i64 %add6388, %xor6387
-  %add6390 = add i64 %add6389, %xor6382
-  %or6394 = tail call i64 @llvm.fshl.i64(i64 %add6328, i64 %add6328, i64 36)
-  %or6397 = tail call i64 @llvm.fshl.i64(i64 %add6328, i64 %add6328, i64 30)
-  %or6400 = tail call i64 @llvm.fshl.i64(i64 %add6328, i64 %add6328, i64 25)
-  %xor6401 = xor i64 %or6397, %or6400
-  %xor6402 = xor i64 %xor6401, %or6394
-  %and6403 = and i64 %add6328, %add6246
-  %and64044673 = xor i64 %add6328, %add6246
-  %xor6406 = and i64 %and64044673, %add6164
-  %xor6407 = xor i64 %xor6406, %and6403
-  %add6408 = add i64 %xor6402, %xor6407
-  %add6410 = add i64 %add6408, %add6390
-  %add6415 = add i64 %add6390, %add5368
-  %or6456 = tail call i64 @llvm.fshl.i64(i64 %add6415, i64 %add6415, i64 50)
-  %or6459 = tail call i64 @llvm.fshl.i64(i64 %add6415, i64 %add6415, i64 46)
-  %or6462 = tail call i64 @llvm.fshl.i64(i64 %add6415, i64 %add6415, i64 23)
-  %xor6463 = xor i64 %or6459, %or6462
-  %xor6464 = xor i64 %xor6463, %or6456
-  %and6466 = and i64 %add6415, %add6333
-  %not6467 = xor i64 %add6415, -1
-  %and6468 = and i64 %add6251, %not6467
-  %xor6469 = or i64 %and6466, %and6468
-  %add6465 = add i64 %add5607, 4115178125766777443
-  %add6470 = add i64 %add6465, %add6169
-  %add6471 = add i64 %add6470, %xor6469
-  %add6472 = add i64 %add6471, %xor6464
-  %or6476 = tail call i64 @llvm.fshl.i64(i64 %add6410, i64 %add6410, i64 36)
-  %or6479 = tail call i64 @llvm.fshl.i64(i64 %add6410, i64 %add6410, i64 30)
-  %or6482 = tail call i64 @llvm.fshl.i64(i64 %add6410, i64 %add6410, i64 25)
-  %xor6483 = xor i64 %or6479, %or6482
-  %xor6484 = xor i64 %xor6483, %or6476
-  %and6485 = and i64 %add6410, %add6328
-  %and64864674 = xor i64 %add6410, %add6328
-  %xor6488 = and i64 %and64864674, %add6246
-  %xor6489 = xor i64 %xor6488, %and6485
-  %add6490 = add i64 %xor6484, %xor6489
-  %add6492 = add i64 %add6490, %add6472
-  %add6497 = add i64 %add6472, %add6164
-  %or6538 = tail call i64 @llvm.fshl.i64(i64 %add6497, i64 %add6497, i64 50)
-  %or6541 = tail call i64 @llvm.fshl.i64(i64 %add6497, i64 %add6497, i64 46)
-  %or6544 = tail call i64 @llvm.fshl.i64(i64 %add6497, i64 %add6497, i64 23)
-  %xor6545 = xor i64 %or6541, %or6544
-  %xor6546 = xor i64 %xor6545, %or6538
-  %and6548 = and i64 %add6497, %add6415
-  %not6549 = xor i64 %add6497, -1
-  %and6550 = and i64 %add6333, %not6549
-  %xor6551 = or i64 %and6548, %and6550
-  %add6547 = add i64 %add5651, 5681478168544905931
-  %add6552 = add i64 %add6547, %add6251
-  %add6553 = add i64 %add6552, %xor6551
-  %add6554 = add i64 %add6553, %xor6546
-  %or6558 = tail call i64 @llvm.fshl.i64(i64 %add6492, i64 %add6492, i64 36)
-  %or6561 = tail call i64 @llvm.fshl.i64(i64 %add6492, i64 %add6492, i64 30)
-  %or6564 = tail call i64 @llvm.fshl.i64(i64 %add6492, i64 %add6492, i64 25)
-  %xor6565 = xor i64 %or6561, %or6564
-  %xor6566 = xor i64 %xor6565, %or6558
-  %and6567 = and i64 %add6492, %add6410
-  %and65684675 = xor i64 %add6492, %add6410
-  %xor6570 = and i64 %and65684675, %add6328
-  %xor6571 = xor i64 %xor6570, %and6567
-  %add6572 = add i64 %xor6566, %xor6571
-  %add6574 = add i64 %add6572, %add6554
-  %add6579 = add i64 %add6554, %add6246
-  %or6620 = tail call i64 @llvm.fshl.i64(i64 %add6579, i64 %add6579, i64 50)
-  %or6623 = tail call i64 @llvm.fshl.i64(i64 %add6579, i64 %add6579, i64 46)
-  %or6626 = tail call i64 @llvm.fshl.i64(i64 %add6579, i64 %add6579, i64 23)
-  %xor6627 = xor i64 %or6623, %or6626
-  %xor6628 = xor i64 %xor6627, %or6620
-  %and6630 = and i64 %add6579, %add6497
-  %not6631 = xor i64 %add6579, -1
-  %and6632 = and i64 %add6415, %not6631
-  %xor6633 = or i64 %and6630, %and6632
-  %add6629 = add i64 %add5695, 6601373596472566643
-  %add6634 = add i64 %add6629, %add6333
-  %add6635 = add i64 %add6634, %xor6633
-  %add6636 = add i64 %add6635, %xor6628
-  %or6640 = tail call i64 @llvm.fshl.i64(i64 %add6574, i64 %add6574, i64 36)
-  %or6643 = tail call i64 @llvm.fshl.i64(i64 %add6574, i64 %add6574, i64 30)
-  %or6646 = tail call i64 @llvm.fshl.i64(i64 %add6574, i64 %add6574, i64 25)
-  %xor6647 = xor i64 %or6643, %or6646
-  %xor6648 = xor i64 %xor6647, %or6640
-  %and6649 = and i64 %add6574, %add6492
-  %and66504676 = xor i64 %add6574, %add6492
-  %xor6652 = and i64 %and66504676, %add6410
-  %xor6653 = xor i64 %xor6652, %and6649
-  %add6654 = add i64 %xor6648, %xor6653
-  %add6656 = add i64 %add6654, %add6636
-  %add6661 = add i64 %add6636, %add6328
-  %or6702 = tail call i64 @llvm.fshl.i64(i64 %add6661, i64 %add6661, i64 50)
-  %or6705 = tail call i64 @llvm.fshl.i64(i64 %add6661, i64 %add6661, i64 46)
-  %or6708 = tail call i64 @llvm.fshl.i64(i64 %add6661, i64 %add6661, i64 23)
-  %xor6709 = xor i64 %or6705, %or6708
-  %xor6710 = xor i64 %xor6709, %or6702
-  %and6712 = and i64 %add6661, %add6579
-  %not6713 = xor i64 %add6661, -1
-  %and6714 = and i64 %add6497, %not6713
-  %xor6715 = or i64 %and6712, %and6714
-  %add6711 = add i64 %add5739, 7507060721942968483
-  %add6716 = add i64 %add6711, %add6415
-  %add6717 = add i64 %add6716, %xor6715
-  %add6718 = add i64 %add6717, %xor6710
-  %or6722 = tail call i64 @llvm.fshl.i64(i64 %add6656, i64 %add6656, i64 36)
-  %or6725 = tail call i64 @llvm.fshl.i64(i64 %add6656, i64 %add6656, i64 30)
-  %or6728 = tail call i64 @llvm.fshl.i64(i64 %add6656, i64 %add6656, i64 25)
-  %xor6729 = xor i64 %or6725, %or6728
-  %xor6730 = xor i64 %xor6729, %or6722
-  %and6731 = and i64 %add6656, %add6574
-  %and67324677 = xor i64 %add6656, %add6574
-  %xor6734 = and i64 %and67324677, %add6492
-  %xor6735 = xor i64 %xor6734, %and6731
-  %add6736 = add i64 %xor6730, %xor6735
-  %add6738 = add i64 %add6736, %add6718
-  %add6743 = add i64 %add6718, %add6410
-  %or6784 = tail call i64 @llvm.fshl.i64(i64 %add6743, i64 %add6743, i64 50)
-  %or6787 = tail call i64 @llvm.fshl.i64(i64 %add6743, i64 %add6743, i64 46)
-  %or6790 = tail call i64 @llvm.fshl.i64(i64 %add6743, i64 %add6743, i64 23)
-  %xor6791 = xor i64 %or6787, %or6790
-  %xor6792 = xor i64 %xor6791, %or6784
-  %and6794 = and i64 %add6743, %add6661
-  %not6795 = xor i64 %add6743, -1
-  %and6796 = and i64 %add6579, %not6795
-  %xor6797 = or i64 %and6794, %and6796
-  %add6793 = add i64 %add5783, 8399075790359081724
-  %add6798 = add i64 %add6793, %add6497
-  %add6799 = add i64 %add6798, %xor6797
-  %add6800 = add i64 %add6799, %xor6792
-  %or6804 = tail call i64 @llvm.fshl.i64(i64 %add6738, i64 %add6738, i64 36)
-  %or6807 = tail call i64 @llvm.fshl.i64(i64 %add6738, i64 %add6738, i64 30)
-  %or6810 = tail call i64 @llvm.fshl.i64(i64 %add6738, i64 %add6738, i64 25)
-  %xor6811 = xor i64 %or6807, %or6810
-  %xor6812 = xor i64 %xor6811, %or6804
-  %and6813 = and i64 %add6738, %add6656
-  %and68144678 = xor i64 %add6738, %add6656
-  %xor6816 = and i64 %and68144678, %add6574
-  %xor6817 = xor i64 %xor6816, %and6813
-  %add6818 = add i64 %xor6812, %xor6817
-  %add6820 = add i64 %add6818, %add6800
-  %add6825 = add i64 %add6800, %add6492
-  %or6866 = tail call i64 @llvm.fshl.i64(i64 %add6825, i64 %add6825, i64 50)
-  %or6869 = tail call i64 @llvm.fshl.i64(i64 %add6825, i64 %add6825, i64 46)
-  %or6872 = tail call i64 @llvm.fshl.i64(i64 %add6825, i64 %add6825, i64 23)
-  %xor6873 = xor i64 %or6869, %or6872
-  %xor6874 = xor i64 %xor6873, %or6866
-  %and6876 = and i64 %add6825, %add6743
-  %not6877 = xor i64 %add6825, -1
-  %and6878 = and i64 %add6661, %not6877
-  %xor6879 = or i64 %and6876, %and6878
-  %add6875 = add i64 %add5827, 8693463985226723168
-  %add6880 = add i64 %add6875, %add6579
-  %add6881 = add i64 %add6880, %xor6879
-  %add6882 = add i64 %add6881, %xor6874
-  %or6886 = tail call i64 @llvm.fshl.i64(i64 %add6820, i64 %add6820, i64 36)
-  %or6889 = tail call i64 @llvm.fshl.i64(i64 %add6820, i64 %add6820, i64 30)
-  %or6892 = tail call i64 @llvm.fshl.i64(i64 %add6820, i64 %add6820, i64 25)
-  %xor6893 = xor i64 %or6889, %or6892
-  %xor6894 = xor i64 %xor6893, %or6886
-  %and6895 = and i64 %add6820, %add6738
-  %and68964679 = xor i64 %add6820, %add6738
-  %xor6898 = and i64 %and68964679, %add6656
-  %xor6899 = xor i64 %xor6898, %and6895
-  %add6900 = add i64 %xor6894, %xor6899
-  %add6902 = add i64 %add6900, %add6882
-  %add6907 = add i64 %add6882, %add6574
-  %or6948 = tail call i64 @llvm.fshl.i64(i64 %add6907, i64 %add6907, i64 50)
-  %or6951 = tail call i64 @llvm.fshl.i64(i64 %add6907, i64 %add6907, i64 46)
-  %or6954 = tail call i64 @llvm.fshl.i64(i64 %add6907, i64 %add6907, i64 23)
-  %xor6955 = xor i64 %or6951, %or6954
-  %xor6956 = xor i64 %xor6955, %or6948
-  %and6958 = and i64 %add6907, %add6825
-  %not6959 = xor i64 %add6907, -1
-  %and6960 = and i64 %add6743, %not6959
-  %xor6961 = or i64 %and6958, %and6960
-  %add6957 = add i64 %add5871, -8878714635349349518
-  %add6962 = add i64 %add6957, %add6661
-  %add6963 = add i64 %add6962, %xor6961
-  %add6964 = add i64 %add6963, %xor6956
-  %or6968 = tail call i64 @llvm.fshl.i64(i64 %add6902, i64 %add6902, i64 36)
-  %or6971 = tail call i64 @llvm.fshl.i64(i64 %add6902, i64 %add6902, i64 30)
-  %or6974 = tail call i64 @llvm.fshl.i64(i64 %add6902, i64 %add6902, i64 25)
-  %xor6975 = xor i64 %or6971, %or6974
-  %xor6976 = xor i64 %xor6975, %or6968
-  %and6977 = and i64 %add6902, %add6820
-  %and69784680 = xor i64 %add6902, %add6820
-  %xor6980 = and i64 %and69784680, %add6738
-  %xor6981 = xor i64 %xor6980, %and6977
-  %add6982 = add i64 %xor6976, %xor6981
-  %add6984 = add i64 %add6982, %add6964
-  %add6989 = add i64 %add6964, %add6656
-  %or7030 = tail call i64 @llvm.fshl.i64(i64 %add6989, i64 %add6989, i64 50)
-  %or7033 = tail call i64 @llvm.fshl.i64(i64 %add6989, i64 %add6989, i64 46)
-  %or7036 = tail call i64 @llvm.fshl.i64(i64 %add6989, i64 %add6989, i64 23)
-  %xor7037 = xor i64 %or7033, %or7036
-  %xor7038 = xor i64 %xor7037, %or7030
-  %and7040 = and i64 %add6989, %add6907
-  %not7041 = xor i64 %add6989, -1
-  %and7042 = and i64 %add6825, %not7041
-  %xor7043 = or i64 %and7040, %and7042
-  %add7039 = add i64 %add5915, -8302665154208450068
-  %add7044 = add i64 %add7039, %add6743
-  %add7045 = add i64 %add7044, %xor7043
-  %add7046 = add i64 %add7045, %xor7038
-  %or7050 = tail call i64 @llvm.fshl.i64(i64 %add6984, i64 %add6984, i64 36)
-  %or7053 = tail call i64 @llvm.fshl.i64(i64 %add6984, i64 %add6984, i64 30)
-  %or7056 = tail call i64 @llvm.fshl.i64(i64 %add6984, i64 %add6984, i64 25)
-  %xor7057 = xor i64 %or7053, %or7056
-  %xor7058 = xor i64 %xor7057, %or7050
-  %and7059 = and i64 %add6984, %add6902
-  %and70604681 = xor i64 %add6984, %add6902
-  %xor7062 = and i64 %and70604681, %add6820
-  %xor7063 = xor i64 %xor7062, %and7059
-  %add7064 = add i64 %xor7058, %xor7063
-  %add7066 = add i64 %add7064, %add7046
-  %add7071 = add i64 %add7046, %add6738
-  %or7112 = tail call i64 @llvm.fshl.i64(i64 %add7071, i64 %add7071, i64 50)
-  %or7115 = tail call i64 @llvm.fshl.i64(i64 %add7071, i64 %add7071, i64 46)
-  %or7118 = tail call i64 @llvm.fshl.i64(i64 %add7071, i64 %add7071, i64 23)
-  %xor7119 = xor i64 %or7115, %or7118
-  %xor7120 = xor i64 %xor7119, %or7112
-  %and7122 = and i64 %add7071, %add6989
-  %not7123 = xor i64 %add7071, -1
-  %and7124 = and i64 %add6907, %not7123
-  %xor7125 = or i64 %and7122, %and7124
-  %add7121 = add i64 %add5959, -8016688836872298968
-  %add7126 = add i64 %add7121, %add6825
-  %add7127 = add i64 %add7126, %xor7125
-  %add7128 = add i64 %add7127, %xor7120
-  %or7132 = tail call i64 @llvm.fshl.i64(i64 %add7066, i64 %add7066, i64 36)
-  %or7135 = tail call i64 @llvm.fshl.i64(i64 %add7066, i64 %add7066, i64 30)
-  %or7138 = tail call i64 @llvm.fshl.i64(i64 %add7066, i64 %add7066, i64 25)
-  %xor7139 = xor i64 %or7135, %or7138
-  %xor7140 = xor i64 %xor7139, %or7132
-  %and7141 = and i64 %add7066, %add6984
-  %and71424682 = xor i64 %add7066, %add6984
-  %xor7144 = and i64 %and71424682, %add6902
-  %xor7145 = xor i64 %xor7144, %and7141
-  %add7146 = add i64 %xor7140, %xor7145
-  %add7148 = add i64 %add7146, %add7128
-  %add7153 = add i64 %add7128, %add6820
-  %or7194 = tail call i64 @llvm.fshl.i64(i64 %add7153, i64 %add7153, i64 50)
-  %or7197 = tail call i64 @llvm.fshl.i64(i64 %add7153, i64 %add7153, i64 46)
-  %or7200 = tail call i64 @llvm.fshl.i64(i64 %add7153, i64 %add7153, i64 23)
-  %xor7201 = xor i64 %or7197, %or7200
-  %xor7202 = xor i64 %xor7201, %or7194
-  %and7204 = and i64 %add7153, %add7071
-  %not7205 = xor i64 %add7153, -1
-  %and7206 = and i64 %add6989, %not7205
-  %xor7207 = or i64 %and7204, %and7206
-  %add7203 = add i64 %add6003, -6606660893046293015
-  %add7208 = add i64 %add7203, %add6907
-  %add7209 = add i64 %add7208, %xor7207
-  %add7210 = add i64 %add7209, %xor7202
-  %or7214 = tail call i64 @llvm.fshl.i64(i64 %add7148, i64 %add7148, i64 36)
-  %or7217 = tail call i64 @llvm.fshl.i64(i64 %add7148, i64 %add7148, i64 30)
-  %or7220 = tail call i64 @llvm.fshl.i64(i64 %add7148, i64 %add7148, i64 25)
-  %xor7221 = xor i64 %or7217, %or7220
-  %xor7222 = xor i64 %xor7221, %or7214
-  %and7223 = and i64 %add7148, %add7066
-  %and72244683 = xor i64 %add7148, %add7066
-  %xor7226 = and i64 %and72244683, %add6984
-  %xor7227 = xor i64 %xor7226, %and7223
-  %add7228 = add i64 %xor7222, %xor7227
-  %add7230 = add i64 %add7228, %add7210
-  %add7235 = add i64 %add7210, %add6902
-  %or7276 = tail call i64 @llvm.fshl.i64(i64 %add7235, i64 %add7235, i64 50)
-  %or7279 = tail call i64 @llvm.fshl.i64(i64 %add7235, i64 %add7235, i64 46)
-  %or7282 = tail call i64 @llvm.fshl.i64(i64 %add7235, i64 %add7235, i64 23)
-  %xor7283 = xor i64 %or7279, %or7282
-  %xor7284 = xor i64 %xor7283, %or7276
-  %and7286 = and i64 %add7235, %add7153
-  %not7287 = xor i64 %add7235, -1
-  %and7288 = and i64 %add7071, %not7287
-  %xor7289 = or i64 %and7286, %and7288
-  %add7285 = add i64 %add6047, -4685533653050689259
-  %add7290 = add i64 %add7285, %add6989
-  %add7291 = add i64 %add7290, %xor7289
-  %add7292 = add i64 %add7291, %xor7284
-  %or7296 = tail call i64 @llvm.fshl.i64(i64 %add7230, i64 %add7230, i64 36)
-  %or7299 = tail call i64 @llvm.fshl.i64(i64 %add7230, i64 %add7230, i64 30)
-  %or7302 = tail call i64 @llvm.fshl.i64(i64 %add7230, i64 %add7230, i64 25)
-  %xor7303 = xor i64 %or7299, %or7302
-  %xor7304 = xor i64 %xor7303, %or7296
-  %and7305 = and i64 %add7230, %add7148
-  %and73064684 = xor i64 %add7230, %add7148
-  %xor7308 = and i64 %and73064684, %add7066
-  %xor7309 = xor i64 %xor7308, %and7305
-  %add7310 = add i64 %xor7304, %xor7309
-  %add7312 = add i64 %add7310, %add7292
-  %add7317 = add i64 %add7292, %add6984
-  %or7358 = tail call i64 @llvm.fshl.i64(i64 %add7317, i64 %add7317, i64 50)
-  %or7361 = tail call i64 @llvm.fshl.i64(i64 %add7317, i64 %add7317, i64 46)
-  %or7364 = tail call i64 @llvm.fshl.i64(i64 %add7317, i64 %add7317, i64 23)
-  %xor7365 = xor i64 %or7361, %or7364
-  %xor7366 = xor i64 %xor7365, %or7358
-  %and7368 = and i64 %add7317, %add7235
-  %not7369 = xor i64 %add7317, -1
-  %and7370 = and i64 %add7153, %not7369
-  %xor7371 = or i64 %and7368, %and7370
-  %add7367 = add i64 %add6091, -4147400797238176981
-  %add7372 = add i64 %add7367, %add7071
-  %add7373 = add i64 %add7372, %xor7371
-  %add7374 = add i64 %add7373, %xor7366
-  %or7378 = tail call i64 @llvm.fshl.i64(i64 %add7312, i64 %add7312, i64 36)
-  %or7381 = tail call i64 @llvm.fshl.i64(i64 %add7312, i64 %add7312, i64 30)
-  %or7384 = tail call i64 @llvm.fshl.i64(i64 %add7312, i64 %add7312, i64 25)
-  %xor7385 = xor i64 %or7381, %or7384
-  %xor7386 = xor i64 %xor7385, %or7378
-  %and7387 = and i64 %add7312, %add7230
-  %and73884685 = xor i64 %add7312, %add7230
-  %xor7390 = and i64 %and73884685, %add7148
-  %xor7391 = xor i64 %xor7390, %and7387
-  %add7392 = add i64 %xor7386, %xor7391
-  %add7394 = add i64 %add7392, %add7374
-  %add7399 = add i64 %add7374, %add7066
-  %or7438 = tail call i64 @llvm.fshl.i64(i64 %add6047, i64 %add6047, i64 45)
-  %or7441 = tail call i64 @llvm.fshl.i64(i64 %add6047, i64 %add6047, i64 3)
-  %shr7442 = lshr i64 %add6047, 6
-  %xor7443 = xor i64 %or7441, %shr7442
-  %xor7444 = xor i64 %xor7443, %or7438
-  %or7448 = tail call i64 @llvm.fshl.i64(i64 %add5475, i64 %add5475, i64 63)
-  %or7451 = tail call i64 @llvm.fshl.i64(i64 %add5475, i64 %add5475, i64 56)
-  %shr7452 = lshr i64 %add5475, 7
-  %xor7453 = xor i64 %or7451, %shr7452
-  %xor7454 = xor i64 %xor7453, %or7448
-  %add7455 = add i64 %xor7454, %add5431
-  %add7456 = add i64 %add7455, %add5827
-  %add7457 = add i64 %add7456, %xor7444
-  %or7482 = tail call i64 @llvm.fshl.i64(i64 %add6091, i64 %add6091, i64 45)
-  %or7485 = tail call i64 @llvm.fshl.i64(i64 %add6091, i64 %add6091, i64 3)
-  %shr7486 = lshr i64 %add6091, 6
-  %xor7487 = xor i64 %or7485, %shr7486
-  %xor7488 = xor i64 %xor7487, %or7482
-  %or7492 = tail call i64 @llvm.fshl.i64(i64 %add5519, i64 %add5519, i64 63)
-  %or7495 = tail call i64 @llvm.fshl.i64(i64 %add5519, i64 %add5519, i64 56)
-  %shr7496 = lshr i64 %add5519, 7
-  %xor7497 = xor i64 %or7495, %shr7496
-  %xor7498 = xor i64 %xor7497, %or7492
-  %add7499 = add i64 %xor7498, %add5475
-  %add7500 = add i64 %add7499, %add5871
-  %add7501 = add i64 %add7500, %xor7488
-  %or7526 = tail call i64 @llvm.fshl.i64(i64 %add7457, i64 %add7457, i64 45)
-  %or7529 = tail call i64 @llvm.fshl.i64(i64 %add7457, i64 %add7457, i64 3)
-  %shr7530 = lshr i64 %add7457, 6
-  %xor7531 = xor i64 %or7529, %shr7530
-  %xor7532 = xor i64 %xor7531, %or7526
-  %or7536 = tail call i64 @llvm.fshl.i64(i64 %add5563, i64 %add5563, i64 63)
-  %or7539 = tail call i64 @llvm.fshl.i64(i64 %add5563, i64 %add5563, i64 56)
-  %shr7540 = lshr i64 %add5563, 7
-  %xor7541 = xor i64 %or7539, %shr7540
-  %xor7542 = xor i64 %xor7541, %or7536
-  %add7543 = add i64 %xor7542, %add5519
-  %add7544 = add i64 %add7543, %add5915
-  %add7545 = add i64 %add7544, %xor7532
-  %or7570 = tail call i64 @llvm.fshl.i64(i64 %add7501, i64 %add7501, i64 45)
-  %or7573 = tail call i64 @llvm.fshl.i64(i64 %add7501, i64 %add7501, i64 3)
-  %shr7574 = lshr i64 %add7501, 6
-  %xor7575 = xor i64 %or7573, %shr7574
-  %xor7576 = xor i64 %xor7575, %or7570
-  %or7580 = tail call i64 @llvm.fshl.i64(i64 %add5607, i64 %add5607, i64 63)
-  %or7583 = tail call i64 @llvm.fshl.i64(i64 %add5607, i64 %add5607, i64 56)
-  %shr7584 = lshr i64 %add5607, 7
-  %xor7585 = xor i64 %or7583, %shr7584
-  %xor7586 = xor i64 %xor7585, %or7580
-  %add7587 = add i64 %xor7586, %add5563
-  %add7588 = add i64 %add7587, %add5959
-  %add7589 = add i64 %add7588, %xor7576
-  %or7614 = tail call i64 @llvm.fshl.i64(i64 %add7545, i64 %add7545, i64 45)
-  %or7617 = tail call i64 @llvm.fshl.i64(i64 %add7545, i64 %add7545, i64 3)
-  %shr7618 = lshr i64 %add7545, 6
-  %xor7619 = xor i64 %or7617, %shr7618
-  %xor7620 = xor i64 %xor7619, %or7614
-  %or7624 = tail call i64 @llvm.fshl.i64(i64 %add5651, i64 %add5651, i64 63)
-  %or7627 = tail call i64 @llvm.fshl.i64(i64 %add5651, i64 %add5651, i64 56)
-  %shr7628 = lshr i64 %add5651, 7
-  %xor7629 = xor i64 %or7627, %shr7628
-  %xor7630 = xor i64 %xor7629, %or7624
-  %add7631 = add i64 %xor7630, %add5607
-  %add7632 = add i64 %add7631, %add6003
-  %add7633 = add i64 %add7632, %xor7620
-  %or7658 = tail call i64 @llvm.fshl.i64(i64 %add7589, i64 %add7589, i64 45)
-  %or7661 = tail call i64 @llvm.fshl.i64(i64 %add7589, i64 %add7589, i64 3)
-  %shr7662 = lshr i64 %add7589, 6
-  %xor7663 = xor i64 %or7661, %shr7662
-  %xor7664 = xor i64 %xor7663, %or7658
-  %or7668 = tail call i64 @llvm.fshl.i64(i64 %add5695, i64 %add5695, i64 63)
-  %or7671 = tail call i64 @llvm.fshl.i64(i64 %add5695, i64 %add5695, i64 56)
-  %shr7672 = lshr i64 %add5695, 7
-  %xor7673 = xor i64 %or7671, %shr7672
-  %xor7674 = xor i64 %xor7673, %or7668
-  %add7675 = add i64 %xor7674, %add5651
-  %add7676 = add i64 %add7675, %add6047
-  %add7677 = add i64 %add7676, %xor7664
-  %or7702 = tail call i64 @llvm.fshl.i64(i64 %add7633, i64 %add7633, i64 45)
-  %or7705 = tail call i64 @llvm.fshl.i64(i64 %add7633, i64 %add7633, i64 3)
-  %shr7706 = lshr i64 %add7633, 6
-  %xor7707 = xor i64 %or7705, %shr7706
-  %xor7708 = xor i64 %xor7707, %or7702
-  %or7712 = tail call i64 @llvm.fshl.i64(i64 %add5739, i64 %add5739, i64 63)
-  %or7715 = tail call i64 @llvm.fshl.i64(i64 %add5739, i64 %add5739, i64 56)
-  %shr7716 = lshr i64 %add5739, 7
-  %xor7717 = xor i64 %or7715, %shr7716
-  %xor7718 = xor i64 %xor7717, %or7712
-  %add7719 = add i64 %xor7718, %add5695
-  %add7720 = add i64 %add7719, %add6091
-  %add7721 = add i64 %add7720, %xor7708
-  %or7746 = tail call i64 @llvm.fshl.i64(i64 %add7677, i64 %add7677, i64 45)
-  %or7749 = tail call i64 @llvm.fshl.i64(i64 %add7677, i64 %add7677, i64 3)
-  %shr7750 = lshr i64 %add7677, 6
-  %xor7751 = xor i64 %or7749, %shr7750
-  %xor7752 = xor i64 %xor7751, %or7746
-  %or7756 = tail call i64 @llvm.fshl.i64(i64 %add5783, i64 %add5783, i64 63)
-  %or7759 = tail call i64 @llvm.fshl.i64(i64 %add5783, i64 %add5783, i64 56)
-  %shr7760 = lshr i64 %add5783, 7
-  %xor7761 = xor i64 %or7759, %shr7760
-  %xor7762 = xor i64 %xor7761, %or7756
-  %add7763 = add i64 %xor7762, %add5739
-  %add7764 = add i64 %add7763, %add7457
-  %add7765 = add i64 %add7764, %xor7752
-  %or7790 = tail call i64 @llvm.fshl.i64(i64 %add7721, i64 %add7721, i64 45)
-  %or7793 = tail call i64 @llvm.fshl.i64(i64 %add7721, i64 %add7721, i64 3)
-  %shr7794 = lshr i64 %add7721, 6
-  %xor7795 = xor i64 %or7793, %shr7794
-  %xor7796 = xor i64 %xor7795, %or7790
-  %or7800 = tail call i64 @llvm.fshl.i64(i64 %add5827, i64 %add5827, i64 63)
-  %or7803 = tail call i64 @llvm.fshl.i64(i64 %add5827, i64 %add5827, i64 56)
-  %shr7804 = lshr i64 %add5827, 7
-  %xor7805 = xor i64 %or7803, %shr7804
-  %xor7806 = xor i64 %xor7805, %or7800
-  %add7807 = add i64 %xor7806, %add5783
-  %add7808 = add i64 %add7807, %add7501
-  %add7809 = add i64 %add7808, %xor7796
-  %or7834 = tail call i64 @llvm.fshl.i64(i64 %add7765, i64 %add7765, i64 45)
-  %or7837 = tail call i64 @llvm.fshl.i64(i64 %add7765, i64 %add7765, i64 3)
-  %shr7838 = lshr i64 %add7765, 6
-  %xor7839 = xor i64 %or7837, %shr7838
-  %xor7840 = xor i64 %xor7839, %or7834
-  %or7844 = tail call i64 @llvm.fshl.i64(i64 %add5871, i64 %add5871, i64 63)
-  %or7847 = tail call i64 @llvm.fshl.i64(i64 %add5871, i64 %add5871, i64 56)
-  %shr7848 = lshr i64 %add5871, 7
-  %xor7849 = xor i64 %or7847, %shr7848
-  %xor7850 = xor i64 %xor7849, %or7844
-  %add7851 = add i64 %xor7850, %add5827
-  %add7852 = add i64 %add7851, %add7545
-  %add7853 = add i64 %add7852, %xor7840
-  %or7878 = tail call i64 @llvm.fshl.i64(i64 %add7809, i64 %add7809, i64 45)
-  %or7881 = tail call i64 @llvm.fshl.i64(i64 %add7809, i64 %add7809, i64 3)
-  %shr7882 = lshr i64 %add7809, 6
-  %xor7883 = xor i64 %or7881, %shr7882
-  %xor7884 = xor i64 %xor7883, %or7878
-  %or7888 = tail call i64 @llvm.fshl.i64(i64 %add5915, i64 %add5915, i64 63)
-  %or7891 = tail call i64 @llvm.fshl.i64(i64 %add5915, i64 %add5915, i64 56)
-  %shr7892 = lshr i64 %add5915, 7
-  %xor7893 = xor i64 %or7891, %shr7892
-  %xor7894 = xor i64 %xor7893, %or7888
-  %add7895 = add i64 %xor7894, %add5871
-  %add7896 = add i64 %add7895, %add7589
-  %add7897 = add i64 %add7896, %xor7884
-  %or7922 = tail call i64 @llvm.fshl.i64(i64 %add7853, i64 %add7853, i64 45)
-  %or7925 = tail call i64 @llvm.fshl.i64(i64 %add7853, i64 %add7853, i64 3)
-  %shr7926 = lshr i64 %add7853, 6
-  %xor7927 = xor i64 %or7925, %shr7926
-  %xor7928 = xor i64 %xor7927, %or7922
-  %or7932 = tail call i64 @llvm.fshl.i64(i64 %add5959, i64 %add5959, i64 63)
-  %or7935 = tail call i64 @llvm.fshl.i64(i64 %add5959, i64 %add5959, i64 56)
-  %shr7936 = lshr i64 %add5959, 7
-  %xor7937 = xor i64 %or7935, %shr7936
-  %xor7938 = xor i64 %xor7937, %or7932
-  %add7939 = add i64 %xor7938, %add5915
-  %add7940 = add i64 %add7939, %add7633
-  %add7941 = add i64 %add7940, %xor7928
-  %or7966 = tail call i64 @llvm.fshl.i64(i64 %add7897, i64 %add7897, i64 45)
-  %or7969 = tail call i64 @llvm.fshl.i64(i64 %add7897, i64 %add7897, i64 3)
-  %shr7970 = lshr i64 %add7897, 6
-  %xor7971 = xor i64 %or7969, %shr7970
-  %xor7972 = xor i64 %xor7971, %or7966
-  %or7976 = tail call i64 @llvm.fshl.i64(i64 %add6003, i64 %add6003, i64 63)
-  %or7979 = tail call i64 @llvm.fshl.i64(i64 %add6003, i64 %add6003, i64 56)
-  %shr7980 = lshr i64 %add6003, 7
-  %xor7981 = xor i64 %or7979, %shr7980
-  %xor7982 = xor i64 %xor7981, %or7976
-  %add7983 = add i64 %xor7982, %add5959
-  %add7984 = add i64 %add7983, %add7677
-  %add7985 = add i64 %add7984, %xor7972
-  %or8010 = tail call i64 @llvm.fshl.i64(i64 %add7941, i64 %add7941, i64 45)
-  %or8013 = tail call i64 @llvm.fshl.i64(i64 %add7941, i64 %add7941, i64 3)
-  %shr8014 = lshr i64 %add7941, 6
-  %xor8015 = xor i64 %or8013, %shr8014
-  %xor8016 = xor i64 %xor8015, %or8010
-  %or8020 = tail call i64 @llvm.fshl.i64(i64 %add6047, i64 %add6047, i64 63)
-  %or8023 = tail call i64 @llvm.fshl.i64(i64 %add6047, i64 %add6047, i64 56)
-  %shr8024 = lshr i64 %add6047, 7
-  %xor8025 = xor i64 %or8023, %shr8024
-  %xor8026 = xor i64 %xor8025, %or8020
-  %add8027 = add i64 %xor8026, %add6003
-  %add8028 = add i64 %add8027, %add7721
-  %add8029 = add i64 %add8028, %xor8016
-  %or8054 = tail call i64 @llvm.fshl.i64(i64 %add7985, i64 %add7985, i64 45)
-  %or8057 = tail call i64 @llvm.fshl.i64(i64 %add7985, i64 %add7985, i64 3)
-  %shr8058 = lshr i64 %add7985, 6
-  %xor8059 = xor i64 %or8057, %shr8058
-  %xor8060 = xor i64 %xor8059, %or8054
-  %or8064 = tail call i64 @llvm.fshl.i64(i64 %add6091, i64 %add6091, i64 63)
-  %or8067 = tail call i64 @llvm.fshl.i64(i64 %add6091, i64 %add6091, i64 56)
-  %shr8068 = lshr i64 %add6091, 7
-  %xor8069 = xor i64 %or8067, %shr8068
-  %xor8070 = xor i64 %xor8069, %or8064
-  %or8098 = tail call i64 @llvm.fshl.i64(i64 %add8029, i64 %add8029, i64 45)
-  %or8101 = tail call i64 @llvm.fshl.i64(i64 %add8029, i64 %add8029, i64 3)
-  %shr8102 = lshr i64 %add8029, 6
-  %xor8103 = xor i64 %or8101, %shr8102
-  %xor8104 = xor i64 %xor8103, %or8098
-  %or8108 = tail call i64 @llvm.fshl.i64(i64 %add7457, i64 %add7457, i64 63)
-  %or8111 = tail call i64 @llvm.fshl.i64(i64 %add7457, i64 %add7457, i64 56)
-  %shr8112 = lshr i64 %add7457, 7
-  %xor8113 = xor i64 %or8111, %shr8112
-  %xor8114 = xor i64 %xor8113, %or8108
-  %or8154 = tail call i64 @llvm.fshl.i64(i64 %add7399, i64 %add7399, i64 50)
-  %or8157 = tail call i64 @llvm.fshl.i64(i64 %add7399, i64 %add7399, i64 46)
-  %or8160 = tail call i64 @llvm.fshl.i64(i64 %add7399, i64 %add7399, i64 23)
-  %xor8161 = xor i64 %or8157, %or8160
-  %xor8162 = xor i64 %xor8161, %or8154
-  %and8164 = and i64 %add7399, %add7317
-  %not8165 = xor i64 %add7399, -1
-  %and8166 = and i64 %add7235, %not8165
-  %xor8167 = or i64 %and8164, %and8166
-  %add8163 = add i64 %add7457, -3880063495543823972
-  %add8168 = add i64 %add8163, %add7153
-  %add8169 = add i64 %add8168, %xor8167
-  %add8170 = add i64 %add8169, %xor8162
-  %or8174 = tail call i64 @llvm.fshl.i64(i64 %add7394, i64 %add7394, i64 36)
-  %or8177 = tail call i64 @llvm.fshl.i64(i64 %add7394, i64 %add7394, i64 30)
-  %or8180 = tail call i64 @llvm.fshl.i64(i64 %add7394, i64 %add7394, i64 25)
-  %xor8181 = xor i64 %or8177, %or8180
-  %xor8182 = xor i64 %xor8181, %or8174
-  %and8183 = and i64 %add7394, %add7312
-  %and81844686 = xor i64 %add7394, %add7312
-  %xor8186 = and i64 %and81844686, %add7230
-  %xor8187 = xor i64 %xor8186, %and8183
-  %add8188 = add i64 %xor8182, %xor8187
-  %add8190 = add i64 %add8188, %add8170
-  %add8195 = add i64 %add8170, %add7148
-  %or8236 = tail call i64 @llvm.fshl.i64(i64 %add8195, i64 %add8195, i64 50)
-  %or8239 = tail call i64 @llvm.fshl.i64(i64 %add8195, i64 %add8195, i64 46)
-  %or8242 = tail call i64 @llvm.fshl.i64(i64 %add8195, i64 %add8195, i64 23)
-  %xor8243 = xor i64 %or8239, %or8242
-  %xor8244 = xor i64 %xor8243, %or8236
-  %and8246 = and i64 %add8195, %add7399
-  %not8247 = xor i64 %add8195, -1
-  %and8248 = and i64 %add7317, %not8247
-  %xor8249 = or i64 %and8246, %and8248
-  %add8245 = add i64 %add7501, -3348786107499101689
-  %add8250 = add i64 %add8245, %add7235
-  %add8251 = add i64 %add8250, %xor8249
-  %add8252 = add i64 %add8251, %xor8244
-  %or8256 = tail call i64 @llvm.fshl.i64(i64 %add8190, i64 %add8190, i64 36)
-  %or8259 = tail call i64 @llvm.fshl.i64(i64 %add8190, i64 %add8190, i64 30)
-  %or8262 = tail call i64 @llvm.fshl.i64(i64 %add8190, i64 %add8190, i64 25)
-  %xor8263 = xor i64 %or8259, %or8262
-  %xor8264 = xor i64 %xor8263, %or8256
-  %and8265 = and i64 %add8190, %add7394
-  %and82664687 = xor i64 %add8190, %add7394
-  %xor8268 = and i64 %and82664687, %add7312
-  %xor8269 = xor i64 %xor8268, %and8265
-  %add8270 = add i64 %xor8264, %xor8269
-  %add8272 = add i64 %add8270, %add8252
-  %add8277 = add i64 %add8252, %add7230
-  %or8318 = tail call i64 @llvm.fshl.i64(i64 %add8277, i64 %add8277, i64 50)
-  %or8321 = tail call i64 @llvm.fshl.i64(i64 %add8277, i64 %add8277, i64 46)
-  %or8324 = tail call i64 @llvm.fshl.i64(i64 %add8277, i64 %add8277, i64 23)
-  %xor8325 = xor i64 %or8321, %or8324
-  %xor8326 = xor i64 %xor8325, %or8318
-  %and8328 = and i64 %add8277, %add8195
-  %not8329 = xor i64 %add8277, -1
-  %and8330 = and i64 %add7399, %not8329
-  %xor8331 = or i64 %and8328, %and8330
-  %add8327 = add i64 %add7545, -1523767162380948706
-  %add8332 = add i64 %add8327, %add7317
-  %add8333 = add i64 %add8332, %xor8331
-  %add8334 = add i64 %add8333, %xor8326
-  %or8338 = tail call i64 @llvm.fshl.i64(i64 %add8272, i64 %add8272, i64 36)
-  %or8341 = tail call i64 @llvm.fshl.i64(i64 %add8272, i64 %add8272, i64 30)
-  %or8344 = tail call i64 @llvm.fshl.i64(i64 %add8272, i64 %add8272, i64 25)
-  %xor8345 = xor i64 %or8341, %or8344
-  %xor8346 = xor i64 %xor8345, %or8338
-  %and8347 = and i64 %add8272, %add8190
-  %and83484688 = xor i64 %add8272, %add8190
-  %xor8350 = and i64 %and83484688, %add7394
-  %xor8351 = xor i64 %xor8350, %and8347
-  %add8352 = add i64 %xor8346, %xor8351
-  %add8354 = add i64 %add8352, %add8334
-  %add8359 = add i64 %add8334, %add7312
-  %or8400 = tail call i64 @llvm.fshl.i64(i64 %add8359, i64 %add8359, i64 50)
-  %or8403 = tail call i64 @llvm.fshl.i64(i64 %add8359, i64 %add8359, i64 46)
-  %or8406 = tail call i64 @llvm.fshl.i64(i64 %add8359, i64 %add8359, i64 23)
-  %xor8407 = xor i64 %or8403, %or8406
-  %xor8408 = xor i64 %xor8407, %or8400
-  %and8410 = and i64 %add8359, %add8277
-  %not8411 = xor i64 %add8359, -1
-  %and8412 = and i64 %add8195, %not8411
-  %xor8413 = or i64 %and8410, %and8412
-  %add8409 = add i64 %add7589, -757361751448694408
-  %add8414 = add i64 %add8409, %add7399
-  %add8415 = add i64 %add8414, %xor8413
-  %add8416 = add i64 %add8415, %xor8408
-  %or8420 = tail call i64 @llvm.fshl.i64(i64 %add8354, i64 %add8354, i64 36)
-  %or8423 = tail call i64 @llvm.fshl.i64(i64 %add8354, i64 %add8354, i64 30)
-  %or8426 = tail call i64 @llvm.fshl.i64(i64 %add8354, i64 %add8354, i64 25)
-  %xor8427 = xor i64 %or8423, %or8426
-  %xor8428 = xor i64 %xor8427, %or8420
-  %and8429 = and i64 %add8354, %add8272
-  %and84304689 = xor i64 %add8354, %add8272
-  %xor8432 = and i64 %and84304689, %add8190
-  %xor8433 = xor i64 %xor8432, %and8429
-  %add8434 = add i64 %xor8428, %xor8433
-  %add8436 = add i64 %add8434, %add8416
-  %add8441 = add i64 %add8416, %add7394
-  %or8482 = tail call i64 @llvm.fshl.i64(i64 %add8441, i64 %add8441, i64 50)
-  %or8485 = tail call i64 @llvm.fshl.i64(i64 %add8441, i64 %add8441, i64 46)
-  %or8488 = tail call i64 @llvm.fshl.i64(i64 %add8441, i64 %add8441, i64 23)
-  %xor8489 = xor i64 %or8485, %or8488
-  %xor8490 = xor i64 %xor8489, %or8482
-  %and8492 = and i64 %add8441, %add8359
-  %not8493 = xor i64 %add8441, -1
-  %and8494 = and i64 %add8277, %not8493
-  %xor8495 = or i64 %and8492, %and8494
-  %add8491 = add i64 %add7633, 500013540394364858
-  %add8496 = add i64 %add8491, %add8195
-  %add8497 = add i64 %add8496, %xor8495
-  %add8498 = add i64 %add8497, %xor8490
-  %or8502 = tail call i64 @llvm.fshl.i64(i64 %add8436, i64 %add8436, i64 36)
-  %or8505 = tail call i64 @llvm.fshl.i64(i64 %add8436, i64 %add8436, i64 30)
-  %or8508 = tail call i64 @llvm.fshl.i64(i64 %add8436, i64 %add8436, i64 25)
-  %xor8509 = xor i64 %or8505, %or8508
-  %xor8510 = xor i64 %xor8509, %or8502
-  %and8511 = and i64 %add8436, %add8354
-  %and85124690 = xor i64 %add8436, %add8354
-  %xor8514 = and i64 %and85124690, %add8272
-  %xor8515 = xor i64 %xor8514, %and8511
-  %add8516 = add i64 %xor8510, %xor8515
-  %add8518 = add i64 %add8516, %add8498
-  %add8523 = add i64 %add8498, %add8190
-  %or8564 = tail call i64 @llvm.fshl.i64(i64 %add8523, i64 %add8523, i64 50)
-  %or8567 = tail call i64 @llvm.fshl.i64(i64 %add8523, i64 %add8523, i64 46)
-  %or8570 = tail call i64 @llvm.fshl.i64(i64 %add8523, i64 %add8523, i64 23)
-  %xor8571 = xor i64 %or8567, %or8570
-  %xor8572 = xor i64 %xor8571, %or8564
-  %and8574 = and i64 %add8523, %add8441
-  %not8575 = xor i64 %add8523, -1
-  %and8576 = and i64 %add8359, %not8575
-  %xor8577 = or i64 %and8574, %and8576
-  %add8573 = add i64 %add7677, 748580250866718886
-  %add8578 = add i64 %add8573, %add8277
-  %add8579 = add i64 %add8578, %xor8577
-  %add8580 = add i64 %add8579, %xor8572
-  %or8584 = tail call i64 @llvm.fshl.i64(i64 %add8518, i64 %add8518, i64 36)
-  %or8587 = tail call i64 @llvm.fshl.i64(i64 %add8518, i64 %add8518, i64 30)
-  %or8590 = tail call i64 @llvm.fshl.i64(i64 %add8518, i64 %add8518, i64 25)
-  %xor8591 = xor i64 %or8587, %or8590
-  %xor8592 = xor i64 %xor8591, %or8584
-  %and8593 = and i64 %add8518, %add8436
-  %and85944691 = xor i64 %add8518, %add8436
-  %xor8596 = and i64 %and85944691, %add8354
-  %xor8597 = xor i64 %xor8596, %and8593
-  %add8598 = add i64 %xor8592, %xor8597
-  %add8600 = add i64 %add8598, %add8580
-  %add8605 = add i64 %add8580, %add8272
-  %or8646 = tail call i64 @llvm.fshl.i64(i64 %add8605, i64 %add8605, i64 50)
-  %or8649 = tail call i64 @llvm.fshl.i64(i64 %add8605, i64 %add8605, i64 46)
-  %or8652 = tail call i64 @llvm.fshl.i64(i64 %add8605, i64 %add8605, i64 23)
-  %xor8653 = xor i64 %or8649, %or8652
-  %xor8654 = xor i64 %xor8653, %or8646
-  %and8656 = and i64 %add8605, %add8523
-  %not8657 = xor i64 %add8605, -1
-  %and8658 = and i64 %add8441, %not8657
-  %xor8659 = or i64 %and8656, %and8658
-  %add8655 = add i64 %add7721, 1242879168328830382
-  %add8660 = add i64 %add8655, %add8359
-  %add8661 = add i64 %add8660, %xor8659
-  %add8662 = add i64 %add8661, %xor8654
-  %or8666 = tail call i64 @llvm.fshl.i64(i64 %add8600, i64 %add8600, i64 36)
-  %or8669 = tail call i64 @llvm.fshl.i64(i64 %add8600, i64 %add8600, i64 30)
-  %or8672 = tail call i64 @llvm.fshl.i64(i64 %add8600, i64 %add8600, i64 25)
-  %xor8673 = xor i64 %or8669, %or8672
-  %xor8674 = xor i64 %xor8673, %or8666
-  %and8675 = and i64 %add8600, %add8518
-  %and86764692 = xor i64 %add8600, %add8518
-  %xor8678 = and i64 %and86764692, %add8436
-  %xor8679 = xor i64 %xor8678, %and8675
-  %add8680 = add i64 %xor8674, %xor8679
-  %add8682 = add i64 %add8680, %add8662
-  %add8687 = add i64 %add8662, %add8354
-  %or8728 = tail call i64 @llvm.fshl.i64(i64 %add8687, i64 %add8687, i64 50)
-  %or8731 = tail call i64 @llvm.fshl.i64(i64 %add8687, i64 %add8687, i64 46)
-  %or8734 = tail call i64 @llvm.fshl.i64(i64 %add8687, i64 %add8687, i64 23)
-  %xor8735 = xor i64 %or8731, %or8734
-  %xor8736 = xor i64 %xor8735, %or8728
-  %and8738 = and i64 %add8687, %add8605
-  %not8739 = xor i64 %add8687, -1
-  %and8740 = and i64 %add8523, %not8739
-  %xor8741 = or i64 %and8738, %and8740
-  %add8737 = add i64 %add7765, 1977374033974150939
-  %add8742 = add i64 %add8737, %add8441
-  %add8743 = add i64 %add8742, %xor8741
-  %add8744 = add i64 %add8743, %xor8736
-  %or8748 = tail call i64 @llvm.fshl.i64(i64 %add8682, i64 %add8682, i64 36)
-  %or8751 = tail call i64 @llvm.fshl.i64(i64 %add8682, i64 %add8682, i64 30)
-  %or8754 = tail call i64 @llvm.fshl.i64(i64 %add8682, i64 %add8682, i64 25)
-  %xor8755 = xor i64 %or8751, %or8754
-  %xor8756 = xor i64 %xor8755, %or8748
-  %and8757 = and i64 %add8682, %add8600
-  %and87584693 = xor i64 %add8682, %add8600
-  %xor8760 = and i64 %and87584693, %add8518
-  %xor8761 = xor i64 %xor8760, %and8757
-  %add8762 = add i64 %xor8756, %xor8761
-  %add8764 = add i64 %add8762, %add8744
-  %add8769 = add i64 %add8744, %add8436
-  %or8810 = tail call i64 @llvm.fshl.i64(i64 %add8769, i64 %add8769, i64 50)
-  %or8813 = tail call i64 @llvm.fshl.i64(i64 %add8769, i64 %add8769, i64 46)
-  %or8816 = tail call i64 @llvm.fshl.i64(i64 %add8769, i64 %add8769, i64 23)
-  %xor8817 = xor i64 %or8813, %or8816
-  %xor8818 = xor i64 %xor8817, %or8810
-  %and8820 = and i64 %add8769, %add8687
-  %not8821 = xor i64 %add8769, -1
-  %and8822 = and i64 %add8605, %not8821
-  %xor8823 = or i64 %and8820, %and8822
-  %add8819 = add i64 %add7809, 2944078676154940804
-  %add8824 = add i64 %add8819, %add8523
-  %add8825 = add i64 %add8824, %xor8823
-  %add8826 = add i64 %add8825, %xor8818
-  %or8830 = tail call i64 @llvm.fshl.i64(i64 %add8764, i64 %add8764, i64 36)
-  %or8833 = tail call i64 @llvm.fshl.i64(i64 %add8764, i64 %add8764, i64 30)
-  %or8836 = tail call i64 @llvm.fshl.i64(i64 %add8764, i64 %add8764, i64 25)
-  %xor8837 = xor i64 %or8833, %or8836
-  %xor8838 = xor i64 %xor8837, %or8830
-  %and8839 = and i64 %add8764, %add8682
-  %and88404694 = xor i64 %add8764, %add8682
-  %xor8842 = and i64 %and88404694, %add8600
-  %xor8843 = xor i64 %xor8842, %and8839
-  %add8844 = add i64 %xor8838, %xor8843
-  %add8846 = add i64 %add8844, %add8826
-  %add8851 = add i64 %add8826, %add8518
-  %or8892 = tail call i64 @llvm.fshl.i64(i64 %add8851, i64 %add8851, i64 50)
-  %or8895 = tail call i64 @llvm.fshl.i64(i64 %add8851, i64 %add8851, i64 46)
-  %or8898 = tail call i64 @llvm.fshl.i64(i64 %add8851, i64 %add8851, i64 23)
-  %xor8899 = xor i64 %or8895, %or8898
-  %xor8900 = xor i64 %xor8899, %or8892
-  %and8902 = and i64 %add8769, %add8851
-  %not8903 = xor i64 %add8851, -1
-  %and8904 = and i64 %add8687, %not8903
-  %xor8905 = or i64 %and8904, %and8902
-  %add8901 = add i64 %add7853, 3659926193048069267
-  %add8906 = add i64 %add8901, %add8605
-  %add8907 = add i64 %add8906, %xor8900
-  %add8908 = add i64 %add8907, %xor8905
-  %or8912 = tail call i64 @llvm.fshl.i64(i64 %add8846, i64 %add8846, i64 36)
-  %or8915 = tail call i64 @llvm.fshl.i64(i64 %add8846, i64 %add8846, i64 30)
-  %or8918 = tail call i64 @llvm.fshl.i64(i64 %add8846, i64 %add8846, i64 25)
-  %xor8919 = xor i64 %or8915, %or8918
-  %xor8920 = xor i64 %xor8919, %or8912
-  %and8921 = and i64 %add8764, %add8846
-  %and89224695 = xor i64 %add8764, %add8846
-  %xor8924 = and i64 %and89224695, %add8682
-  %xor8925 = xor i64 %xor8924, %and8921
-  %add8926 = add i64 %xor8925, %xor8920
-  %add8928 = add i64 %add8926, %add8908
-  %add8933 = add i64 %add8908, %add8600
-  %or8974 = tail call i64 @llvm.fshl.i64(i64 %add8933, i64 %add8933, i64 50)
-  %or8977 = tail call i64 @llvm.fshl.i64(i64 %add8933, i64 %add8933, i64 46)
-  %or8980 = tail call i64 @llvm.fshl.i64(i64 %add8933, i64 %add8933, i64 23)
-  %xor8981 = xor i64 %or8977, %or8980
-  %xor8982 = xor i64 %xor8981, %or8974
-  %and8984 = and i64 %add8851, %add8933
-  %not8985 = xor i64 %add8933, -1
-  %and8986 = and i64 %add8769, %not8985
-  %xor8987 = or i64 %and8986, %and8984
-  %add8983 = add i64 %add7897, 4368137639120453308
-  %add8988 = add i64 %add8983, %add8687
-  %add8989 = add i64 %add8988, %xor8982
-  %add8990 = add i64 %add8989, %xor8987
-  %or8994 = tail call i64 @llvm.fshl.i64(i64 %add8928, i64 %add8928, i64 36)
-  %or8997 = tail call i64 @llvm.fshl.i64(i64 %add8928, i64 %add8928, i64 30)
-  %or9000 = tail call i64 @llvm.fshl.i64(i64 %add8928, i64 %add8928, i64 25)
-  %xor9001 = xor i64 %or8997, %or9000
-  %xor9002 = xor i64 %xor9001, %or8994
-  %and9003 = and i64 %add8846, %add8928
-  %and90044696 = xor i64 %add8846, %add8928
-  %xor9006 = and i64 %and90044696, %add8764
-  %xor9007 = xor i64 %xor9006, %and9003
-  %add9008 = add i64 %xor9007, %xor9002
-  %add9010 = add i64 %add9008, %add8990
-  %add9015 = add i64 %add8990, %add8682
-  %or9056 = tail call i64 @llvm.fshl.i64(i64 %add9015, i64 %add9015, i64 50)
-  %or9059 = tail call i64 @llvm.fshl.i64(i64 %add9015, i64 %add9015, i64 46)
-  %or9062 = tail call i64 @llvm.fshl.i64(i64 %add9015, i64 %add9015, i64 23)
-  %xor9063 = xor i64 %or9059, %or9062
-  %xor9064 = xor i64 %xor9063, %or9056
-  %and9066 = and i64 %add8933, %add9015
-  %not9067 = xor i64 %add9015, -1
-  %and9068 = and i64 %add8851, %not9067
-  %xor9069 = or i64 %and9068, %and9066
-  %add9065 = add i64 %add7941, 4836135668995329356
-  %add9070 = add i64 %add9065, %add8769
-  %add9071 = add i64 %add9070, %xor9064
-  %add9072 = add i64 %add9071, %xor9069
-  %or9076 = tail call i64 @llvm.fshl.i64(i64 %add9010, i64 %add9010, i64 36)
-  %or9079 = tail call i64 @llvm.fshl.i64(i64 %add9010, i64 %add9010, i64 30)
-  %or9082 = tail call i64 @llvm.fshl.i64(i64 %add9010, i64 %add9010, i64 25)
-  %xor9083 = xor i64 %or9079, %or9082
-  %xor9084 = xor i64 %xor9083, %or9076
-  %and9085 = and i64 %add8928, %add9010
-  %and90864697 = xor i64 %add8928, %add9010
-  %xor9088 = and i64 %and90864697, %add8846
-  %xor9089 = xor i64 %xor9088, %and9085
-  %add9090 = add i64 %xor9089, %xor9084
-  %add9092 = add i64 %add9090, %add9072
-  %add9097 = add i64 %add9072, %add8764
-  %or9138 = tail call i64 @llvm.fshl.i64(i64 %add9097, i64 %add9097, i64 50)
-  %or9141 = tail call i64 @llvm.fshl.i64(i64 %add9097, i64 %add9097, i64 46)
-  %or9144 = tail call i64 @llvm.fshl.i64(i64 %add9097, i64 %add9097, i64 23)
-  %xor9145 = xor i64 %or9141, %or9144
-  %xor9146 = xor i64 %xor9145, %or9138
-  %and9148 = and i64 %add9015, %add9097
-  %not9149 = xor i64 %add9097, -1
-  %and9150 = and i64 %add8933, %not9149
-  %xor9151 = or i64 %and9150, %and9148
-  %add9147 = add i64 %add7985, 5532061633213252278
-  %add9152 = add i64 %add9147, %add8851
-  %add9153 = add i64 %add9152, %xor9146
-  %add9154 = add i64 %add9153, %xor9151
-  %or9158 = tail call i64 @llvm.fshl.i64(i64 %add9092, i64 %add9092, i64 36)
-  %or9161 = tail call i64 @llvm.fshl.i64(i64 %add9092, i64 %add9092, i64 30)
-  %or9164 = tail call i64 @llvm.fshl.i64(i64 %add9092, i64 %add9092, i64 25)
-  %xor9165 = xor i64 %or9161, %or9164
-  %xor9166 = xor i64 %xor9165, %or9158
-  %and9167 = and i64 %add9010, %add9092
-  %and91684698 = xor i64 %add9010, %add9092
-  %xor9170 = and i64 %and91684698, %add8928
-  %xor9171 = xor i64 %xor9170, %and9167
-  %add9172 = add i64 %xor9171, %xor9166
-  %add9174 = add i64 %add9172, %add9154
-  %add9179 = add i64 %add9154, %add8846
-  %or9220 = tail call i64 @llvm.fshl.i64(i64 %add9179, i64 %add9179, i64 50)
-  %or9223 = tail call i64 @llvm.fshl.i64(i64 %add9179, i64 %add9179, i64 46)
-  %or9226 = tail call i64 @llvm.fshl.i64(i64 %add9179, i64 %add9179, i64 23)
-  %xor9227 = xor i64 %or9223, %or9226
-  %xor9228 = xor i64 %xor9227, %or9220
-  %and9230 = and i64 %add9097, %add9179
-  %not9231 = xor i64 %add9179, -1
-  %and9232 = and i64 %add9015, %not9231
-  %xor9233 = or i64 %and9232, %and9230
-  %add9229 = add i64 %add8029, 6448918945643986474
-  %add9234 = add i64 %add9229, %add8933
-  %add9235 = add i64 %add9234, %xor9228
-  %add9236 = add i64 %add9235, %xor9233
-  %or9240 = tail call i64 @llvm.fshl.i64(i64 %add9174, i64 %add9174, i64 36)
-  %or9243 = tail call i64 @llvm.fshl.i64(i64 %add9174, i64 %add9174, i64 30)
-  %or9246 = tail call i64 @llvm.fshl.i64(i64 %add9174, i64 %add9174, i64 25)
-  %xor9247 = xor i64 %or9243, %or9246
-  %xor9248 = xor i64 %xor9247, %or9240
-  %and9249 = and i64 %add9092, %add9174
-  %and92504699 = xor i64 %add9092, %add9174
-  %xor9252 = and i64 %and92504699, %add9010
-  %xor9253 = xor i64 %xor9252, %and9249
-  %add9254 = add i64 %xor9253, %xor9248
-  %add9256 = add i64 %add9254, %add9236
-  %add9261 = add i64 %add9236, %add8928
-  %or9302 = tail call i64 @llvm.fshl.i64(i64 %add9261, i64 %add9261, i64 50)
-  %or9305 = tail call i64 @llvm.fshl.i64(i64 %add9261, i64 %add9261, i64 46)
-  %or9308 = tail call i64 @llvm.fshl.i64(i64 %add9261, i64 %add9261, i64 23)
-  %xor9309 = xor i64 %or9305, %or9308
-  %xor9310 = xor i64 %xor9309, %or9302
-  %and9312 = and i64 %add9179, %add9261
-  %not9313 = xor i64 %add9261, -1
-  %and9314 = and i64 %add9097, %not9313
-  %xor9315 = or i64 %and9314, %and9312
-  %add9311 = add i64 %add6047, 6902733635092675308
-  %add9316 = add i64 %add9311, %xor8070
-  %add9317 = add i64 %add9316, %add7765
-  %add8071 = add i64 %add9317, %xor8060
-  %add8072 = add i64 %add8071, %add9015
-  %add8073 = add i64 %add8072, %xor9310
-  %add9318 = add i64 %add8073, %xor9315
-  %or9322 = tail call i64 @llvm.fshl.i64(i64 %add9256, i64 %add9256, i64 36)
-  %or9325 = tail call i64 @llvm.fshl.i64(i64 %add9256, i64 %add9256, i64 30)
-  %or9328 = tail call i64 @llvm.fshl.i64(i64 %add9256, i64 %add9256, i64 25)
-  %xor9329 = xor i64 %or9325, %or9328
-  %xor9330 = xor i64 %xor9329, %or9322
-  %and9331 = and i64 %add9174, %add9256
-  %and93324700 = xor i64 %add9174, %add9256
-  %xor9334 = and i64 %and93324700, %add9092
-  %xor9335 = xor i64 %xor9334, %and9331
-  %add9336 = add i64 %xor9335, %xor9330
-  %add9338 = add i64 %add9336, %add9318
-  %add9343 = add i64 %add9318, %add9010
-  %or9384 = tail call i64 @llvm.fshl.i64(i64 %add9343, i64 %add9343, i64 50)
-  %or9387 = tail call i64 @llvm.fshl.i64(i64 %add9343, i64 %add9343, i64 46)
-  %or9390 = tail call i64 @llvm.fshl.i64(i64 %add9343, i64 %add9343, i64 23)
-  %xor9391 = xor i64 %or9387, %or9390
-  %xor9392 = xor i64 %xor9391, %or9384
-  %and9394 = and i64 %add9261, %add9343
-  %not9395 = xor i64 %add9343, -1
-  %and9396 = and i64 %add9179, %not9395
-  %xor9397 = or i64 %and9396, %and9394
-  %add9393 = add i64 %add6091, 7801388544844847127
-  %add9398 = add i64 %add9393, %xor8114
-  %add9399 = add i64 %add9398, %add7809
-  %add8115 = add i64 %add9399, %xor8104
-  %add8116 = add i64 %add8115, %add9097
-  %add8117 = add i64 %add8116, %xor9392
-  %add9400 = add i64 %add8117, %xor9397
-  %or9404 = tail call i64 @llvm.fshl.i64(i64 %add9338, i64 %add9338, i64 36)
-  %or9407 = tail call i64 @llvm.fshl.i64(i64 %add9338, i64 %add9338, i64 30)
-  %or9410 = tail call i64 @llvm.fshl.i64(i64 %add9338, i64 %add9338, i64 25)
-  %xor9411 = xor i64 %or9407, %or9410
-  %xor9412 = xor i64 %xor9411, %or9404
-  %and9413 = and i64 %add9256, %add9338
-  %and94144701 = xor i64 %add9256, %add9338
-  %xor9416 = and i64 %and94144701, %add9174
-  %xor9417 = xor i64 %xor9416, %and9413
-  %add9418 = add i64 %xor9417, %xor9412
-  %add9420 = add i64 %add9418, %add9400
-  %add9425 = add i64 %add9400, %add9092
-  %add10157 = add i64 %add9420, %hash_old.sroa.0.0.copyload
-  store i64 %add10157, ptr %hash, align 8
-  %add10167 = add i64 %add9338, %hash_old.sroa.3.0.copyload
-  store i64 %add10167, ptr %hash_old.sroa.3.0.hash.sroa_idx, align 8
-  %add10177 = add i64 %add9256, %hash_old.sroa.4.0.copyload
-  store i64 %add10177, ptr %hash_old.sroa.4.0.hash.sroa_idx, align 8
-  %add10187 = add i64 %add9174, %hash_old.sroa.5.0.copyload
-  store i64 %add10187, ptr %hash_old.sroa.5.0.hash.sroa_idx, align 8
-  %add10197 = add i64 %add9425, %hash_old.sroa.6.0.copyload
-  store i64 %add10197, ptr %hash_old.sroa.6.0.hash.sroa_idx, align 8
-  %add10207 = add i64 %add9343, %hash_old.sroa.7.0.copyload
-  store i64 %add10207, ptr %hash_old.sroa.7.0.hash.sroa_idx, align 8
-  %add10217 = add i64 %add9261, %hash_old.sroa.8.0.copyload
-  store i64 %add10217, ptr %hash_old.sroa.8.0.hash.sroa_idx, align 8
-  %add10227 = add i64 %add9179, %hash_old.sroa.9.0.copyload
-  store i64 %add10227, ptr %hash_old.sroa.9.0.hash.sroa_idx, align 8
-  ret void
-}
-
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @Hacl_SHA2_Scalar32_sha512_update_last(i64 %totlen.coerce0, i64 %totlen.coerce1, i32 noundef %len, ptr noundef readonly captures(none) %b, ptr noundef captures(none) %hash) local_unnamed_addr #2 {
-entry:
-  %last = alloca [256 x i8], align 16
-  %0 = add i32 %len, -112
-  %cmp = icmp ult i32 %0, -129
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %last, i8 0, i64 256, i1 false)
-  %add.i.i.i.i = tail call noundef i64 @llvm.fshl.i64(i64 %totlen.coerce1, i64 %totlen.coerce0, i64 3)
-  %shl.i.i = shl i64 %totlen.coerce0, 3
-  %or19.i.i.i = tail call noundef i64 @llvm.bswap.i64(i64 %add.i.i.i.i)
-  %or19.i3.i.i = tail call noundef i64 @llvm.bswap.i64(i64 range(i64 0, -7) %shl.i.i)
-  %conv = zext i32 %len to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %last, ptr align 1 %b, i64 %conv, i1 false)
-  %arrayidx = getelementptr [256 x i8], ptr %last, i64 0, i64 %conv
-  store i8 -128, ptr %arrayidx, align 1
-  %..sroa.sel.sroa.sel.v.sroa.sel.v.sroa.sel.v = select i1 %cmp, i64 240, i64 112
-  %..sroa.sel.sroa.sel.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %last, i64 %..sroa.sel.sroa.sel.v.sroa.sel.v.sroa.sel.v
-  store i64 %or19.i.i.i, ptr %..sroa.sel.sroa.sel.v.sroa.sel.v.sroa.sel, align 16
-  %..sroa.sel.sroa.sel.sroa.sel.v.sroa.sel.v.sroa.sel.v = select i1 %cmp, i64 248, i64 120
-  %..sroa.sel.sroa.sel.sroa.sel.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %last, i64 %..sroa.sel.sroa.sel.sroa.sel.v.sroa.sel.v.sroa.sel.v
-  store i64 %or19.i3.i.i, ptr %..sroa.sel.sroa.sel.sroa.sel.v.sroa.sel.v.sroa.sel, align 8
-  call fastcc void @sha512_update(ptr noundef nonnull %last, ptr noundef %hash)
-  br i1 %cmp, label %if.then12, label %if.end13
-
-if.then12:                                        ; preds = %entry
-  %.sroa.gep5 = getelementptr inbounds nuw i8, ptr %last, i64 128
-  call fastcc void @sha512_update(ptr noundef nonnull %.sroa.gep5, ptr noundef %hash)
-  br label %if.end13
-
-if.end13:                                         ; preds = %if.then12, %entry
-  ret void
-}
-
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @Hacl_SHA2_Scalar32_sha512_finish(ptr noundef readonly captures(none) %st, ptr noundef writeonly captures(none) initializes((0, 64)) %h) local_unnamed_addr #2 {
-entry:
-  %0 = load i64, ptr %st, align 8
-  %or19.i = tail call noundef i64 @llvm.bswap.i64(i64 %0)
-  %arrayidx6 = getelementptr i8, ptr %st, i64 8
-  %1 = load i64, ptr %arrayidx6, align 8
-  %or19.i31 = tail call noundef i64 @llvm.bswap.i64(i64 %1)
-  %arrayidx14 = getelementptr i8, ptr %st, i64 16
-  %2 = load i64, ptr %arrayidx14, align 8
-  %or19.i32 = tail call noundef i64 @llvm.bswap.i64(i64 %2)
-  %arrayidx22 = getelementptr i8, ptr %st, i64 24
-  %3 = load i64, ptr %arrayidx22, align 8
-  %or19.i33 = tail call noundef i64 @llvm.bswap.i64(i64 %3)
-  %arrayidx30 = getelementptr i8, ptr %st, i64 32
-  %4 = load i64, ptr %arrayidx30, align 8
-  %or19.i34 = tail call noundef i64 @llvm.bswap.i64(i64 %4)
-  %arrayidx38 = getelementptr i8, ptr %st, i64 40
-  %5 = load i64, ptr %arrayidx38, align 8
-  %or19.i35 = tail call noundef i64 @llvm.bswap.i64(i64 %5)
-  %arrayidx46 = getelementptr i8, ptr %st, i64 48
-  %6 = load i64, ptr %arrayidx46, align 8
-  %or19.i36 = tail call noundef i64 @llvm.bswap.i64(i64 %6)
-  %arrayidx54 = getelementptr i8, ptr %st, i64 56
-  %7 = load i64, ptr %arrayidx54, align 8
-  %or19.i37 = tail call noundef i64 @llvm.bswap.i64(i64 %7)
-  store i64 %or19.i, ptr %h, align 1
-  %hbuf.sroa.3.0.h.sroa_idx = getelementptr inbounds nuw i8, ptr %h, i64 8
-  store i64 %or19.i31, ptr %hbuf.sroa.3.0.h.sroa_idx, align 1
-  %hbuf.sroa.4.0.h.sroa_idx = getelementptr inbounds nuw i8, ptr %h, i64 16
-  store i64 %or19.i32, ptr %hbuf.sroa.4.0.h.sroa_idx, align 1
-  %hbuf.sroa.5.0.h.sroa_idx = getelementptr inbounds nuw i8, ptr %h, i64 24
-  store i64 %or19.i33, ptr %hbuf.sroa.5.0.h.sroa_idx, align 1
-  %hbuf.sroa.6.0.h.sroa_idx = getelementptr inbounds nuw i8, ptr %h, i64 32
-  store i64 %or19.i34, ptr %hbuf.sroa.6.0.h.sroa_idx, align 1
-  %hbuf.sroa.7.0.h.sroa_idx = getelementptr inbounds nuw i8, ptr %h, i64 40
-  store i64 %or19.i35, ptr %hbuf.sroa.7.0.h.sroa_idx, align 1
-  %hbuf.sroa.8.0.h.sroa_idx = getelementptr inbounds nuw i8, ptr %h, i64 48
-  store i64 %or19.i36, ptr %hbuf.sroa.8.0.h.sroa_idx, align 1
-  %hbuf.sroa.9.0.h.sroa_idx = getelementptr inbounds nuw i8, ptr %h, i64 56
-  store i64 %or19.i37, ptr %hbuf.sroa.9.0.h.sroa_idx, align 1
-  ret void
-}
-
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @Hacl_SHA2_Scalar32_sha384_init(ptr noundef writeonly captures(none) initializes((0, 64)) %hash) local_unnamed_addr #0 {
-entry:
-  store i64 -3766243637369397544, ptr %hash, align 8
-  %arrayidx8 = getelementptr i8, ptr %hash, i64 8
-  store i64 7105036623409894663, ptr %arrayidx8, align 8
-  %arrayidx15 = getelementptr i8, ptr %hash, i64 16
-  store i64 -7973340178411365097, ptr %arrayidx15, align 8
-  %arrayidx22 = getelementptr i8, ptr %hash, i64 24
-  store i64 1526699215303891257, ptr %arrayidx22, align 8
-  %arrayidx29 = getelementptr i8, ptr %hash, i64 32
-  store i64 7436329637833083697, ptr %arrayidx29, align 8
-  %arrayidx36 = getelementptr i8, ptr %hash, i64 40
-  store i64 -8163818279084223215, ptr %arrayidx36, align 8
-  %arrayidx43 = getelementptr i8, ptr %hash, i64 48
-  store i64 -2662702644619276377, ptr %arrayidx43, align 8
-  %arrayidx50 = getelementptr i8, ptr %hash, i64 56
-  store i64 5167115440072839076, ptr %arrayidx50, align 8
-  ret void
-}
-
-; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @Hacl_SHA2_Scalar32_sha384_update_nblocks(i32 noundef %len, ptr noundef readonly captures(none) %b, ptr noundef captures(none) %st) local_unnamed_addr #1 {
-entry:
-  %cmp4.not.i = icmp ult i32 %len, 128
-  br i1 %cmp4.not.i, label %Hacl_SHA2_Scalar32_sha512_update_nblocks.exit, label %for.body.preheader.i
-
-for.body.preheader.i:                             ; preds = %entry
-  %div3.i = lshr i32 %len, 7
-  %wide.trip.count.i = zext nneg i32 %div3.i to i64
-  br label %for.body.i
-
-for.body.i:                                       ; preds = %for.body.i, %for.body.preheader.i
-  %indvars.iv.i = phi i64 [ 0, %for.body.preheader.i ], [ %indvars.iv.next.i, %for.body.i ]
-  %0 = shl nuw i64 %indvars.iv.i, 7
-  %add.ptr.i = getelementptr i8, ptr %b, i64 %0
-  tail call fastcc void @sha512_update(ptr noundef readonly %add.ptr.i, ptr noundef %st)
+.lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
+  %5 = shl nuw i64 %indvars.iv.i, 6
+  %6 = getelementptr i8, ptr %1, i64 %5
+  tail call fastcc void @sha256_update(ptr noundef readonly %6, ptr noundef %2)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %Hacl_SHA2_Scalar32_sha512_update_nblocks.exit, label %for.body.i, !llvm.loop !6
+  br i1 %exitcond.not.i, label %python_hashlib_Hacl_Hash_SHA2_sha256_update_nblocks.exit, label %.lr.ph.i, !llvm.loop !7
 
-Hacl_SHA2_Scalar32_sha512_update_nblocks.exit:    ; preds = %for.body.i, %entry
+python_hashlib_Hacl_Hash_SHA2_sha256_update_nblocks.exit: ; preds = %.lr.ph.i, %3
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @Hacl_SHA2_Scalar32_sha384_update_last(i64 %totlen.coerce0, i64 %totlen.coerce1, i32 noundef %len, ptr noundef readonly captures(none) %b, ptr noundef captures(none) %st) local_unnamed_addr #2 {
-entry:
-  %last.i = alloca [256 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %last.i)
-  %0 = add i32 %len, -112
-  %cmp.i = icmp ult i32 %0, -129
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %last.i, i8 0, i64 256, i1 false)
-  %add.i.i.i.i.i = tail call noundef i64 @llvm.fshl.i64(i64 %totlen.coerce1, i64 %totlen.coerce0, i64 3)
-  %shl.i.i.i = shl i64 %totlen.coerce0, 3
-  %or19.i.i.i.i = tail call noundef i64 @llvm.bswap.i64(i64 %add.i.i.i.i.i)
-  %or19.i3.i.i.i = tail call noundef i64 @llvm.bswap.i64(i64 range(i64 0, -7) %shl.i.i.i)
-  %conv.i = zext i32 %len to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %last.i, ptr readonly align 1 %b, i64 %conv.i, i1 false)
-  %arrayidx.i = getelementptr [256 x i8], ptr %last.i, i64 0, i64 %conv.i
-  store i8 -128, ptr %arrayidx.i, align 1
-  %..sroa.sel.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel.v = select i1 %cmp.i, i64 240, i64 112
-  %..sroa.sel.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %last.i, i64 %..sroa.sel.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel.v
-  store i64 %or19.i.i.i.i, ptr %..sroa.sel.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel, align 16
-  %..sroa.sel.sroa.sel.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel.v = select i1 %cmp.i, i64 248, i64 120
-  %..sroa.sel.sroa.sel.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %last.i, i64 %..sroa.sel.sroa.sel.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel.v
-  store i64 %or19.i3.i.i.i, ptr %..sroa.sel.sroa.sel.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel, align 8
-  call fastcc void @sha512_update(ptr noundef nonnull %last.i, ptr noundef %st)
-  br i1 %cmp.i, label %if.then12.i, label %Hacl_SHA2_Scalar32_sha512_update_last.exit
+define hidden void @python_hashlib_Hacl_Hash_SHA2_sha224_update_last(i64 noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef captures(none) %3) local_unnamed_addr #4 {
+  %5 = alloca [128 x i8], align 16
+  %6 = add i32 %1, -56
+  %7 = icmp ult i32 %6, -65
+  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %5) #18
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %5, i8 0, i64 128, i1 false)
+  %8 = shl i64 %0, 3
+  %9 = tail call noundef i64 @llvm.bswap.i64(i64 %8)
+  %10 = zext i32 %1 to i64
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %5, ptr readonly align 1 %2, i64 %10, i1 false)
+  %11 = getelementptr [128 x i8], ptr %5, i64 0, i64 %10
+  store i8 -128, ptr %11, align 1, !tbaa !9
+  %..sroa.sel.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel.v = select i1 %7, i64 120, i64 56
+  %..sroa.sel.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %5, i64 %..sroa.sel.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel.v
+  store i64 %9, ptr %..sroa.sel.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel, align 8
+  call fastcc void @sha256_update(ptr noundef nonnull %5, ptr noundef %3)
+  br i1 %7, label %12, label %python_hashlib_Hacl_Hash_SHA2_sha256_update_last.exit
 
-if.then12.i:                                      ; preds = %entry
-  %.sroa.gep5.i = getelementptr inbounds nuw i8, ptr %last.i, i64 128
-  call fastcc void @sha512_update(ptr noundef nonnull %.sroa.gep5.i, ptr noundef %st)
-  br label %Hacl_SHA2_Scalar32_sha512_update_last.exit
+12:                                               ; preds = %4
+  %.sroa.gep19.i = getelementptr inbounds nuw i8, ptr %5, i64 64
+  call fastcc void @sha256_update(ptr noundef nonnull %.sroa.gep19.i, ptr noundef %3)
+  br label %python_hashlib_Hacl_Hash_SHA2_sha256_update_last.exit
 
-Hacl_SHA2_Scalar32_sha512_update_last.exit:       ; preds = %entry, %if.then12.i
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %last.i)
+python_hashlib_Hacl_Hash_SHA2_sha256_update_last.exit: ; preds = %4, %12
+  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %5) #18
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @Hacl_SHA2_Scalar32_sha384_finish(ptr noundef readonly captures(none) %st, ptr noundef writeonly captures(none) initializes((0, 48)) %h) local_unnamed_addr #2 {
-entry:
-  %0 = load i64, ptr %st, align 8
-  %or19.i = tail call noundef i64 @llvm.bswap.i64(i64 %0)
-  %arrayidx6 = getelementptr i8, ptr %st, i64 8
-  %1 = load i64, ptr %arrayidx6, align 8
-  %or19.i31 = tail call noundef i64 @llvm.bswap.i64(i64 %1)
-  %arrayidx14 = getelementptr i8, ptr %st, i64 16
-  %2 = load i64, ptr %arrayidx14, align 8
-  %or19.i32 = tail call noundef i64 @llvm.bswap.i64(i64 %2)
-  %arrayidx22 = getelementptr i8, ptr %st, i64 24
-  %3 = load i64, ptr %arrayidx22, align 8
-  %or19.i33 = tail call noundef i64 @llvm.bswap.i64(i64 %3)
-  %arrayidx30 = getelementptr i8, ptr %st, i64 32
-  %4 = load i64, ptr %arrayidx30, align 8
-  %or19.i34 = tail call noundef i64 @llvm.bswap.i64(i64 %4)
-  %arrayidx38 = getelementptr i8, ptr %st, i64 40
-  %5 = load i64, ptr %arrayidx38, align 8
-  %or19.i35 = tail call noundef i64 @llvm.bswap.i64(i64 %5)
-  store i64 %or19.i, ptr %h, align 1
-  %hbuf.sroa.3.0.h.sroa_idx = getelementptr inbounds nuw i8, ptr %h, i64 8
-  store i64 %or19.i31, ptr %hbuf.sroa.3.0.h.sroa_idx, align 1
-  %hbuf.sroa.4.0.h.sroa_idx = getelementptr inbounds nuw i8, ptr %h, i64 16
-  store i64 %or19.i32, ptr %hbuf.sroa.4.0.h.sroa_idx, align 1
-  %hbuf.sroa.5.0.h.sroa_idx = getelementptr inbounds nuw i8, ptr %h, i64 24
-  store i64 %or19.i33, ptr %hbuf.sroa.5.0.h.sroa_idx, align 1
-  %hbuf.sroa.6.0.h.sroa_idx = getelementptr inbounds nuw i8, ptr %h, i64 32
-  store i64 %or19.i34, ptr %hbuf.sroa.6.0.h.sroa_idx, align 1
-  %hbuf.sroa.7.0.h.sroa_idx = getelementptr inbounds nuw i8, ptr %h, i64 40
-  store i64 %or19.i35, ptr %hbuf.sroa.7.0.h.sroa_idx, align 1
+define hidden void @python_hashlib_Hacl_Hash_SHA2_sha224_finish(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 28)) %1) local_unnamed_addr #4 {
+  %3 = load i32, ptr %0, align 4, !tbaa !3
+  %4 = tail call noundef i32 @llvm.bswap.i32(i32 %3)
+  %5 = getelementptr i8, ptr %0, i64 4
+  %6 = load i32, ptr %5, align 4, !tbaa !3
+  %7 = tail call noundef i32 @llvm.bswap.i32(i32 %6)
+  %8 = getelementptr i8, ptr %0, i64 8
+  %9 = load i32, ptr %8, align 4, !tbaa !3
+  %10 = tail call noundef i32 @llvm.bswap.i32(i32 %9)
+  %11 = getelementptr i8, ptr %0, i64 12
+  %12 = load i32, ptr %11, align 4, !tbaa !3
+  %13 = tail call noundef i32 @llvm.bswap.i32(i32 %12)
+  %14 = getelementptr i8, ptr %0, i64 16
+  %15 = load i32, ptr %14, align 4, !tbaa !3
+  %16 = tail call noundef i32 @llvm.bswap.i32(i32 %15)
+  %17 = getelementptr i8, ptr %0, i64 20
+  %18 = load i32, ptr %17, align 4, !tbaa !3
+  %19 = tail call noundef i32 @llvm.bswap.i32(i32 %18)
+  %20 = getelementptr i8, ptr %0, i64 24
+  %21 = load i32, ptr %20, align 4, !tbaa !3
+  %22 = tail call noundef i32 @llvm.bswap.i32(i32 %21)
+  store i32 %4, ptr %1, align 1
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 4
+  store i32 %7, ptr %.sroa.5.0..sroa_idx, align 1
+  %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 8
+  store i32 %10, ptr %.sroa.6.0..sroa_idx, align 1
+  %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 12
+  store i32 %13, ptr %.sroa.7.0..sroa_idx, align 1
+  %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 16
+  store i32 %16, ptr %.sroa.8.0..sroa_idx, align 1
+  %.sroa.9.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 20
+  store i32 %19, ptr %.sroa.9.0..sroa_idx, align 1
+  %.sroa.10.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 24
+  store i32 %22, ptr %.sroa.10.0..sroa_idx, align 1
+  ret void
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
+define hidden void @python_hashlib_Hacl_Hash_SHA2_sha512_init(ptr noundef writeonly captures(none) initializes((0, 64)) %0) local_unnamed_addr #0 {
+  store i64 7640891576956012808, ptr %0, align 8, !tbaa !10
+  %2 = getelementptr i8, ptr %0, i64 8
+  store i64 -4942790177534073029, ptr %2, align 8, !tbaa !10
+  %3 = getelementptr i8, ptr %0, i64 16
+  store i64 4354685564936845355, ptr %3, align 8, !tbaa !10
+  %4 = getelementptr i8, ptr %0, i64 24
+  store i64 -6534734903238641935, ptr %4, align 8, !tbaa !10
+  %5 = getelementptr i8, ptr %0, i64 32
+  store i64 5840696475078001361, ptr %5, align 8, !tbaa !10
+  %6 = getelementptr i8, ptr %0, i64 40
+  store i64 -7276294671716946913, ptr %6, align 8, !tbaa !10
+  %7 = getelementptr i8, ptr %0, i64 48
+  store i64 2270897969802886507, ptr %7, align 8, !tbaa !10
+  %8 = getelementptr i8, ptr %0, i64 56
+  store i64 6620516959819538809, ptr %8, align 8, !tbaa !10
+  ret void
+}
+
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+define hidden void @python_hashlib_Hacl_Hash_SHA2_sha512_update_nblocks(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2) local_unnamed_addr #2 {
+  %.not = icmp ult i32 %0, 128
+  br i1 %.not, label %._crit_edge, label %.lr.ph.preheader
+
+.lr.ph.preheader:                                 ; preds = %3
+  %4 = lshr i32 %0, 7
+  %wide.trip.count = zext nneg i32 %4 to i64
+  br label %.lr.ph
+
+._crit_edge:                                      ; preds = %.lr.ph, %3
+  ret void
+
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
+  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
+  %5 = shl nuw i64 %indvars.iv, 7
+  %6 = getelementptr i8, ptr %1, i64 %5
+  tail call fastcc void @sha512_update(ptr noundef %6, ptr noundef %2)
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !12
+}
+
+; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
+define internal fastcc void @sha512_update(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) unnamed_addr #3 {
+  %.sroa.07462.0.copyload = load i64, ptr %1, align 8
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %.sroa.5.0.copyload = load i64, ptr %.sroa.5.0..sroa_idx, align 8
+  %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %.sroa.6.0.copyload = load i64, ptr %.sroa.6.0..sroa_idx, align 8
+  %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %.sroa.7.0.copyload = load i64, ptr %.sroa.7.0..sroa_idx, align 8
+  %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %.sroa.8.0.copyload = load i64, ptr %.sroa.8.0..sroa_idx, align 8
+  %.sroa.9.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %.sroa.9.0.copyload = load i64, ptr %.sroa.9.0..sroa_idx, align 8
+  %.sroa.10.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %.sroa.10.0.copyload = load i64, ptr %.sroa.10.0..sroa_idx, align 8
+  %.sroa.11.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 56
+  %.sroa.11.0.copyload = load i64, ptr %.sroa.11.0..sroa_idx, align 8
+  %.val = load i64, ptr %0, align 1
+  %3 = tail call noundef i64 @llvm.bswap.i64(i64 %.val)
+  %4 = getelementptr i8, ptr %0, i64 8
+  %.val6827 = load i64, ptr %4, align 1
+  %5 = tail call noundef i64 @llvm.bswap.i64(i64 %.val6827)
+  %6 = getelementptr i8, ptr %0, i64 16
+  %.val6828 = load i64, ptr %6, align 1
+  %7 = tail call noundef i64 @llvm.bswap.i64(i64 %.val6828)
+  %8 = getelementptr i8, ptr %0, i64 24
+  %.val6829 = load i64, ptr %8, align 1
+  %9 = tail call noundef i64 @llvm.bswap.i64(i64 %.val6829)
+  %10 = getelementptr i8, ptr %0, i64 32
+  %.val6830 = load i64, ptr %10, align 1
+  %11 = tail call noundef i64 @llvm.bswap.i64(i64 %.val6830)
+  %12 = getelementptr i8, ptr %0, i64 40
+  %.val6831 = load i64, ptr %12, align 1
+  %13 = tail call noundef i64 @llvm.bswap.i64(i64 %.val6831)
+  %14 = getelementptr i8, ptr %0, i64 48
+  %.val6832 = load i64, ptr %14, align 1
+  %15 = tail call noundef i64 @llvm.bswap.i64(i64 %.val6832)
+  %16 = getelementptr i8, ptr %0, i64 56
+  %.val6833 = load i64, ptr %16, align 1
+  %17 = tail call noundef i64 @llvm.bswap.i64(i64 %.val6833)
+  %18 = getelementptr i8, ptr %0, i64 64
+  %.val6834 = load i64, ptr %18, align 1
+  %19 = tail call noundef i64 @llvm.bswap.i64(i64 %.val6834)
+  %20 = getelementptr i8, ptr %0, i64 72
+  %.val6835 = load i64, ptr %20, align 1
+  %21 = tail call noundef i64 @llvm.bswap.i64(i64 %.val6835)
+  %22 = getelementptr i8, ptr %0, i64 80
+  %.val6836 = load i64, ptr %22, align 1
+  %23 = tail call noundef i64 @llvm.bswap.i64(i64 %.val6836)
+  %24 = getelementptr i8, ptr %0, i64 88
+  %.val6837 = load i64, ptr %24, align 1
+  %25 = tail call noundef i64 @llvm.bswap.i64(i64 %.val6837)
+  %26 = getelementptr i8, ptr %0, i64 96
+  %.val6838 = load i64, ptr %26, align 1
+  %27 = tail call noundef i64 @llvm.bswap.i64(i64 %.val6838)
+  %28 = getelementptr i8, ptr %0, i64 104
+  %.val6839 = load i64, ptr %28, align 1
+  %29 = tail call noundef i64 @llvm.bswap.i64(i64 %.val6839)
+  %30 = getelementptr i8, ptr %0, i64 112
+  %.val6840 = load i64, ptr %30, align 1
+  %31 = tail call noundef i64 @llvm.bswap.i64(i64 %.val6840)
+  %32 = getelementptr i8, ptr %0, i64 120
+  %.val6841 = load i64, ptr %32, align 1
+  %33 = tail call noundef i64 @llvm.bswap.i64(i64 %.val6841)
+  %34 = tail call i64 @llvm.fshl.i64(i64 %.sroa.8.0.copyload, i64 %.sroa.8.0.copyload, i64 50)
+  %35 = tail call i64 @llvm.fshl.i64(i64 %.sroa.8.0.copyload, i64 %.sroa.8.0.copyload, i64 46)
+  %36 = tail call i64 @llvm.fshl.i64(i64 %.sroa.8.0.copyload, i64 %.sroa.8.0.copyload, i64 23)
+  %37 = xor i64 %35, %36
+  %38 = xor i64 %37, %34
+  %39 = and i64 %.sroa.9.0.copyload, %.sroa.8.0.copyload
+  %40 = xor i64 %.sroa.8.0.copyload, -1
+  %41 = and i64 %.sroa.10.0.copyload, %40
+  %42 = or i64 %41, %39
+  %43 = add i64 %38, 4794697086780616226
+  %44 = add i64 %43, %.sroa.11.0.copyload
+  %45 = add i64 %44, %42
+  %46 = add i64 %45, %3
+  %47 = tail call i64 @llvm.fshl.i64(i64 %.sroa.07462.0.copyload, i64 %.sroa.07462.0.copyload, i64 36)
+  %48 = tail call i64 @llvm.fshl.i64(i64 %.sroa.07462.0.copyload, i64 %.sroa.07462.0.copyload, i64 30)
+  %49 = tail call i64 @llvm.fshl.i64(i64 %.sroa.07462.0.copyload, i64 %.sroa.07462.0.copyload, i64 25)
+  %50 = xor i64 %48, %49
+  %51 = xor i64 %50, %47
+  %52 = and i64 %.sroa.5.0.copyload, %.sroa.07462.0.copyload
+  %53 = xor i64 %.sroa.5.0.copyload, %.sroa.07462.0.copyload
+  %54 = and i64 %53, %.sroa.6.0.copyload
+  %55 = xor i64 %54, %52
+  %56 = add i64 %55, %51
+  %57 = add i64 %56, %46
+  %58 = add i64 %46, %.sroa.7.0.copyload
+  %59 = tail call i64 @llvm.fshl.i64(i64 %58, i64 %58, i64 50)
+  %60 = tail call i64 @llvm.fshl.i64(i64 %58, i64 %58, i64 46)
+  %61 = tail call i64 @llvm.fshl.i64(i64 %58, i64 %58, i64 23)
+  %62 = xor i64 %60, %61
+  %63 = xor i64 %62, %59
+  %64 = and i64 %58, %.sroa.8.0.copyload
+  %65 = xor i64 %58, -1
+  %66 = and i64 %.sroa.9.0.copyload, %65
+  %67 = or i64 %64, %66
+  %68 = add i64 %.sroa.10.0.copyload, 8158064640168781261
+  %69 = add i64 %68, %5
+  %70 = add i64 %69, %67
+  %71 = add i64 %70, %63
+  %72 = tail call i64 @llvm.fshl.i64(i64 %57, i64 %57, i64 36)
+  %73 = tail call i64 @llvm.fshl.i64(i64 %57, i64 %57, i64 30)
+  %74 = tail call i64 @llvm.fshl.i64(i64 %57, i64 %57, i64 25)
+  %75 = xor i64 %73, %74
+  %76 = xor i64 %75, %72
+  %77 = and i64 %57, %.sroa.07462.0.copyload
+  %78 = xor i64 %57, %.sroa.07462.0.copyload
+  %79 = and i64 %78, %.sroa.5.0.copyload
+  %80 = xor i64 %79, %77
+  %81 = add i64 %76, %80
+  %82 = add i64 %81, %71
+  %83 = add i64 %71, %.sroa.6.0.copyload
+  %84 = tail call i64 @llvm.fshl.i64(i64 %83, i64 %83, i64 50)
+  %85 = tail call i64 @llvm.fshl.i64(i64 %83, i64 %83, i64 46)
+  %86 = tail call i64 @llvm.fshl.i64(i64 %83, i64 %83, i64 23)
+  %87 = xor i64 %85, %86
+  %88 = xor i64 %87, %84
+  %89 = and i64 %83, %58
+  %90 = xor i64 %83, -1
+  %91 = and i64 %.sroa.8.0.copyload, %90
+  %92 = or i64 %89, %91
+  %93 = add i64 %.sroa.9.0.copyload, -5349999486874862801
+  %94 = add i64 %93, %7
+  %95 = add i64 %94, %92
+  %96 = add i64 %95, %88
+  %97 = tail call i64 @llvm.fshl.i64(i64 %82, i64 %82, i64 36)
+  %98 = tail call i64 @llvm.fshl.i64(i64 %82, i64 %82, i64 30)
+  %99 = tail call i64 @llvm.fshl.i64(i64 %82, i64 %82, i64 25)
+  %100 = xor i64 %98, %99
+  %101 = xor i64 %100, %97
+  %102 = and i64 %82, %57
+  %103 = xor i64 %82, %57
+  %104 = and i64 %103, %.sroa.07462.0.copyload
+  %105 = xor i64 %104, %102
+  %106 = add i64 %101, %105
+  %107 = add i64 %106, %96
+  %108 = add i64 %96, %.sroa.5.0.copyload
+  %109 = tail call i64 @llvm.fshl.i64(i64 %108, i64 %108, i64 50)
+  %110 = tail call i64 @llvm.fshl.i64(i64 %108, i64 %108, i64 46)
+  %111 = tail call i64 @llvm.fshl.i64(i64 %108, i64 %108, i64 23)
+  %112 = xor i64 %110, %111
+  %113 = xor i64 %112, %109
+  %114 = and i64 %108, %83
+  %115 = xor i64 %108, -1
+  %116 = and i64 %58, %115
+  %117 = or i64 %114, %116
+  %118 = add i64 %.sroa.8.0.copyload, -1606136188198331460
+  %119 = add i64 %118, %9
+  %120 = add i64 %119, %117
+  %121 = add i64 %120, %113
+  %122 = tail call i64 @llvm.fshl.i64(i64 %107, i64 %107, i64 36)
+  %123 = tail call i64 @llvm.fshl.i64(i64 %107, i64 %107, i64 30)
+  %124 = tail call i64 @llvm.fshl.i64(i64 %107, i64 %107, i64 25)
+  %125 = xor i64 %123, %124
+  %126 = xor i64 %125, %122
+  %127 = and i64 %107, %82
+  %128 = xor i64 %107, %82
+  %129 = and i64 %128, %57
+  %130 = xor i64 %129, %127
+  %131 = add i64 %126, %130
+  %132 = add i64 %131, %121
+  %133 = add i64 %121, %.sroa.07462.0.copyload
+  %134 = tail call i64 @llvm.fshl.i64(i64 %133, i64 %133, i64 50)
+  %135 = tail call i64 @llvm.fshl.i64(i64 %133, i64 %133, i64 46)
+  %136 = tail call i64 @llvm.fshl.i64(i64 %133, i64 %133, i64 23)
+  %137 = xor i64 %135, %136
+  %138 = xor i64 %137, %134
+  %139 = and i64 %133, %108
+  %140 = xor i64 %133, -1
+  %141 = and i64 %83, %140
+  %142 = or i64 %139, %141
+  %143 = add i64 %58, 4131703408338449720
+  %144 = add i64 %143, %11
+  %145 = add i64 %144, %142
+  %146 = add i64 %145, %138
+  %147 = tail call i64 @llvm.fshl.i64(i64 %132, i64 %132, i64 36)
+  %148 = tail call i64 @llvm.fshl.i64(i64 %132, i64 %132, i64 30)
+  %149 = tail call i64 @llvm.fshl.i64(i64 %132, i64 %132, i64 25)
+  %150 = xor i64 %148, %149
+  %151 = xor i64 %150, %147
+  %152 = and i64 %132, %107
+  %153 = xor i64 %132, %107
+  %154 = and i64 %153, %82
+  %155 = xor i64 %154, %152
+  %156 = add i64 %151, %155
+  %157 = add i64 %156, %146
+  %158 = add i64 %146, %57
+  %159 = tail call i64 @llvm.fshl.i64(i64 %158, i64 %158, i64 50)
+  %160 = tail call i64 @llvm.fshl.i64(i64 %158, i64 %158, i64 46)
+  %161 = tail call i64 @llvm.fshl.i64(i64 %158, i64 %158, i64 23)
+  %162 = xor i64 %160, %161
+  %163 = xor i64 %162, %159
+  %164 = and i64 %158, %133
+  %165 = xor i64 %158, -1
+  %166 = and i64 %108, %165
+  %167 = or i64 %164, %166
+  %168 = add i64 %13, 6480981068601479193
+  %169 = add i64 %168, %83
+  %170 = add i64 %169, %167
+  %171 = add i64 %170, %163
+  %172 = tail call i64 @llvm.fshl.i64(i64 %157, i64 %157, i64 36)
+  %173 = tail call i64 @llvm.fshl.i64(i64 %157, i64 %157, i64 30)
+  %174 = tail call i64 @llvm.fshl.i64(i64 %157, i64 %157, i64 25)
+  %175 = xor i64 %173, %174
+  %176 = xor i64 %175, %172
+  %177 = and i64 %157, %132
+  %178 = xor i64 %157, %132
+  %179 = and i64 %178, %107
+  %180 = xor i64 %179, %177
+  %181 = add i64 %176, %180
+  %182 = add i64 %181, %171
+  %183 = add i64 %171, %82
+  %184 = tail call i64 @llvm.fshl.i64(i64 %183, i64 %183, i64 50)
+  %185 = tail call i64 @llvm.fshl.i64(i64 %183, i64 %183, i64 46)
+  %186 = tail call i64 @llvm.fshl.i64(i64 %183, i64 %183, i64 23)
+  %187 = xor i64 %185, %186
+  %188 = xor i64 %187, %184
+  %189 = and i64 %183, %158
+  %190 = xor i64 %183, -1
+  %191 = and i64 %133, %190
+  %192 = or i64 %189, %191
+  %193 = add i64 %15, -7908458776815382629
+  %194 = add i64 %193, %108
+  %195 = add i64 %194, %192
+  %196 = add i64 %195, %188
+  %197 = tail call i64 @llvm.fshl.i64(i64 %182, i64 %182, i64 36)
+  %198 = tail call i64 @llvm.fshl.i64(i64 %182, i64 %182, i64 30)
+  %199 = tail call i64 @llvm.fshl.i64(i64 %182, i64 %182, i64 25)
+  %200 = xor i64 %198, %199
+  %201 = xor i64 %200, %197
+  %202 = and i64 %182, %157
+  %203 = xor i64 %182, %157
+  %204 = and i64 %203, %132
+  %205 = xor i64 %204, %202
+  %206 = add i64 %201, %205
+  %207 = add i64 %206, %196
+  %208 = add i64 %196, %107
+  %209 = tail call i64 @llvm.fshl.i64(i64 %208, i64 %208, i64 50)
+  %210 = tail call i64 @llvm.fshl.i64(i64 %208, i64 %208, i64 46)
+  %211 = tail call i64 @llvm.fshl.i64(i64 %208, i64 %208, i64 23)
+  %212 = xor i64 %210, %211
+  %213 = xor i64 %212, %209
+  %214 = and i64 %208, %183
+  %215 = xor i64 %208, -1
+  %216 = and i64 %158, %215
+  %217 = or i64 %214, %216
+  %218 = add i64 %17, -6116909921290321640
+  %219 = add i64 %218, %133
+  %220 = add i64 %219, %217
+  %221 = add i64 %220, %213
+  %222 = tail call i64 @llvm.fshl.i64(i64 %207, i64 %207, i64 36)
+  %223 = tail call i64 @llvm.fshl.i64(i64 %207, i64 %207, i64 30)
+  %224 = tail call i64 @llvm.fshl.i64(i64 %207, i64 %207, i64 25)
+  %225 = xor i64 %223, %224
+  %226 = xor i64 %225, %222
+  %227 = and i64 %207, %182
+  %228 = xor i64 %207, %182
+  %229 = and i64 %228, %157
+  %230 = xor i64 %229, %227
+  %231 = add i64 %226, %230
+  %232 = add i64 %231, %221
+  %233 = add i64 %221, %132
+  %234 = tail call i64 @llvm.fshl.i64(i64 %233, i64 %233, i64 50)
+  %235 = tail call i64 @llvm.fshl.i64(i64 %233, i64 %233, i64 46)
+  %236 = tail call i64 @llvm.fshl.i64(i64 %233, i64 %233, i64 23)
+  %237 = xor i64 %235, %236
+  %238 = xor i64 %237, %234
+  %239 = and i64 %233, %208
+  %240 = xor i64 %233, -1
+  %241 = and i64 %183, %240
+  %242 = or i64 %239, %241
+  %243 = add i64 %19, -2880145864133508542
+  %244 = add i64 %243, %158
+  %245 = add i64 %244, %242
+  %246 = add i64 %245, %238
+  %247 = tail call i64 @llvm.fshl.i64(i64 %232, i64 %232, i64 36)
+  %248 = tail call i64 @llvm.fshl.i64(i64 %232, i64 %232, i64 30)
+  %249 = tail call i64 @llvm.fshl.i64(i64 %232, i64 %232, i64 25)
+  %250 = xor i64 %248, %249
+  %251 = xor i64 %250, %247
+  %252 = and i64 %232, %207
+  %253 = xor i64 %232, %207
+  %254 = and i64 %253, %182
+  %255 = xor i64 %254, %252
+  %256 = add i64 %251, %255
+  %257 = add i64 %256, %246
+  %258 = add i64 %246, %157
+  %259 = tail call i64 @llvm.fshl.i64(i64 %258, i64 %258, i64 50)
+  %260 = tail call i64 @llvm.fshl.i64(i64 %258, i64 %258, i64 46)
+  %261 = tail call i64 @llvm.fshl.i64(i64 %258, i64 %258, i64 23)
+  %262 = xor i64 %260, %261
+  %263 = xor i64 %262, %259
+  %264 = and i64 %258, %233
+  %265 = xor i64 %258, -1
+  %266 = and i64 %208, %265
+  %267 = or i64 %264, %266
+  %268 = add i64 %21, 1334009975649890238
+  %269 = add i64 %268, %183
+  %270 = add i64 %269, %267
+  %271 = add i64 %270, %263
+  %272 = tail call i64 @llvm.fshl.i64(i64 %257, i64 %257, i64 36)
+  %273 = tail call i64 @llvm.fshl.i64(i64 %257, i64 %257, i64 30)
+  %274 = tail call i64 @llvm.fshl.i64(i64 %257, i64 %257, i64 25)
+  %275 = xor i64 %273, %274
+  %276 = xor i64 %275, %272
+  %277 = and i64 %257, %232
+  %278 = xor i64 %257, %232
+  %279 = and i64 %278, %207
+  %280 = xor i64 %279, %277
+  %281 = add i64 %276, %280
+  %282 = add i64 %281, %271
+  %283 = add i64 %271, %182
+  %284 = tail call i64 @llvm.fshl.i64(i64 %283, i64 %283, i64 50)
+  %285 = tail call i64 @llvm.fshl.i64(i64 %283, i64 %283, i64 46)
+  %286 = tail call i64 @llvm.fshl.i64(i64 %283, i64 %283, i64 23)
+  %287 = xor i64 %285, %286
+  %288 = xor i64 %287, %284
+  %289 = and i64 %283, %258
+  %290 = xor i64 %283, -1
+  %291 = and i64 %233, %290
+  %292 = or i64 %289, %291
+  %293 = add i64 %23, 2608012711638119052
+  %294 = add i64 %293, %208
+  %295 = add i64 %294, %292
+  %296 = add i64 %295, %288
+  %297 = tail call i64 @llvm.fshl.i64(i64 %282, i64 %282, i64 36)
+  %298 = tail call i64 @llvm.fshl.i64(i64 %282, i64 %282, i64 30)
+  %299 = tail call i64 @llvm.fshl.i64(i64 %282, i64 %282, i64 25)
+  %300 = xor i64 %298, %299
+  %301 = xor i64 %300, %297
+  %302 = and i64 %282, %257
+  %303 = xor i64 %282, %257
+  %304 = and i64 %303, %232
+  %305 = xor i64 %304, %302
+  %306 = add i64 %301, %305
+  %307 = add i64 %306, %296
+  %308 = add i64 %296, %207
+  %309 = tail call i64 @llvm.fshl.i64(i64 %308, i64 %308, i64 50)
+  %310 = tail call i64 @llvm.fshl.i64(i64 %308, i64 %308, i64 46)
+  %311 = tail call i64 @llvm.fshl.i64(i64 %308, i64 %308, i64 23)
+  %312 = xor i64 %310, %311
+  %313 = xor i64 %312, %309
+  %314 = and i64 %308, %283
+  %315 = xor i64 %308, -1
+  %316 = and i64 %258, %315
+  %317 = or i64 %314, %316
+  %318 = add i64 %25, 6128411473006802146
+  %319 = add i64 %318, %233
+  %320 = add i64 %319, %317
+  %321 = add i64 %320, %313
+  %322 = tail call i64 @llvm.fshl.i64(i64 %307, i64 %307, i64 36)
+  %323 = tail call i64 @llvm.fshl.i64(i64 %307, i64 %307, i64 30)
+  %324 = tail call i64 @llvm.fshl.i64(i64 %307, i64 %307, i64 25)
+  %325 = xor i64 %323, %324
+  %326 = xor i64 %325, %322
+  %327 = and i64 %307, %282
+  %328 = xor i64 %307, %282
+  %329 = and i64 %328, %257
+  %330 = xor i64 %329, %327
+  %331 = add i64 %326, %330
+  %332 = add i64 %331, %321
+  %333 = add i64 %321, %232
+  %334 = tail call i64 @llvm.fshl.i64(i64 %333, i64 %333, i64 50)
+  %335 = tail call i64 @llvm.fshl.i64(i64 %333, i64 %333, i64 46)
+  %336 = tail call i64 @llvm.fshl.i64(i64 %333, i64 %333, i64 23)
+  %337 = xor i64 %335, %336
+  %338 = xor i64 %337, %334
+  %339 = and i64 %333, %308
+  %340 = xor i64 %333, -1
+  %341 = and i64 %283, %340
+  %342 = or i64 %339, %341
+  %343 = add i64 %27, 8268148722764581231
+  %344 = add i64 %343, %258
+  %345 = add i64 %344, %342
+  %346 = add i64 %345, %338
+  %347 = tail call i64 @llvm.fshl.i64(i64 %332, i64 %332, i64 36)
+  %348 = tail call i64 @llvm.fshl.i64(i64 %332, i64 %332, i64 30)
+  %349 = tail call i64 @llvm.fshl.i64(i64 %332, i64 %332, i64 25)
+  %350 = xor i64 %348, %349
+  %351 = xor i64 %350, %347
+  %352 = and i64 %332, %307
+  %353 = xor i64 %332, %307
+  %354 = and i64 %353, %282
+  %355 = xor i64 %354, %352
+  %356 = add i64 %351, %355
+  %357 = add i64 %356, %346
+  %358 = add i64 %346, %257
+  %359 = tail call i64 @llvm.fshl.i64(i64 %358, i64 %358, i64 50)
+  %360 = tail call i64 @llvm.fshl.i64(i64 %358, i64 %358, i64 46)
+  %361 = tail call i64 @llvm.fshl.i64(i64 %358, i64 %358, i64 23)
+  %362 = xor i64 %360, %361
+  %363 = xor i64 %362, %359
+  %364 = and i64 %358, %333
+  %365 = xor i64 %358, -1
+  %366 = and i64 %308, %365
+  %367 = or i64 %364, %366
+  %368 = add i64 %29, -9160688886553864527
+  %369 = add i64 %368, %283
+  %370 = add i64 %369, %367
+  %371 = add i64 %370, %363
+  %372 = tail call i64 @llvm.fshl.i64(i64 %357, i64 %357, i64 36)
+  %373 = tail call i64 @llvm.fshl.i64(i64 %357, i64 %357, i64 30)
+  %374 = tail call i64 @llvm.fshl.i64(i64 %357, i64 %357, i64 25)
+  %375 = xor i64 %373, %374
+  %376 = xor i64 %375, %372
+  %377 = and i64 %357, %332
+  %378 = xor i64 %357, %332
+  %379 = and i64 %378, %307
+  %380 = xor i64 %379, %377
+  %381 = add i64 %376, %380
+  %382 = add i64 %381, %371
+  %383 = add i64 %371, %282
+  %384 = tail call i64 @llvm.fshl.i64(i64 %383, i64 %383, i64 50)
+  %385 = tail call i64 @llvm.fshl.i64(i64 %383, i64 %383, i64 46)
+  %386 = tail call i64 @llvm.fshl.i64(i64 %383, i64 %383, i64 23)
+  %387 = xor i64 %385, %386
+  %388 = xor i64 %387, %384
+  %389 = and i64 %383, %358
+  %390 = xor i64 %383, -1
+  %391 = and i64 %333, %390
+  %392 = or i64 %389, %391
+  %393 = add i64 %31, -7215885187991268811
+  %394 = add i64 %393, %308
+  %395 = add i64 %394, %392
+  %396 = add i64 %395, %388
+  %397 = tail call i64 @llvm.fshl.i64(i64 %382, i64 %382, i64 36)
+  %398 = tail call i64 @llvm.fshl.i64(i64 %382, i64 %382, i64 30)
+  %399 = tail call i64 @llvm.fshl.i64(i64 %382, i64 %382, i64 25)
+  %400 = xor i64 %398, %399
+  %401 = xor i64 %400, %397
+  %402 = and i64 %382, %357
+  %403 = xor i64 %382, %357
+  %404 = and i64 %403, %332
+  %405 = xor i64 %404, %402
+  %406 = add i64 %401, %405
+  %407 = add i64 %406, %396
+  %408 = add i64 %396, %307
+  %409 = tail call i64 @llvm.fshl.i64(i64 %408, i64 %408, i64 50)
+  %410 = tail call i64 @llvm.fshl.i64(i64 %408, i64 %408, i64 46)
+  %411 = tail call i64 @llvm.fshl.i64(i64 %408, i64 %408, i64 23)
+  %412 = xor i64 %410, %411
+  %413 = xor i64 %412, %409
+  %414 = and i64 %408, %383
+  %415 = xor i64 %408, -1
+  %416 = and i64 %358, %415
+  %417 = or i64 %414, %416
+  %418 = add i64 %33, -4495734319001033068
+  %419 = add i64 %418, %333
+  %420 = add i64 %419, %417
+  %421 = add i64 %420, %413
+  %422 = tail call i64 @llvm.fshl.i64(i64 %407, i64 %407, i64 36)
+  %423 = tail call i64 @llvm.fshl.i64(i64 %407, i64 %407, i64 30)
+  %424 = tail call i64 @llvm.fshl.i64(i64 %407, i64 %407, i64 25)
+  %425 = xor i64 %423, %424
+  %426 = xor i64 %425, %422
+  %427 = and i64 %407, %382
+  %428 = xor i64 %407, %382
+  %429 = and i64 %428, %357
+  %430 = xor i64 %429, %427
+  %431 = add i64 %426, %430
+  %432 = add i64 %431, %421
+  %433 = add i64 %421, %332
+  %434 = tail call i64 @llvm.fshl.i64(i64 %31, i64 %31, i64 45)
+  %435 = tail call i64 @llvm.fshl.i64(i64 %31, i64 %31, i64 3)
+  %436 = lshr i64 %31, 6
+  %437 = xor i64 %435, %436
+  %438 = xor i64 %437, %434
+  %439 = tail call i64 @llvm.fshl.i64(i64 %5, i64 %5, i64 63)
+  %440 = tail call i64 @llvm.fshl.i64(i64 %5, i64 %5, i64 56)
+  %441 = lshr i64 %5, 7
+  %442 = xor i64 %440, %441
+  %443 = xor i64 %442, %439
+  %444 = add i64 %443, %3
+  %445 = add i64 %444, %21
+  %446 = add i64 %445, %438
+  %447 = tail call i64 @llvm.fshl.i64(i64 %33, i64 %33, i64 45)
+  %448 = tail call i64 @llvm.fshl.i64(i64 %33, i64 %33, i64 3)
+  %449 = lshr i64 %33, 6
+  %450 = xor i64 %448, %449
+  %451 = xor i64 %450, %447
+  %452 = tail call i64 @llvm.fshl.i64(i64 %7, i64 %7, i64 63)
+  %453 = tail call i64 @llvm.fshl.i64(i64 %7, i64 %7, i64 56)
+  %454 = lshr i64 %7, 7
+  %455 = xor i64 %453, %454
+  %456 = xor i64 %455, %452
+  %457 = add i64 %456, %5
+  %458 = add i64 %457, %23
+  %459 = add i64 %458, %451
+  %460 = tail call i64 @llvm.fshl.i64(i64 %446, i64 %446, i64 45)
+  %461 = tail call i64 @llvm.fshl.i64(i64 %446, i64 %446, i64 3)
+  %462 = lshr i64 %446, 6
+  %463 = xor i64 %461, %462
+  %464 = xor i64 %463, %460
+  %465 = tail call i64 @llvm.fshl.i64(i64 %9, i64 %9, i64 63)
+  %466 = tail call i64 @llvm.fshl.i64(i64 %9, i64 %9, i64 56)
+  %467 = lshr i64 %9, 7
+  %468 = xor i64 %466, %467
+  %469 = xor i64 %468, %465
+  %470 = add i64 %469, %7
+  %471 = add i64 %470, %25
+  %472 = add i64 %471, %464
+  %473 = tail call i64 @llvm.fshl.i64(i64 %459, i64 %459, i64 45)
+  %474 = tail call i64 @llvm.fshl.i64(i64 %459, i64 %459, i64 3)
+  %475 = lshr i64 %459, 6
+  %476 = xor i64 %474, %475
+  %477 = xor i64 %476, %473
+  %478 = tail call i64 @llvm.fshl.i64(i64 %11, i64 %11, i64 63)
+  %479 = tail call i64 @llvm.fshl.i64(i64 %11, i64 %11, i64 56)
+  %480 = lshr i64 %11, 7
+  %481 = xor i64 %479, %480
+  %482 = xor i64 %481, %478
+  %483 = add i64 %482, %9
+  %484 = add i64 %483, %27
+  %485 = add i64 %484, %477
+  %486 = tail call i64 @llvm.fshl.i64(i64 %472, i64 %472, i64 45)
+  %487 = tail call i64 @llvm.fshl.i64(i64 %472, i64 %472, i64 3)
+  %488 = lshr i64 %472, 6
+  %489 = xor i64 %487, %488
+  %490 = xor i64 %489, %486
+  %491 = tail call i64 @llvm.fshl.i64(i64 %13, i64 %13, i64 63)
+  %492 = tail call i64 @llvm.fshl.i64(i64 %13, i64 %13, i64 56)
+  %493 = lshr i64 %13, 7
+  %494 = xor i64 %492, %493
+  %495 = xor i64 %494, %491
+  %496 = add i64 %495, %11
+  %497 = add i64 %496, %29
+  %498 = add i64 %497, %490
+  %499 = tail call i64 @llvm.fshl.i64(i64 %485, i64 %485, i64 45)
+  %500 = tail call i64 @llvm.fshl.i64(i64 %485, i64 %485, i64 3)
+  %501 = lshr i64 %485, 6
+  %502 = xor i64 %500, %501
+  %503 = xor i64 %502, %499
+  %504 = tail call i64 @llvm.fshl.i64(i64 %15, i64 %15, i64 63)
+  %505 = tail call i64 @llvm.fshl.i64(i64 %15, i64 %15, i64 56)
+  %506 = lshr i64 %15, 7
+  %507 = xor i64 %505, %506
+  %508 = xor i64 %507, %504
+  %509 = add i64 %508, %13
+  %510 = add i64 %509, %31
+  %511 = add i64 %510, %503
+  %512 = tail call i64 @llvm.fshl.i64(i64 %498, i64 %498, i64 45)
+  %513 = tail call i64 @llvm.fshl.i64(i64 %498, i64 %498, i64 3)
+  %514 = lshr i64 %498, 6
+  %515 = xor i64 %513, %514
+  %516 = xor i64 %515, %512
+  %517 = tail call i64 @llvm.fshl.i64(i64 %17, i64 %17, i64 63)
+  %518 = tail call i64 @llvm.fshl.i64(i64 %17, i64 %17, i64 56)
+  %519 = lshr i64 %17, 7
+  %520 = xor i64 %518, %519
+  %521 = xor i64 %520, %517
+  %522 = add i64 %521, %15
+  %523 = add i64 %522, %33
+  %524 = add i64 %523, %516
+  %525 = tail call i64 @llvm.fshl.i64(i64 %511, i64 %511, i64 45)
+  %526 = tail call i64 @llvm.fshl.i64(i64 %511, i64 %511, i64 3)
+  %527 = lshr i64 %511, 6
+  %528 = xor i64 %526, %527
+  %529 = xor i64 %528, %525
+  %530 = tail call i64 @llvm.fshl.i64(i64 %19, i64 %19, i64 63)
+  %531 = tail call i64 @llvm.fshl.i64(i64 %19, i64 %19, i64 56)
+  %532 = lshr i64 %19, 7
+  %533 = xor i64 %531, %532
+  %534 = xor i64 %533, %530
+  %535 = add i64 %534, %17
+  %536 = add i64 %535, %446
+  %537 = add i64 %536, %529
+  %538 = tail call i64 @llvm.fshl.i64(i64 %524, i64 %524, i64 45)
+  %539 = tail call i64 @llvm.fshl.i64(i64 %524, i64 %524, i64 3)
+  %540 = lshr i64 %524, 6
+  %541 = xor i64 %539, %540
+  %542 = xor i64 %541, %538
+  %543 = tail call i64 @llvm.fshl.i64(i64 %21, i64 %21, i64 63)
+  %544 = tail call i64 @llvm.fshl.i64(i64 %21, i64 %21, i64 56)
+  %545 = lshr i64 %21, 7
+  %546 = xor i64 %544, %545
+  %547 = xor i64 %546, %543
+  %548 = add i64 %547, %19
+  %549 = add i64 %548, %459
+  %550 = add i64 %549, %542
+  %551 = tail call i64 @llvm.fshl.i64(i64 %537, i64 %537, i64 45)
+  %552 = tail call i64 @llvm.fshl.i64(i64 %537, i64 %537, i64 3)
+  %553 = lshr i64 %537, 6
+  %554 = xor i64 %552, %553
+  %555 = xor i64 %554, %551
+  %556 = tail call i64 @llvm.fshl.i64(i64 %23, i64 %23, i64 63)
+  %557 = tail call i64 @llvm.fshl.i64(i64 %23, i64 %23, i64 56)
+  %558 = lshr i64 %23, 7
+  %559 = xor i64 %557, %558
+  %560 = xor i64 %559, %556
+  %561 = add i64 %560, %21
+  %562 = add i64 %561, %472
+  %563 = add i64 %562, %555
+  %564 = tail call i64 @llvm.fshl.i64(i64 %550, i64 %550, i64 45)
+  %565 = tail call i64 @llvm.fshl.i64(i64 %550, i64 %550, i64 3)
+  %566 = lshr i64 %550, 6
+  %567 = xor i64 %565, %566
+  %568 = xor i64 %567, %564
+  %569 = tail call i64 @llvm.fshl.i64(i64 %25, i64 %25, i64 63)
+  %570 = tail call i64 @llvm.fshl.i64(i64 %25, i64 %25, i64 56)
+  %571 = lshr i64 %25, 7
+  %572 = xor i64 %570, %571
+  %573 = xor i64 %572, %569
+  %574 = add i64 %573, %23
+  %575 = add i64 %574, %485
+  %576 = add i64 %575, %568
+  %577 = tail call i64 @llvm.fshl.i64(i64 %563, i64 %563, i64 45)
+  %578 = tail call i64 @llvm.fshl.i64(i64 %563, i64 %563, i64 3)
+  %579 = lshr i64 %563, 6
+  %580 = xor i64 %578, %579
+  %581 = xor i64 %580, %577
+  %582 = tail call i64 @llvm.fshl.i64(i64 %27, i64 %27, i64 63)
+  %583 = tail call i64 @llvm.fshl.i64(i64 %27, i64 %27, i64 56)
+  %584 = lshr i64 %27, 7
+  %585 = xor i64 %583, %584
+  %586 = xor i64 %585, %582
+  %587 = add i64 %586, %25
+  %588 = add i64 %587, %498
+  %589 = add i64 %588, %581
+  %590 = tail call i64 @llvm.fshl.i64(i64 %576, i64 %576, i64 45)
+  %591 = tail call i64 @llvm.fshl.i64(i64 %576, i64 %576, i64 3)
+  %592 = lshr i64 %576, 6
+  %593 = xor i64 %591, %592
+  %594 = xor i64 %593, %590
+  %595 = tail call i64 @llvm.fshl.i64(i64 %29, i64 %29, i64 63)
+  %596 = tail call i64 @llvm.fshl.i64(i64 %29, i64 %29, i64 56)
+  %597 = lshr i64 %29, 7
+  %598 = xor i64 %596, %597
+  %599 = xor i64 %598, %595
+  %600 = add i64 %599, %27
+  %601 = add i64 %600, %511
+  %602 = add i64 %601, %594
+  %603 = tail call i64 @llvm.fshl.i64(i64 %589, i64 %589, i64 45)
+  %604 = tail call i64 @llvm.fshl.i64(i64 %589, i64 %589, i64 3)
+  %605 = lshr i64 %589, 6
+  %606 = xor i64 %604, %605
+  %607 = xor i64 %606, %603
+  %608 = tail call i64 @llvm.fshl.i64(i64 %31, i64 %31, i64 63)
+  %609 = tail call i64 @llvm.fshl.i64(i64 %31, i64 %31, i64 56)
+  %610 = lshr i64 %31, 7
+  %611 = xor i64 %609, %610
+  %612 = xor i64 %611, %608
+  %613 = add i64 %612, %29
+  %614 = add i64 %613, %524
+  %615 = add i64 %614, %607
+  %616 = tail call i64 @llvm.fshl.i64(i64 %602, i64 %602, i64 45)
+  %617 = tail call i64 @llvm.fshl.i64(i64 %602, i64 %602, i64 3)
+  %618 = lshr i64 %602, 6
+  %619 = xor i64 %617, %618
+  %620 = xor i64 %619, %616
+  %621 = tail call i64 @llvm.fshl.i64(i64 %33, i64 %33, i64 63)
+  %622 = tail call i64 @llvm.fshl.i64(i64 %33, i64 %33, i64 56)
+  %623 = lshr i64 %33, 7
+  %624 = xor i64 %622, %623
+  %625 = xor i64 %624, %621
+  %626 = add i64 %625, %31
+  %627 = add i64 %626, %537
+  %628 = add i64 %627, %620
+  %629 = tail call i64 @llvm.fshl.i64(i64 %615, i64 %615, i64 45)
+  %630 = tail call i64 @llvm.fshl.i64(i64 %615, i64 %615, i64 3)
+  %631 = lshr i64 %615, 6
+  %632 = xor i64 %630, %631
+  %633 = xor i64 %632, %629
+  %634 = tail call i64 @llvm.fshl.i64(i64 %446, i64 %446, i64 63)
+  %635 = tail call i64 @llvm.fshl.i64(i64 %446, i64 %446, i64 56)
+  %636 = lshr i64 %446, 7
+  %637 = xor i64 %635, %636
+  %638 = xor i64 %637, %634
+  %639 = add i64 %638, %33
+  %640 = add i64 %639, %550
+  %641 = add i64 %640, %633
+  %642 = tail call i64 @llvm.fshl.i64(i64 %433, i64 %433, i64 50)
+  %643 = tail call i64 @llvm.fshl.i64(i64 %433, i64 %433, i64 46)
+  %644 = tail call i64 @llvm.fshl.i64(i64 %433, i64 %433, i64 23)
+  %645 = xor i64 %643, %644
+  %646 = xor i64 %645, %642
+  %647 = and i64 %433, %408
+  %648 = xor i64 %433, -1
+  %649 = and i64 %383, %648
+  %650 = or i64 %647, %649
+  %651 = add i64 %446, -1973867731355612462
+  %652 = add i64 %651, %358
+  %653 = add i64 %652, %650
+  %654 = add i64 %653, %646
+  %655 = tail call i64 @llvm.fshl.i64(i64 %432, i64 %432, i64 36)
+  %656 = tail call i64 @llvm.fshl.i64(i64 %432, i64 %432, i64 30)
+  %657 = tail call i64 @llvm.fshl.i64(i64 %432, i64 %432, i64 25)
+  %658 = xor i64 %656, %657
+  %659 = xor i64 %658, %655
+  %660 = and i64 %432, %407
+  %661 = xor i64 %432, %407
+  %662 = and i64 %661, %382
+  %663 = xor i64 %662, %660
+  %664 = add i64 %659, %663
+  %665 = add i64 %664, %654
+  %666 = add i64 %654, %357
+  %667 = tail call i64 @llvm.fshl.i64(i64 %666, i64 %666, i64 50)
+  %668 = tail call i64 @llvm.fshl.i64(i64 %666, i64 %666, i64 46)
+  %669 = tail call i64 @llvm.fshl.i64(i64 %666, i64 %666, i64 23)
+  %670 = xor i64 %668, %669
+  %671 = xor i64 %670, %667
+  %672 = and i64 %666, %433
+  %673 = xor i64 %666, -1
+  %674 = and i64 %408, %673
+  %675 = or i64 %672, %674
+  %676 = add i64 %459, -1171420211273849373
+  %677 = add i64 %676, %383
+  %678 = add i64 %677, %675
+  %679 = add i64 %678, %671
+  %680 = tail call i64 @llvm.fshl.i64(i64 %665, i64 %665, i64 36)
+  %681 = tail call i64 @llvm.fshl.i64(i64 %665, i64 %665, i64 30)
+  %682 = tail call i64 @llvm.fshl.i64(i64 %665, i64 %665, i64 25)
+  %683 = xor i64 %681, %682
+  %684 = xor i64 %683, %680
+  %685 = and i64 %665, %432
+  %686 = xor i64 %665, %432
+  %687 = and i64 %686, %407
+  %688 = xor i64 %687, %685
+  %689 = add i64 %684, %688
+  %690 = add i64 %689, %679
+  %691 = add i64 %679, %382
+  %692 = tail call i64 @llvm.fshl.i64(i64 %691, i64 %691, i64 50)
+  %693 = tail call i64 @llvm.fshl.i64(i64 %691, i64 %691, i64 46)
+  %694 = tail call i64 @llvm.fshl.i64(i64 %691, i64 %691, i64 23)
+  %695 = xor i64 %693, %694
+  %696 = xor i64 %695, %692
+  %697 = and i64 %691, %666
+  %698 = xor i64 %691, -1
+  %699 = and i64 %433, %698
+  %700 = or i64 %697, %699
+  %701 = add i64 %472, 1135362057144423861
+  %702 = add i64 %701, %408
+  %703 = add i64 %702, %700
+  %704 = add i64 %703, %696
+  %705 = tail call i64 @llvm.fshl.i64(i64 %690, i64 %690, i64 36)
+  %706 = tail call i64 @llvm.fshl.i64(i64 %690, i64 %690, i64 30)
+  %707 = tail call i64 @llvm.fshl.i64(i64 %690, i64 %690, i64 25)
+  %708 = xor i64 %706, %707
+  %709 = xor i64 %708, %705
+  %710 = and i64 %690, %665
+  %711 = xor i64 %690, %665
+  %712 = and i64 %711, %432
+  %713 = xor i64 %712, %710
+  %714 = add i64 %709, %713
+  %715 = add i64 %714, %704
+  %716 = add i64 %704, %407
+  %717 = tail call i64 @llvm.fshl.i64(i64 %716, i64 %716, i64 50)
+  %718 = tail call i64 @llvm.fshl.i64(i64 %716, i64 %716, i64 46)
+  %719 = tail call i64 @llvm.fshl.i64(i64 %716, i64 %716, i64 23)
+  %720 = xor i64 %718, %719
+  %721 = xor i64 %720, %717
+  %722 = and i64 %716, %691
+  %723 = xor i64 %716, -1
+  %724 = and i64 %666, %723
+  %725 = or i64 %722, %724
+  %726 = add i64 %485, 2597628984639134821
+  %727 = add i64 %726, %433
+  %728 = add i64 %727, %725
+  %729 = add i64 %728, %721
+  %730 = tail call i64 @llvm.fshl.i64(i64 %715, i64 %715, i64 36)
+  %731 = tail call i64 @llvm.fshl.i64(i64 %715, i64 %715, i64 30)
+  %732 = tail call i64 @llvm.fshl.i64(i64 %715, i64 %715, i64 25)
+  %733 = xor i64 %731, %732
+  %734 = xor i64 %733, %730
+  %735 = and i64 %715, %690
+  %736 = xor i64 %715, %690
+  %737 = and i64 %736, %665
+  %738 = xor i64 %737, %735
+  %739 = add i64 %734, %738
+  %740 = add i64 %739, %729
+  %741 = add i64 %729, %432
+  %742 = tail call i64 @llvm.fshl.i64(i64 %741, i64 %741, i64 50)
+  %743 = tail call i64 @llvm.fshl.i64(i64 %741, i64 %741, i64 46)
+  %744 = tail call i64 @llvm.fshl.i64(i64 %741, i64 %741, i64 23)
+  %745 = xor i64 %743, %744
+  %746 = xor i64 %745, %742
+  %747 = and i64 %741, %716
+  %748 = xor i64 %741, -1
+  %749 = and i64 %691, %748
+  %750 = or i64 %747, %749
+  %751 = add i64 %498, 3308224258029322869
+  %752 = add i64 %751, %666
+  %753 = add i64 %752, %750
+  %754 = add i64 %753, %746
+  %755 = tail call i64 @llvm.fshl.i64(i64 %740, i64 %740, i64 36)
+  %756 = tail call i64 @llvm.fshl.i64(i64 %740, i64 %740, i64 30)
+  %757 = tail call i64 @llvm.fshl.i64(i64 %740, i64 %740, i64 25)
+  %758 = xor i64 %756, %757
+  %759 = xor i64 %758, %755
+  %760 = and i64 %740, %715
+  %761 = xor i64 %740, %715
+  %762 = and i64 %761, %690
+  %763 = xor i64 %762, %760
+  %764 = add i64 %759, %763
+  %765 = add i64 %764, %754
+  %766 = add i64 %754, %665
+  %767 = tail call i64 @llvm.fshl.i64(i64 %766, i64 %766, i64 50)
+  %768 = tail call i64 @llvm.fshl.i64(i64 %766, i64 %766, i64 46)
+  %769 = tail call i64 @llvm.fshl.i64(i64 %766, i64 %766, i64 23)
+  %770 = xor i64 %768, %769
+  %771 = xor i64 %770, %767
+  %772 = and i64 %766, %741
+  %773 = xor i64 %766, -1
+  %774 = and i64 %716, %773
+  %775 = or i64 %772, %774
+  %776 = add i64 %511, 5365058923640841347
+  %777 = add i64 %776, %691
+  %778 = add i64 %777, %775
+  %779 = add i64 %778, %771
+  %780 = tail call i64 @llvm.fshl.i64(i64 %765, i64 %765, i64 36)
+  %781 = tail call i64 @llvm.fshl.i64(i64 %765, i64 %765, i64 30)
+  %782 = tail call i64 @llvm.fshl.i64(i64 %765, i64 %765, i64 25)
+  %783 = xor i64 %781, %782
+  %784 = xor i64 %783, %780
+  %785 = and i64 %765, %740
+  %786 = xor i64 %765, %740
+  %787 = and i64 %786, %715
+  %788 = xor i64 %787, %785
+  %789 = add i64 %784, %788
+  %790 = add i64 %789, %779
+  %791 = add i64 %779, %690
+  %792 = tail call i64 @llvm.fshl.i64(i64 %791, i64 %791, i64 50)
+  %793 = tail call i64 @llvm.fshl.i64(i64 %791, i64 %791, i64 46)
+  %794 = tail call i64 @llvm.fshl.i64(i64 %791, i64 %791, i64 23)
+  %795 = xor i64 %793, %794
+  %796 = xor i64 %795, %792
+  %797 = and i64 %791, %766
+  %798 = xor i64 %791, -1
+  %799 = and i64 %741, %798
+  %800 = or i64 %797, %799
+  %801 = add i64 %524, 6679025012923562964
+  %802 = add i64 %801, %716
+  %803 = add i64 %802, %800
+  %804 = add i64 %803, %796
+  %805 = tail call i64 @llvm.fshl.i64(i64 %790, i64 %790, i64 36)
+  %806 = tail call i64 @llvm.fshl.i64(i64 %790, i64 %790, i64 30)
+  %807 = tail call i64 @llvm.fshl.i64(i64 %790, i64 %790, i64 25)
+  %808 = xor i64 %806, %807
+  %809 = xor i64 %808, %805
+  %810 = and i64 %790, %765
+  %811 = xor i64 %790, %765
+  %812 = and i64 %811, %740
+  %813 = xor i64 %812, %810
+  %814 = add i64 %809, %813
+  %815 = add i64 %814, %804
+  %816 = add i64 %804, %715
+  %817 = tail call i64 @llvm.fshl.i64(i64 %816, i64 %816, i64 50)
+  %818 = tail call i64 @llvm.fshl.i64(i64 %816, i64 %816, i64 46)
+  %819 = tail call i64 @llvm.fshl.i64(i64 %816, i64 %816, i64 23)
+  %820 = xor i64 %818, %819
+  %821 = xor i64 %820, %817
+  %822 = and i64 %816, %791
+  %823 = xor i64 %816, -1
+  %824 = and i64 %766, %823
+  %825 = or i64 %822, %824
+  %826 = add i64 %537, 8573033837759648693
+  %827 = add i64 %826, %741
+  %828 = add i64 %827, %825
+  %829 = add i64 %828, %821
+  %830 = tail call i64 @llvm.fshl.i64(i64 %815, i64 %815, i64 36)
+  %831 = tail call i64 @llvm.fshl.i64(i64 %815, i64 %815, i64 30)
+  %832 = tail call i64 @llvm.fshl.i64(i64 %815, i64 %815, i64 25)
+  %833 = xor i64 %831, %832
+  %834 = xor i64 %833, %830
+  %835 = and i64 %815, %790
+  %836 = xor i64 %815, %790
+  %837 = and i64 %836, %765
+  %838 = xor i64 %837, %835
+  %839 = add i64 %834, %838
+  %840 = add i64 %839, %829
+  %841 = add i64 %829, %740
+  %842 = tail call i64 @llvm.fshl.i64(i64 %841, i64 %841, i64 50)
+  %843 = tail call i64 @llvm.fshl.i64(i64 %841, i64 %841, i64 46)
+  %844 = tail call i64 @llvm.fshl.i64(i64 %841, i64 %841, i64 23)
+  %845 = xor i64 %843, %844
+  %846 = xor i64 %845, %842
+  %847 = and i64 %841, %816
+  %848 = xor i64 %841, -1
+  %849 = and i64 %791, %848
+  %850 = or i64 %847, %849
+  %851 = add i64 %550, -7476448914759557205
+  %852 = add i64 %851, %766
+  %853 = add i64 %852, %850
+  %854 = add i64 %853, %846
+  %855 = tail call i64 @llvm.fshl.i64(i64 %840, i64 %840, i64 36)
+  %856 = tail call i64 @llvm.fshl.i64(i64 %840, i64 %840, i64 30)
+  %857 = tail call i64 @llvm.fshl.i64(i64 %840, i64 %840, i64 25)
+  %858 = xor i64 %856, %857
+  %859 = xor i64 %858, %855
+  %860 = and i64 %840, %815
+  %861 = xor i64 %840, %815
+  %862 = and i64 %861, %790
+  %863 = xor i64 %862, %860
+  %864 = add i64 %859, %863
+  %865 = add i64 %864, %854
+  %866 = add i64 %854, %765
+  %867 = tail call i64 @llvm.fshl.i64(i64 %866, i64 %866, i64 50)
+  %868 = tail call i64 @llvm.fshl.i64(i64 %866, i64 %866, i64 46)
+  %869 = tail call i64 @llvm.fshl.i64(i64 %866, i64 %866, i64 23)
+  %870 = xor i64 %868, %869
+  %871 = xor i64 %870, %867
+  %872 = and i64 %866, %841
+  %873 = xor i64 %866, -1
+  %874 = and i64 %816, %873
+  %875 = or i64 %872, %874
+  %876 = add i64 %563, -6327057829258317296
+  %877 = add i64 %876, %791
+  %878 = add i64 %877, %875
+  %879 = add i64 %878, %871
+  %880 = tail call i64 @llvm.fshl.i64(i64 %865, i64 %865, i64 36)
+  %881 = tail call i64 @llvm.fshl.i64(i64 %865, i64 %865, i64 30)
+  %882 = tail call i64 @llvm.fshl.i64(i64 %865, i64 %865, i64 25)
+  %883 = xor i64 %881, %882
+  %884 = xor i64 %883, %880
+  %885 = and i64 %865, %840
+  %886 = xor i64 %865, %840
+  %887 = and i64 %886, %815
+  %888 = xor i64 %887, %885
+  %889 = add i64 %884, %888
+  %890 = add i64 %889, %879
+  %891 = add i64 %879, %790
+  %892 = tail call i64 @llvm.fshl.i64(i64 %891, i64 %891, i64 50)
+  %893 = tail call i64 @llvm.fshl.i64(i64 %891, i64 %891, i64 46)
+  %894 = tail call i64 @llvm.fshl.i64(i64 %891, i64 %891, i64 23)
+  %895 = xor i64 %893, %894
+  %896 = xor i64 %895, %892
+  %897 = and i64 %891, %866
+  %898 = xor i64 %891, -1
+  %899 = and i64 %841, %898
+  %900 = or i64 %897, %899
+  %901 = add i64 %576, -5763719355590565569
+  %902 = add i64 %901, %816
+  %903 = add i64 %902, %900
+  %904 = add i64 %903, %896
+  %905 = tail call i64 @llvm.fshl.i64(i64 %890, i64 %890, i64 36)
+  %906 = tail call i64 @llvm.fshl.i64(i64 %890, i64 %890, i64 30)
+  %907 = tail call i64 @llvm.fshl.i64(i64 %890, i64 %890, i64 25)
+  %908 = xor i64 %906, %907
+  %909 = xor i64 %908, %905
+  %910 = and i64 %890, %865
+  %911 = xor i64 %890, %865
+  %912 = and i64 %911, %840
+  %913 = xor i64 %912, %910
+  %914 = add i64 %909, %913
+  %915 = add i64 %914, %904
+  %916 = add i64 %904, %815
+  %917 = tail call i64 @llvm.fshl.i64(i64 %916, i64 %916, i64 50)
+  %918 = tail call i64 @llvm.fshl.i64(i64 %916, i64 %916, i64 46)
+  %919 = tail call i64 @llvm.fshl.i64(i64 %916, i64 %916, i64 23)
+  %920 = xor i64 %918, %919
+  %921 = xor i64 %920, %917
+  %922 = and i64 %916, %891
+  %923 = xor i64 %916, -1
+  %924 = and i64 %866, %923
+  %925 = or i64 %922, %924
+  %926 = add i64 %589, -4658551843659510044
+  %927 = add i64 %926, %841
+  %928 = add i64 %927, %925
+  %929 = add i64 %928, %921
+  %930 = tail call i64 @llvm.fshl.i64(i64 %915, i64 %915, i64 36)
+  %931 = tail call i64 @llvm.fshl.i64(i64 %915, i64 %915, i64 30)
+  %932 = tail call i64 @llvm.fshl.i64(i64 %915, i64 %915, i64 25)
+  %933 = xor i64 %931, %932
+  %934 = xor i64 %933, %930
+  %935 = and i64 %915, %890
+  %936 = xor i64 %915, %890
+  %937 = and i64 %936, %865
+  %938 = xor i64 %937, %935
+  %939 = add i64 %934, %938
+  %940 = add i64 %939, %929
+  %941 = add i64 %929, %840
+  %942 = tail call i64 @llvm.fshl.i64(i64 %941, i64 %941, i64 50)
+  %943 = tail call i64 @llvm.fshl.i64(i64 %941, i64 %941, i64 46)
+  %944 = tail call i64 @llvm.fshl.i64(i64 %941, i64 %941, i64 23)
+  %945 = xor i64 %943, %944
+  %946 = xor i64 %945, %942
+  %947 = and i64 %941, %916
+  %948 = xor i64 %941, -1
+  %949 = and i64 %891, %948
+  %950 = or i64 %947, %949
+  %951 = add i64 %602, -4116276920077217854
+  %952 = add i64 %951, %866
+  %953 = add i64 %952, %950
+  %954 = add i64 %953, %946
+  %955 = tail call i64 @llvm.fshl.i64(i64 %940, i64 %940, i64 36)
+  %956 = tail call i64 @llvm.fshl.i64(i64 %940, i64 %940, i64 30)
+  %957 = tail call i64 @llvm.fshl.i64(i64 %940, i64 %940, i64 25)
+  %958 = xor i64 %956, %957
+  %959 = xor i64 %958, %955
+  %960 = and i64 %940, %915
+  %961 = xor i64 %940, %915
+  %962 = and i64 %961, %890
+  %963 = xor i64 %962, %960
+  %964 = add i64 %959, %963
+  %965 = add i64 %964, %954
+  %966 = add i64 %954, %865
+  %967 = tail call i64 @llvm.fshl.i64(i64 %966, i64 %966, i64 50)
+  %968 = tail call i64 @llvm.fshl.i64(i64 %966, i64 %966, i64 46)
+  %969 = tail call i64 @llvm.fshl.i64(i64 %966, i64 %966, i64 23)
+  %970 = xor i64 %968, %969
+  %971 = xor i64 %970, %967
+  %972 = and i64 %966, %941
+  %973 = xor i64 %966, -1
+  %974 = and i64 %916, %973
+  %975 = or i64 %972, %974
+  %976 = add i64 %615, -3051310485924567259
+  %977 = add i64 %976, %891
+  %978 = add i64 %977, %975
+  %979 = add i64 %978, %971
+  %980 = tail call i64 @llvm.fshl.i64(i64 %965, i64 %965, i64 36)
+  %981 = tail call i64 @llvm.fshl.i64(i64 %965, i64 %965, i64 30)
+  %982 = tail call i64 @llvm.fshl.i64(i64 %965, i64 %965, i64 25)
+  %983 = xor i64 %981, %982
+  %984 = xor i64 %983, %980
+  %985 = and i64 %965, %940
+  %986 = xor i64 %965, %940
+  %987 = and i64 %986, %915
+  %988 = xor i64 %987, %985
+  %989 = add i64 %984, %988
+  %990 = add i64 %989, %979
+  %991 = add i64 %979, %890
+  %992 = tail call i64 @llvm.fshl.i64(i64 %991, i64 %991, i64 50)
+  %993 = tail call i64 @llvm.fshl.i64(i64 %991, i64 %991, i64 46)
+  %994 = tail call i64 @llvm.fshl.i64(i64 %991, i64 %991, i64 23)
+  %995 = xor i64 %993, %994
+  %996 = xor i64 %995, %992
+  %997 = and i64 %991, %966
+  %998 = xor i64 %991, -1
+  %999 = and i64 %941, %998
+  %1000 = or i64 %997, %999
+  %1001 = add i64 %628, 489312712824947311
+  %1002 = add i64 %1001, %916
+  %1003 = add i64 %1002, %1000
+  %1004 = add i64 %1003, %996
+  %1005 = tail call i64 @llvm.fshl.i64(i64 %990, i64 %990, i64 36)
+  %1006 = tail call i64 @llvm.fshl.i64(i64 %990, i64 %990, i64 30)
+  %1007 = tail call i64 @llvm.fshl.i64(i64 %990, i64 %990, i64 25)
+  %1008 = xor i64 %1006, %1007
+  %1009 = xor i64 %1008, %1005
+  %1010 = and i64 %990, %965
+  %1011 = xor i64 %990, %965
+  %1012 = and i64 %1011, %940
+  %1013 = xor i64 %1012, %1010
+  %1014 = add i64 %1009, %1013
+  %1015 = add i64 %1014, %1004
+  %1016 = add i64 %1004, %915
+  %1017 = tail call i64 @llvm.fshl.i64(i64 %1016, i64 %1016, i64 50)
+  %1018 = tail call i64 @llvm.fshl.i64(i64 %1016, i64 %1016, i64 46)
+  %1019 = tail call i64 @llvm.fshl.i64(i64 %1016, i64 %1016, i64 23)
+  %1020 = xor i64 %1018, %1019
+  %1021 = xor i64 %1020, %1017
+  %1022 = and i64 %1016, %991
+  %1023 = xor i64 %1016, -1
+  %1024 = and i64 %966, %1023
+  %1025 = or i64 %1022, %1024
+  %1026 = add i64 %641, 1452737877330783856
+  %1027 = add i64 %1026, %941
+  %1028 = add i64 %1027, %1025
+  %1029 = add i64 %1028, %1021
+  %1030 = tail call i64 @llvm.fshl.i64(i64 %1015, i64 %1015, i64 36)
+  %1031 = tail call i64 @llvm.fshl.i64(i64 %1015, i64 %1015, i64 30)
+  %1032 = tail call i64 @llvm.fshl.i64(i64 %1015, i64 %1015, i64 25)
+  %1033 = xor i64 %1031, %1032
+  %1034 = xor i64 %1033, %1030
+  %1035 = and i64 %1015, %990
+  %1036 = xor i64 %1015, %990
+  %1037 = and i64 %1036, %965
+  %1038 = xor i64 %1037, %1035
+  %1039 = add i64 %1034, %1038
+  %1040 = add i64 %1039, %1029
+  %1041 = add i64 %1029, %940
+  %1042 = tail call i64 @llvm.fshl.i64(i64 %628, i64 %628, i64 45)
+  %1043 = tail call i64 @llvm.fshl.i64(i64 %628, i64 %628, i64 3)
+  %1044 = lshr i64 %628, 6
+  %1045 = xor i64 %1043, %1044
+  %1046 = xor i64 %1045, %1042
+  %1047 = tail call i64 @llvm.fshl.i64(i64 %459, i64 %459, i64 63)
+  %1048 = tail call i64 @llvm.fshl.i64(i64 %459, i64 %459, i64 56)
+  %1049 = lshr i64 %459, 7
+  %1050 = xor i64 %1048, %1049
+  %1051 = xor i64 %1050, %1047
+  %1052 = add i64 %1051, %446
+  %1053 = add i64 %1052, %563
+  %1054 = add i64 %1053, %1046
+  %1055 = tail call i64 @llvm.fshl.i64(i64 %641, i64 %641, i64 45)
+  %1056 = tail call i64 @llvm.fshl.i64(i64 %641, i64 %641, i64 3)
+  %1057 = lshr i64 %641, 6
+  %1058 = xor i64 %1056, %1057
+  %1059 = xor i64 %1058, %1055
+  %1060 = tail call i64 @llvm.fshl.i64(i64 %472, i64 %472, i64 63)
+  %1061 = tail call i64 @llvm.fshl.i64(i64 %472, i64 %472, i64 56)
+  %1062 = lshr i64 %472, 7
+  %1063 = xor i64 %1061, %1062
+  %1064 = xor i64 %1063, %1060
+  %1065 = add i64 %1064, %459
+  %1066 = add i64 %1065, %576
+  %1067 = add i64 %1066, %1059
+  %1068 = tail call i64 @llvm.fshl.i64(i64 %1054, i64 %1054, i64 45)
+  %1069 = tail call i64 @llvm.fshl.i64(i64 %1054, i64 %1054, i64 3)
+  %1070 = lshr i64 %1054, 6
+  %1071 = xor i64 %1069, %1070
+  %1072 = xor i64 %1071, %1068
+  %1073 = tail call i64 @llvm.fshl.i64(i64 %485, i64 %485, i64 63)
+  %1074 = tail call i64 @llvm.fshl.i64(i64 %485, i64 %485, i64 56)
+  %1075 = lshr i64 %485, 7
+  %1076 = xor i64 %1074, %1075
+  %1077 = xor i64 %1076, %1073
+  %1078 = add i64 %1077, %472
+  %1079 = add i64 %1078, %589
+  %1080 = add i64 %1079, %1072
+  %1081 = tail call i64 @llvm.fshl.i64(i64 %1067, i64 %1067, i64 45)
+  %1082 = tail call i64 @llvm.fshl.i64(i64 %1067, i64 %1067, i64 3)
+  %1083 = lshr i64 %1067, 6
+  %1084 = xor i64 %1082, %1083
+  %1085 = xor i64 %1084, %1081
+  %1086 = tail call i64 @llvm.fshl.i64(i64 %498, i64 %498, i64 63)
+  %1087 = tail call i64 @llvm.fshl.i64(i64 %498, i64 %498, i64 56)
+  %1088 = lshr i64 %498, 7
+  %1089 = xor i64 %1087, %1088
+  %1090 = xor i64 %1089, %1086
+  %1091 = add i64 %1090, %485
+  %1092 = add i64 %1091, %602
+  %1093 = add i64 %1092, %1085
+  %1094 = tail call i64 @llvm.fshl.i64(i64 %1080, i64 %1080, i64 45)
+  %1095 = tail call i64 @llvm.fshl.i64(i64 %1080, i64 %1080, i64 3)
+  %1096 = lshr i64 %1080, 6
+  %1097 = xor i64 %1095, %1096
+  %1098 = xor i64 %1097, %1094
+  %1099 = tail call i64 @llvm.fshl.i64(i64 %511, i64 %511, i64 63)
+  %1100 = tail call i64 @llvm.fshl.i64(i64 %511, i64 %511, i64 56)
+  %1101 = lshr i64 %511, 7
+  %1102 = xor i64 %1100, %1101
+  %1103 = xor i64 %1102, %1099
+  %1104 = add i64 %1103, %498
+  %1105 = add i64 %1104, %615
+  %1106 = add i64 %1105, %1098
+  %1107 = tail call i64 @llvm.fshl.i64(i64 %1093, i64 %1093, i64 45)
+  %1108 = tail call i64 @llvm.fshl.i64(i64 %1093, i64 %1093, i64 3)
+  %1109 = lshr i64 %1093, 6
+  %1110 = xor i64 %1108, %1109
+  %1111 = xor i64 %1110, %1107
+  %1112 = tail call i64 @llvm.fshl.i64(i64 %524, i64 %524, i64 63)
+  %1113 = tail call i64 @llvm.fshl.i64(i64 %524, i64 %524, i64 56)
+  %1114 = lshr i64 %524, 7
+  %1115 = xor i64 %1113, %1114
+  %1116 = xor i64 %1115, %1112
+  %1117 = add i64 %1116, %511
+  %1118 = add i64 %1117, %628
+  %1119 = add i64 %1118, %1111
+  %1120 = tail call i64 @llvm.fshl.i64(i64 %1106, i64 %1106, i64 45)
+  %1121 = tail call i64 @llvm.fshl.i64(i64 %1106, i64 %1106, i64 3)
+  %1122 = lshr i64 %1106, 6
+  %1123 = xor i64 %1121, %1122
+  %1124 = xor i64 %1123, %1120
+  %1125 = tail call i64 @llvm.fshl.i64(i64 %537, i64 %537, i64 63)
+  %1126 = tail call i64 @llvm.fshl.i64(i64 %537, i64 %537, i64 56)
+  %1127 = lshr i64 %537, 7
+  %1128 = xor i64 %1126, %1127
+  %1129 = xor i64 %1128, %1125
+  %1130 = add i64 %1129, %524
+  %1131 = add i64 %1130, %641
+  %1132 = add i64 %1131, %1124
+  %1133 = tail call i64 @llvm.fshl.i64(i64 %1119, i64 %1119, i64 45)
+  %1134 = tail call i64 @llvm.fshl.i64(i64 %1119, i64 %1119, i64 3)
+  %1135 = lshr i64 %1119, 6
+  %1136 = xor i64 %1134, %1135
+  %1137 = xor i64 %1136, %1133
+  %1138 = tail call i64 @llvm.fshl.i64(i64 %550, i64 %550, i64 63)
+  %1139 = tail call i64 @llvm.fshl.i64(i64 %550, i64 %550, i64 56)
+  %1140 = lshr i64 %550, 7
+  %1141 = xor i64 %1139, %1140
+  %1142 = xor i64 %1141, %1138
+  %1143 = add i64 %1142, %537
+  %1144 = add i64 %1143, %1054
+  %1145 = add i64 %1144, %1137
+  %1146 = tail call i64 @llvm.fshl.i64(i64 %1132, i64 %1132, i64 45)
+  %1147 = tail call i64 @llvm.fshl.i64(i64 %1132, i64 %1132, i64 3)
+  %1148 = lshr i64 %1132, 6
+  %1149 = xor i64 %1147, %1148
+  %1150 = xor i64 %1149, %1146
+  %1151 = tail call i64 @llvm.fshl.i64(i64 %563, i64 %563, i64 63)
+  %1152 = tail call i64 @llvm.fshl.i64(i64 %563, i64 %563, i64 56)
+  %1153 = lshr i64 %563, 7
+  %1154 = xor i64 %1152, %1153
+  %1155 = xor i64 %1154, %1151
+  %1156 = add i64 %1155, %550
+  %1157 = add i64 %1156, %1067
+  %1158 = add i64 %1157, %1150
+  %1159 = tail call i64 @llvm.fshl.i64(i64 %1145, i64 %1145, i64 45)
+  %1160 = tail call i64 @llvm.fshl.i64(i64 %1145, i64 %1145, i64 3)
+  %1161 = lshr i64 %1145, 6
+  %1162 = xor i64 %1160, %1161
+  %1163 = xor i64 %1162, %1159
+  %1164 = tail call i64 @llvm.fshl.i64(i64 %576, i64 %576, i64 63)
+  %1165 = tail call i64 @llvm.fshl.i64(i64 %576, i64 %576, i64 56)
+  %1166 = lshr i64 %576, 7
+  %1167 = xor i64 %1165, %1166
+  %1168 = xor i64 %1167, %1164
+  %1169 = add i64 %1168, %563
+  %1170 = add i64 %1169, %1080
+  %1171 = add i64 %1170, %1163
+  %1172 = tail call i64 @llvm.fshl.i64(i64 %1158, i64 %1158, i64 45)
+  %1173 = tail call i64 @llvm.fshl.i64(i64 %1158, i64 %1158, i64 3)
+  %1174 = lshr i64 %1158, 6
+  %1175 = xor i64 %1173, %1174
+  %1176 = xor i64 %1175, %1172
+  %1177 = tail call i64 @llvm.fshl.i64(i64 %589, i64 %589, i64 63)
+  %1178 = tail call i64 @llvm.fshl.i64(i64 %589, i64 %589, i64 56)
+  %1179 = lshr i64 %589, 7
+  %1180 = xor i64 %1178, %1179
+  %1181 = xor i64 %1180, %1177
+  %1182 = add i64 %1181, %576
+  %1183 = add i64 %1182, %1093
+  %1184 = add i64 %1183, %1176
+  %1185 = tail call i64 @llvm.fshl.i64(i64 %1171, i64 %1171, i64 45)
+  %1186 = tail call i64 @llvm.fshl.i64(i64 %1171, i64 %1171, i64 3)
+  %1187 = lshr i64 %1171, 6
+  %1188 = xor i64 %1186, %1187
+  %1189 = xor i64 %1188, %1185
+  %1190 = tail call i64 @llvm.fshl.i64(i64 %602, i64 %602, i64 63)
+  %1191 = tail call i64 @llvm.fshl.i64(i64 %602, i64 %602, i64 56)
+  %1192 = lshr i64 %602, 7
+  %1193 = xor i64 %1191, %1192
+  %1194 = xor i64 %1193, %1190
+  %1195 = add i64 %1194, %589
+  %1196 = add i64 %1195, %1106
+  %1197 = add i64 %1196, %1189
+  %1198 = tail call i64 @llvm.fshl.i64(i64 %1184, i64 %1184, i64 45)
+  %1199 = tail call i64 @llvm.fshl.i64(i64 %1184, i64 %1184, i64 3)
+  %1200 = lshr i64 %1184, 6
+  %1201 = xor i64 %1199, %1200
+  %1202 = xor i64 %1201, %1198
+  %1203 = tail call i64 @llvm.fshl.i64(i64 %615, i64 %615, i64 63)
+  %1204 = tail call i64 @llvm.fshl.i64(i64 %615, i64 %615, i64 56)
+  %1205 = lshr i64 %615, 7
+  %1206 = xor i64 %1204, %1205
+  %1207 = xor i64 %1206, %1203
+  %1208 = add i64 %1207, %602
+  %1209 = add i64 %1208, %1119
+  %1210 = add i64 %1209, %1202
+  %1211 = tail call i64 @llvm.fshl.i64(i64 %1197, i64 %1197, i64 45)
+  %1212 = tail call i64 @llvm.fshl.i64(i64 %1197, i64 %1197, i64 3)
+  %1213 = lshr i64 %1197, 6
+  %1214 = xor i64 %1212, %1213
+  %1215 = xor i64 %1214, %1211
+  %1216 = tail call i64 @llvm.fshl.i64(i64 %628, i64 %628, i64 63)
+  %1217 = tail call i64 @llvm.fshl.i64(i64 %628, i64 %628, i64 56)
+  %1218 = lshr i64 %628, 7
+  %1219 = xor i64 %1217, %1218
+  %1220 = xor i64 %1219, %1216
+  %1221 = add i64 %1220, %615
+  %1222 = add i64 %1221, %1132
+  %1223 = add i64 %1222, %1215
+  %1224 = tail call i64 @llvm.fshl.i64(i64 %1210, i64 %1210, i64 45)
+  %1225 = tail call i64 @llvm.fshl.i64(i64 %1210, i64 %1210, i64 3)
+  %1226 = lshr i64 %1210, 6
+  %1227 = xor i64 %1225, %1226
+  %1228 = xor i64 %1227, %1224
+  %1229 = tail call i64 @llvm.fshl.i64(i64 %641, i64 %641, i64 63)
+  %1230 = tail call i64 @llvm.fshl.i64(i64 %641, i64 %641, i64 56)
+  %1231 = lshr i64 %641, 7
+  %1232 = xor i64 %1230, %1231
+  %1233 = xor i64 %1232, %1229
+  %1234 = add i64 %1233, %628
+  %1235 = add i64 %1234, %1145
+  %1236 = add i64 %1235, %1228
+  %1237 = tail call i64 @llvm.fshl.i64(i64 %1223, i64 %1223, i64 45)
+  %1238 = tail call i64 @llvm.fshl.i64(i64 %1223, i64 %1223, i64 3)
+  %1239 = lshr i64 %1223, 6
+  %1240 = xor i64 %1238, %1239
+  %1241 = xor i64 %1240, %1237
+  %1242 = tail call i64 @llvm.fshl.i64(i64 %1054, i64 %1054, i64 63)
+  %1243 = tail call i64 @llvm.fshl.i64(i64 %1054, i64 %1054, i64 56)
+  %1244 = lshr i64 %1054, 7
+  %1245 = xor i64 %1243, %1244
+  %1246 = xor i64 %1245, %1242
+  %1247 = add i64 %1246, %641
+  %1248 = add i64 %1247, %1158
+  %1249 = add i64 %1248, %1241
+  %1250 = tail call i64 @llvm.fshl.i64(i64 %1041, i64 %1041, i64 50)
+  %1251 = tail call i64 @llvm.fshl.i64(i64 %1041, i64 %1041, i64 46)
+  %1252 = tail call i64 @llvm.fshl.i64(i64 %1041, i64 %1041, i64 23)
+  %1253 = xor i64 %1251, %1252
+  %1254 = xor i64 %1253, %1250
+  %1255 = and i64 %1041, %1016
+  %1256 = xor i64 %1041, -1
+  %1257 = and i64 %991, %1256
+  %1258 = or i64 %1255, %1257
+  %1259 = add i64 %1054, 2861767655752347644
+  %1260 = add i64 %1259, %966
+  %1261 = add i64 %1260, %1258
+  %1262 = add i64 %1261, %1254
+  %1263 = tail call i64 @llvm.fshl.i64(i64 %1040, i64 %1040, i64 36)
+  %1264 = tail call i64 @llvm.fshl.i64(i64 %1040, i64 %1040, i64 30)
+  %1265 = tail call i64 @llvm.fshl.i64(i64 %1040, i64 %1040, i64 25)
+  %1266 = xor i64 %1264, %1265
+  %1267 = xor i64 %1266, %1263
+  %1268 = and i64 %1040, %1015
+  %1269 = xor i64 %1040, %1015
+  %1270 = and i64 %1269, %990
+  %1271 = xor i64 %1270, %1268
+  %1272 = add i64 %1267, %1271
+  %1273 = add i64 %1272, %1262
+  %1274 = add i64 %1262, %965
+  %1275 = tail call i64 @llvm.fshl.i64(i64 %1274, i64 %1274, i64 50)
+  %1276 = tail call i64 @llvm.fshl.i64(i64 %1274, i64 %1274, i64 46)
+  %1277 = tail call i64 @llvm.fshl.i64(i64 %1274, i64 %1274, i64 23)
+  %1278 = xor i64 %1276, %1277
+  %1279 = xor i64 %1278, %1275
+  %1280 = and i64 %1274, %1041
+  %1281 = xor i64 %1274, -1
+  %1282 = and i64 %1016, %1281
+  %1283 = or i64 %1280, %1282
+  %1284 = add i64 %1067, 3322285676063803686
+  %1285 = add i64 %1284, %991
+  %1286 = add i64 %1285, %1283
+  %1287 = add i64 %1286, %1279
+  %1288 = tail call i64 @llvm.fshl.i64(i64 %1273, i64 %1273, i64 36)
+  %1289 = tail call i64 @llvm.fshl.i64(i64 %1273, i64 %1273, i64 30)
+  %1290 = tail call i64 @llvm.fshl.i64(i64 %1273, i64 %1273, i64 25)
+  %1291 = xor i64 %1289, %1290
+  %1292 = xor i64 %1291, %1288
+  %1293 = and i64 %1273, %1040
+  %1294 = xor i64 %1273, %1040
+  %1295 = and i64 %1294, %1015
+  %1296 = xor i64 %1295, %1293
+  %1297 = add i64 %1292, %1296
+  %1298 = add i64 %1297, %1287
+  %1299 = add i64 %1287, %990
+  %1300 = tail call i64 @llvm.fshl.i64(i64 %1299, i64 %1299, i64 50)
+  %1301 = tail call i64 @llvm.fshl.i64(i64 %1299, i64 %1299, i64 46)
+  %1302 = tail call i64 @llvm.fshl.i64(i64 %1299, i64 %1299, i64 23)
+  %1303 = xor i64 %1301, %1302
+  %1304 = xor i64 %1303, %1300
+  %1305 = and i64 %1299, %1274
+  %1306 = xor i64 %1299, -1
+  %1307 = and i64 %1041, %1306
+  %1308 = or i64 %1305, %1307
+  %1309 = add i64 %1080, 5560940570517711597
+  %1310 = add i64 %1309, %1016
+  %1311 = add i64 %1310, %1308
+  %1312 = add i64 %1311, %1304
+  %1313 = tail call i64 @llvm.fshl.i64(i64 %1298, i64 %1298, i64 36)
+  %1314 = tail call i64 @llvm.fshl.i64(i64 %1298, i64 %1298, i64 30)
+  %1315 = tail call i64 @llvm.fshl.i64(i64 %1298, i64 %1298, i64 25)
+  %1316 = xor i64 %1314, %1315
+  %1317 = xor i64 %1316, %1313
+  %1318 = and i64 %1298, %1273
+  %1319 = xor i64 %1298, %1273
+  %1320 = and i64 %1319, %1040
+  %1321 = xor i64 %1320, %1318
+  %1322 = add i64 %1317, %1321
+  %1323 = add i64 %1322, %1312
+  %1324 = add i64 %1312, %1015
+  %1325 = tail call i64 @llvm.fshl.i64(i64 %1324, i64 %1324, i64 50)
+  %1326 = tail call i64 @llvm.fshl.i64(i64 %1324, i64 %1324, i64 46)
+  %1327 = tail call i64 @llvm.fshl.i64(i64 %1324, i64 %1324, i64 23)
+  %1328 = xor i64 %1326, %1327
+  %1329 = xor i64 %1328, %1325
+  %1330 = and i64 %1324, %1299
+  %1331 = xor i64 %1324, -1
+  %1332 = and i64 %1274, %1331
+  %1333 = or i64 %1330, %1332
+  %1334 = add i64 %1093, 5996557281743188959
+  %1335 = add i64 %1334, %1041
+  %1336 = add i64 %1335, %1333
+  %1337 = add i64 %1336, %1329
+  %1338 = tail call i64 @llvm.fshl.i64(i64 %1323, i64 %1323, i64 36)
+  %1339 = tail call i64 @llvm.fshl.i64(i64 %1323, i64 %1323, i64 30)
+  %1340 = tail call i64 @llvm.fshl.i64(i64 %1323, i64 %1323, i64 25)
+  %1341 = xor i64 %1339, %1340
+  %1342 = xor i64 %1341, %1338
+  %1343 = and i64 %1323, %1298
+  %1344 = xor i64 %1323, %1298
+  %1345 = and i64 %1344, %1273
+  %1346 = xor i64 %1345, %1343
+  %1347 = add i64 %1342, %1346
+  %1348 = add i64 %1347, %1337
+  %1349 = add i64 %1337, %1040
+  %1350 = tail call i64 @llvm.fshl.i64(i64 %1349, i64 %1349, i64 50)
+  %1351 = tail call i64 @llvm.fshl.i64(i64 %1349, i64 %1349, i64 46)
+  %1352 = tail call i64 @llvm.fshl.i64(i64 %1349, i64 %1349, i64 23)
+  %1353 = xor i64 %1351, %1352
+  %1354 = xor i64 %1353, %1350
+  %1355 = and i64 %1349, %1324
+  %1356 = xor i64 %1349, -1
+  %1357 = and i64 %1299, %1356
+  %1358 = or i64 %1355, %1357
+  %1359 = add i64 %1106, 7280758554555802590
+  %1360 = add i64 %1359, %1274
+  %1361 = add i64 %1360, %1358
+  %1362 = add i64 %1361, %1354
+  %1363 = tail call i64 @llvm.fshl.i64(i64 %1348, i64 %1348, i64 36)
+  %1364 = tail call i64 @llvm.fshl.i64(i64 %1348, i64 %1348, i64 30)
+  %1365 = tail call i64 @llvm.fshl.i64(i64 %1348, i64 %1348, i64 25)
+  %1366 = xor i64 %1364, %1365
+  %1367 = xor i64 %1366, %1363
+  %1368 = and i64 %1348, %1323
+  %1369 = xor i64 %1348, %1323
+  %1370 = and i64 %1369, %1298
+  %1371 = xor i64 %1370, %1368
+  %1372 = add i64 %1367, %1371
+  %1373 = add i64 %1372, %1362
+  %1374 = add i64 %1362, %1273
+  %1375 = tail call i64 @llvm.fshl.i64(i64 %1374, i64 %1374, i64 50)
+  %1376 = tail call i64 @llvm.fshl.i64(i64 %1374, i64 %1374, i64 46)
+  %1377 = tail call i64 @llvm.fshl.i64(i64 %1374, i64 %1374, i64 23)
+  %1378 = xor i64 %1376, %1377
+  %1379 = xor i64 %1378, %1375
+  %1380 = and i64 %1374, %1349
+  %1381 = xor i64 %1374, -1
+  %1382 = and i64 %1324, %1381
+  %1383 = or i64 %1380, %1382
+  %1384 = add i64 %1119, 8532644243296465576
+  %1385 = add i64 %1384, %1299
+  %1386 = add i64 %1385, %1383
+  %1387 = add i64 %1386, %1379
+  %1388 = tail call i64 @llvm.fshl.i64(i64 %1373, i64 %1373, i64 36)
+  %1389 = tail call i64 @llvm.fshl.i64(i64 %1373, i64 %1373, i64 30)
+  %1390 = tail call i64 @llvm.fshl.i64(i64 %1373, i64 %1373, i64 25)
+  %1391 = xor i64 %1389, %1390
+  %1392 = xor i64 %1391, %1388
+  %1393 = and i64 %1373, %1348
+  %1394 = xor i64 %1373, %1348
+  %1395 = and i64 %1394, %1323
+  %1396 = xor i64 %1395, %1393
+  %1397 = add i64 %1392, %1396
+  %1398 = add i64 %1397, %1387
+  %1399 = add i64 %1387, %1298
+  %1400 = tail call i64 @llvm.fshl.i64(i64 %1399, i64 %1399, i64 50)
+  %1401 = tail call i64 @llvm.fshl.i64(i64 %1399, i64 %1399, i64 46)
+  %1402 = tail call i64 @llvm.fshl.i64(i64 %1399, i64 %1399, i64 23)
+  %1403 = xor i64 %1401, %1402
+  %1404 = xor i64 %1403, %1400
+  %1405 = and i64 %1399, %1374
+  %1406 = xor i64 %1399, -1
+  %1407 = and i64 %1349, %1406
+  %1408 = or i64 %1405, %1407
+  %1409 = add i64 %1132, -9096487096722542874
+  %1410 = add i64 %1409, %1324
+  %1411 = add i64 %1410, %1408
+  %1412 = add i64 %1411, %1404
+  %1413 = tail call i64 @llvm.fshl.i64(i64 %1398, i64 %1398, i64 36)
+  %1414 = tail call i64 @llvm.fshl.i64(i64 %1398, i64 %1398, i64 30)
+  %1415 = tail call i64 @llvm.fshl.i64(i64 %1398, i64 %1398, i64 25)
+  %1416 = xor i64 %1414, %1415
+  %1417 = xor i64 %1416, %1413
+  %1418 = and i64 %1398, %1373
+  %1419 = xor i64 %1398, %1373
+  %1420 = and i64 %1419, %1348
+  %1421 = xor i64 %1420, %1418
+  %1422 = add i64 %1417, %1421
+  %1423 = add i64 %1422, %1412
+  %1424 = add i64 %1412, %1323
+  %1425 = tail call i64 @llvm.fshl.i64(i64 %1424, i64 %1424, i64 50)
+  %1426 = tail call i64 @llvm.fshl.i64(i64 %1424, i64 %1424, i64 46)
+  %1427 = tail call i64 @llvm.fshl.i64(i64 %1424, i64 %1424, i64 23)
+  %1428 = xor i64 %1426, %1427
+  %1429 = xor i64 %1428, %1425
+  %1430 = and i64 %1424, %1399
+  %1431 = xor i64 %1424, -1
+  %1432 = and i64 %1374, %1431
+  %1433 = or i64 %1430, %1432
+  %1434 = add i64 %1145, -7894198246740708037
+  %1435 = add i64 %1434, %1349
+  %1436 = add i64 %1435, %1433
+  %1437 = add i64 %1436, %1429
+  %1438 = tail call i64 @llvm.fshl.i64(i64 %1423, i64 %1423, i64 36)
+  %1439 = tail call i64 @llvm.fshl.i64(i64 %1423, i64 %1423, i64 30)
+  %1440 = tail call i64 @llvm.fshl.i64(i64 %1423, i64 %1423, i64 25)
+  %1441 = xor i64 %1439, %1440
+  %1442 = xor i64 %1441, %1438
+  %1443 = and i64 %1423, %1398
+  %1444 = xor i64 %1423, %1398
+  %1445 = and i64 %1444, %1373
+  %1446 = xor i64 %1445, %1443
+  %1447 = add i64 %1442, %1446
+  %1448 = add i64 %1447, %1437
+  %1449 = add i64 %1437, %1348
+  %1450 = tail call i64 @llvm.fshl.i64(i64 %1449, i64 %1449, i64 50)
+  %1451 = tail call i64 @llvm.fshl.i64(i64 %1449, i64 %1449, i64 46)
+  %1452 = tail call i64 @llvm.fshl.i64(i64 %1449, i64 %1449, i64 23)
+  %1453 = xor i64 %1451, %1452
+  %1454 = xor i64 %1453, %1450
+  %1455 = and i64 %1449, %1424
+  %1456 = xor i64 %1449, -1
+  %1457 = and i64 %1399, %1456
+  %1458 = or i64 %1455, %1457
+  %1459 = add i64 %1158, -6719396339535248540
+  %1460 = add i64 %1459, %1374
+  %1461 = add i64 %1460, %1458
+  %1462 = add i64 %1461, %1454
+  %1463 = tail call i64 @llvm.fshl.i64(i64 %1448, i64 %1448, i64 36)
+  %1464 = tail call i64 @llvm.fshl.i64(i64 %1448, i64 %1448, i64 30)
+  %1465 = tail call i64 @llvm.fshl.i64(i64 %1448, i64 %1448, i64 25)
+  %1466 = xor i64 %1464, %1465
+  %1467 = xor i64 %1466, %1463
+  %1468 = and i64 %1448, %1423
+  %1469 = xor i64 %1448, %1423
+  %1470 = and i64 %1469, %1398
+  %1471 = xor i64 %1470, %1468
+  %1472 = add i64 %1467, %1471
+  %1473 = add i64 %1472, %1462
+  %1474 = add i64 %1462, %1373
+  %1475 = tail call i64 @llvm.fshl.i64(i64 %1474, i64 %1474, i64 50)
+  %1476 = tail call i64 @llvm.fshl.i64(i64 %1474, i64 %1474, i64 46)
+  %1477 = tail call i64 @llvm.fshl.i64(i64 %1474, i64 %1474, i64 23)
+  %1478 = xor i64 %1476, %1477
+  %1479 = xor i64 %1478, %1475
+  %1480 = and i64 %1474, %1449
+  %1481 = xor i64 %1474, -1
+  %1482 = and i64 %1424, %1481
+  %1483 = or i64 %1480, %1482
+  %1484 = add i64 %1171, -6333637450476146687
+  %1485 = add i64 %1484, %1399
+  %1486 = add i64 %1485, %1483
+  %1487 = add i64 %1486, %1479
+  %1488 = tail call i64 @llvm.fshl.i64(i64 %1473, i64 %1473, i64 36)
+  %1489 = tail call i64 @llvm.fshl.i64(i64 %1473, i64 %1473, i64 30)
+  %1490 = tail call i64 @llvm.fshl.i64(i64 %1473, i64 %1473, i64 25)
+  %1491 = xor i64 %1489, %1490
+  %1492 = xor i64 %1491, %1488
+  %1493 = and i64 %1473, %1448
+  %1494 = xor i64 %1473, %1448
+  %1495 = and i64 %1494, %1423
+  %1496 = xor i64 %1495, %1493
+  %1497 = add i64 %1492, %1496
+  %1498 = add i64 %1497, %1487
+  %1499 = add i64 %1487, %1398
+  %1500 = tail call i64 @llvm.fshl.i64(i64 %1499, i64 %1499, i64 50)
+  %1501 = tail call i64 @llvm.fshl.i64(i64 %1499, i64 %1499, i64 46)
+  %1502 = tail call i64 @llvm.fshl.i64(i64 %1499, i64 %1499, i64 23)
+  %1503 = xor i64 %1501, %1502
+  %1504 = xor i64 %1503, %1500
+  %1505 = and i64 %1499, %1474
+  %1506 = xor i64 %1499, -1
+  %1507 = and i64 %1449, %1506
+  %1508 = or i64 %1505, %1507
+  %1509 = add i64 %1184, -4446306890439682159
+  %1510 = add i64 %1509, %1424
+  %1511 = add i64 %1510, %1508
+  %1512 = add i64 %1511, %1504
+  %1513 = tail call i64 @llvm.fshl.i64(i64 %1498, i64 %1498, i64 36)
+  %1514 = tail call i64 @llvm.fshl.i64(i64 %1498, i64 %1498, i64 30)
+  %1515 = tail call i64 @llvm.fshl.i64(i64 %1498, i64 %1498, i64 25)
+  %1516 = xor i64 %1514, %1515
+  %1517 = xor i64 %1516, %1513
+  %1518 = and i64 %1498, %1473
+  %1519 = xor i64 %1498, %1473
+  %1520 = and i64 %1519, %1448
+  %1521 = xor i64 %1520, %1518
+  %1522 = add i64 %1517, %1521
+  %1523 = add i64 %1522, %1512
+  %1524 = add i64 %1512, %1423
+  %1525 = tail call i64 @llvm.fshl.i64(i64 %1524, i64 %1524, i64 50)
+  %1526 = tail call i64 @llvm.fshl.i64(i64 %1524, i64 %1524, i64 46)
+  %1527 = tail call i64 @llvm.fshl.i64(i64 %1524, i64 %1524, i64 23)
+  %1528 = xor i64 %1526, %1527
+  %1529 = xor i64 %1528, %1525
+  %1530 = and i64 %1524, %1499
+  %1531 = xor i64 %1524, -1
+  %1532 = and i64 %1474, %1531
+  %1533 = or i64 %1530, %1532
+  %1534 = add i64 %1197, -4076793802049405392
+  %1535 = add i64 %1534, %1449
+  %1536 = add i64 %1535, %1533
+  %1537 = add i64 %1536, %1529
+  %1538 = tail call i64 @llvm.fshl.i64(i64 %1523, i64 %1523, i64 36)
+  %1539 = tail call i64 @llvm.fshl.i64(i64 %1523, i64 %1523, i64 30)
+  %1540 = tail call i64 @llvm.fshl.i64(i64 %1523, i64 %1523, i64 25)
+  %1541 = xor i64 %1539, %1540
+  %1542 = xor i64 %1541, %1538
+  %1543 = and i64 %1523, %1498
+  %1544 = xor i64 %1523, %1498
+  %1545 = and i64 %1544, %1473
+  %1546 = xor i64 %1545, %1543
+  %1547 = add i64 %1542, %1546
+  %1548 = add i64 %1547, %1537
+  %1549 = add i64 %1537, %1448
+  %1550 = tail call i64 @llvm.fshl.i64(i64 %1549, i64 %1549, i64 50)
+  %1551 = tail call i64 @llvm.fshl.i64(i64 %1549, i64 %1549, i64 46)
+  %1552 = tail call i64 @llvm.fshl.i64(i64 %1549, i64 %1549, i64 23)
+  %1553 = xor i64 %1551, %1552
+  %1554 = xor i64 %1553, %1550
+  %1555 = and i64 %1549, %1524
+  %1556 = xor i64 %1549, -1
+  %1557 = and i64 %1499, %1556
+  %1558 = or i64 %1555, %1557
+  %1559 = add i64 %1210, -3345356375505022440
+  %1560 = add i64 %1559, %1474
+  %1561 = add i64 %1560, %1558
+  %1562 = add i64 %1561, %1554
+  %1563 = tail call i64 @llvm.fshl.i64(i64 %1548, i64 %1548, i64 36)
+  %1564 = tail call i64 @llvm.fshl.i64(i64 %1548, i64 %1548, i64 30)
+  %1565 = tail call i64 @llvm.fshl.i64(i64 %1548, i64 %1548, i64 25)
+  %1566 = xor i64 %1564, %1565
+  %1567 = xor i64 %1566, %1563
+  %1568 = and i64 %1548, %1523
+  %1569 = xor i64 %1548, %1523
+  %1570 = and i64 %1569, %1498
+  %1571 = xor i64 %1570, %1568
+  %1572 = add i64 %1567, %1571
+  %1573 = add i64 %1572, %1562
+  %1574 = add i64 %1562, %1473
+  %1575 = tail call i64 @llvm.fshl.i64(i64 %1574, i64 %1574, i64 50)
+  %1576 = tail call i64 @llvm.fshl.i64(i64 %1574, i64 %1574, i64 46)
+  %1577 = tail call i64 @llvm.fshl.i64(i64 %1574, i64 %1574, i64 23)
+  %1578 = xor i64 %1576, %1577
+  %1579 = xor i64 %1578, %1575
+  %1580 = and i64 %1574, %1549
+  %1581 = xor i64 %1574, -1
+  %1582 = and i64 %1524, %1581
+  %1583 = or i64 %1580, %1582
+  %1584 = add i64 %1223, -2983346525034927856
+  %1585 = add i64 %1584, %1499
+  %1586 = add i64 %1585, %1583
+  %1587 = add i64 %1586, %1579
+  %1588 = tail call i64 @llvm.fshl.i64(i64 %1573, i64 %1573, i64 36)
+  %1589 = tail call i64 @llvm.fshl.i64(i64 %1573, i64 %1573, i64 30)
+  %1590 = tail call i64 @llvm.fshl.i64(i64 %1573, i64 %1573, i64 25)
+  %1591 = xor i64 %1589, %1590
+  %1592 = xor i64 %1591, %1588
+  %1593 = and i64 %1573, %1548
+  %1594 = xor i64 %1573, %1548
+  %1595 = and i64 %1594, %1523
+  %1596 = xor i64 %1595, %1593
+  %1597 = add i64 %1592, %1596
+  %1598 = add i64 %1597, %1587
+  %1599 = add i64 %1587, %1498
+  %1600 = tail call i64 @llvm.fshl.i64(i64 %1599, i64 %1599, i64 50)
+  %1601 = tail call i64 @llvm.fshl.i64(i64 %1599, i64 %1599, i64 46)
+  %1602 = tail call i64 @llvm.fshl.i64(i64 %1599, i64 %1599, i64 23)
+  %1603 = xor i64 %1601, %1602
+  %1604 = xor i64 %1603, %1600
+  %1605 = and i64 %1599, %1574
+  %1606 = xor i64 %1599, -1
+  %1607 = and i64 %1549, %1606
+  %1608 = or i64 %1605, %1607
+  %1609 = add i64 %1236, -860691631967231958
+  %1610 = add i64 %1609, %1524
+  %1611 = add i64 %1610, %1608
+  %1612 = add i64 %1611, %1604
+  %1613 = tail call i64 @llvm.fshl.i64(i64 %1598, i64 %1598, i64 36)
+  %1614 = tail call i64 @llvm.fshl.i64(i64 %1598, i64 %1598, i64 30)
+  %1615 = tail call i64 @llvm.fshl.i64(i64 %1598, i64 %1598, i64 25)
+  %1616 = xor i64 %1614, %1615
+  %1617 = xor i64 %1616, %1613
+  %1618 = and i64 %1598, %1573
+  %1619 = xor i64 %1598, %1573
+  %1620 = and i64 %1619, %1548
+  %1621 = xor i64 %1620, %1618
+  %1622 = add i64 %1617, %1621
+  %1623 = add i64 %1622, %1612
+  %1624 = add i64 %1612, %1523
+  %1625 = tail call i64 @llvm.fshl.i64(i64 %1624, i64 %1624, i64 50)
+  %1626 = tail call i64 @llvm.fshl.i64(i64 %1624, i64 %1624, i64 46)
+  %1627 = tail call i64 @llvm.fshl.i64(i64 %1624, i64 %1624, i64 23)
+  %1628 = xor i64 %1626, %1627
+  %1629 = xor i64 %1628, %1625
+  %1630 = and i64 %1624, %1599
+  %1631 = xor i64 %1624, -1
+  %1632 = and i64 %1574, %1631
+  %1633 = or i64 %1630, %1632
+  %1634 = add i64 %1249, 1182934255886127544
+  %1635 = add i64 %1634, %1549
+  %1636 = add i64 %1635, %1633
+  %1637 = add i64 %1636, %1629
+  %1638 = tail call i64 @llvm.fshl.i64(i64 %1623, i64 %1623, i64 36)
+  %1639 = tail call i64 @llvm.fshl.i64(i64 %1623, i64 %1623, i64 30)
+  %1640 = tail call i64 @llvm.fshl.i64(i64 %1623, i64 %1623, i64 25)
+  %1641 = xor i64 %1639, %1640
+  %1642 = xor i64 %1641, %1638
+  %1643 = and i64 %1623, %1598
+  %1644 = xor i64 %1623, %1598
+  %1645 = and i64 %1644, %1573
+  %1646 = xor i64 %1645, %1643
+  %1647 = add i64 %1642, %1646
+  %1648 = add i64 %1647, %1637
+  %1649 = add i64 %1637, %1548
+  %1650 = tail call i64 @llvm.fshl.i64(i64 %1236, i64 %1236, i64 45)
+  %1651 = tail call i64 @llvm.fshl.i64(i64 %1236, i64 %1236, i64 3)
+  %1652 = lshr i64 %1236, 6
+  %1653 = xor i64 %1651, %1652
+  %1654 = xor i64 %1653, %1650
+  %1655 = tail call i64 @llvm.fshl.i64(i64 %1067, i64 %1067, i64 63)
+  %1656 = tail call i64 @llvm.fshl.i64(i64 %1067, i64 %1067, i64 56)
+  %1657 = lshr i64 %1067, 7
+  %1658 = xor i64 %1656, %1657
+  %1659 = xor i64 %1658, %1655
+  %1660 = add i64 %1659, %1054
+  %1661 = add i64 %1660, %1171
+  %1662 = add i64 %1661, %1654
+  %1663 = tail call i64 @llvm.fshl.i64(i64 %1249, i64 %1249, i64 45)
+  %1664 = tail call i64 @llvm.fshl.i64(i64 %1249, i64 %1249, i64 3)
+  %1665 = lshr i64 %1249, 6
+  %1666 = xor i64 %1664, %1665
+  %1667 = xor i64 %1666, %1663
+  %1668 = tail call i64 @llvm.fshl.i64(i64 %1080, i64 %1080, i64 63)
+  %1669 = tail call i64 @llvm.fshl.i64(i64 %1080, i64 %1080, i64 56)
+  %1670 = lshr i64 %1080, 7
+  %1671 = xor i64 %1669, %1670
+  %1672 = xor i64 %1671, %1668
+  %1673 = add i64 %1672, %1067
+  %1674 = add i64 %1673, %1184
+  %1675 = add i64 %1674, %1667
+  %1676 = tail call i64 @llvm.fshl.i64(i64 %1662, i64 %1662, i64 45)
+  %1677 = tail call i64 @llvm.fshl.i64(i64 %1662, i64 %1662, i64 3)
+  %1678 = lshr i64 %1662, 6
+  %1679 = xor i64 %1677, %1678
+  %1680 = xor i64 %1679, %1676
+  %1681 = tail call i64 @llvm.fshl.i64(i64 %1093, i64 %1093, i64 63)
+  %1682 = tail call i64 @llvm.fshl.i64(i64 %1093, i64 %1093, i64 56)
+  %1683 = lshr i64 %1093, 7
+  %1684 = xor i64 %1682, %1683
+  %1685 = xor i64 %1684, %1681
+  %1686 = add i64 %1685, %1080
+  %1687 = add i64 %1686, %1197
+  %1688 = add i64 %1687, %1680
+  %1689 = tail call i64 @llvm.fshl.i64(i64 %1675, i64 %1675, i64 45)
+  %1690 = tail call i64 @llvm.fshl.i64(i64 %1675, i64 %1675, i64 3)
+  %1691 = lshr i64 %1675, 6
+  %1692 = xor i64 %1690, %1691
+  %1693 = xor i64 %1692, %1689
+  %1694 = tail call i64 @llvm.fshl.i64(i64 %1106, i64 %1106, i64 63)
+  %1695 = tail call i64 @llvm.fshl.i64(i64 %1106, i64 %1106, i64 56)
+  %1696 = lshr i64 %1106, 7
+  %1697 = xor i64 %1695, %1696
+  %1698 = xor i64 %1697, %1694
+  %1699 = add i64 %1698, %1093
+  %1700 = add i64 %1699, %1210
+  %1701 = add i64 %1700, %1693
+  %1702 = tail call i64 @llvm.fshl.i64(i64 %1688, i64 %1688, i64 45)
+  %1703 = tail call i64 @llvm.fshl.i64(i64 %1688, i64 %1688, i64 3)
+  %1704 = lshr i64 %1688, 6
+  %1705 = xor i64 %1703, %1704
+  %1706 = xor i64 %1705, %1702
+  %1707 = tail call i64 @llvm.fshl.i64(i64 %1119, i64 %1119, i64 63)
+  %1708 = tail call i64 @llvm.fshl.i64(i64 %1119, i64 %1119, i64 56)
+  %1709 = lshr i64 %1119, 7
+  %1710 = xor i64 %1708, %1709
+  %1711 = xor i64 %1710, %1707
+  %1712 = add i64 %1711, %1106
+  %1713 = add i64 %1712, %1223
+  %1714 = add i64 %1713, %1706
+  %1715 = tail call i64 @llvm.fshl.i64(i64 %1701, i64 %1701, i64 45)
+  %1716 = tail call i64 @llvm.fshl.i64(i64 %1701, i64 %1701, i64 3)
+  %1717 = lshr i64 %1701, 6
+  %1718 = xor i64 %1716, %1717
+  %1719 = xor i64 %1718, %1715
+  %1720 = tail call i64 @llvm.fshl.i64(i64 %1132, i64 %1132, i64 63)
+  %1721 = tail call i64 @llvm.fshl.i64(i64 %1132, i64 %1132, i64 56)
+  %1722 = lshr i64 %1132, 7
+  %1723 = xor i64 %1721, %1722
+  %1724 = xor i64 %1723, %1720
+  %1725 = add i64 %1724, %1119
+  %1726 = add i64 %1725, %1236
+  %1727 = add i64 %1726, %1719
+  %1728 = tail call i64 @llvm.fshl.i64(i64 %1714, i64 %1714, i64 45)
+  %1729 = tail call i64 @llvm.fshl.i64(i64 %1714, i64 %1714, i64 3)
+  %1730 = lshr i64 %1714, 6
+  %1731 = xor i64 %1729, %1730
+  %1732 = xor i64 %1731, %1728
+  %1733 = tail call i64 @llvm.fshl.i64(i64 %1145, i64 %1145, i64 63)
+  %1734 = tail call i64 @llvm.fshl.i64(i64 %1145, i64 %1145, i64 56)
+  %1735 = lshr i64 %1145, 7
+  %1736 = xor i64 %1734, %1735
+  %1737 = xor i64 %1736, %1733
+  %1738 = add i64 %1737, %1132
+  %1739 = add i64 %1738, %1249
+  %1740 = add i64 %1739, %1732
+  %1741 = tail call i64 @llvm.fshl.i64(i64 %1727, i64 %1727, i64 45)
+  %1742 = tail call i64 @llvm.fshl.i64(i64 %1727, i64 %1727, i64 3)
+  %1743 = lshr i64 %1727, 6
+  %1744 = xor i64 %1742, %1743
+  %1745 = xor i64 %1744, %1741
+  %1746 = tail call i64 @llvm.fshl.i64(i64 %1158, i64 %1158, i64 63)
+  %1747 = tail call i64 @llvm.fshl.i64(i64 %1158, i64 %1158, i64 56)
+  %1748 = lshr i64 %1158, 7
+  %1749 = xor i64 %1747, %1748
+  %1750 = xor i64 %1749, %1746
+  %1751 = add i64 %1750, %1145
+  %1752 = add i64 %1751, %1662
+  %1753 = add i64 %1752, %1745
+  %1754 = tail call i64 @llvm.fshl.i64(i64 %1740, i64 %1740, i64 45)
+  %1755 = tail call i64 @llvm.fshl.i64(i64 %1740, i64 %1740, i64 3)
+  %1756 = lshr i64 %1740, 6
+  %1757 = xor i64 %1755, %1756
+  %1758 = xor i64 %1757, %1754
+  %1759 = tail call i64 @llvm.fshl.i64(i64 %1171, i64 %1171, i64 63)
+  %1760 = tail call i64 @llvm.fshl.i64(i64 %1171, i64 %1171, i64 56)
+  %1761 = lshr i64 %1171, 7
+  %1762 = xor i64 %1760, %1761
+  %1763 = xor i64 %1762, %1759
+  %1764 = add i64 %1763, %1158
+  %1765 = add i64 %1764, %1675
+  %1766 = add i64 %1765, %1758
+  %1767 = tail call i64 @llvm.fshl.i64(i64 %1753, i64 %1753, i64 45)
+  %1768 = tail call i64 @llvm.fshl.i64(i64 %1753, i64 %1753, i64 3)
+  %1769 = lshr i64 %1753, 6
+  %1770 = xor i64 %1768, %1769
+  %1771 = xor i64 %1770, %1767
+  %1772 = tail call i64 @llvm.fshl.i64(i64 %1184, i64 %1184, i64 63)
+  %1773 = tail call i64 @llvm.fshl.i64(i64 %1184, i64 %1184, i64 56)
+  %1774 = lshr i64 %1184, 7
+  %1775 = xor i64 %1773, %1774
+  %1776 = xor i64 %1775, %1772
+  %1777 = add i64 %1776, %1171
+  %1778 = add i64 %1777, %1688
+  %1779 = add i64 %1778, %1771
+  %1780 = tail call i64 @llvm.fshl.i64(i64 %1766, i64 %1766, i64 45)
+  %1781 = tail call i64 @llvm.fshl.i64(i64 %1766, i64 %1766, i64 3)
+  %1782 = lshr i64 %1766, 6
+  %1783 = xor i64 %1781, %1782
+  %1784 = xor i64 %1783, %1780
+  %1785 = tail call i64 @llvm.fshl.i64(i64 %1197, i64 %1197, i64 63)
+  %1786 = tail call i64 @llvm.fshl.i64(i64 %1197, i64 %1197, i64 56)
+  %1787 = lshr i64 %1197, 7
+  %1788 = xor i64 %1786, %1787
+  %1789 = xor i64 %1788, %1785
+  %1790 = add i64 %1789, %1184
+  %1791 = add i64 %1790, %1701
+  %1792 = add i64 %1791, %1784
+  %1793 = tail call i64 @llvm.fshl.i64(i64 %1779, i64 %1779, i64 45)
+  %1794 = tail call i64 @llvm.fshl.i64(i64 %1779, i64 %1779, i64 3)
+  %1795 = lshr i64 %1779, 6
+  %1796 = xor i64 %1794, %1795
+  %1797 = xor i64 %1796, %1793
+  %1798 = tail call i64 @llvm.fshl.i64(i64 %1210, i64 %1210, i64 63)
+  %1799 = tail call i64 @llvm.fshl.i64(i64 %1210, i64 %1210, i64 56)
+  %1800 = lshr i64 %1210, 7
+  %1801 = xor i64 %1799, %1800
+  %1802 = xor i64 %1801, %1798
+  %1803 = add i64 %1802, %1197
+  %1804 = add i64 %1803, %1714
+  %1805 = add i64 %1804, %1797
+  %1806 = tail call i64 @llvm.fshl.i64(i64 %1792, i64 %1792, i64 45)
+  %1807 = tail call i64 @llvm.fshl.i64(i64 %1792, i64 %1792, i64 3)
+  %1808 = lshr i64 %1792, 6
+  %1809 = xor i64 %1807, %1808
+  %1810 = xor i64 %1809, %1806
+  %1811 = tail call i64 @llvm.fshl.i64(i64 %1223, i64 %1223, i64 63)
+  %1812 = tail call i64 @llvm.fshl.i64(i64 %1223, i64 %1223, i64 56)
+  %1813 = lshr i64 %1223, 7
+  %1814 = xor i64 %1812, %1813
+  %1815 = xor i64 %1814, %1811
+  %1816 = add i64 %1815, %1210
+  %1817 = add i64 %1816, %1727
+  %1818 = add i64 %1817, %1810
+  %1819 = tail call i64 @llvm.fshl.i64(i64 %1805, i64 %1805, i64 45)
+  %1820 = tail call i64 @llvm.fshl.i64(i64 %1805, i64 %1805, i64 3)
+  %1821 = lshr i64 %1805, 6
+  %1822 = xor i64 %1820, %1821
+  %1823 = xor i64 %1822, %1819
+  %1824 = tail call i64 @llvm.fshl.i64(i64 %1236, i64 %1236, i64 63)
+  %1825 = tail call i64 @llvm.fshl.i64(i64 %1236, i64 %1236, i64 56)
+  %1826 = lshr i64 %1236, 7
+  %1827 = xor i64 %1825, %1826
+  %1828 = xor i64 %1827, %1824
+  %1829 = add i64 %1828, %1223
+  %1830 = add i64 %1829, %1740
+  %1831 = add i64 %1830, %1823
+  %1832 = tail call i64 @llvm.fshl.i64(i64 %1818, i64 %1818, i64 45)
+  %1833 = tail call i64 @llvm.fshl.i64(i64 %1818, i64 %1818, i64 3)
+  %1834 = lshr i64 %1818, 6
+  %1835 = xor i64 %1833, %1834
+  %1836 = xor i64 %1835, %1832
+  %1837 = tail call i64 @llvm.fshl.i64(i64 %1249, i64 %1249, i64 63)
+  %1838 = tail call i64 @llvm.fshl.i64(i64 %1249, i64 %1249, i64 56)
+  %1839 = lshr i64 %1249, 7
+  %1840 = xor i64 %1838, %1839
+  %1841 = xor i64 %1840, %1837
+  %1842 = add i64 %1841, %1236
+  %1843 = add i64 %1842, %1753
+  %1844 = add i64 %1843, %1836
+  %1845 = tail call i64 @llvm.fshl.i64(i64 %1831, i64 %1831, i64 45)
+  %1846 = tail call i64 @llvm.fshl.i64(i64 %1831, i64 %1831, i64 3)
+  %1847 = lshr i64 %1831, 6
+  %1848 = xor i64 %1846, %1847
+  %1849 = xor i64 %1848, %1845
+  %1850 = tail call i64 @llvm.fshl.i64(i64 %1662, i64 %1662, i64 63)
+  %1851 = tail call i64 @llvm.fshl.i64(i64 %1662, i64 %1662, i64 56)
+  %1852 = lshr i64 %1662, 7
+  %1853 = xor i64 %1851, %1852
+  %1854 = xor i64 %1853, %1850
+  %1855 = add i64 %1854, %1249
+  %1856 = add i64 %1855, %1766
+  %1857 = add i64 %1856, %1849
+  %1858 = tail call i64 @llvm.fshl.i64(i64 %1649, i64 %1649, i64 50)
+  %1859 = tail call i64 @llvm.fshl.i64(i64 %1649, i64 %1649, i64 46)
+  %1860 = tail call i64 @llvm.fshl.i64(i64 %1649, i64 %1649, i64 23)
+  %1861 = xor i64 %1859, %1860
+  %1862 = xor i64 %1861, %1858
+  %1863 = and i64 %1649, %1624
+  %1864 = xor i64 %1649, -1
+  %1865 = and i64 %1599, %1864
+  %1866 = or i64 %1863, %1865
+  %1867 = add i64 %1662, 1847814050463011016
+  %1868 = add i64 %1867, %1574
+  %1869 = add i64 %1868, %1866
+  %1870 = add i64 %1869, %1862
+  %1871 = tail call i64 @llvm.fshl.i64(i64 %1648, i64 %1648, i64 36)
+  %1872 = tail call i64 @llvm.fshl.i64(i64 %1648, i64 %1648, i64 30)
+  %1873 = tail call i64 @llvm.fshl.i64(i64 %1648, i64 %1648, i64 25)
+  %1874 = xor i64 %1872, %1873
+  %1875 = xor i64 %1874, %1871
+  %1876 = and i64 %1648, %1623
+  %1877 = xor i64 %1648, %1623
+  %1878 = and i64 %1877, %1598
+  %1879 = xor i64 %1878, %1876
+  %1880 = add i64 %1875, %1879
+  %1881 = add i64 %1880, %1870
+  %1882 = add i64 %1870, %1573
+  %1883 = tail call i64 @llvm.fshl.i64(i64 %1882, i64 %1882, i64 50)
+  %1884 = tail call i64 @llvm.fshl.i64(i64 %1882, i64 %1882, i64 46)
+  %1885 = tail call i64 @llvm.fshl.i64(i64 %1882, i64 %1882, i64 23)
+  %1886 = xor i64 %1884, %1885
+  %1887 = xor i64 %1886, %1883
+  %1888 = and i64 %1882, %1649
+  %1889 = xor i64 %1882, -1
+  %1890 = and i64 %1624, %1889
+  %1891 = or i64 %1888, %1890
+  %1892 = add i64 %1675, 2177327727835720531
+  %1893 = add i64 %1892, %1599
+  %1894 = add i64 %1893, %1891
+  %1895 = add i64 %1894, %1887
+  %1896 = tail call i64 @llvm.fshl.i64(i64 %1881, i64 %1881, i64 36)
+  %1897 = tail call i64 @llvm.fshl.i64(i64 %1881, i64 %1881, i64 30)
+  %1898 = tail call i64 @llvm.fshl.i64(i64 %1881, i64 %1881, i64 25)
+  %1899 = xor i64 %1897, %1898
+  %1900 = xor i64 %1899, %1896
+  %1901 = and i64 %1881, %1648
+  %1902 = xor i64 %1881, %1648
+  %1903 = and i64 %1902, %1623
+  %1904 = xor i64 %1903, %1901
+  %1905 = add i64 %1900, %1904
+  %1906 = add i64 %1905, %1895
+  %1907 = add i64 %1895, %1598
+  %1908 = tail call i64 @llvm.fshl.i64(i64 %1907, i64 %1907, i64 50)
+  %1909 = tail call i64 @llvm.fshl.i64(i64 %1907, i64 %1907, i64 46)
+  %1910 = tail call i64 @llvm.fshl.i64(i64 %1907, i64 %1907, i64 23)
+  %1911 = xor i64 %1909, %1910
+  %1912 = xor i64 %1911, %1908
+  %1913 = and i64 %1907, %1882
+  %1914 = xor i64 %1907, -1
+  %1915 = and i64 %1649, %1914
+  %1916 = or i64 %1913, %1915
+  %1917 = add i64 %1688, 2830643537854262169
+  %1918 = add i64 %1917, %1624
+  %1919 = add i64 %1918, %1916
+  %1920 = add i64 %1919, %1912
+  %1921 = tail call i64 @llvm.fshl.i64(i64 %1906, i64 %1906, i64 36)
+  %1922 = tail call i64 @llvm.fshl.i64(i64 %1906, i64 %1906, i64 30)
+  %1923 = tail call i64 @llvm.fshl.i64(i64 %1906, i64 %1906, i64 25)
+  %1924 = xor i64 %1922, %1923
+  %1925 = xor i64 %1924, %1921
+  %1926 = and i64 %1906, %1881
+  %1927 = xor i64 %1906, %1881
+  %1928 = and i64 %1927, %1648
+  %1929 = xor i64 %1928, %1926
+  %1930 = add i64 %1925, %1929
+  %1931 = add i64 %1930, %1920
+  %1932 = add i64 %1920, %1623
+  %1933 = tail call i64 @llvm.fshl.i64(i64 %1932, i64 %1932, i64 50)
+  %1934 = tail call i64 @llvm.fshl.i64(i64 %1932, i64 %1932, i64 46)
+  %1935 = tail call i64 @llvm.fshl.i64(i64 %1932, i64 %1932, i64 23)
+  %1936 = xor i64 %1934, %1935
+  %1937 = xor i64 %1936, %1933
+  %1938 = and i64 %1932, %1907
+  %1939 = xor i64 %1932, -1
+  %1940 = and i64 %1882, %1939
+  %1941 = or i64 %1938, %1940
+  %1942 = add i64 %1701, 3796741975233480872
+  %1943 = add i64 %1942, %1649
+  %1944 = add i64 %1943, %1941
+  %1945 = add i64 %1944, %1937
+  %1946 = tail call i64 @llvm.fshl.i64(i64 %1931, i64 %1931, i64 36)
+  %1947 = tail call i64 @llvm.fshl.i64(i64 %1931, i64 %1931, i64 30)
+  %1948 = tail call i64 @llvm.fshl.i64(i64 %1931, i64 %1931, i64 25)
+  %1949 = xor i64 %1947, %1948
+  %1950 = xor i64 %1949, %1946
+  %1951 = and i64 %1931, %1906
+  %1952 = xor i64 %1931, %1906
+  %1953 = and i64 %1952, %1881
+  %1954 = xor i64 %1953, %1951
+  %1955 = add i64 %1950, %1954
+  %1956 = add i64 %1955, %1945
+  %1957 = add i64 %1945, %1648
+  %1958 = tail call i64 @llvm.fshl.i64(i64 %1957, i64 %1957, i64 50)
+  %1959 = tail call i64 @llvm.fshl.i64(i64 %1957, i64 %1957, i64 46)
+  %1960 = tail call i64 @llvm.fshl.i64(i64 %1957, i64 %1957, i64 23)
+  %1961 = xor i64 %1959, %1960
+  %1962 = xor i64 %1961, %1958
+  %1963 = and i64 %1957, %1932
+  %1964 = xor i64 %1957, -1
+  %1965 = and i64 %1907, %1964
+  %1966 = or i64 %1963, %1965
+  %1967 = add i64 %1714, 4115178125766777443
+  %1968 = add i64 %1967, %1882
+  %1969 = add i64 %1968, %1966
+  %1970 = add i64 %1969, %1962
+  %1971 = tail call i64 @llvm.fshl.i64(i64 %1956, i64 %1956, i64 36)
+  %1972 = tail call i64 @llvm.fshl.i64(i64 %1956, i64 %1956, i64 30)
+  %1973 = tail call i64 @llvm.fshl.i64(i64 %1956, i64 %1956, i64 25)
+  %1974 = xor i64 %1972, %1973
+  %1975 = xor i64 %1974, %1971
+  %1976 = and i64 %1956, %1931
+  %1977 = xor i64 %1956, %1931
+  %1978 = and i64 %1977, %1906
+  %1979 = xor i64 %1978, %1976
+  %1980 = add i64 %1975, %1979
+  %1981 = add i64 %1980, %1970
+  %1982 = add i64 %1970, %1881
+  %1983 = tail call i64 @llvm.fshl.i64(i64 %1982, i64 %1982, i64 50)
+  %1984 = tail call i64 @llvm.fshl.i64(i64 %1982, i64 %1982, i64 46)
+  %1985 = tail call i64 @llvm.fshl.i64(i64 %1982, i64 %1982, i64 23)
+  %1986 = xor i64 %1984, %1985
+  %1987 = xor i64 %1986, %1983
+  %1988 = and i64 %1982, %1957
+  %1989 = xor i64 %1982, -1
+  %1990 = and i64 %1932, %1989
+  %1991 = or i64 %1988, %1990
+  %1992 = add i64 %1727, 5681478168544905931
+  %1993 = add i64 %1992, %1907
+  %1994 = add i64 %1993, %1991
+  %1995 = add i64 %1994, %1987
+  %1996 = tail call i64 @llvm.fshl.i64(i64 %1981, i64 %1981, i64 36)
+  %1997 = tail call i64 @llvm.fshl.i64(i64 %1981, i64 %1981, i64 30)
+  %1998 = tail call i64 @llvm.fshl.i64(i64 %1981, i64 %1981, i64 25)
+  %1999 = xor i64 %1997, %1998
+  %2000 = xor i64 %1999, %1996
+  %2001 = and i64 %1981, %1956
+  %2002 = xor i64 %1981, %1956
+  %2003 = and i64 %2002, %1931
+  %2004 = xor i64 %2003, %2001
+  %2005 = add i64 %2000, %2004
+  %2006 = add i64 %2005, %1995
+  %2007 = add i64 %1995, %1906
+  %2008 = tail call i64 @llvm.fshl.i64(i64 %2007, i64 %2007, i64 50)
+  %2009 = tail call i64 @llvm.fshl.i64(i64 %2007, i64 %2007, i64 46)
+  %2010 = tail call i64 @llvm.fshl.i64(i64 %2007, i64 %2007, i64 23)
+  %2011 = xor i64 %2009, %2010
+  %2012 = xor i64 %2011, %2008
+  %2013 = and i64 %2007, %1982
+  %2014 = xor i64 %2007, -1
+  %2015 = and i64 %1957, %2014
+  %2016 = or i64 %2013, %2015
+  %2017 = add i64 %1740, 6601373596472566643
+  %2018 = add i64 %2017, %1932
+  %2019 = add i64 %2018, %2016
+  %2020 = add i64 %2019, %2012
+  %2021 = tail call i64 @llvm.fshl.i64(i64 %2006, i64 %2006, i64 36)
+  %2022 = tail call i64 @llvm.fshl.i64(i64 %2006, i64 %2006, i64 30)
+  %2023 = tail call i64 @llvm.fshl.i64(i64 %2006, i64 %2006, i64 25)
+  %2024 = xor i64 %2022, %2023
+  %2025 = xor i64 %2024, %2021
+  %2026 = and i64 %2006, %1981
+  %2027 = xor i64 %2006, %1981
+  %2028 = and i64 %2027, %1956
+  %2029 = xor i64 %2028, %2026
+  %2030 = add i64 %2025, %2029
+  %2031 = add i64 %2030, %2020
+  %2032 = add i64 %2020, %1931
+  %2033 = tail call i64 @llvm.fshl.i64(i64 %2032, i64 %2032, i64 50)
+  %2034 = tail call i64 @llvm.fshl.i64(i64 %2032, i64 %2032, i64 46)
+  %2035 = tail call i64 @llvm.fshl.i64(i64 %2032, i64 %2032, i64 23)
+  %2036 = xor i64 %2034, %2035
+  %2037 = xor i64 %2036, %2033
+  %2038 = and i64 %2032, %2007
+  %2039 = xor i64 %2032, -1
+  %2040 = and i64 %1982, %2039
+  %2041 = or i64 %2038, %2040
+  %2042 = add i64 %1753, 7507060721942968483
+  %2043 = add i64 %2042, %1957
+  %2044 = add i64 %2043, %2041
+  %2045 = add i64 %2044, %2037
+  %2046 = tail call i64 @llvm.fshl.i64(i64 %2031, i64 %2031, i64 36)
+  %2047 = tail call i64 @llvm.fshl.i64(i64 %2031, i64 %2031, i64 30)
+  %2048 = tail call i64 @llvm.fshl.i64(i64 %2031, i64 %2031, i64 25)
+  %2049 = xor i64 %2047, %2048
+  %2050 = xor i64 %2049, %2046
+  %2051 = and i64 %2031, %2006
+  %2052 = xor i64 %2031, %2006
+  %2053 = and i64 %2052, %1981
+  %2054 = xor i64 %2053, %2051
+  %2055 = add i64 %2050, %2054
+  %2056 = add i64 %2055, %2045
+  %2057 = add i64 %2045, %1956
+  %2058 = tail call i64 @llvm.fshl.i64(i64 %2057, i64 %2057, i64 50)
+  %2059 = tail call i64 @llvm.fshl.i64(i64 %2057, i64 %2057, i64 46)
+  %2060 = tail call i64 @llvm.fshl.i64(i64 %2057, i64 %2057, i64 23)
+  %2061 = xor i64 %2059, %2060
+  %2062 = xor i64 %2061, %2058
+  %2063 = and i64 %2057, %2032
+  %2064 = xor i64 %2057, -1
+  %2065 = and i64 %2007, %2064
+  %2066 = or i64 %2063, %2065
+  %2067 = add i64 %1766, 8399075790359081724
+  %2068 = add i64 %2067, %1982
+  %2069 = add i64 %2068, %2066
+  %2070 = add i64 %2069, %2062
+  %2071 = tail call i64 @llvm.fshl.i64(i64 %2056, i64 %2056, i64 36)
+  %2072 = tail call i64 @llvm.fshl.i64(i64 %2056, i64 %2056, i64 30)
+  %2073 = tail call i64 @llvm.fshl.i64(i64 %2056, i64 %2056, i64 25)
+  %2074 = xor i64 %2072, %2073
+  %2075 = xor i64 %2074, %2071
+  %2076 = and i64 %2056, %2031
+  %2077 = xor i64 %2056, %2031
+  %2078 = and i64 %2077, %2006
+  %2079 = xor i64 %2078, %2076
+  %2080 = add i64 %2075, %2079
+  %2081 = add i64 %2080, %2070
+  %2082 = add i64 %2070, %1981
+  %2083 = tail call i64 @llvm.fshl.i64(i64 %2082, i64 %2082, i64 50)
+  %2084 = tail call i64 @llvm.fshl.i64(i64 %2082, i64 %2082, i64 46)
+  %2085 = tail call i64 @llvm.fshl.i64(i64 %2082, i64 %2082, i64 23)
+  %2086 = xor i64 %2084, %2085
+  %2087 = xor i64 %2086, %2083
+  %2088 = and i64 %2082, %2057
+  %2089 = xor i64 %2082, -1
+  %2090 = and i64 %2032, %2089
+  %2091 = or i64 %2088, %2090
+  %2092 = add i64 %1779, 8693463985226723168
+  %2093 = add i64 %2092, %2007
+  %2094 = add i64 %2093, %2091
+  %2095 = add i64 %2094, %2087
+  %2096 = tail call i64 @llvm.fshl.i64(i64 %2081, i64 %2081, i64 36)
+  %2097 = tail call i64 @llvm.fshl.i64(i64 %2081, i64 %2081, i64 30)
+  %2098 = tail call i64 @llvm.fshl.i64(i64 %2081, i64 %2081, i64 25)
+  %2099 = xor i64 %2097, %2098
+  %2100 = xor i64 %2099, %2096
+  %2101 = and i64 %2081, %2056
+  %2102 = xor i64 %2081, %2056
+  %2103 = and i64 %2102, %2031
+  %2104 = xor i64 %2103, %2101
+  %2105 = add i64 %2100, %2104
+  %2106 = add i64 %2105, %2095
+  %2107 = add i64 %2095, %2006
+  %2108 = tail call i64 @llvm.fshl.i64(i64 %2107, i64 %2107, i64 50)
+  %2109 = tail call i64 @llvm.fshl.i64(i64 %2107, i64 %2107, i64 46)
+  %2110 = tail call i64 @llvm.fshl.i64(i64 %2107, i64 %2107, i64 23)
+  %2111 = xor i64 %2109, %2110
+  %2112 = xor i64 %2111, %2108
+  %2113 = and i64 %2107, %2082
+  %2114 = xor i64 %2107, -1
+  %2115 = and i64 %2057, %2114
+  %2116 = or i64 %2113, %2115
+  %2117 = add i64 %1792, -8878714635349349518
+  %2118 = add i64 %2117, %2032
+  %2119 = add i64 %2118, %2116
+  %2120 = add i64 %2119, %2112
+  %2121 = tail call i64 @llvm.fshl.i64(i64 %2106, i64 %2106, i64 36)
+  %2122 = tail call i64 @llvm.fshl.i64(i64 %2106, i64 %2106, i64 30)
+  %2123 = tail call i64 @llvm.fshl.i64(i64 %2106, i64 %2106, i64 25)
+  %2124 = xor i64 %2122, %2123
+  %2125 = xor i64 %2124, %2121
+  %2126 = and i64 %2106, %2081
+  %2127 = xor i64 %2106, %2081
+  %2128 = and i64 %2127, %2056
+  %2129 = xor i64 %2128, %2126
+  %2130 = add i64 %2125, %2129
+  %2131 = add i64 %2130, %2120
+  %2132 = add i64 %2120, %2031
+  %2133 = tail call i64 @llvm.fshl.i64(i64 %2132, i64 %2132, i64 50)
+  %2134 = tail call i64 @llvm.fshl.i64(i64 %2132, i64 %2132, i64 46)
+  %2135 = tail call i64 @llvm.fshl.i64(i64 %2132, i64 %2132, i64 23)
+  %2136 = xor i64 %2134, %2135
+  %2137 = xor i64 %2136, %2133
+  %2138 = and i64 %2132, %2107
+  %2139 = xor i64 %2132, -1
+  %2140 = and i64 %2082, %2139
+  %2141 = or i64 %2138, %2140
+  %2142 = add i64 %1805, -8302665154208450068
+  %2143 = add i64 %2142, %2057
+  %2144 = add i64 %2143, %2141
+  %2145 = add i64 %2144, %2137
+  %2146 = tail call i64 @llvm.fshl.i64(i64 %2131, i64 %2131, i64 36)
+  %2147 = tail call i64 @llvm.fshl.i64(i64 %2131, i64 %2131, i64 30)
+  %2148 = tail call i64 @llvm.fshl.i64(i64 %2131, i64 %2131, i64 25)
+  %2149 = xor i64 %2147, %2148
+  %2150 = xor i64 %2149, %2146
+  %2151 = and i64 %2131, %2106
+  %2152 = xor i64 %2131, %2106
+  %2153 = and i64 %2152, %2081
+  %2154 = xor i64 %2153, %2151
+  %2155 = add i64 %2150, %2154
+  %2156 = add i64 %2155, %2145
+  %2157 = add i64 %2145, %2056
+  %2158 = tail call i64 @llvm.fshl.i64(i64 %2157, i64 %2157, i64 50)
+  %2159 = tail call i64 @llvm.fshl.i64(i64 %2157, i64 %2157, i64 46)
+  %2160 = tail call i64 @llvm.fshl.i64(i64 %2157, i64 %2157, i64 23)
+  %2161 = xor i64 %2159, %2160
+  %2162 = xor i64 %2161, %2158
+  %2163 = and i64 %2157, %2132
+  %2164 = xor i64 %2157, -1
+  %2165 = and i64 %2107, %2164
+  %2166 = or i64 %2163, %2165
+  %2167 = add i64 %1818, -8016688836872298968
+  %2168 = add i64 %2167, %2082
+  %2169 = add i64 %2168, %2166
+  %2170 = add i64 %2169, %2162
+  %2171 = tail call i64 @llvm.fshl.i64(i64 %2156, i64 %2156, i64 36)
+  %2172 = tail call i64 @llvm.fshl.i64(i64 %2156, i64 %2156, i64 30)
+  %2173 = tail call i64 @llvm.fshl.i64(i64 %2156, i64 %2156, i64 25)
+  %2174 = xor i64 %2172, %2173
+  %2175 = xor i64 %2174, %2171
+  %2176 = and i64 %2156, %2131
+  %2177 = xor i64 %2156, %2131
+  %2178 = and i64 %2177, %2106
+  %2179 = xor i64 %2178, %2176
+  %2180 = add i64 %2175, %2179
+  %2181 = add i64 %2180, %2170
+  %2182 = add i64 %2170, %2081
+  %2183 = tail call i64 @llvm.fshl.i64(i64 %2182, i64 %2182, i64 50)
+  %2184 = tail call i64 @llvm.fshl.i64(i64 %2182, i64 %2182, i64 46)
+  %2185 = tail call i64 @llvm.fshl.i64(i64 %2182, i64 %2182, i64 23)
+  %2186 = xor i64 %2184, %2185
+  %2187 = xor i64 %2186, %2183
+  %2188 = and i64 %2182, %2157
+  %2189 = xor i64 %2182, -1
+  %2190 = and i64 %2132, %2189
+  %2191 = or i64 %2188, %2190
+  %2192 = add i64 %1831, -6606660893046293015
+  %2193 = add i64 %2192, %2107
+  %2194 = add i64 %2193, %2191
+  %2195 = add i64 %2194, %2187
+  %2196 = tail call i64 @llvm.fshl.i64(i64 %2181, i64 %2181, i64 36)
+  %2197 = tail call i64 @llvm.fshl.i64(i64 %2181, i64 %2181, i64 30)
+  %2198 = tail call i64 @llvm.fshl.i64(i64 %2181, i64 %2181, i64 25)
+  %2199 = xor i64 %2197, %2198
+  %2200 = xor i64 %2199, %2196
+  %2201 = and i64 %2181, %2156
+  %2202 = xor i64 %2181, %2156
+  %2203 = and i64 %2202, %2131
+  %2204 = xor i64 %2203, %2201
+  %2205 = add i64 %2200, %2204
+  %2206 = add i64 %2205, %2195
+  %2207 = add i64 %2195, %2106
+  %2208 = tail call i64 @llvm.fshl.i64(i64 %2207, i64 %2207, i64 50)
+  %2209 = tail call i64 @llvm.fshl.i64(i64 %2207, i64 %2207, i64 46)
+  %2210 = tail call i64 @llvm.fshl.i64(i64 %2207, i64 %2207, i64 23)
+  %2211 = xor i64 %2209, %2210
+  %2212 = xor i64 %2211, %2208
+  %2213 = and i64 %2207, %2182
+  %2214 = xor i64 %2207, -1
+  %2215 = and i64 %2157, %2214
+  %2216 = or i64 %2213, %2215
+  %2217 = add i64 %1844, -4685533653050689259
+  %2218 = add i64 %2217, %2132
+  %2219 = add i64 %2218, %2216
+  %2220 = add i64 %2219, %2212
+  %2221 = tail call i64 @llvm.fshl.i64(i64 %2206, i64 %2206, i64 36)
+  %2222 = tail call i64 @llvm.fshl.i64(i64 %2206, i64 %2206, i64 30)
+  %2223 = tail call i64 @llvm.fshl.i64(i64 %2206, i64 %2206, i64 25)
+  %2224 = xor i64 %2222, %2223
+  %2225 = xor i64 %2224, %2221
+  %2226 = and i64 %2206, %2181
+  %2227 = xor i64 %2206, %2181
+  %2228 = and i64 %2227, %2156
+  %2229 = xor i64 %2228, %2226
+  %2230 = add i64 %2225, %2229
+  %2231 = add i64 %2230, %2220
+  %2232 = add i64 %2220, %2131
+  %2233 = tail call i64 @llvm.fshl.i64(i64 %2232, i64 %2232, i64 50)
+  %2234 = tail call i64 @llvm.fshl.i64(i64 %2232, i64 %2232, i64 46)
+  %2235 = tail call i64 @llvm.fshl.i64(i64 %2232, i64 %2232, i64 23)
+  %2236 = xor i64 %2234, %2235
+  %2237 = xor i64 %2236, %2233
+  %2238 = and i64 %2232, %2207
+  %2239 = xor i64 %2232, -1
+  %2240 = and i64 %2182, %2239
+  %2241 = or i64 %2238, %2240
+  %2242 = add i64 %1857, -4147400797238176981
+  %2243 = add i64 %2242, %2157
+  %2244 = add i64 %2243, %2241
+  %2245 = add i64 %2244, %2237
+  %2246 = tail call i64 @llvm.fshl.i64(i64 %2231, i64 %2231, i64 36)
+  %2247 = tail call i64 @llvm.fshl.i64(i64 %2231, i64 %2231, i64 30)
+  %2248 = tail call i64 @llvm.fshl.i64(i64 %2231, i64 %2231, i64 25)
+  %2249 = xor i64 %2247, %2248
+  %2250 = xor i64 %2249, %2246
+  %2251 = and i64 %2231, %2206
+  %2252 = xor i64 %2231, %2206
+  %2253 = and i64 %2252, %2181
+  %2254 = xor i64 %2253, %2251
+  %2255 = add i64 %2250, %2254
+  %2256 = add i64 %2255, %2245
+  %2257 = add i64 %2245, %2156
+  %2258 = tail call i64 @llvm.fshl.i64(i64 %1844, i64 %1844, i64 45)
+  %2259 = tail call i64 @llvm.fshl.i64(i64 %1844, i64 %1844, i64 3)
+  %2260 = lshr i64 %1844, 6
+  %2261 = xor i64 %2259, %2260
+  %2262 = xor i64 %2261, %2258
+  %2263 = tail call i64 @llvm.fshl.i64(i64 %1675, i64 %1675, i64 63)
+  %2264 = tail call i64 @llvm.fshl.i64(i64 %1675, i64 %1675, i64 56)
+  %2265 = lshr i64 %1675, 7
+  %2266 = xor i64 %2264, %2265
+  %2267 = xor i64 %2266, %2263
+  %2268 = add i64 %2267, %1662
+  %2269 = add i64 %2268, %1779
+  %2270 = add i64 %2269, %2262
+  %2271 = tail call i64 @llvm.fshl.i64(i64 %1857, i64 %1857, i64 45)
+  %2272 = tail call i64 @llvm.fshl.i64(i64 %1857, i64 %1857, i64 3)
+  %2273 = lshr i64 %1857, 6
+  %2274 = xor i64 %2272, %2273
+  %2275 = xor i64 %2274, %2271
+  %2276 = tail call i64 @llvm.fshl.i64(i64 %1688, i64 %1688, i64 63)
+  %2277 = tail call i64 @llvm.fshl.i64(i64 %1688, i64 %1688, i64 56)
+  %2278 = lshr i64 %1688, 7
+  %2279 = xor i64 %2277, %2278
+  %2280 = xor i64 %2279, %2276
+  %2281 = add i64 %2280, %1675
+  %2282 = add i64 %2281, %1792
+  %2283 = add i64 %2282, %2275
+  %2284 = tail call i64 @llvm.fshl.i64(i64 %2270, i64 %2270, i64 45)
+  %2285 = tail call i64 @llvm.fshl.i64(i64 %2270, i64 %2270, i64 3)
+  %2286 = lshr i64 %2270, 6
+  %2287 = xor i64 %2285, %2286
+  %2288 = xor i64 %2287, %2284
+  %2289 = tail call i64 @llvm.fshl.i64(i64 %1701, i64 %1701, i64 63)
+  %2290 = tail call i64 @llvm.fshl.i64(i64 %1701, i64 %1701, i64 56)
+  %2291 = lshr i64 %1701, 7
+  %2292 = xor i64 %2290, %2291
+  %2293 = xor i64 %2292, %2289
+  %2294 = add i64 %2293, %1688
+  %2295 = add i64 %2294, %1805
+  %2296 = add i64 %2295, %2288
+  %2297 = tail call i64 @llvm.fshl.i64(i64 %2283, i64 %2283, i64 45)
+  %2298 = tail call i64 @llvm.fshl.i64(i64 %2283, i64 %2283, i64 3)
+  %2299 = lshr i64 %2283, 6
+  %2300 = xor i64 %2298, %2299
+  %2301 = xor i64 %2300, %2297
+  %2302 = tail call i64 @llvm.fshl.i64(i64 %1714, i64 %1714, i64 63)
+  %2303 = tail call i64 @llvm.fshl.i64(i64 %1714, i64 %1714, i64 56)
+  %2304 = lshr i64 %1714, 7
+  %2305 = xor i64 %2303, %2304
+  %2306 = xor i64 %2305, %2302
+  %2307 = add i64 %2306, %1701
+  %2308 = add i64 %2307, %1818
+  %2309 = add i64 %2308, %2301
+  %2310 = tail call i64 @llvm.fshl.i64(i64 %2296, i64 %2296, i64 45)
+  %2311 = tail call i64 @llvm.fshl.i64(i64 %2296, i64 %2296, i64 3)
+  %2312 = lshr i64 %2296, 6
+  %2313 = xor i64 %2311, %2312
+  %2314 = xor i64 %2313, %2310
+  %2315 = tail call i64 @llvm.fshl.i64(i64 %1727, i64 %1727, i64 63)
+  %2316 = tail call i64 @llvm.fshl.i64(i64 %1727, i64 %1727, i64 56)
+  %2317 = lshr i64 %1727, 7
+  %2318 = xor i64 %2316, %2317
+  %2319 = xor i64 %2318, %2315
+  %2320 = add i64 %2319, %1714
+  %2321 = add i64 %2320, %1831
+  %2322 = add i64 %2321, %2314
+  %2323 = tail call i64 @llvm.fshl.i64(i64 %2309, i64 %2309, i64 45)
+  %2324 = tail call i64 @llvm.fshl.i64(i64 %2309, i64 %2309, i64 3)
+  %2325 = lshr i64 %2309, 6
+  %2326 = xor i64 %2324, %2325
+  %2327 = xor i64 %2326, %2323
+  %2328 = tail call i64 @llvm.fshl.i64(i64 %1740, i64 %1740, i64 63)
+  %2329 = tail call i64 @llvm.fshl.i64(i64 %1740, i64 %1740, i64 56)
+  %2330 = lshr i64 %1740, 7
+  %2331 = xor i64 %2329, %2330
+  %2332 = xor i64 %2331, %2328
+  %2333 = add i64 %2332, %1727
+  %2334 = add i64 %2333, %1844
+  %2335 = add i64 %2334, %2327
+  %2336 = tail call i64 @llvm.fshl.i64(i64 %2322, i64 %2322, i64 45)
+  %2337 = tail call i64 @llvm.fshl.i64(i64 %2322, i64 %2322, i64 3)
+  %2338 = lshr i64 %2322, 6
+  %2339 = xor i64 %2337, %2338
+  %2340 = xor i64 %2339, %2336
+  %2341 = tail call i64 @llvm.fshl.i64(i64 %1753, i64 %1753, i64 63)
+  %2342 = tail call i64 @llvm.fshl.i64(i64 %1753, i64 %1753, i64 56)
+  %2343 = lshr i64 %1753, 7
+  %2344 = xor i64 %2342, %2343
+  %2345 = xor i64 %2344, %2341
+  %2346 = add i64 %2345, %1740
+  %2347 = add i64 %2346, %1857
+  %2348 = add i64 %2347, %2340
+  %2349 = tail call i64 @llvm.fshl.i64(i64 %2335, i64 %2335, i64 45)
+  %2350 = tail call i64 @llvm.fshl.i64(i64 %2335, i64 %2335, i64 3)
+  %2351 = lshr i64 %2335, 6
+  %2352 = xor i64 %2350, %2351
+  %2353 = xor i64 %2352, %2349
+  %2354 = tail call i64 @llvm.fshl.i64(i64 %1766, i64 %1766, i64 63)
+  %2355 = tail call i64 @llvm.fshl.i64(i64 %1766, i64 %1766, i64 56)
+  %2356 = lshr i64 %1766, 7
+  %2357 = xor i64 %2355, %2356
+  %2358 = xor i64 %2357, %2354
+  %2359 = add i64 %2358, %1753
+  %2360 = add i64 %2359, %2270
+  %2361 = add i64 %2360, %2353
+  %2362 = tail call i64 @llvm.fshl.i64(i64 %2348, i64 %2348, i64 45)
+  %2363 = tail call i64 @llvm.fshl.i64(i64 %2348, i64 %2348, i64 3)
+  %2364 = lshr i64 %2348, 6
+  %2365 = xor i64 %2363, %2364
+  %2366 = xor i64 %2365, %2362
+  %2367 = tail call i64 @llvm.fshl.i64(i64 %1779, i64 %1779, i64 63)
+  %2368 = tail call i64 @llvm.fshl.i64(i64 %1779, i64 %1779, i64 56)
+  %2369 = lshr i64 %1779, 7
+  %2370 = xor i64 %2368, %2369
+  %2371 = xor i64 %2370, %2367
+  %2372 = add i64 %2371, %1766
+  %2373 = add i64 %2372, %2283
+  %2374 = add i64 %2373, %2366
+  %2375 = tail call i64 @llvm.fshl.i64(i64 %2361, i64 %2361, i64 45)
+  %2376 = tail call i64 @llvm.fshl.i64(i64 %2361, i64 %2361, i64 3)
+  %2377 = lshr i64 %2361, 6
+  %2378 = xor i64 %2376, %2377
+  %2379 = xor i64 %2378, %2375
+  %2380 = tail call i64 @llvm.fshl.i64(i64 %1792, i64 %1792, i64 63)
+  %2381 = tail call i64 @llvm.fshl.i64(i64 %1792, i64 %1792, i64 56)
+  %2382 = lshr i64 %1792, 7
+  %2383 = xor i64 %2381, %2382
+  %2384 = xor i64 %2383, %2380
+  %2385 = add i64 %2384, %1779
+  %2386 = add i64 %2385, %2296
+  %2387 = add i64 %2386, %2379
+  %2388 = tail call i64 @llvm.fshl.i64(i64 %2374, i64 %2374, i64 45)
+  %2389 = tail call i64 @llvm.fshl.i64(i64 %2374, i64 %2374, i64 3)
+  %2390 = lshr i64 %2374, 6
+  %2391 = xor i64 %2389, %2390
+  %2392 = xor i64 %2391, %2388
+  %2393 = tail call i64 @llvm.fshl.i64(i64 %1805, i64 %1805, i64 63)
+  %2394 = tail call i64 @llvm.fshl.i64(i64 %1805, i64 %1805, i64 56)
+  %2395 = lshr i64 %1805, 7
+  %2396 = xor i64 %2394, %2395
+  %2397 = xor i64 %2396, %2393
+  %2398 = add i64 %2397, %1792
+  %2399 = add i64 %2398, %2309
+  %2400 = add i64 %2399, %2392
+  %2401 = tail call i64 @llvm.fshl.i64(i64 %2387, i64 %2387, i64 45)
+  %2402 = tail call i64 @llvm.fshl.i64(i64 %2387, i64 %2387, i64 3)
+  %2403 = lshr i64 %2387, 6
+  %2404 = xor i64 %2402, %2403
+  %2405 = xor i64 %2404, %2401
+  %2406 = tail call i64 @llvm.fshl.i64(i64 %1818, i64 %1818, i64 63)
+  %2407 = tail call i64 @llvm.fshl.i64(i64 %1818, i64 %1818, i64 56)
+  %2408 = lshr i64 %1818, 7
+  %2409 = xor i64 %2407, %2408
+  %2410 = xor i64 %2409, %2406
+  %2411 = add i64 %2410, %1805
+  %2412 = add i64 %2411, %2322
+  %2413 = add i64 %2412, %2405
+  %2414 = tail call i64 @llvm.fshl.i64(i64 %2400, i64 %2400, i64 45)
+  %2415 = tail call i64 @llvm.fshl.i64(i64 %2400, i64 %2400, i64 3)
+  %2416 = lshr i64 %2400, 6
+  %2417 = xor i64 %2415, %2416
+  %2418 = xor i64 %2417, %2414
+  %2419 = tail call i64 @llvm.fshl.i64(i64 %1831, i64 %1831, i64 63)
+  %2420 = tail call i64 @llvm.fshl.i64(i64 %1831, i64 %1831, i64 56)
+  %2421 = lshr i64 %1831, 7
+  %2422 = xor i64 %2420, %2421
+  %2423 = xor i64 %2422, %2419
+  %2424 = add i64 %2423, %1818
+  %2425 = add i64 %2424, %2335
+  %2426 = add i64 %2425, %2418
+  %2427 = tail call i64 @llvm.fshl.i64(i64 %2413, i64 %2413, i64 45)
+  %2428 = tail call i64 @llvm.fshl.i64(i64 %2413, i64 %2413, i64 3)
+  %2429 = lshr i64 %2413, 6
+  %2430 = xor i64 %2428, %2429
+  %2431 = xor i64 %2430, %2427
+  %2432 = tail call i64 @llvm.fshl.i64(i64 %1844, i64 %1844, i64 63)
+  %2433 = tail call i64 @llvm.fshl.i64(i64 %1844, i64 %1844, i64 56)
+  %2434 = lshr i64 %1844, 7
+  %2435 = xor i64 %2433, %2434
+  %2436 = xor i64 %2435, %2432
+  %2437 = add i64 %2436, %1831
+  %2438 = add i64 %2437, %2348
+  %2439 = add i64 %2438, %2431
+  %2440 = tail call i64 @llvm.fshl.i64(i64 %2426, i64 %2426, i64 45)
+  %2441 = tail call i64 @llvm.fshl.i64(i64 %2426, i64 %2426, i64 3)
+  %2442 = lshr i64 %2426, 6
+  %2443 = xor i64 %2441, %2442
+  %2444 = xor i64 %2443, %2440
+  %2445 = tail call i64 @llvm.fshl.i64(i64 %1857, i64 %1857, i64 63)
+  %2446 = tail call i64 @llvm.fshl.i64(i64 %1857, i64 %1857, i64 56)
+  %2447 = lshr i64 %1857, 7
+  %2448 = xor i64 %2446, %2447
+  %2449 = xor i64 %2448, %2445
+  %2450 = tail call i64 @llvm.fshl.i64(i64 %2439, i64 %2439, i64 45)
+  %2451 = tail call i64 @llvm.fshl.i64(i64 %2439, i64 %2439, i64 3)
+  %2452 = lshr i64 %2439, 6
+  %2453 = xor i64 %2451, %2452
+  %2454 = xor i64 %2453, %2450
+  %2455 = tail call i64 @llvm.fshl.i64(i64 %2270, i64 %2270, i64 63)
+  %2456 = tail call i64 @llvm.fshl.i64(i64 %2270, i64 %2270, i64 56)
+  %2457 = lshr i64 %2270, 7
+  %2458 = xor i64 %2456, %2457
+  %2459 = xor i64 %2458, %2455
+  %2460 = tail call i64 @llvm.fshl.i64(i64 %2257, i64 %2257, i64 50)
+  %2461 = tail call i64 @llvm.fshl.i64(i64 %2257, i64 %2257, i64 46)
+  %2462 = tail call i64 @llvm.fshl.i64(i64 %2257, i64 %2257, i64 23)
+  %2463 = xor i64 %2461, %2462
+  %2464 = xor i64 %2463, %2460
+  %2465 = and i64 %2257, %2232
+  %2466 = xor i64 %2257, -1
+  %2467 = and i64 %2207, %2466
+  %2468 = or i64 %2465, %2467
+  %2469 = add i64 %2270, -3880063495543823972
+  %2470 = add i64 %2469, %2182
+  %2471 = add i64 %2470, %2468
+  %2472 = add i64 %2471, %2464
+  %2473 = tail call i64 @llvm.fshl.i64(i64 %2256, i64 %2256, i64 36)
+  %2474 = tail call i64 @llvm.fshl.i64(i64 %2256, i64 %2256, i64 30)
+  %2475 = tail call i64 @llvm.fshl.i64(i64 %2256, i64 %2256, i64 25)
+  %2476 = xor i64 %2474, %2475
+  %2477 = xor i64 %2476, %2473
+  %2478 = and i64 %2256, %2231
+  %2479 = xor i64 %2256, %2231
+  %2480 = and i64 %2479, %2206
+  %2481 = xor i64 %2480, %2478
+  %2482 = add i64 %2477, %2481
+  %2483 = add i64 %2482, %2472
+  %2484 = add i64 %2472, %2181
+  %2485 = tail call i64 @llvm.fshl.i64(i64 %2484, i64 %2484, i64 50)
+  %2486 = tail call i64 @llvm.fshl.i64(i64 %2484, i64 %2484, i64 46)
+  %2487 = tail call i64 @llvm.fshl.i64(i64 %2484, i64 %2484, i64 23)
+  %2488 = xor i64 %2486, %2487
+  %2489 = xor i64 %2488, %2485
+  %2490 = and i64 %2484, %2257
+  %2491 = xor i64 %2484, -1
+  %2492 = and i64 %2232, %2491
+  %2493 = or i64 %2490, %2492
+  %2494 = add i64 %2283, -3348786107499101689
+  %2495 = add i64 %2494, %2207
+  %2496 = add i64 %2495, %2493
+  %2497 = add i64 %2496, %2489
+  %2498 = tail call i64 @llvm.fshl.i64(i64 %2483, i64 %2483, i64 36)
+  %2499 = tail call i64 @llvm.fshl.i64(i64 %2483, i64 %2483, i64 30)
+  %2500 = tail call i64 @llvm.fshl.i64(i64 %2483, i64 %2483, i64 25)
+  %2501 = xor i64 %2499, %2500
+  %2502 = xor i64 %2501, %2498
+  %2503 = and i64 %2483, %2256
+  %2504 = xor i64 %2483, %2256
+  %2505 = and i64 %2504, %2231
+  %2506 = xor i64 %2505, %2503
+  %2507 = add i64 %2502, %2506
+  %2508 = add i64 %2507, %2497
+  %2509 = add i64 %2497, %2206
+  %2510 = tail call i64 @llvm.fshl.i64(i64 %2509, i64 %2509, i64 50)
+  %2511 = tail call i64 @llvm.fshl.i64(i64 %2509, i64 %2509, i64 46)
+  %2512 = tail call i64 @llvm.fshl.i64(i64 %2509, i64 %2509, i64 23)
+  %2513 = xor i64 %2511, %2512
+  %2514 = xor i64 %2513, %2510
+  %2515 = and i64 %2509, %2484
+  %2516 = xor i64 %2509, -1
+  %2517 = and i64 %2257, %2516
+  %2518 = or i64 %2515, %2517
+  %2519 = add i64 %2296, -1523767162380948706
+  %2520 = add i64 %2519, %2232
+  %2521 = add i64 %2520, %2518
+  %2522 = add i64 %2521, %2514
+  %2523 = tail call i64 @llvm.fshl.i64(i64 %2508, i64 %2508, i64 36)
+  %2524 = tail call i64 @llvm.fshl.i64(i64 %2508, i64 %2508, i64 30)
+  %2525 = tail call i64 @llvm.fshl.i64(i64 %2508, i64 %2508, i64 25)
+  %2526 = xor i64 %2524, %2525
+  %2527 = xor i64 %2526, %2523
+  %2528 = and i64 %2508, %2483
+  %2529 = xor i64 %2508, %2483
+  %2530 = and i64 %2529, %2256
+  %2531 = xor i64 %2530, %2528
+  %2532 = add i64 %2527, %2531
+  %2533 = add i64 %2532, %2522
+  %2534 = add i64 %2522, %2231
+  %2535 = tail call i64 @llvm.fshl.i64(i64 %2534, i64 %2534, i64 50)
+  %2536 = tail call i64 @llvm.fshl.i64(i64 %2534, i64 %2534, i64 46)
+  %2537 = tail call i64 @llvm.fshl.i64(i64 %2534, i64 %2534, i64 23)
+  %2538 = xor i64 %2536, %2537
+  %2539 = xor i64 %2538, %2535
+  %2540 = and i64 %2534, %2509
+  %2541 = xor i64 %2534, -1
+  %2542 = and i64 %2484, %2541
+  %2543 = or i64 %2540, %2542
+  %2544 = add i64 %2309, -757361751448694408
+  %2545 = add i64 %2544, %2257
+  %2546 = add i64 %2545, %2543
+  %2547 = add i64 %2546, %2539
+  %2548 = tail call i64 @llvm.fshl.i64(i64 %2533, i64 %2533, i64 36)
+  %2549 = tail call i64 @llvm.fshl.i64(i64 %2533, i64 %2533, i64 30)
+  %2550 = tail call i64 @llvm.fshl.i64(i64 %2533, i64 %2533, i64 25)
+  %2551 = xor i64 %2549, %2550
+  %2552 = xor i64 %2551, %2548
+  %2553 = and i64 %2533, %2508
+  %2554 = xor i64 %2533, %2508
+  %2555 = and i64 %2554, %2483
+  %2556 = xor i64 %2555, %2553
+  %2557 = add i64 %2552, %2556
+  %2558 = add i64 %2557, %2547
+  %2559 = add i64 %2547, %2256
+  %2560 = tail call i64 @llvm.fshl.i64(i64 %2559, i64 %2559, i64 50)
+  %2561 = tail call i64 @llvm.fshl.i64(i64 %2559, i64 %2559, i64 46)
+  %2562 = tail call i64 @llvm.fshl.i64(i64 %2559, i64 %2559, i64 23)
+  %2563 = xor i64 %2561, %2562
+  %2564 = xor i64 %2563, %2560
+  %2565 = and i64 %2559, %2534
+  %2566 = xor i64 %2559, -1
+  %2567 = and i64 %2509, %2566
+  %2568 = or i64 %2565, %2567
+  %2569 = add i64 %2322, 500013540394364858
+  %2570 = add i64 %2569, %2484
+  %2571 = add i64 %2570, %2568
+  %2572 = add i64 %2571, %2564
+  %2573 = tail call i64 @llvm.fshl.i64(i64 %2558, i64 %2558, i64 36)
+  %2574 = tail call i64 @llvm.fshl.i64(i64 %2558, i64 %2558, i64 30)
+  %2575 = tail call i64 @llvm.fshl.i64(i64 %2558, i64 %2558, i64 25)
+  %2576 = xor i64 %2574, %2575
+  %2577 = xor i64 %2576, %2573
+  %2578 = and i64 %2558, %2533
+  %2579 = xor i64 %2558, %2533
+  %2580 = and i64 %2579, %2508
+  %2581 = xor i64 %2580, %2578
+  %2582 = add i64 %2577, %2581
+  %2583 = add i64 %2582, %2572
+  %2584 = add i64 %2572, %2483
+  %2585 = tail call i64 @llvm.fshl.i64(i64 %2584, i64 %2584, i64 50)
+  %2586 = tail call i64 @llvm.fshl.i64(i64 %2584, i64 %2584, i64 46)
+  %2587 = tail call i64 @llvm.fshl.i64(i64 %2584, i64 %2584, i64 23)
+  %2588 = xor i64 %2586, %2587
+  %2589 = xor i64 %2588, %2585
+  %2590 = and i64 %2584, %2559
+  %2591 = xor i64 %2584, -1
+  %2592 = and i64 %2534, %2591
+  %2593 = or i64 %2590, %2592
+  %2594 = add i64 %2335, 748580250866718886
+  %2595 = add i64 %2594, %2509
+  %2596 = add i64 %2595, %2593
+  %2597 = add i64 %2596, %2589
+  %2598 = tail call i64 @llvm.fshl.i64(i64 %2583, i64 %2583, i64 36)
+  %2599 = tail call i64 @llvm.fshl.i64(i64 %2583, i64 %2583, i64 30)
+  %2600 = tail call i64 @llvm.fshl.i64(i64 %2583, i64 %2583, i64 25)
+  %2601 = xor i64 %2599, %2600
+  %2602 = xor i64 %2601, %2598
+  %2603 = and i64 %2583, %2558
+  %2604 = xor i64 %2583, %2558
+  %2605 = and i64 %2604, %2533
+  %2606 = xor i64 %2605, %2603
+  %2607 = add i64 %2602, %2606
+  %2608 = add i64 %2607, %2597
+  %2609 = add i64 %2597, %2508
+  %2610 = tail call i64 @llvm.fshl.i64(i64 %2609, i64 %2609, i64 50)
+  %2611 = tail call i64 @llvm.fshl.i64(i64 %2609, i64 %2609, i64 46)
+  %2612 = tail call i64 @llvm.fshl.i64(i64 %2609, i64 %2609, i64 23)
+  %2613 = xor i64 %2611, %2612
+  %2614 = xor i64 %2613, %2610
+  %2615 = and i64 %2609, %2584
+  %2616 = xor i64 %2609, -1
+  %2617 = and i64 %2559, %2616
+  %2618 = or i64 %2615, %2617
+  %2619 = add i64 %2348, 1242879168328830382
+  %2620 = add i64 %2619, %2534
+  %2621 = add i64 %2620, %2618
+  %2622 = add i64 %2621, %2614
+  %2623 = tail call i64 @llvm.fshl.i64(i64 %2608, i64 %2608, i64 36)
+  %2624 = tail call i64 @llvm.fshl.i64(i64 %2608, i64 %2608, i64 30)
+  %2625 = tail call i64 @llvm.fshl.i64(i64 %2608, i64 %2608, i64 25)
+  %2626 = xor i64 %2624, %2625
+  %2627 = xor i64 %2626, %2623
+  %2628 = and i64 %2608, %2583
+  %2629 = xor i64 %2608, %2583
+  %2630 = and i64 %2629, %2558
+  %2631 = xor i64 %2630, %2628
+  %2632 = add i64 %2627, %2631
+  %2633 = add i64 %2632, %2622
+  %2634 = add i64 %2622, %2533
+  %2635 = tail call i64 @llvm.fshl.i64(i64 %2634, i64 %2634, i64 50)
+  %2636 = tail call i64 @llvm.fshl.i64(i64 %2634, i64 %2634, i64 46)
+  %2637 = tail call i64 @llvm.fshl.i64(i64 %2634, i64 %2634, i64 23)
+  %2638 = xor i64 %2636, %2637
+  %2639 = xor i64 %2638, %2635
+  %2640 = and i64 %2634, %2609
+  %2641 = xor i64 %2634, -1
+  %2642 = and i64 %2584, %2641
+  %2643 = or i64 %2640, %2642
+  %2644 = add i64 %2361, 1977374033974150939
+  %2645 = add i64 %2644, %2559
+  %2646 = add i64 %2645, %2643
+  %2647 = add i64 %2646, %2639
+  %2648 = tail call i64 @llvm.fshl.i64(i64 %2633, i64 %2633, i64 36)
+  %2649 = tail call i64 @llvm.fshl.i64(i64 %2633, i64 %2633, i64 30)
+  %2650 = tail call i64 @llvm.fshl.i64(i64 %2633, i64 %2633, i64 25)
+  %2651 = xor i64 %2649, %2650
+  %2652 = xor i64 %2651, %2648
+  %2653 = and i64 %2633, %2608
+  %2654 = xor i64 %2633, %2608
+  %2655 = and i64 %2654, %2583
+  %2656 = xor i64 %2655, %2653
+  %2657 = add i64 %2652, %2656
+  %2658 = add i64 %2657, %2647
+  %2659 = add i64 %2647, %2558
+  %2660 = tail call i64 @llvm.fshl.i64(i64 %2659, i64 %2659, i64 50)
+  %2661 = tail call i64 @llvm.fshl.i64(i64 %2659, i64 %2659, i64 46)
+  %2662 = tail call i64 @llvm.fshl.i64(i64 %2659, i64 %2659, i64 23)
+  %2663 = xor i64 %2661, %2662
+  %2664 = xor i64 %2663, %2660
+  %2665 = and i64 %2659, %2634
+  %2666 = xor i64 %2659, -1
+  %2667 = and i64 %2609, %2666
+  %2668 = or i64 %2665, %2667
+  %2669 = add i64 %2374, 2944078676154940804
+  %2670 = add i64 %2669, %2584
+  %2671 = add i64 %2670, %2668
+  %2672 = add i64 %2671, %2664
+  %2673 = tail call i64 @llvm.fshl.i64(i64 %2658, i64 %2658, i64 36)
+  %2674 = tail call i64 @llvm.fshl.i64(i64 %2658, i64 %2658, i64 30)
+  %2675 = tail call i64 @llvm.fshl.i64(i64 %2658, i64 %2658, i64 25)
+  %2676 = xor i64 %2674, %2675
+  %2677 = xor i64 %2676, %2673
+  %2678 = and i64 %2658, %2633
+  %2679 = xor i64 %2658, %2633
+  %2680 = and i64 %2679, %2608
+  %2681 = xor i64 %2680, %2678
+  %2682 = add i64 %2677, %2681
+  %2683 = add i64 %2682, %2672
+  %2684 = add i64 %2672, %2583
+  %2685 = tail call i64 @llvm.fshl.i64(i64 %2684, i64 %2684, i64 50)
+  %2686 = tail call i64 @llvm.fshl.i64(i64 %2684, i64 %2684, i64 46)
+  %2687 = tail call i64 @llvm.fshl.i64(i64 %2684, i64 %2684, i64 23)
+  %2688 = xor i64 %2686, %2687
+  %2689 = xor i64 %2688, %2685
+  %2690 = and i64 %2659, %2684
+  %2691 = xor i64 %2684, -1
+  %2692 = and i64 %2634, %2691
+  %2693 = or i64 %2692, %2690
+  %2694 = add i64 %2387, 3659926193048069267
+  %2695 = add i64 %2694, %2609
+  %2696 = add i64 %2695, %2689
+  %2697 = add i64 %2696, %2693
+  %2698 = tail call i64 @llvm.fshl.i64(i64 %2683, i64 %2683, i64 36)
+  %2699 = tail call i64 @llvm.fshl.i64(i64 %2683, i64 %2683, i64 30)
+  %2700 = tail call i64 @llvm.fshl.i64(i64 %2683, i64 %2683, i64 25)
+  %2701 = xor i64 %2699, %2700
+  %2702 = xor i64 %2701, %2698
+  %2703 = and i64 %2658, %2683
+  %2704 = xor i64 %2658, %2683
+  %2705 = and i64 %2704, %2633
+  %2706 = xor i64 %2705, %2703
+  %2707 = add i64 %2706, %2702
+  %2708 = add i64 %2707, %2697
+  %2709 = add i64 %2697, %2608
+  %2710 = tail call i64 @llvm.fshl.i64(i64 %2709, i64 %2709, i64 50)
+  %2711 = tail call i64 @llvm.fshl.i64(i64 %2709, i64 %2709, i64 46)
+  %2712 = tail call i64 @llvm.fshl.i64(i64 %2709, i64 %2709, i64 23)
+  %2713 = xor i64 %2711, %2712
+  %2714 = xor i64 %2713, %2710
+  %2715 = and i64 %2684, %2709
+  %2716 = xor i64 %2709, -1
+  %2717 = and i64 %2659, %2716
+  %2718 = or i64 %2717, %2715
+  %2719 = add i64 %2400, 4368137639120453308
+  %2720 = add i64 %2719, %2634
+  %2721 = add i64 %2720, %2714
+  %2722 = add i64 %2721, %2718
+  %2723 = tail call i64 @llvm.fshl.i64(i64 %2708, i64 %2708, i64 36)
+  %2724 = tail call i64 @llvm.fshl.i64(i64 %2708, i64 %2708, i64 30)
+  %2725 = tail call i64 @llvm.fshl.i64(i64 %2708, i64 %2708, i64 25)
+  %2726 = xor i64 %2724, %2725
+  %2727 = xor i64 %2726, %2723
+  %2728 = and i64 %2683, %2708
+  %2729 = xor i64 %2683, %2708
+  %2730 = and i64 %2729, %2658
+  %2731 = xor i64 %2730, %2728
+  %2732 = add i64 %2731, %2727
+  %2733 = add i64 %2732, %2722
+  %2734 = add i64 %2722, %2633
+  %2735 = tail call i64 @llvm.fshl.i64(i64 %2734, i64 %2734, i64 50)
+  %2736 = tail call i64 @llvm.fshl.i64(i64 %2734, i64 %2734, i64 46)
+  %2737 = tail call i64 @llvm.fshl.i64(i64 %2734, i64 %2734, i64 23)
+  %2738 = xor i64 %2736, %2737
+  %2739 = xor i64 %2738, %2735
+  %2740 = and i64 %2709, %2734
+  %2741 = xor i64 %2734, -1
+  %2742 = and i64 %2684, %2741
+  %2743 = or i64 %2742, %2740
+  %2744 = add i64 %2413, 4836135668995329356
+  %2745 = add i64 %2744, %2659
+  %2746 = add i64 %2745, %2739
+  %2747 = add i64 %2746, %2743
+  %2748 = tail call i64 @llvm.fshl.i64(i64 %2733, i64 %2733, i64 36)
+  %2749 = tail call i64 @llvm.fshl.i64(i64 %2733, i64 %2733, i64 30)
+  %2750 = tail call i64 @llvm.fshl.i64(i64 %2733, i64 %2733, i64 25)
+  %2751 = xor i64 %2749, %2750
+  %2752 = xor i64 %2751, %2748
+  %2753 = and i64 %2708, %2733
+  %2754 = xor i64 %2708, %2733
+  %2755 = and i64 %2754, %2683
+  %2756 = xor i64 %2755, %2753
+  %2757 = add i64 %2756, %2752
+  %2758 = add i64 %2757, %2747
+  %2759 = add i64 %2747, %2658
+  %2760 = tail call i64 @llvm.fshl.i64(i64 %2759, i64 %2759, i64 50)
+  %2761 = tail call i64 @llvm.fshl.i64(i64 %2759, i64 %2759, i64 46)
+  %2762 = tail call i64 @llvm.fshl.i64(i64 %2759, i64 %2759, i64 23)
+  %2763 = xor i64 %2761, %2762
+  %2764 = xor i64 %2763, %2760
+  %2765 = and i64 %2734, %2759
+  %2766 = xor i64 %2759, -1
+  %2767 = and i64 %2709, %2766
+  %2768 = or i64 %2767, %2765
+  %2769 = add i64 %2426, 5532061633213252278
+  %2770 = add i64 %2769, %2684
+  %2771 = add i64 %2770, %2764
+  %2772 = add i64 %2771, %2768
+  %2773 = tail call i64 @llvm.fshl.i64(i64 %2758, i64 %2758, i64 36)
+  %2774 = tail call i64 @llvm.fshl.i64(i64 %2758, i64 %2758, i64 30)
+  %2775 = tail call i64 @llvm.fshl.i64(i64 %2758, i64 %2758, i64 25)
+  %2776 = xor i64 %2774, %2775
+  %2777 = xor i64 %2776, %2773
+  %2778 = and i64 %2733, %2758
+  %2779 = xor i64 %2733, %2758
+  %2780 = and i64 %2779, %2708
+  %2781 = xor i64 %2780, %2778
+  %2782 = add i64 %2781, %2777
+  %2783 = add i64 %2782, %2772
+  %2784 = add i64 %2772, %2683
+  %2785 = tail call i64 @llvm.fshl.i64(i64 %2784, i64 %2784, i64 50)
+  %2786 = tail call i64 @llvm.fshl.i64(i64 %2784, i64 %2784, i64 46)
+  %2787 = tail call i64 @llvm.fshl.i64(i64 %2784, i64 %2784, i64 23)
+  %2788 = xor i64 %2786, %2787
+  %2789 = xor i64 %2788, %2785
+  %2790 = and i64 %2759, %2784
+  %2791 = xor i64 %2784, -1
+  %2792 = and i64 %2734, %2791
+  %2793 = or i64 %2792, %2790
+  %2794 = add i64 %2439, 6448918945643986474
+  %2795 = add i64 %2794, %2709
+  %2796 = add i64 %2795, %2789
+  %2797 = add i64 %2796, %2793
+  %2798 = tail call i64 @llvm.fshl.i64(i64 %2783, i64 %2783, i64 36)
+  %2799 = tail call i64 @llvm.fshl.i64(i64 %2783, i64 %2783, i64 30)
+  %2800 = tail call i64 @llvm.fshl.i64(i64 %2783, i64 %2783, i64 25)
+  %2801 = xor i64 %2799, %2800
+  %2802 = xor i64 %2801, %2798
+  %2803 = and i64 %2758, %2783
+  %2804 = xor i64 %2758, %2783
+  %2805 = and i64 %2804, %2733
+  %2806 = xor i64 %2805, %2803
+  %2807 = add i64 %2806, %2802
+  %2808 = add i64 %2807, %2797
+  %2809 = add i64 %2797, %2708
+  %2810 = tail call i64 @llvm.fshl.i64(i64 %2809, i64 %2809, i64 50)
+  %2811 = tail call i64 @llvm.fshl.i64(i64 %2809, i64 %2809, i64 46)
+  %2812 = tail call i64 @llvm.fshl.i64(i64 %2809, i64 %2809, i64 23)
+  %2813 = xor i64 %2811, %2812
+  %2814 = xor i64 %2813, %2810
+  %2815 = and i64 %2784, %2809
+  %2816 = xor i64 %2809, -1
+  %2817 = and i64 %2759, %2816
+  %2818 = or i64 %2817, %2815
+  %2819 = add i64 %1844, 6902733635092675308
+  %2820 = add i64 %2819, %2449
+  %2821 = add i64 %2820, %2361
+  %2822 = add i64 %2821, %2444
+  %2823 = add i64 %2822, %2734
+  %2824 = add i64 %2823, %2814
+  %2825 = add i64 %2824, %2818
+  %2826 = tail call i64 @llvm.fshl.i64(i64 %2808, i64 %2808, i64 36)
+  %2827 = tail call i64 @llvm.fshl.i64(i64 %2808, i64 %2808, i64 30)
+  %2828 = tail call i64 @llvm.fshl.i64(i64 %2808, i64 %2808, i64 25)
+  %2829 = xor i64 %2827, %2828
+  %2830 = xor i64 %2829, %2826
+  %2831 = and i64 %2783, %2808
+  %2832 = xor i64 %2783, %2808
+  %2833 = and i64 %2832, %2758
+  %2834 = xor i64 %2833, %2831
+  %2835 = add i64 %2834, %2830
+  %2836 = add i64 %2835, %2825
+  %2837 = add i64 %2825, %2733
+  %2838 = tail call i64 @llvm.fshl.i64(i64 %2837, i64 %2837, i64 50)
+  %2839 = tail call i64 @llvm.fshl.i64(i64 %2837, i64 %2837, i64 46)
+  %2840 = tail call i64 @llvm.fshl.i64(i64 %2837, i64 %2837, i64 23)
+  %2841 = xor i64 %2839, %2840
+  %2842 = xor i64 %2841, %2838
+  %2843 = and i64 %2809, %2837
+  %2844 = xor i64 %2837, -1
+  %2845 = and i64 %2784, %2844
+  %2846 = or i64 %2845, %2843
+  %2847 = add i64 %1857, 7801388544844847127
+  %2848 = add i64 %2847, %2459
+  %2849 = add i64 %2848, %2374
+  %2850 = add i64 %2849, %2454
+  %2851 = add i64 %2850, %2759
+  %2852 = add i64 %2851, %2842
+  %2853 = add i64 %2852, %2846
+  %2854 = tail call i64 @llvm.fshl.i64(i64 %2836, i64 %2836, i64 36)
+  %2855 = tail call i64 @llvm.fshl.i64(i64 %2836, i64 %2836, i64 30)
+  %2856 = tail call i64 @llvm.fshl.i64(i64 %2836, i64 %2836, i64 25)
+  %2857 = xor i64 %2855, %2856
+  %2858 = xor i64 %2857, %2854
+  %2859 = and i64 %2808, %2836
+  %2860 = xor i64 %2808, %2836
+  %2861 = and i64 %2860, %2783
+  %2862 = xor i64 %2861, %2859
+  %2863 = add i64 %2862, %2858
+  %2864 = add i64 %2863, %2853
+  %2865 = add i64 %2853, %2758
+  %2866 = add i64 %2864, %.sroa.07462.0.copyload
+  store i64 %2866, ptr %1, align 8, !tbaa !10
+  %2867 = add i64 %2836, %.sroa.5.0.copyload
+  store i64 %2867, ptr %.sroa.5.0..sroa_idx, align 8, !tbaa !10
+  %2868 = add i64 %2808, %.sroa.6.0.copyload
+  store i64 %2868, ptr %.sroa.6.0..sroa_idx, align 8, !tbaa !10
+  %2869 = add i64 %2783, %.sroa.7.0.copyload
+  store i64 %2869, ptr %.sroa.7.0..sroa_idx, align 8, !tbaa !10
+  %2870 = add i64 %2865, %.sroa.8.0.copyload
+  store i64 %2870, ptr %.sroa.8.0..sroa_idx, align 8, !tbaa !10
+  %2871 = add i64 %2837, %.sroa.9.0.copyload
+  store i64 %2871, ptr %.sroa.9.0..sroa_idx, align 8, !tbaa !10
+  %2872 = add i64 %2809, %.sroa.10.0.copyload
+  store i64 %2872, ptr %.sroa.10.0..sroa_idx, align 8, !tbaa !10
+  %2873 = add i64 %2784, %.sroa.11.0.copyload
+  store i64 %2873, ptr %.sroa.11.0..sroa_idx, align 8, !tbaa !10
+  ret void
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
+define hidden void @python_hashlib_Hacl_Hash_SHA2_sha512_update_last(i64 %0, i64 %1, i32 noundef %2, ptr noundef readonly captures(none) %3, ptr noundef captures(none) %4) local_unnamed_addr #4 {
+  %6 = alloca [256 x i8], align 16
+  %7 = add i32 %2, -112
+  %8 = icmp ult i32 %7, -129
+  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %6) #18
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %6, i8 0, i64 256, i1 false)
+  %9 = tail call noundef i64 @llvm.fshl.i64(i64 %1, i64 %0, i64 3)
+  %10 = shl i64 %0, 3
+  %11 = tail call noundef i64 @llvm.bswap.i64(i64 %9)
+  %12 = tail call noundef i64 @llvm.bswap.i64(i64 range(i64 0, -7) %10)
+  %13 = zext i32 %2 to i64
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %6, ptr align 1 %3, i64 %13, i1 false)
+  %14 = getelementptr [256 x i8], ptr %6, i64 0, i64 %13
+  store i8 -128, ptr %14, align 1, !tbaa !9
+  %..sroa.sel.sroa.sel.v.sroa.sel.v.sroa.sel.v = select i1 %8, i64 240, i64 112
+  %..sroa.sel.sroa.sel.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %6, i64 %..sroa.sel.sroa.sel.v.sroa.sel.v.sroa.sel.v
+  store i64 %11, ptr %..sroa.sel.sroa.sel.v.sroa.sel.v.sroa.sel, align 16
+  %..sroa.sel.sroa.sel.sroa.sel.v.sroa.sel.v.sroa.sel.v = select i1 %8, i64 248, i64 120
+  %..sroa.sel.sroa.sel.sroa.sel.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %6, i64 %..sroa.sel.sroa.sel.sroa.sel.v.sroa.sel.v.sroa.sel.v
+  store i64 %12, ptr %..sroa.sel.sroa.sel.sroa.sel.v.sroa.sel.v.sroa.sel, align 8
+  call fastcc void @sha512_update(ptr noundef nonnull %6, ptr noundef %4)
+  br i1 %8, label %15, label %16
+
+15:                                               ; preds = %5
+  %.sroa.gep18 = getelementptr inbounds nuw i8, ptr %6, i64 128
+  call fastcc void @sha512_update(ptr noundef nonnull %.sroa.gep18, ptr noundef %4)
+  br label %16
+
+16:                                               ; preds = %5, %15
+  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %6) #18
+  ret void
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
+define hidden void @python_hashlib_Hacl_Hash_SHA2_sha512_finish(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 64)) %1) local_unnamed_addr #4 {
+  %3 = load i64, ptr %0, align 8, !tbaa !10
+  %4 = tail call noundef i64 @llvm.bswap.i64(i64 %3)
+  %5 = getelementptr i8, ptr %0, i64 8
+  %6 = load i64, ptr %5, align 8, !tbaa !10
+  %7 = tail call noundef i64 @llvm.bswap.i64(i64 %6)
+  %8 = getelementptr i8, ptr %0, i64 16
+  %9 = load i64, ptr %8, align 8, !tbaa !10
+  %10 = tail call noundef i64 @llvm.bswap.i64(i64 %9)
+  %11 = getelementptr i8, ptr %0, i64 24
+  %12 = load i64, ptr %11, align 8, !tbaa !10
+  %13 = tail call noundef i64 @llvm.bswap.i64(i64 %12)
+  %14 = getelementptr i8, ptr %0, i64 32
+  %15 = load i64, ptr %14, align 8, !tbaa !10
+  %16 = tail call noundef i64 @llvm.bswap.i64(i64 %15)
+  %17 = getelementptr i8, ptr %0, i64 40
+  %18 = load i64, ptr %17, align 8, !tbaa !10
+  %19 = tail call noundef i64 @llvm.bswap.i64(i64 %18)
+  %20 = getelementptr i8, ptr %0, i64 48
+  %21 = load i64, ptr %20, align 8, !tbaa !10
+  %22 = tail call noundef i64 @llvm.bswap.i64(i64 %21)
+  %23 = getelementptr i8, ptr %0, i64 56
+  %24 = load i64, ptr %23, align 8, !tbaa !10
+  %25 = tail call noundef i64 @llvm.bswap.i64(i64 %24)
+  store i64 %4, ptr %1, align 1
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 8
+  store i64 %7, ptr %.sroa.5.0..sroa_idx, align 1
+  %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 16
+  store i64 %10, ptr %.sroa.6.0..sroa_idx, align 1
+  %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 24
+  store i64 %13, ptr %.sroa.7.0..sroa_idx, align 1
+  %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 32
+  store i64 %16, ptr %.sroa.8.0..sroa_idx, align 1
+  %.sroa.9.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 40
+  store i64 %19, ptr %.sroa.9.0..sroa_idx, align 1
+  %.sroa.10.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 48
+  store i64 %22, ptr %.sroa.10.0..sroa_idx, align 1
+  %.sroa.11.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 56
+  store i64 %25, ptr %.sroa.11.0..sroa_idx, align 1
+  ret void
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
+define hidden void @python_hashlib_Hacl_Hash_SHA2_sha384_init(ptr noundef writeonly captures(none) initializes((0, 64)) %0) local_unnamed_addr #0 {
+  store i64 -3766243637369397544, ptr %0, align 8, !tbaa !10
+  %2 = getelementptr i8, ptr %0, i64 8
+  store i64 7105036623409894663, ptr %2, align 8, !tbaa !10
+  %3 = getelementptr i8, ptr %0, i64 16
+  store i64 -7973340178411365097, ptr %3, align 8, !tbaa !10
+  %4 = getelementptr i8, ptr %0, i64 24
+  store i64 1526699215303891257, ptr %4, align 8, !tbaa !10
+  %5 = getelementptr i8, ptr %0, i64 32
+  store i64 7436329637833083697, ptr %5, align 8, !tbaa !10
+  %6 = getelementptr i8, ptr %0, i64 40
+  store i64 -8163818279084223215, ptr %6, align 8, !tbaa !10
+  %7 = getelementptr i8, ptr %0, i64 48
+  store i64 -2662702644619276377, ptr %7, align 8, !tbaa !10
+  %8 = getelementptr i8, ptr %0, i64 56
+  store i64 5167115440072839076, ptr %8, align 8, !tbaa !10
+  ret void
+}
+
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+define hidden void @python_hashlib_Hacl_Hash_SHA2_sha384_update_nblocks(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2) local_unnamed_addr #2 {
+  %.not.i = icmp ult i32 %0, 128
+  br i1 %.not.i, label %python_hashlib_Hacl_Hash_SHA2_sha512_update_nblocks.exit, label %.lr.ph.preheader.i
+
+.lr.ph.preheader.i:                               ; preds = %3
+  %4 = lshr i32 %0, 7
+  %wide.trip.count.i = zext nneg i32 %4 to i64
+  br label %.lr.ph.i
+
+.lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
+  %5 = shl nuw i64 %indvars.iv.i, 7
+  %6 = getelementptr i8, ptr %1, i64 %5
+  tail call fastcc void @sha512_update(ptr noundef readonly %6, ptr noundef %2)
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
+  br i1 %exitcond.not.i, label %python_hashlib_Hacl_Hash_SHA2_sha512_update_nblocks.exit, label %.lr.ph.i, !llvm.loop !12
+
+python_hashlib_Hacl_Hash_SHA2_sha512_update_nblocks.exit: ; preds = %.lr.ph.i, %3
+  ret void
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
+define hidden void @python_hashlib_Hacl_Hash_SHA2_sha384_update_last(i64 %0, i64 %1, i32 noundef %2, ptr noundef readonly captures(none) %3, ptr noundef captures(none) %4) local_unnamed_addr #4 {
+  %6 = alloca [256 x i8], align 16
+  %7 = add i32 %2, -112
+  %8 = icmp ult i32 %7, -129
+  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %6) #18
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %6, i8 0, i64 256, i1 false)
+  %9 = tail call noundef i64 @llvm.fshl.i64(i64 %1, i64 %0, i64 3)
+  %10 = shl i64 %0, 3
+  %11 = tail call noundef i64 @llvm.bswap.i64(i64 %9)
+  %12 = tail call noundef i64 @llvm.bswap.i64(i64 range(i64 0, -7) %10)
+  %13 = zext i32 %2 to i64
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %6, ptr readonly align 1 %3, i64 %13, i1 false)
+  %14 = getelementptr [256 x i8], ptr %6, i64 0, i64 %13
+  store i8 -128, ptr %14, align 1, !tbaa !9
+  %..sroa.sel.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel.v = select i1 %8, i64 240, i64 112
+  %..sroa.sel.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %6, i64 %..sroa.sel.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel.v
+  store i64 %11, ptr %..sroa.sel.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel, align 16
+  %..sroa.sel.sroa.sel.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel.v = select i1 %8, i64 248, i64 120
+  %..sroa.sel.sroa.sel.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %6, i64 %..sroa.sel.sroa.sel.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel.v
+  store i64 %12, ptr %..sroa.sel.sroa.sel.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel, align 8
+  call fastcc void @sha512_update(ptr noundef nonnull %6, ptr noundef %4)
+  br i1 %8, label %15, label %python_hashlib_Hacl_Hash_SHA2_sha512_update_last.exit
+
+15:                                               ; preds = %5
+  %.sroa.gep18.i = getelementptr inbounds nuw i8, ptr %6, i64 128
+  call fastcc void @sha512_update(ptr noundef nonnull %.sroa.gep18.i, ptr noundef %4)
+  br label %python_hashlib_Hacl_Hash_SHA2_sha512_update_last.exit
+
+python_hashlib_Hacl_Hash_SHA2_sha512_update_last.exit: ; preds = %5, %15
+  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %6) #18
+  ret void
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
+define hidden void @python_hashlib_Hacl_Hash_SHA2_sha384_finish(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 48)) %1) local_unnamed_addr #4 {
+  %3 = load i64, ptr %0, align 8, !tbaa !10
+  %4 = tail call noundef i64 @llvm.bswap.i64(i64 %3)
+  %5 = getelementptr i8, ptr %0, i64 8
+  %6 = load i64, ptr %5, align 8, !tbaa !10
+  %7 = tail call noundef i64 @llvm.bswap.i64(i64 %6)
+  %8 = getelementptr i8, ptr %0, i64 16
+  %9 = load i64, ptr %8, align 8, !tbaa !10
+  %10 = tail call noundef i64 @llvm.bswap.i64(i64 %9)
+  %11 = getelementptr i8, ptr %0, i64 24
+  %12 = load i64, ptr %11, align 8, !tbaa !10
+  %13 = tail call noundef i64 @llvm.bswap.i64(i64 %12)
+  %14 = getelementptr i8, ptr %0, i64 32
+  %15 = load i64, ptr %14, align 8, !tbaa !10
+  %16 = tail call noundef i64 @llvm.bswap.i64(i64 %15)
+  %17 = getelementptr i8, ptr %0, i64 40
+  %18 = load i64, ptr %17, align 8, !tbaa !10
+  %19 = tail call noundef i64 @llvm.bswap.i64(i64 %18)
+  store i64 %4, ptr %1, align 1
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 8
+  store i64 %7, ptr %.sroa.5.0..sroa_idx, align 1
+  %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 16
+  store i64 %10, ptr %.sroa.6.0..sroa_idx, align 1
+  %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 24
+  store i64 %13, ptr %.sroa.7.0..sroa_idx, align 1
+  %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 32
+  store i64 %16, ptr %.sroa.8.0..sroa_idx, align 1
+  %.sroa.9.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 40
+  store i64 %19, ptr %.sroa.9.0..sroa_idx, align 1
   ret void
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: none, inaccessiblemem: readwrite) uwtable
-define hidden noalias noundef ptr @python_hashlib_Hacl_Streaming_SHA2_create_in_256() local_unnamed_addr #5 {
-entry:
-  %call = tail call noalias dereferenceable_or_null(64) ptr @calloc(i64 noundef 64, i64 noundef 1) #16
-  %call1 = tail call noalias dereferenceable_or_null(32) ptr @calloc(i64 noundef 8, i64 noundef 4) #16
-  %call4 = tail call noalias dereferenceable_or_null(24) ptr @malloc(i64 noundef 24) #17
-  store ptr %call1, ptr %call4, align 8
-  %s.sroa.2.0.arrayidx.sroa_idx = getelementptr inbounds nuw i8, ptr %call4, i64 8
-  store ptr %call, ptr %s.sroa.2.0.arrayidx.sroa_idx, align 8
-  %s.sroa.3.0.arrayidx.sroa_idx = getelementptr inbounds nuw i8, ptr %call4, i64 16
-  store i64 0, ptr %s.sroa.3.0.arrayidx.sroa_idx, align 8
-  store i32 1779033703, ptr %call1, align 4
-  %arrayidx8.i = getelementptr i8, ptr %call1, i64 4
-  store i32 -1150833019, ptr %arrayidx8.i, align 4
-  %arrayidx15.i = getelementptr i8, ptr %call1, i64 8
-  store i32 1013904242, ptr %arrayidx15.i, align 4
-  %arrayidx22.i = getelementptr i8, ptr %call1, i64 12
-  store i32 -1521486534, ptr %arrayidx22.i, align 4
-  %arrayidx29.i = getelementptr i8, ptr %call1, i64 16
-  store i32 1359893119, ptr %arrayidx29.i, align 4
-  %arrayidx36.i = getelementptr i8, ptr %call1, i64 20
-  store i32 -1694144372, ptr %arrayidx36.i, align 4
-  %arrayidx43.i = getelementptr i8, ptr %call1, i64 24
-  store i32 528734635, ptr %arrayidx43.i, align 4
-  %arrayidx50.i = getelementptr i8, ptr %call1, i64 28
-  store i32 1541459225, ptr %arrayidx50.i, align 4
-  ret ptr %call4
+define hidden noalias noundef ptr @python_hashlib_Hacl_Hash_SHA2_malloc_256() local_unnamed_addr #7 {
+  %1 = tail call noalias dereferenceable_or_null(64) ptr @calloc(i64 noundef 64, i64 noundef 1) #19
+  %2 = tail call noalias dereferenceable_or_null(32) ptr @calloc(i64 noundef 8, i64 noundef 4) #19
+  %3 = tail call noalias dereferenceable_or_null(24) ptr @malloc(i64 noundef 24) #20
+  store ptr %2, ptr %3, align 8, !tbaa !13
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store ptr %1, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !16
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 16
+  store i64 0, ptr %.sroa.5.0..sroa_idx, align 8, !tbaa !10
+  store i32 1779033703, ptr %2, align 4, !tbaa !3
+  %4 = getelementptr i8, ptr %2, i64 4
+  store i32 -1150833019, ptr %4, align 4, !tbaa !3
+  %5 = getelementptr i8, ptr %2, i64 8
+  store i32 1013904242, ptr %5, align 4, !tbaa !3
+  %6 = getelementptr i8, ptr %2, i64 12
+  store i32 -1521486534, ptr %6, align 4, !tbaa !3
+  %7 = getelementptr i8, ptr %2, i64 16
+  store i32 1359893119, ptr %7, align 4, !tbaa !3
+  %8 = getelementptr i8, ptr %2, i64 20
+  store i32 -1694144372, ptr %8, align 4, !tbaa !3
+  %9 = getelementptr i8, ptr %2, i64 24
+  store i32 528734635, ptr %9, align 4, !tbaa !3
+  %10 = getelementptr i8, ptr %2, i64 28
+  store i32 1541459225, ptr %10, align 4, !tbaa !3
+  ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #6
+declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #7
+declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nofree nounwind willreturn uwtable
-define hidden noalias noundef ptr @python_hashlib_Hacl_Streaming_SHA2_copy_256(ptr noundef readonly captures(none) %s0) local_unnamed_addr #8 {
-entry:
-  %scrut.sroa.0.0.copyload = load ptr, ptr %s0, align 8
-  %scrut.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %s0, i64 8
-  %scrut.sroa.2.0.copyload = load ptr, ptr %scrut.sroa.2.0..sroa_idx, align 8
-  %scrut.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %s0, i64 16
-  %scrut.sroa.3.0.copyload = load i64, ptr %scrut.sroa.3.0..sroa_idx, align 8
-  %call = tail call noalias dereferenceable_or_null(64) ptr @calloc(i64 noundef 64, i64 noundef 1) #16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %call, ptr noundef nonnull align 1 dereferenceable(64) %scrut.sroa.2.0.copyload, i64 64, i1 false)
-  %call3 = tail call noalias dereferenceable_or_null(32) ptr @calloc(i64 noundef 8, i64 noundef 4) #16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %call3, ptr noundef nonnull align 4 dereferenceable(32) %scrut.sroa.0.0.copyload, i64 32, i1 false)
-  %call7 = tail call noalias dereferenceable_or_null(24) ptr @malloc(i64 noundef 24) #17
-  store ptr %call3, ptr %call7, align 8
-  %s.sroa.2.0.arrayidx.sroa_idx = getelementptr inbounds nuw i8, ptr %call7, i64 8
-  store ptr %call, ptr %s.sroa.2.0.arrayidx.sroa_idx, align 8
-  %s.sroa.3.0.arrayidx.sroa_idx = getelementptr inbounds nuw i8, ptr %call7, i64 16
-  store i64 %scrut.sroa.3.0.copyload, ptr %s.sroa.3.0.arrayidx.sroa_idx, align 8
-  ret ptr %call7
+define hidden noalias noundef ptr @python_hashlib_Hacl_Hash_SHA2_copy_256(ptr noundef readonly captures(none) %0) local_unnamed_addr #10 {
+  %.sroa.08.0.copyload = load ptr, ptr %0, align 8, !tbaa !13
+  %.sroa.49.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %.sroa.49.0.copyload = load ptr, ptr %.sroa.49.0..sroa_idx, align 8, !tbaa !16
+  %.sroa.510.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %.sroa.510.0.copyload = load i64, ptr %.sroa.510.0..sroa_idx, align 8, !tbaa !10
+  %2 = tail call noalias dereferenceable_or_null(64) ptr @calloc(i64 noundef 64, i64 noundef 1) #19
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %2, ptr noundef nonnull align 1 dereferenceable(64) %.sroa.49.0.copyload, i64 64, i1 false)
+  %3 = tail call noalias dereferenceable_or_null(32) ptr @calloc(i64 noundef 8, i64 noundef 4) #19
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %3, ptr noundef nonnull align 4 dereferenceable(32) %.sroa.08.0.copyload, i64 32, i1 false)
+  %4 = tail call noalias dereferenceable_or_null(24) ptr @malloc(i64 noundef 24) #20
+  store ptr %3, ptr %4, align 8, !tbaa !13
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8
+  store ptr %2, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !16
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 16
+  store i64 %.sroa.510.0.copyload, ptr %.sroa.5.0..sroa_idx, align 8, !tbaa !10
+  ret ptr %4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @python_hashlib_Hacl_Streaming_SHA2_init_256(ptr noundef captures(none) initializes((16, 24)) %s) local_unnamed_addr #9 {
-entry:
-  %scrut.sroa.0.0.copyload = load ptr, ptr %s, align 8
-  %scrut.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %s, i64 8
-  %scrut.sroa.2.0.copyload = load ptr, ptr %scrut.sroa.2.0..sroa_idx, align 8
-  %scrut.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %s, i64 16
-  store i32 1779033703, ptr %scrut.sroa.0.0.copyload, align 4
-  %arrayidx8.i = getelementptr i8, ptr %scrut.sroa.0.0.copyload, i64 4
-  store i32 -1150833019, ptr %arrayidx8.i, align 4
-  %arrayidx15.i = getelementptr i8, ptr %scrut.sroa.0.0.copyload, i64 8
-  store i32 1013904242, ptr %arrayidx15.i, align 4
-  %arrayidx22.i = getelementptr i8, ptr %scrut.sroa.0.0.copyload, i64 12
-  store i32 -1521486534, ptr %arrayidx22.i, align 4
-  %arrayidx29.i = getelementptr i8, ptr %scrut.sroa.0.0.copyload, i64 16
-  store i32 1359893119, ptr %arrayidx29.i, align 4
-  %arrayidx36.i = getelementptr i8, ptr %scrut.sroa.0.0.copyload, i64 20
-  store i32 -1694144372, ptr %arrayidx36.i, align 4
-  %arrayidx43.i = getelementptr i8, ptr %scrut.sroa.0.0.copyload, i64 24
-  store i32 528734635, ptr %arrayidx43.i, align 4
-  %arrayidx50.i = getelementptr i8, ptr %scrut.sroa.0.0.copyload, i64 28
-  store i32 1541459225, ptr %arrayidx50.i, align 4
-  store ptr %scrut.sroa.0.0.copyload, ptr %s, align 8
-  store ptr %scrut.sroa.2.0.copyload, ptr %scrut.sroa.2.0..sroa_idx, align 8
-  store i64 0, ptr %scrut.sroa.3.0..sroa_idx, align 8
+define hidden void @python_hashlib_Hacl_Hash_SHA2_reset_256(ptr noundef captures(none) initializes((16, 24)) %0) local_unnamed_addr #11 {
+  %.sroa.03.0.copyload = load ptr, ptr %0, align 8, !tbaa !13
+  %.sroa.55.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i32 1779033703, ptr %.sroa.03.0.copyload, align 4, !tbaa !3
+  %2 = getelementptr i8, ptr %.sroa.03.0.copyload, i64 4
+  store i32 -1150833019, ptr %2, align 4, !tbaa !3
+  %3 = getelementptr i8, ptr %.sroa.03.0.copyload, i64 8
+  store i32 1013904242, ptr %3, align 4, !tbaa !3
+  %4 = getelementptr i8, ptr %.sroa.03.0.copyload, i64 12
+  store i32 -1521486534, ptr %4, align 4, !tbaa !3
+  %5 = getelementptr i8, ptr %.sroa.03.0.copyload, i64 16
+  store i32 1359893119, ptr %5, align 4, !tbaa !3
+  %6 = getelementptr i8, ptr %.sroa.03.0.copyload, i64 20
+  store i32 -1694144372, ptr %6, align 4, !tbaa !3
+  %7 = getelementptr i8, ptr %.sroa.03.0.copyload, i64 24
+  store i32 528734635, ptr %7, align 4, !tbaa !3
+  %8 = getelementptr i8, ptr %.sroa.03.0.copyload, i64 28
+  store i32 1541459225, ptr %8, align 4, !tbaa !3
+  store i64 0, ptr %.sroa.55.0..sroa_idx, align 8, !tbaa !10
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden zeroext range(i8 0, 4) i8 @python_hashlib_Hacl_Streaming_SHA2_update_256(ptr noundef captures(none) %p, ptr noundef readonly captures(none) %input, i32 noundef %input_len) local_unnamed_addr #10 {
-entry:
-  %call = tail call fastcc zeroext i8 @update_224_256(ptr noundef %p, ptr noundef %input, i32 noundef %input_len)
-  ret i8 %call
+define hidden zeroext range(i8 0, 4) i8 @python_hashlib_Hacl_Hash_SHA2_update_256(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #12 {
+  %4 = tail call fastcc zeroext i8 @update_224_256(ptr noundef %0, ptr noundef %1, i32 noundef %2)
+  ret i8 %4
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc zeroext range(i8 0, 4) i8 @update_224_256(ptr noundef captures(none) %p, ptr noundef readonly captures(none) %data, i32 noundef %len) unnamed_addr #10 {
-entry:
-  %s.sroa.1.0..sroa_idx = getelementptr inbounds nuw i8, ptr %p, i64 16
-  %s.sroa.1.0.copyload = load i64, ptr %s.sroa.1.0..sroa_idx, align 8
-  %conv = zext i32 %len to i64
-  %sub = sub i64 2305843009213693951, %s.sroa.1.0.copyload
-  %cmp = icmp ult i64 %sub, %conv
-  br i1 %cmp, label %return, label %if.end
+; Function Attrs: inlinehint nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+define internal fastcc zeroext range(i8 0, 4) i8 @update_224_256(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) unnamed_addr #13 {
+  %.sroa.3110.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %.sroa.3110.0.copyload = load i64, ptr %.sroa.3110.0..sroa_idx, align 8, !tbaa !10
+  %4 = zext i32 %2 to i64
+  %5 = sub i64 2305843009213693951, %.sroa.3110.0.copyload
+  %6 = icmp ult i64 %5, %4
+  br i1 %6, label %52, label %7
 
-if.end:                                           ; preds = %entry
-  %rem = and i64 %s.sroa.1.0.copyload, 63
-  %cmp3 = icmp eq i64 %rem, 0
-  %cmp5 = icmp ne i64 %s.sroa.1.0.copyload, 0
-  %or.cond = and i1 %cmp5, %cmp3
-  %conv9 = trunc nuw nsw i64 %rem to i32
-  %sz.0 = select i1 %or.cond, i32 64, i32 %conv9
-  %sub11 = sub nuw nsw i32 64, %sz.0
-  %cmp12.not = icmp ugt i32 %len, %sub11
-  br i1 %cmp12.not, label %if.else34, label %if.then14
+7:                                                ; preds = %3
+  %8 = and i64 %.sroa.3110.0.copyload, 63
+  %9 = icmp eq i64 %8, 0
+  %10 = icmp ne i64 %.sroa.3110.0.copyload, 0
+  %or.cond = and i1 %10, %9
+  %11 = trunc nuw nsw i64 %8 to i32
+  %.0142 = select i1 %or.cond, i32 64, i32 %11
+  %12 = sub nuw nsw i32 64, %.0142
+  %.not = icmp ugt i32 %2, %12
+  br i1 %.not, label %16, label %13
 
-if.then14:                                        ; preds = %if.end
-  %s1.sroa.0.0.copyload = load ptr, ptr %p, align 8
-  %s1.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %p, i64 8
-  %s1.sroa.2.0.copyload = load ptr, ptr %s1.sroa.2.0..sroa_idx, align 8
-  %.rem18 = select i1 %or.cond, i64 64, i64 %rem
-  %add.ptr = getelementptr i8, ptr %s1.sroa.2.0.copyload, i64 %.rem18
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr, ptr align 1 %data, i64 %conv, i1 false)
-  %add = add i64 %s.sroa.1.0.copyload, %conv
-  store ptr %s1.sroa.0.0.copyload, ptr %p, align 8
-  store ptr %s1.sroa.2.0.copyload, ptr %s1.sroa.2.0..sroa_idx, align 8
-  br label %return.sink.split
+13:                                               ; preds = %7
+  %.sroa.099.0.copyload = load ptr, ptr %0, align 8, !tbaa !13
+  %.sroa.4100.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %.sroa.4100.0.copyload = load ptr, ptr %.sroa.4100.0..sroa_idx, align 8, !tbaa !16
+  %. = select i1 %or.cond, i64 64, i64 %8
+  %14 = getelementptr i8, ptr %.sroa.4100.0.copyload, i64 %.
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %14, ptr align 1 %1, i64 %4, i1 false)
+  %15 = add i64 %.sroa.3110.0.copyload, %4
+  store ptr %.sroa.099.0.copyload, ptr %0, align 8, !tbaa !13
+  store ptr %.sroa.4100.0.copyload, ptr %.sroa.4100.0..sroa_idx, align 8, !tbaa !16
+  br label %.sink.split
 
-if.else34:                                        ; preds = %if.end
-  %cmp35 = icmp eq i32 %sz.0, 0
-  br i1 %cmp35, label %if.then37, label %if.else90
+16:                                               ; preds = %7
+  %17 = icmp eq i32 %.0142, 0
+  br i1 %17, label %18, label %32
 
-if.then37:                                        ; preds = %if.else34
-  %s138.sroa.0.0.copyload = load ptr, ptr %p, align 8
-  %s138.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %p, i64 8
-  %s138.sroa.2.0.copyload = load ptr, ptr %s138.sroa.2.0..sroa_idx, align 8
-  %or.cond76 = xor i1 %cmp3, %or.cond
-  br i1 %or.cond76, label %if.end60, label %for.body.i.preheader
+18:                                               ; preds = %16
+  %.sroa.083.0.copyload = load ptr, ptr %0, align 8, !tbaa !13
+  %.sroa.484.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %.sroa.484.0.copyload = load ptr, ptr %.sroa.484.0..sroa_idx, align 8, !tbaa !16
+  %or.cond158 = xor i1 %9, %or.cond
+  br i1 %or.cond158, label %python_hashlib_Hacl_Hash_SHA2_sha256_update_nblocks.exit, label %.lr.ph.i.preheader
 
-for.body.i.preheader:                             ; preds = %if.then37
-  tail call fastcc void @sha256_update(ptr noundef readonly %s138.sroa.2.0.copyload, ptr noundef %s138.sroa.0.0.copyload)
-  br label %if.end60
+.lr.ph.i.preheader:                               ; preds = %18
+  tail call fastcc void @sha256_update(ptr noundef readonly %.sroa.484.0.copyload, ptr noundef %.sroa.083.0.copyload)
+  br label %python_hashlib_Hacl_Hash_SHA2_sha256_update_nblocks.exit
 
-if.end60:                                         ; preds = %for.body.i.preheader, %if.then37
-  %rem62 = and i64 %conv, 63
-  %cmp63 = icmp eq i64 %rem62, 0
-  %conv73 = trunc nuw nsw i64 %rem62 to i32
-  %ite.0 = select i1 %cmp63, i32 64, i32 %conv73
-  %sub75 = sub i32 %len, %ite.0
-  %div74 = and i32 %sub75, -64
-  %sub77 = sub i32 %len, %div74
-  %idx.ext78 = zext i32 %div74 to i64
-  %add.ptr79 = getelementptr i8, ptr %data, i64 %idx.ext78
-  %cmp4.not.i = icmp ult i32 %sub75, 64
-  br i1 %cmp4.not.i, label %Hacl_SHA2_Scalar32_sha256_update_nblocks.exit83, label %for.body.preheader.i
+python_hashlib_Hacl_Hash_SHA2_sha256_update_nblocks.exit: ; preds = %.lr.ph.i.preheader, %18
+  %19 = and i64 %4, 63
+  %20 = icmp eq i64 %19, 0
+  %21 = trunc nuw nsw i64 %19 to i32
+  %.0145 = select i1 %20, i32 64, i32 %21
+  %22 = sub i32 %2, %.0145
+  %23 = and i32 %22, -64
+  %24 = sub i32 %2, %23
+  %25 = zext i32 %23 to i64
+  %26 = getelementptr i8, ptr %1, i64 %25
+  %.not.i = icmp ult i32 %22, 64
+  br i1 %.not.i, label %python_hashlib_Hacl_Hash_SHA2_sha256_update_nblocks.exit164, label %.lr.ph.preheader.i
 
-for.body.preheader.i:                             ; preds = %if.end60
-  %div3.i = lshr i32 %sub75, 6
-  %wide.trip.count.i = zext nneg i32 %div3.i to i64
-  br label %for.body.i78
+.lr.ph.preheader.i:                               ; preds = %python_hashlib_Hacl_Hash_SHA2_sha256_update_nblocks.exit
+  %27 = lshr i32 %22, 6
+  %wide.trip.count.i = zext nneg i32 %27 to i64
+  br label %.lr.ph.i160
 
-for.body.i78:                                     ; preds = %for.body.i78, %for.body.preheader.i
-  %indvars.iv.i79 = phi i64 [ 0, %for.body.preheader.i ], [ %indvars.iv.next.i81, %for.body.i78 ]
-  %0 = shl nuw i64 %indvars.iv.i79, 6
-  %add.ptr.i80 = getelementptr i8, ptr %data, i64 %0
-  tail call fastcc void @sha256_update(ptr noundef readonly %add.ptr.i80, ptr noundef %s138.sroa.0.0.copyload)
-  %indvars.iv.next.i81 = add nuw nsw i64 %indvars.iv.i79, 1
-  %exitcond.not.i82 = icmp eq i64 %indvars.iv.next.i81, %wide.trip.count.i
-  br i1 %exitcond.not.i82, label %Hacl_SHA2_Scalar32_sha256_update_nblocks.exit83, label %for.body.i78, !llvm.loop !4
+.lr.ph.i160:                                      ; preds = %.lr.ph.i160, %.lr.ph.preheader.i
+  %indvars.iv.i161 = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i162, %.lr.ph.i160 ]
+  %28 = shl nuw i64 %indvars.iv.i161, 6
+  %29 = getelementptr i8, ptr %1, i64 %28
+  tail call fastcc void @sha256_update(ptr noundef readonly %29, ptr noundef %.sroa.083.0.copyload)
+  %indvars.iv.next.i162 = add nuw nsw i64 %indvars.iv.i161, 1
+  %exitcond.not.i163 = icmp eq i64 %indvars.iv.next.i162, %wide.trip.count.i
+  br i1 %exitcond.not.i163, label %python_hashlib_Hacl_Hash_SHA2_sha256_update_nblocks.exit164, label %.lr.ph.i160, !llvm.loop !7
 
-Hacl_SHA2_Scalar32_sha256_update_nblocks.exit83:  ; preds = %for.body.i78, %if.end60
-  %conv82 = zext i32 %sub77 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %s138.sroa.2.0.copyload, ptr align 1 %add.ptr79, i64 %conv82, i1 false)
-  %add89 = add i64 %s.sroa.1.0.copyload, %conv
-  store ptr %s138.sroa.0.0.copyload, ptr %p, align 8
-  store ptr %s138.sroa.2.0.copyload, ptr %s138.sroa.2.0..sroa_idx, align 8
-  br label %return.sink.split
+python_hashlib_Hacl_Hash_SHA2_sha256_update_nblocks.exit164: ; preds = %.lr.ph.i160, %python_hashlib_Hacl_Hash_SHA2_sha256_update_nblocks.exit
+  %30 = zext i32 %24 to i64
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.sroa.484.0.copyload, ptr align 1 %26, i64 %30, i1 false)
+  %31 = add i64 %.sroa.3110.0.copyload, %4
+  store ptr %.sroa.083.0.copyload, ptr %0, align 8, !tbaa !13
+  store ptr %.sroa.484.0.copyload, ptr %.sroa.484.0..sroa_idx, align 8, !tbaa !16
+  br label %.sink.split
 
-if.else90:                                        ; preds = %if.else34
-  %idx.ext94 = zext nneg i32 %sub11 to i64
-  %add.ptr95 = getelementptr i8, ptr %data, i64 %idx.ext94
-  %s196.sroa.0.0.copyload = load ptr, ptr %p, align 8
-  %s196.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %p, i64 8
-  %s196.sroa.2.0.copyload = load ptr, ptr %s196.sroa.2.0..sroa_idx, align 8
-  %.rem100 = select i1 %or.cond, i64 64, i64 %rem
-  %add.ptr113 = getelementptr i8, ptr %s196.sroa.2.0.copyload, i64 %.rem100
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr113, ptr align 1 %data, i64 %idx.ext94, i1 false)
-  %add118 = add i64 %s.sroa.1.0.copyload, %idx.ext94
-  store ptr %s196.sroa.0.0.copyload, ptr %p, align 8
-  store ptr %s196.sroa.2.0.copyload, ptr %s196.sroa.2.0..sroa_idx, align 8
-  store i64 %add118, ptr %s.sroa.1.0..sroa_idx, align 8
-  %cmp134 = icmp eq i64 %add118, 0
-  br i1 %cmp134, label %if.end144, label %for.body.i85.preheader
+32:                                               ; preds = %16
+  %33 = zext nneg i32 %12 to i64
+  %34 = getelementptr i8, ptr %1, i64 %33
+  %.sroa.045.0.copyload = load ptr, ptr %0, align 8, !tbaa !13
+  %.sroa.446.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %.sroa.446.0.copyload = load ptr, ptr %.sroa.446.0..sroa_idx, align 8, !tbaa !16
+  %.154 = select i1 %or.cond, i64 64, i64 %8
+  %35 = getelementptr i8, ptr %.sroa.446.0.copyload, i64 %.154
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %35, ptr align 1 %1, i64 %33, i1 false)
+  %36 = add i64 %.sroa.3110.0.copyload, %33
+  store ptr %.sroa.045.0.copyload, ptr %0, align 8, !tbaa !13
+  store ptr %.sroa.446.0.copyload, ptr %.sroa.446.0..sroa_idx, align 8, !tbaa !16
+  store i64 %36, ptr %.sroa.3110.0..sroa_idx, align 8, !tbaa !10
+  %37 = icmp eq i64 %36, 0
+  br i1 %37, label %python_hashlib_Hacl_Hash_SHA2_sha256_update_nblocks.exit170, label %.lr.ph.i166.preheader
 
-for.body.i85.preheader:                           ; preds = %if.else90
-  tail call fastcc void @sha256_update(ptr noundef readonly %s196.sroa.2.0.copyload, ptr noundef %s196.sroa.0.0.copyload)
-  br label %if.end144
+.lr.ph.i166.preheader:                            ; preds = %32
+  tail call fastcc void @sha256_update(ptr noundef readonly %.sroa.446.0.copyload, ptr noundef %.sroa.045.0.copyload)
+  br label %python_hashlib_Hacl_Hash_SHA2_sha256_update_nblocks.exit170
 
-if.end144:                                        ; preds = %for.body.i85.preheader, %if.else90
-  %sub146 = sub i32 %len, %sub11
-  %conv147 = zext i32 %sub146 to i64
-  %rem148 = and i64 %conv147, 63
-  %cmp149.not = icmp eq i64 %rem148, 0
-  %conv161 = trunc nuw nsw i64 %rem148 to i32
-  %ite145.0 = select i1 %cmp149.not, i32 64, i32 %conv161
-  %sub165 = sub i32 %sub146, %ite145.0
-  %div16673 = and i32 %sub165, -64
-  %sub171 = sub i32 %sub146, %div16673
-  %idx.ext172 = zext i32 %div16673 to i64
-  %add.ptr173 = getelementptr i8, ptr %add.ptr95, i64 %idx.ext172
-  %cmp4.not.i91 = icmp ult i32 %sub165, 64
-  br i1 %cmp4.not.i91, label %Hacl_SHA2_Scalar32_sha256_update_nblocks.exit100, label %for.body.preheader.i92
+python_hashlib_Hacl_Hash_SHA2_sha256_update_nblocks.exit170: ; preds = %.lr.ph.i166.preheader, %32
+  %38 = sub i32 %2, %12
+  %39 = zext i32 %38 to i64
+  %40 = and i64 %39, 63
+  %.not179 = icmp eq i64 %40, 0
+  %41 = trunc nuw nsw i64 %40 to i32
+  %.0148 = select i1 %.not179, i32 64, i32 %41
+  %42 = sub i32 %38, %.0148
+  %43 = and i32 %42, -64
+  %44 = sub i32 %38, %43
+  %45 = zext i32 %43 to i64
+  %46 = getelementptr i8, ptr %34, i64 %45
+  %.not.i171 = icmp ult i32 %42, 64
+  br i1 %.not.i171, label %python_hashlib_Hacl_Hash_SHA2_sha256_update_nblocks.exit178, label %.lr.ph.preheader.i172
 
-for.body.preheader.i92:                           ; preds = %if.end144
-  %div3.i93 = lshr i32 %sub165, 6
-  %wide.trip.count.i94 = zext nneg i32 %div3.i93 to i64
-  br label %for.body.i95
+.lr.ph.preheader.i172:                            ; preds = %python_hashlib_Hacl_Hash_SHA2_sha256_update_nblocks.exit170
+  %47 = lshr i32 %42, 6
+  %wide.trip.count.i173 = zext nneg i32 %47 to i64
+  br label %.lr.ph.i174
 
-for.body.i95:                                     ; preds = %for.body.i95, %for.body.preheader.i92
-  %indvars.iv.i96 = phi i64 [ 0, %for.body.preheader.i92 ], [ %indvars.iv.next.i98, %for.body.i95 ]
-  %1 = shl nuw i64 %indvars.iv.i96, 6
-  %add.ptr.i97 = getelementptr i8, ptr %add.ptr95, i64 %1
-  tail call fastcc void @sha256_update(ptr noundef readonly %add.ptr.i97, ptr noundef %s196.sroa.0.0.copyload)
-  %indvars.iv.next.i98 = add nuw nsw i64 %indvars.iv.i96, 1
-  %exitcond.not.i99 = icmp eq i64 %indvars.iv.next.i98, %wide.trip.count.i94
-  br i1 %exitcond.not.i99, label %Hacl_SHA2_Scalar32_sha256_update_nblocks.exit100, label %for.body.i95, !llvm.loop !4
+.lr.ph.i174:                                      ; preds = %.lr.ph.i174, %.lr.ph.preheader.i172
+  %indvars.iv.i175 = phi i64 [ 0, %.lr.ph.preheader.i172 ], [ %indvars.iv.next.i176, %.lr.ph.i174 ]
+  %48 = shl nuw i64 %indvars.iv.i175, 6
+  %49 = getelementptr i8, ptr %34, i64 %48
+  tail call fastcc void @sha256_update(ptr noundef readonly %49, ptr noundef %.sroa.045.0.copyload)
+  %indvars.iv.next.i176 = add nuw nsw i64 %indvars.iv.i175, 1
+  %exitcond.not.i177 = icmp eq i64 %indvars.iv.next.i176, %wide.trip.count.i173
+  br i1 %exitcond.not.i177, label %python_hashlib_Hacl_Hash_SHA2_sha256_update_nblocks.exit178, label %.lr.ph.i174, !llvm.loop !7
 
-Hacl_SHA2_Scalar32_sha256_update_nblocks.exit100: ; preds = %for.body.i95, %if.end144
-  %conv177 = zext i32 %sub171 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %s196.sroa.2.0.copyload, ptr align 1 %add.ptr173, i64 %conv177, i1 false)
-  %add185 = add i64 %add118, %conv147
-  store ptr %s196.sroa.0.0.copyload, ptr %p, align 8
-  store ptr %s196.sroa.2.0.copyload, ptr %s196.sroa.2.0..sroa_idx, align 8
-  br label %return.sink.split
+python_hashlib_Hacl_Hash_SHA2_sha256_update_nblocks.exit178: ; preds = %.lr.ph.i174, %python_hashlib_Hacl_Hash_SHA2_sha256_update_nblocks.exit170
+  %50 = zext i32 %44 to i64
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.sroa.446.0.copyload, ptr align 1 %46, i64 %50, i1 false)
+  %51 = add i64 %36, %39
+  store ptr %.sroa.045.0.copyload, ptr %0, align 8, !tbaa !13
+  store ptr %.sroa.446.0.copyload, ptr %.sroa.446.0..sroa_idx, align 8, !tbaa !16
+  br label %.sink.split
 
-return.sink.split:                                ; preds = %Hacl_SHA2_Scalar32_sha256_update_nblocks.exit83, %Hacl_SHA2_Scalar32_sha256_update_nblocks.exit100, %if.then14
-  %add.sink = phi i64 [ %add, %if.then14 ], [ %add185, %Hacl_SHA2_Scalar32_sha256_update_nblocks.exit100 ], [ %add89, %Hacl_SHA2_Scalar32_sha256_update_nblocks.exit83 ]
-  store i64 %add.sink, ptr %s.sroa.1.0..sroa_idx, align 8
-  br label %return
+.sink.split:                                      ; preds = %python_hashlib_Hacl_Hash_SHA2_sha256_update_nblocks.exit164, %python_hashlib_Hacl_Hash_SHA2_sha256_update_nblocks.exit178, %13
+  %.sink = phi i64 [ %15, %13 ], [ %51, %python_hashlib_Hacl_Hash_SHA2_sha256_update_nblocks.exit178 ], [ %31, %python_hashlib_Hacl_Hash_SHA2_sha256_update_nblocks.exit164 ]
+  store i64 %.sink, ptr %.sroa.3110.0..sroa_idx, align 8, !tbaa !10
+  br label %52
 
-return:                                           ; preds = %return.sink.split, %entry
-  %retval.0 = phi i8 [ 3, %entry ], [ 0, %return.sink.split ]
-  ret i8 %retval.0
+52:                                               ; preds = %.sink.split, %3
+  %.0 = phi i8 [ 3, %3 ], [ 0, %.sink.split ]
+  ret i8 %.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @python_hashlib_Hacl_Streaming_SHA2_finish_256(ptr noundef readonly captures(none) %p, ptr noundef writeonly captures(none) initializes((0, 32)) %dst) local_unnamed_addr #11 {
-entry:
-  %last.i = alloca [128 x i8], align 16
-  %tmp_block_state = alloca [8 x i32], align 16
-  %scrut.sroa.0.0.copyload = load ptr, ptr %p, align 8
-  %scrut.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %p, i64 8
-  %scrut.sroa.2.0.copyload = load ptr, ptr %scrut.sroa.2.0..sroa_idx, align 8
-  %scrut.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %p, i64 16
-  %scrut.sroa.3.0.copyload = load i64, ptr %scrut.sroa.3.0..sroa_idx, align 8
-  %rem = and i64 %scrut.sroa.3.0.copyload, 63
-  %cmp = icmp eq i64 %rem, 0
-  %cmp3 = icmp ne i64 %scrut.sroa.3.0.copyload, 0
-  %or.cond = and i1 %cmp3, %cmp
-  %conv = trunc nuw nsw i64 %rem to i32
-  %r.0 = select i1 %or.cond, i32 64, i32 %conv
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %tmp_block_state, ptr noundef nonnull align 4 dereferenceable(32) %scrut.sroa.0.0.copyload, i64 32, i1 false)
-  %rem5 = and i32 %r.0, 63
-  %cmp6 = icmp eq i32 %rem5, 0
-  %cmp9 = icmp ne i32 %r.0, 0
-  %or.cond1 = and i1 %cmp9, %cmp6
-  %0 = zext nneg i32 %rem5 to i64
-  %ite.0 = select i1 %or.cond1, i64 64, i64 %0
-  %idx.ext = zext nneg i32 %r.0 to i64
-  %add.ptr = getelementptr i8, ptr %scrut.sroa.2.0.copyload, i64 %idx.ext
-  %idx.neg = sub nsw i64 0, %ite.0
-  %add.ptr16 = getelementptr i8, ptr %add.ptr, i64 %idx.neg
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %last.i)
-  %1 = add nsw i32 %r.0, -56
-  %cmp.i = icmp ult i32 %1, -65
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %last.i, i8 0, i64 128, i1 false)
-  %shl.i = shl i64 %scrut.sroa.3.0.copyload, 3
-  %or19.i.i = tail call noundef i64 @llvm.bswap.i64(i64 %shl.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %last.i, ptr readonly align 1 %add.ptr16, i64 %idx.ext, i1 false)
-  %arrayidx.i = getelementptr [128 x i8], ptr %last.i, i64 0, i64 %idx.ext
-  store i8 -128, ptr %arrayidx.i, align 1
-  %..sroa.sel.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel.v = select i1 %cmp.i, i64 120, i64 56
-  %..sroa.sel.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %last.i, i64 %..sroa.sel.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel.v
-  store i64 %or19.i.i, ptr %..sroa.sel.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel, align 8
-  call fastcc void @sha256_update(ptr noundef nonnull %last.i, ptr noundef nonnull %tmp_block_state)
-  br i1 %cmp.i, label %if.then12.i, label %Hacl_SHA2_Scalar32_sha256_update_last.exit
+define hidden void @python_hashlib_Hacl_Hash_SHA2_digest_256(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 32)) %1) local_unnamed_addr #14 {
+  %3 = alloca [128 x i8], align 16
+  %4 = alloca [8 x i32], align 16
+  %.sroa.0.0.copyload = load ptr, ptr %0, align 8, !tbaa !13
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %.sroa.4.0.copyload = load ptr, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !16
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %.sroa.5.0.copyload = load i64, ptr %.sroa.5.0..sroa_idx, align 8, !tbaa !10
+  %5 = and i64 %.sroa.5.0.copyload, 63
+  %6 = icmp eq i64 %5, 0
+  %7 = icmp ne i64 %.sroa.5.0.copyload, 0
+  %or.cond = and i1 %7, %6
+  %8 = trunc nuw nsw i64 %5 to i32
+  %.0 = select i1 %or.cond, i32 64, i32 %8
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #18
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %4, ptr noundef nonnull align 4 dereferenceable(32) %.sroa.0.0.copyload, i64 32, i1 false)
+  %9 = and i32 %.0, 63
+  %10 = icmp eq i32 %9, 0
+  %11 = icmp ne i32 %.0, 0
+  %or.cond3 = and i1 %11, %10
+  %12 = zext nneg i32 %9 to i64
+  %.023 = select i1 %or.cond3, i64 64, i64 %12
+  %13 = zext nneg i32 %.0 to i64
+  %14 = getelementptr i8, ptr %.sroa.4.0.copyload, i64 %13
+  %15 = sub nsw i64 0, %.023
+  %16 = getelementptr i8, ptr %14, i64 %15
+  %17 = add nsw i32 %.0, -56
+  %18 = icmp ult i32 %17, -65
+  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %3) #18
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %3, i8 0, i64 128, i1 false)
+  %19 = shl i64 %.sroa.5.0.copyload, 3
+  %20 = tail call noundef i64 @llvm.bswap.i64(i64 %19)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %3, ptr readonly align 1 %16, i64 %13, i1 false)
+  %21 = getelementptr [128 x i8], ptr %3, i64 0, i64 %13
+  store i8 -128, ptr %21, align 1, !tbaa !9
+  %..sroa.sel.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel.v = select i1 %18, i64 120, i64 56
+  %..sroa.sel.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %3, i64 %..sroa.sel.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel.v
+  store i64 %20, ptr %..sroa.sel.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel, align 8
+  call fastcc void @sha256_update(ptr noundef nonnull %3, ptr noundef nonnull %4)
+  br i1 %18, label %22, label %python_hashlib_Hacl_Hash_SHA2_sha256_update_last.exit
 
-if.then12.i:                                      ; preds = %entry
-  %.sroa.gep5.i = getelementptr inbounds nuw i8, ptr %last.i, i64 64
-  call fastcc void @sha256_update(ptr noundef nonnull %.sroa.gep5.i, ptr noundef nonnull %tmp_block_state)
-  br label %Hacl_SHA2_Scalar32_sha256_update_last.exit
+22:                                               ; preds = %2
+  %.sroa.gep19.i = getelementptr inbounds nuw i8, ptr %3, i64 64
+  call fastcc void @sha256_update(ptr noundef nonnull %.sroa.gep19.i, ptr noundef nonnull %4)
+  br label %python_hashlib_Hacl_Hash_SHA2_sha256_update_last.exit
 
-Hacl_SHA2_Scalar32_sha256_update_last.exit:       ; preds = %entry, %if.then12.i
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %last.i)
-  %2 = load i32, ptr %tmp_block_state, align 16
-  %or7.i.i = tail call noundef i32 @llvm.bswap.i32(i32 %2)
-  %arrayidx6.i = getelementptr inbounds nuw i8, ptr %tmp_block_state, i64 4
-  %3 = load i32, ptr %arrayidx6.i, align 4
-  %or7.i31.i = tail call noundef i32 @llvm.bswap.i32(i32 %3)
-  %arrayidx14.i = getelementptr inbounds nuw i8, ptr %tmp_block_state, i64 8
-  %4 = load i32, ptr %arrayidx14.i, align 8
-  %or7.i32.i = tail call noundef i32 @llvm.bswap.i32(i32 %4)
-  %arrayidx22.i = getelementptr inbounds nuw i8, ptr %tmp_block_state, i64 12
-  %5 = load i32, ptr %arrayidx22.i, align 4
-  %or7.i33.i = tail call noundef i32 @llvm.bswap.i32(i32 %5)
-  %arrayidx30.i = getelementptr inbounds nuw i8, ptr %tmp_block_state, i64 16
-  %6 = load i32, ptr %arrayidx30.i, align 16
-  %or7.i34.i = tail call noundef i32 @llvm.bswap.i32(i32 %6)
-  %arrayidx38.i = getelementptr inbounds nuw i8, ptr %tmp_block_state, i64 20
-  %7 = load i32, ptr %arrayidx38.i, align 4
-  %or7.i35.i = tail call noundef i32 @llvm.bswap.i32(i32 %7)
-  %arrayidx46.i = getelementptr inbounds nuw i8, ptr %tmp_block_state, i64 24
-  %8 = load i32, ptr %arrayidx46.i, align 8
-  %or7.i36.i = tail call noundef i32 @llvm.bswap.i32(i32 %8)
-  %arrayidx54.i = getelementptr inbounds nuw i8, ptr %tmp_block_state, i64 28
-  %9 = load i32, ptr %arrayidx54.i, align 4
-  %or7.i37.i = tail call noundef i32 @llvm.bswap.i32(i32 %9)
-  store i32 %or7.i.i, ptr %dst, align 1
-  %hbuf.sroa.3.0.h.sroa_idx.i = getelementptr inbounds nuw i8, ptr %dst, i64 4
-  store i32 %or7.i31.i, ptr %hbuf.sroa.3.0.h.sroa_idx.i, align 1
-  %hbuf.sroa.4.0.h.sroa_idx.i = getelementptr inbounds nuw i8, ptr %dst, i64 8
-  store i32 %or7.i32.i, ptr %hbuf.sroa.4.0.h.sroa_idx.i, align 1
-  %hbuf.sroa.5.0.h.sroa_idx.i = getelementptr inbounds nuw i8, ptr %dst, i64 12
-  store i32 %or7.i33.i, ptr %hbuf.sroa.5.0.h.sroa_idx.i, align 1
-  %hbuf.sroa.6.0.h.sroa_idx.i = getelementptr inbounds nuw i8, ptr %dst, i64 16
-  store i32 %or7.i34.i, ptr %hbuf.sroa.6.0.h.sroa_idx.i, align 1
-  %hbuf.sroa.7.0.h.sroa_idx.i = getelementptr inbounds nuw i8, ptr %dst, i64 20
-  store i32 %or7.i35.i, ptr %hbuf.sroa.7.0.h.sroa_idx.i, align 1
-  %hbuf.sroa.8.0.h.sroa_idx.i = getelementptr inbounds nuw i8, ptr %dst, i64 24
-  store i32 %or7.i36.i, ptr %hbuf.sroa.8.0.h.sroa_idx.i, align 1
-  %hbuf.sroa.9.0.h.sroa_idx.i = getelementptr inbounds nuw i8, ptr %dst, i64 28
-  store i32 %or7.i37.i, ptr %hbuf.sroa.9.0.h.sroa_idx.i, align 1
+python_hashlib_Hacl_Hash_SHA2_sha256_update_last.exit: ; preds = %2, %22
+  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %3) #18
+  %23 = load i32, ptr %4, align 16, !tbaa !3
+  %24 = tail call noundef i32 @llvm.bswap.i32(i32 %23)
+  %25 = getelementptr inbounds nuw i8, ptr %4, i64 4
+  %26 = load i32, ptr %25, align 4, !tbaa !3
+  %27 = tail call noundef i32 @llvm.bswap.i32(i32 %26)
+  %28 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %29 = load i32, ptr %28, align 8, !tbaa !3
+  %30 = tail call noundef i32 @llvm.bswap.i32(i32 %29)
+  %31 = getelementptr inbounds nuw i8, ptr %4, i64 12
+  %32 = load i32, ptr %31, align 4, !tbaa !3
+  %33 = tail call noundef i32 @llvm.bswap.i32(i32 %32)
+  %34 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %35 = load i32, ptr %34, align 16, !tbaa !3
+  %36 = tail call noundef i32 @llvm.bswap.i32(i32 %35)
+  %37 = getelementptr inbounds nuw i8, ptr %4, i64 20
+  %38 = load i32, ptr %37, align 4, !tbaa !3
+  %39 = tail call noundef i32 @llvm.bswap.i32(i32 %38)
+  %40 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  %41 = load i32, ptr %40, align 8, !tbaa !3
+  %42 = tail call noundef i32 @llvm.bswap.i32(i32 %41)
+  %43 = getelementptr inbounds nuw i8, ptr %4, i64 28
+  %44 = load i32, ptr %43, align 4, !tbaa !3
+  %45 = tail call noundef i32 @llvm.bswap.i32(i32 %44)
+  store i32 %24, ptr %1, align 1
+  %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %1, i64 4
+  store i32 %27, ptr %.sroa.5.0..sroa_idx.i, align 1
+  %.sroa.6.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %1, i64 8
+  store i32 %30, ptr %.sroa.6.0..sroa_idx.i, align 1
+  %.sroa.7.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %1, i64 12
+  store i32 %33, ptr %.sroa.7.0..sroa_idx.i, align 1
+  %.sroa.8.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %1, i64 16
+  store i32 %36, ptr %.sroa.8.0..sroa_idx.i, align 1
+  %.sroa.9.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %1, i64 20
+  store i32 %39, ptr %.sroa.9.0..sroa_idx.i, align 1
+  %.sroa.10.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %1, i64 24
+  store i32 %42, ptr %.sroa.10.0..sroa_idx.i, align 1
+  %.sroa.11.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %1, i64 28
+  store i32 %45, ptr %.sroa.11.0..sroa_idx.i, align 1
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #18
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define hidden void @python_hashlib_Hacl_Streaming_SHA2_free_256(ptr noundef captures(none) %s) local_unnamed_addr #12 {
-entry:
-  %scrut.sroa.0.0.copyload = load ptr, ptr %s, align 8
-  %scrut.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %s, i64 8
-  %scrut.sroa.2.0.copyload = load ptr, ptr %scrut.sroa.2.0..sroa_idx, align 8
-  tail call void @free(ptr noundef %scrut.sroa.0.0.copyload) #18
-  tail call void @free(ptr noundef %scrut.sroa.2.0.copyload) #18
-  tail call void @free(ptr noundef %s) #18
+define hidden void @python_hashlib_Hacl_Hash_SHA2_free_256(ptr noundef captures(none) %0) local_unnamed_addr #15 {
+  %.sroa.0.0.copyload = load ptr, ptr %0, align 8, !tbaa !13
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %.sroa.4.0.copyload = load ptr, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !16
+  tail call void @free(ptr noundef %.sroa.0.0.copyload) #18
+  tail call void @free(ptr noundef %.sroa.4.0.copyload) #18
+  tail call void @free(ptr noundef %0) #18
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #13
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #16
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @Hacl_Streaming_SHA2_hash_256(ptr noundef readonly captures(none) %input, i32 noundef %input_len, ptr noundef writeonly captures(none) %dst) local_unnamed_addr #1 {
-entry:
-  %last.i = alloca [128 x i8], align 16
-  %st = alloca [8 x i32], align 16
-  store i32 1779033703, ptr %st, align 16
-  %arrayidx8.i = getelementptr inbounds nuw i8, ptr %st, i64 4
-  store i32 -1150833019, ptr %arrayidx8.i, align 4
-  %arrayidx15.i = getelementptr inbounds nuw i8, ptr %st, i64 8
-  store i32 1013904242, ptr %arrayidx15.i, align 8
-  %arrayidx22.i = getelementptr inbounds nuw i8, ptr %st, i64 12
-  store i32 -1521486534, ptr %arrayidx22.i, align 4
-  %arrayidx29.i = getelementptr inbounds nuw i8, ptr %st, i64 16
-  store i32 1359893119, ptr %arrayidx29.i, align 16
-  %arrayidx36.i = getelementptr inbounds nuw i8, ptr %st, i64 20
-  store i32 -1694144372, ptr %arrayidx36.i, align 4
-  %arrayidx43.i = getelementptr inbounds nuw i8, ptr %st, i64 24
-  store i32 528734635, ptr %arrayidx43.i, align 8
-  %arrayidx50.i = getelementptr inbounds nuw i8, ptr %st, i64 28
-  store i32 1541459225, ptr %arrayidx50.i, align 4
-  %rem1 = and i32 %input_len, 63
-  %conv = zext i32 %input_len to i64
-  %cmp4.not.i = icmp ult i32 %input_len, 64
-  br i1 %cmp4.not.i, label %Hacl_SHA2_Scalar32_sha256_update_nblocks.exit, label %for.body.preheader.i
+define hidden void @python_hashlib_Hacl_Hash_SHA2_hash_256(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #2 {
+  %4 = alloca [128 x i8], align 16
+  %5 = alloca [8 x i32], align 16
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #18
+  store i32 1779033703, ptr %5, align 16, !tbaa !3
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 4
+  store i32 -1150833019, ptr %6, align 4, !tbaa !3
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  store i32 1013904242, ptr %7, align 8, !tbaa !3
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 12
+  store i32 -1521486534, ptr %8, align 4, !tbaa !3
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  store i32 1359893119, ptr %9, align 16, !tbaa !3
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 20
+  store i32 -1694144372, ptr %10, align 4, !tbaa !3
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  store i32 528734635, ptr %11, align 8, !tbaa !3
+  %12 = getelementptr inbounds nuw i8, ptr %5, i64 28
+  store i32 1541459225, ptr %12, align 4, !tbaa !3
+  %13 = and i32 %2, 63
+  %14 = zext i32 %2 to i64
+  %.not.i = icmp ult i32 %2, 64
+  br i1 %.not.i, label %python_hashlib_Hacl_Hash_SHA2_sha256_update_nblocks.exit, label %.lr.ph.preheader.i
 
-for.body.preheader.i:                             ; preds = %entry
-  %div3.i = lshr i32 %input_len, 6
-  %wide.trip.count.i = zext nneg i32 %div3.i to i64
-  br label %for.body.i
+.lr.ph.preheader.i:                               ; preds = %3
+  %15 = lshr i32 %2, 6
+  %wide.trip.count.i = zext nneg i32 %15 to i64
+  br label %.lr.ph.i
 
-for.body.i:                                       ; preds = %for.body.i, %for.body.preheader.i
-  %indvars.iv.i = phi i64 [ 0, %for.body.preheader.i ], [ %indvars.iv.next.i, %for.body.i ]
-  %0 = shl nuw i64 %indvars.iv.i, 6
-  %add.ptr.i = getelementptr i8, ptr %input, i64 %0
-  call fastcc void @sha256_update(ptr noundef readonly %add.ptr.i, ptr noundef nonnull %st)
+.lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
+  %16 = shl nuw i64 %indvars.iv.i, 6
+  %17 = getelementptr i8, ptr %1, i64 %16
+  call fastcc void @sha256_update(ptr noundef readonly %17, ptr noundef nonnull %5)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %Hacl_SHA2_Scalar32_sha256_update_nblocks.exit, label %for.body.i, !llvm.loop !4
+  br i1 %exitcond.not.i, label %python_hashlib_Hacl_Hash_SHA2_sha256_update_nblocks.exit, label %.lr.ph.i, !llvm.loop !7
 
-Hacl_SHA2_Scalar32_sha256_update_nblocks.exit:    ; preds = %for.body.i, %entry
-  %add.ptr = getelementptr i8, ptr %input, i64 %conv
-  %idx.ext5 = zext nneg i32 %rem1 to i64
-  %idx.neg = sub nsw i64 0, %idx.ext5
-  %add.ptr6 = getelementptr i8, ptr %add.ptr, i64 %idx.neg
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %last.i)
-  %1 = add nsw i32 %rem1, -56
-  %cmp.i = icmp ult i32 %1, -65
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %last.i, i8 0, i64 128, i1 false)
-  %shl.i = shl nuw nsw i64 %conv, 3
-  %or19.i.i = tail call noundef i64 @llvm.bswap.i64(i64 %shl.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %last.i, ptr readonly align 1 %add.ptr6, i64 %idx.ext5, i1 false)
-  %arrayidx.i = getelementptr [128 x i8], ptr %last.i, i64 0, i64 %idx.ext5
-  store i8 -128, ptr %arrayidx.i, align 1
-  %..sroa.sel.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel.v = select i1 %cmp.i, i64 120, i64 56
-  %..sroa.sel.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %last.i, i64 %..sroa.sel.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel.v
-  store i64 %or19.i.i, ptr %..sroa.sel.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel, align 8
-  call fastcc void @sha256_update(ptr noundef nonnull %last.i, ptr noundef nonnull %st)
-  br i1 %cmp.i, label %if.then12.i, label %Hacl_SHA2_Scalar32_sha256_update_last.exit
+python_hashlib_Hacl_Hash_SHA2_sha256_update_nblocks.exit: ; preds = %.lr.ph.i, %3
+  %18 = getelementptr i8, ptr %1, i64 %14
+  %19 = zext nneg i32 %13 to i64
+  %20 = sub nsw i64 0, %19
+  %21 = getelementptr i8, ptr %18, i64 %20
+  %22 = add nsw i32 %13, -56
+  %23 = icmp ult i32 %22, -65
+  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %4) #18
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %4, i8 0, i64 128, i1 false)
+  %24 = shl nuw nsw i64 %14, 3
+  %25 = tail call noundef i64 @llvm.bswap.i64(i64 %24)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %4, ptr readonly align 1 %21, i64 %19, i1 false)
+  %26 = getelementptr [128 x i8], ptr %4, i64 0, i64 %19
+  store i8 -128, ptr %26, align 1, !tbaa !9
+  %..sroa.sel.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel.v = select i1 %23, i64 120, i64 56
+  %..sroa.sel.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %4, i64 %..sroa.sel.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel.v
+  store i64 %25, ptr %..sroa.sel.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel, align 8
+  call fastcc void @sha256_update(ptr noundef nonnull %4, ptr noundef nonnull %5)
+  br i1 %23, label %27, label %python_hashlib_Hacl_Hash_SHA2_sha256_update_last.exit
 
-if.then12.i:                                      ; preds = %Hacl_SHA2_Scalar32_sha256_update_nblocks.exit
-  %.sroa.gep5.i = getelementptr inbounds nuw i8, ptr %last.i, i64 64
-  call fastcc void @sha256_update(ptr noundef nonnull %.sroa.gep5.i, ptr noundef nonnull %st)
-  br label %Hacl_SHA2_Scalar32_sha256_update_last.exit
+27:                                               ; preds = %python_hashlib_Hacl_Hash_SHA2_sha256_update_nblocks.exit
+  %.sroa.gep19.i = getelementptr inbounds nuw i8, ptr %4, i64 64
+  call fastcc void @sha256_update(ptr noundef nonnull %.sroa.gep19.i, ptr noundef nonnull %5)
+  br label %python_hashlib_Hacl_Hash_SHA2_sha256_update_last.exit
 
-Hacl_SHA2_Scalar32_sha256_update_last.exit:       ; preds = %Hacl_SHA2_Scalar32_sha256_update_nblocks.exit, %if.then12.i
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %last.i)
-  %2 = load i32, ptr %st, align 16
-  %or7.i.i = tail call noundef i32 @llvm.bswap.i32(i32 %2)
-  %3 = load i32, ptr %arrayidx8.i, align 4
-  %or7.i31.i = tail call noundef i32 @llvm.bswap.i32(i32 %3)
-  %4 = load i32, ptr %arrayidx15.i, align 8
-  %or7.i32.i = tail call noundef i32 @llvm.bswap.i32(i32 %4)
-  %5 = load i32, ptr %arrayidx22.i, align 4
-  %or7.i33.i = tail call noundef i32 @llvm.bswap.i32(i32 %5)
-  %6 = load i32, ptr %arrayidx29.i, align 16
-  %or7.i34.i = tail call noundef i32 @llvm.bswap.i32(i32 %6)
-  %7 = load i32, ptr %arrayidx36.i, align 4
-  %or7.i35.i = tail call noundef i32 @llvm.bswap.i32(i32 %7)
-  %8 = load i32, ptr %arrayidx43.i, align 8
-  %or7.i36.i = tail call noundef i32 @llvm.bswap.i32(i32 %8)
-  %9 = load i32, ptr %arrayidx50.i, align 4
-  %or7.i37.i = tail call noundef i32 @llvm.bswap.i32(i32 %9)
-  store i32 %or7.i.i, ptr %dst, align 1
-  %hbuf.sroa.3.0.h.sroa_idx.i = getelementptr inbounds nuw i8, ptr %dst, i64 4
-  store i32 %or7.i31.i, ptr %hbuf.sroa.3.0.h.sroa_idx.i, align 1
-  %hbuf.sroa.4.0.h.sroa_idx.i = getelementptr inbounds nuw i8, ptr %dst, i64 8
-  store i32 %or7.i32.i, ptr %hbuf.sroa.4.0.h.sroa_idx.i, align 1
-  %hbuf.sroa.5.0.h.sroa_idx.i = getelementptr inbounds nuw i8, ptr %dst, i64 12
-  store i32 %or7.i33.i, ptr %hbuf.sroa.5.0.h.sroa_idx.i, align 1
-  %hbuf.sroa.6.0.h.sroa_idx.i = getelementptr inbounds nuw i8, ptr %dst, i64 16
-  store i32 %or7.i34.i, ptr %hbuf.sroa.6.0.h.sroa_idx.i, align 1
-  %hbuf.sroa.7.0.h.sroa_idx.i = getelementptr inbounds nuw i8, ptr %dst, i64 20
-  store i32 %or7.i35.i, ptr %hbuf.sroa.7.0.h.sroa_idx.i, align 1
-  %hbuf.sroa.8.0.h.sroa_idx.i = getelementptr inbounds nuw i8, ptr %dst, i64 24
-  store i32 %or7.i36.i, ptr %hbuf.sroa.8.0.h.sroa_idx.i, align 1
-  %hbuf.sroa.9.0.h.sroa_idx.i = getelementptr inbounds nuw i8, ptr %dst, i64 28
-  store i32 %or7.i37.i, ptr %hbuf.sroa.9.0.h.sroa_idx.i, align 1
+python_hashlib_Hacl_Hash_SHA2_sha256_update_last.exit: ; preds = %python_hashlib_Hacl_Hash_SHA2_sha256_update_nblocks.exit, %27
+  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %4) #18
+  %28 = load i32, ptr %5, align 16, !tbaa !3
+  %29 = tail call noundef i32 @llvm.bswap.i32(i32 %28)
+  %30 = load i32, ptr %6, align 4, !tbaa !3
+  %31 = tail call noundef i32 @llvm.bswap.i32(i32 %30)
+  %32 = load i32, ptr %7, align 8, !tbaa !3
+  %33 = tail call noundef i32 @llvm.bswap.i32(i32 %32)
+  %34 = load i32, ptr %8, align 4, !tbaa !3
+  %35 = tail call noundef i32 @llvm.bswap.i32(i32 %34)
+  %36 = load i32, ptr %9, align 16, !tbaa !3
+  %37 = tail call noundef i32 @llvm.bswap.i32(i32 %36)
+  %38 = load i32, ptr %10, align 4, !tbaa !3
+  %39 = tail call noundef i32 @llvm.bswap.i32(i32 %38)
+  %40 = load i32, ptr %11, align 8, !tbaa !3
+  %41 = tail call noundef i32 @llvm.bswap.i32(i32 %40)
+  %42 = load i32, ptr %12, align 4, !tbaa !3
+  %43 = tail call noundef i32 @llvm.bswap.i32(i32 %42)
+  store i32 %29, ptr %0, align 1
+  %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store i32 %31, ptr %.sroa.5.0..sroa_idx.i, align 1
+  %.sroa.6.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i32 %33, ptr %.sroa.6.0..sroa_idx.i, align 1
+  %.sroa.7.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 12
+  store i32 %35, ptr %.sroa.7.0..sroa_idx.i, align 1
+  %.sroa.8.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i32 %37, ptr %.sroa.8.0..sroa_idx.i, align 1
+  %.sroa.9.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 20
+  store i32 %39, ptr %.sroa.9.0..sroa_idx.i, align 1
+  %.sroa.10.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store i32 %41, ptr %.sroa.10.0..sroa_idx.i, align 1
+  %.sroa.11.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 28
+  store i32 %43, ptr %.sroa.11.0..sroa_idx.i, align 1
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #18
   ret void
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: none, inaccessiblemem: readwrite) uwtable
-define hidden noalias noundef ptr @python_hashlib_Hacl_Streaming_SHA2_create_in_224() local_unnamed_addr #5 {
-entry:
-  %call = tail call noalias dereferenceable_or_null(64) ptr @calloc(i64 noundef 64, i64 noundef 1) #16
-  %call1 = tail call noalias dereferenceable_or_null(32) ptr @calloc(i64 noundef 8, i64 noundef 4) #16
-  %call4 = tail call noalias dereferenceable_or_null(24) ptr @malloc(i64 noundef 24) #17
-  store ptr %call1, ptr %call4, align 8
-  %s.sroa.2.0.arrayidx.sroa_idx = getelementptr inbounds nuw i8, ptr %call4, i64 8
-  store ptr %call, ptr %s.sroa.2.0.arrayidx.sroa_idx, align 8
-  %s.sroa.3.0.arrayidx.sroa_idx = getelementptr inbounds nuw i8, ptr %call4, i64 16
-  store i64 0, ptr %s.sroa.3.0.arrayidx.sroa_idx, align 8
-  store i32 -1056596264, ptr %call1, align 4
-  %arrayidx8.i = getelementptr i8, ptr %call1, i64 4
-  store i32 914150663, ptr %arrayidx8.i, align 4
-  %arrayidx15.i = getelementptr i8, ptr %call1, i64 8
-  store i32 812702999, ptr %arrayidx15.i, align 4
-  %arrayidx22.i = getelementptr i8, ptr %call1, i64 12
-  store i32 -150054599, ptr %arrayidx22.i, align 4
-  %arrayidx29.i = getelementptr i8, ptr %call1, i64 16
-  store i32 -4191439, ptr %arrayidx29.i, align 4
-  %arrayidx36.i = getelementptr i8, ptr %call1, i64 20
-  store i32 1750603025, ptr %arrayidx36.i, align 4
-  %arrayidx43.i = getelementptr i8, ptr %call1, i64 24
-  store i32 1694076839, ptr %arrayidx43.i, align 4
-  %arrayidx50.i = getelementptr i8, ptr %call1, i64 28
-  store i32 -1090891868, ptr %arrayidx50.i, align 4
-  ret ptr %call4
+define hidden noalias noundef ptr @python_hashlib_Hacl_Hash_SHA2_malloc_224() local_unnamed_addr #7 {
+  %1 = tail call noalias dereferenceable_or_null(64) ptr @calloc(i64 noundef 64, i64 noundef 1) #19
+  %2 = tail call noalias dereferenceable_or_null(32) ptr @calloc(i64 noundef 8, i64 noundef 4) #19
+  %3 = tail call noalias dereferenceable_or_null(24) ptr @malloc(i64 noundef 24) #20
+  store ptr %2, ptr %3, align 8, !tbaa !13
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store ptr %1, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !16
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 16
+  store i64 0, ptr %.sroa.5.0..sroa_idx, align 8, !tbaa !10
+  store i32 -1056596264, ptr %2, align 4, !tbaa !3
+  %4 = getelementptr i8, ptr %2, i64 4
+  store i32 914150663, ptr %4, align 4, !tbaa !3
+  %5 = getelementptr i8, ptr %2, i64 8
+  store i32 812702999, ptr %5, align 4, !tbaa !3
+  %6 = getelementptr i8, ptr %2, i64 12
+  store i32 -150054599, ptr %6, align 4, !tbaa !3
+  %7 = getelementptr i8, ptr %2, i64 16
+  store i32 -4191439, ptr %7, align 4, !tbaa !3
+  %8 = getelementptr i8, ptr %2, i64 20
+  store i32 1750603025, ptr %8, align 4, !tbaa !3
+  %9 = getelementptr i8, ptr %2, i64 24
+  store i32 1694076839, ptr %9, align 4, !tbaa !3
+  %10 = getelementptr i8, ptr %2, i64 28
+  store i32 -1090891868, ptr %10, align 4, !tbaa !3
+  ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @python_hashlib_Hacl_Streaming_SHA2_init_224(ptr noundef captures(none) initializes((16, 24)) %s) local_unnamed_addr #9 {
-entry:
-  %scrut.sroa.0.0.copyload = load ptr, ptr %s, align 8
-  %scrut.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %s, i64 8
-  %scrut.sroa.2.0.copyload = load ptr, ptr %scrut.sroa.2.0..sroa_idx, align 8
-  %scrut.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %s, i64 16
-  store i32 -1056596264, ptr %scrut.sroa.0.0.copyload, align 4
-  %arrayidx8.i = getelementptr i8, ptr %scrut.sroa.0.0.copyload, i64 4
-  store i32 914150663, ptr %arrayidx8.i, align 4
-  %arrayidx15.i = getelementptr i8, ptr %scrut.sroa.0.0.copyload, i64 8
-  store i32 812702999, ptr %arrayidx15.i, align 4
-  %arrayidx22.i = getelementptr i8, ptr %scrut.sroa.0.0.copyload, i64 12
-  store i32 -150054599, ptr %arrayidx22.i, align 4
-  %arrayidx29.i = getelementptr i8, ptr %scrut.sroa.0.0.copyload, i64 16
-  store i32 -4191439, ptr %arrayidx29.i, align 4
-  %arrayidx36.i = getelementptr i8, ptr %scrut.sroa.0.0.copyload, i64 20
-  store i32 1750603025, ptr %arrayidx36.i, align 4
-  %arrayidx43.i = getelementptr i8, ptr %scrut.sroa.0.0.copyload, i64 24
-  store i32 1694076839, ptr %arrayidx43.i, align 4
-  %arrayidx50.i = getelementptr i8, ptr %scrut.sroa.0.0.copyload, i64 28
-  store i32 -1090891868, ptr %arrayidx50.i, align 4
-  store ptr %scrut.sroa.0.0.copyload, ptr %s, align 8
-  store ptr %scrut.sroa.2.0.copyload, ptr %scrut.sroa.2.0..sroa_idx, align 8
-  store i64 0, ptr %scrut.sroa.3.0..sroa_idx, align 8
+define hidden void @python_hashlib_Hacl_Hash_SHA2_reset_224(ptr noundef captures(none) initializes((16, 24)) %0) local_unnamed_addr #11 {
+  %.sroa.03.0.copyload = load ptr, ptr %0, align 8, !tbaa !13
+  %.sroa.55.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i32 -1056596264, ptr %.sroa.03.0.copyload, align 4, !tbaa !3
+  %2 = getelementptr i8, ptr %.sroa.03.0.copyload, i64 4
+  store i32 914150663, ptr %2, align 4, !tbaa !3
+  %3 = getelementptr i8, ptr %.sroa.03.0.copyload, i64 8
+  store i32 812702999, ptr %3, align 4, !tbaa !3
+  %4 = getelementptr i8, ptr %.sroa.03.0.copyload, i64 12
+  store i32 -150054599, ptr %4, align 4, !tbaa !3
+  %5 = getelementptr i8, ptr %.sroa.03.0.copyload, i64 16
+  store i32 -4191439, ptr %5, align 4, !tbaa !3
+  %6 = getelementptr i8, ptr %.sroa.03.0.copyload, i64 20
+  store i32 1750603025, ptr %6, align 4, !tbaa !3
+  %7 = getelementptr i8, ptr %.sroa.03.0.copyload, i64 24
+  store i32 1694076839, ptr %7, align 4, !tbaa !3
+  %8 = getelementptr i8, ptr %.sroa.03.0.copyload, i64 28
+  store i32 -1090891868, ptr %8, align 4, !tbaa !3
+  store i64 0, ptr %.sroa.55.0..sroa_idx, align 8, !tbaa !10
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden zeroext range(i8 0, 4) i8 @python_hashlib_Hacl_Streaming_SHA2_update_224(ptr noundef captures(none) %p, ptr noundef readonly captures(none) %input, i32 noundef %input_len) local_unnamed_addr #10 {
-entry:
-  %call = tail call fastcc zeroext i8 @update_224_256(ptr noundef %p, ptr noundef %input, i32 noundef %input_len)
-  ret i8 %call
+define hidden zeroext range(i8 0, 4) i8 @python_hashlib_Hacl_Hash_SHA2_update_224(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #12 {
+  %4 = tail call fastcc zeroext i8 @update_224_256(ptr noundef %0, ptr noundef %1, i32 noundef %2)
+  ret i8 %4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @python_hashlib_Hacl_Streaming_SHA2_finish_224(ptr noundef readonly captures(none) %p, ptr noundef writeonly captures(none) initializes((0, 28)) %dst) local_unnamed_addr #11 {
-entry:
-  %last.i.i = alloca [128 x i8], align 16
-  %tmp_block_state = alloca [8 x i32], align 16
-  %scrut.sroa.0.0.copyload = load ptr, ptr %p, align 8
-  %scrut.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %p, i64 8
-  %scrut.sroa.2.0.copyload = load ptr, ptr %scrut.sroa.2.0..sroa_idx, align 8
-  %scrut.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %p, i64 16
-  %scrut.sroa.3.0.copyload = load i64, ptr %scrut.sroa.3.0..sroa_idx, align 8
-  %rem = and i64 %scrut.sroa.3.0.copyload, 63
-  %cmp = icmp eq i64 %rem, 0
-  %cmp3 = icmp ne i64 %scrut.sroa.3.0.copyload, 0
-  %or.cond = and i1 %cmp3, %cmp
-  %conv = trunc nuw nsw i64 %rem to i32
-  %r.0 = select i1 %or.cond, i32 64, i32 %conv
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %tmp_block_state, ptr noundef nonnull align 4 dereferenceable(32) %scrut.sroa.0.0.copyload, i64 32, i1 false)
-  %rem5 = and i32 %r.0, 63
-  %cmp6 = icmp eq i32 %rem5, 0
-  %cmp9 = icmp ne i32 %r.0, 0
-  %or.cond1 = and i1 %cmp9, %cmp6
-  %0 = zext nneg i32 %rem5 to i64
-  %ite.0 = select i1 %or.cond1, i64 64, i64 %0
-  %idx.ext = zext nneg i32 %r.0 to i64
-  %add.ptr = getelementptr i8, ptr %scrut.sroa.2.0.copyload, i64 %idx.ext
-  %idx.neg = sub nsw i64 0, %ite.0
-  %add.ptr16 = getelementptr i8, ptr %add.ptr, i64 %idx.neg
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %last.i.i)
-  %1 = add nsw i32 %r.0, -56
-  %cmp.i.i = icmp ult i32 %1, -65
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %last.i.i, i8 0, i64 128, i1 false)
-  %shl.i.i = shl i64 %scrut.sroa.3.0.copyload, 3
-  %or19.i.i.i = tail call noundef i64 @llvm.bswap.i64(i64 %shl.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %last.i.i, ptr readonly align 1 %add.ptr16, i64 %idx.ext, i1 false)
-  %arrayidx.i.i = getelementptr [128 x i8], ptr %last.i.i, i64 0, i64 %idx.ext
-  store i8 -128, ptr %arrayidx.i.i, align 1
-  %..sroa.sel.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel.v = select i1 %cmp.i.i, i64 120, i64 56
-  %..sroa.sel.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %last.i.i, i64 %..sroa.sel.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel.v
-  store i64 %or19.i.i.i, ptr %..sroa.sel.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel, align 8
-  call fastcc void @sha256_update(ptr noundef nonnull %last.i.i, ptr noundef nonnull %tmp_block_state)
-  br i1 %cmp.i.i, label %if.then12.i.i, label %Hacl_SHA2_Scalar32_sha224_update_last.exit
+define hidden void @python_hashlib_Hacl_Hash_SHA2_digest_224(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 28)) %1) local_unnamed_addr #14 {
+  %3 = alloca [128 x i8], align 16
+  %4 = alloca [8 x i32], align 16
+  %.sroa.0.0.copyload = load ptr, ptr %0, align 8, !tbaa !13
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %.sroa.4.0.copyload = load ptr, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !16
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %.sroa.5.0.copyload = load i64, ptr %.sroa.5.0..sroa_idx, align 8, !tbaa !10
+  %5 = and i64 %.sroa.5.0.copyload, 63
+  %6 = icmp eq i64 %5, 0
+  %7 = icmp ne i64 %.sroa.5.0.copyload, 0
+  %or.cond = and i1 %7, %6
+  %8 = trunc nuw nsw i64 %5 to i32
+  %.0 = select i1 %or.cond, i32 64, i32 %8
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #18
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %4, ptr noundef nonnull align 4 dereferenceable(32) %.sroa.0.0.copyload, i64 32, i1 false)
+  %9 = and i32 %.0, 63
+  %10 = icmp eq i32 %9, 0
+  %11 = icmp ne i32 %.0, 0
+  %or.cond3 = and i1 %11, %10
+  %12 = zext nneg i32 %9 to i64
+  %.023 = select i1 %or.cond3, i64 64, i64 %12
+  %13 = zext nneg i32 %.0 to i64
+  %14 = getelementptr i8, ptr %.sroa.4.0.copyload, i64 %13
+  %15 = sub nsw i64 0, %.023
+  %16 = getelementptr i8, ptr %14, i64 %15
+  %17 = add nsw i32 %.0, -56
+  %18 = icmp ult i32 %17, -65
+  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %3) #18
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %3, i8 0, i64 128, i1 false)
+  %19 = shl i64 %.sroa.5.0.copyload, 3
+  %20 = tail call noundef i64 @llvm.bswap.i64(i64 %19)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %3, ptr readonly align 1 %16, i64 %13, i1 false)
+  %21 = getelementptr [128 x i8], ptr %3, i64 0, i64 %13
+  store i8 -128, ptr %21, align 1, !tbaa !9
+  %..sroa.sel.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel.v = select i1 %18, i64 120, i64 56
+  %..sroa.sel.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %3, i64 %..sroa.sel.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel.v
+  store i64 %20, ptr %..sroa.sel.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel, align 8
+  call fastcc void @sha256_update(ptr noundef nonnull %3, ptr noundef nonnull %4)
+  br i1 %18, label %22, label %python_hashlib_Hacl_Hash_SHA2_sha224_update_last.exit
 
-if.then12.i.i:                                    ; preds = %entry
-  %.sroa.gep5.i.i = getelementptr inbounds nuw i8, ptr %last.i.i, i64 64
-  call fastcc void @sha256_update(ptr noundef nonnull %.sroa.gep5.i.i, ptr noundef nonnull %tmp_block_state)
-  br label %Hacl_SHA2_Scalar32_sha224_update_last.exit
+22:                                               ; preds = %2
+  %.sroa.gep19.i.i = getelementptr inbounds nuw i8, ptr %3, i64 64
+  call fastcc void @sha256_update(ptr noundef nonnull %.sroa.gep19.i.i, ptr noundef nonnull %4)
+  br label %python_hashlib_Hacl_Hash_SHA2_sha224_update_last.exit
 
-Hacl_SHA2_Scalar32_sha224_update_last.exit:       ; preds = %entry, %if.then12.i.i
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %last.i.i)
-  %2 = load i32, ptr %tmp_block_state, align 16
-  %or7.i.i = tail call noundef i32 @llvm.bswap.i32(i32 %2)
-  %arrayidx6.i = getelementptr inbounds nuw i8, ptr %tmp_block_state, i64 4
-  %3 = load i32, ptr %arrayidx6.i, align 4
-  %or7.i31.i = tail call noundef i32 @llvm.bswap.i32(i32 %3)
-  %arrayidx14.i = getelementptr inbounds nuw i8, ptr %tmp_block_state, i64 8
-  %4 = load i32, ptr %arrayidx14.i, align 8
-  %or7.i32.i = tail call noundef i32 @llvm.bswap.i32(i32 %4)
-  %arrayidx22.i = getelementptr inbounds nuw i8, ptr %tmp_block_state, i64 12
-  %5 = load i32, ptr %arrayidx22.i, align 4
-  %or7.i33.i = tail call noundef i32 @llvm.bswap.i32(i32 %5)
-  %arrayidx30.i = getelementptr inbounds nuw i8, ptr %tmp_block_state, i64 16
-  %6 = load i32, ptr %arrayidx30.i, align 16
-  %or7.i34.i = tail call noundef i32 @llvm.bswap.i32(i32 %6)
-  %arrayidx38.i = getelementptr inbounds nuw i8, ptr %tmp_block_state, i64 20
-  %7 = load i32, ptr %arrayidx38.i, align 4
-  %or7.i35.i = tail call noundef i32 @llvm.bswap.i32(i32 %7)
-  %arrayidx46.i = getelementptr inbounds nuw i8, ptr %tmp_block_state, i64 24
-  %8 = load i32, ptr %arrayidx46.i, align 8
-  %or7.i36.i = tail call noundef i32 @llvm.bswap.i32(i32 %8)
-  store i32 %or7.i.i, ptr %dst, align 1
-  %hbuf.sroa.3.0.h.sroa_idx.i = getelementptr inbounds nuw i8, ptr %dst, i64 4
-  store i32 %or7.i31.i, ptr %hbuf.sroa.3.0.h.sroa_idx.i, align 1
-  %hbuf.sroa.4.0.h.sroa_idx.i = getelementptr inbounds nuw i8, ptr %dst, i64 8
-  store i32 %or7.i32.i, ptr %hbuf.sroa.4.0.h.sroa_idx.i, align 1
-  %hbuf.sroa.5.0.h.sroa_idx.i = getelementptr inbounds nuw i8, ptr %dst, i64 12
-  store i32 %or7.i33.i, ptr %hbuf.sroa.5.0.h.sroa_idx.i, align 1
-  %hbuf.sroa.6.0.h.sroa_idx.i = getelementptr inbounds nuw i8, ptr %dst, i64 16
-  store i32 %or7.i34.i, ptr %hbuf.sroa.6.0.h.sroa_idx.i, align 1
-  %hbuf.sroa.7.0.h.sroa_idx.i = getelementptr inbounds nuw i8, ptr %dst, i64 20
-  store i32 %or7.i35.i, ptr %hbuf.sroa.7.0.h.sroa_idx.i, align 1
-  %hbuf.sroa.8.0.h.sroa_idx.i = getelementptr inbounds nuw i8, ptr %dst, i64 24
-  store i32 %or7.i36.i, ptr %hbuf.sroa.8.0.h.sroa_idx.i, align 1
+python_hashlib_Hacl_Hash_SHA2_sha224_update_last.exit: ; preds = %2, %22
+  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %3) #18
+  %23 = load i32, ptr %4, align 16, !tbaa !3
+  %24 = tail call noundef i32 @llvm.bswap.i32(i32 %23)
+  %25 = getelementptr inbounds nuw i8, ptr %4, i64 4
+  %26 = load i32, ptr %25, align 4, !tbaa !3
+  %27 = tail call noundef i32 @llvm.bswap.i32(i32 %26)
+  %28 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %29 = load i32, ptr %28, align 8, !tbaa !3
+  %30 = tail call noundef i32 @llvm.bswap.i32(i32 %29)
+  %31 = getelementptr inbounds nuw i8, ptr %4, i64 12
+  %32 = load i32, ptr %31, align 4, !tbaa !3
+  %33 = tail call noundef i32 @llvm.bswap.i32(i32 %32)
+  %34 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %35 = load i32, ptr %34, align 16, !tbaa !3
+  %36 = tail call noundef i32 @llvm.bswap.i32(i32 %35)
+  %37 = getelementptr inbounds nuw i8, ptr %4, i64 20
+  %38 = load i32, ptr %37, align 4, !tbaa !3
+  %39 = tail call noundef i32 @llvm.bswap.i32(i32 %38)
+  %40 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  %41 = load i32, ptr %40, align 8, !tbaa !3
+  %42 = tail call noundef i32 @llvm.bswap.i32(i32 %41)
+  store i32 %24, ptr %1, align 1
+  %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %1, i64 4
+  store i32 %27, ptr %.sroa.5.0..sroa_idx.i, align 1
+  %.sroa.6.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %1, i64 8
+  store i32 %30, ptr %.sroa.6.0..sroa_idx.i, align 1
+  %.sroa.7.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %1, i64 12
+  store i32 %33, ptr %.sroa.7.0..sroa_idx.i, align 1
+  %.sroa.8.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %1, i64 16
+  store i32 %36, ptr %.sroa.8.0..sroa_idx.i, align 1
+  %.sroa.9.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %1, i64 20
+  store i32 %39, ptr %.sroa.9.0..sroa_idx.i, align 1
+  %.sroa.10.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %1, i64 24
+  store i32 %42, ptr %.sroa.10.0..sroa_idx.i, align 1
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #18
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define hidden void @python_hashlib_Hacl_Streaming_SHA2_free_224(ptr noundef captures(none) %p) local_unnamed_addr #12 {
-entry:
-  %scrut.sroa.0.0.copyload.i = load ptr, ptr %p, align 8
-  %scrut.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %p, i64 8
-  %scrut.sroa.2.0.copyload.i = load ptr, ptr %scrut.sroa.2.0..sroa_idx.i, align 8
-  tail call void @free(ptr noundef %scrut.sroa.0.0.copyload.i) #18
-  tail call void @free(ptr noundef %scrut.sroa.2.0.copyload.i) #18
-  tail call void @free(ptr noundef %p) #18
+define hidden void @python_hashlib_Hacl_Hash_SHA2_free_224(ptr noundef captures(none) %0) local_unnamed_addr #15 {
+  %.sroa.0.0.copyload.i = load ptr, ptr %0, align 8, !tbaa !13
+  %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %.sroa.4.0.copyload.i = load ptr, ptr %.sroa.4.0..sroa_idx.i, align 8, !tbaa !16
+  tail call void @free(ptr noundef %.sroa.0.0.copyload.i) #18
+  tail call void @free(ptr noundef %.sroa.4.0.copyload.i) #18
+  tail call void @free(ptr noundef %0) #18
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @Hacl_Streaming_SHA2_hash_224(ptr noundef readonly captures(none) %input, i32 noundef %input_len, ptr noundef writeonly captures(none) %dst) local_unnamed_addr #1 {
-entry:
-  %last.i.i = alloca [128 x i8], align 16
-  %st = alloca [8 x i32], align 16
-  store i32 -1056596264, ptr %st, align 16
-  %arrayidx8.i = getelementptr inbounds nuw i8, ptr %st, i64 4
-  store i32 914150663, ptr %arrayidx8.i, align 4
-  %arrayidx15.i = getelementptr inbounds nuw i8, ptr %st, i64 8
-  store i32 812702999, ptr %arrayidx15.i, align 8
-  %arrayidx22.i = getelementptr inbounds nuw i8, ptr %st, i64 12
-  store i32 -150054599, ptr %arrayidx22.i, align 4
-  %arrayidx29.i = getelementptr inbounds nuw i8, ptr %st, i64 16
-  store i32 -4191439, ptr %arrayidx29.i, align 16
-  %arrayidx36.i = getelementptr inbounds nuw i8, ptr %st, i64 20
-  store i32 1750603025, ptr %arrayidx36.i, align 4
-  %arrayidx43.i = getelementptr inbounds nuw i8, ptr %st, i64 24
-  store i32 1694076839, ptr %arrayidx43.i, align 8
-  %arrayidx50.i = getelementptr inbounds nuw i8, ptr %st, i64 28
-  store i32 -1090891868, ptr %arrayidx50.i, align 4
-  %rem1 = and i32 %input_len, 63
-  %conv = zext i32 %input_len to i64
-  %cmp4.not.i.i = icmp ult i32 %input_len, 64
-  br i1 %cmp4.not.i.i, label %sha224_update_nblocks.exit, label %for.body.preheader.i.i
+define hidden void @python_hashlib_Hacl_Hash_SHA2_hash_224(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #2 {
+  %4 = alloca [128 x i8], align 16
+  %5 = alloca [8 x i32], align 16
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #18
+  store i32 -1056596264, ptr %5, align 16, !tbaa !3
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 4
+  store i32 914150663, ptr %6, align 4, !tbaa !3
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  store i32 812702999, ptr %7, align 8, !tbaa !3
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 12
+  store i32 -150054599, ptr %8, align 4, !tbaa !3
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  store i32 -4191439, ptr %9, align 16, !tbaa !3
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 20
+  store i32 1750603025, ptr %10, align 4, !tbaa !3
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  store i32 1694076839, ptr %11, align 8, !tbaa !3
+  %12 = getelementptr inbounds nuw i8, ptr %5, i64 28
+  store i32 -1090891868, ptr %12, align 4, !tbaa !3
+  %13 = and i32 %2, 63
+  %14 = zext i32 %2 to i64
+  %.not.i.i = icmp ult i32 %2, 64
+  br i1 %.not.i.i, label %Hacl_Hash_SHA2_sha224_update_nblocks.exit, label %.lr.ph.preheader.i.i
 
-for.body.preheader.i.i:                           ; preds = %entry
-  %div3.i.i = lshr i32 %input_len, 6
-  %wide.trip.count.i.i = zext nneg i32 %div3.i.i to i64
-  br label %for.body.i.i
+.lr.ph.preheader.i.i:                             ; preds = %3
+  %15 = lshr i32 %2, 6
+  %wide.trip.count.i.i = zext nneg i32 %15 to i64
+  br label %.lr.ph.i.i
 
-for.body.i.i:                                     ; preds = %for.body.i.i, %for.body.preheader.i.i
-  %indvars.iv.i.i = phi i64 [ 0, %for.body.preheader.i.i ], [ %indvars.iv.next.i.i, %for.body.i.i ]
-  %0 = shl nuw i64 %indvars.iv.i.i, 6
-  %add.ptr.i.i = getelementptr i8, ptr %input, i64 %0
-  call fastcc void @sha256_update(ptr noundef readonly %add.ptr.i.i, ptr noundef nonnull %st)
+.lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.preheader.i.i
+  %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %.lr.ph.i.i ]
+  %16 = shl nuw i64 %indvars.iv.i.i, 6
+  %17 = getelementptr i8, ptr %1, i64 %16
+  call fastcc void @sha256_update(ptr noundef readonly %17, ptr noundef nonnull %5)
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %sha224_update_nblocks.exit, label %for.body.i.i, !llvm.loop !4
+  br i1 %exitcond.not.i.i, label %Hacl_Hash_SHA2_sha224_update_nblocks.exit, label %.lr.ph.i.i, !llvm.loop !7
 
-sha224_update_nblocks.exit:                       ; preds = %for.body.i.i, %entry
-  %add.ptr = getelementptr i8, ptr %input, i64 %conv
-  %idx.ext5 = zext nneg i32 %rem1 to i64
-  %idx.neg = sub nsw i64 0, %idx.ext5
-  %add.ptr6 = getelementptr i8, ptr %add.ptr, i64 %idx.neg
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %last.i.i)
-  %1 = add nsw i32 %rem1, -56
-  %cmp.i.i = icmp ult i32 %1, -65
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %last.i.i, i8 0, i64 128, i1 false)
-  %shl.i.i = shl nuw nsw i64 %conv, 3
-  %or19.i.i.i = tail call noundef i64 @llvm.bswap.i64(i64 %shl.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %last.i.i, ptr readonly align 1 %add.ptr6, i64 %idx.ext5, i1 false)
-  %arrayidx.i.i = getelementptr [128 x i8], ptr %last.i.i, i64 0, i64 %idx.ext5
-  store i8 -128, ptr %arrayidx.i.i, align 1
-  %..sroa.sel.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel.v = select i1 %cmp.i.i, i64 120, i64 56
-  %..sroa.sel.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %last.i.i, i64 %..sroa.sel.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel.v
-  store i64 %or19.i.i.i, ptr %..sroa.sel.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel, align 8
-  call fastcc void @sha256_update(ptr noundef nonnull %last.i.i, ptr noundef nonnull %st)
-  br i1 %cmp.i.i, label %if.then12.i.i, label %Hacl_SHA2_Scalar32_sha224_update_last.exit
+Hacl_Hash_SHA2_sha224_update_nblocks.exit:        ; preds = %.lr.ph.i.i, %3
+  %18 = getelementptr i8, ptr %1, i64 %14
+  %19 = zext nneg i32 %13 to i64
+  %20 = sub nsw i64 0, %19
+  %21 = getelementptr i8, ptr %18, i64 %20
+  %22 = add nsw i32 %13, -56
+  %23 = icmp ult i32 %22, -65
+  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %4) #18
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %4, i8 0, i64 128, i1 false)
+  %24 = shl nuw nsw i64 %14, 3
+  %25 = tail call noundef i64 @llvm.bswap.i64(i64 %24)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %4, ptr readonly align 1 %21, i64 %19, i1 false)
+  %26 = getelementptr [128 x i8], ptr %4, i64 0, i64 %19
+  store i8 -128, ptr %26, align 1, !tbaa !9
+  %..sroa.sel.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel.v = select i1 %23, i64 120, i64 56
+  %..sroa.sel.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %4, i64 %..sroa.sel.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel.v
+  store i64 %25, ptr %..sroa.sel.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel, align 8
+  call fastcc void @sha256_update(ptr noundef nonnull %4, ptr noundef nonnull %5)
+  br i1 %23, label %27, label %python_hashlib_Hacl_Hash_SHA2_sha224_update_last.exit
 
-if.then12.i.i:                                    ; preds = %sha224_update_nblocks.exit
-  %.sroa.gep5.i.i = getelementptr inbounds nuw i8, ptr %last.i.i, i64 64
-  call fastcc void @sha256_update(ptr noundef nonnull %.sroa.gep5.i.i, ptr noundef nonnull %st)
-  br label %Hacl_SHA2_Scalar32_sha224_update_last.exit
+27:                                               ; preds = %Hacl_Hash_SHA2_sha224_update_nblocks.exit
+  %.sroa.gep19.i.i = getelementptr inbounds nuw i8, ptr %4, i64 64
+  call fastcc void @sha256_update(ptr noundef nonnull %.sroa.gep19.i.i, ptr noundef nonnull %5)
+  br label %python_hashlib_Hacl_Hash_SHA2_sha224_update_last.exit
 
-Hacl_SHA2_Scalar32_sha224_update_last.exit:       ; preds = %sha224_update_nblocks.exit, %if.then12.i.i
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %last.i.i)
-  %2 = load i32, ptr %st, align 16
-  %or7.i.i = tail call noundef i32 @llvm.bswap.i32(i32 %2)
-  %3 = load i32, ptr %arrayidx8.i, align 4
-  %or7.i31.i = tail call noundef i32 @llvm.bswap.i32(i32 %3)
-  %4 = load i32, ptr %arrayidx15.i, align 8
-  %or7.i32.i = tail call noundef i32 @llvm.bswap.i32(i32 %4)
-  %5 = load i32, ptr %arrayidx22.i, align 4
-  %or7.i33.i = tail call noundef i32 @llvm.bswap.i32(i32 %5)
-  %6 = load i32, ptr %arrayidx29.i, align 16
-  %or7.i34.i = tail call noundef i32 @llvm.bswap.i32(i32 %6)
-  %7 = load i32, ptr %arrayidx36.i, align 4
-  %or7.i35.i = tail call noundef i32 @llvm.bswap.i32(i32 %7)
-  %8 = load i32, ptr %arrayidx43.i, align 8
-  %or7.i36.i = tail call noundef i32 @llvm.bswap.i32(i32 %8)
-  store i32 %or7.i.i, ptr %dst, align 1
-  %hbuf.sroa.3.0.h.sroa_idx.i = getelementptr inbounds nuw i8, ptr %dst, i64 4
-  store i32 %or7.i31.i, ptr %hbuf.sroa.3.0.h.sroa_idx.i, align 1
-  %hbuf.sroa.4.0.h.sroa_idx.i = getelementptr inbounds nuw i8, ptr %dst, i64 8
-  store i32 %or7.i32.i, ptr %hbuf.sroa.4.0.h.sroa_idx.i, align 1
-  %hbuf.sroa.5.0.h.sroa_idx.i = getelementptr inbounds nuw i8, ptr %dst, i64 12
-  store i32 %or7.i33.i, ptr %hbuf.sroa.5.0.h.sroa_idx.i, align 1
-  %hbuf.sroa.6.0.h.sroa_idx.i = getelementptr inbounds nuw i8, ptr %dst, i64 16
-  store i32 %or7.i34.i, ptr %hbuf.sroa.6.0.h.sroa_idx.i, align 1
-  %hbuf.sroa.7.0.h.sroa_idx.i = getelementptr inbounds nuw i8, ptr %dst, i64 20
-  store i32 %or7.i35.i, ptr %hbuf.sroa.7.0.h.sroa_idx.i, align 1
-  %hbuf.sroa.8.0.h.sroa_idx.i = getelementptr inbounds nuw i8, ptr %dst, i64 24
-  store i32 %or7.i36.i, ptr %hbuf.sroa.8.0.h.sroa_idx.i, align 1
+python_hashlib_Hacl_Hash_SHA2_sha224_update_last.exit: ; preds = %Hacl_Hash_SHA2_sha224_update_nblocks.exit, %27
+  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %4) #18
+  %28 = load i32, ptr %5, align 16, !tbaa !3
+  %29 = tail call noundef i32 @llvm.bswap.i32(i32 %28)
+  %30 = load i32, ptr %6, align 4, !tbaa !3
+  %31 = tail call noundef i32 @llvm.bswap.i32(i32 %30)
+  %32 = load i32, ptr %7, align 8, !tbaa !3
+  %33 = tail call noundef i32 @llvm.bswap.i32(i32 %32)
+  %34 = load i32, ptr %8, align 4, !tbaa !3
+  %35 = tail call noundef i32 @llvm.bswap.i32(i32 %34)
+  %36 = load i32, ptr %9, align 16, !tbaa !3
+  %37 = tail call noundef i32 @llvm.bswap.i32(i32 %36)
+  %38 = load i32, ptr %10, align 4, !tbaa !3
+  %39 = tail call noundef i32 @llvm.bswap.i32(i32 %38)
+  %40 = load i32, ptr %11, align 8, !tbaa !3
+  %41 = tail call noundef i32 @llvm.bswap.i32(i32 %40)
+  store i32 %29, ptr %0, align 1
+  %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store i32 %31, ptr %.sroa.5.0..sroa_idx.i, align 1
+  %.sroa.6.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i32 %33, ptr %.sroa.6.0..sroa_idx.i, align 1
+  %.sroa.7.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 12
+  store i32 %35, ptr %.sroa.7.0..sroa_idx.i, align 1
+  %.sroa.8.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i32 %37, ptr %.sroa.8.0..sroa_idx.i, align 1
+  %.sroa.9.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 20
+  store i32 %39, ptr %.sroa.9.0..sroa_idx.i, align 1
+  %.sroa.10.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store i32 %41, ptr %.sroa.10.0..sroa_idx.i, align 1
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #18
   ret void
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: none, inaccessiblemem: readwrite) uwtable
-define hidden noalias noundef ptr @python_hashlib_Hacl_Streaming_SHA2_create_in_512() local_unnamed_addr #5 {
-entry:
-  %call = tail call noalias dereferenceable_or_null(128) ptr @calloc(i64 noundef 128, i64 noundef 1) #16
-  %call1 = tail call noalias dereferenceable_or_null(64) ptr @calloc(i64 noundef 8, i64 noundef 8) #16
-  %call4 = tail call noalias dereferenceable_or_null(24) ptr @malloc(i64 noundef 24) #17
-  store ptr %call1, ptr %call4, align 8
-  %s.sroa.2.0.arrayidx.sroa_idx = getelementptr inbounds nuw i8, ptr %call4, i64 8
-  store ptr %call, ptr %s.sroa.2.0.arrayidx.sroa_idx, align 8
-  %s.sroa.3.0.arrayidx.sroa_idx = getelementptr inbounds nuw i8, ptr %call4, i64 16
-  store i64 0, ptr %s.sroa.3.0.arrayidx.sroa_idx, align 8
-  store i64 7640891576956012808, ptr %call1, align 8
-  %arrayidx8.i = getelementptr i8, ptr %call1, i64 8
-  store i64 -4942790177534073029, ptr %arrayidx8.i, align 8
-  %arrayidx15.i = getelementptr i8, ptr %call1, i64 16
-  store i64 4354685564936845355, ptr %arrayidx15.i, align 8
-  %arrayidx22.i = getelementptr i8, ptr %call1, i64 24
-  store i64 -6534734903238641935, ptr %arrayidx22.i, align 8
-  %arrayidx29.i = getelementptr i8, ptr %call1, i64 32
-  store i64 5840696475078001361, ptr %arrayidx29.i, align 8
-  %arrayidx36.i = getelementptr i8, ptr %call1, i64 40
-  store i64 -7276294671716946913, ptr %arrayidx36.i, align 8
-  %arrayidx43.i = getelementptr i8, ptr %call1, i64 48
-  store i64 2270897969802886507, ptr %arrayidx43.i, align 8
-  %arrayidx50.i = getelementptr i8, ptr %call1, i64 56
-  store i64 6620516959819538809, ptr %arrayidx50.i, align 8
-  ret ptr %call4
+define hidden noalias noundef ptr @python_hashlib_Hacl_Hash_SHA2_malloc_512() local_unnamed_addr #7 {
+  %1 = tail call noalias dereferenceable_or_null(128) ptr @calloc(i64 noundef 128, i64 noundef 1) #19
+  %2 = tail call noalias dereferenceable_or_null(64) ptr @calloc(i64 noundef 8, i64 noundef 8) #19
+  %3 = tail call noalias dereferenceable_or_null(24) ptr @malloc(i64 noundef 24) #20
+  store ptr %2, ptr %3, align 8, !tbaa !18
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store ptr %1, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !16
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 16
+  store i64 0, ptr %.sroa.5.0..sroa_idx, align 8, !tbaa !10
+  store i64 7640891576956012808, ptr %2, align 8, !tbaa !10
+  %4 = getelementptr i8, ptr %2, i64 8
+  store i64 -4942790177534073029, ptr %4, align 8, !tbaa !10
+  %5 = getelementptr i8, ptr %2, i64 16
+  store i64 4354685564936845355, ptr %5, align 8, !tbaa !10
+  %6 = getelementptr i8, ptr %2, i64 24
+  store i64 -6534734903238641935, ptr %6, align 8, !tbaa !10
+  %7 = getelementptr i8, ptr %2, i64 32
+  store i64 5840696475078001361, ptr %7, align 8, !tbaa !10
+  %8 = getelementptr i8, ptr %2, i64 40
+  store i64 -7276294671716946913, ptr %8, align 8, !tbaa !10
+  %9 = getelementptr i8, ptr %2, i64 48
+  store i64 2270897969802886507, ptr %9, align 8, !tbaa !10
+  %10 = getelementptr i8, ptr %2, i64 56
+  store i64 6620516959819538809, ptr %10, align 8, !tbaa !10
+  ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn uwtable
-define hidden noalias noundef ptr @python_hashlib_Hacl_Streaming_SHA2_copy_512(ptr noundef readonly captures(none) %s0) local_unnamed_addr #8 {
-entry:
-  %scrut.sroa.0.0.copyload = load ptr, ptr %s0, align 8
-  %scrut.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %s0, i64 8
-  %scrut.sroa.2.0.copyload = load ptr, ptr %scrut.sroa.2.0..sroa_idx, align 8
-  %scrut.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %s0, i64 16
-  %scrut.sroa.3.0.copyload = load i64, ptr %scrut.sroa.3.0..sroa_idx, align 8
-  %call = tail call noalias dereferenceable_or_null(128) ptr @calloc(i64 noundef 128, i64 noundef 1) #16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(128) %call, ptr noundef nonnull align 1 dereferenceable(128) %scrut.sroa.2.0.copyload, i64 128, i1 false)
-  %call3 = tail call noalias dereferenceable_or_null(64) ptr @calloc(i64 noundef 8, i64 noundef 8) #16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %call3, ptr noundef nonnull align 8 dereferenceable(64) %scrut.sroa.0.0.copyload, i64 64, i1 false)
-  %call7 = tail call noalias dereferenceable_or_null(24) ptr @malloc(i64 noundef 24) #17
-  store ptr %call3, ptr %call7, align 8
-  %s.sroa.2.0.arrayidx.sroa_idx = getelementptr inbounds nuw i8, ptr %call7, i64 8
-  store ptr %call, ptr %s.sroa.2.0.arrayidx.sroa_idx, align 8
-  %s.sroa.3.0.arrayidx.sroa_idx = getelementptr inbounds nuw i8, ptr %call7, i64 16
-  store i64 %scrut.sroa.3.0.copyload, ptr %s.sroa.3.0.arrayidx.sroa_idx, align 8
-  ret ptr %call7
+define hidden noalias noundef ptr @python_hashlib_Hacl_Hash_SHA2_copy_512(ptr noundef readonly captures(none) %0) local_unnamed_addr #10 {
+  %.sroa.08.0.copyload = load ptr, ptr %0, align 8, !tbaa !18
+  %.sroa.49.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %.sroa.49.0.copyload = load ptr, ptr %.sroa.49.0..sroa_idx, align 8, !tbaa !16
+  %.sroa.510.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %.sroa.510.0.copyload = load i64, ptr %.sroa.510.0..sroa_idx, align 8, !tbaa !10
+  %2 = tail call noalias dereferenceable_or_null(128) ptr @calloc(i64 noundef 128, i64 noundef 1) #19
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(128) %2, ptr noundef nonnull align 1 dereferenceable(128) %.sroa.49.0.copyload, i64 128, i1 false)
+  %3 = tail call noalias dereferenceable_or_null(64) ptr @calloc(i64 noundef 8, i64 noundef 8) #19
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %3, ptr noundef nonnull align 8 dereferenceable(64) %.sroa.08.0.copyload, i64 64, i1 false)
+  %4 = tail call noalias dereferenceable_or_null(24) ptr @malloc(i64 noundef 24) #20
+  store ptr %3, ptr %4, align 8, !tbaa !18
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8
+  store ptr %2, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !16
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 16
+  store i64 %.sroa.510.0.copyload, ptr %.sroa.5.0..sroa_idx, align 8, !tbaa !10
+  ret ptr %4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @python_hashlib_Hacl_Streaming_SHA2_init_512(ptr noundef captures(none) initializes((16, 24)) %s) local_unnamed_addr #9 {
-entry:
-  %scrut.sroa.0.0.copyload = load ptr, ptr %s, align 8
-  %scrut.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %s, i64 8
-  %scrut.sroa.2.0.copyload = load ptr, ptr %scrut.sroa.2.0..sroa_idx, align 8
-  %scrut.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %s, i64 16
-  store i64 7640891576956012808, ptr %scrut.sroa.0.0.copyload, align 8
-  %arrayidx8.i = getelementptr i8, ptr %scrut.sroa.0.0.copyload, i64 8
-  store i64 -4942790177534073029, ptr %arrayidx8.i, align 8
-  %arrayidx15.i = getelementptr i8, ptr %scrut.sroa.0.0.copyload, i64 16
-  store i64 4354685564936845355, ptr %arrayidx15.i, align 8
-  %arrayidx22.i = getelementptr i8, ptr %scrut.sroa.0.0.copyload, i64 24
-  store i64 -6534734903238641935, ptr %arrayidx22.i, align 8
-  %arrayidx29.i = getelementptr i8, ptr %scrut.sroa.0.0.copyload, i64 32
-  store i64 5840696475078001361, ptr %arrayidx29.i, align 8
-  %arrayidx36.i = getelementptr i8, ptr %scrut.sroa.0.0.copyload, i64 40
-  store i64 -7276294671716946913, ptr %arrayidx36.i, align 8
-  %arrayidx43.i = getelementptr i8, ptr %scrut.sroa.0.0.copyload, i64 48
-  store i64 2270897969802886507, ptr %arrayidx43.i, align 8
-  %arrayidx50.i = getelementptr i8, ptr %scrut.sroa.0.0.copyload, i64 56
-  store i64 6620516959819538809, ptr %arrayidx50.i, align 8
-  store ptr %scrut.sroa.0.0.copyload, ptr %s, align 8
-  store ptr %scrut.sroa.2.0.copyload, ptr %scrut.sroa.2.0..sroa_idx, align 8
-  store i64 0, ptr %scrut.sroa.3.0..sroa_idx, align 8
+define hidden void @python_hashlib_Hacl_Hash_SHA2_reset_512(ptr noundef captures(none) initializes((16, 24)) %0) local_unnamed_addr #11 {
+  %.sroa.03.0.copyload = load ptr, ptr %0, align 8, !tbaa !18
+  %.sroa.55.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 7640891576956012808, ptr %.sroa.03.0.copyload, align 8, !tbaa !10
+  %2 = getelementptr i8, ptr %.sroa.03.0.copyload, i64 8
+  store i64 -4942790177534073029, ptr %2, align 8, !tbaa !10
+  %3 = getelementptr i8, ptr %.sroa.03.0.copyload, i64 16
+  store i64 4354685564936845355, ptr %3, align 8, !tbaa !10
+  %4 = getelementptr i8, ptr %.sroa.03.0.copyload, i64 24
+  store i64 -6534734903238641935, ptr %4, align 8, !tbaa !10
+  %5 = getelementptr i8, ptr %.sroa.03.0.copyload, i64 32
+  store i64 5840696475078001361, ptr %5, align 8, !tbaa !10
+  %6 = getelementptr i8, ptr %.sroa.03.0.copyload, i64 40
+  store i64 -7276294671716946913, ptr %6, align 8, !tbaa !10
+  %7 = getelementptr i8, ptr %.sroa.03.0.copyload, i64 48
+  store i64 2270897969802886507, ptr %7, align 8, !tbaa !10
+  %8 = getelementptr i8, ptr %.sroa.03.0.copyload, i64 56
+  store i64 6620516959819538809, ptr %8, align 8, !tbaa !10
+  store i64 0, ptr %.sroa.55.0..sroa_idx, align 8, !tbaa !10
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden zeroext range(i8 0, 4) i8 @python_hashlib_Hacl_Streaming_SHA2_update_512(ptr noundef captures(none) %p, ptr noundef readonly captures(none) %input, i32 noundef %input_len) local_unnamed_addr #10 {
-entry:
-  %call = tail call fastcc zeroext i8 @update_384_512(ptr noundef %p, ptr noundef %input, i32 noundef %input_len)
-  ret i8 %call
+define hidden zeroext range(i8 0, 4) i8 @python_hashlib_Hacl_Hash_SHA2_update_512(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #12 {
+  %4 = tail call fastcc zeroext i8 @update_384_512(ptr noundef %0, ptr noundef %1, i32 noundef %2)
+  ret i8 %4
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc zeroext range(i8 0, 4) i8 @update_384_512(ptr noundef captures(none) %p, ptr noundef readonly captures(none) %data, i32 noundef %len) unnamed_addr #10 {
-entry:
-  %s.sroa.1.0..sroa_idx = getelementptr inbounds nuw i8, ptr %p, i64 16
-  %s.sroa.1.0.copyload = load i64, ptr %s.sroa.1.0..sroa_idx, align 8
-  %conv = zext i32 %len to i64
-  %sub = xor i64 %s.sroa.1.0.copyload, -1
-  %cmp = icmp ugt i64 %conv, %sub
-  br i1 %cmp, label %return, label %if.end
+; Function Attrs: inlinehint nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+define internal fastcc zeroext range(i8 0, 4) i8 @update_384_512(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) unnamed_addr #13 {
+  %.sroa.3110.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %.sroa.3110.0.copyload = load i64, ptr %.sroa.3110.0..sroa_idx, align 8, !tbaa !10
+  %4 = zext i32 %2 to i64
+  %5 = xor i64 %.sroa.3110.0.copyload, -1
+  %6 = icmp ugt i64 %4, %5
+  br i1 %6, label %52, label %7
 
-if.end:                                           ; preds = %entry
-  %rem = and i64 %s.sroa.1.0.copyload, 127
-  %cmp3 = icmp eq i64 %rem, 0
-  %cmp5 = icmp ne i64 %s.sroa.1.0.copyload, 0
-  %or.cond = and i1 %cmp5, %cmp3
-  %conv9 = trunc nuw nsw i64 %rem to i32
-  %sz.0 = select i1 %or.cond, i32 128, i32 %conv9
-  %sub11 = sub nuw nsw i32 128, %sz.0
-  %cmp12.not = icmp ugt i32 %len, %sub11
-  br i1 %cmp12.not, label %if.else34, label %if.then14
+7:                                                ; preds = %3
+  %8 = and i64 %.sroa.3110.0.copyload, 127
+  %9 = icmp eq i64 %8, 0
+  %10 = icmp ne i64 %.sroa.3110.0.copyload, 0
+  %or.cond = and i1 %10, %9
+  %11 = trunc nuw nsw i64 %8 to i32
+  %.0142 = select i1 %or.cond, i32 128, i32 %11
+  %12 = sub nuw nsw i32 128, %.0142
+  %.not = icmp ugt i32 %2, %12
+  br i1 %.not, label %16, label %13
 
-if.then14:                                        ; preds = %if.end
-  %s1.sroa.0.0.copyload = load ptr, ptr %p, align 8
-  %s1.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %p, i64 8
-  %s1.sroa.2.0.copyload = load ptr, ptr %s1.sroa.2.0..sroa_idx, align 8
-  %.rem18 = select i1 %or.cond, i64 128, i64 %rem
-  %add.ptr = getelementptr i8, ptr %s1.sroa.2.0.copyload, i64 %.rem18
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr, ptr align 1 %data, i64 %conv, i1 false)
-  %add = add i64 %s.sroa.1.0.copyload, %conv
-  store ptr %s1.sroa.0.0.copyload, ptr %p, align 8
-  store ptr %s1.sroa.2.0.copyload, ptr %s1.sroa.2.0..sroa_idx, align 8
-  br label %return.sink.split
+13:                                               ; preds = %7
+  %.sroa.099.0.copyload = load ptr, ptr %0, align 8, !tbaa !18
+  %.sroa.4100.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %.sroa.4100.0.copyload = load ptr, ptr %.sroa.4100.0..sroa_idx, align 8, !tbaa !16
+  %. = select i1 %or.cond, i64 128, i64 %8
+  %14 = getelementptr i8, ptr %.sroa.4100.0.copyload, i64 %.
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %14, ptr align 1 %1, i64 %4, i1 false)
+  %15 = add i64 %.sroa.3110.0.copyload, %4
+  store ptr %.sroa.099.0.copyload, ptr %0, align 8, !tbaa !18
+  store ptr %.sroa.4100.0.copyload, ptr %.sroa.4100.0..sroa_idx, align 8, !tbaa !16
+  br label %.sink.split
 
-if.else34:                                        ; preds = %if.end
-  %cmp35 = icmp eq i32 %sz.0, 0
-  br i1 %cmp35, label %if.then37, label %if.else90
+16:                                               ; preds = %7
+  %17 = icmp eq i32 %.0142, 0
+  br i1 %17, label %18, label %32
 
-if.then37:                                        ; preds = %if.else34
-  %s138.sroa.0.0.copyload = load ptr, ptr %p, align 8
-  %s138.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %p, i64 8
-  %s138.sroa.2.0.copyload = load ptr, ptr %s138.sroa.2.0..sroa_idx, align 8
-  %or.cond76 = xor i1 %cmp3, %or.cond
-  br i1 %or.cond76, label %if.end60, label %for.body.i.preheader
+18:                                               ; preds = %16
+  %.sroa.083.0.copyload = load ptr, ptr %0, align 8, !tbaa !18
+  %.sroa.484.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %.sroa.484.0.copyload = load ptr, ptr %.sroa.484.0..sroa_idx, align 8, !tbaa !16
+  %or.cond158 = xor i1 %9, %or.cond
+  br i1 %or.cond158, label %python_hashlib_Hacl_Hash_SHA2_sha512_update_nblocks.exit, label %.lr.ph.i.preheader
 
-for.body.i.preheader:                             ; preds = %if.then37
-  tail call fastcc void @sha512_update(ptr noundef readonly %s138.sroa.2.0.copyload, ptr noundef %s138.sroa.0.0.copyload)
-  br label %if.end60
+.lr.ph.i.preheader:                               ; preds = %18
+  tail call fastcc void @sha512_update(ptr noundef readonly %.sroa.484.0.copyload, ptr noundef %.sroa.083.0.copyload)
+  br label %python_hashlib_Hacl_Hash_SHA2_sha512_update_nblocks.exit
 
-if.end60:                                         ; preds = %for.body.i.preheader, %if.then37
-  %rem62 = and i64 %conv, 127
-  %cmp63 = icmp eq i64 %rem62, 0
-  %conv73 = trunc nuw nsw i64 %rem62 to i32
-  %ite.0 = select i1 %cmp63, i32 128, i32 %conv73
-  %sub75 = sub i32 %len, %ite.0
-  %div74 = and i32 %sub75, -128
-  %sub77 = sub i32 %len, %div74
-  %idx.ext78 = zext i32 %div74 to i64
-  %add.ptr79 = getelementptr i8, ptr %data, i64 %idx.ext78
-  %cmp4.not.i = icmp ult i32 %sub75, 128
-  br i1 %cmp4.not.i, label %Hacl_SHA2_Scalar32_sha512_update_nblocks.exit83, label %for.body.preheader.i
+python_hashlib_Hacl_Hash_SHA2_sha512_update_nblocks.exit: ; preds = %.lr.ph.i.preheader, %18
+  %19 = and i64 %4, 127
+  %20 = icmp eq i64 %19, 0
+  %21 = trunc nuw nsw i64 %19 to i32
+  %.0145 = select i1 %20, i32 128, i32 %21
+  %22 = sub i32 %2, %.0145
+  %23 = and i32 %22, -128
+  %24 = sub i32 %2, %23
+  %25 = zext i32 %23 to i64
+  %26 = getelementptr i8, ptr %1, i64 %25
+  %.not.i = icmp ult i32 %22, 128
+  br i1 %.not.i, label %python_hashlib_Hacl_Hash_SHA2_sha512_update_nblocks.exit164, label %.lr.ph.preheader.i
 
-for.body.preheader.i:                             ; preds = %if.end60
-  %div3.i = lshr i32 %sub75, 7
-  %wide.trip.count.i = zext nneg i32 %div3.i to i64
-  br label %for.body.i78
+.lr.ph.preheader.i:                               ; preds = %python_hashlib_Hacl_Hash_SHA2_sha512_update_nblocks.exit
+  %27 = lshr i32 %22, 7
+  %wide.trip.count.i = zext nneg i32 %27 to i64
+  br label %.lr.ph.i160
 
-for.body.i78:                                     ; preds = %for.body.i78, %for.body.preheader.i
-  %indvars.iv.i79 = phi i64 [ 0, %for.body.preheader.i ], [ %indvars.iv.next.i81, %for.body.i78 ]
-  %0 = shl nuw i64 %indvars.iv.i79, 7
-  %add.ptr.i80 = getelementptr i8, ptr %data, i64 %0
-  tail call fastcc void @sha512_update(ptr noundef readonly %add.ptr.i80, ptr noundef %s138.sroa.0.0.copyload)
-  %indvars.iv.next.i81 = add nuw nsw i64 %indvars.iv.i79, 1
-  %exitcond.not.i82 = icmp eq i64 %indvars.iv.next.i81, %wide.trip.count.i
-  br i1 %exitcond.not.i82, label %Hacl_SHA2_Scalar32_sha512_update_nblocks.exit83, label %for.body.i78, !llvm.loop !6
+.lr.ph.i160:                                      ; preds = %.lr.ph.i160, %.lr.ph.preheader.i
+  %indvars.iv.i161 = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i162, %.lr.ph.i160 ]
+  %28 = shl nuw i64 %indvars.iv.i161, 7
+  %29 = getelementptr i8, ptr %1, i64 %28
+  tail call fastcc void @sha512_update(ptr noundef readonly %29, ptr noundef %.sroa.083.0.copyload)
+  %indvars.iv.next.i162 = add nuw nsw i64 %indvars.iv.i161, 1
+  %exitcond.not.i163 = icmp eq i64 %indvars.iv.next.i162, %wide.trip.count.i
+  br i1 %exitcond.not.i163, label %python_hashlib_Hacl_Hash_SHA2_sha512_update_nblocks.exit164, label %.lr.ph.i160, !llvm.loop !12
 
-Hacl_SHA2_Scalar32_sha512_update_nblocks.exit83:  ; preds = %for.body.i78, %if.end60
-  %conv82 = zext i32 %sub77 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %s138.sroa.2.0.copyload, ptr align 1 %add.ptr79, i64 %conv82, i1 false)
-  %add89 = add i64 %s.sroa.1.0.copyload, %conv
-  store ptr %s138.sroa.0.0.copyload, ptr %p, align 8
-  store ptr %s138.sroa.2.0.copyload, ptr %s138.sroa.2.0..sroa_idx, align 8
-  br label %return.sink.split
+python_hashlib_Hacl_Hash_SHA2_sha512_update_nblocks.exit164: ; preds = %.lr.ph.i160, %python_hashlib_Hacl_Hash_SHA2_sha512_update_nblocks.exit
+  %30 = zext i32 %24 to i64
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.sroa.484.0.copyload, ptr align 1 %26, i64 %30, i1 false)
+  %31 = add i64 %.sroa.3110.0.copyload, %4
+  store ptr %.sroa.083.0.copyload, ptr %0, align 8, !tbaa !18
+  store ptr %.sroa.484.0.copyload, ptr %.sroa.484.0..sroa_idx, align 8, !tbaa !16
+  br label %.sink.split
 
-if.else90:                                        ; preds = %if.else34
-  %idx.ext94 = zext nneg i32 %sub11 to i64
-  %add.ptr95 = getelementptr i8, ptr %data, i64 %idx.ext94
-  %s196.sroa.0.0.copyload = load ptr, ptr %p, align 8
-  %s196.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %p, i64 8
-  %s196.sroa.2.0.copyload = load ptr, ptr %s196.sroa.2.0..sroa_idx, align 8
-  %.rem100 = select i1 %or.cond, i64 128, i64 %rem
-  %add.ptr113 = getelementptr i8, ptr %s196.sroa.2.0.copyload, i64 %.rem100
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr113, ptr align 1 %data, i64 %idx.ext94, i1 false)
-  %add118 = add i64 %s.sroa.1.0.copyload, %idx.ext94
-  store ptr %s196.sroa.0.0.copyload, ptr %p, align 8
-  store ptr %s196.sroa.2.0.copyload, ptr %s196.sroa.2.0..sroa_idx, align 8
-  store i64 %add118, ptr %s.sroa.1.0..sroa_idx, align 8
-  %cmp134 = icmp eq i64 %add118, 0
-  br i1 %cmp134, label %if.end144, label %for.body.i85.preheader
+32:                                               ; preds = %16
+  %33 = zext nneg i32 %12 to i64
+  %34 = getelementptr i8, ptr %1, i64 %33
+  %.sroa.045.0.copyload = load ptr, ptr %0, align 8, !tbaa !18
+  %.sroa.446.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %.sroa.446.0.copyload = load ptr, ptr %.sroa.446.0..sroa_idx, align 8, !tbaa !16
+  %.154 = select i1 %or.cond, i64 128, i64 %8
+  %35 = getelementptr i8, ptr %.sroa.446.0.copyload, i64 %.154
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %35, ptr align 1 %1, i64 %33, i1 false)
+  %36 = add i64 %.sroa.3110.0.copyload, %33
+  store ptr %.sroa.045.0.copyload, ptr %0, align 8, !tbaa !18
+  store ptr %.sroa.446.0.copyload, ptr %.sroa.446.0..sroa_idx, align 8, !tbaa !16
+  store i64 %36, ptr %.sroa.3110.0..sroa_idx, align 8, !tbaa !10
+  %37 = icmp eq i64 %36, 0
+  br i1 %37, label %python_hashlib_Hacl_Hash_SHA2_sha512_update_nblocks.exit170, label %.lr.ph.i166.preheader
 
-for.body.i85.preheader:                           ; preds = %if.else90
-  tail call fastcc void @sha512_update(ptr noundef readonly %s196.sroa.2.0.copyload, ptr noundef %s196.sroa.0.0.copyload)
-  br label %if.end144
+.lr.ph.i166.preheader:                            ; preds = %32
+  tail call fastcc void @sha512_update(ptr noundef readonly %.sroa.446.0.copyload, ptr noundef %.sroa.045.0.copyload)
+  br label %python_hashlib_Hacl_Hash_SHA2_sha512_update_nblocks.exit170
 
-if.end144:                                        ; preds = %for.body.i85.preheader, %if.else90
-  %sub146 = sub i32 %len, %sub11
-  %conv147 = zext i32 %sub146 to i64
-  %rem148 = and i64 %conv147, 127
-  %cmp149.not = icmp eq i64 %rem148, 0
-  %conv161 = trunc nuw nsw i64 %rem148 to i32
-  %ite145.0 = select i1 %cmp149.not, i32 128, i32 %conv161
-  %sub165 = sub i32 %sub146, %ite145.0
-  %div16673 = and i32 %sub165, -128
-  %sub171 = sub i32 %sub146, %div16673
-  %idx.ext172 = zext i32 %div16673 to i64
-  %add.ptr173 = getelementptr i8, ptr %add.ptr95, i64 %idx.ext172
-  %cmp4.not.i91 = icmp ult i32 %sub165, 128
-  br i1 %cmp4.not.i91, label %Hacl_SHA2_Scalar32_sha512_update_nblocks.exit100, label %for.body.preheader.i92
+python_hashlib_Hacl_Hash_SHA2_sha512_update_nblocks.exit170: ; preds = %.lr.ph.i166.preheader, %32
+  %38 = sub i32 %2, %12
+  %39 = zext i32 %38 to i64
+  %40 = and i64 %39, 127
+  %.not179 = icmp eq i64 %40, 0
+  %41 = trunc nuw nsw i64 %40 to i32
+  %.0148 = select i1 %.not179, i32 128, i32 %41
+  %42 = sub i32 %38, %.0148
+  %43 = and i32 %42, -128
+  %44 = sub i32 %38, %43
+  %45 = zext i32 %43 to i64
+  %46 = getelementptr i8, ptr %34, i64 %45
+  %.not.i171 = icmp ult i32 %42, 128
+  br i1 %.not.i171, label %python_hashlib_Hacl_Hash_SHA2_sha512_update_nblocks.exit178, label %.lr.ph.preheader.i172
 
-for.body.preheader.i92:                           ; preds = %if.end144
-  %div3.i93 = lshr i32 %sub165, 7
-  %wide.trip.count.i94 = zext nneg i32 %div3.i93 to i64
-  br label %for.body.i95
+.lr.ph.preheader.i172:                            ; preds = %python_hashlib_Hacl_Hash_SHA2_sha512_update_nblocks.exit170
+  %47 = lshr i32 %42, 7
+  %wide.trip.count.i173 = zext nneg i32 %47 to i64
+  br label %.lr.ph.i174
 
-for.body.i95:                                     ; preds = %for.body.i95, %for.body.preheader.i92
-  %indvars.iv.i96 = phi i64 [ 0, %for.body.preheader.i92 ], [ %indvars.iv.next.i98, %for.body.i95 ]
-  %1 = shl nuw i64 %indvars.iv.i96, 7
-  %add.ptr.i97 = getelementptr i8, ptr %add.ptr95, i64 %1
-  tail call fastcc void @sha512_update(ptr noundef readonly %add.ptr.i97, ptr noundef %s196.sroa.0.0.copyload)
-  %indvars.iv.next.i98 = add nuw nsw i64 %indvars.iv.i96, 1
-  %exitcond.not.i99 = icmp eq i64 %indvars.iv.next.i98, %wide.trip.count.i94
-  br i1 %exitcond.not.i99, label %Hacl_SHA2_Scalar32_sha512_update_nblocks.exit100, label %for.body.i95, !llvm.loop !6
+.lr.ph.i174:                                      ; preds = %.lr.ph.i174, %.lr.ph.preheader.i172
+  %indvars.iv.i175 = phi i64 [ 0, %.lr.ph.preheader.i172 ], [ %indvars.iv.next.i176, %.lr.ph.i174 ]
+  %48 = shl nuw i64 %indvars.iv.i175, 7
+  %49 = getelementptr i8, ptr %34, i64 %48
+  tail call fastcc void @sha512_update(ptr noundef readonly %49, ptr noundef %.sroa.045.0.copyload)
+  %indvars.iv.next.i176 = add nuw nsw i64 %indvars.iv.i175, 1
+  %exitcond.not.i177 = icmp eq i64 %indvars.iv.next.i176, %wide.trip.count.i173
+  br i1 %exitcond.not.i177, label %python_hashlib_Hacl_Hash_SHA2_sha512_update_nblocks.exit178, label %.lr.ph.i174, !llvm.loop !12
 
-Hacl_SHA2_Scalar32_sha512_update_nblocks.exit100: ; preds = %for.body.i95, %if.end144
-  %conv177 = zext i32 %sub171 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %s196.sroa.2.0.copyload, ptr align 1 %add.ptr173, i64 %conv177, i1 false)
-  %add185 = add i64 %add118, %conv147
-  store ptr %s196.sroa.0.0.copyload, ptr %p, align 8
-  store ptr %s196.sroa.2.0.copyload, ptr %s196.sroa.2.0..sroa_idx, align 8
-  br label %return.sink.split
+python_hashlib_Hacl_Hash_SHA2_sha512_update_nblocks.exit178: ; preds = %.lr.ph.i174, %python_hashlib_Hacl_Hash_SHA2_sha512_update_nblocks.exit170
+  %50 = zext i32 %44 to i64
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.sroa.446.0.copyload, ptr align 1 %46, i64 %50, i1 false)
+  %51 = add i64 %36, %39
+  store ptr %.sroa.045.0.copyload, ptr %0, align 8, !tbaa !18
+  store ptr %.sroa.446.0.copyload, ptr %.sroa.446.0..sroa_idx, align 8, !tbaa !16
+  br label %.sink.split
 
-return.sink.split:                                ; preds = %Hacl_SHA2_Scalar32_sha512_update_nblocks.exit83, %Hacl_SHA2_Scalar32_sha512_update_nblocks.exit100, %if.then14
-  %add.sink = phi i64 [ %add, %if.then14 ], [ %add185, %Hacl_SHA2_Scalar32_sha512_update_nblocks.exit100 ], [ %add89, %Hacl_SHA2_Scalar32_sha512_update_nblocks.exit83 ]
-  store i64 %add.sink, ptr %s.sroa.1.0..sroa_idx, align 8
-  br label %return
+.sink.split:                                      ; preds = %python_hashlib_Hacl_Hash_SHA2_sha512_update_nblocks.exit164, %python_hashlib_Hacl_Hash_SHA2_sha512_update_nblocks.exit178, %13
+  %.sink = phi i64 [ %15, %13 ], [ %51, %python_hashlib_Hacl_Hash_SHA2_sha512_update_nblocks.exit178 ], [ %31, %python_hashlib_Hacl_Hash_SHA2_sha512_update_nblocks.exit164 ]
+  store i64 %.sink, ptr %.sroa.3110.0..sroa_idx, align 8, !tbaa !10
+  br label %52
 
-return:                                           ; preds = %return.sink.split, %entry
-  %retval.0 = phi i8 [ 3, %entry ], [ 0, %return.sink.split ]
-  ret i8 %retval.0
+52:                                               ; preds = %.sink.split, %3
+  %.0 = phi i8 [ 3, %3 ], [ 0, %.sink.split ]
+  ret i8 %.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @python_hashlib_Hacl_Streaming_SHA2_finish_512(ptr noundef readonly captures(none) %p, ptr noundef writeonly captures(none) initializes((0, 64)) %dst) local_unnamed_addr #11 {
-entry:
-  %last.i = alloca [256 x i8], align 16
-  %tmp_block_state = alloca [8 x i64], align 16
-  %scrut.sroa.0.0.copyload = load ptr, ptr %p, align 8
-  %scrut.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %p, i64 8
-  %scrut.sroa.2.0.copyload = load ptr, ptr %scrut.sroa.2.0..sroa_idx, align 8
-  %scrut.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %p, i64 16
-  %scrut.sroa.3.0.copyload = load i64, ptr %scrut.sroa.3.0..sroa_idx, align 8
-  %rem = and i64 %scrut.sroa.3.0.copyload, 127
-  %cmp = icmp eq i64 %rem, 0
-  %cmp3 = icmp ne i64 %scrut.sroa.3.0.copyload, 0
-  %or.cond = and i1 %cmp3, %cmp
-  %conv = trunc nuw nsw i64 %rem to i32
-  %r.0 = select i1 %or.cond, i32 128, i32 %conv
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %tmp_block_state, ptr noundef nonnull align 8 dereferenceable(64) %scrut.sroa.0.0.copyload, i64 64, i1 false)
-  %rem5 = and i32 %r.0, 127
-  %cmp6 = icmp eq i32 %rem5, 0
-  %cmp9 = icmp ne i32 %r.0, 0
-  %or.cond1 = and i1 %cmp9, %cmp6
-  %0 = zext nneg i32 %rem5 to i64
-  %ite.0 = select i1 %or.cond1, i64 128, i64 %0
-  %idx.ext = zext nneg i32 %r.0 to i64
-  %add.ptr = getelementptr i8, ptr %scrut.sroa.2.0.copyload, i64 %idx.ext
-  %idx.neg = sub nsw i64 0, %ite.0
-  %add.ptr16 = getelementptr i8, ptr %add.ptr, i64 %idx.neg
-  %sub = sub i64 %scrut.sroa.3.0.copyload, %idx.ext
-  %1 = xor i64 %scrut.sroa.3.0.copyload, -1
-  %xor2.i.i.i = and i64 %sub, %1
-  %shr.i.i.i = lshr i64 %xor2.i.i.i, 63
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %last.i)
-  %2 = add nsw i32 %r.0, -112
-  %cmp.i = icmp ult i32 %2, -129
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %last.i, i8 0, i64 256, i1 false)
-  %add.i.i.i.i.i = tail call noundef i64 @llvm.fshl.i64(i64 %shr.i.i.i, i64 %scrut.sroa.3.0.copyload, i64 3)
-  %shl.i.i.i = shl i64 %scrut.sroa.3.0.copyload, 3
-  %or19.i.i.i.i = shl nuw nsw i64 %add.i.i.i.i.i, 56
-  %or19.i3.i.i.i = tail call noundef i64 @llvm.bswap.i64(i64 range(i64 0, -7) %shl.i.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %last.i, ptr readonly align 1 %add.ptr16, i64 %idx.ext, i1 false)
-  %arrayidx.i = getelementptr [256 x i8], ptr %last.i, i64 0, i64 %idx.ext
-  store i8 -128, ptr %arrayidx.i, align 1
-  %..sroa.sel.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel.v = select i1 %cmp.i, i64 240, i64 112
-  %..sroa.sel.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %last.i, i64 %..sroa.sel.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel.v
-  store i64 %or19.i.i.i.i, ptr %..sroa.sel.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel, align 16
-  %..sroa.sel.sroa.sel.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel.v = select i1 %cmp.i, i64 248, i64 120
-  %..sroa.sel.sroa.sel.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %last.i, i64 %..sroa.sel.sroa.sel.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel.v
-  store i64 %or19.i3.i.i.i, ptr %..sroa.sel.sroa.sel.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel, align 8
-  call fastcc void @sha512_update(ptr noundef nonnull %last.i, ptr noundef nonnull %tmp_block_state)
-  br i1 %cmp.i, label %if.then12.i, label %Hacl_SHA2_Scalar32_sha512_update_last.exit
+define hidden void @python_hashlib_Hacl_Hash_SHA2_digest_512(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 64)) %1) local_unnamed_addr #14 {
+  %3 = alloca [256 x i8], align 16
+  %4 = alloca [8 x i64], align 16
+  %.sroa.025.0.copyload = load ptr, ptr %0, align 8, !tbaa !18
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %.sroa.4.0.copyload = load ptr, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !16
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %.sroa.5.0.copyload = load i64, ptr %.sroa.5.0..sroa_idx, align 8, !tbaa !10
+  %5 = and i64 %.sroa.5.0.copyload, 127
+  %6 = icmp eq i64 %5, 0
+  %7 = icmp ne i64 %.sroa.5.0.copyload, 0
+  %or.cond = and i1 %7, %6
+  %8 = trunc nuw nsw i64 %5 to i32
+  %.0 = select i1 %or.cond, i32 128, i32 %8
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4) #18
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %4, ptr noundef nonnull align 8 dereferenceable(64) %.sroa.025.0.copyload, i64 64, i1 false)
+  %9 = and i32 %.0, 127
+  %10 = icmp eq i32 %9, 0
+  %11 = icmp ne i32 %.0, 0
+  %or.cond3 = and i1 %11, %10
+  %12 = zext nneg i32 %9 to i64
+  %.028 = select i1 %or.cond3, i64 128, i64 %12
+  %13 = zext nneg i32 %.0 to i64
+  %14 = getelementptr i8, ptr %.sroa.4.0.copyload, i64 %13
+  %15 = sub nsw i64 0, %.028
+  %16 = getelementptr i8, ptr %14, i64 %15
+  %17 = sub i64 %.sroa.5.0.copyload, %13
+  %18 = xor i64 %.sroa.5.0.copyload, -1
+  %19 = and i64 %17, %18
+  %20 = lshr i64 %19, 63
+  %21 = add nsw i32 %.0, -112
+  %22 = icmp ult i32 %21, -129
+  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %3) #18
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %3, i8 0, i64 256, i1 false)
+  %23 = tail call noundef i64 @llvm.fshl.i64(i64 %20, i64 %.sroa.5.0.copyload, i64 3)
+  %24 = shl i64 %.sroa.5.0.copyload, 3
+  %25 = shl nuw nsw i64 %23, 56
+  %26 = tail call noundef i64 @llvm.bswap.i64(i64 range(i64 0, -7) %24)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %3, ptr readonly align 1 %16, i64 %13, i1 false)
+  %27 = getelementptr [256 x i8], ptr %3, i64 0, i64 %13
+  store i8 -128, ptr %27, align 1, !tbaa !9
+  %..sroa.sel.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel.v = select i1 %22, i64 240, i64 112
+  %..sroa.sel.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %3, i64 %..sroa.sel.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel.v
+  store i64 %25, ptr %..sroa.sel.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel, align 16
+  %..sroa.sel.sroa.sel.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel.v = select i1 %22, i64 248, i64 120
+  %..sroa.sel.sroa.sel.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %3, i64 %..sroa.sel.sroa.sel.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel.v
+  store i64 %26, ptr %..sroa.sel.sroa.sel.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel, align 8
+  call fastcc void @sha512_update(ptr noundef nonnull %3, ptr noundef nonnull %4)
+  br i1 %22, label %28, label %python_hashlib_Hacl_Hash_SHA2_sha512_update_last.exit
 
-if.then12.i:                                      ; preds = %entry
-  %.sroa.gep5.i = getelementptr inbounds nuw i8, ptr %last.i, i64 128
-  call fastcc void @sha512_update(ptr noundef nonnull %.sroa.gep5.i, ptr noundef nonnull %tmp_block_state)
-  br label %Hacl_SHA2_Scalar32_sha512_update_last.exit
+28:                                               ; preds = %2
+  %.sroa.gep18.i = getelementptr inbounds nuw i8, ptr %3, i64 128
+  call fastcc void @sha512_update(ptr noundef nonnull %.sroa.gep18.i, ptr noundef nonnull %4)
+  br label %python_hashlib_Hacl_Hash_SHA2_sha512_update_last.exit
 
-Hacl_SHA2_Scalar32_sha512_update_last.exit:       ; preds = %entry, %if.then12.i
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %last.i)
-  %3 = load i64, ptr %tmp_block_state, align 16
-  %or19.i.i = tail call noundef i64 @llvm.bswap.i64(i64 %3)
-  %arrayidx6.i = getelementptr inbounds nuw i8, ptr %tmp_block_state, i64 8
-  %4 = load i64, ptr %arrayidx6.i, align 8
-  %or19.i31.i = tail call noundef i64 @llvm.bswap.i64(i64 %4)
-  %arrayidx14.i = getelementptr inbounds nuw i8, ptr %tmp_block_state, i64 16
-  %5 = load i64, ptr %arrayidx14.i, align 16
-  %or19.i32.i = tail call noundef i64 @llvm.bswap.i64(i64 %5)
-  %arrayidx22.i = getelementptr inbounds nuw i8, ptr %tmp_block_state, i64 24
-  %6 = load i64, ptr %arrayidx22.i, align 8
-  %or19.i33.i = tail call noundef i64 @llvm.bswap.i64(i64 %6)
-  %arrayidx30.i = getelementptr inbounds nuw i8, ptr %tmp_block_state, i64 32
-  %7 = load i64, ptr %arrayidx30.i, align 16
-  %or19.i34.i = tail call noundef i64 @llvm.bswap.i64(i64 %7)
-  %arrayidx38.i = getelementptr inbounds nuw i8, ptr %tmp_block_state, i64 40
-  %8 = load i64, ptr %arrayidx38.i, align 8
-  %or19.i35.i = tail call noundef i64 @llvm.bswap.i64(i64 %8)
-  %arrayidx46.i = getelementptr inbounds nuw i8, ptr %tmp_block_state, i64 48
-  %9 = load i64, ptr %arrayidx46.i, align 16
-  %or19.i36.i = tail call noundef i64 @llvm.bswap.i64(i64 %9)
-  %arrayidx54.i = getelementptr inbounds nuw i8, ptr %tmp_block_state, i64 56
-  %10 = load i64, ptr %arrayidx54.i, align 8
-  %or19.i37.i = tail call noundef i64 @llvm.bswap.i64(i64 %10)
-  store i64 %or19.i.i, ptr %dst, align 1
-  %hbuf.sroa.3.0.h.sroa_idx.i = getelementptr inbounds nuw i8, ptr %dst, i64 8
-  store i64 %or19.i31.i, ptr %hbuf.sroa.3.0.h.sroa_idx.i, align 1
-  %hbuf.sroa.4.0.h.sroa_idx.i = getelementptr inbounds nuw i8, ptr %dst, i64 16
-  store i64 %or19.i32.i, ptr %hbuf.sroa.4.0.h.sroa_idx.i, align 1
-  %hbuf.sroa.5.0.h.sroa_idx.i = getelementptr inbounds nuw i8, ptr %dst, i64 24
-  store i64 %or19.i33.i, ptr %hbuf.sroa.5.0.h.sroa_idx.i, align 1
-  %hbuf.sroa.6.0.h.sroa_idx.i = getelementptr inbounds nuw i8, ptr %dst, i64 32
-  store i64 %or19.i34.i, ptr %hbuf.sroa.6.0.h.sroa_idx.i, align 1
-  %hbuf.sroa.7.0.h.sroa_idx.i = getelementptr inbounds nuw i8, ptr %dst, i64 40
-  store i64 %or19.i35.i, ptr %hbuf.sroa.7.0.h.sroa_idx.i, align 1
-  %hbuf.sroa.8.0.h.sroa_idx.i = getelementptr inbounds nuw i8, ptr %dst, i64 48
-  store i64 %or19.i36.i, ptr %hbuf.sroa.8.0.h.sroa_idx.i, align 1
-  %hbuf.sroa.9.0.h.sroa_idx.i = getelementptr inbounds nuw i8, ptr %dst, i64 56
-  store i64 %or19.i37.i, ptr %hbuf.sroa.9.0.h.sroa_idx.i, align 1
+python_hashlib_Hacl_Hash_SHA2_sha512_update_last.exit: ; preds = %2, %28
+  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %3) #18
+  %29 = load i64, ptr %4, align 16, !tbaa !10
+  %30 = tail call noundef i64 @llvm.bswap.i64(i64 %29)
+  %31 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %32 = load i64, ptr %31, align 8, !tbaa !10
+  %33 = tail call noundef i64 @llvm.bswap.i64(i64 %32)
+  %34 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %35 = load i64, ptr %34, align 16, !tbaa !10
+  %36 = tail call noundef i64 @llvm.bswap.i64(i64 %35)
+  %37 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  %38 = load i64, ptr %37, align 8, !tbaa !10
+  %39 = tail call noundef i64 @llvm.bswap.i64(i64 %38)
+  %40 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  %41 = load i64, ptr %40, align 16, !tbaa !10
+  %42 = tail call noundef i64 @llvm.bswap.i64(i64 %41)
+  %43 = getelementptr inbounds nuw i8, ptr %4, i64 40
+  %44 = load i64, ptr %43, align 8, !tbaa !10
+  %45 = tail call noundef i64 @llvm.bswap.i64(i64 %44)
+  %46 = getelementptr inbounds nuw i8, ptr %4, i64 48
+  %47 = load i64, ptr %46, align 16, !tbaa !10
+  %48 = tail call noundef i64 @llvm.bswap.i64(i64 %47)
+  %49 = getelementptr inbounds nuw i8, ptr %4, i64 56
+  %50 = load i64, ptr %49, align 8, !tbaa !10
+  %51 = tail call noundef i64 @llvm.bswap.i64(i64 %50)
+  store i64 %30, ptr %1, align 1
+  %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %1, i64 8
+  store i64 %33, ptr %.sroa.5.0..sroa_idx.i, align 1
+  %.sroa.6.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %1, i64 16
+  store i64 %36, ptr %.sroa.6.0..sroa_idx.i, align 1
+  %.sroa.7.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %1, i64 24
+  store i64 %39, ptr %.sroa.7.0..sroa_idx.i, align 1
+  %.sroa.8.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %1, i64 32
+  store i64 %42, ptr %.sroa.8.0..sroa_idx.i, align 1
+  %.sroa.9.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %1, i64 40
+  store i64 %45, ptr %.sroa.9.0..sroa_idx.i, align 1
+  %.sroa.10.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %1, i64 48
+  store i64 %48, ptr %.sroa.10.0..sroa_idx.i, align 1
+  %.sroa.11.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %1, i64 56
+  store i64 %51, ptr %.sroa.11.0..sroa_idx.i, align 1
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #18
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define hidden void @python_hashlib_Hacl_Streaming_SHA2_free_512(ptr noundef captures(none) %s) local_unnamed_addr #12 {
-entry:
-  %scrut.sroa.0.0.copyload = load ptr, ptr %s, align 8
-  %scrut.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %s, i64 8
-  %scrut.sroa.2.0.copyload = load ptr, ptr %scrut.sroa.2.0..sroa_idx, align 8
-  tail call void @free(ptr noundef %scrut.sroa.0.0.copyload) #18
-  tail call void @free(ptr noundef %scrut.sroa.2.0.copyload) #18
-  tail call void @free(ptr noundef %s) #18
+define hidden void @python_hashlib_Hacl_Hash_SHA2_free_512(ptr noundef captures(none) %0) local_unnamed_addr #15 {
+  %.sroa.0.0.copyload = load ptr, ptr %0, align 8, !tbaa !18
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %.sroa.4.0.copyload = load ptr, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !16
+  tail call void @free(ptr noundef %.sroa.0.0.copyload) #18
+  tail call void @free(ptr noundef %.sroa.4.0.copyload) #18
+  tail call void @free(ptr noundef %0) #18
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @Hacl_Streaming_SHA2_hash_512(ptr noundef readonly captures(none) %input, i32 noundef %input_len, ptr noundef writeonly captures(none) %dst) local_unnamed_addr #1 {
-entry:
-  %last.i = alloca [256 x i8], align 16
-  %st = alloca [8 x i64], align 16
-  store i64 7640891576956012808, ptr %st, align 16
-  %arrayidx8.i = getelementptr inbounds nuw i8, ptr %st, i64 8
-  store i64 -4942790177534073029, ptr %arrayidx8.i, align 8
-  %arrayidx15.i = getelementptr inbounds nuw i8, ptr %st, i64 16
-  store i64 4354685564936845355, ptr %arrayidx15.i, align 16
-  %arrayidx22.i = getelementptr inbounds nuw i8, ptr %st, i64 24
-  store i64 -6534734903238641935, ptr %arrayidx22.i, align 8
-  %arrayidx29.i = getelementptr inbounds nuw i8, ptr %st, i64 32
-  store i64 5840696475078001361, ptr %arrayidx29.i, align 16
-  %arrayidx36.i = getelementptr inbounds nuw i8, ptr %st, i64 40
-  store i64 -7276294671716946913, ptr %arrayidx36.i, align 8
-  %arrayidx43.i = getelementptr inbounds nuw i8, ptr %st, i64 48
-  store i64 2270897969802886507, ptr %arrayidx43.i, align 16
-  %arrayidx50.i = getelementptr inbounds nuw i8, ptr %st, i64 56
-  store i64 6620516959819538809, ptr %arrayidx50.i, align 8
-  %rem1 = and i32 %input_len, 127
-  %conv = zext i32 %input_len to i64
-  %cmp4.not.i = icmp ult i32 %input_len, 128
-  br i1 %cmp4.not.i, label %Hacl_SHA2_Scalar32_sha512_update_nblocks.exit, label %for.body.preheader.i
+define hidden void @python_hashlib_Hacl_Hash_SHA2_hash_512(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #2 {
+  %4 = alloca [256 x i8], align 16
+  %5 = alloca [8 x i64], align 16
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5) #18
+  store i64 7640891576956012808, ptr %5, align 16, !tbaa !10
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  store i64 -4942790177534073029, ptr %6, align 8, !tbaa !10
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  store i64 4354685564936845355, ptr %7, align 16, !tbaa !10
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  store i64 -6534734903238641935, ptr %8, align 8, !tbaa !10
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 32
+  store i64 5840696475078001361, ptr %9, align 16, !tbaa !10
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 40
+  store i64 -7276294671716946913, ptr %10, align 8, !tbaa !10
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 48
+  store i64 2270897969802886507, ptr %11, align 16, !tbaa !10
+  %12 = getelementptr inbounds nuw i8, ptr %5, i64 56
+  store i64 6620516959819538809, ptr %12, align 8, !tbaa !10
+  %13 = and i32 %2, 127
+  %14 = zext i32 %2 to i64
+  %.not.i = icmp ult i32 %2, 128
+  br i1 %.not.i, label %python_hashlib_Hacl_Hash_SHA2_sha512_update_nblocks.exit, label %.lr.ph.preheader.i
 
-for.body.preheader.i:                             ; preds = %entry
-  %div3.i = lshr i32 %input_len, 7
-  %wide.trip.count.i = zext nneg i32 %div3.i to i64
-  br label %for.body.i
+.lr.ph.preheader.i:                               ; preds = %3
+  %15 = lshr i32 %2, 7
+  %wide.trip.count.i = zext nneg i32 %15 to i64
+  br label %.lr.ph.i
 
-for.body.i:                                       ; preds = %for.body.i, %for.body.preheader.i
-  %indvars.iv.i = phi i64 [ 0, %for.body.preheader.i ], [ %indvars.iv.next.i, %for.body.i ]
-  %0 = shl nuw i64 %indvars.iv.i, 7
-  %add.ptr.i = getelementptr i8, ptr %input, i64 %0
-  call fastcc void @sha512_update(ptr noundef readonly %add.ptr.i, ptr noundef nonnull %st)
+.lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
+  %16 = shl nuw i64 %indvars.iv.i, 7
+  %17 = getelementptr i8, ptr %1, i64 %16
+  call fastcc void @sha512_update(ptr noundef readonly %17, ptr noundef nonnull %5)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %Hacl_SHA2_Scalar32_sha512_update_nblocks.exit, label %for.body.i, !llvm.loop !6
+  br i1 %exitcond.not.i, label %python_hashlib_Hacl_Hash_SHA2_sha512_update_nblocks.exit, label %.lr.ph.i, !llvm.loop !12
 
-Hacl_SHA2_Scalar32_sha512_update_nblocks.exit:    ; preds = %for.body.i, %entry
-  %add.ptr = getelementptr i8, ptr %input, i64 %conv
-  %idx.ext5 = zext nneg i32 %rem1 to i64
-  %idx.neg = sub nsw i64 0, %idx.ext5
-  %add.ptr6 = getelementptr i8, ptr %add.ptr, i64 %idx.neg
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %last.i)
-  %1 = add nsw i32 %rem1, -112
-  %cmp.i = icmp ult i32 %1, -129
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %last.i, i8 0, i64 256, i1 false)
-  %shl.i.i.i = shl nuw nsw i64 %conv, 3
-  %or19.i3.i.i.i = tail call noundef i64 @llvm.bswap.i64(i64 range(i64 0, -7) %shl.i.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %last.i, ptr readonly align 1 %add.ptr6, i64 %idx.ext5, i1 false)
-  %arrayidx.i = getelementptr [256 x i8], ptr %last.i, i64 0, i64 %idx.ext5
-  store i8 -128, ptr %arrayidx.i, align 1
-  %..sroa.sel.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel.v = select i1 %cmp.i, i64 240, i64 112
-  %..sroa.sel.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %last.i, i64 %..sroa.sel.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel.v
+python_hashlib_Hacl_Hash_SHA2_sha512_update_nblocks.exit: ; preds = %.lr.ph.i, %3
+  %18 = getelementptr i8, ptr %1, i64 %14
+  %19 = zext nneg i32 %13 to i64
+  %20 = sub nsw i64 0, %19
+  %21 = getelementptr i8, ptr %18, i64 %20
+  %22 = add nsw i32 %13, -112
+  %23 = icmp ult i32 %22, -129
+  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %4) #18
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %4, i8 0, i64 256, i1 false)
+  %24 = shl nuw nsw i64 %14, 3
+  %25 = tail call noundef i64 @llvm.bswap.i64(i64 range(i64 0, -7) %24)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %4, ptr readonly align 1 %21, i64 %19, i1 false)
+  %26 = getelementptr [256 x i8], ptr %4, i64 0, i64 %19
+  store i8 -128, ptr %26, align 1, !tbaa !9
+  %..sroa.sel.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel.v = select i1 %23, i64 240, i64 112
+  %..sroa.sel.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %4, i64 %..sroa.sel.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel.v
   store i64 0, ptr %..sroa.sel.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel, align 16
-  %..sroa.sel.sroa.sel.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel.v = select i1 %cmp.i, i64 248, i64 120
-  %..sroa.sel.sroa.sel.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %last.i, i64 %..sroa.sel.sroa.sel.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel.v
-  store i64 %or19.i3.i.i.i, ptr %..sroa.sel.sroa.sel.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel, align 8
-  call fastcc void @sha512_update(ptr noundef nonnull %last.i, ptr noundef nonnull %st)
-  br i1 %cmp.i, label %if.then12.i, label %Hacl_SHA2_Scalar32_sha512_update_last.exit
+  %..sroa.sel.sroa.sel.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel.v = select i1 %23, i64 248, i64 120
+  %..sroa.sel.sroa.sel.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %4, i64 %..sroa.sel.sroa.sel.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel.v
+  store i64 %25, ptr %..sroa.sel.sroa.sel.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel, align 8
+  call fastcc void @sha512_update(ptr noundef nonnull %4, ptr noundef nonnull %5)
+  br i1 %23, label %27, label %python_hashlib_Hacl_Hash_SHA2_sha512_update_last.exit
 
-if.then12.i:                                      ; preds = %Hacl_SHA2_Scalar32_sha512_update_nblocks.exit
-  %.sroa.gep5.i = getelementptr inbounds nuw i8, ptr %last.i, i64 128
-  call fastcc void @sha512_update(ptr noundef nonnull %.sroa.gep5.i, ptr noundef nonnull %st)
-  br label %Hacl_SHA2_Scalar32_sha512_update_last.exit
+27:                                               ; preds = %python_hashlib_Hacl_Hash_SHA2_sha512_update_nblocks.exit
+  %.sroa.gep18.i = getelementptr inbounds nuw i8, ptr %4, i64 128
+  call fastcc void @sha512_update(ptr noundef nonnull %.sroa.gep18.i, ptr noundef nonnull %5)
+  br label %python_hashlib_Hacl_Hash_SHA2_sha512_update_last.exit
 
-Hacl_SHA2_Scalar32_sha512_update_last.exit:       ; preds = %Hacl_SHA2_Scalar32_sha512_update_nblocks.exit, %if.then12.i
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %last.i)
-  %2 = load i64, ptr %st, align 16
-  %or19.i.i = tail call noundef i64 @llvm.bswap.i64(i64 %2)
-  %3 = load i64, ptr %arrayidx8.i, align 8
-  %or19.i31.i = tail call noundef i64 @llvm.bswap.i64(i64 %3)
-  %4 = load i64, ptr %arrayidx15.i, align 16
-  %or19.i32.i = tail call noundef i64 @llvm.bswap.i64(i64 %4)
-  %5 = load i64, ptr %arrayidx22.i, align 8
-  %or19.i33.i = tail call noundef i64 @llvm.bswap.i64(i64 %5)
-  %6 = load i64, ptr %arrayidx29.i, align 16
-  %or19.i34.i = tail call noundef i64 @llvm.bswap.i64(i64 %6)
-  %7 = load i64, ptr %arrayidx36.i, align 8
-  %or19.i35.i = tail call noundef i64 @llvm.bswap.i64(i64 %7)
-  %8 = load i64, ptr %arrayidx43.i, align 16
-  %or19.i36.i = tail call noundef i64 @llvm.bswap.i64(i64 %8)
-  %9 = load i64, ptr %arrayidx50.i, align 8
-  %or19.i37.i = tail call noundef i64 @llvm.bswap.i64(i64 %9)
-  store i64 %or19.i.i, ptr %dst, align 1
-  %hbuf.sroa.3.0.h.sroa_idx.i = getelementptr inbounds nuw i8, ptr %dst, i64 8
-  store i64 %or19.i31.i, ptr %hbuf.sroa.3.0.h.sroa_idx.i, align 1
-  %hbuf.sroa.4.0.h.sroa_idx.i = getelementptr inbounds nuw i8, ptr %dst, i64 16
-  store i64 %or19.i32.i, ptr %hbuf.sroa.4.0.h.sroa_idx.i, align 1
-  %hbuf.sroa.5.0.h.sroa_idx.i = getelementptr inbounds nuw i8, ptr %dst, i64 24
-  store i64 %or19.i33.i, ptr %hbuf.sroa.5.0.h.sroa_idx.i, align 1
-  %hbuf.sroa.6.0.h.sroa_idx.i = getelementptr inbounds nuw i8, ptr %dst, i64 32
-  store i64 %or19.i34.i, ptr %hbuf.sroa.6.0.h.sroa_idx.i, align 1
-  %hbuf.sroa.7.0.h.sroa_idx.i = getelementptr inbounds nuw i8, ptr %dst, i64 40
-  store i64 %or19.i35.i, ptr %hbuf.sroa.7.0.h.sroa_idx.i, align 1
-  %hbuf.sroa.8.0.h.sroa_idx.i = getelementptr inbounds nuw i8, ptr %dst, i64 48
-  store i64 %or19.i36.i, ptr %hbuf.sroa.8.0.h.sroa_idx.i, align 1
-  %hbuf.sroa.9.0.h.sroa_idx.i = getelementptr inbounds nuw i8, ptr %dst, i64 56
-  store i64 %or19.i37.i, ptr %hbuf.sroa.9.0.h.sroa_idx.i, align 1
+python_hashlib_Hacl_Hash_SHA2_sha512_update_last.exit: ; preds = %python_hashlib_Hacl_Hash_SHA2_sha512_update_nblocks.exit, %27
+  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %4) #18
+  %28 = load i64, ptr %5, align 16, !tbaa !10
+  %29 = tail call noundef i64 @llvm.bswap.i64(i64 %28)
+  %30 = load i64, ptr %6, align 8, !tbaa !10
+  %31 = tail call noundef i64 @llvm.bswap.i64(i64 %30)
+  %32 = load i64, ptr %7, align 16, !tbaa !10
+  %33 = tail call noundef i64 @llvm.bswap.i64(i64 %32)
+  %34 = load i64, ptr %8, align 8, !tbaa !10
+  %35 = tail call noundef i64 @llvm.bswap.i64(i64 %34)
+  %36 = load i64, ptr %9, align 16, !tbaa !10
+  %37 = tail call noundef i64 @llvm.bswap.i64(i64 %36)
+  %38 = load i64, ptr %10, align 8, !tbaa !10
+  %39 = tail call noundef i64 @llvm.bswap.i64(i64 %38)
+  %40 = load i64, ptr %11, align 16, !tbaa !10
+  %41 = tail call noundef i64 @llvm.bswap.i64(i64 %40)
+  %42 = load i64, ptr %12, align 8, !tbaa !10
+  %43 = tail call noundef i64 @llvm.bswap.i64(i64 %42)
+  store i64 %29, ptr %0, align 1
+  %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %31, ptr %.sroa.5.0..sroa_idx.i, align 1
+  %.sroa.6.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 %33, ptr %.sroa.6.0..sroa_idx.i, align 1
+  %.sroa.7.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store i64 %35, ptr %.sroa.7.0..sroa_idx.i, align 1
+  %.sroa.8.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store i64 %37, ptr %.sroa.8.0..sroa_idx.i, align 1
+  %.sroa.9.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 40
+  store i64 %39, ptr %.sroa.9.0..sroa_idx.i, align 1
+  %.sroa.10.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 48
+  store i64 %41, ptr %.sroa.10.0..sroa_idx.i, align 1
+  %.sroa.11.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 56
+  store i64 %43, ptr %.sroa.11.0..sroa_idx.i, align 1
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5) #18
   ret void
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: none, inaccessiblemem: readwrite) uwtable
-define hidden noalias noundef ptr @python_hashlib_Hacl_Streaming_SHA2_create_in_384() local_unnamed_addr #5 {
-entry:
-  %call = tail call noalias dereferenceable_or_null(128) ptr @calloc(i64 noundef 128, i64 noundef 1) #16
-  %call1 = tail call noalias dereferenceable_or_null(64) ptr @calloc(i64 noundef 8, i64 noundef 8) #16
-  %call4 = tail call noalias dereferenceable_or_null(24) ptr @malloc(i64 noundef 24) #17
-  store ptr %call1, ptr %call4, align 8
-  %s.sroa.2.0.arrayidx.sroa_idx = getelementptr inbounds nuw i8, ptr %call4, i64 8
-  store ptr %call, ptr %s.sroa.2.0.arrayidx.sroa_idx, align 8
-  %s.sroa.3.0.arrayidx.sroa_idx = getelementptr inbounds nuw i8, ptr %call4, i64 16
-  store i64 0, ptr %s.sroa.3.0.arrayidx.sroa_idx, align 8
-  store i64 -3766243637369397544, ptr %call1, align 8
-  %arrayidx8.i = getelementptr i8, ptr %call1, i64 8
-  store i64 7105036623409894663, ptr %arrayidx8.i, align 8
-  %arrayidx15.i = getelementptr i8, ptr %call1, i64 16
-  store i64 -7973340178411365097, ptr %arrayidx15.i, align 8
-  %arrayidx22.i = getelementptr i8, ptr %call1, i64 24
-  store i64 1526699215303891257, ptr %arrayidx22.i, align 8
-  %arrayidx29.i = getelementptr i8, ptr %call1, i64 32
-  store i64 7436329637833083697, ptr %arrayidx29.i, align 8
-  %arrayidx36.i = getelementptr i8, ptr %call1, i64 40
-  store i64 -8163818279084223215, ptr %arrayidx36.i, align 8
-  %arrayidx43.i = getelementptr i8, ptr %call1, i64 48
-  store i64 -2662702644619276377, ptr %arrayidx43.i, align 8
-  %arrayidx50.i = getelementptr i8, ptr %call1, i64 56
-  store i64 5167115440072839076, ptr %arrayidx50.i, align 8
-  ret ptr %call4
+define hidden noalias noundef ptr @python_hashlib_Hacl_Hash_SHA2_malloc_384() local_unnamed_addr #7 {
+  %1 = tail call noalias dereferenceable_or_null(128) ptr @calloc(i64 noundef 128, i64 noundef 1) #19
+  %2 = tail call noalias dereferenceable_or_null(64) ptr @calloc(i64 noundef 8, i64 noundef 8) #19
+  %3 = tail call noalias dereferenceable_or_null(24) ptr @malloc(i64 noundef 24) #20
+  store ptr %2, ptr %3, align 8, !tbaa !18
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store ptr %1, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !16
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 16
+  store i64 0, ptr %.sroa.5.0..sroa_idx, align 8, !tbaa !10
+  store i64 -3766243637369397544, ptr %2, align 8, !tbaa !10
+  %4 = getelementptr i8, ptr %2, i64 8
+  store i64 7105036623409894663, ptr %4, align 8, !tbaa !10
+  %5 = getelementptr i8, ptr %2, i64 16
+  store i64 -7973340178411365097, ptr %5, align 8, !tbaa !10
+  %6 = getelementptr i8, ptr %2, i64 24
+  store i64 1526699215303891257, ptr %6, align 8, !tbaa !10
+  %7 = getelementptr i8, ptr %2, i64 32
+  store i64 7436329637833083697, ptr %7, align 8, !tbaa !10
+  %8 = getelementptr i8, ptr %2, i64 40
+  store i64 -8163818279084223215, ptr %8, align 8, !tbaa !10
+  %9 = getelementptr i8, ptr %2, i64 48
+  store i64 -2662702644619276377, ptr %9, align 8, !tbaa !10
+  %10 = getelementptr i8, ptr %2, i64 56
+  store i64 5167115440072839076, ptr %10, align 8, !tbaa !10
+  ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @python_hashlib_Hacl_Streaming_SHA2_init_384(ptr noundef captures(none) initializes((16, 24)) %s) local_unnamed_addr #9 {
-entry:
-  %scrut.sroa.0.0.copyload = load ptr, ptr %s, align 8
-  %scrut.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %s, i64 8
-  %scrut.sroa.2.0.copyload = load ptr, ptr %scrut.sroa.2.0..sroa_idx, align 8
-  %scrut.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %s, i64 16
-  store i64 -3766243637369397544, ptr %scrut.sroa.0.0.copyload, align 8
-  %arrayidx8.i = getelementptr i8, ptr %scrut.sroa.0.0.copyload, i64 8
-  store i64 7105036623409894663, ptr %arrayidx8.i, align 8
-  %arrayidx15.i = getelementptr i8, ptr %scrut.sroa.0.0.copyload, i64 16
-  store i64 -7973340178411365097, ptr %arrayidx15.i, align 8
-  %arrayidx22.i = getelementptr i8, ptr %scrut.sroa.0.0.copyload, i64 24
-  store i64 1526699215303891257, ptr %arrayidx22.i, align 8
-  %arrayidx29.i = getelementptr i8, ptr %scrut.sroa.0.0.copyload, i64 32
-  store i64 7436329637833083697, ptr %arrayidx29.i, align 8
-  %arrayidx36.i = getelementptr i8, ptr %scrut.sroa.0.0.copyload, i64 40
-  store i64 -8163818279084223215, ptr %arrayidx36.i, align 8
-  %arrayidx43.i = getelementptr i8, ptr %scrut.sroa.0.0.copyload, i64 48
-  store i64 -2662702644619276377, ptr %arrayidx43.i, align 8
-  %arrayidx50.i = getelementptr i8, ptr %scrut.sroa.0.0.copyload, i64 56
-  store i64 5167115440072839076, ptr %arrayidx50.i, align 8
-  store ptr %scrut.sroa.0.0.copyload, ptr %s, align 8
-  store ptr %scrut.sroa.2.0.copyload, ptr %scrut.sroa.2.0..sroa_idx, align 8
-  store i64 0, ptr %scrut.sroa.3.0..sroa_idx, align 8
+define hidden void @python_hashlib_Hacl_Hash_SHA2_reset_384(ptr noundef captures(none) initializes((16, 24)) %0) local_unnamed_addr #11 {
+  %.sroa.03.0.copyload = load ptr, ptr %0, align 8, !tbaa !18
+  %.sroa.55.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 -3766243637369397544, ptr %.sroa.03.0.copyload, align 8, !tbaa !10
+  %2 = getelementptr i8, ptr %.sroa.03.0.copyload, i64 8
+  store i64 7105036623409894663, ptr %2, align 8, !tbaa !10
+  %3 = getelementptr i8, ptr %.sroa.03.0.copyload, i64 16
+  store i64 -7973340178411365097, ptr %3, align 8, !tbaa !10
+  %4 = getelementptr i8, ptr %.sroa.03.0.copyload, i64 24
+  store i64 1526699215303891257, ptr %4, align 8, !tbaa !10
+  %5 = getelementptr i8, ptr %.sroa.03.0.copyload, i64 32
+  store i64 7436329637833083697, ptr %5, align 8, !tbaa !10
+  %6 = getelementptr i8, ptr %.sroa.03.0.copyload, i64 40
+  store i64 -8163818279084223215, ptr %6, align 8, !tbaa !10
+  %7 = getelementptr i8, ptr %.sroa.03.0.copyload, i64 48
+  store i64 -2662702644619276377, ptr %7, align 8, !tbaa !10
+  %8 = getelementptr i8, ptr %.sroa.03.0.copyload, i64 56
+  store i64 5167115440072839076, ptr %8, align 8, !tbaa !10
+  store i64 0, ptr %.sroa.55.0..sroa_idx, align 8, !tbaa !10
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden zeroext range(i8 0, 4) i8 @python_hashlib_Hacl_Streaming_SHA2_update_384(ptr noundef captures(none) %p, ptr noundef readonly captures(none) %input, i32 noundef %input_len) local_unnamed_addr #10 {
-entry:
-  %call = tail call fastcc zeroext i8 @update_384_512(ptr noundef %p, ptr noundef %input, i32 noundef %input_len)
-  ret i8 %call
+define hidden zeroext range(i8 0, 4) i8 @python_hashlib_Hacl_Hash_SHA2_update_384(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #12 {
+  %4 = tail call fastcc zeroext i8 @update_384_512(ptr noundef %0, ptr noundef %1, i32 noundef %2)
+  ret i8 %4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @python_hashlib_Hacl_Streaming_SHA2_finish_384(ptr noundef readonly captures(none) %p, ptr noundef writeonly captures(none) initializes((0, 48)) %dst) local_unnamed_addr #11 {
-entry:
-  %last.i.i = alloca [256 x i8], align 16
-  %tmp_block_state = alloca [8 x i64], align 16
-  %scrut.sroa.0.0.copyload = load ptr, ptr %p, align 8
-  %scrut.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %p, i64 8
-  %scrut.sroa.2.0.copyload = load ptr, ptr %scrut.sroa.2.0..sroa_idx, align 8
-  %scrut.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %p, i64 16
-  %scrut.sroa.3.0.copyload = load i64, ptr %scrut.sroa.3.0..sroa_idx, align 8
-  %rem = and i64 %scrut.sroa.3.0.copyload, 127
-  %cmp = icmp eq i64 %rem, 0
-  %cmp3 = icmp ne i64 %scrut.sroa.3.0.copyload, 0
-  %or.cond = and i1 %cmp3, %cmp
-  %conv = trunc nuw nsw i64 %rem to i32
-  %r.0 = select i1 %or.cond, i32 128, i32 %conv
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %tmp_block_state, ptr noundef nonnull align 8 dereferenceable(64) %scrut.sroa.0.0.copyload, i64 64, i1 false)
-  %rem5 = and i32 %r.0, 127
-  %cmp6 = icmp eq i32 %rem5, 0
-  %cmp9 = icmp ne i32 %r.0, 0
-  %or.cond1 = and i1 %cmp9, %cmp6
-  %0 = zext nneg i32 %rem5 to i64
-  %ite.0 = select i1 %or.cond1, i64 128, i64 %0
-  %idx.ext = zext nneg i32 %r.0 to i64
-  %add.ptr = getelementptr i8, ptr %scrut.sroa.2.0.copyload, i64 %idx.ext
-  %idx.neg = sub nsw i64 0, %ite.0
-  %add.ptr16 = getelementptr i8, ptr %add.ptr, i64 %idx.neg
-  %sub = sub i64 %scrut.sroa.3.0.copyload, %idx.ext
-  %1 = xor i64 %scrut.sroa.3.0.copyload, -1
-  %xor2.i.i.i = and i64 %sub, %1
-  %shr.i.i.i = lshr i64 %xor2.i.i.i, 63
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %last.i.i)
-  %2 = add nsw i32 %r.0, -112
-  %cmp.i.i = icmp ult i32 %2, -129
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %last.i.i, i8 0, i64 256, i1 false)
-  %add.i.i.i.i.i.i = tail call noundef i64 @llvm.fshl.i64(i64 %shr.i.i.i, i64 %scrut.sroa.3.0.copyload, i64 3)
-  %shl.i.i.i.i = shl i64 %scrut.sroa.3.0.copyload, 3
-  %or19.i.i.i.i.i = shl nuw nsw i64 %add.i.i.i.i.i.i, 56
-  %or19.i3.i.i.i.i = tail call noundef i64 @llvm.bswap.i64(i64 range(i64 0, -7) %shl.i.i.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %last.i.i, ptr readonly align 1 %add.ptr16, i64 %idx.ext, i1 false)
-  %arrayidx.i.i = getelementptr [256 x i8], ptr %last.i.i, i64 0, i64 %idx.ext
-  store i8 -128, ptr %arrayidx.i.i, align 1
-  %..sroa.sel.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel.v = select i1 %cmp.i.i, i64 240, i64 112
-  %..sroa.sel.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %last.i.i, i64 %..sroa.sel.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel.v
-  store i64 %or19.i.i.i.i.i, ptr %..sroa.sel.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel, align 16
-  %..sroa.sel.sroa.sel.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel.v = select i1 %cmp.i.i, i64 248, i64 120
-  %..sroa.sel.sroa.sel.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %last.i.i, i64 %..sroa.sel.sroa.sel.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel.v
-  store i64 %or19.i3.i.i.i.i, ptr %..sroa.sel.sroa.sel.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel, align 8
-  call fastcc void @sha512_update(ptr noundef nonnull %last.i.i, ptr noundef nonnull %tmp_block_state)
-  br i1 %cmp.i.i, label %if.then12.i.i, label %Hacl_SHA2_Scalar32_sha384_update_last.exit
+define hidden void @python_hashlib_Hacl_Hash_SHA2_digest_384(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 48)) %1) local_unnamed_addr #14 {
+  %3 = alloca [256 x i8], align 16
+  %4 = alloca [8 x i64], align 16
+  %.sroa.025.0.copyload = load ptr, ptr %0, align 8, !tbaa !18
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %.sroa.4.0.copyload = load ptr, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !16
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %.sroa.5.0.copyload = load i64, ptr %.sroa.5.0..sroa_idx, align 8, !tbaa !10
+  %5 = and i64 %.sroa.5.0.copyload, 127
+  %6 = icmp eq i64 %5, 0
+  %7 = icmp ne i64 %.sroa.5.0.copyload, 0
+  %or.cond = and i1 %7, %6
+  %8 = trunc nuw nsw i64 %5 to i32
+  %.0 = select i1 %or.cond, i32 128, i32 %8
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4) #18
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %4, ptr noundef nonnull align 8 dereferenceable(64) %.sroa.025.0.copyload, i64 64, i1 false)
+  %9 = and i32 %.0, 127
+  %10 = icmp eq i32 %9, 0
+  %11 = icmp ne i32 %.0, 0
+  %or.cond3 = and i1 %11, %10
+  %12 = zext nneg i32 %9 to i64
+  %.028 = select i1 %or.cond3, i64 128, i64 %12
+  %13 = zext nneg i32 %.0 to i64
+  %14 = getelementptr i8, ptr %.sroa.4.0.copyload, i64 %13
+  %15 = sub nsw i64 0, %.028
+  %16 = getelementptr i8, ptr %14, i64 %15
+  %17 = sub i64 %.sroa.5.0.copyload, %13
+  %18 = xor i64 %.sroa.5.0.copyload, -1
+  %19 = and i64 %17, %18
+  %20 = lshr i64 %19, 63
+  %21 = add nsw i32 %.0, -112
+  %22 = icmp ult i32 %21, -129
+  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %3) #18
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %3, i8 0, i64 256, i1 false)
+  %23 = tail call noundef i64 @llvm.fshl.i64(i64 %20, i64 %.sroa.5.0.copyload, i64 3)
+  %24 = shl i64 %.sroa.5.0.copyload, 3
+  %25 = shl nuw nsw i64 %23, 56
+  %26 = tail call noundef i64 @llvm.bswap.i64(i64 range(i64 0, -7) %24)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %3, ptr readonly align 1 %16, i64 %13, i1 false)
+  %27 = getelementptr [256 x i8], ptr %3, i64 0, i64 %13
+  store i8 -128, ptr %27, align 1, !tbaa !9
+  %..sroa.sel.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel.v = select i1 %22, i64 240, i64 112
+  %..sroa.sel.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %3, i64 %..sroa.sel.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel.v
+  store i64 %25, ptr %..sroa.sel.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel, align 16
+  %..sroa.sel.sroa.sel.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel.v = select i1 %22, i64 248, i64 120
+  %..sroa.sel.sroa.sel.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %3, i64 %..sroa.sel.sroa.sel.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel.v
+  store i64 %26, ptr %..sroa.sel.sroa.sel.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel, align 8
+  call fastcc void @sha512_update(ptr noundef nonnull %3, ptr noundef nonnull %4)
+  br i1 %22, label %28, label %python_hashlib_Hacl_Hash_SHA2_sha384_update_last.exit
 
-if.then12.i.i:                                    ; preds = %entry
-  %.sroa.gep5.i.i = getelementptr inbounds nuw i8, ptr %last.i.i, i64 128
-  call fastcc void @sha512_update(ptr noundef nonnull %.sroa.gep5.i.i, ptr noundef nonnull %tmp_block_state)
-  br label %Hacl_SHA2_Scalar32_sha384_update_last.exit
+28:                                               ; preds = %2
+  %.sroa.gep18.i.i = getelementptr inbounds nuw i8, ptr %3, i64 128
+  call fastcc void @sha512_update(ptr noundef nonnull %.sroa.gep18.i.i, ptr noundef nonnull %4)
+  br label %python_hashlib_Hacl_Hash_SHA2_sha384_update_last.exit
 
-Hacl_SHA2_Scalar32_sha384_update_last.exit:       ; preds = %entry, %if.then12.i.i
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %last.i.i)
-  %3 = load i64, ptr %tmp_block_state, align 16
-  %or19.i.i = tail call noundef i64 @llvm.bswap.i64(i64 %3)
-  %arrayidx6.i = getelementptr inbounds nuw i8, ptr %tmp_block_state, i64 8
-  %4 = load i64, ptr %arrayidx6.i, align 8
-  %or19.i31.i = tail call noundef i64 @llvm.bswap.i64(i64 %4)
-  %arrayidx14.i = getelementptr inbounds nuw i8, ptr %tmp_block_state, i64 16
-  %5 = load i64, ptr %arrayidx14.i, align 16
-  %or19.i32.i = tail call noundef i64 @llvm.bswap.i64(i64 %5)
-  %arrayidx22.i = getelementptr inbounds nuw i8, ptr %tmp_block_state, i64 24
-  %6 = load i64, ptr %arrayidx22.i, align 8
-  %or19.i33.i = tail call noundef i64 @llvm.bswap.i64(i64 %6)
-  %arrayidx30.i = getelementptr inbounds nuw i8, ptr %tmp_block_state, i64 32
-  %7 = load i64, ptr %arrayidx30.i, align 16
-  %or19.i34.i = tail call noundef i64 @llvm.bswap.i64(i64 %7)
-  %arrayidx38.i = getelementptr inbounds nuw i8, ptr %tmp_block_state, i64 40
-  %8 = load i64, ptr %arrayidx38.i, align 8
-  %or19.i35.i = tail call noundef i64 @llvm.bswap.i64(i64 %8)
-  store i64 %or19.i.i, ptr %dst, align 1
-  %hbuf.sroa.3.0.h.sroa_idx.i = getelementptr inbounds nuw i8, ptr %dst, i64 8
-  store i64 %or19.i31.i, ptr %hbuf.sroa.3.0.h.sroa_idx.i, align 1
-  %hbuf.sroa.4.0.h.sroa_idx.i = getelementptr inbounds nuw i8, ptr %dst, i64 16
-  store i64 %or19.i32.i, ptr %hbuf.sroa.4.0.h.sroa_idx.i, align 1
-  %hbuf.sroa.5.0.h.sroa_idx.i = getelementptr inbounds nuw i8, ptr %dst, i64 24
-  store i64 %or19.i33.i, ptr %hbuf.sroa.5.0.h.sroa_idx.i, align 1
-  %hbuf.sroa.6.0.h.sroa_idx.i = getelementptr inbounds nuw i8, ptr %dst, i64 32
-  store i64 %or19.i34.i, ptr %hbuf.sroa.6.0.h.sroa_idx.i, align 1
-  %hbuf.sroa.7.0.h.sroa_idx.i = getelementptr inbounds nuw i8, ptr %dst, i64 40
-  store i64 %or19.i35.i, ptr %hbuf.sroa.7.0.h.sroa_idx.i, align 1
+python_hashlib_Hacl_Hash_SHA2_sha384_update_last.exit: ; preds = %2, %28
+  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %3) #18
+  %29 = load i64, ptr %4, align 16, !tbaa !10
+  %30 = tail call noundef i64 @llvm.bswap.i64(i64 %29)
+  %31 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %32 = load i64, ptr %31, align 8, !tbaa !10
+  %33 = tail call noundef i64 @llvm.bswap.i64(i64 %32)
+  %34 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %35 = load i64, ptr %34, align 16, !tbaa !10
+  %36 = tail call noundef i64 @llvm.bswap.i64(i64 %35)
+  %37 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  %38 = load i64, ptr %37, align 8, !tbaa !10
+  %39 = tail call noundef i64 @llvm.bswap.i64(i64 %38)
+  %40 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  %41 = load i64, ptr %40, align 16, !tbaa !10
+  %42 = tail call noundef i64 @llvm.bswap.i64(i64 %41)
+  %43 = getelementptr inbounds nuw i8, ptr %4, i64 40
+  %44 = load i64, ptr %43, align 8, !tbaa !10
+  %45 = tail call noundef i64 @llvm.bswap.i64(i64 %44)
+  store i64 %30, ptr %1, align 1
+  %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %1, i64 8
+  store i64 %33, ptr %.sroa.5.0..sroa_idx.i, align 1
+  %.sroa.6.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %1, i64 16
+  store i64 %36, ptr %.sroa.6.0..sroa_idx.i, align 1
+  %.sroa.7.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %1, i64 24
+  store i64 %39, ptr %.sroa.7.0..sroa_idx.i, align 1
+  %.sroa.8.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %1, i64 32
+  store i64 %42, ptr %.sroa.8.0..sroa_idx.i, align 1
+  %.sroa.9.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %1, i64 40
+  store i64 %45, ptr %.sroa.9.0..sroa_idx.i, align 1
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #18
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define hidden void @python_hashlib_Hacl_Streaming_SHA2_free_384(ptr noundef captures(none) %p) local_unnamed_addr #12 {
-entry:
-  %scrut.sroa.0.0.copyload.i = load ptr, ptr %p, align 8
-  %scrut.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %p, i64 8
-  %scrut.sroa.2.0.copyload.i = load ptr, ptr %scrut.sroa.2.0..sroa_idx.i, align 8
-  tail call void @free(ptr noundef %scrut.sroa.0.0.copyload.i) #18
-  tail call void @free(ptr noundef %scrut.sroa.2.0.copyload.i) #18
-  tail call void @free(ptr noundef %p) #18
+define hidden void @python_hashlib_Hacl_Hash_SHA2_free_384(ptr noundef captures(none) %0) local_unnamed_addr #15 {
+  %.sroa.0.0.copyload.i = load ptr, ptr %0, align 8, !tbaa !18
+  %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %.sroa.4.0.copyload.i = load ptr, ptr %.sroa.4.0..sroa_idx.i, align 8, !tbaa !16
+  tail call void @free(ptr noundef %.sroa.0.0.copyload.i) #18
+  tail call void @free(ptr noundef %.sroa.4.0.copyload.i) #18
+  tail call void @free(ptr noundef %0) #18
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @Hacl_Streaming_SHA2_hash_384(ptr noundef readonly captures(none) %input, i32 noundef %input_len, ptr noundef writeonly captures(none) %dst) local_unnamed_addr #1 {
-entry:
-  %last.i.i = alloca [256 x i8], align 16
-  %st = alloca [8 x i64], align 16
-  store i64 -3766243637369397544, ptr %st, align 16
-  %arrayidx8.i = getelementptr inbounds nuw i8, ptr %st, i64 8
-  store i64 7105036623409894663, ptr %arrayidx8.i, align 8
-  %arrayidx15.i = getelementptr inbounds nuw i8, ptr %st, i64 16
-  store i64 -7973340178411365097, ptr %arrayidx15.i, align 16
-  %arrayidx22.i = getelementptr inbounds nuw i8, ptr %st, i64 24
-  store i64 1526699215303891257, ptr %arrayidx22.i, align 8
-  %arrayidx29.i = getelementptr inbounds nuw i8, ptr %st, i64 32
-  store i64 7436329637833083697, ptr %arrayidx29.i, align 16
-  %arrayidx36.i = getelementptr inbounds nuw i8, ptr %st, i64 40
-  store i64 -8163818279084223215, ptr %arrayidx36.i, align 8
-  %arrayidx43.i = getelementptr inbounds nuw i8, ptr %st, i64 48
-  store i64 -2662702644619276377, ptr %arrayidx43.i, align 16
-  %arrayidx50.i = getelementptr inbounds nuw i8, ptr %st, i64 56
-  store i64 5167115440072839076, ptr %arrayidx50.i, align 8
-  %rem1 = and i32 %input_len, 127
-  %conv = zext i32 %input_len to i64
-  %cmp4.not.i.i = icmp ult i32 %input_len, 128
-  br i1 %cmp4.not.i.i, label %Hacl_SHA2_Scalar32_sha384_update_nblocks.exit, label %for.body.preheader.i.i
+define hidden void @python_hashlib_Hacl_Hash_SHA2_hash_384(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #2 {
+  %4 = alloca [256 x i8], align 16
+  %5 = alloca [8 x i64], align 16
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5) #18
+  store i64 -3766243637369397544, ptr %5, align 16, !tbaa !10
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  store i64 7105036623409894663, ptr %6, align 8, !tbaa !10
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  store i64 -7973340178411365097, ptr %7, align 16, !tbaa !10
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  store i64 1526699215303891257, ptr %8, align 8, !tbaa !10
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 32
+  store i64 7436329637833083697, ptr %9, align 16, !tbaa !10
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 40
+  store i64 -8163818279084223215, ptr %10, align 8, !tbaa !10
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 48
+  store i64 -2662702644619276377, ptr %11, align 16, !tbaa !10
+  %12 = getelementptr inbounds nuw i8, ptr %5, i64 56
+  store i64 5167115440072839076, ptr %12, align 8, !tbaa !10
+  %13 = and i32 %2, 127
+  %14 = zext i32 %2 to i64
+  %.not.i.i = icmp ult i32 %2, 128
+  br i1 %.not.i.i, label %python_hashlib_Hacl_Hash_SHA2_sha384_update_nblocks.exit, label %.lr.ph.preheader.i.i
 
-for.body.preheader.i.i:                           ; preds = %entry
-  %div3.i.i = lshr i32 %input_len, 7
-  %wide.trip.count.i.i = zext nneg i32 %div3.i.i to i64
-  br label %for.body.i.i
+.lr.ph.preheader.i.i:                             ; preds = %3
+  %15 = lshr i32 %2, 7
+  %wide.trip.count.i.i = zext nneg i32 %15 to i64
+  br label %.lr.ph.i.i
 
-for.body.i.i:                                     ; preds = %for.body.i.i, %for.body.preheader.i.i
-  %indvars.iv.i.i = phi i64 [ 0, %for.body.preheader.i.i ], [ %indvars.iv.next.i.i, %for.body.i.i ]
-  %0 = shl nuw i64 %indvars.iv.i.i, 7
-  %add.ptr.i.i = getelementptr i8, ptr %input, i64 %0
-  call fastcc void @sha512_update(ptr noundef readonly %add.ptr.i.i, ptr noundef nonnull %st)
+.lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.preheader.i.i
+  %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %.lr.ph.i.i ]
+  %16 = shl nuw i64 %indvars.iv.i.i, 7
+  %17 = getelementptr i8, ptr %1, i64 %16
+  call fastcc void @sha512_update(ptr noundef readonly %17, ptr noundef nonnull %5)
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %Hacl_SHA2_Scalar32_sha384_update_nblocks.exit, label %for.body.i.i, !llvm.loop !6
+  br i1 %exitcond.not.i.i, label %python_hashlib_Hacl_Hash_SHA2_sha384_update_nblocks.exit, label %.lr.ph.i.i, !llvm.loop !12
 
-Hacl_SHA2_Scalar32_sha384_update_nblocks.exit:    ; preds = %for.body.i.i, %entry
-  %add.ptr = getelementptr i8, ptr %input, i64 %conv
-  %idx.ext5 = zext nneg i32 %rem1 to i64
-  %idx.neg = sub nsw i64 0, %idx.ext5
-  %add.ptr6 = getelementptr i8, ptr %add.ptr, i64 %idx.neg
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %last.i.i)
-  %1 = add nsw i32 %rem1, -112
-  %cmp.i.i = icmp ult i32 %1, -129
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %last.i.i, i8 0, i64 256, i1 false)
-  %shl.i.i.i.i = shl nuw nsw i64 %conv, 3
-  %or19.i3.i.i.i.i = tail call noundef i64 @llvm.bswap.i64(i64 range(i64 0, -7) %shl.i.i.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %last.i.i, ptr readonly align 1 %add.ptr6, i64 %idx.ext5, i1 false)
-  %arrayidx.i.i = getelementptr [256 x i8], ptr %last.i.i, i64 0, i64 %idx.ext5
-  store i8 -128, ptr %arrayidx.i.i, align 1
-  %..sroa.sel.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel.v = select i1 %cmp.i.i, i64 240, i64 112
-  %..sroa.sel.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %last.i.i, i64 %..sroa.sel.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel.v
+python_hashlib_Hacl_Hash_SHA2_sha384_update_nblocks.exit: ; preds = %.lr.ph.i.i, %3
+  %18 = getelementptr i8, ptr %1, i64 %14
+  %19 = zext nneg i32 %13 to i64
+  %20 = sub nsw i64 0, %19
+  %21 = getelementptr i8, ptr %18, i64 %20
+  %22 = add nsw i32 %13, -112
+  %23 = icmp ult i32 %22, -129
+  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %4) #18
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %4, i8 0, i64 256, i1 false)
+  %24 = shl nuw nsw i64 %14, 3
+  %25 = tail call noundef i64 @llvm.bswap.i64(i64 range(i64 0, -7) %24)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %4, ptr readonly align 1 %21, i64 %19, i1 false)
+  %26 = getelementptr [256 x i8], ptr %4, i64 0, i64 %19
+  store i8 -128, ptr %26, align 1, !tbaa !9
+  %..sroa.sel.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel.v = select i1 %23, i64 240, i64 112
+  %..sroa.sel.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %4, i64 %..sroa.sel.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel.v
   store i64 0, ptr %..sroa.sel.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel, align 16
-  %..sroa.sel.sroa.sel.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel.v = select i1 %cmp.i.i, i64 248, i64 120
-  %..sroa.sel.sroa.sel.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %last.i.i, i64 %..sroa.sel.sroa.sel.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel.v
-  store i64 %or19.i3.i.i.i.i, ptr %..sroa.sel.sroa.sel.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel, align 8
-  call fastcc void @sha512_update(ptr noundef nonnull %last.i.i, ptr noundef nonnull %st)
-  br i1 %cmp.i.i, label %if.then12.i.i, label %Hacl_SHA2_Scalar32_sha384_update_last.exit
+  %..sroa.sel.sroa.sel.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel.v = select i1 %23, i64 248, i64 120
+  %..sroa.sel.sroa.sel.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %4, i64 %..sroa.sel.sroa.sel.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel.v
+  store i64 %25, ptr %..sroa.sel.sroa.sel.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel, align 8
+  call fastcc void @sha512_update(ptr noundef nonnull %4, ptr noundef nonnull %5)
+  br i1 %23, label %27, label %python_hashlib_Hacl_Hash_SHA2_sha384_update_last.exit
 
-if.then12.i.i:                                    ; preds = %Hacl_SHA2_Scalar32_sha384_update_nblocks.exit
-  %.sroa.gep5.i.i = getelementptr inbounds nuw i8, ptr %last.i.i, i64 128
-  call fastcc void @sha512_update(ptr noundef nonnull %.sroa.gep5.i.i, ptr noundef nonnull %st)
-  br label %Hacl_SHA2_Scalar32_sha384_update_last.exit
+27:                                               ; preds = %python_hashlib_Hacl_Hash_SHA2_sha384_update_nblocks.exit
+  %.sroa.gep18.i.i = getelementptr inbounds nuw i8, ptr %4, i64 128
+  call fastcc void @sha512_update(ptr noundef nonnull %.sroa.gep18.i.i, ptr noundef nonnull %5)
+  br label %python_hashlib_Hacl_Hash_SHA2_sha384_update_last.exit
 
-Hacl_SHA2_Scalar32_sha384_update_last.exit:       ; preds = %Hacl_SHA2_Scalar32_sha384_update_nblocks.exit, %if.then12.i.i
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %last.i.i)
-  %2 = load i64, ptr %st, align 16
-  %or19.i.i = tail call noundef i64 @llvm.bswap.i64(i64 %2)
-  %3 = load i64, ptr %arrayidx8.i, align 8
-  %or19.i31.i = tail call noundef i64 @llvm.bswap.i64(i64 %3)
-  %4 = load i64, ptr %arrayidx15.i, align 16
-  %or19.i32.i = tail call noundef i64 @llvm.bswap.i64(i64 %4)
-  %5 = load i64, ptr %arrayidx22.i, align 8
-  %or19.i33.i = tail call noundef i64 @llvm.bswap.i64(i64 %5)
-  %6 = load i64, ptr %arrayidx29.i, align 16
-  %or19.i34.i = tail call noundef i64 @llvm.bswap.i64(i64 %6)
-  %7 = load i64, ptr %arrayidx36.i, align 8
-  %or19.i35.i = tail call noundef i64 @llvm.bswap.i64(i64 %7)
-  store i64 %or19.i.i, ptr %dst, align 1
-  %hbuf.sroa.3.0.h.sroa_idx.i = getelementptr inbounds nuw i8, ptr %dst, i64 8
-  store i64 %or19.i31.i, ptr %hbuf.sroa.3.0.h.sroa_idx.i, align 1
-  %hbuf.sroa.4.0.h.sroa_idx.i = getelementptr inbounds nuw i8, ptr %dst, i64 16
-  store i64 %or19.i32.i, ptr %hbuf.sroa.4.0.h.sroa_idx.i, align 1
-  %hbuf.sroa.5.0.h.sroa_idx.i = getelementptr inbounds nuw i8, ptr %dst, i64 24
-  store i64 %or19.i33.i, ptr %hbuf.sroa.5.0.h.sroa_idx.i, align 1
-  %hbuf.sroa.6.0.h.sroa_idx.i = getelementptr inbounds nuw i8, ptr %dst, i64 32
-  store i64 %or19.i34.i, ptr %hbuf.sroa.6.0.h.sroa_idx.i, align 1
-  %hbuf.sroa.7.0.h.sroa_idx.i = getelementptr inbounds nuw i8, ptr %dst, i64 40
-  store i64 %or19.i35.i, ptr %hbuf.sroa.7.0.h.sroa_idx.i, align 1
+python_hashlib_Hacl_Hash_SHA2_sha384_update_last.exit: ; preds = %python_hashlib_Hacl_Hash_SHA2_sha384_update_nblocks.exit, %27
+  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %4) #18
+  %28 = load i64, ptr %5, align 16, !tbaa !10
+  %29 = tail call noundef i64 @llvm.bswap.i64(i64 %28)
+  %30 = load i64, ptr %6, align 8, !tbaa !10
+  %31 = tail call noundef i64 @llvm.bswap.i64(i64 %30)
+  %32 = load i64, ptr %7, align 16, !tbaa !10
+  %33 = tail call noundef i64 @llvm.bswap.i64(i64 %32)
+  %34 = load i64, ptr %8, align 8, !tbaa !10
+  %35 = tail call noundef i64 @llvm.bswap.i64(i64 %34)
+  %36 = load i64, ptr %9, align 16, !tbaa !10
+  %37 = tail call noundef i64 @llvm.bswap.i64(i64 %36)
+  %38 = load i64, ptr %10, align 8, !tbaa !10
+  %39 = tail call noundef i64 @llvm.bswap.i64(i64 %38)
+  store i64 %29, ptr %0, align 1
+  %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %31, ptr %.sroa.5.0..sroa_idx.i, align 1
+  %.sroa.6.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 %33, ptr %.sroa.6.0..sroa_idx.i, align 1
+  %.sroa.7.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store i64 %35, ptr %.sroa.7.0..sroa_idx.i, align 1
+  %.sroa.8.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store i64 %37, ptr %.sroa.8.0..sroa_idx.i, align 1
+  %.sroa.9.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 40
+  store i64 %39, ptr %.sroa.9.0..sroa_idx.i, align 1
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5) #18
   ret void
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.fshl.i32(i32, i32, i32) #14
+declare i32 @llvm.fshl.i32(i32, i32, i32) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.bswap.i64(i64) #14
+declare i64 @llvm.bswap.i64(i64) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.bswap.i32(i32) #14
+declare i32 @llvm.bswap.i32(i32) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.fshl.i64(i64, i64, i64) #14
+declare i64 @llvm.fshl.i64(i64, i64, i64) #17
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #15
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #15
-
-attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { mustprogress nofree nounwind willreturn memory(write, argmem: none, inaccessiblemem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nofree nounwind willreturn uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { mustprogress nounwind willreturn uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #15 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #16 = { nounwind allocsize(0,1) }
-attributes #17 = { nounwind allocsize(0) }
+attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { inlinehint mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #7 = { mustprogress nofree nounwind willreturn memory(write, argmem: none, inaccessiblemem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nofree nounwind willreturn uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { inlinehint nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { mustprogress nounwind willreturn uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #16 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #17 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #18 = { nounwind }
+attributes #19 = { nounwind allocsize(0,1) }
+attributes #20 = { nounwind allocsize(0) }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
+!3 = !{!4, !4, i64 0}
+!4 = !{!"int", !5, i64 0}
+!5 = !{!"omnipotent char", !6, i64 0}
+!6 = !{!"Simple C/C++ TBAA"}
+!7 = distinct !{!7, !8}
+!8 = !{!"llvm.loop.mustprogress"}
+!9 = !{!5, !5, i64 0}
+!10 = !{!11, !11, i64 0}
+!11 = !{!"long", !5, i64 0}
+!12 = distinct !{!12, !8}
+!13 = !{!14, !14, i64 0}
+!14 = !{!"p1 int", !15, i64 0}
+!15 = !{!"any pointer", !5, i64 0}
+!16 = !{!17, !17, i64 0}
+!17 = !{!"p1 omnipotent char", !15, i64 0}
+!18 = !{!19, !19, i64 0}
+!19 = !{!"p1 long", !15, i64 0}

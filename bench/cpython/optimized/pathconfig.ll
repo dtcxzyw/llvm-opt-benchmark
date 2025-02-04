@@ -1,13 +1,12 @@
 ; ModuleID = 'bench/cpython/original/pathconfig.ll'
 source_filename = "bench/cpython/original/pathconfig.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
-%struct._PyPathConfig = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32 }
 %struct.PyMemAllocatorEx = type { ptr, ptr, ptr, ptr, ptr }
 %struct.PyStatus = type { i32, ptr, ptr, i32 }
 
-@_Py_path_config = hidden local_unnamed_addr global %struct._PyPathConfig zeroinitializer, align 8
+@_Py_path_config = hidden local_unnamed_addr global { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, [4 x i8] } zeroinitializer, align 8
 @__func__._PyPathConfig_UpdateGlobal = private unnamed_addr constant [27 x i8] c"_PyPathConfig_UpdateGlobal\00", align 1
 @.str = private unnamed_addr constant [25 x i8] c"memory allocation failed\00", align 1
 @.str.1 = private unnamed_addr constant [1 x i32] zeroinitializer, align 4
@@ -20,770 +19,844 @@ target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define hidden ptr @_PyPathConfig_GetGlobalModuleSearchPath() local_unnamed_addr #0 {
-entry:
-  %0 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_Py_path_config, i64 32), align 8
-  ret ptr %0
+  %1 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_Py_path_config, i64 32), align 8, !tbaa !4
+  ret ptr %1
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @_PyPathConfig_ClearGlobal() local_unnamed_addr #1 {
-entry:
-  %old_alloc = alloca %struct.PyMemAllocatorEx, align 8
-  %call = call i32 @_PyMem_SetDefaultAllocator(i32 noundef 0, ptr noundef nonnull %old_alloc) #11
-  %0 = load ptr, ptr @_Py_path_config, align 8
-  call void @PyMem_RawFree(ptr noundef %0) #11
-  store ptr null, ptr @_Py_path_config, align 8
-  %1 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_Py_path_config, i64 8), align 8
-  call void @PyMem_RawFree(ptr noundef %1) #11
-  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_Py_path_config, i64 8), align 8
-  %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_Py_path_config, i64 16), align 8
-  call void @PyMem_RawFree(ptr noundef %2) #11
-  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_Py_path_config, i64 16), align 8
-  %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_Py_path_config, i64 24), align 8
-  call void @PyMem_RawFree(ptr noundef %3) #11
-  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_Py_path_config, i64 24), align 8
-  %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_Py_path_config, i64 32), align 8
-  call void @PyMem_RawFree(ptr noundef %4) #11
-  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_Py_path_config, i64 32), align 8
-  %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_Py_path_config, i64 40), align 8
-  call void @PyMem_RawFree(ptr noundef %5) #11
-  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_Py_path_config, i64 40), align 8
-  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_Py_path_config, i64 48), align 8
-  call void @PyMem_RawFree(ptr noundef %6) #11
-  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_Py_path_config, i64 48), align 8
-  %7 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_Py_path_config, i64 56), align 8
-  call void @PyMem_RawFree(ptr noundef %7) #11
-  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_Py_path_config, i64 56), align 8
-  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_Py_path_config, i64 64), align 8
-  call void @PyMem_SetAllocator(i32 noundef 0, ptr noundef nonnull %old_alloc) #11
+  %1 = alloca %struct.PyMemAllocatorEx, align 8
+  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %1) #12
+  %2 = call i32 @_PyMem_SetDefaultAllocator(i32 noundef 0, ptr noundef nonnull %1) #12
+  %3 = load ptr, ptr @_Py_path_config, align 8, !tbaa !11
+  call void @PyMem_RawFree(ptr noundef %3) #12
+  store ptr null, ptr @_Py_path_config, align 8, !tbaa !11
+  %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_Py_path_config, i64 8), align 8, !tbaa !12
+  call void @PyMem_RawFree(ptr noundef %4) #12
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_Py_path_config, i64 8), align 8, !tbaa !12
+  %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_Py_path_config, i64 16), align 8, !tbaa !13
+  call void @PyMem_RawFree(ptr noundef %5) #12
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_Py_path_config, i64 16), align 8, !tbaa !13
+  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_Py_path_config, i64 24), align 8, !tbaa !14
+  call void @PyMem_RawFree(ptr noundef %6) #12
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_Py_path_config, i64 24), align 8, !tbaa !14
+  %7 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_Py_path_config, i64 32), align 8, !tbaa !4
+  call void @PyMem_RawFree(ptr noundef %7) #12
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_Py_path_config, i64 32), align 8, !tbaa !4
+  %8 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_Py_path_config, i64 40), align 8, !tbaa !15
+  call void @PyMem_RawFree(ptr noundef %8) #12
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_Py_path_config, i64 40), align 8, !tbaa !15
+  %9 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_Py_path_config, i64 48), align 8, !tbaa !16
+  call void @PyMem_RawFree(ptr noundef %9) #12
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_Py_path_config, i64 48), align 8, !tbaa !16
+  %10 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_Py_path_config, i64 56), align 8, !tbaa !17
+  call void @PyMem_RawFree(ptr noundef %10) #12
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_Py_path_config, i64 56), align 8, !tbaa !17
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_Py_path_config, i64 64), align 8, !tbaa !18
+  call void @PyMem_SetAllocator(i32 noundef 0, ptr noundef nonnull %1) #12
+  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %1) #12
   ret void
 }
 
-declare i32 @_PyMem_SetDefaultAllocator(i32 noundef, ptr noundef) local_unnamed_addr #2
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
-declare void @PyMem_RawFree(ptr noundef) local_unnamed_addr #2
+declare i32 @_PyMem_SetDefaultAllocator(i32 noundef, ptr noundef) local_unnamed_addr #3
 
-declare void @PyMem_SetAllocator(i32 noundef, ptr noundef) local_unnamed_addr #2
+declare void @PyMem_RawFree(ptr noundef) local_unnamed_addr #3
+
+declare void @PyMem_SetAllocator(i32 noundef, ptr noundef) local_unnamed_addr #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: nounwind uwtable
-define hidden void @_PyPathConfig_ReadGlobal(ptr noalias sret(%struct.PyStatus) align 8 captures(none) initializes((0, 32)) %agg.result, ptr noundef %config) local_unnamed_addr #1 {
-entry:
-  %tmp = alloca %struct.PyStatus, align 8
-  %tmp10 = alloca %struct.PyStatus, align 8
-  %tmp23 = alloca %struct.PyStatus, align 8
-  %tmp36 = alloca %struct.PyStatus, align 8
-  %tmp49 = alloca %struct.PyStatus, align 8
-  %tmp62 = alloca %struct.PyStatus, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, i8 0, i64 32, i1 false)
-  %0 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_Py_path_config, i64 8), align 8
-  %tobool.not = icmp eq ptr %0, null
-  br i1 %tobool.not, label %do.body5, label %land.lhs.true
+define hidden void @_PyPathConfig_ReadGlobal(ptr dead_on_unwind noalias writable sret(%struct.PyStatus) align 8 captures(none) initializes((0, 32)) %0, ptr noundef %1) local_unnamed_addr #1 {
+  %3 = alloca %struct.PyStatus, align 8
+  %4 = alloca %struct.PyStatus, align 8
+  %5 = alloca %struct.PyStatus, align 8
+  %6 = alloca %struct.PyStatus, align 8
+  %7 = alloca %struct.PyStatus, align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 0, i64 32, i1 false)
+  %8 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_Py_path_config, i64 8), align 8, !tbaa !12
+  %.not = icmp eq ptr %8, null
+  br i1 %.not, label %14, label %9
 
-land.lhs.true:                                    ; preds = %entry
-  %prefix = getelementptr inbounds nuw i8, ptr %config, i64 360
-  %1 = load ptr, ptr %prefix, align 8
-  %tobool1.not = icmp eq ptr %1, null
-  br i1 %tobool1.not, label %if.then, label %do.body5
+9:                                                ; preds = %2
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 360
+  %11 = load ptr, ptr %10, align 8, !tbaa !19
+  %.not21 = icmp eq ptr %11, null
+  br i1 %.not21, label %12, label %14
 
-if.then:                                          ; preds = %land.lhs.true
-  call void @PyConfig_SetString(ptr nonnull sret(%struct.PyStatus) align 8 %tmp, ptr noundef nonnull %config, ptr noundef nonnull %prefix, ptr noundef nonnull %0) #11
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %tmp, i64 32, i1 false)
-  %2 = load i32, ptr %agg.result, align 8
-  %cmp.not = icmp eq i32 %2, 0
-  br i1 %cmp.not, label %do.body5, label %done
+12:                                               ; preds = %9
+  tail call void @PyConfig_SetString(ptr dead_on_unwind nonnull writable sret(%struct.PyStatus) align 8 %0, ptr noundef nonnull %1, ptr noundef nonnull %10, ptr noundef nonnull %8) #12
+  %13 = load i32, ptr %0, align 8, !tbaa !24
+  %.not22 = icmp eq i32 %13, 0
+  br i1 %.not22, label %14, label %59
 
-do.body5:                                         ; preds = %if.then, %land.lhs.true, %entry
-  %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_Py_path_config, i64 16), align 8
-  %tobool6.not = icmp eq ptr %3, null
-  br i1 %tobool6.not, label %do.body18, label %land.lhs.true7
+14:                                               ; preds = %12, %9, %2
+  %15 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_Py_path_config, i64 16), align 8, !tbaa !13
+  %.not23 = icmp eq ptr %15, null
+  br i1 %.not23, label %21, label %16
 
-land.lhs.true7:                                   ; preds = %do.body5
-  %exec_prefix = getelementptr inbounds nuw i8, ptr %config, i64 376
-  %4 = load ptr, ptr %exec_prefix, align 8
-  %tobool8.not = icmp eq ptr %4, null
-  br i1 %tobool8.not, label %if.then9, label %do.body18
+16:                                               ; preds = %14
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 376
+  %18 = load ptr, ptr %17, align 8, !tbaa !27
+  %.not24 = icmp eq ptr %18, null
+  br i1 %.not24, label %19, label %21
 
-if.then9:                                         ; preds = %land.lhs.true7
-  call void @PyConfig_SetString(ptr nonnull sret(%struct.PyStatus) align 8 %tmp10, ptr noundef nonnull %config, ptr noundef nonnull %exec_prefix, ptr noundef nonnull %3) #11
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %tmp10, i64 32, i1 false)
-  %5 = load i32, ptr %agg.result, align 8
-  %cmp13.not = icmp eq i32 %5, 0
-  br i1 %cmp13.not, label %do.body18, label %done
+19:                                               ; preds = %16
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #12
+  call void @PyConfig_SetString(ptr dead_on_unwind nonnull writable sret(%struct.PyStatus) align 8 %3, ptr noundef nonnull %1, ptr noundef nonnull %17, ptr noundef nonnull %15) #12
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false), !tbaa.struct !28
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #12
+  %20 = load i32, ptr %0, align 8, !tbaa !24
+  %.not25 = icmp eq i32 %20, 0
+  br i1 %.not25, label %21, label %59
 
-do.body18:                                        ; preds = %if.then9, %land.lhs.true7, %do.body5
-  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_Py_path_config, i64 24), align 8
-  %tobool19.not = icmp eq ptr %6, null
-  br i1 %tobool19.not, label %do.body31, label %land.lhs.true20
+21:                                               ; preds = %19, %16, %14
+  %22 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_Py_path_config, i64 24), align 8, !tbaa !14
+  %.not26 = icmp eq ptr %22, null
+  br i1 %.not26, label %28, label %23
 
-land.lhs.true20:                                  ; preds = %do.body18
-  %stdlib_dir = getelementptr inbounds nuw i8, ptr %config, i64 336
-  %7 = load ptr, ptr %stdlib_dir, align 8
-  %tobool21.not = icmp eq ptr %7, null
-  br i1 %tobool21.not, label %if.then22, label %do.body31
+23:                                               ; preds = %21
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 336
+  %25 = load ptr, ptr %24, align 8, !tbaa !31
+  %.not27 = icmp eq ptr %25, null
+  br i1 %.not27, label %26, label %28
 
-if.then22:                                        ; preds = %land.lhs.true20
-  call void @PyConfig_SetString(ptr nonnull sret(%struct.PyStatus) align 8 %tmp23, ptr noundef nonnull %config, ptr noundef nonnull %stdlib_dir, ptr noundef nonnull %6) #11
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %tmp23, i64 32, i1 false)
-  %8 = load i32, ptr %agg.result, align 8
-  %cmp26.not = icmp eq i32 %8, 0
-  br i1 %cmp26.not, label %do.body31, label %done
+26:                                               ; preds = %23
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #12
+  call void @PyConfig_SetString(ptr dead_on_unwind nonnull writable sret(%struct.PyStatus) align 8 %4, ptr noundef nonnull %1, ptr noundef nonnull %24, ptr noundef nonnull %22) #12
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 32, i1 false), !tbaa.struct !28
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #12
+  %27 = load i32, ptr %0, align 8, !tbaa !24
+  %.not28 = icmp eq i32 %27, 0
+  br i1 %.not28, label %28, label %59
 
-do.body31:                                        ; preds = %if.then22, %land.lhs.true20, %do.body18
-  %9 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_Py_path_config, i64 48), align 8
-  %tobool32.not = icmp eq ptr %9, null
-  br i1 %tobool32.not, label %do.body44, label %land.lhs.true33
+28:                                               ; preds = %26, %23, %21
+  %29 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_Py_path_config, i64 48), align 8, !tbaa !16
+  %.not29 = icmp eq ptr %29, null
+  br i1 %.not29, label %35, label %30
 
-land.lhs.true33:                                  ; preds = %do.body31
-  %program_name = getelementptr inbounds nuw i8, ptr %config, i64 280
-  %10 = load ptr, ptr %program_name, align 8
-  %tobool34.not = icmp eq ptr %10, null
-  br i1 %tobool34.not, label %if.then35, label %do.body44
+30:                                               ; preds = %28
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 280
+  %32 = load ptr, ptr %31, align 8, !tbaa !32
+  %.not30 = icmp eq ptr %32, null
+  br i1 %.not30, label %33, label %35
 
-if.then35:                                        ; preds = %land.lhs.true33
-  call void @PyConfig_SetString(ptr nonnull sret(%struct.PyStatus) align 8 %tmp36, ptr noundef nonnull %config, ptr noundef nonnull %program_name, ptr noundef nonnull %9) #11
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %tmp36, i64 32, i1 false)
-  %11 = load i32, ptr %agg.result, align 8
-  %cmp39.not = icmp eq i32 %11, 0
-  br i1 %cmp39.not, label %do.body44, label %done
+33:                                               ; preds = %30
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #12
+  call void @PyConfig_SetString(ptr dead_on_unwind nonnull writable sret(%struct.PyStatus) align 8 %5, ptr noundef nonnull %1, ptr noundef nonnull %31, ptr noundef nonnull %29) #12
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 32, i1 false), !tbaa.struct !28
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #12
+  %34 = load i32, ptr %0, align 8, !tbaa !24
+  %.not31 = icmp eq i32 %34, 0
+  br i1 %.not31, label %35, label %59
 
-do.body44:                                        ; preds = %if.then35, %land.lhs.true33, %do.body31
-  %12 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_Py_path_config, i64 56), align 8
-  %tobool45.not = icmp eq ptr %12, null
-  br i1 %tobool45.not, label %do.body57, label %land.lhs.true46
+35:                                               ; preds = %33, %30, %28
+  %36 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_Py_path_config, i64 56), align 8, !tbaa !17
+  %.not32 = icmp eq ptr %36, null
+  br i1 %.not32, label %42, label %37
 
-land.lhs.true46:                                  ; preds = %do.body44
-  %home = getelementptr inbounds nuw i8, ptr %config, i64 296
-  %13 = load ptr, ptr %home, align 8
-  %tobool47.not = icmp eq ptr %13, null
-  br i1 %tobool47.not, label %if.then48, label %do.body57
+37:                                               ; preds = %35
+  %38 = getelementptr inbounds nuw i8, ptr %1, i64 296
+  %39 = load ptr, ptr %38, align 8, !tbaa !33
+  %.not33 = icmp eq ptr %39, null
+  br i1 %.not33, label %40, label %42
 
-if.then48:                                        ; preds = %land.lhs.true46
-  call void @PyConfig_SetString(ptr nonnull sret(%struct.PyStatus) align 8 %tmp49, ptr noundef nonnull %config, ptr noundef nonnull %home, ptr noundef nonnull %12) #11
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %tmp49, i64 32, i1 false)
-  %14 = load i32, ptr %agg.result, align 8
-  %cmp52.not = icmp eq i32 %14, 0
-  br i1 %cmp52.not, label %do.body57, label %done
+40:                                               ; preds = %37
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #12
+  call void @PyConfig_SetString(ptr dead_on_unwind nonnull writable sret(%struct.PyStatus) align 8 %6, ptr noundef nonnull %1, ptr noundef nonnull %38, ptr noundef nonnull %36) #12
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %6, i64 32, i1 false), !tbaa.struct !28
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #12
+  %41 = load i32, ptr %0, align 8, !tbaa !24
+  %.not34 = icmp eq i32 %41, 0
+  br i1 %.not34, label %42, label %59
 
-do.body57:                                        ; preds = %if.then48, %land.lhs.true46, %do.body44
-  %15 = load ptr, ptr @_Py_path_config, align 8
-  %tobool58.not = icmp eq ptr %15, null
-  br i1 %tobool58.not, label %do.body70, label %land.lhs.true59
+42:                                               ; preds = %40, %37, %35
+  %43 = load ptr, ptr @_Py_path_config, align 8, !tbaa !11
+  %.not35 = icmp eq ptr %43, null
+  br i1 %.not35, label %52, label %44
 
-land.lhs.true59:                                  ; preds = %do.body57
-  %executable = getelementptr inbounds nuw i8, ptr %config, i64 344
-  %16 = load ptr, ptr %executable, align 8
-  %tobool60.not = icmp eq ptr %16, null
-  br i1 %tobool60.not, label %if.then61, label %do.body70
+44:                                               ; preds = %42
+  %45 = getelementptr inbounds nuw i8, ptr %1, i64 344
+  %46 = load ptr, ptr %45, align 8, !tbaa !34
+  %.not36 = icmp eq ptr %46, null
+  br i1 %.not36, label %47, label %52
 
-if.then61:                                        ; preds = %land.lhs.true59
-  call void @PyConfig_SetString(ptr nonnull sret(%struct.PyStatus) align 8 %tmp62, ptr noundef nonnull %config, ptr noundef nonnull %executable, ptr noundef nonnull %15) #11
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %tmp62, i64 32, i1 false)
-  %17 = load i32, ptr %agg.result, align 8
-  %cmp65 = icmp eq i32 %17, 0
-  %18 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_Py_path_config, i64 64), align 8
-  %cmp71 = icmp sgt i32 %18, -1
-  %or.cond = select i1 %cmp65, i1 %cmp71, i1 false
-  br i1 %or.cond, label %land.lhs.true72, label %done
+47:                                               ; preds = %44
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #12
+  call void @PyConfig_SetString(ptr dead_on_unwind nonnull writable sret(%struct.PyStatus) align 8 %7, ptr noundef nonnull %1, ptr noundef nonnull %45, ptr noundef nonnull %43) #12
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %7, i64 32, i1 false), !tbaa.struct !28
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #12
+  %48 = load i32, ptr %0, align 8, !tbaa !24
+  %49 = icmp eq i32 %48, 0
+  %50 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_Py_path_config, i64 64), align 8
+  %51 = icmp sgt i32 %50, -1
+  %or.cond = select i1 %49, i1 %51, i1 false
+  br i1 %or.cond, label %53, label %59
 
-do.body70:                                        ; preds = %land.lhs.true59, %do.body57
-  %.old1 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_Py_path_config, i64 64), align 8
-  %cmp71.old = icmp sgt i32 %.old1, -1
-  br i1 %cmp71.old, label %land.lhs.true72, label %done
+52:                                               ; preds = %44, %42
+  %.old = load i32, ptr getelementptr inbounds nuw (i8, ptr @_Py_path_config, i64 64), align 8, !tbaa !18
+  %.old1 = icmp sgt i32 %.old, -1
+  br i1 %.old1, label %53, label %59
 
-land.lhs.true72:                                  ; preds = %if.then61, %do.body70
-  %19 = phi i32 [ %18, %if.then61 ], [ %.old1, %do.body70 ]
-  %_is_python_build = getelementptr inbounds nuw i8, ptr %config, i64 440
-  %20 = load i32, ptr %_is_python_build, align 8
-  %cmp73 = icmp slt i32 %20, 1
-  br i1 %cmp73, label %if.then74, label %done
+53:                                               ; preds = %47, %52
+  %54 = phi i32 [ %50, %47 ], [ %.old, %52 ]
+  %55 = getelementptr inbounds nuw i8, ptr %1, i64 440
+  %56 = load i32, ptr %55, align 8, !tbaa !35
+  %57 = icmp slt i32 %56, 1
+  br i1 %57, label %58, label %59
 
-if.then74:                                        ; preds = %land.lhs.true72
-  store i32 %19, ptr %_is_python_build, align 8
-  br label %done
+58:                                               ; preds = %53
+  store i32 %54, ptr %55, align 8, !tbaa !35
+  br label %59
 
-done:                                             ; preds = %if.then74, %land.lhs.true72, %do.body70, %if.then61, %if.then48, %if.then35, %if.then22, %if.then9, %if.then
+59:                                               ; preds = %58, %53, %52, %47, %40, %33, %26, %19, %12
   ret void
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
-declare void @PyConfig_SetString(ptr sret(%struct.PyStatus) align 8, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @PyConfig_SetString(ptr dead_on_unwind writable sret(%struct.PyStatus) align 8, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: nounwind uwtable
-define hidden void @_PyPathConfig_UpdateGlobal(ptr noalias writeonly sret(%struct.PyStatus) align 8 captures(none) %agg.result, ptr noundef readonly captures(none) %config) local_unnamed_addr #1 {
-entry:
-  %old_alloc = alloca %struct.PyMemAllocatorEx, align 8
-  %call = call i32 @_PyMem_SetDefaultAllocator(i32 noundef 0, ptr noundef nonnull %old_alloc) #11
-  %prefix = getelementptr inbounds nuw i8, ptr %config, i64 360
-  %0 = load ptr, ptr %prefix, align 8
-  %tobool.not = icmp eq ptr %0, null
-  br i1 %tobool.not, label %do.body6, label %if.then
+define hidden void @_PyPathConfig_UpdateGlobal(ptr dead_on_unwind noalias writable writeonly sret(%struct.PyStatus) align 8 captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #1 {
+  %3 = alloca %struct.PyMemAllocatorEx, align 8
+  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3) #12
+  %4 = call i32 @_PyMem_SetDefaultAllocator(i32 noundef 0, ptr noundef nonnull %3) #12
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 360
+  %6 = load ptr, ptr %5, align 8, !tbaa !19
+  %.not = icmp eq ptr %6, null
+  br i1 %.not, label %11, label %7
 
-if.then:                                          ; preds = %entry
-  %1 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_Py_path_config, i64 8), align 8
-  call void @PyMem_RawFree(ptr noundef %1) #11
-  %2 = load ptr, ptr %prefix, align 8
-  %call2 = call ptr @_PyMem_RawWcsdup(ptr noundef %2) #11
-  store ptr %call2, ptr getelementptr inbounds nuw (i8, ptr @_Py_path_config, i64 8), align 8
-  %tobool3.not = icmp eq ptr %call2, null
-  br i1 %tobool3.not, label %error, label %do.body6
+7:                                                ; preds = %2
+  %8 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_Py_path_config, i64 8), align 8, !tbaa !12
+  call void @PyMem_RawFree(ptr noundef %8) #12
+  %9 = load ptr, ptr %5, align 8, !tbaa !19
+  %10 = call ptr @_PyMem_RawWcsdup(ptr noundef %9) #12
+  store ptr %10, ptr getelementptr inbounds nuw (i8, ptr @_Py_path_config, i64 8), align 8, !tbaa !12
+  %.not43 = icmp eq ptr %10, null
+  br i1 %.not43, label %86, label %11
 
-do.body6:                                         ; preds = %if.then, %entry
-  %exec_prefix = getelementptr inbounds nuw i8, ptr %config, i64 376
-  %3 = load ptr, ptr %exec_prefix, align 8
-  %tobool7.not = icmp eq ptr %3, null
-  br i1 %tobool7.not, label %do.body16, label %if.then8
+11:                                               ; preds = %2, %7
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 376
+  %13 = load ptr, ptr %12, align 8, !tbaa !27
+  %.not44 = icmp eq ptr %13, null
+  br i1 %.not44, label %18, label %14
 
-if.then8:                                         ; preds = %do.body6
-  %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_Py_path_config, i64 16), align 8
-  call void @PyMem_RawFree(ptr noundef %4) #11
-  %5 = load ptr, ptr %exec_prefix, align 8
-  %call10 = call ptr @_PyMem_RawWcsdup(ptr noundef %5) #11
-  store ptr %call10, ptr getelementptr inbounds nuw (i8, ptr @_Py_path_config, i64 16), align 8
-  %tobool11.not = icmp eq ptr %call10, null
-  br i1 %tobool11.not, label %error, label %do.body16
+14:                                               ; preds = %11
+  %15 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_Py_path_config, i64 16), align 8, !tbaa !13
+  call void @PyMem_RawFree(ptr noundef %15) #12
+  %16 = load ptr, ptr %12, align 8, !tbaa !27
+  %17 = call ptr @_PyMem_RawWcsdup(ptr noundef %16) #12
+  store ptr %17, ptr getelementptr inbounds nuw (i8, ptr @_Py_path_config, i64 16), align 8, !tbaa !13
+  %.not45 = icmp eq ptr %17, null
+  br i1 %.not45, label %86, label %18
 
-do.body16:                                        ; preds = %if.then8, %do.body6
-  %stdlib_dir = getelementptr inbounds nuw i8, ptr %config, i64 336
-  %6 = load ptr, ptr %stdlib_dir, align 8
-  %tobool17.not = icmp eq ptr %6, null
-  br i1 %tobool17.not, label %do.body26, label %if.then18
+18:                                               ; preds = %11, %14
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 336
+  %20 = load ptr, ptr %19, align 8, !tbaa !31
+  %.not46 = icmp eq ptr %20, null
+  br i1 %.not46, label %25, label %21
 
-if.then18:                                        ; preds = %do.body16
-  %7 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_Py_path_config, i64 24), align 8
-  call void @PyMem_RawFree(ptr noundef %7) #11
-  %8 = load ptr, ptr %stdlib_dir, align 8
-  %call20 = call ptr @_PyMem_RawWcsdup(ptr noundef %8) #11
-  store ptr %call20, ptr getelementptr inbounds nuw (i8, ptr @_Py_path_config, i64 24), align 8
-  %tobool21.not = icmp eq ptr %call20, null
-  br i1 %tobool21.not, label %error, label %do.body26
+21:                                               ; preds = %18
+  %22 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_Py_path_config, i64 24), align 8, !tbaa !14
+  call void @PyMem_RawFree(ptr noundef %22) #12
+  %23 = load ptr, ptr %19, align 8, !tbaa !31
+  %24 = call ptr @_PyMem_RawWcsdup(ptr noundef %23) #12
+  store ptr %24, ptr getelementptr inbounds nuw (i8, ptr @_Py_path_config, i64 24), align 8, !tbaa !14
+  %.not47 = icmp eq ptr %24, null
+  br i1 %.not47, label %86, label %25
 
-do.body26:                                        ; preds = %if.then18, %do.body16
-  %program_name = getelementptr inbounds nuw i8, ptr %config, i64 280
-  %9 = load ptr, ptr %program_name, align 8
-  %tobool27.not = icmp eq ptr %9, null
-  br i1 %tobool27.not, label %do.body36, label %if.then28
+25:                                               ; preds = %18, %21
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 280
+  %27 = load ptr, ptr %26, align 8, !tbaa !32
+  %.not48 = icmp eq ptr %27, null
+  br i1 %.not48, label %32, label %28
 
-if.then28:                                        ; preds = %do.body26
-  %10 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_Py_path_config, i64 48), align 8
-  call void @PyMem_RawFree(ptr noundef %10) #11
-  %11 = load ptr, ptr %program_name, align 8
-  %call30 = call ptr @_PyMem_RawWcsdup(ptr noundef %11) #11
-  store ptr %call30, ptr getelementptr inbounds nuw (i8, ptr @_Py_path_config, i64 48), align 8
-  %tobool31.not = icmp eq ptr %call30, null
-  br i1 %tobool31.not, label %error, label %do.body36
+28:                                               ; preds = %25
+  %29 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_Py_path_config, i64 48), align 8, !tbaa !16
+  call void @PyMem_RawFree(ptr noundef %29) #12
+  %30 = load ptr, ptr %26, align 8, !tbaa !32
+  %31 = call ptr @_PyMem_RawWcsdup(ptr noundef %30) #12
+  store ptr %31, ptr getelementptr inbounds nuw (i8, ptr @_Py_path_config, i64 48), align 8, !tbaa !16
+  %.not49 = icmp eq ptr %31, null
+  br i1 %.not49, label %86, label %32
 
-do.body36:                                        ; preds = %if.then28, %do.body26
-  %home = getelementptr inbounds nuw i8, ptr %config, i64 296
-  %12 = load ptr, ptr %home, align 8
-  %tobool37.not = icmp eq ptr %12, null
-  br i1 %tobool37.not, label %do.body46, label %if.then38
+32:                                               ; preds = %25, %28
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 296
+  %34 = load ptr, ptr %33, align 8, !tbaa !33
+  %.not50 = icmp eq ptr %34, null
+  br i1 %.not50, label %39, label %35
 
-if.then38:                                        ; preds = %do.body36
-  %13 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_Py_path_config, i64 56), align 8
-  call void @PyMem_RawFree(ptr noundef %13) #11
-  %14 = load ptr, ptr %home, align 8
-  %call40 = call ptr @_PyMem_RawWcsdup(ptr noundef %14) #11
-  store ptr %call40, ptr getelementptr inbounds nuw (i8, ptr @_Py_path_config, i64 56), align 8
-  %tobool41.not = icmp eq ptr %call40, null
-  br i1 %tobool41.not, label %error, label %do.body46
+35:                                               ; preds = %32
+  %36 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_Py_path_config, i64 56), align 8, !tbaa !17
+  call void @PyMem_RawFree(ptr noundef %36) #12
+  %37 = load ptr, ptr %33, align 8, !tbaa !33
+  %38 = call ptr @_PyMem_RawWcsdup(ptr noundef %37) #12
+  store ptr %38, ptr getelementptr inbounds nuw (i8, ptr @_Py_path_config, i64 56), align 8, !tbaa !17
+  %.not51 = icmp eq ptr %38, null
+  br i1 %.not51, label %86, label %39
 
-do.body46:                                        ; preds = %if.then38, %do.body36
-  %executable = getelementptr inbounds nuw i8, ptr %config, i64 344
-  %15 = load ptr, ptr %executable, align 8
-  %tobool47.not = icmp eq ptr %15, null
-  br i1 %tobool47.not, label %do.body56, label %if.then48
+39:                                               ; preds = %32, %35
+  %40 = getelementptr inbounds nuw i8, ptr %1, i64 344
+  %41 = load ptr, ptr %40, align 8, !tbaa !34
+  %.not52 = icmp eq ptr %41, null
+  br i1 %.not52, label %46, label %42
 
-if.then48:                                        ; preds = %do.body46
-  %16 = load ptr, ptr @_Py_path_config, align 8
-  call void @PyMem_RawFree(ptr noundef %16) #11
-  %17 = load ptr, ptr %executable, align 8
-  %call50 = call ptr @_PyMem_RawWcsdup(ptr noundef %17) #11
-  store ptr %call50, ptr @_Py_path_config, align 8
-  %tobool51.not = icmp eq ptr %call50, null
-  br i1 %tobool51.not, label %error, label %do.body56
+42:                                               ; preds = %39
+  %43 = load ptr, ptr @_Py_path_config, align 8, !tbaa !11
+  call void @PyMem_RawFree(ptr noundef %43) #12
+  %44 = load ptr, ptr %40, align 8, !tbaa !34
+  %45 = call ptr @_PyMem_RawWcsdup(ptr noundef %44) #12
+  store ptr %45, ptr @_Py_path_config, align 8, !tbaa !11
+  %.not53 = icmp eq ptr %45, null
+  br i1 %.not53, label %86, label %46
 
-do.body56:                                        ; preds = %if.then48, %do.body46
-  %_is_python_build = getelementptr inbounds nuw i8, ptr %config, i64 440
-  %18 = load i32, ptr %_is_python_build, align 8
-  %cmp = icmp sgt i32 %18, 0
-  br i1 %cmp, label %if.then57, label %do.end60
+46:                                               ; preds = %39, %42
+  %47 = getelementptr inbounds nuw i8, ptr %1, i64 440
+  %48 = load i32, ptr %47, align 8, !tbaa !35
+  %49 = icmp sgt i32 %48, 0
+  br i1 %49, label %50, label %51
 
-if.then57:                                        ; preds = %do.body56
-  store i32 %18, ptr getelementptr inbounds nuw (i8, ptr @_Py_path_config, i64 64), align 8
-  br label %do.end60
+50:                                               ; preds = %46
+  store i32 %48, ptr getelementptr inbounds nuw (i8, ptr @_Py_path_config, i64 64), align 8, !tbaa !18
+  br label %51
 
-do.end60:                                         ; preds = %do.body56, %if.then57
-  %19 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_Py_path_config, i64 32), align 8
-  call void @PyMem_RawFree(ptr noundef %19) #11
-  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_Py_path_config, i64 32), align 8
-  %20 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_Py_path_config, i64 40), align 8
-  call void @PyMem_RawFree(ptr noundef %20) #11
-  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_Py_path_config, i64 40), align 8
-  %module_search_paths = getelementptr inbounds nuw i8, ptr %config, i64 320
-  %21 = load i64, ptr %module_search_paths, align 8
-  %cmp6232 = icmp sgt i64 %21, 0
-  br i1 %cmp6232, label %for.body.lr.ph, label %for.end
+51:                                               ; preds = %50, %46
+  %52 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_Py_path_config, i64 32), align 8, !tbaa !4
+  call void @PyMem_RawFree(ptr noundef %52) #12
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_Py_path_config, i64 32), align 8, !tbaa !4
+  %53 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_Py_path_config, i64 40), align 8, !tbaa !15
+  call void @PyMem_RawFree(ptr noundef %53) #12
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_Py_path_config, i64 40), align 8, !tbaa !15
+  %54 = getelementptr inbounds nuw i8, ptr %1, i64 320
+  %55 = load i64, ptr %54, align 8, !tbaa !36
+  %56 = icmp sgt i64 %55, 0
+  br i1 %56, label %.lr.ph, label %._crit_edge
 
-for.body.lr.ph:                                   ; preds = %do.end60
-  %items = getelementptr inbounds nuw i8, ptr %config, i64 328
-  %22 = load ptr, ptr %items, align 8
-  br label %for.body
+.lr.ph:                                           ; preds = %51
+  %57 = getelementptr inbounds nuw i8, ptr %1, i64 328
+  %58 = load ptr, ptr %57, align 8, !tbaa !37
+  br label %64
 
-for.body:                                         ; preds = %for.body.lr.ph, %for.body
-  %cch.034 = phi i64 [ 1, %for.body.lr.ph ], [ %add65, %for.body ]
-  %i.033 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %for.body ]
-  %arrayidx = getelementptr ptr, ptr %22, i64 %i.033
-  %23 = load ptr, ptr %arrayidx, align 8
-  %call64 = call i64 @wcslen(ptr noundef %23) #12
-  %add = add i64 %cch.034, 1
-  %add65 = add i64 %add, %call64
-  %inc = add nuw nsw i64 %i.033, 1
-  %exitcond.not = icmp eq i64 %inc, %21
-  br i1 %exitcond.not, label %for.end.loopexit, label %for.body, !llvm.loop !5
+._crit_edge.loopexit:                             ; preds = %64
+  %59 = shl i64 %69, 2
+  br label %._crit_edge
 
-for.end.loopexit:                                 ; preds = %for.body
-  %24 = shl i64 %add65, 2
-  br label %for.end
+._crit_edge:                                      ; preds = %._crit_edge.loopexit, %51
+  %.039.lcssa = phi i64 [ 4, %51 ], [ %59, %._crit_edge.loopexit ]
+  %60 = call ptr @PyMem_RawMalloc(i64 noundef %.039.lcssa) #12
+  %.not54 = icmp eq ptr %60, null
+  br i1 %.not54, label %86, label %.preheader59
 
-for.end:                                          ; preds = %for.end.loopexit, %do.end60
-  %cch.0.lcssa = phi i64 [ 4, %do.end60 ], [ %24, %for.end.loopexit ]
-  %call66 = call ptr @PyMem_RawMalloc(i64 noundef %cch.0.lcssa) #11
-  %tobool67.not = icmp eq ptr %call66, null
-  br i1 %tobool67.not, label %error, label %for.cond71.preheader
+.preheader59:                                     ; preds = %._crit_edge
+  %61 = load i64, ptr %54, align 8, !tbaa !36
+  %62 = icmp sgt i64 %61, 0
+  br i1 %62, label %.lr.ph64, label %.preheader.preheader
 
-for.cond71.preheader:                             ; preds = %for.end
-  %25 = load i64, ptr %module_search_paths, align 8
-  %cmp7435 = icmp sgt i64 %25, 0
-  br i1 %cmp7435, label %for.body75.lr.ph, label %do.body84.preheader
+.lr.ph64:                                         ; preds = %.preheader59
+  %63 = getelementptr inbounds nuw i8, ptr %1, i64 328
+  br label %71
 
-for.body75.lr.ph:                                 ; preds = %for.cond71.preheader
-  %items77 = getelementptr inbounds nuw i8, ptr %config, i64 328
-  br label %for.body75
+64:                                               ; preds = %.lr.ph, %64
+  %.03961 = phi i64 [ 1, %.lr.ph ], [ %69, %64 ]
+  %.04060 = phi i64 [ 0, %.lr.ph ], [ %70, %64 ]
+  %65 = getelementptr ptr, ptr %58, i64 %.04060
+  %66 = load ptr, ptr %65, align 8, !tbaa !38
+  %67 = call i64 @wcslen(ptr noundef %66) #13
+  %68 = add i64 %.03961, 1
+  %69 = add i64 %68, %67
+  %70 = add nuw nsw i64 %.04060, 1
+  %exitcond.not = icmp eq i64 %70, %55
+  br i1 %exitcond.not, label %._crit_edge.loopexit, label %64, !llvm.loop !39
 
-for.body75:                                       ; preds = %for.body75.lr.ph, %for.body75
-  %i70.037 = phi i64 [ 0, %for.body75.lr.ph ], [ %inc82, %for.body75 ]
-  %p.036 = phi ptr [ %call66, %for.body75.lr.ph ], [ %incdec.ptr, %for.body75 ]
-  %26 = load ptr, ptr %items77, align 8
-  %arrayidx78 = getelementptr ptr, ptr %26, i64 %i70.037
-  %27 = load ptr, ptr %arrayidx78, align 8
-  %call79 = call ptr @wcscpy(ptr noundef nonnull %p.036, ptr noundef %27) #11
-  %call80 = call ptr @wcschr(ptr noundef nonnull %p.036, i32 noundef 0) #12
-  %incdec.ptr = getelementptr i8, ptr %call80, i64 4
-  store i32 58, ptr %call80, align 4
-  store i32 0, ptr %incdec.ptr, align 4
-  %inc82 = add nuw nsw i64 %i70.037, 1
-  %28 = load i64, ptr %module_search_paths, align 8
-  %cmp74 = icmp slt i64 %inc82, %28
-  br i1 %cmp74, label %for.body75, label %do.body84.preheader, !llvm.loop !7
+71:                                               ; preds = %.lr.ph64, %71
+  %.03763 = phi i64 [ 0, %.lr.ph64 ], [ %78, %71 ]
+  %.03862 = phi ptr [ %60, %.lr.ph64 ], [ %77, %71 ]
+  %72 = load ptr, ptr %63, align 8, !tbaa !37
+  %73 = getelementptr ptr, ptr %72, i64 %.03763
+  %74 = load ptr, ptr %73, align 8, !tbaa !38
+  %75 = call ptr @wcscpy(ptr noundef nonnull %.03862, ptr noundef %74) #12
+  %76 = call ptr @wcschr(ptr noundef nonnull %.03862, i32 noundef 0) #13
+  %77 = getelementptr i8, ptr %76, i64 4
+  store i32 58, ptr %76, align 4, !tbaa !29
+  store i32 0, ptr %77, align 4, !tbaa !29
+  %78 = add nuw nsw i64 %.03763, 1
+  %79 = load i64, ptr %54, align 8, !tbaa !36
+  %80 = icmp slt i64 %78, %79
+  br i1 %80, label %71, label %.preheader.preheader, !llvm.loop !41
 
-do.body84.preheader:                              ; preds = %for.body75, %for.cond71.preheader
-  %p.1.ph = phi ptr [ %call66, %for.cond71.preheader ], [ %incdec.ptr, %for.body75 ]
-  br label %do.body84
+.preheader.preheader:                             ; preds = %71, %.preheader59
+  %.1.ph = phi ptr [ %60, %.preheader59 ], [ %77, %71 ]
+  br label %.preheader
 
-do.body84:                                        ; preds = %do.body84.preheader, %land.rhs
-  %p.1 = phi ptr [ %incdec.ptr86, %land.rhs ], [ %p.1.ph, %do.body84.preheader ]
-  store i32 0, ptr %p.1, align 4
-  %cmp85.not = icmp eq ptr %p.1, %call66
-  br i1 %cmp85.not, label %do.end88, label %land.rhs
+.preheader:                                       ; preds = %.preheader.preheader, %81
+  %.1 = phi ptr [ %82, %81 ], [ %.1.ph, %.preheader.preheader ]
+  store i32 0, ptr %.1, align 4, !tbaa !29
+  %.not55 = icmp eq ptr %.1, %60
+  br i1 %.not55, label %85, label %81
 
-land.rhs:                                         ; preds = %do.body84
-  %incdec.ptr86 = getelementptr i8, ptr %p.1, i64 -4
-  %29 = load i32, ptr %incdec.ptr86, align 4
-  %cmp87 = icmp eq i32 %29, 58
-  br i1 %cmp87, label %do.body84, label %do.end88, !llvm.loop !8
+81:                                               ; preds = %.preheader
+  %82 = getelementptr i8, ptr %.1, i64 -4
+  %83 = load i32, ptr %82, align 4, !tbaa !29
+  %84 = icmp eq i32 %83, 58
+  br i1 %84, label %.preheader, label %85, !llvm.loop !42
 
-do.end88:                                         ; preds = %do.body84, %land.rhs
-  store ptr %call66, ptr getelementptr inbounds nuw (i8, ptr @_Py_path_config, i64 40), align 8
-  call void @PyMem_SetAllocator(i32 noundef 0, ptr noundef nonnull %old_alloc) #11
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, i8 0, i64 32, i1 false)
-  br label %return
+85:                                               ; preds = %81, %.preheader
+  store ptr %60, ptr getelementptr inbounds nuw (i8, ptr @_Py_path_config, i64 40), align 8, !tbaa !15
+  call void @PyMem_SetAllocator(i32 noundef 0, ptr noundef nonnull %3) #12
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 0, i64 32, i1 false)
+  br label %92
 
-error:                                            ; preds = %for.end, %if.then48, %if.then38, %if.then28, %if.then18, %if.then8, %if.then
-  call void @PyMem_SetAllocator(i32 noundef 0, ptr noundef nonnull %old_alloc) #11
-  store i32 1, ptr %agg.result, align 8
-  %func = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
-  store ptr @__func__._PyPathConfig_UpdateGlobal, ptr %func, align 8
-  %err_msg = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
-  store ptr @.str, ptr %err_msg, align 8
-  %exitcode = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
-  store i32 0, ptr %exitcode, align 8
-  br label %return
+86:                                               ; preds = %._crit_edge, %42, %35, %28, %21, %14, %7
+  call void @PyMem_SetAllocator(i32 noundef 0, ptr noundef nonnull %3) #12
+  store i32 1, ptr %0, align 8, !tbaa !24
+  %87 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store i32 0, ptr %87, align 4
+  %88 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr @__func__._PyPathConfig_UpdateGlobal, ptr %88, align 8, !tbaa !43
+  %89 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr @.str, ptr %89, align 8, !tbaa !44
+  %90 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store i32 0, ptr %90, align 8, !tbaa !45
+  %91 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  store i32 0, ptr %91, align 4
+  br label %92
 
-return:                                           ; preds = %error, %do.end88
+92:                                               ; preds = %86, %85
+  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3) #12
   ret void
 }
 
-declare ptr @_PyMem_RawWcsdup(ptr noundef) local_unnamed_addr #2
+declare ptr @_PyMem_RawWcsdup(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @wcslen(ptr noundef captures(none)) local_unnamed_addr #5
+declare i64 @wcslen(ptr noundef captures(none)) local_unnamed_addr #6
 
-declare ptr @PyMem_RawMalloc(i64 noundef) local_unnamed_addr #2
+declare ptr @PyMem_RawMalloc(i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind
-declare ptr @wcscpy(ptr noundef, ptr noundef) local_unnamed_addr #6
+declare ptr @wcscpy(ptr noundef, ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare ptr @wcschr(ptr noundef, i32 noundef) local_unnamed_addr #7
+declare ptr @wcschr(ptr noundef, i32 noundef) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @Py_SetPath(ptr noundef %path) local_unnamed_addr #1 {
-entry:
-  %old_alloc = alloca %struct.PyMemAllocatorEx, align 8
-  %cmp = icmp eq ptr %path, null
-  br i1 %cmp, label %if.then, label %if.end
+define dso_local void @Py_SetPath(ptr noundef %0) local_unnamed_addr #1 {
+  %2 = alloca %struct.PyMemAllocatorEx, align 8
+  %3 = icmp eq ptr %0, null
+  br i1 %3, label %4, label %5
 
-if.then:                                          ; preds = %entry
+4:                                                ; preds = %1
   tail call void @_PyPathConfig_ClearGlobal()
-  br label %if.end16
+  br label %27
 
-if.end:                                           ; preds = %entry
-  %call = call i32 @_PyMem_SetDefaultAllocator(i32 noundef 0, ptr noundef nonnull %old_alloc) #11
-  %0 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_Py_path_config, i64 8), align 8
-  call void @PyMem_RawFree(ptr noundef %0) #11
-  %1 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_Py_path_config, i64 16), align 8
-  call void @PyMem_RawFree(ptr noundef %1) #11
-  %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_Py_path_config, i64 24), align 8
-  call void @PyMem_RawFree(ptr noundef %2) #11
-  %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_Py_path_config, i64 32), align 8
-  call void @PyMem_RawFree(ptr noundef %3) #11
-  %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_Py_path_config, i64 40), align 8
-  call void @PyMem_RawFree(ptr noundef %4) #11
-  %call1 = call ptr @_PyMem_RawWcsdup(ptr noundef nonnull @.str.1) #11
-  store ptr %call1, ptr getelementptr inbounds nuw (i8, ptr @_Py_path_config, i64 8), align 8
-  %call2 = call ptr @_PyMem_RawWcsdup(ptr noundef nonnull @.str.1) #11
-  store ptr %call2, ptr getelementptr inbounds nuw (i8, ptr @_Py_path_config, i64 16), align 8
-  %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_Py_path_config, i64 56), align 8
-  %cmp3.not = icmp eq ptr %5, null
-  %.str.1. = select i1 %cmp3.not, ptr @.str.1, ptr %5
-  %call6 = call ptr @_PyMem_RawWcsdup(ptr noundef nonnull %.str.1.) #11
-  store ptr %call6, ptr getelementptr inbounds nuw (i8, ptr @_Py_path_config, i64 24), align 8
-  %call8 = call ptr @_PyMem_RawWcsdup(ptr noundef nonnull %path) #11
-  store ptr %call8, ptr getelementptr inbounds nuw (i8, ptr @_Py_path_config, i64 32), align 8
-  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_Py_path_config, i64 40), align 8
-  call void @PyMem_SetAllocator(i32 noundef 0, ptr noundef nonnull %old_alloc) #11
-  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_Py_path_config, i64 8), align 8
-  %cmp9 = icmp eq ptr %6, null
-  %7 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_Py_path_config, i64 16), align 8
-  %cmp10 = icmp eq ptr %7, null
-  %or.cond = select i1 %cmp9, i1 true, i1 %cmp10
-  %8 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_Py_path_config, i64 24), align 8
-  %cmp12 = icmp eq ptr %8, null
-  %or.cond3 = select i1 %or.cond, i1 true, i1 %cmp12
-  %9 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_Py_path_config, i64 32), align 8
-  %cmp14 = icmp eq ptr %9, null
-  %or.cond5 = select i1 %or.cond3, i1 true, i1 %cmp14
-  br i1 %or.cond5, label %if.then15, label %if.end16
+5:                                                ; preds = %1
+  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %2) #12
+  %6 = call i32 @_PyMem_SetDefaultAllocator(i32 noundef 0, ptr noundef nonnull %2) #12
+  %7 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_Py_path_config, i64 8), align 8, !tbaa !12
+  call void @PyMem_RawFree(ptr noundef %7) #12
+  %8 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_Py_path_config, i64 16), align 8, !tbaa !13
+  call void @PyMem_RawFree(ptr noundef %8) #12
+  %9 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_Py_path_config, i64 24), align 8, !tbaa !14
+  call void @PyMem_RawFree(ptr noundef %9) #12
+  %10 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_Py_path_config, i64 32), align 8, !tbaa !4
+  call void @PyMem_RawFree(ptr noundef %10) #12
+  %11 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_Py_path_config, i64 40), align 8, !tbaa !15
+  call void @PyMem_RawFree(ptr noundef %11) #12
+  %12 = call ptr @_PyMem_RawWcsdup(ptr noundef nonnull @.str.1) #12
+  store ptr %12, ptr getelementptr inbounds nuw (i8, ptr @_Py_path_config, i64 8), align 8, !tbaa !12
+  %13 = call ptr @_PyMem_RawWcsdup(ptr noundef nonnull @.str.1) #12
+  store ptr %13, ptr getelementptr inbounds nuw (i8, ptr @_Py_path_config, i64 16), align 8, !tbaa !13
+  %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_Py_path_config, i64 56), align 8, !tbaa !17
+  %.not = icmp eq ptr %14, null
+  %.str.1. = select i1 %.not, ptr @.str.1, ptr %14
+  %15 = call ptr @_PyMem_RawWcsdup(ptr noundef nonnull %.str.1.) #12
+  store ptr %15, ptr getelementptr inbounds nuw (i8, ptr @_Py_path_config, i64 24), align 8, !tbaa !14
+  %16 = call ptr @_PyMem_RawWcsdup(ptr noundef nonnull %0) #12
+  store ptr %16, ptr getelementptr inbounds nuw (i8, ptr @_Py_path_config, i64 32), align 8, !tbaa !4
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_Py_path_config, i64 40), align 8, !tbaa !15
+  call void @PyMem_SetAllocator(i32 noundef 0, ptr noundef nonnull %2) #12
+  %17 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_Py_path_config, i64 8), align 8, !tbaa !12
+  %18 = icmp eq ptr %17, null
+  %19 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_Py_path_config, i64 16), align 8
+  %20 = icmp eq ptr %19, null
+  %or.cond = select i1 %18, i1 true, i1 %20
+  %21 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_Py_path_config, i64 24), align 8
+  %22 = icmp eq ptr %21, null
+  %or.cond3 = select i1 %or.cond, i1 true, i1 %22
+  %23 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_Py_path_config, i64 32), align 8
+  %24 = icmp eq ptr %23, null
+  %or.cond5 = select i1 %or.cond3, i1 true, i1 %24
+  br i1 %or.cond5, label %25, label %26
 
-if.then15:                                        ; preds = %if.end
-  call fastcc void @path_out_of_memory(ptr noundef nonnull @__func__.Py_SetPath) #13
+25:                                               ; preds = %5
+  call fastcc void @path_out_of_memory(ptr noundef nonnull @__func__.Py_SetPath) #14
   unreachable
 
-if.end16:                                         ; preds = %if.end, %if.then
+26:                                               ; preds = %5
+  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %2) #12
+  br label %27
+
+27:                                               ; preds = %26, %4
   ret void
 }
 
 ; Function Attrs: noreturn nounwind uwtable
-define internal fastcc void @path_out_of_memory(ptr noundef %func) unnamed_addr #8 {
-entry:
-  tail call void @_Py_FatalErrorFunc(ptr noundef %func, ptr noundef nonnull @.str.4) #14
+define internal fastcc void @path_out_of_memory(ptr noundef %0) unnamed_addr #9 {
+  tail call void @_Py_FatalErrorFunc(ptr noundef %0, ptr noundef nonnull @.str.4) #15
   unreachable
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @Py_SetPythonHome(ptr noundef %home) local_unnamed_addr #1 {
-entry:
-  %old_alloc = alloca %struct.PyMemAllocatorEx, align 8
-  %tobool.not = icmp eq ptr %home, null
-  br i1 %tobool.not, label %land.end, label %land.rhs
+define dso_local void @Py_SetPythonHome(ptr noundef %0) local_unnamed_addr #1 {
+  %2 = alloca %struct.PyMemAllocatorEx, align 8
+  %.not = icmp eq ptr %0, null
+  br i1 %.not, label %6, label %3
 
-land.rhs:                                         ; preds = %entry
-  %0 = load i32, ptr %home, align 4
-  %tobool1 = icmp ne i32 %0, 0
-  br label %land.end
+3:                                                ; preds = %1
+  %4 = load i32, ptr %0, align 4, !tbaa !29
+  %5 = icmp ne i32 %4, 0
+  br label %6
 
-land.end:                                         ; preds = %land.rhs, %entry
-  %1 = phi i1 [ false, %entry ], [ %tobool1, %land.rhs ]
-  %call = call i32 @_PyMem_SetDefaultAllocator(i32 noundef 0, ptr noundef nonnull %old_alloc) #11
-  %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_Py_path_config, i64 56), align 8
-  call void @PyMem_RawFree(ptr noundef %2) #11
-  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_Py_path_config, i64 56), align 8
-  br i1 %1, label %if.then, label %if.end
+6:                                                ; preds = %3, %1
+  %7 = phi i1 [ false, %1 ], [ %5, %3 ]
+  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %2) #12
+  %8 = call i32 @_PyMem_SetDefaultAllocator(i32 noundef 0, ptr noundef nonnull %2) #12
+  %9 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_Py_path_config, i64 56), align 8, !tbaa !17
+  call void @PyMem_RawFree(ptr noundef %9) #12
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_Py_path_config, i64 56), align 8, !tbaa !17
+  br i1 %7, label %10, label %12
 
-if.then:                                          ; preds = %land.end
-  %call3 = call ptr @_PyMem_RawWcsdup(ptr noundef %home) #11
-  store ptr %call3, ptr getelementptr inbounds nuw (i8, ptr @_Py_path_config, i64 56), align 8
-  br label %if.end
+10:                                               ; preds = %6
+  %11 = call ptr @_PyMem_RawWcsdup(ptr noundef %0) #12
+  store ptr %11, ptr getelementptr inbounds nuw (i8, ptr @_Py_path_config, i64 56), align 8, !tbaa !17
+  br label %12
 
-if.end:                                           ; preds = %if.then, %land.end
-  call void @PyMem_SetAllocator(i32 noundef 0, ptr noundef nonnull %old_alloc) #11
-  %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_Py_path_config, i64 56), align 8
-  %cmp = icmp eq ptr %3, null
-  %or.cond = select i1 %1, i1 %cmp, i1 false
-  br i1 %or.cond, label %if.then5, label %if.end6
+12:                                               ; preds = %10, %6
+  call void @PyMem_SetAllocator(i32 noundef 0, ptr noundef nonnull %2) #12
+  %13 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_Py_path_config, i64 56), align 8
+  %14 = icmp eq ptr %13, null
+  %or.cond = select i1 %7, i1 %14, i1 false
+  br i1 %or.cond, label %15, label %16
 
-if.then5:                                         ; preds = %if.end
-  call fastcc void @path_out_of_memory(ptr noundef nonnull @__func__.Py_SetPythonHome) #13
+15:                                               ; preds = %12
+  call fastcc void @path_out_of_memory(ptr noundef nonnull @__func__.Py_SetPythonHome) #14
   unreachable
 
-if.end6:                                          ; preds = %if.end
+16:                                               ; preds = %12
+  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %2) #12
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @Py_SetProgramName(ptr noundef %program_name) local_unnamed_addr #1 {
-entry:
-  %old_alloc = alloca %struct.PyMemAllocatorEx, align 8
-  %tobool.not = icmp eq ptr %program_name, null
-  br i1 %tobool.not, label %land.end, label %land.rhs
+define dso_local void @Py_SetProgramName(ptr noundef %0) local_unnamed_addr #1 {
+  %2 = alloca %struct.PyMemAllocatorEx, align 8
+  %.not = icmp eq ptr %0, null
+  br i1 %.not, label %6, label %3
 
-land.rhs:                                         ; preds = %entry
-  %0 = load i32, ptr %program_name, align 4
-  %tobool1 = icmp ne i32 %0, 0
-  br label %land.end
+3:                                                ; preds = %1
+  %4 = load i32, ptr %0, align 4, !tbaa !29
+  %5 = icmp ne i32 %4, 0
+  br label %6
 
-land.end:                                         ; preds = %land.rhs, %entry
-  %1 = phi i1 [ false, %entry ], [ %tobool1, %land.rhs ]
-  %call = call i32 @_PyMem_SetDefaultAllocator(i32 noundef 0, ptr noundef nonnull %old_alloc) #11
-  %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_Py_path_config, i64 48), align 8
-  call void @PyMem_RawFree(ptr noundef %2) #11
-  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_Py_path_config, i64 48), align 8
-  br i1 %1, label %if.then, label %if.end
+6:                                                ; preds = %3, %1
+  %7 = phi i1 [ false, %1 ], [ %5, %3 ]
+  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %2) #12
+  %8 = call i32 @_PyMem_SetDefaultAllocator(i32 noundef 0, ptr noundef nonnull %2) #12
+  %9 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_Py_path_config, i64 48), align 8, !tbaa !16
+  call void @PyMem_RawFree(ptr noundef %9) #12
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_Py_path_config, i64 48), align 8, !tbaa !16
+  br i1 %7, label %10, label %12
 
-if.then:                                          ; preds = %land.end
-  %call3 = call ptr @_PyMem_RawWcsdup(ptr noundef %program_name) #11
-  store ptr %call3, ptr getelementptr inbounds nuw (i8, ptr @_Py_path_config, i64 48), align 8
-  br label %if.end
+10:                                               ; preds = %6
+  %11 = call ptr @_PyMem_RawWcsdup(ptr noundef %0) #12
+  store ptr %11, ptr getelementptr inbounds nuw (i8, ptr @_Py_path_config, i64 48), align 8, !tbaa !16
+  br label %12
 
-if.end:                                           ; preds = %if.then, %land.end
-  call void @PyMem_SetAllocator(i32 noundef 0, ptr noundef nonnull %old_alloc) #11
-  %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_Py_path_config, i64 48), align 8
-  %cmp = icmp eq ptr %3, null
-  %or.cond = select i1 %1, i1 %cmp, i1 false
-  br i1 %or.cond, label %if.then5, label %if.end6
+12:                                               ; preds = %10, %6
+  call void @PyMem_SetAllocator(i32 noundef 0, ptr noundef nonnull %2) #12
+  %13 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_Py_path_config, i64 48), align 8
+  %14 = icmp eq ptr %13, null
+  %or.cond = select i1 %7, i1 %14, i1 false
+  br i1 %or.cond, label %15, label %16
 
-if.then5:                                         ; preds = %if.end
-  call fastcc void @path_out_of_memory(ptr noundef nonnull @__func__.Py_SetProgramName) #13
+15:                                               ; preds = %12
+  call fastcc void @path_out_of_memory(ptr noundef nonnull @__func__.Py_SetProgramName) #14
   unreachable
 
-if.end6:                                          ; preds = %if.end
+16:                                               ; preds = %12
+  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %2) #12
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define dso_local ptr @Py_GetPath() local_unnamed_addr #0 {
-entry:
-  %0 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_Py_path_config, i64 32), align 8
-  %tobool.not = icmp eq ptr %0, null
-  %1 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_Py_path_config, i64 40), align 8
-  %retval.0 = select i1 %tobool.not, ptr %1, ptr %0
-  ret ptr %retval.0
+  %1 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_Py_path_config, i64 32), align 8, !tbaa !4
+  %.not = icmp eq ptr %1, null
+  %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_Py_path_config, i64 40), align 8
+  %.0 = select i1 %.not, ptr %2, ptr %1
+  ret ptr %.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden ptr @_Py_GetStdlibDir() local_unnamed_addr #9 {
-entry:
-  %0 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_Py_path_config, i64 24), align 8
-  %cmp.not = icmp eq ptr %0, null
-  br i1 %cmp.not, label %if.end, label %land.lhs.true
+define hidden ptr @_Py_GetStdlibDir() local_unnamed_addr #10 {
+  %1 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_Py_path_config, i64 24), align 8, !tbaa !14
+  %.not = icmp eq ptr %1, null
+  br i1 %.not, label %4, label %2
 
-land.lhs.true:                                    ; preds = %entry
-  %1 = load i32, ptr %0, align 4
-  %cmp1.not = icmp eq i32 %1, 0
-  br i1 %cmp1.not, label %if.end, label %return
+2:                                                ; preds = %0
+  %3 = load i32, ptr %1, align 4, !tbaa !29
+  %.not5 = icmp eq i32 %3, 0
+  br i1 %.not5, label %4, label %5
 
-if.end:                                           ; preds = %land.lhs.true, %entry
-  br label %return
+4:                                                ; preds = %2, %0
+  br label %5
 
-return:                                           ; preds = %land.lhs.true, %if.end
-  %retval.0 = phi ptr [ null, %if.end ], [ %0, %land.lhs.true ]
-  ret ptr %retval.0
+5:                                                ; preds = %2, %4
+  %.0 = phi ptr [ null, %4 ], [ %1, %2 ]
+  ret ptr %.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define dso_local ptr @Py_GetPrefix() local_unnamed_addr #0 {
-entry:
-  %0 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_Py_path_config, i64 8), align 8
-  ret ptr %0
+  %1 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_Py_path_config, i64 8), align 8, !tbaa !12
+  ret ptr %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define dso_local ptr @Py_GetExecPrefix() local_unnamed_addr #0 {
-entry:
-  %0 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_Py_path_config, i64 16), align 8
-  ret ptr %0
+  %1 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_Py_path_config, i64 16), align 8, !tbaa !13
+  ret ptr %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define dso_local ptr @Py_GetProgramFullPath() local_unnamed_addr #0 {
-entry:
-  %0 = load ptr, ptr @_Py_path_config, align 8
-  ret ptr %0
+  %1 = load ptr, ptr @_Py_path_config, align 8, !tbaa !11
+  ret ptr %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define dso_local ptr @Py_GetPythonHome() local_unnamed_addr #0 {
-entry:
-  %0 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_Py_path_config, i64 56), align 8
-  ret ptr %0
+  %1 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_Py_path_config, i64 56), align 8, !tbaa !17
+  ret ptr %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define dso_local ptr @Py_GetProgramName() local_unnamed_addr #0 {
-entry:
-  %0 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_Py_path_config, i64 48), align 8
-  ret ptr %0
+  %1 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_Py_path_config, i64 48), align 8, !tbaa !16
+  ret ptr %1
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -1, 2) i32 @_PyPathConfig_ComputeSysPath0(ptr noundef readonly captures(none) %argv, ptr noundef writeonly captures(none) %path0_p) local_unnamed_addr #1 {
-entry:
-  %fullpath = alloca [4096 x i32], align 16
-  %link = alloca [4097 x i32], align 16
-  %path0copy = alloca [8193 x i32], align 16
-  %0 = load i64, ptr %argv, align 8
-  %cmp = icmp eq i64 %0, 0
-  br i1 %cmp, label %return, label %if.end
+define hidden range(i32 -1, 2) i32 @_PyPathConfig_ComputeSysPath0(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #1 {
+  %3 = alloca [4096 x i32], align 16
+  %4 = alloca [4097 x i32], align 16
+  %5 = alloca [8193 x i32], align 16
+  %6 = load i64, ptr %0, align 8, !tbaa !46
+  %7 = icmp eq i64 %6, 0
+  br i1 %7, label %55, label %8
 
-if.end:                                           ; preds = %entry
-  %items = getelementptr inbounds nuw i8, ptr %argv, i64 8
-  %1 = load ptr, ptr %items, align 8
-  %2 = load ptr, ptr %1, align 8
-  %call = tail call i32 @wcscmp(ptr noundef %2, ptr noundef nonnull @.str.2) #12
-  %cmp1 = icmp eq i32 %call, 0
-  br i1 %cmp1, label %if.then6, label %if.end13
+8:                                                ; preds = %2
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %10 = load ptr, ptr %9, align 8, !tbaa !47
+  %11 = load ptr, ptr %10, align 8, !tbaa !38
+  %12 = tail call i32 @wcscmp(ptr noundef %11, ptr noundef nonnull @.str.2) #13
+  %13 = icmp eq i32 %12, 0
+  br i1 %13, label %14, label %17
 
-if.then6:                                         ; preds = %if.end
-  %call7 = call ptr @_Py_wgetcwd(ptr noundef nonnull %fullpath, i64 noundef 4096) #11
-  %tobool8.not = icmp eq ptr %call7, null
-  br i1 %tobool8.not, label %return, label %if.end13.thread
+14:                                               ; preds = %8
+  call void @llvm.lifetime.start.p0(i64 16384, ptr nonnull %3) #12
+  %15 = call ptr @_Py_wgetcwd(ptr noundef nonnull %3, i64 noundef 4096) #12
+  %.not = icmp eq ptr %15, null
+  br i1 %.not, label %54, label %.thread43
 
-if.end13.thread:                                  ; preds = %if.then6
-  %call12 = call i64 @wcslen(ptr noundef nonnull %fullpath) #12
-  br label %if.end70
+.thread43:                                        ; preds = %14
+  %16 = call i64 @wcslen(ptr noundef nonnull %3) #13
+  call void @llvm.lifetime.start.p0(i64 16388, ptr nonnull %4) #12
+  call void @llvm.lifetime.start.p0(i64 32772, ptr nonnull %5) #12
+  br label %.thread61
 
-if.end13:                                         ; preds = %if.end
-  %call2 = tail call i32 @wcscmp(ptr noundef %2, ptr noundef nonnull @.str.3) #12
-  %cmp3.not = icmp eq i32 %call2, 0
-  br i1 %cmp3.not, label %if.end70, label %if.end18
+17:                                               ; preds = %8
+  %18 = tail call i32 @wcscmp(ptr noundef %11, ptr noundef nonnull @.str.3) #13
+  %.not67 = icmp eq i32 %18, 0
+  call void @llvm.lifetime.start.p0(i64 16384, ptr nonnull %3) #12
+  call void @llvm.lifetime.start.p0(i64 16388, ptr nonnull %4) #12
+  call void @llvm.lifetime.start.p0(i64 32772, ptr nonnull %5) #12
+  br i1 %.not67, label %.thread61, label %19
 
-if.end18:                                         ; preds = %if.end13
-  %call17 = call i32 @_Py_wreadlink(ptr noundef %2, ptr noundef nonnull %link, i64 noundef 4097) #11
-  %cmp19 = icmp sgt i32 %call17, 0
-  br i1 %cmp19, label %if.then21, label %if.end61
+19:                                               ; preds = %17
+  %20 = call i32 @_Py_wreadlink(ptr noundef %11, ptr noundef nonnull %4, i64 noundef 4097) #12
+  %21 = icmp sgt i32 %20, 0
+  br i1 %21, label %22, label %39
 
-if.then21:                                        ; preds = %if.end18
-  %idxprom = zext nneg i32 %call17 to i64
-  %arrayidx22 = getelementptr [4097 x i32], ptr %link, i64 0, i64 %idxprom
-  store i32 0, ptr %arrayidx22, align 4
-  %3 = load i32, ptr %link, align 16
-  %cmp24 = icmp eq i32 %3, 47
-  br i1 %cmp24, label %if.end61, label %if.else
+22:                                               ; preds = %19
+  %23 = zext nneg i32 %20 to i64
+  %24 = getelementptr [4097 x i32], ptr %4, i64 0, i64 %23
+  store i32 0, ptr %24, align 4, !tbaa !29
+  %25 = load i32, ptr %4, align 16, !tbaa !29
+  %26 = icmp eq i32 %25, 47
+  br i1 %26, label %39, label %27
 
-if.else:                                          ; preds = %if.then21
-  %call29 = call ptr @wcschr(ptr noundef nonnull %link, i32 noundef 47) #12
-  %cmp30 = icmp eq ptr %call29, null
-  br i1 %cmp30, label %if.end61, label %if.else33
+27:                                               ; preds = %22
+  %28 = call ptr @wcschr(ptr noundef nonnull %4, i32 noundef 47) #13
+  %29 = icmp eq ptr %28, null
+  br i1 %29, label %39, label %30
 
-if.else33:                                        ; preds = %if.else
-  %call34 = call ptr @wcsrchr(ptr noundef %2, i32 noundef 47) #12
-  %cmp35 = icmp eq ptr %call34, null
-  br i1 %cmp35, label %if.end61, label %if.else39
+30:                                               ; preds = %27
+  %31 = call ptr @wcsrchr(ptr noundef %11, i32 noundef 47) #13
+  %32 = icmp eq ptr %31, null
+  br i1 %32, label %39, label %33
 
-if.else39:                                        ; preds = %if.else33
-  %call41 = call ptr @wcsncpy(ptr noundef nonnull %path0copy, ptr noundef %2, i64 noundef 4096) #11
-  %call43 = call ptr @wcsrchr(ptr noundef nonnull %path0copy, i32 noundef 47) #12
-  %add.ptr = getelementptr i8, ptr %call43, i64 4
-  %call45 = call ptr @wcsncpy(ptr noundef %add.ptr, ptr noundef nonnull %link, i64 noundef 4096) #11
-  %arrayidx46 = getelementptr i8, ptr %call43, i64 16388
-  store i32 0, ptr %arrayidx46, align 4
-  br label %if.end61
+33:                                               ; preds = %30
+  %34 = call ptr @wcsncpy(ptr noundef nonnull %5, ptr noundef %11, i64 noundef 4096) #12
+  %35 = call ptr @wcsrchr(ptr noundef nonnull %5, i32 noundef 47) #13
+  %36 = getelementptr i8, ptr %35, i64 4
+  %37 = call ptr @wcsncpy(ptr noundef %36, ptr noundef nonnull %4, i64 noundef 4096) #12
+  %38 = getelementptr i8, ptr %35, i64 16388
+  store i32 0, ptr %38, align 4, !tbaa !29
+  br label %39
 
-if.end61:                                         ; preds = %if.else33, %if.then21, %if.end18, %if.else39, %if.else
-  %path0.1.ph = phi ptr [ %link, %if.else33 ], [ %link, %if.then21 ], [ %2, %if.end18 ], [ %path0copy, %if.else39 ], [ %2, %if.else ]
-  %call55 = call ptr @_Py_wrealpath(ptr noundef %path0.1.ph, ptr noundef nonnull %fullpath, i64 noundef 4096) #11
-  %tobool56.not = icmp eq ptr %call55, null
-  %spec.select = select i1 %tobool56.not, ptr %path0.1.ph, ptr %fullpath
-  %call60 = call ptr @wcsrchr(ptr noundef %spec.select, i32 noundef 47) #12
-  %cmp62.not = icmp eq ptr %call60, null
-  br i1 %cmp62.not, label %if.end70, label %if.then64
+39:                                               ; preds = %30, %33, %22, %19, %27
+  %.135.ph = phi ptr [ %4, %30 ], [ %5, %33 ], [ %4, %22 ], [ %11, %19 ], [ %11, %27 ]
+  %40 = call ptr @_Py_wrealpath(ptr noundef %.135.ph, ptr noundef nonnull %3, i64 noundef 4096) #12
+  %.not40 = icmp eq ptr %40, null
+  %spec.select = select i1 %.not40, ptr %.135.ph, ptr %3
+  %41 = call ptr @wcsrchr(ptr noundef %spec.select, i32 noundef 47) #13
+  %.not41 = icmp eq ptr %41, null
+  br i1 %.not41, label %.thread61, label %42
 
-if.then64:                                        ; preds = %if.end61
-  %add.ptr65 = getelementptr i8, ptr %call60, i64 4
-  %sub.ptr.lhs.cast = ptrtoint ptr %add.ptr65 to i64
-  %sub.ptr.rhs.cast = ptrtoint ptr %spec.select to i64
-  %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
-  %sub.ptr.div = ashr exact i64 %sub.ptr.sub, 2
-  %cmp66 = icmp sgt i64 %sub.ptr.div, 1
-  %dec = sext i1 %cmp66 to i64
-  %spec.select20 = add nsw i64 %sub.ptr.div, %dec
-  br label %if.end70
+42:                                               ; preds = %39
+  %43 = getelementptr i8, ptr %41, i64 4
+  %44 = ptrtoint ptr %43 to i64
+  %45 = ptrtoint ptr %spec.select to i64
+  %46 = sub i64 %44, %45
+  %47 = ashr exact i64 %46, 2
+  %48 = icmp sgt i64 %47, 1
+  %49 = sext i1 %48 to i64
+  %spec.select42 = add nsw i64 %47, %49
+  br label %.thread61
 
-if.end70:                                         ; preds = %if.end13.thread, %if.end13, %if.then64, %if.end61
-  %path0.239 = phi ptr [ %spec.select, %if.end61 ], [ %spec.select, %if.then64 ], [ %2, %if.end13 ], [ %fullpath, %if.end13.thread ]
-  %n.1 = phi i64 [ 0, %if.end61 ], [ %spec.select20, %if.then64 ], [ 0, %if.end13 ], [ %call12, %if.end13.thread ]
-  %call71 = call ptr @PyUnicode_FromWideChar(ptr noundef %path0.239, i64 noundef %n.1) #11
-  %cmp72 = icmp eq ptr %call71, null
-  br i1 %cmp72, label %return, label %if.end75
+.thread61:                                        ; preds = %.thread43, %17, %42, %39
+  %.366 = phi ptr [ %spec.select, %39 ], [ %spec.select, %42 ], [ %11, %17 ], [ %3, %.thread43 ]
+  %.133 = phi i64 [ 0, %39 ], [ %spec.select42, %42 ], [ 0, %17 ], [ %16, %.thread43 ]
+  %50 = call ptr @PyUnicode_FromWideChar(ptr noundef %.366, i64 noundef %.133) #12
+  %51 = icmp eq ptr %50, null
+  br i1 %51, label %53, label %52
 
-if.end75:                                         ; preds = %if.end70
-  store ptr %call71, ptr %path0_p, align 8
-  br label %return
+52:                                               ; preds = %.thread61
+  store ptr %50, ptr %1, align 8, !tbaa !48
+  br label %53
 
-return:                                           ; preds = %if.end70, %if.then6, %entry, %if.end75
-  %retval.0 = phi i32 [ 1, %if.end75 ], [ 0, %entry ], [ 0, %if.then6 ], [ -1, %if.end70 ]
-  ret i32 %retval.0
+53:                                               ; preds = %.thread61, %52
+  %.2 = phi i32 [ 1, %52 ], [ -1, %.thread61 ]
+  call void @llvm.lifetime.end.p0(i64 32772, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(i64 16388, ptr nonnull %4) #12
+  br label %54
+
+54:                                               ; preds = %14, %53
+  %.1 = phi i32 [ %.2, %53 ], [ 0, %14 ]
+  call void @llvm.lifetime.end.p0(i64 16384, ptr nonnull %3) #12
+  br label %55
+
+55:                                               ; preds = %2, %54
+  %.0 = phi i32 [ %.1, %54 ], [ 0, %2 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @wcscmp(ptr noundef, ptr noundef) local_unnamed_addr #7
+declare i32 @wcscmp(ptr noundef, ptr noundef) local_unnamed_addr #8
 
-declare ptr @_Py_wgetcwd(ptr noundef, i64 noundef) local_unnamed_addr #2
+declare ptr @_Py_wgetcwd(ptr noundef, i64 noundef) local_unnamed_addr #3
 
-declare i32 @_Py_wreadlink(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare i32 @_Py_wreadlink(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare ptr @wcsrchr(ptr noundef, i32 noundef) local_unnamed_addr #7
+declare ptr @wcsrchr(ptr noundef, i32 noundef) local_unnamed_addr #8
 
 ; Function Attrs: nounwind
-declare ptr @wcsncpy(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #6
+declare ptr @wcsncpy(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #7
 
-declare ptr @_Py_wrealpath(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare ptr @_Py_wrealpath(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
 
-declare ptr @PyUnicode_FromWideChar(ptr noundef, i64 noundef) local_unnamed_addr #2
+declare ptr @PyUnicode_FromWideChar(ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: noreturn
-declare void @_Py_FatalErrorFunc(ptr noundef, ptr noundef) local_unnamed_addr #10
+declare void @_Py_FatalErrorFunc(ptr noundef, ptr noundef) local_unnamed_addr #11
 
-attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nofree nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { noreturn nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { nounwind }
-attributes #12 = { nounwind willreturn memory(read) }
-attributes #13 = { noreturn }
-attributes #14 = { noreturn nounwind }
+attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #6 = { mustprogress nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nofree nounwind willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { noreturn nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { nounwind }
+attributes #13 = { nounwind willreturn memory(read) }
+attributes #14 = { noreturn }
+attributes #15 = { noreturn nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+!llvm.module.flags = !{!0, !1, !2, !3}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
+!4 = !{!5, !6, i64 32}
+!5 = !{!"_PyPathConfig", !6, i64 0, !6, i64 8, !6, i64 16, !6, i64 24, !6, i64 32, !6, i64 40, !6, i64 48, !6, i64 56, !10, i64 64}
+!6 = !{!"p1 int", !7, i64 0}
+!7 = !{!"any pointer", !8, i64 0}
+!8 = !{!"omnipotent char", !9, i64 0}
+!9 = !{!"Simple C/C++ TBAA"}
+!10 = !{!"int", !8, i64 0}
+!11 = !{!5, !6, i64 0}
+!12 = !{!5, !6, i64 8}
+!13 = !{!5, !6, i64 16}
+!14 = !{!5, !6, i64 24}
+!15 = !{!5, !6, i64 40}
+!16 = !{!5, !6, i64 48}
+!17 = !{!5, !6, i64 56}
+!18 = !{!5, !10, i64 64}
+!19 = !{!20, !6, i64 360}
+!20 = !{!"PyConfig", !10, i64 0, !10, i64 4, !10, i64 8, !10, i64 12, !10, i64 16, !10, i64 20, !21, i64 24, !10, i64 32, !10, i64 36, !10, i64 40, !10, i64 44, !10, i64 48, !10, i64 52, !10, i64 56, !6, i64 64, !10, i64 72, !6, i64 80, !6, i64 88, !6, i64 96, !10, i64 104, !22, i64 112, !22, i64 128, !22, i64 144, !22, i64 160, !10, i64 176, !10, i64 180, !10, i64 184, !10, i64 188, !10, i64 192, !10, i64 196, !10, i64 200, !10, i64 204, !10, i64 208, !10, i64 212, !10, i64 216, !10, i64 220, !10, i64 224, !6, i64 232, !6, i64 240, !6, i64 248, !10, i64 256, !10, i64 260, !10, i64 264, !10, i64 268, !10, i64 272, !6, i64 280, !6, i64 288, !6, i64 296, !6, i64 304, !10, i64 312, !22, i64 320, !6, i64 336, !6, i64 344, !6, i64 352, !6, i64 360, !6, i64 368, !6, i64 376, !6, i64 384, !10, i64 392, !6, i64 400, !6, i64 408, !6, i64 416, !6, i64 424, !10, i64 432, !10, i64 436, !10, i64 440}
+!21 = !{!"long", !8, i64 0}
+!22 = !{!"", !21, i64 0, !23, i64 8}
+!23 = !{!"p2 int", !7, i64 0}
+!24 = !{!25, !10, i64 0}
+!25 = !{!"", !10, i64 0, !26, i64 8, !26, i64 16, !10, i64 24}
+!26 = !{!"p1 omnipotent char", !7, i64 0}
+!27 = !{!20, !6, i64 376}
+!28 = !{i64 0, i64 4, !29, i64 8, i64 8, !30, i64 16, i64 8, !30, i64 24, i64 4, !29}
+!29 = !{!10, !10, i64 0}
+!30 = !{!26, !26, i64 0}
+!31 = !{!20, !6, i64 336}
+!32 = !{!20, !6, i64 280}
+!33 = !{!20, !6, i64 296}
+!34 = !{!20, !6, i64 344}
+!35 = !{!20, !10, i64 440}
+!36 = !{!20, !21, i64 320}
+!37 = !{!20, !23, i64 328}
+!38 = !{!6, !6, i64 0}
+!39 = distinct !{!39, !40}
+!40 = !{!"llvm.loop.mustprogress"}
+!41 = distinct !{!41, !40}
+!42 = distinct !{!42, !40}
+!43 = !{!25, !26, i64 8}
+!44 = !{!25, !26, i64 16}
+!45 = !{!25, !10, i64 24}
+!46 = !{!22, !21, i64 0}
+!47 = !{!22, !23, i64 8}
+!48 = !{!49, !49, i64 0}
+!49 = !{!"p1 _ZTS7_object", !7, i64 0}
