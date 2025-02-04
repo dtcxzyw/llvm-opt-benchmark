@@ -50,23 +50,24 @@ Please cite this work with the following BibTex entry:
 
 Currently, this repository contains the following libraries/applications:
 
+<!-- Auto generated -->
 |Name|Language|Stars|Last Updated|
 |---|---|---|---|
-|[abc](https://github.com/berkeley-abc/abc)|C|![stars](https://img.shields.io/github/stars/berkeley-abc/abc?style=flat)|2024-03-06|
-|[bdwgc](https://github.com/ivmai/bdwgc)|C|![stars](https://img.shields.io/github/stars/ivmai/bdwgc?style=flat)|2024-03-04|
-|[brotli](https://github.com/google/brotli)|C|![stars](https://img.shields.io/github/stars/google/brotli?style=flat)|2023-12-08|
+|[abc](https://github.com/berkeley-abc/abc)|C|![stars](https://img.shields.io/github/stars/berkeley-abc/abc?style=flat)|2025-01-02|
+|[bdwgc](https://github.com/ivmai/bdwgc)|C|![stars](https://img.shields.io/github/stars/ivmai/bdwgc?style=flat)|2025-02-01|
+|[brotli](https://github.com/google/brotli)|C|![stars](https://img.shields.io/github/stars/google/brotli?style=flat)|2025-01-31|
 |[c3c](https://github.com/c3lang/c3c)|C|![stars](https://img.shields.io/github/stars/c3lang/c3c?style=flat)|2024-04-16|
 |[chibicc](https://github.com/rui314/chibicc)|C|![stars](https://img.shields.io/github/stars/rui314/chibicc?style=flat)|2020-12-07|
-|[cjson](https://github.com/DaveGamble/cJSON)|C|![stars](https://img.shields.io/github/stars/DaveGamble/cJSON?style=flat)|2023-12-26|
-|[clamav](https://github.com/Cisco-Talos/clamav)|C|![stars](https://img.shields.io/github/stars/Cisco-Talos/clamav?style=flat)|2024-04-17|
-|[cmake](https://github.com/Kitware/CMake)|C|![stars](https://img.shields.io/github/stars/Kitware/CMake?style=flat)|2024-03-08|
+|[cjson](https://github.com/DaveGamble/cJSON)|C|![stars](https://img.shields.io/github/stars/DaveGamble/cJSON?style=flat)|2024-09-23|
+|[clamav](https://github.com/Cisco-Talos/clamav)|C|![stars](https://img.shields.io/github/stars/Cisco-Talos/clamav?style=flat)|2025-02-03|
+|[cmake](https://github.com/Kitware/CMake)|C|![stars](https://img.shields.io/github/stars/Kitware/CMake?style=flat)|2025-02-04|
 |[coremark](https://github.com/eembc/coremark)|C|![stars](https://img.shields.io/github/stars/eembc/coremark?style=flat)|2023-01-24|
-|[cpython](https://github.com/python/cpython)|C|![stars](https://img.shields.io/github/stars/python/cpython?style=flat)|2023-12-17|
-|[curl](https://github.com/curl/curl)|C|![stars](https://img.shields.io/github/stars/curl/curl?style=flat)|2024-01-19|
-|[darktable](https://github.com/darktable-org/darktable)|C|![stars](https://img.shields.io/github/stars/darktable-org/darktable?style=flat)|2024-03-29|
-|[flac](https://github.com/xiph/flac)|C|![stars](https://img.shields.io/github/stars/xiph/flac?style=flat)|2023-11-24|
-|[freetype](https://github.com/freetype/freetype)|C|![stars](https://img.shields.io/github/stars/freetype/freetype?style=flat)|2024-06-23|
-|[git](https://github.com/git/git)|C|![stars](https://img.shields.io/github/stars/git/git?style=flat)|2024-01-16|
+|[cpython](https://github.com/python/cpython)|C|![stars](https://img.shields.io/github/stars/python/cpython?style=flat)|2025-02-03|
+|[curl](https://github.com/curl/curl)|C|![stars](https://img.shields.io/github/stars/curl/curl?style=flat)|2025-02-03|
+|[darktable](https://github.com/darktable-org/darktable)|C|![stars](https://img.shields.io/github/stars/darktable-org/darktable?style=flat)|2025-02-03|
+|[flac](https://github.com/xiph/flac)|C|![stars](https://img.shields.io/github/stars/xiph/flac?style=flat)|2025-02-03|
+|[freetype](https://github.com/freetype/freetype)|C|![stars](https://img.shields.io/github/stars/freetype/freetype?style=flat)|2025-01-28|
+|[git](https://github.com/git/git)|C|![stars](https://img.shields.io/github/stars/git/git?style=flat)|2025-02-03|
 |[graphviz](https://gitlab.com/graphviz/graphviz)|C|![stars](https://img.shields.io/gitlab/stars/graphviz/graphviz?style=flat)|2024-03-08|
 |[hdf5](https://github.com/HDFGroup/hdf5)|C|![stars](https://img.shields.io/github/stars/HDFGroup/hdf5?style=flat)|2024-05-23|
 |[hwloc](https://github.com/open-mpi/hwloc)|C|![stars](https://img.shields.io/github/stars/open-mpi/hwloc?style=flat)|2024-02-08|
